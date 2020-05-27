@@ -37,6 +37,6 @@ RUN gem install jekyll-theme-minimal
 
 WORKDIR /home/user
 
-COPY entrypoint.sh /tmp
+COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
