@@ -2,4 +2,5 @@
 
 set -e
 
-jekyll build --trace
+bundle install
+bundle exec jekyll build --trace
