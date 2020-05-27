@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - ead-sandbox
+
+env:
+  BUCKET_NAME: docs-dev-ead-s3-website20200527022119605600000002
+
+jobs:
+  jekyll-deploy:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Run Jekyll Build
+      uses: ./.github/actions/jekyll_build
+    # - name: Run a one-line script
+    #   run: echo Hello, world!
+    # - name: Run a multi-line script
+    #   run: |
+    #     echo Add other actions to build,
+    #     echo test, and deploy your project.
