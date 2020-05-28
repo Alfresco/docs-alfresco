@@ -7,8 +7,11 @@ on:
     branches:
       - ead-sandbox
 
-env:
-  BUCKET_NAME: docs-dev-ead-s3-website20200527022119605600000002
+env: 
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  # AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+  BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
 
 jobs:
   jekyll-deploy:
@@ -21,6 +24,8 @@ jobs:
         fetch-depth: 0
     - name: Run Jekyll Build
       uses: ./.github/actions/jekyll_build
+    - name: Run S3 Sync
+      uses: ./.github/actions/s3_sync
     # - name: Run a one-line script
     #   run: echo Hello, world!
     # - name: Run a multi-line script

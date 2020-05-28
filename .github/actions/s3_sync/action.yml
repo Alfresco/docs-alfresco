@@ -1,0 +1,5 @@
+name: 'S3 Sync'
+description: 'Sync to S3 Static Site'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
