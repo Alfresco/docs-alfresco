@@ -1,0 +1,57 @@
+# Content Services
+
+
+- version: 6.2
+  audience: user
+  pages:
+    - title: 'User Folder'
+      path: /content/6.2/user
+      pages:
+        - title: 'Tables'
+          path: /content/6.2/user/tables
+        - title: 'Blocks'
+          path: /content/6.2/user/blocks
+        - title: 'Front matter'
+          path: /content/6.2/user/front
+        - title: 'Headers'
+          path: /content/6.2/user/headers
+    - title: 'Does Not Exist'
+      path: /content/6.2/user/exist
+      pages:
+        - title: 'Fake'
+          path: /content/6.2/user/fake
+        - title: 'Fake Two'
+          path: /content/6.2/user/fake2
+          pages:
+            - title: 'Fake Child 1'
+              path: /content/6.2/user/fake-child
+            - title: 'Fake Child 2'
+              path: /content/6.2/user/fake-child-2               
+  
+- version: 6.1
+  audience: user
+  pages:
+    - title: 'User Folder'
+      path: /content/6.1/user
+      pages:
+        - title: 'Tables'
+          path: /content/6.1/user/tables
+        - title: 'Blocks'
+          path: /content/6.1/user/blocks
+        - title: 'Front matter'
+          path: /content/6.1/user/front
+        - title: 'Headers'
+          path: /content/6.1/user/headers
+    - title: 'Does Not Exist'
+      path: /content/6.1/user/exist
+      pages:
+        - title: 'Fake'
+          path: /content/6.1/user/fake
+        - title: 'Fake Two'
+          path: /content/6.1/user/fake2
+          pages:
+            - title: 'Fake Child 1'
+              path: /content/6.1/user/fake-child
+            - title: 'Fake Child 2'
+              path: /content/6.1/user/fake-child-2  
+

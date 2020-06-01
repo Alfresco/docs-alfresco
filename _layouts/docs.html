@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="/assets/css/theme.css">
+
+<header>
+
+<title>Alfresco Docs - {{page.title}}</title>
+
+	<div class="header">
+
+		<div id="header-container">
+
+			<img src="/assets/images/logo.png" id="logo"/>
+
+			{% include drop.html %}
+
+		</div>
+
+	</div>
+
+<div class="sub-nav">
+
+	<div class="product">
+
+		<div id="product-container">
+
+			{% if page.latest == true %}
+
+			<a href="{{site.url}}/{{page.location}}/{{page.version | replace: page.version, 'latest'}}">{{page.product}} {{page.version}}</a> 
+
+			{% else %}
+
+			<a href="{{site.url}}/{{page.location}}/{{page.version}}">{{page.product}} {{page.version}}</a> 
+
+			{% endif %}
+
+		</div>
+
+	</div>
+
+
+	<div class="nav-bar">
+
+		<div id="nav-bar-container">
+
+
+			{% if page.audience != blank %}
+  {% include sub.html %}
+{% endif %}
+
+
+		</div>
+	</div>
+
+</div>
+
+</header>
+
+<body>
+
+
+<div class="row">
+
+	<div class="column left">
+		
+{% include toc.html %}
+
+	</div>
+
+
+	<div class="column middle">
+
+<div class="content-wrapper">
+
+	<h1>{{page.title}}</h1>
+		
+
+	{{content}}
+
+</div>
+	</div>
+
+	<div class="column right">
+		
+		{% include page-nav.html html=content h_min=2 class="column right" %}
+
+	</div>
+
+</div>
+
+
+</body>
+
+<footer>
+	<p> Copyright </p>
+</footer>

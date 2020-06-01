@@ -1,0 +1,131 @@
+.header-container {
+  width: 100%;
+  margin: 0 auto;
+
+}
+
+.logo {
+	float: left;
+}
+
+.header {
+	background-color: rgba(0,129,198, 0.5);
+	height: 60px;
+
+}
+
+
+.sub-nav {
+
+	background-color: #0081c6;
+	display: flex;
+	align-items: center;
+	height: 30px;
+
+
+}
+
+.product {
+	background-color: #005ea5;
+	height: 30px;
+	width: 20%;
+
+
+}
+
+.nav-bar {
+
+
+}
+
+.nav-bar ul {
+
+}
+
+.nav-bar li {
+	display: inline-block;
+
+}
+
+
+.column {
+  float: left;
+  height: 100%;
+  overflow: auto;
+
+}
+
+.left {
+	width: 20%;
+	background-color: rgba(0,129,198, 0.5);
+
+}
+
+
+.right {
+  width: 20%;
+}
+
+.middle {
+  width: 60%;
+
+}
+
+.content-wrapper {
+	padding: 10px;
+}
+
+
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+.dropbtn {
+  background-color: rgba(0,129,198, 0.5);
+  color: white;
+  font-size: 16px;
+  border: none;
+  height: 60px;
+}
+
+
+.dropdown {
+
+  float: right;
+  width: 5%;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 5%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #005ea5;}
+
+
