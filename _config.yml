@@ -64,7 +64,6 @@ defaults:
     values:
       audience: admin
 
-highlighter: rouge
 
 
 
