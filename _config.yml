@@ -73,8 +73,8 @@ defaults:
 
 
 
-
-
+sass:
+  sass_dir: css
 permalink: pretty
 
 
