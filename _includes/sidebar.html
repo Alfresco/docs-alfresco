@@ -1,0 +1,88 @@
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Bootstrap Sidebar</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+   
+
+{% if page.audience != blank %}
+
+{% assign toc = site.data.toc.[page.location] | where: 'version', page.version | where: 'audience', page.audience %}
+
+{% else %}
+
+{% assign toc = site.data.toc.[page.location] | where: 'version',  page.version %}
+
+{% endif %}
+
+
+
+{% for entry in toc %}
+{% for parent in entry.pages %}
+
+
+<li>
+
+{% if page.latest == true %}
+
+    <a title="{{parent.title}}" href="{{site.url}}{{parent.path | replace: page.version, 'latest'}}">{{parent.title}}</a>
+
+{% else %}
+
+    <a title="{{parent.title}}" href="{{site.url}}{{parent.path}}">{{parent.title}}</a>
+
+{% endif %}
+
+
+<ul>
+
+    {% for child in parent.pages %}
+
+    <li>
+
+{% if page.latest == true %}
+
+    <a title="{{child.title}}" href="{{site.url}}{{child.path | replace: page.version, 'latest'}}">{{child.title}}</a>
+
+{% else %}
+
+    <a title="{{child.title}}" href="{{site.url}}{{child.path}}">{{child.title}}</a>
+
+{% endif %}
+
+
+<ul>
+
+    {% for grandchild in child.pages %}
+
+        <li>
+
+{% if page.latest == true %}
+
+    <a title="{{grandchild.title}}" href="{{site.url}}{{grandchild.path | replace: page.version, 'latest'}}">{{grandchild.title}}</a>
+
+{% else %}
+
+    <a title="{{grandchild.title}}" href="{{site.url}}{{grandchild.path}}">{{grandchild.title}}</a>
+
+{% endif %}
+
+    </li>
+
+    {% endfor %}
+</ul>
+
+    </li>
+
+    {% endfor %}
+</ul>
+
+</li>
+
+  {% endfor %}
+  {% endfor %}
+
+</ul>
+
+    </nav>

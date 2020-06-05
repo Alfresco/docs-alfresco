@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">
+  	 
+  	 <img src="/assets/images/logo.png" width="30" height="30" alt="" loading="lazy" class="d-inline-block align-top">Alfresco Docs
+
+  </a>
+
+    <form class="form-inline mx-auto my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    </form>
+
+
+    <ul class="navbar-nav justify-content-end">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Version: {{page.version}} {% if page.latest == true %}(Latest){% endif %}
+        </a>
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+			{% assign versions = page.versions | compact | sort | reverse %}
+
+			{% for item in versions %}
+
+			{% unless item == page.version %}
+
+			{% if page.latest == true %}
+
+    			<a class="dropdown-item" href="{{page.url | replace: "latest", item}}">{{item}}</a>
+
+			{% elsif forloop.first == true %}
+
+    			<a class="dropdown-item" href="{{page.url | replace: page.version, "latest"}}">{{item}} (Latest)</a>
+
+
+			{% else %}
+
+
+    			<a class="dropdown-item" href="{{page.url | replace: page.version, item}}">{{item}}</a>
+
+
+			{% endif %}
+			{% endunless %}
+			{% endfor %}
+
+        </div>
+      
+      </li>
+
+    </ul>
+
+</nav>
