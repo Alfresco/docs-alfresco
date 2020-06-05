@@ -1,116 +1,28 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-<link rel="stylesheet" href="/css/main.scss">
+	{% include head.html %}
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" >
+	{% include header.html %}
 
-
-</head>
-
-<header>
-
-<title>Alfresco Docs - {{page.title}}</title>
-
-	<div class="header">
-
-		<div id="header-container">
-
-			<img src="/assets/images/logo.png" id="logo"/>
-
-			{% include drop.html %}
-
-		</div>
-
-	</div>
-
-<div class="sub-nav">
-
-	<div class="product">
-
-		<div id="product-container">
-
-			{% if page.latest == true %}
-
-			<a href="{{site.url}}/{{page.location}}/{{page.version | replace: page.version, 'latest'}}">{{page.product}} {{page.version}}</a> 
-
-			{% else %}
-
-			<a href="{{site.url}}/{{page.location}}/{{page.version}}">{{page.product}} {{page.version}}</a> 
-
-			{% endif %}
-
-		</div>
-
-	</div>
-
-
-	<div class="nav-bar">
-
-		<div id="nav-bar-container">
-
-
-			{% if page.audience != blank %}
-  {% include sub.html %}
-{% endif %}
-
-
-		</div>
-	</div>
-
-</div>
-
-</header>
-
-<body>
-
-
-<div class="row">
-
-	<div class="column left">
-		
-{% include toc.html %}
-
-	</div>
-
-
-	<div class="column middle">
-
-<div class="content-wrapper">
-
-	<h1>{{page.title}}</h1>
-		
-
-	{{content}}
-
-</div>
-	</div>
-
-	<div class="column right">
-
-		{% if page.latest == true %}
-
-		<div class="edit">
-		<a href="https://github.com/Alfresco/sandbox-docs-alfresco/tree/mhulbert-dev/{{page.path}}#edit">Suggest an edit</a>
-		</div>
-
-		{% endif %}
-		
+<body class="h-100">
+<div class="container col-lg h-100">
+  <div class="row">
+    <div class="col-2">
+	{% include sidebar.html %}
+    </div>
+    <div class="col-8">
+     {{content}}
+    </div>
+    <div class="col-2">
 		{% include page-nav.html html=content h_min=2 class="column right" %}
-
-	</div>
-
+    </div>
+  </div>
 </div>
+
+{% include footer.html %}
+
+
+
 </body>
 </html>
-
-
-</body>
-
-<footer>
-	<p> Copyright </p>
-</footer>
