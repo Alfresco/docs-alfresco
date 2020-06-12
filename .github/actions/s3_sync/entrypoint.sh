@@ -2,6 +2,8 @@
 
 set -e
 
+mkdir ~/.aws
+touch ~/.aws/config
 echo '[profile crossaccount]
 
 role_arn='$RUNNER_ROLE'
