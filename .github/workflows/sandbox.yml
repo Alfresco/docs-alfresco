@@ -8,22 +8,21 @@ on:
       - master
 
 env: 
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   # AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-  BUCKET_NAME: ${{ secrets.STAGING_BUCKET_NAME }}
+  BUCKET_NAME: ${{ secrets.SANDBOX_BUCKET_NAME }}
+  RUNNER_ROLE: ${{ secrets.EAD_PRODUCTION_RUNNER_ROLE }}
 
 jobs:
   jekyll-deploy:
     
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - name: Run Jekyll Build
-      uses: ./.github/actions/jekyll_build
+    # - name: Run Jekyll Build
+    #   uses: ./.github/actions/jekyll_build
     - name: Run S3 Sync
       uses: ./.github/actions/s3_sync
     # - name: Run a one-line script
