@@ -1,14 +1,11 @@
 name: CI
 
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the master branch
   push:
     branches:
       - master
 
-env: 
-  # AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+env:
   BUCKET_NAME: ${{ secrets.SANDBOX_BUCKET_NAME }}
   RUNNER_ROLE: ${{ secrets.EAD_PRODUCTION_RUNNER_ROLE }}
 
@@ -25,9 +22,3 @@ jobs:
       uses: ./.github/actions/jekyll_build
     - name: Run S3 Sync
       uses: ./.github/actions/s3_sync
-    # - name: Run a one-line script
-    #   run: echo Hello, world!
-    # - name: Run a multi-line script
-    #   run: |
-    #     echo Add other actions to build,
-    #     echo test, and deploy your project.
