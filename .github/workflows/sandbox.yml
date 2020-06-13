@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: Sandbox
 
 on:
@@ -20,6 +21,24 @@ jobs:
 
     if: ${{ github.repository }} == 'Alfresco/docs-alfresco'
 
+=======
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  BUCKET_NAME: ${{ secrets.SANDBOX_BUCKET_NAME }}
+  RUNNER_ROLE: ${{ secrets.EAD_PRODUCTION_RUNNER_ROLE }}
+
+jobs:
+  jekyll-deploy:
+    
+    runs-on: self-hosted
+
+>>>>>>> updated workflow
     steps:
     - uses: actions/checkout@v2
       with:
