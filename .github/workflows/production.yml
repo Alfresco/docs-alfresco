@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  release:
+    types: [published]
+
+env:
+  BUCKET_NAME: ${{ secrets.PRODUCTION_BUCKET_NAME }}
+  RUNNER_ROLE: ${{ secrets.EAD_PRODUCTION_RUNNER_ROLE }}
+
+jobs:
+  jekyll-deploy:
+    
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Run Jekyll Build
+      uses: ./.github/actions/jekyll_build
+    - name: Run S3 Sync
+      uses: ./.github/actions/s3_sync
