@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% include head.html %}
+
+<body>
+
+    <div class="row justify-content-center">
+
+        <header class="col-md-12">
+          
+            {% include header.html %}
+
+        </header>
+
+        <div class="col-md-10 pt-5">
+
+            <div class="card text-white bg-primary mb-3 rounded-0">
+                <div class="card-header">Content Services</div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                
+                            <a href="#" class="stretched-link"></a>        
+                    </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-5" style="background">
+
+                <a class="btn btn-primary" data-toggle="collapse" href="#components" role="button" aria-expanded="false" aria-controls="components">
+                        Components </a>
+    
+                        <div class="collapse" id="components">
+                {% for c in site.data.home.components %}
+    
+                <div class="card text-black bg-white mb-3">
+                        <div class="card-header">{{c.title}}</div>
+                            <div class="card-body">
+                                
+                                <p class="card-text">{{c.text}}</p>
+                        
+                                    <a href="{{c.url}}" class="stretched-link"></a>        
+                            </div>
+                    </div>
+    
+    
+                {% endfor %}
+        </div>
+            </div>
+
+        <div class="col-md-5" style="background">
+
+            <a class="btn btn-primary" data-toggle="collapse" href="#integrations" role="button" aria-expanded="false" aria-controls="integrations">
+            Integrations </a>
+
+            <div class="collapse" id="integrations">
+            {% for i in site.data.home.integrations %}
+
+            <div class="card text-black bg-white mb-3">
+                    <div class="card-header">{{i.title}}</div>
+                        <div class="card-body">
+                            
+                            <p class="card-text">{{i.text}}</p>
+                    
+                                <a href="{{i.url}}" class="stretched-link"></a>        
+                        </div>
+                </div>
+
+
+            {% endfor %}
+    </div>
+        </div>
+
+        <div class="col-md-10 pt-5">
+
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-header">Process Services</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                                <a href="#" class="stretched-link"></a>        
+                        </div>
+                </div>
+    
+            </div>
+
+            <div class="col-md-10 pt-5">
+
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-header">Identity Services</div>
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        
+                                    <a href="#" class="stretched-link"></a>        
+                            </div>
+                    </div>
+        
+                </div>
+
+                <div class="col-md-10 pt-5">
+
+                        <div class="card text-white bg-primary mb-3">
+                            <div class="card-header">Application Development Framework</div>
+                                <div class="card-body">
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            
+                                        <a href="#" class="stretched-link"></a>        
+                                </div>
+                        </div>
+            
+                    </div>
+    </div>
+
+{% include footer.html %}
+
+</body>
+
+
+
+
+</html>

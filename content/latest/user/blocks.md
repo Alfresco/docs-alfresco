@@ -7,12 +7,11 @@ This page is for testing code blocks.
 ## XML
 The following is an XML code block: 
 
-```xml
-<bpmn2:endEvent id="EndEvent_1">
+{% capture code %}<bpmn2:endEvent id="EndEvent_1">
 	<bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
-	<bpmn2:messageEventDefinition messageRef="Message_1hxecs2" activiti:correlationKey="${userId}"
-```
+	<bpmn2:messageEventDefinition messageRef="Message_1hxecs2" activiti:correlationKey="${userId}"{% endcapture %}
 
+{% include copy-code.html code=code lang="xml" %}
 
 ## JSON
 The following is a JSON code block: 

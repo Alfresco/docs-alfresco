@@ -1,0 +1,58 @@
+components:
+  - title: 'Governance'
+    text: 'Alfresco Governance Services'
+    url:  
+  - title: 'Search and Insight'
+    text: 'Alfresco Search Services and Alfresco Search and Insight Engine'
+    url:  
+  - title: 'Desktop Synchronization'
+    text: 'Alfresco Desktop Sync and Sync Service'
+    url:  
+  - title: 'Document Transformation Engine'
+    text: 'Alfresco Document Transformation Engine'
+    url:  
+  - title: 'Media Management'
+    text: 'Alfresco Media Management'
+    url:  
+  - title: 'Document Transformation Service'
+    text: 'Alfresco Document Transform Service'
+    url:  
+  - title: 'Federation'
+    text: 'Alfresco Federation Service'
+    url:  
+  - title: 'Development Kit'
+    text: 'Alfresco SDK'
+    url:  
+  - title: 'SAML'
+    text: 'SAML Single Sign-On for Alfresco Content Services'
+    url:  
+
+
+integrations:
+  - title: 'Amazon S3'
+    text: 'Alfresco Content Connector for AWS S3'
+    url:
+  - title: 'Microsoft Azure'
+    text: 'Alfresco Content Connector for Azure'
+    url:
+  - title: 'Google Docs'
+    text: 'Alfresco Google Docs Integration'
+    url:
+  - title: 'Amazon Glacier'
+    text: 'Alfresco Content Connector for AWS Glacier'
+    url:        
+  - title: 'EMC Centera'
+    text: 'Alfresco Content Connector for EMC Centera'
+    url:      
+  - title: 'Salesforce'
+    text: 'Alfresco Content Connector for Salesforce'
+    url:  
+  - title: 'Microsoft Office'
+    text: 'Alfresco Office Services'
+    url:  
+  - title: 'Microsoft Outlook'
+    text: 'Alfresco Outlook Integration'
+    url:  
+  - title: 'SAP'
+    text: 'Alfresco SAP Connector'
+    url:                  
