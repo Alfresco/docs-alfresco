@@ -1,53 +1,53 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="#">
-  	 
-  	 <img src="/assets/images/logo.png" width="30" height="30" alt="" loading="lazy" class="d-inline-block align-top">Alfresco Docs
+<header class="duik-header">
+    <nav class="navbar navbar-dark fixed-top bg-primary flex-nowrap p-0">
+      <a class="navbar-brand bg-md-primary-darker col-md-3 col-xl-2 mr-0 py-3" href="/"><img src="/assets/logo.png" alt="Alfresco Docs" style="width: 30px; height:30px;">Alfresco Docs</a>
 
-  </a>
+      <!-- Header Search -->
+      <input class="js-search border-0 d-none d-md-block form-control form-control-sm w-100 ml-md-4" type="text" placeholder="Search..." aria-label="Search..." data-url="">
+      <!-- End Header Search -->
 
-    <form class="form-inline mx-auto my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    </form>
+      <!-- Header Links -->
+      <ul class="navbar-nav duik-header__nav small text-nowrap flex-row px-3 ml-0 ml-sm-3">
+        <li class="nav-item">
+          <a class="nav-link" href="https://htmlstream.com/preview/docs-ui-kit/" target="_blank" title="Live Preview"><i class="fa fa-desktop mr-sm-1"></i> <span class="d-none d-lg-inline-block">Live Preview</span></a>
+        </li>
+        <li class="nav-item ml-4">
+          <a class="nav-link" href="https://github.com/htmlstreamofficial/docs-ui-kit" title="Report an Issue" target="_blank"><i class="fas fa-bug mr-sm-1"></i> <span class="d-none d-lg-inline-block">Report an Issue</span></a>
+        </li>
+        <li class="nav-item dropdown active ml-lg-6 mb-2 mb-lg-0">
+            <a class="nav-link px-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Version: {{page.version}} {% if page.latest == true %}(Latest){% endif %} <i class="fas fa-angle-down small ml-1"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+                {% assign versions = page.versions | compact | sort | reverse %}
 
-    <ul class="navbar-nav justify-content-end">
+                {% for item in versions %}
+          
+                {% unless item == page.version %}
+          
+                {% if page.latest == true %}
+          
+                    <a class="dropdown-item" href="{{page.url | replace: "latest", item}}">{{item}}</a>
+          
+                {% elsif forloop.first == true %}
+          
+                    <a class="dropdown-item" href="{{page.url | replace: page.version, "latest"}}">{{item}} (Latest)</a>
+          
+          
+                {% else %}
+          
+          
+                    <a class="dropdown-item" href="{{page.url | replace: page.version, item}}">{{item}}</a>
+          
+          
+                {% endif %}
+                {% endunless %}
+                {% endfor %}
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Version: {{page.version}} {% if page.latest == true %}(Latest){% endif %}
-        </a>
-        
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-			{% assign versions = page.versions | compact | sort | reverse %}
-
-			{% for item in versions %}
-
-			{% unless item == page.version %}
-
-			{% if page.latest == true %}
-
-    			<a class="dropdown-item" href="{{page.url | replace: "latest", item}}">{{item}}</a>
-
-			{% elsif forloop.first == true %}
-
-    			<a class="dropdown-item" href="{{page.url | replace: page.version, "latest"}}">{{item}} (Latest)</a>
-
-
-			{% else %}
-
-
-    			<a class="dropdown-item" href="{{page.url | replace: page.version, item}}">{{item}}</a>
-
-
-			{% endif %}
-			{% endunless %}
-			{% endfor %}
-
-        </div>
-      
-      </li>
-
-    </ul>
-
-</nav>
+            </div>
+          </li>
+      </ul>
+      <!-- End Header Links -->
+    </nav>
+  </header>

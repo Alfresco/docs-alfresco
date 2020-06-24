@@ -5,169 +5,298 @@
 
 <body>
 
-    <div class="row justify-content-center">
-
-        <header class="col-md-12">
+  <!-- Header -->
+  <header class="duik-header">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark gradient-primary position-absolute left-0 right-0 flex-nowrap z-index-3">
+          <div class="container">
+            <a class="navbar-brand" href="#"><img src="/assets/logo.png" alt="Alfresco Docs" style="width: 50px; height: 50px;"></a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo">
+              <ul class="navbar-nav mt-2 mt-lg-0 small">
+                <li class="nav-item mb-2 mb-lg-0">
+                  <a class="nav-link" href="index.html">Alfresco Docs</a>
+                </li>
+              </ul>
+    
+              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item ml-lg-6 mb-2 mb-lg-0">
+                  <a class="nav-link px-0" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown active ml-lg-6 mb-2 mb-lg-0">
+                  <a class="nav-link px-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Version: {{page.version}} {% if page.latest == true %}(Latest){% endif %} <i class="fas fa-angle-down small ml-1"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    
+                      {% assign versions = page.versions | compact | sort | reverse %}
+    
+                      {% for item in versions %}
+                
+                      {% unless item == page.version %}
+                
+                      {% if page.latest == true %}
+                
+                          <a class="dropdown-item" href="{{page.url | replace: "latest", item}}">{{item}}</a>
+                
+                      {% elsif forloop.first == true %}
+                
+                          <a class="dropdown-item" href="{{page.url | replace: page.version, "latest"}}">{{item}} (Latest)</a>
+                
+                
+                      {% else %}
+                
+                
+                          <a class="dropdown-item" href="{{page.url | replace: page.version, item}}">{{item}}</a>
+                
+                
+                      {% endif %}
+                      {% endunless %}
+                      {% endfor %}
+    
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+      </header>
+      <!-- End Header -->
+    
+      <section class="duik-promo gradient-primary text-center">
+          <div class="container duik-promo-container">
+            <div class="d-flex justify-content-center position-relative mh-35rem pt-11 py-6">
+              <div class="w-md-75 w-lg-50 mt-10">
+                <h1 class="h2 text-white mb-3">What are you looking for?</h1>
+      
+                <form class="input-group mb-3">
+                  <input class="form-control border-0" type="search" placeholder="Enlightenment">
+                  <span class="input-group-append p-0">
+                    <button class="btn text-muted" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </form>
+      
           
-            {% include header.html %}
+              </div>
+            </div>
+          </div>
+      
+          <!-- SVG BG -->
+    
+    
+    
+          <svg class="position-absolute bottom-0 left-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 323" enable-background="new 0 0 1920 323" xml:space="preserve">
+            <polygon fill="#ffffff" style="fill-opacity: .05;" points="-0.5,322.5 -0.5,121.5 658.3,212.3 "></polygon>
+            <polygon fill="#ffffff" style="fill-opacity: .1;" points="-2,323 1920,323 1920,-1 "></polygon>
+          </svg>
+          <!-- End SVG BG -->
+      
+          <!-- SVG BG Separator -->
+          <svg class="position-absolute bottom-0 left-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 300">
+            <path id="Path_1" fill="#fff" data-name="Path 1" d="M0,1081.586H1920v-300Z" transform="translate(0 -781.586)"/>
+          </svg>
+          <!-- SVG BG Separator -->
+        </section>
 
-        </header>
-
+    <div class="row justify-content-center">
 
         <section class="pt-5 pb-11">
             <div class="container">
 
       
               <div class="row">
-                <div class="col-md-6 mb-5">
+                  <h4 class="col-md-12">Services</h4>
+                <div class="col-md-12 mb-5">
+                    <a class="stretched-link" href="#"></a>
                   <div class="media h-100 shadow rounded p-4">
                     <i class="far fa-fw fa-dot-circle fa-3x text-warning mr-4 mt-1"></i>
-      
                     <div class="media-body">
-                      <h5 class="mb-1"><a class="link-dark" href="article.html">Getting started</a></h5>
-                      <p class="mb-0">Welcome to Docs UI Kit! We're so glad you're here. Let's get started!</p>
+                      <h5 class="mb-1">Content</h5>
+                      <p class="mb-0">Alfresco Content Services offers full-featured ECM for organizations that require enterprise-grade 
+                          scalability, performance, and 24x7 support for business-critical content and compliance.</p>
                     </div>
                   </div>
                 </div>
-      
+
+                <div class="col-md-12 mb-5">
+                        <a class="stretched-link" href="#"></a>
+                      <div class="media h-100 shadow rounded p-4">
+                        <i class="far fa-fw fa-dot-circle fa-3x text-warning mr-4 mt-1"></i>
+                        <div class="media-body">
+                          <h5 class="mb-1">Process</h5>
+                          <p class="mb-0">Alfresco Process Services (powered by Activiti) is an enterprise Business Process Management 
+                              (BPM) solution targeted at business people and developers.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12 mb-5">
+                            <a class="stretched-link" href="#"></a>
+                          <div class="media h-100 shadow rounded p-4">
+                            <i class="far fa-fw fa-dot-circle fa-3x text-warning mr-4 mt-1"></i>
+                            <div class="media-body">
+                              <h5 class="mb-1">Governance</h5>
+                              <p class="mb-0">Alfresco Governance Services controls important information that needs to be retained over time. 
+                                  It's used in highly regulated environments, for managing governmental information or personnel records, or where information might be audited.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                    
+                        <h4 class="col-md-12">Common Services</h4>
+                       
+
+                    {% for c in site.data.home.common %}
+
                 <div class="col-md-6 mb-5">
+                        <a class="stretched-link" href="{{c.url}}"></a>
                   <div class="media h-100 shadow rounded p-4">
                     <i class="far fa-fw fa-dot-circle fa-3x text-secondary mr-4 mt-1"></i>
       
                     <div class="media-body">
-                      <h5 class="mb-1"><a class="link-dark" href="article.html">Account</a></h5>
-                      <p class="mb-0">Adjust your profile and preferences to make Docs UI Kit work just for you!</p>
+                      <h5 class="mb-1">{{c.title}}</h5>
+                      <p class="mb-0">{{c.text}}</p>
                     </div>
                   </div>
                 </div>
       
+                    {% endfor %}
+   
+
+</section>
+    </div>
+
+<section class="bg-light py-11">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-4 mb-5 mb-md-0">
+              <i class="far fa-lightbulb fa-2x text-primary mb-4"></i>
+              <h3 class="h5 mb-2">How can I..?</h3>
+  
+              <ul class="list-unstyled">
+                <li class="mb-2"><a class="link-muted" href="#">Set up SSO</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Deploy Content Services</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Create an ADF application</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Start a process</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-md-4 mb-5 mb-md-0">
+              <i class="far fa-paper-plane fa-2x text-primary mb-4"></i>
+              <h3 class="h5 mb-2">Community</h3>
+  
+              <ul class="list-unstyled">
+                <li class="mb-2"><a class="link-muted" href="#">Alfresco Community</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Search Services</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Content Application</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Activiti</a></li>
+              </ul>
+            </div>
+  
+
+          </div>
+        </div>
+      </section>
+      </div>
+
+    <div class="row justify-content-center">
+      <section class="pt-5 pb-11">
+            <div class="container">
+
+                    <div class="row">
+
+                    <h4 class="col-md-12">Applications</h4>
+                       
+
+                    {% for a in site.data.home.applications %}
+
                 <div class="col-md-6 mb-5">
+                        <a class="stretched-link" href="{{a.url}}"></a>
                   <div class="media h-100 shadow rounded p-4">
                     <i class="far fa-fw fa-dot-circle fa-3x text-info mr-4 mt-1"></i>
       
                     <div class="media-body">
-                      <h5 class="mb-1"><a class="link-dark" href="article.html">Subscription</a></h5>
-                      <p class="mb-0">Assistance on how and when you might use the subscription product.</p>
+                      <h5 class="mb-1">{{a.title}}</h5>
+                      <p class="mb-0">{{a.text}}</p>
                     </div>
                   </div>
                 </div>
       
+                    {% endfor %}
+
+                    <h4 class="col-md-12">Integrations</h4>
+
+                    {% for i in site.data.home.integrations %}
+
                 <div class="col-md-6 mb-5">
+                        <a class="stretched-link" href="{{i.url}}"></a>
                   <div class="media h-100 shadow rounded p-4">
                     <i class="far fa-fw fa-dot-circle fa-3x text-danger mr-4 mt-1"></i>
       
                     <div class="media-body">
-                      <h5 class="mb-1"><a class="link-dark" href="article.html">Tips, tricks & more</a></h5>
-                      <p class="mb-0">Tips and tools for beginners and experts alike.</p>
+                      <h5 class="mb-1">{{i.title}}</h5>
+                      <p class="mb-0">{{i.text}}</p>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+      
+                    {% endfor %}
+
           </section>
 
+</div>  
 
 
-        <div class="col-md-10 pt-5">
 
-            <div class="card text-white bg-primary mb-3 rounded-0">
-                <div class="card-header">Content Services</div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                
-                            <a href="#" class="stretched-link"></a>        
-                    </div>
-            </div>
-
-        </div>
-
-        <div class="col-md-5" style="background">
-
-                <a class="btn btn-primary" data-toggle="collapse" href="#components" role="button" aria-expanded="false" aria-controls="components">
-                        Components </a>
-    
-                        <div class="collapse" id="components">
-                {% for c in site.data.home.components %}
-    
-                <div class="card text-black bg-white mb-3">
-                        <div class="card-header">{{c.title}}</div>
-                            <div class="card-body">
-                                
-                                <p class="card-text">{{c.text}}</p>
-                        
-                                    <a href="{{c.url}}" class="stretched-link"></a>        
-                            </div>
-                    </div>
-    
-    
-                {% endfor %}
-        </div>
-            </div>
-
-        <div class="col-md-5" style="background">
-
-            <a class="btn btn-primary" data-toggle="collapse" href="#integrations" role="button" aria-expanded="false" aria-controls="integrations">
-            Integrations </a>
-
-            <div class="collapse" id="integrations">
-            {% for i in site.data.home.integrations %}
-
-            <div class="card text-black bg-white mb-3">
-                    <div class="card-header">{{i.title}}</div>
-                        <div class="card-body">
-                            
-                            <p class="card-text">{{i.text}}</p>
-                    
-                                <a href="{{i.url}}" class="stretched-link"></a>        
-                        </div>
-                </div>
+       
 
 
-            {% endfor %}
-    </div>
-        </div>
 
-        <div class="col-md-10 pt-5">
 
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-header">Process Services</div>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
-                                <a href="#" class="stretched-link"></a>        
-                        </div>
-                </div>
-    
-            </div>
-
-            <div class="col-md-10 pt-5">
-
-                    <div class="card text-white bg-primary mb-3">
-                        <div class="card-header">Identity Services</div>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        
-                                    <a href="#" class="stretched-link"></a>        
-                            </div>
-                    </div>
-        
-                </div>
-
-                <div class="col-md-10 pt-5">
-
-                        <div class="card text-white bg-primary mb-3">
-                            <div class="card-header">Application Development Framework</div>
-                                <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            
-                                        <a href="#" class="stretched-link"></a>        
-                                </div>
-                        </div>
-            
-                    </div>
     </div>
 
-{% include footer.html %}
+  <!-- Footer -->
+  <footer class="bg-light font-weight-light text-black-55 pt-11 pb-5 overflow-hidden">
+      <div class="container">
+        <div class="row justify-content-md-between">
+          <div class="col-md-12 col-lg-4 mb-4 mr-lg-auto">
+
+  
+     
+  
+        <div class="row">
+          <div class="col-md-7">
+            <p class="small font-weight-light mb-md-0">&copy; 2020 <a class="text-black" href="https://alfresco.com/">Alfresco</a></p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+
+      <!-- JS Global Compulsory -->
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+  <script src="/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+  <script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- JS Implementing Plugins -->
+  <script src="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="/assets/vendor/jquery-ui/jquery-ui.core.min.js"></script>
+  <script src="/assets/vendor/jquery-ui/ui/widgets/menu.js"></script>
+  <script src="/assets/vendor/jquery-ui/ui/widgets/mouse.js"></script>
+  <script src="/assets/vendor/jquery-ui/ui/widgets/autocomplete.js"></script>
+  <script src="/assets/vendor/prism/prism.js"></script>
+
+  <!-- JS -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/custom-scrollbar.js"></script>
 
 </body>
 
