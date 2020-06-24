@@ -2,11 +2,13 @@ name: CI
 
 on:
   release:
-    types: [published]
+    types: 
+      - published
 
 env:
   BUCKET_NAME: ${{ secrets.PRODUCTION_BUCKET_NAME }}
   RUNNER_ROLE: ${{ secrets.EAD_PRODUCTION_RUNNER_ROLE }}
+  RUNNER_EXTERNAL_ID: ${{ secrets.EAD_PROD_RUNNER_EXTERNAL_ID }}
 
 jobs:
   jekyll-deploy:
