@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% include head.html %}
+
+<body>
+
+  <!-- Header -->
+  <header class="duik-header">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark gradient-primary position-absolute left-0 right-0 flex-nowrap z-index-3">
+          <div class="container">
+            <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" alt="Alfresco Docs" style="width: 50px; height: 50px;"></a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo">
+              <ul class="navbar-nav mt-2 mt-lg-0 small">
+                <li class="nav-item mb-2 mb-lg-0">
+                  <a class="nav-link" href="index.html">Alfresco Docs</a>
+                </li>
+              </ul>
+    
+              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item ml-lg-6 mb-2 mb-lg-0">
+                  <a class="nav-link px-0" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown active ml-lg-6 mb-2 mb-lg-0">
+                  <a class="nav-link px-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Version: {{page.version}} {% if page.latest == true %}(Latest){% endif %} <i class="fas fa-angle-down small ml-1"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    
+                      {% assign versions = page.versions | compact | sort | reverse %}
+    
+                      {% for item in versions %}
+                
+                      {% unless item == page.version %}
+                
+                      {% if page.latest == true %}
+                
+                          <a class="dropdown-item" href="{{page.url | replace: "latest", item}}">{{item}}</a>
+                
+                      {% elsif forloop.first == true %}
+                
+                          <a class="dropdown-item" href="{{page.url | replace: page.version, "latest"}}">{{item}} (Latest)</a>
+                
+                
+                      {% else %}
+                
+                
+                          <a class="dropdown-item" href="{{page.url | replace: page.version, item}}">{{item}}</a>
+                
+                
+                      {% endif %}
+                      {% endunless %}
+                      {% endfor %}
+    
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+      </header>
+      <!-- End Header -->
+
+      <section class="duik-promo text-center" style="background: url(assets/img/banner.png) no-repeat center; background-size: cover;">
+          <div class="container duik-promo-container">
+            <div class="d-flex justify-content-center position-relative mh-35rem pt-11 py-6">
+              <div class="w-md-75 w-lg-50 mt-10">
+                <h1 class="h2 text-white mb-3">What are you looking for?</h1>
+      
+                <form class="input-group mb-3">
+                  <input class="form-control border-0" type="search" placeholder="Enlightenment">
+                  <span class="input-group-append p-0">
+                    <button class="btn text-muted" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </form>
+      
+          
+              </div>
+            </div>
+          </div>
+      
+
+        </section>
+
+
+    <div class="row justify-content-center">
+
+        <section class="pt-5 pb-11">
+            <div class="container">
+
+      
+              <div class="row">
+                  <h4 class="col-md-12">Services</h4>
+
+                  {% for s in site.data.home.services %}
+
+                <div class="col-md-12 mb-5">
+                    <a class="stretched-link" href="{{s.url}}"></a>
+                  <div class="media h-100 shadow rounded p-4">
+                    <img class="far fa-fw fa-3x text-warning mr-4 my-auto" src="/assets/img/tear-teal.png"></i>
+                    <div class="media-body my-auto">
+                      <h5 class="mb-1">{{s.title}}</h5>
+                      <p class="mb-0">{{s.text}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                    {% endfor %}
+
+                    
+                        <h4 class="col-md-12">Common Services</h4>
+                       
+
+                    {% for c in site.data.home.common %}
+
+                <div class="col-md-6 mb-5">
+                        <a class="stretched-link" href="{{c.url}}"></a>
+                  <div class="media h-100 shadow rounded p-4">
+                    <img class="far fa-fw fa-3x text-secondary mr-4 my-auto" src="/assets/img/tear-orange.png"></i>
+      
+                    <div class="media-body my-auto">
+                      <h5 class="mb-1">{{c.title}}</h5>
+                      <p class="mb-0">{{c.text}}</p>
+                    </div>
+                  </div>
+                </div>
+      
+                    {% endfor %}
+   
+
+</section>
+    </div>
+
+<section class="bg-light py-11">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-4 mb-5 mb-md-0">
+              <i class="far fa-lightbulb fa-2x text-primary mb-4"></i>
+              <h3 class="h5 mb-2">How can I..?</h3>
+  
+              <ul class="list-unstyled">
+                <li class="mb-2"><a class="link-muted" href="#">Set up SSO</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Deploy Content Services</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Create an ADF application</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Start a process</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-md-4 mb-5 mb-md-0">
+              <i class="far fa-paper-plane fa-2x text-primary mb-4"></i>
+              <h3 class="h5 mb-2">Community</h3>
+  
+              <ul class="list-unstyled">
+                <li class="mb-2"><a class="link-muted" href="#">Alfresco Community</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Search Services</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Content Application</a></li>
+                <li class="mb-2"><a class="link-muted" href="#">Activiti</a></li>
+              </ul>
+            </div>
+  
+
+          </div>
+        </div>
+      </section>
+      </div>
+
+    <div class="row justify-content-center">
+      <section class="pt-5 pb-11">
+            <div class="container">
+
+                    <div class="row">
+
+                    <h4 class="col-md-12">Applications</h4>
+                       
+
+                    {% for a in site.data.home.applications %}
+
+                <div class="col-md-6 mb-5">
+                        <a class="stretched-link" href="{{a.url}}"></a>
+                  <div class="media h-100 shadow rounded p-4">
+                    <img class="far fa-fw fa-3x text-info mr-4 my-auto" src="/assets/img/tear-green.png"></i>
+      
+                    <div class="media-body my-auto">
+                      <h5 class="mb-1">{{a.title}}</h5>
+                      <p class="mb-0">{{a.text}}</p>
+                    </div>
+                  </div>
+                </div>
+      
+                    {% endfor %}
+
+                    <h4 class="col-md-12">Integrations</h4>
+
+                    {% for i in site.data.home.integrations %}
+
+                <div class="col-md-6 mb-5">
+                        <a class="stretched-link" href="{{i.url}}"></a>
+                  <div class="media h-100 shadow rounded p-4">
+                    <img class="far fa-fw fa-3x text-danger mr-4 my-auto" src="/assets/img/tear-blue.png"></i>
+      
+                    <div class="media-body my-auto">
+                      <h5 class="mb-1">{{i.title}}</h5>
+                      <p class="mb-0">{{i.text}}</p>
+                    </div>
+                  </div>
+                </div>
+      
+                    {% endfor %}
+
+          </section>
+
+</div>  
+
+
+
+       
+
+
+
+
+    </div>
+
+  <!-- Footer -->
+  <footer class="bg-light font-weight-light text-black-55 pt-11 pb-5 overflow-hidden">
+      <div class="container">
+        <div class="row justify-content-md-between">
+          <div class="col-md-12 col-lg-4 mb-4 mr-lg-auto">
+
+  
+     
+  
+        <div class="row">
+          <div class="col-md-7">
+            <p class="small font-weight-light mb-md-0">&copy; 2020 <a class="text-black" href="https://alfresco.com/">Alfresco</a></p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+
+      <!-- JS Global Compulsory -->
+  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+  <script src="/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+  <script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- JS Implementing Plugins -->
+  <script src="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="/assets/vendor/jquery-ui/jquery-ui.core.min.js"></script>
+  <script src="/assets/vendor/jquery-ui/ui/widgets/menu.js"></script>
+  <script src="/assets/vendor/jquery-ui/ui/widgets/mouse.js"></script>
+  <script src="/assets/vendor/jquery-ui/ui/widgets/autocomplete.js"></script>
+  <script src="/assets/vendor/prism/prism.js"></script>
+
+  <!-- JS -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/custom-scrollbar.js"></script>
+
+</body>
+
+
+
+
+</html>
