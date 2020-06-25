@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 services:
   - title: 'Content'
     text: 'Alfresco Content Services offers full-featured ECM for organizations that require enterprise-grade scalability, performance, and 24x7 support for business-critical content and compliance.'
@@ -13,21 +12,12 @@ services:
 common:
   - title: 'Insight'
     text: 'Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services.'
-=======
-common:
-  - title: 'Insight'
-    text: 'Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services'
->>>>>>> [WiP] Updates
     url:  
   - title: 'Search'
     text: 'Alfresco Search Services provides the default search service index for Alfresco Content Services and Alfresco Community Edition.'
     url:      
   - title: 'Desktop Synchronization'
-<<<<<<< HEAD
     text: "Alfresco Sync Service synchronizes files between the desktop and repository using web services. It's part of the Desktop Sync solution that consists of three components: Sync Service, Desktop Sync for Windows, and Desktop Sync for Mac."
-=======
-    text: "Alfresco Sync Service synchronizes files between the desktop and repository using web services. It's part of the Desktop Sync solution that consists of three components: Sync Service, Desktop Sync for Windows, and Desktop Sync for Mac"
->>>>>>> [WiP] Updates
     url:  
   - title: 'Document Transformation'
     text: 'Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents.'
