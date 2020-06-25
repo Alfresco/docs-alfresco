@@ -1,12 +1,23 @@
+services:
+  - title: 'Content'
+    text: 'Alfresco Content Services offers full-featured ECM for organizations that require enterprise-grade scalability, performance, and 24x7 support for business-critical content and compliance.'
+    url:  
+  - title: 'Process'
+    text: 'Alfresco Process Services (powered by Activiti) is an enterprise Business Process Management (BPM) solution targeted at business people and developers.'
+    url:      
+  - title: 'Governance'
+    text: "Alfresco Governance Services controls important information that needs to be retained over time. It's used in highly regulated environments, for managing governmental information or personnel records, or where information might be audited."
+    url:  
+
 common:
   - title: 'Insight'
-    text: 'Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services'
+    text: 'Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services.'
     url:  
   - title: 'Search'
     text: 'Alfresco Search Services provides the default search service index for Alfresco Content Services and Alfresco Community Edition.'
     url:      
   - title: 'Desktop Synchronization'
-    text: "Alfresco Sync Service synchronizes files between the desktop and repository using web services. It's part of the Desktop Sync solution that consists of three components: Sync Service, Desktop Sync for Windows, and Desktop Sync for Mac"
+    text: "Alfresco Sync Service synchronizes files between the desktop and repository using web services. It's part of the Desktop Sync solution that consists of three components: Sync Service, Desktop Sync for Windows, and Desktop Sync for Mac."
     url:  
   - title: 'Document Transformation'
     text: 'Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents.'
