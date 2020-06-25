@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 name: Production
-=======
-name: CI
->>>>>>> updated workflows
 
 on:
   release:
@@ -11,27 +7,17 @@ on:
 
 env:
   BUCKET_NAME: ${{ secrets.PRODUCTION_BUCKET_NAME }}
-<<<<<<< HEAD
   DISTRIBUTION_ID: ${{ secrets.PRODUCTION_DISTRIBUTION_ID }}
-=======
->>>>>>> updated workflows
   RUNNER_ROLE: ${{ secrets.EAD_PRODUCTION_RUNNER_ROLE }}
   RUNNER_EXTERNAL_ID: ${{ secrets.EAD_PROD_RUNNER_EXTERNAL_ID }}
 
 jobs:
-<<<<<<< HEAD
   Publish:
     
     runs-on: self-hosted
 
     if: ${{ github.repository }} == 'Alfresco/docs-alfresco'
 
-=======
-  jekyll-deploy:
-    
-    runs-on: self-hosted
-
->>>>>>> updated workflows
     steps:
     - uses: actions/checkout@v2
       with:
