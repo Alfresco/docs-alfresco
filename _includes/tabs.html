@@ -3,30 +3,49 @@
         <ul class="nav nav-bordered" id="tabs" role="tablist">
     
             <li class="nav-item">
-                <a class="nav-link active" id="tab1" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab1" aria-selected="true">{{include.tab3}}</a>
+                <a class="nav-link active" id="{{include.opt1}}" data-toggle="tab" href="#{{include.opt1 | replace: ' ', '-'}}" role="tab" aria-controls="#{{include.opt1 | replace: ' ', '-'}}-content" aria-selected="true">{{include.opt1}}</a>
             </li>
             
             <li class="nav-item">
-                <a class="nav-link" id="tab2" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab2" aria-selected="false">{{include.tab4}}</a>
+                <a class="nav-link" id="tab2" data-toggle="tab" href="#{{include.opt2 | replace: ' ', '-'}}" role="tab" aria-controls="{{include.opt2 | replace: ' ', '-'}}-content" aria-selected="false">{{include.opt2}}</a>
             </li>
+
+            {% if include.opt3 != '' %}
+
+            <li class="nav-item">
+                    <a class="nav-link" id="tab3" data-toggle="tab" href="#{{include.opt3 | replace: ' ', '-'}}" role="tab" aria-controls="{{include.opt3 | replace: ' ', '-'}}-content" aria-selected="false">{{include.opt3}}</a>
+            </li>
+
+            {% endif %}
                     
         </ul>
                     
         <div class="tab-content" id="content">
             
-             <div class="tab-pane bg-light fade p-3 show active" id="tab3" role="tabpanel" aria-labelledby="1">
+             <div class="tab-pane bg-light fade p-3 show active" id="{{include.opt1 | replace: ' ', '-'}}" role="tabpanel" aria-labelledby="{{include.opt1 | replace: ' ', '-'}}-content">
                         
-    {{include.content3}}
+                {{include.content1 | markdownify}}
     
             </div>
                       
-            <div class="tab-pane bg-light fade p-3" id="tab4" role="tabpanel" aria-labelledby="2">
+            <div class="tab-pane bg-light fade p-3" id="{{include.opt2 | replace: ' ', '-'}}" role="tabpanel" aria-labelledby="{{include.opt2 | replace: ' ', '-'}}-content">
     
     
-    {{include.content4}}
+                {{include.content2 | markdownify}}
                       
             </div>
         
+            {% if include.opt3 != '' %}
+                      
+            <div class="tab-pane bg-light fade p-3" id="{{include.opt3 | replace: ' ', '-'}}" role="tabpanel" aria-labelledby="{{include.opt3 | replace: ' ', '-'}}-content">
+    
+    
+                {{include.content3 | markdownify}}
+                          
+            </div>
+
+            {% endif %}
+
         </div>
                   
     </div>

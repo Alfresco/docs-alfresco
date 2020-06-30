@@ -5,12 +5,21 @@ title: Tabs
 This page is for testing tabbed content. 
 
 
-{% capture content3 %}
-Hello this is the first tab
+{% capture mac%}
+* one
+* two
+* three
 {% endcapture %}
 
-{% capture content4 %}
-Hello this is the second tab
+{% capture windows %}
+```sql
+select * where 1=2
+```
 {% endcapture %}
 
-{% include tabs.html tab3="First" content4=content4 tab4="Second" content3=content3  %}
+{% capture linux %}
+third set
+{% endcapture %}
+
+
+{% include tabs.html opt1="first one" opt2="second one"  opt3="third chance" content1=mac content2=windows content3=linux %}
