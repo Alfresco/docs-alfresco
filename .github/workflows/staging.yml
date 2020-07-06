@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - '.github/**'
 
 env:
   BUCKET_NAME: ${{ secrets.STAGING_BUCKET_NAME }}
