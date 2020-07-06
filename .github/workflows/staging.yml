@@ -1,4 +1,4 @@
-name: CI
+name: Staging
 
 on:
   push:
@@ -12,9 +12,11 @@ env:
   RUNNER_EXTERNAL_ID: ${{ secrets.EAD_PROD_RUNNER_EXTERNAL_ID }}
 
 jobs:
-  jekyll-deploy:
+  Publish:
     
     runs-on: self-hosted
+
+    if: ${{ github.repository }} == 'Alfresco/docs-alfresco'
 
     steps:
     - uses: actions/checkout@v2
