@@ -70,8 +70,9 @@ highlighter: rouge
 
 
 sass:
-  sass_dir: css
+  sass_dir: assets/include/scss
 permalink: pretty
+
 
 
 
