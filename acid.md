@@ -150,6 +150,21 @@ The spacing after a set of tabs should be continuous.
 
 ## Tables
 
+{% capture properties %}
+
+| Item | Description | 
+| ---- | ----------- | 
+| Item 1 | Item 1 desc | 
+| Item 2 | Item 2 desc | 
+| Item 3 | | 
+| Item 4 | `Item 4 desc` | 
+
+{% endcapture %}
+
+{% include table.html table=properties %}
+
+Space between.
+
 <div class="table-responsive-md">
 <table class="table table-sm table-hover table-bordered">
   <thead class="thead-dark">

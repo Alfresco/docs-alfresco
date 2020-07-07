@@ -1,53 +1,77 @@
-<header class="duik-header">
-    <nav class="navbar navbar-dark fixed-top bg-primary flex-nowrap p-0">
-      <a class="navbar-brand bg-md-primary-darker col-md-3 col-xl-2 mr-0 py-3" href="/"><img src="/assets/img/logo.png" alt="Alfresco Docs" style=" height:50px;"></a>
 
-      <!-- Header Search -->
-      <input class="js-search border-0 d-none d-md-block form-control form-control-sm w-100 ml-md-4" type="text" placeholder="Search..." aria-label="Search..." data-url="">
-      <!-- End Header Search -->
 
-      <!-- Header Links -->
-      <ul class="navbar-nav duik-header__nav small text-nowrap flex-row px-3 ml-0 ml-sm-3">
-        <li class="nav-item">
-          <a class="nav-link" href="https://htmlstream.com/preview/docs-ui-kit/" target="_blank" title="Live Preview"><i class="fa fa-desktop mr-sm-1"></i> <span class="d-none d-lg-inline-block">Live Preview</span></a>
-        </li>
-        <li class="nav-item ml-4">
-          <a class="nav-link" href="https://github.com/htmlstreamofficial/docs-ui-kit" title="Report an Issue" target="_blank"><i class="fas fa-bug mr-sm-1"></i> <span class="d-none d-lg-inline-block">Report an Issue</span></a>
-        </li>
-        <li class="nav-item dropdown active ml-lg-6 mb-2 mb-lg-0">
-            <a class="nav-link px-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Version: {{page.version}} {% if page.latest == true %}(Latest){% endif %} <i class="fas fa-angle-down small ml-1"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <header class="duik-header">
+  
+          <nav class="navbar navbar-dark fixed-top bg-primary flex-nowrap p-0">
+              <a class="navbar-brand bg-md-primary-darker col-md-3 col-xl-2 mr-0 pt-0" href="/"><img src="/assets/img/docs-logo.png" alt="Alfresco Docs logo"></a>
+        
+              <ul class="navbar-nav duik-header__nav text-nowrap flex-row d-flex col-xl-5 ml-auto col-md-4">
 
-                {% assign versions = page.versions | compact | sort | reverse %}
+                  {% if page.audiences != nil %}
 
-                {% for item in versions %}
-          
-                {% unless item == page.version %}
-          
-                {% if page.latest == true %}
-          
-                    <a class="dropdown-item" href="{{page.url | replace: "latest", item}}">{{item}}</a>
-          
-                {% elsif forloop.first == true %}
-          
-                    <a class="dropdown-item" href="{{page.url | replace: page.version, "latest"}}">{{item}} (Latest)</a>
-          
-          
-                {% else %}
-          
-          
-                    <a class="dropdown-item" href="{{page.url | replace: page.version, item}}">{{item}}</a>
-          
-          
-                {% endif %}
-                {% endunless %}
-                {% endfor %}
+                  {% for a in page.audiences %}
+                  
+                  <li class="nav-item ml-lg-6 mb-2 mb-lg-0">
+                  
+                  {% if a == page.audience %}
+                  
+                  <a class="nav-link active px-0" style="border-bottom: 4px solid #fff;" href="{{site.url}}/{{page.location}}/{{page.version}}/{{a}}/intro">{{a | capitalize}}</a>
+                  
+                  {% else %}
+                  
+                  <a class="nav-link px-0" href="{{site.url}}/{{page.location}}/{{page.version}}/{{a}}/intro">{{a | capitalize}}</a>
+                  
+                  {% endif %}
+                  
+                  </li>
+                  
+                  {% endfor %}
+                  {% endif %}
 
-            </div>
-          </li>
-      </ul>
-      <!-- End Header Links -->
-    </nav>
-  </header>
+                    </ul>
+            
+        
+              <input class="js-search border-0 d-none d-md-block form-control form-control-sm col-md-3 col-xl-3 ml-4" type="text" placeholder="Search..." aria-label="Search..." data-url="">
+        
+              <ul class="navbar-nav duik-header__nav d-flex col-xl-2 ml-auto col-md-2">
+                <li class="nav-item dropdown active ml-lg-6 mb-2 mb-lg-0">
+                  <a class="nav-link px-0" href="#" id="version-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Version: {{page.version}} <i class="fas fa-angle-down small ml-1"></i></a>
+                    <div class="dropdown-menu" style="position: absolute" aria-labelledby="version-dropdown">
+        
+                        {% assign versions = page.versions | compact | sort | reverse %}
+        
+                        {% for v in versions %}
+                  
+                        {% unless v == page.version %}
+                  
+                        {% if page.latest == true %}
+                  
+                            <a class="dropdown-item" href="{{page.url | replace: "latest", v}}">{{v}}</a>
+                            
+                        {% elsif forloop.first == true %}
+                  
+                            <a class="dropdown-item" href="{{page.url | replace: page.version, "latest"}}">{{v}} (Latest)</a>
+                  
+                  
+                        {% else %}
+                  
+                  
+                            <a class="dropdown-item" href="{{page.url | replace: page.version, v}}">{{v}}</a>
+                  
+                  
+                        {% endif %}
+                        {% endunless %}
+                        {% endfor %}
+        
+                    </div>
+               
+                </li>
+                </ul>
+        
+        
+        
+        
+              
+            </nav>
+          </header>

@@ -1,3 +1,64 @@
+---
+layout: docs
+title: README
+---
+
+## Writing
+
+### Title
+
+The H1 title for a page is declared in the front matter using `title`.
+
+```bash
+---
+title: my title
+---
+```
+
+### Tables
+
+Tables use the `table.html` file in order to wrap the content in a `div` and make the table responsive. The contents of the table should be written in markdown and wrapped in a capture block.
+
+Only a single parameter is passed to the `table.html` file:
+
+* `table`: the name of the capture variable that contains the table.
+
+```bash
+{% raw %}
+{% capture table-data %}
+
+| Name | Description |
+| ---- | ----------- |
+| row 1 | `description of col 1` |
+| row 2 | description of col 2 |
+
+{% endcapture %}
+
+{% include table.html table=table-data %}
+{% endraw %}
+```
+
+### Tabs
+
+Tabs use the `tabs.html` file in order to display the content. The contents of each tab should be written in markdown and wrapped in separate capture blocks.
+
+The number of parameters sent to the `tabs.html` file depend on the number of tabs required:
+
+* `opt1`: The name to display for the first tab.
+* `content1`: The content of the first tab.
+* `opt2`: The name to display for the second tab.
+* `content2`: The content of the second tab.
+* `opt3`: The name to display for the third tab.
+* `content3`: The content of the third tab.
+
+
+
+
+
+
+
+
+
 
 
 

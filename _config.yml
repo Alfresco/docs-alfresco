@@ -26,12 +26,16 @@ defaults:
     values:
       layout: 'docs'
       product: 'Alfresco Content Services'
-      location: content
+      location: 'content'
       versions:
         - 6.1
         - 5.2
         - 6.0
         - 6.2
+      audiences:
+        - 'administrator'
+        - 'developer'
+        - 'user'
   -
     scope:
       path: 'content/latest'
@@ -42,12 +46,12 @@ defaults:
     scope:
       path: 'content/latest/user'
     values:
-      audience: user
+      audience: 'user'
   -
     scope:
       path: 'content/latest/admin'
     values:
-      audience: admin
+      audience: 'admin'
   -
     scope:
       path: 'content/6.1'
@@ -57,12 +61,12 @@ defaults:
     scope:
       path: 'content/6.1/user'
     values:
-      audience: user
+      audience: 'user'
   -
     scope:
       path: 'content/6.1/admin'
     values:
-      audience: admin
+      audience: 'admin'
 
 
 
@@ -72,7 +76,7 @@ sass:
   sass_dir: assets/include/scss
 permalink: pretty
 
-
+git-repo: https://github.com/Alfresco/docs-alfresco/edit/master
 
 
 title: Your awesome title
