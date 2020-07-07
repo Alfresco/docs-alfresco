@@ -17,7 +17,17 @@
             <div class="row pt-3">
               <!-- Content Nav -->
               <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
-                <ul class="js-scroll-nav duik-content-nav">
+                
+                {% if page.latest == true %}
+                
+                <div class="duik-content-nav pl-2">
+                <i class="fab fa-github"></i>
+                <a class="mb-5" href="{{site.git-repo}}/{{page.path}}" target="_blank">Suggest an edit</a>
+                </div>
+
+                {% endif %}
+
+                <ul class="js-scroll-nav duik-content-nav pt-5">
                   <li class="duik-content-nav__item"><a href="#doc-about">About</a></li>
                   <li class="duik-content-nav__item"><a href="#doc-whats-included">What’s Included</a></li>
                   <li class="duik-content-nav__item"><a href="#doc-getting-started">Getting Started</a></li>
@@ -43,37 +53,11 @@
 
 {{content}}
 
-
     
             {% include footer.html %}
 
           </main>
         </div>
       </div>
-    
-      <!-- Go to Top -->
-      <a class="js-go-to duik-go-to" href="javascript:;">
-        <span class="fa fa-arrow-up duik-go-to__inner"></span>
-      </a>
-      <!-- End Go to Top -->
-    
-      <!-- JS Global Compulsory -->
-      <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
-      <script src="/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-      <script src="/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-      <script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    
-      <!-- JS Implementing Plugins -->
-      <script src="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="/assets/vendor/jquery-ui/jquery-ui.core.min.js"></script>
-      <script src="/assets/vendor/jquery-ui/ui/widgets/menu.js"></script>
-      <script src="/assets/vendor/jquery-ui/ui/widgets/mouse.js"></script>
-      <script src="/assets/vendor/jquery-ui/ui/widgets/autocomplete.js"></script>
-      <script src="/assets/vendor/prism/prism.js"></script>
-    
-      <!-- JS -->
-      <script src="/assets/js/main.js"></script>
-      <script src="/assets/js/autocomplete.js"></script>
-      <script src="/assets/js/custom-scrollbar.js"></script>
     </body>
 </html>
