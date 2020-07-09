@@ -7,64 +7,11 @@
 
   <!-- Header -->
   <header class="duik-header">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark gradient-primary position-absolute left-0 right-0 flex-nowrap z-index-3">
-          <div class="container">
-            <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" alt="Alfresco Docs" style="width: 50px; height: 50px;"></a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo">
-              <ul class="navbar-nav mt-2 mt-lg-0 small">
-                <li class="nav-item mb-2 mb-lg-0">
-                  <a class="nav-link" href="index.html">Alfresco Docs Demo</a>
-                </li>
-              </ul>
-    
-              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                <li class="nav-item ml-lg-6 mb-2 mb-lg-0">
-                  <a class="nav-link px-0" href="#">Home</a>
-                </li>
-                <li class="nav-item dropdown active ml-lg-6 mb-2 mb-lg-0">
-                  <a class="nav-link px-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Version: {{page.version}} {% if page.latest == true %}(Latest){% endif %} <i class="fas fa-angle-down small ml-1"></i>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    
-                      {% assign versions = page.versions | compact | sort | reverse %}
-    
-                      {% for item in versions %}
-                
-                      {% unless item == page.version %}
-                
-                      {% if page.latest == true %}
-                
-                          <a class="dropdown-item" href="{{page.url | replace: "latest", item}}">{{item}}</a>
-                
-                      {% elsif forloop.first == true %}
-                
-                          <a class="dropdown-item" href="{{page.url | replace: page.version, "latest"}}">{{item}} (Latest)</a>
-                
-                
-                      {% else %}
-                
-                
-                          <a class="dropdown-item" href="{{page.url | replace: page.version, item}}">{{item}}</a>
-                
-                
-                      {% endif %}
-                      {% endunless %}
-                      {% endfor %}
-    
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <!-- End Navbar -->
+
+      <nav class="navbar navbar-dark fixed-top bg-primary flex-nowrap p-0">
+          <a class="navbar-brand col-md-3 col-xl-2 mr-0 pt-0" href="/"><img src="/assets/img/docs-logo.png" style="height:71px" alt="Alfresco Docs logo"></a>
+      
+          </nav>
       </header>
       <!-- End Header -->
 
@@ -72,10 +19,10 @@
           <div class="container duik-promo-container">
             <div class="d-flex justify-content-center position-relative mh-35rem pt-11 py-6">
               <div class="w-md-75 w-lg-50 mt-10">
-                <h1 class="h2 text-white mb-3">What are you looking for?</h1>
+                <h1 class="h2 text-white mb-3">Alfresco Docs</h1>
       
                 <form class="input-group mb-3">
-                  <input class="form-control border-0" type="search" placeholder="Enlightenment">
+                  <input class="form-control border-0" type="search" placeholder="What are you looking for?">
                   <span class="input-group-append p-0">
                     <button class="btn text-muted" type="submit"><i class="fas fa-search"></i></button>
                   </span>
@@ -92,19 +39,19 @@
 
     <div class="row justify-content-center">
 
-        <section class="pt-5 pb-11">
-            <div class="container">
 
-      
-              <div class="row">
-                  <h4 class="col-md-12">Services</h4>
+
+<div class="container-fluid">
+  <h4 class="col-md-10">Services</h4>
+              <div class="row justify-content-center mx-3">
+
 
                   {% for s in site.data.home.services %}
 
-                <div class="col-md-12 mb-5">
+                <div class="col-lg-4 col-md-5 col-sm-6 mb-5">
                     <a class="stretched-link" href="{{s.url}}"></a>
-                  <div class="media h-100 shadow rounded p-4">
-                    <img class="fa-fw fa-3x mr-4 my-auto" src="/assets/img/tear-teal.png"></i>
+                  <div class="alf-home-info media h-100 shadow rounded p-3">
+              
                     <div class="media-body my-auto">
                       <h5 class="mb-1">{{s.title}}</h5>
                       <p class="mb-0">{{s.text}}</p>
@@ -113,32 +60,35 @@
                 </div>
 
                     {% endfor %}
+</div>            
 
-                    
-                        <h4 class="col-md-12">Common Services</h4>
+
+<h4 class="col-md-10">Common Services</h4>
+<div class="row justify-content-center mx-3">
+                 
                        
 
                     {% for c in site.data.home.common %}
 
-                <div class="col-md-6 mb-5">
-                        <a class="stretched-link" href="{{c.url}}"></a>
-                  <div class="media h-100 shadow rounded p-4">
-                    <img class="far fa-fw fa-3x text-secondary mr-4 my-auto" src="/assets/img/tear-orange.png"></i>
-      
-                    <div class="media-body my-auto">
-                      <h5 class="mb-1">{{c.title}}</h5>
-                      <p class="mb-0">{{c.text}}</p>
+                    <div class="col-lg-4 col-md-5 col-sm-6 mb-5">
+                      <a class="stretched-link" href="{{c.url}}"></a>
+                    <div class="alf-home-primary media h-100 shadow rounded p-3">
+                
+                      <div class="media-body my-auto">
+                        <h5 class="mb-1">{{c.title}}</h5>
+                        <p class="mb-0">{{c.text}}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+  
       
                     {% endfor %}
    
+</div>
 
-</section>
-    </div>
+  
 
-<section class="bg-light py-11">
+<section class="bg-light py-11 mb-3">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-4 mb-5 mb-md-0">
@@ -169,55 +119,51 @@
           </div>
         </div>
       </section>
-      </div>
+ 
 
-    <div class="row justify-content-center">
-      <section class="pt-5 pb-11">
-            <div class="container">
+ 
 
-                    <div class="row">
-
-                    <h4 class="col-md-12">Applications</h4>
+              <h4 class="col-md-10">Applications</h4>
+              <div class="row justify-content-center mx-5">
                        
 
                     {% for a in site.data.home.applications %}
 
-                <div class="col-md-6 mb-5">
-                        <a class="stretched-link" href="{{a.url}}"></a>
-                  <div class="media h-100 shadow rounded p-4">
-                    <img class="far fa-fw fa-3x text-info mr-4 my-auto" src="/assets/img/tear-green.png"></i>
-      
-                    <div class="media-body my-auto">
-                      <h5 class="mb-1">{{a.title}}</h5>
-                      <p class="mb-0">{{a.text}}</p>
+                    <div class="col-lg-4 col-md-5 col-sm-6 mb-5">
+                      <a class="stretched-link" href="{{a.url}}"></a>
+                    <div class="alf-home-secondary media h-100 shadow rounded p-3">
+                
+                      <div class="media-body my-auto">
+                        <h5 class="mb-1">{{a.title}}</h5>
+                        <p class="mb-0">{{a.text}}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-      
-                    {% endfor %}
 
-                    <h4 class="col-md-12">Integrations</h4>
+                  {% endfor %}
+</div>
+                  <h4 class="col-md-10">Integrations</h4>
+                  <div class="row justify-content-center mx-5">
 
                     {% for i in site.data.home.integrations %}
 
-                <div class="col-md-6 mb-5">
-                        <a class="stretched-link" href="{{i.url}}"></a>
-                  <div class="media h-100 shadow rounded p-4">
-                    <img class="far fa-fw fa-3x text-danger mr-4 my-auto" src="/assets/img/tear-blue.png"></i>
-      
-                    <div class="media-body my-auto">
-                      <h5 class="mb-1">{{i.title}}</h5>
-                      <p class="mb-0">{{i.text}}</p>
+                    <div class="col-lg-4 col-md-5 col-sm-6 mb-5">
+                      <a class="stretched-link" href="{{i.url}}"></a>
+                    <div class="alf-home-success media h-100 shadow rounded p-3">
+                
+                      <div class="media-body my-auto">
+                        <h5 class="mb-1">{{i.title}}</h5>
+                        <p class="mb-0">{{i.text}}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
       
                     {% endfor %}
 
-          </section>
+</div>
 
 </div>  
-
+</div>
 
 
        

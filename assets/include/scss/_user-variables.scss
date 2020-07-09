@@ -1,8 +1,17 @@
-//
-// File for your custom SCSS variables
-//
-//$theme-colors: (
-//  "primary": pink,
-//  "danger":yellow
-//);
+/* ------------------------
+Override existing variables
+------------------------ */
 
+/* Apply Alfresco brand colors */
+
+$theme-colors: (
+  "primary": #00953B,
+  "primary-lighter": #76BC21,
+  "secondary": #2A7DE1,
+  "info":  #FFC600,
+  "success": #FF9015
+);
+
+/* Apply Muli font */
+
+$font-family-base: "Muli", sans-serif;
