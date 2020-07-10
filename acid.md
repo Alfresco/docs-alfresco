@@ -152,12 +152,19 @@ The spacing after a set of tabs should be continuous.
 
 {% capture properties %}
 
-| Item | Description | 
-| ---- | ----------- | 
-| Item 1 | Item 1 desc | 
-| Item 2 | Item 2 desc | 
-| Item 3 | | 
-| Item 4 | `Item 4 desc` | 
+| Parameter | Description | Type | Required? |
+| --------  | ----------- | ---- | --------- |
+| `nodeId` | *Required.* ID *of* the file to sign from Alfresco Content Services | String | `*` | 
+| `uri` | *Required.* The URI of the file to sign | String | `*` |
+| `files` | *Required.* A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to sign | File | `*` |
+| `recipientEmail` | *Required.* The email address to send the file to for signing | String | Yes |
+| `recipientName` | *Required.* The name of the email recipient | String | No |
+| `emailSubject` | *Required.* The subject line of the email | String | No | 
+| `documentId` | *Optional.* A document ID for the Docusign API to use. The value must be positive integer | Integer | No | 
+| `nodeFormat` | *Optional.* The document format for the Docusign API. The default value is `pdf` | String | No |
+| `signHerePage` | *Optional.* The label for the `Sign Here` box in the document | String | No | 
+| `signHereX` | *Optional.*  {% include tooltip.html word="community" text="Alfresco Community Edition" %} The X position of the `Sign Here` box in the document | String | No |
+
 
 {% endcapture %}
 
@@ -165,41 +172,11 @@ The spacing after a set of tabs should be continuous.
 
 Space between.
 
-<div class="table-responsive-md">
-<table class="table table-sm table-hover table-bordered">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>`kermit.kermit.cookie.cookie.animal.animal.kermit.kermit.ratty.ratty`</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+
 
 ## Tooltips
 
-Tooltips should display the term they are describing underneath the word. For example when discussing <span data-toggle="tooltip" data-placement="left" title="{{site.data.glossary.community}}">Alfresco Community Edition</span> the description will expand left of the word. 
+Tooltips should display the term they are describing underneath the word. For example when discussing {% include tooltip.html word="community" text="Alfresco Community Edition" %} the description will expand left of the word. 
 
 ## Videos
 

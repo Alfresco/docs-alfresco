@@ -1,3 +1,93 @@
-/*------------------------------------
-  File for your custom SCSS style
-------------------------------------*/
+/* ------------------------------------------
+Create new classes and override existing ones 
+------------------------------------------ */
+
+/* Class to style tooltip text */
+
+.alf-glossary {
+  color: #FF9015
+}
+
+/* Override tooltip styling */
+
+.tooltip-inner {
+  color: #fff;
+  background: #545863;
+  position: relative;
+  margin-bottom: 1rem;
+  border-width: 1px 1px 1px 0.25rem;
+  border-color: #e7eaf3;
+  border-style: solid;
+  border-radius: 0.25rem;
+  border-left-color: #FFC600;
+}
+
+.tooltip.show {
+  opacity: 1.0;
+}
+
+/* Override dropdown menu styling */
+
+.dropdown-menu {
+  border-left: solid 0.25rem #FFC600;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Override links to Alfresco blue */
+
+a {
+  color: #2A7DE1;
+}
+
+/* Override table styling */
+
+th {
+  color: #fff;
+  background-color:  #00953B;
+  border-color: #454d55;
+}
+
+th,
+td {
+  padding: 0.3rem;
+  border: 1px solid #e7eaf3;
+  border-bottom-width: 2px;
+}
+
+table {
+  border: 1px solid #e7eaf3;
+}
+
+tr:hover {
+  background-color: #e7eaf3;
+}
+
+/* Override first occurrence of italics in a table cell to green */
+
+tr em:first-of-type {
+  color: #00953B;
+}
+
+/* Classes to style homepage tiles */
+
+.alf-home-primary {
+  border-left: solid 0.25rem #76BC21;
+}
+
+.alf-home-secondary {
+  border-left: solid 0.25rem #2A7DE1;
+}
+
+.alf-home-info {
+  border-left: solid 0.25rem #FFC600;
+}
+
+.alf-home-success {
+  border-left: solid 0.25rem #FF9015;
+}
+
+/* Class to style border on homepage search */
+
+.alf-home-search {
+  border: solid 0.25rem #00953B;
+}
