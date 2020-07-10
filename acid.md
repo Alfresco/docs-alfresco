@@ -38,7 +38,7 @@ The spacing between blocks should be continuous.
 ```xml
 <bpmn2:endEvent id="EndEvent_1">
 	<bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
-	<bpmn2:messageEventDefinition messageRef="Message_1hxecs2" activiti:correlationKey="${userId}"</bpmn2:messageEventDefinition>
+	<bpmn2:messageEventDefinition messageRef="Message_1hxecs2" activiti:correlationKey="${userId}"></bpmn2:messageEventDefinition>
 </bpmn2:endEvent>
 ```
 
