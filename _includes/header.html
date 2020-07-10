@@ -33,7 +33,12 @@
         
               <input class="js-search border-0 d-none d-md-block form-control form-control-sm col-md-3 col-xl-3 ml-4" type="text" placeholder="Search..." aria-label="Search..." data-url="">
         
+            
+
               <ul class="navbar-nav duik-header__nav d-flex col-xl-2 ml-auto col-md-2">
+
+                {% if page.versions != nil %}
+
                 <li class="nav-item dropdown active ml-lg-6 mb-2 mb-lg-0">
                   <a class="nav-link px-0" href="#" id="version-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Version: {{page.version}} <i class="fas fa-angle-down small ml-1"></i></a>
@@ -63,10 +68,28 @@
                         {% endif %}
                         {% endunless %}
                         {% endfor %}
-        
+                        
+                        {% if page.location == "content" and page.version != "community" %}
+
+                        <div class="dropdown-divider"></div>
+
+                        {% if page.latest == true %}
+
+                        <a class="dropdown-item" href="{{page.url | replace: "latest", "community"}}">Community</a>
+
+                        {% else %}
+
+                        <a class="dropdown-item" href="{{page.url | replace: page.version, "community"}}">Community</a>
+
+                        {% endif %}
+                        {% endif %}
+
                     </div>
                
                 </li>
+
+                {% endif %}
+
                 </ul>
         
         
