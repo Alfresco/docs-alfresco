@@ -264,4 +264,10 @@ pre > code.highlight {
 code.highlighter-rouge {
 	background-color: #f5f7ff;
   color: #00754A;
-} 
+}
+
+/* Pointer for sidebar headers */
+
+.duik-sidebar__heading {
+	cursor: pointer;
+}
