@@ -15,10 +15,11 @@
           path: /content/6.2/user/front
         - title: 'Headers'
           path: /content/6.2/user/headers
-        - title: 'Tooltips'
-          path: /content/6.2/user/tooltips  
-        - title: 'Tabs'
-          path: /content/6.2/user/tabs          
+          pages:
+          - title: 'Tooltips'
+            path: /content/6.2/user/headers/tooltips  
+          - title: 'Tabs'
+            path: /content/6.2/user/headers/tabs          
     - title: 'Does Not Exist'
       path: /content/6.2/user/exist
       pages:

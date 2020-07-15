@@ -1,5 +1,6 @@
 ---
 title: Front matter
+test: hello
 ---
 
 This page is for testing default front matter. 

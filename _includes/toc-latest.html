@@ -52,7 +52,8 @@
                               {% assign show = nil %}
 
                           
-                              {% if page.url contains parent.path %}
+                              {% assign var = parent.path | replace: page.version, 'latest' %}
+                              {% if page.url contains var %}
                                   {% assign show = 'show' %}
                               {% endif %}
 
@@ -67,15 +68,16 @@
                                 {% assign active = nil %}
                                 
                              
-								{% if page.url contains child.path %}
-								{% assign active = 'active' %}
-							{% endif %}
+                                {% assign var2 = child.path | replace: page.version, 'latest' %}
+                                {% if page.url contains var2 %}
+                                {% assign active = 'active' %}
+                            {% endif %}
                             
 
 
                             {% if child.pages != nil %}
 
-                            
+                            {% assign var3 = child.path | replace: page.version, 'latest' %}
                             {% if page.url contains var3 %}
                                 {% assign show2 = 'show' %}
                             {% endif %}
@@ -87,15 +89,15 @@
                                             {% for grandchild in child.pages %}
                                             {% assign active = nil %}
                                             
-                                           
-                                            {% if page.url contains grandchild.path %}
+                                            {% assign var3 = grandchild.path | replace: page.version, 'latest' %}
+                                            {% if page.url contains var3 %}
                                             {% assign active = 'active' %}
                                             {% endif %}
                                           
                                         
             
                                             
-                                            <li class="duik-sidebar__item"><a class="duik-sidebar__link {{active}}" href="{{grandchild.path}}">{{grandchild.title}}</a></li>
+                                            <li class="duik-sidebar__item"><a class="duik-sidebar__link {{active}}" href="{{grandchild.path | replace: page.version, 'latest'}}">{{grandchild.title}}</a></li>
             
                                             {% endfor %}
                                         </ul>
@@ -109,7 +111,7 @@
 
 
                           
-                                <li class="duik-sidebar__item"><a class="duik-sidebar__link {{active}}" href="{{child.path}}">{{child.title}}</a>
+                                <li class="duik-sidebar__item"><a class="duik-sidebar__link {{active}}" href="{{child.path | replace: page.version, 'latest'}}">{{child.title}}</a>
                                 </li>
                                 {% endif %}
                                

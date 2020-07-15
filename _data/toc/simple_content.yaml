@@ -16,6 +16,11 @@
       path: /content/latest/user/tooltips/
     - title: 'Tabs'
       path: /content/latest/user/tabs/
+      pages:
+        - title: 'Front matter'
+          path: /content/6.1/user/front/
+        - title: 'Headers'
+          path: /content/6.1/user/headers/
 - title: 'Support Platforms'
   path: /content/6.1/user/
   pages:
