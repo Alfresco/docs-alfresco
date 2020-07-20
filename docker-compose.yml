@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dev
+    command: python3 -m http.server
+    ports:
+      - "4001:4001"
+    volumes:
+      - .:/home/user
+
+  jekyll:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jekyll
+    command: bash -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --trace"
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/home/user

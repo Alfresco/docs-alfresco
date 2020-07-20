@@ -30,18 +30,16 @@
         <div class="collapse navbar-collapse" id="sidebar-nav">
                 <div class="js-scrollbar duik-sidebar-sticky">
       
+                  {% if page.audiences != nil %}
 
-                    {% if page.audiences != nil %}
-
-                    <h3 class="mb-2"><a class="alf-toc-product" href="{{site.url}}/{{page.location}}/{{page.version}}/{{page.audience}}/">{{page.product}}</a></h3> 
+                    <h3 class="mb-2"><a class="alf-toc-product" href="{{site.url}}/{{page.location}}/latest/{{page.audience}}/">{{page.product}}</a></h3> 
       
                   {% else %}
 
-                  <h3 class="mb-2"><a class="alf-toc-product" href="{{site.url}}/{{page.location}}/{{page.version}}/">{{page.product}}</a></h3> 
+                  <h3 class="mb-2"><a class="alf-toc-product" href="{{site.url}}/{{page.location}}/latest/">{{page.product}}</a></h3> 
 
                   {% endif %}
-         
-      
+
                               {% if page.audience != blank %}
                               
                               {% assign toc = site.data.toc.[page.location] | where: 'version', page.version | where: 'audience', page.audience %}
@@ -62,13 +60,14 @@
                               {% assign show = nil %}
 
                           
-                              {% if page.url contains parent.path %}
+                              {% assign var = parent.path | replace: page.version, 'latest' %}
+                              {% if page.url contains var %}
                                   {% assign show = 'show' %}
-                              {% endif %} 
+                              {% endif %}
 
-                             
+                            
 
-                            <h5 class="alf-toc-head" data-toggle="collapse" href="#collapse{{parent.title | remove: ' '}}">{{parent.title}}<span class="fas fa-angle-down small alf-toc-chevron mt-1"></span></h5>
+                            <h5 class="alf-toc-head" data-toggle="collapse" href="#collapse{{parent.title | remove: ' '}}">{{parent.title}}<span class="fas fa-angle-down small alf-toc-chevron"></span></h5>
                         
                         
                           <ul class="alf-toc-ul collapse {{show}}" id="collapse{{parent.title | remove: ' '}}">
@@ -77,15 +76,16 @@
                                 {% assign active = nil %}
                                 
                              
-								{% if page.url contains child.path %}
-								{% assign active = 'active' %}
-							{% endif %}
+                                {% assign var2 = child.path | replace: page.version, 'latest' %}
+                                {% if page.url contains var2 %}
+                                {% assign active = 'active' %}
+                            {% endif %}
                             
 
 
                             {% if child.pages != nil %}
 
-                            
+                            {% assign var3 = child.path | replace: page.version, 'latest' %}
                             {% if page.url contains var3 %}
                                 {% assign show2 = 'show' %}
                             {% endif %}
@@ -97,15 +97,15 @@
                                             {% for grandchild in child.pages %}
                                             {% assign active = nil %}
                                             
-                                           
-                                            {% if page.url contains grandchild.path %}
+                                            {% assign var3 = grandchild.path | replace: page.version, 'latest' %}
+                                            {% if page.url contains var3 %}
                                             {% assign active = 'active' %}
                                             {% endif %}
                                           
                                         
             
                                             
-                                            <li class="alf-toc-li alf-toc-grandchild"><a class="alf-toc-a {{active}}" href="{{grandchild.path}}">{{grandchild.title}}</a></li>
+                                            <li class="alf-toc-li alf-toc-grandchild"><a class="alf-toc-a {{active}}" href="{{grandchild.path | replace: page.version, 'latest'}}">{{grandchild.title}}</a></li>
             
                                             {% endfor %}
                                         </ul>
@@ -119,7 +119,7 @@
 
 
                           
-                                <li class="alf-toc-li alf-toc-child"><a class="alf-toc-a {{active}}" href="{{child.path}}">{{child.title}}</a>
+                                <li class="alf-toc-li alf-toc-child"><a class="alf-toc-a {{active}}" href="{{child.path | replace: page.version, 'latest'}}">{{child.title}}</a>
                                 </li>
                                 {% endif %}
                                

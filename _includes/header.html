@@ -3,7 +3,7 @@
       <header class="duik-header">
   
           <nav class="navbar navbar-dark fixed-top bg-primary flex-nowrap p-0">
-              <a class="navbar-brand col-md-3 col-xl-2 mr-0 pt-0" href="/"><img src="/assets/img/docs-logo.png" style="height:71px" alt="Alfresco Docs logo"></a>
+              <a class="navbar-brand col-md-3 col-xl-2 mr-0 pt-0" href="/"><img src="/assets/img/docs-logo.png" style="height:55px" alt="Alfresco Docs logo"></a>
         
               <ul class="navbar-nav duik-header__nav text-nowrap flex-row d-flex col-xl-5 ml-auto col-md-4">
 
@@ -13,16 +13,34 @@
                   
                   <li class="nav-item ml-lg-6 mb-2 mb-lg-0">
                   
+                  {% if page.latest == true %}
+
                   {% if a == page.audience %}
                   
-                  <a class="nav-link active px-0" style="border-bottom: 4px solid #fff;" href="{{site.url}}/{{page.location}}/{{page.version}}/{{a}}/intro">{{a | capitalize}}</a>
+                  <a class="nav-link active px-0" style="border-bottom: 4px solid #fff;" href="{{site.url}}/{{page.location}}/latest/{{a}}/">{{a | capitalize}}</a>
                   
                   {% else %}
                   
-                  <a class="nav-link px-0" href="{{site.url}}/{{page.location}}/{{page.version}}/{{a}}/intro">{{a | capitalize}}</a>
+                  <a class="nav-link px-0" href="{{site.url}}/{{page.location}}/latest/{{a}}/">{{a | capitalize}}</a>
                   
                   {% endif %}
+
+
+                  {% else %}
+
+
+
+
+                  {% if a == page.audience %}
                   
+                  <a class="nav-link active px-0" style="border-bottom: 4px solid #fff;" href="{{site.url}}/{{page.location}}/{{page.version}}/{{a}}/">{{a | capitalize}}</a>
+                  
+                  {% else %}
+                  
+                  <a class="nav-link px-0" href="{{site.url}}/{{page.location}}/{{page.version}}/{{a}}/">{{a | capitalize}}</a>
+                  
+                  {% endif %}
+                  {% endif %}
                   </li>
                   
                   {% endfor %}

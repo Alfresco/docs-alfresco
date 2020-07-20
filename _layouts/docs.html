@@ -11,7 +11,11 @@
       <div class="container-fluid">
         <div class="row">
          
-          {% include sidebar.html %}
+          {% if page.latest == true %}
+          {% include toc-latest.html %}
+          {% else %}
+          {% include toc.html %}
+          {% endif %}
     
           <main class="ml-md-auto col-md-9 col-xl-10 px-4 pt-0 pt-md-11">
             <div class="row pt-3">
