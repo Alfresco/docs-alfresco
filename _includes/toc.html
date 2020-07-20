@@ -30,6 +30,16 @@
         <div class="collapse navbar-collapse" id="sidebar-nav">
                 <div class="js-scrollbar duik-sidebar-sticky">
       
+
+                    {% if page.audiences != nil %}
+
+                    <h3 class="mb-2"><a class="alf-toc-product" href="{{site.url}}/{{page.location}}/{{page.version}}/{{page.audience}}/">{{page.product}}</a></h3> 
+      
+                  {% else %}
+
+                  <h3 class="mb-2"><a class="alf-toc-product" href="{{site.url}}/{{page.location}}/{{page.version}}/">{{page.product}}</a></h3> 
+
+                  {% endif %}
          
       
                               {% if page.audience != blank %}
@@ -54,14 +64,14 @@
                           
                               {% if page.url contains parent.path %}
                                   {% assign show = 'show' %}
-                              {% endif %}
+                              {% endif %} 
 
                              
 
-                            <h5 class="duik-sidebar__heading" data-toggle="collapse" href="#collapse{{parent.title | remove: ' '}}">{{parent.title}}</h5>
+                            <h5 class="alf-toc-head" data-toggle="collapse" href="#collapse{{parent.title | remove: ' '}}">{{parent.title}}<span class="fas fa-angle-down small alf-toc-chevron mt-1"></span></h5>
                         
                         
-                          <ul class="duik-sidebar__nav collapse {{show}}" id="collapse{{parent.title | remove: ' '}}">
+                          <ul class="alf-toc-ul collapse {{show}}" id="collapse{{parent.title | remove: ' '}}">
 
                                 {% for child in parent.pages %}
                                 {% assign active = nil %}
@@ -80,9 +90,9 @@
                                 {% assign show2 = 'show' %}
                             {% endif %}
 
-                            <li class="duik-sidebar__item" data-toggle="collapse" href="#collapse{{child.title | remove: ' '}}">{{child.title}}</li>
+                            <li class="alf-toc-li alf-toc-parent" data-toggle="collapse" href="#collapse{{child.title | remove: ' '}}">{{child.title}}<span class="fas fa-angle-down small alf-toc-chevron mt-1"></span></li>
 
-                                    <ul class="duik-sidebar__nav collapse {{show2}}" id="collapse{{child.title | remove: ' '}}">
+                                    <ul class="alf-toc-ul collapse {{show2}}" id="collapse{{child.title | remove: ' '}}">
 
                                             {% for grandchild in child.pages %}
                                             {% assign active = nil %}
@@ -95,7 +105,7 @@
                                         
             
                                             
-                                            <li class="duik-sidebar__item"><a class="duik-sidebar__link {{active}}" href="{{grandchild.path}}">{{grandchild.title}}</a></li>
+                                            <li class="alf-toc-li alf-toc-grandchild"><a class="alf-toc-a {{active}}" href="{{grandchild.path}}">{{grandchild.title}}</a></li>
             
                                             {% endfor %}
                                         </ul>
@@ -109,7 +119,7 @@
 
 
                           
-                                <li class="duik-sidebar__item"><a class="duik-sidebar__link {{active}}" href="{{child.path}}">{{child.title}}</a>
+                                <li class="alf-toc-li alf-toc-child"><a class="alf-toc-a {{active}}" href="{{child.path}}">{{child.title}}</a>
                                 </li>
                                 {% endif %}
                                

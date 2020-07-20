@@ -266,8 +266,80 @@ code.highlighter-rouge {
   color: #00754A;
 }
 
-/* Pointer for sidebar headers */
+/* Classes to style the table of contents */
 
-.duik-sidebar__heading {
+.alf-toc-product {
 	cursor: pointer;
+	font-size: .875rem;
+  font-weight: 700;
+	padding-left: calc(.7rem + 4px);
+	padding-right: 1rem;
+	color: #1e2022;
+}
+
+.alf-toc-product.active {
+	font-weight: bold;
+}
+
+.alf-toc-product:hover {
+  color: #76BC21;
+  text-decoration: none;
+}
+
+.alf-toc-head {
+	cursor: pointer;
+	font-size: .875rem;
+  font-weight: 700;
+	padding-left: calc(.7rem + 4px);
+  padding-right: 1rem;
+}
+
+.alf-toc-ul {
+	list-style: none;
+	margin-bottom: 1rem;
+	
+}
+
+.alf-toc-li {
+	font-size: 0.875rem;
+	border-left: solid 2px;
+	border-color: #76BC21;
+}
+
+.alf-toc-parent {
+	cursor: pointer;
+	color: #1e2022;
+	padding: .3rem  1rem .5rem .7rem;
+	margin-left: -10px;
+}
+
+.alf-toc-child {
+	margin-left: -10px;
+	
+}
+
+.alf-toc-grandchild {
+	margin-left: -20px;
+}
+
+.alf-toc-a {
+  color: #1e2022;
+	display: inline-block;
+	padding: .3rem  1rem .5rem .7rem;
+}
+
+.alf-toc-a.active {
+	border-left: solid 4px;
+	border-color: #76BC21;
+	font-weight: bold;
+}
+
+.alf-toc-a:hover {
+  color: #76BC21;
+  text-decoration: none;
+}
+
+.alf-toc-chevron {
+	float: right;
+	color: #76BC21;
 }
