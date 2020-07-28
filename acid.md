@@ -11,9 +11,9 @@ layout: docs
 
 ## Callouts
 
-{% include note.html note="Animal is a beast on drums" %}
+> **Note:** Animal is a beast on drums
 
-{% include note.html note="The Cookie Monster likes choc chips" %}
+> **Note:** The Cookie Monster likes choc chips
 
 ## Code
 
@@ -150,7 +150,7 @@ The spacing after a set of tabs should be continuous.
 
 ## Tables
 
-{% capture properties %}
+
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
@@ -165,10 +165,6 @@ The spacing after a set of tabs should be continuous.
 | `signHerePage` | *Optional.* The label for the `Sign Here` box in the document | String | No | 
 | `signHereX` | *Optional.*  {% include tooltip.html word="community" text="Alfresco Community Edition" %} The X position of the `Sign Here` box in the document | String | No |
 
-
-{% endcapture %}
-
-{% include table.html table=properties %}
 
 Space between.
 

@@ -1,0 +1,138 @@
+<!-- Sidebar -->
+<nav class="col-md-3 col-xl-2 bg-light duik-sidebar navbar-expand-md">
+    <div class="d-flex d-md-none justify-content-between mb-5">
+
+    <!-- Sidebar Search -->
+        <form class="col form-inline input-group-sm">
+            <input class="js-search form-control form-control-sm w-100" type="text" placeholder="Search..." data-url="assets/include/json/autocomplete-data-for-documentation-search.json">
+        </form>
+    <!-- End Sidebar Search -->
+
+    <!-- Responsive Toggle Button -->
+        <button class="btn btn-link pl-0" type="button" data-toggle="collapse" data-target="#sidebar-nav" aria-controls="sidebar-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30" width="30" height="30" focusable="false">
+                <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/>
+            </svg>
+        </button>
+    <!-- End Responsive Toggle Button -->
+        
+    </div>
+
+    <!-- Sidebar Nav -->
+    <div class="collapse navbar-collapse" id="sidebar-nav">
+        <div class="js-scrollbar duik-sidebar-sticky">
+
+
+
+                        {% if page.audience != blank %}
+                              
+                        {% assign toc = site.data.toc.[page.location] | where: 'version', page.version | where: 'audience', page.audience %}
+                        
+                        {% else %}
+                        
+                        {% assign toc = site.data.toc.[page.location] | where: 'version',  page.version %}
+                        
+                        {% endif %}
+                        
+
+                        <ul class="alf-toc-ul">
+
+                        {% for a in toc %}
+                        {% for p in a.pages %}
+
+                        {% assign show = nil %}
+                        {% assign active = nil %}
+                        {% assign v = p.path | replace: page.version, 'latest' | prepend: site.url %}
+
+                        {% capture url %}{{page.url | absolute_url}}{% endcapture %}
+
+                        {% if url contains v %}
+                            {% assign show = 'show' %}
+                        {% endif %}
+
+                        {% if url == v %}
+                            {% assign active = 'active' %}
+                        {% endif %}
+
+                        
+
+                        {% if p.pages != nil %}
+
+                        <li class="alf-toc-parent" data-toggle="collapse" href="#collapse{{p.title | remove: ' '}}">{{p.title}}<i class="fas fa-angle-down small alf-toc-chevron"></i></li>
+
+                        <ul class="alf-toc-ul collapse {{show}}" id="collapse{{p.title | remove: ' '}}">
+
+                        {% for c in p.pages %}
+
+                        {% assign show = nil %}
+                        {% assign active = nil %}
+                        {% assign v = c.path | replace: page.version, 'latest' | prepend: site.url %}
+
+
+                        {% if url contains v %}
+                            {% assign show = 'show' %}
+                        {% endif %}
+
+                        {% if url == v %}
+                            {% assign active = 'active' %}
+                        {% endif %}
+
+                        {% if c.pages != nil %}
+
+
+                        <li class="alf-toc-child alf-toc-li" data-toggle="collapse" href="#collapse{{c.title | remove: ' '}}">{{c.title}}<i class="fas fa-angle-down small alf-toc-chevron mt-1"></i></li>
+
+                        <ul class="alf-toc-ul collapse {{show}}" id="collapse{{c.title | remove: ' '}}">
+
+                                {% for g in c.pages %}
+                                {% assign active = nil %}
+                                
+                                
+
+                                {% assign v = g.path | replace: page.version, 'latest' | prepend: site.url %}
+
+                                {% if url == v %}
+                                {% assign active = 'active' %}
+                                {% endif %}
+                              
+                            
+
+                                
+                                <li class="alf-toc-li alf-toc-grandchild"><a class="alf-toc-a {{active}}" href="{{g.path | replace: page.version, 'latest'}}">{{g.title}}</a></li>
+
+                                {% endfor %}
+                            </ul>
+
+
+
+
+                        {% else %}
+
+
+                        <li class="alf-toc-li alf-toc-child-solo"><a class="alf-toc-a {{active}}" href="{{c.path | replace: page.version, 'latest'}}">{{c.title}}</a>
+                        </li>
+
+
+
+                        {% endif %}
+
+                        {% endfor %}
+
+                    </ul>
+
+                        {% else %}
+
+
+                        <li class="alf-toc-solo"><a class="alf-toc-a {{active}}" href="{{p.path | replace: page.version, 'latest'}}">{{p.title}}</a>
+                        </li>
+
+                        {% endif %}
+                       
+                        {% endfor %}
+                        {% endfor %}
+                    </ul>
+
+                    </div>
+                </div>
+                <!-- End Sidebar Nav -->
+              </nav>
