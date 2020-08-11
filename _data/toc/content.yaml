@@ -1,25 +1,31 @@
 # Content Services
+## All URLs must end with a / 
 
-
+ 
 - version: 6.2
   audience: user
   pages:
-    - title: 'User Folder'
-      path:
+    - title: 'Alfresco Content Services'
+      path: /content/6.2/user/
+    - title: 'Tables'
+      path: /content/6.2/user/tables/
       pages:
-        - title: 'Tables'
-          path: /content/6.2/user/tables
+        - title: 'Tables overview'
+          path: /content/6.2/user/tables/
         - title: 'Blocks'
-          path: /content/6.2/user/blocks
-        - title: 'Front matter'
-          path: /content/6.2/user/front
-        - title: 'Headers'
-          path: /content/6.2/user/headers
+          path: /content/6.2/user/tables/blocks/
           pages:
-          - title: 'Tooltips'
-            path: /content/6.2/user/headers/tooltips  
-          - title: 'Tabs'
-            path: /content/6.2/user/headers/tabs          
+            - title: 'Blocks overview'
+              path: /content/6.2/user/tables/blocks/
+            - title: 'Front matter'
+              path: /content/6.2/user/tables/blocks/front/
+    - title: 'Headers'
+      path: /content/6.2/user/headers/
+      pages:
+        - title: 'Tooltips'
+          path: /content/6.2/user/headers/tooltips/  
+        - title: 'Tabs'
+          path: /content/6.2/user/headers/          
     - title: 'Does Not Exist'
       path: /content/6.2/user/exist
       pages:

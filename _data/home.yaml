@@ -4,7 +4,7 @@ services:
     url:  
   - title: 'Process'
     text: 'Alfresco Process Services (powered by Activiti) is an enterprise Business Process Management (BPM) solution targeted at business people and developers.'
-    url:      
+    url: /activiti/latest/admin/     
   - title: 'Governance'
     text: "Alfresco Governance Services controls important information that needs to be retained over time. It's used in highly regulated environments, for managing governmental information or personnel records, or where information might be audited."
     url:  

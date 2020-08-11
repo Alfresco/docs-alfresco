@@ -1,0 +1,32 @@
+- version: 7.1.0-M8
+  audience: admin
+  pages:
+    - title: 'Alfresco Activiti Enterprise'
+      path: /activiti/latest/admin/
+    - title: 'BPMN'
+      path: /activiti/latest/admin/bpmn/
+      pages:
+        - title: 'User tasks'
+          path: /activiti/latest/admin/bpmn/user/
+        - title: 'Pools and lanes'
+          path: /activiti/latest/admin/bpmn/pools/
+        - title: 'Service tasks'
+          path: /activiti/latest/admin/bpmn/service/
+        - title: 'Docker Compose'
+          path: /activiti/latest/admin/bpmn/docker-test/
+- version: 7.1.0-M8
+  audience: user
+  pages:
+    - title: 'Alfresco Activiti Enterprise'
+      path: /activiti/latest/user/
+    - title: 'Process Workspace'
+      path: /activiti/latest/user/workspace/
+      pages:
+- version: 7.1.0-M8
+  audience: developer
+  pages:
+    - title: 'Alfresco Activiti Enterprise'
+      path: /activiti/latest/developer/
+    - title: 'Helm'
+      path: /activiti/latest/developer/helm/
+      pages:

@@ -19,54 +19,45 @@
 # in the templates via {{ site.myvariable }}.
 
 defaults:
-# ALFRESCO CONTENT SERVICES
+# ALFRESCO SYNC SERVICE
+
   - 
     scope: 
-      path: 'content'
+      path: 'activiti'
     values:
       layout: 'docs'
-      product: 'Alfresco Content Services'
-      location: 'content'
+      product: 'Alfresco Activiti Enterprise'
+      location: 'activiti'
       versions:
-        - 6.1
-        - 5.2
-        - 6.0
-        - 6.2
+        - 7.1.0-M8
+        - 7.1.0-M7
+        - 7.1.0-M6
+        - 7.1.0-M5
       audiences:
-        - 'administrator'
+        - 'admin'
         - 'developer'
         - 'user'
   -
     scope:
-      path: 'content/latest'
+      path: 'activiti/latest'
     values:
-      version: 6.2
+      version: 7.1.0-M8
       latest: true
   -
     scope:
-      path: 'content/latest/user'
-    values:
-      audience: 'user'
-  -
-    scope:
-      path: 'content/latest/admin'
+      path: 'activiti/latest/admin'
     values:
       audience: 'admin'
   -
     scope:
-      path: 'content/6.1'
-    values:
-      version: 6.1
-  -
-    scope:
-      path: 'content/6.1/user'
+      path: 'activiti/latest/user'
     values:
       audience: 'user'
   -
     scope:
-      path: 'content/6.1/admin'
+      path: 'activiti/latest/developer'
     values:
-      audience: 'admin'
+      audience: 'developer'  
 
 
 sass:
@@ -75,6 +66,9 @@ permalink: pretty
 
 git-repo: https://github.com/Alfresco/docs-alfresco/edit/master
 
+kramdown:
+  input: GFM
+  auto_ids: true
 
 title: Your awesome title
 email: your-email@example.com

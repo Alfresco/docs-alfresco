@@ -12,7 +12,7 @@
         <div class="row">
          
           {% if page.latest == true %}
-          {% include toc-latest.html %}
+          {% include toc-new.html %}
           {% else %}
           {% include toc.html %}
           {% endif %}
@@ -24,7 +24,7 @@
                 
                 {% if page.latest == true %}
                 
-                <div class="duik-content-nav pl-2">
+                <div class="pl-2">
                 <i class="fab fa-github"></i>
                 <a class="mb-5" href="{{site.git-repo}}/{{page.path}}" target="_blank">Suggest an edit</a>
                 </div>
@@ -32,15 +32,16 @@
                 {% endif %}
 
                 <ul class="js-scroll-nav duik-content-nav pt-5">
-                  <li class="duik-content-nav__item"><a href="#doc-about">About</a></li>
-                  <li class="duik-content-nav__item"><a href="#doc-whats-included">What’s Included</a></li>
-                  <li class="duik-content-nav__item"><a href="#doc-getting-started">Getting Started</a></li>
-                  <li class="duik-content-nav__item"><a href="#doc-starter-template">Starter Template</a></li>
+                  <li class="duik-content-nav__item"><a href="#xml">XML</a></li>
                   <li class="duik-content-nav__item">
-                    <a href="#important-globals">Important globals</a>
+                    <a href="#properties">Properties</a>
                     <ul>
-                      <li class="duik-content-nav__item"><a href="#html5-doctype">HTML5 doctype</a></li>
-                      <li class="duik-content-nav__item"><a href="#responsive-meta-tag">Responsive tag</a></li>
+                      <li class="duik-content-nav__item"><a href="#assignment">Assignment</a></li>
+                      <li class="duik-content-nav__item"><a href="#due-date">Due date</a></li>
+                      <li class="duik-content-nav__item"><a href="#multi-instance-type">Multi-instance type</a></li>
+                      <li class="duik-content-nav__item"><a href="#priority">Priority</a></li>
+                      <li class="duik-content-nav__item"><a href="#form-selector">Form selector</a></li>
+                      <li class="duik-content-nav__item"><a href="#mapping-type">Mapping type</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -49,7 +50,7 @@
     
               <!-- Content -->
               <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-                <div class="border-bottom mb-7">
+                <div class="border-bottom mb-3">
                   <h1>{{page.title}}</h1>
                   
                 </div>

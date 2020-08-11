@@ -39,6 +39,19 @@ a {
   color:#2A7DE1;
 }
 
+/* Override blockquote styling */
+
+blockquote {
+	position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border-width: 1px 1px 1px 0.25rem;
+  border-color: #dee2e6;
+  border-style: solid;
+	border-radius: 0.25rem;
+	border-left-color: #FFC600;
+}
+
 /* Override table styling */
 
 th {
@@ -92,11 +105,112 @@ tr em:first-of-type {
   border: solid 0.25rem #00953B;
 }
 
+/* Classes to style the table of contents */
 
+.alf-toc-ul {
+	list-style: none;
+	cursor: pointer;
+	color: #1e2022;
+	padding: .3rem  1rem .5rem .7rem;
+	font-size: 0.875rem;
+	display: list-item;
+}
 
+.alf-toc-li {
+	border-left: solid 2px;
+	border-color: #76BC21;
+}
 
+.alf-toc-li:hover {
+  color: #76BC21;
+  text-decoration: none;
+}
 
-/* Classes to style code blocks */
+.alf-toc-solo {
+	margin-left: -10px;
+}
+
+.alf-toc-parent {
+	margin-left: 2px;
+	padding-bottom: 8px;
+}
+
+.alf-toc-parent:hover {
+	color: #76BC21;
+  text-decoration: none;
+}
+
+.alf-toc-child-solo {
+	margin-left: 10px;
+}
+
+.alf-toc-child {
+	margin-left: 10px;
+	padding: .3rem  1rem .5rem .7rem;
+}
+
+.alf-toc-grandchild {
+	margin-left: 30px;
+}
+.alf-toc-a {
+  color: #1e2022;
+	display: inline-block;
+	padding: .3rem  1rem .5rem .7rem;
+}
+
+.alf-toc-a.active {
+	border-left: solid 4px;
+	border-color: #76BC21;
+	font-weight: bold;
+}
+
+.alf-toc-a:hover {
+  color: #76BC21;
+  text-decoration: none;
+}
+
+.alf-toc-chevron {
+	float: right;
+	color: #76BC21;
+}
+
+/* Class to override inline code */
+
+code.highlighter-rouge {
+	background-color: #f5f7ff;
+  color: #00754A;
+}
+
+/* Prism button overrides */
+
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+	color: #1e2022;
+	font-size: .8em;
+	padding: 0 .5em;
+	background: #f5f2f0;
+	background: #FFC600;
+	box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+	border-radius: .5em;
+}
+
+div.code-toolbar > .toolbar a:hover,
+div.code-toolbar > .toolbar a:focus,
+div.code-toolbar > .toolbar button:hover,
+div.code-toolbar > .toolbar button:focus,
+div.code-toolbar > .toolbar span:hover,
+div.code-toolbar > .toolbar span:focus {
+	color: green;
+	text-decoration: none;
+}
+
+/*
+Name:       Base16 Atelier Sulphurpool Light
+Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/sulphurpool)
+Prism template by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/prism/)
+Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+*/
 
 code[class*="language-"],
 pre[class*="language-"] {
@@ -259,87 +373,3 @@ pre > code.highlight {
 	background: linear-gradient(to right, rgba(107, 115, 148, 0.2) 70%, rgba(107, 115, 148, 0));
 }
 
-/* Class to override inline code */
-
-code.highlighter-rouge {
-	background-color: #f5f7ff;
-  color: #00754A;
-}
-
-/* Classes to style the table of contents */
-
-.alf-toc-product {
-	cursor: pointer;
-	font-size: .875rem;
-  font-weight: 700;
-	padding-left: calc(.7rem + 4px);
-	padding-right: 1rem;
-	color: #1e2022;
-}
-
-.alf-toc-product.active {
-	font-weight: bold;
-}
-
-.alf-toc-product:hover {
-  color: #76BC21;
-  text-decoration: none;
-}
-
-.alf-toc-head {
-	cursor: pointer;
-	font-size: .875rem;
-  font-weight: 700;
-	padding-left: calc(.7rem + 4px);
-  padding-right: 1rem;
-}
-
-.alf-toc-ul {
-	list-style: none;
-	margin-bottom: 1rem;
-	
-}
-
-.alf-toc-li {
-	font-size: 0.875rem;
-	border-left: solid 2px;
-	border-color: #76BC21;
-}
-
-.alf-toc-parent {
-	cursor: pointer;
-	color: #1e2022;
-	padding: .3rem  1rem .5rem .7rem;
-	margin-left: -10px;
-}
-
-.alf-toc-child {
-	margin-left: -10px;
-	
-}
-
-.alf-toc-grandchild {
-	margin-left: -20px;
-}
-
-.alf-toc-a {
-  color: #1e2022;
-	display: inline-block;
-	padding: .3rem  1rem .5rem .7rem;
-}
-
-.alf-toc-a.active {
-	border-left: solid 4px;
-	border-color: #76BC21;
-	font-weight: bold;
-}
-
-.alf-toc-a:hover {
-  color: #76BC21;
-  text-decoration: none;
-}
-
-.alf-toc-chevron {
-	float: right;
-	color: #76BC21;
-}
