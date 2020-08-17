@@ -1,0 +1,13 @@
+    {%assign subindex = 0%}
+    {%for s in include.submenu %}
+      {%if s.sub.size > 1%} 
+      <div class="container">
+        <h1>{{s.title}}</h1>
+        {%for ss in s.sub %}
+          <a class="navbar-item" href="{{ss.url}}">{{ss.title}}</a>
+        {%endfor%}
+      </div>
+      {%else%}
+        <a class="navbar-item" href="{{s.url}}">{{s.title}}</a>
+      {%endif%}
+    {%endfor%}

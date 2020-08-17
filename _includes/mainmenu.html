@@ -1,0 +1,80 @@
+    <!-- Header -->
+    <header class="section">
+      <nav aria-label="main navigation" class="navbar container" role="navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://alfresco.com">
+            <img src="/assets/img/alfresco-logo.svg"/>
+          </a>
+
+          <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarBasicExample" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="navbar-menu" id="navbarBasicExample">
+          <div class="navbar-start">
+              <a href="/" class="navbar-item is-hoverable">
+                Docs
+              </a>
+            
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link is-arrowless">
+                Services
+              </a>
+
+              <div class="navbar-dropdown is-boxed navbar-smallsub navbar-applications">
+                {%include submenu_small.html submenu=site.data.home.services%}
+
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link is-arrowless">
+                Integrations
+              </a>
+
+              <div class="navbar-dropdown is-boxed navbar-integrations">
+                {%include submenu.html %}
+
+              </div>
+            </div>
+                                
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link is-arrowless">
+                Applications
+              </a>
+
+              <div class="navbar-dropdown is-boxed navbar-smallsub navbar-applications">
+                {%include submenu_small.html submenu=site.data.home.applications%}
+              </div>
+            </div>
+
+            <a href="/" class="navbar-item">
+              <i class="icon-search"></i>
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Eng
+              </a>
+
+              <div class="navbar-dropdown is-boxed navbar-lang">
+                <a class="navbar-item">
+                  Deutch
+                </a>
+                <a class="navbar-item">
+                  Svenska
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- End Header -->
