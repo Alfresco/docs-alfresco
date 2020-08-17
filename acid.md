@@ -66,7 +66,7 @@ Links should be clearly visible and not be broken.
 
 ### Internal
 
-If [internal links]({% link about.markdown %}) are implemented properly the site will not build if they are broken.
+If [internal links]() are implemented properly the site will not build if they are broken.
 
 ### External
 
