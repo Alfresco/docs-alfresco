@@ -63,10 +63,6 @@ integrations:
       - title: "Federation"
         text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
         url:
-  - title: "Intelligence"
-    text: "Add AI capabilities to Alfresco Content Services using a number of Amazon AI Services ( Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine."
-    url:
-    image: /assets/img/ic_intelligence_80px.svg
   - title: "Identity"
     text: "Enable Single Sign On capabilities by configuring user authentication between Identity Service and a supported SAML identity provider."
     url:
@@ -78,6 +74,10 @@ integrations:
       - title: "SAML SSO"
         text: "SAML Single Sign-On for Alfresco Content Services provides support for Single Sign-On (SSO) across an organization."
         url:
+  - title: "Intelligence"
+    text: "Add AI capabilities to Alfresco Content Services using a number of Amazon AI Services ( Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine."
+    url:
+    image: /assets/img/ic_intelligence_80px.svg
   - title: "Content Stores"
     text: "Content stores can be used to control how and where files are physically stored. Files and content items can be stored across a range of locations and can be encrypted/decrypted. Additional content storage options can be wired up together for efficient storage and access."
     url:
@@ -119,7 +119,7 @@ integrations:
 applications:
   - title: "Digital Workspace"
     text: "Alfresco Digital Workspace is a content management application built with the Alfresco Application Development Framework (ADF)."
-    url:
+    url: /dw
     image: /assets/img/logo_dw_72px.svg
   - title: "Application Development Framework"
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
