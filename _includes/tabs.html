@@ -1,51 +1,27 @@
-<div class="mb-3">
+{% assign tableId = include.tableid %}
 
-        <ul class="nav nav-bordered" id="tabs" role="tablist">
-    
-            <li class="nav-item">
-                <a class="nav-link active" id="tab1" data-toggle="tab" href="#{{include.opt1 | replace: ' ', '-'}}" role="tab" aria-controls="#{{include.opt1 | replace: ' ', '-'}}-content" aria-selected="true">{{include.opt1}}</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" id="tab2" data-toggle="tab" href="#{{include.opt2 | replace: ' ', '-'}}" role="tab" aria-controls="{{include.opt2 | replace: ' ', '-'}}-content" aria-selected="false">{{include.opt2}}</a>
-            </li>
+<alfresco-contenttabs {%if tableId%}id="{{tableId}}" {%endif%}class="content-tabs">
+  <div class="tabs is-small">
+    <ul>
 
-            {% if include.opt3 != '' %}
+    {% for item in include   %}
 
-            <li class="nav-item">
-                    <a class="nav-link" id="tab3" data-toggle="tab" href="#{{include.opt3 | replace: ' ', '-'}}" role="tab" aria-controls="{{include.opt3 | replace: ' ', '-'}}-content" aria-selected="false">{{include.opt3}}</a>
-            </li>
+      {% assign cut = item[0] | slice: 0, 3 %}
+      {%  if cut == "opt" %}
+        {% assign id = item[1] | prepend: prefix | slugify  %}
+        {% assign tabname = item[1] %}
+      {% endif %}
 
-            {% endif %}
-                    
-        </ul>
-                    
-        <div class="tab-content" id="content">
-            
-             <div class="tab-pane bg-light fade p-3 show active" id="{{include.opt1 | replace: ' ', '-'}}" role="tabpanel" aria-labelledby="{{include.opt1 | replace: ' ', '-'}}-content">
-                        
-                {{include.content1 | markdownify}}
-    
-            </div>
-                      
-            <div class="tab-pane bg-light fade p-3" id="{{include.opt2 | replace: ' ', '-'}}" role="tabpanel" aria-labelledby="{{include.opt2 | replace: ' ', '-'}}-content">
-    
-    
-                {{include.content2 | markdownify}}
-                      
-            </div>
-        
-            {% if include.opt3 != '' %}
-                      
-            <div class="tab-pane bg-light fade p-3" id="{{include.opt3 | replace: ' ', '-'}}" role="tabpanel" aria-labelledby="{{include.opt3 | replace: ' ', '-'}}-content">
-    
-    
-                {{include.content3 | markdownify}}
-                          
-            </div>
+      {% assign cut = item[0] | slice: 0, 7 %}
+      {% if cut == "content" %}
+        {% assign tabcontent = item[1] %}
+        <li data-tabholder="tab_{{id}}"><a href="#{{tableId}}/{{id}}" role="tab" data-tabid="{{id}}" data-toggle="content_{{id}}">{{tabname}}</a></li>
+        <div class="tab-content" data-contentid="content_{{id}}">{{tabcontent | markdownify}}</div>
+      {% endif %}
 
-            {% endif %}
 
-        </div>
-                  
-    </div>
+    {% endfor %}
+    </ul>
+  </div>
+  <div class="contents"></div>
+</alfresco-contenttabs>
