@@ -183,7 +183,7 @@ The Java login files need to be updated with details of the Kerberos configurati
 
 1. Configure or create the Java configuration file `java.login.config` located in `/java/conf/security`. The following is an example of a `java.login.config` file. The important properties to set are `keyTab` and `principal`.
 
-    * `keyTab` is the location of the [`keytab` file](#configure-kerberos-files) copied to the ACS server
+    * `keyTab` is the location of the [`keytab` file](#step-1-configure-kerberos-files) copied to the ACS server
     * `principal` is in the format `HTTP/<host>.<domain>`
 
     ```bash
@@ -220,8 +220,8 @@ The Java login files need to be updated with details of the Kerberos configurati
 
 3. Open the `share-config-custom.xml` file:
 
-    * Update the `<realm>`property with the [realm name](#configure-kerberos-files), for example `<realm>EXAMPLE.COM</realm>`.
-    * Update the `<endpoint-spn>` property with the [SPN value](#configure-kerberos-files), for example `<endpoint-spn>HTTP/alfresco@EXAMPLE.COM</endpoint-spn>`
+    * Update the `<realm>`property with the [realm name](#step-1-configure-kerberos-files), for example `<realm>EXAMPLE.COM</realm>`.
+    * Update the `<endpoint-spn>` property with the [SPN value](#step-1-configure-kerberos-files), for example `<endpoint-spn>HTTP/alfresco@EXAMPLE.COM</endpoint-spn>`
     * Uncomment the **two** sections that begin with: `<config evaluator="string-compare" condition="Remote">`
     * Navigate to the `<!--- Kerberos settings --->` section and replace `condition="KerberosDisabled"` with `condition="Kerberos"`
 
@@ -249,7 +249,7 @@ The Java login files need to be updated with details of the Kerberos configurati
 
 1. Configure or create the Java configuration file `java.login.config` located in `/java/conf/security`. The following is an example of a `java.login.config` file. The important properties to set are `keyTab` and `principal`.
 
-    * `keyTab` is the location of the [`keytab` file](#configure-kerberos-files) copied to the ACS server
+    * `keyTab` is the location of the [`keytab` file](#step-1-configure-kerberos-files) copied to the ACS server
     * `principal` is in the format `HTTP/<host>.<domain>`
 
     ```bash
@@ -319,7 +319,7 @@ In a containerized deployment it is assumed that a load balancer is used to rout
 
 ### Kerberos configuration files
 
-In [Step 1](#configure-kerberos-files) the `keytab` and `krb5.conf` files need to be edited if the Active Directory instance is in a separate domain.
+In [Step 1](#step-1-configure-kerberos-files) the `keytab` and `krb5.conf` files need to be edited if the Active Directory instance is in a separate domain.
 
 1. The `keytab` file can be configured to refer to an Active Directory instance in a separate domain if necessary.
 
@@ -355,7 +355,7 @@ In [Step 1](#configure-kerberos-files) the `keytab` and `krb5.conf` files need t
 
 ### Share configuration file
 
-The same edits need to be carried out on the [`share-config-custom.xml`](#configure-alfresco-share) however the `<realm>` will be the Active Directory domain name and the `<endpoint-spn>` will use the load balancer address and Active Directory domain.
+The same edits need to be carried out on the [`share-config-custom.xml`](#step-3-configure-alfresco-share) however the `<realm>` will be the Active Directory domain name and the `<endpoint-spn>` will use the load balancer address and Active Directory domain.
 
 For example:
 
