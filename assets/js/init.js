@@ -89,5 +89,52 @@
     }
   };
 
+  hljs.initHighlightingOnLoad();
+
   initialHashCheck();
+
+  function addPreCopy() {
+    const codeTags = document.querySelectorAll("pre > code");
+
+    const template = `<button class="button"><span class="icon is-small"><i class="copy-icon"></i></span></button>`;
+
+    Array.from(codeTags).forEach((c) => {
+      const preTag = c.parentElement;
+      const copyContainer = document.createElement("div");
+      copyContainer.innerHTML = template;
+      copyContainer.classList.add("copy-pane");
+
+      const btn = copyContainer.querySelector("button");
+      btn.addEventListener("click", (e) => {
+        var el = document.createElement("textarea");
+        el.value = c.textContent;
+        document.body.appendChild(el);
+        el.style.display = "block";
+
+        // select the entire textblock
+        if (window.document.documentMode)
+          el.setSelectionRange(0, el.value.length);
+        else el.select();
+
+        // copy to clipboard
+        document.execCommand("copy");
+
+        // clean up element
+        document.body.removeChild(el);
+
+        btn.classList.add("is-happy");
+        if (btn.dataset.switchtimer) {
+          clearTimeout(parseInt(btn.dataset.switchtimer));
+          btn.dataset.switchtimer = "";
+        }
+        btn.dataset.switchtimer = setTimeout(() => {
+          btn.classList.remove("is-happy");
+        }, 1000);
+      });
+
+      preTag.prepend(copyContainer);
+      console.log(preTag);
+    });
+  }
+  addPreCopy();
 })();
