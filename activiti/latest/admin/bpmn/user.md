@@ -23,21 +23,21 @@ The XML for a user task is similar to the following:
 
 ## Properties
 
-The basic properties for a user task are: 
+The basic properties for a user task are:
 
 {% capture table1 %}
 
-| Property | Description | Example |
-| -------- | ----------- | ------- |
-| `id` | *Required.* The unique identifier for the user task. This is system generated and cannot be altered. | UserTask_0gpdh83 |
-| `name` | *Optional.* The name of the user task. This will display on the user task in the process diagram. The value `${initiator}` can be used to include the name of the user that starts the process instance as part of the task name at runtime. | Flavor order |
-| `documentation` | *Optional.* A free text description of what the user task does | A form to choose the flavor of ice cream. |
+| Property        | Description                                                                                                                                                                                                                                  | Example                                   |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `id`            | _Required._ The unique identifier for the user task. This is system generated and cannot be altered.                                                                                                                                         | UserTask_0gpdh83                          |
+| `name`          | _Optional._ The name of the user task. This will display on the user task in the process diagram. The value `${initiator}` can be used to include the name of the user that starts the process instance as part of the task name at runtime. | Flavor order                              |
+| `documentation` | _Optional._ A free text description of what the user task does                                                                                                                                                                               | A form to choose the flavor of ice cream. |
 
 {% endcapture %}
 
 {% include table.html table=table1 %}
 
-The ID and name of a user task are set as XML attributes of the `userTask`. Documentation is a sub-element of `userTask`, for example: 
+The ID and name of a user task are set as XML attributes of the `userTask`. Documentation is a sub-element of `userTask`, for example:
 
 ```xml
 <bpmn2:userTask id="UserTask_0gpdh83" name="Order">
@@ -47,12 +47,12 @@ The ID and name of a user task are set as XML attributes of the `userTask`. Docu
 
 ### Assignment
 
-The users or groups that are able to complete a task. A single user can be assigned or candidates can be set. Candidates are a list of users or groups that may claim a task at runtime. A single user or candidates must be set for a user task.  
+The users or groups that are able to complete a task. A single user can be assigned or candidates can be set. Candidates are a list of users or groups that may claim a task at runtime. A single user or candidates must be set for a user task.
 
-A single assignee is set in the XML attribute `activiti:assignee` of the `userTask`, for example: 
+A single assignee is set in the XML attribute `activiti:assignee` of the `userTask`, for example:
 
 ```xml
-<bpmn2:userTask activiti:assignee="hruser"> 
+<bpmn2:userTask activiti:assignee="hruser">
 ```
 
 Candidates are set in the XML attribute `activiti:candidateGroups` of the `userTask`, for example:
@@ -79,19 +79,19 @@ Identity allows for users and groups to be searched in the Identity Service and 
 
 Expression allows for an expression using process variables to be used to select users and groups for the assignment. Expressions can be a simple process variable such as `${userToAssign}` or an expression such as `${userDetails.username}` that uses a process variable of type JSON. A JSON editor is provided for creating expressions for assignment, however the editor will only be displayed if there are process variables in the process.
 
-> **Note:** The value `"assignee": "${initiator}"` can be set as an expression without creating a process variable. This will assign the task to the user that started the process instance.  
+> **Note:** The value `"assignee": "${initiator}"` can be set as an expression without creating a process variable. This will assign the task to the user that started the process instance.
 
 {% endcapture %}
 
-{% include tabs.html opt1="Static" content1=static opt2="Identity" content2=identity opt3="Expression" content3=expression %}
+{% include tabs.html tableid="sometb" opt1="Static" content1=static opt2="Identity" content2=identity opt3="Expression" content3=expression %}
 
 The assignments for user tasks are stored in the `assignments` property of the **Extensions Editor** and `<process-definition-name>-extensions.json`.
 
-> **Note:** Users and groups that are selected as assignees or candidates in a user task are automatically added as [users](../../../administrator/identity/README.md#permissions) when deploying an application if they are set using the static or identity options. Setting an assignee or candidate using the expression source will require the potential users or groups to be manually assigned users when deploying an application. 
+> **Note:** Users and groups that are selected as assignees or candidates in a user task are automatically added as [users](../../../administrator/identity/README.md#permissions) when deploying an application if they are set using the static or identity options. Setting an assignee or candidate using the expression source will require the potential users or groups to be manually assigned users when deploying an application.
 
 ### Due date
 
-An optional date and time for a user task to be completed by in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} format. A date picker can be used to choose the time and date.
+An optional date and time for a user task to be completed by in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601){:target="\_blank"} format. A date picker can be used to choose the time and date.
 
 Checking the **Use process variable** box for due date allows a process variable to be used to generate the date. The process variable must be of type `datetime`.
 
@@ -111,9 +111,9 @@ The type of multi-instance execution for the user task. The default value is `No
 
 ### Priority
 
-A optional priority for the user task between 0 and 4. The priority property is to aid end-users in their task management.  
+A optional priority for the user task between 0 and 4. The priority property is to aid end-users in their task management.
 
-Priority is set as an XML attribute of the `userTask`, for example: 
+Priority is set as an XML attribute of the `userTask`, for example:
 
 ```xml
 <bpmn2:userTask activiti:priority="2">

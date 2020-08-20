@@ -1,15 +1,15 @@
 {% if include.video == nil %}
 
-<figure class="figure mb-3">
-  <img src="{{include.image}}" class="figure-img img-fluid rounded">
-  <figcaption class="figure-caption text-center">{{include.caption}}</figcaption>
+<figure class="mb-3">
+  <img src="{{include.image}}">
+  <figcaption>{{include.caption}}</figcaption>
 </figure>
 
 {% endif %}
 
 {% if include.image == nil %}
 
-<div class="embed-responsive embed-responsive-16by9 mb-3">
+<div class="mb-3">
 <iframe src="{{include.video}}"></iframe>
 </div>
 

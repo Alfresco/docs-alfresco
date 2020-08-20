@@ -1,0 +1,22 @@
+<!-- {% assign my_array = "integrations, services" | split: ", " %} -->
+<div class="columns">
+    {%assign subindex = 0%}
+    {%for s in site.data.home.integrations %}
+    <div class="column">
+      <h1>{{s.title}}</h1>
+      {%for ss in s.sub %}
+        <a class="navbar-item" href="{{ss.url}}">{{ss.title}}</a>
+      {%else%}
+        <a class="navbar-item" href="{{s.url}}">{{s.title}}</a>
+      {%endfor%}
+    </div>
+        {% assign subindex = subindex | plus:1 %}
+        {%if subindex > 3 %}
+        </div><div class="columns">
+        {%assign subindex = 0%}
+      {%endif%}
+    {%endfor%}
+    {% for item in (1..4) offset:subindex %}
+      <div class="column"> </div>
+    {% endfor %}
+</div>

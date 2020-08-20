@@ -1,68 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	{% include head.html %}
+  {% include head.html %}
 
-  {% include header.html %}
 
-  <body class="bg-white">
-
-    
-      <div class="container-fluid">
-        <div class="row">
-         
-          {% if page.latest == true %}
-          {% include toc-new.html %}
-          {% else %}
-          {% include toc.html %}
-          {% endif %}
-    
-          <main class="ml-md-auto col-md-9 col-xl-10 px-4 pt-0 pt-md-11">
-            <div class="row pt-3">
-              <!-- Content Nav -->
-              <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
-                
-                {% if page.latest == true %}
-                
-                <div class="pl-2">
-                <i class="fab fa-github"></i>
-                <a class="mb-5" href="{{site.git-repo}}/{{page.path}}" target="_blank">Suggest an edit</a>
-                </div>
-
-                {% endif %}
-
-                <ul class="js-scroll-nav duik-content-nav pt-5">
-                  <li class="duik-content-nav__item"><a href="#xml">XML</a></li>
-                  <li class="duik-content-nav__item">
-                    <a href="#properties">Properties</a>
+  <body>
+    {% include searchbar.html %}
+    {% include mainmenu.html showsearch=true%}
+    <!--submenu-->
+    <section class="section section-submenu">
+      <div class="container is-vertical-center">
+        <div class="content-title">{{page.product}}</div>
+        <div class="content-version">
+          <div class="select is-rounded is-small">
+            <select>
+              <option>6.1.1</option>
+              <option>7.0</option>
+            </select>
+          </div>
+        </div>
+        <div class="tabs is-right">
+          <ul>
+            <li class="is-active">
+              <a>Reference</a>
+            </li>
+            <li>
+              <a>Tutorials</a>
+            </li>
+            <li>
+              <a>API</a>
+            </li>
+            <li>
+              <a>Release Notes</a>
+            </li>
+            <li>
+              <a>Supported platforms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!--content-->
+    <section class="section section-content">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-narrow content-menu-column">
+            <div class="left-side-menu">
+            <ul>
+              <li>
+                <a class="is-active" href="#">What's new</a>
+              </li>
+              <li>
+                <a href="#">Supported Platforms</a>
+              </li>
+              <li>
+                <a href="#">Video tutorials</a>
+                <ul>
+                  <li>
+                    <a href="#">Using Alfresco Share</a>
+                  </li>
+                  <li>
+                    <a href="#">Deploying</a>
+                  </li>
+                  <li>
+                    <a href="#">Upgrading</a>
                     <ul>
-                      <li class="duik-content-nav__item"><a href="#assignment">Assignment</a></li>
-                      <li class="duik-content-nav__item"><a href="#due-date">Due date</a></li>
-                      <li class="duik-content-nav__item"><a href="#multi-instance-type">Multi-instance type</a></li>
-                      <li class="duik-content-nav__item"><a href="#priority">Priority</a></li>
-                      <li class="duik-content-nav__item"><a href="#form-selector">Form selector</a></li>
-                      <li class="duik-content-nav__item"><a href="#mapping-type">Mapping type</a></li>
+                      <li><a href="#">Administering</a></li>
+                      <li><a href="#">Developer guide</a></li>
                     </ul>
                   </li>
                 </ul>
-              </div>
-              <!-- End Content Nav -->
-    
-              <!-- Content -->
-              <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-                <div class="border-bottom mb-3">
-                  <h1>{{page.title}}</h1>
-                  
+              </li>
+              <li>
+                <a href="#">Troubleshooting</a>
+              </li>
+              <li>
+                <a href="#">Reference</a>
+              </li>
+              <li>
+                <a href="#">Copyright</a>
+              </li>
+            </ul>
+            </div>
+          </div>
+          <div class="column column-content">
+            <div class="content">
+              {{content}}
+            </div>
+            <div class="columns content-rating">
+              <div class="column">
+                <h1>Was this page helpful?</h1>
+                <div class="field is-grouped">
+                  <div class="control">
+                    <button class="button">
+                      <span class="icon is-small icon-thumb-up"></span>
+                    </button>
+                  </div>
+                  <div class="control">
+                    <button class="button">
+                      <span class="icon is-small icon-thumb-down"></span>
+                    </button>
+                  </div>
                 </div>
-    
+                <p>We’re glad this article helped!</p>
+                <form action="#">
+                  <textarea placeholder="Anything else you'd like us to know?"></textarea>
+                  <div class="control">
+                    <button class="button is-primary" type="submit">Submit</button>
+                  </div>
+                </form>
+              </div>
+              <div class="column">
+                <h1>Edit this page</h1>
+                <a href="{{site.git-repo}}/{{page.path}}" target="_blank" class="github-link">Suggest an edit on Github</a>
+              </div>
+            </div>
+          </div>
 
-{{content}}
-
-    
-            {% include footer.html %}
-
-          </main>
         </div>
       </div>
-    </body>
+    </section>
+    {%include footer.html %}
+
+
+  </body>
 </html>
