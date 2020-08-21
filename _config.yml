@@ -86,6 +86,12 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+  - searchyll
+
+
+elasticsearch:
+  url: https://search-test-dev-es-pxmeiqsie66va47wsko6p2q3jm.us-east-1.es.amazonaws.com
+  index_name: default
 
 # Exclude from processing.
 # The following items will not be processed, by default.
