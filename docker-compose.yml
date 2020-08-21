@@ -1,17 +1,6 @@
 version: '3.4'
 
 services:
-  dev:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: dev
-    command: python3 -m http.server
-    ports:
-      - "4001:4001"
-    volumes:
-      - .:/home/user
-
   jekyll:
     build:
       context: .
