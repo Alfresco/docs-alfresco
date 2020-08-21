@@ -3078,12 +3078,12 @@ button.dropdown-item {
   width: 100%; }
   a.dropdown-item:hover,
   button.dropdown-item:hover {
-    background-color: whitesmoke;
-    color: #0a0a0a; }
+    background-color: transparent;
+    color: #212328; }
   a.dropdown-item.is-active,
   button.dropdown-item.is-active {
-    background-color: #3273dc;
-    color: #fff; }
+    background-color: transparent;
+    color: #0a0a0a; }
 
 .dropdown-divider {
   background-color: #ededed;

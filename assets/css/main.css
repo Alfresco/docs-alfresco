@@ -16,15 +16,32 @@ nav.navbar .navbar-lang {
 
 .select:not(.is-multiple):not(.is-loading)::after,
 .navbar-link:not(.is-arrowless)::after,
-.select:not(.is-multiple):not(.is-loading):hover::after {
+.select:not(.is-multiple):not(.is-loading):hover::after,
+.dropdown .arrow::after {
   border-color: transparent;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid #212328;
   transform: translateY(0.3em);
 }
-.navbar-item.has-dropdown {
-  display: flex;
+
+.dropdown button.is-rounded {
+  padding-right: calc(1em + 0.25em + 10px);
+}
+.dropdown .arrow::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 5px;
+  top: 50%;
+  margin-top: -0.5em;
+  right: 10px;
+}
+
+.navbar-item.has-dropdown,
+.dropdown.is-hoverable {
+  display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -48,18 +65,38 @@ nav.navbar .navbar-lang {
   transition-property: opacity, transform;
 }
 
-.navbar-dropdown::before {
+.navbar-dropdown::before,
+.dropdown-menu::before {
   content: url(/assets/img/menu_arrow.svg);
   position: absolute;
   top: -16px;
   left: calc(50% - 8px - var(--sub-offset));
 }
+.dropdown-menu::before {
+  top: -8px;
+  left: calc(50% - 8px);
+}
+.dropdown-menu {
+  padding-top: 10px;
+  margin-top: 0px;
+  align-self: center;
+  position: absolute;
+  left: auto;
+  transform: translate(var(--sub-offset), 0px) !important;
+}
 
+.dropdown-content {
+  border-radius: 8px;
+  padding: 16px 24px;
+}
+
+.dropdown-content a,
 .navbar-dropdown a {
   font-size: 10.5pt;
   color: #212328;
   font-weight: 400;
 }
+.dropdown-content a:hover,
 .navbar-dropdown a:hover {
   text-decoration: underline;
 }
@@ -96,6 +133,7 @@ nav.navbar .navbar-lang {
   padding-bottom: 8px;
 }
 
+.dropdown-item,
 .navbar-dropdown .navbar-item {
   padding-left: 0px;
   padding-right: 0px;
@@ -533,9 +571,10 @@ body > .section.section-landing {
 }
 
 .content h1 {
-  font-size: 1.5em;
+  font-size: 18pt;
   margin-top: 40px !important;
   margin-bottom: 40px;
+  font-weight: normal;
 }
 
 .content h2 {
@@ -721,11 +760,13 @@ a.github-link {
   font-size: 10.5pt;
 }
 
+.github::before,
 a.github-link::before {
   content: url(/assets/img/logo_github.svg);
   vertical-align: -25%;
   margin-right: 16px;
 }
+.github a::after,
 a.github-link::after {
   content: " ↗";
 }
@@ -819,7 +860,10 @@ a.github-link::after {
   display: block;
   visibility: hidden;
   opacity: 0;
-  margin-top: 4px;
+  padding-top: 8px;
+}
+.searchbar .dropdown-menu::before {
+  content: none;
 }
 .searchbar .dropdown-menu.is-active {
   opacity: 1;
@@ -829,6 +873,7 @@ a.github-link::after {
 }
 
 .searchbar .dropdown-menu .dropdown-content {
+  padding: 10px 0px;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0px rgba(10, 10, 10, 0.05);
   border: 1px solid rgba(33, 35, 40, 0.12);
@@ -837,6 +882,7 @@ a.github-link::after {
   padding-left: 16px;
   line-height: 30px;
   padding-right: 16px;
+  text-decoration: none;
 }
 
 .searchbar .dropdown-menu .dropdown-content a.dropdown-item:hover {
@@ -855,6 +901,11 @@ a.github-link::after {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.searchbar .dropdown-menu .dropdown-content a.dropdown-item:not(.special) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .searchbar
   .dropdown-menu
   .dropdown-content
@@ -924,6 +975,17 @@ a.github-link::after {
   line-height: 54px;
   font-weight: 500;
   color: rgba(33, 35, 40, 0.6);
+}
+.searchbar-back {
+  position: absolute;
+  left: 0;
+  margin: 0px auto;
+  padding-right: 5px;
+  background-image: url("/assets/img/arrow_back_24px_outlined.svg");
+  width: 24px;
+  height: 56px;
+  background-position: left center;
+  background-repeat: no-repeat;
 }
 
 /* /searchbar */
@@ -1125,4 +1187,99 @@ pre {
   font-size: 10.5pt;
   color: rgba(33, 35, 40, 0.6);
   margin-bottom: 16px;
+}
+
+.section.section-search {
+  margin-top: 117px;
+  padding-bottom: 12px;
+}
+
+.alfresco-search {
+  display: none;
+}
+
+.search-results {
+  padding-top: 28px;
+}
+
+.alfresco-search.is-active {
+  display: block;
+}
+
+.search-results h1 {
+  color: rgba(33, 35, 40, 0.6);
+  font-size: 9pt;
+  margin-bottom: 40px;
+}
+
+.search-results h2 {
+  margin-bottom: 8px;
+}
+.search-results h2 > a {
+  font-size: 12pt;
+  color: #2a7de1;
+  font-weight: 500;
+}
+
+.search-results h2 > a:hover {
+  text-decoration: underline;
+}
+.search-results .result-text {
+  color: rgba(33, 35, 40, 0.6);
+  font-size: 10.5pt;
+  margin-bottom: 16px;
+  /* max-height: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden; */
+}
+.search-results .result-meta {
+  color: rgba(33, 35, 40, 0.6);
+  font-size: 9pt;
+}
+
+.search-results li {
+  margin-bottom: 48px;
+}
+
+.section.releasenotes > .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section.releasenotes-content {
+  padding-top: 0px;
+}
+.section.releasenotes-content > .container {
+  /* max-width: 800px;
+  margin: 0px auto; */
+  border-top: 1px solid rgba(33, 35, 40, 0.12);
+}
+
+.section.releasenotes-header {
+  font-size: 10.5pt;
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.releasenotes-header h1 {
+  font-size: 21pt;
+  line-height: 36px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.releasenotes-header h2 {
+  font-size: 10.5pt;
+  color: rgba(33, 35, 40, 0.6);
+  margin-bottom: 40px;
+}
+.releasenotes-header p {
+  margin-bottom: 42px;
+}
+.releasenotes-header .github {
+}
+
+.release-container {
+  max-width: 800px;
+  position: relative;
 }

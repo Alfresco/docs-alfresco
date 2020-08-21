@@ -63,21 +63,7 @@ const autocompleteInput = (idInput, idMenu, idClear, onChanged, onSelect) => {
     clearButton.classList.add("is-hidden");
   };
 
-  const _clickHandler = (e) => {
-    e.preventDefault();
-    const target = e.currentTarget;
-    const index = parseInt(target.dataset.index);
-
-    if (index < specialItems.length) {
-      var label = target.querySelector(".query").innerText;
-      var value = target.dataset.value;
-      _setValue(label, null, value);
-    } else {
-      var label = target.text;
-      var value = target.dataset.value;
-      _setValue(label, value);
-    }
-  };
+  const _clickHandler = (e) => {};
 
   const _mousemoveHandler = (e) => {
     const target = e.currentTarget;
@@ -125,20 +111,33 @@ const autocompleteInput = (idInput, idMenu, idClear, onChanged, onSelect) => {
     menuContainer.classList.add("is-active");
 
     // place content into special items
-    Array.from(specialItems).forEach(
-      (n) => (n.querySelector(".query").innerHTML = value)
-    );
+    Array.from(specialItems).forEach((n) => {
+      n.href = n.dataset.url + encodeURI(value);
+      n.querySelector(".query").innerHTML = value;
+    });
 
-    onChanged(value).then((result) => {
+    onChanged(value).then((answer) => {
       _deleteResults();
 
       // map results into menu options
+      const result = answer.results;
       result
-        .map(({ label, value }, i) => {
+        .map(({ label, value, chapter }, i) => {
           const a = document.createElement("a");
-          a.href = "#";
+          a.href = value;
           a.classList.add("dropdown-item");
-          a.innerText = label;
+          // a.innerText = label;
+
+          const echapter = document.createElement("b");
+          echapter.innerText = chapter;
+
+          a.append(echapter);
+
+          const etext = document.createElement("span");
+          etext.innerText = label;
+
+          a.append(etext);
+
           a.dataset.value = value;
           a.dataset.index = i + specialItems.length;
           _addOptionHandlers(a);
@@ -215,48 +214,66 @@ const setupSearchBar = () => {
 
   const searchToggler = document.getElementById("search-toggle");
   const searchClose = document.getElementById("search-close");
+  const searchBack = document.getElementById("search-back");
   const escapeHandler = (e) => {
     if (e.code === "Escape") searchClose.click();
   };
 
   // open search bar
-  searchToggler.onclick = (e) => {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    if (searchHolder.classList.contains("is-active")) return;
+  if (searchToggler) {
+    searchToggler.onclick = (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if (searchHolder.classList.contains("is-active")) return;
 
-    document.addEventListener("keyup", escapeHandler);
+      document.addEventListener("keyup", escapeHandler);
 
-    searchHolder.ontransitionend = (e) => {
-      if (e.propertyName === "opacity") {
-        document.getElementById("topsearch-input").focus();
-      }
+      searchHolder.ontransitionend = (e) => {
+        if (e.propertyName === "opacity") {
+          document.getElementById("topsearch-input").focus();
+        }
+      };
+
+      searchHolder.classList.add("is-active");
+
+      // set margin for left side menu
+
+      document.documentElement.style.setProperty(
+        "--search-bar",
+        searchHolder.getBoundingClientRect().height + "px"
+      );
     };
-
+  } else {
     searchHolder.classList.add("is-active");
-
-    // set margin for left side menu
-
     document.documentElement.style.setProperty(
       "--search-bar",
       searchHolder.getBoundingClientRect().height + "px"
     );
     console.log(searchHolder.getBoundingClientRect().height);
-  };
+  }
 
   // close search bar
-  searchClose.onclick = (e) => {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    if (!searchHolder.classList.contains("is-active")) return;
+  if (searchClose)
+    searchClose.onclick = (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if (!searchHolder.classList.contains("is-active")) return;
 
-    document.removeEventListener("keyup", escapeHandler);
+      document.removeEventListener("keyup", escapeHandler);
 
-    searchHolder.classList.remove("is-active");
+      searchHolder.classList.remove("is-active");
 
-    // remove margin for left side menu
-    document.documentElement.style.setProperty("--search-bar", 0);
-  };
+      // remove margin for left side menu
+      document.documentElement.style.setProperty("--search-bar", 0);
+    };
+
+  if (searchBack)
+    searchBack.onclick = (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+
+      window.history.back();
+    };
 
   document.documentElement.style.setProperty("--search-bar", 0);
 };

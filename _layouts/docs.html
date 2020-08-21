@@ -5,41 +5,10 @@
 
 
   <body>
-    {% include searchbar.html %}
+    {% include searchbar.html close=true %}
     {% include mainmenu.html showsearch=true%}
     <!--submenu-->
-    <section class="section section-submenu">
-      <div class="container is-vertical-center">
-        <div class="content-title">{{page.product}}</div>
-        <div class="content-version">
-          <div class="select is-rounded is-small">
-            <select>
-              <option>6.1.1</option>
-              <option>7.0</option>
-            </select>
-          </div>
-        </div>
-        <div class="tabs is-right">
-          <ul>
-            <li class="is-active">
-              <a>Reference</a>
-            </li>
-            <li>
-              <a>Tutorials</a>
-            </li>
-            <li>
-              <a>API</a>
-            </li>
-            <li>
-              <a>Release Notes</a>
-            </li>
-            <li>
-              <a>Supported platforms</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    {% include docsmenu.html %}
     <!--content-->
     <section class="section section-content">
       <div class="container">

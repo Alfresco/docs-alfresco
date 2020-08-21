@@ -1,27 +1,5 @@
 (function () {
   // search bar
-  const requestSearchResults = function (searchQuery) {
-    const lowered = searchQuery.toLowerCase();
-    return fetch(
-      "https://cdn.rawgit.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_titlecase.json"
-    )
-      .then(function (resp) {
-        return resp.json();
-      })
-      .then(function (states) {
-        return states.filter(function (state) {
-          return state.name.toLowerCase().startsWith(lowered);
-        });
-      })
-      .then(function (filtered) {
-        return filtered.map(function (state) {
-          return { label: state.name, value: state.abbreviation };
-        });
-      })
-      .then(function (transformed) {
-        return transformed.slice(0, 5);
-      });
-  };
 
   setupSearchBar(requestSearchResults);
 
@@ -42,6 +20,7 @@
   // customelements
   customElements.define("alfresco-contenttabs", ContentTabs);
   customElements.define("alfresco-tooltip", Tooltip);
+  customElements.define("alfresco-searchresults", SearchResults);
 
   // tooltips
   document.addEventListener("touchstart", (e) => dismissAllTooltips(e));
@@ -75,17 +54,17 @@
       const id = hash[1];
       const sub = hash[2];
 
-      console.log(id, sub);
-
       if (!id) return;
 
       const obj = document.getElementById(id);
-      console.log(obj);
       if (!obj) return;
 
-      doScrolling(getElementY(obj), 1000);
-
-      if (obj.initialRequest) obj.initialRequest(sub);
+      if (obj.initialRequest) {
+        const doScroll = obj.initialRequest(sub);
+        if (doScroll) {
+          doScrolling(getElementY(obj), 1000);
+        }
+      }
     }
   };
 

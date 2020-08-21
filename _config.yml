@@ -8,7 +8,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you: 
+# If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -19,46 +19,40 @@
 # in the templates via {{ site.myvariable }}.
 
 defaults:
-# ALFRESCO SYNC SERVICE
+  # ALFRESCO SYNC SERVICE
 
-  - 
-    scope: 
-      path: 'activiti'
+  - scope:
+      path: "activiti"
     values:
-      layout: 'docs'
-      product: 'Alfresco Activiti Enterprise'
-      location: 'activiti'
+      layout: "docs"
+      product: "Alfresco Activiti Enterprise"
+      location: "activiti"
       versions:
         - 7.1.0-M8
         - 7.1.0-M7
         - 7.1.0-M6
         - 7.1.0-M5
       audiences:
-        - 'admin'
-        - 'developer'
-        - 'user'
-  -
-    scope:
-      path: 'activiti/latest'
+        - "admin"
+        - "developer"
+        - "user"
+  - scope:
+      path: "activiti/latest"
     values:
       version: 7.1.0-M8
       latest: true
-  -
-    scope:
-      path: 'activiti/latest/admin'
+  - scope:
+      path: "activiti/latest/admin"
     values:
-      audience: 'admin'
-  -
-    scope:
-      path: 'activiti/latest/user'
+      audience: "admin"
+  - scope:
+      path: "activiti/latest/user"
     values:
-      audience: 'user'
-  -
-    scope:
-      path: 'activiti/latest/developer'
+      audience: "user"
+  - scope:
+      path: "activiti/latest/developer"
     values:
-      audience: 'developer'  
-
+      audience: "developer"
 
 sass:
   sass_dir: assets/include/scss
@@ -79,7 +73,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
-github_username:  jekyll
+github_username: jekyll
 
 # Build settings
 theme: minima
@@ -88,6 +82,7 @@ plugins:
   - jekyll-redirect-from
   - searchyll
 
+highlighter: none
 
 elasticsearch:
   url: https://search-test-dev-es-pxmeiqsie66va47wsko6p2q3jm.us-east-1.es.amazonaws.com

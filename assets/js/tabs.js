@@ -20,6 +20,7 @@ class ContentTabs extends HTMLElement {
 
   initialRequest(id) {
     this.activateTabId(id);
+    return true;
   }
 
   setup() {
