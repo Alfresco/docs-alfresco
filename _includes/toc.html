@@ -1,133 +1,68 @@
 
-
-
-
-
-<!-- Sidebar -->
-<nav class="col-md-3 col-xl-2 bg-light duik-sidebar navbar-expand-md">
-        <div class="d-flex d-md-none justify-content-between mb-5">
-          <!-- Sidebar Search -->
-          <form class="col form-inline input-group-sm">
-            <input class="js-search form-control form-control-sm w-100" type="text" placeholder="Search..." data-url="assets/include/json/autocomplete-data-for-documentation-search.json">
-          </form>
-          <!-- End Sidebar Search -->
-
-          <!-- Responsive Toggle Button -->
-          <button class="btn btn-link pl-0" type="button" data-toggle="collapse" data-target="#sidebar-nav" aria-controls="sidebar-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30" width="30" height="30" focusable="false">
-              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/>
-            </svg>
-          </button>
-          <!-- End Responsive Toggle Button -->
-        </div>
-
-
-
-
-
-
-             <!-- Sidebar Nav -->
-        <div class="collapse navbar-collapse" id="sidebar-nav">
-                <div class="js-scrollbar duik-sidebar-sticky">
-      
-
-                    {% if page.audiences != nil %}
-
-                    <h3 class="mb-2"><a class="alf-toc-product" href="{{site.url}}/{{page.location}}/{{page.version}}/{{page.audience}}/">{{page.product}}</a></h3> 
-      
-                  {% else %}
-
-                  <h3 class="mb-2"><a class="alf-toc-product" href="{{site.url}}/{{page.location}}/{{page.version}}/">{{page.product}}</a></h3> 
-
-                  {% endif %}
-         
-      
-                              {% if page.audience != blank %}
-                              
-                              {% assign toc = site.data.toc.[page.location] | where: 'version', page.version | where: 'audience', page.audience %}
-                              
-                              {% else %}
-                              
-                              {% assign toc = site.data.toc.[page.location] | where: 'version',  page.version %}
-                              
-                              {% endif %}
-                              
-                              
-                              
-                              {% for entry in toc %}
-
-
-                              {% for parent in entry.pages %}
-
-                              {% assign show = nil %}
-
-                          
-                              {% if page.url contains parent.path %}
-                                  {% assign show = 'show' %}
-                              {% endif %} 
-
-                             
-
-                            <h5 class="alf-toc-head" data-toggle="collapse" href="#collapse{{parent.title | remove: ' '}}">{{parent.title}}<span class="fas fa-angle-down small alf-toc-chevron mt-1"></span></h5>
+{% assign toc = site.data.toc.[page.location] | where: 'version',  page.version %}
                         
-                        
-                          <ul class="alf-toc-ul collapse {{show}}" id="collapse{{parent.title | remove: ' '}}">
+    <ul>
 
-                                {% for child in parent.pages %}
-                                {% assign active = nil %}
+    {% for t in toc %}
+    {% for p in t.pages %}
+
+    {% assign active = nil %} 
+
+    {% if p.pages != nil %}
+
+    <li data-action="collapse" data-target="#collapse{{p.title | remove: ' '}}">{{p.title}}
+
+        <ul class="is-collapsible" id="collapse{{p.title | remove: ' '}}">
+
+        {% for c in p.pages %}
+        {% if c.pages != nil %}
+
+        <li data-action="collapse" data-target="#collapse{{c.title | remove: ' '}}">{{c.title}}
+
+            <ul class="is-collapsible" id="collapse{{c.title | remove: ' '}}">
+
+            {% for g in c.pages %}
+
+            {% assign g-active = nil %}
+
+            {% if page.url == g.path %}
+            {% assign g-active = 'is-active' %}
+            {% endif %}
                                 
-                             
-								{% if page.url contains child.path %}
-								{% assign active = 'active' %}
-							{% endif %}
-                            
+            <li><a class="{{g-active}}" href="{{g.path}}">{{g.title}}</a></li>
 
+            {% endfor %}
+        </li>
 
-                            {% if child.pages != nil %}
+            </ul>
 
-                            
-                            {% if page.url contains var3 %}
-                                {% assign show2 = 'show' %}
-                            {% endif %}
+        {% else %}
 
-                            <li class="alf-toc-li alf-toc-parent" data-toggle="collapse" href="#collapse{{child.title | remove: ' '}}">{{child.title}}<span class="fas fa-angle-down small alf-toc-chevron mt-1"></span></li>
+        {% assign c-active = nil %}
 
-                                    <ul class="alf-toc-ul collapse {{show2}}" id="collapse{{child.title | remove: ' '}}">
+        {% if page.url == c.path %}
+        {% assign c-active = 'is-active' %}
+        {% endif %}
 
-                                            {% for grandchild in child.pages %}
-                                            {% assign active = nil %}
-                                            
-                                           
-                                            {% if page.url contains grandchild.path %}
-                                            {% assign active = 'active' %}
-                                            {% endif %}
-                                          
-                                        
-            
-                                            
-                                            <li class="alf-toc-li alf-toc-grandchild"><a class="alf-toc-a {{active}}" href="{{grandchild.path}}">{{grandchild.title}}</a></li>
-            
-                                            {% endfor %}
-                                        </ul>
+        <li><a class="{{c-active}}" href="{{c.path}}">{{c.title}}</a></li>
 
-{% else %}
-                           
+        {% endif %}
+        {% endfor %}
+    
+    </li>
 
-                           
+        </ul>
 
+    {% else %}
 
+    {% if page.url == p.path %}
+    {% assign active = 'is-active' %}
+    {% endif %}
 
+    <li><a class="{{active}}" href="{{p.path}}">{{p.title}}</a></li>
 
-                          
-                                <li class="alf-toc-li alf-toc-child"><a class="alf-toc-a {{active}}" href="{{child.path}}">{{child.title}}</a>
-                                </li>
-                                {% endif %}
-                               
-                                {% endfor %}
-                            </ul>
-                            {% endfor %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <!-- End Sidebar Nav -->
-                  </nav>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    
+    </ul>
