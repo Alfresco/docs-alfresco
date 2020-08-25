@@ -24,5 +24,7 @@ jobs:
         fetch-depth: 0
     - name: Run Jekyll Build
       uses: ./.github/actions/jekyll_build
+      env:
+        JEKYLL_CONFIG: _config.yml,_config.production.yml
     - name: Run S3 Sync
       uses: ./.github/actions/s3_sync

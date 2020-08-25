@@ -85,8 +85,8 @@ plugins:
 highlighter: none
 
 elasticsearch:
-  url: https://search-test-dev-es-pxmeiqsie66va47wsko6p2q3jm.us-east-1.es.amazonaws.com
-  index_name: default
+  url: https://search-docs-dev-kcq7soqflyxmts7m3a3prekrzi.us-east-1.es.amazonaws.com
+  index_name: sandbox
 
 # Exclude from processing.
 # The following items will not be processed, by default.
