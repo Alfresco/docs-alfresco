@@ -3,4 +3,4 @@
 set -e
 
 bundle install
-bundle exec jekyll build --trace
+bundle exec jekyll build --trace --config $JEKYLL_CONFIG
