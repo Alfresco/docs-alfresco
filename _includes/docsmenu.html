@@ -2,45 +2,122 @@
       <div class="container is-vertical-center">
         <div class="content-title">{{page.product}}</div>
         <div class="content-version">
+
+        {% unless page.versions == nil %}
+
           <div class="dropdown is-hoverable">
             <div class="dropdown-trigger">
               <button class="button is-rounded is-small" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span class="arrow">6.1.1</span>
+                <span class="arrow">{{page.version}}</span>
               </button>
             </div>
+
+            {% unless page.versions.size == 1 %}
+
             <div class="dropdown-menu" id="dropdown-menu" role="menu">
               <div class="dropdown-content">
-                <a href="#" class="dropdown-item">
-                  Version 7.0
+
+                {% assign versions = page.versions | compact | sort | reverse %}
+                {% for v in versions %}
+                {% unless v == page.version %}
+
+                {% if page.latest == true %}
+                <a href="{{page.url | replace: "latest", v}}" class="dropdown-item">
+                        {{v}}
                 </a>
-                <a class="dropdown-item">
-                  Version 7.1
+                
+                {% elsif forloop.first == true %}
+
+                <a href="{{page.url | replace: page.version, "latest"}}" class="dropdown-item">
+                  {{v}} (Latest)
                 </a>
+
+                {% else %}
+
+                <a href="{{page.url | replace: page.version, v}}" class="dropdown-item">
+                        {{v}}
+                </a>
+
+                {% endif %}
+                {% endunless %}
+                {% endfor %}
+
+                {% if page.product == "Alfresco Content Services" and page.version != "community" %}
                 <hr class="dropdown-divider">
-                <a href="#" class="dropdown-item">
-                  Community
-                </a>
+
+                {% if page.latest == true %}
+
+                <a href="{{page.url | replace: "latest", "community"}}" class="dropdown-item" >Community</a>
+
+                {% else %}
+
+                <a href="{{page.url | replace: page.version, "community"}}" class="dropdown-item">Community</a>
+
+                {% endif %}
+                {% endif %}
               </div>
             </div>
+
+            {% endunless %}
+
           </div>
+
+        {% endunless %}
+
         </div>
         <div class="tabs is-right">
           <ul>
-            <li class="is-active">
-              <a>Reference</a>
-            </li>
-            <li>
-              <a>Tutorials</a>
-            </li>
-            <li>
-              <a>API</a>
-            </li>
-            <li>
-              <a>Release Notes</a>
-            </li>
-            <li>
-              <a>Supported platforms</a>
-            </li>
+
+{% unless page.tutorial == nil and page.api == nil and page.support == nil and page.release == nil %}
+<li class="">
+    {% if page.latest == true %}
+    <a href="/{{page.location}}/latest/">Reference</a>
+    {% else %}
+    <a href="/{{page.location}}/{{page.version}}/">Reference</a>
+    {% endif %}
+</li>
+{% endunless %}
+
+{% if page.tutorial == true %}
+<li class="">
+    {% if page.latest == true %}
+    <a href="/{{page.location}}/latest/tutorial/">Tutorials</a>
+    {% else %}
+    <a href="/{{page.location}}/{{page.version}}/tutorial/">Tutorials</a>
+    {% endif %}
+</li>
+{% endif %}
+
+{% if page.api == true %}
+<li class="">
+    {% if page.latest == true %}
+    <a href="/{{page.location}}/latest/api/">APIs</a>
+    {% else %}
+    <a href="/{{page.location}}/{{page.version}}/api/">APIs</a>
+    {% endif %}
+</li>
+{% endif %}
+
+{% if page.support == true %}
+<li class="">
+    {% if page.latest == true %}
+    <a href="/{{page.location}}/latest/support/">Supported Platforms</a>
+    {% else %}
+    <a href="/{{page.location}}/{{page.version}}/support/">Supported Platforms</a>
+    {% endif %}
+</li>
+{% endif %}
+
+{% if page.release == true %}
+<li class="">
+    {% if page.latest == true %}
+    <a href="/{{page.location}}/latest/release/">Release Notes</a>
+    {% else %}
+    <a href="/{{page.location}}/{{page.version}}/release/">Release Notes</a>
+    {% endif %}
+</li>
+{% endif %}     
+
           </ul>
         </div>
       </div>

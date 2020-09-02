@@ -6,16 +6,55 @@ defaults:
     values:
       layout: "docs"
       product: "Alfresco Content Services"
-      location: "content-services"
+      toc: "content-services"
       versions:
         - 6.2
         - 6.1
         - 6.0
         - 5.2
-        - "Community"
-    
+  - scope:
+      path: "content-services/latest"
+    values:
+      version: 6.2
+      latest: true
+  - scope:
+      path: "content-services/6.1"
+    values:
+      version: 6.1
+  - scope:
+      path: "content-services/6.0"
+    values:
+      version: 6.0
+  - scope:
+      path: "content-services/5.2"
+    values:
+      version: 5.2
+  - scope:
+      path: "content-services/community"
+    values:
+      version: "Community"
 
-
+# Alfresco Google Drive
+  - scope:
+      path: "google-drive"
+    values:
+      layout: "docs"
+      product: "Alfresco Google Docs Integration"
+      location: "google-drive"
+      toc: "google-drive"
+      support: true
+      versions:
+        - 3.2
+        - 3.1
+  - scope:
+      path: "google-drive/latest"
+    values:
+      version: 3.2
+      latest: true
+  - scope:
+      path: "google-drive/3.1"
+    values:
+      version: 3.1
 
 
   - scope:
@@ -23,7 +62,7 @@ defaults:
     values:
       layout: "docs"
       product: "Alfresco Activiti Enterprise"
-      location: "activiti"
+      toc: "activiti"
       versions:
         - 7.1.0-M8
         - 7.1.0-M7

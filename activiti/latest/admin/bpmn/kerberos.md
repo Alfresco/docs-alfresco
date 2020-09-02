@@ -165,17 +165,14 @@ The Java login files need to be updated with details of the Kerberos configurati
 
 3. Use the following configuration parameters in an alfresco-global.properties file:
 
-    | Property | Description | Example |
-    | -------- | ----------- | ------- |
-    | `authentication.chain` | The authentication chain needs to be set for Kerberos. | `kerberos,alfrescoNtlm1:alfrescoNtlm` |
-    | `kerberos.authentication.realm` | The Kerberos realm to authenticate against. The realm name is the domain name in uppercase | `EXAMPLE.COM` |
-    | `kerberos.authentication.sso.enabled` | Sets whether authentication using Kerberos is enabled or not | `true` |
-    | `kerberos.authentication.sso.fallback.enabled` | Sets whether a fallback authentication mechanism such as database credentials is used | `true` |
-    | `kerberos.authentication.user.configEntryName` | The name of the entry in the Java Authentication and Authorization Service (JAAS) file used for password-based authentication. The default value of `Alfresco` is recommended | `Alfresco` |
-    | `kerberos.authentication.http.configEntryName` | The name of the entry in the JAAS file used for web-based authentication. The default value of AlfrescoHTTP is recommended | `AlfrescoHTTP` |
-    | `kerberos.authentication.defaultAdministratorUserNames` |A comma separated list of users that are treated as administrators | `admin,superuser` |
-    | `kerberos.authentication.browser.ticketLogons` | Sets whether ticket parameters in URLs are authenticated with | `true` |
-    | `kerberos.authentication.stripUsernameSuffix` | Sets whether the @`domain` suffix is stripped from Kerberos authenticated usernames or not | `false` |
+    | Property | Description |
+    | -------- | ----------- |
+    | authentication.chain | *Required.* The authentication chain needs to be set for Kerberos, for example: `kerberos,alfrescoNtlm1:alfrescoNtlm` |
+    | kerberos.authentication.realm | *Optional.* The Kerberos realm to authenticate against. The realm name is the domain name in uppercase, for example: `EXAMPLE.COM` |
+    | kerberos.authentication.sso.enabled | Sets whether authentication using Kerberos is enabled or not |
+    | kerberos.authentication.sso.fallback.enabled | Sets whether a fallback authentication mechanism such as database credentials is used |
+    | kerberos.authentication.user.configEntryName | The name of the entry in the Java Authentication and Authorization Service (JAAS) file used for password-based authentication. The default value of `Alfresco` is recommended |
+
 
 ## Step 3: Configure Alfresco Share
 
