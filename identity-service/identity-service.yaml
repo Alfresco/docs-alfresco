@@ -1,0 +1,30 @@
+# Identity Service 1.3
+- version: 1.3
+  pages:
+    - title: 'Introduction'
+      path: '/identity-service/latest/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/identity-service/latest/install/'
+        - title: 'To Kubernetes Cluster'
+          path: '/identity-service/latest/install/k8s/'
+        - title: 'From ZIP file'
+          path: '/identity-service/latest/install/zip/'
+    - title: 'Upgrade'
+      path: '/identity-service/latest/upgrade/'
+    - title: 'Configure'
+      path: '/identity-service/latest/configure/'
+
+
+
+
+
+-   [Identity Service](../concepts/identity-overview.md)
+    -   [Deploying](../concepts/identity-options.md)
+        -   [Deploying the Identity Service](../tasks/identity-deploy.md)
+        -   [Installing the Identity Service](../tasks/identity-install.md)
+        -   [Upgrading the Identity Service](../concepts/identity-upgrade.md)
+    -   [Configuring](../concepts/identity-configure.md)
+        -   [Configuring a custom realm](../concepts/identity-realm.md)
+        -   [Configuring a theme](../concepts/identity-theme.md)
