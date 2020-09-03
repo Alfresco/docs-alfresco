@@ -56,6 +56,30 @@ defaults:
     values:
       version: 3.1
 
+# Alfresco Content Connector for Azure
+  - scope:
+      path: "microsoft-azure"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for Azure"
+      location: "microsoft-azure"
+      toc: "microsoft-azure"
+      support: true
+      versions:
+        - 1.1
+        - 1.0
+  - scope:
+      path: "microsoft-azure/latest"
+    values:
+      version: 1.1
+      latest: true
+  - scope:
+      path: "microsoft-azure/1.0"
+    values:
+      version: 1.0
+
+
+
 
   - scope:
       path: "activiti"
