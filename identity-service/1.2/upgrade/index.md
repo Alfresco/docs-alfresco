@@ -2,7 +2,7 @@
 title: Upgrade Identity Service
 ---
 
-Use the following information to upgrade the Identity Service from version 1.2 to version 1.3.
+Use the following information to upgrade the Identity Service from version 1.1 to version 1.2.
 
 > **Important:** Upgrading the Identity Service requires downtime and should be performed in a test environment before being attempted in a production environment.
 
@@ -28,7 +28,7 @@ As an example, the following upgrade steps reference the infrastructure chart on
     export RELEASENAME=knobby-wolf
     ```
 
-6. Use the `helm upgrade` command to upgrade the infrastructure chart to a release that contains version 1.3 of the Identity Service:
+6. Use the `helm upgrade` command to upgrade the infrastructure chart to a release that contains version 1.2 of the Identity Service:
 
     ```
     helm upgrade $RELEASENAME alfresco-stable/alfresco-infrastructure --version 5.2.0
@@ -55,7 +55,7 @@ Use the following steps to upgrade a manual ZIP installation:
 
 2. Remove the existing data from the database and stop the database service.
 3. Stop the Identity Service service.
-4. Open the zip file for version 1.3 of the Identity Service and [configure its connection to the database](https://www.keycloak.org/docs/8.0/server_installation/#_database).
+4. Open the zip file for version 1.2 of the Identity Service and [configure its connection to the database](https://www.keycloak.org/docs/8.0/server_installation/#_database).
 5. Restart the database service and restore the database backup to it.
 
     For example, for a PostgreSQL database:
@@ -71,18 +71,18 @@ Use the following steps to upgrade a manual ZIP installation:
     For a Linux or Unix environment:
 
     ```
-    $ cd alfresco-identity-service-1.3.0/bin
+    $ cd alfresco-identity-service-1.2.0/bin
     $ ./standalone.sh -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a bat script:
 
     ```
-    > ...\alfresco-identity-service-1.3.0\bin\standalone.bat -b <IP_ADDRESS>
+    > ...\alfresco-identity-service-1.2.0\bin\standalone.bat -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a Powershell script:
 
     ```
-    > ...\alfresco-identity-service-1.3.0\bin\standalone.ps1 -b <IP_ADDRESS>
+    > ...\alfresco-identity-service-1.2.0\bin\standalone.ps1 -b <IP_ADDRESS>
     ```

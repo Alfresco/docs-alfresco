@@ -1,0 +1,49 @@
+# Identity Service
+- version: 1.3
+  pages:
+    - title: 'Introduction'
+      path: '/identity-service/latest/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/identity-service/latest/install/'
+        - title: 'To Kubernetes Cluster'
+          path: '/identity-service/latest/install/k8s/'
+        - title: 'From ZIP file'
+          path: '/identity-service/latest/install/zip/'
+    - title: 'Upgrade'
+      path: '/identity-service/latest/upgrade/'
+    - title: 'Configure'
+      path: '/identity-service/latest/configure/'
+- version: 1.2
+  pages:
+    - title: 'Introduction'
+      path: '/identity-service/1.2/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/identity-service/1.2/install/'
+        - title: 'To Kubernetes Cluster'
+          path: '/identity-service/1.2/install/k8s/'
+        - title: 'From ZIP file'
+          path: '/identity-service/1.2/install/zip/'
+    - title: 'Upgrade'
+      path: '/identity-service/1.2/upgrade/'
+    - title: 'Configure'
+      path: '/identity-service/1.2/configure/'
+- version: 1.1
+  pages:
+    - title: 'Introduction'
+      path: '/identity-service/1.1/'
+    - title: 'Install'
+      path: '/identity-service/1.1/install'
+    - title: 'Configure Identity Providers'
+      path: '/identity-service/1.1/configure/'
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/identity-service/1.0/'
+    - title: 'Install'
+      path: '/identity-service/1.0/install'
+    - title: 'Configure Identity Providers'
+      path: '/identity-service/1.0/configure/'

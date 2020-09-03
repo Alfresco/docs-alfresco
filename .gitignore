@@ -2,4 +2,16 @@ _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+
+# Mac
 .DS_Store
+
+# Eclipse
+.classpath
+.settings
+.project
+
+# Intellij
+.idea/
+*.iml
+*.iws

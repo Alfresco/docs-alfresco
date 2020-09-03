@@ -31,7 +31,7 @@ Customizing a realm manually uses the administrator console of the Identity Serv
 
 Customizing a realm using a `JSON` file configures a realm outside of the Identity Service and imports it 
 into the configuration using the administrator console or during deployment if 
-[installing to Kubernetes cluster using Helm charts]({% link identity-service/latest/install/k8s/index.md %}).
+[installing to Kubernetes cluster using Helm charts]({% link identity-service/1.2/install/k8s/index.md %}).
 
 To import the configuration in the administrator console:
 
