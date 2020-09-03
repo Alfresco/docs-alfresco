@@ -70,7 +70,7 @@ integrations:
     sub:
       - title: "Identity Service"
         text: "Identity Service is responsible for supporting user authentication of other Alfresco software."
-        url:
+        url: /identity-service/latest/
       - title: "SAML SSO"
         text: "SAML Single Sign-On for Alfresco Content Services provides support for Single Sign-On (SSO) across an organization."
         url:
