@@ -110,6 +110,24 @@ defaults:
     values:
       version: 1.0
 
+# Alfresco Document Transformation Engine
+  - scope:
+      path: "transformation-engine"
+    values:
+      layout: "docs"
+      product: "Alfresco Document Transformation Engine"
+      location: "transformation-engine"
+      toc: "transformation-engine"
+      support: true
+      versions:
+        - 2.2
+  - scope:
+      path: "transformation-engine/latest"
+    values:
+      version: 2.2
+      latest: true
+
+
   - scope:
       path: "activiti"
     values:

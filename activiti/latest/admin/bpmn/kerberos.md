@@ -6,7 +6,7 @@ The configuration for Kerberos authentication will allow users to access Alfresc
 
 The following diagram illustrates the components and authentication flow for a Kerberos setup:
 
-![Kerberos authentication diagram](/images/kerberos-authentication.png)
+![Kerberos authentication diagram]({% link images/kerberos-authentication.png %})
 
 ## Prerequisites
 
