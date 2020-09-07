@@ -1,0 +1,128 @@
+---
+title: Configure Identity Service
+---
+
+# Configuring
+
+There are two things that can be configured in the Identity Service:
+
+- [Custom realm](#configure-a-custom-realm)  
+A default realm is provided when deploying the Identity Service, and it should be customized.
+- [Custom theme](#configure-a-custom-theme)  
+Deploying the Identity Service will deploy an Alfresco login theme, it can be customized.
+
+## Configure a custom realm
+
+The Identity Service is installed or deployed with a default realm applied called `Alfresco`. 
+The realm can be customized manually or by using a `JSON` file.
+
+> **Important:** The default realm provided is not production ready and should be used as a reference only.
+
+### Customize a realm manually
+
+Customizing a realm manually uses the administrator console of the Identity Service to configure realm settings.
+
+1. Sign into the master realm administrator console using the credentials created on your first sign in.
+2. [Add a new realm](https://www.keycloak.org/docs/8.0/server_admin/index.html#_create-realm) or edit the `Alfresco` realm.
+3. [Create a new OIDC client](https://www.keycloak.org/docs/8.0/server_admin/index.html#oidc-clients) or edit the existing one.
+4. Configure any [groups](https://www.keycloak.org/docs/8.0/server_admin/index.html#groups) or users.
+
+### Customize a realm using a JSON file
+
+Customizing a realm using a `JSON` file configures a realm outside of the Identity Service and imports it 
+into the configuration using the administrator console or during deployment if 
+[installing to Kubernetes cluster using Helm charts]({% link identity-service/1.2/install/k8s/index.md %}).
+
+To import the configuration in the administrator console:
+
+1. Edit or use the [default realm file](https://github.com/Alfresco/alfresco-identity-service/blob/master/helm/alfresco-identity-service/alfresco-realm.json) provided in the Identity Service Github project as a reference to create a custom realm file.
+2. Sign into the master realm administrator console using the credentials created on your first sign in.
+3. Navigate to the **Add Realm** page and use the **Select File** option to import your custom realm file.
+
+To set the realm file during deployment:
+
+1. Create a Kubernetes secret in the cluster called `realm-secret`:
+
+    ```
+    kubectl create secret generic realm-secret \
+        --from-file=./realm.json \
+        --namespace=$DESIREDNAMESPACE
+    ```
+
+    > **Important:** The name of the realm file must **not** be set as `alfresco-realm.json`
+
+2. Deploy the Helm chart with the additional argument to use the custom realm file:
+
+    ```
+    helm install alfresco-stable/alfresco-infrastructure \
+        --set alfresco-infrastructure.activemq.enabled=false \
+        --set alfresco-infrastructure.nginx-ingress.enabled=true \
+        --set alfresco-infrastructure.alfresco-identity-service.enabled=true \
+        --set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json" \
+        --namespace $DESIREDNAMESPACE
+    ```
+
+## Configure a custom theme
+
+Deploying the Identity Service will deploy an Alfresco login theme.
+
+A custom theme can be applied to the following components of the Identity Service:
+
+* Login screens
+* Administrator console
+* Email
+* Account management
+
+The [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme) includes a custom login theme only.
+
+### Developing a theme
+
+Themes are created using a combination of CSS, HTML ([Freemarker templates](https://freemarker.apache.org/)), theme properties and images.
+
+Use the [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme) or the default [Keycloak theme](https://www.keycloak.org/docs/8.0/server_development/#creating-a-theme) as a base to extend and create custom themes from.
+
+### Importing a theme for a Kubernetes deployment
+
+There are a number of options for importing a theme into a Kubernetes deployment, for example:
+
+* Create a new Docker image that contains a custom theme.
+* Use an `emptyDir` that is shared with the Identity Service container and configure an `init container` that runs the new theme image and copies it into the theme directory.
+
+    The following is an example of configuring this in the `values.yaml`:
+
+    ```
+    keycloak:
+        extraInitContainers: |
+            - name: custom-theme
+              image: <theme-image-location-and-tag>
+              imagePullPolicy: IfNotPresent
+              command:
+                - sh
+              args:
+                - -c
+                - |
+                  echo "copying new theme..."
+                  cp -R /<theme-image-name>/* /theme
+              volumeMounts:
+                - name: theme
+                mountPath: /theme
+    
+        extraVolumeMounts: |
+            - name: theme
+              mountPath: /opt/jboss/keycloak/themes/<theme-folder-name>
+    
+        extraVolumes: |
+            - name: theme
+              emptyDir: {}
+    ```
+
+However a new theme is imported, the new theme will need to be applied by signing into the administrator console and 
+selecting the new themes for each component in the **Themes** tab under **Realm Settings**.
+
+### Importing a theme for a standalone installation
+
+1. Navigate to the themes directory of the installation.
+2. Create a new directory for the custom theme.
+3. Copy the custom files into directories for each custom theme component for example /themes/login/
+4. Restart the Identity Service service.
+5. In the administrator console select the new themes for each component in the **Themes** tab under **Realm Settings**.

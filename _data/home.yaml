@@ -42,7 +42,7 @@ integrations:
     sub:
       - title: "Document Transformation Engine"
         text: "Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents."
-        url:
+        url: /transformation-engine/latest/
       - title: "Transform Service"
         text: "Alfresco Transform Service provides a secure, scalable, reliable, and extensible mechanism for converting files from their current format into other formats."
         url:
@@ -70,7 +70,7 @@ integrations:
     sub:
       - title: "Identity Service"
         text: "Identity Service is responsible for supporting user authentication of other Alfresco software."
-        url:
+        url: /identity-service/latest/
       - title: "SAML SSO"
         text: "SAML Single Sign-On for Alfresco Content Services provides support for Single Sign-On (SSO) across an organization."
         url:
@@ -88,7 +88,7 @@ integrations:
         url:
       - title: "Microsoft Azure"
         text: "Alfresco Content Connector for Azure uses Microsoft's Azure Blob Storage as an alternative content store for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
-        url:
+        url: /microsoft-azure/latest
       - title: "Amazon Glacier"
         text: "Alfresco Content Connector for AWS Glacier enables access to Amazon S3 Glacier as a storage service optimized for infrequently used data, and suits the long term storage of archive and backup data."
         url:
@@ -102,7 +102,7 @@ integrations:
     sub:
       - title: "Google Docs"
         text: "Alfresco Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share."
-        url:
+        url: /google-drive/latest/
       - title: "Salesforce"
         text: "Alfresco Content Connector for Salesforce allows you to store documents in Alfresco Content Services, but access them directly from Salesforce."
         url:
@@ -143,3 +143,4 @@ applications:
         url:
       - title: "Android"
         url:
+        

@@ -1,9 +1,5 @@
-# Content Services
-## All URLs must end with a / 
-
- 
+# Alfresco Content Services 
 - version: 6.2
-  audience: user
   pages:
     - title: 'Alfresco Content Services'
       path: /content/6.2/user/

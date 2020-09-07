@@ -1,0 +1,22 @@
+# Microsoft Azure 1.1
+- version: 1.1
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-azure/latest/'
+    - title: 'Install'
+      path: '/microsoft-azure/latest/install/'
+    - title: 'Configure'
+      path: '/microsoft-azure/latest/configure/'
+    - title: 'Administer'
+      path: '/microsoft-azure/latest/admin/'
+# Microsoft Azure 1.0
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-azure/1.0/'
+    - title: 'Install'
+      path: '/microsoft-azure/1.0/install/'
+    - title: 'Configure'
+      path: '/microsoft-azure/1.0/configure/'
+    - title: 'Administer'
+      path: '/microsoft-azure/1.0/admin/'

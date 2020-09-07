@@ -1,32 +1,139 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 defaults:
-  # ALFRESCO SYNC SERVICE
+
+# Alfresco Content Services
+  - scope:
+      path: "content-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Services"
+      toc: "content-services"
+      versions:
+        - 6.2
+        - 6.1
+        - 6.0
+        - 5.2
+  - scope:
+      path: "content-services/latest"
+    values:
+      version: 6.2
+      latest: true
+  - scope:
+      path: "content-services/6.1"
+    values:
+      version: 6.1
+  - scope:
+      path: "content-services/6.0"
+    values:
+      version: 6.0
+  - scope:
+      path: "content-services/5.2"
+    values:
+      version: 5.2
+  - scope:
+      path: "content-services/community"
+    values:
+      version: "Community"
+
+# Alfresco Google Drive
+  - scope:
+      path: "google-drive"
+    values:
+      layout: "docs"
+      product: "Alfresco Google Docs Integration"
+      location: "google-drive"
+      toc: "google-drive"
+      support: true
+      versions:
+        - 3.2
+        - 3.1
+  - scope:
+      path: "google-drive/latest"
+    values:
+      version: 3.2
+      latest: true
+  - scope:
+      path: "google-drive/3.1"
+    values:
+      version: 3.1
+
+# Alfresco Content Connector for Azure
+  - scope:
+      path: "microsoft-azure"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for Azure"
+      location: "microsoft-azure"
+      toc: "microsoft-azure"
+      support: true
+      versions:
+        - 1.1
+        - 1.0
+  - scope:
+      path: "microsoft-azure/latest"
+    values:
+      version: 1.1
+      latest: true
+  - scope:
+      path: "microsoft-azure/1.0"
+    values:
+      version: 1.0
+
+# Alfresco Identity Service
+  - scope:
+      path: "identity-service"
+    values:
+      layout: "docs"
+      product: "Alfresco Identity Service"
+      location: "identity-service"
+      toc: "identity-service"
+      support: true
+      versions:
+        - 1.3
+        - 1.2
+        - 1.1
+        - 1.0
+  - scope:
+      path: "identity-service/latest"
+    values:
+      version: 1.3
+      latest: true
+  - scope:
+      path: "identity-service/1.2"
+    values:
+      version: 1.2
+  - scope:
+      path: "identity-service/1.1"
+    values:
+      version: 1.1
+  - scope:
+      path: "identity-service/1.0"
+    values:
+      version: 1.0
+
+# Alfresco Document Transformation Engine
+  - scope:
+      path: "transformation-engine"
+    values:
+      layout: "docs"
+      product: "Alfresco Document Transformation Engine"
+      location: "transformation-engine"
+      toc: "transformation-engine"
+      support: true
+      versions:
+        - 2.2
+  - scope:
+      path: "transformation-engine/latest"
+    values:
+      version: 2.2
+      latest: true
+
 
   - scope:
       path: "activiti"
     values:
       layout: "docs"
       product: "Alfresco Activiti Enterprise"
-      location: "activiti"
+      toc: "activiti"
       versions:
         - 7.1.0-M8
         - 7.1.0-M7
@@ -99,6 +206,7 @@ elasticsearch:
 exclude:
   - .github/
   - README.md
+  - CODEOWNERS
   - .gitignore
   # - .sass-cache/
   - .jekyll-cache/

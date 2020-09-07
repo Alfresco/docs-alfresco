@@ -1,0 +1,17 @@
+# Document Transformation Engine
+- version: 2.2
+  pages:
+    - title: 'Introduction'
+      path: '/transformation-engine/latest/'
+    - title: 'Install'
+      pages: 
+        - title: 'Overview'
+          path: '/transformation-engine/latest/install/'
+        - title: 'Install with Zip'
+          path: '/transformation-engine/latest/install/zip/'
+        - title: 'Install the SDK'
+          path: '/transformation-engine/latest/install/sdk/'
+    - title: 'Configure'
+      path: '/transformation-engine/latest/config/'
+    - title: 'Administer'
+      path: '/transformation-engine/latest/admin/'
