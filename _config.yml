@@ -206,6 +206,7 @@ elasticsearch:
 exclude:
   - .github/
   - README.md
+  - CODEOWNERS
   - .gitignore
   # - .sass-cache/
   - .jekyll-cache/
