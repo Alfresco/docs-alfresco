@@ -45,7 +45,7 @@ integrations:
         url: /transformation-engine/latest/
       - title: "Transform Service"
         text: "Alfresco Transform Service provides a secure, scalable, reliable, and extensible mechanism for converting files from their current format into other formats."
-        url:
+        url: /transform-service/latest/ 
       - title: "Media Management"
         text: "Alfresco Media Management provides the capability to transform and add metadata and relationships to your digital media."
         url:

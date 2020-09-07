@@ -1,0 +1,19 @@
+# Transform Service
+- version: 1.3
+  pages:
+    - title: 'Introduction'
+      path: '/transform-service/latest/'
+    - title: 'Install'
+      pages: 
+        - title: 'Overview'
+          path: '/transform-service/latest/install/'
+        - title: 'Install with Zip'
+          path: '/transform-service/latest/install/zip'
+        - title: 'Install Docker Compose'
+          path: '/transform-service/latest/install/containerized'
+        - title: 'Install with Helm Charts on AWS'
+          path: '/transform-service/latest/install/helm-charts-aws'
+    - title: 'Configure'
+      path: '/transform-service/latest/config/'
+    - title: 'Administer'
+      path: '/transform-service/latest/admin/'

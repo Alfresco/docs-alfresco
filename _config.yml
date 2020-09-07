@@ -128,6 +128,28 @@ defaults:
       latest: true
 
 
+
+# Alfresco Transform Service
+  - scope:
+      path: "transform-service"
+    values:
+      layout: "docs"
+      product: "Alfresco Transform Service"
+      location: "transform-service"
+      toc: "transform-service"
+      support: true
+      versions:
+        - 1.3
+        - 1.2
+        - 1.1
+        - 1.0
+  - scope:
+      path: "transform-service/latest"
+    values:
+      version: 1.3
+      latest: true
+
+
   - scope:
       path: "activiti"
     values:
