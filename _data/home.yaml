@@ -31,7 +31,7 @@ integrations:
     sub:
       - title: "Sync Service"
         text: "Alfresco Sync Service synchronizes files between the desktop and repository using web services."
-        url:
+        url: /sync-service/latest/
       - title: "Desktop Sync"
         text: "Desktop Sync allows you to securely manage synchronized files on your desktop."
         url:
