@@ -18,7 +18,7 @@ The package contains a keystore that is used by the Tomcat SSL connector. This k
 
 The standalone Document Transformation Engine is installed using the MSI file.
 
-> **Note:** When upgrading the Document Transformation Engine, the previous installation must be uninstalled first. If your old version of the Document Transformation Engine is earlier than 1.3.1, use the Control Panel **Uninstall a program** option to remove the old version, and then manually remove the Document Transformation Engine directory. By default, the Document Transformation Engine directory is `C:\\Program Files (x86)\\Transformation Engine\\)`. If your old version of the Document Transformation Engine is 1.3.1 or later, the new Document Transformation Engine MSI package prompts you to uninstall the previous version. When the uninstall is complete, you can run the MSI package again to install the new version. There is no need to manually remove anything.
+> **Note:** When upgrading the Document Transformation Engine, the previous installation must be uninstalled first. If your old version of the Document Transformation Engine is earlier than 1.3.1, use the Control Panel **Uninstall a program** option to remove the old version, and then manually remove the Document Transformation Engine directory. By default, the Document Transformation Engine directory is `C:\\Program Files (x86)\\Transformation Engine\\`. If your old version of the Document Transformation Engine is 1.3.1 or later, the new Document Transformation Engine MSI package prompts you to uninstall the previous version. When the uninstall is complete, you can run the MSI package again to install the new version. There is no need to manually remove anything.
 
 1. Log onto the Windows Server as a user with administrator rights.
 
@@ -104,6 +104,13 @@ tempfilecleaner.cronExpression.windows
     img.gslib = <GhostScript_installation_dir>/lib
     ```
 
+4. Set the installation paths in the Document Transformation Engine `TransformationServer\\tomcat\\webapps\\transformation-server\\WEB-INF\\classes\\default-configuration.properties` file:
+
+    ```bash
+    transformer.pdf2swf.executable=C:/Program Files (x86)/SWFTools/pdf2swf.exe
+    transformer.ghostscript.executable=C:/Program Files/gs/gs9.19/bin/gswin64c.exe
+    ```
+
 {% endcapture %}
 
 {% capture linux %}
@@ -156,6 +163,13 @@ From repositories/CD:
 
 4. Wait as the files are downloaded and installed onto your system. A list of added files will show when the process is complete.
 
+5. Set the installation paths in the Document Transformation Engine `TransformationServer\\tomcat\\webapps\\transformation-server\\WEB-INF\\classes\\default-configuration.properties` file:
+
+    ```bash
+    transformer.pdf2swf.executable=C:/Program Files (x86)/SWFTools/pdf2swf.exe
+    transformer.ghostscript.executable=C:/Program Files/gs/gs9.19/bin/gswin64c.exe
+    ```
+
 {% endcapture %}
 
 {% capture solaris %}
@@ -192,16 +206,16 @@ From repositories/CD:
 
 4. Wait as the files are downloaded and installed onto your system. A list of added files will show when the process is complete.
 
-{% endcapture %}
-
-{% include tabs.html tableid="ghostscript" opt1="Windows" content1=windows opt2="Linux" content2=linux opt3="Solaris" content3=solaris %}
-
-Set the installation paths in the Document Transformation Engine `TransformationServer\\tomcat\\webapps\\transformation-server\\WEB-INF\\classes\\default-configuration.properties` file:
+5. Set the installation paths in the Document Transformation Engine `TransformationServer\\tomcat\\webapps\\transformation-server\\WEB-INF\\classes\\default-configuration.properties` file:
 
     ```bash
     transformer.pdf2swf.executable=C:/Program Files (x86)/SWFTools/pdf2swf.exe
     transformer.ghostscript.executable=C:/Program Files/gs/gs9.19/bin/gswin64c.exe
     ```
+
+{% endcapture %}
+
+{% include tabs.html tableid="ghostscript" opt1="Windows" content1=windows opt2="Linux" content2=linux opt3="Solaris" content3=solaris %}
 
 If GhostScript and pdf2swf are not installed properly or the configured path does not match the installation path, the following message will be displayed on startup of the Document Transformation Engine:
 

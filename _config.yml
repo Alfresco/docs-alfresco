@@ -127,8 +127,6 @@ defaults:
       version: 2.2
       latest: true
 
-
-
 # Alfresco Transform Service
   - scope:
       path: "transform-service"
@@ -228,6 +226,7 @@ elasticsearch:
 exclude:
   - .github/
   - README.md
+  - CODEOWNERS
   - .gitignore
   # - .sass-cache/
   - .jekyll-cache/
