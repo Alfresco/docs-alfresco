@@ -1,9 +1,9 @@
 {% capture specialoptions %}
-          <a class="dropdown-item special" data-placeholder="Start type to search..." data-value="current" data-url="/search#query/local/" href="#">
-            <span class="hint">In: Digital Content</span>
+          <a class="dropdown-item special"  id="localscope" data-placeholder="Start type to search..." data-value="current" data-url="/search#query/" href="#">
+            <span class="hint">In: {{product}}</span>
             <span class="query"></span>
           </a>
-          <a class="dropdown-item special" data-placeholder="Start type to search..." data-value="global" data-url="/search#query/global/" href="#">
+          <a class="dropdown-item special" data-placeholder="Start type to search..." data-value="global" data-url="/search#query/" href="#">
             <span class="hint">In: All docs</span>
             <span class="query"></span>
           </a>

@@ -2,10 +2,8 @@
       <div class="container is-vertical-center">
         <div class="content-title">{{page.product}}</div>
         <div class="content-version">
-
         {% unless page.versions == nil %}
-
-          <div class="dropdown is-hoverable">
+          <div class="dropdown is-clickable" id="version-selector">
             <div class="dropdown-trigger">
               <button class="button is-rounded is-small" aria-haspopup="true" aria-controls="dropdown-menu">
                 <span class="arrow">{{page.version}}</span>

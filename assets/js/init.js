@@ -1,21 +1,23 @@
 (function () {
   // search bar
 
-  setupSearchBar(requestSearchResults);
+  ((localScopeHint, scope) => {
+    if (!localScopeHint) return;
+    if (!scope) return;
 
-  const onSelect = function (state) {
-    console.log(state);
-    // alert(`query: ${state.label}, id: ${state.value}, scope: ${state.special}`);
-    window.location.href = `http://google.com/search?q=query: ${state.label}, id: ${state.value}, scope: ${state.special}`;
-  };
+    const s = encodeURIComponent(`${scope.product}/${scope.version}`);
+
+    localScopeHint.dataset.url += s + "/";
+    localScopeHint.querySelector(".hint").innerHTML = `In: ${scope.product}`;
+  })(document.getElementById("localscope"), window.searchScope);
+
+  setupSearchBar();
 
   autocompleteInput(
     "topsearch-input",
     "topsearch-dropdown-content",
     "topsearch-clear",
-    requestSearchResults,
-    onSelect,
-    200
+    requestSearchResults
   );
   // customelements
   customElements.define("alfresco-contenttabs", ContentTabs);
@@ -68,11 +70,13 @@
     }
   };
 
-  hljs.initHighlightingOnLoad();
-
   initialHashCheck();
 
-  function addPreCopy() {
+  hljs.initHighlightingOnLoad();
+
+  // code copy button
+
+  (() => {
     const codeTags = document.querySelectorAll("pre > code");
 
     const template = `<button class="button"><span class="icon is-small"><i class="copy-icon"></i></span></button>`;
@@ -112,8 +116,57 @@
       });
 
       preTag.prepend(copyContainer);
-      console.log(preTag);
     });
-  }
-  addPreCopy();
+  })();
+
+  // left side menu
+  ((leftmenu) => {
+    if (!leftmenu) return;
+
+    const treeSelect = (li, ...classes) => {
+      const parent = li.closest("#leftside-menu li");
+      if (!parent) return;
+
+      parent.classList.add(...classes);
+      treeSelect(li.parentElement, ...classes);
+    };
+
+    const selected = leftmenu.querySelector("li.is-selected");
+    if (selected) treeSelect(selected, "is-selected", "is-expanded");
+
+    Array.from(leftmenu.querySelectorAll(".expand-button")).forEach((p) => {
+      const li = p.closest("li");
+      const ul = li.querySelector("ul");
+      const height = ul.getBoundingClientRect().height;
+      ul.style.setProperty("--max-height", height + "px");
+      p.addEventListener("click", (e) => {
+        li.classList.toggle("is-expanded");
+      });
+    });
+    leftmenu.style.setProperty("--min-height", "0px");
+    leftmenu.classList.add("is-ready-fade");
+  })(document.getElementById("leftside-menu"));
+
+  // rating bar
+  ((rating) => {
+    if (!rating) return;
+    ["thumb-down", "thumb-up"].forEach((b) => {
+      const btn = rating.querySelector(`button[id=${b}]`);
+      btn.addEventListener("click", (e) => {
+        rating.dataset.toggled = b == rating.dataset.toggled ? "none" : b;
+      });
+    });
+  })(document.querySelector(".content-rating"));
+
+  // version selector
+  ((versionSelector) => {
+    if (!versionSelector) return;
+    const focusHandler = (e) => {
+      versionSelector.classList.toggle("is-active");
+    };
+    const btn = versionSelector.querySelector("button");
+
+    btn.addEventListener("focus", focusHandler);
+    btn.addEventListener("blur", () => setTimeout(focusHandler, 100));
+  })(document.getElementById("version-selector"));
 })();

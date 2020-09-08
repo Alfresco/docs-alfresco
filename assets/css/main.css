@@ -40,7 +40,8 @@ nav.navbar .navbar-lang {
 }
 
 .navbar-item.has-dropdown,
-.dropdown.is-hoverable {
+.dropdown.is-hoverable,
+.dropdown.is-clickable {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -602,6 +603,7 @@ body > .section.section-landing {
   padding-left: 24px;
 }
 
+.content-menu-column ul,
 .content-menu-column ul a {
   font-size: 10.5pt;
   color: rgba(33, 35, 40, 0.6);
@@ -610,13 +612,43 @@ body > .section.section-landing {
   color: #212328;
 }
 
-.content-menu-column ul a.is-active {
+.content-menu-column ul li.is-selected,
+.content-menu-column ul li.is-selected > a {
   color: #212328;
   font-weight: 500;
 }
 
 .content-menu-column ul li {
   padding-top: 13px;
+}
+
+.content-menu-column {
+  --max-height: 9999px;
+  --min-height: 9999px;
+}
+
+.content-menu-column li.is-expanded > ul {
+  overflow: hidden;
+  max-height: var(--max-height);
+  transition: max-height 0.5s;
+}
+
+.content-menu-column li:not(.is-expanded) > ul {
+  overflow: hidden;
+  max-height: var(--min-height);
+  transition: max-height 0.1s linear;
+}
+
+.content-menu-column .expand-button::after {
+  cursor: pointer;
+  content: "+";
+}
+.content-menu-column li.is-expanded > .expand-button::after {
+  content: "-";
+}
+
+.content-menu-column li.is-selected > .expand-button {
+  display: none;
 }
 
 .left-side-menu {
@@ -726,24 +758,56 @@ body > .section.section-landing {
   height: 24px;
 }
 
-.content-rating .icon.icon-thumb-up {
-  background-image: url(/assets/img/thumb_up_24px.svg);
-}
-.content-rating .icon.icon-thumb-up:hover {
-  background-image: url(/assets/img/thumb_up_alt_24px.svg);
+.content-rating .button:focus {
+  outline: none;
+  box-shadow: none;
 }
 
-.content-rating .icon.icon-thumb-down {
-  background-image: url(/assets/img/thumb_down_24px.svg);
+.content-rating #thumb-up .icon {
+  background-image: url(/assets/img/thumb_up_24px.svg);
+  opacity: 0.7;
 }
-.content-rating .icon.icon-thumb-down:hover {
+.content-rating[data-toggled="thumb-up"] #thumb-up .icon,
+.content-rating #thumb-up:hover .icon,
+.content-rating #thumb-up:focus .icon {
+  background-image: url(/assets/img/thumb_up_alt_24px.svg);
+}
+.content-rating[data-toggled="thumb-up"] #thumb-up .icon {
+  opacity: 1;
+}
+
+.content-rating #thumb-down .icon {
+  background-image: url(/assets/img/thumb_down_24px.svg);
+  opacity: 0.7;
+}
+.content-rating[data-toggled="thumb-down"] #thumb-down .icon,
+.content-rating #thumb-down:hover .icon,
+.content-rating #thumb-down:focus .icon {
   background-image: url(/assets/img/thumb_down_alt_24px.svg);
+}
+.content-rating[data-toggled="thumb-down"] #thumb-down .icon {
+  opacity: 1;
 }
 
 .content-rating textarea {
   width: 384px;
   height: 147px;
   padding: 12px;
+}
+
+.content-rating div.thumb-down-controls,
+.content-rating div.thumb-up-controls {
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+}
+
+.content-rating[data-toggled="thumb-down"] div.thumb-down-controls,
+.content-rating[data-toggled="thumb-up"] div.thumb-up-controls {
+  visibility: visible;
+  position: initial;
+  transition: opacity 0.5s;
+  opacity: 1;
 }
 
 .content-rating p {
@@ -754,6 +818,17 @@ body > .section.section-landing {
 button[type="submit"] {
   padding-left: 64px;
   padding-right: 64px;
+}
+
+.content-rating[data-toggled="none"] form button[type="submit"] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.content-rating:not([data-toggled="none"]) form button[type="submit"] {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s 0.1s;
 }
 
 a.github-link {
@@ -824,8 +899,8 @@ a.github-link::after {
   background-color: white;
   transition-duration: 200ms;
   transition-property: opacity, margin-top, visibility;
-  padding-right: 128px;
-  padding-left: 128px;
+  padding-right: 112px;
+  padding-left: 112px;
 }
 
 .searchbar-holder.is-active {
@@ -1093,27 +1168,6 @@ a.github-link::after {
   transition-property: opacity, transform;
 }
 
-/* pre code {
-  white-space: pre !important;
-  overflow-x: auto !important;
-  overflow-wrap: break-word !important;
-  display: inline-block !important;
-  min-width: 100% !important;
-}
-
-pre {
-  word-break: break-all !important;
-  white-space: pre !important;
-  overflow-x: auto !important;
-  overflow-wrap: break-word !important;
-  display: block !important;
-} */
-/* .hljs {
-  overflow-x: auto;
-  display: inline-block;
-  min-width: 100%;
-} */
-
 .copy-pane {
   display: inline-block;
   position: absolute;
@@ -1251,8 +1305,6 @@ pre {
   padding-top: 0px;
 }
 .section.releasenotes-content > .container {
-  /* max-width: 800px;
-  margin: 0px auto; */
   border-top: 1px solid rgba(33, 35, 40, 0.12);
 }
 
