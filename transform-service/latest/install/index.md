@@ -2,8 +2,6 @@
 title: Install Transform Service
 ---
 
-## Installing Transform Service
-
 This release provides two main options for deployment: using the distribution zip, or using containerized deployment (as in previous Transform Service releases).
 
 The Transform Service zip can be applied when installing Alfresco Content Services using the distribution zip.
@@ -82,7 +80,7 @@ See [Install Containerized]({% link transform-service/latest/install/containeriz
 
 > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose, using the links provided.
 
-See [Install Containerized]({% link transform-service/latest/install/containerized.md %})for more. 
+See [Install Docker Compose]({% link transform-service/latest/install/containerized.md %})for more. 
 
 
 
