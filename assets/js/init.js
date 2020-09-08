@@ -161,10 +161,12 @@
   // version selector
   ((versionSelector) => {
     if (!versionSelector) return;
-    const focusHandler = (e) => versionSelector.classList.toggle("is-active");
+    const focusHandler = (e) => {
+      versionSelector.classList.toggle("is-active");
+    };
     const btn = versionSelector.querySelector("button");
 
     btn.addEventListener("focus", focusHandler);
-    btn.addEventListener("blur", focusHandler);
+    btn.addEventListener("blur", () => setTimeout(focusHandler, 100));
   })(document.getElementById("version-selector"));
 })();
