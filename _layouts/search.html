@@ -3,8 +3,19 @@
 
   {% include head.html %}
 
-
   <body>
+    <script>
+      const path = window.location.hash;
+      const scope = path.split("/");
+      let product,version = null;
+      if (scope.length>2) {
+        const s = decodeURIComponent(scope[1]).split("/")
+        window.searchScope = {
+          product: s[0],
+          version: s[1],
+        }
+      }
+    </script>
     {% include searchbar.html back=true %}
     <!--content-->
     <section class="section section-search section-content">
@@ -12,7 +23,7 @@
         <div class="columns">
           <div class="column is-narrow content-menu-column">
             <div class="left-side-menu">
-            <ul>
+            <ul id="leftside-menu">
               <li>
                 <a class="is-active" href="#">What's new</a>
               </li>

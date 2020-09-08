@@ -1,16 +1,23 @@
-const requestSearchResults = function (searchQuery, scope) {
-  const input = searchQuery.trim();
+const requestSearchResultsFactory = (elasticURL, elasticIndex) => (
+  searchQuery,
+  scope,
+  maxAnswers
+) => {
+  let input = searchQuery.trim();
   const defaultResult = { results: [], total: 0 };
   if (!input) return Promise.resolve(defaultResult);
 
-  const encoded = encodeURI(input);
+  let encoded = encodeURIComponent(input.replace(/[\/\\]/g, ""));
+
+  if (scope) {
+    encoded += " AND url:" + encodeURIComponent(scope);
+  }
 
   return fetch(
-    `https://search-test-dev-es-pxmeiqsie66va47wsko6p2q3jm.us-east-1.es.amazonaws.com/_search?size=30&q=text:${encoded}`
+    `${elasticURL}/${elasticIndex}/_search?size=${maxAnswers}&q=text:${encoded}`
   )
     .then((r) => r.json())
     .then((r) => {
-      console.log(r);
       const results = r.hits.hits.map((s) => ({
         label: s._source.text,
         value: s._source.url,
@@ -24,6 +31,13 @@ const requestSearchResults = function (searchQuery, scope) {
     });
 };
 
+const elasticUrl = document.currentScript.dataset.elastic;
+const elasticIndex = document.currentScript.dataset.index;
+const requestSearchResults = requestSearchResultsFactory(
+  elasticUrl,
+  elasticIndex
+);
+
 class SearchResults extends HTMLElement {
   connectedCallback() {
     this.setup();
@@ -33,21 +47,23 @@ class SearchResults extends HTMLElement {
     if (!request) return;
 
     const splitted = request.split("/");
-    if (splitted.length < 2) return;
+    if (splitted.length < 1) return;
 
     const query = {
-      scope: splitted.shift(),
+      scope: splitted.length > 1 ? splitted.shift() : null,
       text: splitted.join("/"),
     };
 
-    this.querySelector("#query").innerText = query.text;
+    const decodedQuery = decodeURIComponent(query.text);
 
-    requestSearchResults(query.text).then((r) => {
+    this.querySelector("#query").innerText = decodedQuery;
+
+    requestSearchResults(query.text, query.scope, 30).then((r) => {
       this.setResults(r);
     });
 
     const maininput = document.getElementById("topsearch-input");
-    if (maininput) maininput.value = query.text;
+    if (maininput) maininput.value = decodedQuery;
   }
 
   setResults(answer) {

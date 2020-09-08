@@ -3,8 +3,17 @@
 
   {% include head.html %}
 
+  {% assign path = page.url | split: "/"%}
+  {% assign product = path[1]%}
+  {% assign version = path[2]%}
 
   <body>
+    <script>
+      window.searchScope = {
+        product: '{{product}}',
+        version: '{{version}}',
+      }
+    </script>
     {% include searchbar.html close=true %}
     {% include mainmenu.html showsearch=true%}
     <!--submenu-->
@@ -25,24 +34,31 @@
                 {{content}}
               </article>
             </div>
-            <div class="columns content-rating">
+            <div class="columns content-rating" data-toggled="none">
               <div class="column">
                 <h1>Was this page helpful?</h1>
                 <div class="field is-grouped">
                   <div class="control">
-                    <button class="button">
-                      <span class="icon is-small icon-thumb-up"></span>
+                    <button class="button" id="thumb-up">
+                      <span class="icon is-small"></span>
                     </button>
                   </div>
                   <div class="control">
-                    <button class="button">
-                      <span class="icon is-small icon-thumb-down"></span>
+                    <button class="button" id="thumb-down">
+                      <span class="icon is-small"></span>
                     </button>
                   </div>
                 </div>
-                <p>We’re glad this article helped!</p>
+                
                 <form action="#">
-                  <textarea placeholder="Anything else you'd like us to know?"></textarea>
+                  <div class="thumb-up-controls">
+                    <p>We’re glad this article helped!</p>
+                    <textarea placeholder="Anything else you'd like us to know?" name="positive"></textarea>
+                  </div>
+                  <div class="thumb-down-controls">
+                    <p>Share your thoughts!</p>
+                    <textarea placeholder="Please, help us to become better for you!" name="negative"></textarea>
+                  </div>
                   <div class="control">
                     <button class="button is-primary" type="submit">Submit</button>
                   </div>
