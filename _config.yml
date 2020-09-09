@@ -127,6 +127,22 @@ defaults:
       version: 2.2
       latest: true
 
+# Alfresco ECM Centera 
+  - scope:
+      path: "centera"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for EMC Centera"
+      location: "centera"
+      toc: "centera"
+      support: true
+      versions:
+        - 2.2
+  - scope:
+      path: "centera/latest"
+    values:
+      version: 2.2
+      latest: true
 
   - scope:
       path: "activiti"

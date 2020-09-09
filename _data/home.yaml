@@ -88,13 +88,13 @@ integrations:
         url:
       - title: "Microsoft Azure"
         text: "Alfresco Content Connector for Azure uses Microsoft's Azure Blob Storage as an alternative content store for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
-        url: /microsoft-azure/latest
+        url: /microsoft-azure/latest/
       - title: "Amazon Glacier"
         text: "Alfresco Content Connector for AWS Glacier enables access to Amazon S3 Glacier as a storage service optimized for infrequently used data, and suits the long term storage of archive and backup data."
         url:
       - title: "EMC Centera"
         text: "Alfresco Content Connector for EMC Centera uses EMC Centera as an alternative content store for Alfresco Content Services."
-        url:
+        url: /centera/latest/
   - title: "Business Connector"
     text: "Connectors are used to handle interactions between external systems and a process. For example, interacting with an installation of Slack to post messages, calling a custom REST API, and passing the response back to a process."
     url:
