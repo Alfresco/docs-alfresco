@@ -69,7 +69,7 @@ Pauses Sync if you don't wish to synchronize files from the server, for example 
 You can manage which folders and sites get synced on your desktop and other account details 
 using **Manage Your Account**. The available options are:
 
-* **Manage Folders...**: Opens Choose folders and sites to sync screen. See [select content to sync]({% link desktop-sync/latest/using/select-content-to-sync.md %}#selecting-content-to-sync-on-windows).
+* **Manage Folders...**: Opens Choose folders and sites to sync screen. See [select content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#selecting-content-to-sync-on-windows).
 
     If you deselect a previously synced folder and click **Sync**, then the synced content from your desktop is removed. In case you have any unsynced or conflicted files, they will be orphaned in `C:\Users\<username>\Alfresco\`orphaned.
 
@@ -115,9 +115,9 @@ To view the Desktop Sync context menu, follow the steps below:
     * **Resolve**: Selecting this option opens a screen where you can decide to keep your changes or the changes from the server.
 6. Click **Share** to enable file sharing when you right-click a synced file. Once set up in your configuration file, this option allows you to share a direct link to a file, so that anyone that has the link can view the file.
     * See [Configuring Desktop Sync]({% link desktop-sync/latest/config/index.md %}) for configuration details.
-    * See [Sharing files]({% link desktop-sync/latest/using/sharing-files.md %}#sharing-files-on-windows) for more.
+    * See [Sharing files]({% link desktop-sync/latest/using/sharing.md %}#sharing-files-on-windows) for more.
 7. Click **Version History** to view and manage version history when you right-click synced content.
-    * See [Version History]({% link desktop-sync/latest/using/version-history.md %}) for more.
+    * See [Version History]({% link desktop-sync/latest/using/versions.md %}) for more.
 8. Click **Properties** to enable viewing, editing, and updating of properties when you right-click synced content.
     * See [Properties]({% link desktop-sync/latest/using/metadata.md %}#manage-the-properties-for-content-on-windows) for more.
 9. Click **Update Desktop Sync** to download the new installer file to your local Downloads folder. See [Updating Desktop Sync]({% link desktop-sync/latest/upgrade/index.md %}) for more.
@@ -176,7 +176,7 @@ Performs a consistency check on Desktop Sync. This is typically used in collabor
 
 #### Manage Sync Folder
 
-Selecting **Manage Sync Folder** opens the Select sites and folders to sync dialog. This allows you to select more content to sync, or deselect content to stop syncing. See [Selecting content to sync]({% link desktop-sync/latest/using/select-content-to-sync.md %}#faq/mac) for more.
+Selecting **Manage Sync Folder** opens the Select sites and folders to sync dialog. This allows you to select more content to sync, or deselect content to stop syncing. See [Selecting content to sync]({% link desktop-sync/latest/using/select-to-sync.md %}#faq/mac) for more.
 
 If you deselect a previously synced folder and click **Sync**, then the synced content from your desktop is removed. In case you have any unsynced or conflicted files, they will be orphaned in '/<userHome>/Alfresco/orphaned'.
 
@@ -250,9 +250,9 @@ To view the Finder menu actions, follow the steps below:
     * **Keep my Changes**: Copies updates made to content locally over to Alfresco.
 6. Click **Share** to enable file sharing when you right-click a synced file. Once set up in your configuration file, this option allows you to share a direct link to a file, so that anyone that has the link can view the file.
     * See [Configuring Desktop Sync]({% link desktop-sync/latest/config/index.md %}) for configuration details.
-    * See [Sharing files]({% link desktop-sync/latest/using/sharing-files.md %}#faq/mac) for more.
+    * See [Sharing files]({% link desktop-sync/latest/using/sharing.md %}#faq/mac) for more.
 7. Click **Version History** to view and manage version history when you right-click synced content.
-    * See [Version History]({% link desktop-sync/latest/using/version-history.md %}) for more.
+    * See [Version History]({% link desktop-sync/latest/using/versions.md %}) for more.
 8. Click **Properties** to enable viewing, editing, and updating of properties when you right-click synced content.
     * See [Properties]({% link desktop-sync/latest/using/metadata.md %}#faq/mac) for more.
 9. Click **Update Desktop Sync** to download the new installer file to your local Downloads folder. See [Updating Desktop Sync]({% link desktop-sync/latest/upgrade/index.md %}) for more.

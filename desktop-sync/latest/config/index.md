@@ -44,7 +44,7 @@ Here are examples of how you can set the URL to access a file:
 >The URL must also use an `http` or `https` protocol. If the property is left blank or not set correctly, 
 >the file sharing feature won't be available in Desktop Sync.
 
-For more info see [Sharing files]({% link desktop-sync/latest/using/sharing-files.md %}).
+For more info see [Sharing files]({% link desktop-sync/latest/using/sharing.md %}).
 
 ## User interface
 
@@ -90,7 +90,7 @@ Here are some examples of the information that's collected:
 As an IT administrator, you can control the parts of the Desktop Sync UI that users can access, 
 so that they can't sync content from specific areas in Alfresco Content Services. 
 
-By default, the Content selection screen (see [selecting content to sync]({% link desktop-sync/latest/using/select-content-to-sync.md %})) 
+By default, the Content selection screen (see [selecting content to sync]({% link desktop-sync/latest/using/select-to-sync.md %})) 
 displays **My Files**, **Shared Files**, **Sites**, and **Company Home**. 
 If you want to hide any of these areas, change the value of the relevant `syncui.show*` property to `false`.
 
