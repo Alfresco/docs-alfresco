@@ -40,7 +40,7 @@ Use this information to configure a custom transform engine (T-Engine).
 
     For example:
 
-    ```
+    ```json
     {
       "transformers": [
         {
