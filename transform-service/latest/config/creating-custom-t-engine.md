@@ -16,10 +16,9 @@ The deployment and development of a T-Engine transformer is simpler than in prev
 
 When developing new Local Transformers, it's a good idea to increase the polling frequency of the various locations that contain custom Pipeline, Rendition, Mimetype Definitions, and also of the Transform Service:
 
-```
+```bash
 mimetype.config.cronExpression=0 0/1 * * * ?
 rendition.config.cronExpression=2 0/1 * * * ?
 local.transform.service.cronExpression=4 0/1 * * * ?
 transform.service.cronExpression=6 0/1 * * * ?
 ```
-
