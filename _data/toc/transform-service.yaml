@@ -29,7 +29,7 @@
           path: '/transform-service/latest/config/configuring-custom-t-engine'
     - title: 'Administer'
       pages: 
-        - title: 'Trouble Shooting'
+        - title: 'Troubleshooting'
           path: '/transform-service/latest/admin/'
         - title: 'Error Handling'
           path: '/transform-service/latest/admin/error-handling' 
