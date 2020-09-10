@@ -3,7 +3,7 @@
   pages:
     - title: 'Introduction'
       path: '/centera/latest/'
-    - title: 'Configure'
-      path: '/centera/latest/configure/'
     - title: 'Install'
       path: '/centera/latest/install/'
+    - title: 'Configure'
+      path: '/centera/latest/config/'
