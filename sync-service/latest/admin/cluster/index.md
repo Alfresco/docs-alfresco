@@ -85,7 +85,7 @@ Follow the steps listed in the [aws-lambda-lifecycle-hooks-function](https://git
 
     3. Add a lifecycle hook from the Auto Scaling Groups EC2 console.
 
-        Completed the following fields:
+        Complete the following fields:
 
         * Lifecycle Transition: Instance Terminate
         * Heartbeat Timeout: 300 seconds
