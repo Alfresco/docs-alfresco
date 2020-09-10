@@ -2,6 +2,8 @@
 title: Application Menu in Taskbar
 ---
 
+{% capture windows %}
+
 ## Application Menu in Windows Taskbar 
 
 You can access Desktop Sync from the Windows system tray.
@@ -112,7 +114,7 @@ To view the Desktop Sync context menu, follow the steps below:
 5. In the event of a conflict, you'll see one more option:
     * **Resolve**: Selecting this option opens a screen where you can decide to keep your changes or the changes from the server.
 6. Click **Share** to enable file sharing when you right-click a synced file. Once set up in your configuration file, this option allows you to share a direct link to a file, so that anyone that has the link can view the file.
-    * See [Configuring Desktop Sync]({% link desktop-sync/latest/admin/config.md %}) for configuration details.
+    * See [Configuring Desktop Sync]({% link desktop-sync/latest/config/index.md %}) for configuration details.
     * See [Sharing files]({% link desktop-sync/latest/using/sharing-files.md %}#sharing-files-on-windows) for more.
 7. Click **Version History** to view and manage version history when you right-click synced content.
     * See [Version History]({% link desktop-sync/latest/using/version-history.md %}) for more.
@@ -129,6 +131,10 @@ You can also work with multiple files by using the Explorer right click menu act
 * When you click **Check In**, select if the new version is a major or minor change, and optionally input a comment. Click **Check In** again to save your changes. This applies the same version change and comment (if added) to all the selected files.
 * If you have selected a mixture of items, for example where you have files checked out and not checked out, then all the relevant options are shown. When an action is selected, it's only applied to the files that are in a relevant state.
 * If any of the files you selected are in conflict, you'll have to resolve these individually, as the conflict resolution options are not displayed.
+
+{% endcapture %}
+   
+{% capture mac %} 
 
 ## Application Menu in Mac Taskbar
 
@@ -170,7 +176,7 @@ Performs a consistency check on Desktop Sync. This is typically used in collabor
 
 #### Manage Sync Folder
 
-Selecting **Manage Sync Folder** opens the Select sites and folders to sync dialog. This allows you to select more content to sync, or deselect content to stop syncing. See [Selecting content to sync]({% link desktop-sync/latest/using/select-content-to-sync.md %}#selecting-content-to-sync-on-mac) for more.
+Selecting **Manage Sync Folder** opens the Select sites and folders to sync dialog. This allows you to select more content to sync, or deselect content to stop syncing. See [Selecting content to sync]({% link desktop-sync/latest/using/select-content-to-sync.md %}#faq/mac) for more.
 
 If you deselect a previously synced folder and click **Sync**, then the synced content from your desktop is removed. In case you have any unsynced or conflicted files, they will be orphaned in '/<userHome>/Alfresco/orphaned'.
 
@@ -178,7 +184,7 @@ If you deselect a previously synced folder and click **Sync**, then the synced c
 
 Removes the synced user from Desktop Sync and deletes all the synced content from the desktop. Use this option as the first stage of uninstalling Desktop Sync.
 
-You can still access your files in Alfresco. Any content that can't be removed from your desktop is orphaned. On removing your account you are taken back to the Desktop Sync login dialog. Close the login dialog to quit the application. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#setting-up-desktop-sync-on-mac).
+You can still access your files in Alfresco. Any content that can't be removed from your desktop is orphaned. On removing your account you are taken back to the Desktop Sync login dialog. Close the login dialog to quit the application. See [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac).
 
 #### Help
 
@@ -243,12 +249,12 @@ To view the Finder menu actions, follow the steps below:
     * **Discard my Changes**: Replaces the local file with the Alfresco copy.
     * **Keep my Changes**: Copies updates made to content locally over to Alfresco.
 6. Click **Share** to enable file sharing when you right-click a synced file. Once set up in your configuration file, this option allows you to share a direct link to a file, so that anyone that has the link can view the file.
-    * See [Configuring Desktop Sync]({% link desktop-sync/latest/admin/config.md %}) for configuration details.
-    * See [Sharing files]({% link desktop-sync/latest/using/sharing-files.md %}#sharing-files-on-mac) for more.
+    * See [Configuring Desktop Sync]({% link desktop-sync/latest/config/index.md %}) for configuration details.
+    * See [Sharing files]({% link desktop-sync/latest/using/sharing-files.md %}#faq/mac) for more.
 7. Click **Version History** to view and manage version history when you right-click synced content.
     * See [Version History]({% link desktop-sync/latest/using/version-history.md %}) for more.
 8. Click **Properties** to enable viewing, editing, and updating of properties when you right-click synced content.
-    * See [Properties]({% link desktop-sync/latest/using/metadata.md %}#manage-the-properties-for-content-on-mac) for more.
+    * See [Properties]({% link desktop-sync/latest/using/metadata.md %}#faq/mac) for more.
 9. Click **Update Desktop Sync** to download the new installer file to your local Downloads folder. See [Updating Desktop Sync]({% link desktop-sync/latest/upgrade/index.md %}) for more.
 
 #### Working with multiple files in Finder
@@ -261,3 +267,6 @@ You can also work with multiple files by using the Finder right click menu actio
 * If you have selected a mixture of items, for example where you have files checked out and not checked out, then all the relevant options are shown. When an action is selected, it's only applied to the files that are in a relevant state.
 * If any of the files you selected are in conflict, you'll have to resolve these individually, as the conflict resolution options are not displayed.
 
+{% endcapture %}
+
+{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

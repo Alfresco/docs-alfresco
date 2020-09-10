@@ -2,8 +2,6 @@
 title: Manage the version history
 ---
 
-## Manage the version history
-
 You can view and manage the version history from the Windows Explorer/Mac Finder menu actions.
 
 1. In your **Alfresco** synced folder, find the file that you want to update.

@@ -2,6 +2,8 @@
 title: Manage the properties for content
 ---
 
+{% capture windows %}
+
 ## Manage the properties for content on Windows
 
 You can view, edit, and update file and folder properties (i.e. metadata) from the Windows Explorer menu actions.
@@ -54,6 +56,10 @@ You can also edit properties (i.e. metadata) in multiple files simultaneously. T
 2. You can now view and edit those common properties.
 
    For example, if you edit the `Title` field, that title will be updated in all of the selected files.
+   
+{% endcapture %}
+   
+{% capture mac %}   
     
 ## Manage the properties for content on Mac
 
@@ -111,3 +117,7 @@ You can also edit properties in multiple files simultaneously. The steps are sim
 2. You can now view and edit those common properties.
 
    For example, if you edit the `Title` field, that title will be updated in all of the selected files.
+   
+{% endcapture %}
+
+{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

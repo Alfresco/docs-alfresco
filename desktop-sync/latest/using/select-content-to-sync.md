@@ -1,6 +1,8 @@
 ---
-title: Select Content to Sync
+title: Select content to sync
 ---
+
+{% capture windows %}
 
 ## Selecting content to sync on Windows
 
@@ -80,6 +82,10 @@ During initial sync:
 
 To save your work in Alfresco, just work on your files in the `C:\Users\<username>\Alfresco` folder, 
 and everything in the folder will be automatically synced to Alfresco.
+
+{% endcapture %}
+   
+{% capture mac %}   
 
 ## Selecting content to sync on Mac
 
@@ -162,3 +168,7 @@ During initial sync:
 
 To save your work in Alfresco, just work on your files in the `/<userHome>/Alfresco` folder, and everything in the folder 
 will be automatically synced to Alfresco.
+
+{% endcapture %}
+
+{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

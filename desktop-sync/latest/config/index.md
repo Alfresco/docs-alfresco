@@ -2,11 +2,9 @@
 title: Configure Desktop Sync
 ---
 
-## Configure Desktop Sync
-
 If you're an IT administrator, you can configure Desktop Sync for central installation purposes.
 
-### Desktop Sync configuration file
+## Desktop Sync configuration file
 
 You can configure Desktop Sync using the `AlfrescoSync.conf` file located at:
 
@@ -26,7 +24,7 @@ Using the configuration file, you can update:
 The configuration properties values are case sensitive and use the format `name.subname=value`, 
 for example, `syncmanager.deferFileSyncTimer=15`.
 
-### Sharing files
+## Sharing files
 
 You can configure a file sharing URL, (defined by `syncmanager.quickShareURL`), so that when you share a link to a file, 
 a correctly formatted URL is provided. This link should either access Alfresco Digital Workspace or Alfresco Share.
@@ -48,27 +46,27 @@ Here are examples of how you can set the URL to access a file:
 
 For more info see [Sharing files]({% link desktop-sync/latest/using/sharing-files.md %}).
 
-### User interface
+## User interface
 
 Use the user interface properties to configure the Desktop Sync UI.
 
 |Property|Default value|Description|
 |--------|-------------|-----------|
-|`syncui.defaultServer`| |Specifies a default server URL to be entered in the login screen when Desktop Sync is run for the first time (usually at the end of the installation process).The user can change the URL on the login screen, if required.|
-|`syncui.enableAnalytics`|`true`|Controls whether Alfresco Content Services collects anonymized data. Applies to Mac only.|
-|`syncui.language`| |Add this property to specify the language for the Desktop Sync UI (requires app restart). See [Localization](#localization) for supported values.|
-|`syncui.showConsistencyCheck`|`true`|Specifies whether the **Consistency Check** option is available in Desktop Sync.As an Administrator, you can disable this option as consistency check scans all the folders that are synced to Desktop Sync, and this may effect your server's performance. Applies to Windows only.|
-|`syncui.showMyFilesTab`|`true`|Controls whether My Files is shown in the content selection dialog.|
-|`syncui.showSharedFilesTab`|`true`|Controls whether Shared Files is shown in the content selection dialog.|
-|`syncui.showSitesTab`|`true`|Controls whether Sites is shown in the content selection dialog.|
-|`syncui.showRepositoryTab`|`true`|Controls whether Company Home is shown in the content selection dialog.|
-|`syncmanager.userMemberSitesMaxItems`|`250`|Add this property to change the number of sites shown in the content selection dialog.|
-|`syncui.enableAspects`| |Controls which aspects are shown in the **Property** dialog.Format: `syncui.enableAspects=<aspect1>,<aspect2>, ...`|
-|`syncui.disableProperties`| |Controls which properties are hidden for a given aspect.Format: `syncui.disableProperties.<index>=<aspect>|<property1>,<property2>, ...`|
-|`syncui.fileCustomTypes`| |Controls the file custom types that are visible in the **Property** dialog. Format: `syncui.fileCustomTypes=display_name (type_id),...`. Note that the display name is optional.|
-|`syncui.folderCustomTypes`| |Controls the file custom types that are visible in the **Property** dialog. Format: `syncui.fileCustomTypes=display_name (type_id),...`. Note that the display name is optional.|
+|syncui.defaultServer| |Specifies a default server URL to be entered in the login screen when Desktop Sync is run for the first time (usually at the end of the installation process).The user can change the URL on the login screen, if required.|
+|syncui.enableAnalytics|true|Controls whether Alfresco Content Services collects anonymized data. Applies to Mac only.|
+|syncui.language| |Add this property to specify the language for the Desktop Sync UI (requires app restart). See [Localization](#localization) for supported values.|
+|syncui.showConsistencyCheck|true|Specifies whether the **Consistency Check** option is available in Desktop Sync.As an Administrator, you can disable this option as consistency check scans all the folders that are synced to Desktop Sync, and this may effect your server's performance. Applies to Windows only.|
+|syncui.showMyFilesTab|true|Controls whether My Files is shown in the content selection dialog.|
+|syncui.showSharedFilesTab|true|Controls whether Shared Files is shown in the content selection dialog.|
+|syncui.showSitesTab|true|Controls whether Sites is shown in the content selection dialog.|
+|syncui.showRepositoryTab|true|Controls whether Company Home is shown in the content selection dialog.|
+|syncmanager.userMemberSitesMaxItems|250|Add this property to change the number of sites shown in the content selection dialog.|
+|syncui.enableAspects| |Controls which aspects are shown in the **Property** dialog.Format: `syncui.enableAspects=<aspect1>,<aspect2>, ...`|
+|syncui.disableProperties| |Controls which properties are hidden for a given aspect.Format: `syncui.disableProperties.<index>=<aspect>|<property1>,<property2>, ...`|
+|syncui.fileCustomTypes| |Controls the file custom types that are visible in the **Property** dialog. Format: `syncui.fileCustomTypes=display_name (type_id),...`. Note that the display name is optional.|
+|syncui.folderCustomTypes| |Controls the file custom types that are visible in the **Property** dialog. Format: `syncui.fileCustomTypes=display_name (type_id),...`. Note that the display name is optional.|
 
-### Enable analytics (Mac only)
+## Enable analytics (Mac only)
 
 Alfresco Content Services collects some anonymized information about fatal errors and basic usage which are used to 
 help us improve the product in the future. There's no data that could identify a customer, user, or machine. 
@@ -87,7 +85,7 @@ Here are some examples of the information that's collected:
     * Remove Account: Initial sync finished: yes / no, Has conflict: yes / no
     * Initial sync started
 
-### Desktop Sync UI
+## Desktop Sync UI
 
 As an IT administrator, you can control the parts of the Desktop Sync UI that users can access, 
 so that they can't sync content from specific areas in Alfresco Content Services. 
@@ -96,7 +94,7 @@ By default, the Content selection screen (see [selecting content to sync]({% lin
 displays **My Files**, **Shared Files**, **Sites**, and **Company Home**. 
 If you want to hide any of these areas, change the value of the relevant `syncui.show*` property to `false`.
 
-### View and edit properties
+## View and edit properties
 
 As an IT administrator, you can control which aspects and properties that your end users can view and edit from their desktops. 
 By default, users can view and edit general properties for files or folders, such as the Title, Name, Description, and Author 
@@ -110,7 +108,7 @@ You can extend this functionality to allow users to view and edit additional pro
 >
 >Here are a few examples:
 >
->```
+>```bash
 >syncui.enableAspects=cm:titled,exif:exif,dp:restrictable
 >syncui.disableProperties.1=cm:titled|cm:title
 >syncui.disableProperties.2=exif:exif|exif:exposureTime,exif:orientation,exif:flash
@@ -126,7 +124,7 @@ applied to a file or folder. This menu lists only custom types created using the
 
 Example:
 
-```
+```bash
 syncui.fileCustomTypes=My custom type (model-1:custom_type_name)
 ```
 
@@ -135,19 +133,19 @@ syncui.fileCustomTypes=My custom type (model-1:custom_type_name)
 >* If a custom type is applied to the file/folder from the **Properties** dialog, all data entered that was not saved will be discarded. We suggest you save your changes first before applying a custom type.
 >* If the file or folder already has a custom type applied, then the custom type drop-down will contain only sub-types of that custom type. You can't change between unrelated custom types, as the Content Model Manager API doesn't allow it.
 
-### Sync manager timers
+## Sync manager timers
 
 |Property|Default value|Description|
 |--------|-------------|-----------|
-|`alfrescosync.initialPollInterval`|15 seconds|Sets the number of seconds before the first server polling after application startup.|
-|`alfrescosync.pollingInterval`|300 seconds|Sets the number of seconds between polling of the sync server for server-side file change events. This does not affect the processing of desktop file change events; they are always processed immediately.|
-|`syncmanager.deferFileSyncTimer`|15 seconds|Sets the number of seconds between retries of a deferred update for a file, such as when an application still has the file open.|
-|`syncmanager.deferDelayRetryTimer`|3600 seconds|Sets the number of seconds to retry syncing a deferred update for a file. If you wish to override the default setting, add this property in the configuration file. Maximum allowed value is 10 hours.|
-|`syncmanager.deferOnlineCheckTimer`|60 seconds|Sets the number of seconds between retries when a server connection is offline. This may be due to server being down, no network connection, or no route to the server.|
-|`syncmanager.consistencyCheckRetryInterval`|120 seconds|Sets the number of seconds between consistency check retry attempts. A consistency check may be aborted when too many file system changes are received during the consistency check scan.|
-|`syncmanager.freeSpaceCheckTimer`|120 seconds|Sets the number of seconds between free space checks when syncing has been paused due to the local free disk space threshold being reached.|
+|alfrescosync.initialPollInterval|15 seconds|Sets the number of seconds before the first server polling after application startup.|
+|alfrescosync.pollingInterval|300 seconds|Sets the number of seconds between polling of the sync server for server-side file change events. This does not affect the processing of desktop file change events; they are always processed immediately.|
+|syncmanager.deferFileSyncTimer|15 seconds|Sets the number of seconds between retries of a deferred update for a file, such as when an application still has the file open.|
+|syncmanager.deferDelayRetryTimer|3600 seconds|Sets the number of seconds to retry syncing a deferred update for a file. If you wish to override the default setting, add this property in the configuration file. Maximum allowed value is 10 hours.|
+|syncmanager.deferOnlineCheckTimer|60 seconds|Sets the number of seconds between retries when a server connection is offline. This may be due to server being down, no network connection, or no route to the server.|
+|syncmanager.consistencyCheckRetryInterval|120 seconds|Sets the number of seconds between consistency check retry attempts. A consistency check may be aborted when too many file system changes are received during the consistency check scan.|
+|syncmanager.freeSpaceCheckTimer|120 seconds|Sets the number of seconds between free space checks when syncing has been paused due to the local free disk space threshold being reached.|
 
-### Sync manager constraints
+## Sync manager constraints
 
 Use the sync constraints configuration section to specify desktop files and folders that should not be 
 synced to the server, such as temporary files or work files.
@@ -161,14 +159,14 @@ The available constraint rule types are:
 
 |Constraint rule type|Description|
 |--------------------|-----------|
-|`FileExt`|Ignores files with a particular file extension. Multiple extensions can be specified per rule.|
-|`Name`|Ignores files with a particular name. Multiple names can be specified per rule.|
-|`NamePattern`|Ignores files that match a regular expression. Multiple regular expressions can be specified per rule.|
-|`FolderNamePattern`|Ignores folders that match a regular expression. Multiple regular expressions can be specified per rule. |
+|FileExt|Ignores files with a particular file extension. Multiple extensions can be specified per rule.|
+|Name|Ignores files with a particular name. Multiple names can be specified per rule.|
+|NamePattern|Ignores files that match a regular expression. Multiple regular expressions can be specified per rule.|
+|FolderNamePattern|Ignores folders that match a regular expression. Multiple regular expressions can be specified per rule. |
 
 Here is a sample sync constraints configuration section:
 
-```
+```bash
 # Sync constraints
 
 syncmanager.constraint.1=FileExt|.tmp,.temp
@@ -179,7 +177,7 @@ syncmanager.constraint.5=NamePattern|^[0-9A-F]{8}
 syncmanager.constraint.6=FolderNamePattern|^[0-9A-F]{8}
 ```
 
-### Disk space limits
+## Disk space limits
 
 Desktop Sync is initially configured to only sync content when the available disk space on a computer is above a 
 specific limit (defined by `syncmanager.freeSpaceLimit`). By default value, the minimum amount of free space required 
@@ -189,7 +187,7 @@ The default value for restarting sync is set to 3500MB (or 3.5GB).
 
 If you wish to override the default settings, add these entries to your configuration file with new values:
 
-```
+```bash
 # Free space limits
     
 syncmanager.freeSpaceLimit=3G
@@ -207,7 +205,7 @@ The free space properties are specified as `syncmanager.freeSpace<Property>=<val
 
 To specify a simple limit, without using any scaling, use this example:
 
-```
+```bash
 syncmanager.freeSpaceLimit=1073741824
 ```
 
@@ -215,7 +213,7 @@ In this example, the minimum amount of disk space required for content syncing i
 
 To specify relative values above the current available disk space, use this example:
 
-```
+```bash
 syncmanager.freeSpaceLimit=+2G
 syncmanager.freeSpaceRestart=+2500M
 ```
@@ -224,25 +222,25 @@ In this example, the `freeSpaceLimit` is set 2GB above the available space and t
 
 You can also specify relative values below the current available disk space, use this example:
 
-```
+```bash
 syncmanager.freeSpaceLimit=-3G
 syncmanager.freeSpaceRestart=-3500M
 ```
 
 In this example, the `freeSpaceLimit` is set 3GB below the available space and the `freeSpaceRestart` is set 3.5GB below the current available space.
 
-### CMIS transfers
+## CMIS transfers
 
 Use the CMIS transfer properties to control problems with slow or stalled data transfers when Desktop Sync is 
 downloading or uploading content to/from the Alfresco Content Services CMIS server.
 
 |Property|Default value|Description|
 |--------|-------------|-----------|
-|`cmis.lowSpeedTime`|15 seconds|Specifies the number of seconds of low speed transfer that are required for a data transfer to be aborted.|
-|`cmis.lowSpeedLimit`|1 bytes per second|Specifies the number of bytes per second that is considered to be a slow data transfer.|
-|`syncmanager.resumeDownloadFileSize`|500K|Specifies the size limit above which a download will resume. Default value is 500KB.|
+|cmis.lowSpeedTime|15 seconds|Specifies the number of seconds of low speed transfer that are required for a data transfer to be aborted.|
+|cmis.lowSpeedLimit|1 bytes per second|Specifies the number of bytes per second that is considered to be a slow data transfer.|
+|syncmanager.resumeDownloadFileSize|500K|Specifies the size limit above which a download will resume. Default value is 500KB.|
 
-### CMIS content type mappings
+## CMIS content type mappings
 
 When files are uploaded to the Alfresco Content Services CMIS server they should have a mimetype associated with them. 
 Desktop Sync contains a list of built-in file extension to mimetype mappings, but in some cases it may be necessary 
@@ -253,21 +251,21 @@ where `<n>` is an ascending number starting at one.
 
 Here is a sample CMIS content type mapping configuration section:
 
-```
+```bash
 # CMIS content type mappings
 
 cmis.contentType.1=pptx,application/vnd.ms-powerpoint
 cmis.contentType.2=test,application/test
 ```
 
-### Networking
+## Networking
 
 |Property|Default value|Description|
 |--------|-------------|-----------|
-|`net.SSLVerifyPeer`|`true`|Specifies whether an SSL connection to the Alfresco server does full SSL verification. If the Alfresco server is using a self-signed certificate for SSL, the value must be set to `false`.|
-|`net.syncServer.SSLVerifyPeer`|`true`|Specifies whether an SSL connection to the sync server does full SSL verification. If the sync server is using a self-signed certificate for SSL, the value must be set to `false`.|
+|net.SSLVerifyPeer|true|Specifies whether an SSL connection to the Alfresco server does full SSL verification. If the Alfresco server is using a self-signed certificate for SSL, the value must be set to `false`.|
+|net.syncServer.SSLVerifyPeer|true|Specifies whether an SSL connection to the sync server does full SSL verification. If the sync server is using a self-signed certificate for SSL, the value must be set to `false`.|
 
-### Debug logging
+## Debug logging
 
 Desktop Sync can generate a lot of debug information or error level logging information.
 
@@ -277,7 +275,7 @@ Use the first section to setup the log location, default logging level, formatti
 
 Here is a sample logging configuration section:
 
-```
+```bash
 # Logging
 
 logging.loggers.root.channel = c1
@@ -305,7 +303,7 @@ The log files are rotated daily and the old log files are compressed. Only the l
 Use the later section of the log output configuration to enable debug output from different components of Desktop Sync. 
 This is done by configuring individual logging levels as shows below:
 
-```
+```bash
 logging.loggers.l<n>.name = <logging level name>
 logging.loggers.l<n>.level = <debug|error>
 ```
@@ -354,7 +352,7 @@ The available debug logging levels are:
 
 Here's a sample Desktop Sync logging configuration:
 
-```
+```bash
 # Logging
 
 logging.loggers.root.channel = c1
@@ -392,7 +390,7 @@ logging.loggers.l6.level = error
 
 For more details on the logging configuration, see the [PocoProject](https://pocoproject.org/) documentation.
 
-### Localization
+## Localization
 
 Desktop Sync supports 16 languages across the user interface, notifications and right-click context menu. 
 The language is automatically set based on your computer locale settings, but this can be overridden by 
@@ -425,19 +423,19 @@ adding one of the following `syncui.language` values:
 >2. Right-click on the **Finder** icon in your Dock.
 >3. Click **Relaunch**.
 
-### Automatic installation updates
+## Automatic installation updates
 
 You can manage the installation of your Desktop Sync client apps by uploading an installation file in a 
 central location in Alfresco Content Services. This allows you to update the installed version of all your 
 Desktop Sync clients without any manual intervention.
 
-See [Managing automatic installation updates]({% link desktop-sync/latest/admin/manage-auto-install-updates.md %}) for more.
+See [Managing automatic installation updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-installation-updates) for more.
 
-### Automatic configuration updates
+## Automatic configuration updates
 
 You can manage the configuration of your Desktop Sync client apps by uploading a configuration file in a 
 central location in Alfresco Content Services. This allows you to update the configuration settings for all your 
 Desktop Sync clients without any manual intervention.
 
-See [Managing automatic configuration updates]({% link desktop-sync/latest/admin/manage-auto-config-updates.md %}) for more.
+See [Managing automatic configuration updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-configuration-updates) for more.
 

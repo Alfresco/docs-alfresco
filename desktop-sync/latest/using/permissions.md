@@ -2,8 +2,6 @@
 title: Manage content permissions
 ---
 
-## Manage content permissions
-
 Alfresco Content Services permissions are replicated on the desktop for files and folders that have been synchronized, 
 ensuring that users are not able to edit files offline as well as on the server.
 

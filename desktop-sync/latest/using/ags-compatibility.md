@@ -2,12 +2,10 @@
 title: Compatibility with Alfresco Governance Services
 ---
 
-## Compatibility with Alfresco Governance Services
-
 Desktop Sync is fully compatible with Alfresco Governance Services. 
 This topic explains how Desktop Sync handles records and classified files.
 
-### Initial content sync
+## Initial content sync
 
 Sites and folders available to synchronize may already include files that have been 
 declared as records and/or files that are classified. When synchronization starts, the files are treated as follows:
@@ -16,7 +14,7 @@ declared as records and/or files that are classified. When synchronization start
 * **Records** are synchronized as read-only files, which can't be edited on the desktop
 * The Records Management File Plan is not available to synchronize
 
-### Content synchronization
+## Content synchronization
 
 Once the initial synchronization is completed, Governance actions are treated in specific ways:
 
@@ -25,7 +23,7 @@ Once the initial synchronization is completed, Governance actions are treated in
 * If a Classified file is **Declassified** then synchronization will resume
 * If a record is **Rejected**, then its editable state will return where user permissions are sufficient
 
-### Desktop record declaration
+## Desktop record declaration
 
 Files can be declared as records from within Windows Explorer (Windows) or Finder (Mac).
 
@@ -34,6 +32,6 @@ Files can be declared as records from within Windows Explorer (Windows) or Finde
 
 >**Note:** **Declare as Record** is not available with Alfresco One 5.1.
 
-### Hidden records
+## Hidden records
 
 Records that are hidden from a collaboration site are removed from users desktops.

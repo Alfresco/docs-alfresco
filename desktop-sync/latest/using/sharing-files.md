@@ -2,12 +2,14 @@
 title: Sharing Files
 ---
 
+{% capture windows %}
+
 ## Sharing files on Windows
 
 You can easily share a file from the Explorer menu actions. Clicking the **Share** action generates a URL that you can 
 send by email. People with access to the URL can view the file.
 
-Make sure that you've [configured file sharing]({% link desktop-sync/latest/admin/config.md %}#sharing-files) before continuing.
+Make sure that you've [configured file sharing]({% link desktop-sync/latest/config/index.md %}#sharing-files) before continuing.
 
 1. In your **Alfresco** synced folder find the file you want to share.
 
@@ -45,11 +47,15 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/admi
 
     >**Note:** When the file is shared again, a new link is generated.
 
+{% endcapture %}
+   
+{% capture mac %} 
+
 ## Sharing files on Mac
 
 You can easily share a file from the Finder menu actions. Clicking the **Share** action generates a URL that you can send by email. People with access to the URL can view the file.
 
-Make sure that you've [configured file sharing]({% link desktop-sync/latest/admin/config.md %}#sharing-files) before continuing.
+Make sure that you've [configured file sharing]({% link desktop-sync/latest/config/index.md %}#sharing-files) before continuing.
 
 1. In your **Alfresco** synced folder find the file you want to share.
 
@@ -87,5 +93,6 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/admi
 
     >**Note:** When the file is shared again, a new link is generated.
 
+{% endcapture %}
 
-
+{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

@@ -7,26 +7,16 @@
       path: '/desktop-sync/latest/install/'
     - title: 'Upgrade'
       path: '/desktop-sync/latest/upgrade/'
+    - title: "Configure"
+      path: '/desktop-sync/latest/config/'
     - title: "Administer"
-      pages:
-        - title: 'Configure'
-          path: '/desktop-sync/latest/admin/config/'
-        - title: 'Managing automatic installation updates'
-          path: '/desktop-sync/latest/admin/manage-auto-install-updates/'
-        - title: 'Managing automatic configuration updates'
-          path: '/desktop-sync/latest/admin/manage-auto-config-updates/'
-        - title: 'SAML authentication'
-          path: '/desktop-sync/latest/admin/saml/'
+      path: '/desktop-sync/latest/admin/'
     - title: 'Using'
       pages:
         - title: 'Select content to sync'
           path: '/desktop-sync/latest/using/select-content-to-sync/'
         - title: 'Resolve and manage sync conflicts'
-          pages:
-            - title: 'Resolve sync conflicts on Windows'
-              path: '/desktop-sync/latest/using/sync-conflict-resolution-guide-win/'
-            - title: 'Resolve sync conflicts on Mac'
-              path: '/desktop-sync/latest/using/sync-conflict-resolution-guide-mac/'
+          path: '/desktop-sync/latest/using/sync-conflict-resolution-guide/'
         - title: 'App icons and context menu'
           path: '/desktop-sync/latest/using/app-icons-context-menu/'
         - title: 'App menu in taskbar'
@@ -35,17 +25,13 @@
           path: '/desktop-sync/latest/using/sharing-files/'
         - title: 'Version history'
           path: '/desktop-sync/latest/using/version-history/'
-        - title: 'Metadata / Properties'
+        - title: 'Properties'
           path: '/desktop-sync/latest/using/metadata/'
         - title: 'Permissions'
           path: '/desktop-sync/latest/using/permissions/'
         - title: 'Alfresco Governance Services'
           path: '/desktop-sync/latest/using/ags-compatibility/'
-        - title: 'Frequently asked questions'
-          pages:
-            - title: 'FAQ Windows'
-              path: '/desktop-sync/latest/using/faq-windows/'
-            - title: 'FAQ Mac'
-              path: '/desktop-sync/latest/using/faq-mac/'
+        - title: 'Frequently asked questions (FAQ)'
+          path: '/desktop-sync/latest/using/faq/'
 
 

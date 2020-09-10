@@ -2,6 +2,8 @@
 title: Install Desktop Sync
 ---
 
+{% capture windows %}
+
 ## Installing Desktop Sync on Windows
 
 If you want to use Desktop Sync on Windows, you'll need:
@@ -43,11 +45,15 @@ The first time you open Desktop Sync you need to enter your login details to con
 
     That's it. Your Desktop Sync account is now set.
 
-The Choose files and folders to sync screen appears.
+The **Choose files and folders to sync** screen appears.
 
-![]({% link desktop-sync/images/setup.png %}){:height="562px" width="346px"}
+![setup]({% link desktop-sync/images/setup.png %}){:height="562px" width="346px"}
 
 All your favorite Alfresco content, My Files, Shared Files, and your Alfresco sites are displayed.
+
+{% endcapture %}
+   
+{% capture mac %}   
 
 ## Installing Desktop Sync on Mac
 
@@ -104,9 +110,9 @@ Alfresco Content Services.
 
     That's it. Your Desktop Sync account is now set.
 
-The Select sites and folders to sync dialog appears.
+The **Select sites and folders to sync** dialog appears.
 
-![]({% link desktop-sync/images/setup-mac.png %}){:height="327px" width="640px"}
+![setup]({% link desktop-sync/images/setup-mac.png %}){:height="327px" width="640px"}
 
 All your Alfresco Content Services folders will be displayed from My Files, Shared Files, and your Sites.
 
@@ -114,7 +120,7 @@ All your Alfresco Content Services folders will be displayed from My Files, Shar
 
 Before uninstalling Desktop Sync for Mac you should first remove your account then drag the application to the Trash. You can then perform a number of checks to verify that the content has been removed cleanly.
 
-1. Click ![]({% link desktop-sync/images/ico-ds-alfresco.png %}){:height="18px" width="18px"} then ![Settings]({% link desktop-sync/images/ds-ico-settings.png %}){:height="18px" width="18px"} to access **Settings**, and select Remove Account.
+1. Click ![alfresco]({% link desktop-sync/images/ico-ds-alfresco.png %}){:height="18px" width="18px"} then ![settings]({% link desktop-sync/images/ds-ico-settings.png %}){:height="18px" width="18px"} to access **Settings**, and select **Remove Account**.
 
     This removes the content subscriptions, device registration, keychain, databases, etc.
 
@@ -140,3 +146,6 @@ Before uninstalling Desktop Sync for Mac you should first remove your account th
 
     >**Note:** You don't need to uninstall the Desktop Sync client before installing a new version. Simply run the new installer to update the application.
 
+{% endcapture %}
+
+{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
