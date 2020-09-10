@@ -109,7 +109,7 @@ Before enabling the authentication, first you need to create a password file. Th
 
 The out-of-the-box Sync Service provides keystore (`sync.jks`) and truststore (`sync.truststore`). The password for the keystore and truststore for the default installation is specified in the `applicationConnectors` section of the `config.yml` file:
 
-```bash
+```yaml
 server:
     applicationConnectors:
          keyStorePassword:

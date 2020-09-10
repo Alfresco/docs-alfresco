@@ -45,7 +45,7 @@ Advisories can be read like any other topic. The following advisories can be use
 
 The advisories can be configured in the `activemq.xml` file as follows:
 
-```bash
+```xml
 <policyEntry topic="VirtualTopic.alfresco.repo.events.nodes" advisoryForDelivery="true"
 advisoryForConsumed="true" advisoryForSlowConsumers="true" sendAdvisoryIfNoConsumers="true"
 advisoryForFastProducers="true">
@@ -59,13 +59,13 @@ The Sync Service exposes a collection of health checks that are useful in managi
 
 The Sync Service health check can be accessed using JMX (bean `health`) or a REST call:
 
-```bash
+```http
 GET https://localhost:9090/alfresco/healthcheck
 ```
 
 The output is something like:
 
-```bash
+```json
 {
   "versionCheck" : {
     "healthy" : true,
@@ -121,7 +121,7 @@ The following diagram shows the ActiveMQ queue consumer list. Here, the consumer
 
 The `config.yml` file contains the logging information.
 
-```bash
+```yaml
 logging:
   level: INFO
   loggers:
@@ -149,7 +149,7 @@ logging:
 
 The Sync Service exposes a collection of metrics that are useful in managing the Sync Service. These metrics can be accessed using JMX (see bean `metrics`) or a REST call:
 
-```bash
+```http
 GET https://localhost:9090/alfresco/api/-default-/private/alfresco/versions/1/metrics
 ```
 

@@ -62,7 +62,7 @@ service-sync directory containing the Sync Service jar (`service-sync-3.3.x.jar`
 
     * repo:
 
-        ```bash
+        ```yaml
         hostname: localhost
         ```
 
@@ -70,7 +70,7 @@ service-sync directory containing the Sync Service jar (`service-sync-3.3.x.jar`
 
     * messaging:
 
-        ```bash
+        ```yaml
         broker:
             host: localhost
         ```
@@ -79,7 +79,7 @@ service-sync directory containing the Sync Service jar (`service-sync-3.3.x.jar`
 
     * sql:
 
-        ```bash
+        ```sql
         db:
             url: jdbc:postgresql:alfresco
         ```
@@ -128,7 +128,7 @@ service-sync directory containing the Sync Service jar (`service-sync-3.3.x.jar`
 
 11. Access Alfresco Share by browsing to:
 
-    ```bash
+    ```http
     http://<hostname>:8080/share
     ```
 
@@ -144,7 +144,7 @@ Alfresco supplies a self-signed certificate with the Sync Service. This certific
 
 1. In the `applicationConnector` section of the config.yml file, comment out or remove the lines from `type: https` to `validateCerts: false`.
 
-    ```bash
+    ```yaml
     server:
         type: default
         applicationConnectors:

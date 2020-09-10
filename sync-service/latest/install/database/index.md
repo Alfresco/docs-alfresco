@@ -45,20 +45,20 @@ The Sync Service is not packaged with a PostgreSQL driver, so it will need to be
 
 5. Create a Postgres user with the username given by the sync property, `sql.db.username`, with password given by the sync property `sql.db.password`:
 
-    ```bash
+    ```sql
     CREATE USER alfresco WITH PASSWORD 'admin';
     ```
 
 6. Create a Postgres database with the name given in the property,  `sql.db.url`, owned by the user `alfresco` that you will use to run PostgreSQL, and ensure that this user has write permissions on all tables and sequences.
 
-    ```bash
+    ```sql
     CREATE DATABASE alfresco OWNER alfresco ENCODING 'utf8';
     GRANT ALL PRIVILEGES ON DATABASE alfresco TO alfresco;
     ```
 
 7. Ensure `sql.db.driver` and `sql.db.url` are correctly updated in the `config.yml` file, e.g.
 
-    ```bash
+    ```yaml
     sql:
         db:
             driver: org.postgresql.Driver
@@ -104,7 +104,7 @@ So based on the above assumptions and 100 operations per hour, we have ~416MB.
 
 The following query will give the disk space usage for each of the Sync Service tables and indexes:
 
-```bash
+```sql
 SELECT nspname || '.' || relname AS "relation",
     pg_size_pretty(pg_relation_size(C.oid)) AS "size"
 FROM pg_class C
@@ -139,7 +139,7 @@ The Sync Service is not packaged with an Oracle driver, so it will need to be do
 
 3. The Oracle database must be created with the AL32UTF8 character set. Check the current character set by executing:
 
-    ```bash
+    ```sql
     SELECT value$ FROM sys.props$ WHERE name = 'NLS_CHARACTERSET' ;
     ```
 
@@ -159,7 +159,7 @@ The Sync Service is not packaged with an Oracle driver, so it will need to be do
 
 5. Create a user with the username given by the sync property, `sql.db.username`, with password given by the sync property, `sql.db.password`:
 
-    ```bash
+    ```sql
     CREATE USER alfresco IDENTIFIED BY admin;
     ```
 
@@ -167,19 +167,19 @@ The Sync Service is not packaged with an Oracle driver, so it will need to be do
 
     1. Grant the user write permissions on all tables and sequences:
 
-        ```bash
+        ```sql
         GRANT CONNECT, RESOURCE TO alfresco;
         ```
 
     2. Configure the privileges by using one of the following commands:
 
-        ```bash
+        ```sql
         ALTER USER alfresco QUOTA <QUOTE_M> ON Users;
         ```
 
         or
 
-        ```bash
+        ```sql
         GRANT UNLIMITED TABLESPACE TO alfresco
         ```
 
@@ -191,7 +191,7 @@ The Sync Service is not packaged with an Oracle driver, so it will need to be do
 
 7. Ensure `sql.db.driver` and `sql.db.url` are correctly updated in the `config.yml` file, for example:
 
-    ```bash
+    ```yaml
     sql:
         db:
             driver: oracle.jdbc.OracleDriver
@@ -259,13 +259,13 @@ The Sync Service is not packaged with a MySQL driver, so it will need to be down
 
 9. Create a MySQL user with the username given by the sync property, `sql.db.username`, with password given by the sync property, `sql.db.password`:
 
-    ```bash
+    ```sql
     CREATE USER 'alfresco' IDENTIFIED BY 'admin';
     ```
 
 10. Create a MySQL database with the name given by the property, `sql.db.url`, owned by the user, alfresco:
 
-    ```bash
+    ```yaml
     sql:
         db:
             url: jdbc:mysql://localhost:3306/alfresco?useUnicode=yes&characterEncoding=UTF-8
@@ -277,14 +277,14 @@ The Sync Service is not packaged with a MySQL driver, so it will need to be down
 
 11. Ensure that the MySQL database is set to use UTF-8 and InnoDB:
 
-    ```bash
+    ```sql
     CREATE DATABASE alfresco DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
     GRANT ALL ON alfresco.* to alfresco IDENTIFIED BY 'admin';
     ```
 
 12. Ensure `sql.db.driver` and `sql.db.url` are correctly updated in the `config.yml` file, for example:
 
-    ```bash
+    ```yaml
     sql:
         db:
             driver: com.mysql.jdbc.Driver
