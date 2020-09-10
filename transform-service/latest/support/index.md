@@ -1,7 +1,6 @@
 ---
 title: Supported Platforms
 ---
-
 The following are the supported platforms for Alfresco Transform Service 1.3:
 
 ## Alfresco Content Services

@@ -1,7 +1,6 @@
 ---
 title: Extending Transform Service
 ---
-
 Use this information to extend the functionality of the Transform Service by adding and configuring custom transform engines (T-Engines).
 
 The Transform Service handles communication with all its own T-Engines, and builds up its own combined configuration JSON which is requested by the repository periodically.
