@@ -54,7 +54,7 @@ export TRANSFORMER_ENGINE_PROTOCOL="http"
 
 Additional custom engines can be configured through environment variables as well:
 
-```java
+```bash
 export TRANSFORMER_URL_CUSTOM_RED_ENGINE="http://red-engine-host:8090"
 export TRANSFORMER_QUEUE_CUSTOM_RED_ENGINE="red-engine-queue"
 ```
