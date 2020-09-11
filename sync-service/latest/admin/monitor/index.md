@@ -17,14 +17,14 @@ Make sure that JMX is enabled in ActiveMQ. For more information, see [ActiveMQ -
 
 ActiveMQ provides a publish/subscribe mechanism to relay node events from the repository to the Sync Service. The JMX beans that exposes information on the node events topic is:
 
-```bash
+```java
 org.apache.activemq:type=Broker,brokerName=localhost,destinationType=Topic,
 destinationName=VirtualTopic.alfresco.repo.events.nodes
 ```
 
 The Sync Service consumes from a queue that is tied to the virtual topic. The JMX bean name of this queue is:
 
-```bash
+```java
 org.apache.activemq:type=Broker,brokerName=localhost,destinationType=Queue,
 destinationName=Consumer.<SyncId>.VirtualTopic.alfresco.repo.events.nodes
 ```
