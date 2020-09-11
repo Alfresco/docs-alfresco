@@ -110,6 +110,23 @@ defaults:
     values:
       version: 1.0
 
+# Alfresco Desktop Sync
+  - scope:
+      path: "desktop-sync"
+    values:
+      layout: "docs"
+      product: "Alfresco Desktop Sync"
+      location: "desktop-sync"
+      toc: "desktop-sync"
+      support: true
+      versions:
+        - 1.6
+  - scope:
+      path: "desktop-sync/latest"
+    values:
+      version: 1.6
+      latest: true
+
 # Alfresco Document Transformation Engine
   - scope:
       path: "transformation-engine"
