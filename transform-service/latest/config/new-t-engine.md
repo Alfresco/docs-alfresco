@@ -11,7 +11,6 @@ The code for this example is in the [alfresco-helloworld-transformer](https://gi
 
 ```html
 Hello `<name>`
-
 ```
 
 To demonstrate how to use Renditions, it also takes a transform option that specifies which language to use.
