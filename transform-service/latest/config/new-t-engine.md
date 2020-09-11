@@ -21,7 +21,7 @@ To demonstrate how to use Renditions, it also takes a transform option that spec
 
 T-Engines are Dockerized Spring Boot applications. They are set up as Maven projects built on top of [alfresco-transformer-base](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transformer-base){:target="_blank"}, which is a sub-project of Alfresco Transform Core. The Alfresco Transformer Base brings in Spring Boot capabilities, as well as base classes, which assist in the creation of new T-Engines. 
 
-* **Project setup**
+### Project setup
 
 In order to configure a custom T-Engine as a Spring Boot application in a Docker image, we need to add some configuration. The quickest way to get started is to base your project on [alfresco-helloworld-transformer](https://github.com/Alfresco/alfresco-helloworld-transformer/tree/master/alfresco-helloworld-transformer-engine){:target="_blank"}, as it is fully configured, ready to be built and run, and contains relatively little extra code. It is also possible to start from a blank Maven project with the same folder structure. The key files in this project are:
 
