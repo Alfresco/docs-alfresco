@@ -117,7 +117,7 @@ The above definition will introduce a new transformer, specifically a pipeline t
 
 Additional transformers can be defined in new JSON or YAML files and specified through environment variables with the `TRANSFORMER_ROUTES_ADDITIONAL_` prefix:
 
-```java
+```bash
 export TRANSFORMER_ROUTES_ADDITIONAL_<name>="/path/to/the/additional/route/file.yaml"
 ```
 
