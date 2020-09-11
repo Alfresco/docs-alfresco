@@ -28,7 +28,7 @@ The T-Router uses T-Engine names to register new engines via properties. The nam
 
 Engine configuration is part of the T-Router SpringBoot `application.yaml` config:
 
-```java
+```yaml
 transformer:
   url:
     imagemagick: http://imagemagick-host:8091
