@@ -42,7 +42,7 @@ transformer:
 
 These properties can be overridden by environment variables on the T-Router container:
 
-```java
+```bash
 export TRANSFORMER_URL_IMAGEMAGICK="http://host1"
 export TRANSFORMER_QUEUE_IMAGEMAGICK="queue66"
 
