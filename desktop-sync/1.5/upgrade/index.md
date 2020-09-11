@@ -16,7 +16,7 @@ When a new version of Desktop Sync is available to install, a warning icon is di
 
 2. Once the download completes, then the installer starts automatically.
 
-3. Follow the steps in [Installing Desktop Sync]({% link desktop-sync/latest/install/index.md %}) to complete the installation.
+3. Follow the steps in [Installing Desktop Sync]({% link desktop-sync/1.5/install/index.md %}) to complete the installation.
 
     >**Note:**
     >

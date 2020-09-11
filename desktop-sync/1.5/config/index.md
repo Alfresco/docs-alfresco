@@ -44,7 +44,7 @@ Here are examples of how you can set the URL to access a file:
 >The URL must also use an `http` or `https` protocol. If the property is left blank or not set correctly, 
 >the file sharing feature won't be available in Desktop Sync.
 
-For more info see [Sharing files]({% link desktop-sync/latest/using/sharing.md %}).
+For more info see [Sharing files]({% link desktop-sync/1.5/using/sharing.md %}).
 
 ## User interface
 
@@ -88,7 +88,7 @@ Here are some examples of the information that's collected:
 As an IT administrator, you can control the parts of the Desktop Sync UI that users can access, 
 so that they can't sync content from specific areas in Alfresco Content Services. 
 
-By default, the Content selection screen (see [selecting content to sync]({% link desktop-sync/latest/using/select-to-sync.md %})) 
+By default, the Content selection screen (see [selecting content to sync]({% link desktop-sync/1.5/using/select-to-sync.md %})) 
 displays **My Files**, **Shared Files**, **Sites**, and **Company Home**. 
 If you want to hide any of these areas, change the value of the relevant `syncui.show*` property to `false`.
 
@@ -408,7 +408,7 @@ You can manage the installation of your Desktop Sync client apps by uploading an
 central location in Alfresco Content Services. This allows you to update the installed version of all your 
 Desktop Sync clients without any manual intervention.
 
-See [Managing automatic installation updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-installation-updates) for more.
+See [Managing automatic installation updates]({% link desktop-sync/1.5/admin/index.md %}#manage-automatic-installation-updates) for more.
 
 ## Automatic configuration updates
 
@@ -416,5 +416,5 @@ You can manage the configuration of your Desktop Sync client apps by uploading a
 central location in Alfresco Content Services. This allows you to update the configuration settings for all your 
 Desktop Sync clients without any manual intervention.
 
-See [Managing automatic configuration updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-configuration-updates) for more.
+See [Managing automatic configuration updates]({% link desktop-sync/1.5/admin/index.md %}#manage-automatic-configuration-updates) for more.
 

@@ -57,7 +57,7 @@ This ensures users with Desktop Sync clients are always up to date with minimal 
 
     Users will have to restart Desktop Sync to apply the new installation file.
 
-    See [Updating Desktop Sync]({% link desktop-sync/latest/upgrade/index.md %}) for more information about how an update is applied.
+    See [Updating Desktop Sync]({% link desktop-sync/1.5/upgrade/index.md %}) for more information about how an update is applied.
 
 ## SAML authentication
 
@@ -74,6 +74,6 @@ Alfresco Content Services repository is configured to use the Identity Service.
 
 See the Alfresco Sync Service documentation for [SAML configuration](TODO_LINK:https://docs.alfresco.com/syncservice/concepts/syncservice-saml-config.html) details.
 
-Once users have entered the repository URL (shown in step 2 of [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#setting-up-desktop-sync-on-windows) 
-for Windows and [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac) for Mac), 
+Once users have entered the repository URL (shown in step 2 of [Setting up Desktop Sync]({% link desktop-sync/1.5/install/index.md %}#setting-up-desktop-sync-on-windows) 
+for Windows and [Setting up Desktop Sync]({% link desktop-sync/1.5/install/index.md %}#faq/mac) for Mac), 
 they will be asked to enter their username and password into the SAML provider login page via their default browser.

@@ -9,7 +9,7 @@ title: Sharing Files
 You can easily share a file from the Explorer menu actions. Clicking the **Share** action generates a URL that you can 
 send by email. People with access to the URL can view the file.
 
-Make sure that you've [configured file sharing]({% link desktop-sync/latest/config/index.md %}#sharing-files) before continuing.
+Make sure that you've [configured file sharing]({% link desktop-sync/1.5/config/index.md %}#sharing-files) before continuing.
 
 1. In your **Alfresco** synced folder find the file you want to share.
 
@@ -55,7 +55,7 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
 You can easily share a file from the Finder menu actions. Clicking the **Share** action generates a URL that you can send by email. People with access to the URL can view the file.
 
-Make sure that you've [configured file sharing]({% link desktop-sync/latest/config/index.md %}#sharing-files) before continuing.
+Make sure that you've [configured file sharing]({% link desktop-sync/1.5/config/index.md %}#sharing-files) before continuing.
 
 1. In your **Alfresco** synced folder find the file you want to share.
 

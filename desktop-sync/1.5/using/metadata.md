@@ -32,8 +32,8 @@ By default, you can view and edit general properties, such as Title, Name, Descr
     >**Note:**
     >
     >* The **Edit** button is not available in the following cases:
-    >    * If a file is declared as a record. See [Governance Services]({% link desktop-sync/latest/using/ags.md %}) for more.
-    >    * If your role is set to Consumer or Collaborator on files. See [Permissions]({% link desktop-sync/latest/using/permissions.md %}) for more.
+    >    * If a file is declared as a record. See [Governance Services]({% link desktop-sync/1.5/using/ags.md %}) for more.
+    >    * If your role is set to Consumer or Collaborator on files. See [Permissions]({% link desktop-sync/1.5/using/permissions.md %}) for more.
     >* There are validation checks for all fields.
     >    * For example, if a property is incorrectly left blank when you click **Save**, a red background appears indicating that there's a problem. Correct the content to fix the problem.
 
@@ -83,8 +83,8 @@ By default, you can view and edit general properties, such as Title, Name, Descr
     >**Note:**
     >
     >* The **Edit** button is not available in the following cases:
-    >    * If a file is declared as a record. See [Governance Services]({% link desktop-sync/latest/using/ags.md %}) for more.
-    >    * If your role is set to Consumer or Collaborator on files. See [Permissions]({% link desktop-sync/latest/using/permissions.md %}) for more.
+    >    * If a file is declared as a record. See [Governance Services]({% link desktop-sync/1.5/using/ags.md %}) for more.
+    >    * If your role is set to Consumer or Collaborator on files. See [Permissions]({% link desktop-sync/1.5/using/permissions.md %}) for more.
     >* There are validation checks for all fields.
     >    * For example, if a property is incorrectly left blank when you click **Save**, a red background appears indicating that there's a problem. Correct the content to fix the problem.
 
