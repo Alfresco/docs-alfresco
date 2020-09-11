@@ -18,7 +18,7 @@ Use this information to configure a custom transform engine (T-Engine).
 
         For example:
 
-        ```json
+        ```bash
         /local/path/to/custom-pipeline-file.json:/mounting/location/of/custom-pipeline-file.json
         ```
 
