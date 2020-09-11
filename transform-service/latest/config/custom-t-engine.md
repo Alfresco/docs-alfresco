@@ -7,7 +7,7 @@ Use this information to configure a custom transform engine (T-Engine).
 
     For example, you can configure custom T-Engines through environment variables:
 
-    ```java  
+    ```bash  
     export TRANSFORMER_URL_<CUSTOM_ENGINE_NAME>="http://custom-engine-host:8090"
     export TRANSFORMER_QUEUE_<CUSTOM_ENGINE_NAME>="custom-engine-queue"
     ```
