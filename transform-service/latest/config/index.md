@@ -31,7 +31,7 @@ To configure a custom T-Engine, you'll have to:
 *   (Optional) Define pipeline (multi-step) transformers:
     1.  If the mounting location of the pipeline definition file is:
 
-        ```
+        ```bash
         /local/path/to/custom-pipeline-file.json:/mounting/location/of/custom-pipeline-file.json
         ```
 
@@ -64,6 +64,5 @@ To configure a custom T-Engine, you'll have to:
           ]
         }
         ```
-
 
 
