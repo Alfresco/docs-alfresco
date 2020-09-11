@@ -33,5 +33,36 @@
           path: '/desktop-sync/latest/using/ags/'
         - title: 'Frequently asked questions (FAQ)'
           path: '/desktop-sync/latest/using/faq/'
-
+- version: 1.5
+  pages:
+    - title: 'Introduction'
+      path: '/desktop-sync/latest/'
+    - title: "Install"
+      path: '/desktop-sync/latest/install/'
+    - title: 'Upgrade'
+      path: '/desktop-sync/latest/upgrade/'
+    - title: "Configure"
+      path: '/desktop-sync/latest/config/'
+    - title: "Administer"
+      path: '/desktop-sync/latest/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Select content to sync'
+          path: '/desktop-sync/latest/using/select-to-sync/'
+        - title: 'Resolve and manage sync conflicts'
+          path: '/desktop-sync/latest/using/sync-conflict-guide/'
+        - title: 'App icons and context menu'
+          path: '/desktop-sync/latest/using/app-icons/'
+        - title: 'App menu in taskbar'
+          path: '/desktop-sync/latest/using/app-menu/'
+        - title: 'Sharing files'
+          path: '/desktop-sync/latest/using/sharing/'
+        - title: 'Properties'
+          path: '/desktop-sync/latest/using/metadata/'
+        - title: 'Permissions'
+          path: '/desktop-sync/latest/using/permissions/'
+        - title: 'Alfresco Governance Services'
+          path: '/desktop-sync/latest/using/ags/'
+        - title: 'Frequently asked questions (FAQ)'
+          path: '/desktop-sync/latest/using/faq/'
 

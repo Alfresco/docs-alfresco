@@ -121,11 +121,16 @@ defaults:
       support: true
       versions:
         - 1.6
+        - 1.5
   - scope:
       path: "desktop-sync/latest"
     values:
       version: 1.6
       latest: true
+  - scope:
+      path: "desktop-sync/1.5"
+    values:
+      version: 1.5
 
 # Alfresco Document Transformation Engine
   - scope:
