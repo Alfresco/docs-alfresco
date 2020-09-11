@@ -90,6 +90,6 @@ legacy.transform.service.enabled=true
 
 Setting the enabled state to `false` will disable all of the transforms performed by that particular service. It's possible to disable individual Local Transforms by setting the corresponding T-Engine URL property `localTransform.<engineName>.url` value to an empty string.
 
-```json
+```bash
 localTransform.<engineName>.url=
 ```
