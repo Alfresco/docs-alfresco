@@ -26,7 +26,7 @@ Use this information to configure a custom transform engine (T-Engine).
 
         For example:
 
-        ```json
+        ```bash
         export TRANSFORMER_ROUTES_ADDITIONAL_<name>="/mounting/location/of/custom-pipeline-file.json"
         ```
 
