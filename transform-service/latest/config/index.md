@@ -23,7 +23,7 @@ To configure a custom T-Engine, you'll have to:
 *   Provide its URL and queue name:
     *   Custom T-Engines can be configured through environment variables:
 
-        ```
+        ```bash
         export TRANSFORMER_URL_<CUSTOM_ENGINE_NAME>="http://custom-engine-host:8090"
         export TRANSFORMER_QUEUE_<CUSTOM_ENGINE_NAME>="custom-engine-queue"
         ```
@@ -64,7 +64,6 @@ To configure a custom T-Engine, you'll have to:
           ]
         }
         ```
-
 
 
 
