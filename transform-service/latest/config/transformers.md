@@ -147,7 +147,7 @@ Here's example content of an additional pipeline in JSON format (same as the `tr
 
 Here's example content of an additional pipeline in YAML format. This is the same pipeline as in the JSON example. The environment variable `TRANSFORMER_ROUTES_ADDITIONAL_AI_ROUTES="/additional.json"`, and the `additional.json` content could be:
 
-```json
+```yaml
 routes:
    - transformerName: pdfToImageViaPng
      transformerPipeline:
