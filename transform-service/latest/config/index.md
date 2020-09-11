@@ -45,7 +45,7 @@ To configure a custom T-Engine, you'll have to:
 
     3.  Define additional pipeline transformers, for example:
 
-        ```
+        ```json
         {
           "transformers": [
             {
