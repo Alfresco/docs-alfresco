@@ -37,7 +37,7 @@ integrations:
         url:
   - title: "Transform"
     text: "Create secure, scalable, reliable, and extensible transforms for converting files from their current format into other formats using the all-in-one Transform Core Engine (T-Engine) that performs all the core transforms."
-    url:
+    url: 
     image: /assets/img/ic_transform_80px.svg
     sub:
       - title: "Document Transformation Engine"
@@ -45,7 +45,7 @@ integrations:
         url: /transformation-engine/latest/
       - title: "Transform Service"
         text: "Alfresco Transform Service provides a secure, scalable, reliable, and extensible mechanism for converting files from their current format into other formats."
-        url:
+        url: /transform-service/latest/
       - title: "Media Management"
         text: "Alfresco Media Management provides the capability to transform and add metadata and relationships to your digital media."
         url:
@@ -119,7 +119,7 @@ integrations:
 applications:
   - title: "Digital Workspace"
     text: "Alfresco Digital Workspace is a content management application built with the Alfresco Application Development Framework (ADF)."
-    url: /"digital-workspace/latest"
+    url: /digital-workspace/latest
     image: /assets/img/logo_dw_72px.svg
   - title: "Application Development Framework"
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
