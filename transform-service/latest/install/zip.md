@@ -7,7 +7,7 @@ The Transform Service distribution zip file includes all the files required to p
 
 1. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"} and download alfresco-transform-service-distribution-1.3.x.zip.
 
-2. Extract the zip file into a system directory; for example, <installLocation\>/.
+2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
     In this directory you'll see the following content including three runnable JAR files:
 
