@@ -6,7 +6,7 @@ title: Using Grafana
 
 Grafana is one of many tools that allows you to pull data from Graphite, and allows you to create more customizable, and attractive charts and graphs. You may find your own preferred tool. Here are a couple of Sync Service metrics displayed in Grafana:
 
-![Sync Service metrics in Grafana]({% link sync-service/images/ds-monitor-metrics-grafana.png %})
+![Sync Service metrics in Grafana]({% link sync-service/images/grafana-metrics.png %})
 
 You can create your own dashboard view with various charts and graphs in Grafana by using the following steps.
 
@@ -52,15 +52,15 @@ Use these instructions to create your first dashboard in Grafana, and start crea
 
 3. Add a new graph by selecting a graph type:
 
-    ![Add new graph]({% link sync-service/images/ds-monitor-dashboard-new.png %})
+    ![Add new graph]({% link sync-service/images/grafana-dash-new.png %})
 
 4. Click **Panel Title** > **Edit** to select the metric to display in this graph:
 
-    ![Edit dashboard]({% link sync-service/images/ds-monitor-panel-edit.png %})
+    ![Edit dashboard]({% link sync-service/images/grafana-edit.png %})
 
 5. In the **Metrics** tab, select the Graphite **Data Source**, and the value of the metric to display (such as the mean, 99th percentile, etc.).
 
-    ![Metrics]({% link sync-service/images/ds-monitor-metrics.png %})
+    ![Metrics]({% link sync-service/images/grafana-dash-data.png %})
 
 6. Click the disk icon ![Disk icon]({% link sync-service/images/disk-icon.png %}) to save the dashboard.
 
@@ -76,6 +76,6 @@ You can import a dashboard that you saved as part of [creating your first dashbo
 
 2. Click **Dashboards** then **Import**:
 
-    ![Import dashboard]({% link sync-service/images/ds-monitor-dashboard-import.png %})
+    ![Import dashboard]({% link sync-service/images/grafana-dash-import.png %})
 
 3. Find the file you saved in step 6 of [Create your first dashboard](#create-your-first-dashboard) then import it.

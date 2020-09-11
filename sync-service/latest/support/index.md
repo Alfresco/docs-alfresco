@@ -31,7 +31,7 @@ The following are the supported platforms for Alfresco Sync Service 3.3:
 
 | Version | Supported | Notes |
 | ------- | --------- | ----- |
-| Window Server 2012 R2 x64 | | {::nomarkdown}<p>Not fully tested:<ul><li>Windows Server 2016</li></ul></p>{:/}|
+| Window Server 2012 R2 x64 | | {::nomarkdown}Not fully tested:<ul><li>Windows Server 2016</li></ul>{:/}|
 | Linux operating system | | Tested with Red Hat Enterprise Linux 7.3 x64 {::nomarkdown}<p>Not fully tested:<ul><li>CentOS 7 x64</li><li>Ubuntu 16.04 LTS x64</li></ul></p>{:/} |
 
 ## Databases
@@ -42,5 +42,3 @@ The following are the supported platforms for Alfresco Sync Service 3.3:
 | MySQL 5.7.17| | |
 | Oracle 12c, 19c | | |
 | Amazon Aurora MySQL | | Using MariaDB driver |
-
-See [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms){:target="_blank"} for the current support status in previous Alfresco versions.

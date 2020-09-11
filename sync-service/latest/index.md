@@ -15,6 +15,4 @@ Here is a summary of the key capabilities:
 
 The following diagram shows a simple representation of how Alfresco Content Services and the Sync Service interact with the Desktop Sync clients. See [Sync Service architecture]({% link sync-service/latest/admin/index.md %}) for more.
 
-![Simple architecture for Sync Service]({% link sync-service/images/syncservice-simple-architecture.png %})
-
-For earlier releases of the Sync Service, see the **Previous Versions** section of [https://docs.alfresco.com](https://docs.alfresco.com){:target="_blank"}.
+![Simple architecture for Sync Service]({% link sync-service/images/sync-simple-arch.png %})

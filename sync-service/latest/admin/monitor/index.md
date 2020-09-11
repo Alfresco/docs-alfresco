@@ -157,24 +157,24 @@ The response is JSON and contains all the metrics collected by the Sync Service.
 
 | Metric Name | Type | Description |
 | ----------- | ---- | ----------- |
-| nodeEventLag | Timer* | Specifies the time taken for events sent by the repository to be consumed by the Sync Service. It is measured in milliseconds. |
+| nodeEventLag | Timer (*) | Specifies the time taken for events sent by the repository to be consumed by the Sync Service. It is measured in milliseconds. |
 | nodeEventsBrokerTime | Timer | Specifies the amount of time the event spends in the (ActiveMQ) broker. |
 | nodeEventBrokerLag | Timer | Specifies the lag between events being sent to the (ActiveMQ) broker by the repository and the time at which the broker receives the event.|
 | nodeEventConsumerLag | Timer | Specifies the lag between the broker sending out events and the Sync Service consuming them. |
 | lagBetweenEventCreateAndSend | Timer | Specifies the lag between the event creation time and the time the event is sent to the (ActiveMQ) broker. |
-| syncsTimedOut | Meter** | Specifies the syncs that have timed out (possibly due to long query times). |
+| syncsTimedOut | Meter (**) | Specifies the syncs that have timed out (possibly due to long query times). |
 | syncFailuresMeter | Meter | Specifies the sync failures. |
 | syncsTimer|Timer | Specifies the distribution of sync times. |
 | timePerCommit | Timer | Specifies the node event database commit times. |
 | timePerEventUpdate | Timer | Specifies the node event database insert times. |
 | timePerGetChanges  |Timer | Specifies the sync query times. |
-| numActiveClusterMembers | Gauge*** | Number of active Sync Service cluster members. |
+| numActiveClusterMembers | Gauge (***) | Number of active Sync Service cluster members. |
 
-*Timer measures the rate that a particular piece of code is called and the distribution of its duration. See [Timers](https://metrics.dropwizard.io/3.1.0/getting-started/#timers){:target="_blank"}.
+(*) Timer measures the rate that a particular piece of code is called and the distribution of its duration. See [Timers](https://metrics.dropwizard.io/3.1.0/getting-started/#timers){:target="_blank"}.
 
-**Meter measures the rate of events over time, for example, requests per seconds. See [Meters](https://metrics.dropwizard.io/3.1.0/getting-started/#meters){:target="_blank"}.
+(**) Meter measures the rate of events over time, for example, requests per seconds. See [Meters](https://metrics.dropwizard.io/3.1.0/getting-started/#meters){:target="_blank"}.
 
-***Gauge is an instantaneous measurement of a value. See [Gauges](https://metrics.dropwizard.io/3.1.0/getting-started/#gauges){:target="_blank"}.
+(***) Gauge is an instantaneous measurement of a value. See [Gauges](https://metrics.dropwizard.io/3.1.0/getting-started/#gauges){:target="_blank"}.
 
 ## Reporting Sync Service metrics to Graphite
 
@@ -182,6 +182,6 @@ In order to visualize the metrics listed above in a graphical manner, Sync Servi
 
 Here you can see a glimpse of how the `timePerCommit` metric looks like in Graphite:
 
-![Sync Service metrics - Graphite]({% link sync-service/images/ds-monitor-graphite.png %})
+![Sync Service metrics - Graphite]({% link sync-service/images/graphite-metrics.png %})
 
 If one or more Sync Service instances form a cluster, the same metric is reported in the graph as an averaged value.

@@ -151,9 +151,7 @@ The keystore contains a private key and a self-signed certificate for the Sync S
 3. Start JConsole:
 
     ```bash
-    jconsole -J-Djavax.net.ssl.trustStore=sync.truststore
-    -J-Djavax.net.ssl.trustStoreType=JCEKS
-    -J-Djavax.net.ssl.trustStorePassword=<password>
+    jconsole -J-Djavax.net.ssl.trustStore=sync.truststore -J-Djavax.net.ssl.trustStoreType=JCEKS -J-Djavax.net.ssl.trustStorePassword=<password>
     ```
 
 4. Select **Remote Process** and enter the Sync Service IP and `com.sun.management.jmxremote.port` valuevalue, user name, and password, as in the earlier example.

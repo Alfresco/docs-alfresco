@@ -6,8 +6,6 @@ Use these instructions to install and configure a database for Sync Service.
 
 {% capture postgres %}
 
-<!--## PostgreSQL database-->
-
 Alfresco recommends that you use a separate PostgreSQL instance for the Sync Service.
 
 > **Note:** Only the Sync Service communicates with the database. It persists events taken from the JMS queue into the database. The repository does not communicate with the database.
@@ -119,8 +117,6 @@ LIMIT 200;
 
 {% capture oracle %}
 
-<!--## Oracle database-->
-
 Alfresco recommends that you use a separate Oracle instance for the Sync Service.
 
 > **Note:** Only the Sync Service communicates with the database. It persists events taken from the JMS queue into the database. The repository does not communicate with the database.
@@ -201,8 +197,6 @@ The Sync Service is not packaged with an Oracle driver, so it will need to be do
 {% endcapture %}
 
 {% capture mysql %}
-
-<!--## MySQL database-->
 
 Alfresco recommends that you use a separate MySQL instance for the Sync Service.
 
