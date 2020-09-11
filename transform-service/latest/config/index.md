@@ -37,7 +37,7 @@ To configure a custom T-Engine, you'll have to:
 
     2.  Specify the location through an environment variable:
 
-        ```
+        ```bash
         export TRANSFORMER_ROUTES_ADDITIONAL_<name>="/mounting/location/of/custom-pipeline-file.json"
         ```
 
@@ -64,5 +64,4 @@ To configure a custom T-Engine, you'll have to:
           ]
         }
         ```
-
 
