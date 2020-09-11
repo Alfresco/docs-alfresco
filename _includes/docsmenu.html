@@ -65,54 +65,39 @@
         </div>
         <div class="tabs is-right">
           <ul>
+{%capture pagebase%}/{{page.location}}/{% if page.latest == true %}latest{%else%}{{page.version}}{%endif%}/{%endcapture%}
 
 {% unless page.tutorial == nil and page.api == nil and page.support == nil and page.release == nil %}
-<li class="">
-    {% if page.latest == true %}
-    <a href="/{{page.location}}/latest/">Reference</a>
-    {% else %}
-    <a href="/{{page.location}}/{{page.version}}/">Reference</a>
-    {% endif %}
+<li class="{%if pagebase == page.url %}is-active{%endif%}">
+    <a href="{{pagebase}}">Reference</a>
 </li>
 {% endunless %}
 
 {% if page.tutorial == true %}
-<li class="">
-    {% if page.latest == true %}
-    <a href="/{{page.location}}/latest/tutorial/">Tutorials</a>
-    {% else %}
-    <a href="/{{page.location}}/{{page.version}}/tutorial/">Tutorials</a>
-    {% endif %}
+{% capture href %}{{pagebase}}tutorial/{%endcapture%}
+<li class="{%if href == page.url %}is-active{%endif%}">
+    <a href="{{href}}">Tutorials</a>
 </li>
 {% endif %}
 
 {% if page.api == true %}
-<li class="">
-    {% if page.latest == true %}
-    <a href="/{{page.location}}/latest/api/">APIs</a>
-    {% else %}
-    <a href="/{{page.location}}/{{page.version}}/api/">APIs</a>
-    {% endif %}
+{% capture href %}{{pagebase}}api/{%endcapture%}
+<li class="{%if href == page.url %}is-active{%endif%}">
+    <a href="{{href}}">APIs</a>
 </li>
 {% endif %}
 
 {% if page.support == true %}
-<li class="">
-    {% if page.latest == true %}
-    <a href="/{{page.location}}/latest/support/">Supported Platforms</a>
-    {% else %}
-    <a href="/{{page.location}}/{{page.version}}/support/">Supported Platforms</a>
-    {% endif %}
+{% capture href %}{{pagebase}}support/{%endcapture%}
+<li class="{%if href == page.url %}is-active{%endif%}">
+    <a href="{{href}}">Supported Platforms</a>
 </li>
 {% endif %}
 
 {% if page.release == true %}
-<li class="">
-    {% if page.latest == true %}
-    <a href="/{{page.location}}/latest/release/">Release Notes</a>
-    {% else %}
-    <a href="/{{page.location}}/{{page.version}}/release/">Release Notes</a>
-    {% endif %}
+{% capture href %}{{pagebase}}release/{%endcapture%}
+<li class="{%if href == page.url %}is-active{%endif%}">
+    <a href="{{href}}">Release Notes</a>
 </li>
 {% endif %}     
 
