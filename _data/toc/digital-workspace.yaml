@@ -15,14 +15,15 @@
           path: '/digital-workspace/latest/install/containerized/'
     - title: 'Configure'
       path: '/digital-workspace/latest/config/'
+    - title: 'Governance Services'
       pages: 
         - title: 'Governance Services overview'
           path: '/digital-workspace/latest/governance/'
         - title: 'Working with records'
           path: '/digital-workspace/latest/governance/records/'
         - title: 'Archiving Files'
-          path: '/digital-workspace/latest/governance/archiving/'    
-        - title: 'Process Services'
+          path: '/digital-workspace/latest/governance/archiving/'
+    - title: 'Process Services'
       pages: 
         - title: 'Process Services overview'
           path: '/digital-workspace/latest/process/'
