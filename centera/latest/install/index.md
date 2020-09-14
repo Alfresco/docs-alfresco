@@ -124,7 +124,7 @@ The structure of the `C:\centera\lib64` directory is similar to the following ex
 
 {% capture linux %}
 
-1. Download and extract EMC Centera® SDK (Centera_SDK_Linux-gcc3.3.tgz), for example, to `/opt`.
+1. Download and extract EMC Centera® SDK (`Centera_SDK_Linux-gcc3.3.tgz`), for example, to `/opt`.
 
     A subdirectory structure of the `/opt/Centera_SDK` directory includes the following directories:
 
@@ -225,7 +225,7 @@ lrwxrwxrwx. 1 root root      48 Dec 19 22:51 libPAI_module.so -> /usr/local/Cent
 
 The Centera Connector is packaged as an Alfresco Module Package (AMP) file.
 
-1. Browse to the [Alfresco Support Portal](http://support.alfresco.com).
+1. Browse to the [Alfresco Support Portal](https://support.alfresco.com).
 
 2. Download the `alfresco-centera-connector-2.2.x.amp` file.
 
@@ -386,11 +386,11 @@ Test that the Centera Connector module is working correctly with Alfresco Conten
          Name: com.alfresco.xam.archive.app.vendor          Value: Alfresco Software
         ```
 
-    3. Type `tagClose` to close curent tag.
+    3. Type `tagClose` to close the current tag.
 
-    4. Type `clipClose` to close current C-Clip.
+    4. Type `clipClose` to close the current C-Clip.
 
-    5. Type `poolClose` to close current connection to EMC Centera pool.
+    5. Type `poolClose` to close the current connection to EMC Centera pool.
 
 5. Test the folder hierarchy.
 

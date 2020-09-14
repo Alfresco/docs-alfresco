@@ -1,5 +1,5 @@
 ---
-title: Configure Content Connector
+title: Configure Centera Connector
 ---
 Use these instructions to configure your Alfresco Content Services environment for the Centera Connector.
 
@@ -17,13 +17,13 @@ You can configure the Centera Connector module to alter the behavior of the conn
 
     The `centera.url` property specifies the details of the Centera server. For example, in this case, it specifies the IP address `168.159.214.24`.
 
-    The property also includes the location of the Centera c2armtesting.pea file. For example, C:/centera/c2armtesting.pea or `/usr/local/Centera_SDK/c2armtesting.pea`.
+    The property also includes the location of the Centera `c2armtesting.pea` file. For example, `C:/centera/c2armtesting.pea` or `/usr/local/Centera_SDK/c2armtesting.pea`.
 
 3. Set any additional properties to alter the way that the Centera Connector behaves.
 
     There are various additional properties that can be set to control the Centera Connector module. For example, the retention period for storing content is controlled using the `xam.archive.retentionPeriodDays=1` property.
 
-    > **Note:** The sample alfresco-global.properties file supplied in the Alfresco EMC Centera Connector AMP provides example settings and values.
+    > **Note:** The sample `alfresco-global.properties` file supplied in the Alfresco EMC Centera Connector AMP provides example settings and values.
 
 4. Save the `alfresco-global.properties` file.
 
