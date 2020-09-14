@@ -7,9 +7,9 @@ For more in-depth documentation about how to configure Digital Workspace, see [A
 
 The following settings can be configured in ../digital-workspace/app.config.json.
 
-|Property|Sub-property|Example value|Description|
-|--------|------------|-------------|-----------|
-|`adf-start-process`|`name`|The default setting for this is `%{processDefinition} - %{datetime}`, which will produce, 'Capital Approval Process - Jun 17, 2020, 11:02:07 AM'.|The name of the process as it appears in Alfresco Process Services including the current days date and time.|
+| Property | Sub-property | Example value | Description |
+| -------- | ------------ | ------------- | ----------- |
+| `adf-start-process` | `name` |The default setting for this is `%{processDefinition} - %{datetime}`, which will produce, 'Capital Approval Process - Jun 17, 2020, 11:02:07 AM'.|The name of the process as it appears in Alfresco Process Services including the current days date and time. |
 | |`processDefinitionName`|Capital Approval Process definition.|The name of the definition of the process you are using to create an instance.|
 |`adf-versions-manager`|`allowComments`|`true`|Toggle version comments on/off.|
 |`aosHost`| |"https://repository.domain.com/alfresco/aos"**Note:** Server address has to be https.|Server address of the AOS endpoint.|
@@ -41,3 +41,18 @@ The following settings can be configured in ../digital-workspace/app.config.json
 |`sideNav`|`preserveState`|`true`|Remember the users choice of sidenav minimized or expanded.|
 | |`expandedSidenav`|`true`|Side navigation expanded by default.|
 |`viewer.maxRetries`| |2|The preview mechanism used to view a file tries to open it and if its unsuccessful it waits 20 seconds and then tries again. The process involves converting the file (multiple file formats are supported depending on content type) and if it takes more than 20 seconds the system will say that the content isn't supported. This time out can be increased by adding a value for this property. If you enter 2 the wait time before time out will be 40 seconds.|
+
+
+
+| Property/Sub-property | Description | Example value |
+| --------  | ----------- | ---- | --------- |
+| `adf-start-process/name` | The name of the process as it appears in Alfresco Process Services including the current days date and time. | The default setting for this is `%{processDefinition} - %{datetime}`, which will produce, 'Capital Approval Process - Jun 17, 2020, 11:02:07 AM'. | 
+| `uri` | *Required.* The URI of the file to sign | String |
+| `files` | *Required.* A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to sign | File |
+| `recipientEmail` | *Required.* The email address to send the file to for signing | String |
+| `recipientName` | *Required.* The name of the email recipient | String |
+| `emailSubject` | *Required.* The subject line of the email | String | 
+| `documentId` | *Optional.* A document ID for the Docusign API to use. The value must be positive integer | Integer |
+| `nodeFormat` | *Optional.* The document format for the Docusign API. The default value is `pdf` | String |
+| `signHerePage` | *Optional.* The label for the `Sign Here` box in the document | String | 
+| `signHereX` | *Optional.*  {% include tooltip.html word="community" text="Alfresco Community Edition" %} The X position of the `Sign Here` box in the document | String |
