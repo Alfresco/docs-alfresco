@@ -112,13 +112,13 @@ The Transform Service distribution zip file includes all the files required to p
 
 10. Ensure that the environment is up and running:
 
- 1.Check the logs for Alfresco Content Services startup.
+    1.Check the logs for Alfresco Content Services startup.
 
- 2.Monitor ActiveMQ by accessing the Web Console, e.g. `http://localhost:8161/admin/`.
+    2.Monitor ActiveMQ by accessing the Web Console, e.g. `http://localhost:8161/admin/`.
 
- 3.Temporarily enable `TransformDebug` in the repository if you want to see detailed debug log entries.
+    3.Temporarily enable `TransformDebug` in the repository if you want to see detailed debug log entries.
 
- 4.Navigate to Digital Workspace or Share, and upload a file (such as a `.jpg`, `.png`, `.docx` etc.).
+    4.Navigate to Digital Workspace or Share, and upload a file (such as a `.jpg`, `.png`, `.docx` etc.).
 
 * Check the logs to see the metadata and work performed for the uploaded file. These should be available in the Spring Boot apps:
           * `alfresco-transform-router`

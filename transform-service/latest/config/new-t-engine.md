@@ -105,7 +105,7 @@ Method parameters:
 
 The `transform` method's signature will vary depending on the T-Engine's configuration. The example T-Engine is configured to take a single `language` transform option, but the number of the `transform` method's parameters will have to match the transform options defined in [engine\_config.json](https://github.com/Alfresco/alfresco-helloworld-transformer/blob/master/alfresco-helloworld-transformer-engine/src/main/resources/engine_config.json){:target="_blank"}.
 
-### rocessTransform
+### ProcessTransform
 
 ```java
 public void processTransform(File sourceFile, File targetFile, Map<String, String> transformOptions, Long timeout)
