@@ -7,6 +7,7 @@ defaults:
       layout: "docs"
       product: "Alfresco Content Services"
       toc: "content-services"
+      location: "content-services"
       versions:
         - 6.2
         - 6.1
@@ -149,7 +150,25 @@ defaults:
       version: 2.2
       latest: true
 
+# Alfresco Sync Service
+  - scope:
+      path: "sync-service"
+    values:
+      layout: "docs"
+      product: "Alfresco Sync Service"
+      location: "sync-service"
+      toc: "sync-service"
+      support: true
+      versions:
+        - 3.3
+  - scope:
+      path: "sync-service/latest"
+    values:
+      version: 3.3
+      latest: true
 
+
+# Alfresco Activiti Enterprise
   - scope:
       path: "activiti"
     values:
