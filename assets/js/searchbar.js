@@ -20,7 +20,7 @@ function debounce(func, wait, immediate) {
   };
 }
 
-const autocompleteInput = (idInput, idMenu, idClear, onChanged, onSelect) => {
+const autocompleteInput = (idInput, idMenu, idClear, onChanged) => {
   const inputElement = document.getElementById(idInput);
   const menuContainer = document.getElementById(idMenu);
   const clearButton = document.getElementById(idClear);
@@ -48,19 +48,6 @@ const autocompleteInput = (idInput, idMenu, idClear, onChanged, onSelect) => {
       _removeOptionHandlers(options[i]);
       options[i].remove();
     }
-  };
-
-  // callback
-  const _setValue = (label, value, special) => {
-    inputElement.value = label;
-    if (onSelect) {
-      onSelect({ label, value, special });
-    }
-
-    _deleteResults();
-    menuContainer.classList.remove("is-active");
-    dropdownIndex = 0;
-    clearButton.classList.add("is-hidden");
   };
 
   const _clickHandler = (e) => {};
@@ -112,11 +99,11 @@ const autocompleteInput = (idInput, idMenu, idClear, onChanged, onSelect) => {
 
     // place content into special items
     Array.from(specialItems).forEach((n) => {
-      n.href = n.dataset.url + encodeURI(value);
+      n.href = n.dataset.url + encodeURIComponent(value);
       n.querySelector(".query").innerHTML = value;
     });
 
-    onChanged(value).then((answer) => {
+    onChanged(value, null, 5).then((answer) => {
       _deleteResults();
 
       // map results into menu options
@@ -208,6 +195,22 @@ const autocompleteInput = (idInput, idMenu, idClear, onChanged, onSelect) => {
 };
 
 const setupSearchBar = () => {
+  ((localScopeHint, scope) => {
+    if (!localScopeHint) return;
+    if (!scope || !scope.product) {
+      localScopeHint.remove();
+      return;
+    }
+
+    const s = encodeURIComponent(
+      `${scope.product}${scope.version ? "/" + scope.version : ""}`
+    );
+
+    localScopeHint.dataset.url += s + "/";
+    localScopeHint.querySelector(".hint").innerHTML = `In: ${scope.product}`;
+  })(document.getElementById("localscope"), window.searchScope);
+
+  document.documentElement.style.setProperty("--search-bar", 0);
   const searchHolder = document.getElementById("searchbar-holder");
 
   if (!searchHolder) return;
@@ -249,7 +252,6 @@ const setupSearchBar = () => {
       "--search-bar",
       searchHolder.getBoundingClientRect().height + "px"
     );
-    console.log(searchHolder.getBoundingClientRect().height);
   }
 
   // close search bar
@@ -274,6 +276,4 @@ const setupSearchBar = () => {
 
       window.history.back();
     };
-
-  document.documentElement.style.setProperty("--search-bar", 0);
 };

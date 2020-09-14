@@ -7,6 +7,7 @@ defaults:
       layout: "docs"
       product: "Alfresco Content Services"
       toc: "content-services"
+      location: "content-services"
       versions:
         - 6.2
         - 6.1
@@ -110,6 +111,28 @@ defaults:
     values:
       version: 1.0
 
+# Alfresco Desktop Sync
+  - scope:
+      path: "desktop-sync"
+    values:
+      layout: "docs"
+      product: "Alfresco Desktop Sync"
+      location: "desktop-sync"
+      toc: "desktop-sync"
+      support: true
+      versions:
+        - 1.6
+        - 1.5
+  - scope:
+      path: "desktop-sync/latest"
+    values:
+      version: 1.6
+      latest: true
+  - scope:
+      path: "desktop-sync/1.5"
+    values:
+      version: 1.5
+
 # Alfresco Document Transformation Engine
   - scope:
       path: "transformation-engine"
@@ -144,6 +167,24 @@ defaults:
       version: 2.2
       latest: true
 
+# Alfresco Sync Service
+  - scope:
+      path: "sync-service"
+    values:
+      layout: "docs"
+      product: "Alfresco Sync Service"
+      location: "sync-service"
+      toc: "sync-service"
+      support: true
+      versions:
+        - 3.3
+  - scope:
+      path: "sync-service/latest"
+    values:
+      version: 3.3
+      latest: true
+
+# Alfresco Activiti Enterprise
   - scope:
       path: "activiti"
     values:
@@ -222,7 +263,6 @@ elasticsearch:
 exclude:
   - .github/
   - README.md
-  - CODEOWNERS
   - .gitignore
   # - .sass-cache/
   - .jekyll-cache/

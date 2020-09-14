@@ -31,10 +31,10 @@ integrations:
     sub:
       - title: "Sync Service"
         text: "Alfresco Sync Service synchronizes files between the desktop and repository using web services."
-        url:
+        url: /sync-service/latest/
       - title: "Desktop Sync"
         text: "Desktop Sync allows you to securely manage synchronized files on your desktop."
-        url:
+        url: /desktop-sync/latest/
   - title: "Transform"
     text: "Create secure, scalable, reliable, and extensible transforms for converting files from their current format into other formats using the all-in-one Transform Core Engine (T-Engine) that performs all the core transforms."
     url:
@@ -113,17 +113,17 @@ integrations:
         text: "Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook."
         url:
       - title: "SAP"
-        text: "Alfresco SAP Connector offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
+        text: "Alfresco Content Connector for SAP applications offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
         url:
 
 applications:
   - title: "Digital Workspace"
     text: "Alfresco Digital Workspace is a content management application built with the Alfresco Application Development Framework (ADF)."
-    url: /dw
+    url:
     image: /assets/img/logo_dw_72px.svg
   - title: "Application Development Framework"
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
-    url: /some
+    url:
     image: /assets/img/logo_adf_72px.svg
   - title: "Content Mobile"
     text: "Alfresco Content Services for mobile allows you to view, edit, and share information in and out of the office via the mobile app."

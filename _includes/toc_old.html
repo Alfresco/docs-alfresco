@@ -1,0 +1,68 @@
+
+{% assign toc = site.data.toc.[page.location] | where: 'version',  page.version %}
+                        
+    <ul>
+
+    {% for t in toc %}
+    {% for p in t.pages %}
+
+    {% assign active = nil %} 
+
+    {% if p.pages != nil %}
+
+    <li data-action="collapse" data-target="#collapse{{p.title | remove: ' '}}">{{p.title}}
+
+        <ul class="is-collapsible" id="collapse{{p.title | remove: ' '}}">
+
+        {% for c in p.pages %}
+        {% if c.pages != nil %}
+
+        <li data-action="collapse" data-target="#collapse{{c.title | remove: ' '}}">{{c.title}}
+
+            <ul class="is-collapsible" id="collapse{{c.title | remove: ' '}}">
+
+            {% for g in c.pages %}
+
+            {% assign g-active = nil %}
+
+            {% if page.url == g.path %}
+            {% assign g-active = 'is-active' %}
+            {% endif %}
+                                
+            <li><a class="{{g-active}}" href="{{g.path}}">{{g.title}}</a></li>
+
+            {% endfor %}
+        </li>
+
+            </ul>
+
+        {% else %}
+
+        {% assign c-active = nil %}
+
+        {% if page.url == c.path %}
+        {% assign c-active = 'is-active' %}
+        {% endif %}
+
+        <li><a class="{{c-active}}" href="{{c.path}}">{{c.title}}</a></li>
+
+        {% endif %}
+        {% endfor %}
+    
+    </li>
+
+        </ul>
+
+    {% else %}
+
+    {% if page.url == p.path %}
+    {% assign active = 'is-active' %}
+    {% endif %}
+
+    <li><a class="{{active}}" href="{{p.path}}">{{p.title}}</a></li>
+
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    
+    </ul>
