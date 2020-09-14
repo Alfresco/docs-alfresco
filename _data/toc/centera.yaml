@@ -1,0 +1,9 @@
+# Centera 2.2
+- version: 2.2
+  pages:
+    - title: 'Introduction'
+      path: '/centera/latest/'
+    - title: 'Install'
+      path: '/centera/latest/install/'
+    - title: 'Configure'
+      path: '/centera/latest/config/'
