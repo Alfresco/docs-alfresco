@@ -152,7 +152,7 @@ The approach to backup and restore is to ensure that the repository is backed up
     4. Restart the Sync Service with the following additional command line parameter:
 
         ```bash
-         -Drecover=<repo admin username>:<repo admin password>
+        -Drecover=<repo admin username>:<repo admin password>
         ```
 
         The Sync Service will ensure that it and the repository are in sync during bootstrap, before becoming available for requests.
