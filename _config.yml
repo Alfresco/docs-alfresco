@@ -40,7 +40,7 @@ defaults:
     values:
       layout: "docs"
       product: "Alfresco Digital Workspace"
-      location: "digial-workspace"
+      location: "digital-workspace"
       toc: "digital-workspace"
       support: true
       versions:
