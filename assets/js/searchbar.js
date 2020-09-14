@@ -195,6 +195,21 @@ const autocompleteInput = (idInput, idMenu, idClear, onChanged) => {
 };
 
 const setupSearchBar = () => {
+  ((localScopeHint, scope) => {
+    if (!localScopeHint) return;
+    if (!scope || !scope.product) {
+      localScopeHint.remove();
+      return;
+    }
+
+    const s = encodeURIComponent(
+      `${scope.product}${scope.version ? "/" + scope.version : ""}`
+    );
+
+    localScopeHint.dataset.url += s + "/";
+    localScopeHint.querySelector(".hint").innerHTML = `In: ${scope.product}`;
+  })(document.getElementById("localscope"), window.searchScope);
+
   document.documentElement.style.setProperty("--search-bar", 0);
   const searchHolder = document.getElementById("searchbar-holder");
 

@@ -667,16 +667,13 @@ body > .section.section-landing {
 
 .content pre {
   border-radius: 4px;
+  display: grid;
+  margin-bottom: 12px;
 }
 
 .content td em:nth-child(1) {
   color: rgb(245, 144, 22);
   font-style: normal;
-}
-
-.content pre {
-  margin-bottom: 12px;
-  white-space: pre-wrap;
 }
 
 .content table thead th {
@@ -1291,7 +1288,7 @@ pre {
   font-size: 9pt;
 }
 
-.search-results li {
+.search-results .results-list li {
   margin-bottom: 48px;
 }
 
