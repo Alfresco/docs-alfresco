@@ -11,7 +11,7 @@ You can also find additional information in:
 
 ## Required properties
 
-The out-of-the-box Sync Service provides an SSL key but it is recommended that you use your own SSL key.
+The out-of-the-box Sync Service provides an SSL key but it's recommended that you use your own SSL key.
 
 To configure the Sync Service, update the `server.applicationConnectors.http.keyStore*` properties in the `sync/service-sync/config.yml` file.
 
@@ -94,4 +94,4 @@ The Identity Service may be configured with multiple applications. If an applica
 | identity-service.auth-server-url | The base URL of the Identity Service. Example setting: `https://ids.example.com/auth` |
 | identity-service.realm | The realm name configured in the Identity Service for Alfresco applications. Example setting: `alfresco` |
 | identity-service.resource | The OAuth2 **Client ID** set up in the Identity Service for Alfresco Desktop Sync. Each application has a Client ID that's used to identify the application. The client needs to exist underneath the realm set for `identity-service.realm`. Example setting: `desktop-sync` |
-| identity-service.credentials.secret | The secret key for this client if the access type is not set to public. |
+| identity-service.credentials.secret | The secret key for this client if the access type isn't set to public. |

@@ -2,7 +2,7 @@
 title: Installation overview
 ---
 
-The Sync Service capability for Desktop Sync is delivered as a distribution zip file containing repository AMP file, server files for the Sync Service, and third-party license information.
+The Sync Service capability for Desktop Sync is delivered as a distribution zip file containing a repository AMP file, server files for the Sync Service, and third-party license information.
 
 You can download the Alfresco Sync Service software from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
 

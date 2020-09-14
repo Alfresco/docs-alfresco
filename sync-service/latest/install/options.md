@@ -15,19 +15,23 @@ Use these instructions to install the Sync Service repository modules and servic
 
 The Sync Service distribution zip file, `AlfrescoSyncServer-3.3.x.zip`, includes all the files required to provide the Sync Service. This file contains the following artifacts:
 
-* `amps-repository` directory containing the Sync Service repository AMP, `alfresco-device-sync-repo-3.3.x.amp`.
-* `licenses` directory containing the 3rd-party licenses.
-* service-sync directory containing the Sync Service jar (`service-sync-3.3.x.jar`), `config.yml` property file, `alfresco-sync` start/stop script, and `sync.jks` SSL keys.
+* `amps-repository` directory containing the Sync Service repository AMP: `alfresco-device-sync-repo-3.3.x.amp`
+* `licenses` directory containing the 3rd-party licenses
+* `service-sync` directory with:
+  * `service-sync-3.3.x.jar` Sync Service JAR
+  * `config.yml` property file
+  * `alfresco-sync` start/stop script
+  * `sync.jks` SSL keys
 
 > **Note:** The keystore `sync.jks` contains a self-signed certificate that should be used for testing purposes only. You'll need to provide your own SSL keys for a production environment.
 
 > **Note:** Make sure you're running the correct versions of operating system and software before you install the AMP file. See [Prerequisites]({% link sync-service/latest/install/index.md %}) for more information.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"} and download `AlfrescoSyncServer-3.3.x.zip`.
+1. Download `AlfrescoSyncServer-3.3.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
 
 2. Extract the `AlfrescoSyncServer-3.3.x.zip` file into a system directory; for example, `<installLocation>/`.
 
-    We will refer to this new directory (`<installLocation>/sync`), as the *Alfresco Sync Service installation directory*. In this directory you'll see these folders:
+    We'll refer to this new directory (`<installLocation>/sync`), as the *Alfresco Sync Service installation directory*. In this directory you'll see these folders:
 
     * `amps-repository`
     * `licenses`
@@ -35,11 +39,13 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.3.x.zip`, includes
 
 3. Stop the Alfresco repository.
 
-4. Use the Module Management Tool (MMT) to install the `alfresco-device-sync-repo-3.3.x.amp` AMP into the repository WAR. For more information, see instructions in [Install the AMP file](https://docs.alfresco.com/5.0/tasks/dev-extensions-tutorials-simple-module-install-amp.html)(#LINK).
+4. Use the Module Management Tool (MMT) to install the `alfresco-device-sync-repo-3.3.x.amp` AMP into the repository WAR. 
+
+    For more information, see instructions in [Install the AMP file](https://docs.alfresco.com/5.0/tasks/dev-extensions-tutorials-simple-module-install-amp.html)(#LINK).
 
     For example, to apply the `alfresco-device-sync-repo-3.3.x.amp`, use the following command:
 
-    ```bash
+    ```java
     java -jar <alfrescoInstallLocation>\bin\alfresco-mmt.jar install <installLocation>\amps-repository\alfresco-device-sync-repo-3.3.x.amp <installLocation>\tomcat\webapps\alfresco.war
     ```
 
@@ -56,7 +62,9 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.3.x.zip`, includes
     * The `dsync.service.uris` value needs to be set to an IP address or hostname of the Sync Service machine that can be accessed by the Desktop Sync clients outside the firewall. In addition, the port 9090 needs to be opened up in the firewall so that clients can access the Sync Service.
     * `messaging.broker.url` specifies the location of ActiveMQ.
 
-6. Configure the Sync Service properties in the `<installLocation>/service-sync/config.yml` file. See [Configure Sync Service]({% link sync-service/latest/config/index.md %}).
+6. Configure the Sync Service properties in the `<installLocation>/service-sync/config.yml` file.
+
+    See [Configure Sync Service]({% link sync-service/latest/config/index.md %}).
 
     For example, edit the following properties:
 
@@ -79,7 +87,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.3.x.zip`, includes
 
     * sql:
 
-        ```sql
+        ```yaml
         db:
             url: jdbc:postgresql:alfresco
         ```
@@ -88,11 +96,11 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.3.x.zip`, includes
 
 7. Start and configure PostgreSQL.
 
-    For more information, see [Configuring PostgreSQL database for Desktop Sync]({% link sync-service/latest/install/database/index.md %}).
+    For more information, see [Configuring PostgreSQL database for Desktop Sync]({% link sync-service/latest/install/database.md %}).
 
 8. Start ActiveMQ.
 
-    If ActiveMQ is down, the repository transactions will fail and rollback. In production environments, it is advised that you run an ActiveMQ cluster in a failover mode to avoid this situation. See [ActiveMQ master/slave configurations](https://activemq.apache.org/masterslave.html){:target="_blank"}.
+    If ActiveMQ is down, the repository transactions will fail and rollback. In production environments, it's advisable that you run an ActiveMQ cluster in failover mode to avoid this situation. See [ActiveMQ master/slave configurations](https://activemq.apache.org/masterslave.html){:target="_blank"}.
 
     For more information, see [Setting up ActiveMQ](https://docs.alfresco.com/6.0/tasks/activemq-install.html)(#LINK).
 
@@ -124,7 +132,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.3.x.zip`, includes
 
     > **Note:** The PostgreSQL JDBC driver must be provided and included in the startup command line as shown above.
 
-    For more information, see [Install and configure PostgreSQL database]({% link sync-service/latest/install/database/index.md %}).
+    For more information, see [Install and configure PostgreSQL database]({% link sync-service/latest/install/database.md %}).
 
 11. Access Alfresco Share by browsing to:
 
@@ -142,7 +150,7 @@ Alfresco supplies a self-signed certificate with the Sync Service. This certific
 
 ## How to disable SSL for the synchronization server
 
-1. In the `applicationConnector` section of the config.yml file, comment out or remove the lines from `type: https` to `validateCerts: false`.
+1. In the `applicationConnector` section of the `config.yml` file, comment out or remove the lines from `type: https` to `validateCerts: false`.
 
     ```yaml
     server:
@@ -165,7 +173,7 @@ Alfresco supplies a self-signed certificate with the Sync Service. This certific
 
 The Sync Service is not packaged with a database driver, so it will need to be downloaded separately and cited in the start-up.
 
-See instructions to [install and configure databases]({% link sync-service/latest/install/database/index.md %}).
+See instructions to [install and configure databases]({% link sync-service/latest/install/database.md %}).
 
 ## Containerized deployment
 
@@ -190,8 +198,8 @@ These instructions apply to both Alfresco Content Services and Alfresco One.
 
 2. Uninstall the Sync Service, AMP file in the repository, for example using the Module Management Tool (MMT):
 
-    ```bash
-    java -jar bin/alfresco-mmt.jar ﻿uninstall alfresco-device-sync-repo-3.3.x.amp tomcat/webapps/alfresco.war
+    ```java
+    java -jar bin/alfresco-mmt.jar uninstall alfresco-device-sync-repo-3.3.x.amp tomcat/webapps/alfresco.war
     ```
 
     [Uninstall an AMP file](https://docs.alfresco.com/5.0/tasks/uninstall-amp.html)(#LINK) provides information on how to uninstall the AMP file, and remove the AMP content from the WAR files.
@@ -202,9 +210,9 @@ These instructions apply to both Alfresco Content Services and Alfresco One.
 
     Deleting these directories forces Tomcat to read the edited WAR files when Alfresco is restarted.
 
-4. Review the `autoStart` properties in your alfresco-global.properties file to ensure that the events and messaging subsystems are not set to start automatically.
+4. Review the `autoStart` properties in your `alfresco-global.properties` file to ensure that the events and messaging subsystems aren't set to start automatically.
 
-    Uninstalling the AMP file removes any settings applied by the Sync Service repository module, however you should review custom `autoStart` properties to check that they are set to `false`:
+    Uninstalling the AMP file removes any settings applied by the Sync Service repository module, however you should review custom `autoStart` properties to check that they're set to `false`:
 
     ```bash
     events.subsystem.autoStart=false
@@ -213,11 +221,15 @@ These instructions apply to both Alfresco Content Services and Alfresco One.
 
 5. Ensure that all system services relating to the Sync Service are stopped, disabled or removed. Disable all cron jobs, and ensure there are no active Analytics processes on your server.
 
-    There are four system services to stop: ActiveMQ, event and messaging broker, and the Sync Service.
+    There are four system services to stop:
+    * ActiveMQ
+    * Event broker
+    * Messaging broker
+    * Sync Service
 
-6. Ensure that Alfresco Content Services is not physically connected to the Sync Service installation and that all related functions are disabled.
+6. Ensure that Alfresco Content Services isn't physically connected to the Sync Service installation and that all related functions are disabled.
 
-    You will physically remove all parts of the Sync Service installation, so you must make sure this does not affect the Alfresco Content Services installation. Most Sync Service files are installed in `<installLocation>`), which you chose during installation (for example, `<installLocation>/sync`).
+    You'll physically remove all parts of the Sync Service installation, so you must make sure this doesn't affect the Alfresco Content Services installation. Most Sync Service files are installed in `<installLocation>`), which you chose during installation (for example, `<installLocation>/sync`).
 
 7. Remove the Sync Service installation and database.
 

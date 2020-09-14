@@ -8,9 +8,9 @@ Use these instructions to install and configure a database for Sync Service.
 
 Alfresco recommends that you use a separate PostgreSQL instance for the Sync Service.
 
-> **Note:** Only the Sync Service communicates with the database. It persists events taken from the JMS queue into the database. The repository does not communicate with the database.
+> **Note:** Only the Sync Service communicates with the database. It persists events taken from the JMS queue into the database. The repository doesn't communicate with the database.
 
-The Sync Service is not packaged with a PostgreSQL driver, so it will need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/latest/install/options.md %}).
+The Sync Service isn't packaged with a PostgreSQL driver, so it'll need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/latest/install/options.md %}).
 
 1. Download the appropriate driver that's compatible with JDBC42 from the [PostgreSQL JDBC Driver download](https://jdbc.postgresql.org/download.html){:target="_blank"} page.
 
@@ -29,7 +29,7 @@ The Sync Service is not packaged with a PostgreSQL driver, so it will need to be
         max_connections = 450
         ```
 
-        If `max_connections` is left unchanged, bear in mind that in the PostgreSQL database, the default `max_connections` is `100`. So, the value of the `db.pool.max` property in the config.yml file must be less than or equal to `100`.
+        If `max_connections` is left unchanged, bear in mind that in the PostgreSQL database, the default `max_connections` is `100`. So, the value of the `db.pool.max` property in the `config.yml` file must be less than or equal to `100`.
 
         If there are multiple Sync Service instances forming a cluster hidden behind a load balancer, `max_connections` should be greater than or equal to the sum of all `db.pool.max` from all `config.yml` files.
 
@@ -77,7 +77,7 @@ The PostgreSQL settings to configure depends on:
 
 Setting affected by the sync activity level include:
 
-* `work_mem`: The sync query result set sizes may be large for subscriptions that have not been synced for a while. Also, the subscriptions need to be sorted. By default, the client will sync every 5 minutes so the number of sync changes is not likely to be very large, but clients that are offline will build up large outstanding sync result sets. Set `work_mem` higher if clients are expected to be offline for long periods of time.
+* `work_mem`: The sync query result set sizes may be large for subscriptions that haven't been synced for a while. Also, the subscriptions need to be sorted. By default, the client will sync every 5 minutes so the number of sync changes is not likely to be very large, but clients that are offline will build up large outstanding sync result sets. Set `work_mem` higher if clients are expected to be offline for long periods of time.
 
 #### Repository activity level
 
@@ -121,13 +121,15 @@ Alfresco recommends that you use a separate Oracle instance for the Sync Service
 
 > **Note:** Only the Sync Service communicates with the database. It persists events taken from the JMS queue into the database. The repository does not communicate with the database.
 
-The Sync Service is not packaged with an Oracle driver, so it will need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/latest/install/options.md %}).
+The Sync Service isn't packaged with an Oracle driver, so it'll need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/latest/install/options.md %}).
 
 1. Download the Oracle database connector `ojdbc7.jar` from the [Oracle JDBC Driver download](https://www.oracle.com/database/technologies/jdbc-drivers-12c-downloads.html){:target="_blank"} page.
 
 2. Copy the JAR file into the same directory as the Sync Service JAR.
 
-    The JDBC driver for Oracle is in the JAR file: `ojdbc7.jar`. However, if you see the following error, then add the `Doracle.jdbc.thinLogonCapability=o3` parameter to `JAVA_OPTS`:
+    The JDBC driver for Oracle is in the JAR file: `ojdbc7.jar`.
+
+    However, if you see the following error, then add the `Doracle.jdbc.thinLogonCapability=o3` parameter to `JAVA_OPTS`:
 
     ```bash
     java.sql.SQLException: OAUTH marshaling failure
@@ -141,7 +143,7 @@ The Sync Service is not packaged with an Oracle driver, so it will need to be do
 
     Have a look at this quick tutorial to alter the character set: [Change Oracle Database Character Set : NLS_CHARACTERSET](https://easyoradba.com/2010/07/02/change-oracle-database-character-set-nls_characterset/){:target="_blank"}.
 
-4. Increase the maximum connections setting in the Oracle configuration file. This property `processes` specifies the maximum number of operating system user processes that can simultaneously connect to Oracle. This effectively determines the maximum number of concurrent users in the system.
+4. Increase the maximum connections setting in the Oracle configuration file. The property `processes` specifies the maximum number of operating system user processes that can simultaneously connect to Oracle. This effectively determines the maximum number of concurrent users in the system.
 
     ```bash
     alter system set processes=450 scope=spfile
@@ -179,7 +181,7 @@ The Sync Service is not packaged with an Oracle driver, so it will need to be do
         GRANT UNLIMITED TABLESPACE TO alfresco
         ```
 
-        > **Note:** If the privileges on tablespace "USERS" are not set correctly, you may see the following error:
+        > **Note:** If the privileges on tablespace "USERS" aren't set correctly, you may see the following error:
 
         ```bash
         ORA-01950: no privileges on tablespace 'USERS'
@@ -200,9 +202,9 @@ The Sync Service is not packaged with an Oracle driver, so it will need to be do
 
 Alfresco recommends that you use a separate MySQL instance for the Sync Service.
 
-**Note:** Only the Sync Service communicates with the database. It persists events taken from the JMS queue into the database. The repository does not communicate with the database.
+**Note:** Only the Sync Service communicates with the database. It persists events taken from the JMS queue into the database. The repository doesn't communicate with the database.
 
-The Sync Service is not packaged with a MySQL driver, so it will need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/latest/install/options.md %}).
+The Sync Service isn't packaged with a MySQL driver, so it'll need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/latest/install/options.md %}).
 
 1. Download the MySQL database connector from the [MySQL JDBC Driver download](https://dev.mysql.com/downloads/connector/j/) page.
 
@@ -257,7 +259,7 @@ The Sync Service is not packaged with a MySQL driver, so it will need to be down
     CREATE USER 'alfresco' IDENTIFIED BY 'admin';
     ```
 
-10. Create a MySQL database with the name given by the property, `sql.db.url`, owned by the user, alfresco:
+10. Create a MySQL database with the name given by the property, `sql.db.url`, owned by the user, `alfresco`:
 
     ```yaml
     sql:

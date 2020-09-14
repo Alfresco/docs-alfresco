@@ -10,7 +10,7 @@ You can start the Sync Service with JMX remote enabled and all security disabled
 
 1. Start the service with the following Java options by substituting the required host name and ports:
 
-    ```bash
+    ```java
     -Dcom.sun.management.jmxremote=true
     -Djava.rmi.server.hostname=<sync-service-IP>
     -Dcom.sun.management.jmxremote.port=<jmx-remote-port>
@@ -23,7 +23,9 @@ You can start the Sync Service with JMX remote enabled and all security disabled
 
     ```bash
     cd <installLocation>/service-sync
+    ```
 
+    ```java
     java -Xmx2G -Dcom.sun.management.jmxremote=true -Djava.rmi.server.hostname=34.253.209.238
     -Dcom.sun.management.jmxremote.port=50800 -Dcom.sun.management.jmxremote.rmi.port=50801
     -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
@@ -31,7 +33,7 @@ You can start the Sync Service with JMX remote enabled and all security disabled
     org.alfresco.service.sync.dropwizard.SyncService server config.yml
     ```
 
-    > **Note:** Make sure the ports for `com.sun.management.jmxremote.port` and `com.sun.management.jmxremote.rmi.port` are open. Also, replace service-sync-3.3.x.jar with your exact version.
+    > **Note:** Make sure the ports for `com.sun.management.jmxremote.port` and `com.sun.management.jmxremote.rmi.port` are open. Also, replace `service-sync-3.3.x.jar` with your exact version.
 
     > **Note:** For production systems, use both SSL client certificates to authenticate the client host, and password authentication for user management, by enabling `com.sun.management.jmxremote.authenticate` and `com.sun.management.jmxremote.ssl`.
 
@@ -48,7 +50,7 @@ You can start the Sync Service with JMX remote enabled and all security disabled
 
 ## JMX connection with authentication
 
-Before enabling the authentication, first you need to create a password file. The file name is not important. Use the following example for guidance.
+Before enabling the authentication, first you need to create a password file. The file name isn't important. Use the following example for guidance.
 
 > **Note:** If you're using an earlier JDK version than 9, then you'll need to specify the role in a separate `jmx.access` file.
 
@@ -76,7 +78,7 @@ Before enabling the authentication, first you need to create a password file. Th
 
 4. Start the Sync Service by enabling authentication, and pass on the path to the created file:
 
-    ```bash
+    ```java
     -Dcom.sun.management.jmxremote.authenticate=true
     -Dcom.sun.management.jmxremote.password.file=/path/to/jmx.password
     ```
@@ -85,7 +87,9 @@ Before enabling the authentication, first you need to create a password file. Th
 
     ```bash
     cd <installLocation>/service-sync
+    ```
 
+    ```java
     java -Xmx2G -Dcom.sun.management.jmxremote=true -Djava.rmi.server.hostname=34.253.209.238
     -Dcom.sun.management.jmxremote.port=50800 -Dcom.sun.management.jmxremote.rmi.port=50801
     -Dcom.sun.management.jmxremote.authenticate=true
@@ -121,7 +125,7 @@ The keystore contains a private key and a self-signed certificate for the Sync S
 
 1. Start the Sync Service by enabling SSL and pass on the path, password, and the store type to the keystore and truststore:
 
-    ```bash
+    ```java
     -Dcom.sun.management.jmxremote.ssl=true -Djavax.net.ssl.keyStore=/path/to/keystore
     -Djavax.net.ssl.keyStorePassword=<password> -Djavax.net.ssl.keyStoreType=<type>
     -Djavax.net.ssl.trustStore=/path/to/truststore -Djavax.net.ssl.trustStoreType=<type>
@@ -132,7 +136,9 @@ The keystore contains a private key and a self-signed certificate for the Sync S
 
     ```bash
     cd <installLocation>/service-sync
+    ```
 
+    ```java
     java -Xmx2G -Dcom.sun.management.jmxremote=true -Djava.rmi.server.hostname=34.253.209.238
     -Dcom.sun.management.jmxremote.port=50800 -Dcom.sun.management.jmxremote.rmi.port=50801
     -Dcom.sun.management.jmxremote.authenticate=true
@@ -150,7 +156,7 @@ The keystore contains a private key and a self-signed certificate for the Sync S
 
 3. Start JConsole:
 
-    ```bash
+    ```java
     jconsole -J-Djavax.net.ssl.trustStore=sync.truststore -J-Djavax.net.ssl.trustStoreType=JCEKS -J-Djavax.net.ssl.trustStorePassword=<password>
     ```
 
@@ -162,7 +168,7 @@ The keystore contains a private key and a self-signed certificate for the Sync S
 
     For example, you can use the Java keytool (`<JavaInstallationDir>/bin/keytool`):
 
-    ```bash
+    ```java
     keytool -exportcert -alias sync -keystore sync.jks -file synccer.cer -storetype jceks -storepass <password>
     ```
 
@@ -172,7 +178,7 @@ The keystore contains a private key and a self-signed certificate for the Sync S
 
     For example, using the Java keytool:
 
-    ```bash
+    ```java
     keytool -importcert -alias sync -file synccer.cer -keystore sync.truststore -storetype JCEKS -storepass <yourPassword>
     ```
 
