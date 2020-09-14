@@ -1,0 +1,39 @@
+# Alfresco Governance Services
+- version: 3.3
+  pages:
+    - title: 'Introduction'
+      path: '/ags/latest/'
+    - title: "Install"
+      path: '/ags/latest/install/'
+    - title: 'Upgrade'
+      path: '/ags/latest/upgrade/'
+    - title: "Configure"
+      path: '/ags/latest/config/'
+    - title: "Administer"
+      path: '/ags/latest/admin/'
+    - title: 'Getting started'
+      pages:
+        - title: 'Overview'
+          path: '/ags/latest/starting/overview/'
+        - title: 'Getting started for managers'
+          pages:
+            - title: 'Overview'
+              path: '/ags/latest/starting/managers/overview/'
+            - title: 'Adding a record category'
+              path: '/ags/latest/starting/managers/addcategory/'
+            - title: 'Creating a retention schedule'
+              path: '/ags/latest/starting/managers/createschedule/'
+        - title: 'Getting started for users'
+          path: '/ags/latest/starting/users/'
+    - title: 'Using'
+      pages:
+        - title: 'Governance Services'
+          pages:
+            - title: 'Video tutorials'
+              path: '/ags/latest/using/gs/video-tutorials/'
+        - title: 'Security marks and classification'
+          pages:
+            - title: 'Video tutorials'
+              path: '/ags/latest/using/gs/video-tutorials/'
+        - title: 'APIs'
+          path: '/ags/latest/using/gs/apis/'
