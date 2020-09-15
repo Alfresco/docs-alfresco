@@ -62,7 +62,7 @@ integrations:
         url:
       - title: "Federation"
         text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
-        url:
+        url: /federation-services/latest/
   - title: "Identity"
     text: "Enable Single Sign On capabilities by configuring user authentication between Identity Service and a supported SAML identity provider."
     url:
