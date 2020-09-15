@@ -56,7 +56,7 @@ Watch these videos for tips on using Alfresco Governance Services.
 
 <iframe allowfullscreen="true" frameborder="0" src="//www.youtube.com/embed/B6MVNxOSllE?enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.alfresco.com" data-gtm-yt-inspected-1322523_1185="true" id="756716997"></iframe>
 
-## Process a Record  
+## Process Records  
 
 <iframe allowfullscreen="true" frameborder="0" src="//www.youtube.com/embed/UWE8Qmgo8Bo?enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.alfresco.com" data-gtm-yt-inspected-1322523_1185="true" id="756716998"></iframe>
 
