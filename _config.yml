@@ -167,6 +167,23 @@ defaults:
       version: 2.2
       latest: true
 
+# Alfresco Federation Services 
+  - scope:
+      path: "federation-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Federation Services"
+      location: "federation-services"
+      toc: "federation-services"
+      support: true
+      versions:
+        - 1.0
+  - scope:
+      path: "federation-services/latest"
+    values:
+      version: 1.0
+      latest: true
+
 # Alfresco Sync Service
   - scope:
       path: "sync-service"
