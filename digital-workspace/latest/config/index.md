@@ -3,7 +3,7 @@ title: Configure Digital Workspace
 ---
 Alfresco Digital Workspace settings are in the following file ../digital-workspace/app.config.json. You can use the file to tailor Alfresco Digital Workspace easily and without making any code changes. The file can be updated while Alfresco Digital Workspace is still running and users will see the changes once their pages are reloaded.
 
-For more in-depth documentation about how to configure Digital Workspace, see [Application features](https://alfresco-content-app.netlify.com/#/features/).
+For more in-depth documentation about how to configure Digital Workspace, see [Application features](https://docs.docker.com/engine/reference/commandline/logs/){:target="_blank"} [Application features](https://alfresco-content-app.netlify.com/#/features/).
 
 The following settings can be configured in ../digital-workspace/app.config.json.
 

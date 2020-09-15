@@ -33,4 +33,4 @@ You can deploy Alfresco Digital Workspace into a different web server than where
 
     `http://<appservername>:8080/digital-workspace`
 
-> **Note:** When deploying Alfresco Digital Workspace to a different web server, it is recommended you setup Cross-Origin Resource Sharing (CORS). For more information, see [Cross Origin Resource Sharing (CORS) filters](https://docs.alfresco.com/6.2/tasks/enable-cors.html) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/).
+> **Note:** When deploying Alfresco Digital Workspace to a different web server, it is recommended you setup Cross-Origin Resource Sharing (CORS). For more information, see [Cross Origin Resource Sharing (CORS) filters](LINK) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/).
