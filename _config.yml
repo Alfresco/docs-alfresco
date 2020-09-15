@@ -150,6 +150,23 @@ defaults:
       version: 2.2
       latest: true
 
+# SAML Single Sign On (SSO) for Alfresco Content Services
+  - scope:
+      path: "saml-sso"
+    values:
+      layout: "docs"
+      product: "SAML Single Sign On (SSO) for Alfresco Content Services"
+      location: "saml-sso"
+      toc: "saml-sso"
+      support: true
+      versions:
+        - 1.2
+  - scope:
+      path: "saml-sso/latest"
+    values:
+      version: 1.2
+      latest: true
+
 # Alfresco ECM Centera 
   - scope:
       path: "centera"
