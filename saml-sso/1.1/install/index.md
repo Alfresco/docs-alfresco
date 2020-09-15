@@ -8,7 +8,7 @@ AMPs can be installed in the `amps` directory of your Alfresco Content Services 
 
 ## Prerequisites
 
-There are a number of prerequisites for installing SAML SSO in addition to the [supported platforms]({% link saml-sso/latest/support/index.md %}).
+There are a number of prerequisites for installing SAML SSO in addition to the [supported platforms]({% link saml-sso/1.1/support/index.md %}).
 
 ### Software
 
@@ -39,20 +39,20 @@ If you have not enforced SAML for a specific service provider, you can use the o
 
 2. Navigate to the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"} and download and unzip the SAML SSO for Alfresco Content Services zip package:
 
-    * `alfresco-saml-1.2.x.zip`
+    * `alfresco-saml-1.1.x.zip`
 
-    The `alfresco-saml-1.2.x.zip` file contains the following files:
+    The `alfresco-saml-1.1.x.zip` file contains the following files:
 
        * `README.txt`
        * `alfresco-global.properties.sample`
-       * `alfresco-saml-repo-1.2.x.amp`
-       * `alfresco-saml-share-1.2.x.amp`
+       * `alfresco-saml-repo-1.1.x.amp`
+       * `alfresco-saml-share-1.1.x.amp`
        * `alfresco/extension/subsystems/SAML/share/share/my-custom-share-sp.properties.sample`
        * `alfresco/extension/subsystems/SAML/repository/rest-api/my-custom-rest-api-sp.properties.sample`
        * `alfresco/extension/subsystems/SAML/repository/aos/my-custom-aos-sp.properties.sample`
        * `share-config-custom.xml.sample`
 
-3. Move or copy `alfresco-saml-repo-1.2.x.amp` to the amps directory and `alfresco-saml-share-1.2.x.amp` to the `amps\_share` directory in your Alfresco Content Services installation.
+3. Move or copy `alfresco-saml-repo-1.1.x.amp` to the amps directory and `alfresco-saml-share-1.1.x.amp` to the `amps\_share` directory in your Alfresco Content Services installation.
 
 4. If you are using Tomcat, navigate to the bin directory and run the `apply\_amps.bat` file to install the AMP files.
 
