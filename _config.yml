@@ -179,6 +179,7 @@ defaults:
       versions:
         - 3.3
         - 3.2
+        - 3.1
   - scope:
       path: "sync-service/latest"
     values:
@@ -188,6 +189,10 @@ defaults:
       path: "sync-service/3.2"
     values:
       version: 3.2
+  - scope:
+      path: "sync-service/3.1"
+    values:
+      version: 3.1
 
 # Alfresco Activiti Enterprise
   - scope:
