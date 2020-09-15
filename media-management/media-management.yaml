@@ -1,0 +1,50 @@
+# Media Management 1.4
+- version: 1.4
+  pages:
+    - title: 'Introduction'
+      path: '/media-management/latest/'
+    - title: 'Using Media Management'
+      path: '/media-management/latest/using/'
+    - title: 'Install Media Management'
+      path: '/media-management/latest/install/'
+    - title: 'Configure Media Management'
+      path: '/media-management/latest/config/' 
+      pages: 
+        - title: 'Start Media Management'
+          path: '/media-management/latest/config/'
+    - title: 'Administer Media Management'
+      path: '/media-management/latest/admin/'
+      pages: 
+        - title: 'Troubleshooting Media Management'
+          path: '/media-management/latest/admin/'
+        - title: 'Feature dependency mapping to component'
+          path: '/media-management/latest/admin/'
+        - title: 'JMX beans for Media Management'
+          path: '/media-management/latest/admin/'
+        - title: 'Transform options'
+          path: '/media-management/latest/admin/'
+- version: 1.3
+  pages:
+    - title: 'Introduction'
+      path: '/media-management/latest/'
+    - title: 'Using Media Management'
+      path: '/media-management/latest/using/'
+    - title: 'Install Media Management'
+      path: '/media-management/latest/install/'
+    - title: 'Configure Media Management'
+      path: '/media-management/latest/config/' 
+      pages: 
+        - title: 'Start Media Management'
+          path: '/media-management/latest/config/'
+    - title: 'Administer Media Management'
+      path: '/media-management/latest/admin/'
+      pages: 
+        - title: 'Troubleshooting Media Management'
+          path: '/media-management/latest/admin/'
+        - title: 'Feature dependency mapping to component'
+          path: '/media-management/latest/admin/'
+        - title: 'JMX beans for Media Management'
+          path: '/media-management/latest/admin/'
+        - title: 'Transform options'
+          path: '/media-management/latest/admin/'
+
