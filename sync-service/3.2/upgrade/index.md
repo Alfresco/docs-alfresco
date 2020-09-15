@@ -12,9 +12,9 @@ Use these instructions to upgrade your instance of the Sync Service from version
 
 4. Back up Alfresco Content Services using the instructions in [Backing up and restoring the repository](https://docs.alfresco.com/6.0/concepts/backup-intro.html)(#LINK).
 
-5. Backup your Sync Service database using the steps in [Back up and restore Sync Service]({% link sync-service/latest/admin/index.md %}#back-up-and-restore-sync-service).
+5. Backup your Sync Service database using the steps in [Back up and restore Sync Service]({% link sync-service/3.2/admin/index.md %}#back-up-and-restore-sync-service).
 
-6. Configure the Sync Service using the steps in [Install Sync Service]({% link sync-service/latest/install/options.md %}).
+6. Configure the Sync Service using the steps in [Install Sync Service]({% link sync-service/3.2/install/options.md %}).
 
 7. Test that you can connect successfully to Alfresco Content Services from Desktop Sync.
 
