@@ -132,7 +132,7 @@ The Application Development Framework (ADF) documentation contains some informat
 
 The web client for ADF will be loaded from a different web server than the one Alfresco runs on. This means that the Alfresco server needs to know that any request that comes in from this custom web client should be allowed access to the repository. This is done by enabling cross-origin resource sharing (CORS).
 
-To enable CORS in the Alfresco, do one of the following:
+To enable CORS in the Alfresco server, do one of the following:
 
 * Download and install the CORS module:
 
