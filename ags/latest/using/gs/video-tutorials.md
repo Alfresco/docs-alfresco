@@ -20,7 +20,7 @@ Watch these videos for tips on using Alfresco Governance Services.
 
 <iframe allowfullscreen="true" frameborder="0" src="//www.youtube.com/embed/ZG5b4kdizSA?enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.alfresco.com" data-gtm-yt-inspected-1322523_1185="true" id="906931616"></iframe>
 
-## Creating Retention Schedule Steps  
+## Create Retention Schedule Steps  
 
 <iframe allowfullscreen="true" frameborder="0" src="//www.youtube.com/embed/PhFefFDrvFk?enablejsapi=1&amp;origin=https%3A%2F%2Fdocs.alfresco.com" data-gtm-yt-inspected-1322523_1185="true" id="448617031"></iframe>
 

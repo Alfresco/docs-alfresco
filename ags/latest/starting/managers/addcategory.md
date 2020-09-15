@@ -8,7 +8,7 @@ You can create a record category at the top level in the File Plan or within ano
 
 2. Click **New Category**.
 
-    The New Record Category dialog box displays.
+    The *New Record Category* dialog box displays.
 
 3. Enter details for the new category. 
 
@@ -26,3 +26,4 @@ You can create a record category at the top level in the File Plan or within ano
 
     The new category displays in the File Plan.
 
+See also video explaining [adding a record category]({% link ags/latest/using/gs/video-tutorials.md %}#create-a-record-category).

@@ -16,11 +16,11 @@ A retention schedule is created against and associated with a record category. F
 
     |Field|Description|
     |-----|-----------|
-    |Retention Authority|The authority that states how the record should be retained and disposed, for example *Sarbanes-Oxley Act \(SOX\)* or *Corporate procedures*.|
+    |Retention Authority|The authority that states how the record should be retained and disposed, for example *Sarbanes-Oxley Act (SOX)* or *Corporate procedures*.|
     |Retention Instructions|A summary of the retention schedule.This information is not actively used but this text is displayed in the record category summary in the File Plan, and is important from a legal perspective.|
     |Applied to|**Record Folder**: the retention schedule is applied to folders and all operations occur at the folder level. With this setting, you cannot manage records as individual units. If you cut off the folder, all records will be cut off. <br><br>**Record**: the retention schedule is applied to records and all operations occur at the record level.|
 
-    **Note:** If you add folders to a category before setting up the retention schedule, then you can only select **Record Folder**.
+    >**Note:** If you add folders to a category before setting up the retention schedule, then you can only select **Record Folder**.
 
 5. Click **Save**.
 
