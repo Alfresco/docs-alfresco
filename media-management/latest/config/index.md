@@ -113,7 +113,7 @@ You can configure Media Management using the alfresco-global.properties file or 
     The content services node is tried first, as it has the highest priority with a value of `50`. Elastic Transcoder would be tried next. If any of the transformer types is not configured, or there is a problem, the video to video transcoding would fall back to the local FFmpeg transformer, which is set with the lowest priority as `content.transformer.Ffmpeg.mimetypes.video/*.video/*.priority=150`.
 
     You can set these variables in your alfresco-global.properties file, or dynamically when Alfresco is running, using a JMX client. If you set values in both places, the JMX client overrides the alfresco-global.properties value, but not the alfresco-global.properties file itself. The values are in the **Alfresco:Type=Configuration, Category=Transformers** MBean.
-    See [JMX beans for Media Management](LINK) for more information about Media Management JMX beans.
+    See [JMX beans for Media Management]({% link media-management/latest/admin/jmxbeans.md %}) for more information about Media Management JMX beans.
 
    > **Note:** You can use a wildcard (*) in the settings. However, more specific mimetype or extension configurations take precedence over wildcard configurations, regardless of the order specified.
 
@@ -130,7 +130,7 @@ You can configure Alfresco to use Amazon S3 or file directories for sharing cont
 
 Configure a directory as a shared content workspace using alfresco-global.properties.
 
-Ensure that you have installed the required external and internal software. See [Prerequisites for using Media Management](../index.md) and [Installing Media Management](../install/index.md) for more information.
+Ensure that you have installed the required external and internal software. See [Prerequisites for using Media Management]({% link media-management/latest/install/index.md %}).
 
 1. Stop the Alfresco server.
 
@@ -164,7 +164,7 @@ Ensure that you have installed the required external and internal software. See 
 
     The content services node uses ImageMagick and FFmpeg and requires that the executable directories are available on the system PATH variable or are specified in `alfresco-global.properties`.
 
-    For more information about the content services framework, see [Content services node architecture](../index.md).
+    For more information about the content services framework, see [Content services node architecture]({% link media-management/latest/index.md %}).
 
 4. Start your Alfresco Content Services server to apply the changes.
 
@@ -172,7 +172,7 @@ Ensure that you have installed the required external and internal software. See 
 
 Amazon S3 can be configured as a shared content workspace using `alfresco-global.properties`.
 
-Ensure that you have installed the required external and internal software. See [Prerequisites for using Media Management](../install/index.md) for more information. Make sure you have your Amazon S3 account set up.
+Ensure that you have installed the required external and internal software. See [Prerequisites for using Media Management]({% link media-management/latest/install/index.md %}) for more information. Make sure you have your Amazon S3 account set up.
 
 1. Stop the Alfresco server.
 
@@ -216,7 +216,7 @@ Ensure that you have installed the required external and internal software. See 
 
     The content services node uses ImageMagick and FFmpeg and requires that the executable directories are available on the system PATH variable or are specified in `alfresco-global.properties`.
 
-    For more information about the content services framework, see [Content services node architecture](../index.md).
+    For more information about the content services framework, see [Content services node architecture]({% link media-management/latest/index.md %}).
 
 4. Start your Alfresco Content Services server to apply the changes.
 
@@ -239,7 +239,7 @@ content.transformer.RemoteImage.mimetypes.image/*.image/*.supported=false
 
 Amazon Web Services (AWS) Elastic Transcoder is supported for remote video transcoding with Amazon S3. If you are using this transformer, configure your connection using `alfresco-global.properties`.
 
-Ensure that you have installed the required external and internal software before configuring the transformer. See [Prerequisites for using Media Management](../install/index.md) for more information. Make sure you have your Elastic Transcoder and S3 accounts set up.
+Ensure that you have installed the required external and internal software before configuring the transformer. See [Prerequisites for using Media Management]({% link media-management/latest/install/index.md %}) for more information. Make sure you have your Elastic Transcoder and S3 accounts set up.
 
 1. Stop the Alfresco server.
 
@@ -277,7 +277,7 @@ You can configure Alfresco Content Services to use the AWS CloudFront publishing
 
 Configure a publishing channel to allow you upload and manipulate content in the Amazon CloudFront Content Delivery Network (CDN).
 
-Ensure that you have installed the required external and internal software before configuring the transformer. See [Prerequisites for using Media Management](../install/index.md) for more information. Make sure you have your Amazon S3 account set up.
+Ensure that you have installed the required external and internal software before configuring the transformer. See [Prerequisites for using Media Management]({% link media-management/latest/install/index.md %}) for more information. Make sure you have your Amazon S3 account set up.
 
 1. Start Alfresco Share and click Admin Tools from the toolbar, and Content Publishing > Channel Manager.
 
@@ -308,7 +308,7 @@ Ensure that you have installed the required external and internal software befor
 
 You can map custom XMP (Extensible Metadata Platform) metadata fields to custom Alfresco data model properties using alfresco-global.properties.
 
-Ensure that you have installed the required external and internal software before configuring the transformer. See [Prerequisites for using Media Management](../install/index.md) for more information.
+Ensure that you have installed the required external and internal software before configuring the transformer. See [Prerequisites for using Media Management]({% link media-management/latest/install/index.md %}) for more information.
 
 1. Stop the Alfresco server.
 

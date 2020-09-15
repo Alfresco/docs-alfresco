@@ -15,9 +15,9 @@ You require one of each of the following components.
 |Requirement|Description|
 |-----------|-----------|
 |Software|{::nomarkdown}<ul><li>FFmpeg 2.5.4 from the command line for video transformations. See [FFmpeg](http://ffmpeg.org){:target="_blank"} for information on how to download and use FFmpeg. Make sure that your FFmpeg installation has support for H.264 and AAC codecs. If FFmpeg is not available locally, Media Management functionality is reduced.</li><li>ExifTool 9.76 from the command line for full IPTC metadata extraction. See [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/){:target="_blank"} for information about how to download and use ExifTool.</li><li>Apache ActiveMQ 5.15 or later. See [Configuring ActiveMQ](LINK) for more information about installing ActiveMQ.</li><li>ImageMagick 6.8.6-6 for image manipulation. See [Installing ImageMagick](LINK) for more information about installing ImageMagick.</li></ul>{:/}**Note:** If you are using RAW image formats, you must install an ImageMagick delegate, for example, UFRaw, to manipulate the images. See [UFRaw](http://ufraw.sourceforge.net/){:target="_blank"} for more information. To preview RAW image formats, you need to set additional configuration properties. See [step 8 of Installing Media Management](LINK).**Note:** FFmpeg and ExifTool are required to view media in Share. See [step 8 of Installing Media Management](LINK) for information on how to set these in the `alfresco-global.properties` file.|
-|Alfresco Content Services|Alfresco Content Services 6.1. See [Supported Platforms](../support/index.md)for more information.|
+|Alfresco Content Services|Alfresco Content Services 6.1. See [Supported Platforms]({% link media-management/latest/support/index.md %})for more information.|
 |Java requirements|OpenJDK 11 or later.|
-|Remote transformation services (optional)|AWS Elastic Transcoder. See [AWS](http://aws.amazon.com/elastictranscoder/){:target="_blank"} and [Configuring the Elastic Transcoder content transformer](../config/index.md) for more information.|
+|Remote transformation services (optional)|AWS Elastic Transcoder. See [AWS](http://aws.amazon.com/elastictranscoder/){:target="_blank"} and [Configuring the Elastic Transcoder content transformer]({% link media-management/latest/config/index.md %}) for more information.|
 
 ## Install the Media Management AMP files
 
@@ -35,7 +35,7 @@ Download and install the Media Management AMP files, and add Media Management pr
     * `amps-repository`: contains one AMP file to be applied to the Alfresco Content Services repository
     * `amps-share`: contains one AMP file to be applied to Alfresco Share
     * `remote-node`: contains content services node software and configuration file
-    If you are using the recommended [Media Management architecture](../index.md), the `activemq`, `amps-repository` and `amps-share` folders reside on the Alfresco Content Services server, and you must move the `remote-node` folder to your remote server.
+    If you are using the recommended [Media Management architecture]({% link media-management/latest/index.md %}), the `activemq`, `amps-repository` and `amps-share` folders reside on the Alfresco Content Services server, and you must move the `remote-node` folder to your remote server.
 
 3. Install the repository AMP file. Navigate to the `amps-repository` directory and copy the following file to the `amps` folder.
 
@@ -79,7 +79,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
 8. Define properties relevant to Media Management in your `alfresco-global.properties` file.
 
-    A sample `alfresco-global.properties` file is shipped in the root folder of the Media Management distribution zip, which defines custom properties. See [Configure Media Management](../configure/index.md) for the full list.
+    A sample `alfresco-global.properties` file is shipped in the root folder of the Media Management distribution zip, which defines custom properties. See [Configure Media Management]({% link media-management/latest/config/index.md %}) for the full list.
 
     1. If you have ActiveMQ on a separate server, configure the host and port number for ActiveMQ:
 
@@ -111,7 +111,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
         Set the `transformer.strict.mimetype.check` property to `true`, and use the `transformer.strict.mimetype.check.whitelist.mimetypes` property to add the `x-raw-adobe` MIME type to an existing whitelist.
 
-    4. If you are using shared content workspaces, remote transformations or publishing channels, configure these as specified in [Configure Media Management](../configure/index.md).
+    4. If you are using shared content workspaces, remote transformations or publishing channels, configure these as specified in [Configure Media Management]({% link media-management/latest/config/index.md %}).
 
 9. Update the `remote-node/config.yml` file that you extracted from the Media Management installation zip.
 
@@ -125,7 +125,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     The content services node uses ImageMagick and FFmpeg and requires that the executable directories are available on the system PATH variable or are specified using `img.exe` and `ffmpeg.exe` system properties.
 
-    For more information about the recommended architecture for Media Management, see [Media Management architecture](../index.md). For information about the content services framework, see [Content services node architecture](../index.md).
+    For more information about the recommended architecture for Media Management, see [Media Management architecture]({% link media-management/latest/index.md %}). For information about the content services framework, see [Content services node architecture]({% link media-management/latest/index.md %}).
 
 10. Restart the server.
 

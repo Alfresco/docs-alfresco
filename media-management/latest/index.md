@@ -29,7 +29,7 @@ For more information about FFmpeg, see [http://ffmpeg.org](http://ffmpeg.org){:t
 
 For more information about ImageMagick, see [http://www.imagemagick.org/](http://www.imagemagick.org/){:target="_blank"}.
 
-For more information about installing Media Management, see [Installing Media Management](../install/index.md).
+For more information about installing Media Management, see [Installing Media Management]({% link media-management/latest/install/index.md %}).
 
 ## Media Management architecture
 
@@ -64,7 +64,7 @@ The diagram shows the relationship between the Alfresco server and the content s
 
 Ensure that only the repository and the content services nodes have access to the shared content workspace, because temporary copies of the content binary files (for both file and S3 types) are stored in the workspace.
 
-![Architecture](../images/architecture.png)
+![Architecture]({% link media-management/images/architecture.png %})
 
 The diagram shows the relationship between the Alfresco server and the content services node server. Alfresco can connect to a transformation service (Amazon Elastic Transcoder), a publishing channel (CloudFront), and a shared content workspace (a file system or Amazon S3). The content services node can connect to the shared content workspace and the transformation service that you defined in the Alfresco server alfresco-global.properties file.
 
@@ -83,7 +83,7 @@ The four main architectural areas are:
 * **Transform Component**: A component listens for messages on a queue and calls on ImageMagick or FFmpeg workers to perform the task specified by the source content reference. The component can optionally send a reply that is consumed by the original requestor or another party.
 * **Task Node**: Task nodes bootstrap one or more components.
 
-![Content Services Node architecture](../images/gytheio.png)
+![Content Services Node architecture]({% link media-management/images/gytheio.png %})
 
 1. Task message sent from Alfresco repository to Source content on shared content workspace.
 2. Image transformation request sent from Alfresco repository to ActiveMQ (message routing).

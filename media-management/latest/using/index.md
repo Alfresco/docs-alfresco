@@ -42,7 +42,7 @@ Alfresco Media Management provides additional information and features in Alfres
 
 3. If you are the first user to open a video file, you will see a progress bar indicating the time estimated for the video to load.
 
-    For example: ![Progress bar](../../images/generating_video.png)
+    For example: ![Progress bar]({% link media-management/images/generating_video.png %})
 
     **Note:** This progress bar is not visible if AWS Elastic Transcoder is set up in your organization to process your video content.
 
@@ -56,9 +56,9 @@ Alfresco Media Management provides features to allow you to edit video files in 
 
 1. Select a video file from the Document Library, as you would normally in Alfresco, by clicking the thumbnail or name, to view it in the file preview screen.
 
-2. Click the arrow to play the video, and then click the ![pencil icon](../../images/pencil.png) edit icon.
+2. Click the arrow to play the video, and then click the ![pencil icon]({% link media-management/images/pencil.png %}) edit icon.
 
-    * ![trim video icon](../../images/trim.png): Trim the video length. Before clicking this icon you need to move the yellow sliders shown above the video timeline to your preferred start and end times.
+    * ![trim video icon]({% link media-management/images/trim.png %}): Trim the video length. Before clicking this icon you need to move the yellow sliders shown above the video timeline to your preferred start and end times.
     * Create Copy: click the checkbox before selecting the trim icon to save a copy of the image. The trimmed image is created in the same folder with the name Copy of original, where original is the name of your original image. If more than one copy is taken, the name is Copy x of originalimage, where x relates to the number of copies taken.
     Each time that the video is edited, it is stored as a new version of the original video (as long as the video is versionable), unless the Create Copy checkbox is selected.
 
@@ -66,13 +66,13 @@ Alfresco Media Management provides features to allow you to edit video files in 
 
     1. Click Add Comment while the video is playing.
 
-    2. Click the From box and click the ![current playback position icon](../../images/playback.png) current playback position icon, at the point where you want to make a comment.
+    2. Click the From box and click the ![current playback position icon]({% link media-management/images/playback.png %}) current playback position icon, at the point where you want to make a comment.
 
         You can optionally add an end time, in the format HH:MM:SS:MS.
 
     3. When you (or another user) next view the video, yellow markers (timecode markers) indicate where the timeline comments have been placed.
 
-        When you hover on the yellow marker, the comment is displayed. A new icon, ![closed caption icon](../../images/cc.png), is now available on the video control bar, which allows you to toggle the comments as subtitles on the video.
+        When you hover on the yellow marker, the comment is displayed. A new icon, ![closed caption icon]({% link media-management/images/cc.png %}), is now available on the video control bar, which allows you to toggle the comments as subtitles on the video.
 
 ## Manipulating images
 
@@ -80,11 +80,11 @@ Alfresco Media Management provides features to allow you to edit image files in 
 
 1. Select an image from the Document Library, as you would normally in Alfresco, by clicking the thumbnail or name, to view it in the file preview screen.
 
-2. Click the ![pencil icon](../../images/pencil.png) edit icon, and perform these actions to edit the image directly in Alfresco:
+2. Click the ![pencil icon]({% link media-management/images/pencil.png %}) edit icon, and perform these actions to edit the image directly in Alfresco:
 
-    * ![crop icon](../../images/crop.png): hold down your left mouse button to select an area of the image, and click the icon to crop the image
-    * ![Rotate clockwise icon](../../images/clock.png): click the icon to rotate the image clockwise
-    * ![Rotate counterclockwise icon](../../images/anticlock.png): click the icon to rotate the image counterclockwise
+    * ![crop icon]({% link media-management/images/crop.png %}): hold down your left mouse button to select an area of the image, and click the icon to crop the image
+    * ![Rotate clockwise icon]({% link media-management/images/clock.png %}): click the icon to rotate the image clockwise
+    * ![Rotate counterclockwise icon]({% link media-management/images/anticlock.png %}): click the icon to rotate the image counterclockwise
     * Create Copy: click the checkbox before selecting either of the rotate icons to take a copy of the image. The rotated image is saved in the same folder with the name Copy of original, where original is the name of your original image. If more than one copy is taken, the name is Copy x of originalimage, where x relates to the number of copies taken.
     Each time the image is edited, it is stored as a new version of the original image (as long as it is versionable), unless the Create Copy checkbox is selected.
 

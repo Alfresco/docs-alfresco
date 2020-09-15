@@ -4,7 +4,7 @@ title: Start Media Management
 
 You need to start up ActiveMQ, your content services node, the repository and Alfresco Share.
 
-Ensure that you have installed the required external and internal software before installing Alfresco Media Management. See [Prerequisites for using Media Management](../install/index.md) for more information.
+Ensure that you have installed the required external and internal software before installing Alfresco Media Management. See [Prerequisites for using Media Management]({% link media-management/1.3/install/index.md %}) for more information.
 
 For information on how to set up ActiveMQ and the content services node to start automatically, see **Running Media Management automatically**.
 
@@ -38,7 +38,7 @@ For more information on advanced ActiveMQ settings, see [Configuring advanced se
 
 You can configure the Media Management components (Apache ActiveMQ and content services nodes) to suit your specific requirements.
 
-These topics explain how to configure Media Management to run automatically in a production environment. You must successfully install Media Management and the prerequisite software before using these topics. See [Prerequisites for using Media Management](../install/index.md) for more information.
+These topics explain how to configure Media Management to run automatically in a production environment. You must successfully install Media Management and the prerequisite software before using these topics. See [Prerequisites for using Media Management]({% link media-management/1.3/install/index.md %}) for more information.
 
 These instructions are for a Unix environment only.
 
@@ -76,15 +76,15 @@ ActiveMQ can be configured to start and run automatically.
 
 A content services node in Media Management can be configured to start and run automatically.
 
-Ensure that you have installed the required external software before installing Alfresco Media Management. See [Prerequisites for using Media Management](../install/index.md) for information on what you require before you start the Media Management installation.
+Ensure that you have installed the required external software before installing Alfresco Media Management. See [Prerequisites for using Media Management]({% link media-management/1.3/install/index.md %}) for information on what you require before you start the Media Management installation.
 
-Review the recommended [architecture](../index.md) for guidance on setup of your Alfresco server and remote server.
+Review the recommended [architecture]({% link media-management/1.3/index.md %}) for guidance on setup of your Alfresco server and remote server.
 
 These instructions are for a Unix environment only and use an `init.d` script. For more information on using these scripts, see [Init scripts](https://www.linux.com/learn/tutorials/442412-managing-linux-daemons-with-init-scripts){:target="_blank"}.
 
 1. Create a new directory, /opt/contentservices, and move the files from the remote-node installation directory to the new directory.
 
-    See [Installing Media Management](../index.md) for more information on the shipped Media Management installation files.
+    See [Installing Media Management]({% link media-management/1.3/install/index.md %}) for more information on the shipped Media Management installation files.
 
 2. Create a user named `contentservices` that you will use to run the automatic process, with a home set to `/opt/contentservices`:
 
@@ -256,6 +256,6 @@ These instructions are for a Unix environment only and use an `init.d` script. F
 
     The content services node uses ImageMagick and FFmpeg and requires that the executable directories are available on the system PATH variable.
 
-    For more information about the content services framework, see [Content services node architecture](../index.md).
+    For more information about the content services framework, see [Content services node architecture]({% link media-management/1.3/index.md %}).
 
 6. Ensure that the target server port is open and not blocked by a firewall.
