@@ -73,7 +73,7 @@ integrations:
         url: /identity-service/latest/
       - title: "SAML SSO"
         text: "SAML Single Sign-On for Alfresco Content Services provides support for Single Sign-On (SSO) across an organization."
-        url:
+        url: /saml-sso/latest/
   - title: "Intelligence"
     text: "Add AI capabilities to Alfresco Content Services using a number of Amazon AI Services (Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine."
     url:
