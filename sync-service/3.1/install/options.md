@@ -25,7 +25,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.1.x.zip`, includes
 
 > **Note:** The keystore `sync.jks` contains a self-signed certificate that should be used for testing purposes only. You'll need to provide your own SSL keys for a production environment.
 
-> **Note:** Make sure you're running the correct versions of operating system and software before you install the AMP file. See [Prerequisites]({% link sync-service/latest/install/index.md %}) for more information.
+> **Note:** Make sure you're running the correct versions of operating system and software before you install the AMP file. See [Prerequisites]({% link sync-service/3.1/install/index.md %}) for more information.
 
 1. Download `AlfrescoSyncServer-3.1.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
 
@@ -64,7 +64,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.1.x.zip`, includes
 
 6. Configure the Sync Service properties in the `<installLocation>/service-sync/config.yml` file.
 
-    See [Configure Sync Service]({% link sync-service/latest/config/index.md %}).
+    See [Configure Sync Service]({% link sync-service/3.1/config/index.md %}).
 
     For example, edit the following properties:
 
@@ -96,7 +96,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.1.x.zip`, includes
 
 7. Start and configure PostgreSQL.
 
-    For more information, see [Configuring PostgreSQL database for Desktop Sync]({% link sync-service/latest/install/database.md %}).
+    For more information, see [Configuring PostgreSQL database for Desktop Sync]({% link sync-service/3.1/install/database.md %}).
 
 8. Start ActiveMQ.
 
@@ -118,7 +118,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.1.x.zip`, includes
     java -Xmx2G -Djava.io.tmpdir=/var/tmp/dsync -classpath <classpath to database.jar file>:service-sync-3.1.x.jar org.alfresco.service.sync.dropwizard.SyncService server config.yml
     ```
 
-    See [Running Sync Service via a script]({% link sync-service/latest/config/script.md %}).
+    See [Running Sync Service via a script]({% link sync-service/3.1/config/script.md %}).
 
     For Windows:
 
@@ -128,11 +128,11 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.1.x.zip`, includes
     java -Xmx2G -Djava.io.tmpdir=/users/<username>sync/tmp -classpath <classpath to database.jar file>;service-sync-3.1.x.jar org.alfresco.service.sync.dropwizard.SyncService server config.yml
     ```
 
-    > **Note:** For production systems, you need to configure JMX authentication as password authentication over the Secure Sockets Layer (SSL) is enabled by default. However, in a test environment, you can disable all security, namely both password authentication and SSL, when you start the Java VM. See [Connect to Sync Service through JMX]({% link sync-service/latest/config/jmx.md %}) for configuration options. For more information, see the [JRE documentation](https://docs.oracle.com/javase/7/docs/technotes/guides/management/agent.html){:target="_blank"}.
+    > **Note:** For production systems, you need to configure JMX authentication as password authentication over the Secure Sockets Layer (SSL) is enabled by default. However, in a test environment, you can disable all security, namely both password authentication and SSL, when you start the Java VM. See [Connect to Sync Service through JMX]({% link sync-service/3.1/config/jmx.md %}) for configuration options. For more information, see the [JRE documentation](https://docs.oracle.com/javase/7/docs/technotes/guides/management/agent.html){:target="_blank"}.
 
     > **Note:** The PostgreSQL JDBC driver must be provided and included in the startup command line as shown above.
 
-    For more information, see [Install and configure PostgreSQL database]({% link sync-service/latest/install/database.md %}).
+    For more information, see [Install and configure PostgreSQL database]({% link sync-service/3.1/install/database.md %}).
 
 11. Access Alfresco Share by browsing to:
 
@@ -142,7 +142,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.1.x.zip`, includes
 
 12. Check the repository and Sync Service log file (`<installLocation>/service-sync/logs/sync-service.log` by default) to see if the Sync Service started properly. The location of the log file can be configured using the `logging` properties in the `config.yml` file.
 
-    To validate that the Sync Service is configured correctly, see [Sync Service health check]({% link sync-service/latest/admin/monitor/index.md %}#sync-service-health-check).
+    To validate that the Sync Service is configured correctly, see [Sync Service health check]({% link sync-service/3.1/admin/monitor/index.md %}#sync-service-health-check).
 
 ## SSL certificate for the synchronization server
 
@@ -173,7 +173,7 @@ Alfresco supplies a self-signed certificate with the Sync Service. This certific
 
 The Sync Service is not packaged with a database driver, so it will need to be downloaded separately and cited in the start-up.
 
-See instructions to [install and configure databases]({% link sync-service/latest/install/database.md %}).
+See instructions to [install and configure databases]({% link sync-service/3.1/install/database.md %}).
 
 ## Containerized deployment
 

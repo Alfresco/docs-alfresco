@@ -10,7 +10,7 @@ You can download the Alfresco Sync Service software from the [Alfresco Support P
 
 This section lists the environment/software prerequisites for installing and using the Sync Service.
 
-See [Supported platforms]({% link sync-service/latest/support/index.md %}) for more.
+See [Supported platforms]({% link sync-service/3.1/support/index.md %}) for more.
 
 ### General requirements
 
@@ -21,7 +21,7 @@ See [Supported platforms]({% link sync-service/latest/support/index.md %}) for
 
 ## Installation options
 
-There are several [options]({% link sync-service/latest/install/options.md %}) for installing the Sync Service:
+There are several [options]({% link sync-service/3.1/install/options.md %}) for installing the Sync Service:
 
 * Install manually using a distribution ZIP
 * Install using Helm charts or Docker Compose

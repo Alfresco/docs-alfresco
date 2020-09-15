@@ -6,7 +6,7 @@ Use these instructions to run the Sync Service using a script.
 
 Ensure that you've installed the required software before installing Sync Service.
 
-Before you start the Sync Service, see the [Prerequisites]({% link sync-service/latest/install/index.md %}) and `Readme.txt` file included in the `AlfrescoSyncServer-3.1.x.zip` for more information.
+Before you start the Sync Service, see the [Prerequisites]({% link sync-service/3.1/install/index.md %}) and `Readme.txt` file included in the `AlfrescoSyncServer-3.1.x.zip` for more information.
 
 1. Create a user that you'll use to run the process.
 

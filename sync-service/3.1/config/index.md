@@ -6,8 +6,8 @@ Use this information to configure Sync Service.
 
 You can also find additional information in:
 
-* [Connect to Sync Service through JMX]({% link sync-service/latest/config/jmx.md %})
-* [Run Sync Service via a script]({% link sync-service/latest/config/script.md %})
+* [Connect to Sync Service through JMX]({% link sync-service/3.1/config/jmx.md %})
+* [Run Sync Service via a script]({% link sync-service/3.1/config/script.md %})
 
 ## Required properties
 

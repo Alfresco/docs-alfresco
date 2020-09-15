@@ -10,7 +10,7 @@ Alfresco recommends that you use a separate PostgreSQL instance for the Sync Ser
 
 > **Note:** Only the Sync Service communicates with the database. It persists events taken from the JMS queue into the database. The repository doesn't communicate with the database.
 
-The Sync Service isn't packaged with a PostgreSQL driver, so it'll need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/latest/install/options.md %}).
+The Sync Service isn't packaged with a PostgreSQL driver, so it'll need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/3.2/install/options.md %}).
 
 1. Download the appropriate driver that's compatible with JDBC42 from the [PostgreSQL JDBC Driver download](https://jdbc.postgresql.org/download.html){:target="_blank"} page.
 
@@ -121,7 +121,7 @@ Alfresco recommends that you use a separate Oracle instance for the Sync Service
 
 > **Note:** Only the Sync Service communicates with the database. It persists events taken from the JMS queue into the database. The repository does not communicate with the database.
 
-The Sync Service isn't packaged with an Oracle driver, so it'll need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/latest/install/options.md %}).
+The Sync Service isn't packaged with an Oracle driver, so it'll need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/3.2/install/options.md %}).
 
 1. Download the Oracle database connector `ojdbc7.jar` from the [Oracle JDBC Driver download](https://www.oracle.com/database/technologies/jdbc-drivers-12c-downloads.html){:target="_blank"} page.
 
@@ -204,7 +204,7 @@ Alfresco recommends that you use a separate MySQL instance for the Sync Service.
 
 **Note:** Only the Sync Service communicates with the database. It persists events taken from the JMS queue into the database. The repository doesn't communicate with the database.
 
-The Sync Service isn't packaged with a MySQL driver, so it'll need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/latest/install/options.md %}).
+The Sync Service isn't packaged with a MySQL driver, so it'll need to be downloaded separately and cited in the start-up. See step [Starting the Sync Service]({% link sync-service/3.2/install/options.md %}).
 
 1. Download the MySQL database connector from the [MySQL JDBC Driver download](https://dev.mysql.com/downloads/connector/j/) page.
 
