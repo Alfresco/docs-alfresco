@@ -19,3 +19,25 @@
       path: '/saml-sso/latest/admin/'
     - title: 'Develop'
       path: '/saml-sso/latest/develop/'
+
+# SAML SSO 1.1
+- version: 1.1
+  pages:
+    - title: 'Introduction'
+      path: '/saml-sso/1.1/'
+    - title: 'Install'
+      path: '/saml-sso/1.1/install/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/saml-sso/1.1/config/'
+        - title: 'Configure PingFederate'
+          path: '/saml-sso/1.1/config/ping/'
+        - title: 'Configure ADFS'
+          path: '/saml-sso/1.1/config/adfs/'
+        - title: 'Configure Alfresco'
+          path: '/saml-sso/1.1/config/alfresco/'
+    - title: 'Administer'
+      path: '/saml-sso/1.1/admin/'
+    - title: 'Develop'
+      path: '/saml-sso/1.1/develop/'
