@@ -3,7 +3,7 @@ title: Configuring Process Services
 ---
 You must configure Alfresco Digital Workspace to work with Alfresco Process Services. You cannot use Alfresco Digital Workspace with Alfresco Process Services if you do not have Single Sign-On (SSO) configured between Alfresco Process Services and Alfresco Content Services.
 
-**Note:** For information on how to configure Alfresco Process Services and Alfresco Content Services to use SSO see [Configure an Alfresco Content Services connection using Single Sign On (SSO)](https://docs.alfresco.com/process-services1.11/concepts/acs-sso.html).
+> **Note:** For information on how to configure Alfresco Process Services and Alfresco Content Services to use SSO see [Configure an Alfresco Content Services connection using Single Sign On (SSO)](https://docs.alfresco.com/process-services1.11/concepts/acs-sso.html).
 
 1. Ensure you have installed Alfresco Digital Workspace, see [Deploying Digital Workspace](deploying.md).
 

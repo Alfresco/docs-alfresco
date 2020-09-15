@@ -9,9 +9,9 @@ You can view and manage your Alfresco Process Services processes in Alfresco Dig
 
     The headings are pre defined filters.
 
-* **Running** - All processes that are running.
-* **Completed** - All processes that are completed.
-* **All** - All processes regardless of state.
+    * **Running** - All processes that are running.
+    * **Completed** - All processes that are completed.
+    * **All** - All processes regardless of state.
 
 3. Right click a process and select **View**.
 

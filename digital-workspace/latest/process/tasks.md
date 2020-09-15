@@ -9,10 +9,10 @@ You can view and manage your tasks in Alfresco Digital Workspace.
 
      The headings are pre defined filters.
 
-* **My Tasks** - All tasks assigned to you.
-* **Involved Tasks** - All involved tasks.
-* **Queued Tasks** - All queued tasks.
-* **Completed Tasks** - All completed tasks.
+     * **My Tasks** - All tasks assigned to you.
+     * **Involved Tasks** - All involved tasks.
+     * **Queued Tasks** - All queued tasks.
+     * **Completed Tasks** - All completed tasks.
 
 3. Right click a task and select **View**.
 

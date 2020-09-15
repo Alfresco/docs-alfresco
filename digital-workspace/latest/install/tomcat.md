@@ -11,7 +11,7 @@ To install Alfresco Digital Workspace into Tomcat, you first need to install Alf
 
 4. On the server that will host Alfresco Digital Workspace move the `digital-workspace.war` file to the `<TOMCAT_HOME>/webapps` folder.
 
-    **Note:** Tomcat extracts the files automatically.
+   > **Note:** Tomcat extracts the files automatically.
 
 5. Browse the extracted digital-workspace directory and open the `app.config.json` file in a text editor.
 
@@ -23,7 +23,7 @@ To install Alfresco Digital Workspace into Tomcat, you first need to install Alf
 
     `http://<appservername>:port/digital-workspace` (digital-workspace being the name of the war file)
 
-    **Note:** If Quickshare is disabled in Alfresco Content Services ignore this step.
+   > **Note:** If Quickshare is disabled in Alfresco Content Services ignore this step.
 
     To disable Quickshare, set `system.quickshare.enabled=false` in the \tomcat\shared\classes\alfresco-global.properties file. For more information, see [Using the alfresco-global.properties file](https://docs.alfresco.com/6.2/concepts/global-props-intro.html).
 
