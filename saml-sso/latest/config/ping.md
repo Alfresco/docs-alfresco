@@ -98,7 +98,7 @@ PingFederate can be configured manually or you can reuse or clone an [existing c
 
         You are redirected to the **Browser SSO** tab to configure bindings, endpoints, and other settings needed for the SAML profile.
 
-        > **Note:** You can save the configuration at any time by clicking Save Draft. You can then retrieve it by selecting **Manage All SP** from **SP Connections** on the main administrative console page.
+        > **Note:** You can save the configuration at any time by clicking **Save Draft**. You can then retrieve it by selecting **Manage All SP** from **SP Connections** on the main administrative console page.
 
 6. Click **Protocol Settings** in the **Browser SSO** tab and complete the following tasks on each of the **Protocol Settings** tabs.
 
@@ -295,7 +295,7 @@ For production environments, see the guidance in the [PingFederate documentation
 
 2. Stop the PingFederate server.
 
-3. Add a section at the end of the file: `root/pingfederate-7.3.0/pingfederate/server/default/deploy/quickstart-app-idp.war/WEB-INF/classes/users.xml`, above the </users\> closing tag.
+3. Add a section at the end of the file: `root/pingfederate-7.3.0/pingfederate/server/default/deploy/quickstart-app-idp.war/WEB-INF/classes/users.xml`, above the </users> closing tag.
 
     The format expected is as follows for each Alfresco user:
 

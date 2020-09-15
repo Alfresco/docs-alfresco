@@ -12,7 +12,7 @@ There are a number of prerequisites for installing SAML SSO in addition to the [
 
 ### Software
 
-Alfresco should work with any identify provider (IdP) that supports SAML 2.0, however the following IdPs have been  tested with:
+Alfresco should work with any identify provider (IdP) that supports SAML 2.0, however the following IdPs have been tested:
 
 * Microsoft Active Directory Federation Services (ADFS) 3.0 for Microsoft Windows 2012 R2 and above
 * PingIdentity PingFederate 7.0 and later
