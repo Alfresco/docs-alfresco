@@ -1,5 +1,5 @@
 ---
-title: JMX beans for Media Management
+title: JMX beans
 ---
 
 JMX values (Managed Bean or MBean attributes) are exposed in the Alfresco Admin Console, and with internal tools (Alfresco JMX Dump) or external tools like JConsole. The Media Management beans are described here with their default values.

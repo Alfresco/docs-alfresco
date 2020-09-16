@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Media Management
+title: Troubleshooting
 ---
 
 Use this information to help diagnose any problems when using Media Management.
