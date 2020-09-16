@@ -50,12 +50,25 @@
             - title: 'Processing records'
               path: '/ags/latest/starting/users/processrecords/'
 
+
     - title: 'Using'
       pages:
         - title: 'Governance Services'
           pages:
             - title: 'Video tutorials'
               path: '/ags/latest/using/gs/video-tutorials/'
+            - title: 'Life cycle of a record'
+              path: '/ags/latest/using/gs/recordlifecycle/'
+            - title: 'The File Plan'
+              path: '/ags/latest/using/gs/thefileplan/'
+            - title: 'Retention schedules'
+              path: '/ags/latest/using/gs/retentionschedules/'
+            - title: 'Managing permissions'
+              path: '/ags/latest/using/gs/managepermissions/'
+            - title: 'Filing records'
+              path: '/ags/latest/using/gs/filerecords/'
+
+
         - title: 'Security marks and classification'
           pages:
             - title: 'Video tutorials'
