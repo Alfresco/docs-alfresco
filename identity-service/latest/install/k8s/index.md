@@ -9,7 +9,7 @@ The Identity Service can be deployed into a new or existing Kubernetes cluster.
 -   A Kubernetes cluster
 -   Helm and Tiller configured in the cluster
 
-## Deployment steps
+## Installation steps
 
 1. Create a new namespace or use an existing empty namespace to avoid any conflicts:
 

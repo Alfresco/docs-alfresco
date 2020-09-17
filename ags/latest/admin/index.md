@@ -33,7 +33,7 @@ This allows you to update the configuration file for all your Desktop Sync users
 
     >**Note:** If you're a Windows user, you'll see a message stating:
     >
-    >```
+    >```bash
     >C:\Users\Program Files\AppData\Local\Alfresco\AlfrescoSync.conf
     >This file has been modified by another program. Do you want to reload it?
     >```

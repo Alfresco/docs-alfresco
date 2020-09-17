@@ -3,8 +3,14 @@
   pages:
     - title: 'Introduction'
       path: '/ags/latest/'
-    - title: "Install"
-      path: '/ags/latest/install/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/ags/latest/install/'
+        - title: 'Install using Docker Compose'
+          path: '/ags/latest/install/dockercompose/'
+        - title: 'Install from ZIP file'
+          path: '/ags/latest/install/zip/'
     - title: 'Upgrade'
       path: '/ags/latest/upgrade/'
     - title: "Configure"
@@ -49,12 +55,12 @@
               path: '/ags/latest/starting/users/completerecord/'
             - title: 'Processing records'
               path: '/ags/latest/starting/users/processrecords/'
-
-
     - title: 'Using'
       pages:
         - title: 'Governance Services'
           pages:
+            - title: 'Introduction'
+              path: '/ags/latest/using/gs/intro/'
             - title: 'Video tutorials'
               path: '/ags/latest/using/gs/video-tutorials/'
             - title: 'Life cycle of a record'
@@ -75,7 +81,8 @@
               path: '/ags/latest/using/gs/automatefileplan/'
             - title: 'Searching records'
               path: '/ags/latest/using/gs/searchrecords/'
-
+            - title: 'Auditing and reporting'
+              path: '/ags/latest/using/gs/auditreport/'
 
         - title: 'Security marks and classification'
           pages:
