@@ -19,9 +19,9 @@ The following settings can be configured in ../digital-workspace/app.config.json
 | `authtype` | Determines the type of authentication. To use Single Sign-on mode you must change this property to OAuth. See [Single Sign-On (SSO)](https://www.alfresco.com/abn/adf/docs/core/components/login.component/#single-sign-on-sso). | `basic` |
 | `bpmHost` | Server address of Alfresco Process Services. | "https://processservices.domain.com:port" |
 | `content-metadata/presets` | |Add custom aspects and properties to be shown in the information drawer. |  |
-| `custom` | *Optional.* The label for the `Sign Here` box in the document | String |
+| `content-metadata/custom` | Add custom aspects and properties to be shown in the information drawer. |  |
 | `ecmHost` | Server address of Alfresco Content Services. | "https://repository.domain.com:port" |
-`| files/excluded` | ".DS\_Store", "desktop.ini", "Thumbs.db", ".git"|Restrict users from uploading certain types of files and folders by setting or extending the list of rules at the "files.excluded" path. | |
+| `files/excluded` | Restrict users from uploading certain types of files and folders by setting or extending the list of rules at the "files.excluded" path. | ".DS\_Store", "desktop.ini", "Thumbs.db", ".git" | |
 | `files/match-options, no case` | Ensures that the exclusions are case insensitive. | `true` |
 | `files/allowDownload` | Toggle downloads of versions on/off. | `true` |
 | `headerColor` | Value for the header background color of the application. | #2196F3 |
@@ -34,9 +34,9 @@ The following settings can be configured in ../digital-workspace/app.config.json
 | `search/include` | Specify the node information returned by the API with the search results set. | |
 | `search/sortng` | Search result sorting options available, and which option is the default. | |
 | `search/filterqueries` | Specify what content should, and shouldn’t be returned in the results set. | |
-| `search/facetFields` | |Allows the configuration of the search results filter options. |  |
-| `search/facetQueries` | |Allows the configuration of the search results filter options. | |
-| `search/categories` | |Allows the configuration of the search results filter options. | |
+| `search/facetFields` | Allows the configuration of the search results filter options.  |  |
+| `search/facetQueries` | Allows the configuration of the search results filter options. | |
+| `search/categories` | Allows the configuration of the search results filter options. | |
 | `search/aca:fields` | Specify the metadata fields that will be included in search queries. | |
 | `sidenav/preserveState` | Remember the users choice of sidenav minimized or expanded. | `true` |
 | `sideNav/expandedSidenav` | Side navigation expanded by default. | `true` |

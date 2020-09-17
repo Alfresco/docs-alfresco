@@ -5,11 +5,11 @@ Here are the answers to some frequently asked questions.
 
 ### When attempting to login a problem with CORS is reported
 
-Refer to [Cross Origin Resource Sharing (CORS) filters](https://docs.alfresco.com/6.2/tasks/enable-cors.html) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/).
+Refer to [Cross Origin Resource Sharing (CORS) filters](LINK) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/).
 
 ### Can I customize Alfresco Digital Workspace
 
-Yes, there are a number of customizations available that can be configured in ../digital-workspace/app.config.json. See [Configuring Digital Workspace](../concepts/configuration.md) for more details. The application can also be extended using the ADF Extension framework. See [Extending](https://alfresco-content-app.netlify.com/#/extending/).
+Yes, there are a number of customizations available that can be configured in ../digital-workspace/app.config.json. See [Configure Digital Workspace]({% link digital-workspace/latest/config/index.md %}) for more details. The application can also be extended using the ADF Extension framework. See [Extending](https://alfresco-content-app.netlify.com/#/extending/).
 
 ### I have installed an extension and Alfresco Digital Workspace does not work
 
@@ -17,7 +17,7 @@ First disable the extension and check Alfresco Digital Workspace works correctly
 
 ### Does Alfresco Digital Workspace work with Alfresco Governance Services
 
-Yes, Alfresco Digital Workspace supports Alfresco Governance Services. See [Governance Services](../concepts/governance-adw.md).
+Yes, Alfresco Digital Workspace supports Alfresco Governance Services. See [Governance Services]({% link digital-workspace/latest/governance/index.md %}).
 
 ### Does Alfresco Digital Workspace support Smart Folders
 
