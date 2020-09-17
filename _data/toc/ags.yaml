@@ -67,6 +67,14 @@
               path: '/ags/latest/using/gs/managepermissions/'
             - title: 'Filing records'
               path: '/ags/latest/using/gs/filerecords/'
+            - title: 'Easy access records'
+              path: '/ags/latest/using/gs/easyaccessrecords/'
+            - title: 'Managing the File Plan'
+              path: '/ags/latest/using/gs/managefileplan/'
+            - title: 'Automating the File Plan'
+              path: '/ags/latest/using/gs/automatefileplan/'
+            - title: 'Searching records'
+              path: '/ags/latest/using/gs/searchrecords/'
 
 
         - title: 'Security marks and classification'
