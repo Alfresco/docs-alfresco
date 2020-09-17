@@ -13,6 +13,6 @@ These icons appear next to your files and represent their current archival state
 
 |Archival icon|Description|
 |-------------|-----------|
-|![archived](../images/ic-baseline-archive-action.png)|The file is archived.|
-|![restored](../images/restore-from-archive-action.png)| Your file was archived and is currently being restored. The amount of time taken to restore your file depends on which retrieval type you selected.|
-|![restore-time](../images/ic-extended-restore-time.png)|Your files automatic restore time has been extended.|
+|![archived]({% link digital-workspace/images/ic-baseline-archive-action.png %})|The file is archived.|
+|![restored]({% link digital-workspace/images/restore-from-archive-action.png %})| The amount of time taken to restore your file depends on which retrieval type you selected.|
+|![restore-time]({% link digital-workspace/images/ic-extended-restore-time.png %})|Your files automatic restore time has been extended.|
