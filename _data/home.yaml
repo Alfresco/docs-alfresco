@@ -40,12 +40,12 @@ integrations:
     url:
     image: /assets/img/ic_transform_80px.svg
     sub:
-      - title: "Document Transformation Engine"
-        text: "Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents."
-        url: /transformation-engine/latest/
       - title: "Transform Service"
         text: "Alfresco Transform Service provides a secure, scalable, reliable, and extensible mechanism for converting files from their current format into other formats."
         url:
+      - title: "Document Transformation Engine"
+        text: "Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents."
+        url: /transformation-engine/latest/
       - title: "Media Management"
         text: "Alfresco Media Management provides the capability to transform and add metadata and relationships to your digital media."
         url:
@@ -100,21 +100,21 @@ integrations:
     url:
     image: /assets/img/ic_business_connectors_80px.svg
     sub:
-      - title: "Google Docs"
-        text: "Alfresco Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share."
-        url: /google-drive/latest/
       - title: "Salesforce"
         text: "Alfresco Content Connector for Salesforce allows you to store documents in Alfresco Content Services, but access them directly from Salesforce."
-        url:
-      - title: "Microsoft Office"
-        text: "Alfresco Office Services allows you to access Alfresco Content Services directly from your Microsoft Office applications."
-        url:
-      - title: "Microsoft Outlook"
-        text: "Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook."
         url:
       - title: "SAP"
         text: "Alfresco Content Connector for SAP applications offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
         url:
+      - title: "Microsoft Outlook"
+        text: "Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook."
+        url:
+      - title: "Microsoft Office"
+        text: "Alfresco Office Services allows you to access Alfresco Content Services directly from your Microsoft Office applications."
+        url:
+      - title: "Google Docs"
+        text: "Alfresco Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share."
+        url: /google-drive/latest/
 
 applications:
   - title: "Digital Workspace"
