@@ -11,6 +11,10 @@
           path: '/ags/latest/install/dockercompose/'
         - title: 'Install from ZIP file'
           path: '/ags/latest/install/zip/'
+        - title: 'Creating the RM site'
+          path: '/ags/latest/install/creatermsite/'
+        - title: 'Uninstall the AMP files'
+          path: '/ags/latest/install/uninstall/'
     - title: 'Upgrade'
       path: '/ags/latest/upgrade/'
     - title: "Configure"

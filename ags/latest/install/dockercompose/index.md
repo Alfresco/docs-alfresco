@@ -95,3 +95,4 @@ recommended for development and test environments only.
 
     * Share: `http://localhost:8080/share`
 
+Final step before you can start with Records Management is to [create the Records Management site]({% link ags/latest/install/creatermsite.md %}).
