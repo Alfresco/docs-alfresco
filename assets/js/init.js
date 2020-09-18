@@ -1,15 +1,26 @@
+function getElementY(el) {
+  return window.pageYOffset + el.getBoundingClientRect().top;
+}
+function doScrolling(elementY, duration) {
+  var startingY = window.pageYOffset;
+  var diff = elementY - startingY;
+  var start;
+
+  window.requestAnimationFrame(function step(timestamp) {
+    if (!start) start = timestamp;
+    var time = timestamp - start;
+    var percent = Math.min(time / duration, 1);
+
+    window.scrollTo(0, startingY + diff * percent);
+
+    if (time < duration) {
+      window.requestAnimationFrame(step);
+    }
+  });
+}
+
 (function () {
   // search bar
-
-  ((localScopeHint, scope) => {
-    if (!localScopeHint) return;
-    if (!scope) return;
-
-    const s = encodeURIComponent(`${scope.product}/${scope.version}`);
-
-    localScopeHint.dataset.url += s + "/";
-    localScopeHint.querySelector(".hint").innerHTML = `In: ${scope.product}`;
-  })(document.getElementById("localscope"), window.searchScope);
 
   setupSearchBar();
 
@@ -29,30 +40,14 @@
 
   // initial scrolling
 
-  function getElementY(el) {
-    return window.pageYOffset + el.getBoundingClientRect().top;
-  }
-  function doScrolling(elementY, duration) {
-    var startingY = window.pageYOffset;
-    var diff = elementY - startingY;
-    var start;
-
-    window.requestAnimationFrame(function step(timestamp) {
-      if (!start) start = timestamp;
-      var time = timestamp - start;
-      var percent = Math.min(time / duration, 1);
-
-      window.scrollTo(0, startingY + diff * percent);
-
-      if (time < duration) {
-        window.requestAnimationFrame(step);
-      }
-    });
-  }
-
   const initialHashCheck = () => {
     if (location.hash) {
-      const hash = /^#([^\/]*)\/?((?:[^\/]+\/?)+)?$/.exec(location.hash);
+      const parseHash = (hash) =>
+        /^#([^\/]*)\/?((?:[^\/]*\/?)+)?$/.exec(location.hash);
+      const hash = parseHash(location.hash);
+
+      if (!hash) return;
+
       const id = hash[1];
       const sub = hash[2];
 
@@ -65,6 +60,17 @@
         const doScroll = obj.initialRequest(sub);
         if (doScroll) {
           doScrolling(getElementY(obj), 1000);
+        }
+
+        if (obj.changeRequest) {
+          window.addEventListener(
+            "hashchange",
+            () => {
+              const hash = parseHash(location.hash);
+              if (obj.id == hash[1]) obj.changeRequest(hash[2]);
+            },
+            false
+          );
         }
       }
     }
@@ -161,12 +167,48 @@
   // version selector
   ((versionSelector) => {
     if (!versionSelector) return;
-    const focusHandler = (e) => {
-      versionSelector.classList.toggle("is-active");
-    };
     const btn = versionSelector.querySelector("button");
 
-    btn.addEventListener("focus", focusHandler);
-    btn.addEventListener("blur", () => setTimeout(focusHandler, 100));
+    const closeMenu = () => {
+      versionSelector.classList.remove("is-active");
+      window.removeEventListener("click", outsideClick);
+    };
+    const outsideClick = (e) => {
+      if (!e.target.closest("#version-selector")) closeMenu();
+    };
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      if (!versionSelector.classList.contains("is-active")) {
+        window.addEventListener("click", outsideClick);
+        versionSelector.classList.add("is-active");
+      } else {
+        closeMenu();
+      }
+    });
   })(document.getElementById("version-selector"));
+})();
+
+// notifications
+
+const showPreparedNotification = (notif) => {
+  notif.classList.add("is-active");
+};
+
+(() => {
+  if (typeof Storage !== "undefined") {
+    const cookiesAccepted = localStorage.getItem("cookies-accepted");
+    if (cookiesAccepted) return;
+
+    const notif = document.getElementById("cookies-notif");
+
+    if (!notif) return;
+
+    notif.querySelector("button").addEventListener("click", () => {
+      localStorage.setItem("cookies-accepted", new Date().toString());
+      notif.classList.remove("is-active");
+    });
+
+    showPreparedNotification(notif);
+  }
 })();

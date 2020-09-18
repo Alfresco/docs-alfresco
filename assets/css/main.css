@@ -667,16 +667,13 @@ body > .section.section-landing {
 
 .content pre {
   border-radius: 4px;
+  display: grid;
+  margin-bottom: 12px;
 }
 
 .content td em:nth-child(1) {
   color: rgb(245, 144, 22);
   font-style: normal;
-}
-
-.content pre {
-  margin-bottom: 12px;
-  white-space: pre-wrap;
 }
 
 .content table thead th {
@@ -1291,7 +1288,7 @@ pre {
   font-size: 9pt;
 }
 
-.search-results li {
+.search-results .results-list li {
   margin-bottom: 48px;
 }
 
@@ -1334,4 +1331,95 @@ pre {
 .release-container {
   max-width: 800px;
   position: relative;
+}
+
+/* notifications */
+
+.notif-box {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
+}
+
+.notif {
+  display: flex;
+  width: 864px;
+  padding: 32px 24px;
+
+  background: #ffffff;
+  border: 1px solid rgba(33, 35, 40, 0.12);
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(33, 35, 40, 0.04);
+  border-radius: 8px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  left: -9999px;
+  opacity: 0;
+}
+
+.notif.is-active {
+  left: unset;
+  animation-name: notif-fade, notif-jump;
+  animation-duration: 0.5s, 20s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1, infinite;
+  animation-timing-function: linear, ease-out;
+}
+
+@keyframes notif-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes notif-jump {
+  from {
+    transform: translateY(0px);
+  }
+  3% {
+    transform: translateY(-30px);
+  }
+  4% {
+    transform: translateY(0px);
+  }
+  4.5% {
+    transform: translateY(-10px);
+  }
+  5% {
+    transform: translateY(0px);
+  }
+  5.25% {
+    transform: translateY(-5px);
+  }
+  5.5% {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.notif button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  color: #00953b;
+  margin-left: 200px;
+
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.1px;
+  white-space: nowrap;
 }
