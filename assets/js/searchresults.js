@@ -222,7 +222,9 @@ class SearchResults extends HTMLElement {
           (s) => s.dataset.scope === scopeId
         );
         if (scope) {
-          meta.content = `${scope.innerText} | ${scopeVersion}`;
+          const formattedScope =
+            scopeVersion === "latest" ? "Latest" : `Version ${scopeVersion}`;
+          meta.content = `${scope.innerText} | ${formattedScope}`;
           meta.url = `/${scopeId}/${scopeVersion}`;
         }
       }
