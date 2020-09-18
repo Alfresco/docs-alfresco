@@ -72,7 +72,7 @@ See [Install Docker Compose]({% link transform-service/latest/install/containeri
 
 Before you can use the Transform Service zip, you need to install the following software requirements.
 
-Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](https://docs.alfresco.com/6.2/concepts/ch-install.html){:target="_blank"}. See [Supported Platforms](https://docs.alfresco.com/6.2/concepts/supported-platforms-ACS.html){:target="_blank"} for the supported versions of each component:
+Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](LINK). See [Supported Platforms](LINK) for the supported versions of each component:
 
 * Alfresco Content Services 6.2.2 or later
 * Messaging broker: see [Configuring ActiveMQ](LINK)

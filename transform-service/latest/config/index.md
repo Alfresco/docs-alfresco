@@ -20,22 +20,20 @@ Examples of such names are: `IMAGEMAGICK`, `LIBREOFFICE`, `PDF_RENDERER`, `TIKA`
 
 To configure a custom T-Engine, you'll have to:
 
-*   Provide its URL and queue name:
-    *   Custom T-Engines can be configured through environment variables:
+* Provide its URL and queue name:
+* Custom T-Engines can be configured through environment variables:
 
         ```bash
         export TRANSFORMER_URL_<CUSTOM_ENGINE_NAME>="http://custom-engine-host:8090"
         export TRANSFORMER_QUEUE_<CUSTOM_ENGINE_NAME>="custom-engine-queue"
         ```
-
-*   (Optional) Define pipeline (multi-step) transformers:
-    1.  If the mounting location of the pipeline definition file is:
+* (Optional) Define pipeline (multi-step) transformers:
+ 1. If the mounting location of the pipeline definition file is:
 
         ```bash
         /local/path/to/custom-pipeline-file.json:/mounting/location/of/custom-pipeline-file.json
         ```
-
-    2.  Specify the location through an environment variable:
+2. Specify the location through an environment variable:
 
         ```bash
         export TRANSFORMER_ROUTES_ADDITIONAL_<name>="/mounting/location/of/custom-pipeline-file.json"
@@ -43,7 +41,7 @@ To configure a custom T-Engine, you'll have to:
 
         > **Note:** The `<name>` suffix doesn't need to match any labels - it just differentiates multiple additional route files. However, the engine name can be used as it may help to make debugging easier.
 
-    3.  Define additional pipeline transformers, for example:
+ 3. Define additional pipeline transformers, for example:
 
         ```json
         {
