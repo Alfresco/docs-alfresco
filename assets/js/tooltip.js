@@ -51,11 +51,13 @@ class Tooltip extends HTMLElement {
 
     this.handleDropdownPosition();
 
-    this.placeholder.addEventListener("mouseover", () =>
-      this.handleDropdownPosition()
-    );
+    if (this.dataset["tooltip-mode"] !== "manual") {
+      this.placeholder.addEventListener("mouseover", () => {
+        this.handleDropdownPosition();
+      });
+    }
 
-    this.placeholder.addEventListener("touchstart", () => this.toggle());
+    // this.placeholder.addEventListener("touchstart", () => this.toggle());
   }
 }
 
