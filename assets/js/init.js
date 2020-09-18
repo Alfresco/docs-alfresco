@@ -188,3 +188,27 @@ function doScrolling(elementY, duration) {
     });
   })(document.getElementById("version-selector"));
 })();
+
+// notifications
+
+const showPreparedNotification = (notif) => {
+  notif.classList.add("is-active");
+};
+
+(() => {
+  if (typeof Storage !== "undefined") {
+    const cookiesAccepted = localStorage.getItem("cookies-accepted");
+    if (cookiesAccepted) return;
+
+    const notif = document.getElementById("cookies-notif");
+
+    if (!notif) return;
+
+    notif.querySelector("button").addEventListener("click", () => {
+      localStorage.setItem("cookies-accepted", new Date().toString());
+      notif.classList.remove("is-active");
+    });
+
+    showPreparedNotification(notif);
+  }
+})();
