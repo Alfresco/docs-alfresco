@@ -87,10 +87,15 @@
               path: '/ags/latest/using/gs/searchrecords/'
             - title: 'Auditing and reporting'
               path: '/ags/latest/using/gs/auditreport/'
-
+            - title: 'FAQ'
+              path: '/ags/latest/using/gs/faq/'
         - title: 'Security marks and classification'
           pages:
             - title: 'Video tutorials'
-              path: '/ags/latest/using/gs/video-tutorials/'
+              path: '/ags/latest/using/smc/video-tutorials/'
+            - title: 'User guide'
+              path: '/ags/latest/using/smc/userguide/'
+    - title: 'Develop'
+      pages:
         - title: 'APIs'
-          path: '/ags/latest/using/gs/apis/'
+          path: '/ags/latest/develop/apis/'

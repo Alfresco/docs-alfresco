@@ -31,7 +31,7 @@
           path: '/desktop-sync/latest/using/permissions/'
         - title: 'Alfresco Governance Services'
           path: '/desktop-sync/latest/using/ags/'
-        - title: 'Frequently asked questions (FAQ)'
+        - title: 'FAQ'
           path: '/desktop-sync/latest/using/faq/'
 - version: 1.5
   pages:
@@ -63,6 +63,6 @@
           path: '/desktop-sync/1.5/using/permissions/'
         - title: 'Alfresco Governance Services'
           path: '/desktop-sync/1.5/using/ags/'
-        - title: 'Frequently asked questions (FAQ)'
+        - title: 'FAQ'
           path: '/desktop-sync/1.5/using/faq/'
 
