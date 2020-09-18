@@ -31,21 +31,23 @@ integrations:
     sub:
       - title: "Sync Service"
         text: "Alfresco Sync Service synchronizes files between the desktop and repository using web services."
-        url:
+        url: /sync-service/latest/
       - title: "Desktop Sync"
         text: "Desktop Sync allows you to securely manage synchronized files on your desktop."
-        url:
+        url: /desktop-sync/latest/
   - title: "Transform"
     text: "Create secure, scalable, reliable, and extensible transforms for converting files from their current format into other formats using the all-in-one Transform Core Engine (T-Engine) that performs all the core transforms."
     url:
     image: /assets/img/ic_transform_80px.svg
     sub:
-      - title: "Document Transformation Engine"
-        text: "Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents."
-        url: /transformation-engine/latest/
       - title: "Transform Service"
         text: "Alfresco Transform Service provides a secure, scalable, reliable, and extensible mechanism for converting files from their current format into other formats."
         url: /transform-service/latest/ 
+
+      - title: "Document Transformation Engine"
+        text: "Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents."
+        url: /transformation-engine/latest/
+
       - title: "Media Management"
         text: "Alfresco Media Management provides the capability to transform and add metadata and relationships to your digital media."
         url:
@@ -62,7 +64,7 @@ integrations:
         url:
       - title: "Federation"
         text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
-        url:
+        url: /federation-services/latest/
   - title: "Identity"
     text: "Enable Single Sign On capabilities by configuring user authentication between Identity Service and a supported SAML identity provider."
     url:
@@ -73,7 +75,7 @@ integrations:
         url: /identity-service/latest/
       - title: "SAML SSO"
         text: "SAML Single Sign-On for Alfresco Content Services provides support for Single Sign-On (SSO) across an organization."
-        url:
+        url: /saml-sso/latest/
   - title: "Intelligence"
     text: "Add AI capabilities to Alfresco Content Services using a number of Amazon AI Services (Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine."
     url:
@@ -88,33 +90,33 @@ integrations:
         url:
       - title: "Microsoft Azure"
         text: "Alfresco Content Connector for Azure uses Microsoft's Azure Blob Storage as an alternative content store for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
-        url: /microsoft-azure/latest
+        url: /microsoft-azure/latest/
       - title: "Amazon Glacier"
         text: "Alfresco Content Connector for AWS Glacier enables access to Amazon S3 Glacier as a storage service optimized for infrequently used data, and suits the long term storage of archive and backup data."
         url:
       - title: "EMC Centera"
         text: "Alfresco Content Connector for EMC Centera uses EMC Centera as an alternative content store for Alfresco Content Services."
-        url:
+        url: /centera/latest/
   - title: "Business Connector"
     text: "Connectors are used to handle interactions between external systems and a process. For example, interacting with an installation of Slack to post messages, calling a custom REST API, and passing the response back to a process."
     url:
     image: /assets/img/ic_business_connectors_80px.svg
     sub:
-      - title: "Google Docs"
-        text: "Alfresco Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share."
-        url: /google-drive/latest/
       - title: "Salesforce"
         text: "Alfresco Content Connector for Salesforce allows you to store documents in Alfresco Content Services, but access them directly from Salesforce."
         url:
-      - title: "Microsoft Office"
-        text: "Alfresco Office Services allows you to access Alfresco Content Services directly from your Microsoft Office applications."
+      - title: "SAP"
+        text: "Alfresco Content Connector for SAP applications offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
         url:
       - title: "Microsoft Outlook"
         text: "Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook."
         url:
-      - title: "SAP"
-        text: "Alfresco SAP Connector offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
+      - title: "Microsoft Office"
+        text: "Alfresco Office Services allows you to access Alfresco Content Services directly from your Microsoft Office applications."
         url:
+      - title: "Google Docs"
+        text: "Alfresco Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share."
+        url: /google-drive/latest/
 
 applications:
   - title: "Digital Workspace"
@@ -123,7 +125,7 @@ applications:
     image: /assets/img/logo_dw_72px.svg
   - title: "Application Development Framework"
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
-    url: /some
+    url:
     image: /assets/img/logo_adf_72px.svg
   - title: "Content Mobile"
     text: "Alfresco Content Services for mobile allows you to view, edit, and share information in and out of the office via the mobile app."

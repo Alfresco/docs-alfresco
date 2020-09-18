@@ -7,6 +7,7 @@ defaults:
       layout: "docs"
       product: "Alfresco Content Services"
       toc: "content-services"
+      location: "content-services"
       versions:
         - 6.2
         - 6.1
@@ -110,6 +111,28 @@ defaults:
     values:
       version: 1.0
 
+# Alfresco Desktop Sync
+  - scope:
+      path: "desktop-sync"
+    values:
+      layout: "docs"
+      product: "Alfresco Desktop Sync"
+      location: "desktop-sync"
+      toc: "desktop-sync"
+      support: true
+      versions:
+        - 1.6
+        - 1.5
+  - scope:
+      path: "desktop-sync/latest"
+    values:
+      version: 1.6
+      latest: true
+  - scope:
+      path: "desktop-sync/1.5"
+    values:
+      version: 1.5
+
 # Alfresco Document Transformation Engine
   - scope:
       path: "transformation-engine"
@@ -126,6 +149,7 @@ defaults:
     values:
       version: 2.2
       latest: true
+
 
 # Alfresco Transform Service
   - scope:
@@ -147,7 +171,95 @@ defaults:
       version: 1.3
       latest: true
 
+# SAML Single Sign On (SSO) for Alfresco Content Services
+  - scope:
+      path: "saml-sso"
+    values:
+      layout: "docs"
+      product: "SAML Single Sign On (SSO) for Alfresco Content Services"
+      location: "saml-sso"
+      toc: "saml-sso"
+      support: true
+      versions:
+        - 1.2
+        - 1.1
+  - scope:
+      path: "saml-sso/latest"
+    values:
+      version: 1.2
+      latest: true
+  - scope:
+      path: "saml-sso/1.1"
+    values:
+      version: 1.1
 
+# Alfresco ECM Centera 
+  - scope:
+      path: "centera"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for EMC Centera"
+      location: "centera"
+      toc: "centera"
+      support: true
+      versions:
+        - 2.2
+  - scope:
+      path: "centera/latest"
+    values:
+      version: 2.2
+      latest: true
+
+# Alfresco Federation Services 
+  - scope:
+      path: "federation-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Federation Services"
+      location: "federation-services"
+      toc: "federation-services"
+      support: true
+      versions:
+        - 1.0
+  - scope:
+      path: "federation-services/latest"
+    values:
+      version: 1.0
+      latest: true
+
+# Alfresco Sync Service
+  - scope:
+      path: "sync-service"
+    values:
+      layout: "docs"
+      product: "Alfresco Sync Service"
+      location: "sync-service"
+      toc: "sync-service"
+      support: true
+      versions:
+        - 3.3
+        - 3.2
+        - 3.1
+        - 3.0
+  - scope:
+      path: "sync-service/latest"
+    values:
+      version: 3.3
+      latest: true
+  - scope:
+      path: "sync-service/3.2"
+    values:
+      version: 3.2
+  - scope:
+      path: "sync-service/3.1"
+    values:
+      version: 3.1
+  - scope:
+      path: "sync-service/3.0"
+    values:
+      version: 3.0
+
+# Alfresco Activiti Enterprise
   - scope:
       path: "activiti"
     values:
@@ -226,7 +338,6 @@ elasticsearch:
 exclude:
   - .github/
   - README.md
-  - CODEOWNERS
   - .gitignore
   # - .sass-cache/
   - .jekyll-cache/
