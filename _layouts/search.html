@@ -23,40 +23,12 @@
         <div class="columns">
           <div class="column is-narrow content-menu-column">
             <div class="left-side-menu">
-            <ul id="leftside-menu">
-              <li>
-                <a class="is-active" href="#">What's new</a>
+            <ul id="scope-selector">
+              {% for scope in site.data.scopes %}
+              <li class="">
+                <a href="/search#query/{{scope[0]}}/" data-scope="{{scope[0]}}">{{scope[1]}}</a>
               </li>
-              <li>
-                <a href="#">Supported Platforms</a>
-              </li>
-              <li>
-                <a href="#">Video tutorials</a>
-                <ul>
-                  <li>
-                    <a href="#">Using Alfresco Share</a>
-                  </li>
-                  <li>
-                    <a href="#">Deploying</a>
-                  </li>
-                  <li>
-                    <a href="#">Upgrading</a>
-                    <ul>
-                      <li><a href="#">Administering</a></li>
-                      <li><a href="#">Developer guide</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Troubleshooting</a>
-              </li>
-              <li>
-                <a href="#">Reference</a>
-              </li>
-              <li>
-                <a href="#">Copyright</a>
-              </li>
+              {%endfor%}
             </ul>
             </div>
           </div>
