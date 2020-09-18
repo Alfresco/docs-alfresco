@@ -10,3 +10,5 @@ The Alfresco Digital Workspace simplifies content management and provides compre
 The Alfresco Digital Workspace is automatically deployed as part of Alfresco Content Services using Helm charts or a Docker Compose file. You can also manually install Alfresco Content Services using standard war files and then configure the installation to include Alfresco Digital Workspace.
 
 See the following video for a quick introduction.
+
+![Introduction Video](https://www.youtube.com/embed/giypeO8Q4cs)
