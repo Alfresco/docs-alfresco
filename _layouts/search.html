@@ -23,11 +23,20 @@
         <div class="columns">
           <div class="column is-narrow content-menu-column">
             <div class="left-side-menu">
-            <ul id="scope-selector">
-              {% for scope in site.data.scopes %}
-              <li class="">
-                <a href="/search#query/{{scope[0]}}/" data-scope="{{scope[0]}}">{{scope[1]}}</a>
-              </li>
+            <ul id="leftside-menu" class="scope-selector">
+              {%for group in site.data.scopes%}
+                <li class="">
+                <span  class="menuitem-title">{{group[1].title}}</span>
+                <span class="expand-button"></span>
+                <ul>
+
+                {% for scope in group[1].scopes %}
+                <li class="">
+                  <a href="/search#query/{{scope[0]}}/" data-scope="{{scope[0]}}">{{scope[1]}}</a>
+                </li>
+                {%endfor%}
+                </ul>
+                </li>
               {%endfor%}
             </ul>
             </div>

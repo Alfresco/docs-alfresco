@@ -1,7 +1,6 @@
-
 {%for p in include.pages%}
 <li class="{% if page.url == p.path %}is-selected{% endif %}">
-  {% if p.path != nil %}<a href="{{p.path}}">{{p.title}}</a>{% else %}{{p.title}}{% endif %}
+  {% if p.path != nil %}<a class="menuitem-title" href="{{p.path}}">{{p.title}}</a>{% else %}<span class="menuitem-title">{{p.title}}</span>{% endif %}
   {% if p.pages != nil %} <span class="expand-button"></span>
 <ul>
     {%include toc_part.html pages=p.pages %}

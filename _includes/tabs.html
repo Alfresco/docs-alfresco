@@ -16,7 +16,7 @@
       {% if cut == "content" %}
         {% assign tabcontent = item[1] %}
         <li data-tabholder="tab_{{id}}"><a href="#{{tableId}}/{{id}}" role="tab" data-tabid="{{id}}" data-toggle="content_{{id}}">{{tabname}}</a></li>
-        <div class="tab-content" data-contentid="content_{{id}}">{{tabcontent | markdownify}}</div>
+        <div class="tab-content" data-tabid="{{id}}" data-contentid="content_{{id}}">{{tabcontent | markdownify}}</div>
       {% endif %}
 
 
