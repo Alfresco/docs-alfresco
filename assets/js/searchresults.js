@@ -88,17 +88,15 @@ class SearchResults extends HTMLElement {
 
     if (maininput) maininput.value = orequest.text;
 
-    const scopeSelector = document.getElementById("scope-selector");
+    const scopeSelector = this.scopeSelector;
     if (scopeSelector) {
-      Array.from(scopeSelector.querySelectorAll("a[data-scope]")).forEach(
-        (a) => {
-          a.href = `${a.href}${orequest.etext}`;
-          a.parentElement.classList.toggle(
-            "is-selected",
-            orequest.scope.indexOf(a.dataset.scope) === 0
-          );
-        }
-      );
+      scopeSelector.forEach((a) => {
+        a.href = `${a.href}${orequest.etext}`;
+        a.parentElement.classList.toggle(
+          "is-selected",
+          orequest.scope.indexOf(a.dataset.scope) === 0
+        );
+      });
     }
 
     return false;
@@ -183,8 +181,8 @@ class SearchResults extends HTMLElement {
     prev.href = hrefFunc(currentPage - 1);
     next.href = hrefFunc(currentPage + 1);
 
-    prev.classList.toggle("is-invisible", currentPage <= 1);
-    next.classList.toggle("is-invisible", currentPage >= totalPages);
+    prev.classList.toggle("is-hidden", currentPage <= 1);
+    next.classList.toggle("is-hidden", currentPage >= totalPages);
   }
 
   setResults(answer) {
@@ -204,8 +202,10 @@ class SearchResults extends HTMLElement {
         c.innerHTML = this.templateHtml;
       }
 
+      const url = r.value;
+
       const a = c.querySelector("a");
-      a.href = r.value;
+      a.href = url;
       a.innerText = r.chapter;
 
       c.querySelector(".result-text").innerText =
@@ -213,7 +213,23 @@ class SearchResults extends HTMLElement {
           ? r.label.slice(0, truncate) + "..."
           : r.label;
 
-      c.querySelector(".result-meta").innerText = r.chapter;
+      const ameta = c.querySelector(".result-meta");
+      const aurl = url.split("/");
+      const meta = { url, content: r.chapter };
+      if (aurl.length > 2) {
+        const [_, scopeId, scopeVersion] = aurl;
+        const scope = this.scopeSelector.find(
+          (s) => s.dataset.scope === scopeId
+        );
+        if (scope) {
+          const formattedScope =
+            scopeVersion === "latest" ? "Latest" : `Version ${scopeVersion}`;
+          meta.content = `${scope.innerText} | ${formattedScope}`;
+          meta.url = `/${scopeId}/${scopeVersion}`;
+        }
+      }
+      ameta.innerText = meta.content;
+      ameta.href = meta.url;
 
       container.append(c);
     });
@@ -254,10 +270,16 @@ class SearchResults extends HTMLElement {
       if (e.code === "ArrowRight") btnClass = ".pagination-next";
 
       const btn = pagination.querySelector(btnClass);
-      if (!btn.classList.contains("is-invisible")) btn.click();
+      if (!btn.classList.contains("is-hidden")) btn.click();
     };
 
     document.addEventListener("keyup", _keyboardHandler);
     document.addEventListener("keydown", _keyboardHandler);
+
+    this.scopeSelector = Array.from(
+      document
+        .querySelector("#leftside-menu.scope-selector")
+        .querySelectorAll("a[data-scope]")
+    );
   }
 }
