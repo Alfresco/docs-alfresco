@@ -244,6 +244,31 @@ defaults:
     values:
       version: 3.0
 
+# Alfresco Intelligence Services
+  - scope:
+      path: "intelligence-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Intelligence Services"
+      location: "intelligence-services"
+      toc: "intelligence-services"
+      support: true
+      versions:
+        - 1.2
+  - scope:
+      path: "intelligence-services/latest"
+    values:
+      version: 1.2
+      latest: true
+  - scope:
+      path: "intelligence-services/1.1"
+    values:
+      version: 1.1
+  - scope:
+      path: "intelligence-services/1.0"
+    values:
+      version: 1.0
+
 # Alfresco Activiti Enterprise
   - scope:
       path: "activiti"
