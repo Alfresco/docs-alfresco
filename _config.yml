@@ -8,6 +8,7 @@ defaults:
       product: "Alfresco Content Services"
       toc: "content-services"
       location: "content-services"
+      support: true
       versions:
         - 6.2
         - 6.1
