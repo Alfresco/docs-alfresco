@@ -138,7 +138,7 @@ If a folder is subject to a folder level retention schedule, you can review the 
 
 ### Processing records
 
-{% include ags/processrecords.md %}
+{% include ags/process-records.md %}
 
 ### Adding record folders to a hold
 
@@ -303,11 +303,11 @@ All records filed from a non-Records Management site are added to the Unfiled Re
 
 >**Tip:** Access the Unfiled Records area using the explorer panel to the left of the File Plan.
 
-Unfiled records can have been declared as records from a non-Records Management site, from within the Unfiled Records area, or could be reports generated from within the File Plan. [Filing an unfiled record]({% link ags/latest/using/gs/filerecords.md %}#filing-an-unfiled-record) describes how records in the Unfiled Records area are processed.
+Unfiled records can have been declared as records from a non-Records Management site, from within the Unfiled Records area, or could be reports generated from within the File Plan. [Filing an unfiled record]({% link ags/latest/using/gs/file-records.md %}#filing-an-unfiled-record) describes how records in the Unfiled Records area are processed.
 
 You don't have to use this area as a flat structure, you can configure it to your own requirements.
 
-You can create a full folder hierarchy within the Unfiled Records area and use [rules]({% link ags/latest/using/gs/automatefileplan.md %}) to automate the processing of unfiled records.
+You can create a full folder hierarchy within the Unfiled Records area and use [rules]({% link ags/latest/using/gs/automate-fileplan.md %}) to automate the processing of unfiled records.
 
 You can use the **Manage Permissions** option to control which users can file and reject unfiled records.
 
@@ -355,7 +355,7 @@ If a record is subject to a record level retention schedule, you can review the 
 
 ### Processing records
 
-{% include ags/processrecords.md %}
+{% include ags/process-records.md %}
 
 ### Adding records and record folders from the File Plan to a hold
 
@@ -384,7 +384,7 @@ A hold allows objects on hold for a particular reason to be tracked as a set.
 
 The record remains in its place in the File Plan. It is also shown in the **Holds** area of the explorer panel.
 
->**Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**. See [Removing items from hold]({% link ags/latest/using/gs/searchrecords.md %}#removing-items-from-hold).
+>**Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**. See [Removing items from hold]({% link ags/latest/using/gs/search-records.md %}#removing-items-from-hold).
 
 ### Adding content from the Document Library to a hold
 
@@ -411,7 +411,7 @@ A hold allows items on hold for a particular reason to be tracked as a set.
 
 The content remains in its place in the Document Library. It is also shown in the **Holds** area of the File Plan explorer panel.
 
->**Note:** To remove content from a hold hover over it in the File Plan, Document Library or the Holds area and select **Remove from Hold**. From the Holds area in the File Plan and from the List view in the File Plan you can remove more than one item at a time. You do this by selecting your items and clicking the **Selected Items** drop down list and then **Remove from Hold**. See [Removing items from hold]({% link ags/latest/using/gs/searchrecords.md %}#removing-items-from-hold).
+>**Note:** To remove content from a hold hover over it in the File Plan, Document Library or the Holds area and select **Remove from Hold**. From the Holds area in the File Plan and from the List view in the File Plan you can remove more than one item at a time. You do this by selecting your items and clicking the **Selected Items** drop down list and then **Remove from Hold**. See [Removing items from hold]({% link ags/latest/using/gs/search-records.md %}#removing-items-from-hold).
 
 ### Reverting a record to be an incomplete record
 
@@ -443,7 +443,7 @@ You can create as many different holds as you want, which are represented as fol
 
 In the Holds area there's a **New Hold** option which you use to set up your different hold types. Once you have a list of different holds you can put content, records, and, record folders on as many of the different holds as required.
 
-You can also add records to a hold directly from your search results, see [Adding search results to a hold - Records Search]({% link ags/latest/using/gs/searchrecords.md %}#addsearchresults2holdRecordsSearch) and [Adding search results to a hold - Share search]({% link ags/latest/using/gs/searchrecords.md %}#addsearchresults2holdShareSearch).
+You can also add records to a hold directly from your search results, see [Adding search results to a hold - Records Search]({% link ags/latest/using/gs/search-records.md %}#addsearchresults2holdRecordsSearch) and [Adding search results to a hold - Share search]({% link ags/latest/using/gs/search-records.md %}#addsearchresults2holdShareSearch).
 
 When you add a record folder to a hold, all records within the folder are also added to the hold. They'll stay on hold until removed from the hold or the hold is deleted.
 

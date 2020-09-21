@@ -2,4 +2,4 @@
 title: Creating a retention schedule
 ---
 
-{% include ags/createschedule.md %}
+{% include ags/create-schedule.md %}

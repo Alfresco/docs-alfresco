@@ -2,4 +2,4 @@
 title: Setting user permissions
 ---
 
-{% include ags/setpermissions.md %}
+{% include ags/set-permissions.md %}

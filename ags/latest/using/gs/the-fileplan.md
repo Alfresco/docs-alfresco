@@ -39,7 +39,7 @@ The structure of the File Plan will generally reflect different parts of your or
 
 You can create a File Plan structure from scratch or [load the Records Management test data](#loading-test-data) to use as a starting point. This gives you a sample File Plan that you can rework to meet your needs.
 
-You can also automate the File Plan by [applying rules to categories and folders]({% link ags/latest/using/gs/automatefileplan.md %}). This means that records can be moved automatically through the record lifecycle, without you having to do any of the work.
+You can also automate the File Plan by [applying rules to categories and folders]({% link ags/latest/using/gs/automate-fileplan.md %}). This means that records can be moved automatically through the record lifecycle, without you having to do any of the work.
 
 ## Opening the File Plan 
 
@@ -84,7 +84,7 @@ The File Plan is built up by adding levels made up of categories and folders.
 
 Only a few users have the capability to add folders and categories, and this is tightly controlled to make sure that your system remains compliant. Capabilities are assigned to user roles in the RM Admin Tools. You might be assigned the capability to create folders but not categories, or just have the capability to add records.
 
->**Note:** Capabilities given to a role are not the same as permissions. Capabilities define what you can do in the Records Management site, whereas permissions are specific to sections of the File Plan. Permissions are applied at category and folder level using the **Manage Permissions** option, and you use these to decide which users can see specific sections of the File Plan, and if they can read and file in that section. See [Managing permissions]({% link ags/latest/using/gs/managepermissions.md %}) for further details.
+>**Note:** Capabilities given to a role are not the same as permissions. Capabilities define what you can do in the Records Management site, whereas permissions are specific to sections of the File Plan. Permissions are applied at category and folder level using the **Manage Permissions** option, and you use these to decide which users can see specific sections of the File Plan, and if they can read and file in that section. See [Managing permissions]({% link ags/latest/using/gs/manage-permissions.md %}) for further details.
 
 When you create a container (category or folder) the system records the date of creation and the user who created it. This information is recorded in the object's metadata. Metadata can be thought of as a set of properties, and are where all key information about an item, folder, or category is stored. Record categories carry the most metadata as they hold the retention instructions for the whole category.
 
@@ -116,8 +116,8 @@ You can load Records Management test data which creates a sample File Plan that
 
 ### Adding a record category
 
-{% include ags/addcategory.md %}
+{% include ags/add-category.md %}
 
 ### Adding a record folder
 
-{% include ags/addfolder.md %}
+{% include ags/add-folder.md %}

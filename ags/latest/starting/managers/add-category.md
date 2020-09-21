@@ -2,4 +2,4 @@
 title: Adding a record category
 ---
 
-{% include ags/addcategory.md %}
+{% include ags/add-category.md %}

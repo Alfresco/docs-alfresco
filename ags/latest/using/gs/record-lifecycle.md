@@ -2,5 +2,5 @@
 title: Life cycle of a record
 ---
 
-{% include ags/recordlifecycle.md %}
+{% include ags/record-lifecycle.md %}
 

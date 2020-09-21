@@ -2,4 +2,4 @@
 title: Adding a record folder
 ---
 
-{% include ags/addfolder.md %}
+{% include ags/add-folder.md %}

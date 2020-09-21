@@ -8,7 +8,7 @@ in the distribution zip.
 
 There are two options for installing the Governance Service:
 
-* [Install using Docker Compose]({% link ags/latest/install/dockercompose/index.md %}) Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
+* [Install using Docker Compose]({% link ags/latest/install/docker-compose/index.md %}) Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 * [Install using the distribution ZIP]({% link ags/latest/install/zip/index.md %})
 
 >**Note:** For more information about what containerized deployment and Docker Compose means, see the Alfresco Content Services deployment documentation - [Understanding containerized deployment](https://docs.alfresco.com/6.0/concepts/deploy-overview.html).

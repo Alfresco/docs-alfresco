@@ -13,4 +13,4 @@ You might find that these guides don't exactly match what you do in your day-to-
 but even if they don't you should find them useful in getting started, and in understanding the basic concepts 
 of Governance Services and how the processes fit together.
 
-Common for both roles is the record lifecycle. {% include ags/recordlifecycle.md %}
+Common for both roles is the record lifecycle. {% include ags/record-lifecycle.md %}

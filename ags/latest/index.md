@@ -14,7 +14,7 @@ Alfresco Governance Services is fully compliant with a baseline of DoD 5015.02. 
 
 * [Alfresco Governance Services]({% link ags/latest/using/gs/intro.md %})
 Alfresco Governance Services controls important information that needs to be retained over time. It's used in highly regulated environments, for managing governmental information or personnel records, or where information might be audited.
-* [Security Marks and Classification]({% link ags/latest/using/smc/userguide.md %})  
+* [Security Marks and Classification]({% link ags/latest/using/smc/user-guide.md %})  
 You can add security controls to files, records, folders, and categories so that only users with the required security level can view or access them.
 * [Governance Services Governance Services APIs]({% link ags/latest/develop/apis.md %})
 Alfresco Governance Services provides two APIs, the GS Core API and the GS Security Marks API.

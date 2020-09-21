@@ -61,4 +61,4 @@ The Alfresco Governance Services distribution zip file contain the following AMP
 
     >**Note:** When you install Governance Services the Security Controls features are installed at the same time.
 
-Final step before you can start with Records Management is to [create the Records Management site]({% link ags/latest/install/creatermsite.md %}).
+Final step before you can start with Records Management is to [create the Records Management site]({% link ags/latest/install/create-rm-site.md %}).

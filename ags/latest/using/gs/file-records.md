@@ -10,7 +10,7 @@ There are three ways that you can create records:
 * Create a non-electronic record that references a physical record such as a paper record or microfilm
 * Select an item in another Alfresco site (non-Records Management) and declare it as a record
 
->**Note:** You can also import folders, categories, and even entire File Plans, and any records that they contain, see [Exporting and importing File Plan content]({% link ags/latest/using/gs/managefileplan.md %}#exporting-and-importing-file-plan-content).
+>**Note:** You can also import folders, categories, and even entire File Plans, and any records that they contain, see [Exporting and importing File Plan content]({% link ags/latest/using/gs/manage-fileplan.md %}#exporting-and-importing-file-plan-content).
 
 Your Alfresco administrator can also set up your system so that emails to specified addresses are captured and stored 
 as records.
@@ -28,7 +28,7 @@ the folder you've placed it in.
 
 ## Filing an electronic record
 
-{% include ags/filingrecord.md %}
+{% include ags/filing-record.md %}
 
 ## Filing a non-electronic record
 
@@ -48,15 +48,15 @@ Non-electronic records might be paper files that can be stored in a physical loc
 
 ## Filing an unfiled record
 
-{% include ags/filingunfiledrecord.md %}
+{% include ags/filing-unfiled-record.md %}
 
 ## Adding record metadata
 
-{% include ags/addrecordmetadata.md %}
+{% include ags/add-record-metadata.md %}
 
 ## Editing record metadata
 
-{% include ags/editrecordmetadata.md %}
+{% include ags/edit-record-metadata.md %}
 
 ## Requesting record information
 
@@ -74,4 +74,4 @@ If you need additional information to complete a record, you can request this fr
 
 ## Completing a record
 
-{% include ags/completerecord.md %}
+{% include ags/complete-record.md %}

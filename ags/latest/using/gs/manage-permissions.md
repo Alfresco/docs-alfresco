@@ -21,4 +21,4 @@ given permission to see it.
 
 ## Setting user permissions
 
-{% include ags/setpermissions.md %}
+{% include ags/set-permissions.md %}

@@ -2,4 +2,4 @@
 title: Completing a record
 ---
 
-{% include ags/completerecord.md %}
+{% include ags/complete-record.md %}
