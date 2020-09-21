@@ -6,7 +6,7 @@ You can use the Records Search to quickly search the File Plan to find records, 
 
 You can either do a basic search, just searching for a term as you would in a search engine, or you can use the 
 advanced search functionality. There's lots of options available for you to set really specific searches that you 
-can use again and again. See [Advanced search options](TODO:rm-search-syntax.md) for more details on getting the most 
+can use again and again. See [Advanced search options](#advanced-search-options) for more details on getting the most 
 out of the search tool.
 
 ## Accessing the Records Search
@@ -23,7 +23,7 @@ You can search records to find those that you're looking for, and save searches 
 
 You can search all the contents of your Records Management site. You can narrow the results of your search by specifying relevant metadata fields and container types (category, folder, record). Once you create a search, you can save it to use again.
 
-See [Advanced search options](TODO:../concepts/rm-search-syntax.md) for how to get the most out of the search facility.
+See [Advanced search options](#advanced-search-options) for how to get the most out of the search facility.
 
 1. On the Records Search **Criteria** tab enter a search term in the box.
 
@@ -32,7 +32,7 @@ See [Advanced search options](TODO:../concepts/rm-search-syntax.md) for how to g
     |Search criteria|Description|
     |---------------|-----------|
     |Search by|Select from the options available what you want to search for. When you select an option it's added to the field below where you can then enter your search criteria. For example if you select **Retention Schedule > Retention Action Name**, the field name `retentionActionName:` is added and you can then type a retention action name, such as `retentionActionName:cutoff`. Don't insert a space between the colon and the search term. You can select multiple criteria.|
-    |Search Date|Select a date to search on or even multiple dates, see [searching for date ranges](TODO:rm-search-daterange.md).|
+    |Search Date|Select a date to search on or even multiple dates, see [searching for date ranges](#searching-for-date-ranges).|
 
 3. Expand the **Results options** section and specify the content you want displayed in the search results.
 
@@ -210,7 +210,7 @@ you can also delete the default searches included with the Records Management si
 
 4. Click **Remove** to confirm the deletion.
 
-## Adding search results to a hold - Records Search
+## Adding search results to a hold - Records Search {#addsearchresults2holdRecordsSearch}
 
 Users with the appropriate capabilities can add records, and record folders to a hold to freeze them. 
 A hold allows objects on hold for a particular reason to be tracked as a set. Holds prevent changes to on hold objects, 
@@ -235,7 +235,7 @@ The selected records and/or folders remain in their place in the File Plan. They
 
 >**Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**. You can remove more than one record at a time by selecting your items and then clicking the **Selected Items** drop down list and then **Remove from Hold**.
 
-## Adding search results to a hold - Share search
+## Adding search results to a hold - Share search {#addsearchresults2holdShareSearch}
 
 Users with the appropriate capabilities can add search result items from the main Share search to a hold. 
 This means you can select search results from a records management site or from a collaboration site, and add them to a hold. 
@@ -288,7 +288,7 @@ Full text searches can be very simple, using a text string, or you can do more c
 * `:` (colon) separates the field name from the search value. Make sure there's no space between the colon separator and the value.
 * `<search-value>` is the value that you want to search for.
 
-Alfresco Records Management has a large number of fields to search against, see [Search field options](TODO:rm-search-fields.md) and [Search record type field options](TODO:rm-search-specialfields.md). The search query requires that you enter the internal name of these fields in the text box. The **Search by** menu list assists you when entering the fields.
+Alfresco Records Management has a large number of fields to search against, see [Search field options](#search-field-options) and [Search record type field options](#search-record-type-field-options). The search query requires that you enter the internal name of these fields in the text box. The **Search by** menu list assists you when entering the fields.
 
 To search for phrases, wrap the value string in "quotes". You can also use the wildcard matching characters, question mark (?) for a single character, and asterisk (\*) for zero or more characters to apply to any text value.
 

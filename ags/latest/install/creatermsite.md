@@ -27,7 +27,7 @@ After you've installed the Records Management AMP files, you're ready to go ahea
 
 You'll see the dashboard for the new Records Management site which you can now customize. Sites that you create are automatically added to your **Favorites** list. Now you can:
 
-* [Load Test Data](TODO:rm-load-testdata.md) by adding the Import Data Set dashlet for an example of how to structure a File Plan
+* [Load Test Data]({% link ags/latest/using/gs/thefileplan.md %}#loading-test-data) by adding the Import Data Set dashlet for an example of how to structure a File Plan
 * Use the **RM Admin Tools** on the Records Management dashboard **More** menu to access the administration features
 
 >**Note:** The user who created the Records Management site is automatically made a member of the Records Management Administrator role. Other users can access different areas of the **RM Admin Tools** depending on the capabilities given to the role that they're in.

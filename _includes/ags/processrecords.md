@@ -21,4 +21,4 @@ If you apply an action to a folder then it will also be applied to all records w
 
     Icons next to the record/folder indicate their current stage in the schedule.
 
-See also video explaining [processing records]({% link ags/latest/using/gs/video-tutorials.md %}#process-a-record).
+See also video explaining [processing records]({% link ags/latest/using/gs/video-tutorials.md %}#process-records).

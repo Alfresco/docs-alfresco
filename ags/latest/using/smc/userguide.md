@@ -40,7 +40,7 @@ If you have the required security clearance and file permissions can classify an
 
    ![Set security clearance]({% link ags/images/rm-classification-clearance.png %})
 
-3. You are given the file permissions needed to edit [files](TODO_LINK:https://docs.alfresco.com/6.0/references/permissions_share.html)/[records](TODO:../tasks/rm-usergroups-add.md).
+3. You are given the file permissions needed to edit [files](TODO_LINK:https://docs.alfresco.com/6.0/references/permissions_share.html)/[records]({% link ags/latest/admin/index.md %}#adding-users-and-groups-to-a-role).
 
    ![Set site role]({% link ags/images/rm-classification-role.png %})
 
@@ -72,18 +72,18 @@ When you classify a file or record using their **Classify** option, the Classify
 The top part is for setting classification and the bottom part for applying additional security marks. 
 You can apply both classification and additional security marks to files (or records) at the same time.
 
->**Note:** Standard [Alfresco permissions](TODO_LINK:http://docs.alfresco.com/6.0/references/permissions_share.html) and [Records Management permissions](TODO:../tasks/rm-set-permissions.md) continue to apply as well as any additional classifications.
+>**Note:** Standard [Alfresco permissions](TODO_LINK:http://docs.alfresco.com/6.0/references/permissions_share.html) and [Records Management permissions]({% link ags/latest/starting/managers/setpermissions.md %}) continue to apply as well as any additional classifications.
 
 ### Classification security group
 
-There are four classification levels you can [apply to files and records](TODO:../tasks/rm-classify-record.md):
+There are four classification levels you can [apply to files and records](#classifyrecordsfolderscategories):
 
 * **Top Secret**
 * **Secret**
 * **Confidential**
 * **Unclassified** (typically used to differentiate a file or record that used to be classified, or will become so in future)
 
-There are three clearance levels that can be [assigned to users](TODO:../tasks/rm-assign-sc.md):
+There are three clearance levels that can be [assigned to users](#setting-security-clearance):
 
 * **Top Secret** - Can see files and records with any classification level
 * **Secret** - Can see secret, confidential and unclassified files and records
@@ -110,8 +110,7 @@ Downgrade and declassification schedule option give additional control over the 
 ### Custom security groups
 
 You can create an unlimited number of security groups, which in turn can contain an unlimited number of security marks. 
-The marks are then [applied to files and records](TODO:../tasks/rm-classify-record.md) 
-and [assigned to users](TODO:../tasks/rm-assign-sc.md).
+The marks are then [applied to files and records](#classifyrecordsfolderscategories) and [assigned to users](#setting-security-clearance).
 
 When you create a new security group there are three Group Types available:
 
@@ -140,11 +139,11 @@ Security clearance is the assignment of security marks to users.
 
 Once marks are applied to content then users can only see that content if they have the required security clearance.
 
->**Note:** Standard [Alfresco permissions](TODO_LINK:http://docs.alfresco.com/5.1/references/permissions_share.html) and [Records Management permissions](TODO:../tasks/rm-set-permissions.md) continue to apply as well as any security clearance.
+>**Note:** Standard [Alfresco permissions](TODO_LINK:http://docs.alfresco.com/5.1/references/permissions_share.html) and [Records Management permissions]({% link ags/latest/starting/managers/setpermissions.md %}) continue to apply as well as any security clearance.
 
-When security groups are created there are three different Group Types available, and each one controls how the user sees content, see [How security controls work](TODO:rm-sc-overview.md).
+When security groups are created there are three different Group Types available, and each one controls how the user sees content, see [How security controls work](#how-security-controls-work).
 
-Users with Alfresco Administrator permissions can [set and edit the security clearance of users and user groups](TODO:../tasks/rm-assign-sc.md).
+Users with Alfresco Administrator permissions can [set and edit the security clearance of users and user groups](#setting-security-clearance).
 
 When assigning marks to users or user groups, marks that are inherited from another group aren't shown. Only marks that are assigned directly to this user / group are displayed. If a user (or group) has inherited security marks from a group, then these are added to their directly assigned marks.
 
@@ -161,7 +160,7 @@ For non-hierarchy based security groups the security marks are added together, s
 You'll usually have a number of common classification requirements for different types of content. 
 For example, all staff records may require the same security levels to access them.
 
-Instead of setting these individually, you can [create classification guides](TODO:../tasks/rm-create-guide.md) to use as 
+Instead of setting these individually, you can [create classification guides](#creating-classification-guides) to use as 
 templates for classifying content quickly and accurately.
 
 You can create as many classification guides as you want and make them as complex or as simple as you need.
@@ -173,7 +172,7 @@ reasons and downgrade and declassification schedules, as well as any additional 
 You can choose to make a guide available for use in classification by setting it to **On**, or to leave it **Off** 
 until you're ready for it to be used.
 
-When people are [classifying content](TODO:../tasks/rm-classify-record.md) they can select to **Add Instructions** and 
+When people are [classifying content](#classifyrecordsfolderscategories) they can select to **Add Instructions** and 
 browse through the classification guides to find the instructions they want. When the instructions are applied 
 to content then all the security classifications and controls the instructions contain are automatically applied to that content.
 
@@ -224,7 +223,7 @@ nationality and job role.
 
     Once you've created a security group you can:
 
-    * Click on the group to [add security marks to it](TODO:rm-add-marks.md)
+    * Click on the group to [add security marks to it](#adding-security-marks-to-a-security-group)
     * Click ![Edit group]({% link ags/images/ico-configure.png %}){:height="18px" width="18px"} to edit the group name.
     * Click ![Delete group]({% link ags/images/ico-trashcan.png %}){:height="18px" width="18px"} to delete the group. You can't delete a group or its marks if it contains marks that are assigned to content.
 
@@ -309,7 +308,7 @@ Instructions are a collection of security marks and classification details. When
 (or topics) it's classification details are populated with those in the topic.
 
 You can build up guides and they won't be available for use until you set them to **On**. 
-Find out more in [How classification guides work](TODO:../concepts/rm-cg-overview.md).
+Find out more in [How classification guides work](#how-classification-guides-work).
 
 1. Click **Admin Tools** and then click **Security Controls > Classification Guides**.
 
@@ -352,16 +351,16 @@ Find out more in [How classification guides work](TODO:../concepts/rm-cg-overvie
 
     If you edit a guide's instructions then that won't modify the classification level or marks applied to content previously classified using that instruction.
 
-## Classifying records, record folders, and record categories
+## Classifying records, record folders, and record categories {#classifyrecordsfolderscategories}
 
 You can classify records, record folders, and record categories and apply security marks so that they can only be 
 viewed or accessed by users who have the required security clearance.
 
 There are four security classification levels that you can assign. Security groups provide additional classification options.
 
->**Note:** You can also [classify files](TODO:rm-classify-file.md) in Alfresco sites.
+>**Note:** You can also [classify files]({% link ags/latest/using/gs/easyaccessrecords.md %}#classifying-files-and-folders) in Alfresco sites.
 
-See [Classification rules and tips](TODO:../references/rm-classification-tips.md) for more on classifying content.
+See [Classification rules and tips](#classification-rules-and-tips) for more on classifying content.
 
 You can autoclassify by adding instructions, manually apply classifications and security marks, or both.
 
@@ -430,7 +429,7 @@ You can autoclassify by adding instructions, manually apply classifications and 
 
 18. Click security marks to apply them to the item, and again to remove them.
 
-    See [How security controls work](TODO:../concepts/rm-sc-overview.md) for more details.
+    See [How security controls work](#how-security-controls-work) for more details.
 
 19. Click **Classify**.
 
@@ -538,7 +537,7 @@ It's recommended that you follow this schedule when reclassifying.
 You also can't reclassify a content higher than your own security level. So if your security clearance is Confidential, 
 you can't reclassify content as Top Secret.
 
-See [Classification rules and tips](TODO:../references/rm-classification-tips.md) for more on classifying content.
+See [Classification rules and tips](#classification-rules-and-tips) for more on classifying content.
 
 >**Note:** Content can be reclassified multiple times.
 
@@ -563,7 +562,7 @@ See [Classification rules and tips](TODO:../references/rm-classification-tips.md
 
 6. Click security marks to apply them to the content, and again to remove them.
 
-    See [How security controls work](TODO:../concepts/rm-sc-overview.md) for more details.
+    See [How security controls work](#how-security-controls-work) for more details.
 
 7. Click **Save**.
 

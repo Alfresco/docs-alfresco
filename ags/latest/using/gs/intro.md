@@ -17,6 +17,6 @@ you can edit their metadata (properties) but you can't edit their actual content
 
 If you're new to Alfresco then take a look at [Using Alfresco](TODO_LINK:http://docs.alfresco.com/6.0/topics/sh-uh-welcome.html) to help you get started.
 
-For more details on setting up and administering Governance Services see [Administering Records Management](TODO:rm-admin-intro.md).
+For more details on setting up and administering Governance Services see [Administering Records Management]({% link ags/latest/admin/index.md %}).
 
 >**Note:** It's recommended that you use the File Plan for Governance Services actions rather than going through the repository.

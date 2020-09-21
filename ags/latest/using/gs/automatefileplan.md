@@ -45,8 +45,6 @@ You can create rules for a category or folder, in much the same way that you mig
 
 >**Note:** If a category/folder already has rules applied to it (indicated by the ![]({% link ags/images/rules-icon.png %}){:height="18px" width="18px"} icon) you can add new rules to it by [adding to a set of rules](TODO_LINK:http://docs.alfresco.com/6.1/tasks/library-folder-rules-new.html).
 
->**Note:** If a category/folder already has rules applied to it (indicated by the ![]({% link ags/images/rules-icon.png %}){:height="18px" width="18px"} icon) you can add new rules to it by [adding to a set of rules](TODO_LINK:http://docs.alfresco.com/community/tasks/library-folder-rules-new.html).
-
 1. Click **Manage Rules** when you're in the folder or category you want to set rules for in the File Plan.
 
     >**Tip:** You can also hover over a folder or category in the File Plan and click **More** then **Manage Rules**.
@@ -60,6 +58,7 @@ You can create rules for a category or folder, in much the same way that you mig
     * **Items are created or enter this folder**: The rule will be applied to content that gets added to this category/folder. This includes any item that is copied to, created in, or uploaded to the folder.
     * **Items are updated**: When an item in this folder is modified, the rule will be applied to it.
     * **Items are deleted or leave this folder**: The rule will be applied to content that is moved out of the category/folder or deleted.
+
     >**Note:** A rule can have more than one event, condition, and action. Click the + or - icons to add or remove rows.
 
 5. Select if the rule will be applied **If the following apply**, **If the following don't apply**, or both.
@@ -86,7 +85,7 @@ You can create rules for a category or folder, in much the same way that you mig
 
     >**Note:** For **Declare as Record** this function is not available.
 
-    There are also extensive [autocomplete options](TODO:../references/rm-rules-substitutions.md).
+    There are also extensive [autocomplete options](#rules-autocomplete-options).
 
     If you select **Execute script** then scripts are only available if they've been set up by your Alfresco administrator in Repository > Data Dictionary > Records Management > Records Management Scripts.
 
@@ -157,7 +156,7 @@ Available autocomplete options are:
 
 The **Link to Rule Set** option lets you reuse an existing rule set that's already defined for another category or folder.
 
->**Note:** If a category or folder already has linked rules applied (indicated by the ![]({% link ags/images/rules-icon.png %}){:height="18px" width="18px"} icon) you can link to new rules by [linking to a different rule set](TODO:rm-rules-change-link.md).
+>**Note:** If a category or folder already has linked rules applied (indicated by the ![]({% link ags/images/rules-icon.png %}){:height="18px" width="18px"} icon) you can link to new rules by [linking to a different rule set](#linking-to-a-different-rule-set).
 
 1. Hover over a category/folder with no rules applied and click **More** then **Manage Rules**.
 
@@ -199,7 +198,7 @@ A set of rules can include any number of individual rules, and you can add new r
 
 2. Click **New Rule**.
 
-    On the New Rule page you can add a new rule to a set of rules in exactly the same way as the first time you created a rule, see [creating a rule](TODO:rm-rules-define-create.md).
+    On the New Rule page you can add a new rule to a set of rules in exactly the same way as the first time you created a rule, see [creating a rule](#creating-a-rule).
 
 After creating the last rule you return to the Rules page. Any new rules created are added at the end of the rule set.
 

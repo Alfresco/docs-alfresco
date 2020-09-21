@@ -6,8 +6,6 @@ The record categories, record folders, and records in the File Plan structure ea
 
 >**Note:** The standard Alfresco **Copy to**, **Move to** and renaming options are available for record categories, record folders, and records. See [Keeping your library organized](TODO_LINK:http://docs.alfresco.com/5.2/concepts/library-organize.html) for further details.
 
->**Note:** The standard Alfresco **Copy to**, **Move to** and renaming options are available for record categories, record folders, and records. See [Keeping your library organized](TODO_LINK:http://docs.alfresco.com/community/concepts/library-organize.html) for further details.
-
 ## Managing record categories
 
 There are various options available to help you manage record categories. These are available to users with the appropriate capabilities.
@@ -305,11 +303,11 @@ All records filed from a non-Records Management site are added to the Unfiled Re
 
 >**Tip:** Access the Unfiled Records area using the explorer panel to the left of the File Plan.
 
-Unfiled records can have been declared as records from a non-Records Management site, from within the Unfiled Records area, or could be reports generated from within the File Plan. [Filing an unfiled record](TODO:../tasks/rm-file-unfiled.md) describes how records in the Unfiled Records area are processed.
+Unfiled records can have been declared as records from a non-Records Management site, from within the Unfiled Records area, or could be reports generated from within the File Plan. [Filing an unfiled record]({% link ags/latest/using/gs/filerecords.md %}#filing-an-unfiled-record) describes how records in the Unfiled Records area are processed.
 
 You don't have to use this area as a flat structure, you can configure it to your own requirements.
 
-You can create a full folder hierarchy within the Unfiled Records area and use [rules](TODO_LINK:rm-rules.md) to automate the processing of unfiled records.
+You can create a full folder hierarchy within the Unfiled Records area and use [rules]({% link ags/latest/using/gs/automatefileplan.md %}) to automate the processing of unfiled records.
 
 You can use the **Manage Permissions** option to control which users can file and reject unfiled records.
 
@@ -386,7 +384,7 @@ A hold allows objects on hold for a particular reason to be tracked as a set.
 
 The record remains in its place in the File Plan. It is also shown in the **Holds** area of the explorer panel.
 
->**Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**. See [Removing items from hold](TODO:rm-remove-items-hold.md).
+>**Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**. See [Removing items from hold]({% link ags/latest/using/gs/searchrecords.md %}#removing-items-from-hold).
 
 ### Adding content from the Document Library to a hold
 
@@ -413,7 +411,7 @@ A hold allows items on hold for a particular reason to be tracked as a set.
 
 The content remains in its place in the Document Library. It is also shown in the **Holds** area of the File Plan explorer panel.
 
->**Note:** To remove content from a hold hover over it in the File Plan, Document Library or the Holds area and select **Remove from Hold**. From the Holds area in the File Plan and from the List view in the File Plan you can remove more than one item at a time. You do this by selecting your items and clicking the **Selected Items** drop down list and then **Remove from Hold**. See [Removing items from hold](TODO:rm-remove-items-hold.md).
+>**Note:** To remove content from a hold hover over it in the File Plan, Document Library or the Holds area and select **Remove from Hold**. From the Holds area in the File Plan and from the List view in the File Plan you can remove more than one item at a time. You do this by selecting your items and clicking the **Selected Items** drop down list and then **Remove from Hold**. See [Removing items from hold]({% link ags/latest/using/gs/searchrecords.md %}#removing-items-from-hold).
 
 ### Reverting a record to be an incomplete record
 
@@ -445,7 +443,7 @@ You can create as many different holds as you want, which are represented as fol
 
 In the Holds area there's a **New Hold** option which you use to set up your different hold types. Once you have a list of different holds you can put content, records, and, record folders on as many of the different holds as required.
 
-You can also add records to a hold directly from your search results, see [Adding search results to a hold - Records Search](TODO:../tasks/rm-search-addhold.md) and [Adding search results to a hold - Share search](TODO:../tasks/rm-searchresults-addhold.md).
+You can also add records to a hold directly from your search results, see [Adding search results to a hold - Records Search]({% link ags/latest/using/gs/searchrecords.md %}#addsearchresults2holdRecordsSearch) and [Adding search results to a hold - Share search]({% link ags/latest/using/gs/searchrecords.md %}#addsearchresults2holdShareSearch).
 
 When you add a record folder to a hold, all records within the folder are also added to the hold. They'll stay on hold until removed from the hold or the hold is deleted.
 
@@ -456,10 +454,8 @@ In the Holds area you can see your holds. When you go into a hold you can see th
 You can use the **Manage Permissions** option to control which users can view, create, edit, and delete holds. Users who don't have read permission for a specific hold will not receive any indication that records it contains are in that hold.
 
 >**Tip:** You can hover over a hold and click **Generate Hold Report** to create a report on the hold. The report is filed as an incomplete record in your selected destination.
-
-* **[Creating holds](TODO:../tasks/rm-create-hold.md)**
   
-Users with the appropriate capabilities can create multiple holds that are then used when records are put on hold.
+Users with the appropriate capabilities can create multiple holds that are then used when records are put on hold. See next section.
 
 ### Creating holds
 

@@ -35,7 +35,7 @@ Retention steps can be manually completed once they are considered eligible (the
 have been completed), though the retain and cut off steps can be completed automatically by a system process that is run daily. 
 All other retention steps must be completed manually, or by setting up a rule to complete them automatically. 
 If a retention step is complete, then additional options are available for folders or records, dependant on whether the 
-retention schedule is set to folder or record level, see [Actioning retention steps](TODO:../tasks/rm-dispsched-actions.md).
+retention schedule is set to folder or record level, see [Actioning retention steps]({% link ags/latest/starting/users/processrecords.md %}).
 
 ## Example of a retention schedule
 

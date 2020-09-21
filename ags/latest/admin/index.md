@@ -247,7 +247,7 @@ Capabilities control what each role can do in the Records Management system, and
 
 >**Tip:** The role of Records Management Administrator has all capabilities assigned to it, so take a look at this to see the full list of capabilities available.
 
-You assign users and groups who will all require the same levels of functionality to a role (a user can be assigned to multiple roles at the same time). Assign users and groups to roles using the [Users and Groups tool](TODO:rm-usergroups-intro.md). You can manage roles to change the capabilities that they have.
+You assign users and groups who will all require the same levels of functionality to a role (a user can be assigned to multiple roles at the same time). Assign users and groups to roles using the [Users and Groups tool](#users-and-groups). You can manage roles to change the capabilities that they have.
 
 Capabilities don't conflict and are not hierarchical. A user can be granted a single capability and that capability will not grant any further capabilities. Any user can have zero or more capabilities within the system. A user that has no capabilities is effectively barred from the Records Management system.
 

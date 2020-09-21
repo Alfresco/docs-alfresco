@@ -47,4 +47,4 @@ You can set the end date of the financial year and the end of the financial quar
 
 5. Restart the server.
 
-6. (Optional) If you change your financial periods this does not update any previously set calculated schedules and you will need to edit all retention schedules to ensure the new period start date is used. See [Editing a retention schedule](TODO:rm-dispschedule-edit.md).  
+6. (Optional) If you change your financial periods this does not update any previously set calculated schedules and you will need to edit all retention schedules to ensure the new period start date is used. See [Editing a retention schedule]({% link ags/latest/using/gs/retentionschedules.md %}#editing-a-retention-schedule).  

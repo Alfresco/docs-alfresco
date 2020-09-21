@@ -10,7 +10,7 @@ There are three ways that you can create records:
 * Create a non-electronic record that references a physical record such as a paper record or microfilm
 * Select an item in another Alfresco site (non-Records Management) and declare it as a record
 
->**Note:** You can also import folders, categories, and even entire File Plans, and any records that they contain, see [Exporting and importing File Plan content](TODO:rm-export-import.md).
+>**Note:** You can also import folders, categories, and even entire File Plans, and any records that they contain, see [Exporting and importing File Plan content]({% link ags/latest/using/gs/managefileplan.md %}#exporting-and-importing-file-plan-content).
 
 Your Alfresco administrator can also set up your system so that emails to specified addresses are captured and stored 
 as records.
