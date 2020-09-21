@@ -45,25 +45,11 @@ The Intelligence Services module integrates three different AWS services:
 
 Alfresco Intelligence Services requests renditions for all three services (Comprehend, Rekognition, and Textract), using the default configuration. However, the API processing calls only take place for the relevant AWS service. With the release of version 1.1, you can configure the requested renditions.
 
-Before you can add these services to your deployment, some configuration is first required in AWS. Follow the links at the end of this page to review the key features and detailed setup for each service.
-
-### Deployment overview
-
-Some of the Docker images that are used by the Intelligence Services module are uploaded to a private registry, **Quay.io**. Since the Intelligence Services module adds AI capabilities to Alfresco Transform Service (see [Transform Service install overview](https://docs.alfresco.com/transform/concepts/transform-overview.html#ats-overview__images))(#LINK), you'll also need access to the following image:
-
-```bash
-alfresco/alfresco-ai-docker-engine
-```
-
-> **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
-
-> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Intelligence Services, so that you can use the additional `alfresco-ai-docker-engine-1.2.x` Docker image.
-
-See [Install Intelligence Services]({% link intelligence-services/latest/install/index.md %}) and [Configure Intelligence Services]({% link intelligence-services/latest/config/index.md %}) for more.
+Before you can add these services to your deployment, some configuration is first required in AWS. The details are covered in the [installation guide]({% link intelligence-services/latest/install/index.md %}).
 
 ## Analysis using AWS services
 
-Use the following sections to review the prerequisites, key features, and detailed setup for each AWS service.
+The following sections summarize the key features provided by each AWS service. The details are covered in the [installation guide]({% link intelligence-services/latest/install/index.md %})
 
 ### Amazon Comprehend
 
@@ -100,8 +86,6 @@ You'll need to create an AWS Identity and Access Management (IAM) role with the 
 
 There's a setting for the level of confidence that Amazon Comprehend has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
 
-See [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %}) for more.
-
 ### Amazon Rekognition
 
 Amazon Rekognition makes it easy to add image analysis to your applications.
@@ -136,8 +120,6 @@ You'll need to create an AWS Identity and Access Management (IAM) role with the 
 
 There's a setting for the level of confidence that Amazon Rekognition has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
 
-See [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %}) for more.
-
 ### Amazon Textract
 
 Amazon Textract makes it easy to add text detection and analysis of your content to your applications.
@@ -171,5 +153,3 @@ See the AWS site for more details on service limits: [Limits in Amazon Textract]
 You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
 
 There's a setting for the level of confidence that Amazon Textract has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
-
-See [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %}) for more.

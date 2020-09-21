@@ -4,13 +4,7 @@
     - title: 'Introduction'
       path: '/intelligence-services/latest/'
     - title: 'Install'
-      pages:
-        - title: 'Overview'
-          path: '/intelligence-services/latest/install/'
-        - title: 'AWS setup'
-          path: '/intelligence-services/latest/install/setup/'
-        - title: 'Install with zip'
-          path: '/intelligence-services/latest/install/zip/'
+      path: '/intelligence-services/latest/install/'
     - title: 'Configure'
       pages:
         - title: 'Overview'

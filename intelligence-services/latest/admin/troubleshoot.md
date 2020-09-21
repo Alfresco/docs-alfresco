@@ -59,8 +59,7 @@ If you see the request but not the response, then check if the text file is larg
 
 Verify that you have correctly configured the AWS Comprehend Role to allow the Comprehend service read/write access to the S3 bucket used to temporarily store source files and results.
 
-See [Amazon Comprehend limits]({% link intelligence-services/latest/admin/index.md %}#amazon-comprehend) and [Amazon Comprehend role]({% link intelligence-services/latest/install/setup.md %}) for more.
-
+See [Amazon Comprehend limits]({% link intelligence-services/latest/admin/index.md %}#amazon-comprehend) and [Amazon Comprehend role]({% link intelligence-services/latest/install/index.md %}) for more.
 
 ### Why don't I see a Textract image / text analysis?
 
@@ -128,7 +127,7 @@ You'll find a summary of the Transform Router configuration properties in `ai-pi
 
 The current default on minimum confidence levels is set at 80%.
 
-See [Configuring the minimum confidence level]({% link intelligence-services/latest/install/setup.md %}#configure-minimum-confidence-level) for more.
+See [Configuring the minimum confidence level]({% link intelligence-services/latest/install/index.md %}#configure-minimum-confidence-level) for more.
 
 ### Which Amazon AI/ML APIs are used for processing?
 
@@ -176,7 +175,7 @@ Also, if you're using Docker Compose, then you may find that setting or exportin
 
 ### What do I need to set up to access Amazon AI services: Comprehend, Rekognition & Textract?
 
-See [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %}) for more.
+See [Set up services in AWS]({% link intelligence-services/latest/install/index.md %}) for more.
 
 ### How do the Amazon AI services access the content to be processed?
 
@@ -188,7 +187,7 @@ We recommend the following setup:
 * Create an S3 bucket in the same region as the Amazon AI services.
 * For Comprehend, you also need to enable Comprehend to have write access to your S3 bucket for returning the results. This can be done by setting up an IAM role.
 
-See [Configure AWS Identity and Access Management]({% link intelligence-services/latest/install/setup.md %}) and [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %}) for more details.
+See [Set up services in AWS]({% link intelligence-services/latest/install/index.md %}#set-up-services-in-aws) to configure AWS Identity and Access Management and the Amazon AI services.
 
 ### When is Amazon Elastic File System (EFS) used?
 

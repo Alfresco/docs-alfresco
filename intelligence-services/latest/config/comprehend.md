@@ -359,11 +359,11 @@ In the above `docker-compose` snippet:
 
 ## Step 4. Configure Share and Digital Workspace to use a custom model
 
-Use this information to configure the files needed by Alfresco Share and Alfresco Digital Workspace for a custom model.
+Use this information to configure the files needed by Share and Digital Workspace for a custom model.
 
 ### Share
 
-The following files must be mounted in the Alfresco Share Docker container.
+The following files must be mounted in the Share Docker container.
 
 #### 1. Custom AI labels
 
@@ -442,7 +442,7 @@ Content:
 
 ### Share - Docker service definition
 
-In the `docker-compose` snippet, the custom AI configuration files must be mounted in the Alfresco Share container at specific locations.
+In the `docker-compose` snippet, the custom AI configuration files must be mounted in the Share container at specific locations.
 
 ```yaml
 share:

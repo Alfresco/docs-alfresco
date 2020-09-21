@@ -2,7 +2,7 @@
 title: Configure Intelligence Services
 ---
 
-Intelligence Services 1.2 allows you to configure custom machine-learning (custom ML) models to enrich the content stored in Alfresco Content Services. A custom ML model maps each model to metadata in your business documents. This provides a number of benefits:
+Starting from version 1.1, Intelligence Services allows you to configure custom machine-learning (custom ML) models to enrich the content stored in Alfresco Content Services. A custom ML model maps each model to metadata in your business documents. This provides a number of benefits:
 
 * Content has metadata automatically applied, and can be categorized or classified based on its business context.
 * Unstructured content can be searched and indexed by business context and easily discovered.
@@ -36,7 +36,7 @@ There are several options to configuring Intelligence Services.
 
 There are four steps to configuring the default (i.e. out-of-the-box) deployment of Intelligence Services: export your environment variables, add the AI Transform Engine to your deployment, override the Transform Router configuration, and override the Digital Workspace configuration.
 
-> **Note:** Ensure that you've completed the [AWS setup]({% link intelligence-services/latest/install/setup.md %}) before continuing.
+> **Note:** Ensure that you've completed the [AWS setup]({% link intelligence-services/latest/install/index.md %}#set-up-services-in-aws) before continuing.
 
 A number of environment variables allow you to specify the configuration options and credentials that are required to run the AI Transform Engine.
 

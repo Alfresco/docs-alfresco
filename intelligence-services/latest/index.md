@@ -25,10 +25,4 @@ Other features introduced in previous versions include:
 
 > **Important:** The Intelligence Services module can be applied to Alfresco Content Services 6.2 or later. See [Supported platforms]({% link intelligence-services/latest/support/index.md %}) for more.
 
-More information is available about the Intelligence Services covering:
-
-* A general overview in [Intelligence Services architecture]({% link intelligence-services/latest/admin/index.md %})
-* How to [use Intelligence Services]({% link intelligence-services/latest/using/index.md %})
-* How to [install Intelligence Services]({% link intelligence-services/latest/install/index.md %})
-* How to [configure Intelligence Services]({% link intelligence-services/latest/config/index.md %})
-* How to [administer Intelligence Services]({% link intelligence-services/latest/admin/index.md %})
+See [Intelligence Services architecture]({% link intelligence-services/latest/admin/index.md %}) for a general overview.

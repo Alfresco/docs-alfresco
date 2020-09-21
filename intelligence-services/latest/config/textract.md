@@ -102,7 +102,7 @@ Here's an example of the metadata extracted from a form that shows both options 
 
 There's an out-of-box `AI Text Lines` aspect (with a `d:text` property type) that an end-user can optionally use when configuring a rule. This enables a non-custom way to extract the Textract "raw text", so that OCR'd text (above the minimum confidence for lines) can be viewed as metadata, as well as being indexed and searchable.
 
-Out-of-the-box, the raw text lines are stored in a multi-valued text property (which appear comma-separated in ADW).
+Out-of-the-box, the raw text lines are stored in a multi-valued text property (which appear comma-separated in Alfresco Digital Workspace).
 
 The `ai-content-model.xml` contains an aspect for the raw text. This is included by default in the Intelligence Services AMP:
 
@@ -154,7 +154,7 @@ These files are described in more detail in the remainder of this page.
 
 Use this information to configure the repository files needed for a custom Textract model.
 
-The following files must be mounted in the Alfresco repository Docker container.
+The following files must be mounted in the repository Docker container.
 
 ### Custom AI content model context
 
@@ -298,11 +298,11 @@ In the above JSON snippet:
 
 ## Step 4: Configure Share and Digital Workspace
 
-Use this information to configure the files needed by Alfresco Share and Alfresco Digital Workspace for a custom Textract model.
+Use this information to configure the files needed by Share and Digital Workspace for a custom Textract model.
 
 ### Share
 
-The following files must be mounted in the Alfresco Share Docker container.
+The following files must be mounted in the Share Docker container.
 
 #### 1. Custom AI labels
 
