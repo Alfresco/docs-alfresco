@@ -76,7 +76,7 @@ integrations:
         url: /saml-sso/latest/
   - title: "Intelligence"
     text: "Add AI capabilities to Alfresco Content Services using a number of Amazon AI Services (Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine."
-    url:
+    url: /intelligence-services/latest/
     image: /assets/img/ic_intelligence_80px.svg
   - title: "Content Stores"
     text: "Content stores can be used to control how and where files are physically stored. Files and content items can be stored across a range of locations and can be encrypted/decrypted. Additional content storage options can be wired up together for efficient storage and access."
