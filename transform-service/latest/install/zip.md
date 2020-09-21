@@ -24,7 +24,7 @@ The Transform Service distribution zip file includes all the files required to p
     bin/activemq start
     ```
 
-    For more information on installing and configuring ActiveMQ, see [Configuring ActiveMQ](LINK)).
+    For more information on installing and configuring ActiveMQ, see [Configuring ActiveMQ](LINK).
 
     Check the output to ensure that it starts successfully.
 
@@ -121,6 +121,7 @@ The Transform Service distribution zip file includes all the files required to p
     4.Navigate to Digital Workspace or Share, and upload a file (such as a `.jpg`, `.png`, `.docx` etc.).
 
 * Check the logs to see the metadata and work performed for the uploaded file. These should be available in the Spring Boot apps:
-          * `alfresco-transform-router`
-          * `alfresco-transform-core-aio`
-          * Files should also be available in the specified path for the `alfresco-shared-file-store`. However, these files will only temporarily appear in the Shared File Store until explicitly deleted by the repository and/or expired and cleaned up.
+    * `alfresco-transform-router`
+    * `alfresco-transform-core-aio`
+
+Files should also be available in the specified path for the `alfresco-shared-file-store`. However, these files will only temporarily appear in the Shared File Store until explicitly deleted by the repository and/or expired and cleaned up.

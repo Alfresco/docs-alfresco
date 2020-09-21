@@ -1,5 +1,5 @@
 ---
-title: Install Helm Charts on AWS
+title: Install with Helm Charts on AWS
 ---
 Use this information to deploy Alfresco Content Services (including the Transform Service) using Helm charts by running a Kubernetes cluster on Amazon Web Services (AWS). These charts are a deployment template which can be used as the basis for your specific deployment needs.
 

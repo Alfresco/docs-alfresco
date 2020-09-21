@@ -80,4 +80,4 @@ Follow the linked pages in the Alfresco Content Services documentation, starting
 * LibreOffice: see [Installing LibreOffice](LINK)
 * alfresco-pdf-renderer: see [Installing alfresco-pdf renderer](LINK)
 
-See See [Install with Zip]({% link transform-service/latest/install/zip.md %})for more.
+See [Install with Zip]({% link transform-service/latest/install/zip.md %})for more.

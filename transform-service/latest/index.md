@@ -13,6 +13,7 @@ The key capabilities of the Transform Service include the ability to:
 * Develop custom (i.e. out of process) transformers to enable the migration of any existing transform customizations.
 
 > **Important:** The Transform Service is deployed as part of the Alfresco Content Services deployment for containerized deployments only. See [What's deployed in Alfresco Content Services](link) for the list of components.
+
 > **Important:** If you're installing Alfresco Content Services using the distribution zip, you can install the Transform Service using an additional distribution zip.
 
 For information about deploying and configuring the Transform Service, see [Install Transform Service]({% link transform-service/latest/install/index.md %}).
