@@ -86,13 +86,13 @@ If you're planning to use custom recognizers, custom classifiers, or custom meta
 
         ![Add configured custom AI aspects]({% link intelligence-services/images/cust-aspects.png %})
 
-        See [Custom AI content model]({% link intelligence-services/latest/config/comprehend.md %}#2-custom-ai-content-model) for configured aspects.
+        See [Custom AI content model]({% link intelligence-services/latest/config/comprehend.md %}#custom-ai-content-model) for configured aspects.
 
     2. Request custom AI renditions, for example:
 
         ![Request configured custom AI renditions]({% link intelligence-services/images/cust-renditions.png %})
 
-        See [Custom AI rendition definitions]({% link intelligence-services/latest/config/comprehend.md %}#3-custom-ai-rendition-definitions) for configured renditions.
+        See [Custom AI rendition definitions]({% link intelligence-services/latest/config/comprehend.md %}#custom-ai-rendition-definitions) for configured renditions.
 
     3. For custom metadata extraction (using Textract), request a rendition and add a custom AI aspects. For example:
 
@@ -101,9 +101,9 @@ If you're planning to use custom recognizers, custom classifiers, or custom meta
         * Add aspect: `Applicant Info`
         * Add aspect: `w9form`
 
-        See [Custom AI content model (Textract)]({% link intelligence-services/latest/config/textract.md %}#2-custom-ai-content-model) for configured aspects.
+        See [Custom AI content model (Textract)]({% link intelligence-services/latest/config/textract.md %}#custom-ai-content-model) for configured aspects.
 
-    > **Note:** The new input field for the `Request AI renditions` action adds the ability to request custom renditions as comma separated rendition names. When left blank, the three default renditions will be requested - (i.e. `aiFeatures`, `aiLabels`, and `aiTextract`). This allows you to configure a rule using various combinations, such as:
+    > **Note:** The new input field for the `Request AI renditions` action adds the ability to request custom renditions as comma separated rendition names. When left blank, the three default renditions are requested - (i.e. `aiFeatures`, `aiLabels`, and `aiTextract`). This allows you to configure a rule using various combinations, such as:
 
     ```bash
     aiFeatures, aiBusinessCustom, aiBusinessSport
@@ -113,13 +113,13 @@ If you're planning to use custom recognizers, custom classifiers, or custom meta
 
 You can view the Intelligence Services properties in Alfresco Digital Workspace.
 
-In this example, we'll show you how to view these properties in Digital Workspace.
+This example shows you how to view these properties in Digital Workspace.
 
 1. Launch Alfresco Digital Workspace.
 
 2. Locate the demo folder or subfolder, if the folder rule also applies to subfolders, as created in [Set up a folder rule]({% link intelligence-services/latest/using/index.md %}#set-up-a-folder-rule).
 
-3. Select a file that you uploaded, and click on the information icon.
+3. Select a file that you uploaded, and click the information icon.
 
     The Info Drawer shows the AI properties that were extracted by the AI Engine, and saved as AI Data. These are populated by the aspects defined when you created the folder rule in Share.
 

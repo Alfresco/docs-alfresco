@@ -217,7 +217,7 @@ The rendition configuration for entity recognition and classification is slightl
   * `application/vnd.alfresco.ai.features.v1+json` for entity recognizers
   * `application/vnd.alfresco.ai.classifiers.v1+json` for classifiers
 * `maxResults` - the maximum number of results (entities/categories) that should be used in Alfresco Content Services. It makes sense to use a large value when searching for entities in a document, and a very small value when trying to identify a category for an entire document
-* `minConfidence` - the minimum confidence for a result (from 0 to 1). A lower value can be used when the maximum number of values is small (i.e. for classification).
+* `minConfidence` - the minimum confidence for a result (between 0 and 1). A lower value can be used when the maximum number of values is small (i.e. for classification).
 
 ### Custom AI property mapping
 
@@ -493,7 +493,7 @@ Content:
 ]
 ```
 
-The above snippet adds the aspects in the earlier [Custom AI content model configuration]({% link intelligence-services/latest/config/comprehend.md %}#2-custom-ai-content-model) to the existing `"ai.metadata.features"` list of items in the `app.extensions.json` file.
+The above snippet adds the aspects in the earlier [Custom AI content model configuration]({% link intelligence-services/latest/config/comprehend.md %}#custom-ai-content-model) to the existing `"ai.metadata.features"` list of items in the `app.extensions.json` file.
 
 The JSON path for the new items is `$.features.content-metadata-presets[:].custom[:].items`.
 

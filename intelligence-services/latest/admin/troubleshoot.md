@@ -122,7 +122,7 @@ The following file types can be passed and processed by AWS services.
 * doc is converted to txt (by the Alfresco Transform Engines), and then sent to Comprehend.
 * doc is also converted to pdf and then sent to Textract.
 
-You'll find a summary of the Transform Router configuration properties in `ai-pipeline-routes.json`, in the Intelligence Services distribution zip file.
+You'll find a summary of the Transform Router configuration properties in `ai-pipeline-routes.json`, which is included in the Intelligence Services distribution zip file.
 
 ### I'm getting a lot of inaccurate metadata, what can I do?
 
@@ -146,9 +146,9 @@ The data model is in a private GitHub project. Alfresco customers can request ac
 
 ### I might be having AWS credential errors, what can I check?
 
-Check your AWS setup and configuration. This will also appear in AI Transform Engine service log.
+Check your AWS setup and configuration. This also appears in AI Transform Engine service log.
 
-> **Note:** For security reasons, the AWS credentials in the logs will be masked (i.e. only a few characters will appear - similar to the AWS CLI).
+> **Note:** For security reasons, the AWS credentials in the logs are masked (i.e. only a few characters appear - similar to the AWS CLI).
 
 ### After starting Intelligence Services, and trying to request AI renditions, what AWS connection errors / exceptions might I see in the AI Transform Engine logs?
 
@@ -188,7 +188,7 @@ We recommend the following setup:
 * Create an S3 bucket in the same region as the Amazon AI services.
 * For Comprehend, you also need to enable Comprehend to have write access to your S3 bucket for returning the results. This can be done by setting up an IAM role.
 
-See [Configure AWS Identity and Access Management]({% link intelligence-services/latest/install/setup.md %})# and [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %}) for more details.
+See [Configure AWS Identity and Access Management]({% link intelligence-services/latest/install/setup.md %}) and [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %}) for more details.
 
 ### When is Amazon Elastic File System (EFS) used?
 
@@ -212,15 +212,15 @@ The performance of this module is mostly dependent on the limitations around pro
 
 ### What happens if I leave the 'Request AI renditions' input text field empty?
 
-The default renditions will be requested (i.e. `aiFeatures`, `aiLabels`, and `aiTextract`).
+The default renditions are requested (i.e. `aiFeatures`, `aiLabels`, and `aiTextract`).
 
 ### What happens if I specify only one default AI rendition?
 
-If you specify only one default AI rendition, such as `aiFeatures`, the other two options (`aiLabels` and `aiTextract`) will be ignored. This may be really useful for saving costs if other renditions are not required.
+If you specify only one default AI rendition, such as `aiFeatures`, the other two options (`aiLabels` and `aiTextract`) are ignored. This may be really useful for saving costs if other renditions aren't required.
 
 ### Do I need to pay for the Amazon Textract service in my AWS account?
 
-In previous versions of Intelligence Services, you can configure a folder rule to request AI renditions. This means that you'd have to pay for any files that are analyzed by Textract, Rekognition and/or Comprehend (depending on the media types and default routes).
+In previous versions of Intelligence Services, you could configure a folder rule to request AI renditions. This means that you'd have to pay for any files that are analyzed by Textract, Rekognition and/or Comprehend (depending on the media types and default routes).
 
 Intelligence Services 1.2 allows you to explicitly configure the folder rule to request a specific AI rendition (or set of AI renditions). This means that you don't have to use Textract. Note that if you don't specify a rendition, Intelligence Services defaults back to the version 1.0 behavior.
 

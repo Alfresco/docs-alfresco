@@ -124,7 +124,7 @@ Use this information to set up Amazon AI services (Amazon Comprehend, Amazon Rek
 
 ### Roles and permissions
 
-Review the permission requirements for each Amazon AI Service that you wish to use.
+Review the permission requirements for each Amazon AI Service that you intend to use.
 
 {% capture comprehend %}
 

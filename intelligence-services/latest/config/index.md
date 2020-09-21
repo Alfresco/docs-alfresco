@@ -36,11 +36,11 @@ There are several options to configuring Intelligence Services.
 
 There are four steps to configuring the default (i.e. out-of-the-box) deployment of Intelligence Services: export your environment variables, add the AI Transform Engine to your deployment, override the Transform Router configuration, and override the Digital Workspace configuration.
 
-Ensure that you've completed the [AWS setup]({% link intelligence-services/latest/install/setup.md %}) before continuing.
+> **Note:** Ensure that you've completed the [AWS setup]({% link intelligence-services/latest/install/setup.md %}) before continuing.
 
 A number of environment variables allow you to specify the configuration options and credentials that are required to run the AI Transform Engine.
 
-1. To configure these variables, you'll need to export your AWS credentials and other settings.
+1. To configure these variables, you need to export your AWS credentials and other settings.
 
     For example:
 
@@ -52,7 +52,7 @@ A number of environment variables allow you to specify the configuration options
     export AWS_COMPREHEND_ROLE_ARN="arn:aws:iam::XXXXXXXXXXXX:role/ComprehendAsyncJobs"
     ```
 
-    **Adding the AI Transform Engine to an existing deployment**
+    **Add the AI Transform Engine to an existing deployment**
 
 2. To include the AI Transform Engine in your existing deployment, add the following configuration.
 
@@ -76,7 +76,7 @@ A number of environment variables allow you to specify the configuration options
             - 8094:8090
     ```
 
-    **Overriding the Transform Router**
+    **Override the Transform Router**
 
 3. Add the following configuration to override the Transform Router in your deployment.
 
@@ -106,7 +106,7 @@ A number of environment variables allow you to specify the configuration options
 
     > **Note:** The transform routes listed in `ai-pipeline-routes.json` define the supported transformations for all Transform Engines. This file is included in the Intelligence Services distribution zip.
 
-    **Overriding the Digital Workspace configuration**
+    **Override the Digital Workspace configuration**
 
 4. Add the following configuration to override the settings for Digital Workspace in your deployment.
 

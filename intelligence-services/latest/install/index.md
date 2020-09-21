@@ -1,5 +1,5 @@
 ---
-title: Installation overview
+title: Install Intelligence Services
 ---
 
 The AI capability in Alfresco Intelligence Services is delivered as a distribution zip and Docker image. The zip contains the AIS extensions as repository and Share AMP files, and a number of configuration files. The Docker image provides an AI T-Engine for connecting with Amazon AI Services.
@@ -11,8 +11,6 @@ In this section you'll install and set up everything you need to run Intelligenc
 * [Install Intelligence Services]({% link intelligence-services/latest/install/zip.md %})
 
 ## Prerequisites
-
-### Alfresco requirements
 
 * Make sure that you've tested your deployment with non-AI transforms and everything is working
 * See [Supported Platforms]({% link intelligence-services/latest/support/index.md %}) for more
@@ -27,10 +25,10 @@ In this section you'll install and set up everything you need to run Intelligenc
 
 ### AWS related requirements
 
-To use Alfresco Intelligence Services, you'll need:
+To use Alfresco Intelligence Services, you need:
 
 * An AWS account so that you can configure the Amazon AI services
-* Follow the guides in [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %})
+* Follow the guidelines in [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %})
 
 ### Limitations
 

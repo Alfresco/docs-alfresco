@@ -57,7 +57,7 @@ alfresco/alfresco-ai-docker-engine
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Intelligence Services, so that you can use the additional `alfresco-ai-docker-engine-1.2.x Docker` image.
+> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Intelligence Services, so that you can use the additional `alfresco-ai-docker-engine-1.2.x` Docker image.
 
 See [Install Intelligence Services]({% link intelligence-services/latest/install/index.md %}) and [Configure Intelligence Services]({% link intelligence-services/latest/config/index.md %}) for more.
 
@@ -98,7 +98,7 @@ See the AWS site for more details: [Guidelines and Quotas](https://docs.aws.amaz
 
 You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
 
-There is a setting for the level of confidence that Amazon Comprehend has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
+There's a setting for the level of confidence that Amazon Comprehend has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
 
 See [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %}) for more.
 
@@ -134,7 +134,7 @@ See the AWS site for more details: [Limits in Amazon Rekognition](https://docs.a
 
 You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
 
-There is a setting for the level of confidence that Amazon Rekognition has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
+There's a setting for the level of confidence that Amazon Rekognition has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
 
 See [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %}) for more.
 
@@ -170,6 +170,6 @@ See the AWS site for more details on service limits: [Limits in Amazon Textract]
 
 You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
 
-There is a setting for the level of confidence that Amazon Textract has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
+There's a setting for the level of confidence that Amazon Textract has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
 
 See [Set up services in AWS]({% link intelligence-services/latest/install/setup.md %}) for more.
