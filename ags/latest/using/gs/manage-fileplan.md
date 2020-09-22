@@ -2,13 +2,13 @@
 title: Managing the File Plan
 ---
 
-The record categories, record folders, and records in the File Plan structure each have an appropriate set of actions. You can access the actions by hovering over an item in the File Plan or by clicking on an item name. Use these actions to manage the File Plan.
+The record {% include tooltip.html word="category" text="categories" %}, record folders, and records in the File Plan structure each have an appropriate set of actions. You can access the actions by hovering over an item in the File Plan or by clicking on an item name. Use these actions to manage the File Plan.
 
 >**Note:** The standard Alfresco **Copy to**, **Move to** and renaming options are available for record categories, record folders, and records. See [Keeping your library organized](TODO_LINK:http://docs.alfresco.com/5.2/concepts/library-organize.html) for further details.
 
 ## Managing record categories
 
-There are various options available to help you manage record categories. These are available to users with the appropriate capabilities.
+There are various options available to help you manage record categories. These are available to users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %}.
 
 In the File Plan hover over a record category to display the available actions:
 
@@ -25,7 +25,7 @@ In the File Plan hover over a record category to display the available actions:
 
 ### Viewing record category details
 
-The record category details page gives you access to the actions available to be performed on the category, the custom metadata, the retention schedule, and the category URL.
+The record category details page gives you access to the actions available to be performed on the category, the custom metadata, the {% include tooltip.html word="retentionschedule" text="retention schedule" %}, and the category URL.
 
 1. Hover over a record category in the File Plan and click **View Details**.
 
@@ -65,7 +65,7 @@ When you don't need a record category any more you can delete it.
 
 ## Managing record folders
 
-There are various options available to help you manage record folders. These are available to users with the appropriate capabilities.
+There are various options available to help you manage record folders. These are available to users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %}.
 
 In the File Plan hover over a record folder to display the available actions. The standard actions available are shown. Additional options are available dependant on the stage a folder is at in the retention schedule. See the relevant topics for further details.
 
@@ -73,10 +73,10 @@ In the File Plan hover over a record folder to display the available actions. Th
 |------|-----------------|
 |View Details|View the record folder details page, where you can see the metadata and a full list of actions.|
 |Edit Metadata|Edit the record folder metadata.|
-|Close Folder|Close the folder. A closed record folder cannot accept records for filing. When you close the folder, this action toggles to the **Re-open Folder** action.|
-|Edit Retention Date|If a folder is subject to a folder level retention schedule, you can review the retention date for the next step in the retention schedule that applies to the folder.|
+|Close Folder|Close the folder. A {% include tooltip.html word="recordfolderclosed" text="closed" %} record folder cannot accept records for filing. When you close the folder, this action toggles to the **Re-open Folder** action.|
+|Edit Retention Date|If a folder is subject to a folder level {% include tooltip.html word="retentionschedule" text="retention schedule" %}, you can review the retention date for the next step in the retention schedule that applies to the folder.|
 |Review All|Mark all vital records in a folder as having been reviewed.|
-|Add to Hold|Hold the folder. You can view on hold folders in the **Holds** area on the explorer panel. When you hold the folder, this action toggles to the **Remove from Hold** action.|
+|Add to Hold|Hold the folder. You can view on {% include tooltip.html word="fileplan" text="File Plan" %} folders in the **Holds** area on the explorer panel. When you hold the folder, this action toggles to the **Remove from Hold** action.|
 |Copy to|Create a copy of the folder in another location in the File Plan.|
 |Move to|Move the folder to another location in the File Plan.|
 |Manage Permissions|Set the user and group access for the folder.|
@@ -142,7 +142,7 @@ If a folder is subject to a folder level retention schedule, you can review the 
 
 ### Adding record folders to a hold
 
-Users with the appropriate capabilities can add record folders to a hold.
+Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can add record folders to a hold.
 
 A hold allows objects on hold for a particular reason to be tracked as a set. Holds prevent changes to on hold objects, which have their retention schedules suspended until the hold is removed.
 
@@ -167,7 +167,7 @@ The folder remains in its' place in the File Plan. It is also shown in the **Hol
 
 ### Closing a record folder
 
-Users with the appropriate capability (Folder Control) can close folders. Closed folders cannot accept any further records.
+Users with the appropriate capability (Folder Control) can close folders. {% include tooltip.html word="recordfolderclosed" text="Closed" %} folders cannot accept any further records.
 
 1. Hover over a record folder in the File Plan and click **Close Folder**.
 
@@ -191,10 +191,10 @@ When you don't need a record folder any more you can delete it.
 
 ## Managing records
 
-There are various options available to help you manage record. These are available to users with the appropriate capabilities.
+There are various options available to help you manage record. These are available to users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %}.
 
 In the File Plan hover over a record to display the available actions. The standard actions available are shown. 
-Additional options are available dependant on the stage a record is at in the retention schedule. 
+Additional options are available dependant on the stage a record is at in the {% include tooltip.html word="retentionschedule" text="retention schedule" %}. 
 See the relevant topics for further details.
 
 |Action|Select this to...|
@@ -204,7 +204,7 @@ See the relevant topics for further details.
 |Complete Record|Declare the file as a record. All required metadata fields must be complete. When you declare the file as a record, this action toggles to the **Reopen Record** action.|
 |Reviewed|Marks a vital record as reviewed.|
 |Reopen Record|Revert the item back to an incomplete record.|
-|Add Record Metadata|Associate an undeclared record with one or more record types. This option is only available in DoD 5015.2-STD compliant Records Management sites.|
+|Add Record Metadata|Associate an undeclared record with one or more record types. This option is only available in {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites.|
 |Add to Hold|Hold the record. You can view on hold records in the **Holds** area on the explorer panel. When you hold the record, this action toggles to the **Remove from Hold** action.|
 |Copy to|Create a copy of the record in another location in the File Plan.|
 |Move to|Move the record to another location in the File Plan.|
@@ -299,11 +299,11 @@ Users with Records Manager permissions receive a notification email when vital r
 
 ### Managing unfiled records
 
-All records filed from a non-Records Management site are added to the Unfiled Records area by default.
+All records filed from a non-Records Management site are added to the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} area by default.
 
 >**Tip:** Access the Unfiled Records area using the explorer panel to the left of the File Plan.
 
-Unfiled records can have been declared as records from a non-Records Management site, from within the Unfiled Records area, or could be reports generated from within the File Plan. [Filing an unfiled record]({% link ags/latest/using/gs/file-records.md %}#filing-an-unfiled-record) describes how records in the Unfiled Records area are processed.
+Unfiled records can have been {% include tooltip.html word="declareasrecord" text="declared" %} as records from a non-Records Management site, from within the Unfiled Records area, or could be reports generated from within the File Plan. [Filing an unfiled record]({% link ags/latest/using/gs/file-records.md %}#filing-an-unfiled-record) describes how records in the Unfiled Records area are processed.
 
 You don't have to use this area as a flat structure, you can configure it to your own requirements.
 
@@ -315,7 +315,7 @@ There are also many of the usual options available, including the options to cop
 
 ### Completing record events
 
-If a retention schedule has event-based steps, then you need to complete those events before the schedule can move on to the next step. Some steps are automatically completed but most of them you need to complete manually.
+If a {% include tooltip.html word="retentionschedule" text="retention schedule" %} has event-based steps, then you need to complete those events before the schedule can move on to the next step. Some steps are automatically completed but most of them you need to complete manually.
 
 1. Click the title of a record in the File Plan.
 
@@ -359,7 +359,7 @@ If a record is subject to a record level retention schedule, you can review the 
 
 ### Adding records and record folders from the File Plan to a hold
 
-Users with the appropriate capabilities can add records, and record folders to a hold to freeze them. Holds prevent changes to on hold items, which have their retention schedules suspended until the hold is removed.
+Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can add records, and record folders to a hold to freeze them. Holds prevent changes to on hold items, which have their retention schedules suspended until the hold is removed.
 
 >**Note:** Smart folders can't be added to a hold. Adding system files to a hold is also not supported and could create errors, this includes data dictionary files.
 
@@ -388,7 +388,7 @@ The record remains in its place in the File Plan. It is also shown in the **Hold
 
 ### Adding content from the Document Library to a hold
 
-Users with the appropriate capabilities can add content to a hold to freeze them. Holds prevent changes to on hold items.
+Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can add content to a hold to freeze them. Holds prevent changes to on hold items.
 
 >**Note:** Adding system files to a hold is not supported and could create errors, this includes data dictionary files.
 
@@ -459,7 +459,7 @@ Users with the appropriate capabilities can create multiple holds that are then 
 
 ### Creating holds
 
-Users with the appropriate capabilities can create multiple holds that are then used when records are put on hold.
+Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can create multiple holds that are then used when records are put on hold.
 
 >**Tip:** You can only put records on hold if holds have been created to add them to.
 

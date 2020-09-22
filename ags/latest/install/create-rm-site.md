@@ -16,10 +16,10 @@ After you've installed the Records Management AMP files, you're ready to go ahea
 
     >**Note:** The site visibility can't be changed as only public sites are available for Records Management. You can only create one records management site.
 
-4. Select a Compliance option to define which compliance model to use for your file plan. This selection defines the metadata available for records in the file plan.
+4. Select a Compliance option to define which compliance model to use for your {% include tooltip.html word="fileplan" text="File Plan" %}. This selection defines the metadata available for records in the file plan.
 
     * **Standard** - The standard set of record metadata is available.
-    * **DoD 5015.2-STD** - Record metadata required for DoD 5015.2-STD is available. Mandatory metadata includes the originator, the originating organization, the publication date, the destroy action.
+    * **DoD 5015.2-STD** - Record metadata required for {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} is available. Mandatory metadata includes the originator, the originating organization, the {% include tooltip.html word="fileplan" text="File Plan" %}, the destroy action.
     
     >**Note:** If you select **Standard** then users can still customize the metadata available on individual records.
 

@@ -2,7 +2,7 @@
 title: The File Plan
 ---
 
-The File Plan is a container for records, folders, categories and retention schedules. It's effectively a virtual filing cabinet 
+The File Plan is a container for records, folders, {% include tooltip.html word="category" text="categories" %} and retention schedules. It's effectively a virtual filing cabinet 
 for storing records, and is the basic structure of Records Management. This structure lets you classify and group records with similar 
 characteristics.
 
@@ -26,7 +26,7 @@ The structure of the File Plan will generally reflect different parts of your or
 
 * **Record folder**
 
-    A record folder is created in a record category, and inherits the attributes of the record category. The record folder is considered to be under the control of the record category. Once the record folder is created, security restrictions apply. A record folder can be open or closed, and a closed record folder cannot accept records for filing.
+    A record folder is created in a record category, and inherits the attributes of the record category. The record folder is considered to be under the control of the record category. Once the record folder is created, security restrictions apply. A record folder can be open or {% include tooltip.html word="recordfolderclosed" text="closed" %}, and a closed record folder cannot accept records for filing.
 
 * **Record**
 
@@ -80,7 +80,7 @@ Use the sort menu to change the criteria used to sort the File Plan contents. Yo
 
 ## Building the File Plan
 
-The File Plan is built up by adding levels made up of categories and folders.
+The File Plan is built up by adding levels made up of {% include tooltip.html word="category" text="categories" %} and folders.
 
 Only a few users have the capability to add folders and categories, and this is tightly controlled to make sure that your system remains compliant. Capabilities are assigned to user roles in the RM Admin Tools. You might be assigned the capability to create folders but not categories, or just have the capability to add records.
 

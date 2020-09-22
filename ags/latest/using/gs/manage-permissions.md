@@ -3,11 +3,11 @@ title: Managing permissions
 ---
 
 To ensure the security of your Records Management system you can easily manage user permissions to control which 
-users and groups can see and work in different sections of the File Plan.
+users and groups can see and work in different sections of the {% include tooltip.html word="fileplan" text="File Plan" %}.
 
 In Alfresco Records Management there are 2 different methods for managing what users can and can't do:
 
-* Roles and capabilities are managed by the Alfresco administrator, and control the actions users have within the 
+* Roles and {% include tooltip.html word="capabilities" text="capabilities" %} are managed by the Alfresco administrator, and control the actions users have within the 
 File Plan, such as the ability to create record categories or record folders.
 * User permissions are managed at folder and category level, and control whether users can read and file or just read.
 

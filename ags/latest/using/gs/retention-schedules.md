@@ -3,10 +3,10 @@ title: Retension schedule
 ---
 
 Retention schedules define how records are managed in the Records Management system until their eventual destruction 
-or transfer to another location. The period between a record being completed and becoming part of the File Plan, 
+or transfer to another location. The period between a record being completed and becoming part of the {% include tooltip.html word="fileplan" text="File Plan" %}, 
 and being destroyed/transferred is known as its retention period.
 
-A retention schedule is attached to a record category, and once a file has been completed as a record it's subject to 
+A retention schedule is attached to a record {% include tooltip.html word="category" text="category" %}, and once a file has been completed as a record it's subject to 
 the rules of the retention schedule that's attached to the category it's in.
 
 A retention schedule contains one or more steps that define a particular action to be carried out. 

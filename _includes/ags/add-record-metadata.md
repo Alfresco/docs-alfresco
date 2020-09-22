@@ -1,15 +1,15 @@
-All records in the File Plan have metadata, which you can think of as records properties.
+All records in the {% include tooltip.html word="fileplan" text="File Plan" %} have metadata, which you can think of as records properties.
 
 If you associate the record with a specific type by selecting the **Add Record Metadata** option then additional metadata 
-options are required for the record. You need to complete all the required metadata before you can set a record to complete.
+options are required for the record. You need to complete all the required metadata before you can set a record to {% include tooltip.html word="recordcompleted" text="complete" %}.
 
-The **Add Record Metadata** option is only available in DoD 5015.2-STD compliant Records Management sites.
+The **Add Record Metadata** option is only available in {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites.
 
 >**Note:** Adding record metadata isn't mandatory, but can be useful to allow additional metadata to be added against a file.
 
 1. Hover over an incomplete record in the File Plan and click **More** then **Add Record Metadata**.
 
-    >**Tip:** For non-electronic records the **Add Record Metadata** is available as soon as you hover over them, you don't need to click **More**.
+    >**Tip:** For non-{% include tooltip.html word="electronicrecord" text="electronic records" %} the **Add Record Metadata** is available as soon as you hover over them, you don't need to click **More**.
 
     The available record types are displayed.
 

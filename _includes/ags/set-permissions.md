@@ -1,4 +1,4 @@
-Setting user permissions on folders and categories lets you control who can see and work in different areas of the File Plan.
+Setting user permissions on folders and {% include tooltip.html word="category" text="categories" %} lets you control who can see and work in different areas of the {% include tooltip.html word="fileplan" text="File Plan" %}.
 
 >**Tip:** Remember that until you have given users permission for a folder or category they won't be able to see it or work with its contents.
 

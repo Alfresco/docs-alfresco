@@ -2,7 +2,7 @@
 title: Security Marks and Classification
 ---
 
-You can add security controls to files, records, folders, and categories so that only users with the required security 
+You can add security controls to files, records, folders, and {% include tooltip.html word="category" text="categories" %} so that only users with the required security 
 level can view or access them.
 
 >**Note:** When you install **Enterprise** the Security Controls features are installed at the same time.
@@ -19,7 +19,7 @@ You can set up classification guides so that users can auto-classify content.
 
 When an item is classified it can only be seen by those with the required security clearance, and the security classification 
 level is shown on screen. Users without the necessary security clearance won't have access to it or even know that it's there.
- When a classified file is declared as a record it retains its classification level and security marks.
+ When a classified file is {% include tooltip.html word="declareasrecord" text="declared" %} as a record it retains its classification level and security marks.
 
 User security clearance is set for a user (or user group) by assigning security marks to them.
 
@@ -68,7 +68,7 @@ with a few important differences.
 In both cases you can apply security marks to both records, folders, and categories in a Records Management site, 
 and files and folders in a standard Alfresco site. These same marks are applied to users to set their security clearance levels.
 
-When you classify a file or record using their **Classify** option, the Classify Content screen is split into two sections. 
+When you {% include tooltip.html word="classify" text="classify" %} a file or record using their **Classify** option, the Classify Content screen is split into two sections. 
 The top part is for setting classification and the bottom part for applying additional security marks. 
 You can apply both classification and additional security marks to files (or records) at the same time.
 
@@ -98,7 +98,7 @@ Security clearance levels are enforced for files and records that have been clas
 if a record has been classified as Top Secret, then:
 
 * User 1 (Top Secret clearance) - can see and work with the record
-* User 2 (Confidential clearance) - doesn't see the record in the File Plan
+* User 2 (Confidential clearance) - doesn't see the record in the {% include tooltip.html word="fileplan" text="File Plan" %}
 
 User 1 would see the following, whereas User 2 would only see the Unclassified file that has no classification label:
 
@@ -161,7 +161,7 @@ You'll usually have a number of common classification requirements for different
 For example, all staff records may require the same security levels to access them.
 
 Instead of setting these individually, you can [create classification guides](#creating-classification-guides) to use as 
-templates for classifying content quickly and accurately.
+templates for {% include tooltip.html word="classify" text="classifying" %} content quickly and accurately.
 
 You can create as many classification guides as you want and make them as complex or as simple as you need.
 
@@ -299,7 +299,7 @@ records within their clearance level.
 
 ## Creating classification guides
 
-Classification guides can be used to quickly classify content with a preset collection of security controls.
+Classification guides can be used to quickly {% include tooltip.html word="classify" text="classify" %} content with a preset collection of security controls.
 
 You can create an unlimited number of guides, and each one can contain one or more topics. 
 Topics can then contain either subtopics or instructions.
@@ -318,7 +318,7 @@ Find out more in [How classification guides work](#how-classification-guides-wor
 
 4. Enter an Originating Organization, for example, government or other body.
 
-5. Enter a guide publication date. This is the date when the guide should be made available.
+5. Enter a guide {% include tooltip.html word="publicationdate" text="publication date" %}. This is the date when the guide should be made available.
 
 6. Select whether to make the guide available for classifying content.
 
@@ -353,7 +353,7 @@ Find out more in [How classification guides work](#how-classification-guides-wor
 
 ## Classifying records, record folders, and record categories {#classifyrecordsfolderscategories}
 
-You can classify records, record folders, and record categories and apply security marks so that they can only be 
+You can {% include tooltip.html word="classify" text="classify" %} records, record folders, and record {% include tooltip.html word="category" text="categories" %} and apply security marks so that they can only be 
 viewed or accessed by users who have the required security clearance.
 
 There are four security classification levels that you can assign. Security groups provide additional classification options.
@@ -394,7 +394,7 @@ You can autoclassify by adding instructions, manually apply classifications and 
 
 10. Enter the name of the organization that produced the document.
 
-11. Enter the publication date of the document.
+11. Enter the {% include tooltip.html word="publicationdate" text="publication date" %} of the document.
 
 12. **To manually add classifications and security marks:**
 
@@ -531,7 +531,7 @@ when declassifying items in Governance Services.
 You can edit classification details and change the assigned security marks, as well as reclassifying content to downgrade, 
 upgrade, and declassify it.
 
-When a file, record, folder, or category is originally classified, a downgrade or declassification schedule can be set up. 
+When a file, record, folder, or {% include tooltip.html word="category" text="category" %} is originally classified, a downgrade or declassification schedule can be set up. 
 It's recommended that you follow this schedule when reclassifying.
 
 You also can't reclassify a content higher than your own security level. So if your security clearance is Confidential, 

@@ -2,7 +2,7 @@
 title: Searching records
 ---
 
-You can use the Records Search to quickly search the File Plan to find records, and save your search query to use again.
+You can use the Records Search to quickly search the {% include tooltip.html word="fileplan" text="File Plan" %} to find records, and save your search query to use again.
 
 You can either do a basic search, just searching for a term as you would in a search engine, or you can use the 
 advanced search functionality. There's lots of options available for you to set really specific searches that you 
@@ -21,7 +21,7 @@ You can search records to find those that you're looking for, and save searches 
 
 ## Creating a search
 
-You can search all the contents of your Records Management site. You can narrow the results of your search by specifying relevant metadata fields and container types (category, folder, record). Once you create a search, you can save it to use again.
+You can search all the contents of your Records Management site. You can narrow the results of your search by specifying relevant metadata fields and container types ({% include tooltip.html word="category" text="category" %}, folder, record). Once you create a search, you can save it to use again.
 
 See [Advanced search options](#advanced-search-options) for how to get the most out of the search facility.
 
@@ -84,7 +84,7 @@ If you select to **Search by** for a search, then the following fields are avail
 |Author|`author`|The name of the document author(s).|
 |Originator|`originator`|The person or department in the Originating Organization.|
 |Date Filed|`dateFiled`|The date that the record was filed.|
-|Publication Date|`publicationDate`|The date that the record is published. Select the date from the calendar selection box.|
+Publication Date|`publicationDate`|The date that the record is published. Select the date from the calendar selection box.|
 |Review Date|`reviewDate`|The date that this record is due for review.|
 |Originating Organization|`originatingOrganization`|This is who created the document/record in the first place. Often this will be the organization running the software, but in some cases might be an external organization.|
 |Media Type|`mediaType`|The type of the media.|
@@ -99,7 +99,7 @@ If you select to **Search by** for a search, then the following fields are avail
 |Retention Action As of Date|`dispositionActionAsOf`|The date that the retention action occurred.|
 |Retention Events Eligible|`dispositionEventsEligible`|Specifies whether this record has any eligible events. The values can be true or false.|
 |Retention Period|`dispositionPeriod`|The period of time to which the retention action is set. The values can be day, fymonthend, fyquarterend, fyyearend, monthend, quarterend, yearend, immediately, month, none, notset, quarter, week, or year.|
-|Has Retention Schedule|`dispositionSchedule`|Specifies whether this record is under a retention schedule. The value can be true or false.|
+|Has Retention Schedule|`dispositionSchedule`|Specifies whether this record is under a {% include tooltip.html word="retentionschedule" text="retention schedule" %}. The value can be true or false.|
 |Retention Instructions|`dispositionInstructions`|The text summary of the retention steps.|
 |Retention Authority|`dispositionAuthority`|The legislation relevant to the retention instructions, in particular, relating to the disposal of the record. For example, GRS 2 Item 7.|
 |Hold Reason|`holdReason`|The reason that the record is in the Hold area.|
@@ -109,7 +109,7 @@ If you select to **Search by** for a search, then the following fields are avail
 
 If you select to **Search by** for a search, then the following fields are available if you select a **Web Record**, **Scanned Record**, **PDF Record**, or **Digital Photograph Record** field.
 
->**Note:** These options are only available in DoD 5015.2-STD compliant Records Management sites.
+>**Note:** These options are only available in {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites.
 
 |Record type|Special type name|Description|
 |-----------|-----------------|-----------|
@@ -212,7 +212,7 @@ you can also delete the default searches included with the Records Management si
 
 ## Adding search results to a hold - Records Search {#addsearchresults2holdRecordsSearch}
 
-Users with the appropriate capabilities can add records, and record folders to a hold to freeze them. 
+Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can add records, and record folders to a hold to freeze them. 
 A hold allows objects on hold for a particular reason to be tracked as a set. Holds prevent changes to on hold objects, 
 which have their retention schedules suspended until the hold is removed. When you add a folder to a hold, 
 all records within the folder are also added to the hold.
@@ -237,7 +237,7 @@ The selected records and/or folders remain in their place in the File Plan. They
 
 ## Adding search results to a hold - Share search {#addsearchresults2holdShareSearch}
 
-Users with the appropriate capabilities can add search result items from the main Share search to a hold. 
+Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can add search result items from the main Share search to a hold. 
 This means you can select search results from a records management site or from a collaboration site, and add them to a hold. 
 This includes content, records, and record folders. For records and record folders this would also suspend their 
 retention schedules. When you add a record folder to a hold, all records within the folder are also added to the hold.
@@ -419,7 +419,7 @@ dateFiled:NOW
 
 To search for special types, you can match the special type names using ASPECT.
 
->**Note:** These options are only available in DoD 5015.2-STD compliant Records Management sites.
+>**Note:** These options are only available in {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites.
 
 For example, to search for all digital photograph records:
 
@@ -453,7 +453,7 @@ The Results tab shows the completed records that have empty Location fields.
 
 ### Searching for components
 
-In the **Results options** section, the Components area allows you to select the type of components to search. You can search for Records, Record Folders, and Record Categories, as well as On Hold and Cut off records. For record searches, you can also search for incomplete records and vital records.
+In the **Results options** section, the Components area allows you to select the type of components to search. You can search for Records, Record Folders, and Record Categories, as well as On Hold and {% include tooltip.html word="cutoff" text="Cut Off" %} records. For record searches, you can also search for incomplete records and vital records.
 
 For example, to search for only vital records:
 

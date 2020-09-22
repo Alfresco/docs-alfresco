@@ -7,9 +7,9 @@ Here are the answers to some frequently asked questions about Records Management
 ## What are the differences between a DoD 5015.2 and standard Records Management sites?
 
 When you create a Records Management site you can choose to create a DoD 5015.2 site or a standard site. 
-If your organization is required to meet DoD 5015.2 compliance, then select **DoD 5015.2-STD**. 
+If your organization is required to meet DoD 5015.2 compliance, then select **{% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %}**. 
 Records on a DoD 5015.2 site have additional madatory metadata the must be completed. 
-Mandatory metadata includes the originator, the originating organization, the publication date, the destroy action.
+Mandatory metadata includes the originator, the originating organization, the {% include tooltip.html word="fileplan" text="File Plan" %}, the destroy action.
 
 ## How does classification interact with standard Records Management permissions?
 
@@ -26,7 +26,7 @@ permission to view the folder, and permission to view the record.
 
 ## Why are the tags showing more files than I can see?
 
-Depending on your security clearance level, some files or records might be hidden from you in Alfresco. 
+Depending on your {% include tooltip.html word="securityclassification" text="security classification" %} level, some files or records might be hidden from you in Alfresco. 
 The tags link displays the total number of files that have that tag, but when you click it you'll only be able to 
 see those that you have access to.
 
@@ -35,7 +35,7 @@ see those that you have access to.
 ## Why can't I upload a file when I have the required permissions?
 
 In each folder you can't have multiple files of the same name. You might have permissions to add files, 
-but may not have security clearance to see, for example, files that have been classified as Top Secret. 
+but may not have {% include tooltip.html word="securityclassification" text="security classification" %} to see, for example, files that have been classified as Top Secret. 
 If you try to upload a file when there is already one in the folder, even if you can't see it, 
 you'll receive a message: Unexpected error occurred during upload of new content.
 

@@ -1,4 +1,4 @@
-You can create records from files in non-Records Management sites and add them straight into the File Plan.
+You can create records from files in non-Records Management sites and add them straight into the {% include tooltip.html word="fileplan" text="File Plan" %}.
 
 1. In the *Document Library* of an Alfresco site find the file you want to declare as a record.
 
@@ -14,7 +14,7 @@ You can create records from files in non-Records Management sites and add them s
 
 This record can now be filed in the File Plan. You can find it in the *Unfiled Records* area in the File Plan explorer panel. 
 New records display in the File Plan as incomplete records. You need to make sure any required metadata is added before 
-you can set records to complete.
+you can set records to {% include tooltip.html word="recordcompleted" text="complete" %}.
 
 >**Note:** You can also set up folder rules in a non-Records Management site so the files can be automatically declared as records. For example, you could create a rule that when a file is tagged as "Confirmed", then a record will be created of that file and added to the Records Management site.
 

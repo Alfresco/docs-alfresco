@@ -5,7 +5,7 @@ title: Administration of Governance Services
 RM Admin Tools is where you configure the Records Management site.
 
 The user who created the Records Management site is automatically made a member of the Records Management Administrator group. 
-Other users can access different areas of the **RM Admin Tools** depending on the capabilities given to the role that they're in.
+Other users can access different areas of the **RM Admin Tools** depending on the {% include tooltip.html word="capabilities" text="capabilities" %} given to the role that they're in.
 
 ## Opening Admin Tools
 
@@ -29,7 +29,7 @@ classified information.
 The Audit tool maintains a complete trace of all the actions on every record and cannot be altered. 
 The information that is captured and stored includes:
 
-* Any action on any record, folder, category, or the File Plan
+* Any action on any record, folder, category, or the {% include tooltip.html word="fileplan" text="File Plan" %}
 * The user who carried out the action
 * The date and time of the action
 
@@ -66,15 +66,15 @@ The type of action that is recorded in the audit log includes:
 
 * Capture of all electronic records: file, declare, undeclared
 * Re-categorization of an electronic record within the file plan: a move
-* Any change to any Retention Schedule (instructions): create, modify, destroy
-* Any retention actions carried out by authorized roles: cut off, retain, transfer, review, close folder, reopen folder
-* The adding or removal of an object to a hold
+* Any change to any {% include tooltip.html word="retentionschedule" text="retention schedule" %} (instructions): create, modify, destroy
+* Any retention actions carried out by authorized roles: {% include tooltip.html word="cutoff" text="cut off" %}, retain, transfer, review, close folder, reopen folder
+* The adding or removal of an object to a {% include tooltip.html word="fileplan" text="File Plan" %}
 * Any change made to any metadata associated with File Plan or electronic records, for example, change to vital record indicator
 * Amendment and deletion of metadata by a user
 * Any internal or user event triggered by the system or by the user, for example, SUPERSEDED, GAO Audit, End of Fiscal Year, and so on
 * Changes made to the access permissions
 * Creation, amendment, or deletion of a user or group
-* Changes made to the capabilities (functional access permissions)
+* Changes made to the {% include tooltip.html word="capabilities" text="capabilities" %} (functional access permissions)
 * Changes made to supplemental markings
 * Export and import
 * Deletion / destruction of records
@@ -152,7 +152,7 @@ If you've run an audit you can quickly clear it to delete all captured actions.
 
 ## Custom metadata
 
-Records Management has default sets of metadata for records, record categories, record folders, and non-electronic documents.
+Records Management has default sets of metadata for records, record {% include tooltip.html word="category" text="categories" %}, record folders, and non-electronic documents.
 
 You can also add custom metadata that you can associate with each of these different types of records management objects.
 
@@ -229,7 +229,7 @@ You can easily edit any custom metadata that you've set up.
 
 ## Define roles
 
-Records Management roles and capabilities control what functionality is available to users.
+Records Management roles and {% include tooltip.html word="capabilities" text="capabilities" %} control what functionality is available to users.
 
 Alfresco has several default roles that users and groups can be assigned to:
 
@@ -273,7 +273,7 @@ There are five default Records Management roles, but you can add as many more as
 
 2. Click **New Role**.
 
-    The New Role page displays all available capabilities, which are organized into groups. You can choose individual items or an entire group to define the categories for the role you're creating.
+    The New Role page displays all available capabilities, which are organized into groups. You can choose individual items or an entire group to define the {% include tooltip.html word="category" text="categories" %} for the role you're creating.
 
 3. Enter a name for the role.
 
@@ -377,7 +377,7 @@ You can delete an email map whenever it's no longer needed.
 The life cycle of a record is controlled by either time-based or event-based triggers that are set in the retention schedule. 
 You can edit events and create entirely new ones. When you create an event, you can't delete it.
 
-Events are triggered when actions occur on a record or folder, such as it being versioned, cut off, closed, superseded, 
+Events are triggered when actions occur on a record or folder, such as it being versioned, {% include tooltip.html word="cutoff" text="cut off" %}, {% include tooltip.html word="recordfolderclosed" text="closed" %}, superseded, 
 or obsoleted. All events belong to one of the following event types:
 
 * *Simple* - a standard Records Management event
@@ -452,7 +452,7 @@ Two predefined lists are provided with Records Management:
 * *Supplemental Markings*: security categories that are recommended by the DoD 5015.2
 * *Transfer Locations*: the names of your storage locations
 
->**Note:** These are available for both standard and DoD 5015.2-STD compliant File Plans.
+>**Note:** These are available for both standard and {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant File Plans.
 
 You need to provide values for these lists so that users can select from them when they edit metadata. 
 The recommended values for Supplemental Markings are Confidential, Restricted, Secret, Top Secret and Unclassified.

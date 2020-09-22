@@ -2,8 +2,8 @@
 title: Auditing and reporting
 ---
 
-You can view audit logs for record categories, record folders, active content, and records, and whenever a record or 
-folder is transferred, added to a hold, accessioned, or destroyed, you can file a report to keep a record of the process.
+You can view audit logs for record {% include tooltip.html word="category" text="categories" %}, record folders, active content, and records, and whenever a record or 
+folder is transferred, added to a {% include tooltip.html word="fileplan" text="File Plan" %}, {% include tooltip.html word="accession" text="accessioned" %}, or destroyed, you can file a report to keep a record of the process.
 
 >**Note:** You can only view audit logs if your Alfresco administrator has given you the Access Audit permission.
 

@@ -2,7 +2,7 @@
 title: Automating the File Plan
 ---
 
-In the File Plan you can define category and folder rules to manage your content automatically. You can come up with many creative solutions to make sure specific content processes are automated so you don't have to do the work yourself.
+In the {% include tooltip.html word="fileplan" text="File Plan" %} you can define {% include tooltip.html word="category" text="category" %} and folder rules to manage your content automatically. You can come up with many creative solutions to make sure specific content processes are automated so you don't have to do the work yourself.
 
 Rules dictate how content entering, leaving, or currently residing in a category or folder is managed.
 
@@ -22,8 +22,8 @@ Here are some examples of how you can use rules to automate repetitive tasks:
 
 * All records without a record type placed in a category are associated with a specific record type
 * All incomplete records placed in a folder are completed
-* All records that are cut off in a folder have the event Case Closed completed
-* All folders created in a specific category are added to a hold
+* All records that are {% include tooltip.html word="cutoff" text="cut off" %} in a folder have the event Case Closed completed
+* All folders created in a specific category are added to a File Plan
 
 ## Defining rules for a category or folder
 

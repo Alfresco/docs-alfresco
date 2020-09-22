@@ -10,10 +10,10 @@ With Alfresco Records Management you can declare files in non-Records Management
 original site, identified by the ![Easy access record]({% link ags/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, 
 but is locked and with a limited set of actions available.
 
-This means that most users never need to think about records, file plans, or retention schedules. They just declare the 
+This means that most users never need to think about records, {% include tooltip.html word="fileplan" text="file plans" %}, or {% include tooltip.html word="retentionschedule" text="retention schedule" %}s. They just declare the 
 file as a record, and the rest is handled by the Records Administrator and any rules that they've set up.
 
-When a record is created from a file it's added to the Unfiled Records area of the Records Management site. 
+When a record is created from a file it's added to the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} area of the Records Management site. 
 A Records Manager then has numerous options for [Filing an unfiled record]({% link ags/latest/using/gs/file-records.md %}#filing-an-unfiled-record) and 
 [Managing unfiled records]({% link ags/latest/using/gs/manage-fileplan.md %}#managing-unfiled-records)
 
@@ -50,10 +50,10 @@ any classifications applied. See next section.
 
 ## Classifying files and folders
 
-You can classify files and folders and apply security marks so that they can only be viewed or accessed by users who 
-have the required security clearance.
+You can classify files and folders and apply {% include tooltip.html word="securitymark" text="security mark" %}s so that they can only be viewed or accessed by users who 
+have the required {% include tooltip.html word="securityclassification" text="security classification" %}.
 
-There are four security classification levels you can assign. Security groups provide additional classification options.
+There are four security classification levels you can assign. {% include tooltip.html word="securitygroups" text="Security groups" %} provide additional classification options.
 
 >**Note:** You can also [classify records]({% link ags/latest/using/smc/user-guide.md %}#classifyrecordsfolderscategories) in the File Plan.
 
@@ -91,7 +91,7 @@ You can autoclassify by by adding instructions, manually apply classifications a
 
 10. Enter the name of the organization that produced the document.
 
-11. Enter the publication date of the document.
+11. Enter the {% include tooltip.html word="fileplan" text="File Plan" %} of the document.
 
 12. **To manually add classifications and security marks:**
 
@@ -132,7 +132,7 @@ You can autoclassify by by adding instructions, manually apply classifications a
 
 19. Click **Classify**.
 
-    The item now displays its classification level, and can only be seen by those with the required security clearance.
+    The item now displays its classification level, and can only be seen by those with the required {% include tooltip.html word="securityclassification" text="security classification" %}.
 
     >**Tip:** Items set to Unclassified with no applied security marks can be seen by all users.
 
@@ -180,7 +180,7 @@ versions as records, allowing you to keep on record changes that have been made 
     >**Note:** You can't declare a version as a record if your permission level for the site is Consumer, or if the file is locked, or synced with an Alfresco in the Cloud site.
 
 
-You can find these records in the Unfiled Records folder in the File Plan explorer panel. New records display in the 
+You can find these records in the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} folder in the File Plan explorer panel. New records display in the 
 File Plan as incomplete records. Any required metadata needs to be added before the records can be set to complete.
 
 >**Note:** A file that has had versions declared as records can be deleted. The records remain in the File Plan.
