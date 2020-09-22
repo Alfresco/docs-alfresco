@@ -25,22 +25,22 @@
 - version: 1.1
   pages:
     - title: 'Introduction'
-      path: '/intelligence-services/latest/'
+      path: '/intelligence-services/1.1/'
     - title: 'Install'
-      path: '/intelligence-services/latest/install/'
+      path: '/intelligence-services/1.1/install/'
     - title: 'Configure'
       pages:
         - title: 'Overview'
-          path: '/intelligence-services/latest/config/'
+          path: '/intelligence-services/1.1/config/'
         - title: 'Custom Comprehend'
-          path: '/intelligence-services/latest/config/comprehend/'
+          path: '/intelligence-services/1.1/config/comprehend/'
         - title: 'Custom Textract'
-          path: '/intelligence-services/latest/config/textract/'
+          path: '/intelligence-services/1.1/config/textract/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
-          path: '/intelligence-services/latest/admin/'
+          path: '/intelligence-services/1.1/admin/'
         - title: 'Troubleshoot'
-          path: /intelligence-services/latest/admin/troubleshoot/
+          path: /intelligence-services/1.1/admin/troubleshoot/
     - title: 'Using'
-      path: '/intelligence-services/latest/using/'
+      path: '/intelligence-services/1.1/using/'
