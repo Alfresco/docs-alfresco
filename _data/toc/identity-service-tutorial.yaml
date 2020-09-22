@@ -1,0 +1,15 @@
+# Identity Service Tutorials
+- version: 1.3
+  pages:
+    - title: 'Tutorials'
+      path: '/identity-service/latest/tutorial/'
+    - title: 'Single Sign On'
+      pages:
+        - title: 'Single Sign On Overview '
+          path: '/identity-service/latest/tutorial/sso/'
+        - title: 'SAML'
+          path: '/identity-service/latest/tutorial/sso/saml'
+        - title: 'LDAP'
+          path: '/identity-service/latest/tutorial/sso/ldap/'
+        - title: 'Kerberos'
+          path: '/identity-service/latest/tutorial/sso/kerberos/'
