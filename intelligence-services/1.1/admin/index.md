@@ -20,7 +20,7 @@ The main components of the Intelligence Services are:
   * ImageMagick (e.g. resize)
   * Alfresco PDF Renderer (e.g. pdf to png)
   * Tika (e.g. docx to plain text)
-  * AI Transform Engine (e.g. extracts data from images, such as png, jpeg, gif & tiff, and text from various file types such as pdf, docx, xlsx, pptx, etc.). Note that Comprehend can't process images directly, so the rendition is produced by using multi-step transforms. For example, Textract gets the text from an image, that can then be processed by Comprehend. For a list of supported transformations, see `ai-pipeline-routes.json` (included in the Intelligence Services distribution zip). The data extracted by the AI Engine is saved as AI aspects in the original source file.
+  * AI Transform Engine (e.g. extracts data from images, such as png, jpeg, gif & tiff, and text from various file types such as pdf, docx, xlsx, pptx, etc.). Note that Comprehend can't process images directly, so the rendition is produced by using multi-step transforms. For example, Textract gets the text from an image, that can then be processed by Comprehend. For a list of supported transformations, see `ai-routes.yaml` (included in the Intelligence Services distribution zip). The data extracted by the AI Engine is saved as AI aspects in the original source file.
 * **Shared File Store**: This is used as temporary storage for the original source file (stored by the repository), intermediate files for multi-step transforms, and the final transformed target file. The target file is retrieved by the repository after it's been processed by one or more of the Transform Engines.
 
 The following diagram shows a simple representation of the Intelligence Services components:
@@ -45,11 +45,11 @@ The Intelligence Services module integrates three different AWS services:
 
 Alfresco Intelligence Services requests renditions for all three services (Comprehend, Rekognition, and Textract), using the default configuration. However, the API processing calls only take place for the relevant AWS service. With the release of version 1.1, you can configure the requested renditions.
 
-Before you can add these services to your deployment, some configuration is first required in AWS. The details are covered in the [installation guide]({% link intelligence-services/latest/install/index.md %}).
+Before you can add these services to your deployment, some configuration is first required in AWS. The details are covered in the [installation guide]({% link intelligence-services/1.1/install/index.md %}).
 
 ## Analysis using AWS services
 
-The following sections summarize the key features provided by each AWS service. The details are covered in the [installation guide]({% link intelligence-services/latest/install/index.md %})
+The following sections summarize the key features provided by each AWS service. The details are covered in the [installation guide]({% link intelligence-services/1.1/install/index.md %})
 
 ### Amazon Comprehend
 
