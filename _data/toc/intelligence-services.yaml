@@ -44,3 +44,20 @@
           path: /intelligence-services/1.1/admin/troubleshoot/
     - title: 'Using'
       path: '/intelligence-services/1.1/using/'
+# Intelligence Services 1.0
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/intelligence-services/1.0/'
+    - title: 'Install'
+      path: '/intelligence-services/1.0/install/'
+    - title: 'Configure'
+      path: '/intelligence-services/1.0/config/'
+    - title: 'Administer'
+      pages:
+        - title: 'Overview'
+          path: '/intelligence-services/1.0/admin/'
+        - title: 'Troubleshoot'
+          path: /intelligence-services/1.0/admin/troubleshoot/
+    - title: 'Using'
+      path: '/intelligence-services/1.0/using/'
