@@ -42,7 +42,7 @@ Property fields evaluate the search term against a particular property, special 
 |ISNOTNULL|Special|ISNOTNULL:"property-qname"|
 |EXISTS|Special|EXISTS:"name of the property"|
 |SITE|Special|SITE:"shortname of the site"|
-|TAG|Special|TAG: "name of the tag"**Note:** `TAG` must be in upper case.
+|TAG|Special|TAG: "name of the tag"> **Note:** `TAG` must be in upper case.
 
 |
 |

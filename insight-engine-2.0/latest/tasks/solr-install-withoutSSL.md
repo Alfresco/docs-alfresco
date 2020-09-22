@@ -36,7 +36,7 @@ This task assumes you have:
 
         This ensures that the Solr cores are created in plain HTTP mode.
 
-        Alternatively, you can add this configuration in the system properties \(using `-D`\) when starting Solr. For example, add the following to the startup parameters in step [7](solr-install-withoutSSL.md#startup):
+        Alternatively, you can add this configuration in the system properties (using `-D`) when starting Solr. For example, add the following to the startup parameters in step [7](solr-install-withoutSSL.md#startup):
 
         ```
         -Dalfresco.secureComms=none
@@ -52,7 +52,7 @@ This task assumes you have:
     alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
     ```
 
-5.  \(Optional\) Suggestion is disabled by default. To enable suggestion update the alfresco-insight-engine/solrhome/conf/shared.properties file.
+5.  (Optional) Suggestion is disabled by default. To enable suggestion update the alfresco-insight-engine/solrhome/conf/shared.properties file.
 
     ```
     alfresco.suggestable.property.0={http://www.alfresco.org/model/content/1.0}name
@@ -61,11 +61,11 @@ This task assumes you have:
     alfresco.suggestable.property.3={http://www.alfresco.org/model/content/1.0}content
     ```
 
-    **Note:** The spell check functionality works with Search and Insight Engine when suggestion is enabled.
+    > **Note:** The spell check functionality works with Search and Insight Engine when suggestion is enabled.
 
-6.  \(Optional\) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Search and Insight Engine externalized configuration](../concepts/external-properties-solr.md).
+6.  (Optional) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Search and Insight Engine externalized configuration](../concepts/external-properties-solr.md).
 
-    \(Windows\) update the alfresco-insight-engine/solr.in.cmd file:
+    (Windows) update the alfresco-insight-engine/solr.in.cmd file:
 
     ```
     set SOLR_SOLR_HOST=localhost
@@ -75,7 +75,7 @@ This task assumes you have:
     set SOLR_ALFRESCO_HOST=localhost
     ```
 
-    \(Linux\) update the alfresco-insight-engine/solr.in.sh file:
+    (Linux) update the alfresco-insight-engine/solr.in.sh file:
 
     ```
     SOLR_SOLR_HOST=localhost
@@ -93,11 +93,11 @@ This task assumes you have:
 
     The command line parameter, `-a` passes additional JVM parameters, for example, system properties using `-D`.
 
-    **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine.
 
-    **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
+    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
 
-    **Note:** To ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
+    > **Note:** To ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     Once Search and Insight Engine is up and running, you should see a message similar to the following:
 
@@ -112,7 +112,7 @@ This task assumes you have:
     ./solr/bin/solr stop
     ```
 
-    The logs are stored in the alfresco-insight-engine/logs/solr.log file, by default. This can be configured in solr.in.sh \(for Linux\) or solr.in.cmd \(for Windows\) using `SOLR_LOGS_DIR`.
+    The logs are stored in the alfresco-insight-engine/logs/solr.log file, by default. This can be configured in solr.in.sh (for Linux) or solr.in.cmd (for Windows) using `SOLR_LOGS_DIR`.
 
     You have successfully created an `alfresco` core and an `archive` core. To verify, in a browser, navigate to the Solr URL, [http://localhost:8983/solr](http://localhost:8983/solr). In the Solr Admin UI, select the core selector drop-down list and verify that both the `alfresco` and `archive` cores are present.
 
@@ -122,7 +122,7 @@ This task assumes you have:
 
     1.  You see the Solr 6 option in the **Search Service In Use** list.
 
-    2.  Under **Main \(Workspace\) Store Tracking Status**, the **Approx Transactions to Index** is **0**.
+    2.  Under **Main (Workspace) Store Tracking Status**, the **Approx Transactions to Index** is **0**.
 
 
 **Parent topic:**[Installing and configuring Search and Insight Engine](../concepts/solr-install-config.md)

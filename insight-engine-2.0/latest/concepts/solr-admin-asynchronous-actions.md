@@ -24,7 +24,7 @@ Add a `nodeid`, `txid`, `acltxid`, or `aclid` to be purged from a SOLR core or f
 http://localhost:8983/solr/admin/cores?action=purge
 ```
 
-**Note:** If indexing has been disabled the `purge` request cannot be executed. Enable indexing and then resubmit the command..
+> **Note:** If indexing has been disabled the `purge` request cannot be executed. Enable indexing and then resubmit the command..
 
 The optional URL parameters that can be added:
 
@@ -59,7 +59,7 @@ Add a `nodeid`, `txid`, `acltxid`, or `aclid` or SOLR query to be reindexed on a
 http://localhost:8983/solr/admin/cores?action=reindex
 ```
 
-**Note:** If indexing has been disabled the `reindex` request cannot be executed. Enable indexing and then resubmit the command..
+> **Note:** If indexing has been disabled the `reindex` request cannot be executed. Enable indexing and then resubmit the command..
 
 The optional URL parameters that can be added:
 
@@ -98,7 +98,7 @@ Reindex every node marked as ERROR in a core or in every core. Error mode Ids ar
 http://localhost:8983/solr/admin/cores?action=retry 
 ```
 
-**Note:** If indexing has been disabled the `retry` request cannot be executed. Enable indexing and then resubmit the command..
+> **Note:** If indexing has been disabled the `retry` request cannot be executed. Enable indexing and then resubmit the command..
 
 The optional URL parameter that can be added:
 
@@ -128,7 +128,7 @@ Find transactions and ACLs missing or duplicated in the cores and add them to be
 http://localhost:8983/solr/admin/cores?action=fix
 ```
 
-**Note:** If indexing has previously been disabled the `dryRun` parameter will be forced to be true which will result in no work being scheduled.
+> **Note:** If indexing has previously been disabled the `dryRun` parameter will be forced to be true which will result in no work being scheduled.
 
 The optional URL parameters that can be added:
 
@@ -142,11 +142,11 @@ The optional URL parameters that can be added:
 
 -   **`fromTxCommitTime`**
 
-    This optional parameter indicates the lower bound \(the minimum transaction commit time\) of the target transactions that you want to check or fix.
+    This optional parameter indicates the lower bound (the minimum transaction commit time) of the target transactions that you want to check or fix.
 
 -   **`toTxCommitTime`**
 
-    This optional parameter indicates the upper bound \(the maximum transaction commit time\) of the target transactions that you want to check or fix.
+    This optional parameter indicates the upper bound (the maximum transaction commit time) of the target transactions that you want to check or fix.
 
 
 Sample `scheduled` response
@@ -186,7 +186,7 @@ Sample `scheduled` response
 
 ## `enable-indexing`
 
-Starts the tracking process. The following syntax enables indexing on all \(master or standalone\) cores:
+Starts the tracking process. The following syntax enables indexing on all (master or standalone) cores:
 
 ```
 http://localhost:8983/solr/admin/cores?action=enable-indexing 
@@ -210,16 +210,16 @@ If you call the SUMMARY action there will be additional information returned
 
 The URL parameters that can be used:
 
--   **`core` \(Optional\)**
+-   **`core` (Optional)**
 
     The name of the core. In the instance that it is missing the command is applied to all master or standalone cores.
 
 
 ## `disable-indexing`
 
-Stops the tracking process. The following syntax disables indexing on all \(master or standalone\) cores.:
+Stops the tracking process. The following syntax disables indexing on all (master or standalone) cores.:
 
-**Note:** If tracking has started and this command is used then a rollback of all the trackers is performed. To start tracking again, use ENABLED-INDEXING.
+> **Note:** If tracking has started and this command is used then a rollback of all the trackers is performed. To start tracking again, use ENABLED-INDEXING.
 
 ```
 http://localhost:8983/solr/admin/cores?action=disable-indexing 
@@ -243,7 +243,7 @@ If you call the SUMMARY action there will be additional information returned
 
 The URL parameters that can be used:
 
--   **`core` \(Optional\)**
+-   **`core` (Optional)**
 
     The name of the core. In the instance that it is missing the command is applied to all master or standalone cores.
 

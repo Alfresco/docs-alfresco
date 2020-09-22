@@ -6,7 +6,7 @@ author: Alfresco Documentation
 
 When you install Alfresco Search and Insight Engine, several Solr configuration files are made available to you. The section lists the Solr configuration files, their location in the directory structure, and their description.
 
-**Note:** Some of these files are only available once Alfresco Search and Insight Engine has been started for the first time.
+> **Note:** Some of these files are only available once Alfresco Search and Insight Engine has been started for the first time.
 
 |Configuration File|Location|Description|
 |------------------|--------|-----------|
@@ -18,9 +18,9 @@ When you install Alfresco Search and Insight Engine, several Solr configuration 
 |solrcore.properties|<SOLR\_HOME\>/solrhome/alfresco/conf or <SOLR\_HOME\>/solrhome/archive/conf|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one solrcore.properties file in each core's configuration directory. For details, see the [Solr core configuration properties](solrcore-properties-file.md) topic. The properties of this file are managed by an Administrator user.|
 |context.xml|<SOLR\_HOME\>|This file specifies the Solr web application context template to use when installing Solr in separate tomcat server.|
 |ssl.repo.client.keystore|<SOLR\_HOME\>/solrhome/alfresco/conf or <SOLR\_HOME\>/solrhome/archive/conf|This keystore contains the Solr public/private RSA key pair.|
-|ssl.repo.client.truststore|<SOLR\_HOME\>/solrhome/alfresco/conf or <SOLR\_HOME\>/solrhome/archive/conf|This keystore contains the trusted Alfresco Certificate Authority certificate \(which has been used to sign both the repository and Solr certificates\)|
+|ssl.repo.client.truststore|<SOLR\_HOME\>/solrhome/alfresco/conf or <SOLR\_HOME\>/solrhome/archive/conf|This keystore contains the trusted Alfresco Certificate Authority certificate (which has been used to sign both the repository and Solr certificates)|
 
-**Note:** The solrcore.properties configuration file is the property configuration file for a Solr core. There is one solrcore.properties file in each core's configuration directory, for more see [Solr core configuration properties](solrcore-properties-file.md).
+> **Note:** The solrcore.properties configuration file is the property configuration file for a Solr core. There is one solrcore.properties file in each core's configuration directory, for more see [Solr core configuration properties](solrcore-properties-file.md).
 
 -   **[Solr core configuration properties](../concepts/solrcore-properties-file.md)**  
 The solrcore.properties configuration file is the property configuration file for a Solr core. There is one solrcore.properties file in each core's configuration directory. Use this information to understand the properties of this file, their description, and the default value.

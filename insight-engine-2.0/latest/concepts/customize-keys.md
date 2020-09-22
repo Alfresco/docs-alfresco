@@ -20,7 +20,7 @@ Here is a full list of parameters that allow you to customize your certificates.
 |
 |`-keystoretype`|PKCS12 \| JKS \| JCEKS
 
-|Sets the type of the keystores \(containing private keys\). The default value is JCEKS.
+|Sets the type of the keystores (containing private keys). The default value is JCEKS.
 
 |
 |`-keystorepass`|Any string
@@ -30,7 +30,7 @@ Here is a full list of parameters that allow you to customize your certificates.
 |
 |`-truststoretype`|JKS \| JCEKS
 
-|Sets the type of the truststores \(containing public keys\). The default value is JCEKS.
+|Sets the type of the truststores (containing public keys). The default value is JCEKS.
 
 |
 |`-truststorepass`|Any string
@@ -101,7 +101,7 @@ Example:
 
 |
 
-**Note:** If you plan to use custom DNames in your certificates, you must use double quotes around the values. For example:
+> **Note:** If you plan to use custom DNames in your certificates, you must use double quotes around the values. For example:
 
 ```
 $ ./run.sh -cacertdname \ 
@@ -112,13 +112,13 @@ $ ./run.sh -cacertdname \
 
 It is recommended that you set your own passwords when generating certificates. For example:
 
-\(For Linux\)
+(For Linux)
 
 ```
 $ ./run.sh -keystorepass “password" -truststorepass “password"
 ```
 
-\(For Windows\)
+(For Windows)
 
 ```
 run.cmd -keystorepass “password" -truststorepass “password"

@@ -9,7 +9,7 @@ You can control the distribution of your index by creating, configuring, and reg
 
 **Manual sharding overview**
 
-An index can be distributed over several Solr nodes by creating and configuring shards. This can be achieved in three steps. First, the Solr nodes \(i.e. instances of Alfresco Content Services\) must be started, second the shards must be created, and finally Alfresco Content Services must be configured to point to the Solr nodes.
+An index can be distributed over several Solr nodes by creating and configuring shards. This can be achieved in three steps. First, the Solr nodes (i.e. instances of Alfresco Content Services) must be started, second the shards must be created, and finally Alfresco Content Services must be configured to point to the Solr nodes.
 
 1.  Set the configuration properties that apply to all the cores in a Solr instance in the <ALFRESCO\_HOME\>/alfresco-insight-engine/solrhome/conf/shared.properties file.
 
@@ -57,7 +57,7 @@ An index can be distributed over several Solr nodes by creating and configuring 
         http://<hostnameN>:<portN>/solr/admin/cores?action=newCore&storeRef=archive://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&template=rerank
         ```
 
-    3.  For each core \(alfresco and archive\), the properties can be set at the creation time or updated later.
+    3.  For each core (alfresco and archive), the properties can be set at the creation time or updated later.
 
         ```
         https://<hostnameN>:<portN>/solr/admin/cores?action=updateCore&storeRef=system://system&property.data.dir.store=<SOME_VALUE>
@@ -69,10 +69,10 @@ An index can be distributed over several Solr nodes by creating and configuring 
     |----------|-----------|-------|
     |numShards|Specifies the number of logical shards.|`8`|
     |storeRef|Specifies reference to a node store.|`workspace://SpacesStore`|
-    |template|Defines the base configuration for a new Solr core with some configuration properties set using the URL as shown in Step 1\(b\).For more information, see [Core templates](../concepts/solr-core-templates.md).
+    |template|Defines the base configuration for a new Solr core with some configuration properties set using the URL as shown in Step 1(b).For more information, see [Core templates](../concepts/solr-core-templates.md).
 
 |`template=rerank`|
-    |replicationFactor|Specifies the number of copies of each document \(or, the number of physical instances to be created for each logical shard\). A `replicationFactor` of 3 means that there will be 3 instances for each logical shard.|`3`|
+    |replicationFactor|Specifies the number of copies of each document (or, the number of physical instances to be created for each logical shard). A `replicationFactor` of 3 means that there will be 3 instances for each logical shard.|`3`|
     |nodeInstance|Specifies the Solr node instance being configured.|`6`|
     |numNodes|Returns the total number of Solr nodes.|`6`|
     |coreName|Specifies the name of the Solr core.|`alfresco`|
@@ -104,11 +104,11 @@ An index can be distributed over several Solr nodes by creating and configuring 
 
     Similarly, set `nodeString` for the `archive` core.
 
-    **Note:** These properties can also be configured via a JMX client or using the subsystem properties to reference the composite beans.
+    > **Note:** These properties can also be configured via a JMX client or using the subsystem properties to reference the composite beans.
 
     Some important things to know:
 
-    -   If the host, port, or URL is missing, the subsystem default values \(the ones set for a single index\) will be used.
+    -   If the host, port, or URL is missing, the subsystem default values (the ones set for a single index) will be used.
     -   Make sure that the hosts are in the correct order. This is because Solr assumes that the shards are located on node 1, etc. as defined in the above list when generating queries.
     -   At query time, a Solr core is selected at random to do the distribution of all shards, again, selected at random.
 

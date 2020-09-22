@@ -86,7 +86,7 @@ To configure cross-language search, follow the steps below:
 
     This sets the properties that should be dual tokenised.
 
-    The cross-language search in Alfresco One 5.0 is now only used to provide support to split tokens \(based on case and numbers\) to generate `in word` tokens. The `in word` tokenisation is mainly used for name. For example, find `RedDog12` by `Red`, `Dog`, or `12`, `Dog12`, and so on. This property must be indexed and tokenised.
+    The cross-language search in Alfresco One 5.0 is now only used to provide support to split tokens (based on case and numbers) to generate `in word` tokens. The `in word` tokenisation is mainly used for name. For example, find `RedDog12` by `Red`, `Dog`, or `12`, `Dog12`, and so on. This property must be indexed and tokenised.
 
 3.  To specify the same behaviour based on the data type, set the following properties:
 
@@ -133,15 +133,15 @@ These are query time options and do not require a reindex. Currently, these valu
 
 **Enabling path queries**
 
-The property alfresco.cascade.tracker.enabled provides Index fields that are required for path-based queries when set to true \(the default is `true`\). Disabling support for path queries \(i.e. setting this to `false`\) can speed up indexing in sharded systems.
+The property alfresco.cascade.tracker.enabled provides Index fields that are required for path-based queries when set to true (the default is `true`). Disabling support for path queries (i.e. setting this to `false`) can speed up indexing in sharded systems.
 
 Updating this property from the default setting will result in path-based fields not being populated. Consequently it should not be changed after the initial startup of the server.
 
-**Note:** If `alfresco.cascade.tracker.enabled` is set to false and Solr is restarted, cascaded updates are disabled.
+> **Note:** If `alfresco.cascade.tracker.enabled` is set to false and Solr is restarted, cascaded updates are disabled.
 
 -   **When you disable cascade tracking and do not index fields that are updated on cascaded updates:**
 
-    This is the default setting when cascade tracking is disabled and as a result many search queries will not work, even for users with an environment where parent entries are not updated \(e.g when a parent node has been renamed\), such as `SITE:swsdp`.
+    This is the default setting when cascade tracking is disabled and as a result many search queries will not work, even for users with an environment where parent entries are not updated (e.g when a parent node has been renamed), such as `SITE:swsdp`.
 
     This approach ensures search queries affected by disabling cascade tracking will not work, rather than risking inconsistent query results.
 
@@ -150,7 +150,7 @@ Updating this property from the default setting will result in path-based fields
     -   CMIS
         -   `IN_TREE`, `PATH`, `PARENT`, `ANCESTOR` queries will not work.
     -   Search API
-        -   Faceted Search \(Facet Fields, Pivot Facet, Facet Range\), PATH, NPATH, Secondary Association, Cascade Updates, Search with Sort queries will not work.
+        -   Faceted Search (Facet Fields, Pivot Facet, Facet Range), PATH, NPATH, Secondary Association, Cascade Updates, Search with Sort queries will not work.
     -   SQL API
         -   There are at least 70 less fields found in the Solr schema.
         -   SITE, PATH: fields are not indexed and SQL queries based on these fields will return null values.
@@ -158,14 +158,14 @@ Updating this property from the default setting will result in path-based fields
     -   Share
         -   Category Manager http://localhost:8081/share/page/console/admin-console/category-manager can't be used.
         -   TAGs can't be created or browsed.
-        -   Your site can be defined as a Facet for Search Results \(via Search manager\) but it will not work.
-        -   Searching within a site \(or within a folder\) returns a list of content within the site. This will not work, for example using `SITE:swsdp` syntax or via node browser using PATH queries.
+        -   Your site can be defined as a Facet for Search Results (via Search manager) but it will not work.
+        -   Searching within a site (or within a folder) returns a list of content within the site. This will not work, for example using `SITE:swsdp` syntax or via node browser using PATH queries.
         -   Node browser default PATH query doesn’t list system and category roots and PATH queries.
     If `alfresco.cascade.tracker.enabled` is set to false and Solr is restarted cascaded updates will be disabled. To avoid inconsistencies in the results, by default the fields that are updated on cascade updates are not indexed.
 
     When parent paths have been updated or renamed, path queries are affected because the correct parent paths are available in the database but the Solr indexes for any children are not updated. The result of this can be inconsistent results for path queries and queries where parent/path are used.
 
-    These types of results will affect users when their environment allows for cascaded changes. The results of a search query that use the database and search/SQL, including the index, may not always match, if the parent path is updated \(only in case of renaming a parent\).
+    These types of results will affect users when their environment allows for cascaded changes. The results of a search query that use the database and search/SQL, including the index, may not always match, if the parent path is updated (only in case of renaming a parent).
 
 
 **Parent topic:**[Creating Solr shards manually](../tasks/solr-hash-shard.md)

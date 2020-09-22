@@ -2,13 +2,13 @@
 
 When an index grows too large to be stored on a single search server, it can be distributed across multiple search servers. This is known as sharding. The distributed/sharded index can then be searched using Alfresco/Solr's distributed search capabilities.
 
-A specific configuration attribute, called `shard.method` defines the logic/strategy which controls how documents and ACLs are distributed across shards. Note this setting is configured in each Solr instance \(i.e in each shard\). So a shard will use that strategy for determining if the given incoming data belongs to it or not.
+A specific configuration attribute, called `shard.method` defines the logic/strategy which controls how documents and ACLs are distributed across shards. Note this setting is configured in each Solr instance (i.e in each shard). So a shard will use that strategy for determining if the given incoming data belongs to it or not.
 
 To use a specific sharding method, when creating a Solr node you must add the required configuration properties in `solrcore.properties`. The sharding method is set with the required property, `shard_method`. Additional properties may then be needed, depending on your chosen method. If an invalid `shard_method` is provided, then the system will fallback to DBID routing.
 
 Alfresco Search and Insight Engine can use any of the following methods for routing documents and ACLs to shards.
 
--   **ACL \(MOD\_ACL\_ID\) v1**: This sharding method is available in all versions of Search and Insight Engine.
+-   **ACL (MOD\_ACL\_ID) v1**: This sharding method is available in all versions of Search and Insight Engine.
 
     Nodes and access control lists are grouped by their ACL ID. This places the nodes together with all the access control information required to determine the access to a node in the same shard. Both the nodes and access control information are sharded. The overall index size will be smaller than other methods. Also, the ACL count is usually much smaller than the node count.
 
@@ -24,7 +24,7 @@ Alfresco Search and Insight Engine can use any of the following methods for rout
     shard.count=<shard.count>
     ```
 
--   **ACL \(ACL\_ID\) v2**: This method is available in all versions of Search and Insight Engine.
+-   **ACL (ACL\_ID) v2**: This method is available in all versions of Search and Insight Engine.
 
     This sharding method is the same as `ACL ID` v1 except that the murmur hash of the ACL ID is used in preference to its modulus. This gives better distribution of ACLs over shards. The distribution of documents over ACLs is not affected and so the shard sizes can still be skewed.
 
@@ -34,7 +34,7 @@ Alfresco Search and Insight Engine can use any of the following methods for rout
     shard.count=<shard.count>
     ```
 
--   **DBID \(DB\_ID\)**: This method is available in all versions of Search and Insight Engine and is the default sharding option in Solr 6. Nodes are evenly distributed over the shards at random based on the murmur hash of the DBID. The access control information is duplicated in each shard. The distribution of nodes over each shard is very even and shards grow at the same rate. Also, this is the fall back method if any other sharding information is unavailable.
+-   **DBID (DB\_ID)**: This method is available in all versions of Search and Insight Engine and is the default sharding option in Solr 6. Nodes are evenly distributed over the shards at random based on the murmur hash of the DBID. The access control information is duplicated in each shard. The distribution of nodes over each shard is very even and shards grow at the same rate. Also, this is the fall back method if any other sharding information is unavailable.
 
     To use this method when creating a shard, set the following configuration:
 
@@ -44,7 +44,7 @@ Alfresco Search and Insight Engine can use any of the following methods for rout
     shard.count=<shard.count>
     ```
 
--   **DBID range \(DB\_ID\_RANGE\)**: This method is available in Search and Insight Engine 1.1 and later versions. This routes documents within specific DBID ranges to specific shards. It adds new shards to the cluster without requiring a reindex.
+-   **DBID range (DB\_ID\_RANGE)**: This method is available in Search and Insight Engine 1.1 and later versions. This routes documents within specific DBID ranges to specific shards. It adds new shards to the cluster without requiring a reindex.
 
     DBID range sharding is the only option to offer auto-scaling as opposed to defining your exact shard count at the start. All the other sharding methods require repartitioning in some way.
 
@@ -60,14 +60,14 @@ Alfresco Search and Insight Engine can use any of the following methods for rout
     shard.instance=<shard.instance>
     ```
 
-    **Example 2:** If there are 100M \(million\) nodes and you want to split them into 10 shards with 10M nodes each. So, at the start you can specify:
+    **Example 2:** If there are 100M (million) nodes and you want to split them into 10 shards with 10M nodes each. So, at the start you can specify:
 
     -   10 shards
     -   a shard to include 0-10M
     -   the second shard will have 10M - 20M nodes, third shard will have 20M - 30M nodes, and so on.
     Date-based queries may produce results from only a subset of shards as DBID increases monotonically over time.
 
--   **Date/Datetime \(DATE\)**: This method is available in all versions of Search and Insight Engine. The date-based sharding assigns dates sequentially through shards based on the month.
+-   **Date/Datetime (DATE)**: This method is available in all versions of Search and Insight Engine. The date-based sharding assigns dates sequentially through shards based on the month.
 
     **Example:** If there are 12 shards, each month would be assigned sequentially to each shard, wrapping round and starting again for each year. The non-random assignment facilitates easier shard management - dropping shards or scaling out replication for some date range. Typical aging strategies could be based on the created date or destruction date.
 
@@ -88,7 +88,7 @@ Alfresco Search and Insight Engine can use any of the following methods for rout
     shard.date.grouping=3
     ```
 
--   **Metadata \(PROPERTY\)**: This method is available in all versions of Search and Insight Engine. In this method, the value of some property is hashed and this hash is used to assign the node to a random shard. All nodes with the same property value will be assigned to the same shard.
+-   **Metadata (PROPERTY)**: This method is available in all versions of Search and Insight Engine. In this method, the value of some property is hashed and this hash is used to assign the node to a random shard. All nodes with the same property value will be assigned to the same shard.
 
     Only properties of type `d:text`, `d:date` and `d:datetime` can be used. For example, the recipient of an email, the creator of a node, some custom field set by a rule, or by the domain of an email recipient. The keys are randomly distributed over the shards using murmur hash.
 
@@ -109,9 +109,9 @@ Alfresco Search and Insight Engine can use any of the following methods for rout
     shard.regex=^\d{4}
     ```
 
-    If the regular expression doesn't match the property \(e.g. the string doesn't start with a four-digit year\) then this causes a fallback to DBID sharding.
+    If the regular expression doesn't match the property (e.g. the string doesn't start with a four-digit year) then this causes a fallback to DBID sharding.
 
--   **Explicit Sharding \(EXPLICIT\_ID\)**: This method is available in all versions of Search and Insight Engine. The node is assigned to a shard based on the value of a property \(e.g. `cm:type`\), which should contain the "explicit" numeric shard ID.
+-   **Explicit Sharding (EXPLICIT\_ID)**: This method is available in all versions of Search and Insight Engine. The node is assigned to a shard based on the value of a property (e.g. `cm:type`), which should contain the "explicit" numeric shard ID.
 
     This method is similar to sharding by metadata. Rather than hashing the property value, it explicitly defines the shard where the node should go. If the property is absent or an invalid number, sharding will fall back to using the `DBID` sharding method. Only text fields are supported. Nodes are allowed to move shards. You can add, remove or change the property that defines the shard.
 
@@ -127,7 +127,7 @@ Alfresco Search and Insight Engine can use any of the following methods for rout
 
 
 
-**Note:** The **ACL v1 \(MOD\_ACL\_ID\)** sharding method was the only method available in Solr4.
+> **Note:** The **ACL v1 (MOD\_ACL\_ID)** sharding method was the only method available in Solr4.
 
 
 

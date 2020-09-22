@@ -43,7 +43,7 @@ If you wish to change the default value of a property, add the relevant property
 
 -   **solr.solrPingCronExpression=0 0/5 \* \* \* ? \***
 
-    The cron expression defining how often the Solr Admin client \(used by JMX\) pings Solr if it goes away.
+    The cron expression defining how often the Solr Admin client (used by JMX) pings Solr if it goes away.
 
 
 **Data dictionary options**

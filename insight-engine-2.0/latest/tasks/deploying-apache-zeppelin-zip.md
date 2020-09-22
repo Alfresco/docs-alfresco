@@ -14,7 +14,7 @@ Use this information to manually install Alfresco Insight Zeppelin using a distr
 
     This script reads the zeppelin.properties file in ZEPPELIN\_HOME. Use the zeppelin.properties file to change the Alfresco Content Services repository connection details.
 
-    Alternatively, you can pass `REPO_PROTOCOL`, `REPO_HOST`, and `REPO_PORT` to the script from the command line. For example, `REPO_PROTOCOL=https REPO_HOST=myhost REPO_PORT=8443./substituter.sh`. You don't have to pass all the variables just the ones you want to override. The default values are: `REPO_PROTOCOL=http, REPO_HOST=localhost, and REPO_PORT=8080`. The port number, context path or other properties can be changed in `ZEPPELIN_HOME/conf/zeppelin-env.sh` on Unix like systems \(or `ZEPPELIN_HOME\conf\zeppelin-env.cmd` for Microsoft Windows\). See [Apache Zeppelin Configuration](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html) for a full list of properties.
+    Alternatively, you can pass `REPO_PROTOCOL`, `REPO_HOST`, and `REPO_PORT` to the script from the command line. For example, `REPO_PROTOCOL=https REPO_HOST=myhost REPO_PORT=8443./substituter.sh`. You don't have to pass all the variables just the ones you want to override. The default values are: `REPO_PROTOCOL=http, REPO_HOST=localhost, and REPO_PORT=8080`. The port number, context path or other properties can be changed in `ZEPPELIN_HOME/conf/zeppelin-env.sh` on Unix like systems (or `ZEPPELIN_HOME\conf\zeppelin-env.cmd` for Microsoft Windows). See [Apache Zeppelin Configuration](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html) for a full list of properties.
 
 4.  To start the Alfresco Insight Zeppelin Server, run:
 
@@ -110,7 +110,7 @@ Alternatively you can add the settings directly to the following JSON file: `ZEP
 }
 ```
 
-Also, if the domain name of the Alfresco Content Services repository does not match the common name \(CN\) of the repository's SSL certificate, set the `solr.ssl.checkPeerName` property to `false`.
+Also, if the domain name of the Alfresco Content Services repository does not match the common name (CN) of the repository's SSL certificate, set the `solr.ssl.checkPeerName` property to `false`.
 
 **Parent topic:**[Building reports and dashboards](../concepts/installing-apache.md)
 

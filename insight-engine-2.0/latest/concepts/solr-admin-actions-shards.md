@@ -6,7 +6,7 @@ The following actions are for SOLR shard operations.
 
 To get a detailed report including storage and sizing for the shards configured with the `Shard_DB_ID_RANGE` method.
 
-**Note:** If SOLR is not using this configuration, the node `expand` is set to `-1` in the response.
+> **Note:** If SOLR is not using this configuration, the node `expand` is set to `-1` in the response.
 
 ```
 http://localhost:8983/solr/admin/cores?action=rangecheck&coreName=(coreName)

@@ -1,12 +1,7 @@
 ---
-author: Alfresco Documentation
-source: 
-audience: 
-category: [Alfresco Server, Administration, Configuration]
-keyword: [solr, search, lucene]
+title: Alfresco Documentation
 ---
-
-# Document Fingerprints
+## Document Fingerprints
 
 Alfresco Content Services 6.2 provides support for Document Fingerprints to find related documents. Document Fingerprinting is performed by algorithms that map data, such as documents and files to shorter text strings, also known as fingerprints. This feature is exposed as a part of the Alfresco Full Text Search Query Language.
 
@@ -51,7 +46,7 @@ Containment is a related concept but is more about inclusion. For example, many 
 
 ![](../images/containment.png)
 
-It represents how much of the content of a given document is common to another document. This distance can be used to compare a single document \(A\) to any other document.
+It represents how much of the content of a given document is common to another document. This distance can be used to compare a single document (A) to any other document.
 
 ## Minhashing
 
@@ -59,18 +54,18 @@ Minhashing is a technique for quickly estimating how similar two sets of documen
 
 First, the text is split into a stream of words. These words are then combined into five word sequences, known as shingles, to produce a stream of shingles. The 5-word shingles are then hashed, for example, in 512 different ways; keeping the lowest hash value for each hash. This results in 512 repeatably random samples of 5-word sequences from the text represented by the hash of the shingle. The same text will generate the same set of 512 minhashes. Similar text will generate many of the same hashes. It turns out that if 10% of all the min hashes from two documents overlap then it is a great estimator that `J(A,B) = 0.1`.
 
--   ***Why 5 word sequences?***: Word embedding suggests 5 or more words are enough to describe the context and meaning of a central word. Based on the distribution of words for 2 word shingles, 3 word shingles, 4 word shingles, and 5 word shingles found on the web, it was found that at 5 word shingles, the frequency distribution flattens and broadens compared with the trend seen for 1, 2, 3 and 4 word shingles.
--   ***Why 512 hashes?***: With a well distributed hash function this should give good hash coverage for 2,500 words and around 10% for 25,000, or something like 100 pages of text. We used a 128-bit hash to encode both the hash set position \(see later\) and hash value to minimise collision compared with a 64 bit encoding including bucket/set position.
+* ***Why 5 word sequences?***: Word embedding suggests 5 or more words are enough to describe the context and meaning of a central word. Based on the distribution of words for 2 word shingles, 3 word shingles, 4 word shingles, and 5 word shingles found on the web, it was found that at 5 word shingles, the frequency distribution flattens and broadens compared with the trend seen for 1, 2, 3 and 4 word shingles.
+* ***Why 512 hashes?***: With a well distributed hash function this should give good hash coverage for 2,500 words and around 10% for 25,000, or something like 100 pages of text. We used a 128-bit hash to encode both the hash set position (see later) and hash value to minimise collision compared with a 64 bit encoding including bucket/set position.
 
 ***Example 1***
 
 A document contains a single sentence of *The quick brown fox jumps over the lazy dog*, that would be broken down into the following 5-word long shingles:
 
-1.  The quick brown fox jumps
-2.  quick brown fox jumps over
-3.  brown fox jumps over the
-4.  fox jumps over the lazy
-5.  jumps over the lazy dog
+    1. The quick brown fox jumps
+    2.  quick brown fox jumps over
+    3. brown fox jumps over the
+    4.  fox jumps over the lazy
+    5.  jumps over the lazy dog
 
 So, our document as a set looks like:
 
@@ -88,7 +83,4 @@ Here are two summaries of the 1.0 and 1.1 CMIS specification. It demonstrates, a
 
 ![](../images/minhash-example.png)
 
-The content overlap of the full 1.0 CMIS specification found in the 1.1 CMIS specification, C\(1.0, 1.1\) is approximately 52%.
-
-**Parent topic:**[Alfresco Search and Insight Engine Reference](../concepts/search-references.md)
-
+The content overlap of the full 1.0 CMIS specification found in the 1.1 CMIS specification, C(1.0, 1.1) is approximately 52%.

@@ -8,7 +8,7 @@ These examples show how to embed queries in CMIS.
 
 **Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
 
-## Embedded in CMIS contains\(\)
+## Embedded in CMIS contains()
 
 ```
 - strict queries

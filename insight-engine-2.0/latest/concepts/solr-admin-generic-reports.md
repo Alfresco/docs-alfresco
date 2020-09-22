@@ -91,7 +91,7 @@ The **`report`** action compares the database with the index and generates an ov
 -   Count of transactions in the index but not the database: the number of transactions in the index but not in the database. This count includes empty transactions that have been purged from the database. The value of this property should be zero. If it isn't zero there is an issue with the index.
 -   Count of acl transactions in the index but not the DB: the number of ACL transactions in the index but not in the database. The value of this property should be zero. If it isn't zero there is an issue with the index.
 
-    **Note:** Empty ACL transactions are not purged from the database.
+    > **Note:** Empty ACL transactions are not purged from the database.
 
 -   Count of missing transactions from the Index: the number of transactions in the database but not in the index. The value of this index should be zero when the index is up-to-date.
 -   Count of missing acl transactions from the Index: the number of ACL transactions in the database but not in the index. The value of this property should be zero when the index is up-to-date.
@@ -135,7 +135,7 @@ Optional URL parameters can be added:
 
     When true adds reports for the last 50 values recorded for each tracking operation for each thread.
 
-    **Note:** This parameter is boolean and when false returns 0 values for each tracking operation for each thread.
+    > **Note:** This parameter is boolean and when false returns 0 values for each tracking operation for each thread.
 
 -   **`reset`**
 
@@ -400,19 +400,19 @@ The `summary` action provides the status of the tracking index and reports the p
 -   Last Index Commit Time: the time stamp for the last transaction that was indexed.
 -   Last Index Commit Date: indicates the time stamp as a date for the last transaction that was indexed.
 
-    **Note:** Changes made after this time are not yet in the index.
+    > **Note:** Changes made after this time are not yet in the index.
 
 -   Lag: the difference in seconds between the last transaction time stamp on the server and the time stamp for the last transaction that was indexed.
 -   Duration: the time lag as an XML duration.
 -   Approx transactions remaining: the approximate number of transactions to index in order to bring the index up-to-date. It is calculated by using the last transaction ID on the server minus the last transaction ID indexed. It includes all the missing and empty transactions.
--   Approx transaction indexing time remaining: it is based on approx transactions remaining, the average number of nodes per transaction and the average time to index a node \(how long the index will take to be up-to-date\). The estimate is seconds, minutes, hours and days.
--   Model sync times \(ms\): summary statistics for the model sync time. It supports additional information with &detail=true, &hist=true and &value=true.
--   Acl index time \(ms\): summary statistics for ACL index time. It supports additional information with &detail=true, &hist=true and &value=true.
--   Node index time \(ms\): summary statistics for node index time. It supports additional information with &detail=true, &hist=true and &value=true.
--   Acl tx index time \(ms\): summary statistics for ACL transaction index time. It supports additional information with &detail=true, &hist=true and &value=true.
--   Tx index time \(ms\): summary statistics for transaction index time. It specifies the estimated time required to bring the index up-to-date.
+-   Approx transaction indexing time remaining: it is based on approx transactions remaining, the average number of nodes per transaction and the average time to index a node (how long the index will take to be up-to-date). The estimate is seconds, minutes, hours and days.
+-   Model sync times (ms): summary statistics for the model sync time. It supports additional information with &detail=true, &hist=true and &value=true.
+-   Acl index time (ms): summary statistics for ACL index time. It supports additional information with &detail=true, &hist=true and &value=true.
+-   Node index time (ms): summary statistics for node index time. It supports additional information with &detail=true, &hist=true and &value=true.
+-   Acl tx index time (ms): summary statistics for ACL transaction index time. It supports additional information with &detail=true, &hist=true and &value=true.
+-   Tx index time (ms): summary statistics for transaction index time. It specifies the estimated time required to bring the index up-to-date.
 -   Docs/Tx: summary statistics for the number of documents per transaction. It supports additional information with &detail=true, &hist=true and &value=true.
--   Doc Transformation time \(ms\): summary statistics for document transformation time. It supports additional information with &detail=true, &hist=true and &value=true.
+-   Doc Transformation time (ms): summary statistics for document transformation time. It supports additional information with &detail=true, &hist=true and &value=true.
 
 **Parent topic:**[Alfresco SOLR Admin REST API](../concepts/alfresco-solr-admin-rest-api.md)
 

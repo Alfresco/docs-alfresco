@@ -89,13 +89,13 @@ default.cm\:content.size.scopedSites=
 default.cm\:content.size.isEnabled=true
 ```
 
-**Filter property description**
+### Filter property description
 
 An example of a filter is `cm:modified`. It specifies the name of the filter field. It is the field on which you want to do a filtered search.
 
--   **filterID**
+**filterID**
 
-    Specifies a unique name to identify the filter. Before adding a new filter, check the existing filters \(via [Search Manager](https://docs.alfresco.com/6.1/concepts/super-search-manager.html)\) to ensure that the `filterID` does not already exist.
+    Specifies a unique name to identify the filter. Before adding a new filter, check the existing filters (via [Search Manager](https://docs.alfresco.com/6.1/concepts/super-search-manager.html)) to ensure that the `filterID` does not already exist.
 
 -   **displayName**
 
@@ -125,8 +125,8 @@ An example of a filter is `cm:modified`. It specifies the name of the filter fie
     |------|-----------|
     |ALPHABETICALLY|Specifies the filter value A-Z.|
     |REVERSE\_ALPHABETICALLY|Specifies the filter value Z-A.|
-    |ASCENDING|Specifies the number of filter results \(low to high\).|
-    |DESCENDING|Specifies the number of filter results \(high to low\).|
+    |ASCENDING|Specifies the number of filter results (low to high).|
+    |DESCENDING|Specifies the number of filter results (high to low).|
     |INDEX|This is a special value reserved for results rendered by filter queries.|
 
 -   **scope**
@@ -142,7 +142,7 @@ An example of a filter is `cm:modified`. It specifies the name of the filter fie
     Specifies if the filter is enabled for inclusion on the search results page. Disabled filters are not displayed. Only the filters you create via the Share console can be deleted; default filters must be disabled to hide them.
 
 
-**Note:** You cannot delete or modify any of the default filters, however you can disable them. To define your own custom filters, see [Defining custom search filters using configuration file](../tasks/filtered-search-custom.md).
+> **Note:** You cannot delete or modify any of the default filters, however you can disable them. To define your own custom filters, see [Defining custom search filters using configuration file](../tasks/filtered-search-custom.md).
 
 **Parent topic:**[Using Filtered search](../concepts/filtered-search.md)
 

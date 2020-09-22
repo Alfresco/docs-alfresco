@@ -28,7 +28,7 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
         You have now refreshed the web scripts and set a limit to the number of items a search in Share returns.
 
 
-**Note:** Custom searches and searches from the node browser use the `solr.query.maximumResultsFromUnlimitedQuery` property to control search results. For more information, see [Solr core configuration properties](../concepts/solrcore-properties-file.md).
+> **Note:** Custom searches and searches from the node browser use the `solr.query.maximumResultsFromUnlimitedQuery` property to control search results. For more information, see [Solr core configuration properties](../concepts/solrcore-properties-file.md).
 
 **Parent topic:**[Configuring search in Alfresco Share](../concepts/config_alfresco_share_search.md)
 

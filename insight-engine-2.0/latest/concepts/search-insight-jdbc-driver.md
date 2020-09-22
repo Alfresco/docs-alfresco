@@ -4,7 +4,7 @@ Alfresco Search and Insight Engine includes a JDBC thin client that can be used 
 
 To access the client log into [https://nexus.alfresco.com/nexus/\#welcome](https://nexus.alfresco.com/nexus/#welcome) and search for alfresco-insight-jdbc-2.0.0.jar.
 
-**Note:** Contact [Alfresco Support](https://support.alfresco.com/) for log in credentials.
+> **Note:** Contact [Alfresco Support](https://support.alfresco.com/) for log in credentials.
 
 **Connection String**
 
@@ -26,7 +26,7 @@ Will generate the following request:
 
 [http://localhost:8080/alfresco/api/-default-/public/search/versions/1/jdbc](http://localhost:8080/alfresco/api/-default-/public/search/versions/1/jdbc)
 
-**Note:** When using the default HTTP port of 80 you do not need to add it to the database URL.
+> **Note:** When using the default HTTP port of 80 you do not need to add it to the database URL.
 
 **Alfresco using web proxy with HTTPS**
 
@@ -36,7 +36,7 @@ When Alfresco Content Services is configured to use HTTPS with a WebProxy like A
 jdbc:alfresco://localhost?collection=alfresco
 ```
 
-**Note:** When using the default connection port of 443 you do not need to add it to the connection string.
+> **Note:** When using the default connection port of 443 you do not need to add it to the connection string.
 
 When using HTTPs you need to add the following driver properties:
 
@@ -49,7 +49,7 @@ alfresco.enable.ssl: true
 alfresco.ssl.checkPeerName: false
 ```
 
-**Note:** The trusted.jks file is a truststore that includes the public certificate of your Alfresco Content Services HTTPs endpoint. If you are using an SSL certificate that is trusted by your JVM, and it includes the real DNS in the CN field of the certificate, you only need to include the following configuration in the driver properties:
+> **Note:** The trusted.jks file is a truststore that includes the public certificate of your Alfresco Content Services HTTPs endpoint. If you are using an SSL certificate that is trusted by your JVM, and it includes the real DNS in the CN field of the certificate, you only need to include the following configuration in the driver properties:
 
 ```
 alfresco.enable.ssl: true
@@ -117,9 +117,9 @@ try {
 
 **Additional notes**
 
-When using trusted certificates \(included by default on the JVM\), the java.net.ssl.trustStore properties setting can be skipped.
+When using trusted certificates (included by default on the JVM), the java.net.ssl.trustStore properties setting can be skipped.
 
-Trusted certificates \(CAs\) that appear by default in your local JVM can be obtained with the following command:
+Trusted certificates (CAs) that appear by default in your local JVM can be obtained with the following command:
 
 ```
 $ keytool -list -cacerts

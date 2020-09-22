@@ -31,7 +31,7 @@ Optional URL parameters can be added to the URL.
 
 -   **`template`**
 
-    The name of the SOLR template used to create the core \(rerank, norerank\).
+    The name of the SOLR template used to create the core (rerank, norerank).
 
 -   **`replicationFactor`**
 
@@ -67,7 +67,7 @@ Optional URL parameters can be added to the URL.
 
 -   **`template`**
 
-    The name of the SOLR template used to create the core \(rerank, norerank\).
+    The name of the SOLR template used to create the core (rerank, norerank).
 
 
 ## `updateCore` and its alias `updateindex`

@@ -49,7 +49,7 @@ Before continuing, make sure that you've already completed the steps in [Generat
         solr.port.ssl=8983
         ```
 
-        **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
+        > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
 
     2.  For the Tomcat SSL Connector in `<TOMCAT_HOME>/conf/server.xml` update the following:
 
@@ -64,7 +64,7 @@ Before continuing, make sure that you've already completed the steps in [Generat
             clientAuth="want" sslProtocol="TLS" />
         ```
 
-        **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file. Also, make sure that the keystore and truststore file locations are correct for your environment.
+        > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file. Also, make sure that the keystore and truststore file locations are correct for your environment.
 
     See [Installing the Tomcat application server](https://docs.alfresco.com/6.1/tasks/configfiles-change-path.html) and [Solr configuration files](../concepts/solr-config-files.md) for more.
 
@@ -86,7 +86,7 @@ Before continuing, make sure that you've already completed the steps in [Generat
     alfresco.port.ssl=8443
     ```
 
-    **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
+    > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
 
     If the `alfresco` and `archive` cores already exist, ensure that `alfresco.secureComms` is set to `https` for both the cores in the following files:
 

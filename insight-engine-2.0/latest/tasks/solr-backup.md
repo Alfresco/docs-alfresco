@@ -39,7 +39,7 @@ The values set on a subsystem will mean that the property values from configurat
 
 ## Back up Solr indexes using JMX client
 
-If you have installed the Oracle Java SE Development Kit \(JDK\), you can use the JMX client, JConsole, to backup Solr indexes, edit Solr backup properties and setup the backup directory.
+If you have installed the Oracle Java SE Development Kit (JDK), you can use the JMX client, JConsole, to backup Solr indexes, edit Solr backup properties and setup the backup directory.
 
 -   You can set the backup of Solr indexes using the JMX client, such as JConsole on the **JMX MBeans \> Alfresco \> Schedule \> DEFAULT \> MonitoredCronTrigger \> search.alfrescoCoreBackupTrigger \> Operations \> executeNow** tab. The default view is the Solr core summary. Alternatively, navigate to **MBeans \> Alfresco \> SolrIndexes \> coreName \> Operations \> backUpIndex** tab. Type the directory name in the **remoteLocation** text box and click **backUpIndex**.
 -   Solr backup properties can be edited using the JMX client on the **JMX MBeans \> Alfresco \> Configuration \> Search \> managed \> solr6 \> Attributes** tab. The default view is the Solr core summary.

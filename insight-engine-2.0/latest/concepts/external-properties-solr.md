@@ -1,8 +1,8 @@
 # Search and Insight Engine externalized configuration
 
-As a best practice, use the alfresco-insight-engine/solr.in.sh file \(Linux-based platform\) or alfresco-insight-engine/solr.in.cmd file \(Windows-based platform\) to set the external configuration that applies to all the Alfresco Search and Insight Engine cores.
+As a best practice, use the alfresco-insight-engine/solr.in.sh file (Linux-based platform) or alfresco-insight-engine/solr.in.cmd file (Windows-based platform) to set the external configuration that applies to all the Alfresco Search and Insight Engine cores.
 
-**Note:** For any property, only the environment variables should be specified in the solr.in.sh/ solr.in.cmd file. For example, `SOLR_SOLR_HOST`, `SOLR_SOLR_PORT`, or `SOLR_ALFRESCO_PORT`.
+> **Note:** For any property, only the environment variables should be specified in the solr.in.sh/ solr.in.cmd file. For example, `SOLR_SOLR_HOST`, `SOLR_SOLR_PORT`, or `SOLR_ALFRESCO_PORT`.
 
 The following configuration properties are used by an external client, such as Alfresco to talk to Solr. Besides the solr.in.sh/ solr.in.cmd file, you can also set these properties in the alfresco-insight-engine/solrhome/conf/shared.properties file.
 
@@ -34,7 +34,7 @@ The following configuration properties are used by an external client, such as A
     |**Environment Variable**|SOLR\_SOLR\_BASEURL|
     |**Default Value**|`/solr`|
 
--   **`solr.content.dir` \(Removed from Alfresco Search and Insight Engine 2.0\)**
+-   **`solr.content.dir` (Removed from Alfresco Search and Insight Engine 2.0)**
 
         |**Description**|Specifies the location of the Solr content directory.|
     |**JNDI Property**|java:comp/env/solr/content/dir|
@@ -161,7 +161,7 @@ You need to set these properties only if you are configuring Search and Insight 
 
 -   **`alfresco.encryption.ssl.truststore.provider`**
 
-        |**Description**|Specifies the Java provider that implements the type attribute \(for example, JCEKS type\). The provider can be left unspecified and the first provider that implements the truststore type specified is used.|
+        |**Description**|Specifies the Java provider that implements the type attribute (for example, JCEKS type). The provider can be left unspecified and the first provider that implements the truststore type specified is used.|
     |**JNDI Property**|java:comp/env/alfresco/encryption/ssl/truststore/provider|
     |**Java System Property**|alfresco.encryption.ssl.truststore.provider|
     |**Environment Variable**|`SOLR_ALFRESCO_ENCRYPTION_SSL_TRUSTSTORE_PROVIDER`|
@@ -177,7 +177,7 @@ You need to set these properties only if you are configuring Search and Insight 
 
 -   **`alfresco.encryption.ssl.keystore.provider`**
 
-        |**Description**|Specifies the Java provider that implements the type attribute \(for example, JCEKS type\). The provider can be left unspecified and the first provider that implements the keystore type specified is used.|
+        |**Description**|Specifies the Java provider that implements the type attribute (for example, JCEKS type). The provider can be left unspecified and the first provider that implements the keystore type specified is used.|
     |**JNDI Property**|java:comp/env/alfresco/encryption/ssl/keystore/provider|
     |**Java System Property**|alfresco.encryption.ssl.keystore.provider|
     |**Environment Variable**|`SOLR_ALFRESCO_ENCRYPTION_SSL_KEYSTORE_PROVIDER`|

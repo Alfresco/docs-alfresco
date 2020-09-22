@@ -10,7 +10,7 @@ When you search, entries are generally a term or a phrase. The string representa
 
 You can specify either a particular date or a date literal. A date literal is a fixed expression that represents a relative range of time, for example last month, this week, or next year.
 
-`dateTime` field values are stored as Coordinated Universal Time \(UTC\). The date fields represent a point in time with millisecond precision. For date field formatting, Solr uses [DateTimeFormatter.ISO\_INSTANT](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_INSTANT). The ISO instant formatter formats an instant in Coordinated Universal Time \(UTC\), for example:
+`dateTime` field values are stored as Coordinated Universal Time (UTC). The date fields represent a point in time with millisecond precision. For date field formatting, Solr uses [DateTimeFormatter.ISO\_INSTANT](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_INSTANT). The ISO instant formatter formats an instant in Coordinated Universal Time (UTC), for example:
 
 ```
 YYYY-MM-DDThh:mm:ssZ
@@ -26,7 +26,7 @@ where,
 -   `ss` is seconds.
 -   `Z` is a literal `Z` character indicating that this string representation of the date is in UTC.
 
-**Note:** No time zone can be specified. The string representation of dates is always expressed in UTC, for example:
+> **Note:** No time zone can be specified. The string representation of dates is always expressed in UTC, for example:
 
 ```
 1972-05-20T17:33:18Z

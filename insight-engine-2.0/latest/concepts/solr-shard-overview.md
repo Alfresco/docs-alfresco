@@ -10,11 +10,11 @@ Solr sharding involves splitting a single Solr index into multiple parts, which 
 Sharding is important for two primary reasons:
 
 -   It allows you to horizontally split or scale your content volume.
--   It allows you to distribute operations, for example, index tracking, across shards \(potentially on multiple nodes\) therefore increasing performance/throughput.
+-   It allows you to distribute operations, for example, index tracking, across shards (potentially on multiple nodes) therefore increasing performance/throughput.
 
 Documents in the repository are distributed evenly across shards. You may have more than one shard, but a document will only be located in one shard and its instances. A conceptual shard can have any number of real instances. A shard tracks the appropriate subset of information from the repository.
 
-**Note:** Alfresco Content Services does not support slave shards or slave replicas.
+> **Note:** Alfresco Content Services does not support slave shards or slave replicas.
 
 A shard can have zero or more shard instances. Multiple shard instances have the following advantages:
 

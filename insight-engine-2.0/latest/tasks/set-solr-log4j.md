@@ -18,7 +18,7 @@ You can set different debug logging levels for Solr components using the Solr lo
     log4j.logger.org.alfresco.solr.tracker.MetadataTracker=DEBUG
     ```
 
-3.  Changes to the log4j-solr.properties file will be re-read by Solr when it starts up. If you need to make changes to the logging level while the system is running, going to the following URL \(either in a browser or for example, using curl\) will cause Solr to re-load the properties file.
+3.  Changes to the log4j-solr.properties file will be re-read by Solr when it starts up. If you need to make changes to the logging level while the system is running, going to the following URL (either in a browser or for example, using curl) will cause Solr to re-load the properties file.
 
     ```
     https://<solrHostName>:<solrPort>/solr/admin/cores?action=LOG4J&resource=log4j-solr.properties

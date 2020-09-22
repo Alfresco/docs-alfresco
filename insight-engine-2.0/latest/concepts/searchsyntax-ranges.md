@@ -4,7 +4,7 @@ author: Alfresco Documentation
 
 # Search for ranges
 
-Inclusive ranges can be specified in Google-style. There is an extended syntax for more complex ranges. Unbounded ranges can be defined using MIN and MAX for numeric and date types and "\\u0000" and "\\FFFF" for text \(anything that is invalid\).
+Inclusive ranges can be specified in Google-style. There is an extended syntax for more complex ranges. Unbounded ranges can be defined using MIN and MAX for numeric and date types and "\\u0000" and "\\FFFF" for text (anything that is invalid).
 
 |Lucene|Google|Description|Example|
 |------|------|-----------|-------|

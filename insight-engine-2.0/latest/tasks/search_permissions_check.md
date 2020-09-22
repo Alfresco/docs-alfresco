@@ -14,9 +14,9 @@ You can limit both the time spent and the number of documents checked before Alf
 
     For example, `system.acl.maxPermissionChecks=2000`.
 
-    **Note:**
+    > **Note:**
 
-    -   If you increase these values and have a query that returns a very large number of results, \(a\) the search results will take longer to be returned to the user, and \(b\) the system will spend longer to check permissions, leading to the possibility of performance degradation.
+    -   If you increase these values and have a query that returns a very large number of results, (a) the search results will take longer to be returned to the user, and (b) the system will spend longer to check permissions, leading to the possibility of performance degradation.
     -   If you set these values to a low number, you run the risk of inconsistent search results every time you run the same search.
     -   These settings are also applied when paging. So paging the results will only go up to the maximum returned results based on these settings.
 

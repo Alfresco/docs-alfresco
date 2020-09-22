@@ -42,7 +42,7 @@ While date math is most commonly used relative to `NOW`, it can be applied to a
 1972-05-20T17:33:18.772Z+6MONTHS+3DAYS/DAY
 ```
 
-**Note:** Solr 6 date math supports `TODAY`.
+> **Note:** Solr 6 date math supports `TODAY`.
 
 **Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
 

@@ -15,7 +15,7 @@ Do not use SSL with sharding.
 
         -   solr/home
         -   solr/model/dir
-        **Note:** All the Solr instances hosting shards on a given host must have separate model and index locations.
+        > **Note:** All the Solr instances hosting shards on a given host must have separate model and index locations.
 
 2.  Install and start Alfresco Content Services.
 
@@ -52,7 +52,7 @@ Do not use SSL with sharding.
     -   `storeRef` specifies reference to a node store.
     Here's an example to show how to set a non-SSL port manually when creating a shard.
 
-    **Example:** If you want a sharded Solr installation with a different Tomcat port \(8090\), set the `property.alfresco.port` property on the URL used to create the shard. The `property.alfresco.port` property specifies the port used to communicate with the repository \(or repositories through a load balancer\). This property can also be set if communicating through a different host or load balancer. In this example, we will set `property.alfresco.port=8090`, as shown below:
+    **Example:** If you want a sharded Solr installation with a different Tomcat port (8090), set the `property.alfresco.port` property on the URL used to create the shard. The `property.alfresco.port` property specifies the port used to communicate with the repository (or repositories through a load balancer). This property can also be set if communicating through a different host or load balancer. In this example, we will set `property.alfresco.port=8090`, as shown below:
 
     ```
     http://localhost:8080/solr/admin/cores?action=newCore&storeRef=workspace://SpacesStore&

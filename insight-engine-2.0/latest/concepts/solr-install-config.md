@@ -6,7 +6,7 @@ It is possible to deploy Alfresco Content Services without mutual TLS between th
 
 You may choose to secure Search and Insight Engine with SSL.
 
-**Note:** When choosing to secure Search and Insight Engine with SSL, be aware that there is a known issue when using Solr 6 where the SSL truststore and keystore passwords are visible as plain text in the Solr 6 process arguments. Alfresco recommends that you ensure the server running Solr 6 is security hardened and access is restricted to admin users only. For more information, see [https://issues.apache.org/jira/browse/SOLR-8897](https://issues.apache.org/jira/browse/SOLR-8897).
+> **Note:** When choosing to secure Search and Insight Engine with SSL, be aware that there is a known issue when using Solr 6 where the SSL truststore and keystore passwords are visible as plain text in the Solr 6 process arguments. Alfresco recommends that you ensure the server running Solr 6 is security hardened and access is restricted to admin users only. For more information, see [https://issues.apache.org/jira/browse/SOLR-8897](https://issues.apache.org/jira/browse/SOLR-8897).
 
 **Important:** Alfresco strongly recommends that you use firewalls and other infrastructure means to ensure that the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
@@ -27,7 +27,7 @@ The topic describes the properties for configuring the Solr 6 search service.
 -   **[Search and Insight Engine directory structure](../concepts/solr-directories.md)**  
 After you've installed Alfresco Search and Insight Engine, several directories and configuration files related to Solr will be available in the Search and Insight Engine home directory.
 -   **[Search and Insight Engine externalized configuration](../concepts/external-properties-solr.md)**  
-As a best practice, use the alfresco-insight-engine/solr.in.sh file \(Linux-based platform\) or alfresco-insight-engine/solr.in.cmd file \(Windows-based platform\) to set the external configuration that applies to all the Alfresco Search and Insight Engine cores.
+As a best practice, use the alfresco-insight-engine/solr.in.sh file (Linux-based platform) or alfresco-insight-engine/solr.in.cmd file (Windows-based platform) to set the external configuration that applies to all the Alfresco Search and Insight Engine cores.
 -   **[Generating secure keys overview](../concepts/generate-keys-overview.md)**  
 This section describes a recommended approach for generating and setting up certificates. It is not required that you use this approach if you have an alternative solution that you already use.
 -   **[Solr configuration files](../concepts/solr-config-files.md)**  

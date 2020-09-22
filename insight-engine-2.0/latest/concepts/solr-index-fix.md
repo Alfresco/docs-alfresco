@@ -7,9 +7,9 @@ source:
 
 Use this information to repair a transaction that failed to index.
 
-**Note:** The default URL for the Solr index is http://localhost:8080/solr/....
+> **Note:** The default URL for the Solr index is http://localhost:8080/solr/....
 
-To repair an unindexed or failed transaction \(as identified by the REPORT option in the [Unindexed Solr Transactions](solr-unindex.md) section\), run the following report:
+To repair an unindexed or failed transaction (as identified by the REPORT option in the [Unindexed Solr Transactions](solr-unindex.md) section), run the following report:
 
 ```
 http://localhost:8080/solr/admin/cores?action=FIX 
@@ -35,7 +35,7 @@ Use the INDEX parameter to create entries in the index. It can also be used to c
 http://localhost:8080/solr/admin/cores?action=INDEX&txid=1&acltxid=2&nodeid=3&aclid=4 
 ```
 
-Use the RETRY parameter to retry indexing any node that failed to index and was skipped. In other words, it enables the users to attempt to fix documents that failed to index in the past and appear in the solr report \(http://localhost:8080/solr/admin/cores?action=REPORT&wt=xml\) with the field **Index error count**.
+Use the RETRY parameter to retry indexing any node that failed to index and was skipped. In other words, it enables the users to attempt to fix documents that failed to index in the past and appear in the solr report (http://localhost:8080/solr/admin/cores?action=REPORT&wt=xml) with the field **Index error count**.
 
 ```
 http://localhost:8080/solr/admin/cores?action=RETRY

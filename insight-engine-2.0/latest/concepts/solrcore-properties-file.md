@@ -10,7 +10,7 @@ The solrcore.properties configuration file is the property configuration file fo
 
 |`/alfresco`|
 |alfresco.batch.count|This property indicates the number of updates that should be made to this core before a commit is executed.|`1000`|
-|alfresco.cascade.tracker.enabled|Index fields required for path-based queries. Disabling support for path queries \(i.e. setting this to false\) can speed up indexing in sharded systems.
+|alfresco.cascade.tracker.enabled|Index fields required for path-based queries. Disabling support for path queries (i.e. setting this to false) can speed up indexing in sharded systems.
 
  NOTE: Updating this property will result in path-based fields not being populated. Consequently it should not be changed after the initial startup of the server.
 
@@ -23,20 +23,20 @@ The solrcore.properties configuration file is the property configuration file fo
 |alfresco.doPermissionChecks|This property allows users to see the document name or properties on a search result.|`true`|
 |alfresco.encryption.ssl.keystore.location|This property specifies the CLIENT keystore location reference. If the keystore is file-based, the location can reference any path in the file system of the node where the keystore is located.|`ssl.repo.client.keystore`|
 |alfresco.encryption.ssl.keystore. passwordFileLocation|This property specifies the location of the file containing the password that is used to access the CLIENT keystore, also the default that is used to store keys within the keystore.|`ssl-keystore-passwords.properties`|
-|alfresco.encryption.ssl.keystore.provider|This property specifies the Java provider that implements the `type` attribute \(for example, JCEKS type\). The provider can be left unspecified and the first provider that implements the keystore type specified is used.| |
+|alfresco.encryption.ssl.keystore.provider|This property specifies the Java provider that implements the `type` attribute (for example, JCEKS type). The provider can be left unspecified and the first provider that implements the keystore type specified is used.| |
 |alfresco.encryption.ssl.keystore.type|This property specifies the CLIENT keystore type.|`JCEKS`|
 |alfresco.encryption.ssl.truststore.location|This property specifies the CLIENT truststore location reference. If the truststore is file-based, the location can reference any path in the file system of the node where the truststore is located.|`ssl.repo.client.truststore`|
 |alfresco.encryption.ssl.truststore. passwordFileLocation|This property specifies the location of the file containing the password that is used to access the CLIENT truststore, also the default that is used to store keys within the truststore.|`ssl-truststore-passwords.properties`|
-|alfresco.encryption.ssl.truststore.provider|This property specifies the Java provider that implements the `type` attribute \(for example, JCEKS type\). The provider can be left unspecified and the first provider that implements the truststore type specified is used.| |
+|alfresco.encryption.ssl.truststore.provider|This property specifies the Java provider that implements the `type` attribute (for example, JCEKS type). The provider can be left unspecified and the first provider that implements the truststore type specified is used.| |
 |alfresco.encryption.ssl.truststore.type|This property specifies the CLIENT truststore type.|`JCEKS`|
 |alfresco.hole.retention|Each track will revisit all transactions from the timestamp of the last in the index, less this value, to fill in any transactions that might have been missed.|`3600000`|
 |alfresco.host|This property specifies the host name for the instance that Solr should track and index.|`localhost`|
-|`alfresco.nodestate.tracker.cron`|This property controls the frequency of registration of a Search Services shard to Alfresco Content Services.**Note:** The value you set for `alfresco.nodestate.tracker.cron` should be lower than the value you set for `search.solrShardRegistry.shardInstanceTimeoutInSecond`, which is set in the alfresco-global.properties file.
+|`alfresco.nodestate.tracker.cron`|This property controls the frequency of registration of a Search Services shard to Alfresco Content Services.> **Note:** The value you set for `alfresco.nodestate.tracker.cron` should be lower than the value you set for `search.solrShardRegistry.shardInstanceTimeoutInSecond`, which is set in the alfresco-global.properties file.
 
 |`0/10 * * * * ? *)`|
 |alfresco.index.transformContent|If this property is set to false, the index tracker will not transform any content and only the metadata will be indexed.|`false`|
-|alfresco.keepAliveTime|This property specifies the time \(in seconds\) to keep non-core idle threads in the pool.|`120`|
-|alfresco.lag|When Solr tracking starts, it aims to get up to date to the current time \(in seconds\), less this lag.|`1000`|
+|alfresco.keepAliveTime|This property specifies the time (in seconds) to keep non-core idle threads in the pool.|`120`|
+|alfresco.lag|When Solr tracking starts, it aims to get up to date to the current time (in seconds), less this lag.|`1000`|
 |alfresco.maxHostConnections|This property is used for HTTP client configuration.|`40`|
 |alfresco.maximumPoolSize|This property specifies the maximum pool size for multi-threaded tracking.|`-1`|
 |alfresco.maxTotalConnections|This property is used for HTTP client configuration.|`40`|
@@ -62,7 +62,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |`maxScheduledTransactions`|This optional parameter controls the maximum transactions to schedule for reindexing in the admin fix tool. If the admin fix action specifies a value for `maxScheduledTransactions` then the request parameter that is used in the solrcore.properties configuration file is ignored.
 
 | |
-|`search.solrShardRegistry.dbidRangeRefreshTimeoutInSeconds`|This property controls the frequency of synchronisation of the shard information between multiple ACS instances for `DBID_Range` sharding.**Note:** This property is only used when you are using `DBID_Range` sharding with multiple ACS instances.
+|`search.solrShardRegistry.dbidRangeRefreshTimeoutInSeconds`|This property controls the frequency of synchronisation of the shard information between multiple ACS instances for `DBID_Range` sharding.> **Note:** This property is only used when you are using `DBID_Range` sharding with multiple ACS instances.
 
 |`30`|
 |solr.authorityCache.autowarmCount|This property configures the Solr result cache.|`0`|
@@ -75,7 +75,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |solr.documentCache.initialSize|This property configures the Solr document cache.|`64`|
 |solr.documentCache.size|This property configures the Solr document cache.|`64`|
 |solr.filterCache.autowarmCount|This property configures the number of entries to pre-populate from the old cache.|`128`|
-|solr.filterCache.initialSize|This property specifies the initial capacity \(number of entries\) of the Solr filter cache. You may want to increase the value if you have many users, groups, and tenants.|`64`|
+|solr.filterCache.initialSize|This property specifies the initial capacity (number of entries) of the Solr filter cache. You may want to increase the value if you have many users, groups, and tenants.|`64`|
 |solr.filterCache.size|This property specifies the maximum number of entries in the Solr filter cache. You may want to increase the value if you have many users, groups, and tenants.|`64`|
 |`solr.initial.transaction.range`|When checking the consistency of the repository and index, the first transaction is compared in both the repository and index repositories. In order to receive that initial transaction from the database a range of between 0-2000 for transaction id should be used. This parameter can be used when the initial transaction id is greater than 2000.|`0-2000`|
 |solr.maxBooleanClauses|This property specifies the number of Boolean clauses in a query. It can affect range or wildcard queries that expand to big Boolean queries.|`10000`|

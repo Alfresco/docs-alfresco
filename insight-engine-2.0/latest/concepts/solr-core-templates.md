@@ -16,7 +16,7 @@ Alfresco Search and Insight Engine provides two Solr core templates out of the b
 -   The `rerank` template includes tuning on rating scores in order to obtain finer relevance and precision.
 -   The `noRerank` template provides the same configuration but without tuning.
 
-If you don't specify additional options when creating the cores, the `rerank` template is taken as the base configuration for both the `alfresco` and `archive` cores. For example, this is what happens when you use the "`-Dcreate.alfresco.defaults=alfresco,archive`" option. In this example, the `rerank` folder is copied to your deployment directories \(as shown below\), and `noRerank` is never used:
+If you don't specify additional options when creating the cores, the `rerank` template is taken as the base configuration for both the `alfresco` and `archive` cores. For example, this is what happens when you use the "`-Dcreate.alfresco.defaults=alfresco,archive`" option. In this example, the `rerank` folder is copied to your deployment directories (as shown below), and `noRerank` is never used:
 
 ```
 <SOLR_HOME>/templates/rerank >> <SOLR_HOME>/alfresco
@@ -55,7 +55,7 @@ The <SOLR\_HOME\>/templates directory contains the following structure:
 
 The core templates include schema.xml and solrconfig.xml. The main purpose is to create multiple cores on multiple machines with the same configuration.
 
-**Note:** The `aps` and `rerankWithQueryLog` templates have been removed from the default distribution of Alfresco Search and Insight Engine from version 1.4 onwards.
+> **Note:** The `aps` and `rerankWithQueryLog` templates have been removed from the default distribution of Alfresco Search and Insight Engine from version 1.4 onwards.
 
 **Comparison between the rerank and noRerank templates**
 
@@ -67,7 +67,7 @@ The core templates include schema.xml and solrconfig.xml. The main purpose is to
 |In the noRerank template, stop words are removed from the words that are tokenised in the English language.For more information, see <SOLR\_HOME\>/templates/norerank/conf/lang/stopwords\_en.txt.
 
 |
-|3|The rerank template supports real rerank with automatic phrasing\* \(or auto-phrasing\). Queries are run in two stages:1.  Stage one treats phrases as conjunctions and ignores expensive positional information.
+|3|The rerank template supports real rerank with automatic phrasing\* (or auto-phrasing). Queries are run in two stages:1.  Stage one treats phrases as conjunctions and ignores expensive positional information.
 2.  Stage two reranks the top queries using a more expensive phrase.
 
 \* *When a user provides individual search terms in a query, the automatic phrasing feature groups those individual terms into a search phrase and returns the query results for the phrase.*

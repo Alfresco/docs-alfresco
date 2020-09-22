@@ -2,7 +2,7 @@
 
 Below is a list of the supported SQL commands available to use when writing queries against your Solr datastore.
 
-**Note:** If a SQL command is not listed it is not supported. For a list of unsupported SQL commands see [Unsupported SQL Commands](unsupported-sql.md).
+> **Note:** If a SQL command is not listed it is not supported. For a list of unsupported SQL commands see [Unsupported SQL Commands](unsupported-sql.md).
 
 ![](../images/hr.png)
 
@@ -34,11 +34,11 @@ The most useful ones are: `PARENT`, `PATH`, `ANCESTOR`, `TYPE`, `ASPECT`, `PROPE
 
 Fields from Alfresco’s out of-the-box content models, as well as fields from custom content models can be referred to using the content model property qname, as in AFTS and the CMIS query language. The `cm_creator` field in the example SQL statement refers to the creator field in the out-of-the-box cm content model. Fields that have a unique local name over all prefixes do not need to use the prefix.
 
-**Note:** Use "\_" to separate the prefix and the locale name as ":" would have to be escaped.
+> **Note:** Use "\_" to separate the prefix and the locale name as ":" would have to be escaped.
 
 *Escaping Fields*
 
-Fields that include reserved words or special characters will need to be escaped using the back tick character \(\`\). The \`cm\_content.size\` field in the example SQL statement is an example of back tick escaping. The only non-word character that can be used without escaping is the underscore “\_”. We use Apache Calcite which has a list of reserved words that also need to be escaped, see [https://calcite.apache.org/docs/reference.html](https://calcite.apache.org/docs/reference.html). You are most likely to hit reserved keywords picking aliases for fields.
+Fields that include reserved words or special characters will need to be escaped using the back tick character (\`). The \`cm\_content.size\` field in the example SQL statement is an example of back tick escaping. The only non-word character that can be used without escaping is the underscore “\_”. We use Apache Calcite which has a list of reserved words that also need to be escaped, see [https://calcite.apache.org/docs/reference.html](https://calcite.apache.org/docs/reference.html). You are most likely to hit reserved keywords picking aliases for fields.
 
 *Select Queries*
 
@@ -72,7 +72,7 @@ The curated set of fields that are returned with select \* queries include:
 
 If you are using a custom model you can specify the extra fields to appear in a select \* query. You must add them to alfresco-insight-engine/solrhome/conf/shared.properties and they can take the form of either of the following formats:
 
-**Note:** The field list is case insensitive.
+> **Note:** The field list is case insensitive.
 
 ```
 #Custom Model
@@ -88,7 +88,7 @@ solr.sql.alfresco.fieldnames=finance_amount, finance_emp,expense_recorded_at
 
 Select \* will also return any fields that appear in the predicates for the query, in the following format:
 
-**Note:** The predicates are case insensitive.
+> **Note:** The predicates are case insensitive.
 
 ```
 select * from alfresco where finance_amount > 0 and expense_recorded_at <= 'NOW/DAY'
@@ -98,7 +98,7 @@ This query will also return the fields `finance_amount` and `expense_recorded_at
 
 *Arithmetic Operators*
 
-You can use arithmetic operations \(+ - \* /\) on the SELECT clause.
+You can use arithmetic operations (+ - \* /) on the SELECT clause.
 
 ```
 select `expense:Amount` / `expense:ExchangeRate` from alfresco where TYPE = 'expense:expenseReport'
@@ -112,13 +112,13 @@ Select Site, sum(`cm:content.size`)/1000 as `Storage Used` from alfresco group b
 Select expense_Currency, max(`expense:Amount`) * 100 as MaxAmount, sum(`expense:Amount`)/100 as SumAmount from alfresco group by expense_Currency
 ```
 
-**Note:** You can't use WHERE, GROUP BY, HAVING, and ORDER clauses with arithmetic operations.
+> **Note:** You can't use WHERE, GROUP BY, HAVING, and ORDER clauses with arithmetic operations.
 
 *Field Aliases*
 
 SQL field aliases are supported in the field list. Field aliases that contain special characters or reserved words need to be escaped with the back tick.
 
-**Note:** You can't use the WHERE, ORDER BY or HAVING clauses with field aliases.
+> **Note:** You can't use the WHERE, ORDER BY or HAVING clauses with field aliases.
 
 To display the Aliases correctly use the following format:
 
@@ -126,7 +126,7 @@ To display the Aliases correctly use the following format:
 select sum(`cm:content.size`) as StorageUsed from alfresco
 ```
 
-If using Apache Zeppelin please note that aliases are only supported for the aggregate fields \(count, sum, min, max, avg\) and are ignored for non aggregate fields. For example, the following format would not display the field alias in Apache Zeppelin:
+If using Apache Zeppelin please note that aliases are only supported for the aggregate fields (count, sum, min, max, avg) and are ignored for non aggregate fields. For example, the following format would not display the field alias in Apache Zeppelin:
 
 ```
 select `cm:content.size` as StorageUsed from alfresco
@@ -162,13 +162,13 @@ The following query returns the number of rows that have a distinct value for cm
 SELECT count(distinct(cm_title)) from alfresco
 ```
 
-**Note:** `count(field)` and `count( distinct field)` queries are not supported with a group by clause, for example:
+> **Note:** `count(field)` and `count( distinct field)` queries are not supported with a group by clause, for example:
 
 ```
 SELECT Type, count(cm_name) from alfresco group by Type
 ```
 
-Also the following data types are not supported when using `count(field)` and `count(distinct field)` queries: boolean, cm:content, text: if the text fields are defined as non-facetable and tokenised \(free-text\). For example they have the following indexing configuration:
+Also the following data types are not supported when using `count(field)` and `count(distinct field)` queries: boolean, cm:content, text: if the text fields are defined as non-facetable and tokenised (free-text). For example they have the following indexing configuration:
 
 ```
 <index enabled="true">
@@ -189,7 +189,7 @@ The basic predicate on a text field performs a phrase search. Below is the synta
 select cm_name, `cm_content.size` from alfresco where (cm_content = ‘hello world’)  
 ```
 
-To gain full control of the search predicate for a specific field you can wrap the predicate in parenthesis and enter the query using Alfresco full text search syntax. For example to search for \(hello OR world\) in the cm\_content field the following search predicate can be used:
+To gain full control of the search predicate for a specific field you can wrap the predicate in parenthesis and enter the query using Alfresco full text search syntax. For example to search for (hello OR world) in the cm\_content field the following search predicate can be used:
 
 ```
 select cm_name, `cm_content.size` from alfresco where cm_content = ‘(hello OR world)’
@@ -203,7 +203,7 @@ Predicates on string identifier fields will perform an exact match on the field.
 select cm_name, `cm_content.size` from alfresco where LID = ‘value’
 ```
 
-**Note:** Most fields from the content models will perform full text search matches unless the property is defined as tokenised false in the model. This may not be what you expect.
+> **Note:** Most fields from the content models will perform full text search matches unless the property is defined as tokenised false in the model. This may not be what you expect.
 
 *Predicates on Numeric Fields*
 
@@ -252,7 +252,7 @@ select cm_name, `cm_content.size` from alfresco where cm_content.size ='<100 TO 
 
 *Predicates on Null Fields*
 
-Predicates on null values can be constructed using IS NULL, IS NOT NULL, IN \(NULL\), and NOT IN \(NULL\) operands to obtain the results.
+Predicates on null values can be constructed using IS NULL, IS NOT NULL, IN (NULL), and NOT IN (NULL) operands to obtain the results.
 
 The following IS NULL query will return all the rows that have a value of NULL for the field cm\_content.size .
 
@@ -278,7 +278,7 @@ The following NOT IN NULL query will return all the rows that have cm\_content.s
 select cm_name, cm_creator, `cm_content.size` from alfresco where cm_creator NOT IN ('System', NULL)
 ```
 
-The following NOT IN \(NULL\) query will return all the rows where cm\_content.size is not equal to 0 and is not NULL.
+The following NOT IN (NULL) query will return all the rows where cm\_content.size is not equal to 0 and is not NULL.
 
 ```
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` NOT IN (0, NULL)
@@ -300,7 +300,7 @@ The SQL IN operator can be used in the predicate for both numeric and string fie
 
 The SQL NOT IN operator can be used in the predicate for both numeric and string fields. Null values are accepted as values in the filter list, but due to SQL limitations the query will produce no results.
 
-**Note:** Use an equivalent query when fetching NULL values instead of including the null as a value of a NOT IN list.
+> **Note:** Use an equivalent query when fetching NULL values instead of including the null as a value of a NOT IN list.
 
 *Order By*
 
@@ -316,7 +316,7 @@ select cm_creator, cm_name, exif_manufacturer, audio_trackNumber from alfresco o
 
 SQL SELECT statements can contain a LIMIT clause. If no limit is specified a default limit of 1000 is set.
 
-**Note:** Caution should be used when increasing the default limit as performance and memory consumption increase as the limit increases.
+> **Note:** Caution should be used when increasing the default limit as performance and memory consumption increase as the limit increases.
 
 ![](../images/hr.png)
 
@@ -410,7 +410,7 @@ Any numeric field can be used within the aggregations sum, avg, min, and max. As
 
 One or more fields can be specified as group by fields. Fields that are designated as facetable in a content model will provide the best aggregation results.
 
-**Note:** Group by is supported for text fields when the content model has the following setting for the text field.
+> **Note:** Group by is supported for text fields when the content model has the following setting for the text field.
 
 -   LOV whole or partial match
 -   unique match: partial, many
@@ -425,7 +425,7 @@ If a field alias is specified for an aggregate function then the field alias wil
 
 One or more fields may be used in the ORDER BY clause. The ORDER BY can include both fields from the field list and the result of the COUNT function. ORDER BY for other aggregate functions is not yet supported. Field aliases cannot be used in the ORDER BY clause. When referring to an aggregate function in the ORDER BY clause the function call as it appears in the field list should be used.
 
-**Note:** Order by is supported for text fields when the content model has the following setting for the text field.
+> **Note:** Order by is supported for text fields when the content model has the following setting for the text field.
 
 -   LOV whole or partial match
 -   unique match: partial, many
@@ -436,7 +436,7 @@ It’s not supported when the text field is either freetext or none.
 
 The HAVING clause is supported for aggregation functions only. Boolean logic and nested HAVING clauses are supported. The following comparison operations are supported in the HAVING clause: =, \>=, <=, !=.
 
-**Note:** Support is limited for the HAVING clause in Alfresco Search and Insight Engine 2.0.
+> **Note:** Support is limited for the HAVING clause in Alfresco Search and Insight Engine 2.0.
 
 *Limit*
 
@@ -468,7 +468,7 @@ where cm_created >= 'NOW/DAY'
 
 *Unbounded Time Series Reports*
 
-**Note:** The sections below describe how to set lower and upper boundaries using both fixed date and date math predicates.
+> **Note:** The sections below describe how to set lower and upper boundaries using both fixed date and date math predicates.
 
 If no datetime predicate is supplied, the following default lower and upper boundaries for the different time dimensions are used:
 

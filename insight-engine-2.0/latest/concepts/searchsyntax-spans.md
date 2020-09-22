@@ -6,7 +6,7 @@ author: Alfresco Documentation
 
 Spans and positions are not implemented. Positions will depend on tokenization.
 
-Anything more detailed than one \*\(2\) two are arbitrarily dependent on the tokenization. An identifier and pattern matching, or dual FTS and ID tokenization, might be the answer in these cases.
+Anything more detailed than one \*(2) two are arbitrarily dependent on the tokenization. An identifier and pattern matching, or dual FTS and ID tokenization, might be the answer in these cases.
 
 ```
 term[^] - start 

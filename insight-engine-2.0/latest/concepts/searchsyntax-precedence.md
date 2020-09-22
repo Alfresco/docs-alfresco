@@ -4,7 +4,7 @@ author: Alfresco Documentation
 
 # Search for operator precedence
 
-Operator precedence is SQL-like \(not Java-like\). When there is more than one logical operator in a statement, and they are not explicitly grouped using parentheses, `NOT` is evaluated first, then `AND`, and finally `OR`.
+Operator precedence is SQL-like (not Java-like). When there is more than one logical operator in a statement, and they are not explicitly grouped using parentheses, `NOT` is evaluated first, then `AND`, and finally `OR`.
 
 The following shows the operator precedence from highest to lowest:
 
@@ -22,7 +22,7 @@ OR
 
 `AND` and `OR` can be combined with `+`, `|`, `-` with the following meanings:
 
-|AND \(no prefix is the same as +\)|Explanation|
+|AND (no prefix is the same as +)|Explanation|
 |----------------------------------|-----------|
 |`big AND dog`|big and dog must occur|
 |`+big AND +dog`|big and dog must occur|
@@ -36,7 +36,7 @@ OR
 |`-big AND -dog`|both big and dog must not occur|
 |`|big AND -dog`|big should occur and dog must not occur|
 
-|OR \(no prefix is the same as +\)|Explanation|
+|OR (no prefix is the same as +)|Explanation|
 |---------------------------------|-----------|
 |`dog OR wolf`|dog and wolf should occur, and at least one must match|
 |`+dog OR +wolf`|dog and wolf should occur, and at least one must match|

@@ -32,7 +32,7 @@ We have made significant improvements to how the Keystores are configured. We no
 -   [Keystore directory structure](../concepts/keystore-structure.md)
 -   [Customizing certificate generation](../concepts/customize-keys.md)
 
-**Note:** The way Keystores were configured before Alfresco Search and Insight Engine 2.0 will still work but we don't recommend it because of security issues.
+> **Note:** The way Keystores were configured before Alfresco Search and Insight Engine 2.0 will still work but we don't recommend it because of security issues.
 
 ![](../images/hr.png)
 

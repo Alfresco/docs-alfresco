@@ -33,7 +33,7 @@ You can define custom filters in the solr-facets-config-custom.properties file. 
     custom.cm\:description.isEnabled=true
     ```
 
-    **Note:** The values specified in the custom filters will overwrite the default filter's value. However, if you change the filter's default value\(s\) via Share, then any subsequent changes made to the filter values via the configuration files, won't be applied to the filter on server startup.
+    > **Note:** The values specified in the custom filters will overwrite the default filter's value. However, if you change the filter's default value(s) via Share, then any subsequent changes made to the filter values via the configuration files, won't be applied to the filter on server startup.
 
 
 **Parent topic:**[Using Filtered search](../concepts/filtered-search.md)

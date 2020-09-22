@@ -11,7 +11,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Alfr
 -   Access to [Quay](http://www.quay.io)
     -   Docker requires access to certain images which are stored on Quay. You need to use the correct credentials provided by Alfresco to access these images. Contact [Alfresco Support](mailto:support@alfresco.com) to request the credentials.
 
-**Note:** Make sure the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the docker-compose.yml file.
+> **Note:** Make sure the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the docker-compose.yml file.
 
 1.  Download the latest Alfresco Content Services docker-compose.yml file by accessing the [trial download page](https://www.alfresco.com/platform/content-services-ecm/trial/download).
 
@@ -38,7 +38,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Alfr
                 - 8083:8983 #Browser port
     ```
 
-    **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Deploy Alfresco Insight Zeppelin using Docker Compose](deploying-apache-zeppelin.md) for the additional container information you need to add to your docker-compose.yml file.
+    > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Deploy Alfresco Insight Zeppelin using Docker Compose](deploying-apache-zeppelin.md) for the additional container information you need to add to your docker-compose.yml file.
 
 4.  Save the file.
 
@@ -63,9 +63,9 @@ Use this information to start up Alfresco Content Services 6.2 or above and Alfr
 
     If you encounter errors while the system is starting up:
 
-    -   Stop the session \(by using `CONTROL+C`\).
-    -   Remove the container \(using the `--rmi all` option\): For example `docker-compose down --rmi all`.
-    -   Try allocating more memory resources. As advised in docker-compose.yml set it to at least 16 GB. To adjust the memory, in Docker, go to **Preferences** \(or **Settings**\) \> **Advanced** \> **Memory**. Once you have adjusted the memory make sure you restart Docker and wait for the process to finish before continuing.
+    -   Stop the session (by using `CONTROL+C`).
+    -   Remove the container (using the `--rmi all` option): For example `docker-compose down --rmi all`.
+    -   Try allocating more memory resources. As advised in docker-compose.yml set it to at least 16 GB. To adjust the memory, in Docker, go to **Preferences** (or **Settings**) \> **Advanced** \> **Memory**. Once you have adjusted the memory make sure you restart Docker and wait for the process to finish before continuing.
     -   Go back to step 6 and retry the deployment.
 8.  Open your browser and check everything starts up correctly:
 
@@ -73,7 +73,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Alfr
     -   Share: `http://localhost:8080/share`
     -   Solr: `http://localhost:8083/solr`
 
-        **Note:** When you access the solr url you will see the version of Search and Insight Engine that is installed.
+        > **Note:** When you access the solr url you will see the version of Search and Insight Engine that is installed.
 
 
 **Parent topic:**[Installing and configuring Search and Insight Engine](../concepts/solr-install-config.md)

@@ -5,7 +5,7 @@ Use the following to migrate from Alfresco Content Services 6.2 with Alfresco Se
 -   [Migrating using Docker Compose](../tasks/search-insight-engine-upgrading.md) Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 -   [Migrating using a distribution zip](search-insight-engine-upgrading1.md)
 
-**Note:** Most migrations can be completed using either Docker Compose or the distribution zip. You can't upgrade Alfresco Content Services 5.x using Docker Compose.
+> **Note:** Most migrations can be completed using either Docker Compose or the distribution zip. You can't upgrade Alfresco Content Services 5.x using Docker Compose.
 
 -   **[Migrating using Docker Compose](../tasks/search-insight-engine-upgrading.md)**  
 If you already have Alfresco Content Services 6.2 with Alfresco Search Services 1.3, 1.4, or 2.0 installed, you can migrate to Alfresco Search and Insight Engine 2.0. Due to the limited capabilities of Docker Compose, this migration method is recommended for development and test environments only.

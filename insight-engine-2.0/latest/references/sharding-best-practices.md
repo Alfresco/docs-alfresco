@@ -36,7 +36,7 @@ You can set up sharding using either manual or dynamic shard registration. We re
 
 **How many shards should I have?**
 
-A general rule of thumb is to divide the total number of documents by 50M \(million\). If you want to increase the query load or support more than 100 concurrent users, then check the memory specifications or the I/O specifications of the installation machine.
+A general rule of thumb is to divide the total number of documents by 50M (million). If you want to increase the query load or support more than 100 concurrent users, then check the memory specifications or the I/O specifications of the installation machine.
 
 [back to top](sharding-best-practices.md#)
 
@@ -52,7 +52,7 @@ We recommend that existing customers should reindex using the `rerank` core. Thi
 
 This should allow the user to store anywhere between 50 million - 80 million documents in a single shard. For more information, see the [Alfresco Platform News](https://www.alfresco.com/blogs/how-alfresco-powered-a-1-2-billion-document-deployment-on-amazon-web-services/) and [Alfresco 1 billion documents press release with Amazon Aurora](https://www.alfresco.com/node/4141).
 
-**Note:** Note that changing the number of shards requires a reindex.
+> **Note:** Note that changing the number of shards requires a reindex.
 
 [back to top](sharding-best-practices.md#)
 
@@ -60,7 +60,7 @@ This should allow the user to store anywhere between 50 million - 80 million doc
 
 **Does sharding work with SSL enabled?**
 
-Alfresco Content Services 6.x uses Alfresco Search and Insight Engine \(Solr 6\), so sharding is supported with full SSL and non-SSL. Make sure you configure the Solr and SSL settings properly.
+Alfresco Content Services 6.x uses Alfresco Search and Insight Engine (Solr 6), so sharding is supported with full SSL and non-SSL. Make sure you configure the Solr and SSL settings properly.
 
 For more information, see [Installing and configuring Search and Insight Engine with mutual TLS using the distribution zip](../tasks/solr-install.md) and [Installing and configuring Search and Insight Engine without mutual TLS using the distribution zip](../tasks/solr-install-withoutSSL.md).
 
@@ -82,7 +82,7 @@ For more information, see [Dynamic shard registration](../concepts/dynamic-shard
 
 Yes. After upgrading to Alfresco Content Services 6.2, continue to use the old search index server as before, setup a new sharded Solr server with the `rerank` template to reindex the data, and finally, switch over to the new sharded index once the indexing is done and the sharded Solr server is up-to-date.
 
-**Upgrading from 5.0 with Solr 4 to 6.2 \(with zero downtime\)**
+**Upgrading from 5.0 with Solr 4 to 6.2 (with zero downtime)**
 
 1.  Upgrade to 6.2 and continue to use the Solr 4 search service as before.
 2.  Configure a separate sharded Solr 4 index with the [`rerank` template](../concepts/solr-core-templates.md) to track the repository. For details, see [Installing and configuring Solr shards](../tasks/install-solr-shards.md).

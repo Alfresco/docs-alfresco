@@ -60,7 +60,7 @@ When you select a core:
     |Analysis|Allows data analysis according to the field, field type and dynamic rule configurations found in schema.xml.|
     |Dataimport|Displays information about the current status of the Data Import Handler. It enables you to import commands as defined by the options selected on the screen and defined in the configuration file.|
     |Documents|Provides a simple form allowing execution of various Solr indexing commands directly from the browser. The screen allows you to:    -   Copy documents in JSON, CSV or XML and submit them to the index
-    -   Upload documents \(in JSON, CSV or XML\)
+    -   Upload documents (in JSON, CSV or XML)
     -   Construct documents by selecting fields and field values
 |
     |Files|Displays the current core configuration files such as solrconfig.xml and schema.xml. Configuration files cannot be edited with this screen, so a text editor must be used.|

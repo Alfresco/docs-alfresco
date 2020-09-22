@@ -2,7 +2,7 @@
 
 After you've installed Alfresco Search and Insight Engine, several directories and configuration files related to Solr will be available in the Search and Insight Engine home directory.
 
-The Search and Insight Engine distribution \(alfresco-insight-engine-distribution-2.0.x.zip\) contains the following artifacts:
+The Search and Insight Engine distribution (alfresco-insight-engine-distribution-2.0.x.zip) contains the following artifacts:
 
 -   solrhome directory: This is the Solr configuration directory that is specific to Alfresco. It contains the following sub-folders and files:
 

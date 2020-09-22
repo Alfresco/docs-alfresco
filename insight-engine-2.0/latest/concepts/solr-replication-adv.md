@@ -22,7 +22,7 @@ There are advantages and disadvantages of using a master-slave and master-master
 
 **Disadvantages**
 
--   Increased latency \(sum of tracking and Solr replication latency\)
+-   Increased latency (sum of tracking and Solr replication latency)
 -   Occasional large IO load to replicate large merges
 -   Complicated load balance and management
 -   Reconfiguration if the master is lost

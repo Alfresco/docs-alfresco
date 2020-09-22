@@ -1,6 +1,6 @@
 # Options supported by Query Languages
 
-Use this information to know what options are supported by the Public API, CMIS Query Language \(QL\), and Alfresco Full Text Search Query Language \(FTS QL\).
+Use this information to know what options are supported by the Public API, CMIS Query Language (QL), and Alfresco Full Text Search Query Language (FTS QL).
 
 **Public API and TMDQ**
 
@@ -16,7 +16,7 @@ TMDQ supports:
 -   `sort`
 -   `defaults`
 -   `filterQueries`
--   `scope` \(single\)
+-   `scope` (single)
 -   `limits` for permission evaluation
 
 The default limits for permission evaluation will restrict the results returned from TMDQ based on both the number of results processed and time taken. These can be increased, if required.
@@ -49,7 +49,7 @@ Primary and secondary types are supported and require inner joins to link them t
 
 For multi-valued properties, CMIS QL supports `ANY` semantics from SQL 92. A query against a multi-lingual property, such as title or description, is treated as multi-valued and may match in any language. In the results, you will see the best value for your locale, which may not match the query. Also, ordering will consider any value.
 
-***UPPER\(\) and LOWER\(\)***
+***UPPER() and LOWER()***
 
 `UPPER()` and `LOWER()` functions were in early drafts for the CMIS 1.0 specification, but were subsequently dropped. These are not part of the CMIS 1.0 or 1.1 specifications. They are not supported in TMDQ.
 
@@ -72,7 +72,7 @@ Some differences between the database and TMDQ:
 
 **Exact match and patterns**
 
-TMDQ can support exact match on all properties \(subject to database collation\) regardless of the property index configuration in the data model. All text properties can support pattern matching. The database index supports a fixed number of leading characters. The database store a maximum string size before it overflows to another form. Only short form strings can be used in database queries.
+TMDQ can support exact match on all properties (subject to database collation) regardless of the property index configuration in the data model. All text properties can support pattern matching. The database index supports a fixed number of leading characters. The database store a maximum string size before it overflows to another form. Only short form strings can be used in database queries.
 
 Solr supports exact match on all non-text properties. Text properties only support exact and pattern matches if set to tokenised `both` or `false` in the data model. Solr provides supports values up to approximately 32,700 UTF-8 bytes.
 
@@ -99,8 +99,8 @@ The following AFTS exact matches and patterns are supported:
 **Full text search for CMIS QL and AFTS**
 
 -   CMIS QL
-    -   IN\_TREE\(\)
-    -   IN\_FOLDER\(\)
+    -   IN\_TREE()
+    -   IN\_FOLDER()
 -   AFTS
     -   PATH
 
@@ -112,7 +112,7 @@ The following AFTS exact matches and patterns are supported:
 -   EXACTTYPE
 -   EXACTASPECT
 
-**Note:** CMIS QL does not support any use of CONTAINS\(\) using the database.
+> **Note:** CMIS QL does not support any use of CONTAINS() using the database.
 
 Transactional Metadata Query and the Solr index queries are intended to support different use cases. They differ in queries and options that they support and in the results they generate with respect to collation and scoring.
 

@@ -42,7 +42,7 @@ The JMX view of all the instancess, shards, and indexes that stick together is d
 
         |Attribute name|Description|Is configurable or displays state|Example value|
         |--------------|-----------|---------------------------------|-------------|
-        |activeTrackingMode|Specifies if the instances for the index are all `SLAVE`, `MASTER`, or `MIXED`.**Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.
+        |activeTrackingMode|Specifies if the instances for the index are all `SLAVE`, `MASTER`, or `MIXED`.> **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.
 
 |State|`MASTER`|
         |hasContent|If the index contains content, the value of this attribute is `true`, otherwise `false`.|Configurable|`true`|
@@ -67,7 +67,7 @@ The JMX view of all the instancess, shards, and indexes that stick together is d
         |--------------|-----------|----------------------------------|-------------|
         |\#|Specifies the shard number.|Configurable|`0`|
         |activeCount|Specifies the number of instances that are currently able to answer queries.|State|`1`|
-        |activeTrackingMode|Specifies if the instances for the shard are all `SLAVE`, `MASTER`, or `MIXED`.**Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.
+        |activeTrackingMode|Specifies if the instances for the shard are all `SLAVE`, `MASTER`, or `MIXED`.> **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.
 
 |State|`MASTER`|
         |laggingCount|Specifies the number of instances that are currently unable to answer queries because they are too far behind.|State|0|

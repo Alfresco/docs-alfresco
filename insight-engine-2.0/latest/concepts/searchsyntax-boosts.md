@@ -6,7 +6,7 @@ author: Alfresco Documentation
 
 Query time boosts allow matches on certain parts of the query to influence the score more than others.
 
-All query elements can be boosted: terms, phrases, exact terms, expanded terms, proximity \(only in filed groups\), ranges, and groups.
+All query elements can be boosted: terms, phrases, exact terms, expanded terms, proximity (only in filed groups), ranges, and groups.
 
 ```
 term^2.4

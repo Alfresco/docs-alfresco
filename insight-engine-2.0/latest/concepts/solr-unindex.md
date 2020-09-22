@@ -51,7 +51,7 @@ With multi-threaded tracking, you can specify additional tracking details and tr
 -   `detail=true`: provide statistics per tracking thread.
 -   `hist=true`: provides a histogram of the times taken for tracking operations for each tracking thread.
 -   `reset=true`: resests all tracking statistics.
--   `values=true`: reports \(by default\) the last 50 values recorded for each tracking operation for each thread
+-   `values=true`: reports (by default) the last 50 values recorded for each tracking operation for each thread
 
 The `SUMMARY` parameter provides the status of the tracking index and reports the progress of each tracking thread. It generates a report with the following details:
 
@@ -61,7 +61,7 @@ The `SUMMARY` parameter provides the status of the tracking index and reports th
 -   `Lag`: indicates the difference in seconds between the last transaction time stamp on the server and the time stamp for the last transaction that was indexed.
 -   `Duration`: indicates the time lag as an XML duration.
 -   `Approx transactions remaining`: indicates the approximate number of transactions to index in order to bring the index up-to-date. It is calculated as the last transaction ID on the server minus the last transaction ID indexed. It includes all the missing and empty transactions.
--   `Approx transaction indexing time remaining`: it is based on Approx transactions remaining, the average number of nodes per transaction and the average time to index a node \(how long the index will take to be up-to-date\). The estimate is in the most appropriate scale, for example, seconds, minutes, hours and days.
+-   `Approx transaction indexing time remaining`: it is based on Approx transactions remaining, the average number of nodes per transaction and the average time to index a node (how long the index will take to be up-to-date). The estimate is in the most appropriate scale, for example, seconds, minutes, hours and days.
 -   `Model sync times (ms)`: indicates summary statistics for model sync time. It supports additional information with &detail=true, &hist=true and &value=true.
 -   `Acl index time (ms)`: indicates summary statistics for ACL index time. It supports additional information with &detail=true, &hist=true and &value=true.
 -   `Node index time (ms)`: indicates summary statistics for node index time. It supports additional information with &detail=true, &hist=true and &value=true.

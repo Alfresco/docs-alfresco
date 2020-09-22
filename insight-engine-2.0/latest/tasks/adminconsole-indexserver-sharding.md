@@ -25,7 +25,7 @@ Prerequisites for viewing the Search Server Sharding page:
     |---------------------------|---------------|-----------|
     |**Dynamic Shard Instance Registration Enabled**|Yes|Select this property to enable dynamic shard instance registration. If disabled, manual shard registration is used.|
     |**Purge at Startup**|No|This property purges all persisted dynamic shard instance information at startup.|
-    |**Instance Timeout \(seconds\)**|100|This specifies the number of seconds a shard instance can go without making a tracking call for transactions to the repository before it stops being used for queries.**Note:** When tracking large change sets or rebuilding your indexes, increase the shard timeout. For example, change the value of this property to 3200 or 7200 seconds.
+    |**Instance Timeout (seconds)**|100|This specifies the number of seconds a shard instance can go without making a tracking call for transactions to the repository before it stops being used for queries.> **Note:** When tracking large change sets or rebuilding your indexes, increase the shard timeout. For example, change the value of this property to 3200 or 7200 seconds.
 
 |
     |**Max Instance Transaction Lag**|1000|This specifies the maximum number of transactions an instance can lag behind the lead instance of the shard before it stops being used for queries.|
@@ -58,14 +58,14 @@ Prerequisites for viewing the Search Server Sharding page:
 
     4.  Next, you need to create a core for the shard. There are two ways to do this. You can either:
 
-        -   use the Manage Default Indexes and **Manage Shared Properties** sections to create default indexes - see Step 7 \(e\) and 7 \(f\); or
-        -   use the New Shard Group and New Shard Instance sections to create a shard group and instance - see Step 7 \(g\) and 7 \(i\).
+        -   use the Manage Default Indexes and **Manage Shared Properties** sections to create default indexes - see Step 7 (e) and 7 (f); or
+        -   use the New Shard Group and New Shard Instance sections to create a shard group and instance - see Step 7 (g) and 7 (i).
     5.  Use Manage Default Indexes to create default indexes on the servers listed in **Target Index Servers**.
 
         The Manage Default Indexes section:
 
         -   appears only when you add a new index server.
-        -   creates a core for a given shard, and therefore, can be used as an alternative to creating shards using the **New Shard Group** section \(Step 7f\).
+        -   creates a core for a given shard, and therefore, can be used as an alternative to creating shards using the **New Shard Group** section (Step 7f).
         ![](../images/solr6-manage-indexes.png)
 
         **Important:** The cores are visible in the Solr Admin web application **only after** you create them using the Index Server Sharding page.
@@ -165,7 +165,7 @@ Prerequisites for viewing the Search Server Sharding page:
     |**Number of Shards**|4|This specifies the total number of shards.|
     |**Min Active Instances**|1|This specifies the minimum number of instances available for any shard that can be used to answer a query.|
     |**Max Changeset ID**|104|This specifies the highest change set id in the repository.|
-    |**Mode**|MASTER|This specifies whether the instances are `SLAVE`, `MASTER`, or `MIXED`. **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.
+    |**Mode**|MASTER|This specifies whether the instances are `SLAVE`, `MASTER`, or `MIXED`. > **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.
 
 |
     |**Stores**|workspace://SpacesStore|This specifies the stores that are queryable for all instances.|
@@ -201,7 +201,7 @@ You can also set this property in the alfresco-insight-engine-distribution-2.0.x
     If you do not want to save the changes, click **Cancel**.
 
 
-**Note:** Alfresco recommends that you do not use the **Solr Admin Console \> Core Admin \> Unload** functionality to unload indexes \(either whole indexes or shards that are part of an index\). Unloading an index or a shard in this way will delete it and make it unavailable for query.
+> **Note:** Alfresco recommends that you do not use the **Solr Admin Console \> Core Admin \> Unload** functionality to unload indexes (either whole indexes or shards that are part of an index). Unloading an index or a shard in this way will delete it and make it unavailable for query.
 
 If you unload or delete a shard from the Solr Admin Console, make sure you restart the Solr server and restore your indexes so that Alfresco can work properly.
 

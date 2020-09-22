@@ -69,7 +69,7 @@ To promote a slave, follow the steps below:
     enable.slave=false
     ```
 
-5.  Configure all other slave servers \(if any\) to point to the new master server. Make sure that the state of the slave indexes is either behind or equal to the state of the master server. For more information, see [Configuring Solr slave](solr-replication-conf.md#slave).
+5.  Configure all other slave servers (if any) to point to the new master server. Make sure that the state of the slave indexes is either behind or equal to the state of the master server. For more information, see [Configuring Solr slave](solr-replication-conf.md#slave).
 
 After the previously broken master server is fixed, it can either be discarded, run as a slave, or run as a second master. To run as a slave, make sure it is behind the new master. It can be restored from a back up of another slave or the current master server.
 

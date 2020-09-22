@@ -22,7 +22,7 @@ keystores
     └── ssl-repo-client.truststore
 ```
 
-**Note:** The `zeppelin` folder is only required if you're an Enterprise customer using Alfresco Search and Insight Engine.
+> **Note:** The `zeppelin` folder is only required if you're an Enterprise customer using Alfresco Search and Insight Engine.
 
 |File name|Description|
 |---------|-----------|
