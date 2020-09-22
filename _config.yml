@@ -249,6 +249,8 @@ defaults:
       support: true
       versions:
         - 1.2
+        - 1.1
+        - 1.0
   - scope:
       path: "intelligence-services/latest"
     values:
