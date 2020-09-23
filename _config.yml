@@ -135,17 +135,17 @@ defaults:
 
 # Alfresco Governance Services
   - scope:
-      path: "ags"
+      path: "governance-services"
     values:
       layout: "docs"
       product: "Alfresco Governance Services"
-      location: "ags"
-      toc: "ags"
+      location: "governance-services"
+      toc: "governance-services"
       support: true
       versions:
         - 3.3
   - scope:
-      path: "ags/latest"
+      path: "governance-services/latest"
     values:
       version: 3.3
       latest: true
