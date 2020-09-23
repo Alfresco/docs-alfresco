@@ -2,13 +2,13 @@
 title: Install with Zip
 ---
 
-SAML Single Sign-On (SSO) is installed as a module of Alfresco Content Services. These modules are referred to as Alfresco Module Packages (AMP) and use the `.amp` file format.
+SAML Module is installed as a module of Alfresco Content Services. These modules are referred to as Alfresco Module Packages (AMP) and use the `.amp` file format.
 
 AMPs can be installed in the `amps` directory of your Alfresco Content Services installation or by using the [Module Management Tool](LINK).
 
 ## Prerequisites
 
-There are a number of prerequisites for installing SAML SSO in addition to the [supported platforms]({% link saml-sso/1.1/support/index.md %}).
+There are a number of prerequisites for installing SAML SSO in addition to the [supported platforms]({% link saml-module/1.1/support/index.md %}).
 
 ### Software
 

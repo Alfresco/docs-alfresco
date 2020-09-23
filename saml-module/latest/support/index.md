@@ -2,20 +2,19 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for SAML Single Sign-On (SSO) for Alfresco Content Services:
+The following are the supported platforms for SAML Module for Alfresco Content Services:
 
 ## Alfresco Content Services
 
 | Version | Supported | Notes |
 | ------- | --------- | ----- |
-| Content Services 6.1 | | |
-| Content Services 6.0 | | |
+| Content Services 6.2 | | |
 
 ## Application servers
 
 | Version | Supported | Notes |
 | ------- | --------- | ----- |
-| Tomcat 8.5.34 | | |
+| Tomcat 8.5.43 | | |
 
 ## Microsoft Office
 

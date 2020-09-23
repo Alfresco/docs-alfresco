@@ -6,7 +6,7 @@ This information is intended for developers or system administrator to create ap
 
 ## Prerequisites
 
-* SAML SSO [installed]({% link saml-sso/latest/install/index.md %}) and [configured]({% link saml-sso/latest/config/index.md %}).
+* SAML SSO [installed]({% link saml-module/1.1/install/index.md %}) and [configured]({% link saml-module/1.1/config/index.md %}).
 
 > **Note**: The examples below use Alfresco Content Services running locally on port 8080: `http://localhost:8080/alfresco`.
 
@@ -26,7 +26,7 @@ The initial REST API use cases are targeting clients that leverage CMIS, the Mob
 
 ### Authenticate users in an application using SAML via the REST API
 
-1. [Configure the REST API]({% link saml-sso/latest/config/alfresco.md %}#alfresco-rest-api).
+1. [Configure the REST API]({% link saml-module/1.1/config/alfresco.md %}#alfresco-rest-api).
 
 2. Check if SAML is enabled (or enforced) in your setup by making a call to `http://localhost:8080/alfresco/service/saml/-default-/rest-api/enabled` where`-default-` is the tenant name and `rest-api` is the ID of your SAML REST API service provider.
 
@@ -100,7 +100,7 @@ The initial REST API use cases are targeting clients that leverage CMIS, the Mob
 
 ## General Alfresco REST API information
 
-From Alfresco Content Services 6.2 onwards, there is a comprehensive API Explorer that should help you build applications faster, more securely, and consistently. For more information, see [https://api-explorer.alfresco.com/api-explorer/](https://api-explorer.alfresco.com/api-explorer/){:target="_blank"} and [https://github.com/Alfresco/rest-api-explorer](https://github.com/Alfresco/rest-api-explorer){:target="_blank"}.
+From Alfresco Content Services 6.0 onwards, there is a comprehensive API Explorer that should help you build applications faster, more securely, and consistently. For more information, see [https://api-explorer.alfresco.com/api-explorer/](https://api-explorer.alfresco.com/api-explorer/){:target="_blank"} and [https://github.com/Alfresco/rest-api-explorer](https://github.com/Alfresco/rest-api-explorer){:target="_blank"}.
 
 For Alfresco One 5.1 and previous versions, see [What does a request look like?](LINK).
 

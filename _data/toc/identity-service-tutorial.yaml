@@ -3,13 +3,41 @@
   pages:
     - title: 'Tutorials'
       path: '/identity-service/latest/tutorial/'
-    - title: 'Single Sign On'
+    - title: 'Single Sign On Guide'
       pages:
-        - title: 'Single Sign On Overview '
+        - title: 'Overview '
           path: '/identity-service/latest/tutorial/sso/'
         - title: 'SAML'
-          path: '/identity-service/latest/tutorial/sso/saml'
+          path: '/identity-service/latest/tutorial/sso/saml/'
         - title: 'LDAP'
           path: '/identity-service/latest/tutorial/sso/ldap/'
         - title: 'Kerberos'
           path: '/identity-service/latest/tutorial/sso/kerberos/'
+- version: 1.2
+  pages:
+    - title: 'Tutorials'
+      path: '/identity-service/1.2/tutorial/'
+    - title: 'Single Sign On Guide'
+      pages:
+        - title: 'Overview '
+          path: '/identity-service/1.2/tutorial/sso/'
+        - title: 'SAML'
+          path: '/identity-service/1.2/tutorial/sso/saml/'
+        - title: 'LDAP'
+          path: '/identity-service/1.2/tutorial/sso/ldap/'
+        - title: 'Kerberos'
+          path: '/identity-service/1.2/tutorial/sso/kerberos/'
+- version: 1.1
+  pages:
+    - title: 'Tutorials'
+      path: '/identity-service/1.1/tutorial/'
+    - title: 'Single Sign On Guide'
+      pages:
+        - title: 'Overview '
+          path: '/identity-service/1.1/tutorial/sso/'
+        - title: 'SAML'
+          path: '/identity-service/1.1/tutorial/sso/saml/'
+        - title: 'LDAP'
+          path: '/identity-service/1.1/tutorial/sso/ldap/'
+        - title: 'Kerberos'
+          path: '/identity-service/1.1/tutorial/sso/kerberos/'

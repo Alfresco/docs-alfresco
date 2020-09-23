@@ -1,0 +1,43 @@
+# SAML SSO 1.2
+- version: 1.2
+  pages:
+    - title: 'Introduction'
+      path: '/saml-module/latest/'
+    - title: 'Install'
+      path: '/saml-module/latest/install/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/saml-module/latest/config/'
+        - title: 'Configure PingFederate'
+          path: '/saml-module/latest/config/ping/'
+        - title: 'Configure ADFS'
+          path: '/saml-module/latest/config/adfs/'
+        - title: 'Configure Alfresco'
+          path: '/saml-module/latest/config/alfresco/'
+    - title: 'Administer'
+      path: '/saml-module/latest/admin/'
+    - title: 'Develop'
+      path: '/saml-module/latest/develop/'
+
+# SAML SSO 1.1
+- version: 1.1
+  pages:
+    - title: 'Introduction'
+      path: '/saml-module/1.1/'
+    - title: 'Install'
+      path: '/saml-module/1.1/install/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/saml-module/1.1/config/'
+        - title: 'Configure PingFederate'
+          path: '/saml-module/1.1/config/ping/'
+        - title: 'Configure ADFS'
+          path: '/saml-module/1.1/config/adfs/'
+        - title: 'Configure Alfresco'
+          path: '/saml-module/1.1/config/alfresco/'
+    - title: 'Administer'
+      path: '/saml-module/1.1/admin/'
+    - title: 'Develop'
+      path: '/saml-module/1.1/develop/'

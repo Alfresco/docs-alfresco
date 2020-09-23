@@ -6,13 +6,13 @@ The configuration for Kerberos authentication will allow users to access Alfresc
 
 The following diagram illustrates the components and authentication flow for a Kerberos setup:
 
-![Kerberos authentication diagram]({% link images/kerberos-authentication.png %})
+![Kerberos authentication diagram]({% link identity-service/images/kerberos.png %})
 
 ## Prerequisites
 
 The following are the prerequisites needed to configure SSO with Kerberos:
 
-* The [correct product versions](LINK) of the Alfresco software you are using.
+* The [correct product versions]({% link identity-service/1.2/support/index.md %}) of the Alfresco software you are using.
 * A Kerberos Key Distribution Center (KDC).
 * An instance of Active Directory.
 * Administrator access to all systems.
@@ -30,7 +30,7 @@ There are six steps to configuring SSO using Kerberos with Alfresco products. Th
 * Active Directory: `ldap.example.com`
 * Load Balancer: `alfresco.example.com`
 
-> **Note**: If using a containerized deployment there are [several amendments and additions](kerberos-v1.md#optional-containerized-deployment) required for certain steps.
+> **Note**: If using a containerized deployment there are [several amendments and additions](#optional-containerized-deployment) required for certain steps.
 
 ## Step 1: Configure Kerberos files
 
@@ -38,12 +38,12 @@ A user account and `keytab` file is required for Alfresco Content Services (ACS)
 
 The following table explains the values used to generate the `keytab` and `krb5.conf` files:
 
-| Variable | Description | Example |
-| -------- | ----------- | ------- |
-| `host` | A server host or load balancer name without a domain suffix | `alfresco` |
-| `domain`| The Domain Name System (DNS) domain | `example.com` |
-| `domainnetbios` | The Windows domain NetBIOS name | `example` |
-| `REALM` | The DNS domain in uppercase | `EXAMPLE.COM` |
+| Variable | Description |
+| -------- | ----------- |
+| host | A server host or load balancer name without a domain suffix, for example `alfresco` |
+| domain| The Domain Name System (DNS) domain, for example `example.com` |
+| domainnetbios | The Windows domain NetBIOS name, for example `example` |
+| REALM | The DNS domain in uppercase, for example `EXAMPLE.COM` |
 
 1. Create a user account in Active Directory for the SSO authentication filters:
     * Enter a full name such as `HTTP alfresco`.
@@ -52,20 +52,20 @@ The following table explains the values used to generate the `keytab` and `krb5.
 2. Use the `ktpass` command to generate a key table for the user account created in the previous step:
 
     ```bash
-    ktpass -princ HTTP/<host>.<domain>@<REALM> -pass <password> -mapuser 
-    <domainnetbios>\http<host> -crypto all -ptype KRB5_NT_PRINCIPAL -out 
+    ktpass -princ HTTP/<host>.<domain>@<REALM> -pass <password> -mapuser
+    <domainnetbios>\http<host> -crypto all -ptype KRB5_NT_PRINCIPAL -out
     c:\temp\http<host>.keytab -kvno 0
     ```
 
     For example:
 
     ```bash
-    ktpass -princ HTTP/alfresco.example.com@EXAMPLE.COM -pass <password> -mapuser 
-    example\httpalfresco -crypto all -ptype KRB5_NT_PRINCIPAL -out 
+    ktpass -princ HTTP/alfresco.example.com@EXAMPLE.COM -pass <password> -mapuser
+    example\httpalfresco -crypto all -ptype KRB5_NT_PRINCIPAL -out
     c:\temp\httpalfresco.keytab -kvno 0
     ```
 
-3. Use the setspn command to create Service Principal Names (SPN) for the user account created in the first step:
+3. Use the `setspn` command to create Service Principal Names (SPN) for the user account created in the first step:
 
     ```bash
     setspn -a HTTP/<host> http<host>
@@ -130,7 +130,7 @@ The Java login files need to be updated with details of the Kerberos configurati
 
 1. Configure or create the Java configuration file `java.login.config` located in `/java/conf/security`. The following is an example of a `java.login.config` file. The important properties to set are `keyTab` and `principal`.
 
-    * `keyTab` is the location of the [`keytab` file](kerberos-v1.md#step1) copied to the ACS server
+    * `keyTab` is the location of the [`keytab` file](#step-1-configure-kerberos-files) copied to the ACS server
     * `principal` is in the format `HTTP/<host>.<domain>`
 
     ```bash
@@ -163,16 +163,15 @@ The Java login files need to be updated with details of the Kerberos configurati
     login.config.url.1=file:<installLocation>/java/conf/security/java.login.config
     ```
 
-3. Use the following configuration parameters in an alfresco-global.properties file:
+3. Use the following configuration parameters in an `alfresco-global.properties` file:
 
     | Property | Description |
     | -------- | ----------- |
-    | authentication.chain | *Required.* The authentication chain needs to be set for Kerberos, for example: `kerberos,alfrescoNtlm1:alfrescoNtlm` |
-    | kerberos.authentication.realm | *Optional.* The Kerberos realm to authenticate against. The realm name is the domain name in uppercase, for example: `EXAMPLE.COM` |
+    | authentication.chain | The authentication chain needs to be set for Kerberos, for example: `kerberos,alfrescoNtlm1:alfrescoNtlm` |
+    | kerberos.authentication.realm | The Kerberos realm to authenticate against. The realm name is the domain name in uppercase, for example: `EXAMPLE.COM` |
     | kerberos.authentication.sso.enabled | Sets whether authentication using Kerberos is enabled or not |
     | kerberos.authentication.sso.fallback.enabled | Sets whether a fallback authentication mechanism such as database credentials is used |
     | kerberos.authentication.user.configEntryName | The name of the entry in the Java Authentication and Authorization Service (JAAS) file used for password-based authentication. The default value of `Alfresco` is recommended |
-
 
 ## Step 3: Configure Alfresco Share
 
@@ -227,7 +226,6 @@ The Java login files need to be updated with details of the Kerberos configurati
     >-Dsun.security.krb5.msinterop.kstring=true
     >```
 
-
 ## Step 4: Configure Alfresco Digital Workspace
 
 The Alfresco Digital Workspace requires one property added to enable Kerberos SSO. This can be added in the `app.config.json`, located by default in the `/src`directory.
@@ -237,7 +235,7 @@ The following is the property to add to the `app.config.json`:
 ```json
  "auth": {
       "withCredentials": true
-}   
+}
 ```
 
 ## Step 5: Configure Alfresco Process Services
@@ -281,17 +279,17 @@ The Java login files need to be updated with details of the Kerberos configurati
 
 3. Use the following configuration parameters in an `activiti-ldap-properties` file:
 
-    | Property | Description | Example |
-    | -------- | ----------- | ------- |
-    | `kerberos.authentication.enabled` | Sets whether authentication via Kerberos is enabled. This needs to be set to `true` to setup SSO using Kerberos | `true` |
-    | `kerberos.authentication.principal` | The Service Principal Name (SPN) to authenticate against | `HTTP/alfresco.example.com` |
-    | `kerberos.authentication.keytab` | The location of key table file|`C:/alfresco/alfrescohttp.keytab` |
-    | `kerberos.authentication.krb5.conf` | The location of the Kerberos ini file | `C:/Windows/krb5.ini` |
-    | `kerberos.allow.ldap.authentication.fallback` |Sets whether to allow sign in from unsupported browsers using LDAP credentials | `false` |
-    | `kerberos.allow.database.authentication.fallback` | Sets whether to allow sign in from unsupported browsers using database credentials | `true` |
-    | `kerberos.allow.samAccountName.authentication` | Sets whether authentication can use the short form such as `username` rather than `username@domain.com` | `true` |
-    | `security.authentication.use-externalid` | A setting that enables authentication through Kerberos | `true` |
-    | `ldap.authentication.enabled` | Sets whether LDAP authentication is enabled. This setting needs to be set to `true` for SSO to work for Kerberos | `true` |
+    | Property | Description |
+    | -------- | ----------- |
+    | kerberos.authentication.enabled | Sets whether authentication via Kerberos is enabled. This needs to be set to `true` to setup SSO using Kerberos, for example `true` |
+    | kerberos.authentication.principal | The Service Principal Name (SPN) to authenticate against, for example `HTTP/alfresco.example.com` |
+    | kerberos.authentication.keytab | The location of key table file, for example `C:/alfresco/alfrescohttp.keytab` |
+    | kerberos.authentication.krb5.conf | The location of the Kerberos ini file, for example `C:/Windows/krb5.ini` |
+    | kerberos.allow.ldap.authentication.fallback |Sets whether to allow sign in from unsupported browsers using LDAP credentials, for example `false` |
+    | kerberos.allow.database.authentication.fallback | Sets whether to allow sign in from unsupported browsers using database credentials, for example `true` |
+    | kerberos.allow.samAccountName.authentication | Sets whether authentication can use the short form such as `username` rather than `username@domain.com`, for example `true` |
+    | security.authentication.use-externalid | A setting that enables authentication through Kerberos, for example `true` |
+    | ldap.authentication.enabled | Sets whether LDAP authentication is enabled. This setting needs to be set to `true` for SSO to work for Kerberos, for example `true` |
 
 ## Step 6: Configure Alfresco Process Workspace
 
@@ -310,7 +308,7 @@ The following are the properties to add to the `app.config.json`:
 "bpmHost": "https://aps.example.com",
 ```
 
-## *(Optional)* Containerized deployment
+## (Optional) Containerized deployment
 
 In a containerized deployment it is assumed that a load balancer is used to route traffic to the relevant applications. The Active Directory instance used to authenticate users with in a containerized Kerberos scenario is also more likely to exist outside of the domain of the Alfresco applications.
 
@@ -405,7 +403,7 @@ COPY config/activiti-ldap.properties /usr/local/tomcat/lib/activiti-ldap.propert
 
 ### Clustered deployments
 
-If using a clustered deployment on Kubernetes set `sessionAffinity: ClientIP` on the Alfresco Content Services service so that client requests are passed to the same pod. The [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/service/#proxy-mode-ipvs){: target="_blank"} provides further information on this setting.
+If using a clustered deployment on Kubernetes set `sessionAffinity: ClientIP` on the Alfresco Content Services service so that client requests are passed to the same pod. The [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/service/#proxy-mode-ipvs){:target="_blank"} provides further information on this setting.
 
 ## Verify the configuration
 
@@ -415,7 +413,7 @@ To verify that SSO is working correctly after configuring Kerberos, the followin
 
 The following is an example sequence to follow to verify that SSO works correctly:
 
-1. Sign in to the Windows client machine as the user configured in [Step 1](kerberos-v1.md#step1).
+1. Sign in to the Windows client machine as the user configured in [Step 1](#step-1-configure-kerberos-files).
 2. Open a new browser session and navigate to the Alfresco Digital Workspace at the URL `http://adw.example.com/workspace` and there should be no additional sign in step required.
 3. Create a new tab in the same browser session and navigate to Alfresco Share at the URL `http://share.example.com/share` and there should be no additional sign in step required.
 4. Create a new tab in the same browser session and navigate to Alfresco Process Services at the URL `http://aps.example.com/activiti-app` and there should be no additional sign in step required.

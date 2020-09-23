@@ -1,8 +1,10 @@
 ---
-title: SAML Single Sign-On (SSO) for Alfresco Content Services
+title: SAML Module for Alfresco Content Services
 ---
 
-You can use Security Assertion Markup Language (SAML) with Alfresco to support Single Sign-On (SSO) across an organization.
+> **Important**: It is recommended to use the SAML Module in conjunction with the [Identity Service]({% link identity-service/1.2/tutorial/sso/saml.md %}) when setting up SAML authentication.
+
+You can use Security Assertion Markup Language (SAML) with Alfresco to support SAML authentication for Content Services.
 
 SAML standards define an XML-based framework for describing and exchanging security information between an identity provider (IdP) and service provider (SP).
 
@@ -16,4 +18,4 @@ Alfresco uses SAML 2.0. See [OASIS SAML v2.0](https://wiki.oasis-open.org/securi
 
 This diagram explains the exchange of information between the service provider (in this case, Alfresco Share), and the identity provider (in this case, PingFederate):
 
-![An overview of SAML SSO information exchange]({% link saml-sso/images/overview.png %})
+![An overview of SAML SSO information exchange]({% link saml-module/images/overview.png %})
