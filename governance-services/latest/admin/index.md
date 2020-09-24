@@ -13,9 +13,7 @@ You can easily configure Governance Services using the Admin Tools.
 
 >**Note:** The user who created the Governance Services site is automatically made a member of the Governance Services Administrator group. Other users can access different areas of the **Admin Tools** depending on the capabilities given to the role that they're in.
 
-1. In a Governance Services site click **Admin Tools**.
-
-    The **Admin Tools** opens on the **Audit** page, with various tools available on the left side of the page. Click a tool to manage that part of your site.
+In a Governance Services site click **Admin Tools** to open the **Audit** page, with various other options available on the left-hand side. Click a tool to manage that part of your site.
 
 ## Audit
 
