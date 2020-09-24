@@ -141,6 +141,7 @@ defaults:
       product: "Alfresco Governance Services"
       location: "governance-services"
       toc: "governance-services"
+      tutorial: true
       support: true
       versions:
         - 3.3
@@ -149,6 +150,10 @@ defaults:
     values:
       version: 3.3
       latest: true
+  - scope:
+      path: "governance-services/latest/tutorial"
+    values:
+      toc: "governance-services-tutorial"
 
 # Alfresco Document Transformation Engine
   - scope:

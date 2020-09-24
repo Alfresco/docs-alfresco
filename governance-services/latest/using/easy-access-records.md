@@ -14,8 +14,8 @@ This means that most users never need to think about records, {% include tooltip
 file as a record, and the rest is handled by the Records Administrator and any rules that they've set up.
 
 When a record is created from a file it's added to the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} area of the Records Management site. 
-A Records Manager then has numerous options for [Filing an unfiled record]({% link governance-services/latest/using/gs/file-records.md %}#filing-an-unfiled-record) and 
-[Managing unfiled records]({% link governance-services/latest/using/gs/manage-fileplan.md %}#managing-unfiled-records)
+A Records Manager then has numerous options for [Filing an unfiled record]({% link governance-services/latest/using/file-records.md %}#filing-an-unfiled-record) and 
+[Managing unfiled records]({% link governance-services/latest/using/manage-fileplan.md %}#managing-unfiled-records)
 
 There are three options available for declaring files as records:
 
@@ -55,9 +55,9 @@ have the required {% include tooltip.html word="securityclassification" text="se
 
 There are four security classification levels you can assign. {% include tooltip.html word="securitygroups" text="Security groups" %} provide additional classification options.
 
->**Note:** You can also [classify records]({% link governance-services/latest/using/smc/user-guide.md %}#classifyrecordsfolderscategories) in the File Plan.
+>**Note:** You can also [classify records]({% link governance-services/latest/using/smc.md %}#classifyrecordsfolderscategories) in the File Plan.
 
-See [Classification rules and tips]({% link governance-services/latest/using/smc/user-guide.md %}#classification-rules-and-tips) for more on classifying content.
+See [Classification rules and tips]({% link governance-services/latest/using/smc.md %}#classification-rules-and-tips) for more on classifying content.
 
 You can autoclassify by by adding instructions, manually apply classifications and security marks, or both.
 
@@ -128,7 +128,7 @@ You can autoclassify by by adding instructions, manually apply classifications a
 
     You cannot use security marks you do not posses when classifying content, unless you also use a security mark you do posses from the same group. If you have a security mark from a security group 'any' then you can view and assign all other marks from that group. When using marks (either when Classifying Content or creating Instructions) that you don't posses, you must include a mark from the same group to avoid losing access to the content. An error will appear if you attempt to create an instruction using only a mark you don't have, or have not included a mark from the same group.
 
-    See [How security controls work]({% link governance-services/latest/using/smc/user-guide.md %}#how-security-controls-work) for more details.
+    See [How security controls work]({% link governance-services/latest/using/smc.md %}#how-security-controls-work) for more details.
 
 19. Click **Classify**.
 
@@ -140,7 +140,7 @@ You can autoclassify by by adding instructions, manually apply classifications a
 
     The classification reason and classification-related properties can be seen in the **Properties** when you preview the file.
 
-    >**Note:** When you classify a file it isn't added to the Records Management site File Plan. If you want to create a record from it you still need to [declare the file as a record]({% link governance-services/latest/starting/users/declare-record.md %})
+    >**Note:** When you classify a file it isn't added to the Records Management site File Plan. If you want to create a record from it you still need to [declare the file as a record](#declaring-a-file-as-a-record)
 
     If you delete a classified file then it's permanently deleted and isn't available in your Trashcan. If you delete a classified folder then all of its content is permanently deleted, even items that haven't been directly classified themselves.
 
@@ -162,7 +162,27 @@ You can create records from files in non-Governance Services sites and select th
 
 ## Declaring a file as a record
 
-{% include governance-services/declare-record.md %}
+You can create records from files in non-Records Management sites and add them straight into the {% include tooltip.html word="fileplan" text="File Plan" %}.
+
+1. In the **Document Library** of an Alfresco site find the file you want to declare as a record.
+
+2. Hover over the file and click **More** then **Declare as Record**.
+
+    The file is added to the **Unfiled Records** area, in the explorer panel of your Records Management site. 
+    It's still visible in its original site, identified by the ![Easy access record]({% link governance-services/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, 
+    but is locked and with a limited set of actions available.
+
+    >**Note:** You can't declare a record if your permission level for the site is Consumer, or if the file is locked.
+
+    A file that has been declared as a record can be deleted. The records remain in the File Plan.
+
+This record can now be filed in the File Plan. You can find it in the **Unfiled Records** area in the File Plan explorer panel. 
+New records display in the File Plan as incomplete records. You need to make sure any required metadata is added before 
+you can set records to {% include tooltip.html word="recordcompleted" text="complete" %}.
+
+>**Note:** You can also set up folder rules in a non-Records Management site so the files can be automatically declared as records. For example, you could create a rule that when a file is tagged as "Confirmed", then a record will be created of that file and added to the Records Management site.
+
+See also video explaining [declaring a file as a record]({% link governance-services/latest/tutorial/governance-services/index.md %}#declare-an-easy-access-record).  
 
 ## Declaring a file version as a record
 

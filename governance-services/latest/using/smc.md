@@ -18,9 +18,10 @@ security classification and security marks.
 You can set up classification guides so that users can auto-classify content.
 
 When an item is classified it can only be seen by those with the required security clearance, and the security classification 
-level is shown on screen. Users without the necessary security clearance won't have access to it or even know that it's there.
- When a classified file is {% include tooltip.html word="declareasrecord" text="declared" %} as a record it retains its classification level and security marks.
-
+level is shown on screen. Users without the necessary security clearance won't have access to it or even know that it's there. 
+When a classified file is {% include tooltip.html word="declareasrecord" text="declared" %} as a record it retains its 
+classification level and security marks.
+                           
 User security clearance is set for a user (or user group) by assigning security marks to them.
 
 You can create **Classification Reasons** to help identify and align the reasons why content is classified. 
@@ -72,7 +73,7 @@ When you {% include tooltip.html word="classify" text="classify" %} a file or re
 The top part is for setting classification and the bottom part for applying additional security marks. 
 You can apply both classification and additional security marks to files (or records) at the same time.
 
->**Note:** Standard [Alfresco permissions](TODO_LINK:http://docs.alfresco.com/6.0/references/permissions_share.html) and [Records Management permissions]({% link governance-services/latest/starting/managers/set-permissions.md %}) continue to apply as well as any additional classifications.
+>**Note:** Standard [Alfresco permissions](TODO_LINK:http://docs.alfresco.com/6.0/references/permissions_share.html) and [Records Management permissions]({% link governance-services/latest/using/manage-permissions.md %}) continue to apply as well as any additional classifications.
 
 ### Classification security group
 
@@ -139,7 +140,7 @@ Security clearance is the assignment of security marks to users.
 
 Once marks are applied to content then users can only see that content if they have the required security clearance.
 
->**Note:** Standard [Alfresco permissions](TODO_LINK:http://docs.alfresco.com/5.1/references/permissions_share.html) and [Records Management permissions]({% link governance-services/latest/starting/managers/set-permissions.md %}) continue to apply as well as any security clearance.
+>**Note:** Standard [Alfresco permissions](TODO_LINK:http://docs.alfresco.com/5.1/references/permissions_share.html) and [Records Management permissions]({% link governance-services/latest/using/manage-permissions.md %}) continue to apply as well as any security clearance.
 
 When security groups are created there are three different Group Types available, and each one controls how the user sees content, see [How security controls work](#how-security-controls-work).
 
@@ -358,7 +359,7 @@ viewed or accessed by users who have the required security clearance.
 
 There are four security classification levels that you can assign. Security groups provide additional classification options.
 
->**Note:** You can also [classify files]({% link governance-services/latest/using/gs/easy-access-records.md %}#classifying-files-and-folders) in Alfresco sites.
+>**Note:** You can also [classify files]({% link governance-services/latest/using/easy-access-records.md %}#classifying-files-and-folders) in Alfresco sites.
 
 See [Classification rules and tips](#classification-rules-and-tips) for more on classifying content.
 

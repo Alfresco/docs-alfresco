@@ -1,16 +1,3 @@
-{% if include.video == nil %}
-
-<figure class="mb-3">
-  <img src="{{include.image}}">
-  <figcaption>{{include.caption}}</figcaption>
+<figure class="image is-16by9">
+  <iframe class="has-ratio" src="https://www.youtube.com/embed/{{ include.id }}" allowfullscreen> </iframe>
 </figure>
-
-{% endif %}
-
-{% if include.image == nil %}
-
-<div class="mb-3">
-<iframe src="{{include.video}}"></iframe>
-</div>
-
-{% endif %}

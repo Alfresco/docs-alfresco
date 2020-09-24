@@ -136,9 +136,9 @@ If a folder is subject to a folder level retention schedule, you can review the 
 
     A message displays confirming that the retention date is updated. This overrules any review dates set in the retention schedule.
 
-### Processing records
+### Processing records in a folder
 
-{% include governance-services/process-records.md %}
+See [processing records](#processing-records) under managing records section.
 
 ### Adding record folders to a hold
 
@@ -303,11 +303,11 @@ All records filed from a non-Records Management site are added to the {% include
 
 >**Tip:** Access the Unfiled Records area using the explorer panel to the left of the File Plan.
 
-Unfiled records can have been {% include tooltip.html word="declareasrecord" text="declared" %} as records from a non-Records Management site, from within the Unfiled Records area, or could be reports generated from within the File Plan. [Filing an unfiled record]({% link governance-services/latest/using/gs/file-records.md %}#filing-an-unfiled-record) describes how records in the Unfiled Records area are processed.
+Unfiled records can have been {% include tooltip.html word="declareasrecord" text="declared" %} as records from a non-Records Management site, from within the Unfiled Records area, or could be reports generated from within the File Plan. [Filing an unfiled record]({% link governance-services/latest/using/file-records.md %}#filing-an-unfiled-record) describes how records in the Unfiled Records area are processed.
 
 You don't have to use this area as a flat structure, you can configure it to your own requirements.
 
-You can create a full folder hierarchy within the Unfiled Records area and use [rules]({% link governance-services/latest/using/gs/automate-fileplan.md %}) to automate the processing of unfiled records.
+You can create a full folder hierarchy within the Unfiled Records area and use [rules]({% link governance-services/latest/using/automate-fileplan.md %}) to automate the processing of unfiled records.
 
 You can use the **Manage Permissions** option to control which users can file and reject unfiled records.
 
@@ -355,7 +355,30 @@ If a record is subject to a record level retention schedule, you can review the 
 
 ### Processing records
 
-{% include governance-services/process-records.md %}
+Retention steps are generally completed manually, though retain and cut off steps can be completed automatically 
+by a system process that is run daily. You can also set up a rule to complete steps automatically.
+
+If a retention step is complete (the time period is finished or the required {% include tooltip.html word="events" text="events" %} have been completed), 
+then additional options are available for folders or records, dependant on whether the {% include tooltip.html word="retentionschedule" text="retention schedule" %} 
+is set to folder or record level.
+
+If you apply an action to a folder then it will also be applied to all records within the folder.
+
+1. Hover over a folder/record in the {% include tooltip.html word="fileplan" text="File Plan" %} and click the action that is available to move to the next step in the retention schedule.
+
+    |Action|Select this to...|
+    |------|-----------------|
+    |Cut off|Cuts off the record/folder and triggers the retention period. Records can't be added to a folder that's been cut off.|
+    |End Retention|Ends the retention period for the record/folder.|
+    |Transfer|Transfers the record/folder to the previously specified location. An audit trail and metadata is retained.By default {% include tooltip.html word="transfer" text="transferred" %} records/folders are temporarily held in the Transfers area of the File Plan until you hover over them and click **Complete Transfer**.|
+    |Accession|Transfers the record/folder to the previously specified location. An audit trail and metadata is retained.<br><br>This usually involves the specific legal and physical transfer of records between organizations.<br><br>By default {% include tooltip.html word="accession" text="accessioned" %} records/folders are temporarily held in the Transfers area of the File Plan until you hover over them and click **Complete Transfer**.|
+    |Destroy|Removes the record/folder content from the Records Management system. If the **Maintain record metadata after destroy** option is selected in the retention schedule, then a visual representation of the record, an audit trail, and metadata is retained in the File Plan.<br><br>If the record was declared from a file in an Alfresco site then the file is also removed.|
+
+    >**Note:** Each time you manually run an action, that option is replaced with the next action step in the retention schedule, and a new option for undoing the step you've just done, for example, **Undo Cut Off**.
+
+    Icons next to the record/folder indicate their current stage in the schedule.
+
+See also video explaining [processing records]({% link governance-services/latest/tutorial/governance-services/index.md %}#process-records).
 
 ### Adding records and record folders from the File Plan to a hold
 
@@ -384,7 +407,7 @@ A hold allows objects on hold for a particular reason to be tracked as a set.
 
 The record remains in its place in the File Plan. It is also shown in the **Holds** area of the explorer panel.
 
->**Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**. See [Removing items from hold]({% link governance-services/latest/using/gs/search-records.md %}#removing-items-from-hold).
+>**Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**. See [Removing items from hold]({% link governance-services/latest/using/search-records.md %}#removing-items-from-hold).
 
 ### Adding content from the Document Library to a hold
 
@@ -411,7 +434,7 @@ A hold allows items on hold for a particular reason to be tracked as a set.
 
 The content remains in its place in the Document Library. It is also shown in the **Holds** area of the File Plan explorer panel.
 
->**Note:** To remove content from a hold hover over it in the File Plan, Document Library or the Holds area and select **Remove from Hold**. From the Holds area in the File Plan and from the List view in the File Plan you can remove more than one item at a time. You do this by selecting your items and clicking the **Selected Items** drop down list and then **Remove from Hold**. See [Removing items from hold]({% link governance-services/latest/using/gs/search-records.md %}#removing-items-from-hold).
+>**Note:** To remove content from a hold hover over it in the File Plan, Document Library or the Holds area and select **Remove from Hold**. From the Holds area in the File Plan and from the List view in the File Plan you can remove more than one item at a time. You do this by selecting your items and clicking the **Selected Items** drop down list and then **Remove from Hold**. See [Removing items from hold]({% link governance-services/latest/using/search-records.md %}#removing-items-from-hold).
 
 ### Reverting a record to be an incomplete record
 
@@ -443,7 +466,7 @@ You can create as many different holds as you want, which are represented as fol
 
 In the Holds area there's a **New Hold** option which you use to set up your different hold types. Once you have a list of different holds you can put content, records, and, record folders on as many of the different holds as required.
 
-You can also add records to a hold directly from your search results, see [Adding search results to a hold - Records Search]({% link governance-services/latest/using/gs/search-records.md %}#addsearchresults2holdRecordsSearch) and [Adding search results to a hold - Share search]({% link governance-services/latest/using/gs/search-records.md %}#addsearchresults2holdShareSearch).
+You can also add records to a hold directly from your search results, see [Adding search results to a hold - Records Search]({% link governance-services/latest/using/search-records.md %}#addsearchresults2holdRecordsSearch) and [Adding search results to a hold - Share search]({% link governance-services/latest/using/search-records.md %}#addsearchresults2holdShareSearch).
 
 When you add a record folder to a hold, all records within the folder are also added to the hold. They'll stay on hold until removed from the hold or the hold is deleted.
 

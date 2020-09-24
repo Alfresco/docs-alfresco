@@ -1,5 +1,5 @@
-{% assign toch = site.data.toc.[page.location] | where: 'version',  page.version %}
+{% assign toch = site.data.toc.[page.toc] | where: 'version',  page.version %}
 {% assign toc = toch[0] %}
 <ul id="leftside-menu">
-{% include toc_part.html pages=toc.pages %}
+    {% include toc_part.html pages=toc.pages %}
 </ul>
