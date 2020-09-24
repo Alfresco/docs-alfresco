@@ -5,6 +5,11 @@
 <ul>
     {%include toc_part.html pages=p.pages %}
 </ul>
+  {% elsif page.url == p.path %}
+<ul id="tocspy">
+  <li><a class="menuitem-title" href="#">title</a></li>
+</ul>
+
   {% endif %}
 </li>
 {%endfor%}
