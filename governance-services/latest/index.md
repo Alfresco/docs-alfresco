@@ -2,7 +2,7 @@
 title: Alfresco Governance Services
 ---
 
-Welcome to the Alfresco Governance Services 3.3 documentation. Governance Services combines Records Management with Security Controls and Classification.
+Governance Services combines Records Management with Security Controls and Classification.
 
 If you want to know about the new features and improvements of Alfresco Governance Services 3.3, see [What's new in Governance Services](TODO_LINK:replace what's new page with link to readme).
 
