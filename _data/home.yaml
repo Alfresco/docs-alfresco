@@ -108,7 +108,7 @@ integrations:
         url:
       - title: "Microsoft Outlook"
         text: "Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook."
-        url:
+        url: /microsoft-outlook/latest/
       - title: "Microsoft Office"
         text: "Alfresco Office Services allows you to access Alfresco Content Services directly from your Microsoft Office applications."
         url:
