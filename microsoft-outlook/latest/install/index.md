@@ -32,7 +32,7 @@ The software you need to install the Outlook Integration is as follows:
 
 If you plan to use SAML Single Sign-On (SSO) for Alfresco Content Services authentication, you need to install and configure the Alfresco SAML module.
 
-You can download the Outlook Integration software from the Alfresco Support Portal: [https://support.alfresco.com](https://support.alfresco.com)
+You can download the Outlook Integration software from the [Alfresco Support Portal](https://support.alfresco.com).
 
 ## Prerequisites 
 
@@ -72,7 +72,7 @@ Make sure you are running the correct versions of operating system and software 
 
 1.  Stop the Alfresco server.
 
-2.  Browse to the Alfresco Support Portal: [http://support.alfresco.com](http://support.alfresco.com) and download and unzip the the Outlook Integration zip package:
+2.  Browse to the [Alfresco Support Portal](https://support.alfresco.com) and download and unzip the the Outlook Integration zip package:
 
     * `alfresco-outlook-integration-2.7.x.zip`
     
@@ -99,7 +99,7 @@ Make sure you are running the correct versions of operating system and software 
     where `localhost:8080` is your Alfresco server and port number.
 
 
-If you plan to use SAML SSO, you need to install and configure the Alfresco SAML module. See [Installing SAML SSO in Alfresco](https://docs.alfresco.com/saml/concepts/saml-config-overview.html) and [Configuring SAML SSO](TODO_LINK:https://docs.alfresco.com/saml/tasks/saml-config.html) for more information.
+If you plan to use SAML SSO, you need to install and configure the Alfresco SAML module. See [Installing SAML SSO in Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-config-overview.html) and [Configuring SAML SSO](TODO_LINK:https://docs.alfresco.com/saml/tasks/saml-config.html) for more information.
 
 ### Installing server and client licenses in Alfresco Share {#installserverclientlicenses}
 
@@ -160,7 +160,7 @@ Ensure you have already installed the required AMP files in your Alfresco instan
 
 8.  Open Microsoft Outlook.
 
-    You will see an *Alfresco Client* tab on the toolbar. Click this tab to view options for configuring the Alfresco Outlook Client.
+    You will see an **Alfresco Client** tab on the toolbar. Click this tab to view options for configuring the Alfresco Outlook Client.
 
     If you did not enter a client license key in Alfresco Share, you must enter one when you open Microsoft Outlook. Navigate to **Alfresco Client > Configure > License** to enter your key.
 
@@ -260,7 +260,7 @@ This information provides uninstall directions for Alfresco Content Services.
 
 Learn how to uninstall the Alfresco Outlook Client.
 
->**Note:** You can uninstall the Outlook client from your Microsoft Windows machines. Using the standard **Programs > Uninstall Program** feature in Windows. Look for *Alfresco Outlook Client* and uninstall it.
+>**Note:** You can uninstall the Outlook client from your Microsoft Windows machines. Using the standard **Programs > Uninstall Program** feature in Windows. Look for **Alfresco Outlook Client** and uninstall it.
 
 There are two different ways to uninstalling the Alfresco Outlook Client for enterprise installations:
 

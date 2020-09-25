@@ -153,7 +153,7 @@ Work with your files and folders using the Alfresco sidebar.
         * ![Outlook Client email link icon]({% link microsoft-outlook/images/outlook-search-email-link.png %}){:height="18px" width="18px"} Send an email, with this result embedded as a link
         * ![Outlook Client favorite icon]({% link microsoft-outlook/images/outlook-search-favorite.png %}){:height="18px" width="18px"} Mark as a favorite
         * ![Outlook Client metadata icon]({% link microsoft-outlook/images/outlook-metadata.png %}){:height="18px" width="18px"} Add metadata for the file or folder. This opens the metadata dialog that was displayed when the file was filed in Share.
-        * View the version history of a document. See [Working with file versions](TODO:Outlook-versioning.md) for more.
+        * View the version history of a document. See [Working with file versions](#working-with-file-versions) for more.
         * Check out a document for editing offline.
         
 6.  Drag and drop files into the repository. A number of options are available, depending on your configuration settings.

@@ -677,7 +677,7 @@ These settings define global controls across your enterprise and are applied imm
 
     Options are **All public sites**, **My sites** or **Favorite sites**.
 
-    >**Note:** Outlook users are able to change this and other settings locally for the Alfresco Outlook Client. See [Configuring extended settings in Outlook](#configuring-extended-settings-in-outlook) for more information.
+    >**Note:** Outlook users are able to change this and other settings locally for the Alfresco Outlook Client. See [Configuring extended settings in Outlook](#configure-extended-settings) for more information.
 
 4.  In **Prevent email duplication in**, choose to check the uniqueness of files and at what level.
 
@@ -689,7 +689,7 @@ These settings define global controls across your enterprise and are applied imm
 
     3.  **Site**: emails with same messageID are not allowed across a site.
 
-    >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook](TODO:../concepts/Outlook-versioning-intro.md) for more details.
+    >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook]({% link microsoft-outlook/latest/using/index.md %}#managing-file-versions-in-outlook) for more details.
 
 5.  Specify a number in **Page size** to limit the number of files and folders visible at a time in the Explore view of the Alfresco sidebar in Outlook.
 
