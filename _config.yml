@@ -133,6 +133,23 @@ defaults:
     values:
       version: 1.5
 
+# Alfresco Process Services (APS)
+  - scope:
+      path: "process-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Process Services"
+      location: "process-services"
+      toc: "process-services"
+      support: true
+      versions:
+        - 1.11
+  - scope:
+      path: "process-services/latest"
+    values:
+      version: 1.11
+      latest: true
+
 # Alfresco Document Transformation Engine
   - scope:
       path: "transformation-engine"

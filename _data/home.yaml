@@ -12,7 +12,7 @@ services:
     image: /assets/img/ic_process_80px.svg
     sub:
       - title: "On premise"
-        url:
+        url: /process-services/latest
       - title: "Process on Alfresco Cloud"
         url:
   - title: "Governance"

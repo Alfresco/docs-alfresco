@@ -1,0 +1,17 @@
+# Alfresco Process Services (APS)
+- version: 1.11
+  pages:
+    - title: 'Introduction'
+      path: '/process-services/latest/'
+    - title: "Install"
+      path: '/process-services/latest/install/'
+    - title: 'Upgrade'
+      path: '/process-services/latest/upgrade/'
+    - title: "Configure"
+      path: '/process-services/latest/config/'
+    - title: "Administer"
+      path: '/process-services/latest/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Getting started'
+          path: '/process-services/latest/using/getting-started/'
