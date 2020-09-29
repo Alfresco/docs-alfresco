@@ -47,7 +47,7 @@ This process also includes 2 web forms.
 
     * **Cloud trial** - [APS App Cloud](https://activiti.alfresco.com/activiti-app/#/) (use your online trial sign in details)
 
-    ![]({% link process-services/images/gs-dashboard.png %})
+    ![Activiti App Landing Page]({% link process-services/images/gs-dashboard.png %})
 
 2.  Select **App Designer** on your dashboard.
 
