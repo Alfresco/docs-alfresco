@@ -21,7 +21,7 @@ There is a known issue where Online Editing is not available using the 64-bit ve
 
 If you have installed Alfresco manually or upgraded from a previous version of Alfresco, you might not have installed the Alfresco Office Services AMP file. If that is the case, you will receive an error message "The address is not valid" when you try to connect and authenticate with the address: `http://server:port/alfresco/aos`. You will also see the following error message in the server log:
 
-``` plain text
+```text
 Blocked a directory listing request from MS-Office. This indicates a broken MS-Office
 deployment. Please check that the ROOT and the _vti_bin webapps are deployed properly and
 reachable from the outside!
@@ -93,7 +93,7 @@ To resolve this problem, you need to either set `Date` and `DateTime` as optiona
 
 If you use the JBoss application server, you must customize the `web.xml` file in the Alfresco `ROOT.war`, `_vti_bin.war` and `share.war` files to include this code fragment:
 
-``` xml
+```xml
 <context-param>
    <param-name>
       org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL

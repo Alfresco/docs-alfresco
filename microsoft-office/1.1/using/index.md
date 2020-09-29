@@ -67,13 +67,13 @@ You can do this by either mapping a network drive to Alfresco or by entering a m
 
     If your Alfresco address is
 
-    ``` html
+    ```bash
     https://mycompany.com`
     ```
 
     then you'd enter
 
-    ``` html
+    ```bash
     \\\\mycompany.com@SSL\\DavWWWRoot\\alfresco\\aos
     ```
 

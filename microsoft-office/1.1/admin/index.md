@@ -11,7 +11,7 @@ There is a known issue where Online Editing is not available using the 64-bit ve
 
 If you have installed Alfresco manually or upgraded from a previous version of Alfresco, you might not have installed the Alfresco Office Services AMP file. If that is the case, you will receive an error message "The address is not valid" when you try to connect and authenticate with the address: `http://server:port/alfresco/aos`. You will also see the following error message in the server log:
 
-```plain text
+```text
 Blocked a directory listing request from MS-Office. This indicates a broken MS-Office
 deployment. Please check that the `ROOT` and the `_vti_bin` webapps are deployed properly and
 reachable from the outside!
@@ -23,7 +23,7 @@ To fix this problem, ensure that you have installed the Alfresco Office Services
 
 If you have not enabled SSL, you might encounter the following error message:
 
-``` plain text
+```text
 Access to this web server is disabled by default because it is controlled by basic authentication and does not use Secure Socket Layer (SSL).
 ```
 

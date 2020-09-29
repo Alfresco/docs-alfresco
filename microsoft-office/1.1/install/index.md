@@ -89,7 +89,7 @@ The following diagram shows the information flow between Microsoft Office and Al
 
     For Tomcat, add a file called `context.xml` to the META-INF directory of your web application. Here is an example of the `context.xml` file:
 
-    ``` xml
+    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Context path="/" debug="100" privileged="true" reloadable="true" crossContext="true">
     </Context>

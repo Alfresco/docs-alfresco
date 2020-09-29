@@ -41,7 +41,7 @@ There are some dependencies that you might encounter when using Alfresco Office 
 * AOS interacts very closely with Microsoft Office, and there are some implications as a result:
   * Alfresco simulates a SharePoint Site in the `/alfresco/aos` directory and uses the child folder to represent the SharePoint document library. As a result, Office does not check out documents in the repository root; that is, if your document is located in `/alfresco/aos`. Make sure that you add a child folder in the `/alfresco/aos` directory and place documents there. For example:
 
-        ``` html
+        ```bash
         http://localhost:8080/alfresco/aos/documents/doc1.docx
         ```
 

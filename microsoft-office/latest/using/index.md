@@ -67,13 +67,13 @@ You can do this by either mapping a network drive to Alfresco or by entering a m
 
     If your Alfresco address is
 
-    ``` html
+    ```bash
     https://mycompany.com`
     ```
 
     then you'd enter
 
-    ``` html
+    ```bash
     \\\\mycompany.com@SSL\\DavWWWRoot\\alfresco\\aos
     ```
 
@@ -91,7 +91,7 @@ If you have Microsoft Office 365, you can download Office 2016 (Desktop edition)
 2. Click Open to see where you can open files. For example, you automatically have access to OneDrive to sync your files to your computer.
 3. Click + to add a new service. You can map to a SharePoint drive by the SharePoint AOS URL, for example:
 
-    ``` html
+    ```bash
     https://mycompany.com/alfresco/aos/
     ```
 
