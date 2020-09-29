@@ -13,5 +13,11 @@
       path: '/process-services/latest/admin/'
     - title: 'Using'
       pages:
+        - title: 'Introduction'
+          path: '/process-services/latest/using/intro/'
         - title: 'Getting started'
           path: '/process-services/latest/using/getting-started/'
+        - title: 'Process Workspace App'
+          path: '/process-services/latest/using/workspace/'
+        - title: 'Landing page'
+          path: '/process-services/latest/using/landing-page/'
