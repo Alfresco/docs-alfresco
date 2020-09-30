@@ -651,23 +651,317 @@ A call activity is visualized as a rounded rectangle with a thick border.
 |Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
 
 ## Gateways
+
+You use gateways to control the flow of execution in your process.
+
+In order to explain how Sequence Flows are used within a Process, BPMN 2.0 uses the concept of a token. 
+Tokens traverse sequence flows and pass through the elements in the process. The token is a theoretical concept 
+used to explain the behavior of Process elements by describing how they interact with a token as it “traverses” 
+the structure of the Process. Gateways are used to control how tokens flow through sequence flows as 
+they converge and diverge in a process.
+
+As the term gateway suggests, it is a gating mechanism that either allows or prevents passage of a token through 
+the gateway. As tokens arrive at a gateway, they can be merged together on input and/or split apart on output from the gateway.
+
+A gateway is displayed as a diamond, with an icon inside. The icon depicts the type of gateway.
+
 ### Exclusive gateway
+
+You use an exclusive gateway to model a decision in your process. When execution arrives at an exclusive gateway, 
+the outgoing sequence flows are evaluated in the order in which they are defined. 
+The first sequence flow whose condition evaluates to true, or which does not have a condition set, 
+is selected and the process continues.
+
+An exclusive gateway is visualized as a diamond shape with an X inside.
+
+![bpmn.exclusive-gateway]({% link process-services/images/bpmn.exclusive-gateway.png %})
+
+Note that if no sequence flow is selected, an exception will be thrown.
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Flow order|Select the order in which the sequence flow conditions are evaluated. The first sequence flow that has a condition that evaluates to true (or has no condition) will be selected to continue.|
+
 ### Parallel gateway
+
+You use a parallel gateway to model concurrency in a process. It allows you to fork multiple outgoing paths of 
+execution or join multiple incoming paths of execution.
+
+A parallel gateway is visualized as a diamond shape with a plus icon:
+
+![bpmn.parallel-gateway]({% link process-services/images/bpmn.parallel-gateway.png %})
+
+In a fork, all outgoing sequence flows are followed in parallel, which creates one concurrent execution for each sequence flow.
+
+In a join, all concurrent executions arriving at the parallel gateway wait at the gateway until an execution has 
+arrived for every incoming sequence flow. Then the process continues past the joining gateway. 
+Note that the gateway simply waits until the required number of executions has been reached and does not 
+check if the executions are coming from different incoming sequence flow.
+
+A single parallel gateway can both fork and join, if there are multiple incoming and outgoing sequence flow. 
+The gateway will first join all incoming sequence flows, before splitting into multiple concurrent paths of executions.
+
+>**Note**. Unlike other gateways, the parallel gateway does not evaluate conditions. Any conditions defined on the sequence flow connected with the parallel gateway are ignored.
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced)Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+
 ### Inclusive gateway
+
+You use an inclusive to join and fork multiple sequence flows based on conditions.
+
+Like an exclusive gateway you can define conditions on outgoing sequence flows and the inclusive gateway will 
+evaluate them, but an inclusive gateway can take more than one sequence flow, like the parallel gateway.
+
+All outgoing sequence flow conditions are evaluated. Every sequence flow with a condition that evaluates to true, 
+is followed in parallel, creating one concurrent execution for each sequence flow.
+
+The join behavior for an inclusive gateway is more complex than the parallel gateway counterparts. 
+All concurrent executions arriving at the inclusive gateway wait at the gateway until executions that *can* reach 
+the inclusive gateway have reached the inclusive gateway. To determine this, all current executions of the process 
+instance are evaluated, checking if there is a path from that point in the process instance to the inclusive gateway. 
+(ignoring any conditions on the sequence flow). When one such execution is found, the inclusive gateway join 
+behavior does not activate.
+
+An inclusive gateway is visualized as a diamond shape with a circle icon inside:
+
+![bpmn.inclusive-gateway]({% link process-services/images/bpmn.inclusive-gateway.png %})
+
+Note that an inclusive gateway can have both fork and join behavior, in which case there are multiple incoming and 
+outgoing sequence flows for the same inclusive gateway. The gateway will join all incoming sequence flows that have a 
+process token, before splitting into multiple concurrent paths of executions for the outgoing sequence 
+flows that have a condition that evaluates to true.
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element instance.|
+|Name|A name for this element instance.|
+|Documentation|A description of this element instance.|
+|Asynchronous|(Advanced) Define this task as asynchronous. That is, the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. That is, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Flow order|Select the order in which the sequence flow conditions are evaluated. This is of less importance as for the exclusive gateway, as all outgoing sequenceflow conditions will be evaluated anyway.|
+
 ### Event based gateway
+
+You use an event gateway to route process flow based on events.
+
+Each outgoing sequence flow of the event gateway must be connected to an intermediate catching event. 
+When process execution reaches an event gateway execution is suspended, and for each outgoing sequence flow, 
+an event subscription is created. The flow for the event that occurs first, will be followed.
+
+Outgoing sequence flows connect to an event gateway are never "executed", but they do allow the process engine to 
+determine which events an execution arriving at an event-based gateway needs to subscribe to. 
+The following restrictions apply to event gateways:
+
+* The gateway must have two or more outgoing sequence flows.
+* An event-based gateway can only be followed by intermediate catching events. Receive tasks after an event gateway 
+are not supported by Alfresco Process Services.
+* An intermediate catching event connected to an event gateway must have a single incoming sequence flow.
+
+An event gateway is visualized as a diamond shape with a plus icon inside. Unlike the parallel gateway, 
+the plus icon is not colored black inside:
+
+![bpmn.event-gateway]({% link process-services/images/bpmn.event-gateway.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element instance.|
+|Name|A name for this element instance.|
+|Documentation|A description of this element instance.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Flow order|Select the order in which the sequence flow conditions are evaluated.|
+
 ## Boundary events
+
+You use boundary events to handle an event associated with an activity. A boundary event is always attached to an activity.
+
+While the activity the boundary event is attached to *is active* (meaning the process instance execution is currently 
+executing it right there), the boundary event is listening for a certain type of trigger. 
+When the event is caught, the activity is either interrupted and the sequence flow going out of the event is followed 
+(interrupting behavior) or a new execution is created from the boundary event (non-interrupting behavior).
+
 ### Boundary timer event
+
+A boundary timer event puts a timer on the activity it is defined on. When the timer fires, the sequence flow going 
+out the boundary event is followed.
+
+A boundary timer event is visualized as a circle with a clock icon inside:
+
+![bpmn.boundary-timer]({% link process-services/images/bpmn.boundary-timer.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Cancel activity|Defines if the boundary event interrupts the activity is defined upon or not.|
+|Time Cycle|A timer cycle defined in [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601) format, for example: `R3/PT10H`.|
+|Time Date in ISO-8601|A point in time defined as a [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601) date, for example: `2015-04-12T20:20:32Z`.|
+|Time Duration|A period of time defined as a [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601) duration, for example: `PT5M`.|
+
 ### Boundary error event
+
+A boundary error event catches an error that is thrown within the boundaries of the activity the event is based on 
+and continues process execution from the event.
+
+A boundary error event is always interrupting.
+
+A boundary timer event is visualized as a circle with a lightning icon inside:
+
+![bpmn.boundary-error]({% link process-services/images/bpmn.boundary-error.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Error reference|The identifier of the error to catch.|
+
 ### Boundary signal event
+
+A boundary signal event listens to a signal being fired (from within the process instance or system-wide) 
+while the activity upon which the event is defined is active.
+
+A boundary signal event is visualized as a circle with a triangle icon inside:
+
+![bpmn.boundary-signal]({% link process-services/images/bpmn.boundary-signal.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Signal reference|The signal to listen to. Signals are defined on the root process definition level and are linked with this property.|
+
 ### Boundary message event
+
+A boundary message event listens to a message being received while the activity upon which the event is defined is active.
+
+A boundary message event is visualized as a circle with an envelope icon inside:
+
+![bpmn.boundary-message]({% link process-services/images/bpmn.boundary-message.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Message reference|The message to listen to. Messages are defined on the root process definition level and are linked with this property.|
+
 ### Boundary cancel and compensation event
+
+The boundary cancel and compensation event are currently experimental features. 
+See [http://activiti.org/userguide/index.html#bpmnBoundaryCancelEvent](https://www.activiti.org/5.x/userguide/index.html#bpmnBoundaryCancelEvent) for more information on them.
+
 ## Intermediate catching events
+
+An intermediate catching event is a step in the process where the process needs to wait for a specific trigger 
+(in BPMN this is described as *catching* semantics).
+
+An intermediate event is displayed as two concentric circles containing an icon. The icon shows the type of intermediate event:
+
+![bpmn.intermediate-catch-events]({% link process-services/images/bpmn.intermediate-catch-events.png %})
+
+Conceptually, the intermediate catch events are close to the boundary events, with that exception they don’t 
+define a scope (the activity) for when the event is active. An intermediate catch event is active as long as the 
+trigger hasn’t happened. A boundary event on the other hand can be destroyed if the activity completed.
+
+All the supported intermediate catch events are configured similar to their boundary event counterparts.
+
 ## Intermediate throwing events
+
+An intermediate throw event is used to explicitly throw an event of a certain type.
+
+Currently, two types are supported:
+
+* The **none intermediate throwing event**. No event is thrown. This is mainly used as a marker in the process definition (for example to attach execution listeners that are used to indicate somehow that some state in the process has been reached).
+* The **signal intermediate throwing event**. Throws a signal event that will be caught by boundary signal events or intermediate signal catch events listening to that particular signal event.
+
+An intermediate event is displayed as two concentric circles which may contain an icon. If present, 
+the icon shows the type of intermediate event. A throwing none event contains no icon.
+
 ## End events
+
+You use an end event to signify the end of a process or sub-process, or the end of a path in a process or sub-process.
+
+In a subprocess or process instance, only when all executions have reached an end event will the subprocess be 
+continued or the whole process instance ended.
+
+An end event is displayed as thick black circle which may contain an icon. If present, the icon shows the type of end event. 
+A none end event has no icon.
+
 ### None end event
+
+A none end event ends the current path of execution.
+
+![bpmn.none-end-event]({% link process-services/images/bpmn.none-end-event.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Execution listeners|Execution listeners configured for this event.|
+
 ### Error end event
+
+You use the end error event to throw an error and end the current path of execution.
+
+![bpmn.error-end-event]({% link process-services/images/bpmn.error-end-event.png %})
+
+The error can be caught by an intermediate boundary error event that matches the error. 
+If no matching boundary error event is found, an exception will be thrown
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Execution listeners|Execution listeners configured for this instance.|
+|Error reference|The error identifier. This is used to find a matching catching boundary error event. If the name does not match any defined error, then the error is used as the error code in the thrown exception.|
+
 ### Terminate end event
+
+When a terminate end event is reached, the current process instance or sub-process will be terminated. 
+Conceptually, when an execution arrives in a terminate end event, the first scope (process or sub-process) 
+will be determined and ended. Note that in BPMN 2.0, a sub-process can be an embedded sub-process, call activity, 
+event sub-process or transaction sub-process. This rule applies in general, for example, when there is a multi-instance 
+call activity or embedded subprocess, only that instance will be ended, the other instances and the process instance are not affected.
+
+![bpmn.terminate-end-event]({% link process-services/images/bpmn.terminate-end-event.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Execution listeners|Execution listeners configured for this.|
+
 ### Cancel end event
+
+The cancel end event ends the current path of execution and throws a cancel event that can be caught on 
+the boundary of a transaction subprocess.
+
+![bpmn.cancel-end-event]({% link process-services/images/bpmn.cancel-end-event.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Execution listeners|Execution listeners configured for this.|
+
 ## Swimlanes
 ## Artifacts
 ## Alfresco Content Services actions
