@@ -1,4 +1,7 @@
-# Upgrading Content Services 5.x to Content Services with Search and Insight Engine
+---
+title: Finding shards at query time
+---
+Upgrading Content Services 5.x to Content Services with Search and Insight Engine
 
 There are two steps to migrating your installation from Alfresco Content Services 5.x with Alfresco Search Services to Alfresco Content Services 6.2 with Alfresco Search and Insight Engine. First you need to upgrade to Alfresco Content Services 6.2 with Search Services, and then migrate Search Services to Search and Insight Engine.
 

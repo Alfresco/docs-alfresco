@@ -1,25 +1,24 @@
 ---
-author: Alfresco Documentation
+title: Configuring Sharding
 ---
-
-# Configuring Search and Insight Engine sharding using the Admin Console
+## Configuring Search and Insight Engine sharding using the Admin Console
 
 Alfresco Search and Insight Engine supports sharded indexes with SSL. Use the Search Server Sharding page to set up and configure a Solr 6 sharded search index.
 
 Prerequisites for viewing the Search Server Sharding page:
 
--   Check you have installed Alfresco Content Services 6.2 or above and have a valid license.
--   Support for shard groups requires a clustered license. Make sure that you enable clustering on your Alfresco Content Services license. For more information, see [Repository server clustering](https://docs.alfresco.com/6.1/tasks/adminconsole-reposerverclustering.html) and [Uploading a new license](https://docs.alfresco.com/6.1/tasks/at-adminconsole-license.html).
+* Check you have installed Alfresco Content Services 6.2 or above and have a valid license.
 
-1.  Open the Admin Console. For more information, see [Launching the Admin Console](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
+* Support for shard groups requires a clustered license. Make sure that you enable clustering on your Alfresco Content Services license. For more information, see [Repository server clustering](https://docs.alfresco.com/6.1/tasks/adminconsole-reposerverclustering.html) and [Uploading a new license](https://docs.alfresco.com/6.1/tasks/at-adminconsole-license.html).
 
-2.  In Repository Services, click **Search Server Sharding**.
+1. Open the Admin Console. For more information, see [Launching the Admin Console](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
+2. In Repository Services, click **Search Server Sharding**.
 
     You see the Search Server Sharding page. It displays information about dynamic shard index registration, shard groups, and shard instances.
 
-    ![](../images/solr6-shard-home.png)
+   ![sol6]({% link insight-engine/images/solr6-shard-home.png %})
 
-3.  Under Dynamic Shard Instance Registration, select **Dynamic Shard Instance Registration** and set the other shard instance properties.
+3. Under Dynamic Shard Instance Registration, select **Dynamic Shard Instance Registration** and set the other shard instance properties.
 
     |Shard registration property|Example setting|What is it?|
     |---------------------------|---------------|-----------|
@@ -29,49 +28,36 @@ Prerequisites for viewing the Search Server Sharding page:
 
 |
     |**Max Instance Transaction Lag**|1000|This specifies the maximum number of transactions an instance can lag behind the lead instance of the shard before it stops being used for queries.|
-
-4.  Click **Refresh** to refresh this page.
-
-5.  Click **Purge** to remove all registered shard instance information and start from clean.
-
-6.  Click **Clean** to remove inactive registered shard instance information.
-
-7.  Click **Manage** to create and manage shard instances.
-
+4. Click **Refresh** to refresh this page.
+5. Click **Purge** to remove all registered shard instance information and start from clean.
+6. Click **Clean** to remove inactive registered shard instance information.
+7. Click **Manage** to create and manage shard instances.
     You see the Index Server Shard Management window. Use this window to create individual shards or shard groups.
+    ![sol6](../images/solr6-shard-mgmt.png)
 
-    ![](../images/solr6-shard-mgmt.png)
-
-    1.  Use Existing Index Servers to view a list of existing index servers and to create new index servers.
-
+    1. Use Existing Index Servers to view a list of existing index servers and to create new index servers.
         To add a new index server, specify the server address in **New Index Server** and click **Add**.
-
         You can view the newly created index server under Target Index Servers.
-
         Click **Add to Target Index Servers** next to the server you want to add to the list of target index servers. **Target Index Servers** displays a list of index servers where you want to make the new shards.
-
-    2.  Under Existing Core Names, you can view a list of the core names already in use.
-
-    3.  Under Target Index Servers, you can view a list of index servers that will be used for sharding.
-
+    2. Under Existing Core Names, you can view a list of the core names already in use.
+    3. Under Target Index Servers, you can view a list of index servers that will be used for sharding.
         To remove an index server from the list of servers that will be used for sharding, click **Remove**.
+    4. Next, you need to create a core for the shard. There are two ways to do this. You can either:
 
-    4.  Next, you need to create a core for the shard. There are two ways to do this. You can either:
-
-        -   use the Manage Default Indexes and **Manage Shared Properties** sections to create default indexes - see Step 7 (e) and 7 (f); or
-        -   use the New Shard Group and New Shard Instance sections to create a shard group and instance - see Step 7 (g) and 7 (i).
-    5.  Use Manage Default Indexes to create default indexes on the servers listed in **Target Index Servers**.
+        * use the Manage Default Indexes and **Manage Shared Properties** sections to create default indexes - see Step 7 (e) and 7 (f); or
+        * use the New Shard Group and New Shard Instance sections to create a shard group and instance - see Step 7 (g) and 7 (i).
+    5. Use Manage Default Indexes to create default indexes on the servers listed in **Target Index Servers**.
 
         The Manage Default Indexes section:
 
-        -   appears only when you add a new index server.
-        -   creates a core for a given shard, and therefore, can be used as an alternative to creating shards using the **New Shard Group** section (Step 7f).
+        * appears only when you add a new index server.
+        * creates a core for a given shard, and therefore, can be used as an alternative to creating shards using the **New Shard Group** section (Step 7f).
         ![](../images/solr6-manage-indexes.png)
 
         **Important:** The cores are visible in the Solr Admin web application **only after** you create them using the Index Server Sharding page.
 
-        -   Click **Create Alfresco Index** to create an unsharded Alfresco index.
-        -   Click **Create Archive** to create an unsharded archive index.
+        * Click **Create Alfresco Index** to create an unsharded Alfresco index.
+        * Click **Create Archive** to create an unsharded archive index.
 
             Use the **Report** section at the end of this page to view the detailed core creation message.
 
@@ -79,19 +65,19 @@ Prerequisites for viewing the Search Server Sharding page:
 
             ![](../images/solr6_shard.png)
 
-    6.  Use **Manage Shared Properties** to update the properties that apply to all Alfresco indexes on an Index Engine.
+    6. Use **Manage Shared Properties** to update the properties that apply to all Alfresco indexes on an Index Engine.
 
         ![](../images/manage-properties.png)
 
         These properties are the same as in alfresco-insight-engine-distribution-2.0.x.zip/solrhome/conf/shared.properties. For example:
 
-        ```
+        ```bash
         solr.host=localhost
         solr.port=8983
         solr.baseurl=/solr
         ```
 
-    7.  Alternatively, to create a shard group, set the following properties under New Shard Group:
+    7. Alternatively, to create a shard group, set the following properties under New Shard Group:
 
         |Shard group property|Example setting|What is it?|
         |--------------------|---------------|-----------|
@@ -100,21 +86,21 @@ Prerequisites for viewing the Search Server Sharding page:
         |**Core**| |This specifies the name of the Solr core.|
         |**Properties**|`solr.suggester.enabled``alfresco.secureComms=https`
 
-`alfresco.port.ssl=8443`
+        `alfresco.port.ssl=8443`
 
-`alfresco.commitInterval=20000`
+        `alfresco.commitInterval=20000`
 
-`alfresco.newSearcherInterval=30000`
+        `alfresco.newSearcherInterval=30000`
 
-|This specifies the properties to set on the Solr instances. These are the same properties that are set in the solrcore.properties file.|
+        |This specifies the properties to set on the Solr instances. These are the same properties that are set in the solrcore.properties file.|
         |**Shards**|1|This specifies the total number of shards.|
         |**Instances**|1|This specifies the total number of instances.|
 
         ![](../images/shard-target-index.png)
 
-    8.  Click **Create Shards Group** to create new shards based on the ordered list of target index servers.
+    8. Click **Create Shards Group** to create new shards based on the ordered list of target index servers.
 
-    9.  To create a single shard instance, set the following properties under New Shard Instance:
+    9. To create a single shard instance, set the following properties under New Shard Instance:
 
         |Shard property|Example setting|What is it?|
         |--------------|---------------|-----------|
@@ -139,7 +125,7 @@ Prerequisites for viewing the Search Server Sharding page:
 
     Validate that you can execute queries from the search public API to the archive core.
 
-    ```
+    ```json
     curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{
       "query": 
       {
@@ -152,7 +138,7 @@ Prerequisites for viewing the Search Server Sharding page:
     }' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search'
     ```
 
-8.  Under Shard Groups, you can view information about all the shards in the group.
+8. Under Shard Groups, you can view information about all the shards in the group.
 
     |Shard registration property|Example setting|What is it?|
     |---------------------------|---------------|-----------|
@@ -178,17 +164,17 @@ You can also set this property in the alfresco-insight-engine-distribution-2.0.x
 
     ![](../images/shard-group.png)
 
-9.  Use the instance property table to view detailed entity information for all the shards. This is the same information that is displayed in the JMX console, for example, `Base URL`, `Host`, `Last Indexed Changeset Date`, and more.
+9. Use the instance property table to view detailed entity information for all the shards. This is the same information that is displayed in the JMX console, for example, `Base URL`, `Host`, `Last Indexed Changeset Date`, and more.
 
     For more information, see [Indexing information available in a JMX client](index-info-jmx.md#instance).
 
-    1.  Click **Summary** to go to the [http://localhost:8983/solr/admin/cores?action=SUMMARY](http://localhost:8983/solr/admin/cores?action=SUMMARY) page on Solr for the specific core.
+    1. Click **Summary** to go to the [http://localhost:8983/solr/admin/cores?action=SUMMARY](http://localhost:8983/solr/admin/cores?action=SUMMARY) page on Solr for the specific core.
 
         For more information, see [Unindexed Solr Transactions](../concepts/solr-unindex.md).
 
         ![](../images/solr6-summary.png)
 
-    2.  Click **SOLR** to go to the Solr Admin screen for the specific core.
+    2. Click **SOLR** to go to the Solr Admin screen for the specific core.
 
         For more information, see [Connecting to the SSL-protected Solr web application](ssl-protect-solrwebapp.md).
 
@@ -200,10 +186,6 @@ You can also set this property in the alfresco-insight-engine-distribution-2.0.x
 
     If you do not want to save the changes, click **Cancel**.
 
-
 > **Note:** Alfresco recommends that you do not use the **Solr Admin Console \> Core Admin \> Unload** functionality to unload indexes (either whole indexes or shards that are part of an index). Unloading an index or a shard in this way will delete it and make it unavailable for query.
 
 If you unload or delete a shard from the Solr Admin Console, make sure you restart the Solr server and restore your indexes so that Alfresco can work properly.
-
-**Parent topic:**[Dynamic shard registration](../concepts/dynamic-sharding.md)
-

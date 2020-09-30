@@ -1,16 +1,17 @@
-# Configuring Search and Insight Engine using Admin Console
-
+---
+title: Configuring using the Admin Console
+---
 The topic describes the properties for configuring the Solr 6 search service.
 
-1.  Open the Admin Console. For more information, see [Launching the Admin Console](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
+1. Open the Admin Console. For more information, see [Launching the Admin Console](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
 
-2.  In the Repository Services section, click **Search Service**.
+2. In the Repository Services section, click **Search Service**.
 
     You see the Search Service page.
 
-3.  In the **Search Service** section, select **Solr 6** from the **Search Service In Use** list.
+3. In the **Search Service** section, select **Solr 6** from the **Search Service In Use** list.
 
-4.  Set the Alfresco Search and Insight Engine properties:
+4. Set the Alfresco Search and Insight Engine properties:
 
     |Solr search property|Example setting|What is it?|
     |--------------------|---------------|-----------|
@@ -37,11 +38,8 @@ The topic describes the properties for configuring the Solr 6 search service.
     |**Backups To Keep** (Archive Store properties)|3|This specifies the number of backups to keep.|
     |**CMIS Query**|Use database if possible|This specifies the default mode which defines if and when the database should be used to support a subset of the CMIS Query Language.|
     |**Alfresco Full Text Search**|Use database if possible|This specifies the default mode which defines if and when the database should be used to support a subset of the Alfresco Full Text Search.|
-
-5.  Click **Save** to apply the changes you have made to the properties.
+5. Click **Save** to apply the changes you have made to the properties.
 
     If you do not want to save the changes, click **Cancel**.
 
-
 **Parent topic:**[Installing and configuring Search and Insight Engine](../concepts/solr-install-config.md)
-
