@@ -207,22 +207,449 @@ A user task is depicted as a rounded rectangle with a user icon on the top-left 
 |Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
 
 ### Service task
+
+Use a service task to invoke an external Java class or execute an expression (for example to call a Spring bean).
+
+A service task is visualized as a rounded rectangle with a cog icon inside.
+
+![bpmn.service-task]({% link process-services/images/bpmn.service-task.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element instance.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Class|The name of the Java class that implements your service task. Your class must implement `JavaDelegate` or `ActivityBehavior`. For more information on methods of invoking Java logic from a service task see the Developer Guide|
+|Expression|An expression that either executes logic in the expression itself (for example `${execution.setVariable(myVar, someValue)}`) or calls a method on a bean known by the Activiti engine (for example `${someBean.callMethod}`). You can pass parameters (like the current `execution`) to the method in the expression. For more information on methods of invoking Java logic from a service task see the Developer Guide.|
+|Delegate expression||
+|Class fields|Field extensions for the service task.|
+|Result variable name|The name of a process variable in your process definition in which to store the result of this service task. This is only valid when using an `expression`.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. For more information on multi-instance, see the Developer documentation. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+|Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+
+For a service task it is recommended to make them asynchronous. For example, suppose a service task is called after 
+the user completes a form. When the service task is synchronous, the logic will be executed during the completion 
+action of the user. This means the user has to wait until this logic is finished to have the UI refreshed. 
+Often, this is not needed or wanted. By making the service task asynchronous, the UI will be refreshed when the 
+task is completed. The logic will be executed later.
+
 ### Script task
+
+A script task defines a JavaScript script or other script language (JSR-223 compatible language) 
+that is executed when a process instance executes this step.
+
+A script task is visualized as a rounded rectangle with a paper icon inside.
+
+![bpmn.script-task]({% link process-services/images/bpmn.script-task.png %})
+
+|Property|Description|
+|--------|-----------|
+|Script format|The [JSR-223](http://jcp.org/en/jsr/detail?id=223) name of the scripting engine your script is written for. By default, Alfresco Process Services supports **javascript** and **groovy** formats.|
+|Script|The actual script that will be executed.|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Variables|In the script, it is possible to set new process variables (using `execution.setVariable(myVariable, myValue)`), however these won’t show up automatically in dropdowns later on (like the sequence flow condition builder, forms, etc.). To make them show up, configure this property with the variables that are set or exported by this script task.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. For more information on multi-instance, The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+|Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
+
 ### Business rule task
+
+A Business rule task executes one or more rules.
+
+Business rule tasks are mainly there for compatibility with the community product Activiti. 
+Alfresco recommends that you use [Decision tables]({% link process-services/latest/using/rules.md %}) with Process Services
+
+A business rule is depicted as a rounded rectangle with a table icon in the top-left corner.
+
+![bpmn.business-rule-task]({% link process-services/images/bpmn.business-rule-task.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Rules|A comma-separated list of rules to include or exclude in this task.|
+|Input variables|A comma-separated list of process variables to be used as input variables to your rules.|
+|Exclude|If you check Exclude only rules that you have not specified in Rules will be executed. If the Exclude is unchecked, only the rules you have specified in Rules will be executed.|
+|Result variable|The name of a process variable in your process definition in which to store the result of this task. the result variable is returned as a list of objects. If you do not specify a result variable name, the default name `org.activiti.engine.rules.OUTPUT` is used.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. For more information on multi-instance, see the Developer Guide. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+|Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
+
 ### Receive task
+
+A Receive Task waits for the arrival of an external trigger. This trigger is sent programmatically 
+(via Java or REST API). For process to process triggering, use the signal events.
+
+A receive task is visualized as a rounded rectangle with an envelope icon in the top-left corner.
+
+![bpmn.receive-task]({% link process-services/images/bpmn.receive-task.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Variables|When the API is used to trigger the continuation of the process instance, a set of variables can be passed. However, these won’t appear automatically in drop-down lists later (like the sequence flow condition builder, forms, and so on.). To make them appear, this property needs to be configured with those variables that are set or exported by the script task.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. For more information on multi-instance, see the Developer Guide. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+|Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
+
 ### Manual task
+
+A Manual Task defines a task that is external to Process Services. You use it to model work done which 
+the Process Engine does not know of. A manual task is handled as a pass-through activity, 
+the Process Engine automatically continues the process from the instant process execution arrives at a manual task activity.
+
+![bpmn.manual-task]({% link process-services/images/bpmn.manual-task.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+|Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
+
 ### Mail task
+
+You can enhance your business process with this automatic mail service task that sends emails to one or more recipients. 
+The task supports normal email features such as cc lists, bcc lists, and HTML content.
+
+The mail task is depicted as a rounded rectangle with an envelope icon in the top-left corner.
+
+![bpmn.mail-task]({% link process-services/images/bpmn.mail-task.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|To|The recipient of the e-mail. You can specify multiple recipients in a comma-separated list. When using a fixed value, this can be an expression. It is also possible, like with the user task, to use the **Identity store** option here to pick users that are known in the system or to reference people that were selected in form fields prior to this email task.|
+|From|The sender’s email address. If you do not specify this, the default configured system-wide setting **from** address is used. This can be an expression.|
+|Subject|The subject of this email. This can be an expression.|
+|Cc|The cc list for this email. You can specify multiple recipients in a comma-separated list. This can be an expression.|
+|Bcc|The bcc list for this email. You can specify multiple recipients in a comma-separated list. This can be an expression.|
+|Text|The text content of this email. You can specify this as well as HTML to support email clients that do not support rich content. The client will fall back to this text-only alternative.|
+|Html|The HTML content of this email.|
+|Charset|The charset for this email. By default UTF8 will be used.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+|Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
+
 ### Camel task
+
+You use the Camel task to send messages to, and receive messages from Apache Camel.
+
+A camel task is visualized as a rounded rectangle with a camel icon in the top-left corner.
+
+![bpmn.camel-task]({% link process-services/images/bpmn.camel-task.png %})
+
+You can find more information on Apache Camel [here](http://camel.apache.org/). 
+Note that Camel is by default not installed and would need to be added by the system admin.
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Camel context|A camel context definition. If you do not specify a context, the default Camel context is used.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+|Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
+
 ### Mule task
+
+Use the Mule task to send messages to the Mule ESB (Enterprise Service Bus).
+
+A mule task is visualized as a rounded rectangle with the Mule logo in the top-left corner.
+
+![bpmn.mule-task]({% link process-services/images/bpmn.mule-task.png %})
+
+You can find more information on Mule ESB using [https://www.mulesoft.com/resources/esb/what-mule-esb](https://www.mulesoft.com/resources/esb/what-mule-esb). 
+Note that Mule is by default not installed and would need to be added by the system admin.
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Endpoint url|The Mule endpoint you want to send your message to.|
+|Language|The language you want to use to evaluate the payloadExpression, for example [juel](http://juel.sourceforge.net).|
+|Payload expression|An expression for the message’s payload.|
+|Result variable|The name of the variable to store the result of the invocation.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+|Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
+
 ### Rest call task
+
+The rest call task is used to communicate with a REST endpoint. The endpoint can be defined in the process definition, 
+or it can be defined company-wide by an administrator. In the latter case, a logical name is all that is needed.
+
+A rest call task is visualized as a rounded rectangle with a rocket icon the top-left corner.
+
+![bpmn.rest-call-task]({% link process-services/images/bpmn.rest-call-task.png %})
+
+Note that the REST call task always is executed asynchronously.
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Endpoint|Defines which REST endpoint to call. It is an endpoint defined company-wide by the administrator (simply select a logical name in the dropdown) or a URL. You can also use a previously defined form fields or variables to build up the URL.<br><br>Use the **Test** button to test the end-point.<br><br> ![]({% link process-services/images/endpoint.png %})<br><br>If the request mapping (see next property) contains key/value properties or a JSON template, you will be prompted to provide test values for the parameters before the endpoint is tested.<br><br>![]({% link process-services/images/endpoint-check.png %})|
+|Request mapping|Allows to construct the actual request. HTTP GET represents the URL parameters whereas POST/PUT is the JSON body that is created when the request is sent. You can also use fixed values, form fields, or variables defined prior to this activity.<br><br>![]({% link process-services/images/requestmapping.png %})<br><br>For nested or complex request bodies for POST requests, you can specify a JSON Template which is evaluated at run-time.<br><br>![]({% link process-services/images/request-mapping.png %})<br><br>The JSON editor provides syntax highlighting and will highlight any JSON syntax errors on the line number indicator.|
+|Response mapping|Maps the JSON response from the REST endpoint to process variables. You can use a nested notation (for example `prop1.prop2.prop3`) for mapping values. The mapped response values can be used as variables in further steps of the process.|
+
 ### Generate document task
+
+The Generate document task generates a document in Word or PDF format and stores the reference to the document 
+as a process variable. The document is based on a (Word) template that describes how the document needs to be rendered, 
+using process variables and various constructs (such as if-clauses and loops).
+
+See [Document Templates](TODO:document_templates.md) in the Developing section for how to modify the 
+template for the Generate document task.
+
+A Generate document task appears as a rounded rectangle with a document icon on the top-left corner.
+
+![bpmn.generate-document-task]({% link process-services/images/bpmn.generate-document-task.png %})
+
+|Property|Description|
+|--------|-----------|
+|ID|A unique identifier for this task element.|
+|Name|A name for this task element.|
+|Documentation|A description of this task element.|
+|Template|The template which is used to generate the document. It can be uploaded as part of the process definition, or can be defined company-wide by an administrator and reused by multiple process definitions.|
+|Output format|The document output format will be either PDF or Word.|
+|Document variable|This is the process variable in which the reference to the generated document is stored.|
+|File name|The name of the document that will be created by the task.|
+|Additional data source names|A comma separated list of data sources the document will use as the source of the expressions.|
+|Additional data source expressions|A comma separated list of expressions to be included in the document.|
+
 ### Decision task
+
+You use a decision task to select a decision table while designing your process model. A decision table enables you to 
+define a set of business rules that will be applied when it’s executed. 
+See the [business rules]({% link process-services/latest/using/rules.md %}) section for more information.
+
+A decision task is depicted as a rounded rectangle with a table icon the top-left corner.
+
+![bpmn.decision-task]({% link process-services/images/bpmn.decision-task.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Reference decision table|Defines the actual decision table that will be executed. The decision table can be part of the process definition (a so-called **embedded** decision table) or defined on itself (a so-called **reusable** decision table).|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+|Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
+
 ### Store Entity task
+
+Use the Store entity task to update data models or entities with process values such as variables or form fields. 
+The updated entities can then be mapped to variables and used while creating processes.
+
+![storeentity]({% link process-services/images/storeentity.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Attribute mapping|Attributes mapped for this element instance. Click to invoke the Change value for "Attribute Mapping" dialog, where you can map entities or Data Models with form fields and variables used in your process. See the [Data Models]({% link process-services/latest/using/models.md %}) section for more details.|
+
 ## Structural components
+
+You use structural components to group multiple components in a sub process to reuse in a parent process definition, 
+and to embed and call other process definitions from inside your own process.
+
 ### Sub-process
+
+A sub process is a single activity that contains activities, gateways, and events which form a process. 
+A sub process is completely embedded inside a parent process.
+
+A sub-process is visualized as a rounded rectangle:
+
+![bpmn.embedded-subprocess]({% link process-services/images/bpmn.embedded-subprocess.png %})
+
+You can use a sub process to create a new scope for events. Events that are thrown during execution of the sub process, 
+can be caught by [Boundary events](TODO:boundary_events.md) on the boundary of the sub process, 
+creating a scope for that event limited to just the sub process.
+
+Sub-processes must have the following characteristics:
+
+* A sub process has exactly one none start event. No other start event types are permitted. A sub process must have at least one end event.
+* Sequence flow cannot cross sub process boundaries.
+
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+
 ### Collapsed sub-process
+
+You use a collapsed sub-process to add an existing process from your available process definitions as a sub-process 
+to the process definition you are currently editing.
+
+When you drag a collapsed sub-process from the palette to your canvas, and click on the Referenced Subprocess property, 
+you are presented with a visual list of the process definitions you have access to. You can choose from the list, 
+and the chosen process will be added to the current process definition. Note the process chosen must have exactly 
+one none start event, and no other start event type, and it must have at least one end event.
+
+Note that during process instance execution, there is no difference between a collapsed or embedded sub-process. 
+They both share the full process instance context (unlike the *call activity*).
+
+Note that when you click on the plus icon in a collapsed sub-process, the BPMN editor will open the referenced 
+sub-process definition.
+
+A collapsed sub-process is visualized as a rounded rectangle with a plus icon inside.
+
+![bpmn.collapsed-subprocess]({% link process-services/images/bpmn.collapsed-subprocess.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element instance.|
+|Referenced Subprocess|The process definition this collapsed sub-process contains.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+
 ### Event sub-process
+
+An event sub-process is a sub-process that is triggered by an event. You can use an event sub-process in your 
+main process, or in any sub-process.
+
+The event sub-process start event defines the event to be handled by the sub-process, so the type of start event you 
+use must have an event associated with it – none start events are not supported but the event sub-processes. 
+Your event sub-process can be started by a start message event, start signal event or a start error event. 
+The subscription to the start event is created when the scope, process instance or sub-process, 
+hosting the event sub-process is created. The subscription is removed when the scope is destroyed.
+
+Your event sub-process does not have any incoming or outgoing sequence flows. 
+An event sub-process is triggered by an event, so there can be no incoming sequence flow.
+
+The best way to look at an event subprocess is as a *method* or *routine* that is called when something happens, 
+and handle it appropriately.
+
+An event sub-process is visualized like a sub-process with a dashed border.
+
+![bpmn.event-subprocess]({% link process-services/images/bpmn.event-subprocess.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+
 ### Call activity
+
+A call activity is used to execute another process definition as part of the current process instance.
+
+The main difference between a sub-process and a call activity is that the call activity does not share context with 
+the process instance. Process variables are explicitly mapped between the process instance and the call activity.
+
+A call activity is visualized as a rounded rectangle with a thick border.
+
+![bpmn.call-activity]({% link process-services/images/bpmn.call-activity.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Called element|This is the identifier of the process definition that should be called.|
+|In parameters|Configures the process variables that are mapped into the called process instance when it’s executed. It’s possible to copy values directly (using the **source** attribute) or with an expression (using the **source expression** attribute) in a **target** variable of the called process instance.|
+|Out parameters|Configures the process variables that are mapped from the called process instance into the parent process instance.|
+|Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
+|Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
+|Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
+|Multi-Instance type|Determines if this task is performed multiple times and how. The possible values are:<br><br>**None**<br><br>The task is performed once only.<br><br>**Parallel**<br><br>The task is performed multiple times, with each instance potentially occurring at the same time as the others.<br><br>**Sequential**<br><br>The task is performed multiple times, one instance following on from the previous one.|
+|Cardinality (Multi-instance)|The number of times the task is to be performed.|
+|Collection (Multi-instance)|The name of a process variable which is a collection. For each item in the collection, an instance of this task will be created.|
+|Element variable (Multi-instance)|A process variable name which will contain the current value of the collection in each task instance.|
+|Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
+
 ## Gateways
 ### Exclusive gateway
 ### Parallel gateway
