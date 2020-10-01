@@ -30,6 +30,6 @@
             - title: 'Overview'
               path: '/content-services/latest/install/containers/'
             - title: 'Install using Docker Compose'
-              path: '/content-services/latest/install/containers/compose/'
+              path: '/content-services/latest/install/containers/docker-compose/'
             - title: 'Install using Helm'
               path: '/content-services/latest/install/containers/helm/'
