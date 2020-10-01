@@ -1,6 +1,7 @@
 ---
 title: Install Alfresco Office Services
 ---
+
 Installing Alfresco Office Services allows Microsoft Office Suite applications (for example, Word, PowerPoint, and Excel) to interact with Alfresco similar to SharePoint. This feature allows you to edit Office documents in Alfresco Share and to modify Office files without checking them in and out. Alfresco locks the file while it is being modified and releases the lock when the file is saved and closed.
 
 ## Prerequisites for using Alfresco Office Services
@@ -14,6 +15,7 @@ Alfresco Office Services is part of the standard Alfresco installation, and soft
 * Microsoft Office for Mac 2011
 
 > **Note:** Microsoft Office 2016 is supported with AOS 1.1.2 and Alfresco 5.1 or later. If you use Office 2016, you must upgrade to Alfresco 5.1 or later.
+
 > **Note:** You must activate SSL when using Alfresco Office Services. For more information, see [Configuring SSL](LINK 5.1/concepts/configure-ssl-intro.html).
 
 ## Installing manually using the AMP file

@@ -1,6 +1,7 @@
 ---
 title: Upgrade Alfresco Office Services
 ---
+
 Use this information to upgrade from a previous version of AOS.
 
 1. Upgrade Alfresco, as described in [Upgrading Alfresco](LINK).

@@ -1,6 +1,7 @@
 ---
 title: Using Alfresco from Microsoft Office
 ---
+
 When using Alfresco Office Services (AOS) you can access your files from Content Services directly from your Microsoft Office applications.
 
 This means that you can browse, open, and save Microsoft Office files (Word, PowerPoint, and Excel) in Content Services without the need to go through Chrome, Firefox, or another web browser.
@@ -74,7 +75,7 @@ You can do this by either mapping a network drive to Alfresco or by entering a m
     then you'd enter
 
     ```bash
-    \\\\mycompany.com@SSL\\DavWWWRoot\\alfresco\\aos
+    \\mycompany.com@SSL\DavWWWRoot\alfresco\aos
     ```
 
 2. If prompted enter your Alfresco user name and password.

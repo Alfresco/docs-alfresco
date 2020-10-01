@@ -1,6 +1,7 @@
 ---
 title: Configure Alfresco Office Services
 ---
+
 You can configure AOS for your environment with a global path to access Alfresco, and you can configure property mapping for injecting custom properties and metadata into Office documents.
 
 ## Setting up a global filepath to access Alfresco
@@ -30,6 +31,7 @@ Property mapping in AOS allows you to inject custom properties and metadata into
 Property mapping is different from the standard metadata extraction mechanism and should be carefully configured to ensure that different properties are set up. Properties stored in the Alfresco repository are injected into Office documents when these files are read through AOS, and equally properties are extracted from Office files written through AOS and then updated in the Alfresco repository.
 
 > **Note:** Injected properties form part of the document. If the document is removed from the organization, for example, anyone outside the organization reading the document can view all the properties that have been mapped into the document.
+
 > **Note:** Property mapping in Alfresco Office Services doesn't work for password protected Microsoft Office Open XML files and will generate an exception. To ignore property mapping for password protected Microsoft Office Open XML files, set the property `aos.contentFilter.ignoreOOXMLProtected=false` in the `alfresco-global.properties` file.
 
 Take note of the following:

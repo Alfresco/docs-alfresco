@@ -1,6 +1,7 @@
 ---
 title: Upgrade Alfresco Office Services
 ---
+
 Alfresco Office Services replaces the Microsoft SharePoint Protocol Support that was available until Alfresco One 4.2. Use this information to upgrade from Microsoft SharePoint Protocol Support, or from a previous version of AOS.
 
 1. Upgrade Alfresco, as described in [Upgrading Alfresco](LINK).

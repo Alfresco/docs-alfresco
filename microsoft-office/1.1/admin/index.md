@@ -1,6 +1,7 @@
 ---
 title: Troubleshoot Alfresco Office Services
 ---
+
 Use this information to troubleshoot common Alfresco Office Services issues.
 
 ## Issue with Online Editing
