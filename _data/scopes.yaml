@@ -23,7 +23,7 @@ integrations:
     amazon-glacier: "Content Connector for AWS Glacier"
     centera: "Content Connector for EMC Centera"
     salesforce: "Content Connector for Salesforce"
-    sap: "Content Connector for SAP Connector"
+    sap: "Content Connector for SAP"
     microsoft-outlook: "Outlook Integration"
     microsoft-office: "Office Services"
     google-drive: "Google Docs Integration"
