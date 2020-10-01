@@ -1,28 +1,23 @@
-# Supported SQL commands
+---
+title: Supported SQL commands
+---
 
 Below is a list of the supported SQL commands available to use when writing queries against your Solr datastore.
 
 > **Note:** If a SQL command is not listed it is not supported. For a list of unsupported SQL commands see [Unsupported SQL Commands](unsupported-sql.md).
 
-![](../images/hr.png)
-
-**Select Statements**
+## Select Statements
 
 The basic syntax of the SQL select statement is as follows:
 
-```
+```sql
 Select DBID, cm_creator as creator, `cm_content.size`  as `size` from alfresco where `cm_content.size` > 1000 order by  `cm_content.size` desc limit 100
 ```
-
-![](../images/hr.png)
-
-**Table**
+## Table
 
 The only table that can be specified is the alfresco table. The alfresco table contains the documents and fields that have been indexed within the Alfresco Indexing Server’s main Alfresco index.
 
-![](../images/hr.png)
-
-**Fields**
+## Fields
 
 *Standard Fields*
 
@@ -46,42 +41,42 @@ A curated set of fields are returned by default when \* is used as the field lis
 
 The curated set of fields that are returned with select \* queries include:
 
--   `cm_name`
--   `cm_created`
--   `cm_creator`
--   `cm_modified`
--   `cm_modifier`
--   `cm_owner`
--   `OWNER`
--   `TYPE`
--   `LID`
--   `DBID`
--   `cm_title`
--   `cm_description`
--   `cm_content.size`
--   `cm_content.mimetype`
--   `cm_content.encoding`
--   `cm_content.locale`
--   `cm_lockOwner`
--   `SITE`
--   `PRIMARYPARENT`
--   `PARENT`
--   `PATH`
--   `ASPECT`
--   `QNAME`
+* `cm_name`
+* `cm_created`
+* `cm_creator`
+* `cm_modified`
+* `cm_modifier`
+* `cm_owner`
+* `OWNER`
+* `TYPE`
+* `LID`
+* `DBID`
+* `cm_title`
+* `cm_description`
+* `cm_content.size`
+* `cm_content.mimetype`
+* `cm_content.encoding`
+* `cm_content.locale`
+* `cm_lockOwner`
+* `SITE`
+* `PRIMARYPARENT`
+* `PARENT`
+* `PATH`
+* `ASPECT`
+* `QNAME`
 
 If you are using a custom model you can specify the extra fields to appear in a select \* query. You must add them to alfresco-insight-engine/solrhome/conf/shared.properties and they can take the form of either of the following formats:
 
 > **Note:** The field list is case insensitive.
 
-```
+```sql
 #Custom Model
 solr.sql.alfresco.fieldnames=finance:amount, finance:emp,expense:recorded_at
 ```
 
 Or
 
-```
+```sql
 #Custom Model
 solr.sql.alfresco.fieldnames=finance_amount, finance_emp,expense_recorded_at
 ```
@@ -90,7 +85,7 @@ Select \* will also return any fields that appear in the predicates for the quer
 
 > **Note:** The predicates are case insensitive.
 
-```
+```sql
 select * from alfresco where finance_amount > 0 and expense_recorded_at <= 'NOW/DAY'
 ```
 
@@ -100,15 +95,15 @@ This query will also return the fields `finance_amount` and `expense_recorded_at
 
 You can use arithmetic operations (+ - \* /) on the SELECT clause.
 
-```
+```sql
 select `expense:Amount` / `expense:ExchangeRate` from alfresco where TYPE = 'expense:expenseReport'
 ```
 
-```
+```sql
 Select Site, sum(`cm:content.size`)/1000 as `Storage Used` from alfresco group by Site
 ```
 
-```
+```sql
 Select expense_Currency, max(`expense:Amount`) * 100 as MaxAmount, sum(`expense:Amount`)/100 as SumAmount from alfresco group by expense_Currency
 ```
 
@@ -122,29 +117,27 @@ SQL field aliases are supported in the field list. Field aliases that contain sp
 
 To display the Aliases correctly use the following format:
 
-```
+```sql
 select sum(`cm:content.size`) as StorageUsed from alfresco
 ```
 
 If using Apache Zeppelin please note that aliases are only supported for the aggregate fields (count, sum, min, max, avg) and are ignored for non aggregate fields. For example, the following format would not display the field alias in Apache Zeppelin:
 
-```
+```sql
 select `cm:content.size` as StorageUsed from alfresco
 ```
 
 You can use the table prefix 'alfresco' within your queries or `()`. The following two examples return the same information.
 
-```
+```sql
 select alfresco.`cm_content.size`, alfresco.cm_name from alfresco
 ```
 
 Or
 
-```
+```sql
 select (alfresco.`cm_content.size`), alfresco.cm_name from alfresco
 ```
-
-![](../images/hr.png)
 
 **Count**
 
@@ -152,31 +145,30 @@ Alfresco’s SQL count query is an aggregate function that is used to return the
 
 The following query returns the number of rows that have a value for cm\_title.
 
-```
+```sql
 SELECT count(cm_title) from alfresco
 ```
 
 The following query returns the number of rows that have a distinct value for cm\_title.
 
-```
+```sql
 SELECT count(distinct(cm_title)) from alfresco
 ```
 
 > **Note:** `count(field)` and `count( distinct field)` queries are not supported with a group by clause, for example:
 
-```
+```sql
 SELECT Type, count(cm_name) from alfresco group by Type
 ```
 
 Also the following data types are not supported when using `count(field)` and `count(distinct field)` queries: boolean, cm:content, text: if the text fields are defined as non-facetable and tokenised (free-text). For example they have the following indexing configuration:
 
-```
+```sql
 <index enabled="true">
   <tokenised>TRUE</tokenised>
   <facetable>false</facetable>
 </index> 
 ```
-
 **Predicate**
 
 Alfresco’s SQL predicate is designed to take advantage of the rich search capabilities available in the Alfresco Search Services.
@@ -185,13 +177,13 @@ Alfresco’s SQL predicate is designed to take advantage of the rich search capa
 
 The basic predicate on a text field performs a phrase search. Below is the syntax of a basic predicate on a text field. It will search for the phrase 'hello world' in the cm\_content field.
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where (cm_content = ‘hello world’)  
 ```
 
 To gain full control of the search predicate for a specific field you can wrap the predicate in parenthesis and enter the query using Alfresco full text search syntax. For example to search for (hello OR world) in the cm\_content field the following search predicate can be used:
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where cm_content = ‘(hello OR world)’
 ```
 
@@ -199,7 +191,7 @@ select cm_name, `cm_content.size` from alfresco where cm_content = ‘(hello OR 
 
 Predicates on string identifier fields will perform an exact match on the field. Below is an example of a SQL statement that will perform an exact match on the LID field:
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where LID = ‘value’
 ```
 
@@ -211,7 +203,7 @@ The predicate on numeric fields can perform =, \>=, <= and Alfresco Solr range q
 
 Below is an examples using the =, \>=, <= range operators.
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size = 2000
 select cm_name, `cm_content.size` from alfresco where cm_content.size >= 2000
 select cm_name, `cm_content.size` from alfresco where cm_content.size <= 2000
@@ -222,31 +214,31 @@ Below are examples of Alfresco Solr range queries:
 
 Selects all cm\_content.size below 2000, with inclusive ranges. The square brackets are inclusive ranges.
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='[* TO 2000]'
 ```
 
 Selects all cm\_content.size below 2000, with an exclusive top range. < and \> are exclusive ranges.
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='[* TO 2000>'
 ```
 
 Selects all cm\_content.size above 2000, with inclusive ranges.
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='[2000 TO *]'
 ```
 
 Selects all cm\_content.size above 2000, with an exclusive bottom range.
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='<2000 TO *]'
 ```
 
 Selects all cm\_content.size above 100 and below 2000, exclusively.
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='<100 TO 2000>'
 ```
 
@@ -256,31 +248,31 @@ Predicates on null values can be constructed using IS NULL, IS NOT NULL, IN (NUL
 
 The following IS NULL query will return all the rows that have a value of NULL for the field cm\_content.size .
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` IS NULL
 ```
 
 The following IS NOT NULL query will return all the rows that have a value different from NULL for the field cm\_content.size.
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` IS NOT NULL
 ```
 
 The following IN NULL query will return all the rows that have cm\_content.size in 'system' or NULL.
 
-```
+```sql
 select cm_name, cm_creator, `cm_content.size` from alfresco where cm_creator IN ('System', NULL)
 ```
 
 The following NOT IN NULL query will return all the rows that have cm\_content.size not in 'system' or NULL.
 
-```
+```sql
 select cm_name, cm_creator, `cm_content.size` from alfresco where cm_creator NOT IN ('System', NULL)
 ```
 
 The following NOT IN (NULL) query will return all the rows where cm\_content.size is not equal to 0 and is not NULL.
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` NOT IN (0, NULL)
 ```
 
@@ -288,7 +280,7 @@ select cm_name, `cm_content.size` from alfresco where `cm_content.size` NOT IN (
 
 SQL predicates can be combined with Boolean operators AND, OR and NOT and nested with parenthesis.
 
-```
+```sql
 SITE = ‘MySite’ AND `cm_content.mimetype` = 'text/plain'
 ```
 
@@ -308,7 +300,7 @@ SQL SELECT statements can contain an ORDER BY clause with one or more order by f
 
 Below is an example of an ORDER BY on a numeric field:
 
-```
+```sql
 select cm_creator, cm_name, exif_manufacturer, audio_trackNumber from alfresco order by audio_trackNumber asc
 ```
 
@@ -318,45 +310,37 @@ SQL SELECT statements can contain a LIMIT clause. If no limit is specified a def
 
 > **Note:** Caution should be used when increasing the default limit as performance and memory consumption increase as the limit increases.
 
-![](../images/hr.png)
-
-**SELECT DISTINCT statements**
+## SELECT DISTINCT statements
 
 The basic syntax for SELECT DISTINCT is as follows:
 
-```
+```sql
 select distinct cm_name from alfresco where cm_content = 'alfresco' order by cm_name asc
 ```
 
 SELECT DISTINCT queries can also have multiple fields and multiple order by fields.
 
-![](../images/hr.png)
-
 **Is Null statements**
 
 The basic syntax for Is Nulls is as follows:
 
-```
+```sql
 select cm_name, `cm:content.size` from alfresco where `cm:content.size` IS NULL
 ```
 
-![](../images/hr.png)
-
-**Is Not Null statements**
+## Is Not Null statements
 
 The basic syntax for Is Not Null is as follows:
 
-```
+```sql
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` IS NOT NULL
 ```
 
-![](../images/hr.png)
-
-**Aggregations Without GROUP BY**
+## Aggregations Without GROUP BY
 
 SQL aggregations without a GROUP BY clause return a single result tuple with the aggregation results. See below for an example:
 
-```
+```sql
 select count(*) as docCount, avg(`cm_content.size`) as content_size from alfresco where cm_owner = 'xyz
 ```
 
@@ -364,13 +348,13 @@ select count(*) as docCount, avg(`cm_content.size`) as content_size from alfresc
 
 Alfresco SQL supports the following aggregation functions:
 
--   `count(*)`
--   `count(field)`
--   `count(distinct field)`
--   `sum(numeric_field)`
--   `avg(numeric_field)`
--   `min(numeric_field)`
--   `max(numeric_field)`
+* `count(*)`
+* `count(field)`
+* `count(distinct field)`
+* `sum(numeric_field)`
+* `avg(numeric_field)`
+* `min(numeric_field)`
+* `max(numeric_field)`
 
 *Aggregate Fields*
 
@@ -380,13 +364,11 @@ Any numeric field can be used within the aggregations sum, avg, min, and max. As
 
 If a field alias is specified for an aggregate function then the field alias will appear in the result tuple. If field aliases are not used then the field name for the aggregate functions will appear as follows: EXPR$1, EXPR$2. These values refer to the function expression by the order they appear in the field list, starting from 1. For example the first function that appears in the query will be named EXPR$1 in the result tuples.
 
-![](../images/hr.png)
-
-**Aggregations With GROUP BY**
+## Aggregations With GROUP BY
 
 SQL aggregations with a GROUP BY clause are also supported and take the following form:
 
-```
+```sql
 select `cm_content.mimetype`, count(*) as total_count from alfresco group by `cm_content.mimetype` having count(*) < 4 order by count(*) asc
 ```
 
@@ -394,13 +376,13 @@ select `cm_content.mimetype`, count(*) as total_count from alfresco group by `cm
 
 Alfresco SQL supports the following aggregation functions:
 
--   `count(*)`
--   `count(field)`
--   `count(distinct field)`
--   `sum(numeric_field)`
--   `avg(numeric_field)`
--   `min(numeric_field)`
--   `max(numeric_field)`
+* `count(*)`
+* `count(field)`
+* `count(distinct field)`
+* `sum(numeric_field)`
+* `avg(numeric_field)`
+* `min(numeric_field)`
+* `max(numeric_field)`
 
 *Aggregation fields*
 
@@ -412,8 +394,8 @@ One or more fields can be specified as group by fields. Fields that are designat
 
 > **Note:** Group by is supported for text fields when the content model has the following setting for the text field.
 
--   LOV whole or partial match
--   unique match: partial, many
+* LOV whole or partial match
+* unique match: partial, many
 
 It’s not supported when the text field is either freetext or none.
 
@@ -427,8 +409,8 @@ One or more fields may be used in the ORDER BY clause. The ORDER BY can include 
 
 > **Note:** Order by is supported for text fields when the content model has the following setting for the text field.
 
--   LOV whole or partial match
--   unique match: partial, many
+* LOV whole or partial match
+* unique match: partial, many
 
 It’s not supported when the text field is either freetext or none.
 
@@ -444,7 +426,7 @@ A LIMIT clause can be used to limit the number of aggregations results. If no LI
 
 ![](../images/hr.png)
 
-**Time Series Aggregations**
+## Time Series Aggregations
 
 There is specific support for SQL time series reporting through the use of virtual time dimensions. The following section describes how virtual time dimensions are used.
 
@@ -458,11 +440,11 @@ select cm_created_day, count(*) as total from alfresco where cm_created >= 'NOW/
 
 ![](../images/hr.png)
 
-**Datetime Predicates**
+## Datetime Predicates
 
 A datetime predicate can be used in the WHERE clause to control the datetime range of the time series report. This is a datetime predicate on the cm\_created field. Its important to note that the virtual time dimension field is only used in the field list and GROUP BY clause. The predicate is applied to the non-virtual datetime field in the index. This example uses a date math expression to specify a lower boundary for the time series report and is a datetime predicate on the cm\_created field.
 
-```
+```sql
 where cm_created >= 'NOW/DAY'
 ```
 
@@ -474,24 +456,24 @@ If no datetime predicate is supplied, the following default lower and upper boun
 
 **day:**
 
--   **lower:** current day minus 1 month
--   **upper:** current full day
+* **lower:** current day minus 1 month
+* **upper:** current full day
 
 **month:**
 
--   **lower:** current month minus 24 months
--   **upper:** current full month
+* **lower:** current month minus 24 months
+* **upper:** current full month
 
 **year:**
 
--   **lower:** current year minus 5 years
--   **upper:** current full year
+* **lower:** current year minus 5 years
+* **upper:** current full year
 
 *Fixed Datetime Predicates*
 
 Fixed datetime predicates are formatted according to a subset of ISO 8601. They require the full precision to be expressed in the statement, see the example below:
 
-```
+```sql
 select cm_created_day, count(*) from alfresco where cm_created >= '2010-02-01T01:01:01Z' and cm_created <= '2010-02-14T23:59:59Z' group by cm_created_day
 ```
 
@@ -499,11 +481,9 @@ select cm_created_day, count(*) from alfresco where cm_created >= '2010-02-01T01
 
 Search and Insight Engine also supports a rich set of date math expressions. The example below uses a time series aggregation using date math predicates. The NOW clause signifies the current point in time with milli-second precision. The NOW/MONTH clause rounds the current point in time down to the current MONTH i.e. The -6MONTHS subtracts 6 months from the current month. See the [Solr date math guide](https://lucene.apache.org/solr/guide/6_6/working-with-dates.html#WorkingwithDates-DateMathSyntax) for more details on date math syntax.
 
-```
+```sql
 select cm_created_month, count(*) from alfresco where cm_created >= 'NOW/MONTH-6MONTHS' and cm_created <= 'NOW' group by cm_created_month
 ```
-
-![](../images/hr.png)
 
 *Autofilled Date/Time Ranges*
 
@@ -520,8 +500,3 @@ By default time series aggregation results are sorted in datetime ascending orde
 *Having*
 
 A HAVING clause can be used to filter time series aggregations results.
-
-![](../images/hr.png)
-
-**Parent topic:**[Search and Insight Engine SQL](../concepts/search-insight-engine-sql.md)
-

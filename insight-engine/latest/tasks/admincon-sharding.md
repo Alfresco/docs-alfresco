@@ -1,8 +1,6 @@
 ---
-title: Configuring Sharding
+title: Configuring Sharding with the Admin Console
 ---
-## Configuring Search and Insight Engine sharding using the Admin Console
-
 Alfresco Search and Insight Engine supports sharded indexes with SSL. Use the Search Server Sharding page to set up and configure a Solr 6 sharded search index.
 
 Prerequisites for viewing the Search Server Sharding page:
@@ -188,4 +186,4 @@ You can also set this property in the alfresco-insight-engine-distribution-2.0.x
 
 > **Note:** Alfresco recommends that you do not use the **Solr Admin Console \> Core Admin \> Unload** functionality to unload indexes (either whole indexes or shards that are part of an index). Unloading an index or a shard in this way will delete it and make it unavailable for query.
 
-If you unload or delete a shard from the Solr Admin Console, make sure you restart the Solr server and restore your indexes so that Alfresco can work properly.
+If you unload or delete a shard from the Solr Admin Console, ensure you restart the Solr server and restore your indexes so that Alfresco can work properly.

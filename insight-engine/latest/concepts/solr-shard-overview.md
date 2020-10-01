@@ -1,6 +1,5 @@
 ---
-author: Alfresco Documentation
-audience: 
+title: Alfresco Documentation 
 ---
 
 # Solr sharding
@@ -23,17 +22,3 @@ A shard can have zero or more shard instances. Multiple shard instances have the
 -   It increases performance: search requests are handled by the multiple shard instances.
 
 Note that if your Solr indexes are sharded, then index backup will be disabled.
-
--   **[Basic Solr sharding concepts](../concepts/solr-shard-terms.md)**  
-There are a few basic concepts that are core to understanding Solr sharding. Understanding these concepts from the outset will help in learning more about sharding.
--   **[Search and Insight Engine sharding methods](../concepts/solr-shard-approaches.md)**  
-When an index grows too large to be stored on a single search server, it can be distributed across multiple search servers. This is known as sharding. The distributed/sharded index can then be searched using Alfresco/Solr's distributed search capabilities.
--   **[Setting up Solr sharding](../concepts/solr-shard-config.md)**  
-After creating the shards manually, an Alfresco Content Services administrator has to instruct Alfresco Content Services how to find the indexes. This can either be done manually by configuring the indexes, or by allowing Alfresco Content Services to discover shards dynamically. This section describes how to create and configure Solr sharding.
--   **[Backing up Solr shards](../concepts/shard-backup.md)**  
-To avoid any data loss, you can make backups of one or all the sharded Solr indexes.
--   **[Best practices for setting up sharded Solr indexes](../references/sharding-best-practices.md)**  
- Use these best practices for setting up and using a sharded installation.
-
-**Parent topic:**[Installing and configuring Search and Insight Engine](../concepts/solr-install-config.md)
-

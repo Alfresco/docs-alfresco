@@ -1,13 +1,6 @@
 ---
-author: Alfresco Documentation
-source: 
-audience: 
-category: [Alfresco Server, Administration, Configuration]
-keyword: [solr, search, lucene]
+title: Solr replication
 ---
-
-# Solr replication
-
 Solr replication uses the master-slave model to distribute complete copies of a master index to one or more slave servers.
 
 The master server receives all updates and all changes are made against a single master server. Changes made on the master are distributed to all the slave servers which service all query requests from the clients. This enables Solr to remain responsive even with high query traffic.
@@ -19,15 +12,3 @@ The figure below shows a Solr configuration using index replication. The master 
 ![](../images/solr-replication.png)
 
 The master-slave replication requires non-SSL communication between the master server and the slave server.
-
--   **[Solr replication: advantages and disadvantages](../concepts/solr-replication-adv.md)**  
-There are advantages and disadvantages of using a master-slave and master-master replication.
--   **[Solr replication configuration](../concepts/solr-replication-conf.md)**  
-The Solr replication feature is implemented as a `RequestHandler`. The simplest configuration involves one Alfresco Content Services node, one Solr master, and one Solr slave.
--   **[Solr master-slave reconfiguration](../concepts/master-slave-reconf.md)**  
-There are additional master-slave configuration requirements for Solr, such as adding a slave server and promoting a slave server.
--   **[Solr master-master reconfiguration](../tasks/master-master-reconf.md)**  
-Use this information for setting up a master-master replication.
-
-**Parent topic:**[Installing and configuring Search and Insight Engine](../concepts/solr-install-config.md)
-

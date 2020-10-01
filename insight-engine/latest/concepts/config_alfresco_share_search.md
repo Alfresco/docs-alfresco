@@ -6,6 +6,3 @@ The following sections describe how to configure search in Alfresco Share.
 You can limit the time Alfresco Content Services spends on ensuring that the user executing the search has the necessary permissions to see each result. Setting this limit increases search speed and reduces the use of resources.
  **[Controlling search results](../tasks/controlling_search_results.md)**  
 Use this information to control the maximum number of items that an Alfresco Share search returns.
-
-**Parent topic:**[Transactional metadata query](../concepts/intrans-metadata.md)
-

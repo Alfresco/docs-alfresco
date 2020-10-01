@@ -10,7 +10,7 @@ The `*` wildcard character can appear on its own and implies Google-style. The "
 
 The following will all find the term apple.
 
-```
+```Plain text
 TEXT:app?e
 TEXT:app*
 TEXT:*pple
@@ -24,5 +24,5 @@ appl?
 
 When performing a search that includes a wildcard character, it is best to wrap your search term in double quotation marks. This ensures all metadata and content are searched.
 
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
+
 

@@ -1,9 +1,6 @@
 ---
-author: Alfresco Documentation
-source: 
+title: Transactional metadata queries supported by database 
 ---
-## Transactional metadata queries supported by database
-
 Use this information to understand the queries supported by the database.
 
 The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `contains()` predicate function. The CMIS specification supports a subset of Alfresco FTS. For more information on search syntax, see [Alfresco Full Text Search Reference](searchsyntax-intro.md).

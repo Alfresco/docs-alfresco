@@ -1,9 +1,6 @@
 ---
-title: Alfresco Documentation
+title: Dynamic shard registration
 ---
-
-## Dynamic shard registration
-
 In dynamic shard registration, shards register as a part of the tracking process to form indexes, thereby eliminating the need to follow the manual shard distribution pattern over Solr nodes.
 
 Unlike manual sharding, dynamic sharding does not require shards and instances to be distributed correctly over a known set of hosts. Query is resilient, with a configurable delay to instances coming and going. For manual sharding, all instances must be available on the expected host at the expected URL. While dynamic shard registration allows different numbers of instances for any shard, manual sharding does not.
@@ -34,15 +31,15 @@ If there is more than one index for a store, the most up to date index (the one 
 
 Shards are considered to be part of the same index if they:
 
- * track the same store
- * use the same template (and therefore, Solr schema)
- * have the same number of shards
- * use the same partitioning method with the same configuration, if any is required
- * have the same setting to transform or ignore content
+* track the same store
+* use the same template (and therefore, Solr schema)
+* have the same number of shards
+* use the same partitioning method with the same configuration, if any is required
+* have the same setting to transform or ignore content
 
 In dynamic sharding, shards can be created using the same API as manual sharding or you can list the required shards as a comma-separated list of `shardIds`.
 
-```
+```bash
 http://localhost:8080/solr/admin/cores?action=newCore&storeRef=workspace://SpacesStore&numShards=10&
 numNodes=1&nodeInstance=1&property.data.dir.root=<SOLR_HOME>/solrhome/workspace-SpacesStore&shardIds=0,1,2,3,4
 ```

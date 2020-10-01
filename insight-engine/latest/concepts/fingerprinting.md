@@ -1,8 +1,6 @@
 ---
-title: Alfresco Documentation
+title: Document Fingerprints
 ---
-## Document Fingerprints
-
 Alfresco Content Services 6.2 provides support for Document Fingerprints to find related documents. Document Fingerprinting is performed by algorithms that map data, such as documents and files to shorter text strings, also known as fingerprints. This feature is exposed as a part of the Alfresco Full Text Search Query Language.
 
 Document Fingerprints can be used to find similar content in general or biased towards containment. The language adds a new `FINGERPRINT` keyword:
@@ -61,15 +59,15 @@ First, the text is split into a stream of words. These words are then combined i
 
 A document contains a single sentence of *The quick brown fox jumps over the lazy dog*, that would be broken down into the following 5-word long shingles:
 
-    1. The quick brown fox jumps
-    2.  quick brown fox jumps over
-    3. brown fox jumps over the
-    4.  fox jumps over the lazy
-    5.  jumps over the lazy dog
+   1. The quick brown fox jumps
+   2. quick brown fox jumps over
+   3. brown fox jumps over the
+   4. fox jumps over the lazy
+   5. jumps over the lazy dog
 
 So, our document as a set looks like:
 
-```
+```bash
 Set A = new Set(["The quick brown fox jumps", "quick brown fox jumps over", "brown fox jumps over the", "fox jumps over the lazy", "jumps over the lazy dog"]);
 ```
 

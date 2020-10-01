@@ -11,7 +11,7 @@ Use this information to migrate from Search Services to Search and Insight Engin
 
     ```yaml
         solr6:
-            #image: alfresco/alfresco-search-services:2.0.x (or 1.4, and 1.3) 
+            #image: alfresco/alfresco-search-services:2.0.x (or 1.4, and 1.3)
             image: quay.io/alfresco/insight-engine:2.0.x
             mem_limit: 2500m
             environment:

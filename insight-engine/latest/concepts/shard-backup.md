@@ -1,10 +1,11 @@
-# Backing up Solr shards
-
+---
+title: Backing up Solr shards
+---
 To avoid any data loss, you can make backups of one or all the sharded Solr indexes.
 
 Trigger a backup with an `HTTP` command which instructs the `/replication` handler to backup the Solr shards, for example:
 
-```
+```http
 curl http://solrshard20xbm.alfresco.com:9000/solr/<CORE_NAME>/replication?command=backup
 \&location=/mnt/solrBackup\&numberToKeep=1
 ```
@@ -17,13 +18,10 @@ where:
 
 `numberToKeep` specifies the number of backups to keep.
 
-**Backup status**
+### Backup status
 
 The backup operation can be monitored to see if it has completed by sending the `details` command to the `/replication` handler, for example:
 
-```
+```http
 http://solrshard20xbm.alfresco.com:9000/alfresco-search-backups/<CORE_NAME>/replication?command=details
 ```
-
-**Parent topic:**[Solr sharding](../concepts/solr-shard-overview.md)
-

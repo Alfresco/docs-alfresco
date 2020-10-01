@@ -1,10 +1,6 @@
 ---
-author: Alfresco Documentation
-source: 
+title: Administering Alfresco Search and Insight Engine  
 ---
-
-# Administering Alfresco Search and Insight Engine
-
 This information helps you to monitor and administer Alfresco Search and Insight Engine.
 
 -   **[Alfresco SOLR Admin REST API](../concepts/alfresco-solr-admin-rest-api.md)**  
@@ -16,5 +12,4 @@ You can set different debug logging levels for Solr components using the Solr lo
 -   **[Solr monitoring and troubleshooting](../concepts/solr-monitor-troubleshoot.md)**  
 Help for monitoring and resolving any Solr index issues that might arise as a result of a transaction.
 
-**Parent topic:**[Alfresco Search and Insight Engine](../concepts/search-insight-engine-overview.md)
 
