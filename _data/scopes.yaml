@@ -9,8 +9,8 @@ integrations:
   scopes:
     sync-service: "Sync Service"
     desktop-sync: "Desktop Sync"
-    transformation-engine: "Document Transformation Engine"
     transform-service: "Transform Service"
+    transformation-engine: "Document Transformation Engine"
     media-management: "Media Management"
     insight-engine: "Search and Insight Engine"
     search-services: "Search Services"
@@ -22,11 +22,11 @@ integrations:
     microsoft-azure: "Content Connector for Azure"
     amazon-glacier: "Content Connector for AWS Glacier"
     centera: "Content Connector for EMC Centera"
-    google-drive: "Google Docs Integration"
     salesforce: "Content Connector for Salesforce"
-    microsoft-office: "Office Services"
+    sap: "Content Connector for SAP"
     microsoft-outlook: "Outlook Integration"
-    sap: "SAP Connector"
+    microsoft-office: "Office Services"
+    google-drive: "Google Docs Integration"
 applications:
   title: "Applications"
   scopes:
