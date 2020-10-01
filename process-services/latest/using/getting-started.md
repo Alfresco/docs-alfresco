@@ -35,7 +35,7 @@ In this step, you are going to design a simple expense approval process (definit
 
 This process also includes 2 web forms.
 
-1.  Open Alfresco Process Services from one of the following options:
+1.  Open Process Services from one of the following options:
 
     * **Local installation**
 
@@ -57,7 +57,7 @@ This process also includes 2 web forms.
 
 5.  Select **Create new model**.
 
-    >**Note:** If this is the first time you’ve used Alfresco Process Services then some help tips may be displayed. You can click **Next** to watch them or press Esc. to close them.
+    >**Note:** If this is the first time you’ve used Process Services then some help tips may be displayed. You can click **Next** to watch them or press Esc. to close them.
 
 6.  The start event is displayed on the canvas as a circle. Double-click on it and type a name, for example “Submit expense”, then click on the canvas.
 

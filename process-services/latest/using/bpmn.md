@@ -251,7 +251,7 @@ A script task is visualized as a rounded rectangle with a paper icon inside.
 
 |Property|Description|
 |--------|-----------|
-|Script format|The [JSR-223](http://jcp.org/en/jsr/detail?id=223) name of the scripting engine your script is written for. By default, Alfresco Process Services supports **javascript** and **groovy** formats.|
+|Script format|The [JSR-223](http://jcp.org/en/jsr/detail?id=223) name of the scripting engine your script is written for. By default, Process Services supports **javascript** and **groovy** formats.|
 |Script|The actual script that will be executed.|
 |Id|A unique identifier for this element.|
 |Name|A name for this element.|
@@ -765,7 +765,7 @@ The following restrictions apply to event gateways:
 
 * The gateway must have two or more outgoing sequence flows.
 * An event-based gateway can only be followed by intermediate catching events. Receive tasks after an event gateway 
-are not supported by Alfresco Process Services.
+are not supported by Process Services.
 * An intermediate catching event connected to an event gateway must have a single incoming sequence flow.
 
 An event gateway is visualized as a diamond shape with a plus icon inside. Unlike the parallel gateway, 
@@ -963,9 +963,94 @@ the boundary of a transaction subprocess.
 |Execution listeners|Execution listeners configured for this.|
 
 ## Swimlanes
+
+You use swimlanes to display activities in your process divided by business function or participant group. 
+A process definition can have one swimlane diagram containing one pool, which in turn contains one or more lanes. 
+The pool represents the whole process, and each lane corresponds to a business function or participant group.
+
+For example, the process of selling a book consists of several activities: ordering a book, processing the order, 
+shipping the book, and reading the book. However, the activities are performed by participants in different groups: 
+by the customer, by the sales department, by the warehouse, or store. In the following diagram, process definitions 
+have one pool called Sell a book with three lanes: Customer, Sales, and Store. The process sequence flow moves 
+between lanes in the pool as the order progresses.
+
+![bpmn.swimlanes.png]({% link process-services/images/bpmn.swimlanes.png %})
+
+When you drag a pool to your process diagram, it creates an unnamed pool containing one unnamed lane. 
+You can add lanes by dragging a lane icon from the palette to the canvas. When you hover over the name box of the pool, 
+the whole pool border turns green, indicating the lane will be added to the pool when you release the mouse button.
+
 ## Artifacts
+
+You use artifacts to provide additional information about the process. The BPMN editor supports the text annotation 
+artifact which associates additional text to an element in your process, or to the process itself. 
+The text does not influence the execution of a process and is provided by the process designer to 
+give information to the user of the process.
+
+**Text annotation**
+
+You can set the following properties in the property sheet:
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element instance|
+|Name|A name for this element instance|
+|Documentation|A description of this element instance|
+|Text|The text you want to display in your annotation|
+
 ## Alfresco Content Services actions
+
+Use this section for actions specific to Alfresco Content Services content store:
+
+* Publish to Alfresco task - upload content to Alfresco Repository
+* Retrieve Alfresco Properties - fetch metadata (properties) for content in the Alfresco Repository
+* Update Alfresco Properties - update metadata (properties) for content in the Alfresco Repository
+* Call Alfresco Action - invoke a Repository Action 
+
 ### Publish to Alfresco task / Box / Google Drive
+
+The publish task enables you to publish items that were created or modified during process instance execution 
+to a content store. Currently, the following content stores are supported:
+
+* Alfresco Content Services
+* Box
+* Google Drive
+
+A publish task is depicted as a rounded rectangle with the icon of the content store on the top-left corner.
+
+![bpmn.publish-task.png]({% link process-services/images/bpmn.publish-task.png %})
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Alfresco / Box / Google Drive Content|Configures what content to publish. You can select a previously defined form field or all the content that was updated during the process instance execution.|
+|Alfresco / Box / Google Drive Destination|Configures where the content will be published to. You can publish the content using the process initiator or a specific user (this is important when it comes to permissions in the content store).|
+
 ### Retrieve Alfresco Properties
+
+The Retrieve Alfresco Properties option enables you to retrieve content-specific properties from 
+Alfresco Content Services and map it to a form field or variable, for example properties of a document. 
+You can retrieve document information after a document is added or referenced via the Attachment 
+form field in Share Connector.
+
+|Property|Description|
+|--------|-----------|
+|Id|A unique identifier for this element.|
+|Name|A name for this element.|
+|Documentation|A description of this element.|
+|Alfresco properties|Retrieves Alfresco Content Services properties for content stored in the form editor or variable, and allows mapping them.|
+
 ### Update Alfresco Properties
+
+The Update Alfresco Properties option enables you to update content-specific properties in Alfresco Content Services 
+via a form field or variable. For example, you can update properties of a document linked from Alfresco Content Services 
+via a form attachment field, or process variable.
+
+The Properties sheet displays the same fields as Retrieve Alfresco properties, except that is used for 
+updating properties rather than retrieving.
+
 ### Call Alfresco Action
+
+See this [documentation]({% link process-services/latest/using/step.md %}#callalfaction).

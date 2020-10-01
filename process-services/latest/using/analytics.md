@@ -14,7 +14,7 @@ When you visit the Analytics app for the first time, you'll see some useful hint
 
 The Analytics app has the following tabs:
 
-* **Reports** - Use this to add standard reports in Alfresco Process Services and view the existing reports.
+* **Reports** - Use this to add standard reports in Process Services and view the existing reports.
 * **Configure** - Use this to configure standard reports and custom reports.
 
 ## Configuring standard reports
@@ -58,7 +58,7 @@ by modifying the filter option of an existing report and saving it with a new na
 
 **To generate and save a Task overview report:**
 
-1.  Sign in to Alfresco Process Services as a user with Administrator privileges.
+1.  Sign in to Process Services as a user with Administrator privileges.
 
 2.  Click **Analytics App** > **Configure** and then Task overview.
 
@@ -76,4 +76,4 @@ by modifying the filter option of an existing report and saving it with a new na
 
 ![Task overview]({% link process-services/images/taskoverview.png %})
 
-You can generate all other reports in the same way by using the appropriate filter options. You are now ready to explore the advanced reporting and analytic features in Alfresco Process Services.
+You can generate all other reports in the same way by using the appropriate filter options. You are now ready to explore the advanced reporting and analytic features in Process Services.
