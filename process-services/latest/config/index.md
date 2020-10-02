@@ -1179,16 +1179,229 @@ ldap.synchronization.db.query.batch.size=100
 ```
 
 ## Connecting to external content systems {#connecting2externalsys}
+
+You can connect Process Services to external content systems and publish content as part of a process. 
+With Alfresco Content Services it is also possible to retrieve and update content, 
+as well as invoke certain repository actions.
+
+Process Services can connect to the following content systems:
+
+* Alfresco Content Services
+* Box
+* Google Drive
+
 ### Configure an Alfresco Content Services connection
-#### Configure an Alfresco Content Services connection using Single Sign On (SSO)
-##### Configure Single Sign On properties
-#### Configure an Alfresco Content Services connection using basic authentication
+
+An Alfresco Content Services connection allows for content to be uploaded to an Alfresco Content Services repository 
+as part of a Process Services form or using a Publish to Alfresco task in a process.
+
+It is also possible to retrieve and update content properties in an Alfresco Content Services repository as well as 
+invoking content actions as part of a process using the following BPMN elements:
+
+* Publish to Alfresco
+* Retrieve Alfresco properties
+* Update Alfresco properties
+* Call Alfresco Action
+
+There are three ways to configure a connection to Alfresco Content Services:
+
+* Using the Identity Service to configure Single Sign On (SSO)
+* Using basic authentication
+* [Using the Share Connector](TODO:../topics/shareGuide.md)
+
+**Configure connection using Single Sign On (SSO)**
+
+An Alfresco Content Services connection to Process Services can be created using the Identity Service so that 
+communication between the two systems is achieved using tokens instead of stored credentials. You need the following:
+
+* Alfresco Content Services version 6.1.1 or later.
+* The Identity Service configured between Process Services and Alfresco Content Services.
+* The properties are configured in `activiti-identity-service.properties` for SSO.
+
+Configuring the Alfresco Repository location:
+
+1.  Sign into Process Services as an administrator.
+2.  Navigate to **Identity Management > Tenants > Alfresco Repositories**.
+3.  Add a new repository or edit an existing connection.
+4.  Configure the following settings for the repository connection:
+
+    |Setting|Description|
+    |-------|-----------|
+    |Name|A name for the repository connection.|
+    |Alfresco tenant|The tenant to create the repository under.|
+    |Repository base URL|The base URL of the repository instance to connect to.|
+    |Share base URL|The base URL of Share for the repository instance to connect to.|
+    |Alfresco version|The version of Alfresco Content Services to connect to. This must be version 6.1.1 or later to use SSO.|
+    |Authentication type|The authentication type of the connection. Select **Identity Service authentication** to use SSO.|
+
+Authenticate users for Alfresco Repository communication:
+
+After a repository connection has been configured to use SSO users need to authorize their Alfresco Content Services 
+credentials for use by Process Services by doing the following:
+
+1.  Sign into Process Services.
+2.  Navigate to **Identity Management > Personal**
+3.  Select the **Authorize** button against the **Alfresco Repository** configured for SSO.
+
+>**Note:** If a repository **Authentication type** is changed then users are required to reauthorize their credentials for it.
+
+Token expiry:
+
+If a user's authorization token expires whilst they have Alfresco Content Services tasks assigned to them they will 
+stay in a pending state until the user reauthorizes against the repository.
+
+The following properties need to be set in the `activiti-identity-service.properties` file to connect to 
+Alfresco Content Services using SSO:
+
+>**Note:** Many of the following properties to configure SSO with Alfresco Content Services use [Identity Service properties](TODO:is-properties.md) as their default values.
+
+|Property|Description|Example|
+|--------|-----------|-------|
+|alfresco.content.sso.enabled|Sets whether SSO is enabled between Process Services and Alfresco Content Services.|`${keycloak.enabled}`|
+|alfresco.content.sso.client_id|The **Client ID** within the realm that points to Process Services|`${keycloak.resource}`|
+|alfresco.content.sso.client_secret|The secret key for the Process Services client.|`${keycloak.credentials.secret}`|
+|alfresco.content.sso.realm|The realm that is configured for the Alfresco Content Services and Process Services clients.|`${keycloak.realm}`|
+|alfresco.content.sso.scope|Sets the duration that tokens are valid for. For example using the value`offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/8.0/server_admin/#_offline-access) for further information.|`offline_access`|
+|alfresco.content.sso.javascript_origins|The base URL for the Javascript origins of the Process Services instance.|`http://localhost:9999`|
+|alfresco.content.sso.auth_uri|The authorization URL.|`${keycloak-auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/auth`|
+|alfresco.content.sso.token_uri|The authorization token URL.|`${keycloak-auth-server-url}/realms/${alfresco.content.sso.realm}/protocol/openid-connect/token`|
+|alfresco.content.sso.redirect_uri|The redirect URI for authorization. The value in the example column needs to be updated with the correct base URL for the Process Services instance.|`http://localhost:9999/activiti-app/rest/integration/sso/confirm-auth-request`|
+
+**Configure connection using basic authentication**
+
+An Alfresco Content Services connection to Process Services can be created using basic authentication. 
+A user's credentials for Alfresco Content Services are stored encrypted in Process Services.
+
+The following properties need to be set in `activiti-app.properties` to encrypt 
+Alfresco Content Services user credentials:
+
+|Property|Description|
+|--------|-----------|
+|security.encryption.ivspec|A 128-bit initialization vector to encrypt credentials using AES/CBC/PKCS5PADDING. This will be 16 characters long.|
+|security.encryption.secret|A 128-bit secret key to encrypt credentials using AES/CBC/PKCS5PADDING. This will be 16 characters long.|
+
+Configuring the Alfresco Repository location:
+
+1.  Sign into Process Services as an administrator.
+2.  Navigate to **Identity Management > Tenants > Alfresco Repositories**.
+3.  Add a new repository or edit an existing connection.
+4.  Configure the following settings for the repository connection:
+
+    |Setting|Description|
+    |-------|-----------|
+    |Name|A name for the repository connection.|
+    |Alfresco tenant|The tenant to create the repository under.|
+    |Repository base URL|The base URL of the repository instance to connect to.|
+    |Share base URL|The base URL of Share for the repository instance to connect to.|
+    |Alfresco version|The version of Alfresco Content Services to connect to.|
+    |Authentication type|The authentication type of the connection. Select **Default authentication** to use basic authentication.|
+
+Authenticate users for Alfresco Repository communication:
+
+After a repository connection has been configured for basic authentication, users need to enter their 
+Alfresco Content Services credentials for use by Process Services by doing the following:
+
+1.  Sign into Process Services.
+2.  Navigate to **Identity Management > Personal**
+3.  Click the **Alfresco Repository** configured for basic authentication.
+4.  Enter their Alfresco Content Services user name and password.
+
 ### Configure a Box connection
+
+A Box connection allows for content to be uploaded to Box as part of a Process Services form or using a 
+Publish to Box task in a process.
+
+A [Box developer account](https://developers.box.com)is required to setup a connection to Box.
+
+The following properties need to be set in the `activiti-app.properties` file to enable Box 
+connections to be used in Process Services:
+
+|Property|Description|Example|
+|--------|-----------|-------|
+|box.disabled|Set this to `true` to enable Box connections to be configured in forms and processes.|`false`|
+|box.web.auth_uri|Set this to the value provided in the example column to configure the Box authentication URI.|`https://app.box.com/api/oauth2/authorize`|
+|box.web.token_uri|Set this to the value provided in the example column to configure the Box token URI.|`https://app.box.com/api/oauth2/token`|
+|box.web.redirect_uris|Update the base of the URL provided in the example column to reflect your Process Services installation.|`http://localhost:8080/activiti-app/app/rest/integration/box/confirm-auth-request`|
+|box.web.javascript_origins|Sets the base URL of Javascript origins.|`http://localhost:8080/activiti-app`|
+|box.web.client_id|The client ID obtained from your Box developer account.| |
+|box.web.client_secret|The client secret obtained from your Box developer account.| |
+
 ### Configure a Google Drive connection
+
+A Google Drive connection allows for content to be uploaded to Google Drive as part of a Process Services 
+form or using a publish to Google Drive task in a process.
+
+A [Google developer account](https://developers.google.com/drive/v2/reference/)is required to setup a 
+connection to Google Drive.
+
+The following properties need to be set in the `activiti-app.properties` file to enable Google Drive 
+connections to be used in Process Services:
+
+|Property|Description|Example|
+|--------|-----------|-------|
+|googledrive.web.disabled|Set this to `true` to enable Google Drive connections to be configured in forms and processes.|`false`|
+|googledrive.web.auth_uri|Set this to the value provided in the example column to configure the Google Drive authentication URI.|`https://accounts.google.com/o/oauth2/auth`|
+|googledrive.web.token_uri|Set this to the value provided in the example column to configure the Google Drive token URI.|`https://accounts.google.com/o/oauth2/token`|
+|googledrive.web.auth_provider_x509_cert_url|Set this to the value provided in the example column to configure the Google Drive x509 certificate URL.|`https://www.googleapis.com/oauth2/v1/certs`|
+|googledrive.web.redirect_uris|Update the base of the URL provided in the example column to reflect your Process Services installation.|`http://localhost:8080/activiti-app/app/rest/integration/google-drive/confirm-auth-request`|
+|googledrive.web.javascript_origins|Sets the base URL of Javascript origins.|`http://localhost:8080/activiti-app`|
+|googledrive.web.client_id|The client ID obtained from your Google developer account.| |
+|googledrive.web.client_secret|The client secret obtained from your Google developer account.| |
+|googledrive.web.client_email|The client email associated to your Google developer account.| |
+|googledrive.web.client_x509_cert_url|The client x509 certificate URL obtained from your Google developer account.| |
+
 ## Validator configuration
+
+By default, Process Services is configured in a way that process modelers have access to all powerful features of 
+the Process Engine. In many organizations this is not a problem, as the people who are modeling are trusted 
+IT people or business analysts.
+
+However, some organizations may expose the modeling tools of Process Services directly to all end users giving 
+them access to the full array of its capabilities. In such a scenario, some users may gather sensitive data or 
+swamp the resources of the servers. Therefore, various *validators* are introduced that can be enabled or disabled, 
+when required. These validators are run before a process model is deployed to the engine and will block deployment 
+in case of a validation error.
+
 ### Disabling tasks
+
+The following validators disable the usage of certain tasks. The various validators are configured through the regular 
+Process Services properties. The default value for these validators is `false`. Set the property 
+to `true` to enable the validator.
+
+* `validator.editor.bpmn.disable.startevent.timer|signal|message|error`: Disables the usage of the timer, signal, message or error start event in a process definition.
+* `validator.editor.bpmn.disable.scripttask`: Disables the usage of the *script task* in a process definition. Disabling script tasks is typically something you’ll want to do when exposing the modeling tools to end users. Scripts, contrary to the service tasks, don’t need any class on the classpath to be executed. As such, it’s very easy with scripts to execute code with bad intentions.
+* `validator.editor.bpmn.disable.servicetask`: Disables the usage of the *service task* in a process definition. Service tasks are used to call custom logic when the process instance executes the service task. A service task is configured to either use a class that needs to be put on the classpath or an expression. This setting disables the usage of service tasks completely.
+* `validator.editor.bpmn.disable.executionlistener`: Disables the possibility to define execution listeners in a BPMN process definition. Execution listeners allow to add custom logic to the process diagram that is not visible in the diagram. This setting also disables task listeners on tasks.
+* `validator.editor.bpmn.disable.mailtask`: Disables the *mail task* that is used for sending emails.
+* `validator.editor.bpmn.disable.intermediatethrowevent`: Disables the usage of all intermediate throw events: none, signal, message, error. They can be used to create infinite loops in processes.
+* `validator.editor.bpmn.disable.manualtask`: Disables the usage of the *manual task* task in a process definition.
+* `validator.editor.bpmn.disable.businessruletask`: Disables the usage of the *business rule task* in a process definition.
+* `validator.editor.bpmn.disable.cameltask`: Disables the usage of the *Camel task* in a process definition. Camel tasks can interact with Apache Camel for various system integrations and have, like regular `JavaDelegate` classes access to the whole engine.
+* `validator.editor.bpmn.disable.muletask`: Disables the usage of the *Mule task* in a process definition. Mule tasks are used to interact with a Mule server.
+
 ### Limit functionality
+
+The following validators don’t disable a task as a whole, but rather a feature:
+
+* `validator.editor.bpmn.disable.startevent.timecycle`: Allows the usage of a timer start event, but not with a *timeCycle* attribute, as it could be used to create process instances or tasks for many people very quickly, or simply to stress the system resources.
+* `validator.editor.bpmn.limit.servicetask.only-class`: Limits the service task to only be configured with a class attribute (so no expression or delegate expression is allowed). Since the available classes are restricted by what is on the classpath, there is a strict control over which logic is exposed.
+* `validator.editor.bpmn.limit.usertask.assignment.only-idm`: Limits the user task assignment to only the values that can be selected using the *Identity Store* option in the assignment pop-up. The reasoning to do this, is that this is the only way *safe* values can be selected. Otherwise, by allowing fixed values like expression, a random bean could be invoked or used to get system information.
+* `validator.editor.bpmn.disable.loopback`: Disables looping back with a sequence flow from an element to itself. If enabled, it is possible this way to create infinite loops (if not applied correctly).
+* `validator.editor.bpmn.limit.multiinstance.loop`: Limits the loop functionality of a multi-instance: only a loop cardinality between 1 and 10 is allowed and a collection nor completion condition is allowed. So basically, only very simple loops are permitted. Currently applied to call activities, sub processes and service tasks.
+* `validator.editor.dmn.expression`: Validates the expressions in the decision tables to be correct according to the DMN specification. **By default this is `true` (unlike the others!)**. This means that by default, the DMN decision tables are checked for correctness. If using the structured expression editor to fill in the decision tables, the resulting expressions will be valid. However,if you want to type any MVEL expressions, this property needs to be set to `false`.
+
 ## License configuration
+
+If you start up the application without a license, it will enter read only mode; however, you can upload a license 
+from the user interface at a later stage. In this situation, use the following configuration properties 
+to configure the license.
+
+|Property|Description|Default|
+|--------|-----------|-------|
+|license.multi-tenant|If no license is available on first bootstrap this property decides if system will go into single or multi-tenant mode.|`false`|
+|license.default-tenant|If no license is available on first bootstrap this property decides the name of the default tenant.|`tenant`|
+|license.allow-upload|Decides if license uploads should be allowed in the system or not.|`true`|
+
 ## Multi-schema multi-tenancy (MS-MT)
 ### MS-MT known limitations
 ### MS-MT Technical implementation
