@@ -111,7 +111,7 @@ integrations:
         url:
       - title: "Microsoft Office"
         text: "Alfresco Office Services allows you to access Alfresco Content Services directly from your Microsoft Office applications."
-        url:
+        url: /microsoft-office/latest/
       - title: "Google Docs"
         text: "Alfresco Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share."
         url: /google-drive/latest/
