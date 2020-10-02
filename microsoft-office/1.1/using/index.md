@@ -132,4 +132,4 @@ Some content types may require you to enter specific properties before you can e
 
 When you've saved the file you'll be able to see any changes you've made to the properties if you look at the file in Alfresco.
 
-![AOS Alfresco properties]({% link microsoft-office/images/1.1-properties.png %})
+![AOS Alfresco properties]({% link microsoft-office/images/1-1-properties.png %})
