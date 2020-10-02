@@ -48,6 +48,3 @@ OR
 |`dog OR -wolf`|dog should occur and wolf should not occur, one of the clauses must be valid for any result|
 |`-dog OR wolf`|dog should not occur and wolf should occur, one of the clauses must be valid for any result|
 |`-dog OR -wolf`|dog and wolf should not occur, one of the clauses must be valid for any result|
-
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

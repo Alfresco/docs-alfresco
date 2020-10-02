@@ -49,5 +49,5 @@ Property fields evaluate the search term against a particular property, special 
 |Fully qualified data type|Data Type|\{http://www.alfresco.org/model/dictionary/1.0\}content:apple|
 |prefixed data type|Data Type|d:content:apple|
 
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
+
 

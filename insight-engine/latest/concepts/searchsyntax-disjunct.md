@@ -19,5 +19,4 @@ TEXT:big OR TEXT:yellow OR TEXT:banana
 
 These queries search for nodes that contain at least one of the terms `big`, `yellow`, or `banana` in any content.
 
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
 

@@ -54,12 +54,12 @@ integrations:
     url:
     image: /assets/img/ic_search_80px.svg
     sub:
-      - title: "Search and Insight"
+      - title: "Search and Insight Engine"
         text: "Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services."
-        url:
+        url: /insight-engine/latest
       - title: "Search Services"
         text: "Alfresco Search Services provides the default search service index for Alfresco Content Services and Alfresco Community Edition."
-        url:
+        url: /search-services/latest/
       - title: "Federation"
         text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
         url: /federation-services/latest/

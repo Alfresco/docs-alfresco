@@ -22,6 +22,3 @@ You can configure OpenSearch to use a search engine proxy.
     The value of the `proxy` attribute must be a unique name that identifies the search engine.
 
 3.  Save /config/alfresco/extension/web-scripts-config-custom.xml.
-
-
-**Parent topic:**[Installing and configuring Search and Insight Engine](../concepts/solr-install-config.md)

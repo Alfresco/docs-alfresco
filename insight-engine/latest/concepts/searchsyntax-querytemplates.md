@@ -32,6 +32,3 @@ Templates can refer to other templates.
 nameAndTitle -> %(cm:name, cm:title)
 nameAndTitleAndDesciption -> %(nameAndTitle, cm:description)   
 ```
-
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

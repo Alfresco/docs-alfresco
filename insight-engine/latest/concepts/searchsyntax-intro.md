@@ -64,6 +64,3 @@ The FTS query language supports query templates. These are intended to help when
 When you search, entries are generally a term or a phrase. The string representation you type in will be transformed to the appropriate type for each property when executing the query. For convenience, there are numeric literals but string literals can also be used.
 -   **[Search using date math](../concepts/searchsyntax-datemaths.md)**  
 The date field types in Solr support the date math expressions.
-
-**Parent topic:**[Alfresco Search and Insight Engine Reference](../concepts/search-references.md)
-

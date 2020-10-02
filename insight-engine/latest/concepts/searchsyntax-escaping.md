@@ -11,6 +11,3 @@ For example:
 ```
 cm:my\ content:my\ name 
 ```
-
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

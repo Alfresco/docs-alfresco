@@ -41,5 +41,3 @@ The topic describes the properties for configuring the Solr 6 search service.
 5. Click **Save** to apply the changes you have made to the properties.
 
     If you do not want to save the changes, click **Cancel**.
-
-**Parent topic:**[Installing and configuring Search and Insight Engine](../concepts/solr-install-config.md)

@@ -23,5 +23,4 @@ The `NOT` operator can only be used for string keywords; it doesn't work for num
 
 Prefixing any search qualifier with a `-` excludes all results that are matched by that qualifier.
 
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
 

@@ -17,5 +17,4 @@ The query elements in field groups all apply to the same field and cannot includ
 title:((big OR large) AND banana)
 ```
 
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
 

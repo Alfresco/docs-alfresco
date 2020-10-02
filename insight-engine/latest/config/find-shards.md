@@ -31,4 +31,3 @@ Use a JMX client to find shards at query time.
         ```bash
         numShards=10
         ```
-        

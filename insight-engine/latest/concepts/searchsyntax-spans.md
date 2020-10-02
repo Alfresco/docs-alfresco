@@ -21,6 +21,3 @@ and(terms etc)
 99w(terms etc) 
 97n(terms etc)
 ```
-
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

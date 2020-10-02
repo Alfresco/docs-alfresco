@@ -21,6 +21,3 @@ The following example finds documents that contain the term "car", score those w
 > **Note:** At least one element of a query must match (or not match) for there to be any results.
 
 All `AND` and `OR` constructs can be expressed with these operators.
-
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

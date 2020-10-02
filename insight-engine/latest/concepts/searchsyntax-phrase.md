@@ -11,6 +11,3 @@ The whole phrase will be tokenized before the search according to the appropriat
 ```
 "big yellow banana"
 ```
-
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

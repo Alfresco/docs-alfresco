@@ -1,7 +1,6 @@
 ---
 author: Alfresco Documentation
 ---
-
 # Search using date math
 
 The date field types in Solr support the date math expressions.
@@ -45,4 +44,3 @@ While date math is most commonly used relative to `NOW`, it can be applied to a
 > **Note:** Solr 6 date math supports `TODAY`.
 
 **Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

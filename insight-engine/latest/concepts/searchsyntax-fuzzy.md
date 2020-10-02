@@ -15,6 +15,3 @@ roam~0.9
 ```
 
 This search will find terms like *foam*, *roaming*, and *roams*.
-
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

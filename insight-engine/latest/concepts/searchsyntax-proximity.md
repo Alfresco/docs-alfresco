@@ -14,6 +14,3 @@ TEXT:(big * apple)
 big *(3) apple
 TEXT:(big *(3) apple)
 ```
-
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

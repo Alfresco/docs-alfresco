@@ -10,5 +10,5 @@ Explicit priority is set by prefixing the query with "=" for identifier pattern 
 
 The tilde "~" can be used to force tokenization.
 
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
+
 

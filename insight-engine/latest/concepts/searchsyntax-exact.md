@@ -23,6 +23,3 @@ The list of the default supported types as declared in the <alfresco\_home\>/sol
 `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
 
 `alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
-
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

@@ -11,6 +11,3 @@ For a property with both ID and FTS indexes, where the ID index is the default, 
 ```
 ~running
 ```
-
-**Parent topic:**[Alfresco Full Text Search Reference](../concepts/searchsyntax-intro.md)
-

@@ -1,0 +1,25 @@
+# Insight Engine
+- version: 2.0
+  pages:
+    - title: 'Introduction'
+      path: '/insight-engine/latest/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/insight-engine/latest/install/'
+        - title: 'To Kubernetes Cluster'
+          path: '/insight-engine/latest/install/k8s/'
+        - title: 'From ZIP file'
+          path: '/insight-engine/latest/install/zip/'
+    - title: 'Using'
+      pages:
+        - title: 'Overview'
+          path: '/insight-engine/latest/install/'
+        - title: 'Search Syntax'
+          path: '/insight-engine/latest/using/syntax/'
+        - title: 'From ZIP file'
+          path: '/insight-engine/latest/install/zip/'
+    - title: 'Upgrade'
+      path: '/insight-engine/latest/upgrade/'
+    - title: 'Configure'
+      path: '/insight-engine/latest/configure/'
