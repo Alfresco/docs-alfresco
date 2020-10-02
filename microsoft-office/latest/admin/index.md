@@ -99,7 +99,7 @@ If you use the JBoss application server, you must customize the `web.xml` file i
    <param-name>
       org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL
    </param-name>
-   <param-value>true</param-value
+   <param-value>true</param-value>
 </context-param>
 ```
 
