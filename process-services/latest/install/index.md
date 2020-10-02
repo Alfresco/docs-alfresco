@@ -553,10 +553,204 @@ After installing you will need to [apply a valid license file](#install-license)
 
 #### Installing Process Services Workspace
 
+You can install Process Workspace using a Web Application Archive (WAR) file or by deploying the files manually 
+into your web container.
+
+To install Process Workspace from a WAR file, visit the [support portal](https://support.alfresco.com) and download 
+the latest version of `process-workspace.war`.
+
+Move the `process-workspace.war` file into your web container and restart the server.
+
+Using Tomcat as an example, this would be the `/webapps` folder.
+
+Alternatively, you can manually deploy Process Workspace into your web container using the following steps:
+
+1.  Download the latest [supported version](TODO:https://docs.alfresco.com/process-services1.10/concepts/supported-platforms.html) of Process Workspace from [artifacts.alfresco.com](https://artifacts.alfresco.com/nexus/).
+
+    >**Note:** Located in the **activiti-enterprise-releases** repository under **/com/alfresco/alfresco-process-services-workspace**.
+
+2.  Download and unzip the .tgz file.
+
+3.  Move the `dist` folder contained in the unzipped folder into your web container.
+
+    >**Note:** For Tomcat this is the `/webapps` folder.
+
+4.  Restart your web server.
+
+> **Important:** Note that the URL for Process Workspace will be generated from the name of the folder you deploy into your web container. To change this:
+>
+> 1.  Rename the folder in your preferred development environment (IDE).
+> 2.  Restart your web server.
+> 3.  Navigate to Process Workspace in a browser using the format: `http://{host}:{port}/{folder-name}`
+>
+> For example, if you renamed the `dist` folder to `process-workspace` and deployed locally on port 8080 this would be: `http://localhost:8080/process-workspace`
 
 ### Install using setup wizards
+
+There are setup wizards available for Linux, macOS and Windows operating systems.
+
+The setup wizards are evaluation copies that are useful for trials and experimentation. The h2 database provided with 
+them is not suitable for use in a production environment.
+
+The setup wizards install their own Apache Tomcat container for Process Services, an h2 database and all 
+prerequisite software for Process Services to run on your chosen operating system.
+
 #### Using the Linux setup wizard
+
+Use these instructions to install Process Services on Linux.
+
+A setup wizard should not be used in a production environment.
+
+1.  Download the Linux setup wizard from your trial email.
+
+2.  Locate the bin you just downloaded and run the following command against it to update its permissions:
+
+    ```bash
+    chmod 777 <installer file name>
+    ```
+
+3.  Run the setup wizard using the following command:
+
+    ```bash
+    ./<installer file name>
+    ```
+
+4.  Read and accept the **License Agreement**.
+
+5.  Use the default **Installation Directory** or choose your own.
+
+6.  Select an **Installation Profile**.
+
+7.  Complete the installation.
+
+    >**Note:** A message will appear displaying the default credentials and URL to use.
+
+8.  Navigate to your installation directory and run the following command to start the application:
+
+    ```bash
+    ./start-process-services.sh
+    ```
+
+    >**Note:** The default installation location is `/home/{user}/alfresco/process-services-{version}`
+
+9.  Enter `http://localhost:8080/activiti-app` into a browser once the application has started to begin using Process Services.
+
+    >**Note:** Use the default credentials to log in. View the `process-services-readme.txt`, by default found in `/home/{user}/alfresco/process-services-{version}`, if you can't remember them.
+
+10. Install the administrator application:
+
+    1.  Rename the file `activiti-admin.war.undeployed` found in `/home/{user}/alfresco/process-services-{version}/tomcat/webapps` to `activiti-admin.war`
+
+    2.  Stop and restart Tomcat.
+
+    3.  Navigate to `http://localhost:8080/activiti-admin` once the application has started back up.
+
+After installing you will need to [apply a valid license file](#install-license) to your installation.
+
 #### Using the macOS setup wizard
+
+Use these instructions to install Process Services on a Mac.
+
+A setup wizard should not be used in a production environment.
+
+1.  Download the Mac setup wizard from your trial email.
+
+2.  Locate the dmg you just downloaded using **Finder** and double click it.
+
+3.  Double click the Alfresco logo to launch the setup wizard.
+
+    >**Note:** Click **Open** if you are prompted about opening files from the internet.
+
+4.  Read and accept the **License Agreement**.
+
+5.  Use the default **Installation Directory** or choose your own.
+
+6.  Select an **Installation Profile**.
+
+7.  Complete the installation.
+
+    >**Note:** A message will appear displaying the default credentials and URL to use.
+
+8.  Navigate to your installation directory and double click the **StartProcessServices** application.
+
+    >**Note:** The default installation location is `Applications\alfresco\process-services-{version}`
+
+9.  Enter `http://localhost:8080/activiti-app` into a browser once the application has started to begin using Process Services.
+
+    >**Note:** Use the default credentials to log in. View the `process-services-readme.txt`, by default found in `Applications\alfresco\process-services-{version}`, if you can't remember them.
+
+10. Install the administrator application:
+
+    1.  Rename the file `activiti-admin.war.undeployed` found in `Applications\alfresco\process-services-{version}\tomcat\webapps` to `activiti-admin.war`
+
+    2.  Stop and start Tomcat via the **Terminal** or by closing and re-opening the **StartProcessServices** application.
+
+    3.  Navigate to `http://localhost:8080/activiti-admin` once the application has started back up.
+
+After installing you will need to [apply a valid license file](#install-license) to your installation.
+
 #### Using the Windows setup wizard
+
+Use these instructions to install Process Services on Windows.
+
+A setup wizard should not be used in a production environment.
+
+1.  Download the Windows setup wizard from your trial email.
+
+2.  Locate the exe you just downloaded and double click it to launch the setup wizard.
+
+3.  Read and accept the **License Agreement**.
+
+4.  Use the default **Installation Directory** or choose your own.
+
+5.  Select an **Installation Profile**.
+
+6.  Complete the installation.
+
+    >**Note:** A message will appear displaying the default credentials and URL to use.
+
+7.  Navigate to your installation directory and double click the **StartProcessServices** application.
+
+    >**Note:** The default installation location is `C:\Program Files\alfresco\process-services-{version}`
+
+8.  Enter `http://localhost:8080/activiti-app` into a browser once the application has started to begin using Process Services.
+
+    >**Note:** Use the default credentials to log in. View the `process-services-readme.txt`, by default found in `C:\Program Files\alfresco\process-services-{version}`, if you can't remember them.
+
+9.  Install the administrator application:
+
+    1.  Rename the file `activiti-admin.war.undeployed` found in `C:\Program Files\alfresco\process-services-{version}\tomcat\webapps` to `activiti-admin.war`
+
+    2.  Stop and start Tomcat via the **Command Line** or by closing and re-opening the **StartProcessServices** application.
+
+    3.  Navigate to `http://localhost:8080/activiti-admin` once the application has started back up.
+
+After installing you will need to [apply a valid license file](#install_license) to your installation.
+
 ### Install license
+
+A valid license file is required to run Process Services.
+
+A license file can be obtained from support or a link is provided via email to download a temporary (30-day) 
+license if you signed up for a free trial.
+
+Logging into Process Services as an administrator will display a notification if a license is not currently valid. 
+The notifications are displayed when:
+
+* No valid license file can be found
+* A license file has expired or is not valid until a date in the future
+* The current license file is close to expiring
+
 #### Uploading a license file
+
+There are two methods for uploading a license file to Process Services.
+
+To upload a license through the user interface:
+
+1.  Click the **UPLOAD LICENSE** button or use the top menu **Administrator** > **Upload license**
+
+2.  Browse to, or drag your `activiti.lic` file into the pop-up.
+
+Alternatively, you can manually move the `activiti.lic` file into the web container.
+
+For example using Tomcat: `<Tomcat install location>\lib\`
