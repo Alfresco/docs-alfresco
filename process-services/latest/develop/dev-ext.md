@@ -415,17 +415,482 @@ At run-time, the following will be rendered:
 
 ![example-form-stencil]({% link process-services/images/example-form-stencil.png %})
 
-
 ## Custom web resources
+
+If you want to add additional JavaScript functionality or override CSS rules, you can configure lists of additional 
+web resources that are loaded by the browser for each Process Services app. You do this by configuring a new resource 
+in the `tomcat/webapps/activiti-app` folder.
+
+Following is an example of a new resource section in the `app-cfg.js` file located in the 
+`tomcat/webapps/activiti-app/scripts` folder:
+
+```json
+ACTIVITI.CONFIG.resources = {
+    '*': [
+        {
+            'tag': 'link',
+            'rel': 'stylesheet',
+            'href': ACTIVITI.CONFIG.webContextRoot + '/custom/style.css?v=1.0'
+        }
+    ],
+    'workflow': [
+        {
+            'tag': 'script',
+            'type': 'text/javascript',
+            'src': ACTIVITI.CONFIG.webContextRoot + '/custom/javascript.js?v=1.0'
+        }
+    ]
+};
+```
+
+The `ACTIVITI.CONFIG.resources` object makes it possible to load different files for each of the Activiti applications 
+using their names as key for a list of additional resources that shall be loaded, the different app names are: 
+`landing`, `analytics`, `editor`, `idm` and `workflow`. The `*` key means that a default resource list will be used 
+unless there is a specific config key for the app being loaded.
+
+For example, if a user would enter the `editor` app, with the config above deployed, `custom/style.css` would be the 
+only custom resource that would be loaded. If a user would go to the `workflow` app, `custom/javascript.js` would be 
+the only custom resource that would be loaded. So if `workflow` also wants to load the `custom/style.css` that would 
+have to be specified again inside the *workflow* resource list.
+
+>**Note:** Remember to modify the `v`-parameter when you have done changes to your files to avoid the browser from using a cached version of your custom logic.
+
 ## Document Templates
+
+Use the **Generate Document** task to generate a PDF or Microsoft Word document based on a Word document template (.docx). 
+You can insert process variables in the MS Word template that will be replaced with actual values during document transformation.
+
+A document template can be:
+
+* **Tenant wide**: Anyone can use this template in their processes. Useful for company templates.
+* **Process model specific**: This template is uploaded while modeling the process model, and is bound to the lifecycle of the process model.
+
+When exporting an App model, process model document templates are included by default and are uploaded again on import. 
+Tenant document templates are not exported, however matched by the document template name as names are unique for 
+tenant document templates.
+
+In the `.docx` template, you can insert process variables using the following syntax:
+
+```text
+<<[myVariable]>>
+```
+
+Since the above method does not perform `null` checks, an exception will be thrown at run-time if the variable is `null`. 
+Therefore, use the following method to prevent such errors:
+
+```text
+<<[variables.get("myVariable")]>>
+```
+
+If this variable is `null`, a default value will be inserted instead. You can also provide a default value:
+
+```text
+<<[variables.get("myVariable", "myDefaultValue")]>>
+```
+
+>**Note**: Form field types such as Dropdown, Radio button, and Typeahead use `myVariable_ID` for ID and `myVariable_LABEL` for label value. The ID is the actual value used by service tasks and are inserted by default. To display the label value in the generated document, use `myVariable_LABEL`.
+
+The document generation method uses libraries provided by Aspose in the back-end.
+
+When using the **Generate Document** task, make sure that you use the correct syntax for your variables and expressions. 
+Surround your variables with `<<[..]>>` characters. For example:
+
+* `<<[variableid]>>`
+* `<<[variables.get("variableid")]>>`
+* `<<[variables.get("variableid","adefaultifnull")]>>`
+
+Some more examples:
+
+* If/else conditional blocks:
+    * Text type: `<<if [textfield==day]>> AM, <<else>> PM \<</if>>`
+    * Amount type: `<<if [annualsalary > $40000]>>, it is generous, <<else>> a standard starting salary \<</if>>`
+    * Checkbox: `<<if [senstitiveflag=="true"]>>it is Confidential, <<else>> Not Confidential \<</if>>`
+* Date type: `<<[datefield]>>`
+* Format date type: `<<[datefield]>>:"yyyy.MM.dd">>`
+* Number/amount: `<<[amountfield]>>`
+* String Boolean: `<<[Genericcheckbox]>>`
+* Radio button / Typehead / dropdown: Select `<<[Options_LABEL]>> with an ID <<[Options_ID]>>`
+
+The audit log is also generated the same way.
+
+For example, the following snippet from the template shows advanced constructs:
+
+![doc-gen-template-example]({% link process-services/images/doc-gen-template-example.png %})
+
+It is also possible to have custom Spring bean that processes the process variables just before rendering the document, 
+[Processing document generation variables](TODO:processing_document_generation_variables.md).
+
 ## Custom Logic
+
+Custom logic in a business process is often implemented using a `JavaDelegate` implementation or a Spring bean.
+
+To build against a specific version of Process Services, add the following dependency to your Maven `pom.xml` file:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.activiti</groupId>
+        <artifactId>activiti-app-logic</artifactId>
+        <version>${suite.version}</version>
+    </dependency>
+</dependencies>
+```
+
 ### Java Delegates
+
+The simplest option is to create a class that implements the `org.activiti.engine.delegate.JavaDelegate` interface.
+
+```java
+package my.company;
+
+import org.activiti.engine.delegate.DelegateExecution;
+import org.activiti.engine.delegate.JavaDelegate;
+
+public class MyJavaDelegate implements JavaDelegate {
+
+    public void execute(DelegateExecution execution) throws Exception {
+        System.out.println("Hello from the class delegate");
+        execution.setVariable("var1", "Hello from the class delegate");
+    }
+
+}
+```
+
+Build a jar with this class, and add it to the classpath. In the Service task configuration, set the `class` property 
+to using the fully qualified classname (in this case `my.company.MyJavaDelegate`).
+
 ### Spring Beans
+
+Another option is to use a Spring bean. It is possible to use a `delegateExpression` on a service task that resolves 
+at run-time to an instance of `org.activiti.engine.delegate.JavaDelegate`. Alternatively, and probably more useful, 
+is to use a general Spring bean. The application automatically scans all beans in the `com.activiti.extension.bean` 
+package. For example:
+
+```java
+package com.activiti.extension.bean;
+
+import org.activiti.engine.impl.pvm.delegate.ActivityExecution;
+import org.springframework.stereotype.Component;
+
+@Component("helloWorldBean")
+public class HelloWorldBean {
+
+        public void sayHello(ActivityExecution execution) {
+                System.out.println("Hello from " + this);
+                execution.setVariable("var3", " from the bean");
+        }
+
+
+}
+```
+
+Build a jar with this class, and add it to the classpath. To use this bean in a service task, set the `expression` property 
+to `${helloWorldBean.sayHello(execution)}`.
+
+It is possible to define custom configuration classes (using the Spring Java Config approach) if this is needed 
+(for example when sharing dependencies between delegate beans, complex bean setup, etc.). The application automatically 
+scans for configuration classes in the `package com.activiti.extension.conf;` package. For example:
+
+```java
+package com.activiti.extension.conf;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class CustomConfiguration {
+
+        @Bean
+        public SomeBean someBean() {
+                return new SomeBean();
+        }
+
+}
+```
+
+Which can be injected in the bean that will be called in a service task:
+
+```java
+package com.activiti.extension.bean;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.activiti.extension.conf.SomeBean;
+
+@Component("helloWorldBeanWithInjection")
+public class HelloWorldBeanWithInjection {
+
+        @Autowired
+        private SomeBean someBean;
+
+        public void sayHello() {
+                System.out.println(someBean.getValue());
+        }
+
+}
+```
+
+To get the current user, it is possible to use the `com.activiti.common.security.SecurityUtils` helper class.
+
+**Bean Whitelisting**
+
+By default, you can specify any Spring bean for use in an expression. While this provides ease of use 
+(since any beans you develop will be automatically scanned for as described above), it also increases the 
+possibilities of misuse and security threats. To help prevent these issues from happening, you can whitelist 
+Spring beans by making the following changes:
+
+1.  Open the `<InstallLocation>/tomcat/lib/activiti-app.properties` file.
+2.  Locate and set `beans.whitelisting.enabled` to true.
+
+    ```text
+    beans.whitelisting.enabled=true
+    ```
+
+    >**Note:** If this property is missing from the `activiti-app.propertie`s file, beans whitelisting is disabled.
+
+3.  To whitelist Spring beans, use the following configuration setting:
+
+    ```text
+    activiti-app/WEB-INF/classes/activiti/beans-whitelist.conf
+    ```
+
+**Example usage of bean whitelisting:**
+
+To use a `userCount` variable in a **Display Text** field, `${userCount}`, add the following line in the Expression 
+property within a Service Task:
+
+```javascript
+${execution.setVariable('userCount', userService.getUserCount())}
+```
+
+If `beans.whitelisting.enabled` is set to false or the property is missing, the process is completed and the 
+**Display Text** field should show the value of the `usercount` variable.
+
+To complete the process successfully using bean whitelisting, you must set `beans.whitelisting.enabled` to true and 
+add the bean name to `beans-whitelist.conf`:
+
+```text
+# list bean names that should be whitelisted
+   userService
+```
+
+>**Note:** All beans declared in `com.activiti.extension.bean` are considered as whitelisted.
+
+>**Note:** This note applies to users of Process Services version 1.6.0 to 1.6.2 inclusive as well as apps published in these versions. Whitelisting for publish tasks is exempt from version 1.6.3. If you wish to use tasks that publish to Box, Google Drive or Alfresco and have enabled bean whitelisting, the following beans need to be explicitly whitelisted in `beans-whitelist.conf`:
+>
+>* repositoryService
+>* formRepository
+>* objectMapper
+>* relatedContentService
+>* relatedContentProcessor
+>* historyService
+>* alfrescoMetadataProcessor
+
+**Service Task Class Whitelisting**
+
+This provides an alternative to bean whitelisting that enables more fine-grained control over what a developer can execute. 
+For example, you can configure which patterns you allow to be executed using expressions.
+
+You can also whitelist full class names or package patterns such as `com.activiti.*`.
+
+To whitelist service task classes, do the following:
+
+1.  Open the `<InstallLocation>/tomcat/lib/activiti-app.properties` file.
+2.  Locate and set `service.task.class.whitelisting.enabled` to true.
+
+    ```text
+    class.whitelisting.enabled=true
+    ```
+
+    >**Note:** If this property is missing from the `activiti-app.properties` file, service task whitelisting is disabled.
+
+3.  **This step applies only to users of Process Services version 1.6.0 to 1.6.2 inclusive as well as apps published in these versions. Whitelisting for publish tasks is exempt from version 1.6.3.** To use Alfresco, Box or Google drive to publish tasks with service task whitelisting enabled, add the following entries to `activiti-app/WEB-INF/classes/activiti/whitelisted-classes.conf`:
+    * `com.activiti.runtime.activiti.bean.BoxStepActivityBehavior`
+    * `com.activiti.runtime.activiti.bean.GoogleDriveStepActivityBehavior`
+    * `com.activiti.runtime.activiti.KickstartAlfrescoPublishDelegate`
+    * `com.activiti.runtime.activiti.KickstartAlfrescoCloudPublishDelegate`
+
+**Whitelisting Scripting Languages**
+
+To whitelist scripting languages that, for example, might be used in script tasks such as JavaScript, juel and groovy, 
+add the script types in `activiti-app/WEB-INF/classes/activiti/whitelisted-scripts.conf`:
+
+```text
+#Here you can specify which script types are allowed to be executed
+javascript
+js
+ecmascript
+groovy
+juel
+```
+
+>**Note:** Whitelisting configuration affects any type of script execution whether this involves script tasks or any other situation in which a script might be used. Also note that this is verified at runtime. If a scripting language is not whitelisted the related task or activity will not run.
+
+**Class whitelisting in JavaScript**
+
+You can also configure whitelisting for JavaScript classes that are available for use in JavaScript. The following steps 
+show you how to do this. They are, however, only applicable where you have enabled secure scripting for JavaScript. 
+This will be the case if you have set the property `javascript.secure-scripting.enabled` to true:
+
+```text
+javascript.secure-scripting.enabled=true
+```
+
+1.  Open the `<InstallLocation>/tomcat/lib/activiti-app.properties` file.
+2.  Locate and set `javascript.secure-scripting.enable-class-whitelisting` to true.
+
+    ```text
+    javascript.secure-scripting.enable-class-whitelisting = true
+    ```
+
+3.  To allow the execution of JavaScript classes, add them to `activiti-app/WEB-INF/classes/activiti/javascript-whitelist-classes.conf`:
+
+    ```text
+    java.lang.System
+    java.util.ArrayList
+    org.apache.tomcat.util.log.SystemLogHandler
+    ```
+
+>**Note:** The enablement of secure scripting for Java classes used in JavaScript is turned on when either the setting is missing from the properties file or commented out.
+
 ### Default Spring Beans
+
+Use the following sections for information about the default spring beans in Process Services.
+
 #### Audit Log Bean (auditLogBean)
+
+The `auditLogBean` can be used to generate audit logs in `.pdf` format for a completed process instance or a completed task. 
+The log will be saved as a field value for the process and the task (if a task audit log is generated).
+
+>**Note:** Audit logs can only be used against a completed process instance or a completed task.
+
+The following code can be used in the expression of a service task to generate a process instance audit log named 
+*My first process instance audit log*. The third argument determines if the current date shall be appended to the 
+file name. The pdf will be associated with the process field `myFieldName`.
+
+```javascript
+${auditLogBean.generateProcessInstancePdf(execution, 'My first process instance audit log', true, 'myFieldName')}
+```
+
+To create a task audit log named *My first task audit log* add the following expression to the "complete" event in a 
+task listener. Again the third argument determines if the current date shall be appended to the file name. 
+The pdf will be associated with the field `myFieldName`.
+
+```javascript
+${auditLogBean.generateTaskPdf(task, 'My first task audit log', true, 'myFieldName')}
+```
+
+You can view the audit logs from the My Tasks app by clicking the "Audit Log" link when viewing the details of a 
+completed process or task. When doing so the following two rest calls are made.
+
+Process instance audit log:
+
+```bash
+GET app/rest/process-instances/{process-instance-id}/audit
+```
+
+Task audit log:
+
+```bash
+GET app/rest/tasks/{task-id}/audit
+```
+
 #### Document Merge Bean (documentMergeBean)
+
+The `documentMergeBean` can be used to merge the content of multiple documents (files of type `.doc` or `.docx`) from a 
+process into a single document which will be become the value of a provided process variable. The file name of the 
+new document will be set to the file name of the first field in the list followed by the string "_merged" and the 
+suffix from the same field.
+
+In the following example, the content of `myFirstField` and `mySecondField` will be merged into a new document with 
+the field ID set to `myFirstField` and the filename set to:
+
+`<filename-from-myFirstField>_merged.<filenameSuffix-from-myFirstFields>`
+
+The new document will become the value of a process variable named `myProcessVariable`.
+
+```javascript
+${documentMergeBean.mergeDocuments('myFirstField,mySecondField', 'myProcessVariable', execution)}
+```
+
 #### Email Bean (emailBean)
+
+The `emailBean` can be used to retrieve the email of the current user or the process initiator.
+
+To get the email of the current user use the following expression where `123` is the `userId`:
+
+```javascript
+${emailBean.getEmailByUserId(123, execution)}
+```
+
+To get the email of the process initiator use the following expression:
+
+```javascript
+${emailBean.getProcessInitiator(execution)}
+```
+
 #### User Info Bean (userInfoBean)
+
+The `userInfoBean` makes it possible to get access to general information about a user or just the email of a user.
+
+To get general information about a user (the data that can be found in `com.activiti.domain.idm.User`), use the 
+following expression where `userId` is the database ID of the user and can be supplied either as a `Long` or a `String`:
+
+```javascript
+${userInfoBean.getUser(123, execution)}
+```
+
+To get the email of a user use the following expression where `123` is the database id of the user and can be 
+supplied either as a `Long` or a `String`:
+
+```javascript
+${userInfoBean.getEmail(123, execution)}
+```
+
+To get the first name of a user use the following expression where `123` is the database id of the user and can 
+be supplied either as a `Long` or a `String`:
+
+```javascript
+${userInfoBean.getFirstName(123, execution)}
+```
+
+To get the last name of a user use the following expression where `123` is the database id of the user and can 
+be supplied either as a `Long` or a `String`:
+
+```javascript
+${userInfoBean.getLastName(123, execution)}
+```
+
+To get both first name and last name of a user use the following expression where `123` is the database id of 
+the user and can be supplied either as a `Long` or a `String`:
+
+```javascript
+${userInfoBean.getFullName(123, execution)}
+```
+
+To get a user object representing the current user use the following expression where the returned value is 
+an instance of `LightUserRepresentation` containing fields like `id`, `firstName`, `lastName`, `email`, `externalId`, `pictureId`:
+
+```javascript
+${userInfoBean.getCurrentUser()}
+```
+
+To get a user’s primary group name use the following expression where `123` is the database id of the user 
+and can be supplied either as a `Long` or a `String`:
+
+```javascript
+${userInfoBean.getPrimaryGroupName(123)}
+```
+
+To get a group object representing a user’s primary group use the following expression where the return value is 
+an instance of `LightGroupRepresentation`, containing id, name, externalId and status, and where `123` is the database 
+id of the user and can be supplied either as a `Long` or a `String`:
+
+```javascript
+${userInfoBean.getPrimaryGroup(123)}
+```
+
 ### Hook points
 #### Login/LogoutListener
 #### Process engine configuration configurer
