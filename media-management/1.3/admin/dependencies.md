@@ -26,4 +26,3 @@ You need a number of components to use all the Media Management capabilities. Th
 |Dark site theme|[jquery.panzoom](https://github.com/timmywil/jquery.panzoom){:target="_blank"}|-|
 |UI utilities|CSS|Yes|
 |AWS CloudFront integration|AWS (SDK using content services node)|Yes|
-

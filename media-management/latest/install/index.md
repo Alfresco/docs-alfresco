@@ -14,18 +14,18 @@ You require one of each of the following components.
 
 |Requirement|Description|
 |-----------|-----------|
-|Software|{::nomarkdown}<ul><li>FFmpeg 2.5.4 from the command line for video transformations. See [FFmpeg](http://ffmpeg.org){:target="_blank"} for information on how to download and use FFmpeg. Make sure that your FFmpeg installation has support for H.264 and AAC codecs. If FFmpeg is not available locally, Media Management functionality is reduced.</li><li>ExifTool 9.76 from the command line for full IPTC metadata extraction. See [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/){:target="_blank"} for information about how to download and use ExifTool.</li><li>Apache ActiveMQ 5.15 or later. See [Configuring ActiveMQ](LINK) for more information about installing ActiveMQ.</li><li>ImageMagick 6.8.6-6 for image manipulation. See [Installing ImageMagick](LINK) for more information about installing ImageMagick.</li></ul>{:/}**Note:** If you are using RAW image formats, you must install an ImageMagick delegate, for example, UFRaw, to manipulate the images. See [UFRaw](http://ufraw.sourceforge.net/){:target="_blank"} for more information. To preview RAW image formats, you need to set additional configuration properties. See [step 8 of Installing Media Management](LINK).**Note:** FFmpeg and ExifTool are required to view media in Share. See [step 8 of Installing Media Management](LINK) for information on how to set these in the `alfresco-global.properties` file.|
+|Software|{::nomarkdown}<ul><li>FFmpeg 2.5.4 from the command line for video transformations. See [FFmpeg](http://ffmpeg.org){:target="_blank"} for information on how to download and use FFmpeg. Make sure that your FFmpeg installation has support for H.264 and AAC codecs. If FFmpeg is not available locally, Media Management functionality is reduced.</li><li>ExifTool 9.76 from the command line for full IPTC metadata extraction. See [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/){:target="_blank"} for information about how to download and use ExifTool.</li><li>Apache ActiveMQ 5.15 or later. See [Configuring ActiveMQ](LINK) for more information about installing ActiveMQ.</li><li>ImageMagick 6.8.6-6 for image manipulation. See [Installing ImageMagick](LINK) for more information about installing ImageMagick.</li></ul>{:/}**Note:** If you are using RAW image formats, you must install an ImageMagick delegate, for example, UFRaw, to manipulate the images. See [UFRaw](http://ufraw.sourceforge.net/){:target="_blank"} for more information. To preview RAW image formats, you need to set additional configuration properties. See [step 8](#install-the-media-management-amp-files).**Note:** FFmpeg and ExifTool are required to view media in Share. See [step 8](#install-the-media-management-amp-files) for information on how to set these in the `alfresco-global.properties` file.|
 |Alfresco Content Services|Alfresco Content Services 6.2. See [Supported Platforms]({% link media-management/latest/support/index.md %}) for more information.|
 |Java requirements|OpenJDK 11 or later.|
 |Remote transformation services (optional)|AWS Elastic Transcoder. See [AWS](http://aws.amazon.com/elastictranscoder/){:target="_blank"} and [Configuring the Elastic Transcoder content transformer]({% link media-management/latest/config/index.md %}) for more information.|
 
 ## Install the Media Management AMP files
 
-Download and install the Media Management AMP files, and add Media Management properties to your alfresco-global.properties file. Ensure that you have installed the required external software before installing Alfresco Media Management. See [Prerequisites for using Media Management](LINK) for information on what you require before you start the installation.
+Download and install the Media Management AMP files, and add Media Management properties to your `alfresco-global.properties` file. Ensure that you have installed the required external software before installing Alfresco Media Management. See [Prerequisites for Media Management](#prerequisites-for-media-management) for information on what you require before you start the installation.
 
 1. Stop the Alfresco Content Services server.
 
-2. Unzip the Alfresco Media Management package into a new system directory; for example, `opt/media-management`:
+2. Unzip the Alfresco Media Management package into a new system directory, for example, `opt/media-management`:
 
     `alfresco-mm-distribution-1.4.x.zip`
 
@@ -51,11 +51,11 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     1. For the Alfresco Content Services repository:
 
-        ``` bash
+        ```bash
         java -jar alfresco-mmt.jar install ../amps/alfresco-mm-<version>.amp ../tomcat/webapps/alfresco.war
         ```
 
-        ``` bash
+        ```bash
         java -jar alfresco-mmt.jar install ..\amps\alfresco-mm-<version>.amp ..\tomcat\webapps\alfresco.war
         ```
 
@@ -63,11 +63,11 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     2. For Alfresco Share:
 
-        ``` bash
+        ```bash
         java -jar alfresco-mmt.jar install ../amps_share/alfresco-mm-<version>.amp ../tomcat/webapps/share.war
         ```
 
-        ``` bash
+        ```bash
         java -jar alfresco-mmt.jar install ..\amps_share\alfresco-mm-<version>.amp ..\tomcat\webapps\share.war
         ```
 
@@ -83,7 +83,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     1. If you have ActiveMQ on a separate server, configure the host and port number for ActiveMQ:
 
-        ``` xml
+        ```xml
         # Messaging broker, default is localhost
         messaging.broker.url=failover:(tcp://broker1:61616,tcp://broker2:61616)
         ```
@@ -94,7 +94,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     2. Configure FFmpeg and ExifTool if they are not already available on the command line executable path:
 
-        ``` xml
+        ```xml
         # FFmpeg executable path, default is ffmpeg
         ffmpeg.exe=
 
@@ -104,7 +104,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     3. If you want to preview raw images, set the following properties in the `alfresco-global.properties` file.
 
-        ``` xml
+        ```xml
         transformer.strict.mimetype.check=true
         transformer.strict.mimetype.check.whitelist.mimetypes=image/x-raw-adobe
         ```
@@ -117,7 +117,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     Specify the ActiveMQ host name and prefetch policy (to ensure that transformations can be processed in parallel):
 
-    ``` xml
+    ```xml
     messaging:
     broker:
       url: tcp://localhost:61616?jms.prefetchPolicy.queuePrefetch=1

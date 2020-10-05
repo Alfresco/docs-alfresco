@@ -35,7 +35,7 @@ For more information about installing Media Management, see [Installing Media Ma
 
 Media Management provides a framework for transforming and sharing content, ideally using a remote server to ensure that the Alfresco Content Services server is not overloaded.
 
-A video transformer is provided when you install Media Management to locally transform your content, however using this instance can be resource intensive and slow down your repository. You can create one or more content services nodes to offload work, or you can use remote transformation services, like Amazon Elastic Transcoder to transform your content. The configuration file for the content services node, config.yml, contains the location of ActiveMQ and the shared content workspace. The shared content workspace is a temporary workspace, used by the content services node to read source files and write to target files. See [Content services node architecture](LINK) for information about the content services nodes and [Configuring transformation services for Media Management](LINK) for information about transformation services.
+A video transformer is provided when you install Media Management to locally transform your content, however using this instance can be resource intensive and slow down your repository. You can create one or more content services nodes to offload work, or you can use remote transformation services, like Amazon Elastic Transcoder to transform your content. The configuration file for the content services node, config.yml, contains the location of ActiveMQ and the shared content workspace. The shared content workspace is a temporary workspace, used by the content services node to read source files and write to target files. See [Content services node architecture](#content-services-node-architecture) for information about the content services nodes and [Configuring transformation services]({% link media-management/latest/config/index.md %}#configuring-transformation-services) for information about transformation services.
 
 > **Note:** Ensure that your remote server and your Alfresco Content Services server are using Network Time Protocol (NTP). If your servers are not synchronized, work is not sent to the remote content services nodes, and jobs are processed on the local Alfresco Content Services server.
 
@@ -50,11 +50,11 @@ FFmpeg and ImageMagick from the command line are required on any server where a 
 
 ActiveMQ monitors for events and we recommend that you install it on the Alfresco server if you have other components that use ActiveMQ. If you are using ActiveMQ solely for Media Management, you might prefer to install ActiveMQ on the content services node server, but ensure that it resides on one server only.
 
-Using the `alfresco-global.properties` file you can define properties for the FFmpeg path, ExifTool path, ActiveMQ broker URL, shared content workspace type, Zencoder and AWS Elastic Transcoder credentials, and other properties. See [Configuring Media Management](LINK) for more information on `alfresco-global.properties` settings.
+Using the `alfresco-global.properties` file you can define properties for the FFmpeg path, ExifTool path, ActiveMQ broker URL, shared content workspace type, Zencoder and AWS Elastic Transcoder credentials, and other properties. See [Configure Media Management]({% link media-management/latest/config/index.md %}) for more information on `alfresco-global.properties` settings.
 
-You can publish your content from the repository to the CloudFront publishing channel. See [Configuring publishing channels for Media Management](LINK) for more information.
+You can publish your content from the repository to the CloudFront publishing channel. See [Configuring a CloudFront publishing channel]({% link media-management/latest/config/index.md %}#configuring-a-cloudfront-publishing-channel) for more information.
 
-The diagram shows the relationship between the Alfresco server and the content services node server. Alfresco can connect to a transformation service (Amazon Elastic Transcoder), a publishing channel (CloudFront), and a shared content workspace (a file system or Amazon S3). The content services node can connect to the shared content workspace and the transformation service that you defined in the alfresco-global.properties file.
+The diagram shows the relationship between the Alfresco server and the content services node server. Alfresco can connect to a transformation service (Amazon Elastic Transcoder), a publishing channel (CloudFront), and a shared content workspace (a file system or Amazon S3). The content services node can connect to the shared content workspace and the transformation service that you defined in the `alfresco-global.properties` file.
 
 > **Note:** Ensure that you review the security of the following connections:
 
@@ -66,9 +66,9 @@ Ensure that only the repository and the content services nodes have access to th
 
 ![Architecture]({% link media-management/images/architecture.png %})
 
-The diagram shows the relationship between the Alfresco server and the content services node server. Alfresco can connect to a transformation service (Amazon Elastic Transcoder), a publishing channel (CloudFront), and a shared content workspace (a file system or Amazon S3). The content services node can connect to the shared content workspace and the transformation service that you defined in the Alfresco server alfresco-global.properties file.
+The diagram shows the relationship between the Alfresco server and the content services node server. Alfresco can connect to a transformation service (Amazon Elastic Transcoder), a publishing channel (CloudFront), and a shared content workspace (a file system or Amazon S3). The content services node can connect to the shared content workspace and the transformation service that you defined in the Alfresco server `alfresco-global.properties` file.
 
-For information on monitoring the components of the architecture, see [Monitoring Media Management](LINK).
+For information on monitoring the components of the architecture, see [Monitoring Media Management]({% link media-management/latest/admin/index.md %}#monitoring-media-management).
 
 ## Content services node architecture
 
@@ -78,8 +78,8 @@ You can have multiple content services nodes running on the same server, ideally
 
 The four main architectural areas are:
 
-* **Client Application (Alfresco repository)**: Task messages are generated and sent from the Alfresco repository, containing a reference to the source content (Source ContentReference) and other options. The options specified depend on the task; for example, a target reference or media type. The content reference needs to be in a format that the task nodes can handle; for example, a file on a shared disk, an S3 path, or a CMIS document ID. The source and target content is stored in a content workspace. Supported formats are shared file or Amazon S3 storage.
-* **Message Routing (ActiveMQ)**: A message routing system, for example; ActiveMQ, then directs the request to the appropriate queue for consumption by processing nodes. When you view the ActiveMQ queues in the web console (`http://localhost:8161/admin`), there are separate queues for image transform requests, image transform responses, video transform requests and video transform responses.
+* **Client Application (Alfresco repository)**: Task messages are generated and sent from the Alfresco repository, containing a reference to the source content (Source ContentReference) and other options. The options specified depend on the task, for example, a target reference or media type. The content reference needs to be in a format that the task nodes can handle, for example, a file on a shared disk, an S3 path, or a CMIS document ID. The source and target content is stored in a content workspace. Supported formats are shared file or Amazon S3 storage.
+* **Message Routing (ActiveMQ)**: A message routing system, for example, ActiveMQ, then directs the request to the appropriate queue for consumption by processing nodes. When you view the ActiveMQ queues in the web console (`http://localhost:8161/admin`), there are separate queues for image transform requests, image transform responses, video transform requests and video transform responses.
 * **Transform Component**: A component listens for messages on a queue and calls on ImageMagick or FFmpeg workers to perform the task specified by the source content reference. The component can optionally send a reply that is consumed by the original requestor or another party.
 * **Task Node**: Task nodes bootstrap one or more components.
 
@@ -94,6 +94,6 @@ The four main architectural areas are:
 7. Image Transformation Response (POJO) sent to Alfresco repository.
 8. Target content sent to Alfresco repository.
 
-For more information on launching a content services node, see [Starting Media Management](LINK).
+For more information on launching a content services node, see [Start Media Management]({% link media-management/latest/config/start.md %}).
 
 For more information on advanced ActiveMQ settings, see [Configuring advanced settings in ActiveMQ](LINK).

@@ -4,7 +4,7 @@ title: Using Media Management
 
 Alfresco Media Management allows you to view and manipulate your digital assets in Alfresco Content Services.
 
-Features provided with Media Management include video support and enhanced image manipulation; for example, video thumbnails and proxies, video trim, time-coded comments for video, and image crop and rotate capabilities. A dark site theme is also available.
+Features provided with Media Management include video support and enhanced image manipulation, for example, video thumbnails and proxies, video trim, time-coded comments for video, and image crop and rotate capabilities. A dark site theme is also available.
 
 You can embed metadata into a file using rules, with the Embed properties as metadata in content action, and view metadata in Alfresco and in an image editor. See [Working with metadata](LINK) for more information about extracting and embedding metadata.
 
@@ -20,9 +20,9 @@ Media Management provides information and features about media files that you up
 
 2. You can drag and drop images or videos, or select Upload from the toolbar, as you would normally do in Alfresco.
 
-    You will see the image or video in File Preview. If you upload a video, the duration of the video is shown in the information below the name of the video; for example, this is the icon that you would see if the video is three minutes and seven seconds long.
+    You will see the image or video in File Preview. If you upload a video, the duration of the video is shown in the information below the name of the video, for example, this is the icon that you would see if the video is three minutes and seven seconds long.
 
-    A rendition or proxy is a version of the original video or image; for example, a copy of an image that is optimized for web viewing. By default, not all renditions (including video) are created after uploading. It is only when a user first views the image or video that a rendition is created.
+    A rendition or proxy is a version of the original video or image, for example, a copy of an image that is optimized for web viewing. By default, not all renditions (including video) are created after uploading. It is only when a user first views the image or video that a rendition is created.
 
    >**CAUTION:** Creating video proxies (when viewing videos for the first time) is very resource intensive. You might experience very slow performance while this is occurring unless your Alfresco administrator has configured additional resources to process this workload.
 
@@ -96,11 +96,11 @@ Alfresco Media Management allows you to request transformations of media from on
 
 There are several methods used to request rich media transformations, and the method depends on the type of relationship that exists between the original source and the transformation result.
 
-Renditions; for example, lower resolution JPEG image and video proxy files, are often requested automatically, when required in Alfresco. For example, they are requested when browsing a site's document library or navigating to the document details page.
+Renditions, for example, lower resolution JPEG image and video proxy files, are often requested automatically, when required in Alfresco. For example, they are requested when browsing a site's document library or navigating to the document details page.
 
 You can explicitly request a rendition by clicking the **+** icon in the **Renditions** panel of the document details page. See [Viewing media](LINK) for more information about the Renditions panel.
 
-You can perform an ad hoc format transformation in a number of ways; for example, create a rule with a Transform and Copy Content action. See [Applying rules to folders](LINK) for more information about setting up rules.
+You can perform an ad hoc format transformation in a number of ways, for example, create a rule with a Transform and Copy Content action. See [Applying rules to folders](LINK) for more information about setting up rules.
 
 ## Publishing media
 

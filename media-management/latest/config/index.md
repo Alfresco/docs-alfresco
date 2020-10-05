@@ -4,11 +4,11 @@ title: Configure Media Management
 
 You can configure Media Management using the alfresco-global.properties file or by using a JMX client such as JConsole.
 
-1. Open the alfresco-global.properties file and add the required properties to the file.
+1. Open the `alfresco-global.properties` file and add the required properties to the file.
 
-    A sample alfresco-global.properties file is shipped in the root folder of the Media Management distribution zip, which defines properties for the FFmpeg path, ExifTool path, ActiveMQ broker URL, shared content workspace type, and AWS Elastic Transcoder credentials, custom metadata extraction properties, video thumbnail settings, and video proxy timeout settings.
+    A sample `alfresco-global.properties` file is shipped in the root folder of the Media Management distribution zip, which defines properties for the FFmpeg path, ExifTool path, ActiveMQ broker URL, shared content workspace type, and AWS Elastic Transcoder credentials, custom metadata extraction properties, video thumbnail settings, and video proxy timeout settings.
 
-2. Save the alfresco-global.properties file, and then restart your Alfresco server.
+2. Save the `alfresco-global.properties` file, and then restart your Alfresco server.
 
     The following table shows an overview of the available properties:
 
@@ -41,11 +41,11 @@ You can configure Media Management using the alfresco-global.properties file or 
     |`video.thumbnail.storyboardMaxElements=`|Maximum number of video thumbnails. Default is 30 elements.|
     |`system.videoProxy.definition.default. timeoutMs=`|Maximum time for a video proxy to complete. Parameter is used by the `h264-720` proxy. Default is 64800000 milliseconds (18 hours).|
 
-    You can also set where you want each of your transformations to take place; locally, with the remote content services node, or with a remote transformer like Elastic Transcoder, and in what order the transformations should be attempted. The default settings are appropriate for most configurations.
+    You can also set where you want each of your transformations to take place: locally, with the remote content services node, or with a remote transformer like Elastic Transcoder, and in what order the transformations should be attempted. The default settings are appropriate for most configurations.
 
-    The full list of remote properties, with their default values, that you can override in your alfresco-global.properties file is as follows:
+    The full list of remote properties, with their default values, that you can override in your `alfresco-global.properties` file is as follows:
 
-    ``` xml
+    ```xml
     # mimetypes ffmpeg can be made to support, but support not present in many environments
     content.transformer.Ffmpeg.extensions.3gp.*.supported=false
     content.transformer.Ffmpeg.extensions.3g2.*.supported=false
@@ -104,7 +104,7 @@ You can configure Media Management using the alfresco-global.properties file or 
 
     The priority settings define which type of transformation will be tried first. The lower the number, the higher the priority. For example, if the default settings are used, video to video transcoding would have these settings:
 
-    ``` xml
+    ```xml
     content.transformer.RemoteVideo.mimetypes.video/*.video/*.priority=50
     content.transformer.AwsElasticTranscoder.mimetypes.video/*.video/mp4.priority=110
     content.transformer.Ffmpeg.mimetypes.video/*.video/*.priority=150
@@ -112,7 +112,7 @@ You can configure Media Management using the alfresco-global.properties file or 
 
     The content services node is tried first, as it has the highest priority with a value of `50`. Elastic Transcoder would be tried next. If any of the transformer types is not configured, or there is a problem, the video to video transcoding would fall back to the local FFmpeg transformer, which is set with the lowest priority as `content.transformer.Ffmpeg.mimetypes.video/*.video/*.priority=150`.
 
-    You can set these variables in your alfresco-global.properties file, or dynamically when Alfresco is running, using a JMX client. If you set values in both places, the JMX client overrides the alfresco-global.properties value, but not the alfresco-global.properties file itself. The values are in the **Alfresco:Type=Configuration, Category=Transformers** MBean.
+    You can set these variables in your `alfresco-global.properties` file, or dynamically when Alfresco is running, using a JMX client. If you set values in both places, the JMX client overrides the `alfresco-global.properties` value, but not the `alfresco-global.properties` file itself. The values are in the **Alfresco:Type=Configuration, Category=Transformers** MBean.
     See [JMX beans for Media Management]({% link media-management/latest/admin/jmxbeans.md %}) for more information about Media Management JMX beans.
 
    > **Note:** You can use a wildcard (*) in the settings. However, more specific mimetype or extension configurations take precedence over wildcard configurations, regardless of the order specified.
@@ -123,20 +123,19 @@ You can configure Media Management using the alfresco-global.properties file or 
 
     See [Runtime administration with a JMX client](LINK) for instructions on how to connect a JMX client to your Alfresco server.
 
-
 ## Configuring a shared file content workspace
 
 You can configure Alfresco to use Amazon S3 or file directories for sharing content.
 
-Configure a directory as a shared content workspace using alfresco-global.properties.
+Configure a directory as a shared content workspace using `alfresco-global.properties`.
 
 Ensure that you have installed the required external and internal software. See [Prerequisites for using Media Management]({% link media-management/latest/install/index.md %}).
 
 1. Stop the Alfresco server.
 
-2. Edit your alfresco-global.properties file to specify your source and target content workspace type, and the location of your source and target directories; for example:
+2. Edit your `alfresco-global.properties` file to specify your source and target content workspace type, and the location of your source and target directories, for example:
 
-    ``` xml
+    ```xml
     content.remote.default.contentRefHandler.source.type=file
     content.remote.default.contentRefHandler.source.file.dir=
     content.remote.default.contentRefHandler.target.type=file
@@ -147,7 +146,7 @@ Ensure that you have installed the required external and internal software. See 
 
 3. Update your `remote-node/config.yml` file that you extracted from the Media Management distribution zip with your shared content workspace properties:
 
-    ``` yaml
+    ```yaml
     transform:
         contentReferenceHandler:
             source:
@@ -176,9 +175,9 @@ Ensure that you have installed the required external and internal software. See 
 
 1. Stop the Alfresco server.
 
-2. Edit your `alfresco-global.properties` file to specify your source and target content workspace type, source and target S3 keys, and S3 bucket information; for example:
+2. Edit your `alfresco-global.properties` file to specify your source and target content workspace type, source and target S3 keys, and S3 bucket information, for example:
 
-    ``` xml
+    ```xml
     content.remote.default.contentRefHandler.source.type=s3
     content.remote.default.contentRefHandler.source.s3.bucketName=
     content.remote.default.contentRefHandler.source.s3.bucketRegion=
@@ -197,7 +196,7 @@ Ensure that you have installed the required external and internal software. See 
 
 3. Update your `remote-node/config.yml` file that you extracted from the Media Management distribution zip with your shared content workspace properties:
 
-    ``` yaml
+    ```yaml
     source:
       type: s3
       s3:
@@ -220,13 +219,13 @@ Ensure that you have installed the required external and internal software. See 
 
 4. Start your Alfresco Content Services server to apply the changes.
 
-## Configuring transformation services for Media Management
+## Configuring transformation services
 
 This information helps you to configure Alfresco to communicate with AWS Elastic Transcoder. This transformation service is often configured for cloud deployments or very large resource intensive on-premise deployments.
 
 Edit the `alfresco-global.properties` file to turn off content service node transformations for certain file (MIME) types, for example, video to video, video to audio, and image to image:
 
-``` xml
+```xml
 content.transformer.RemoteVideo.mimetypes.video/*.video/*.supported=false
 content.transformer.RemoteVideo.mimetypes.video/*.audio/*.supported=false
 content.transformer.RemoteImage.mimetypes.image/*.image/*.supported=false
@@ -243,9 +242,9 @@ Ensure that you have installed the required external and internal software befor
 
 1. Stop the Alfresco server.
 
-2. Edit your `alfresco-global.properties` file to specify your Elastic Transcoder S3 access key, S3 keys, S3 bucket, and Elastic Transcoder information; for example:
+2. Edit your `alfresco-global.properties` file to specify your Elastic Transcoder S3 access key, S3 keys, S3 bucket, and Elastic Transcoder information, for example:
 
-    ``` xml
+    ```xml
     content.transformer.AwsElasticTranscoder.s3.accessKey=**MY-S3-ACCESS-KEY**
     content.transformer.AwsElasticTranscoder.s3.secretKey=**MY-S3-SECRET-KEY**
     content.transformer.AwsElasticTranscoder.s3.bucketName=**MY-S3-BUCKET-NAME**
@@ -258,7 +257,7 @@ Ensure that you have installed the required external and internal software befor
     content.transformer.AwsElasticTranscoder.transcoder.defaultPreset.video/mp4=1351620000001-000010 
     ```
 
-    A sample alfresco-global.properties file is shipped in the root folder of the Media Management distribution zip, which defines custom properties.
+    A sample `alfresco-global.properties` file is shipped in the root folder of the Media Management distribution zip, which defines custom properties.
 
     > **Note:** Elastic Transcoder provides the following support only:
 
@@ -302,19 +301,19 @@ Ensure that you have installed the required external and internal software befor
     * S3 Path: define the Amazon S3 path
     * S3 Region: define the Amazon S3 region
     * Distribution Domain Name: define the preferred domain name for distribution
-    You can create channels for different S3 buckets, paths or distribution domain names; for example, a campaign-specific channel for Marketing, and a web channel for final website content.
+    You can create channels for different S3 buckets, paths or distribution domain names, for example, a campaign-specific channel for Marketing, and a web channel for final website content.
 
 ## Configuring custom XMP metadata extraction
 
-You can map custom XMP (Extensible Metadata Platform) metadata fields to custom Alfresco data model properties using alfresco-global.properties.
+You can map custom XMP (Extensible Metadata Platform) metadata fields to custom Alfresco data model properties using `alfresco-global.properties`.
 
 Ensure that you have installed the required external and internal software before configuring the transformer. See [Prerequisites for using Media Management]({% link media-management/latest/install/index.md %}) for more information.
 
 1. Stop the Alfresco server.
 
-2. Edit your alfresco-global.properties file to specify your custom metadata properties; for example:
+2. Edit your `alfresco-global.properties` file to specify your custom metadata properties, for example:
 
-    ``` xml
+    ```xml
     metadata.extracter.TikaExifTool.extract.namespace.prefix.cm=http://www.alfresco.org/model/content/1.0
     metadata.extracter.TikaExifTool.extract.namespace.prefix.custom=http://example.com/model/custom/1.0
     metadata.extracter.TikaExifTool.extract.XMP-custom\:Text=custom:text
@@ -327,7 +326,7 @@ Ensure that you have installed the required external and internal software befor
     metadata.extracter.TikaExifTool.extract.XMP-custom\:Boolean=custom:boolean
     ```
 
-    A sample alfresco-global.properties file is shipped in the root folder of the Media Management distribution zip, which defines custom properties.
+    A sample `alfresco-global.properties` file is shipped in the root folder of the Media Management distribution zip, which defines custom properties.
 
     The `metadata.extracter.TikaExifTool.extract.XMP-custom\:Text` attribute specifies simple text fields. The `metadata.extracter.TikaExifTool.extract.XMP-custom\:TextML[]` attribute specifies multi-line text fields for metadata extraction.
 
@@ -341,15 +340,15 @@ Storyboard thumbnails are images shown at regular intervals along the timeline o
 
 1. Stop the Alfresco server.
 
-2. Edit your alfresco-global.properties file to specify when the thumbnails start, the interval and number of thumbnails shown in a timeline; for example:
+2. Edit your `alfresco-global.properties` file to specify when the thumbnails start, the interval and number of thumbnails shown in a timeline, for example:
 
-    ``` xml
+    ```xml
     video.thumbnail.defaultOffset=00:00:00.5
     video.thumbnail.storyboardIntervalSeconds=2
     video.thumbnail.storyboardMaxElements=30
     ```
 
-    A sample alfresco-global.properties file is shipped in the root folder of the Media Management distribution zip, which defines custom properties.
+    A sample `alfresco-global.properties` file is shipped in the root folder of the Media Management distribution zip, which defines custom properties.
 
 3. Start your Alfresco server to apply the changes.
 
@@ -361,7 +360,7 @@ The standard H.264 proxy is used for video transformations in Media Management. 
 
 1. If you need to use a different proxy, you can use the standard proxyDefinition720p bean as a template:
 
-    ``` xml
+    ```xml
     <bean id="proxyDefinition720p" class="org.alfresco.repo.thumbnail.DeletingThumbnailDefinition">
       <property name="name" value="h264-720"/>
       <property name="mimetype" value="video/mp4"/>

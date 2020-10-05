@@ -1,4 +1,4 @@
-# Media Management 1.4
+# Media Management
 - version: 1.4
   pages:
     - title: 'Introduction'
@@ -25,10 +25,8 @@
           path: '/media-management/latest/admin/options/'
     - title: 'Using'
       path: '/media-management/latest/using/'
-
-# Media Management 1.3
 - version: 1.3
-  pages:
+ pages:
     - title: 'Introduction'
       path: '/media-management/1.3/'
     - title: 'Install'

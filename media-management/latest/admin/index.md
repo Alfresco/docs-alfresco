@@ -16,7 +16,7 @@ You can monitor the flow of media events from the Alfresco repository through Ac
     * **Queues > alfresco.transform.request.image, alfresco.transform.reply.image, alfresco.transform.request.video, and alfresco.transform.reply.video** are showing messages enqueuing and dequeuing
     ActiveMQ provides a web console:
 
-    ``` html
+    ```html
     http://localhost:8161/admin/
     ```
 
@@ -32,19 +32,19 @@ You can monitor the flow of media events from the Alfresco repository through Ac
 
     * Port 8889 is reserved for the content services node. `http://localhost:8889/healthcheck` shows the last transformation after startup (but before any transformations). You should see:
 
-        ``` xml
+        ```xml
         {"FFmpeg":{"healthy":true},"ImageMagick":{"healthy":true},"deadlocks":{"healthy":true}}
         ```
 
         and after a transformation request:
 
-        ``` xml
+        ```xml
         {"FFmpeg":{"healthy":true,"message":"lastRequest: \"6075f46f-de9c-4232-aa78-d3ed1280a371\""},"ImageMagick":{"healthy":true},"deadlocks":{"healthy":true}}
         ```
 
-    * Check the log, which is located in remote-node/logs/content-services-node.log, where remote-node is the name of directory that you unzipped when you installed Media Management.
-    * You can change the log level of the content services node in the remote-node/config.yml file.
-3. Check alfresco.log, after setting the log level to `debug`, for any errors.
+    * Check the log, which is located in `remote-node/logs/content-services-node.log`, where `remote-node` is the name of directory that you unzipped when you installed Media Management.
+    * You can change the log level of the content services node in the `remote-node/config.yml` file.
+3. Check `alfresco.log`, after setting the log level to `debug`, for any errors.
 
 4. Use the log4j.properties.sample file to add loggers to your `tomcat/webapps/alfresco/WEB-INF/classes/alfresco/module/org_alfresco_mm_repo/log4j.properties` file.
 
@@ -56,5 +56,5 @@ Administrators can view information about transformations and add publishing cha
 
 1. Select Admin Tools on the Share toolbar, to see a list of tools on the left of the page.
 2. The **Tools > Application** section lists the themes available. Media Management provides a black background (a dark theme) for Share. See [Using an Alfresco dark site theme](LINK) for more information.
-3. The **Content Publishing > Channel Manager** section lists the channels that are configured for users to publish media (i.e. CloudFront). Use this guidance to add a new publishing channel: [Configuring publishing channels for Media Management](LINK).
+3. The **Content Publishing > Channel Manager** section lists the channels that are configured for users to publish media (for example, CloudFront). Use this guidance to add a new publishing channel: [Configuring a CloudFront publishing channel]({% link media-management/latest/config/index.md#configuring-a-cloudfront-publishing-channel).
 4. The **Transformations** section lists the installed transformers and their status. Select Transformer FFmpeg to see information on whether the transformer is available, and the version of FFmpeg that is installed with the options configured.

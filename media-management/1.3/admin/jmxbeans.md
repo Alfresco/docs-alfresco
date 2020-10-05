@@ -6,7 +6,7 @@ JMX values (Managed Bean or MBean attributes) are exposed in the Alfresco Admin 
 
 The default values given are the defaults for an installer-installed instance of Alfresco on Windows. These values can differ if you are using a different install method or operating system.
 
->**Note:** Be aware that any changes you make to attributes in the live system are written to the database. The next time that Alfresco starts, these values will take precedence over any values specified in properties files, for example, `alfresco-global.properties`.
+> **Note:** Be aware that any changes you make to attributes in the live system are written to the database. The next time that Alfresco starts, these values will take precedence over any values specified in properties files, for example, `alfresco-global.properties`.
 
 ## Alfresco:Type=Configuration, Category=Transformers, Object Type=Transformers$default**
 

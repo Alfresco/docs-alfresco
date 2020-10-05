@@ -12,11 +12,11 @@ For more information on advanced ActiveMQ settings, see [Configuring advanced se
 
 1. Navigate to the activemq/bin directory where activemq is the name of the directory where you installed ActiveMQ. Start ActiveMQ using the command:
 
-    ``` bash
+    ```bash
     ./activemq start
     ```
 
-    ``` bash
+    ```bash
     activemq start
     ```
 
@@ -26,7 +26,7 @@ For more information on advanced ActiveMQ settings, see [Configuring advanced se
 
 2. From the remote-node directory, launch your content services node using the following command:
 
-    ``` bash
+    ```bash
     java -jar content-services-node-x.x.x.jar server config.yml
     ```
 
@@ -52,11 +52,11 @@ ActiveMQ can be configured to start and run automatically.
 
 1. Create a user named `activemq` that you will use to run the ActiveMQ automatic process:
 
-    ``` bash
+    ```bash
     sudo useradd -m activemq
     ```
 
-2. Create an `init.d` script; for example, in /etc/init.d/activemq to run the ActiveMQ shell script under the `activemq` user:
+2. Create an `init.d` script, for example, in `/etc/init.d/activemq` to run the ActiveMQ shell script under the `activemq` user:
 
     ```bash
     #!/bin/bash
@@ -67,7 +67,7 @@ ActiveMQ can be configured to start and run automatically.
 
 3. Make the file executable and enable the script:
 
-    ``` bash
+    ```bash
     chmod +x /etc/init.d/activemq
     chkconfig --add activemq
     ```
@@ -88,13 +88,13 @@ These instructions are for a Unix environment only and use an `init.d` script. F
 
 2. Create a user named `contentservices` that you will use to run the automatic process, with a home set to `/opt/contentservices`:
 
-    ``` bash
+    ```bash
     sudo useradd -m contentservices
     ```
 
-3. Create an `init.d` script; for example, in `/etc/init.d/contentservices` to run the content services node under the `contentservices` user:
+3. Create an `init.d` script, for example, in `/etc/init.d/contentservices` to run the content services node under the `contentservices` user:
 
-    ``` bash
+    ```bash
     #!/bin/bash
     # chkconfig: 345 91 9
     # description: Alfresco Content Service
@@ -241,14 +241,14 @@ These instructions are for a Unix environment only and use an `init.d` script. F
 
 4. Make the file executable and enable the script:
 
-    ``` bash
+    ```bash
     chmod +x /etc/init.d/contentservices
     chkconfig --add alfresco-contentservices
     ```
 
-5. Modify the `config.yml` file to specify your environment settings; for example, your ActiveMQ host name if it is on a different server:
+5. Modify the `config.yml` file to specify your environment settings, for example, your ActiveMQ host name if it is on a different server:
 
-    ``` bash
+    ```bash
     messaging:
     broker:
       url: tcp://localhost:61616
