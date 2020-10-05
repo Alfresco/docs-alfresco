@@ -154,7 +154,7 @@ Prerequisites for viewing the Search Server Sharding page:
 |
     |**Stores**|workspace://SpacesStore|This specifies the stores that are queryable for all instances.|
     |**Has Content**|Enabled|This property is enabled if content is included for all instances.|
-    |**Shard Method**|DB\_ID|This specifies the method used to define shards. The default shard method is `DB_ID`. You can specify your own shard method in Index Server Shard Management screen \> New Shard Group \> Properties. For example, `shard.method=ACL_ID`.
+    |**Shard Method**|DB\_ID|This specifies the method used to define shards. The default shard method is `DB_ID`. You can specify your own shard method in Index Server Shard Management screen > New Shard Group > Properties. For example, `shard.method=ACL_ID`.
 
 You can also set this property in the alfresco-insight-engine-distribution-2.0.x.zip/solrhome/templates/rerank/conf/solrcore.properties file.
 
@@ -184,6 +184,6 @@ You can also set this property in the alfresco-insight-engine-distribution-2.0.x
 
     If you do not want to save the changes, click **Cancel**.
 
-> **Note:** Alfresco recommends that you do not use the **Solr Admin Console \> Core Admin \> Unload** functionality to unload indexes (either whole indexes or shards that are part of an index). Unloading an index or a shard in this way will delete it and make it unavailable for query.
+> **Note:** Alfresco recommends that you do not use the **Solr Admin Console > Core Admin > Unload** functionality to unload indexes (either whole indexes or shards that are part of an index). Unloading an index or a shard in this way will delete it and make it unavailable for query.
 
 If you unload or delete a shard from the Solr Admin Console, ensure you restart the Solr server and restore your indexes so that Alfresco can work properly.

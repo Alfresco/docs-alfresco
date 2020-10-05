@@ -8,7 +8,7 @@ Mutual TLS is used for authentication between the Repository and Alfresco Search
 This task assumes you have:
 
 * Installed Alfresco Content Services 6.2 or above, with clustering enabled, see [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms).
-* Set the following properties in the <TOMCAT\_HOME\>/shared/classes/alfresco-global.properties file:
+* Set the following properties in the <TOMCAT\_HOME>/shared/classes/alfresco-global.properties file:
 
     ```bash
     index.subsystem.name=solr6
@@ -51,7 +51,7 @@ This task assumes you have:
 
     3. In the production environment, copy your custom keystore and truststore to the alfresco-insight-engine/solrhome/keystore directory.
 
-    4. Update the SSL-related system properties by replacing <SOLR\_HOME\> with alfresco-insight-engine/solrhome, and set your keystore and truststore passwords.
+    4. Update the SSL-related system properties by replacing <SOLR\_HOME> with alfresco-insight-engine/solrhome, and set your keystore and truststore passwords.
 
         (Windows) update the alfresco-insight-engine/solr.in.cmd file:
 
@@ -183,6 +183,6 @@ This task assumes you have:
 
 If you are not using sharded Alfresco Search and Insight Engine:
 
-1. Access the **Admin Console \> Search Service Sharding** page.
+1. Access the **Admin Console > Search Service Sharding** page.
 2. Deselect **Dynamic Shard Instance Registration**.
 3. Select **Purge at Startup**.

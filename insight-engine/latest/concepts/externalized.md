@@ -39,7 +39,7 @@ The following configuration properties are used by an external client, such as A
     |**JNDI Property**|java:comp/env/solr/content/dir|
     |**Java System Property**|solr.content.dir or solr.solr.content.dir|
     |**Environment Variable**|SOLR\_SOLR\_CONTENT\_DIR|
-    |**Default Value**|<SOLR6\_INSTALL\_LOCATION\>/contentstore|
+    |**Default Value**|<SOLR6\_INSTALL\_LOCATION>/contentstore|
 
 * **`solr.model.dir`**
 
@@ -47,7 +47,7 @@ The following configuration properties are used by an external client, such as A
     |**JNDI Property**|java:comp/env/solr/model/dir|
     |**Java System Property**|solr.model.dir or solr.solr.model.dir|
     |**Environment Variable**|SOLR\_SOLR\_MODEL\_DIR|
-    |**Default Value**|<SOLR6\_INSTALL\_LOCATION\>/solrhome/alfrescoModel|
+    |**Default Value**|<SOLR6\_INSTALL\_LOCATION>/solrhome/alfrescoModel|
 
 ### Configurable per core values
 

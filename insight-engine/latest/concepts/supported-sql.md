@@ -1,8 +1,9 @@
 ---
-title: Supported SQL commands
+title: Supported/Unsupported SQL commands
 ---
+Below is a list of the supported and unsupported SQL commands available to use when writing queries against your Solr datastore.
 
-Below is a list of the supported SQL commands available to use when writing queries against your Solr datastore.
+## Supported SQL
 
 > **Note:** If a SQL command is not listed it is not supported. For a list of unsupported SQL commands see [Unsupported SQL Commands](unsupported-sql.md).
 
@@ -13,29 +14,30 @@ The basic syntax of the SQL select statement is as follows:
 ```sql
 Select DBID, cm_creator as creator, `cm_content.size`  as `size` from alfresco where `cm_content.size` > 1000 order by  `cm_content.size` desc limit 100
 ```
+
 ## Table
 
 The only table that can be specified is the alfresco table. The alfresco table contains the documents and fields that have been indexed within the Alfresco Indexing Server’s main Alfresco index.
 
 ## Fields
 
-*Standard Fields*
+### Standard Fields
 
 Alfresco has a set of standard fields, which can be referred to by name in the SQL field list. The DBID field in the example `SELECT` statement above is an example of a standard field.
 
 The most useful ones are: `PARENT`, `PATH`, `ANCESTOR`, `TYPE`, `ASPECT`, `PROPERTIES`, `FIELDS`, `LID`, and `DBID`.
 
-*Fields from Content Models*
+### Fields from Content Models
 
 Fields from Alfresco’s out of-the-box content models, as well as fields from custom content models can be referred to using the content model property qname, as in AFTS and the CMIS query language. The `cm_creator` field in the example SQL statement refers to the creator field in the out-of-the-box cm content model. Fields that have a unique local name over all prefixes do not need to use the prefix.
 
 > **Note:** Use "\_" to separate the prefix and the locale name as ":" would have to be escaped.
 
-*Escaping Fields*
+### Escaping Fields
 
 Fields that include reserved words or special characters will need to be escaped using the back tick character (\`). The \`cm\_content.size\` field in the example SQL statement is an example of back tick escaping. The only non-word character that can be used without escaping is the underscore “\_”. We use Apache Calcite which has a list of reserved words that also need to be escaped, see [https://calcite.apache.org/docs/reference.html](https://calcite.apache.org/docs/reference.html). You are most likely to hit reserved keywords picking aliases for fields.
 
-*Select Queries*
+### Select Queries
 
 A curated set of fields are returned by default when \* is used as the field list. Any field in the curated list of fields can be used in the SQL predicate and order by clause of a select \* query.
 
@@ -91,7 +93,7 @@ select * from alfresco where finance_amount > 0 and expense_recorded_at <= 'NOW/
 
 This query will also return the fields `finance_amount` and `expense_recorded_at` in addition to the curated set of fields.
 
-*Arithmetic Operators*
+### Arithmetic Operators
 
 You can use arithmetic operations (+ - \* /) on the SELECT clause.
 
@@ -109,7 +111,7 @@ Select expense_Currency, max(`expense:Amount`) * 100 as MaxAmount, sum(`expense:
 
 > **Note:** You can't use WHERE, GROUP BY, HAVING, and ORDER clauses with arithmetic operations.
 
-*Field Aliases*
+### Field Aliases
 
 SQL field aliases are supported in the field list. Field aliases that contain special characters or reserved words need to be escaped with the back tick.
 
@@ -139,7 +141,7 @@ Or
 select (alfresco.`cm_content.size`), alfresco.cm_name from alfresco
 ```
 
-**Count**
+### Count
 
 Alfresco’s SQL count query is an aggregate function that is used to return the number of rows from a table that fulfil the criteria specified.
 
@@ -169,11 +171,12 @@ Also the following data types are not supported when using `count(field)` and `c
   <facetable>false</facetable>
 </index> 
 ```
-**Predicate**
+
+### Predicate
 
 Alfresco’s SQL predicate is designed to take advantage of the rich search capabilities available in the Alfresco Search Services.
 
-*Predicates on Text Fields*
+### Predicates on Text Fields
 
 The basic predicate on a text field performs a phrase search. Below is the syntax of a basic predicate on a text field. It will search for the phrase 'hello world' in the cm\_content field.
 
@@ -187,7 +190,7 @@ To gain full control of the search predicate for a specific field you can wrap t
 select cm_name, `cm_content.size` from alfresco where cm_content = ‘(hello OR world)’
 ```
 
-*Predicates on String Identifier Fields*
+### Predicates on String Identifier Fields
 
 Predicates on string identifier fields will perform an exact match on the field. Below is an example of a SQL statement that will perform an exact match on the LID field:
 
@@ -197,11 +200,11 @@ select cm_name, `cm_content.size` from alfresco where LID = ‘value’
 
 > **Note:** Most fields from the content models will perform full text search matches unless the property is defined as tokenised false in the model. This may not be what you expect.
 
-*Predicates on Numeric Fields*
+### Predicates on Numeric Fields
 
-The predicate on numeric fields can perform =, \>=, <= and Alfresco Solr range queries.
+The predicate on numeric fields can perform =, >=, <= and Alfresco Solr range queries.
 
-Below is an examples using the =, \>=, <= range operators.
+Below is an examples using the =, >=, <= range operators.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size = 2000
@@ -218,7 +221,7 @@ Selects all cm\_content.size below 2000, with inclusive ranges. The square brack
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='[* TO 2000]'
 ```
 
-Selects all cm\_content.size below 2000, with an exclusive top range. < and \> are exclusive ranges.
+Selects all cm\_content.size below 2000, with an exclusive top range. < and > are exclusive ranges.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='[* TO 2000>'
@@ -242,7 +245,7 @@ Selects all cm\_content.size above 100 and below 2000, exclusively.
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='<100 TO 2000>'
 ```
 
-*Predicates on Null Fields*
+### Predicates on Null Fields
 
 Predicates on null values can be constructed using IS NULL, IS NOT NULL, IN (NULL), and NOT IN (NULL) operands to obtain the results.
 
@@ -276,7 +279,7 @@ The following NOT IN (NULL) query will return all the rows where cm\_content.siz
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` NOT IN (0, NULL)
 ```
 
-*Nested Boolean Predicates*
+### Nested Boolean Predicates
 
 SQL predicates can be combined with Boolean operators AND, OR and NOT and nested with parenthesis.
 
@@ -284,17 +287,17 @@ SQL predicates can be combined with Boolean operators AND, OR and NOT and nested
 SITE = ‘MySite’ AND `cm_content.mimetype` = 'text/plain'
 ```
 
-*SQL IN Operator*
+### SQL IN Operator
 
 The SQL IN operator can be used in the predicate for both numeric and string fields. Null values are accepted as values in the filter list.
 
-*SQL NOT IN Operator*
+### SQL NOT IN Operator
 
 The SQL NOT IN operator can be used in the predicate for both numeric and string fields. Null values are accepted as values in the filter list, but due to SQL limitations the query will produce no results.
 
 > **Note:** Use an equivalent query when fetching NULL values instead of including the null as a value of a NOT IN list.
 
-*Order By*
+### Order By
 
 SQL SELECT statements can contain an ORDER BY clause with one or more order by fields. String identifiers and numeric fields can be specific in the ORDER BY clause.
 
@@ -304,7 +307,7 @@ Below is an example of an ORDER BY on a numeric field:
 select cm_creator, cm_name, exif_manufacturer, audio_trackNumber from alfresco order by audio_trackNumber asc
 ```
 
-*Limit*
+### Limit
 
 SQL SELECT statements can contain a LIMIT clause. If no limit is specified a default limit of 1000 is set.
 
@@ -320,7 +323,7 @@ select distinct cm_name from alfresco where cm_content = 'alfresco' order by cm_
 
 SELECT DISTINCT queries can also have multiple fields and multiple order by fields.
 
-**Is Null statements**
+### Is Null statements
 
 The basic syntax for Is Nulls is as follows:
 
@@ -344,7 +347,7 @@ SQL aggregations without a GROUP BY clause return a single result tuple with the
 select count(*) as docCount, avg(`cm_content.size`) as content_size from alfresco where cm_owner = 'xyz
 ```
 
-*Aggregate functions*
+### Aggregate functions
 
 Alfresco SQL supports the following aggregation functions:
 
@@ -356,11 +359,11 @@ Alfresco SQL supports the following aggregation functions:
 * `min(numeric_field)`
 * `max(numeric_field)`
 
-*Aggregate Fields*
+### Aggregate Fields
 
 Any numeric field can be used within the aggregations sum, avg, min, and max. As with the basic SELECT statements, aggregation fields defined by content models can be referenced using the content model prefix. Fields that are reserved words or contain special characters need to be escaped with the back tick character.
 
-*Aggregate Result Tuple*
+### Aggregate Result Tuple
 
 If a field alias is specified for an aggregate function then the field alias will appear in the result tuple. If field aliases are not used then the field name for the aggregate functions will appear as follows: EXPR$1, EXPR$2. These values refer to the function expression by the order they appear in the field list, starting from 1. For example the first function that appears in the query will be named EXPR$1 in the result tuples.
 
@@ -372,7 +375,7 @@ SQL aggregations with a GROUP BY clause are also supported and take the followin
 select `cm_content.mimetype`, count(*) as total_count from alfresco group by `cm_content.mimetype` having count(*) < 4 order by count(*) asc
 ```
 
-*Aggregate functions*
+### Aggregate functions
 
 Alfresco SQL supports the following aggregation functions:
 
@@ -384,11 +387,11 @@ Alfresco SQL supports the following aggregation functions:
 * `min(numeric_field)`
 * `max(numeric_field)`
 
-*Aggregation fields*
+### Aggregation fields
 
 Any numeric field can be used within the aggregations sum, avg, min, and max. As with the basic SELECT statements fields defined by content models can be referenced using the content model prefix. Fields that are reserved words or contain special characters need to be escaped with the back tick character.
 
-*Group By Fields*
+### Group By Fields
 
 One or more fields can be specified as group by fields. Fields that are designated as facetable in a content model will provide the best aggregation results.
 
@@ -399,11 +402,11 @@ One or more fields can be specified as group by fields. Fields that are designat
 
 It’s not supported when the text field is either freetext or none.
 
-*Aggregate Result Tuples*
+### Aggregate Result Tuples
 
 If a field alias is specified for an aggregate function then the field alias will appear in the result tuple. If field aliases are not used then the field name for the aggregate functions will appear as follows: EXPR$1, EXPR$2. These values refer to the function expression by the order they appear in the query, starting from 1. For example the first function that appears in the query will be named EXPR$1 in the result tuples.
 
-*Order By*
+### Order By
 
 One or more fields may be used in the ORDER BY clause. The ORDER BY can include both fields from the field list and the result of the COUNT function. ORDER BY for other aggregate functions is not yet supported. Field aliases cannot be used in the ORDER BY clause. When referring to an aggregate function in the ORDER BY clause the function call as it appears in the field list should be used.
 
@@ -414,19 +417,19 @@ One or more fields may be used in the ORDER BY clause. The ORDER BY can include 
 
 It’s not supported when the text field is either freetext or none.
 
-*Having*
+### Having
 
-The HAVING clause is supported for aggregation functions only. Boolean logic and nested HAVING clauses are supported. The following comparison operations are supported in the HAVING clause: =, \>=, <=, !=.
+The HAVING clause is supported for aggregation functions only. Boolean logic and nested HAVING clauses are supported. The following comparison operations are supported in the HAVING clause: =, >=, <=, !=.
 
 > **Note:** Support is limited for the HAVING clause in Alfresco Search and Insight Engine 2.0.
 
-*Limit*
+### Limit
 
 A LIMIT clause can be used to limit the number of aggregations results. If no LIMIT clause is provided a default limit of 1000 is applied.
 
 ![](../images/hr.png)
 
-## Time Series Aggregations
+### Time Series Aggregations
 
 There is specific support for SQL time series reporting through the use of virtual time dimensions. The following section describes how virtual time dimensions are used.
 
@@ -434,7 +437,7 @@ There is specific support for SQL time series reporting through the use of virtu
 
 Search and Insight Engine automatically creates virtual time dimensions for every datetime field stored in the Alfresco Search Service. The three virtual time dimensions supported are: \_day, \_month, \_year. To use the virtual time dimensions append the virtual time dimension to any datetime field and use it in the GROUP BY clause. Below is an example where the \_day dimension is appended to the cm\_created datetime field. The query creates a daily time series report using the cm\_created\_day virtual time dimension.
 
-```
+```sql
 select cm_created_day, count(*) as total from alfresco where cm_created >= 'NOW/DAY' group by cm_created_day
 ```
 
@@ -448,7 +451,7 @@ A datetime predicate can be used in the WHERE clause to control the datetime ran
 where cm_created >= 'NOW/DAY'
 ```
 
-*Unbounded Time Series Reports*
+### Unbounded Time Series Reports
 
 > **Note:** The sections below describe how to set lower and upper boundaries using both fixed date and date math predicates.
 
@@ -469,7 +472,7 @@ If no datetime predicate is supplied, the following default lower and upper boun
 * **lower:** current year minus 5 years
 * **upper:** current full year
 
-*Fixed Datetime Predicates*
+### Fixed Datetime Predicates
 
 Fixed datetime predicates are formatted according to a subset of ISO 8601. They require the full precision to be expressed in the statement, see the example below:
 
@@ -477,7 +480,7 @@ Fixed datetime predicates are formatted according to a subset of ISO 8601. They 
 select cm_created_day, count(*) from alfresco where cm_created >= '2010-02-01T01:01:01Z' and cm_created <= '2010-02-14T23:59:59Z' group by cm_created_day
 ```
 
-*Date Math Predicates*
+### Date Math Predicates
 
 Search and Insight Engine also supports a rich set of date math expressions. The example below uses a time series aggregation using date math predicates. The NOW clause signifies the current point in time with milli-second precision. The NOW/MONTH clause rounds the current point in time down to the current MONTH i.e. The -6MONTHS subtracts 6 months from the current month. See the [Solr date math guide](https://lucene.apache.org/solr/guide/6_6/working-with-dates.html#WorkingwithDates-DateMathSyntax) for more details on date math syntax.
 
@@ -485,18 +488,35 @@ Search and Insight Engine also supports a rich set of date math expressions. The
 select cm_created_month, count(*) from alfresco where cm_created >= 'NOW/MONTH-6MONTHS' and cm_created <= 'NOW' group by cm_created_month
 ```
 
-*Autofilled Date/Time Ranges*
+### Autofilled Date/Time Ranges
 
 Time series aggregation queries return an aggregation value for all date/time values that fall within the range. Date/time values that do not have data present within the range still appear in the result set with aggregation values of 0.
 
-*Single Dimension Group By*
+### Single Dimension Group By
 
 Time series aggregations that group by virtual time dimensions are currently limited to using a single group by field.
 
-*Order By*
+### Order By
 
 By default time series aggregation results are sorted in datetime ascending order. An order by clause can be used to change the direction of the datetime sort or sort by the result of the COUNT function. ORDER BY for other aggregate functions is not yet supported.
 
-*Having*
+### Having
 
 A HAVING clause can be used to filter time series aggregations results.
+
+## Unsupported SQL
+
+Alfresco Search and Insight Engine supports a subset of SQL. Below is a list of commonly used SQL commands that are not currently supported:
+
+## Commands
+
+* `CMIS QL functions IN_TREE, IN_FOLDER, SCORE, CONTAINS`
+* `DATEDIFF`
+* `DBID Range Queries`
+* `HAVING` : Can only be applied to aggregate functions.
+* `JOIN`
+* `LIKE`
+* `Multivalued fields`
+* `String, Math Operators`
+* `SUB-QUERIES`
+* `UNION`

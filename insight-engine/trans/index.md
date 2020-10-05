@@ -1,8 +1,6 @@
 ---
-title: Overview of transactional metadata query
+title: Transactional metadata query
 ---
-Alfresco Content Services supports the execution of a subset of the CMIS Query Language (CMIS QL) and Alfresco Full Text Search (AFTS) queries directly against the database. Also, the noindex subsystem supports queries only against the database. This collection of features is called transactional metadata query (TMDQ).
-
 TMDQ supports use cases where eventual consistency is not the preferred option.
 
 The Solr subsystem is eventually consistent. A change can take any length of time to be reflected in the index, ranging from a few seconds to several minutes. Solr indexes the metadata and the content of each updated node, in the order in which the nodes were last changed. The rate at which the nodes are indexed is mainly determined by the time it takes to transform the content and the rate at which the nodes are being changed.
@@ -15,7 +13,7 @@ The database can only be used for a subset of all the queries. These queries can
 
 In general, TMDQ does not support:
 
-* Structural queries, full text search, and special fields: This includes SITE that are derived from structure and long strings (\> 1024 characters). Text fields support exact and pattern-based matching subject to the database collation. Filter queries are rewritten along with the main query to create one large query. Ordering is fine, but again subject to database collation for text.
+* Structural queries, full text search, and special fields: This includes SITE that are derived from structure and long strings (> 1024 characters). Text fields support exact and pattern-based matching subject to the database collation. Filter queries are rewritten along with the main query to create one large query. Ordering is fine, but again subject to database collation for text.
 * Faceting.
 * Any aggregation: This includes counting the total number of matches for the query.
 
@@ -25,10 +23,9 @@ To support TMDQ:
 
 * Alfresco Content Services supports TMDQ by default.
 
----
-title: Features of transactional metadata query
----
-Use this information to understand the features of the transactional metadata query.
+## Features
+
+The following are the available feature of the transactional metadata query.
 
 * Transactional metadata query is supported for both Solr 6 and noindex search subsystems.
 * Transactional metadata query does not support facets.
@@ -44,3 +41,4 @@ Use this information to understand the features of the transactional metadata qu
 * Large result sets are not supported because Alfresco Content Services does not evaluate permissions in query but as a post filter.
 * Counts will not reflect the number of nodes that match the query.
 * The `SearchParameters` and `QueryOptions` objects can be used to override this behaviour per query.
+Alfresco Content Services supports the execution of a subset of the CMIS Query Language (CMIS QL) and Alfresco Full Text Search (AFTS) queries directly against the database. Also, the noindex subsystem supports queries only against the database. This collection of features is called transactional metadata query (TMDQ).

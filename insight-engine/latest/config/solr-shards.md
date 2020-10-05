@@ -26,7 +26,7 @@ Follow these steps to set up sharding of a non-sharded index or change the numbe
 
 4. Add any custom core templates. For more information, see [Core templates](../concepts/solr-core-templates.md).
 
-5. Configure the <SOLR\_HOME\>/conf/shared.properties file. For more information, see [About shared.properties file](../concepts/solr-shared-properties.md).
+5. Configure the <SOLR\_HOME>/conf/shared.properties file. For more information, see [About shared.properties file](../concepts/solr-shared-properties.md).
 
 6. Start the Solr server.
 

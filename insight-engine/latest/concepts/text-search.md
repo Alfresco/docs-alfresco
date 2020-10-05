@@ -5,39 +5,39 @@ The Solr index's full text search properties influence the behaviour of Solr ind
 
 The main index and deltas all use the same configuration. The data dictionary settings for properties determine how individual properties are indexed.
 
-If you wish to change the default value of a property, add the relevant property to the TOMCAT\_HOME\>/shared/classes/alfresco-global.properties file and then make the changes.
+If you wish to change the default value of a property, add the relevant property to the TOMCAT\_HOME>/shared/classes/alfresco-global.properties file and then make the changes.
 
 ### Solr index properties
 
--   **solr.host=localhost**
+* **solr.host=localhost**
 
     The host name where the Solr instance is located.
 
--   **solr.port=8080**
+* **solr.port=8080**
 
     The port number on which the Solr instance is running.
 
--   **solr.port.ssl=8443**
+* **solr.port.ssl=8443**
 
     The port number on which the Solr SSL support is running.
 
--   **solr.solrUser=solr**
+* **solr.solrUser=solr**
 
     The Solr user name.
 
--   **solr.solrPassword=solr**
+* **solr.solrPassword=solr**
 
     The Solr password.
 
--   **solr.secureComms=https**
+* **solr.secureComms=https**
 
     The HTTPS connection.
 
--   **solr.solrConnectTimeout=5000**
+* **solr.solrConnectTimeout=5000**
 
     The Solr connection timeouts in ms.
 
--   **solr.solrPingCronExpression=0 0/5 \* \* \* ? \***
+* **solr.solrPingCronExpression=0 0/5 \* \* \* ? \***
 
     The cron expression defining how often the Solr Admin client (used by JMX) pings Solr if it goes away.
 

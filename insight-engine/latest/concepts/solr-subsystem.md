@@ -6,7 +6,7 @@ Just like all previous versions of Solr, the activation and configuration of the
 
 If you haven't set the following Solr-related properties in the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file, add these:
 
-```
+```bash
 ### Solr indexing ###
 index.subsystem.name=solr6
 solr.secureComms=https
@@ -16,6 +16,3 @@ solr.baseUrl=/solr
 ```
 
 These configuration properties are used by Alfresco Content Services to talk to Search and Insight Engine.
-
-**Parent topic:**[Installing and configuring Search and Insight Engine](../concepts/solr-install-config.md)
-

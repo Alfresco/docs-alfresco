@@ -36,10 +36,10 @@ If you're using a persistent storage configuration, with both `alfresco` and `ar
 The core templates are specified in the URL used for creating shards, as shown below:
 
 ```http
-http://<hostN>:<portN>/solr/admin/cores?action=newCore&storeRef=workspace://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&**template=<template\>**
+http://<hostN>:<portN>/solr/admin/cores?action=newCore&storeRef=workspace://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&**template=<template>**
 ```
 
-The <SOLR\_HOME\>/templates directory contains the following structure:
+The <SOLR\_HOME>/templates directory contains the following structure:
 
 |Templates|Description|
 |---------|-----------|
@@ -50,14 +50,14 @@ The core templates include schema.xml and solrconfig.xml. The main purpose is to
 
 > **Note:** The `aps` and `rerankWithQueryLog` templates have been removed from the default distribution of Alfresco Search and Insight Engine from version 1.4 onwards.
 
-**Comparison between the rerank and noRerank templates**
+### Comparison between the rerank and noRerank templates
 
 |No.|Rerank template|noRerank template|
 |---|---------------|-----------------|
 |1|The rerank template causes less duplication of the index, and therefore the index is more compact.|The noRerank template causes more duplication of the index, and therefore the index is large.|
-|2|In the rerank template, stop words are included and indexed as common grams. By default, majority of the 100 most frequently used words in English language text are now treated as stop words. For more information, see <SOLR\_HOME\>/templates/rerank/conf/lang/stopwords\_en.txt.
+|2|In the rerank template, stop words are included and indexed as common grams. By default, majority of the 100 most frequently used words in English language text are now treated as stop words. For more information, see <SOLR\_HOME>/templates/rerank/conf/lang/stopwords\_en.txt.
 
-|In the noRerank template, stop words are removed from the words that are tokenised in the English language.For more information, see <SOLR\_HOME\>/templates/norerank/conf/lang/stopwords\_en.txt.
+|In the noRerank template, stop words are removed from the words that are tokenised in the English language.For more information, see <SOLR\_HOME>/templates/norerank/conf/lang/stopwords\_en.txt.
 
 |
 |3|The rerank template supports real rerank with automatic phrasing\* (or auto-phrasing). Queries are run in two stages:1.  Stage one treats phrases as conjunctions and ignores expensive positional information.

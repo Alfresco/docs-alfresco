@@ -3,7 +3,7 @@ title: Indexing JMX client
 ---
 You can use a JMX client, such as JConsole, for monitoring the status of all the available indexes, shards and its instances, and other related information.
 
-The JMX view of all the instancess, shards, and indexes that stick together is displayed at the **MBeans \> Alfresco \> FlocAdmin \> Attributes \> Flocs** node. The **Flocs** node displays a tabular view of all the indexes formed by shard instances by registering with any member of the Alfresco Content Services cluster.
+The JMX view of all the instancess, shards, and indexes that stick together is displayed at the **MBeans > Alfresco > FlocAdmin > Attributes > Flocs** node. The **Flocs** node displays a tabular view of all the indexes formed by shard instances by registering with any member of the Alfresco Content Services cluster.
 
 1. Open a command console.
 
@@ -23,7 +23,7 @@ The JMX view of all the instancess, shards, and indexes that stick together is d
 
     The available managed beans display in JConsole.
 
-5. Navigate to **Alfresco \> FlocAdmin**.
+5. Navigate to **Alfresco > FlocAdmin**.
 
     The **Attributes** and **Operations** display below it in the tree.
 
@@ -91,13 +91,13 @@ The JMX view of all the instancess, shards, and indexes that stick together is d
 
      `removeAll` removes all the shards that have registered and starts from clean.
 
-8. If you are using a sharded installation, go to **MBeans \> Alfresco \> Configuration \> Search \> managed \> solr6 \> Attributes** and set the number of filters using the `solr.defaultShardedFacetLimit` property.
+8. If you are using a sharded installation, go to **MBeans > Alfresco > Configuration > Search > managed > solr6 > Attributes** and set the number of filters using the `solr.defaultShardedFacetLimit` property.
 
     ```bash
     solr.defaultShardedFacetLimit=20
     ```
 
-9. If you are using a non-sharded installation, go to **MBeans \> Alfresco \> Configuration \> Search \> managed \> solr6 \> Attributes** and set the number of filters using the `solr.defaultUnshardedFacetLimit` property.
+9. If you are using a non-sharded installation, go to **MBeans > Alfresco > Configuration > Search > managed > solr6 > Attributes** and set the number of filters using the `solr.defaultUnshardedFacetLimit` property.
 
     ```bash
     solr.defaultUnshardedFacetLimit=100

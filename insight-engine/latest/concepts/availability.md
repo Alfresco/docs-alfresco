@@ -5,7 +5,7 @@ Sharding a Solr index is a highly scalable approach for improving the throughput
 
 Here are a few examples of a high availability configuration in a sharded Solr setup.
 
-**Example 1**
+## Example 1
 
 In this example, you will setup a sharded cluster that contains:
 
@@ -20,7 +20,7 @@ These are the steps to follow:
 1. Create machines to host Solr shards.
 2. Install and start Alfresco Content Services.
 3. Delete the Alfresco and archive cores.
-4. Configure the <SOLR\_HOME\>/conf/shared.properties file.
+4. Configure the <SOLR\_HOME>/conf/shared.properties file.
 5. Start the Solr server.
 6. Create your new index shards and instances by configuring the properties on the URL.
 
@@ -39,16 +39,16 @@ These are the steps to follow:
     &template=rerank&property.data.dir.root=<>&shardIds=0,2&property.alfresco.port=8080
     ```
 
-7.  Set the following properties in the alfresco-global.properties file.
+7. Set the following properties in the alfresco-global.properties file.
 
     ```bash
     solr.secureComms=none
     solr.useDynamicShardRegistration=true 
     ```
 
-8.  Restart Alfresco Content Services.
+8. Restart Alfresco Content Services.
 
-**Example 2**
+## Example 2
 
 Another example to setup a sharded cluster that contains:
 
@@ -63,7 +63,7 @@ These are the steps to follow:
 1. Create machines to host Solr shards.
 2. Install and start Alfresco Content Services.
 3. Delete the Alfresco and archive cores.
-4. Configure the <SOLR\_HOME\>/conf/shared.properties file.
+4. Configure the <SOLR\_HOME>/conf/shared.properties file.
 5. Start the Solr server.
 6. Create your new index shards and instances by configuring the properties on the URL.
 

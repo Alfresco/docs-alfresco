@@ -70,7 +70,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Alfr
 
     * Stop the session (by using `CONTROL+C`).
     * Remove the container (using the `--rmi all` option): For example `docker-compose down --rmi all`.
-    * Try allocating more memory resources. As advised in docker-compose.yml set it to at least 16 GB. To adjust the memory, in Docker, go to **Preferences** (or **Settings**) \> **Advanced** \> **Memory**. Once you have adjusted the memory make sure you restart Docker and wait for the process to finish before continuing.
+    * Try allocating more memory resources. As advised in docker-compose.yml set it to at least 16 GB. To adjust the memory, in Docker, go to **Preferences** (or **Settings**) > **Advanced** > **Memory**. Once you have adjusted the memory make sure you restart Docker and wait for the process to finish before continuing.
     * Go back to step 6 and retry the deployment.
 8. Open your browser and check everything starts up correctly:
 

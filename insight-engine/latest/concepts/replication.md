@@ -24,14 +24,13 @@ The configuration affecting replication is controlled by a single file, alresco
            sections below, depending on whether this solr instance should be
            the "master" or a "slave".  If this instance is a "slave" you will 
            also need to fill in the masterUrl to point to a real machine.
-        --> 
-           
+        -->
            <lst name="master">
              <str name="replicateAfter">commit</str>
              <str name="replicateAfter">startup</str>
              <str name="confFiles">schema.xml,stopwords.txt</str>
            </lst>
-    
+
         <!--
            <lst name="slave">
              <str name="masterUrl">http://your-master-hostname:8983/solr</str>
@@ -62,7 +61,7 @@ There can be multiple values for this parameter. If you use `startup`, you need 
 
 Here again, the solrconfig.xml file controls the configuration affecting replication. To configure the slave server, follow the steps below:\`
 
-1.  Uncomment the `slave` section.
+1. Uncomment the `slave` section.
 
     ```bash
     <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
@@ -72,7 +71,6 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
            the "master" or a "slave".  If this instance is a "slave" you will 
            also need to fill in the masterUrl to point to a real machine.
         -->
-     
        <!--
        <lst name="master">
              <str name="replicateAfter">commit</str>
@@ -80,12 +78,10 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
              <str name="confFiles">schema.xml,stopwords.txt</str>
            </lst>
        -->
-     
            <lst name="slave">
              <str name="masterUrl">http://your-master-hostname:8983/solr</str>
              <str name="pollInterval">00:00:60</str>
            </lst>
-        
     </requestHandler>
     ```
 
@@ -94,16 +90,16 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
     |Parameter name|Description|
     |--------------|-----------|
     |`pollInterval`|Interval in which the slave should poll master .Format is *hh:mm:ss*. If this is missing, the slave server does not poll automatically.|
-    |`masterUrl`|Fully qualified URL for the replication handler of master. Make sure the `masterUrl` ends with <tomcat base url\>/solr/alfresco.|
+    |`masterUrl`|Fully qualified URL for the replication handler of master. Make sure the `masterUrl` ends with <tomcat base url>/solr/alfresco.|
 
-2.  Set the master URL to point to the Solr master. Also, set how often the slave server should poll for changes.
+2. Set the master URL to point to the Solr master. Also, set how often the slave server should poll for changes.
 
     ```bash
     <str name="masterUrl">http://your-master-hostname:8983/solr/alfresco</str>
     <str name="pollInterval">00:00:60</str>
     ```
 
-3.  Set the following properties in the solrcore.properties file:
+3. Set the following properties in the solrcore.properties file:
 
     ```bash
     enable.master=false
@@ -112,7 +108,6 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
 
     In this configuration, the Solr instance will only track model changes from the Alfresco Content Services platform.
 
+## Additional Solr configuration
 
-**Additional Solr configuration**
-
-Any configuration changes related to the core schema and configuration, or any changes in <solr\_home\>/conf must be made to all Solr instances. Replication can be configured to manage the distribution of other core related configuration files.
+Any configuration changes related to the core schema and configuration, or any changes in <solr\_home>/conf must be made to all Solr instances. Replication can be configured to manage the distribution of other core related configuration files.

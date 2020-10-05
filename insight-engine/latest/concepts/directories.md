@@ -5,7 +5,7 @@ After you've installed Alfresco Search and Insight Engine, several directories a
 
 The Search and Insight Engine distribution (alfresco-insight-engine-distribution-2.0.x.zip) contains the following artifacts:
 
--   solrhome directory: This is the Solr configuration directory that is specific to Alfresco. It contains the following sub-folders and files:
+* solrhome directory: This is the Solr configuration directory that is specific to Alfresco. It contains the following sub-folders and files:
 
     |Folder/File|Description|
     |-----------|-----------|
@@ -15,11 +15,11 @@ The Search and Insight Engine distribution (alfresco-insight-engine-distribution
     |solr.xml|This file defines the Solr web application context. For more information see [Format of solr.xml](https://lucene.apache.org/solr/guide/6_6/format-of-solr-xml.html)|
     |data|This folder is generated when a Solr core is created and is where Solr indexes are stored. The default location of the folder is /opt/alfresco-search-services/data.|
 
--   logs directory: This directory contains the Solr-specific logging configuration file.
+* logs directory: This directory contains the Solr-specific logging configuration file.
 
     |Folder/File|Description|
     |-----------|-----------|
-    |log4j.properties|This is the configuration file for Solr-specific logging. The Solr log file can be found at <SOLR\_HOME\>/logs/solr.log.|
+    |log4j.properties|This is the configuration file for Solr-specific logging. The Solr log file can be found at <SOLR\_HOME>/logs/solr.log.|
 
 * solr directory: This directory contains the Solr binaries and runtime Java library files.
 * solr.in.cmd: Use this file to specify additional Solr configuration options for Windows.

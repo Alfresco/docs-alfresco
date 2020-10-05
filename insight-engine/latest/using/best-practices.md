@@ -19,9 +19,9 @@ A general rule of thumb is to divide the total number of documents by 50M (milli
 
 We recommend that existing customers should reindex using the `rerank` core. This has the following benefits:
 
- * Smaller index
- * Better query performance particularly for phrases and stop words
- * Improved cross-language search
+* Smaller index
+* Better query performance particularly for phrases and stop words
+* Improved cross-language search
 
 This should allow the user to store anywhere between 50 million - 80 million documents in a single shard. For more information, see the [Alfresco Platform News](https://www.alfresco.com/blogs/how-alfresco-powered-a-1-2-billion-document-deployment-on-amazon-web-services/) and [Alfresco 1 billion documents press release with Amazon Aurora](https://www.alfresco.com/node/4141).
 

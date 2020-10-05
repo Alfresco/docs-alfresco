@@ -11,16 +11,15 @@ Get a report from a nodeId with the associated `txId` and the indexing status.
 http://localhost:8983/solr/admin/cores?action=nodeReport&nodeid=(nodeid)
 ```
 
--   **`(nodeid)`**
+* **`(nodeid)`**
 
     The Id of the node to get the report.
 
 Optional URL parameters can be added:
 
--   **`core`**
+* **`core`**
 
     The name of the core used to get the report.
-
 
 Sample response.
 
@@ -55,17 +54,15 @@ Get a report from an aclId with the count of documents associated with the ACL.
 http://localhost:8983/solr/admin/cores?action=aclReport&aclid=(aclid)
 ```
 
--   **`(aclid)`**
+* **`(aclid)`**
 
     The Id of the ACL to get the report.
 
-
 Optional URL parameters can be added:
 
--   **`core`**
+* **`core`**
 
     The name of the core used to get the report.
-
 
 Sample response.
 
@@ -96,17 +93,15 @@ Get a report from a txId with detailed information related to the transaction.
 http://localhost:8983/solr/admin/cores?action=txReport&txid=(txid)
 ```
 
--   **`(txid)`**
+* **`(txid)`**
 
     The Id of the transaction to get the report.
 
-
 Optional URL parameters can be added:
 
--   **`core`**
+* **`core`**
 
     The name of the core used to get the report.
-
 
 Sample response.
 
@@ -162,17 +157,15 @@ Get a report from a aclTxId with detailed information related to nodes indexed f
 http://localhost:8983/solr/admin/cores?action=aclTxReport&acltxid=(acltxid)
 ```
 
--   **`acltxid`**
+* **`acltxid`**
 
     The Id of the ACL transaction to get the report.
 
-
 Optional URL parameters can be added:
 
--   **`core`**
+ **`core`**
 
-    The name of the core to get the report.
-
+   The name of the core to get the report.
 
 Sample response.
 

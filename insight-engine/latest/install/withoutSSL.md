@@ -8,7 +8,7 @@ Mutual TLS is used for authentication between the Repository and Search and Insi
 This task assumes you have:
 
 * Installed Alfresco Content Services 6.2 or above, see [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms).
-* Set the following properties in the <TOMCAT\_HOME\>/shared/classes/alfresco-global.properties file:
+* Set the following properties in the <TOMCAT\_HOME>/shared/classes/alfresco-global.properties file:
 
     ```bash
     index.subsystem.name=solr6
@@ -116,7 +116,7 @@ This task assumes you have:
 
     Allow a few minutes for Search and Insight Engine to start indexing.
 
-8. Go to **Admin Console \> Repository Services \> Search Service** and verify that:
+8. Go to **Admin Console > Repository Services > Search Service** and verify that:
 
     1. You see the Solr 6 option in the **Search Service In Use** list.
 

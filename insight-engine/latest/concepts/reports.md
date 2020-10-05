@@ -13,32 +13,29 @@ http://localhost:8983/solr/admin/cores?action=report
 
 Optional URL parameters can be added:
 
--   **`core`**
+* **`core`**
 
     The name of the core used to get the report.
 
--   **`fromTime`**
+* **`fromTime`**
 
     The time from transaction commit to filtering the report results.
 
-
--   **`toTime`**
+* **`toTime`**
 
     The time to transaction commit to filtering the report results.
 
-
--   **`fromTx`**
+* **`fromTx`**
 
     From transaction Id to filtering report results.
 
--   **`toTx`**
+* **`toTx`**
 
     To transaction Id time to filter report results.
 
--   **`toCalTx`**
+* **`toCalTx`**
 
     To ACL tranasction Id to filter transaction Id time to filter report results.
-
 
 Sample response
 
@@ -107,11 +104,11 @@ The **`report`** action compares the database with the index and generates an ov
 * Last TX id before holes: indicates that transactions after this ID will be checked again to make sure they have not been missed. This is computed from the index at start up time. By default, it is set an hour after the last commit time found in the index. Solr tracking, by default, goes back an hour from the current time to check that no transactions have been missed.
 * First duplicate: indicates if there are duplicate transactions in the index. It returns the ID of the first duplicate transaction.
 * First duplicate acl tx: indicates if there are duplicate ACL transactions in the index. It returns the ID of the first duplicate ACL transaction.
-* First transaction in the index but not the DB: if the related count is \> 0, it returns the ID of the first offender.
-* First acl transaction in the index but not the DB: if the related count is \> 0, it returns the ID of the first offender.
-* First transaction missing from the Index: if the related count is \> 0, it returns the ID of the first offender.
-* irst acl transaction missing from the Index: if the related count is \> 0, it returns the ID of the first offender.
-* First duplicate leaf in the index: if the related count is \> 0, it returns the ID of the first offender.
+* First transaction in the index but not the DB: if the related count is > 0, it returns the ID of the first offender.
+* First acl transaction in the index but not the DB: if the related count is > 0, it returns the ID of the first offender.
+* First transaction missing from the Index: if the related count is > 0, it returns the ID of the first offender.
+* irst acl transaction missing from the Index: if the related count is > 0, it returns the ID of the first offender.
+* First duplicate leaf in the index: if the related count is > 0, it returns the ID of the first offender.
 
 ## `summary`
 
@@ -123,25 +120,23 @@ http://localhost:8983/solr/admin/cores?action=summary&core=(coreName)
 
 Optional URL parameters can be added:
 
--   **`detail`**
+* **`detail`**
 
     When true provides statistics per tracking thread.
 
-
--   **`hist`**
+* **`hist`**
 
     When true provides a histogram of the times taken for tracking operations for each tracking thread.
 
--   **`values`**
+* **`values`**
 
     When true adds reports for the last 50 values recorded for each tracking operation for each thread.
 
     > **Note:** This parameter is boolean and when false returns 0 values for each tracking operation for each thread.
 
--   **`reset`**
+* **`reset`**
 
     When true resets all tracking statistics.
-
 
 Sample response
 

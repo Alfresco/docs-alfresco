@@ -3,7 +3,7 @@ title: Setting Solr logging
 ---
 You can set different debug logging levels for Solr components using the Solr log4j properties.
 
-1. Locate the <solrRootDir\>/log4j-solr.properties file.
+1. Locate the <solrRootDir>/log4j-solr.properties file.
 
 2. Edit it to add your required logging setting. For example:
 

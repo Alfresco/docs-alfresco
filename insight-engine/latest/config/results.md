@@ -9,7 +9,7 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
 
 2. Open the share-config.xml file and copy the `<config evaluator="string-compare" condition="Search" replace="true">` section.
 
-3. Open the <web-extension\>\\share-config-custom.xml file and then paste the copied section.
+3. Open the <web-extension>\\share-config-custom.xml file and then paste the copied section.
 
 4. Locate the `<max-search-results>250</max-search-results>` property and then edit the value to your preferred number of search results.
 
@@ -17,7 +17,7 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
 
     1. Navigate to the web scripts Home page.
 
-        For example, go to: http://<your-host\>:8080/share/page/index.
+        For example, go to: http://<your-host>:8080/share/page/index.
 
     2. Click **Refresh Web Scripts**.
 

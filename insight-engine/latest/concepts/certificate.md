@@ -100,7 +100,7 @@ Example:
 
 > **Note:** If you plan to use custom DNames in your certificates, you must use double quotes around the values. For example:
 
-```
+```bash
 $ ./run.sh -cacertdname \ 
 "/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Windows Alfresco CA" \
 -repocertdname "/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Repo" \
@@ -111,12 +111,12 @@ It is recommended that you set your own passwords when generating certificates. 
 
 (For Linux)
 
-```
+```bash
 $ ./run.sh -keystorepass “password" -truststorepass “password"
 ```
 
 (For Windows)
 
-```
+```bash
 run.cmd -keystorepass “password" -truststorepass “password"
 ```

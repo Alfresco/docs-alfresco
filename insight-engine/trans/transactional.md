@@ -8,7 +8,7 @@ The common properties used to configure the transactional metadata query for the
 * `solr.query.cmis.queryConsistency`
 * `solr.query.fts.queryConsistency`
 
-These properties should be set in the TOMCAT\_HOME\>/shared/classes/alfresco-global.properties file.
+These properties should be set in the TOMCAT\_HOME>/shared/classes/alfresco-global.properties file.
 
 The default value for these properties is `TRANSACTIONAL_IF_POSSIBLE`. However, you can override it with any of the following permitted values:
 

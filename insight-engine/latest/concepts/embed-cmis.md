@@ -8,20 +8,20 @@ These examples show how to embed queries in CMIS.
 ```sql
 - strict queries
 SELECT * FROM Document WHERE CONTAINS('\'zebra\'')
-SELECT * FROM Document WHERE CONTAINS('\'quick\'')        
+SELECT * FROM Document WHERE CONTAINS('\'quick\'')
 
-- Alfresco extensions       
+- Alfresco extensions
 SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:\'Tutorial\'')
 SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:\'Tutorial\'')
 ```
 
 ## Search Service
 
-```
+```bash
 ResultSet results = searchService.query(storeRef, SearchService.LANGUAGE_FTS_ALFRESCO, "quick");
 ```
 
-```
+```bash
 SearchService.LANGUAGE_FTS_ALFRESCO = "fts-alfresco"
 ```
 
@@ -61,7 +61,7 @@ template
 {
    field: string,          mandatory, custom field name for the template
    template: string        mandatory, query template replacement for the template
-}   
+}
 ```
 
 For example:

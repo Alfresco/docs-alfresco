@@ -5,7 +5,7 @@ You can limit the time Alfresco Content Services spends on ensuring that the use
 
 You can limit both the time spent and the number of documents checked before Alfresco Content Services returns a search query using the `system.acl.maxPermissionCheckTimeMillis` and the `system.acl.maxPermissionChecks` properties. The default values are 10000 and 1000 respectively.
 
-1. Open the <classpathRoot\>/alfresco-global.properties file.
+1. Open the <classpathRoot>/alfresco-global.properties file.
 
 2. Set the `system.acl.maxPermissionCheckTimeMillis` property.
 

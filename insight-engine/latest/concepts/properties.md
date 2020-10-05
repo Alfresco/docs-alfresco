@@ -1,7 +1,7 @@
 ---
 title: About shared.properties file
 ---
-The <ALFRESCO\_HOME\>/alfresco-insight-engine/solrhome/conf/shared.properties file is used to set configuration that applies to all the cores in a Solr instance.
+The <ALFRESCO\_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties file is used to set configuration that applies to all the cores in a Solr instance.
 
 Most of these settings need to be replicated across all the Solr instances that are a part of the sharded index. However, there are some properties related to dynamic shard registration, such as host and port, which can be set for each machine.
 
@@ -72,7 +72,7 @@ For backward compatibility, this file is absent in Alfresco Content Services 6.2
 
 To configure cross-language search, follow the steps below:
 
-1. Open the <ALFRESCO\_HOME\>/alfresco-insight-engine/solrhome/conf/shared.properties.sample file.
+1. Open the <ALFRESCO\_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties.sample file.
 2. Set the following properties:
 
     ```bash

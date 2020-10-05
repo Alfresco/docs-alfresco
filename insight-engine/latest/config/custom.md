@@ -7,7 +7,7 @@ You can define and create your own custom filters for being displayed on the sea
 
 You can define custom filters in the solr-facets-config-custom.properties file. You can also use this file to override the default filter properties.
 
-1. Navigate to the <classpathRoot\>/alfresco/extension directory.
+1. Navigate to the <classpathRoot>/alfresco/extension directory.
 
 2. Create the solr-facets-config-custom.properties file.
 

@@ -38,38 +38,40 @@ The following object types and their sub-types are supported:
 The `WHERE` and `ORDER BY` clauses support the following property data types and comparisons:
 
 * `string`
-   * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`, `LIKE`
-   * Supports ordering for single-valued properties
+  * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`, `LIKE`
+  * Supports ordering for single-valued properties
     For example:
 
     ```sql
     select * from cmis:document where cmis:name <> 'fred' order by cmis:name
     ```
+
 * `integer`
-   * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
-   * Supports ordering for single-valued properties
+  * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
+  * Supports ordering for single-valued properties
 
 * `double`
-   * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
-   * Supports ordering for single-valued properties
-*  `float`
-   * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
-   * Supports ordering for single-valued properties
-*   `boolean`
-   *  Supports properties and comparisons, such as `=` and `<>`
-   *  Supports ordering for single-valued properties
-*  `id`
-   * Supports `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId`, `cmis:parentId`, `=`, `<>`, `IN`, `NOT IN`
-   * Ordering using a property, which is a CMIS identifier, is not supported
-*  `datetime`
-    -   Supports all properties and comparisons `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
-    -   Supports ordering for single-valued properties
+  * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
+  * Supports ordering for single-valued properties
+* `float`
+  * Supports all properties and comparisons, such as `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
+  * Supports ordering for single-valued properties
+* `boolean`
+  * Supports properties and comparisons, such as `=` and `<>`
+  * Supports ordering for single-valued properties
+* `id`
+  * Supports `cmis:objectId`, `cmis:baseTypeId`, `cmis:objectTypeId`, `cmis:parentId`, `=`, `<>`, `IN`, `NOT IN`
+  * Ordering using a property, which is a CMIS identifier, is not supported
+* `datetime`
+  * Supports all properties and comparisons `=`, `<>`, `<`, `<=`, `>=`, `>`, `IN`, `NOT IN`
+  * Supports ordering for single-valued properties
     For example:
 
     ```sql
     select * from cmis:document where cmis:lastModificationDate = '2010-04-01T12:15:00.000Z' order by
      cmis:creationDate ASC
     ```
+
 > **Note:** While the CMIS URI data type is not supported, multi-valued properties and multi-valued predicates as defined in the CMIS specification are supported. For example,
 
 ```sql
@@ -86,17 +88,17 @@ A predicate specifies a condition that is true or false about a given row or gr
 
     > **Note:** Prefixed expressions perform better and should be used where possible.
 
-*   `NULL` predicate 
-*   Quantified comparison predicate (`= ANY`)
-*   Quantified IN predicate (`ANY .... IN (....)`)
-*   `IN_FOLDER` predicate function
+* `NULL` predicate 
+* Quantified comparison predicate (`= ANY`)
+* Quantified IN predicate (`ANY .... IN (....)`)
+* `IN_FOLDER` predicate function
 
 ## Unsupported predicates
 
 The following predicates are not supported:
 
- * TEXT search predicate, such as `CONTAINS()` and `SCORE()` 
- * `IN_TREE()` predicate
+* TEXT search predicate, such as `CONTAINS()` and `SCORE()` 
+* `IN_TREE()` predicate
 
 ## Supported logical operators
 

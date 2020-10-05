@@ -5,26 +5,26 @@ Alfresco Content Services 6.2 provides support for Document Fingerprints to find
 
 Document Fingerprints can be used to find similar content in general or biased towards containment. The language adds a new `FINGERPRINT` keyword:
 
-```
+```bash
 FINGERPRINT:<DBID | NODEREF | UUID>
 ```
 
 By default, this will find documents that have any overlap with the source document. The `UUID` option is likely to be the most useful as `UUID` is present in the public API. To specify a minimum amount of overlap, use:
 
-```
+```bash
 FINGERPRINT:<DBID | NODEREF | UUID>_<%overlap>
 FINGERPRINT:<DBID | NODEREF | UUID>_<%overlap>_<%probability>
 ```
 
 To find documents that have 20% overlap with the document 1234, use:
 
-```
+```bash
 FINGERPRINT:1234_20
 ```
 
 To execute a faster query that will be 80% confident anything brought back will overlap by 20%, use:
 
-```
+```bash
 FINGERPRINT:1234_20_80
 ```
 

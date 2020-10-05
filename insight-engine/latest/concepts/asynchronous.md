@@ -29,28 +29,25 @@ http://localhost:8983/solr/admin/cores?action=purge
 
 The optional URL parameters that can be added:
 
--   **`core`**
+* **`core`**
 
     The name of the core to be purged.
 
--   **`txid`**
+* **`txid`**
 
     The number of the transaction to purge.
 
-
--   **`acltxid`**
+* **`acltxid`**
 
     The number of the ACL transaction to purge.
 
-
--   **`nodeId`**
+* **`nodeId`**
 
     The number of the node to purge.
 
--   **`aclid`**
+* **`aclid`**
 
     The number of the ACL to purge.
-
 
 ## `reindex`
 
@@ -64,38 +61,35 @@ http://localhost:8983/solr/admin/cores?action=reindex
 
 The optional URL parameters that can be added:
 
--   **`core`**
+* **`core`**
 
     The name of the core to be rendexed.
 
--   **`txid`**
+* **`txid`**
 
     The number of the transaction to reindex.
 
-
--   **`acltxid`**
+* **`acltxid`**
 
     The number of the ACL transaction to reindex.
 
-
--   **`nodeId`**
+* **`nodeId`**
 
     The number of the node to reindex.
 
--   **`aclid`**
+* **`aclid`**
 
     The number of the ACL to purge.
 
--   **`query`**
+* **`query`**
 
     The SOLR query to reindex the results, for example `cm:name:A*`.
-
 
 ## `retry`
 
 Reindex every node marked as ERROR in a core or in every core. Error mode Ids are included in the response for every core.
 
-```
+```http
 http://localhost:8983/solr/admin/cores?action=retry 
 ```
 
@@ -103,12 +97,11 @@ http://localhost:8983/solr/admin/cores?action=retry
 
 The optional URL parameter that can be added:
 
--   **`core`**
+* **`core`**
 
     The name of the core to be retried.
 
-
-```
+```json
 {
   "responseHeader": {
     "QTime": 1,
@@ -125,7 +118,7 @@ The optional URL parameter that can be added:
 
 Find transactions and ACLs missing or duplicated in the cores and add them to be reindexed on the next maintenance operation performed by `MetadataTracker` and `AclTracker` transactions. ACLs to be reindexed are included in the response.
 
-```
+```http
 http://localhost:8983/solr/admin/cores?action=fix
 ```
 
@@ -133,51 +126,50 @@ http://localhost:8983/solr/admin/cores?action=fix
 
 The optional URL parameters that can be added:
 
--   **`core`**
+* **`core`**
 
     The name of the core to be fixed.
 
--   **`dryRun`**
+* **`dryRun`**
 
     This optional parameter when set to true generates a health report but reindex work is not scheduled. When set to false reindex work is scheduled. The default value is `true`.
 
--   **`fromTxCommitTime`**
+* **`fromTxCommitTime`**
 
     This optional parameter indicates the lower bound (the minimum transaction commit time) of the target transactions that you want to check or fix.
 
--   **`toTxCommitTime`**
+* **`toTxCommitTime`**
 
     This optional parameter indicates the upper bound (the maximum transaction commit time) of the target transactions that you want to check or fix.
 
-
 Sample `scheduled` response
 
-```
+```json
 {
   {
-     "responseHeader": {    
-         "QTime": 1,   
+     "responseHeader": {
+         "QTime": 1,
          "status": 0
-  },   
-  "action": {     
-      "status": "scheduled",     
-      "txToReindex": {        
-        "txInIndexNotInDb": {              
-             "192": 282  <- Tx 192 is associated to 282 nodes (they will be deleted)        
+  },
+  "action": {
+      "status": "scheduled",
+      "txToReindex": {
+        "txInIndexNotInDb": {
+             "192": 282  <- Tx 192 is associated to 282 nodes (they will be deleted)
              "827": 99   <- Tx 827 is associated to 99 nodes (they will be deleted)
               ...
-         },        
+         },
         "duplicatedTx": {
-             "992": 8  <- Tx 992 is associated to 8 nodes (they will be deleted)              
+             "992": 8  <- Tx 992 is associated to 8 nodes (they will be deleted)
              "127": 82   <- Tx 127 is associated to 82 nodes (they will be deleted)
              ...
-        },        
+        },
         "missingTx": {
              "888": 84  <- Tx 888 is associated to 84 nodes (they will be added/replaced in the index)
              "929": 12   <- Tx 929 is associated to 12 nodes (they will be added/replaced in the index)
              ...
         }
-      }, 
+      },
       "aclChangeSetToReindex": {
             // Provides the same subsection as txToReindex, 
             // ACLTXID -> ACLs counts instead of TXID -> DBID   
@@ -189,20 +181,20 @@ Sample `scheduled` response
 
 Starts the tracking process. The following syntax enables indexing on all (master or standalone) cores:
 
-```
+```http
 http://localhost:8983/solr/admin/cores?action=enable-indexing 
 ```
 
 If you call the REPORT action there will be additional information returned
 
-```
+```http
 <str name="ACL Tracker>enabled</str> 
 <str name="Metadata Tracker>enabled</str>
 ```
 
 If you call the SUMMARY action there will be additional information returned
 
-```
+```http
 <bool name="ACLTracker Enabled">true</str>
 <bool name="MetadataTracker Enabled">true</str>
 <bool name="ContentTracker Enabled">true</str>
@@ -211,10 +203,9 @@ If you call the SUMMARY action there will be additional information returned
 
 The URL parameters that can be used:
 
--   **`core` (Optional)**
+* **`core` (Optional)**
 
     The name of the core. In the instance that it is missing the command is applied to all master or standalone cores.
-
 
 ## `disable-indexing`
 
@@ -222,20 +213,20 @@ Stops the tracking process. The following syntax disables indexing on all (maste
 
 > **Note:** If tracking has started and this command is used then a rollback of all the trackers is performed. To start tracking again, use ENABLED-INDEXING.
 
-```
+```http
 http://localhost:8983/solr/admin/cores?action=disable-indexing 
 ```
 
 If you call the REPORT action there will be additional information returned
 
-```
+```bash
 <str name="ACL Tracker>enabled</str> 
 <str name="Metadata Tracker>enabled</str>
 ```
 
 If you call the SUMMARY action there will be additional information returned
 
-```
+```bash
 <bool name="ACLTracker Enabled">true</str>
 <bool name="MetadataTracker Enabled">true</str>
 <bool name="ContentTracker Enabled">true</str>
@@ -244,10 +235,6 @@ If you call the SUMMARY action there will be additional information returned
 
 The URL parameters that can be used:
 
--   **`core` (Optional)**
+* **`core` (Optional)**
 
     The name of the core. In the instance that it is missing the command is applied to all master or standalone cores.
-
-
-**Parent topic:**[Alfresco SOLR Admin REST API](../concepts/alfresco-solr-admin-rest-api.md)
-

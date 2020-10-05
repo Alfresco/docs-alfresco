@@ -5,9 +5,9 @@ The Solr Admin Web interface allows you to view Solr configuration details, run 
 
 All Solr URLs, which are bundled within Alfresco Content Services, are protected by SSL. To use these URLs from a browser, you need to import a browser-compatible keystore to allow mutual authentication and decryption to work. The following steps describe how to import the keystore into your browser (these relate to Firefox, other browsers will have a similar mechanism):
 
-1. Open the FireFox **Certificate Manager** by selecting **Firefox \> Preferences... \> Advanced \> Certificates \> View Certificates \> Your Certificates**.
+1. Open the FireFox **Certificate Manager** by selecting **Firefox > Preferences > Advanced > Certificates > View Certificates > Your Certificates**.
 
-2. Import the browser keystore `browser.p12` that is located in your <ALFRESCO\_HOME\>/alf\_data/keystore directory.
+2. Import the browser keystore `browser.p12` that is located in your <ALFRESCO\_HOME>/alf\_data/keystore directory.
 
 3. Enter the password `alfresco`.
 

@@ -48,14 +48,13 @@ Use this to expand the range for a shard configured with the `DB_ID_RANGE` metho
 http://localhost:8983/solr/admin/cores?action=expand&coreName=(coreName)&add=(add)
 ```
 
--   **`(coreName)`**
+* **`(coreName)`**
 
     The name of the core you want to expand.
 
--   **`(add)`**
+* **`(add)`**
 
     The count of the DB ID numbers to be added to the range.
-
 
 Sample successful response:
 

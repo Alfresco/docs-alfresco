@@ -8,7 +8,7 @@ There are advantages and disadvantages of using a master-slave and master-master
 ### Advantages
 
 * Splits read and write load and operations
-*  Load distribution for search queries
+* Load distribution for search queries
 * High availability for searching
 * Any number of slave instances can be created to scale query performance
 * Usually less frequent index updates on the slaves and better use of the cache
@@ -30,8 +30,9 @@ There are advantages and disadvantages of using a master-slave and master-master
 |In a master-master replication, the master nodes can't be configured to perform differently in different situations.|In the master-slave replication, the master and slave nodes can be configured to perform better under different situations. For example, the master node can be configured for optimal indexing performance, while the slave node can be configured for optimal search performance.|
 |Neither the master-master replication nor the master-slave replication includes any inbuilt functionality to switch Solr targets, in case one node fails.|Neither the master-master replication nor the master-slave replication includes any inbuilt functionality to switch Solr targets, in case one node fails.|
 |If a master node went down, the load balancer will direct all the query requests to a Solr node that was still running.|If a slave node went down, the same load-balancer behaviour would be relied on. But if the master node went down, then intervention would be required to:-   Designate a new master
--   Point the slaves to that new master
--   Point the new master to the repository
+
+* Point the slaves to that new master
+* Point the new master to the repository
 
 |
 | |Requires an additional master node, so has slightly higher pre-requisites.|

@@ -7,13 +7,13 @@ The first patch does not support boolean, float or double properties, and disjun
 
 The second patch adds the database support for TMDQ equivalent to an out-of-the-box Alfresco One 5.1 install. Some CMIS QL use cases where `OR` would be used are supported by using `IN`. In Alfresco One 5.1 and later versions, these restrictions go away after applying all TMDQ optional patches. The database size will be approximately 25% larger with all indexes applied.
 
-To use or run a query against the `float`, `double`, or `boolean` property data types, you need to run an optional patch that adds the required indexes to the database. To do so, set the following property in the TOMCAT\_HOME\>/shared/classes/alfresco-global.properties file:
+To use or run a query against the `float`, `double`, or `boolean` property data types, you need to run an optional patch that adds the required indexes to the database. To do so, set the following property in the TOMCAT\_HOME>/shared/classes/alfresco-global.properties file:
 
 ```bash
 system.metadata-query-indexes-more.ignored=false 
 ```
 
-When using all other data types (such as `string`, `integer`, `id`, or `datetime`), to enable the patch that adds the required indexes to the database, set the following property in the TOMCAT\_HOME\>/shared/classes/alfresco-global.properties file:
+When using all other data types (such as `string`, `integer`, `id`, or `datetime`), to enable the patch that adds the required indexes to the database, set the following property in the TOMCAT\_HOME>/shared/classes/alfresco-global.properties file:
 
 ```bash
 system.metadata-query-indexes.ignored=false 

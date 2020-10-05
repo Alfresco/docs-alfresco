@@ -3,11 +3,11 @@ title: Solr master-slave reconfiguration
 ---
 There are additional master-slave configuration requirements for Solr, such as adding a slave server and promoting a slave server.
 
-**Adding a slave server**
+## Adding a slave server
 
 To add another slave server to an existing replication configuration, see [Configuring Solr slave](solr-replication-conf.md#slave).
 
-**Promoting a slave**
+## Promoting a slave
 
 In the event of a downed master in a master-slave configuration, the slave servers can continue to service queries, but will no longer be able to index until a new master is instated. The process of promoting a slave to a master is manual. The state of slave servers may differ, so choose the most up-to-date slave to promote as the master server.
 
@@ -41,15 +41,13 @@ To promote a slave, follow the steps below:
            sections below, depending on whether this solr instance should be
            the "master" or a "slave".  If this instance is a "slave" you will 
            also need to fill in the masterUrl to point to a real machine.
-        --> 
-           
+        -->
            <lst name="master">
              <str name="replicateAfter">commit</str>
              <str name="replicateAfter">startup</str>
              <str name="confFiles">schema.xml,stopwords.txt</str>
            </lst>
-    
-        <!--
+       <!--
            <lst name="slave">
              <str name="masterUrl">http://your-master-hostname:8983/solr</str>
              <str name="pollInterval">00:00:60</str>

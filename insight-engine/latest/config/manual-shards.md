@@ -7,7 +7,7 @@ You can control the distribution of your index by creating, configuring, and reg
 
 An index can be distributed over several Solr nodes by creating and configuring shards. This can be achieved in three steps. First, the Solr nodes (i.e. instances of Alfresco Content Services) must be started, second the shards must be created, and finally Alfresco Content Services must be configured to point to the Solr nodes.
 
-1. Set the configuration properties that apply to all the cores in a Solr instance in the <ALFRESCO\_HOME\>/alfresco-insight-engine/solrhome/conf/shared.properties file.
+1. Set the configuration properties that apply to all the cores in a Solr instance in the <ALFRESCO\_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties file.
 
     For shard registration, Alfresco Content Services needs to know the Solr port where the requests should be sent. This can be configured, along with an explicit host name.
 
@@ -16,7 +16,7 @@ An index can be distributed over several Solr nodes by creating and configuring 
     solr.port=8983
     ```
 
-    These properties will be used when registering all cores found under the <SOLR\_HOME\> directory. For more information, see [About shared.properties file](../concepts/solr-shared-properties.md).
+    These properties will be used when registering all cores found under the <SOLR\_HOME> directory. For more information, see [About shared.properties file](../concepts/solr-shared-properties.md).
 
     Once the basic configuration is [complete](../concepts/solr-config-files.md#) then start the Solr nodes.
 
@@ -24,7 +24,7 @@ An index can be distributed over several Solr nodes by creating and configuring 
 
 ### Example: Creating shards
 
-    Let's consider an example for creating 8 shards, 3 instances of each shard, and 6 Solr nodes. As shown below, each node will get 4 different shards.
+Let's consider an example for creating 8 shards, 3 instances of each shard, and 6 Solr nodes. As shown below, each node will get 4 different shards.
 
     ||Shard 0|Shard 1|Shard 2|Shard 3|Shard 4|Shard 5|Shard 6|Shard 7|
     |--|-------|-------|-------|-------|-------|-------|-------|-------|
@@ -72,7 +72,7 @@ An index can be distributed over several Solr nodes by creating and configuring 
     |nodeInstance|Specifies the Solr node instance being configured.|`6`|
     |numNodes|Returns the total number of Solr nodes.|`6`|
     |coreName|Specifies the name of the Solr core.|`alfresco`|
-    |property.<\>|Specifies the property and its value.|`property.data.dir.store=...`|
+    |property.<>|Specifies the property and its value.|`property.data.dir.store=...`|
 
 3. Configure Alfresco Content Services by setting the Solr subsystem properties.
 
@@ -99,8 +99,4 @@ An index can be distributed over several Solr nodes by creating and configuring 
 
     > **Note:** These properties can also be configured via a JMX client or using the subsystem properties to reference the composite beans.
 
-    Some important things to know:
-
-* If the host, port, or URL is missing, the subsystem default values (the ones set for a single index) will be used.
-* Make sure that the hosts are in the correct order. This is because Solr assumes that the shards are located on node 1, etc. as defined in the above list when generating queries.
-* At query time, a Solr core is selected at random to do the distribution of all shards, again, selected at random.
+> **Note:** If the host, port, or URL is missing, the subsystem default values (the ones set for a single index) will be used. Ensure the hosts are in the correct order. This is because Solr assumes that the shards are located on node 1, etc. as defined in the above list when generating queries. At query time, a Solr core is selected at random to do the distribution of all shards, again, selected at random.
