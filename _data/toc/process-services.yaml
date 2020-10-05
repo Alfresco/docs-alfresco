@@ -9,8 +9,6 @@
       path: '/process-services/latest/upgrade/'
     - title: "Configure"
       path: '/process-services/latest/config/'
-    - title: "Administer"
-      path: '/process-services/latest/admin/'
     - title: 'Using'
       pages:
         - title: 'Introduction'
@@ -43,4 +41,14 @@
             path: '/process-services/latest/using/rules/'
           - title: 'Data Models'
             path: '/process-services/latest/using/models/'
+    - title: "Administer"
+      path: '/process-services/latest/admin/'
+    - title: "Develop"
+      pages:
+        - title: 'Architecture'
+          path: '/process-services/latest/develop/architecture/'
+        - title: 'Developing extensions'
+          path: '/process-services/latest/develop/dev-ext/'
+        - title: 'ReST API'
+          path: '/process-services/latest/develop/rest-api/'
 

@@ -1,24 +1,53 @@
 ---
-title: Upgrade Desktop Sync
+title: Upgrade Process Services
 ---
 
-You'll be notified when a newer version of Desktop Sync is provided by your IT team. 
-This is shown as a notification in the system tray (Windows) or in the menu bar (Mac).
+You can upgrade from earlier versions to Process Services.
 
-When a new version of Desktop Sync is available to install, a warning icon is displayed.
+>**Note:** Before upgrading, you should back up your database and properties files, such as `activiti-app.properties`.
 
-1. Click the notification or select one of the following options:
+There are two methods for upgrading:
 
-    * (Windows) Right-click the system tray icon and select **Update client**.
-    * (Mac) Click the menu bar icon and select **Update client**.
-    
-    The new installer is downloaded to your local **Downloads** folder.
+* Using the Process Services installation wizard
+* Using the WAR file distribution
 
-2. Once the download completes, then the installer starts automatically.
+>**Important:** If you integrate Process Services with Alfresco Content Services then be aware that from version 1.11 only repositories on version 5.2 and later are supported. Upgrade to a later version of Alfresco Content Services before updating Process Services to continue using this functionality.
 
-3. Follow the steps in [Installing Desktop Sync]({% link desktop-sync/latest/install/index.md %}) to complete the installation.
+## Upgrading using the Process Services installer
 
-    >**Note:**
-    >
-    >* If the download fails, then a notification is shown. Re-try the installer download to continue.
-    >* If you choose to defer the update, or the install doesn't complete, then the notification is repeated daily, and each time that the app is restarted.
+You can use the Process Services installation wizard to upgrade to the latest version. The process is similar to 
+installing for the first time. For more details, see the [Installing using setup wizards]({% link process-services/latest/install/index.md %}#install-using-setup-wizards) section.
+
+Follow these steps to upgrade:
+
+1. Double-click the Process Services installation wizard.
+2. Follow the instructions to install the latest version of Process Services.
+3. After the installation is complete, copy the `activiti.lic` file to the Process Services installation directory: `<Install>/tomcat/lib` folder.
+
+Alternatively, copy the license to your home directory using the terminal (OSX) or command prompt (Windows):
+
+```bash
+ ~/.activiti/enterprise-license/
+or
+C:\.activiti\enterprise-license
+```
+
+>**Tip**: You can also upload a license from the user interface. See the [Uploading a license file]({% link process-services/latest/install/index.md %}#install-license) section for more details.
+
+## Upgrading using the WAR file
+
+You can upgrade using the WAR file in your application server distribution. These instructions use the WAR file from 
+the Apache Tomcat based distribution, however you can choose from different distributions for various application servers.
+
+Review the [Supported Stacks](https://www.alfresco.com/services/subscription/supported-platforms) list to see what’s supported.
+
+Follow these steps to upgrade using the War file:
+
+1.  Stop the web server running the application.
+2.  Deploy the new WAR file in your web server by placing it in the `/webapps` folder in Tomcat.
+3.  Boot up the web server and start Process Services to check if it’s working as expected.
+
+Any database upgrade changes should have now been applied.
+
+>**Note:** See the [Installing manually]({% link process-services/latest/install/index.md %}#install-manually) section for more details.
+
