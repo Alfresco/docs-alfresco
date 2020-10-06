@@ -42,4 +42,4 @@ When you load a video in Alfresco Share, if you receive the message `Could not c
 
 ## Failure loading images or video in Alfresco Share
 
-If you do not have FFmpeg or ImageMagick available to Java, then you will not be able to view images and video in Alfresco Share. Ensure that Java has FFmpeg and ImageMagick on its command line path, or define the path location in your `alfresco-global.properties` file. See See [step 7 of Installing Media Management](../install/index.md) for information on how to set these in the `alfresco-global.properties` file.
+If you do not have FFmpeg or ImageMagick available to Java, then you will not be able to view images and video in Alfresco Share. Ensure that Java has FFmpeg and ImageMagick on its command line path, or define the path location in your `alfresco-global.properties` file. See See [step 7 of Installing Media Management]({% link media-management/1.3/install/index.md %}) for information on how to set these in the `alfresco-global.properties` file.

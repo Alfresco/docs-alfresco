@@ -94,6 +94,6 @@ The four main architectural areas are:
 7. Image Transformation Response (POJO) sent to Alfresco repository.
 8. Target content sent to Alfresco repository.
 
-For more information on launching a content services node, see [Start Media Management]({$ link media-management/1.3/config/start.md $}).
+For more information on launching a content services node, see [Start Media Management]({% link media-management/1.3/config/start.md %}).
 
 For more information on advanced ActiveMQ settings, see [Configuring advanced settings in ActiveMQ](LINK).

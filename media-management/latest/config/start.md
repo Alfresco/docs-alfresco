@@ -248,7 +248,7 @@ These instructions are for a Unix environment only and use an `init.d` script. F
 
 5. Modify the `config.yml` file to specify your environment settings, for example, your ActiveMQ host name if it is on a different server:
 
-    ```bash
+    ```yaml
     messaging:
     broker:
       url: tcp://localhost:61616

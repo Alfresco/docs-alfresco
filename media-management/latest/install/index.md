@@ -35,7 +35,7 @@ Download and install the Media Management AMP files, and add Media Management pr
     * `amps-repository`: contains one AMP file to be applied to the Alfresco Content Services repository
     * `amps-share`: contains one AMP file to be applied to Alfresco Share
     * `remote-node`: contains content services node software and configuration file
-    If you are using the recommended [Media Management architecture]({% link media-management/latest/index.md %}), the `activemq`, `amps-repository` and `amps-share` folders reside on the Alfresco Content Services server, and you must move the `remote-node` folder to your remote server.
+    If you are using the recommended [Media Management architecture]({% link media-management/latest/index.md %}#media-management-architecture), the `activemq`, `amps-repository` and `amps-share` folders reside on the Alfresco Content Services server, and you must move the `remote-node` folder to your remote server.
 
 3. Install the repository AMP file. Navigate to the `amps-repository` directory and copy the following file to the `amps` folder.
 
@@ -45,7 +45,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     `alfresco-mm-share-1.4.x.amp`
 
-5. Delete the tomcat\webapps\alfresco and tomcat\webapps\share folders in the Alfresco Content Services installation directory.
+5. Delete the `tomcat\webapps\alfresco` and `tomcat\webapps\share` folders in the Alfresco Content Services installation directory.
 
 6. Navigate to the bin directory and run the Module Management Tool (MMT) file to install the repository AMP files:
 
@@ -83,7 +83,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     1. If you have ActiveMQ on a separate server, configure the host and port number for ActiveMQ:
 
-        ```xml
+        ```bash
         # Messaging broker, default is localhost
         messaging.broker.url=failover:(tcp://broker1:61616,tcp://broker2:61616)
         ```
@@ -94,7 +94,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     2. Configure FFmpeg and ExifTool if they are not already available on the command line executable path:
 
-        ```xml
+        ```bash
         # FFmpeg executable path, default is ffmpeg
         ffmpeg.exe=
 
@@ -104,7 +104,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     3. If you want to preview raw images, set the following properties in the `alfresco-global.properties` file.
 
-        ```xml
+        ```bash
         transformer.strict.mimetype.check=true
         transformer.strict.mimetype.check.whitelist.mimetypes=image/x-raw-adobe
         ```
@@ -117,7 +117,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     Specify the ActiveMQ host name and prefetch policy (to ensure that transformations can be processed in parallel):
 
-    ```xml
+    ```bash
     messaging:
     broker:
       url: tcp://localhost:61616?jms.prefetchPolicy.queuePrefetch=1
@@ -125,7 +125,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     The content services node uses ImageMagick and FFmpeg and requires that the executable directories are available on the system PATH variable or are specified using `img.exe` and `ffmpeg.exe` system properties.
 
-    For more information about the recommended architecture for Media Management, see [Media Management architecture]({% link media-management/latest/index.md %}). For information about the content services framework, see [Content services node architecture]({% link media-management/latest/index.md %}).
+    For more information about the recommended architecture for Media Management, see [Media Management architecture]({% link media-management/latest/index.md %}#media-management-architecture). For information about the content services framework, see [Content services node architecture]({% link media-management/latest/index.md %}#content-services-node-architecture).
 
 10. Restart the server.
 

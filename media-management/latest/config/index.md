@@ -14,38 +14,38 @@ You can configure Media Management using the alfresco-global.properties file or 
 
     |Property|Description|
     |--------|-----------|
-    |`ffmpeg.exe=`|Sets the FFmpeg executable path. Default is ffmpeg. Remember to use the forward slash (/) in your path if you are using Unix, and back slash (\) if you are using Windows.|
-    |`exiftool.exe=`|Sets the ExifTool executable path. Default is exiftool. Remember to use the forward slash (/) in your path if you are using Unix, and back slash (\) if you are using Windows.|
-    |`messaging.broker.url=failover: (tcp://broker1:61616,tcp://broker2:61616)`|Sets the host name and port of the ActiveMQ instance. Default is localhost|
-    |`content.remote.default.contentRefHandler. source.type=`|Sets the shared content workspace for source. Type can be file or s3|
-    |`content.remote.default.contentRefHandler. source.file.dir=`|If you are using a file type for the shared content workspace, specify the file directory.|
-    |`content.remote.default.contentRefHandler. source.s3.bucketName=`|If you are using S3 for the shared content workspace, specify the S3 bucket.|
-    |`content.remote.default.contentRefHandler. target.s3.bucketRegion=`|If you are using S3 for the shared content workspace, specify the S3 bucket region.|
-    |`content.remote.default.contentRefHandler. target.s3.accessKey=`|If you are using S3 for the shared content workspace, specify the S3 access key.|
-    |`content.remote.default.contentRefHandler. target.s3.secretKey=`|If you are using S3 for the shared content workspace, specify the S3 secret key.|
-    |`content.transformer.AwsElasticTranscoder. s3.accessKey=`|If you are using the AWS Elastic Transcoder content transformer, specify the S3 access key.|
-    |`content.transformer.AwsElasticTranscoder. s3.secretKey=`|If you are using the AWS Elastic Transcoder content transformer, specify the S3 secret key.|
-    |`content.transformer.AwsElasticTranscoder. s3.bucketName=`|If you are using the AWS Elastic Transcoder content transformer, specify the S3 bucket.|
-    |`content.transformer.AwsElasticTranscoder. s3.bucketRegion=`|If you are using the AWS Elastic Transcoder content transformer, specify the S3 bucket region. Default is `us-east-1`|
-    |`content.transformer.AwsElasticTranscoder. transcoder.accessKey=`|If you are using the AWS Elastic Transcoder content transformer, specify the transcoder access key.|
-    |`content.transformer.AwsElasticTranscoder. transcoder.secretKey=`|If you are using the AWS Elastic Transcoder content transformer, specify the transcoder secret key.|
-    |`content.transformer.AwsElasticTranscoder. transcoder.pipelineId=`|If you are using the AWS Elastic Transcoder content transformer, specify the transcoder pipeline identifier.|
-    |`content.transformer.AwsElasticTranscoder. transcoder.region`|If you are using the AWS Elastic Transcoder content transformer, specify the transcoder region. Default is `us-east-1`|
-    |`content.transformer.AwsElasticTranscoder. transcoder.defaultPreset.video/mp4=`|If you are using the AWS Elastic Transcoder content transformer, specify the transcoder preset for video and MP4. Default is `1351620000001-000010`|
-    |`metadata.extracter.TikaExifTool.extract. namespace.prefix.custom=`|URL used by external applications to read XMP custom metadata. Example entry is `http://example.com/model/custom/1.0`|
-    |`metadata.extracter.TikaExifTool.extract. XMP-custom\:Text=`|Type of field for extraction of single lines of XMP custom metadata. Example value is `custom:text`|
-    |`metadata.extracter.TikaExifTool.extract. XMP-custom\:TextML[]=`|Type of field for extraction of multiple lines of XMP custom metadata. Example value is `custom:textMultiLine`|
-    |`content.metadataExtracter.default. timeoutMs=`|Maximum time for extracting content metadata to complete. Default is 60000 milliseconds \(60 seconds\).|
-    |`video.thumbnail.defaultOffset=`|The offset time before creating a video thumbnail. Default is `00:00:00.5`.|
-    |`video.thumbnail.storyboardIntervalSeconds=`|Time interval between video thumbnails. Default is 2 seconds.|
-    |`video.thumbnail.storyboardMaxElements=`|Maximum number of video thumbnails. Default is 30 elements.|
-    |`system.videoProxy.definition.default. timeoutMs=`|Maximum time for a video proxy to complete. Parameter is used by the `h264-720` proxy. Default is 64800000 milliseconds (18 hours).|
+    |ffmpeg.exe=|Sets the FFmpeg executable path. Default is ffmpeg. Remember to use the forward slash (/) in your path if you are using Unix, and back slash (\) if you are using Windows.|
+    |exiftool.exe=|Sets the ExifTool executable path. Default is exiftool. Remember to use the forward slash (/) in your path if you are using Unix, and back slash (\) if you are using Windows.|
+    |messaging.broker.url=failover: (tcp://broker1:61616,tcp://broker2:61616)|Sets the host name and port of the ActiveMQ instance. Default is localhost|
+    |content.remote.default.contentRefHandler. source.type=|Sets the shared content workspace for source. Type can be file or s3|
+    |content.remote.default.contentRefHandler. source.file.dir=|If you are using a file type for the shared content workspace, specify the file directory.|
+    |content.remote.default.contentRefHandler. source.s3.bucketName=|If you are using S3 for the shared content workspace, specify the S3 bucket.|
+    |content.remote.default.contentRefHandler. target.s3.bucketRegion=|If you are using S3 for the shared content workspace, specify the S3 bucket region.|
+    |content.remote.default.contentRefHandler. target.s3.accessKey=|If you are using S3 for the shared content workspace, specify the S3 access key.|
+    |content.remote.default.contentRefHandler. target.s3.secretKey=|If you are using S3 for the shared content workspace, specify the S3 secret key.|
+    |content.transformer.AwsElasticTranscoder. s3.accessKey=|If you are using the AWS Elastic Transcoder content transformer, specify the S3 access key.|
+    |content.transformer.AwsElasticTranscoder. s3.secretKey=|If you are using the AWS Elastic Transcoder content transformer, specify the S3 secret key.|
+    |content.transformer.AwsElasticTranscoder. s3.bucketName=|If you are using the AWS Elastic Transcoder content transformer, specify the S3 bucket.|
+    |content.transformer.AwsElasticTranscoder. s3.bucketRegion=|If you are using the AWS Elastic Transcoder content transformer, specify the S3 bucket region. Default is `us-east-1`|
+    |content.transformer.AwsElasticTranscoder. transcoder.accessKey=|If you are using the AWS Elastic Transcoder content transformer, specify the transcoder access key.|
+    |content.transformer.AwsElasticTranscoder. transcoder.secretKey=|If you are using the AWS Elastic Transcoder content transformer, specify the transcoder secret key.|
+    |content.transformer.AwsElasticTranscoder. transcoder.pipelineId=|If you are using the AWS Elastic Transcoder content transformer, specify the transcoder pipeline identifier.|
+    |content.transformer.AwsElasticTranscoder. transcoder.region|If you are using the AWS Elastic Transcoder content transformer, specify the transcoder region. Default is `us-east-1`|
+    |content.transformer.AwsElasticTranscoder. transcoder.defaultPreset.video/mp4=|If you are using the AWS Elastic Transcoder content transformer, specify the transcoder preset for video and MP4. Default is `1351620000001-000010`|
+    |metadata.extracter.TikaExifTool.extract. namespace.prefix.custom=|URL used by external applications to read XMP custom metadata. Example entry is `http://example.com/model/custom/1.0`|
+    |metadata.extracter.TikaExifTool.extract. XMP-custom\:Text=|Type of field for extraction of single lines of XMP custom metadata. Example value is `custom:text`|
+    |metadata.extracter.TikaExifTool.extract. XMP-custom\:TextML[]=|Type of field for extraction of multiple lines of XMP custom metadata. Example value is `custom:textMultiLine`|
+    |content.metadataExtracter.default. timeoutMs=|Maximum time for extracting content metadata to complete. Default is 60000 milliseconds \(60 seconds\).|
+    |video.thumbnail.defaultOffset=|The offset time before creating a video thumbnail. Default is `00:00:00.5`.|
+    |video.thumbnail.storyboardIntervalSeconds=|Time interval between video thumbnails. Default is 2 seconds.|
+    |video.thumbnail.storyboardMaxElements=|Maximum number of video thumbnails. Default is 30 elements.|
+    |system.videoProxy.definition.default. timeoutMs=|Maximum time for a video proxy to complete. Parameter is used by the `h264-720` proxy. Default is 64800000 milliseconds (18 hours).|
 
     You can also set where you want each of your transformations to take place: locally, with the remote content services node, or with a remote transformer like Elastic Transcoder, and in what order the transformations should be attempted. The default settings are appropriate for most configurations.
 
     The full list of remote properties, with their default values, that you can override in your `alfresco-global.properties` file is as follows:
 
-    ```xml
+    ```bash
     # mimetypes ffmpeg can be made to support, but support not present in many environments
     content.transformer.Ffmpeg.extensions.3gp.*.supported=false
     content.transformer.Ffmpeg.extensions.3g2.*.supported=false
@@ -104,7 +104,7 @@ You can configure Media Management using the alfresco-global.properties file or 
 
     The priority settings define which type of transformation will be tried first. The lower the number, the higher the priority. For example, if the default settings are used, video to video transcoding would have these settings:
 
-    ```xml
+    ```bash
     content.transformer.RemoteVideo.mimetypes.video/*.video/*.priority=50
     content.transformer.AwsElasticTranscoder.mimetypes.video/*.video/mp4.priority=110
     content.transformer.Ffmpeg.mimetypes.video/*.video/*.priority=150
@@ -135,7 +135,7 @@ Ensure that you have installed the required external and internal software. See 
 
 2. Edit your `alfresco-global.properties` file to specify your source and target content workspace type, and the location of your source and target directories, for example:
 
-    ```xml
+    ```bash
     content.remote.default.contentRefHandler.source.type=file
     content.remote.default.contentRefHandler.source.file.dir=
     content.remote.default.contentRefHandler.target.type=file
@@ -177,7 +177,7 @@ Ensure that you have installed the required external and internal software. See 
 
 2. Edit your `alfresco-global.properties` file to specify your source and target content workspace type, source and target S3 keys, and S3 bucket information, for example:
 
-    ```xml
+    ```bash
     content.remote.default.contentRefHandler.source.type=s3
     content.remote.default.contentRefHandler.source.s3.bucketName=
     content.remote.default.contentRefHandler.source.s3.bucketRegion=
@@ -225,7 +225,7 @@ This information helps you to configure Alfresco to communicate with AWS Elastic
 
 Edit the `alfresco-global.properties` file to turn off content service node transformations for certain file (MIME) types, for example, video to video, video to audio, and image to image:
 
-```xml
+```bash
 content.transformer.RemoteVideo.mimetypes.video/*.video/*.supported=false
 content.transformer.RemoteVideo.mimetypes.video/*.audio/*.supported=false
 content.transformer.RemoteImage.mimetypes.image/*.image/*.supported=false
@@ -244,7 +244,7 @@ Ensure that you have installed the required external and internal software befor
 
 2. Edit your `alfresco-global.properties` file to specify your Elastic Transcoder S3 access key, S3 keys, S3 bucket, and Elastic Transcoder information, for example:
 
-    ```xml
+    ```bash
     content.transformer.AwsElasticTranscoder.s3.accessKey=**MY-S3-ACCESS-KEY**
     content.transformer.AwsElasticTranscoder.s3.secretKey=**MY-S3-SECRET-KEY**
     content.transformer.AwsElasticTranscoder.s3.bucketName=**MY-S3-BUCKET-NAME**
@@ -313,7 +313,7 @@ Ensure that you have installed the required external and internal software befor
 
 2. Edit your `alfresco-global.properties` file to specify your custom metadata properties, for example:
 
-    ```xml
+    ```bash
     metadata.extracter.TikaExifTool.extract.namespace.prefix.cm=http://www.alfresco.org/model/content/1.0
     metadata.extracter.TikaExifTool.extract.namespace.prefix.custom=http://example.com/model/custom/1.0
     metadata.extracter.TikaExifTool.extract.XMP-custom\:Text=custom:text
@@ -342,7 +342,7 @@ Storyboard thumbnails are images shown at regular intervals along the timeline o
 
 2. Edit your `alfresco-global.properties` file to specify when the thumbnails start, the interval and number of thumbnails shown in a timeline, for example:
 
-    ```xml
+    ```bash
     video.thumbnail.defaultOffset=00:00:00.5
     video.thumbnail.storyboardIntervalSeconds=2
     video.thumbnail.storyboardMaxElements=30
