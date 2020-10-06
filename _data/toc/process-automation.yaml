@@ -1,0 +1,23 @@
+# Process Automation
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/process-automation/latest/'
+    - title: 'Model'
+      pages:
+        - title: 'Overview'
+          path: '/process-automation/latest/model/'
+        - title: 'Projects'
+          path: '/process-automation/latest/model/projects/'
+        - title: 'Processes'
+          path: '/process-automation/latest/model/processes/'
+        - title: 'BPMN'
+          path: '/process-automation/latest/model/bpmn/'
+        - title: 'Forms'
+          path: '/process-automation/latest/model/forms/'
+        - title: 'Decision tables'
+          path: '/process-automation/latest/model/decisions/'
+        - title: 'Content connector'
+          path: '/process-automation/latest/model/content/'
+
+
