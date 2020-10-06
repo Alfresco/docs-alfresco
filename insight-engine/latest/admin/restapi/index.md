@@ -1,7 +1,6 @@
 ---
-title: Error handling in transform router
----
-## Alfresco SOLR Admin REST API
+title: Alfresco SOLR Admin REST API
+--- 
 
 In addition to default SOLR Core Admin API actions, Alfresco SOLR provides several actions that can be executed via HTTP requests that specify an action parameter, with additional action specific arguments provided as additional parameters.
 

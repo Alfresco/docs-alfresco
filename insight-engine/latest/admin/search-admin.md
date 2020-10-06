@@ -11,5 +11,3 @@ There are a number of ways to back up Alfresco Search and Insight Engine. You ca
 You can set different debug logging levels for Solr components using the Solr log4j properties.
 -   **[Solr monitoring and troubleshooting](../concepts/solr-monitor-troubleshoot.md)**  
 Help for monitoring and resolving any Solr index issues that might arise as a result of a transaction.
-
-

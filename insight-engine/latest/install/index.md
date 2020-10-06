@@ -12,3 +12,11 @@ You may choose to secure Search and Insight Engine with SSL.
 **Important:** Alfresco strongly recommends that you use firewalls and other infrastructure means to ensure that the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
 You can download the Search and Insight Engine installation file from the Alfresco Support Portal: [http://support.alfresco.com](http://support.alfresco.com/). Click Downloads, and then select the version of the product you require.
+
+## Prerequisites and supported platforms
+
+The supported platforms are the combinations of operating systems, databases, and application servers that are tested and certified for Alfresco Content Services.
+
+Before you install Alfresco Search and Insight Engine you must install Alfresco Content Services 6.2 or later. You can install Search and Insight Engine using the distribution zip and docker compose, but the docker compose method of installation is only for development and test environments.
+
+See [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms) for information about prerequisites and requirements.

@@ -1,8 +1,6 @@
 ---
 title: Installing using Docker compose
 ---
-# Deploying Search and Insight Engine using Docker Compose
-
 Use this information to start up Alfresco Content Services 6.2 or above and Alfresco Search and Insight Engine 2.0 using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
 **Prerequisites**
