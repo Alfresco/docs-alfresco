@@ -892,25 +892,1235 @@ ${userInfoBean.getPrimaryGroup(123)}
 ```
 
 ### Hook points
+
+A *hook point* is a place where custom logic can be added. Typically this is done by implementing a certain 
+interface and putting the class implementing the interface on the classpath where it can be found by the classpath 
+component scanning (package `com.activiti.extension.bean` for example).
+
 #### Login/LogoutListener
+
+**interface**: `com.activiti.api.security.LoginListener` and `com.activiti.api.security.LogoutListener`
+
+**Maven module**: `activiti-app-logic`
+
+An implementation of this class will get a callback when a user logs in or logs out.
+
+Example:
+
+```java
+package com.activiti.extension.bean;
+
+@Component
+public class MyLoginListener implements LoginListener {
+    private static final Logger logger = LoggerFactory.getLogger(GfkLoginListener.class);
+
+    public void onLogin(User user) {
+            logger.info("User " + user.getFullName() + " has logged in");
+    }
+}
+```
+
 #### Process engine configuration configurer
+
+**interface**: `com.activiti.api.engine.ProcessEngineConfigurationConfigurer`
+
+**Maven module**: `activiti-app-logic`
+
+An implementation of this class will get called when the Activiti process engine configuration is initialized, 
+but before the process engine is built. This allows for customization to the process engine configuration.
+
+Example:
+
+```java
+@Component
+public class MyProcessEngineCfgConfigurer implements ProcessEngineConfigurationConfigurer {
+    public void processEngineConfigurationInitialized( SpringProcessEngineConfiguration springProcessEngineConfiguration) {
+            ...​ // Tweaking the process engine configuration
+    }
+}
+```
+
 #### Rule engine configuration configurer
+
+**interface**: `com.activiti.api.engine.DmnEngineConfigurationConfigurer`
+
+**Maven module**: `activiti-app-logic`
+
+An implementation of this class will get called when the Process Services rule engine configuration is initialized, 
+but before the process engine is built. This allows for customization to the rule engine configuration.
+
+Example:
+
+```java
+@Component
+public class MyDmnEngineCfgConfigurer implements DmnEngineConfigurationConfigurer {
+    public void dmnEngineConfigurationInitialized(DmnEngineConfiguration dmnEngineConfiguration) {
+            ... // Tweaking the rule engine configuration
+    }
+}
+```
+
 #### Process Engine event listeners
+
+It is possible to listen to events fired by the Process Engine. By default (and if enabled) there is a listener 
+that captures these events, processes them before sending them to Elasticsearch (which is used for analytics). 
+If the event data should be going somewhere else, for example an external BI warehouse, the following interface should 
+be implemented and can be used to execute any logic when the event is fired.
+
+See the *example apps* folder that comes with Process Services. It has a *jdbc-event-listener* folder, in which a 
+Maven project can be found that captures these events and stored them relationally in another database.
+
+**interface**: `com.activiti.service.runtime.events.RuntimeEventListener`
+
+**Maven module**: `activiti-app-logic`
+
+All implementations exposing this interface will be injected into the process engine at run time.
+
+Example:
+
+```java
+package com.activiti.extension.bean;
+
+import com.activiti.service.runtime.events.RuntimeEventListener;
+import org.activiti.engine.delegate.event.ActivitiEvent;
+
+@Component
+public class PostgresEventListener implements RuntimeEventListener {
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public void onEvent(ActivitiEvent activitiEvent) {
+        // TODO: handle event here
+    }
+
+    @Override
+    public boolean isFailOnException() {
+        return false;
+    }
+}
+```
+
 #### Processing document generation variables
+
+**interface**: `com.activiti.api.docgen.TemplateVariableProcessor`
+
+**Maven module**: `activiti-app-logic`
+
+This section describes the implementation of the document generation task for generating a document based on a 
+MS Word docx template.
+
+An implementation of this class will get called before the variable is passed to the template processor, 
+making it possible to change the value that will be used as the variable name in the template.
+
+Example:
+
+```java
+@Component
+public class MyTemplateVariableProcessor implements TemplateVariableProcessor {
+    public Object process(RuntimeDocumentTemplate runtimeDocumentTemplate, DelegateExecution execution, String variableName, Object value) {
+            return value.toString() + "___" + "HELLO_WORLD";
+    }
+}
+```
+
+Using the above example, you can add *"HELLO_WORLD"* to all variable usages in the template. However, you can also 
+add sophisticated implementations based on process definition lookup using the process definition ID from the 
+execution and inject the `RepositoryService` in your bean.
+
+In addition to the process definition, the `runtimeDocumentTemplate` is passed to distinguish for which process and 
+template the variables are being prepared.
+
+>**Note:** Only variables with the format `variables.get("myVariable")` in the .docx template will be passed to the `TemplateVariableProcessor` implementation.
+
 #### Business Calendar
+
+Use the business calendar when calculating due dates for tasks.
+
+You can override the default business calendar implementation, for example, to include bank holidays, company holidays, 
+and so on. To override the default implementation, add a Spring bean implementing the `com.activiti.api.calendar.BusinessCalendarService` 
+to the classpath with the `@Primary` notation.
+
+Check the Javadoc on the `BusinessCalendarService` for more information.
+
+```java
+@Primary
+@Service
+public class MyBusinessCalendarService implements BusinessCalendarService {
+
+  ...
+
+}
+```
+
+Below is an example implementation that takes weekend days into account when calculating due dates.
+
+```java
+@Primary
+@Service
+public class SkipWeekendsBusinessCalendar implements BusinessCalendarService {
+
+    protected static final int DAYS_IN_WEEK = 7;
+    protected List<Integer> weekendDayIndex;
+
+    protected DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+    public SkipWeekendsBusinessCalendar() {
+
+        // add Saturday and Sunday as weekend days
+        weekendDayIndex.add(6);
+        weekendDayIndex.add(7);
+    }
+
+    public Date addToDate(Date date, int years, int months, int days, int hours, int minutes, int seconds) {
+        return calculateDate(new DateTime(date), years, months, days, hours, minutes, seconds, 1);
+    }
+
+    public Date subtractFromDate(Date date, int years, int months, int days, int hours, int minutes, int seconds) {
+        return calculateDate(new DateTime(date), years, months, days, hours, minutes, seconds, -1);
+    }
+
+    protected Date calculateDate(DateTime relativeDate, int years, int months, int days, int hours, int minutes, int seconds, int step) {
+        // if date is on a weekend skip to a working day
+        relativeDate = skipWeekEnds(relativeDate, step);
+        Period period = new Period(years, months, 0, days, hours, minutes, seconds, 0);
+
+        // add weekends to period
+        period = period.plusDays(countWeekEnds(relativeDate, period, step));
+
+        // add/subtract period to get the final date, again if date is on a weekend skip to a working day
+        return skipWeekEnds(addPeriod(relativeDate, period, step), step).toDate();
+    }
+
+    protected DateTime addPeriod(DateTime relativeDate, Period period, int step) {
+        if (step < 0) {
+            return relativeDate.minus(period);
+        }
+        return relativeDate.plus(period);
+    }
+
+    protected DateTime skipWeekEnds(DateTime relativeDate, int step) {
+        while(weekendDayIndex.contains(relativeDate.getDayOfWeek())) {
+            relativeDate = relativeDate.plusDays(step);
+        }
+        return relativeDate;
+    }
+
+    protected int countWeekEnds(DateTime relativeDate, Period period, int step) {
+        // get number of days between two dates
+        int days = Math.abs(Days.daysBetween(relativeDate, addPeriod(relativeDate, period, step)).getDays());
+        int count = 0;
+
+        for(int weekendDay : weekendDayIndex) {
+            count+=countWeekDay(relativeDate, weekendDay, days, step);
+        }
+        return count;
+    }
+
+    protected int countWeekDay(DateTime relativeDate, int weekDay, int days, int step) {
+        int count = 0;
+        DateTime dt = relativeDate.toDateTime();
+
+        // if date's day of week is not the target day of week
+        // skip to target day of week
+        if(weekDay != relativeDate.getDayOfWeek()) {
+            int daysToSkip = 0;
+
+            if (step > 0) {
+                if (weekDay > relativeDate.getDayOfWeek()) {
+                    daysToSkip = weekDay - relativeDate.getDayOfWeek();
+                } else {
+                    daysToSkip = weekDay - relativeDate.getDayOfWeek() + DAYS_IN_WEEK;
+                }
+            } else {
+                if (weekDay > relativeDate.getDayOfWeek()) {
+                    daysToSkip = Math.abs(weekDay - relativeDate.getDayOfWeek() - DAYS_IN_WEEK);
+                } else {
+                    daysToSkip = relativeDate.getDayOfWeek() - weekDay;
+                }
+            }
+
+            // return if target day of week is beyond range of days
+            if (daysToSkip > days) {
+                return 0;
+            }
+
+            count++;
+            dt = dt.plusDays(daysToSkip * step);
+            days-=daysToSkip;
+        }
+
+        if (days>=DAYS_IN_WEEK) {
+            dt = dt.plusDays(days * step);
+            count+=(Weeks.weeksBetween(relativeDate, dt).getWeeks() * step);
+        }
+
+        return count;
+    }
+
+    @Override
+    public DateFormat getStringVariableDateFormat() {
+        return dateFormat;
+    }
+```
+
 ### Custom REST endpoints
+
+It’s possible to add custom REST endpoints to the BPM Suite, both in the regular REST API (used by the BPM Suite 
+html/javascript UI) and the *public* API (using basic authentication instead of cookies).
+
+The REST API is built using Spring MVC. Please check the 
+[Spring MVC documentation](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html) 
+on how to create new Java beans to implement REST endpoints.
+
+To build against the REST logic of Process Services and its specific dependencies, add following dependency to 
+your Maven `pom.xml` file:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.activiti</groupId>
+        <artifactId>activiti-app-rest</artifactId>
+        <version>${suite.version}</version>
+    </dependency>
+</dependencies>
+```
+
+A very simple example is shown below. Here, the Process Services `TaskService` is injected and a custom response is 
+fabricated. Of course, this logic can be anything.
+
+```java
+package com.activiti.extension.rest;
+
+import com.activiti.domain.idm.User;
+import com.activiti.security.SecurityUtils;
+import org.activiti.engine.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/rest/my-rest-endpoint")
+public class MyRestEndpoint {
+    @Autowired
+    private TaskService taskService;
+
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    public MyRestEndpointResponse executeCustonLogic() {
+        User currentUser = SecurityUtils.getCurrentUserObject();
+        long taskCount = taskService.createTaskQuery().taskAssignee(String.valueOf(currentUser.getId())).count();
+
+        MyRestEndpointResponse myRestEndpointResponse = new MyRestEndpointResponse();
+        myRestEndpointResponse.setFullName(currentUser.getFullName());
+        myRestEndpointResponse.setTaskCount(taskCount);
+        
+        return myRestEndpointResponse;
+    }
+
+    private static final class MyRestEndpointResponse {
+        private String fullName;
+        private long taskCount;
+        
+        // Getters and setters
+    }
+}
+```
+
+>**Note.** The bean needs to be in the `com.activiti.extension.rest` package to be found.
+
+Create a jar containing this class, and add it to the classpath.
+
+A class like this in the `com.activiti.extension.rest` package will be added to the rest endpoints for the application 
+(e.g. for use in the UI), which use the cookie approach to determine the user. **The url will be mapped under /app**. 
+So, if logged in into the UI of the BPM Suite, one could go to `http://localhost:8080/activiti-app/app/rest/my-rest-endpoint` 
+and see the result of the custom rest endpoint:
+
+```json
+{"fullName":" Administrator","taskCount":8}
+```
+
+To add a custom REST endpoint to the *public REST API*, protected by basic authentication, a similar class should 
+be placed in the `com.activiti.extension.api package`:
+
+```java
+package com.activiti.extension.api;
+
+import com.activiti.domain.idm.User;
+import com.activiti.security.SecurityUtils;
+import org.activiti.engine.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/enterprise/my-api-endpoint")
+public class MyApiEndpoint {
+    @Autowired
+    private TaskService taskService;
+
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    public MyRestEndpointResponse executeCustonLogic() {
+        User currentUser = SecurityUtils.getCurrentUserObject();
+        long taskCount = taskService.createTaskQuery().taskAssignee(String.valueOf(currentUser.getId())).count();
+
+        MyRestEndpointResponse myRestEndpointResponse = new MyRestEndpointResponse();
+        myRestEndpointResponse.setFullName(currentUser.getFullName());
+        myRestEndpointResponse.setTaskCount(taskCount);
+        
+        return myRestEndpointResponse;
+    }
+
+    private static final class MyRestEndpointResponse {
+        private String fullName;
+        private long taskCount;
+
+        // Getters and setters
+    }
+}
+```
+
+Note that the endpoint needs to have `/enterprise` as first element in the url, as this is configured in the 
+`SecurityConfiguration` to be protected with basic authentication (more specific, the `api/enterprise/*` is).
+
+Which can be accessed like the regular API:
+
+```bash
+curl -u admin@app.activiti.com:password http://localhost:8080/activiti-app/api/enterprise/my-api-endpoint
+
+{"fullName":" Administrator","taskCount":8}
+```
+
+>**Note:** Due to classloading, it is currently not possible to put jars with these custom rest endpoints in the global or common classpath (for example `tomcat/lib` for Tomcat). They should be put in the web application classpath (for example `WEB-INF/lib`).
+
 ### Custom rule expression functions
+
+The rule engine uses MVEL as an expression language. In addition to the built-in MVEL expression functions there are 
+some additional custom expression functions provided. These are accessible through the structured expression editor 
+within the decision table editor.
+
+The provided custom methods can be overridden by your own custom expression functions or custom methods can be added. 
+This is possible via a hook point in the rule engine configuration 
+(see [Rule engine configuration configurer](#rule-engine-configuration-configurer)).
+
+You can configure the Engine with additional expression functions by implementing `CustomExpressionFunctionRegistry`.
+
+**interface**: `com.activiti.dmn.engine.impl.mvel.config.CustomExpressionFunctionRegistry`
+
+**Maven module**: `activiti-dmn-engine`
+
+Example:
+
+```java
+import com.activiti.dmn.engine.CustomExpressionFunctionRegistry;
+import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+
+@Component
+public class MyCustomExpressionFunctionsRegistry implements CustomExpressionFunctionRegistry {
+
+    public Map<String, Method> getCustomExpressionMethods() {
+        Map<String,Method> myCustomExpressionMethods = new HashMap<>();
+
+        try {
+            String expressionToken = "dosomething";
+            Method customExpressionMethod = SomeClass.class.getMethod("someMethod", String.class);
+            myCustomExpressionMethods.put(expressionToken, customExpressionMethod);
+        } catch (NoSuchMethodException e) {
+            // handle exception
+        }
+
+        return myCustomExpressionMethods;
+    }
+}
+```
+
+This registry must be provided to the rule engine configuration using the hook point 
+(see [Rule engine configuration configurer](#rule-engine-configuration-configurer)).
+
+This example adds the expression function from the example above to the default custom expression functions.
+
+Example:
+
+```java
+import com.activiti.dmn.engine.DmnEngineConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class MyDmnEngineCfgConfigurer implements DmnEngineConfigurationConfigurer {
+    @Autowired
+    MyCustomExpressionFunctionsRegistry myExpressionFunctionRegistry;
+
+    public void dmnEngineConfigurationInitialized(DmnEngineConfiguration dmnEngineConfiguration) {
+        dmnEngineConfiguration.setPostCustomExpressionFunctionRegistry(myExpressionFunctionRegistry);
+    }
+}
+```
+
+Overriding the default custom expression functions can be done by:
+
+```java
+dmnEngineConfiguration.setCustomExpressionFunctionRegistry(myExpressionFunctionRegistry);
+```
+
 ## Custom Data Models
+
+You can create Custom Data Models that connect to external sources and perform custom data operations 
+when working with entity objects.
+
+Implement `AlfrescoCustomDataModelService` to manage operations such as insert, update, and select data in Custom Data Models.
+
+**interface**: `com.activiti.api.datamodel.AlfrescoCustomDataModelService`
+
+**maven module**: `activiti-app-logic`
+
+Follow these steps to implement the `AlfrescoCustomDataModelService` interface:
+
+1.  Create an external class named `AlfrescoCustomDataModelServiceImpl` and add it to the classpath.
+
+    Note that it should be in a package that can be scanned, such as `com.activiti.extension.bean`.
+
+2.  Implement the class as follows:
+
+    ```java
+    package com.activiti.extension.bean;
+    
+    import java.util.List;
+    
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.stereotype.Service;
+    
+    import com.activiti.api.datamodel.AlfrescoCustomDataModelService;
+    import com.activiti.model.editor.datamodel.DataModelDefinitionRepresentation;
+    import com.activiti.model.editor.datamodel.DataModelEntityRepresentation;
+    import com.activiti.runtime.activiti.bean.datamodel.AttributeMappingWrapper;
+    import com.activiti.variable.VariableEntityWrapper;
+    import com.fasterxml.jackson.databind.ObjectMapper;
+    import com.fasterxml.jackson.databind.node.ObjectNode;
+    
+    @Service
+    public class AlfrescoCustomDataModelServiceImpl implements AlfrescoCustomDataModelService {
+    
+        @Autowired
+        protected ObjectMapper objectMapper;
+    
+        @Override
+        public String storeEntity(List<AttributeMappingWrapper> attributeDefinitionsAndValues, DataModelEntityRepresentation entityDefinition,
+                DataModelDefinitionRepresentation dataModel) {
+            // save entity data and return entity id
+        }
+    
+        @Override
+        public ObjectNode getMappedValue(DataModelEntityRepresentation entityValue, String mappedName, Object variableValue) {
+            // fetch entity data and return as an ObjectNode
+        }
+    
+        @Override
+        public VariableEntityWrapper getVariableEntity(String keyValue, String variableName, String processDefinitionId, DataModelEntityRepresentation entityValue) {
+            // fetch entity data and return as a VariableEntityWrapper
+        }
+    
+    }
+    ```
+
+This implementation of `AlfrescoCustomDataModelServiceImpl` class is called, for example, when a select, insert, or 
+update operation on a custom data model is performed.
+
 ## Custom reports
+
+There are a number of out-of-the-box reports in the Analytics app, which can be augmented with your own custom reports.
+
+Custom reports have full access to the Elasticsearch indexes generated by Process Services when it is enabled.
+
+See [Event processing for analytics]({% link process-services/latest/config/index.md %}#event-processing-for-analytics) 
+for details on how to configure events to be sent to Elasticsearch.
+
+The following section assumes that you have a reasonable understanding of what Elasticsearch is and an understanding 
+of indexes, types and type mappings. The [Elasticsearch Definitive Guide](https://www.elastic.co/guide/en/elasticsearch/guide/1.x/index.html) 
+is a great learning resource if you are new to the engine and there is also a [Reference Guide](https://www.elastic.co/guide/en/elasticsearch/reference/1.7/index.html) 
+which you should find helpful to refer to as you start using it directly yourself.
+
 ### Implementing custom reports
+
+Assuming that you have started to see some data show up in the ElasticSearch store and therefore in the out-of-the-box 
+reports, and you have used the Sense tool or cURL to develop some custom search queries of your own, you are ready to 
+start implementing the custom Spring bean required in order to plug the report into the Process Services UI.
+
+1.  Basic concepts
+
+    A custom report is a custom section available in the Analytics app and also within each published app, which shows one or more custom reports.
+
+    Each report is implemented by a Spring bean which is responsible for two things:
+
+    1.  Perform an ElasticSearch search query using the Java client API.
+
+    2.  Convert the search results (hits or aggregations) into chart or table data and add this to the response.
+
+    The UI will automatically display the correct widgets based on the data that your bean sends.
+
+2.  Bean implementation
+
+    Your Spring bean will be discovered automatically via annotations but must be placed under the package `com.activiti.service.reporting`. Since this package is used for the out-of-the-box reports it is recommended that custom reports use the sub-package such as `com.activiti.service.reporting.custom`.
+
+    The overall structure of the class will be as follows, for the full source please see the web link at the end of this section.
+
+    ```java
+    package com.activiti.service.reporting.custom;
+    
+    import com.activiti.domain.reporting.ParametersDefinition;
+    import com.activiti.domain.reporting.ReportDataRepresentation;
+    import com.activiti.service.api.UserCache;
+    import com.activiti.service.reporting.AbstractReportGenerator;
+    import org.activiti.engine.ProcessEngine;
+    import org.elasticsearch.client.Client;
+    import org.springframework.stereotype.Component;
+    
+    import java.util.Map;
+    
+    @Component(CustomVariablesReportGenerator.ID)
+    public class CustomVariablesReportGenerator extends AbstractReportGenerator {
+    
+        public static final String ID = "report.generator.fruitorders";
+        public static final String NAME = "Fruit orders overview";
+    
+        @Override
+        public String getID() {
+            return ID;
+        }
+    
+        @Override
+        public String getName() {
+            return NAME;
+        }
+    
+        @Override
+        public ParametersDefinition getParameterDefinitions(Map<String, Object> parameterValues) {
+            return new ParametersDefinition();
+        }
+    
+        @Override
+        public ReportDataRepresentation generateReportData(ProcessEngine processEngine,
+                                                           Client elasticSearchClient, String indexName, UserCache userCache,
+                                                           Map<String, Object> parameterMap) {
+    
+            ReportDataRepresentation reportData = new ReportDataRepresentation();
+    
+            // Perform queries and add report data here
+    
+            return reportData;
+        }
+    ```
+
+    You must implement the `generateReportData()` method which is declared abstract in the superclass, and you can choose to override the `getParameterDefinitions()` method if you need to collect some user-selected parameters from the UI to use in your query.
+
+3.  Implementing `generateReportData()`
+
+    The `generateReportData()` method of your bean is responsible for two things:
+
+    * Perform one or more ElasticSearch queries to fetch report data
+
+    * Populate chart/table data from the query results
+
+    A protected helper method `executeSearch()` is provided which provides a concise syntax to execute an ElasticSearch search query given a query and optional aggregation, the implementation of which also provides logging of the query generated by the Java client API before it is sent. This can help with debugging your queries using Sense, or assist you in working out why the Java client is not generating the query you expect.
+
+    ```java
+    return executeSearch(elasticSearchClient,
+                    indexName,
+                    ElasticSearchConstants.TYPE_VARIABLES,
+                    new FilteredQueryBuilder(
+                            new MatchAllQueryBuilder(),
+                            FilterBuilders.andFilter(
+                                    new TermFilterBuilder("processDefinitionKey", PROCESS_DEFINITION_KEY),
+                                    new TermFilterBuilder("name._exact_name", "customername")
+                            )
+                    ),
+                    AggregationBuilders.terms("customerOrders").field("stringValue._exact_string_value")
+            );
+    ```
+
+    The log4j configuration required to log queries being sent to ElasticSearch via `executeSearch()` is as follows
+
+    ```text
+    log4j.logger.com.activiti.service.reporting.AbstractReportGenerator=DEBUG
+    ```
+
+    Alternatively you can manually execute any custom query directly via the `Client` instance passed to the `generateReportData()` method, for example:
+
+    ```java
+    return elasticSearchClient
+                    .prepareSearch(indexName)
+                    .setTypes(ElasticSearchConstants.TYPE_PROCESS_INSTANCES)
+                    .setQuery(new FilteredQueryBuilder(new MatchAllQueryBuilder(), applyStatusProcessFilter(status)))
+                    .addAggregation(
+                            new TermsBuilder(AGGREGATION_PROCESS_DEFINITIONS).field(EventFields.PROCESS_DEFINITION_ID)
+                                    .subAggregation(new FilterAggregationBuilder(AGGREGATION_COMPLETED_PROCESS_INSTANCES)
+                                            .filter(new ExistsFilterBuilder(EventFields.END_TIME))
+                                            .subAggregation(new ExtendedStatsBuilder(AGGREGATION_STATISTICS).field(EventFields.DURATION))));
+    ```
+
+    Generating chart data from queries can be accomplished easily using the converters in the `com.activiti.service.reporting.converters` package. This avoids the need to iterate over returned query results in order to populate chart data items.
+
+    Initially two converters `AggsToSimpleChartBasicConverter` and `AggsToMultiSeriesChartConverter` are provided to populate data for pie charts (which take a single series of data) and bar charts (which take multiple series) respectively. These two classes are responsible for iterating over the structure of the ES data, while the member classes of `com.activiti.service.reporting.converters.BucketExtractors` are responsible for extracting an actual value from the buckets returned in the data.
+
+    ```java
+    ReportDataRepresentation reportData = new ReportDataRepresentation();
+    
+    PieChartDataRepresentation pieChart = new PieChartDataRepresentation();
+    pieChart.setTitle("No. of orders by customer");
+    pieChart.setDescription("This chart shows the total number of orders placed by each customer");
+    
+    new AggsToSimpleChartBasicConverter(searchResponse, "customerOrders").setChartData(
+            pieChart,
+            new BucketExtractors.BucketKeyExtractor(),
+            new BucketExtractors.BucketDocCountExtractor()
+    );
+    
+    reportData.addReportDataElement(pieChart);
+    
+    SingleBarChartDataRepresentation chart = new SingleBarChartDataRepresentation();
+    chart.setTitle("Total quantities ordered per month");
+    chart.setDescription("This chart shows the total number of items that were ordered in each month");
+    chart.setyAxisType("count");
+    chart.setxAxisType("date_month");
+    
+    new AggsToMultiSeriesChartConverter(searchResponse, "ordersByMonth").setChartData(
+            chart,
+            new BucketExtractors.DateHistogramBucketExtractor(),
+            new BucketExtractors.BucketAggValueExtractor("totalItems")
+    );
+    
+    reportData.addReportDataElement(chart);
+    ```
+
+    For more details see the full source on the [activiti-custom-reports](https://github.com/Alfresco/activiti-custom-reports) GitHub project.
+
 ## Cookie configuration
+
+Process Services uses an HTTP cookie to store a user session. You can use multiple cookies for different browsers and 
+devices. The application uses a database table to store the cookie values (called *tokens* internally), 
+to allow a shared persistent session store in a multi-node setup.
+
+It’s possible to change the settings regarding cookies:
+
+|Property|description|default|
+|--------|-----------|-------|
+|security.cookie.max-age|The maximum age of a cookie, expressed in seconds. The max-age determines the period in which the browser will send the cookie with the requests.|2678400 (31 days)|
+|security.cookie.refresh-age|The age of a cookie before it is refreshesd. Refreshing means a new token will be created and a new cookie will be returned which the browser will use for subsequent requests. Setting the refresh-age low, will result in many new database rows when the user is using the application.To avoid that a user is suddenly logged out when using the application when reaching the max-age above, tokens are refreshed after this period (expressed in seconds).|86400 (1 day)|
+
+By default, cookies will have the *secure* flag set, when the request being made is HTTPS. If you only want to use 
+the remember-me cookie over HTTPS (i.e. make the *secure* flag mandatory), set the following property to true:
+
+|Property|default|
+|--------|-------|
+|security.cookie.always-secure|false|
+
+To avoid that the persistent token table gets too full, a background job periodically removes obsolete cookie token 
+values. Possible settings:
+
+|Property|description|default|
+|--------|-----------|-------|
+|security.cookie.database-removal.max-age|The maximum age an entry in the database needs to have to be removed.|Falls back to the `security.cookie.max-age` setting if not found. This effectively means that cookies which are no longer valid could be removed immediately from the database table.|
+|security.cookie.database-removal.cronExpression|The cron expression determining when the obsolete database table entries for the cookie values will be checked for removal.|`0 0 1 * * ?` (01:00 at night)|
+
 ## Custom identity synchronization
-### Example implementation
+
+Process Services needs user, group, and membership information in its database. The main reason is performance 
+(for example quick user/group searches) and data consistency (for example models are linked to users through foreign keys). 
+In the Process Services logic, this is typically referred to as Identity Management (IDM).
+
+Out of the box, all IDM data is stored directly in the database. So when you create a user or group as a tenant 
+administrator, the data ends up in the database tables.
+
+However, typically, the users/groups of a company are managed in a centralized data store such as LDAP (or Active Directory). 
+Process Services can be configured to connect to such a server and synchronize the IDM data to the database table.
+
+See [External Identity Management (LDAP/Active Directory)]({% link process-services/latest/using/identity.md %}) for more information on how 
+to set this up. The basic idea behind it is that the LDAP server will periodically be polled and the IDM data in the 
+database tables will be synchronized: created, updated or deleted depending on what the LDAP server returns and what 
+currently is in the database tables.
+
+This section describes what is needed to have a similar synchronization of IDM data coming from another source. 
+The `com.activiti.service.idm.LdapSyncService` responsible for synchronizing IDM data from an LDAP/Active Directory store, 
+uses the same hook points as the ones described below and can thus be seen as an advanced example.
+
+### Example implementation {#customidmexampleimpl}
+
+Create a simple example synchronization service that demonstrates clearly the concepts and classes to be used. 
+In this example, use a simple text file to represent our *external IDM source*. The `users.txt` looks as follows 
+(each line is a user and user data is separated by semi-colons):
+
+```text
+jlennon;John;Lennon;john@beatles.com;johnpassword;10/10/2015
+rstarr;Ringo;Starr;ringo@beatles.com;ringopassword;11/10/2015
+gharrison;George;Harrison;george@beatles.com;georgepassword;12/10/2015
+pmccartney;Paul;McCartney;paul@beatles.com;paulpassword;13/10/2015
+```
+
+The `groups.txt` file is similar (the group name followed by the member ids and a timestamp):
+
+```text
+beatles:jlennon;rstarr;gharrison;pmccartney:13/10/2015
+singers:jlennon;pmccartney:17/10/2015
+```
+
+The application expects *one* instance implementing the `com.activiti.api.idm.ExternalIdmSourceSyncService` interface 
+to be configured when synchronizing with an external IDM source. This interface requires a few methods to either 
+synchronous or asynchronous do a full or differential sync. In a full sync, all data is looked at and compared. 
+A differential sync only returns what has changed since a certain date. The latter is of course used for 
+performance reasons. For example, the default settings for LDAP do a full sync every night and a differential sync every four hours.
+
+You can also implement the `com.activiti.api.idm.ExternalIdmSourceSyncService` interface directly, but there is an easier way: 
+all the logic to fetch data from the tables, compare, create, update or delete users, groups or membership is 
+encapsulated in the `com.activiti.api.idm.AbstractExternalIdmSourceSyncService` class. It is advised to extend this 
+class when creating a new external source synchronization service, as in that case the only logic that needs to be 
+written is the actual fetching of the IDM data from the external source.
+
+Create a `FileSyncService` class. Note the package, `com.activiti.extension.bean`, which is automatically component scanned. 
+The class is annotated with `@Component` (`@Service` would also work).
+
+```java
+package com.activiti.extension.bean;
+
+@Component
+public class FileSyncService extends AbstractExternalIdmSourceSyncService {
+  ...
+}
+```
+
+The acom.activiti.api.idm.ExternalIdmSourceSyncServicea defines the different abstract methods that can be implemented. 
+
+For example:
+
+The aadditionalPostConstruct()a method will be called after the bean is constructed and the dependencies are injected.
+
+```java
+protected void additionalPostConstruct() {
+                // Nothing needed now
+}
+```
+
+It’s the place to add additional post construction logic, like reading properties from the configuration file. 
+Note the `env` variable is available for that, which is a standard `org.springframework.core.env.Environment` instance:
+
+```java
+protected void additionalPostConstruct() {
+    myCustomConfig = env.getProperty("my.custom.property");
+}
+```
+
+The `getIdmType()` method simply returns a `String` identifying the external source type. It is used in the logging 
+that is produced when the synchronization is happening.
+
+```java
+protected String getIdmType() {
+  return "FILE";
+}
+```
+
+The `isFullSyncEnabled(Long tenantId)` and `isDifferentialSyncEnabled(Long tenantId)` configures whether or not respectively 
+the *full* and/or the *differential* synchronization is enabled.
+
+```java
+protected boolean isFullSyncEnabled(Long tenantId) {
+  return true;
+}
+
+protected boolean isDifferentialSyncEnabled(Long tenantId) {
+  return false;
+}
+```
+
+>**Note** that the `tenantId` is passed here. In a non-multitenant setup, this parameter can simply be ignored. All methods of this superclass have the `tenantId` parameter. In a multi-tenant setup, one should write logic to loop over all the tenants in the system and call the sync methods for each of the tenants separately.
+
+The following two methods will configure when the synchronizations will be scheduled (and executed asynchronously). 
+The return value of these methods should be a (Spring-compatible) cron expression. Note that this typically will be 
+configured in a configuration properties file rather than hardcoded. When `null` is returned, 
+that particular synchronization won’t be scheduled.
+
+```java
+protected String getScheduledFullSyncCronExpression() {
+    return "0 0 0 * * ?"; // midnight
+}
+
+protected String getScheduledDifferentialSyncCronExpression() {
+    return null;
+}
+```
+
+Now we get to the important part of the implementation: the actual fetching of users and groups. 
+This is the method that is used during a *full synchronization*.
+
+```java
+protected ExternalIdmQueryResult getAllUsersAndGroupsWithResolvedMembers(Long tenantId) {
+    try {
+      List<ExternalIdmUserImpl> users = readUsers();
+      List<ExternalIdmGroupImpl> groups = readGroups(users);
+      return new ExternalIdmQueryResultImpl(users, groups);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+}
+```
+
+The return result, an instance of `com.activiti.domain.sync.ExternalIdmQueryResult`, which has a list of users in the 
+form of `com.activiti.domain.sync.ExternalIdmUser` instances and a list of groups in the form of 
+`com.activiti.domain.sync.ExternalIdmGroup` instances.
+
+Note that each group has its members and child groups in it. Also note that these are all *interfaces*, so you are free 
+to return any instance that implements these interfaces. By default there are simple POJO implementations of said 
+interfaces: `com.activiti.domain.sync.ExternalIdmQueryResultImpl`, `com.activiti.domain.sync.ExternalIdmUserImpl` 
+and `com.activiti.domain.sync.ExternalIdmGroupImpl`. These POJOs are also used in the example implementation above.
+
+>**Important note**: the `ExternalIdmUser` interface also defines a `getPassword()` method. Only return the actual password here if you want the user to authenticate against the default tables. The returned password will be securely hashed and stored that way. Return `null` if the authentication is done against an external system (LDAP is such an example). See further down to learn more about custom authentication.
+
+The `readUsers()` and `readGroups()` methods will read the `.txt` mentioned above from the classpath and create 
+instances of user and groups classes using the information in those files. For example:
+
+```java
+protected List<ExternalIdmUserImpl> readUsers() throws IOException, ParseException {
+    List<ExternalIdmUserImpl> users = new ArrayList<ExternalIdmUserImpl>();
+
+    InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("users.txt");
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+    String line = bufferedReader.readLine();
+    while (line != null) {
+
+        String[] parsedLine = line.split(";");
+
+        ExternalIdmUserImpl user = new ExternalIdmUserImpl();
+        user.setId(parsedLine[0]);
+        user.setOriginalSrcId(parsedLine[0]);
+        user.setFirstName(parsedLine[1]);
+        user.setLastName(parsedLine[2]);
+        user.setEmail(parsedLine[3]);
+        user.setPassword(parsedLine[4]);
+        user.setLastModifiedTimeStamp(dateFormat.parse(parsedLine[5]));
+
+        users.add(user);
+        line = bufferedReader.readLine();
+    }
+
+    inputStream.close();
+    return users;
+}
+
+protected List<ExternalIdmGroupImpl> readGroups(List<ExternalIdmUserImpl> users) throws IOException, ParseException {
+
+    List<ExternalIdmGroupImpl> groups = new ArrayList<ExternalIdmGroupImpl>();
+
+    InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("groups.txt");
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+    String line = bufferedReader.readLine();
+    while (line != null) {
+
+        String[] parsedLine = line.split(":");
+        String groupId = parsedLine[0];
+
+        ExternalIdmGroupImpl group = new ExternalIdmGroupImpl();
+        group.setOriginalSrcId(groupId);
+        group.setName(groupId);
+
+        List<ExternalIdmUserImpl> members = new ArrayList<ExternalIdmUserImpl>();
+        String[] memberIds = parsedLine[1].split(";");
+        for (String memberId : memberIds) {
+                for (ExternalIdmUserImpl user : users) {
+                        if (user.getId().equals(memberId)) {
+                                members.add(user);
+                        }
+                }
+        }
+        group.setUsers(members);
+
+        group.setLastModifiedTimeStamp(dateFormat.parse(parsedLine[2]));
+
+        groups.add(group);
+        line = bufferedReader.readLine();
+    }
+
+    inputStream.close();
+    return groups;
+}
+```
+
+For the *differential synchronization* a similar implementation could be made. Note that now a timestamp is passed, 
+which indicates that the method should only return user/groups that are changed since that timestamp.
+
+```java
+protected List<? extends ExternalIdmUser> getUsersModifiedSince(Date latestSyncDate, Long tenantId) {
+...​
+}
+
+protected List<? extends ExternalIdmGroup> getGroupsModifiedSince(Date latestSyncDate, Long tenantId) {
+....
+}
+```
+
+The last two methods we need to implement are to indicate which users should become a tenant admin (or a tenant manager 
+in a multi-tenant setup). This method should return an array of string with the *id used in the external IDM store*. 
+More specifically, the strings in this array will be compared with the value in the `ExternalIdmUser.getOriginalSrcId()` method. 
+Note that in practice these strings often will come from a configuration file rather than being hardcoded.
+
+```java
+protected String[] getTenantManagerIdentifiers(Long tenantId) {
+return null; // No tenant manager
+}
+
+protected String[] getTenantAdminIdentifiers(Long tenantId) {
+  return new String[] { "jlennon" };
+}
+```
+
+That’s all there is to it. As shown, no actual synchronization logic needs to be written when extending from the 
+`AbstractExternalIdmSourceSyncService` class. The implementation should only worry about configuration and the 
+actual fetching of the user and group information.
+
 ### Synchronization on boot
+
+On a first boot, all users/groups must sync for the first time, otherwise nobody would be able to log in. 
+The LDAP synchronization logic does this automatically. When creating a custom synchronization service, a 
+custom `BootstrapConfigurer` can be used to do the same thing:
+
+```java
+package com.activiti.extension.bean;
+
+@Component
+public class MyBootstrapConfigurer implements BootstrapConfigurer {
+
+  @Autowired
+  private FileSyncService fileSyncService;
+
+  public void applicationContextInitialized(org.springframework.context.ApplicationContext applicationContext) {
+    fileSyncService.asyncExecuteFullSynchronizationIfNeeded(null);
+  }
+}
+```
+
+This implements the `com.activiti.api.boot.BootstrapConfigurer` interface. If there is an instance implementing this 
+interface on the classpath, it will be called when the application is booting up (more precisely: after the 
+Spring application context has been initialized). Here, the class we created in the previous section, `FileSyncService` 
+is injected. Note we add it to the component scanned package again and added the `@component` identifier.
+
+Call the `asyncExecuteFullSynchronizationIfNeeded()` method. The `null` parameter means *the default tenant* 
+(that is, this is a non-multitenant setup). This is a method from the `com.activiti.api.idm.ExternalIdmSourceSyncService` 
+interface, which will do a full sync if no initial synchronization was done before.
+
+As a side note, all synchronization logs are stored in a table `IDM_SYNC_LOG` in the database.
+
 ### Synchronization log entries
+
+When a synchronization is executed, a log is kept. This log contains all information about the synchronization: 
+users/groups that are created, updates of existing users/groups, membership additions/deletions and so on.
+
+To access the log entries, an HTTP REST call can be done:
+
+```bash
+GET /api/enterprise/idm-sync-log-entries
+```
+
+Which returns a result like this (only an initial synchronization happened here):
+
+```json
+[{"id":1,"type":"initial-ldap-sync","timeStamp":"2015-10-16T22:00:00.000+0000"}]
+```
+
+This call uses the following url parameters:
+
+* `tenantId`: Defaults to the `tenantId` of the users
+* `start` and `size`: Used for getting paged results back instead of one (potentially large) list.
+
+Note that this call can only be done by a *tenant administrator*, or *tenant manager* in a multi-tenant setup.
+
+We can now get the detailed log for each sync log entry, by taking an id from the previous response:
+
+```bash
+GET /api/enterprise/idm-sync-log-entries/{id}/logfile
+```
+
+This returns a `.log` file that contains for our example implementation:
+
+```text
+created-user: created user John Lennon (email=john.lennon@thebeatles.com) (dn=jlennon)
+added-capability: added capability tenant-mgmt to user jlennon
+created-user: created user Ringo Starr (email=ringo.starr@thebeatles.com) (dn=rstarr)
+created-user: created user George Harrison (email=george.harrison@beatles.com) (dn=gharrison)
+created-user: created user Paul McCartney (email=paul.mccartney@beatles.com) (dn=pmccartney)
+created-group: created group beatles
+added-user-to-group: created group membership of user jlennon for group beatles
+added-user-to-group: created group membership of user rstarr for group beatles
+added-user-to-group: created group membership of user gharrison for group beatles
+added-user-to-group: created group membership of user pmccartney for group beatles
+created-group: created group singers
+added-user-to-group: created group membership of user jlennon for group singers
+added-user-to-group: created group membership of user pmccartney for group singers
+```
+
 ### Custom authentication
+
+When using a custom external IDM source, you may need to authenticate against that source (For example, LDAP).
+
+See [Global security override](#global-security-override) for more information on how to use the 
+`users.txt` file as an authentication mechanism.
+
 ## Security configuration overrides
+
+Configure security with the `com.activiti.conf.SecurityConfiguration` class. It allows you to switch between database 
+and LDAP/Active Directory authentication out of the box. It also configures REST endpoints under "/app" to be protected 
+using a cookie-based approach with tokens and REST endpoints under "*/api*" to be protected by Basic Auth.
+
+You can override these defaults, if the out-of-the-box options are not adequate for your environment. 
+The following sections describe the different options.
+
+All the *overrides* described in the following sections follow the same pattern of creating a Java class that 
+implements a certain interface. This class needs to be annotated by `@Component` and must be found in a package 
+that is component-scanned.
+
+>**Note:** Webapp and API use the same Spring HTTP security for authentication. To distinguish the security configurations, you should specify the path that the configuration applies to. These use `/app` and `/api` by default. For example, API configuration should begin with the following:
+>
+>```java
+>httpSecurity.antMatcher("/api/**")
+>```
+
 ### Global security override
+
+Global security override is the most important override. It allows you to replace the default authentication mechanism.
+
+The interface to implement the global security override is called `com.activiti.api.security.AlfrescoSecurityConfigOverride`. 
+It has one method `configureGlobal` which is called instead of the default logic. It sets up either database-backed or 
+LDAP-backed authentication if an instance implementing this interface is found on the classpath.
+
+Building further on the example in [Example implementation]({% link process-services/latest/config/index.md %}#external-identity-management-ldapactive-directory), 
+use the `users.txt` file, in combination with the `FileSyncService`, so that the application uses the user information in the file to execute authentication.
+
+Spring Security (which is used as underlying framework for security) expects an implementation of the 
+`org.springframework.security.authentication.AuthenticationProvider` to execute the actual authentication logic. 
+What we have to do in the *configureGlobal* method is then instantiate our custom class:
+
+```java
+package com.activiti.extension.bean;
+
+@Component
+public class MySecurityOverride implements AlfrescoSecurityConfigOverride {
+
+  public void configureGlobal(AuthenticationManagerBuilder auth, UserDetailsService userDetailsService) {
+    MyAuthenticationProvider myAuthenticationProvider = new MyAuthenticationProvider();
+    myAuthenticationProvider.setUserDetailsService(userDetailsService);
+    auth.authenticationProvider(myAuthenticationProvider);
+  }
+
+}
+```
+
+Note how this example passed the default `UserDetailsService` to this authentication provider. This class is 
+responsible for loading the user data (and its capabilities or *authorities* in Spring Security lingo) from the 
+database tables. Since we synchronized the user data using the same source, we can just pass it to our custom class.
+
+So the actual authentication is done in the `MyAuthenticationProvider` class here. In this simple example, we just 
+have to compare the password value in the `users.txt` file for the user. To avoid having to do too much low-level 
+Spring Security plumbing, we let the class extend from the `org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider` class.
+
+```java
+public static class MyAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+
+  protected Map<String, String> userToPasswordMapping = new HashMap<String, String>();
+
+  protected UserDetailsService userDetailsService;
+
+  public MyAuthenticationProvider() {
+
+    // Read users.txt, and create a {userId, password} map
+    try {
+      InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("users.txt");
+      BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+      String line = bufferedReader.readLine();
+      while (line != null) {
+        String[] parsedLine = line.split(";");
+        userToPasswordMapping.put(parsedLine[0], parsedLine[4]);
+        line = bufferedReader.readLine();
+      }
+
+      inputStream.close();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+
+
+  protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
+
+    // We simply compare the password in the token to the one in the users.txt file
+
+    String presentedPassword = authentication.getCredentials().toString();
+    String actualPassword = userToPasswordMapping.get(userDetails.getUsername());
+
+    if (!StringUtils.equals(presentedPassword, actualPassword)) {
+      throw new BadCredentialsException("Bad credentials");
+    }
+  }
+
+  protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
+
+    // Here we simply defer the loading to the UserDetailsService that was passed to this instance
+
+    UserDetails loadedUser = null;
+    try {
+      loadedUser = userDetailsService.loadUserByUsername(username);
+    } catch (Exception e) {
+      throw new AuthenticationServiceException(e.getMessage(), e);
+    }
+    return loadedUser;
+  }
+
+}
+```
+
+There’s one last bit to configure. By default, the application is configured to log in using the email address. 
+Set the following property to switch that to the `externalId`, meaning the id coming from the external IDM source 
+(`jlennon` in the `users.txt` file for example):
+
+```text
+security.authentication.use-externalid=true
+```
+
+Use the following property to configure case-sensitivity for logins:
+
+```text
+security.authentication.casesensitive=true
+```
+
+Alternatively, you can override the `AuthenticationProvider` that is used (instead of overriding the `configureGlobal`) 
+by implementing the `com.activiti.api.security.AlfrescoAuthenticationProviderOverride` interface.
+
 #### REST Endpoints security overrides
+
+You can change the default security configuration of the REST API endpoints by implementing the 
+`com.activiti.api.security.AlfrescoApiSecurityOverride` interface. By default, the REST API endpoints use the 
+Basic Authentication method.
+
+Similarly, you can override the default cookie+token based security configuration with the regular REST endpoints 
+(those used by the UI) by implementing the `com.activiti.api.security.AlfrescoWebAppSecurityOverride` interface.
+
+>**Note:** Webapp and API use the same Spring HTTP security for authentication. To distinguish the security configurations, you should specify the path that the configuration applies to. These use `/app` and `/api` by default. For example, API configuration should begin with the following:
+
+```java
+httpSecurity.antMatcher("/api/**")
+```
+
 #### UserDetailsService override
+
+If the default `com.activiti.security.UserDetailsService` does not meet the requirement (although it should cover most 
+use cases), you can override the implementation with the `com.activiti.api.security.AlfrescoUserDetailsServiceOverride` interface.
+
 ### PasswordEncoder override
+
+By default, Process Services uses the `org.springframework.security.crypto.password.StandardPasswordEncoder` 
+for encoding passwords in the database. Note that this is only relevant when using database-backed authentication 
+(so does not hold LDAP/Active Directory). This is an encoder that uses SHA-256 with 1024 iterations and a random salt.
+
+You can override the default setting by implementing the `com.activiti.api.security.AlfrescoPasswordEncoderOverride` interface.

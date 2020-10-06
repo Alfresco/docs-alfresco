@@ -629,7 +629,7 @@ rules to prevent the general public from accessing it.
 
 ### Event processing for analytics
 
-The event processing is closely related to the [Elasticsearch configuration](elasticsearch_configuration.md).
+The event processing is closely related to the [Elasticsearch configuration](#elasticsearch-configuration).
 
 The main concept is depicted in the following diagram.
 
