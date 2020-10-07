@@ -193,6 +193,7 @@ window.onload = () => {
         h.append(btn);
 
         anchor.initialRequest = () => h;
+        anchor.changeRequest = anchor.initialRequest;
       });
     };
 
@@ -259,7 +260,6 @@ window.onload = () => {
           if (obj) scrollTarget = getElementY(initiator) - 20;
           break;
       }
-      console.log(obj, initiator, scrollTarget);
       if (scrollTarget !== null) doScrolling(Math.max(scrollTarget, 0), 1000);
     };
 
@@ -312,9 +312,13 @@ window.onload = () => {
       const ul = li.querySelector("ul");
       const height = ul.getBoundingClientRect().height;
       ul.style.setProperty("--max-height", height + "px");
-      p.addEventListener("click", (e) => {
+      const title = li.querySelector(".menuitem-title");
+      const click = (e) => {
+        e.stopPropagation();
         li.classList.toggle("is-expanded");
-      });
+      };
+      p.addEventListener("click", click);
+      if (title) title.addEventListener("click", click);
     });
     leftmenu.style.setProperty("--min-height", "0px");
     leftmenu.classList.add("is-ready-fade");
