@@ -28,6 +28,15 @@ To create a content model:
 
 5. (Optional) If the form is going to be used to manage content metadata, check the **Create initial form content from a content model** box.
 
+
+
+
+
+
+
+
+
+
 ## Modeling content models
 
 Content models are created within a project and are exclusive to that project unless the content model scope is changed to global. Once a content model is global it will appear at the same level as projects in the modeling application.
