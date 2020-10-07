@@ -235,7 +235,7 @@ Alfresco Office Services (AOS) can also be configured if it is used. The configu
 
 ## Step 6: Configure Alfresco Digital Workspace
 
-Alfresco Digital Workspace only requires its properties updated to enable SSO. For manual deployments these can be updated in the `app.config.json` file and for Docker and Kubernetes deployments using environment variables.
+Alfresco Digital Workspace only requires its properties to be updated to enable SSO. For manual deployments these can be updated in the `app.config.json` file and for Docker and Kubernetes deployments using environment variables.
 
 | Property | Environment variable | Description |
 | -------- | -------------------- | ----------- |

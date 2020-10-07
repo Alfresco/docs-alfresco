@@ -6,11 +6,9 @@ The configuration for SAML authentication allows users to access Alfresco produc
 
 The following diagram illustrates the components and authentication flow for a SAML setup:
 
-![SAML authentication diagram]({% link identity-service/images/saml.png %})
+![SAML authentication diagram]({% link identity-service/images/1-3-saml.png %})
 
-As shown in the diagram, a connection to the SAML identity provider is configured within the Identity Service in order to authenticate the Alfresco Digital Workspace, Alfresco Process Services and Alfresco Process Workspace. This also includes setting up a service provider within the SAML identity provider for the Identity Service.
-
-Service providers are also created in the SAML identity provider for Alfresco Share and Alfresco Content Services and used to directly authenticate Alfresco Share.
+As shown in the diagram, a connection to the SAML identity provider is configured within Identity Service in order to authenticate Alfresco Share, Alfresco Digital Workspace, Alfresco Process Services, and Alfresco Process Workspace. This also includes setting up a service provider within the SAML identity provider for Identity Service.
 
 Alfresco Content Services and Alfresco Process Services are configured directly to the Identity Service instance so that the Identity Service can authenticate a user when it is contacted by the respective web application.
 
@@ -20,16 +18,16 @@ The LDAP directory is used for user and group management and is configured to sy
 
 The following are the prerequisites needed to configure SSO with SAML:
 
-* The [correct product versions]({% link identity-service/1.2/support/index.md %}) of the Alfresco software you are using.
+* The [correct product versions]({% link identity-service/latest/support/index.md %}) of the Alfresco software you are using.
 * The Identity Service is installed.
-* The SAML Module for Content Services 1.1.1 is installed into Alfresco Content Services.
+* The SAML Module for Content Services 1.2 is installed into Alfresco Content Services.
 * A SAML identity provider
 * An LDAP directory
 * Administrator access to all systems
 
 ## Configuration
 
-There are fourteen steps to configuring SSO using a SAML identity provider with Alfresco products. The following are the host names used as examples throughout the configuration:
+There are fifteen steps to configuring SSO using a SAML identity provider with Alfresco products. The following are the host names used as examples throughout the configuration:
 
 * Alfresco Content Services: `repo.example.com`
 * Alfresco Share: `share.example.com`
@@ -60,7 +58,19 @@ A separate client always needs to be created and configured for Desktop Sync if 
     * **Implicit Flow Enabled** is switched on.
     * A wildcard `*` is entered for **Valid Redirect URIs**.
 5. To configure single logout for Process Services add the following URL into the **Admin URL**: `aps.example.com/activiti-app`.
-6. Create a new client for Desktop Sync under the `Alfresco` realm or the realm you created setting at least the following :
+
+6. Create a new client for Alfresco Share under the `Alfresco` realm or the realm you created, setting at least the following:
+
+    In the **Settings** tab:
+
+    * **Client ID** is set to a valid value, for example `share`.
+    * **Enabled** must be set to true.
+    * **Client Protocol** is set to `openid-connect`.
+    * **Access Type** is set to public.
+    * **Standard Flow** is enabled.
+    * **Valid Redirect URIs** is set to `*`.
+
+7. Create a new client for Desktop Sync under the `Alfresco` realm or the realm you created setting at least the following :
 
     In the **Settings** tab:
 
@@ -133,7 +143,7 @@ Enforcing SAML removes the option for users to sign into Alfresco products with 
 
 ## Step 6: Configure Alfresco Content Services properties
 
-The properties listed that need to be set for Alfresco Content Services (ACS) are only those that are required for setting up SSO. They include the synchronization with an LDAP directory and the location of the SAML keystore. The Alfresco Share configuration file needs updating to enable SSO and a timeout period can also be set.
+The properties listed that need to be set for Alfresco Content Services (ACS) are only those that are required for setting up SSO. They include the synchronization with an LDAP directory and updating the Alfresco Share configuration file to enable SSO. A timeout period can also be set for Share.
 
 1. Use the following configuration parameters either in an `alfresco-global.properties` file, via the repository config map in Kubernetes or as environment variables in a docker-compose file:
 
@@ -204,19 +214,15 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
 
 ## Step 7: Configure service providers for Alfresco Content Services
 
-A Service provider needs to be configured in the SAML identity provider for Alfresco Share. This also involves configuring the administrator console in ACS with details from SAML identity provider.
-
-A service provider can also be created and configured for Alfresco Office Services (AOS) if it is used. The configuration steps for AOS can be ignored if it is not used.
+A Service provider needs to be configured in the SAML identity provider for Alfresco Office services if it is used. This also involves configuring the administrator console in ACS with details from SAML identity provider.
 
 1. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
-2. Navigate to **Directories** > **Single Sign-On (SAML)** and enter the details for the SAML identity provider for the **Share** tab and for the **AOS** tab.
-3. Ensure that **Enable SAML(SSO) Authentication** and **Enforce SAML Login** are checked for the **Share** tab and that **Enable SAML(SSO) Authentication** is checked for the **AOS** tab.
-4. Upload a valid certificate from the SAML identity provider in the **Share** and **AOS** tabs using the **Upload IdP Certificate**.
-5. Download the service provider certificate using the **Download SP Certificate** button and the service provider metadata using the **Download SP Metadata** button from the **Share** and **AOS** tabs.
-6. Sign into the SAML identity provider as an administrator and configure two new service providers. One for Share and one for AOS:
-    * The base URL to use for Share is `https://share.example.com/share`
-    * The base URL to use for AOS is `https://repo.example.com/alfresco/aos`
-7. Upload the relevant service provider certificate and metadata file for each service provider. These are the files that were downloaded from the ACS administration console. If the SAML identity provider does not support uploading the metadata then configure the settings manually.
+2. Navigate to **Directories** > **Single Sign-On (SAML)** and enter the details for the SAML identity provider for the **AOS** tab.
+3. Ensure that **Enable SAML(SSO) Authentication** is checked for the **AOS** tab.
+4. Upload a valid certificate from the SAML identity provider in the **AOS** tabs using the **Upload IdP Certificate**.
+5. Download the service provider certificate using the **Download SP Certificate** button and the service provider metadata using the **Download SP Metadata** button from the **AOS** tab.
+6. Sign into the SAML identity provider as an administrator and configure a new service provider. The base URL to use for AOS is `https://repo.example.com/alfresco/aos`.
+7. Upload the relevant service provider certificate and metadata file for the service provider. These are the files that were downloaded from the ACS administration console. If the SAML identity provider does not support uploading the metadata then configure the settings manually.
 
 ## Step 8: Configure Alfresco Digital Workspace
 
@@ -252,7 +258,21 @@ The following is an example `app.config.json` file excerpt. By default this file
         }
 ```
 
-## Step 9: (Optional) Configure Alfresco Sync Service
+## Step 9: Configure Alfresco Share properties
+
+The properties listed that need to be set for Alfresco Share are only those that are required for setting up SSO.
+
+Use the following configuration parameters either in the `share-config.properties` file, using the share config map in Kubernetes, or as environment variables in a Docker Compose file:
+
+|Property|Description|
+|--------|-----------|
+| aims.enabled | Enables or disables Identity Service, for example `true`. |
+| aims.realm | The name of the realm, for example `alfresco`. |
+| aims.resource | The Client ID of the application, for example `share`. |
+| aims.authServerUrl | The base URL of the Identity Service, for example `https://ids.example.com` |
+| aims.publicClient | If set to `true`, the adapter will not send credentials for the client to Identity Service. |
+
+## Step 10: (Optional) Configure Alfresco Sync Service
 
 If Alfresco Sync Service is used and a client has been created for it in [step 1](#step-1-configure-a-realm-and-clients) then the following properties need to be set in the `sync/service-sync/config.yml`:
 
@@ -264,7 +284,7 @@ If Alfresco Sync Service is used and a client has been created for it in [step 1
 | identity-service.public-client |The adapter will not send credentials for the client to the Identity Service if this is set to true, for example `true`|
 | identity-service.credentials.secret |The secret key for this client if the access type is not set to public.|
 
-## Step 10: Configure Alfresco Process Services
+## Step 11: Configure Alfresco Process Services
 
 Alfresco Process Services (APS) has two sets of properties that need to be configured to setup SSO. One set synchronizes APS with an LDAP directory and the other set configure with the Identity Service.
 
@@ -299,7 +319,7 @@ Alfresco Process Services (APS) has two sets of properties that need to be confi
     | keycloak.token-store |The location of where account information token should be stored, for example `cookie`|
     | keycloak.enable-basic-auth |Sets whether basic authentication is also supported by the Identity Service, for example `true`|
 
-## Step 11: Configure Alfresco Process Workspace
+## Step 12: Configure Alfresco Process Workspace
 
 Alfresco Process Workspace requires one set of properties to be configured to enable SSO that can be updated in the `app.config.json` file.
 
@@ -339,7 +359,7 @@ The following is an example `app.config.json` file excerpt. By default this file
         }
 ```
 
-## Step 12: (Optional) Configure a connection between Process Services and Content Services
+## Step 13: (Optional) Configure a connection between Process Services and Content Services
 
 An SSO connection can be configured between Process Services and Content Services so that communication between the two systems is achieved using tokens instead of stored credentials when executing processes.
 
@@ -371,7 +391,7 @@ An SSO connection can be configured between Process Services and Content Service
     |Alfresco version|The version of Content Services to connect to.|
     |Authentication type|Select **Identity Service authentication** to use SSO.|
 
-## Step 13: (Optional) Configure a mobile client for Process Services
+## Step 14: (Optional) Configure a mobile client for Process Services
 
 If Process Services for mobile is required then a client needs to be created for it in the Identity Service to enable SSO capability. The redirect URI is preconfigured for the mobile application using the operating system it is installed on, which means that the **Valid Redirect URIs** value in the Identity Service must match this value.
 
@@ -390,7 +410,7 @@ If Process Services for mobile is required then a client needs to be created for
     * The **Valid Redirect URI** must be set to `androidapsapp://aims/auth`.
     * **Implicit Flow Enabled** is switched off.
 
-## Step 14: (Optional) Configure a client for Content Services for iOS
+## Step 15: (Optional) Configure a client for Content Services for iOS
 
 If Content Services for iOS is required then a client needs to be created for it in the Identity Service to enable SSO capability. The redirect URI is preconfigured for the mobile application using the operating system it is installed on, which means that the **Valid Redirect URIs** value in the Identity Service must match this value.
 
