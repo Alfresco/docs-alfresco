@@ -34,6 +34,10 @@ class ContentTabs extends HTMLElement {
     return true;
   }
 
+  changeRequest(request) {
+    return this.initialRequest(request);
+  }
+
   createHrefForChild(child) {
     const tabcontent = child.closest("[data-tabid]");
     const tabid = tabcontent.dataset.tabid;
