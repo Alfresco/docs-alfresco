@@ -1,5 +1,5 @@
 ---
-title: The Landing page
+title: Using the the Landing page
 ---
 
 The Landing Page is your user interface to Process Services. Each tile gives you tools for distinct sets of tasks:

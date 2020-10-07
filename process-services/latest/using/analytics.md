@@ -1,5 +1,5 @@
 ---
-title: Analytics App 
+title: Using the Analytics App 
 ---
 
 Use the Analytics App tile to add standard reports and configure custom reports for performance and throughput 

@@ -1,5 +1,5 @@
 ---
-title: Business rules - decision tables
+title: Using business rules (decision tables)
 ---
 
 There are many situations in a business process where you wish to evaluate some data you have collected and come to 

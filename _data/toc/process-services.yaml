@@ -41,6 +41,8 @@
             path: '/process-services/latest/using/rules/'
           - title: 'Data Models'
             path: '/process-services/latest/using/models/'
+        - title: 'Share Connector'
+          path: '/process-services/latest/using/share-connector/'
     - title: "Administer"
       path: '/process-services/latest/admin/'
     - title: "Develop"

@@ -1,5 +1,5 @@
 ---
-title: Personal Profile
+title: Using the Personal Profile
 ---
 
 You can add a photo to your profile.

@@ -1,5 +1,5 @@
 ---
-title: Step editor 
+title: Using the Step Editor 
 ---
 
 The Step Editor guides you through creating a business process through a sequence of simple steps. The processes you 

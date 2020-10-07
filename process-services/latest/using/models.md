@@ -1,5 +1,5 @@
 ---
-title: Data models 
+title: Using Data Models 
 ---
 
 A Data Model enables you to access and manipulate data related to a business process in Process Services. 

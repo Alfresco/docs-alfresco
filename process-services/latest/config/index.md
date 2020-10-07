@@ -865,7 +865,7 @@ file to configure this.
 * If you omit the `includeTaskLocalVariables` and `includeProcessVariables` parameters or set them to `false`, the request excludes the variables from the response and does not apply the query limit configurations.
 * Setting higher limits for the process or task query properties results in more records fetched from the database. This is likely to mean that you experience slower REST API response times.
 
-## External Identity Management (LDAP/Active Directory)
+## External Identity Management (LDAP/Active Directory) {#extimldapad}
 
 It’s possible to hook up a centralized user data store with Process Services. Any server supporting the LDAP protocol 
 can be used. Special configuration options and logic has been included to work with Active Directory (AD) systems too.

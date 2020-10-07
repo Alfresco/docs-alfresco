@@ -1,5 +1,5 @@
 ---
-title: BPMN editor 
+title: Using the BPMN Editor 
 ---
 
 With the BPMN editor you can create process definitions using the capabilities of BPMN 2.0. You build your process by 

@@ -2283,13 +2283,807 @@ This section covers the examples for querying historic process instances and tas
 You can query for historic process instances and tasks to get information about ongoing and past process instances, or tasks.
 
 ### Historic process instance queries
+
+To run a historic process instance query:
+
+```bash
+POST api/enterprise/historic-process-instances/query
+```
+
+To run a historic task instance query:
+
+```bash
+POST api/enterprise/historic-tasks/query
+```
+
 ### Get historic process instances
+
+The following table lists the request parameters to be used in the JSON body POST. For example, to filter historic 
+process instances that completed before the given date (`startedBefore`):
+
+```bash
+POST api/enterprise/historic-process-instances/query
+```
+
+With a JSON body request:
+
+```json
+{
+"startedBefore":"2016-06-16",
+}
+```
+
+Example response:
+
+```json
+{
+"size": 25,
+"total": 200,
+"start": 0,
+  "data": [
+    {
+      "id": "2596",
+      "name": "Date format example - June 7th 2016",
+      "businessKey": null,
+      "processDefinitionId": "dateformatexample:1:2588",
+      "tenantId": "tenant_1",
+      "started": "2016-06-07T14:18:34.433+0000",
+      "ended": null,
+      "startedBy": {
+        "id": 1,
+        "firstName": null,
+        "lastName": "Administrator",
+        "email": "admin@app.activiti.com"
+      },
+{
+"id": "2596",
+. . .
+```
+
+Where, `size` is the size of the page or number of items per page. By default, the value is `25`, `start` is the page to start on. 
+Pages are counted from 0-N. By default, the value is 0, which means 0 will be the first page.
+
+|`processInstanceId`|An ID of the historic process instance.|
+|`processDefinitionKey`|The process definition key of the historic process instance.|
+|`processDefinitionId`|The process definition id of the historic process instance.|
+|`businessKey`|The business key of the historic process instance.|
+|`involvedUser`|An involved user of the historic process instance. Where, `InvolvedUser` is the ID of the user.|
+|`finished`|Indicates if the historic process instance is complete. Where, the value may only be `True`, as the default values are `True` or `False`.|
+|`superProcessInstanceId`|An optional parent process id of the historic process instance.|
+|`excludeSubprocesses`|Returns only historic process instances which aren’t sub-processes.|
+|`finishedAfter`|Returns historic process instances that finished after the given date. The date is displayed in `yyyy-MM-ddTHH:MM:SS` format.|
+|`finishedBefore`|Returns historic process instances that finished before the given date. The date is displayed in `yyyy-MM-ddTHH:MM:SS` format.|
+|`startedAfter`|Returns historic process instances that were started after the given date. The date is displayed in `yyyy-MM-ddTHH:MM:SS` format.|
+|`startedBefore`|Returns historic process instances that were started before the given date. The date is displayed in `yyyy-MM-ddTHH:MM:SS` format.|
+|`startedBy`|Returns only historic process instances that were started by the selected user.|
+|`includeProcessVariables`|Indicates if the historic process instance variables should be returned.|
+|`tenantId`|Returns instances with the given `tenantId`.|
+|`tenantIdLike`|Returns instances with a `tenantId` like the given value.|
+|`withoutTenantId`|If true, only returns instances without a `tenantId` set. If false, the `withoutTenantId` parameter is ignored.|
+
 ### Get historic task instances
+
+The following table lists the request parameters that can be used in the JSON body POST. For example, 
+in case of `taskCompletedAfter`:
+
+```bash
+POST api/enterprise/historic-tasks/query
+```
+
+With a json body request:
+
+```json
+{
+"taskCompletedAfter":"2016-06-16",
+"size":50,
+"start":0
+}
+```
+
+Example response:
+
+```json
+{
+  "size": 4,
+  "total": 4,
+  "start": 0,
+  "data": [
+    {
+      "id": "7507",
+      "name": "my task",
+      "assignee": {
+        "id": 1000,
+        "firstName": "Homer",
+        "lastName": "Simpson",
+        "email": "homer.simpson@gmail.com"
+      },
+      "created": "2016-06-17T15:14:26.938+0000",
+      "dueDate": null,
+      "endDate": "2016-06-17T16:09:39.197+0000",
+      "duration": 3312259,
+      "priority": 50,
+. . .
+```
+
+|`taskId`|An ID of the historic task instance.|
+|`processInstanceId`|The process instance id of the historic task instance.|
+|`processDefinitionKey`|The process definition key of the historic task instance.|
+|`processDefinitionKeyLike`|The process definition key of the historic task instance, which matches the given value.|
+|`processDefinitionId`|The process definition id of the historic task instance.|
+|`processDefinitionName`|The process definition name of the historic task instance.|
+|`processDefinitionNameLike`|The process definition name of the historic task instance, which matches the given value.|
+|`processBusinessKey`|The process instance business key of the historic task instance.|
+|`processBusinessKeyLike`|The process instance business key of the historic task instance that matches the given value.|
+|`executionId`|The execution id of the historic task instance.|
+|`taskDefinitionKey`|The task definition key for tasks part of a process|
+|`taskName`|The task name of the historic task instance.|
+|`taskNameLike`|The task name with like operator for the historic task instance.|
+|`taskDescription`|The task description of the historic task instance|
+|`taskDescriptionLike`|The task description with like operator for the historic task instance.|
+|`taskDefinitionKey`|The task identifier from the process definition for the historic task instance.|
+|`taskDeleteReason`|The task delete reason of the historic task instance.|
+|`taskDeleteReasonLike`|The task delete reason with like operator for the historic task instance.|
+|`taskAssignee`|The assignee of the historic task instance.|
+|`taskAssigneeLike`|The assignee with like operator for the historic task instance.|
+|`taskOwner`|The owner of the historic task instance.|
+|`taskOwnerLike`|The owner with like operator for the historic task instance.|
+|`taskInvolvedUser`|An involved user of the historic task instance. Where, *InvolvedUser* is the User ID.|
+|`taskPriority`|The priority of the historic task instance.|
+|`finished`|Indicates if the historic task instance is complete.|
+|`processFinished`|Indicates if the process instance of the historic task instance is finished.|
+|`parentTaskId`|An optional parent task ID of the historic task instance.|
+|`dueDate`|Returns only historic task instances that have a due date equal to this date.|
+|`dueDateAfter`|Returns only historic task instances that have a due date after this date.|
+|`dueDateBefore`|Returns only historic task instances that have a due date before this date.|
+|`withoutDueDate`|Returns only historic task instances that have no due-date. When false value is provided, this parameter is ignored.|
+|`taskCompletedOn`|Returns only historic task instances that have been completed on this date.|
+|`taskCompletedAfter`|Returns only historic task instances that have been completed after this date.|
+|`taskCompletedBefore`|Return only historic task instances that have been completed before this date.|
+|`taskCreatedOn`|Returns only historic task instances that were created on this date.|
+|`taskCreatedBefore`|Returns only historic task instances that were created before this date.|
+|`taskCreatedAfter`|Returns only historic task instances that were created after this date.|
+|`includeTaskLocalVariables`|Indicates if the historic task instance local variables should be returned.|
+|`includeProcessVariables`|Indicates if the historic task instance global variables should be returned.|
+|`tenantId`|Returns historic task instances with the given tenantId.|
+|`tenantIdLike`|Returns historic task instances with a tenantId like the given value.|
+|`withoutTenantId`|If `true`, only returns historic task instances without a `tenantId` set. If `false`, `withoutTenantId` is ignored.|
+
 ### User and Group lists
+
+A common use case is when a user wants to select another user or group, for example, when assigning a task.
+
+To retrieve users:
+
+```bash
+GET api/enterprise/users
+```
+
+Use the following parameters:
+
+* `filter`: Filters by the user’s first and last name.
+* `email`: Retrieves users by email
+* `externalId`: Retrieves users by their external ID.
+* `externalIdCaseInsensitive`: Retrieves users by external ID, ignoring case.
+* `externalId`: Retrieves users by their external ID (set by the LDAP sync, if used)
+* `excludeTaskId`: Excludes users that are already part of this task.
+* `excludeProcessId`: Excludes users that are already part of this process instance.
+
+**Example response:**
+
+```json
+{
+    "size": 2,
+    "total": 2,
+    "start": 0,
+    "data": [
+        {
+            "id": 1,
+            "firstName": null,
+            "lastName": "Administrator",
+            "email": "admin@app.activiti.com"
+        },
+        {
+            "id": 1000,
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "johndoe@alfresco.com"
+        }
+    ]
+}
+```
+
+To retrieve a picture of a user:
+
+```bash
+GET api/enterprise/users/{userId}/picture
+```
+
+To retrieve groups:
+
+```bash
+GET api/enterprise/groups
+```
+
+with optional parameter `filter` that filters by group name.
+
+Additional options:
+
+* `externalId`: Retrieves a group by their external ID.
+* `externalIdCaseInsensitive`: Retrieves a group by their external ID, ignoring case.
+
+**Example response:**
+
+```json
+{
+     "size": 2,
+     "total": 2,
+     "data": [
+          {
+               "externalId": null,
+               "name": "Engineering",
+               "id": 2000
+          },
+          {
+               "externalId": null,
+               "name": "Marketing",
+               "id": 2001
+          }
+     ],
+     "start": 0
+}
+```
+
+Get the users for a given group:
+
+```bash
+GET api/enterprise/groups/{groupId}/users
+```
+
+**Example response:**
+
+```json
+{
+     "size": 3,
+     "total": 3,
+     "data": [
+          {
+               "email": "john@alfresco.com",
+               "lastName": "Test",
+               "firstName": "John",
+               "id": 10
+          },
+          {
+               "email": "mary@alfresco.com",
+               "lastName": "Test",
+               "firstName": "Mary",
+               "id": 8
+          },
+          {
+               "email": "patrick@alfresco.com",
+               "lastName": "Test",
+               "firstName": "Patrick",
+               "id": 9
+          }
+     ],
+     "start": 0
+}
+```
+
+With a json body that contains:
+
+* `order` : An array of user task filter IDs
+
 ### Content
+
+Content such as documents and other files can be attached to process instances and tasks.
+
+To retrieve the content attached to a process instance:
+
+```bash
+GET api/enterprise/process-instances/{processInstanceId}/content
+```
+
+By default, this will return all content: The related content (for example content uploaded via the UI in the 
+"related content" section of the task detail page) and the field content (content uploaded as part of a form).
+
+To only return the related content, add `?isRelatedContent=true` to the url. Similarly, add `?isRelatedContent=false` 
+when the return response should include only field content.
+
+Similarly, for a task:
+
+```bash
+GET api/enterprise/tasks/{taskId}/content
+```
+
+By default, this will return all content: The related content (for example content uploaded via the UI in the 
+"related content" section of the task detail page) and the field content (content uploaded as part of a form).
+
+To only return the related content, add `?isRelatedContent=true` to the url. Similarly, add `?isRelatedContent=false` 
+when the return response should include only field content.
+
+**Example response:**
+
+```json
+{
+  "size": 5,
+  "total": 5,
+  "start": 0,
+  "data": [
+    {
+      "id": 4000,
+      "name": "tasks.PNG",
+      "created": "2015-01-01T01:01:01.000+0000",
+      "createdBy": {
+        "id": 1,
+        "firstName": "null",
+        "lastName": "Admin",
+        "email": "admin@app.activiti.com",
+        "pictureId": 5
+      },
+      "relatedContent": true,
+      "contentAvailable": true,
+      "link": false,
+      "mimeType": "image/png",
+      "simpleType": "image",
+      "previewStatus": "queued",
+      "thumbnailStatus": "queued"
+    }
+        ]
+}
+```
+
+To get content metadata:
+
+```bash
+GET api/enterprise/content/{contentId}
+```
+
+To delete content:
+
+```bash
+DELETE api/enterprise/content/{contentId}
+```
+
+To get the actual bytes for content:
+
+```bash
+GET api/enterprise/content/{contentId}/raw
+```
+
+To upload content to a process instance:
+
+```bash
+POST api/enterprise/process-instances/{processInstanceId}/raw-content
+```
+
+where the body contains a *multipart file*. Add the `isRelatedContent` parameter to the url to set whether the content 
+is *related* or not. For a process instance, this currently won’t have any influence on what is visible in the UI. 
+Note that the default value for this parameter is `false`.
+
+To upload content to a task:
+
+```bash
+POST api/enterprise/tasks/{taskId}/raw-content
+```
+
+where the body contains a *multipart file*. Add the `isRelatedContent` parameter to the url to set whether the content 
+is *related* or not. If `true`, the content will show up in the "related content" section of the task details. 
+Note that the default value for this parameter is `false`.
+
+To relate content (eg from Alfresco) to a process instance:
+
+```bash
+POST api/enterprise/process-instances/{processInstanceId}/content
+```
+
+where the json body contains following properties:
+
+* name
+* link (boolean)
+* source
+* sourceId
+* mimeType
+* linkUrl
+
+Add the `isRelatedContent` parameter to the url to set whether the content is related or not. If `true`, the content 
+will show up in the "related content" section of the task details. Note that the default value for this parameter is `true` 
+(different from the call above with regular content!).
+
+**Example body (from Alfresco OnPremise):**
+
+```json
+{
+   "name":"Image.png",
+   "link":true,
+   "source":"alfresco-1",
+   "sourceId":"30358280-88de-436e-9d4d-8baa9dc44f17@swsdp",
+   "mimeType":"image/png"
+}
+```
+
+To upload content for a task:
+
+```bash
+POST api/enterprise/process-instances/{taskId}/content
+```
+
+Where the json body contains following properties:
+
+* name
+* link (boolean)
+* source
+* sourceId
+* mimeType
+* linkUrl
+
+In case of a start form with content fields, there is no task or process instance to relate to.
+
+Following REST endpoints can be used:
+
+```bash
+POST api/enterprise/content/raw
+```
+
 ### Thumbnails
+
+To retrieve the thumbnail of a certain piece of content:
+
+```bash
+GET api/enterprise/content/{contentId}/rendition/thumbnail
+```
+
 ### Identity Management
+
+For more info about Identity Management, see [this]({% link process-services/latest/using/identity.md %}) section.
+
 #### Tenants
+
+Following REST endpoints are **only available for users that are either a tenant admin or a tenant manager**.
+
+Get all tenants (tenant manager only):
+
+```bash
+GET api/enterprise/admin/tenants
+```
+
+Create a new tenant (tenant manager only):
+
+```bash
+POST api/enterprise/admin/tenants
+```
+
+the json body of this post contains two properties: `name` and `active` (boolean).
+
+Update a tenant:
+
+```bash
+PUT api/enterprise/admin/tenants/{tenantId}
+```
+
+the json body of this post contains two properties: `name` and `active` (boolean).
+
+Get tenant details:
+
+```bash
+GET api/enterprise/admin/tenants/{tenantId}
+```
+
+Delete a tenant:
+
+```bash
+DELETE api/enterprise/admin/tenants/{tenantId}
+```
+
+Get tenant events:
+
+```bash
+GET api/enterprise/admin/tenants/{tenantId}/events
+```
+
+Get tenant logo:
+
+```bash
+GET api/enterprise/admin/tenants/{tenantId}/logo
+```
+
+Change tenant logo:
+
+```bash
+POST api/enterprise/admin/tenants/{tenantId}/logo
+```
+
+where the body is a multi part file.
+
+>**Note:** The *Create a new tenant* and *Delete a tenant* endpoints are not available where you have installed a *single-tenant* license.
+
 #### Users
+
+Following REST endpoints are **only available for users that are either a tenant admin or a tenant manager**.
+
+Get a list of users:
+
+```bash
+GET api/enterprise/admin/users
+```
+
+with parameters
+
+* `filter` : Filters by user name.
+* `status` : Possible values are `pending`, `inactive`, `active`, `deleted`.
+* `sort` : Possible values are `createdAsc`, `createdDesc`, `emailAsc` or `emailDesc` (default `createdAsc`).
+* `start` : Used for paging.
+* `size` : Use for paging.
+
+To create a new user:
+
+```bash
+POST api/enterprise/admin/users
+```
+
+with a json body that **must** have following properties:
+
+* email
+* firstName
+* lastName
+* password
+* status (possible values are `pending`, `inactive`, `active`, `deleted`)
+* type (enterprise or trial. Best to set this to enterprise)
+* tenantId
+
+Update user details:
+
+```bash
+PUT api/enterprise/admin/users/{userId}
+```
+
+with a json body containing `email`, `firstName` and `lastName`
+
+Update user password:
+
+```bash
+PUT api/enterprise/admin/users
+```
+
+with a json body like
+
+```json
+{
+        "users" : [1098, 2045, 3049]
+        "password" : "123"
+}
+```
+
+Note that the `users` property is an array of user ids. This allows for bulk changes.
+
+Update user status:
+
+```bash
+PUT api/enterprise/admin/users
+```
+
+with a json body like
+
+```json
+{
+        "users" : [1098, 2045, 3049]
+        "status" : "inactive"
+}
+```
+
+Note that the `users` property is an array of user ids. This allows for bulk changes.
+
+Update user tenant id (only possible for _tenant manager):
+
+```bash
+PUT api/enterprise/admin/users
+```
+
+with a json body like
+
+```json
+{
+        "users" : [1098, 2045, 3049]
+        "tenantId" : 1073
+}
+```
+
+Note that the `users` property is an array of user ids. This allows for bulk changes.
+
 #### Groups
+
+The following REST endpoints are **only available for users that are either a tenant admin or a tenant manager**.
+
+Internally, there are two types of groups:
+
+* **Functional groups**: Map to organizational units.
+* **System groups**: Provide users capabilities. When you assign a capability to a group, every member of that group is assigned with the capability.
+
+Get all groups:
+
+```bash
+GET api/enterprise/admin/groups
+```
+
+Optional parameters:
+
+* `tenantId` : Useful to a Tenant Manager user
+* `functional` (boolean): Only return functional groups if true
+
+Get group details:
+
+```bash
+GET api/enterprise/admin/groups/{groupId}
+```
+
+**Example response:**
+
+```json
+{
+     "capabilities": [{
+          "name": "access-reports",
+          "id": 1
+     }],
+     "name": "analytics-users",
+     "tenantId": 1,
+     "users": [
+          {
+               "tenantId": 1,
+               "firstName": null,
+               "password": null,
+               "type": "enterprise",
+               "company": null,
+               "externalId": null,
+               "capabilities": null,
+               "tenantPictureId": null,
+               "created": "2015-01-08T08:30:25.164+0000",
+               "pictureId": null,
+               "latestSyncTimeStamp": null,
+               "tenantName": null,
+               "lastName": "Administrator",
+               "id": 1,
+               "lastUpdate": "2015-01-08T08:30:25.164+0000",
+               "email": "admin@app.activiti.com",
+               "fullname": " Administrator",
+               "groups": null
+          },
+          {
+               "tenantId": 1,
+               "firstName": "John",
+               "password": null,
+               "type": "enterprise",
+               "company": null,
+               "externalId": null,
+               "capabilities": null,
+               "tenantPictureId": null,
+               "created": "2015-01-08T13:22:36.198+0000",
+               "pictureId": null,
+               "latestSyncTimeStamp": null,
+               "tenantName": null,
+               "lastName": "Doe",
+               "id": 1000,
+               "lastUpdate": "2015-01-08T13:34:22.273+0000",
+               "email": "johndoe@alfresco.com",
+               "fullname": "John Doe",
+               "groups": null
+          }
+     ],
+     "id": 1,
+     "groups": [],
+     "externalId": null,
+     "status": "active",
+     "lastSyncTimeStamp": null,
+     "type": 0,
+     "parentGroupId": null
+}
+```
+
+Use the optional request parameter `includeAllUsers` (boolean value, by default true) to avoid getting all the 
+users at once (not ideal if there are many users).
+
+Use the following call:
+
+```bash
+GET api/enterprise/admin/groups/{groupId}/users?page=2&pageSize=20
+```
+
+Create new group:
+
+```bash
+POST api/enterprise/admin/groups
+```
+
+Where the json body contains following properties:
+
+* `name`
+* `tenantId`
+* type (0 for system group, 1 for functional group)
+* `parentGroupId` (only possible for functional groups. System groups can’t be nested)
+
+Update a group:
+
+```bash
+PUT api/enterprise/admin/groups/{groupId}
+```
+
+Only the `name` property can be in the json body.
+
+Delete a group:
+
+```bash
+DELETE api/enterprise/admin/groups/{groupId}
+```
+
+Add a user to a group:
+
+```bash
+POST api/enterprise/admin/groups/{groupId}/members/{userId}
+```
+
+Delete a user from a group:
+
+```bash
+DELETE api/enterprise/admin/groups/{groupId}/members/{userId}
+```
+
+Get the list of possible capabilities for a system group:
+
+```bash
+GET api/enterprise/admin/groups/{groupId}/potential-capabilities
+```
+
+Add a capability from previous list to the group:
+
+```bash
+POST api/enterprise/admin/groups/{groupId}/capabilities
+```
+
+where the json body contains one property `capabilities` that is an array of strings.
+
+Remove a capability from a group:
+
+```bash
+DELETE api/enterprise/admin/groups/{groupId}/capabilities/{groupCapabilityId}
+```
+
 #### Alfresco Content Services repositories
+
+A tenant administrator can configure one or more Alfresco Content Services repositories to use when working with content. 
+To retrieve the repositories configured for the tenant of the user used to do the request:
+
+```bash
+GET api/enterprise/profile/accounts/alfresco
+```
+
+which returns something like:
+
+```json
+{
+     "size": 2,
+     "total": 2,
+     "data": [
+          {
+               "name": "TS",
+               "tenantId": 1,
+               "id": 1,
+               "accountUsername": "jbarrez",
+               "created": "2015-03-26T14:24:35.506+0000",
+               "shareUrl": "http://ts.alfresco.com/share",
+               "lastUpdated": "2015-03-26T15:37:21.174+0000",
+               "repositoryUrl": "http://ts.alfresco.com/alfresco",
+               "alfrescoTenantId": ""
+          },
+          {
+               "name": "TsTest",
+               "tenantId": 1,
+               "id": 1000,
+               "accountUsername": "jbarrez",
+               "created": "2015-03-26T15:37:36.448+0000",
+               "shareUrl": "http://tstest.alfresco.com/share",
+               "lastUpdated": "2015-03-26T15:37:36.448+0000",
+               "repositoryUrl": "http://tstest.alfresco.com/alfresco",
+               "alfrescoTenantId": ""
+          }
+     ],
+     "start": 0
+}
+```

@@ -1,5 +1,5 @@
 ---
-title: Form editor 
+title: Using the Form Editor 
 ---
 
 The form editor provides a powerful drag and drop interface to let you design forms from a rich set of controls. 

@@ -1,5 +1,5 @@
 ---
-title: Task App 
+title: Using the Task App 
 ---
 
 Use the Task App to access your task list and work on tasks assigned to you from the Processes tab. 

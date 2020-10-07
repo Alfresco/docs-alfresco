@@ -1,5 +1,5 @@
 ---
-title: Identity Management
+title: Using Identity Management
 ---
 
 These are operations to manage tenants, groups and users. This is useful for example to bootstrap environments 
