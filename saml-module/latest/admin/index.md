@@ -1,8 +1,8 @@
 ---
-title: Troubleshoot SAML SSO
+title: Troubleshoot the SAML Module
 ---
 
-Use this information to troubleshoot common SAML SSO issues.
+Use this information to troubleshoot common issues with the SAML Module.
 
 ## General troubleshooting tips
 
@@ -132,7 +132,7 @@ To resolve this error, use the `revert` method under `SAML/<service_provider>/Op
 
 * It may help you with the configuration of your IdP if you know that you can download the metadata for any of the service provider configured in Alfresco. Go to `http://localhost:8080/alfresco/s/enterprise/admin/admin-saml`, select the tab that you want (for example, REST API), and select **Download SP Metadata**.
 
-* When using SAML SSO, you cannot have an empty authentication chain, as shown:
+* When using the SAML Module, you cannot have an empty authentication chain, as shown:
 
     ```bash
     authentication.chain=

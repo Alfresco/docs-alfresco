@@ -18,4 +18,4 @@ Alfresco uses SAML 2.0. See [OASIS SAML v2.0](https://wiki.oasis-open.org/securi
 
 This diagram explains the exchange of information between the service provider (in this case, Alfresco Share), and the identity provider (in this case, PingFederate):
 
-![An overview of SAML SSO information exchange]({% link saml-module/images/overview.png %})
+![An overview of SAML information exchange]({% link saml-module/images/overview.png %})

@@ -2,7 +2,7 @@
 title: Configure Alfresco products
 ---
 
-After configuring an identity provider such as [Active Directory]({% link saml-module/latest/config/adfs.md %}) or [PingFederate]({%link saml-module/latest/config/ping.md %}), service providers need to be configured for the features of Alfresco you want to enable SAML SSO for: Alfresco Share, the REST API and Alfresco Office Services.
+After configuring an identity provider such as [Active Directory]({% link saml-module/latest/config/adfs.md %}) or [PingFederate]({%link saml-module/latest/config/ping.md %}), service providers need to be configured for the features of Alfresco in which you want to enable SAML for: Alfresco Share, the REST API and Alfresco Office Services.
 
 The configuration can be done in any of three ways:
 
@@ -16,9 +16,9 @@ The configuration can be done in any of three ways:
 
 ### Configure Alfresco Share using the Admin Console
 
-Administrators can enable and configure SAML SSO authentication for Alfresco Share using the Admin Console.
+Administrators can enable and configure SAML authentication for Alfresco Share using the Admin Console.
 
-1. Log on to the SAML SSO page of the Alfresco Admin Console with your user credentials: `http://localhost:8080/alfresco/service/enterprise/admin/admin-saml`
+1. Log on to the SAML page of the Alfresco Admin Console with your user credentials: `http://localhost:8080/alfresco/service/enterprise/admin/admin-saml`
 
 2. Select the **Share** tab.
 
@@ -70,7 +70,7 @@ You can disable these settings by deselecting **Enable SAML (SSO) Authentication
 
 ### Configure Alfresco Share using the `alfresco-global.properties` file
 
-Administrators can enable and configure SAML SSO authentication for Share using the `alfresco-global.properties` file and a combination of subsystem properties files.
+Administrators can enable and configure SAML authentication for Share using the `alfresco-global.properties` file and a combination of subsystem properties files.
 
 The SAML module uses subsystems to control, configure, and extend the service providers that are supported, therefore it is recommended to use this approach when configuring the subsystems. The SAML subsystems can be configured like any other Alfresco subsystem. For more information, see [Extension classpath](LINK).
 
@@ -182,7 +182,7 @@ If you use multiple service providers, use subsystem extensions for type and ins
 
 ### Configure Alfresco Share using JMX
 
-JMX values (Managed Bean or MBean attributes) are exposed in the Alfresco Admin Console and with internal tools (Alfresco JMX Dump) or external tools like JConsole. The SAML SSO beans are described here with their default values.
+JMX values (Managed Bean or MBean attributes) are exposed in the Alfresco Admin Console and with internal tools (Alfresco JMX Dump) or external tools like JConsole. The SAML Module beans are described here with their default values.
 
 > **Note**: Example values are given. Always check the values in your own system as these can vary depending on the install method or operating system.
 
@@ -238,7 +238,7 @@ A [complete list of of Alfresco MBeans](LINK) is also available.
 
 ### Authenticate users for Alfresco Share
 
-After configuring SAML SSO in Alfresco for Share, you can test that everything is set up correctly by doing the following:
+After configuring SAML in Alfresco for Share, you can test that everything is set up correctly by doing the following:
 
 1. Verify that the administrator email address is configured correctly in the identity provider.
 
@@ -262,11 +262,11 @@ After configuring SAML SSO in Alfresco for Share, you can test that everything i
 
 ### Configure the REST API using the Admin Console
 
-Administrators can enable and configure SAML SSO authentication for the REST API using the Admin Console.
+Administrators can enable and configure SAML authentication for the REST API using the Admin Console.
 
-> **Important:** If you enable and enforce SAML SSO for the REST API, all applications using the REST API (such as Alfresco Share) will use SAML as well. This means that Alfresco Share must also have SAML enabled and enforced if the REST API is. The enforce option is ignored if SAML is disabled for the REST API.
+> **Important:** If you enable and enforce SAML for the REST API, all applications using the REST API (such as Alfresco Share) will use SAML as well. This means that Alfresco Share must also have SAML enabled and enforced if the REST API is. The enforce option is ignored if SAML is disabled for the REST API.
 
-1. Log on to the SAML SSO page of the Alfresco Admin Console with your user credentials: `http://localhost:8080/alfresco/service/enterprise/admin/admin-saml`
+1. Log on to the SAML page of the Alfresco Admin Console with your user credentials: `http://localhost:8080/alfresco/service/enterprise/admin/admin-saml`
 
 2. Select the **REST API** tab.
 
@@ -310,7 +310,7 @@ Administrators can enable and configure SAML SSO authentication for the REST API
 
 You can disable these settings by deselecting **Enable SAML (SSO) Authentication**.
 
-If you want to check if SAML SSO is enabled (or enforced) in your Alfresco server, make a call to:
+If you want to check if SAML is enabled (or enforced) in your Alfresco server, make a call to:
 
 ```http
 http://localhost:8080/alfresco/service/saml/-default-/rest-api/enabled
@@ -337,7 +337,7 @@ This will return a JSON response with the information about the REST API service
 
 ### Configure the REST API using the `alfresco-global.properties` file
 
-Administrators can enable and configure SAML SSO authentication for the REST API using the `<classpathRoot>/alfresco-global.properties` file and a combination of subsystem properties files. Use this as an alternative to configuring SAML SSO using the Admin Console.
+Administrators can enable and configure SAML authentication for the REST API using the `<classpathRoot>/alfresco-global.properties` file and a combination of subsystem properties files. Use this as an alternative to configuring SAML using the Admin Console.
 
 To configure the REST API, create the properties file in the` <classpathRoot>/alfresco/extension/subsystems/SAML/repository/rest-api/my-custom-rest-api-sp.properties` directory.
 
@@ -451,7 +451,7 @@ If you use multiple service providers, use subsystem extensions for type and ins
 
 ### Configure the REST API using JMX
 
-JMX values (Managed Bean or MBean attributes) are exposed in the Alfresco Admin Console and with internal tools (Alfresco JMX Dump) or external tools like JConsole. The SAML SSO beans are described here with their default values.
+JMX values (Managed Bean or MBean attributes) are exposed in the Alfresco Admin Console and with internal tools (Alfresco JMX Dump) or external tools like JConsole. The SAML Module beans are described here with their default values.
 
 > **Note**: Example values are given. Always check the values in your own system as these can vary depending on the install method or operating system.
 
@@ -507,7 +507,7 @@ A [complete list of of Alfresco MBeans](LINK) is also available.
 
 ### Authenticate users for the REST API
 
-After configuring SAML for REST API requests in Alfresco users need to be authenticated via SAML SSO before making any REST API requests.
+After configuring SAML for REST API requests in Alfresco users need to be authenticated via SAML before making any REST API requests.
 
 Without authenticating the user, if you try to access any of the SAML-protected URLs, for example: `https://localhost:8443/alfresco/api/-default-/public/alfresco/versions/1/sites`
 
@@ -578,9 +578,9 @@ The SAML ticket is now invalid and the user can no longer access Alfresco.
 
 ### Configure AOS using the Admin Console
 
-Administrators can enable and configure SAML SSO authentication using the Alfresco Admin Console.
+Administrators can enable and configure SAML authentication using the Alfresco Admin Console.
 
-1. Log in to the SAML SSO page of the Alfresco Admin Console with your user credentials: `http://localhost:8080/alfresco/service/enterprise/admin/admin-saml`
+1. Log in to the SAML page of the Alfresco Admin Console with your user credentials: `http://localhost:8080/alfresco/service/enterprise/admin/admin-saml`
 
 2. Select the **AOS** tab.
 
@@ -626,7 +626,7 @@ You can disable these settings by deselecting **Enable SAML (SSO) Authentication
 
 ### Configure AOS using the `alfresco-global.properties` file
 
-Administrators can enable and configure SAML SSO authentication for AOS using the `<classpathRoot>/alfresco-global.properties` file and a combination of subsystem properties files. Use this as an alternative to configuring SAML SSO using the Admin Console.
+Administrators can enable and configure SAML authentication for AOS using the `<classpathRoot>/alfresco-global.properties` file and a combination of subsystem properties files. Use this as an alternative to configuring SAML using the Admin Console.
 
 To configure AOS, create the properties file in the` <classpathRoot>/alfresco/extension/subsystems/SAML/repository/aos/my-custom-aos-sp.properties` directory.
 
@@ -740,7 +740,7 @@ If you use multiple service providers, use subsystem extensions for type and ins
 
 ### Configure AOS using JMX
 
-JMX values (Managed Bean or MBean attributes) are exposed in the Alfresco Admin Console and with internal tools (Alfresco JMX Dump) or external tools like JConsole. The SAML SSO beans are described here with their default values.
+JMX values (Managed Bean or MBean attributes) are exposed in the Alfresco Admin Console and with internal tools (Alfresco JMX Dump) or external tools like JConsole. The SAML Module beans are described here with their default values.
 
 > **Note**: Example values are given. Always check the values in your own system as these can vary depending on the install method or operating system.
 
@@ -796,7 +796,7 @@ A [complete list of of Alfresco MBeans](LINK) is also available.
 
 ### Authenticate users for AOS
 
-After configuring SAML SSO for AOS, you can test that everything is set up correctly.
+After configuring SAML for AOS, you can test that everything is set up correctly.
 
 1. Verify that the administrator email address is configured correctly in the IdP.
 

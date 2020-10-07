@@ -1,16 +1,16 @@
 ---
-title: Develop with SAML SSO
+title: Develop with the SAML Module
 ---
 
-This information is intended for developers or system administrator to create applications that interact with Alfresco using SAML SSO.
+This information is intended for developers or system administrator to create applications that interact with Alfresco using the SAML Module.
 
 ## Prerequisites
 
-* SAML SSO [installed]({% link saml-module/latest/install/index.md %}) and [configured]({% link saml-module/latest/config/index.md %}).
+* The SAML Module [installed]({% link saml-module/latest/install/index.md %}) and [configured]({% link saml-module/latest/config/index.md %}).
 
 > **Note**: The examples below use Alfresco Content Services running locally on port 8080: `http://localhost:8080/alfresco`.
 
-> **Note**: SAML SSO in Alfresco does not support user provisioning. This means that user IDs have to be created in Alfresco Content Services and in the identity provider before trying to authenticate the users with SAML in Alfresco or in a custom application.
+> **Note**: SAML in Alfresco does not support user provisioning. This means that user IDs have to be created in Alfresco Content Services and in the identity provider before trying to authenticate the users with SAML in Alfresco or in a custom application.
 
 ## Service description
 
@@ -162,7 +162,7 @@ To enable CORS in the Alfresco server, do one of the following:
 
 ## Proxies and clustering
 
-There are a number of recommendations when running SAML SSO for Alfresco behind a proxy.
+There are a number of recommendations when running SAML for Alfresco behind a proxy.
 
 Make sure that the IdP is accessible to the client applications. At a minimum, configure the `alfresco.host`, `alfresco.port`, and `alfresco.protocol` properties to use the correct values of the proxy server. For more information, see [sysAdmin subsystem properties](LINK). For deploying Alfresco with a reverse proxy, see [Deploying Alfresco with a different context path](LINK).
 

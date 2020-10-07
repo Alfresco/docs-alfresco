@@ -2,7 +2,7 @@
 title: Configure Active Directory
 ---
 
-The following steps are example instructions for configuring Active Directory Federation Services (ADFS) as the identity provider to use with SAML SSO in Alfresco.
+The following steps are example instructions for configuring Active Directory Federation Services (ADFS) as the identity provider to use with the SAML Module in Alfresco.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ The following steps are example instructions for configuring Active Directory Fe
 
 1. Run a full LDAP sync. This can be done by restarting Alfresco Content Services.
 
-    > **Note**: If a user exists in LDAP, but not in Alfresco, they will not be able to log in to Alfresco when SAML SSO is enabled. See [Configuring LDAP (Active Directory)](LINK) for more information.
+    > **Note**: If a user exists in LDAP, but not in Alfresco, they will not be able to log in to Alfresco when the SAML Module is enabled. See [Configuring LDAP (Active Directory)](LINK) for more information.
 
 2. Install ADFS. For example purposes we will use a domain name of `example.com` and a Federation Service name of `adfs.example.com`.
 
@@ -60,7 +60,7 @@ The following steps are example instructions for configuring Active Directory Fe
 
     5. Select where you want to save the file and enter a name for it. Click **Save**, **Next**, and **Finish**.
 
-7. In a browser window, log in to the Admin Console SAML SSO page as an administrator, to upload your exported certificate to Alfresco: `https://localhost:8443/alfresco/service/enterprise/admin/admin-saml`
+7. In a browser window, log in to the Admin Console SAML page as an administrator, to upload your exported certificate to Alfresco: `https://localhost:8443/alfresco/service/enterprise/admin/admin-saml`
 
 8. Click **Upload IdP Certificate** to browse to and upload the ADFS certificate you exported in step 6, and click **Save**.
 

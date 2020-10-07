@@ -2,7 +2,7 @@
 title: Configure PingFederate
 ---
 
-The following steps are example instructions for configuring PingFederate as the identity provider to use with SAML SSO in Alfresco. For detailed instructions on configuration use the [PingFederate documentation](https://support.pingidentity.com/s/PingFederate-help){:target="_blank"}.
+The following steps are example instructions for configuring PingFederate as the identity provider to use with the SAML Module in Alfresco. For detailed instructions on configuration use the [PingFederate documentation](https://support.pingidentity.com/s/PingFederate-help){:target="_blank"}.
 
 PingFederate can be configured manually or you can reuse or clone an [existing connection](#reuse-an-existing-connection).
 
@@ -22,7 +22,7 @@ PingFederate can be configured manually or you can reuse or clone an [existing c
 
     3. **Import Metadata**: Use this tab to import the metadata file describing this new connection.
 
-        1. In a new browser window, log in to the SAML SSO Admin Console page as an administrator: `http://localhost:8080/alfresco/service/enterprise/admin/admin-saml`
+        1. In a new browser window, log in to the SAML Admin Console page as an administrator: `http://localhost:8080/alfresco/service/enterprise/admin/admin-saml`
 
         2. Click `Download SP Metadata`.
         3. Save the file.
@@ -177,8 +177,8 @@ PingFederate can be configured manually or you can reuse or clone an [existing c
         2. Select the **Unanchored** option.
         3. Click **Next**.
         4. Click **Manage Certificates**.
-        5. Click **Import** and **Browse** to select the SP Certificate that you downloaded from the SAML SSO administration console and then click **Extract**.
-        6. In a new browser window, log in to the Admin Console SAML SSO page as an administrator: `http://localhost:8080/alfresco/service/enterprise/admin/admin-saml`
+        5. Click **Import** and **Browse** to select the SP Certificate that you downloaded from the SAML administration console and then click **Extract**.
+        6. In a new browser window, log in to the Admin Console SAML page as an administrator: `http://localhost:8080/alfresco/service/enterprise/admin/admin-saml`
         7. Click **Download SP Certificate**.
         8. Save the file.
         9. Click **Next**. The **Summary** screen is displayed. You can review or edit your credentials configuration here.
@@ -291,7 +291,7 @@ For production environments, see the guidance in the [PingFederate documentation
 
 1. Run a full LDAP sync. This can be done by restarting Alfresco Content Services.
 
-    If a user exists in LDAP and PingFederate, but not in Alfresco, they will not be able to log in to Alfresco when SAML SSO is enabled. See [Configuring LDAP (Active Directory)](LINK) for more information.
+    If a user exists in LDAP and PingFederate, but not in Alfresco, they will not be able to log in to Alfresco when SAML is enabled. See [Configuring LDAP (Active Directory)](LINK) for more information.
 
 2. Stop the PingFederate server.
 

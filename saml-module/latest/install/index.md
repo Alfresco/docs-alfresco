@@ -2,13 +2,13 @@
 title: Install with Zip
 ---
 
-SAML Module is installed as a module of Alfresco Content Services. These modules are referred to as Alfresco Module Packages (AMP) and use the `.amp` file format.
+The SAML Module is installed as a module of Alfresco Content Services. These modules are referred to as Alfresco Module Packages (AMP) and use the `.amp` file format.
 
 AMPs can be installed in the `amps` directory of your Alfresco Content Services installation or by using the [Module Management Tool](LINK).
 
 ## Prerequisites
 
-There are a number of prerequisites for installing SAML SSO in addition to the [supported platforms]({% link saml-module/latest/support/index.md %}).
+There are a number of prerequisites for installing the SAML Module in addition to the [supported platforms]({% link saml-module/latest/support/index.md %}).
 
 ### Software
 
@@ -31,13 +31,13 @@ If you have not enforced SAML for a specific service provider, you can use the o
 
 ## Installation steps
 
-> **Note**: If you are installing SAML SSO on top of Alfresco Content Connector for AWS S3, use the `-force` option, otherwise Alfresco Content Services will not start correctly.
+> **Note**: If you are installing the SAML Module on top of Alfresco Content Connector for AWS S3, use the `-force` option, otherwise Alfresco Content Services will not start correctly.
 
 > **Note**: If you are running Alfresco Content Services behind a proxy, make sure the identity provider references the proxy endpoint instead of directly referencing the Alfresco cluster.
 
 1. Stop the Alfresco Content Services server.
 
-2. Navigate to the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"} and download and unzip the SAML SSO for Alfresco Content Services zip package:
+2. Navigate to the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"} and download and unzip the SAML Module for Alfresco Content Services zip package:
 
     * `alfresco-saml-1.2.x.zip`
 
@@ -116,7 +116,7 @@ If you have not enforced SAML for a specific service provider, you can use the o
 
 ## Uninstall steps
 
-Use the [Module Management Tool](LINK) to uninstall the SAML SSO module from Alfresco Content Services.
+Use the [Module Management Tool](LINK) to uninstall the SAML Module from Alfresco Content Services.
 
 1. Stop the Alfresco server.
 

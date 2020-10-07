@@ -1,4 +1,4 @@
-# SAML SSO 1.2
+# SAML Module 1.2
 - version: 1.2
   pages:
     - title: 'Introduction'
@@ -20,7 +20,7 @@
     - title: 'Develop'
       path: '/saml-module/latest/develop/'
 
-# SAML SSO 1.1
+# SAML Module 1.1
 - version: 1.1
   pages:
     - title: 'Introduction'
