@@ -7,18 +7,41 @@
       pages:
         - title: 'Overview'
           path: '/insight-engine/latest/install/'
-        - title: 'To Kubernetes Cluster'
-          path: '/insight-engine/latest/install/k8s/'
-        - title: 'From ZIP file'
-          path: '/insight-engine/latest/install/zip/'
+        - title: 'Prerequisites'
+          path: '/insight-engine/latest/install/#Prerequisites'
+        - title: 'Install options'
+          path: '/insight-engine/latest/install/options/'
+              - title: 'Install options'
+          path: '/insight-engine/latest/install/options/#Installing with mutual TLS with the distribution zip'
+              - title: 'Install options'
+          path: '/insight-engine/latest/install/options/#Installing Insight Engine without mutual TLS'
+              - title: 'Install options'
+          path: '/insight-engine/latest/install/options/#Installing using Docker compose'
+        - title: 'Upgrade'
+          path: '/insight-engine/latest/upgrade/' 
     - title: 'Configure'
       pages:
-        - title: 'Overview'
+        - title: 'Configure'
           path: '/insight-engine/latest/config/'
-        - title: 'Options supported by query languages'
-          path: '/insight-engine/latest/config/languages/'
-        - title: 'Transactional metadata queries supported by database'
-          path: '/insight-engine/latest/install/intrans/'
+        - title: 'Secure Keys'
+          path: '/insight-engine/latest/config/keys/'
+        - title: 'Solr security'
+          path: '/insight-engine/latest/config/security/'
+        - title: 'Solr sharding'
+          path: '/insight-engine/latest/config/sharding/'
+        - title: 'Setting up Solr sharding'
+          path: '/insight-engine/latest/config/sharding/create'
+        - title: 'Solr replication'
+          path: '/insight-engine/latest/config/replication/'
+        - title: 'OpenSearch'
+          path: '/insight-engine/latest/config/opensearch/'
+        - title: 'Filtered search'
+          path: '/insight-engine/latest/config/filtered/'
+        - title: 'Setting up Solr sharding'
+          path: '/insight-engine/latest/config/properties/'
+        - title: 'Properties for Solr index'
+          path: '/insight-engine/latest/config/transactional/'
+        - title: 'Transactional metadata query'
     - title: 'Using'
       pages:
         - title: 'Overview'
@@ -31,11 +54,10 @@
       path: '/insight-engine/latest/upgrade/'
     - title: 'Configure'
       path: '/insight-engine/latest/configure/'
-
-
-
-
-- title: 'Transactional metadata query'
+          
+    
+    
+    - title: 'Transactional metadata query'
       pages:
         - title: 'Overview'
           path: '/insight-engine/latest/config/trans'
@@ -50,6 +72,70 @@
         - title: 'Adding optional indexes to database'
           path: '/insight-engine/latest/config/trans/intrans-metadata/'
        
+
+     - title: 'Overview'
+          path: '/insight-engine/latest/config/replication'
+        - title: 'Options supported by query languages'
+          path: '/insight-engine/latest/config/trans/languages/'
+        - title: 'Transactional metadata queries supported by database'
+          path: '/insight-engine/latest/config//trans/intrans/'
+        - title: 'Configuring transactional metadata query'
+          path: '/insight-engine/latest/config/trans/transactional/'
+        - title: 'Configuring an optional patch for upgrade'
+          path: '/insight-engine/latest/config//trans/intrans/patch'
+        - title: 'Adding optional indexes to database'
+          path: '/insight-engine/latest/config/trans/intrans-metadata/'
+
+
+
+
+               - title: 'Overview'
+          path: '/insight-engine/latest/config/reports'
+        - title: 'Options supported by query languages'
+          path: '/insight-engine/latest/config/trans/languages/'
+        - title: 'Transactional metadata queries supported by database'
+          path: '/insight-engine/latest/config//trans/intrans/'
+        - title: 'Configuring transactional metadata query'
+          path: '/insight-engine/latest/config/trans/transactional/'
+        - title: 'Configuring an optional patch for upgrade'
+          path: '/insight-engine/latest/config//trans/intrans/patch'
+        - title: 'Adding optional indexes to database'
+          path: '/insight-engine/latest/config/trans/intrans-metadata/'
+
+
+
+     - title: 'Overview'
+          path: '/insight-engine/latest/config/sharding'
+        - title: 'Options supported by query languages'
+          path: '/insight-engine/latest/config/trans/languages/'
+        - title: 'Transactional metadata queries supported by database'
+          path: '/insight-engine/latest/config//trans/intrans/'
+        - title: 'Configuring transactional metadata query'
+          path: '/insight-engine/latest/config/trans/transactional/'
+        - title: 'Configuring an optional patch for upgrade'
+          path: '/insight-engine/latest/config//trans/intrans/patch'
+        - title: 'Adding optional indexes to database'
+          path: '/insight-engine/latest/config/trans/intrans-metadata/'
+
+
+       - title: 'Overview'
+          path: '/insight-engine/latest/config/sharding'
+        - title: 'Options supported by query languages'
+          path: '/insight-engine/latest/config/trans/languages/'
+        - title: 'Transactional metadata queries supported by database'
+          path: '/insight-engine/latest/config//trans/intrans/'
+        - title: 'Configuring transactional metadata query'
+          path: '/insight-engine/latest/config/trans/transactional/'
+        - title: 'Configuring an optional patch for upgrade'
+          path: '/insight-engine/latest/config//trans/intrans/patch'
+        - title: 'Adding optional indexes to database'
+          path: '/insight-engine/latest/config/trans/intrans-metadata/'
+
+
+
+
+
+
 
 
           -   **[Overview of transactional metadata query](../concepts/intrans-metadata-overview.md)**  

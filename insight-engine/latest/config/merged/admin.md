@@ -1,5 +1,5 @@
 ---
-title: Solr Admin web interface
+title: Connecting to the SSL-protected Solr web application
 ---
 The Solr Admin Web interface allows you to view Solr configuration details, run queries, and analyze document fields.
 
@@ -39,7 +39,3 @@ Click on the left or the center of the Solr Admin UI below to learn more about i
 
 ![](../images/Solr-admin.png)
 
-* **[Solr Admin UI - left panel](../concepts/solradmin-left.md)**  
-The left-side of the Solr Admin screen is a menu under the Solr logo that provides the navigation through the screens of the UI. The first set of links are for system-level information and configuration, and provide access to Logging, Core Admin and Java Properties, among other things.
-* **[Solr Admin UI - center panel](../concepts/solradmin-center.md)**  
-The center of the screen shows the detail of the Solr core selected, such as statistics, summary report, and so on.

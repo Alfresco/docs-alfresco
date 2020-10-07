@@ -1,5 +1,5 @@
 ---
-title: Installing and configuring Search and Insight Engine
+title: Installation overview
 ---
 Installing Alfresco Search and Insight Engine introduces additional features, including new sharding methods and sharding with SSL. Mutual TLS is not just used to encrypt data in transit, it is also used as an authentication mechanism between the repository and Search and Insight Engine.
 
@@ -13,7 +13,7 @@ You may choose to secure Search and Insight Engine with SSL.
 
 You can download the Search and Insight Engine installation file from the Alfresco Support Portal: [http://support.alfresco.com](http://support.alfresco.com/). Click Downloads, and then select the version of the product you require.
 
-## Prerequisites and supported platforms
+## Prerequisites
 
 The supported platforms are the combinations of operating systems, databases, and application servers that are tested and certified for Alfresco Content Services.
 

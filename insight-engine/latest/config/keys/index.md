@@ -1,5 +1,5 @@
 ---
-title: Generating Secure Keys
+title: Secure Keys
 ---
 This section describes a recommended approach for generating and setting up certificates. It is not required that you use this approach if you have an alternative solution that you already use.
 
