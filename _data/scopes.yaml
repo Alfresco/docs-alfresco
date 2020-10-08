@@ -16,7 +16,7 @@ integrations:
     search-services: "Search Services"
     federation-services: "Federation Services"
     identity-service: "Identity Service"
-    saml-sso: "SAML Single Sign-On (SSO) for Alfresco Content Services"
+    saml-module: "SAML Module for Alfresco Content Services"
     intelligence-services: "Intelligence Services"
     aws-s3: "Content Connector for AWS S3"
     microsoft-azure: "Content Connector for Azure"
