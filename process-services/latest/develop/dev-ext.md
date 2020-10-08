@@ -1,5 +1,5 @@
 ---
-title: Developing for Process Services
+title: Developing extensions for Process Services
 ---
 
 This guide describes how to develop extensions and customize Process Services.
@@ -202,7 +202,7 @@ ALFRESCO.formExtensions = {
 This file can be changed to add custom logic. Alternatively, it is also possible to add new JavaScript files and 
 reference them in the `index.html` file (do take those files in account when upgrading to newer versions of the 
 application) but it is also possible to load additional folders using the resource loader, see 
-[Custom web resources](TODO:custom_web_resources.md).
+[Custom web resources](#custom-web-resources).
 
 In every event method the full form variable is passed as a parameter. This form variable contains the form identifier 
 and name, but also the full set of form fields with type and other configuration information.
@@ -518,7 +518,7 @@ For example, the following snippet from the template shows advanced constructs:
 ![doc-gen-template-example]({% link process-services/images/doc-gen-template-example.png %})
 
 It is also possible to have custom Spring bean that processes the process variables just before rendering the document, 
-[Processing document generation variables](TODO:processing_document_generation_variables.md).
+[Processing document generation variables](#processing-document-generation-variables).
 
 ## Custom Logic
 
@@ -1995,8 +1995,8 @@ The interface to implement the global security override is called `com.activiti.
 It has one method `configureGlobal` which is called instead of the default logic. It sets up either database-backed or 
 LDAP-backed authentication if an instance implementing this interface is found on the classpath.
 
-Building further on the example in [Example implementation]({% link process-services/latest/config/index.md %}#external-identity-management-ldapactive-directory), 
-use the `users.txt` file, in combination with the `FileSyncService`, so that the application uses the user information in the file to execute authentication.
+Building further on the [Example implementation](#customidmexampleimpl), use the `users.txt` file, 
+in combination with the `FileSyncService`, so that the application uses the user information in the file to execute authentication.
 
 Spring Security (which is used as underlying framework for security) expects an implementation of the 
 `org.springframework.security.authentication.AuthenticationProvider` to execute the actual authentication logic. 

@@ -36,7 +36,7 @@ Custom email templates can be created centrally or within an application when it
 
 Templates can contain process and task variables using the format `${title}` where the variable is called `title`.
 
-The following predefined variables can also be used depending on the `assignment` of the [user task](TODO:user_task.md):
+The following predefined variables can also be used depending on the `assignment` of the [user task]({% link process-services/latest/using/bpmn.md%}#user-task):
 
 |Assignment|Variable|
 |----------|--------|
@@ -222,4 +222,4 @@ Result: *user1* has been added to the group.
 
 Result: *user2* has been appointed as the group manager.
 
->**Note:** All changes made in the Organization tab are listed in the [Tenants tab](TODO:https://docs.alfresco.com/process-services1.10/topics/tenants_tab.html) under Events.
+>**Note:** All changes made in the Organization tab are listed in the [Tenants tab](#tenants-tab) under Events.

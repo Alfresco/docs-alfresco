@@ -22,7 +22,7 @@ The Analytics app has the following tabs:
 In Process Services, you can add Standard reports at a click of a button. You can choose to add all standard reports 
 at once or configure only the reports you’re interested in. For example, you can configure your report panel to isolate 
 Task related reports such as Task overview and Task service level agreement reports, or custom reports that are based 
-on generated reports (see [Customizing reports](TODO: customizing_reports.md)).
+on generated reports (see [Customizing reports](#customizing-reports)).
 
 **To add standard reports:**
 

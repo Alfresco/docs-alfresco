@@ -39,7 +39,7 @@ C:\.activiti\enterprise-license
 You can upgrade using the WAR file in your application server distribution. These instructions use the WAR file from 
 the Apache Tomcat based distribution, however you can choose from different distributions for various application servers.
 
-Review the [Supported Stacks](https://www.alfresco.com/services/subscription/supported-platforms) list to see what’s supported.
+Review the [Supported Stacks]({% link process-services/latest/support/index.md %}) list to see what’s supported.
 
 Follow these steps to upgrade using the War file:
 

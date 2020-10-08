@@ -594,7 +594,7 @@ properties rather than retrieving.
 
 The Call Alfresco Action enables you to invoke standard Alfresco Content Services actions from Process Services.
 
->**Note:** Alfresco Actions are asynchronous. This is important to note if you have multiple tasks executing against the same node(s) in Alfresco Content Services. To control a sequence of actions against a node, use a [Service Task](TODO:service_task.md) instead.
+>**Note:** Alfresco Actions are asynchronous. This is important to note if you have multiple tasks executing against the same node(s) in Alfresco Content Services. To control a sequence of actions against a node, use a [Service Task]({% link process-services/latest/using/bpmn.md %}#service-task) instead.
 
 |Property|Description|
 |--------|-----------|

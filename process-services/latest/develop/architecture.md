@@ -11,7 +11,7 @@ For more information about Activiti BPM, see [Activiti.org](https://www.activiti
 
 The following diagram gives a high-level overview of the technical components in Process Services.
 
-![high_level_architecture_aps]({% link process-services/images/high_level_architecture_aps.png %})
+![high_level_architecture_aps]({% link process-services/images/high_level_architecture_aps.png %}){:height="450px" width="638px"}
 
 Process Services is packaged as a standard Java Web application (WAR file) that can be deployed in any supported 
 Java web container. The WAR file contains the Java logic, REST API resources, and the user interface HTML and 
@@ -25,7 +25,7 @@ for more information on multi-node setup).
 * The ReST API has two parts:
     * The ReST API that exposes operations in the context of the applications that are part of Process Services. This ReST API is used by the user interface and should be used in most cases.
     * The ReST API that exposes the core engine API directly. Note that this interface is intended for highly custom applications as it exposes the full capabilities and data within the Process Engine. Consequently, a user with the *tenant admin* or *tenant manager* role is needed to access this part of the ReST API for security reasons.
-* The application requires Java 7 and is compliant with JEE 6 technologies. The Process Engine itself also supports Java 6, however for components such as Elasticsearch, Process Servicesrequires Java 7 or Java 8. Review the [Supported Stacks](https://www.alfresco.com/services/subscription/supported-platforms) list for more information on supported platforms.
+* The application requires Java 7 and is compliant with JEE 6 technologies. The Process Engine itself also supports Java 6, however for components such as Elasticsearch, Process Services requires Java 7 or Java 8. Review the [Supported platforms]({% link process-services/latest/support/index.md %}) list for more information on supported platforms.
 * The backend logic specific to the Process Services logic is implemented using Spring 4 and JPA (Hibernate).
 * All user interfaces are written using HTML5 and AngularJS.
 

@@ -8,7 +8,7 @@ flexibility to work on either a web interface or on mobile.
 Process Workspace is a front-end application that is packaged and deployed separately from the 
 Process Services application (`activiti-app`).
 
-For more information about installation, see [Installing Process Services Workspace](TODO:../tasks/pw-install.md)
+For more information about installation, see [Installing Process Services Workspace]({% link process-services/latest/install/index.md %}#installing-process-services-workspace)
 
 ## Opening the application
 

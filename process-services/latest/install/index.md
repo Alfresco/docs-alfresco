@@ -146,47 +146,47 @@ There are three options for specifying your own variables during a Docker deploy
 
 |Property|Description|Default value|
 |--------|-----------|-------------|
-|`ACTIVITI_DATASOURCE_DRIVER`|The JDBC driver used to connect to the database.|`org.h2.Driver`|
-|`ACTIVITI_HIBERNATE_DIALECT`|The dialect that Hibernate uses that is specific to the database type.|`org.hibernate.dialect.H2Dialect`|
-|`ACTIVITI_LICENSE_MULTI_TENANT`|Set whether the license used is a multi-tenant one or not.|`false`|
-|`ACTIVITI_DATASOURCE_URL`|The location of the database that will be used.|`jdbc:h2:mem:db1;DB_CLOSE_DELAY=1000`|
-|`ACTIVITI_DATASOURCE_USERNAME`|The username to access the database with.|`alfresco`|
-|`ACTIVITI_DATASOURCE_PASSWORD`|The password for the `ACTIVITI_DATASOURCE_USERNAME` user.|`alfresco`|
-|`ACTIVITI_ADMIN_EMAIL`|The email address for the default administrator user.|`admin@app.activiti.com`|
-|`ACTIVITI_ADMIN_PASSWORD_HASH`|The hashed password for `ACTIVITI_ADMIN_EMAIL` user.|``|
-|`ACTIVITI_CORS_ENABLED`|Sets whether Cross Origin Resource Sharing (CORS) is enabled or not.|`true`|
-|`ACTIVITI_CORS_ALLOWED_ORIGINS`|The host origins allowed in CORS requests.|`*`|
-|`ACTIVITI_CORS_ALLOWED_METHODS`|The HTTP request methods allowed for CORS requests.|`GET,POST,HEAD,OPTIONS,PUT,DELETE`|
-|`ACTIVITI_CORS_ALLOWED_HEADERS`|The headers that can be set in CORS requests.|`Authorization,Content-Type,Cache-Control,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-CSRF-Token`|
-|`ACTIVITI_CSRF_DISABLED`|Sets whether Cross Site Request Forgery is disabled or not.|`true`|
-|`ACTIVITI_ES_SERVER_TYPE`|Set this to rest to enable the REST client implementation.|`rest`|
-|`ACTIVITI_ES_REST_CLIENT_ADDRESS`|The IP address of the Elasticsearch instance.|`localhost`|
-|`ACTIVITI_ES_REST_CLIENT_PORT`|The port to contact Elasticsearch through.|`9200`|
-|`ACTIVITI_ES_REST_CLIENT_SCHEMA`|Sets whether the connection to Elasticsearch uses http or https.|`http`|
-|`ACTIVITI_ES_REST_CLIENT_AUTH_ENABLED`|Sets whether authentication is enabled for the REST connection to Elasticsearch.|`false`|
-|`ACTIVITI_ES_REST_CLIENT_USERNAME`|The username of the Elasticsearch user.|`admin`|
-|`ACTIVITI_ES_REST_CLIENT_PASSWORD`|The password for the Elasticsearch user.|`esadmin`|
-|`ACTIVITI_ES_REST_CLIENT_KEYSTORE`|The keystore used to encrypt the connection to the Elasticsearch instance.|``|
-|`ACTIVITI_ES_REST_CLIENT_KEYSTORE_TYPE`|The type of keystore used for encrypting the Elasticsearch connection data.|`jks`|
-|`ACTIVITI_ES_REST_CLIENT_KEYSTORE_PASSWORD`|The password for the keystore used encrypting the Elasticsearch connection data.|``|
+|ACTIVITI_DATASOURCE_DRIVER|The JDBC driver used to connect to the database.|`org.h2.Driver`|
+|ACTIVITI_HIBERNATE_DIALECT|The dialect that Hibernate uses that is specific to the database type.|`org.hibernate.dialect.H2Dialect`|
+|ACTIVITI_LICENSE_MULTI_TENANT|Set whether the license used is a multi-tenant one or not.|`false`|
+|ACTIVITI_DATASOURCE_URL|The location of the database that will be used.|`jdbc:h2:mem:db1;DB_CLOSE_DELAY=1000`|
+|ACTIVITI_DATASOURCE_USERNAME|The username to access the database with.|`alfresco`|
+|ACTIVITI_DATASOURCE_PASSWORD|The password for the `ACTIVITI_DATASOURCE_USERNAME` user.|`alfresco`|
+|ACTIVITI_ADMIN_EMAIL|The email address for the default administrator user.|`admin@app.activiti.com`|
+|ACTIVITI_ADMIN_PASSWORD_HASH|The hashed password for `ACTIVITI_ADMIN_EMAIL` user.|``|
+|ACTIVITI_CORS_ENABLED|Sets whether Cross Origin Resource Sharing (CORS) is enabled or not.|`true`|
+|ACTIVITI_CORS_ALLOWED_ORIGINS|The host origins allowed in CORS requests.|`*`|
+|ACTIVITI_CORS_ALLOWED_METHODS|The HTTP request methods allowed for CORS requests.|`GET,POST,HEAD,OPTIONS,PUT,DELETE`|
+|ACTIVITI_CORS_ALLOWED_HEADERS|The headers that can be set in CORS requests.|`Authorization,Content-Type,Cache-Control,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-CSRF-Token`|
+|ACTIVITI_CSRF_DISABLED|Sets whether Cross Site Request Forgery is disabled or not.|`true`|
+|ACTIVITI_ES_SERVER_TYPE|Set this to rest to enable the REST client implementation.|`rest`|
+|ACTIVITI_ES_REST_CLIENT_ADDRESS|The IP address of the Elasticsearch instance.|`localhost`|
+|ACTIVITI_ES_REST_CLIENT_PORT|The port to contact Elasticsearch through.|`9200`|
+|ACTIVITI_ES_REST_CLIENT_SCHEMA|Sets whether the connection to Elasticsearch uses http or https.|`http`|
+|ACTIVITI_ES_REST_CLIENT_AUTH_ENABLED|Sets whether authentication is enabled for the REST connection to Elasticsearch.|`false`|
+|ACTIVITI_ES_REST_CLIENT_USERNAME|The username of the Elasticsearch user.|`admin`|
+|ACTIVITI_ES_REST_CLIENT_PASSWORD|The password for the Elasticsearch user.|`esadmin`|
+|ACTIVITI_ES_REST_CLIENT_KEYSTORE|The keystore used to encrypt the connection to the Elasticsearch instance.|``|
+|ACTIVITI_ES_REST_CLIENT_KEYSTORE_TYPE|The type of keystore used for encrypting the Elasticsearch connection data.|`jks`|
+|ACTIVITI_ES_REST_CLIENT_KEYSTORE_PASSWORD|The password for the keystore used encrypting the Elasticsearch connection data.|``|
 
 **For variables that correspond to the `activiti-identity-service.properties` file:**
 
 |Property|Description|Default value|
 |--------|-----------|-------------|
-|`IDENTITY_SERVICE_ENABLED`|Sets whether the Identity Service is enabled or not.|`false`|
-|`IDENTITY_SERVICE_REALM`|The name of the realm used by the Identity Service.|`alfresco`|
-|`IDENTITY_SERVICE_SSL_REQUIRED`|Sets whether communication to and from the Identity Service is over HTTPS or not.|`none`|
-|`IDENTITY_SERVICE_RESOURCE`|The Client ID for Process Services within the Identity Service realm.|`alfresco`|
-|`IDENTITY_SERVICE_PRINCIPAL_ATTRIBUTE`|The attribute used to populate `UserPrincipal` with. This needs to be set to `email` for Process Services to authenticate with the Identity Service.|`email`|
-|`IDENTITY_SERVICE_ALWAYS_REFRESH_TOKEN`|Sets whether the token is refresh for every request to the Identity Service or not.|`true`|
-|`IDENTITY_SERVICE_AUTODETECT_BEARER_ONLY`|Allows for unauthorized access requests to be redirected to the Identity Service sign in page.|`true`|
-|`IDENTITY_SERVICE_TOKEN_STORE`|The location of where the account information token is stored.|`session`|
-|`IDENTITY_SERVICE_ENABLE_BASIC_AUTH`|Sets whether basic authentication is allowed is supported by the adapter.|`true`|
-|`IDENTITY_SERVICE_PUBLIC_CLIENT`|Sets whether the adapter sends credentials for the client to the Identity Service. It will not send the credentials if this is set to `true`.|`true`|
-|`IDENTITY_SERVICE_AUTH`|Sets the authentication URL for the Identity Service. The `localhost` value and port number need to be replaced with the DNS or address used for the deployment.|`http://localhost:8080/auth`|
-|`IDENTITY_CREDENTIALS_SECRET`|The secret key for the client if the access type is not `public`.|``|
-|`IDENTITY_SERVICE_USE_BROWSER_BASED_LOGOUT`|Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|`true`|
+|IDENTITY_SERVICE_ENABLED|Sets whether the Identity Service is enabled or not.|`false`|
+|IDENTITY_SERVICE_REALM|The name of the realm used by the Identity Service.|`alfresco`|
+|IDENTITY_SERVICE_SSL_REQUIRED|Sets whether communication to and from the Identity Service is over HTTPS or not.|`none`|
+|IDENTITY_SERVICE_RESOURCE|The Client ID for Process Services within the Identity Service realm.|`alfresco`|
+|IDENTITY_SERVICE_PRINCIPAL_ATTRIBUTE|The attribute used to populate `UserPrincipal` with. This needs to be set to `email` for Process Services to authenticate with the Identity Service.|`email`|
+|IDENTITY_SERVICE_ALWAYS_REFRESH_TOKEN|Sets whether the token is refresh for every request to the Identity Service or not.|`true`|
+|IDENTITY_SERVICE_AUTODETECT_BEARER_ONLY|Allows for unauthorized access requests to be redirected to the Identity Service sign in page.|`true`|
+|IDENTITY_SERVICE_TOKEN_STORE|The location of where the account information token is stored.|`session`|
+|IDENTITY_SERVICE_ENABLE_BASIC_AUTH|Sets whether basic authentication is allowed is supported by the adapter.|`true`|
+|IDENTITY_SERVICE_PUBLIC_CLIENT|Sets whether the adapter sends credentials for the client to the Identity Service. It will not send the credentials if this is set to `true`.|`true`|
+|IDENTITY_SERVICE_AUTH|Sets the authentication URL for the Identity Service. The `localhost` value and port number need to be replaced with the DNS or address used for the deployment.|`http://localhost:8080/auth`|
+|IDENTITY_CREDENTIALS_SECRET|The secret key for the client if the access type is not `public`.|``|
+|IDENTITY_SERVICE_USE_BROWSER_BASED_LOGOUT|Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|`true`|
 
 #### Configure Process Services Administrator
 
@@ -204,12 +204,12 @@ There are three options for specifying your own variables during a Docker deploy
 
 |Property|Description|Default value|
 |--------|-----------|-------------|
-|`ACTIVITI_ADMIN_DATASOURCE_DRIVER`|The JDBC driver used to connect to the database for Process Services Administrator.|`org.h2.Driver`|
-|`ACTIVITI_ADMIN_HIBERNATE_DIALECT`|The dialect that Hibernate uses that is specific to the database type for the Process Services Administrator.|`org.hibernate.dialect.H2Dialect`|
-|`ACTIVITI_ADMIN_REST_APP_HOST`|The location of the Administrator API. This should be set to the DNS name of the deployment.|`localhost`|
-|`ACTIVITI_ADMIN_REST_APP_PORT`|The port for the Administrator API.|`80`|
-|`ACTIVITI_ADMIN_REST_APP_USERNAME`|The default user for the Admin API.|`admin@app.activiti.com`|
-|`ACTIVITI_ADMIN_REST_APP_PASSWORD`|The default password for the Admin API|`admin`|
+|ACTIVITI_ADMIN_DATASOURCE_DRIVER|The JDBC driver used to connect to the database for Process Services Administrator.|`org.h2.Driver`|
+|ACTIVITI_ADMIN_HIBERNATE_DIALECT|The dialect that Hibernate uses that is specific to the database type for the Process Services Administrator.|`org.hibernate.dialect.H2Dialect`|
+|ACTIVITI_ADMIN_REST_APP_HOST|The location of the Administrator API. This should be set to the DNS name of the deployment.|`localhost`|
+|ACTIVITI_ADMIN_REST_APP_PORT|The port for the Administrator API.|`80`|
+|ACTIVITI_ADMIN_REST_APP_USERNAME|The default user for the Admin API.|`admin@app.activiti.com`|
+|ACTIVITI_ADMIN_REST_APP_PASSWORD|The default password for the Admin API|`admin`|
 
 ### Install on Amazon EKS
 
@@ -325,56 +325,56 @@ The following properties can be configured in the `values.yaml` file or overridd
 
 |Property|Description|Default value|
 |--------|-----------|-------------|
-|`ACTIVITI_DATASOURCE_DRIVER`|The JDBC driver used to connect to the database.|`org.postgresql.Driver`|
-|`ACTIVITI_HIBERNATE_DIALECT`|The dialect that Hibernate uses that is specific to the database type.|`org.hibernate.dialect.PostgreSQLDialect`|
-|`ACTIVITI_LICENSE_MULTI_TENANT`|Set whether the license used is a multi-tenant one or not.|`false`|
-|`ACTIVITI_DATASOURCE_URL`|The location of the database that will be used.|``|
-|`ACTIVITI_DATASOURCE_USERNAME`|The username to access the database with.|`alfresco`|
-|`ACTIVITI_DATASOURCE_PASSWORD`|The password for the `ACTIVITI_DATASOURCE_USERNAME` user.|`alfresco`|
-|`ACTIVITI_CORS_ENABLED`|Sets whether Cross Origin Resource Sharing (CORS) is enabled or not.|`true`|
-|`ACTIVITI_CORS_ALLOWED_ORIGINS`|The host origins allowed in CORS requests.|`*`|
-|`ACTIVITI_CORS_ALLOWED_METHODS`|The HTTP request methods allowed for CORS requests.|`GET,POST,HEAD,OPTIONS,PUT,DELETE`|
-|`ACTIVITI_CORS_ALLOWED_HEADERS`|The headers that can be set in CORS requests.|`Authorization,Content-Type,Cache-Control,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-CSRF-Token`|
-|`ACTIVITI_CSRF_DISABLED`|Sets whether Cross Site Request Forgery is disabled or not.|`true`|
-|`ACTIVITI_ES_SERVER_TYPE`|Set this to rest to enable the REST client implementation.|`rest`|
-|`ACTIVITI_ES_REST_CLIENT_ADDRES`|The IP address of the REST client.|`localhost`|
-|`ACTIVITI_ES_REST_CLIENT_PORT`|The port to contact Elasticsearch through.|`9200`|
-|`ACTIVITI_ES_REST_CLIENT_SCHEMA`|Sets whether the connection to Elasticsearch uses http or https.|`http`|
-|`ACTIVITI_ES_REST_CLIENT_AUTH_ENABLED`|Sets whether authentication is enabled for the REST connection to Elasticsearch.|`false`|
-|`ACTIVITI_ES_REST_CLIENT_USERNAME`|The username of the Elasticsearch user.|`admin`|
-|`ACTIVITI_ES_REST_CLIENT_PASSWORD`|The password for the Elasticsearch user.|`esadmin`|
-|`ACTIVITI_ES_REST_CLIENT_KEYSTORE`|The keystore used to encrypt the connection to the Elasticsearch instance.|``|
-|`ACTIVITI_ES_REST_CLIENT_KEYSTORE_TYPE`|The type of keystore used for encrypting the Elasticsearch connection data.|`jks`|
-|`ACTIVITI_ES_REST_CLIENT_KEYSTORE_PASSWORD`|The password for the keystore used encrypting the Elasticsearch connection data.|``|
-|`ACTIVITI_ADMIN_DATASOURCE_DRIVER`|The JDBC driver used to connect to the database for Process Services Administrator.|`org.postgresql.Driver`|
-|`ACTIVITI_ADMIN_HIBERNATE_DIALECT`|The dialect that Hibernate uses that is specific to the database type for the Process Services Administrator.|`org.hibernate.dialect.PostgreSQLDialect`|
-|`ACTIVITI_ADMIN_EMAIL`|The email address for the default administrator user.|`admin@app.activiti.com`|
-|`ACTIVITI_ADMIN_PASSWORD_HASH`|The hashed password for `ACTIVITI_ADMIN_EMAIL` user.|``|
-|`ACTIVITI_ADMIN_REST_APP_HOST`|The location of the Administrator API. This should be set to the DNS name of the deployment.|`localhost`|
-|`ACTIVITI_ADMIN_REST_APP_PORT`|The port for the Administrator API.|`80`|
-|`ACTIVITI_ADMIN_REST_APP_USERNAME`|The default user for the Admin API.|`admin@app.activiti.com`|
-|`ACTIVITI_ADMIN_REST_APP_PASSWORD`|The default password for the Admin API|`admin`|
-|`BASE_PATH`|The base path of Process Workspace. This needs to match the setting of the ingress path if it is changed.|`/`|
-|`APP_CONFIG_AUTH_TYPE`|The authentication method for Process Workspace.|`OAUTH`|
-|`APP_CONFIG_BPM_HOST`|The location of Process Services.|`http://DNS`|
-|`APP_CONFIG_OAUTH2_HOST`|The URL used to authenticate Process Workspace with against the Identity Service.|`http://DNS/auth/realms/alfresco`|
-|`APP_CONFIG_OAUTH2_CLIENTID`|The client configured in the Identity Service for Process Workspace.|`activiti`|
-|`APP_CONFIG_OAUTH2_REDIRECT_LOGIN`|The redirect for sign in that Process Workspace will use when configured with Identity Service. This will normally match `BASE_PATH`.|`/`|
-|`APP_CONFIG_OAUTH2_REDIRECT_LOGOUT`|The redirect for sign out that Process Workspace will use when configured with Identity Service. This will normally match `BASE_PATH`.|`/`|
-|`APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI`|The silent redirect used by Process Workspace if a user is already authenticated.|`http://DNS/process-workspace/assets/silent-refresh.html`|
-|`IDENTITY_SERVICE_ENABLED`|Sets whether the Identity Service is enabled or not.|`false`|
-|`IDENTITY_SERVICE_REALM`|The name of the realm used by the Identity Service.|`alfresco`|
-|`IDENTITY_SERVICE_SSL_REQUIRED`|Sets whether communication to and from the Identity Service is over HTTPS or not.|`none`|
-|`IDENTITY_SERVICE_RESOURCE`|The Client ID for Process Services within the Identity Service realm.|`alfresco`|
-|`IDENTITY_SERVICE_PRINCIPAL_ATTRIBUTE`|The attribute used to populate `UserPrincipal` with. This needs to be set to `email` for Process Services to authenticate with the Identity Service.|`email`|
-|`IDENTITY_SERVICE_ALWAYS_REFRESH_TOKEN`|Sets whether the token is refresh for every request to the Identity Service or not.|`true`|
-|`IDENTITY_SERVICE_AUTODETECT_BEARER_ONLY`|Allows for unauthorized access requests to be redirected to the Identity Service sign in page.|`true`|
-|`IDENTITY_SERVICE_TOKEN_STORE`|The location of where the account information token is stored.|`session`|
-|`IDENTITY_SERVICE_ENABLE_BASIC_AUTH`|Sets whether basic authentication is allowed is supported by the adapter.|`true`|
-|`IDENTITY_SERVICE_PUBLIC_CLIENT`|Sets whether the adapter sends credentials for the client to the Identity Service. It will not send the credentials if this is set to `true`.|`true`|
-|`IDENTITY_CREDENTIALS_SECRET`|The secret key for the client if the access type is not `public`.|``|
-|`IDENTITY_SERVICE_AUTH`|Sets the authentication URL for the Identity Service. The `localhost` value and port number need to be replaced with the DNS or address used for the deployment.|`http://localhost:8080/auth`|
-|`IDENTITY_SERVICE_USE_BROWSER_BASED_LOGOUT`|Sets whether signing out of Process Services calls the Identity Service `logout URL`.If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|`true`|
+|ACTIVITI_DATASOURCE_DRIVER|The JDBC driver used to connect to the database.|`org.postgresql.Driver`|
+|ACTIVITI_HIBERNATE_DIALECT|The dialect that Hibernate uses that is specific to the database type.|`org.hibernate.dialect.PostgreSQLDialect`|
+|ACTIVITI_LICENSE_MULTI_TENANT|Set whether the license used is a multi-tenant one or not.|`false`|
+|ACTIVITI_DATASOURCE_URL|The location of the database that will be used.|``|
+|ACTIVITI_DATASOURCE_USERNAME|The username to access the database with.|`alfresco`|
+|ACTIVITI_DATASOURCE_PASSWORD|The password for the `ACTIVITI_DATASOURCE_USERNAME` user.|`alfresco`|
+|ACTIVITI_CORS_ENABLED|Sets whether Cross Origin Resource Sharing (CORS) is enabled or not.|`true`|
+|ACTIVITI_CORS_ALLOWED_ORIGINS|The host origins allowed in CORS requests.|`*`|
+|ACTIVITI_CORS_ALLOWED_METHODS|The HTTP request methods allowed for CORS requests.|`GET,POST,HEAD,OPTIONS,PUT,DELETE`|
+|ACTIVITI_CORS_ALLOWED_HEADERS|The headers that can be set in CORS requests.|`Authorization,Content-Type,Cache-Control,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-CSRF-Token`|
+|ACTIVITI_CSRF_DISABLED|Sets whether Cross Site Request Forgery is disabled or not.|`true`|
+|ACTIVITI_ES_SERVER_TYPE|Set this to rest to enable the REST client implementation.|`rest`|
+|ACTIVITI_ES_REST_CLIENT_ADDRES|The IP address of the REST client.|`localhost`|
+|ACTIVITI_ES_REST_CLIENT_PORT|The port to contact Elasticsearch through.|`9200`|
+|ACTIVITI_ES_REST_CLIENT_SCHEMA|Sets whether the connection to Elasticsearch uses http or https.|`http`|
+|ACTIVITI_ES_REST_CLIENT_AUTH_ENABLED|Sets whether authentication is enabled for the REST connection to Elasticsearch.|`false`|
+|ACTIVITI_ES_REST_CLIENT_USERNAME|The username of the Elasticsearch user.|`admin`|
+|ACTIVITI_ES_REST_CLIENT_PASSWORD|The password for the Elasticsearch user.|`esadmin`|
+|ACTIVITI_ES_REST_CLIENT_KEYSTORE|The keystore used to encrypt the connection to the Elasticsearch instance.|``|
+|ACTIVITI_ES_REST_CLIENT_KEYSTORE_TYPE|The type of keystore used for encrypting the Elasticsearch connection data.|`jks`|
+|ACTIVITI_ES_REST_CLIENT_KEYSTORE_PASSWORD|The password for the keystore used encrypting the Elasticsearch connection data.|``|
+|ACTIVITI_ADMIN_DATASOURCE_DRIVER|The JDBC driver used to connect to the database for Process Services Administrator.|`org.postgresql.Driver`|
+|ACTIVITI_ADMIN_HIBERNATE_DIALECT|The dialect that Hibernate uses that is specific to the database type for the Process Services Administrator.|`org.hibernate.dialect.PostgreSQLDialect`|
+|ACTIVITI_ADMIN_EMAIL|The email address for the default administrator user.|`admin@app.activiti.com`|
+|ACTIVITI_ADMIN_PASSWORD_HASH|The hashed password for `ACTIVITI_ADMIN_EMAIL` user.|``|
+|ACTIVITI_ADMIN_REST_APP_HOST|The location of the Administrator API. This should be set to the DNS name of the deployment.|`localhost`|
+|ACTIVITI_ADMIN_REST_APP_PORT|The port for the Administrator API.|`80`|
+|ACTIVITI_ADMIN_REST_APP_USERNAME|The default user for the Admin API.|`admin@app.activiti.com`|
+|ACTIVITI_ADMIN_REST_APP_PASSWORD|The default password for the Admin API|`admin`|
+|BASE_PATH|The base path of Process Workspace. This needs to match the setting of the ingress path if it is changed.|`/`|
+|APP_CONFIG_AUTH_TYPE|The authentication method for Process Workspace.|`OAUTH`|
+|APP_CONFIG_BPM_HOST|The location of Process Services.|`http://DNS`|
+|APP_CONFIG_OAUTH2_HOST|The URL used to authenticate Process Workspace with against the Identity Service.|`http://DNS/auth/realms/alfresco`|
+|APP_CONFIG_OAUTH2_CLIENTID|The client configured in the Identity Service for Process Workspace.|`activiti`|
+|APP_CONFIG_OAUTH2_REDIRECT_LOGIN|The redirect for sign in that Process Workspace will use when configured with Identity Service. This will normally match `BASE_PATH`.|`/`|
+|APP_CONFIG_OAUTH2_REDIRECT_LOGOUT|The redirect for sign out that Process Workspace will use when configured with Identity Service. This will normally match `BASE_PATH`.|`/`|
+|APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI|The silent redirect used by Process Workspace if a user is already authenticated.|`http://DNS/process-workspace/assets/silent-refresh.html`|
+|IDENTITY_SERVICE_ENABLED|Sets whether the Identity Service is enabled or not.|`false`|
+|IDENTITY_SERVICE_REALM|The name of the realm used by the Identity Service.|`alfresco`|
+|IDENTITY_SERVICE_SSL_REQUIRED|Sets whether communication to and from the Identity Service is over HTTPS or not.|`none`|
+|IDENTITY_SERVICE_RESOURCE|The Client ID for Process Services within the Identity Service realm.|`alfresco`|
+|IDENTITY_SERVICE_PRINCIPAL_ATTRIBUTE|The attribute used to populate `UserPrincipal` with. This needs to be set to `email` for Process Services to authenticate with the Identity Service.|`email`|
+|IDENTITY_SERVICE_ALWAYS_REFRESH_TOKEN|Sets whether the token is refresh for every request to the Identity Service or not.|`true`|
+|IDENTITY_SERVICE_AUTODETECT_BEARER_ONLY|Allows for unauthorized access requests to be redirected to the Identity Service sign in page.|`true`|
+|IDENTITY_SERVICE_TOKEN_STORE|The location of where the account information token is stored.|`session`|
+|IDENTITY_SERVICE_ENABLE_BASIC_AUTH|Sets whether basic authentication is allowed is supported by the adapter.|`true`|
+|IDENTITY_SERVICE_PUBLIC_CLIENT|Sets whether the adapter sends credentials for the client to the Identity Service. It will not send the credentials if this is set to `true`.|`true`|
+|IDENTITY_CREDENTIALS_SECRET|The secret key for the client if the access type is not `public`.|``|
+|IDENTITY_SERVICE_AUTH|Sets the authentication URL for the Identity Service. The `localhost` value and port number need to be replaced with the DNS or address used for the deployment.|`http://localhost:8080/auth`|
+|IDENTITY_SERVICE_USE_BROWSER_BASED_LOGOUT|Sets whether signing out of Process Services calls the Identity Service `logout URL`.If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|`true`|
 
 ## Other installation methods
 
@@ -399,7 +399,7 @@ The download files are available from the [support portal](https://support.alfre
 
 Use these instructions to install the Process Services application using the WAR file.
 
-Ensure you have read the [supported platforms](TODO:../concepts/supported-platforms.md) to confirm that your web container 
+Ensure you have read the [supported platforms]({% link process-services/latest/support/index.md %}) to confirm that your web container 
 and database combination is supported before commencing with installation.
 
 1.  Install your web container and database.
@@ -482,7 +482,7 @@ After installing you will need to [apply a valid license file](#install-license)
 
 Use these instructions to install Process Services Administrator using the WAR file.
 
-Ensure you have read the [supported platforms](TODO:../concepts/supported-platforms.md) to confirm that your 
+Ensure you have read the [supported platforms]({% link process-services/latest/support/index.md %}) to confirm that your 
 web container and database combination is supported before commencing with installation.
 
 1.  Install your web container and database.
@@ -565,7 +565,7 @@ Using Tomcat as an example, this would be the `/webapps` folder.
 
 Alternatively, you can manually deploy Process Workspace into your web container using the following steps:
 
-1.  Download the latest [supported version](TODO:https://docs.alfresco.com/process-services1.10/concepts/supported-platforms.html) of Process Workspace from [artifacts.alfresco.com](https://artifacts.alfresco.com/nexus/).
+1.  Download the latest [supported version]({% link process-services/latest/support/index.md %}) (see *Integrated services*) of Process Workspace from [artifacts.alfresco.com](https://artifacts.alfresco.com/nexus/).
 
     >**Note:** Located in the **activiti-enterprise-releases** repository under **/com/alfresco/alfresco-process-services-workspace**.
 
@@ -725,7 +725,7 @@ A setup wizard should not be used in a production environment.
 
     3.  Navigate to `http://localhost:8080/activiti-admin` once the application has started back up.
 
-After installing you will need to [apply a valid license file](#install_license) to your installation.
+After installing you will need to [apply a valid license file](#install-license) to your installation.
 
 ### Install license
 

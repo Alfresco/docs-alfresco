@@ -208,7 +208,7 @@ being set up with other Alfresco products.
 
 Once the Identity Service has been deployed, you will need to [configure Process Services](#identityprops) to authenticate with it.
 
->**Note:** Please refer to the [supported platforms](https://www.alfresco.com/services/subscription/supported-platforms) page to see which parts of Process Services are compatible with the Identity Service.
+>**Note:** Please refer to the [supported platforms]({% link process-services/latest/support/index.md %}) page to see which parts of Process Services are compatible with the Identity Service.
 
 >**Note:** Process Services requires an email address as the user name when logging into the Identity Service.
 
@@ -1207,7 +1207,7 @@ There are three ways to configure a connection to Alfresco Content Services:
 
 * Using the Identity Service to configure Single Sign On (SSO)
 * Using basic authentication
-* [Using the Share Connector](TODO:../topics/shareGuide.md)
+* [Using the Share Connector]({% link process-services/latest/using/share-connector.md %})
 
 **Configure connection using Single Sign On (SSO)**
 
@@ -1253,7 +1253,7 @@ stay in a pending state until the user reauthorizes against the repository.
 The following properties need to be set in the `activiti-identity-service.properties` file to connect to 
 Alfresco Content Services using SSO:
 
->**Note:** Many of the following properties to configure SSO with Alfresco Content Services use [Identity Service properties](TODO:is-properties.md) as their default values.
+>**Note:** Many of the following properties to configure SSO with Alfresco Content Services use [Identity Service properties]({% link process-services/latest/config/index.md %}#identity-service) as their default values.
 
 |Property|Description|Example|
 |--------|-----------|-------|

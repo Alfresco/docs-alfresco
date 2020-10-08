@@ -12,4 +12,4 @@ If you want to know about the new features and improvements in Process Services 
 see [What's new in Process Services](TODO_LINK).
 
 Alfresco customers should also take a look at the 
-[Alfresco Support Handbook](http://docs.alfresco.com/support/concepts/su-welcome.html).
+[Alfresco Support Handbook](TODO_LINK:http://docs.alfresco.com/support/concepts/su-welcome.html).

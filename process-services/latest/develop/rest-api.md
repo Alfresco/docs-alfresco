@@ -389,7 +389,7 @@ where:
 |---------|-----------|
 |response_type|*Required*. This value MUST be set to `token`.|
 |client_id|*Required*. Specifies the client identifier.|
-|redirect_uri|*Optional*Specifies the redirection endpoint after authentication.|
+|redirect_uri|*Optional*. Specifies the redirection endpoint after authentication.|
 |scope|*Optional*. Specifies if the client is not authenticating with the Authorization server.|
 |state|*Required*. Specifies an opaque value used by the client to maintain state between the request and callback sent for preventing cross-site request forgery.|
 

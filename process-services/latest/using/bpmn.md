@@ -195,7 +195,7 @@ A user task is depicted as a rounded rectangle with a user icon on the top-left 
 |Form properties|This is a property that exists for compatibility with Process Services community. When using Process Services to work with task lists and forms, do not set this property.|
 |Due date|Allows to configure a due date for the task. In the task list, tasks can be sorted by due date to see which tasks are needed to be completed the soonest. The possible ways of configuring are:<br><br>**No due date**<br><br>This is the default value.<br><br>**Expression definition (Advanced)**<br><br>Uses an Process Services expression to resolve the due date (for example, this expression could call a Spring bean).<br><br>**Fixed duration after task creation**<br><br>Allows to configure an amount of time, starting from the creation of the task.<br><br>**Based on field**<br><br>Allows to configure the due date based on a previous field in the process instance, by adding or subtracting a certain amount of time.<br><br>**Based on variable**<br><br>Allows to configure the due date based on a variable previously declared in the process instance, by adding or subtracting a certain amount of time.|
 |Allow email notifications|When enabled, an email will be sent to the assignee when the task is assigned to them.|
-|Email template|The template of the email to use when **Allow email notifications** is enabled. A custom email template can be selected from a list available to the tenant, or a new custom template created for the application. See [custom templates](TODO:custom_email_templates.md) for instructions on creating a template.|
+|Email template|The template of the email to use when **Allow email notifications** is enabled. A custom email template can be selected from a list available to the tenant, or a new custom template created for the application. See [custom templates]({% link process-services/latest/using/identity.md %}#custom-email-templates) for instructions on creating a template.|
 |Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be created as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
 |Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
 |Execution listeners|Execution listeners configured for this instance. An execution listener lets you execute Java code or evaluate an expression when an event occurs during process execution.|
@@ -460,7 +460,7 @@ The Generate document task generates a document in Word or PDF format and stores
 as a process variable. The document is based on a (Word) template that describes how the document needs to be rendered, 
 using process variables and various constructs (such as if-clauses and loops).
 
-See [Document Templates](TODO:document_templates.md) in the Developing section for how to modify the 
+See [Document Templates]({% link process-services/latest/develop/dev-ext.md %}#document-templates) in the Developing section for how to modify the 
 template for the Generate document task.
 
 A Generate document task appears as a rounded rectangle with a document icon on the top-left corner.
@@ -534,7 +534,7 @@ A sub-process is visualized as a rounded rectangle:
 ![bpmn.embedded-subprocess]({% link process-services/images/bpmn.embedded-subprocess.png %})
 
 You can use a sub process to create a new scope for events. Events that are thrown during execution of the sub process, 
-can be caught by [Boundary events](TODO:boundary_events.md) on the boundary of the sub process, 
+can be caught by [Boundary events](#boundary-events) on the boundary of the sub process, 
 creating a scope for that event limited to just the sub process.
 
 Sub-processes must have the following characteristics:
