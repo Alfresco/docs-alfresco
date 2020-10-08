@@ -12,7 +12,7 @@ You can only see the Admin Console if you're an administrator user.
 
     You see the Search Service page.
 
-3. Scroll down to the **Backup Settings** section.![](../images/solr6-backupsie.png)
+3. Scroll down to the **Backup Settings** section. ![df]({% link insight-engine/images/solr6-backupsie.png %})
 
     Here, you can specify the backup location and edit backup properties for each core of the Solr index: **Main Store** and **Archive Store**.
 
@@ -41,7 +41,7 @@ If you have installed the Oracle Java SE Development Kit (JDK), you can use the 
 * You can set the backup of Solr indexes using the JMX client, such as JConsole on the **JMX MBeans > Alfresco > Schedule > DEFAULT > MonitoredCronTrigger > search.alfrescoCoreBackupTrigger > Operations > executeNow** tab. The default view is the Solr core summary. Alternatively, navigate to **MBeans > Alfresco > SolrIndexes > coreName > Operations > backUpIndex** tab. Type the directory name in the **remoteLocation** text box and click **backUpIndex**.
 * Solr backup properties can be edited using the JMX client on the **JMX MBeans > Alfresco > Configuration > Search > managed > solr6 > Attributes** tab. The default view is the Solr core summary.
 
-    ![](../images/solr6jmx.png)
+    ![]({% link insight-engine/images/solr6jmx.png %})
 
 * To use JMX client to setup Solr backup directory, navigate to **MBeans tab > Alfresco > Configuration > Search > managed > solr > Attributes** and change the values for solr.backup.alfresco.remoteBackupLocation and solr.backup.archive.remoteBackupLocation properties.
 * You may also trigger a backup with an HTTP command which instructs the /replication handler to backup Solr, for example:

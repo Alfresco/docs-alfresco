@@ -233,7 +233,7 @@ The table shows the differences of the admin endpoints.
 
 The following actions are for SOLR shard operations.
 
-## `rangecheck`
+### `rangecheck`
 
 To get a detailed report including storage and sizing for the shards configured with the `Shard_DB_ID_RANGE` method.
 
@@ -243,14 +243,13 @@ To get a detailed report including storage and sizing for the shards configured 
 http://localhost:8983/solr/admin/cores?action=rangecheck&coreName=(coreName)
 ```
 
--   **`(coreName)`**
+* **`(coreName)`**
 
     The name of the core you want to check.
 
-
 Sample successful response:
 
-```
+```json
 {
   "responseHeader": {
     "QTime": 1,
@@ -270,7 +269,7 @@ Sample successful response:
 }
 ```
 
-## `expand`
+### `expand`
 
 Use this to expand the range for a shard configured with the `DB_ID_RANGE` method when more than 75% of your space has been used. The configuration does not persist in the solrcore.properties file. If the expansion has not been applied, the node expand is set to `-1` in the response.
 
@@ -305,7 +304,7 @@ Sample successful response:
 
 The following actions are for reloading property files in memory for SOLR Cores.
 
-## `updateShared`
+### `updateShared`
 
 To update memory loading from the shared.properties file for each core.
 
@@ -313,7 +312,7 @@ To update memory loading from the shared.properties file for each core.
 http://localhost:8983/solr/admin/cores?action=updateShared
 ```
 
-## `log4j`
+### `log4j`
 
 To update memory loading from the log4j.properties file for each core.
 
@@ -339,7 +338,7 @@ Sample `scheduled` Response:
 }
 ```
 
-## `purge`
+### `purge`
 
 Add a `nodeid`, `txid`, `acltxid`, or `aclid` to be purged from a SOLR core or from every SOLR core on the next maintenance operation performed by `MetadataTracker` and `AclTracker`.
 
@@ -371,7 +370,7 @@ The optional URL parameters that can be added:
 
     The number of the ACL to purge.
 
-## `reindex`
+### `reindex`
 
 Add a `nodeid`, `txid`, `acltxid`, or `aclid` or SOLR query to be reindexed on a SOLR core or on every SOLR core on the next maintenance operation performed by the `MetadataTracker` and `AclTracker`. SOLR documents are removed and then indexed in this section.
 
@@ -407,7 +406,7 @@ The optional URL parameters that can be added:
 
     The SOLR query to reindex the results, for example `cm:name:A*`.
 
-## `retry`
+### `retry`
 
 Reindex every node marked as ERROR in a core or in every core. Error mode Ids are included in the response for every core.
 
@@ -436,7 +435,7 @@ The optional URL parameter that can be added:
 }
 ```
 
-## `fix`
+### `fix`
 
 Find transactions and ACLs missing or duplicated in the cores and add them to be reindexed on the next maintenance operation performed by `MetadataTracker` and `AclTracker` transactions. ACLs to be reindexed are included in the response.
 
@@ -499,7 +498,7 @@ Sample `scheduled` response
 }
 ```
 
-## `enable-indexing`
+### `enable-indexing`
 
 Starts the tracking process. The following syntax enables indexing on all (master or standalone) cores:
 
@@ -529,7 +528,7 @@ The URL parameters that can be used:
 
     The name of the core. In the instance that it is missing the command is applied to all master or standalone cores.
 
-## `disable-indexing`
+### `disable-indexing`
 
 Stops the tracking process. The following syntax disables indexing on all (master or standalone) cores.:
 
@@ -561,13 +560,11 @@ The URL parameters that can be used:
 
     The name of the core. In the instance that it is missing the command is applied to all master or standalone cores.
 
-## Reports
----
 ## Generic Reports
 
 The following actions return the requested report for a core including nodes, transactions, and ACLs.
 
-## `report`
+### `report`
 
 Get a detailed report for a specific core or for every core. The API accepts filtering based on `commitTime`, `txid`, and `acltxid`.
 
@@ -674,7 +671,7 @@ The **`report`** action compares the database with the index and generates an ov
 * irst acl transaction missing from the Index: if the related count is > 0, it returns the ID of the first offender.
 * First duplicate leaf in the index: if the related count is > 0, it returns the ID of the first offender.
 
-## `summary`
+### `summary`
 
 Get a detailed report for a core for every core including information related to handlers and trackers.
 
@@ -978,7 +975,7 @@ The `summary` action provides the status of the tracking index and reports the p
 
 The following actions return the requested report for a node, transaction, and an ACL.
 
-## `nodeReport`
+### `nodeReport`
 
 Get a report from a nodeId with the associated `txId` and the indexing status.
 
@@ -1021,7 +1018,7 @@ Sample response.
 }
 ```
 
-## `aclReport`
+### `aclReport`
 
 Get a report from an aclId with the count of documents associated with the ACL.
 
@@ -1060,7 +1057,7 @@ Sample response.
 }
 ```
 
-## `txReport`
+### `txReport`
 
 Get a report from a txId with detailed information related to the transaction.
 
@@ -1124,7 +1121,7 @@ Sample response.
 }
 ```
 
-## `aclTxreport`
+### `aclTxreport`
 
 Get a report from a aclTxId with detailed information related to nodes indexed for an ACL inside a transaction.
 

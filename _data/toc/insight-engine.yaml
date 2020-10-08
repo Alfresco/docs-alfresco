@@ -8,9 +8,15 @@
         - title: 'Overview'
           path: '/insight-engine/latest/install/'
         - title: 'Prerequisites'
-          path: '/insight-engine/latest/install/#Prerequisites'
+          path: '/insight-engine/latest/install/prerequisites'
         - title: 'Install options'
           path: '/insight-engine/latest/install/options/'
+    - title: 'Upgrade and Migration'
+      pages:
+        - title: 'Upgrading Search and Insight Engine'
+          path: '/insight-engine/latest/upgrade/'
+        - title: 'Migrating Search Services'
+          path: '/insight-engine/latest/upgrade/migrating/'
     - title: 'Configure'
       pages:
         - title: 'Configure'
@@ -29,34 +35,10 @@
           path: '/insight-engine/latest/config/opensearch/'
         - title: 'Filtered search'
           path: '/insight-engine/latest/config/filtered/'
-        - title: 'Setting up Solr sharding'
-          path: '/insight-engine/latest/config/properties/'
         - title: 'Properties for Solr index'
-          path: '/insight-engine/latest/config/transactional/'
-        - title: 'Transactional metadata query'
-    - title: 'Configure'
-      pages:
-        - title: 'Configure'
-          path: '/insight-engine/latest/config/'
-        - title: 'Secure Keys'
-          path: '/insight-engine/latest/config/keys/'
-        - title: 'Solr security'
-          path: '/insight-engine/latest/config/security/'
-        - title: 'Solr sharding'
-          path: '/insight-engine/latest/config/sharding/'
-        - title: 'Setting up Solr sharding'
-          path: '/insight-engine/latest/config/sharding/create'
-        - title: 'Solr replication'
-          path: '/insight-engine/latest/config/replication/'
-        - title: 'OpenSearch'
-          path: '/insight-engine/latest/config/opensearch/'
-        - title: 'Filtered search'
-          path: '/insight-engine/latest/config/filtered/'
-        - title: 'Setting up Solr sharding'
           path: '/insight-engine/latest/config/properties/'
-        - title: 'Properties for Solr index'
-          path: '/insight-engine/latest/config/transactional/'
         - title: 'Transactional metadata query'
+          path: '/insight-engine/latest/config/transactional/'
     - title: 'Administer'
       pages:
         - title: 'SOLR Admin REST API'
@@ -84,14 +66,4 @@
         - title: 'Install with docker'
           path: '/insight-engine/latest/using/sql/syntax'
         - title: 'JBDC Driver'
-          path: '/insight-engine/latest/using/sql/jdbc'
-
-
-
-
-
-          - title: 'Upgrade'
-      path: '/insight-engine/latest/upgrade/'
-    - title: 'Configure'
-      path: '/insight-engine/latest/configure/'
-       
+          path: '/insight-engine/latest/using/sql/jdbc'       

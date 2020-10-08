@@ -30,7 +30,7 @@ This is a list of pre-configured reports:
 
 The following image shows an example dashboard created using the pre-configured reports.
 
-![](../images/exampledashboard1.png)
+![]({% link insight-engine/images/exampledashboard1.png %})
 
 ## Other business intelligence tools
 

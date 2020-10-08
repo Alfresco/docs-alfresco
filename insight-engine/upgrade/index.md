@@ -1,5 +1,5 @@
 ---
-title: Upgrading to Search and Insight Engine 2.0
+title: Upgrade to Search and Insight Engine
 ---
 Use this information to upgrade from Alfresco Search and Insight Engine 1.x to Search and Insight Engine 2.0.
 

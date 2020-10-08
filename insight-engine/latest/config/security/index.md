@@ -84,7 +84,7 @@ The main Solr Admin dashboard is divided into two parts.
 
 Click on the left or the center of the Solr Admin UI below to learn more about it.
 
-![](../images/Solr-admin.png)
+![]({% link insight-engine/images/Solr-admin.png %})
 
 ## Solr Admin UI - left panel
 
@@ -100,7 +100,7 @@ The **Logging** page shows messages from Solr's log files.
 
 Under **Logging**, when you select **Level**, you see the hierarchy of classpaths and classnames for your Level instance. A row highlighted in yellow indicates that the class has logging capabilities. Click on a highlighted row, and a menu will appear to allow you to change the log level for that class. Characters in bold indicate that the class will not be affected by level changes to root.
 
-![](../images/logging.png)
+![]({% link insight-engine/images/logging.png %})
 
 ## Core Admin
 
@@ -110,13 +110,13 @@ The buttons at the top of the screen enable you to add a new core, unload the co
 
 The main display and available actions provide another way of working with your cores.
 
-![](../images/coreadmin.png)
+![]({% link insight-engine/images/coreadmin.png %})
 
 ## Java Properties
 
 The **Java Properties** screen displays all the properties of the JVM running Solr, including the classpaths, file encodings, JVM memory settings, operating system, and more.
 
-![](../images/javaproperties.png)
+![]({% link insight-engine/images/javaproperties.png %})
 
 ## Thread Dump
 
@@ -126,7 +126,7 @@ Each thread is listed and access to the stacktraces is available where applicabl
 
 On the right of the thread name, click the down-arrow to see the stacktrace for that thread.
 
-![](../images/threaddump.png)
+![]({% link insight-engine/images/threaddump.png %})
 
 ## Core-Specific Tools
 

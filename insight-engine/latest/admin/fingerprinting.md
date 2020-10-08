@@ -36,13 +36,13 @@ Document similarity covers duplicate detection, near duplicate detection, and fi
 
 The Jaccard similarity coefficient is a commonly used indicator of the similarity between two sets. For sets *A* and *B* it is defined to be the ratio of the amount of common content to the total content of two documents, as defined here:
 
-![](../images/union.png)
+![]({% link insight-engine/images/union.png %})
 
 This distance can be used to compare the similarity of any two documents with any other pair of documents.
 
 Containment is a related concept but is more about inclusion. For example, many email threads include parts or all of previous messages. Containment is not symmetrical like the measure of similarity above, and is defined as:
 
-![](../images/containment.png)
+![]({% link insight-engine/images/containment.png %})
 
 It represents how much of the content of a given document is common to another document. This distance can be used to compare a single document (A) to any other document.
 
@@ -73,12 +73,12 @@ Set A = new Set(["The quick brown fox jumps", "quick brown fox jumps over", "bro
 
 These sets of shingles can then be compared for similarity using the Jaccard Coefficient.
 
-![](../images/minhash.png)
+![]({% link insight-engine/images/minhash.png %})
 
 ***Example 2***
 
 Here are two summaries of the 1.0 and 1.1 CMIS specification. It demonstrates, amongst other things, how sensitive the measure is to small changes. Adding a single word affects 5 shingles.
 
-![](../images/minhash-example.png)
+![]({% link insight-engine/images/minhash-example.png %})
 
 The content overlap of the full 1.0 CMIS specification found in the 1.1 CMIS specification, C(1.0, 1.1) is approximately 52%.

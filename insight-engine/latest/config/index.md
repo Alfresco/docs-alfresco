@@ -3,7 +3,7 @@ title: Configuring Alfresco Search and Insight Engine
 ---
 Use the following information to configure Alfresco Search and Insight Engine.
 
-## Configuring the Search and Insight Engine subsystem
+## Alfresco Search and Insight Engine subsystem
 
 There is a search subsystem and it can be used to connect to Alfresco Search and Insight Engine (which is based on Solr 6).
 
@@ -395,7 +395,7 @@ Each Alfresco/Share instance is deployed into its own Tomcat servlet container. 
 
 > **Note:** All the servers in a cluster should have static IP addresses assigned to them.
 
-![](../images/cluster-throughput.png)
+![]({% link desktop-sync/images/cluster-throughput.png %}) 
 
 In this deployment scenario the following flows are present:
 

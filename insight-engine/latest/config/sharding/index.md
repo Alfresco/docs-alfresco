@@ -41,7 +41,7 @@ An index is a collection of documents from the same store. An index can potentia
 
 When you create an index, you define the number of shards that you want. Each shard is in itself a fully-functional and independent Solr index that can be hosted on any index server. Index server includes a node which must be in the cluster. It is recommended to have a fail over mechanism in case a shard/node fails or goes offline. As a solution, you can make one or more copies of your index's shards into shard instances.
 
-![](../images/solr_terms.png)
+![]({% link insight-engine/images/solr_terms.png %})
 
 To summarize, each index can be split into multiple shards. An index can also be replicated zero (meaning no instance) or more times. A shard tracks the appropriate subset of information from the repository. The number of copies of the total index depends on the minimum number of instances for each shard.
 
@@ -191,64 +191,64 @@ This method is available in all versions of Search and Insight Engine. The node 
 
 |Index Engine|ACL v1|DB ID|Date/time|Metadata|ACL v2|DBID range|Explicit|
 |------------|------|-----|---------|--------|------|----------|--------|
-|Content Services 5.2.0+ Solr 4|![](../images/green-tick.png)
+|Content Services 5.2.0+ Solr 4|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
-
-|
-|Content Services 5.2.0+ Content Services 1.0|![](../images/green-tick.png)
-
-|![](../images/green-tick.png)
-
-|![](../images/green-tick.png)
-
-|![](../images/green-tick.png)
-
-|![](../images/green-tick.png)
-
-|![](../images/red-cross.png)
-
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
 |
-|Content Services 6.1+ Search Services or Search and Insight Engine 1.1 + 1.0|![](../images/green-tick.png)
+|Content Services 5.2.0+ Content Services 1.0|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
 |
-|Content Services 6.1+ Search Services or Search and Insight Engine 1.2+|![](../images/green-tick.png)
+|Content Services 6.1+ Search Services or Search and Insight Engine 1.1 + 1.0|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/red-cross.png %})
+
+|
+|Content Services 6.1+ Search Services or Search and Insight Engine 1.2+|![]({% link insight-engine/images/green-tick.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
 
 |
 
@@ -256,91 +256,91 @@ This method is available in all versions of Search and Insight Engine. The node 
 
 |Index Engine|ACL v1|DB ID|Date/time|Metadata|ACL v2|DBID range|Explicit|
 |------------|------|-----|---------|--------|------|----------|--------|
-|All shards required|![](../images/green-tick.png)
+|All shards required|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/green-tick.png)
-
-|
-|ACLs replicated on all shards|![](../images/red-cross.png)
-
-|![](../images/green-tick.png)
-
-|![](../images/green-tick.png)
-
-|![](../images/green-tick.png)
-
-|![](../images/red-cross.png)
-
-|![](../images/green-tick.png)
-
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
 |
-|Can add shards as the index grows|![](../images/red-cross.png)
+|ACLs replicated on all shards|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/green-tick.png %})
+
+|
+|Can add shards as the index grows|![]({% link insight-engine/images/red-cross.png %})
+
+|![]({% link insight-engine/images/red-cross.png %})
+
+|![]({% link insight-engine/images/red-cross.png %})
+
+|![]({% link insight-engine/images/red-cross.png %})
+
+|![]({% link insight-engine/images/red-cross.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
+
+|![]({% link insight-engine/images/red-cross.png %})
 
 |
 |Distribution of content over shards|Uneven|Very even|Quite even|Quite even|Quite even|Quite even|Quite even|
-|Falls back to DBID sharding|![](../images/red-cross.png)
+|Falls back to DBID sharding|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/green-tick.png)
-
-|
-|One shard gets new content|![](../images/red-cross.png)
-
-|![](../images/red-cross.png)
-
-|Possible|Possible|![](../images/red-cross.png)
-
-|![](../images/green-tick.png)
-
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
 |
-|Nodes can move shard|![](../images/green-tick.png)
+|One shard gets new content|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/green-tick.png)
+|Possible|Possible|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/red-cross.png %})
 
-|![](../images/red-cross.png)
+|
+|Nodes can move shard|![]({% link insight-engine/images/green-tick.png %})
 
-|![](../images/green-tick.png)
+|![]({% link insight-engine/images/red-cross.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
+
+|![]({% link insight-engine/images/red-cross.png %})
+
+|![]({% link insight-engine/images/green-tick.png %})
 
 |
 

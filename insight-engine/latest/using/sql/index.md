@@ -427,7 +427,7 @@ The HAVING clause is supported for aggregation functions only. Boolean logic and
 
 A LIMIT clause can be used to limit the number of aggregations results. If no LIMIT clause is provided a default limit of 1000 is applied.
 
-![](../images/hr.png)
+![]({% link insight-engine/images/hr.png %})
 
 ### Time Series Aggregations
 
@@ -441,7 +441,7 @@ Search and Insight Engine automatically creates virtual time dimensions for ever
 select cm_created_day, count(*) as total from alfresco where cm_created >= 'NOW/DAY' group by cm_created_day
 ```
 
-![](../images/hr.png)
+![]({% link insight-engine/images/hr.png %})
 
 ## Datetime Predicates
 

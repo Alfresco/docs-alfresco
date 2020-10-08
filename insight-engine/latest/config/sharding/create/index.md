@@ -5,7 +5,7 @@ After creating the shards manually, an Alfresco Content Services administrator h
 
 As shown in the diagram below, the trackers communicate with the repository. When the user initiates a query, it can either be executed by manually mapping the stores (explicit configuration), or by shard registry via dynamic sharding. Dynamic sharding determines what best shards are available to answer a query. The shard registry stores all the information about that particular index, for example the status of the index, transactions in index, and so on.
 
-![](../images/solr-shard-overview.png)
+![]({% link insight-engine/images/solr-shard-overview.png %})
 
 The query is sent to Solr and then to the request handler. The request handler determines if the query is local or distributed. In case of a distributed query, the query is sent to other parts of the index and then combined into an overall result.
 
@@ -13,11 +13,11 @@ The distributed query is done is two phases. Phase 1 involves query and an initi
 
 The following diagram shows the difference between manual and dynamic sharding. In this example, there are 4 shards (1, 2, 3, and 4) and 2 instances for each shard (A & E, B & F, C & G, and D & H). Instances A, B, C, D, and F are up-to-date, while the instances E and G are lagging behind and can't be used. Shard instance H is silent and therefore, unavailable for querying.
 
-![](../images/dynamic-shards.png)
+![]({% link insight-engine/images/dynamic-shards.png %})
 
 In manual sharding, the user is only aware of the existence of the shards and its instances but knows nothing about the status of each shard and its instance(s). So, the query can be sent to any instance. In dynamic sharding, Alfresco Content Services will use instance A, B, C, D, or F for querying.
 
-![](../images/dynamic-sharding.png)
+![]({% link insight-engine/images/dynamic-sharding.png %})
 
 At query time, Solr is aware of all the available nodes and selects one node as the coordinator (one node from all the available green ones) and sends the request to it. Also, the shards (A, B, C, D or A, F, C, D) to be used for that request are selected dynamically. In this case, Solr selects F instead of B. So, if one node lags behind or stops responding, Solr stops using it.
 
@@ -441,7 +441,7 @@ Follow these steps to set up sharding of a non-sharded index or change the numbe
 
 7. Create your new index shards and instances by configuring the properties on the URL.
 
-    ![](../images/shard_dynamic.png)
+    ![]({% link insight-engine/images/shard_dynamic.png %})
 
     ```http
     http://localhost:8080/solr/admin/cores?action=newCore&storeRef=workspace://SpacesStore&
@@ -496,7 +496,7 @@ In this example, you will setup a sharded cluster that contains:
 * 3 shards
 * 2 copies
 
-![](../images/shard-ha1.png)
+![]({% link insight-engine/images/shard-ha1.png %})
 
 These are the steps to follow:
 
@@ -539,7 +539,7 @@ Another example to setup a sharded cluster that contains:
 * 5 shards
 * 3 copies
 
-![](../images/shard-ha2.png)
+![]({% link insight-engine/images/shard-ha2.png %})
 
 These are the steps to follow:
 
@@ -637,7 +637,7 @@ Prerequisites for viewing the Search Server Sharding page:
 
         * appears only when you add a new index server.
         * creates a core for a given shard, and therefore, can be used as an alternative to creating shards using the **New Shard Group** section (Step 7f).
-        ![](../images/solr6-manage-indexes.png)
+        ![]({% link insight-engine/images/solr6-manage-indexes.png %})
 
         **Important:** The cores are visible in the Solr Admin web application **only after** you create them using the Index Server Sharding page.
 
@@ -648,11 +648,11 @@ Prerequisites for viewing the Search Server Sharding page:
 
             Check the Solr Admin UI to ensure that both the indexes are correctly listed.
 
-            ![](../images/solr6_shard.png)
+            ![]({% link insight-engine/images/solr6_shard.png %})
 
     6. Use **Manage Shared Properties** to update the properties that apply to all Alfresco indexes on an Index Engine.
 
-        ![](../images/manage-properties.png)
+        ![]({% link insight-engine/images/manage-properties.png %})
 
         These properties are the same as in alfresco-insight-engine-distribution-2.0.x.zip/solrhome/conf/shared.properties. For example:
 
@@ -681,7 +681,7 @@ Prerequisites for viewing the Search Server Sharding page:
         |**Shards**|1|This specifies the total number of shards.|
         |**Instances**|1|This specifies the total number of instances.|
 
-        ![](../images/shard-target-index.png)
+        ![]({% link insight-engine/images/shard-target-index.png %})
 
     8. Click **Create Shards Group** to create new shards based on the ordered list of target index servers.
 
@@ -696,13 +696,13 @@ Prerequisites for viewing the Search Server Sharding page:
 
         See [Installing and configuring Solr shards](install-solr-shards.md) to view examples of creating shards when calling the REST URLs directly.
 
-        ![](../images/shard-instance.png)
+        ![]({% link insight-engine/images/shard-instance.png %})
 
     10. Click **Create Shards** to create the new shard based on the specified instance properties.
 
     11. Use Report to get detailed information on shard creation and execution.
 
-        ![](../images/shard-report.png)
+        ![]({% link insight-engine/images/shard-report.png %})
 
     12. Click **Close** to close the Index Server Shard Management window.
 
@@ -747,7 +747,7 @@ You can also set this property in the alfresco-insight-engine-distribution-2.0.x
 
 |
 
-    ![](../images/shard-group.png)
+    ![]({% link insight-engine/images/shard-group.png %})
 
 9. Use the instance property table to view detailed entity information for all the shards. This is the same information that is displayed in the JMX console, for example, `Base URL`, `Host`, `Last Indexed Changeset Date`, and more.
 
@@ -757,7 +757,7 @@ You can also set this property in the alfresco-insight-engine-distribution-2.0.x
 
         For more information, see [Unindexed Solr Transactions](../concepts/solr-unindex.md).
 
-        ![](../images/solr6-summary.png)
+        ![]({% link insight-engine/images/solr6-summary.png %})
 
     2. Click **SOLR** to go to the Solr Admin screen for the specific core.
 
@@ -765,7 +765,7 @@ You can also set this property in the alfresco-insight-engine-distribution-2.0.x
 
 10. The Shard Group Report section displays information about the shard groups and instances. A tabular view of this information is displayed in the shard table in Step 9. This information is read-only.
 
-    ![](../images/shard-group-report.png)
+    ![]({% link insight-engine/images/shard-group-report.png %})
 
 11. Click **Save** to apply the changes you have made to the index server shards.
 
@@ -887,7 +887,7 @@ Use a JMX client to find shards at query time.
 
     All the Solr attributes are listed on this page.
 
-    ![](../images/Solr4Attributes.png)
+    ![]({% link insight-engine/images/Solr4Attributes.png %})
 
 2. Set the following properties:
 
