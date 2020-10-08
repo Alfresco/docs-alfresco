@@ -10,14 +10,27 @@
         - title: 'Projects'
           path: '/process-automation/latest/model/projects/'
         - title: 'Processes'
-          path: '/process-automation/latest/model/processes/'
-        - title: 'BPMN'
-          path: '/process-automation/latest/model/bpmn/'
+          pages:
+            - title: 'Overview'
+              path: '/process-automation/latest/model/processes/'
+            - title: 'BPMN'
+              path: '/process-automation/latest/model/processes/bpmn/'
         - title: 'Forms'
           path: '/process-automation/latest/model/forms/'
         - title: 'Decision tables'
           path: '/process-automation/latest/model/decisions/'
-        - title: 'Content connector'
-          path: '/process-automation/latest/model/content/'
+        - title: 'Connectors'
+          pages:
+            - title: 'Overview'
+              path: '/process-automation/latest/model/connectors/'
+            - title: 'Content connector'
+              path: '/process-automation/latest/model/connectors/content/'
+            - title: 'Generate document'
+              path: '/process-automation/latest/model/connectors/generate/'
+            - title: 'AWS connectors'
+              path: '/process-automation/latest/model/connectors/aws'
+        - title: 'Content models'
+          path: '/process-automation/latest/model/content-models/'
+
 
 

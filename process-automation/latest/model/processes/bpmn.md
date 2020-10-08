@@ -40,7 +40,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the start event and the process. There are [five options](%{ link process-automation/latest/model/processes.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture start-img %}
@@ -96,7 +96,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the error start event and the process. There are [five options](%{ link process-automation/latest/model/processes.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the error start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 #### Error
 
@@ -163,7 +163,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the message start event and the process. There are [five options](%{ link process-automation/latest/model/processes.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the message start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 #### Message
 
@@ -194,7 +194,7 @@ Message payloads can only be created on a message throw event and contain one or
 | Integer | A positive whole number, for example `642` |
 | Boolean | A value of either `true` or `false` |
 | Date | A specific date in the format `YYYY-MM-DD`, for example `2020-04-22` |
-| Variable | A value passed from a [process variable]({% link process-automation/latest/model/processes.md %}#process-variables). |
+| Variable | A value passed from a [process variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
 
 The receiving message catch event is then used to map the received values in the payload to process variables in its own scope.
 
@@ -204,7 +204,7 @@ Message payload mappings can be viewed in the **Extensions Editor** of a process
 
 Message events can optionally contain a correlation key. If a correlation key is present then when a message is thrown it uses the `activiti:correlationKey` value and the `messageRef` of the throwing event to match against the same two properties in a catching event. If only one property is matched then the message will not be caught.
 
-Using a [process variable]({% link process-automation/latest/model/processes.md %}#process-variables) for the correlation key in a throwing event and a static value for its corresponding catching event allows for the message to only be caught in specific circumstances.
+Using a [process variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) for the correlation key in a throwing event and a static value for its corresponding catching event allows for the message to only be caught in specific circumstances.
 
 > **Note**: Message start events cannot contain a correlation key unless they are used in a [sub process](#sub-processes-and-call-activities).
 
@@ -366,7 +366,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the timer start event and the process. There are [five options](%{ link process-automation/latest/model/processes.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the timer start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 #### Timer
 
@@ -1599,7 +1599,7 @@ The name of the [decision table]({% link process-automation/latest/model/decisio
 
 #### Mapping type
 
-The mapping type sets how data is passed between the decision table and the process. There are [five options](%{ link process-automation/latest/model/processes.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the decision table and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture multi %}
@@ -1622,7 +1622,7 @@ Each multi-instance execution has three variables:
 | nrOfActiveInstances | The number of currently active instances. For sequential multi-instances the value will always be 1 |
 | nrOfCompletedInstances | The number of instances that have already been completed |
 
-> **Note**: These variables can be used in multi-instance expressions without having to be declared as [process variables]({% link process-automation/latest/model/processes.md %}#process-variables).
+> **Note**: These variables can be used in multi-instance expressions without having to be declared as [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables).
 
 Each instance in the multi-instance execution also has an instance-local variable that is not visible to other instances, nor to the process instance:
 
@@ -1632,7 +1632,7 @@ Each instance in the multi-instance execution also has an instance-local variabl
 
 #### Cardinality
 
-Cardinality sets the number of instances to be executed by the multi-instance element. This can be set as a static value, a [process variable]({% link process-automation/latest/model/processes.md %}#process-variables) or calculated as an expression.
+Cardinality sets the number of instances to be executed by the multi-instance element. This can be set as a static value, a [process variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) or calculated as an expression.
 
 #### Collection
 
@@ -1786,7 +1786,7 @@ The name of the [script](LINK) to use. The script must exist within the same pro
 
 #### Mapping type
 
-The mapping type sets how data is passed between the script and the process. There are [five options](%{ link process-automation/latest/model/processes.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the script and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture script-img %}
@@ -1930,7 +1930,7 @@ An action selects which of the connector actions that service task should execut
 
 #### Mapping type
 
-The mapping type sets how data is passed between the connector and the process. There are [five options](%{ link process-automation/latest/model/processes.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the connector and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture service-img %}
@@ -2062,7 +2062,7 @@ Users and groups can be set from three different sources:
 
 * **Identity** allows for users and groups to be searched in the [Identity Service](LINK) and selected for the assignment.
 
-* **Expression** allows for an expression using [process variables]({% link process-automation/latest/model/processes.md %}#process-variables) to be used to select users and groups for the assignment. Expressions can be a simple process variable such as `${userToAssign}` or an expression such as `${userDetails.username}` that uses a process variable of type JSON. A JSON editor is provided for creating expressions for assignment, however the editor will only be displayed if there are process variables in the process.
+* **Expression** allows for an expression using [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) to be used to select users and groups for the assignment. Expressions can be a simple process variable such as `${userToAssign}` or an expression such as `${userDetails.username}` that uses a process variable of type JSON. A JSON editor is provided for creating expressions for assignment, however the editor will only be displayed if there are process variables in the process.
 
     > **Note**: The value `"assignee": "${initiator}"` can be set as an expression without creating a process variable. This will assign the task to the user that started the process instance.  
 
@@ -2074,7 +2074,7 @@ The assignments for user tasks are stored in the `assignments` property of the *
 
 An optional date and time for a user task to be completed by in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} format. A date picker can be used to choose the time and date.
 
-Checking the **Use process variable** box for due date allows a [process variable]({% link process-automation/latest/model/processes.md %}#process-variables) to be used to generate the date. The process variable must be of type `datetime`.
+Checking the **Use process variable** box for due date allows a [process variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) to be used to generate the date. The process variable must be of type `datetime`.
 
 #### Multi-instance type
 
@@ -2092,7 +2092,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the user task and the process. There are [five options](%{ link process-automation/latest/model/processes.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the user task and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture user-img %}
@@ -2210,7 +2210,7 @@ Call activities are used to start an instance of another process definition. The
 
 The `calledElement` property uses a `processDefinitionId` to define which process to start.
 
-> **Note**: When a call activity element is executed it receives its own `processInstanceId`. The [process variables]({% link process-automation/latest/model/processes.md %}#process-variables) of a call activity are also completely separate to those in the parent process.
+> **Note**: When a call activity element is executed it receives its own `processInstanceId`. The [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) of a call activity are also completely separate to those in the parent process.
 
 > **Note**: Call activities can only be used to start a process instance of a process definition that exists in the same application as the process that is calling it.
 
@@ -2242,7 +2242,7 @@ The called element can be set in two ways:
 
 #### Mapping type
 
-The mapping type sets how data is passed between the parent process and the process being started by the call activity. There are [five options](%{ link process-automation/latest/model/processes.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the parent process and the process being started by the call activity. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 > **Note**: if an **Expression** is used to set which process definition to call in the call element property, it is not possible to explicitly map the variable exchange in the mapping type.
 
@@ -2351,7 +2351,7 @@ Sub-processes are also known as embedded sub-processes and can be expanded or co
 
 A sub-process requires a start and an end event. Only a [standard start event](LINK) can be used in embedded sub-processes. The sequence flow within a sub-process cannot cross its boundary without the sub-process completing. The advantage of a sub-process is that it creates its own scope within a process. This allows for boundary events to be attached to the sub-process.
 
-> **Note**: When a sub-process is executed as part of a process instance, it does not receive a new `processInstanceId`. The elements within the sub-process will be executed under the ID of the parent process. [Process variables]({% link process-automation/latest/model/processes.md %}#process-variables) are also shared between a sub-process and its parent with no additional mapping required.
+> **Note**: When a sub-process is executed as part of a process instance, it does not receive a new `processInstanceId`. The elements within the sub-process will be executed under the ID of the parent process. [Process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) are also shared between a sub-process and its parent with no additional mapping required.
 
 {% capture sub-prop %}
 
@@ -2479,7 +2479,7 @@ Event sub-processes are not connected to the main process flow as they can only 
 
 Event sub-processes can be placed at the process level or inside a sub-process.
 
-> **Note**: When an event sub-process is executed as part of a process instance, it does not receive a new `processInstanceId`. The elements within the event sub-process will be executed under the ID of the parent process. [Process variables]({% link process-automation/latest/model/processes.md %}#process-variables) are also shared between an event sub-process and its parent with no additional mapping required.
+> **Note**: When an event sub-process is executed as part of a process instance, it does not receive a new `processInstanceId`. The elements within the event sub-process will be executed under the ID of the parent process. [Process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) are also shared between an event sub-process and its parent with no additional mapping required.
 
 {% capture event-prop %}
 
@@ -2652,7 +2652,7 @@ Pools allow multiple process definitions to be modeled in a single diagram, or t
 
 Lanes are used to display different personas interacting with a process definition to the modeler. They have no impact on a process at runtime. Lanes are sub-divisions of pools and cannot exist without them. They can also be nested for example to show different teams within a department.
 
-> **Important**: The scope of [process variables]({% link process-automation/latest/model/processes.md %}#process-variables) are restricted to each process definition.
+> **Important**: The scope of [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) are restricted to each process definition.
 
 {% capture pool-prop %}
 

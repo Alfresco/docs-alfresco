@@ -8,7 +8,7 @@ All content connector actions are displayed on the process diagram with the Alfr
 
 ## Create a content connector task
 
-To create a content connector:
+Content connectors are stored separately in the palette from other connectors. To create a content connector:
 
 1. Sign into the Modeling Application and open a project and process.
 
@@ -22,15 +22,17 @@ To create a content connector:
 
 4. Drag the action onto the diagram canvas and fill in the properties.
 
+> **Note**: The content connector does not have any [configuration parameters]({% link process-automation/latest/model/connectors/index.md %}#configuration-parameters) as it connects directly to the Content Services repository. This means that only a single instance of the connector is required per project.
+
 ## Properties
 
-The content connector is implemented as a [service task]({% link process-automation/latest/model/bpmn.md %}#service-task). All the properties available to a service task are those required by the content connector. The three most important ones to understand for the content connector are:
+The content connector is implemented as a [service task]({% link process-automation/latest/model/processes/bpmn.md %}#service-task). All the properties available to a service task are those required by the content connector. The three most important ones to understand for the content connector are:
 
 | Property | Description |
 | -------- | ----------- |
 | Implementation | *Required.* Displays the name of the connector the task is using. This will be the name chosen when creating a connector instance. |
 | Action | *Required.* Selects which action the content connector task should execute, for example `SELECT_FILE`. |
-| Mapping type | *Required.* Sets how data should be passed between the connector and the process by mapping the [input and output parameters]({% link process-automation/latest/model/processes.md %}#process-variable-mapping). For example, setting the details of the file to select and which process variable will store it. |
+| Mapping type | *Required.* Sets how data should be passed between the connector and the process by mapping the [input and output parameters]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping). For example, setting the details of the file to select and which process variable will store it. |
 
 ### Parameter precedence
 
@@ -60,7 +62,7 @@ The input parameters to create a file are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | fileName | String | *Required.* A name for the file to be created. |
-| targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to create the new file in. |
+| targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to create the new file in. |
 | targetFolderId | String | *Requires one.* The nodeId of the folder to create the new file in. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to create the new file in. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | autorename | Boolean | *Optional.* If set to `true`, the new file will have an integer added to its name if a file already exists with the the same `fileName`. |
@@ -85,7 +87,7 @@ The output parameters from creating a file are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call creating the folder. |
-| file | File | *Optional.* The created file available to be mapped to a [variable]({% link process-automation/latest/model/processes.md %}#process-variables). |
+| file | File | *Optional.* The created file available to be mapped to a [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
 
 ### Create folder
 
@@ -96,7 +98,7 @@ The input parameters to create a folder are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | folderName | String | *Required.* A name for the folder to be created. |
-| targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to create the new folder in. |
+| targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to create the new folder in. |
 | targetFolderId | String | *Requires one.* The nodeId of the folder to create the new folder in. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to create the new folder in. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | autorename | Boolean | *Optional.* If set to `true`, the new folder will have an integer added to its name if a folder already exists with the the same `folderName`. |
@@ -121,7 +123,7 @@ The output parameters from creating a folder are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call creating the folder. |
-| folder | Folder | *Optional.* The created folder available to be mapped to a [variable]({% link process-automation/latest/model/processes.md %}#process-variables). |
+| folder | Folder | *Optional.* The created folder available to be mapped to a [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
 
 ## Select actions
 
@@ -142,7 +144,7 @@ The input parameters to select a folder are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to select. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to select. |
 | nodeId | String | *Requires one.* The nodeId of the file to select. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the file to select. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | searchQuery | String | *Requires one.*  A search query to find the file to select. This is in Alfresco Full Text Search (AFTS) format, for example: `cm:title:test`. |
@@ -154,7 +156,7 @@ The output parameters from selecting a file are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call selecting the file. |
-| file | File | *Optional.* The selected file available to be mapped to a [variable]({% link process-automation/latest/model/processes.md %}#process-variables). |
+| file | File | *Optional.* The selected file available to be mapped to a [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
 
 ### Read file content
 
@@ -164,7 +166,7 @@ The input parameters to read file content are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to parse. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to parse. |
 | nodeId | String | *Requires one.* The nodeId of the file to parse. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the file to parse. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | contentType | String | *Optional.* The type to parse the file as. The values are either `JSON` or `TXT`. The default value is `TXT`. |
@@ -186,7 +188,7 @@ The input parameters to select a folder are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to select. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to select. |
 | nodeId | String | *Requires one.* The nodeId of the folder to select. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the folder to select. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | searchQuery | String | *Requires one.*  A search query to find the folder to select. This is in Alfresco Full Text Search (AFTS) format, for example: `cm:title:test`. |
@@ -198,7 +200,7 @@ The output parameters from selecting a folder are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call selecting the folder. |
-| folder | Folder | *Optional.* The selected folder available to be mapped to a [variable]({% link process-automation/latest/model/processes.md %}#process-variables). |
+| folder | Folder | *Optional.* The selected folder available to be mapped to a [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
 
 ### Select metadata
 
@@ -208,8 +210,8 @@ The input parameters to select the metadata of a file or folder are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to select the metadata for. |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to select the metadata for. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to select the metadata for. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to select the metadata for. |
 | nodeId | String | *Requires one.* The ID of the node to select the metadata for. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to select the metadata for. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | underscoreMetadata | Boolean | *Optional.* If set to `true`, the output `metadata` will have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. This allows the JSON to be used in an expression, for example `${metadata.cm:title}` is not valid, whereas `${metadata.cm_title}` is. |
@@ -240,10 +242,10 @@ The input parameters to copy a file are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| sourceFile | File | *Requires one source.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to select the file to copy. |
+| sourceFile | File | *Requires one source.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to select the file to copy. |
 | sourceId | String | *Requires one source.* The nodeId of the file to copy. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | sourcePath | String | *Requires one source.* The location path or relative path of the file to copy. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
-| targetFolder | Folder | *Requires one target.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to move the copied file into. |
+| targetFolder | Folder | *Requires one target.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to move the copied file into. |
 | targetFolderId | String | *Requires one target.* The nodeId of the folder to move the copied file into. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFolderPath | String | *Requires one target.* The location path or relative path of the folder to move the copied file into. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 
@@ -252,7 +254,7 @@ The output parameters from copying a file are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call copying the file. |
-| file | File | *Optional.* The copied file available to be mapped to a [variable]({% link process-automation/latest/model/processes.md %}#process-variables). |
+| file | File | *Optional.* The copied file available to be mapped to a [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
 
 ### Move file
 
@@ -262,10 +264,10 @@ The input parameters to move a file are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| sourceFile | File | *Requires one source.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to select the file to move. |
+| sourceFile | File | *Requires one source.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to select the file to move. |
 | sourceId | String | *Requires one source.* The nodeId of the file to move. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | sourcePath | String | *Requires one source.* The location path or relative path of the file to move. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
-| targetFolder | Folder | *Requires one target.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to move the file into. |
+| targetFolder | Folder | *Requires one target.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to move the file into. |
 | targetFolderId | String | *Requires one target.* The nodeId of the folder to move the file into. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFolderPath | String | *Requires one target.* The location path or relative path of the folder to move the file into. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 
@@ -274,7 +276,7 @@ The output parameters from moving a file are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call moving the file. |
-| file | File | *Optional.* The moved file available to be mapped to a [variable]({% link process-automation/latest/model/processes.md %}#process-variables). |
+| file | File | *Optional.* The moved file available to be mapped to a [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
 
 ### Copy folder
 
@@ -284,10 +286,10 @@ The input parameters to copy a folder are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| sourceFolder | Folder | *Requires one source.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to select the folder to copy. |
+| sourceFolder | Folder | *Requires one source.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to select the folder to copy. |
 | sourceId | String | *Requires one source.* The nodeId of the folder to copy. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | sourcePath | String | *Requires one source.* The location path or relative path of the folder to copy. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
-| targetFolder | Folder | *Requires one target.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to move the copied folder into. |
+| targetFolder | Folder | *Requires one target.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to move the copied folder into. |
 | targetFolderId | String | *Requires one target.* The nodeId of the folder to move the copied folder into. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFolderPath | String | *Requires one target.* The location path or relative path of the folder to move the copied folder into. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 
@@ -296,7 +298,7 @@ The output parameters from copying a folder are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call copying the folder. |
-| folder | Folder | *Optional.* The copied folder available to be mapped to a [variable]({% link process-automation/latest/model/processes.md %}#process-variables). |
+| folder | Folder | *Optional.* The copied folder available to be mapped to a [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
 
 ### Move folder
 
@@ -306,10 +308,10 @@ The input parameters to move a folder are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| sourceFolder | Folder | *Requires one source.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to select the folder to move. |
+| sourceFolder | Folder | *Requires one source.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to select the folder to move. |
 | sourceId | String | *Requires one source.* The nodeId of the folder to move. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | sourcePath | String | *Requires one source.* The location path or relative path of the folder to move. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
-| targetFolder | Folder | *Requires one target.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to move the source folder into. |
+| targetFolder | Folder | *Requires one target.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to move the source folder into. |
 | targetFolderId | String | *Requires one target.* The nodeId of the folder to move the source folder into. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFolderPath | String | *Requires one target.* The location path or relative path of where to move the source folder into. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 
@@ -318,7 +320,7 @@ The output parameters from moving a folder are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call moving the folder. |
-| folder | Folder | *Optional.* The moved folder available to be mapped to a [variable]({% link process-automation/latest/model/processes.md %}#process-variables). |
+| folder | Folder | *Optional.* The moved folder available to be mapped to a [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
 
 ## Update actions
 
@@ -344,10 +346,10 @@ The input parameters to update the content of a file are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| targetFile | File | *Requires one target.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file that should be updated. |
+| targetFile | File | *Requires one target.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file that should be updated. |
 | targetFileId | String | *Requires one target.* The nodeId of the file to that should be updated. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFilePath | String | *Requires one target.* The location path or relative path of the file that should be updated. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
-| sourceFile | File | *Requires one source.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file that is the new, updated file. |
+| sourceFile | File | *Requires one source.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file that is the new, updated file. |
 | sourceText | String | *Requires one source.* The new source for the file described as a block of text. |
 | sourceJson | JSON | *Requires one source.* The new source for the file described in JSON format.
 | newName | String | *Optional.* A new file name for the file being updated, including the file extension. For example `updated_draft.txt`. |
@@ -368,8 +370,8 @@ The input parameters to update the metadata of a file or folder are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to update. |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to update. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to update. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to update. |
 | nodeId | String | *Requires one.* The ID of the node to update. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to update. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | metadata | Content-Metadata | *Required.* Metadata to update the file or folder with. This is a JSON object of key value pairs. See below for an example. |
@@ -401,8 +403,8 @@ The input parameters to set permissions are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to set the permissions for. |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to set the permissions for. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to set the permissions for. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to set the permissions for. |
 | nodeId | String | *Requires one.* The ID of the node to set the permissions for. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to set the permission for. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | users | Array | *Required.* An array of users to give the permissions to, for example `hruser, salesuser` or `["hruser", "salesuser"]`. |
@@ -422,8 +424,8 @@ The input parameters to lock a node are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to lock. |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to lock. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to lock. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to lock. |
 | nodeId | String | *Requires one.* The ID of the node to lock. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to lock. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | lockType | String | *Required.* The type of lock to apply to the node: {::nomarkdown} <ul><li><b>ALLOW_OWNER_CHANGES</b>: Allows the owner of the node to continue to edit it. This is the default value.</li><li><b>FULL</b>: No changes can be made to the node until it is unlocked.</li><li><b>ALLOW_ADD_CHILDREN</b>: </li></ul>{:/} |
@@ -444,8 +446,8 @@ The input parameters to unlock a node are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to unlock. |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to unlock. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to unlock. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to unlock. |
 | nodeId | String | *Requires one.* The ID of the node to unlock. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to unlock. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 
@@ -463,8 +465,8 @@ The input parameters to add an aspect are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to add the aspect to. |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to add the aspect to. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to add the aspect to. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to add the aspect to. |
 | nodeId | String | *Requires one.* The ID of the node to add the aspect to. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to add the aspect to. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | aspect | Content-Aspect-Selector | *Required.* The aspect to add to the file or folder, for example `rv:reviewable`. |
@@ -497,8 +499,8 @@ The input parameters to remove an aspect are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to remove the aspect from. |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to remove the aspect from. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to remove the aspect from. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to remove the aspect from. |
 | nodeId | String | *Requires one.* The ID of the node to remove the aspect from. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to remove the aspect from. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | aspect | Content-Aspect-Selector | *Required.* The aspect to remove from the file or folder, for example `rv:reviewable`. |
@@ -517,8 +519,8 @@ The input parameters to update tags are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to update the tags for. |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to update the tags for. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to update the tags for. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to update the tags for. |
 | nodeId | String | *Requires one.* The ID of the node to update the tags for. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to update the tags for. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | tags | Array | *Required.* A list of tags to update for the file or folder, for example `wip, draft` or `["wip", "draft"]`. |
@@ -537,8 +539,8 @@ The input parameters to set the type of a file or folder are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to set the type for. |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to set the type for. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to set the type for. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to set the type for. |
 | nodeId | String | *Requires one.* The ID of the node to set the type for. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to set the type for. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | nodeType | Content-Type-Selector | *Required.* The type to set for the file or folder, for example `fin:invoice`. |
@@ -580,7 +582,7 @@ The input parameters to delete a file are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type file to delete. |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to delete. |
 | fileId | String | *Requires one.* The nodeID of the file to delete. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | permanent | Boolean | *Optional.*  If set to `true` the file will be deleted permanently and not moved to the trashcan. |
 
@@ -598,7 +600,7 @@ The input parameters to delete a folder are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes.md %}#process-variables) of type folder to delete. |
+| folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to delete. |
 | folderId | String | *Requires one.* The nodeID of the folder to delete. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | permanent | Boolean | *Optional.*  If set to `true` the folder will be deleted permanently and not moved to the trashcan. |
 
@@ -607,3 +609,31 @@ The output parameters from deleting a folder are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call deleting the folder. |
+
+## Errors
+
+The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the content connector are:
+
+| Error | Description |
+| ----- | ----------- |
+| MISSING_INPUT | A mandatory input variable was not provided. |
+| INVALID_INPUT | The input variable has an invalid type. |
+| INVALID_RESULT_FORMAT | The service result payload cannot be parsed. |
+| UNKNOWN_ERROR | Unexpected runtime error. |
+| BAD_REQUEST | The server could not understand the request due to invalid syntax. |
+| UNAUTHORIZED | The request has not been applied because it lacks valid authentication. |
+| FORBIDDEN | The server understood the request but refuses to authorize it. |
+| NOT_FOUND | The server could not find what was requested. |
+| METHOD_NOT_ALLOWED |The request method is known by the server but is not supported. |
+| NOT_ACCEPTABLE | The server cannot produce a response matching the list of acceptable values. |
+| REQUEST_TIMEOUT | The server would like to shut down this unused connection. |
+| CONFLICT | The request conflicts with current state of the server. |
+| GONE | No longer available. |
+| UNPROCESSABLE_ENTITY | The server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions. |
+| LOCKED | The resource that is being accessed is locked. |
+| FAILED_DEPENDENCY | The request failed due to failure of a previous request. |
+| INTERNAL_SERVER_ERROR | The server has encountered a situation it doesn't know how to handle. |
+| NOT_IMPLEMENTED | The request method is not supported by the server and cannot be handled. |
+| BAD_GATEWAY | The server got an invalid response. |
+| SERVICE_UNAVAILABLE | The server is not ready to handle the request. |
+| GATEWAY_TIMEOUT | The server is acting as a gateway and cannot get a response in time. |

@@ -6,7 +6,7 @@ Decision tables are used to manage business decisions within process workflows. 
 
 Decision tables can be added to a process definition by creating a [business rule task](LINK) and selecting the `name` of a decision table from the dropdown.
 
-## Decision table properties
+## Properties
 
 The basic properties of a decision table are:
 

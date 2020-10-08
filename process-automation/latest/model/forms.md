@@ -6,15 +6,15 @@ Forms are used to capture data into specially designed field types such as text,
 
 Forms can be used in three different ways:
 
-* As part of a [user task]({% link process-automation/latest/model/bpmn.md %}#user-task) that will create a task for an assigned user, or group of users when the process flow reaches that element.
+* As part of a [user task]({% link process-automation/latest/model/processes/bpmn.md %}#user-task) that will create a task for an assigned user, or group of users when the process flow reaches that element.
 
-* As part of a [start event]({% link process-automation/latest/model/bpmn.md %}#start-events) used at the beginning of a process instance. Forms behave in the same way as when they are linked to a user task, however forms linked to start events cannot be saved part way through filling them in.
+* As part of a [start event]({% link process-automation/latest/model/processes/bpmn.md %}#start-events) used at the beginning of a process instance. Forms behave in the same way as when they are linked to a user task, however forms linked to start events cannot be saved part way through filling them in.
 
 * As standalone tasks where the form can be used in a task that is not associated to any process.
 
 Forms can also be based on [content models](LINK) allowing content metadata to be updated within a form and subsequently managed in a process using the [content connector](LINK).
 
-## Form properties
+## Properties
 
 The basic properties of a form are:
 
