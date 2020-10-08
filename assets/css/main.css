@@ -1120,7 +1120,7 @@ a.github-link::after {
   .dropdown-content
   a.dropdown-item.special
   .query:empty:after {
-  content: "Start type to search...";
+  content: "Start typing to search...";
   height: 30px;
   font-style: italic;
   color: gray;
