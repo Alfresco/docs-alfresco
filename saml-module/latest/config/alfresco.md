@@ -2,7 +2,7 @@
 title: Configure Alfresco products
 ---
 
-After configuring an identity provider such as [Active Directory]({% link saml-module/latest/config/adfs.md %}) or [PingFederate]({%link saml-module/latest/config/ping.md %}), service providers need to be configured for the features of Alfresco in which you want to enable SAML for: Alfresco Share, the REST API and Alfresco Office Services.
+After configuring an identity provider such as [Active Directory]({% link saml-module/latest/config/adfs.md %}) or [PingFederate]({%link saml-module/latest/config/ping.md %}), service providers need to be configured for the features of Alfresco in which you want to enable SAML: Alfresco Share, the REST API and Alfresco Office Services.
 
 The configuration can be done in any of three ways:
 
