@@ -1,7 +1,14 @@
 ---
-title: Install with distribution zip
+title: Installation options
 ---
-## Deploy Alfresco Insight Zeppelin using a distribution zip
+There are several options for installing Alfresco Insight Zeppelin:
+
+* Install manually using a distribution ZIP
+* Install using Docker Compose
+
+> **Note** You do not need to install Alfresco Insight Zeppelin in order to use Search and Insight Engine.
+
+## Installing using a distribution zip
 
 Use this information to manually install Alfresco Insight Zeppelin using a distribution zip.
 
@@ -114,4 +121,24 @@ Alternatively you can add the settings directly to the following JSON file: `ZEP
 
 Also, if the domain name of the Alfresco Content Services repository does not match the common name (CN) of the repository's SSL certificate, set the `solr.ssl.checkPeerName` property to `false`.
 
-**Parent topic:**[Building reports and dashboards](../concepts/installing-apache.md)
+## Installing with Docker Compose
+
+You can deploy Alfresco Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.2 and Alfresco Search and Insight Engine.
+
+For details about deployment using the Docker Compose file, see [Deploying Search and Insight Engine using Docker Compose](search-insight-deploying.md).
+
+1. Open your `docker-compose.yml` file, and insert the following container information:
+
+    ```YAML
+    zeppelin:
+        image: quay.io/alfresco/insight-zeppelin:2.0.0
+        environment:
+                - REPO_HOST=alfresco
+                - REPO_PORT=8080
+        ports:
+        - “9090:9090”
+    ```
+
+2. Save the file.
+
+3. Run Alfresco Insight Zeppelin using `http://localhost:9090/zeppelin`.

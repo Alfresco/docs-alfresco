@@ -11,14 +11,6 @@
           path: '/insight-engine/latest/install/#Prerequisites'
         - title: 'Install options'
           path: '/insight-engine/latest/install/options/'
-              - title: 'Install options'
-          path: '/insight-engine/latest/install/options/#Installing with mutual TLS with the distribution zip'
-              - title: 'Install options'
-          path: '/insight-engine/latest/install/options/#Installing Insight Engine without mutual TLS'
-              - title: 'Install options'
-          path: '/insight-engine/latest/install/options/#Installing using Docker compose'
-        - title: 'Upgrade'
-          path: '/insight-engine/latest/upgrade/' 
     - title: 'Configure'
       pages:
         - title: 'Configure'
@@ -42,115 +34,64 @@
         - title: 'Properties for Solr index'
           path: '/insight-engine/latest/config/transactional/'
         - title: 'Transactional metadata query'
+    - title: 'Configure'
+      pages:
+        - title: 'Configure'
+          path: '/insight-engine/latest/config/'
+        - title: 'Secure Keys'
+          path: '/insight-engine/latest/config/keys/'
+        - title: 'Solr security'
+          path: '/insight-engine/latest/config/security/'
+        - title: 'Solr sharding'
+          path: '/insight-engine/latest/config/sharding/'
+        - title: 'Setting up Solr sharding'
+          path: '/insight-engine/latest/config/sharding/create'
+        - title: 'Solr replication'
+          path: '/insight-engine/latest/config/replication/'
+        - title: 'OpenSearch'
+          path: '/insight-engine/latest/config/opensearch/'
+        - title: 'Filtered search'
+          path: '/insight-engine/latest/config/filtered/'
+        - title: 'Setting up Solr sharding'
+          path: '/insight-engine/latest/config/properties/'
+        - title: 'Properties for Solr index'
+          path: '/insight-engine/latest/config/transactional/'
+        - title: 'Transactional metadata query'
+    - title: 'Administer'
+      pages:
+        - title: 'SOLR Admin REST API'
+          path: '/insight-engine/latest/admin/restapi'
+        - title: 'Backing up'
+          path: '/insight-engine/latest/admin/'
+        - title: 'Solr logging'
+          path: '/insight-engine/latest/admin/debugging'
+        - title: 'Solr Monitoring and troubleshooting'
+          path: '/insight-engine/latest/admin/monitor'
+        - title: 'Fingerprinting'
+          path: '/insight-engine/latest/admin/fingerprinting'
     - title: 'Using'
       pages:
-        - title: 'Overview'
-          path: '/insight-engine/latest/install/'
-        - title: 'Best practices for setting up sharded Solr indexes'
+        - title: 'Supported/Unsupported SQL'
+          path: '/insight-engine/latest/using/sql'
+        - title: 'Full text search'
           path: '/insight-engine/latest/using/syntax/'
-        - title: 'From ZIP file'
-          path: '/insight-engine/latest/install/zip/'
-    - title: 'Upgrade'
+        - title: 'Sample Insight Zepellin SQL'
+          path: '/insight-engine/latest/using/sql/syntax'
+        - title: 'JBDC Driver'
+          path: '/insight-engine/latest/using/sql/jdbc'
+        - title: 'Reports and other tools'
+          path: '/insight-engine/latest/using/reports'
+        - title: 'Install with docker'
+          path: '/insight-engine/latest/using/sql/syntax'
+        - title: 'JBDC Driver'
+          path: '/insight-engine/latest/using/sql/jdbc'
+
+
+
+
+
+          - title: 'Upgrade'
       path: '/insight-engine/latest/upgrade/'
     - title: 'Configure'
       path: '/insight-engine/latest/configure/'
-          
-    
-    
-    - title: 'Transactional metadata query'
-      pages:
-        - title: 'Overview'
-          path: '/insight-engine/latest/config/trans'
-        - title: 'Options supported by query languages'
-          path: '/insight-engine/latest/config/trans/languages/'
-        - title: 'Transactional metadata queries supported by database'
-          path: '/insight-engine/latest/config//trans/intrans/'
-        - title: 'Configuring transactional metadata query'
-          path: '/insight-engine/latest/config/trans/transactional/'
-        - title: 'Configuring an optional patch for upgrade'
-          path: '/insight-engine/latest/config//trans/intrans/patch'
-        - title: 'Adding optional indexes to database'
-          path: '/insight-engine/latest/config/trans/intrans-metadata/'
        
-
-     - title: 'Overview'
-          path: '/insight-engine/latest/config/replication'
-        - title: 'Options supported by query languages'
-          path: '/insight-engine/latest/config/trans/languages/'
-        - title: 'Transactional metadata queries supported by database'
-          path: '/insight-engine/latest/config//trans/intrans/'
-        - title: 'Configuring transactional metadata query'
-          path: '/insight-engine/latest/config/trans/transactional/'
-        - title: 'Configuring an optional patch for upgrade'
-          path: '/insight-engine/latest/config//trans/intrans/patch'
-        - title: 'Adding optional indexes to database'
-          path: '/insight-engine/latest/config/trans/intrans-metadata/'
-
-
-
-
-               - title: 'Overview'
-          path: '/insight-engine/latest/config/reports'
-        - title: 'Options supported by query languages'
-          path: '/insight-engine/latest/config/trans/languages/'
-        - title: 'Transactional metadata queries supported by database'
-          path: '/insight-engine/latest/config//trans/intrans/'
-        - title: 'Configuring transactional metadata query'
-          path: '/insight-engine/latest/config/trans/transactional/'
-        - title: 'Configuring an optional patch for upgrade'
-          path: '/insight-engine/latest/config//trans/intrans/patch'
-        - title: 'Adding optional indexes to database'
-          path: '/insight-engine/latest/config/trans/intrans-metadata/'
-
-
-
-     - title: 'Overview'
-          path: '/insight-engine/latest/config/sharding'
-        - title: 'Options supported by query languages'
-          path: '/insight-engine/latest/config/trans/languages/'
-        - title: 'Transactional metadata queries supported by database'
-          path: '/insight-engine/latest/config//trans/intrans/'
-        - title: 'Configuring transactional metadata query'
-          path: '/insight-engine/latest/config/trans/transactional/'
-        - title: 'Configuring an optional patch for upgrade'
-          path: '/insight-engine/latest/config//trans/intrans/patch'
-        - title: 'Adding optional indexes to database'
-          path: '/insight-engine/latest/config/trans/intrans-metadata/'
-
-
-       - title: 'Overview'
-          path: '/insight-engine/latest/config/sharding'
-        - title: 'Options supported by query languages'
-          path: '/insight-engine/latest/config/trans/languages/'
-        - title: 'Transactional metadata queries supported by database'
-          path: '/insight-engine/latest/config//trans/intrans/'
-        - title: 'Configuring transactional metadata query'
-          path: '/insight-engine/latest/config/trans/transactional/'
-        - title: 'Configuring an optional patch for upgrade'
-          path: '/insight-engine/latest/config//trans/intrans/patch'
-        - title: 'Adding optional indexes to database'
-          path: '/insight-engine/latest/config/trans/intrans-metadata/'
-
-
-
-
-
-
-
-
-          -   **[Overview of transactional metadata query](../concepts/intrans-metadata-overview.md)**  
-Alfresco Content Services supports the execution of a subset of the CMIS Query Language (CMIS QL) and Alfresco Full Text Search (AFTS) queries directly against the database. Also, the noindex subsystem supports queries only against the database. This collection of features is called transactional metadata query (TMDQ).
--   **[Features of transactional metadata query](../concepts/intrans-metadata-feature.md)**  
-Use this information to understand the features of the transactional metadata query.
--   **[Options supported by Query Languages](../concepts/query-lang-support.md)**  
-Use this information to know what options are supported by the Public API, CMIS Query Language (QL), and Alfresco Full Text Search Query Language (FTS QL).
--   **[Transactional metadata queries supported by database](../concepts/intrans-metadata-query.md)**  
-Use this information to understand the queries supported by the database.
--   **[Configuring transactional metadata query](../concepts/intrans-metadata-configure.md)**  
-Configure the transaction metadata query using the subsystem properties.
--   **[Configuring an optional patch for upgrade](../concepts/intrans-metadata-conf-patch.md)**  
-Transactional metadata query requires two optional patches to be applied for full support. If no patch is applied there is no database support.
--   **[Adding optional indexes to database](../concepts/intrans-metadata-create-index.md)**  
-When you are upgrading the database, you can add optional indexes in order to support the metadata query feature. This information lets you know the likely duration of the upgrade and how to do it incrementally.
--   **[Configuring search in Alfresco Share](../concepts/config_alfresco_share_search.md)**  
- The following sections describe how to configure search in Alfresco Share.
