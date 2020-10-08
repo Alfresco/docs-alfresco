@@ -85,7 +85,7 @@ integrations:
     sub:
       - title: "Amazon S3"
         text: "Alfresco Content Connector for AWS S3 uses Amazon's Simple Storage Service (S3) as the storage mechanism for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
-        url:
+        url: /aws-s3/latest
       - title: "Microsoft Azure"
         text: "Alfresco Content Connector for Azure uses Microsoft's Azure Blob Storage as an alternative content store for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
         url: /microsoft-azure/latest/

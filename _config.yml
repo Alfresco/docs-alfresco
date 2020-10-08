@@ -150,6 +150,23 @@ defaults:
     values:
       version: 1.5
 
+# Alfresco Content Connector for AWS S3
+  - scope:
+      path: "aws-s3"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for AWS S3"
+      location: "aws-s3"
+      toc: "aws-s3"
+      support: true
+      versions:
+        - 3.1
+  - scope:
+      path: "aws-s3/latest"
+    values:
+      version: 3.1
+      latest: true
+
 # Alfresco Office Services
   - scope:
       path: "microsoft-office"
