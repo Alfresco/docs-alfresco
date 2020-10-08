@@ -27,7 +27,7 @@ The [conflict resolution matrix](https://docs.alfresco.com/desktopsync/concepts/
 
 ## What authentication does Sync Service support?
 
-Sync Service supports basic authentication. SAML SSO is currently not supported.
+Sync Service supports basic authentication. SAML is currently not supported.
 
 ## How can I monitor ActiveMQ?
 
