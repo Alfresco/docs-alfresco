@@ -8,7 +8,7 @@ Use this information to help diagnose any problems when using Media Management.
 
 If the timeout value for video transformation is too low, it is likely that videos will not load in Alfresco Share. In some setups, the `content.transformer.default.timeoutMs` setting might be limited. To resolve this problem, set the following option in your `alfresco-global.properties` file and check that this value is not being overridden by JMX:
 
-```xml
+```bash
 content.transformer.default.timeoutMs=64800000
 ```
 
@@ -16,7 +16,7 @@ content.transformer.default.timeoutMs=64800000
 
 If you preview a video or image and you do not have FFmpeg installed, you will see an error in the `alfresco.log` file, for example:
 
-```xml
+```bash
 ERROR [org.springframework.extensions.webscripts.AbstractRuntime] [http-apr-8080-exec-11]  Exception from executeScript - redirecting to status template error:  03220008
 The content node was not specified so the content cannot be streamed to the client: classpath*:alfresco/templates/webscripts/org/alfresco/repository/thumbnail/thumbnail.get.js org.springframework.extensions.webscripts.WebScriptException: 03220008  
 The content node was not specified so the content cannot be streamed to  the client: classpath*:alfresco/templates/webscripts/org/alfresco/repository/thumbnail/thumbnail.get.js
@@ -42,4 +42,4 @@ When you load a video in Alfresco Share, if you receive the message `Could not c
 
 ## Failure loading images or video in Alfresco Share
 
-If you do not have FFmpeg or ImageMagick available to Java, then you will not be able to view images and video in Alfresco Share. Ensure that Java has FFmpeg and ImageMagick on its command line path, or define the path location in your `alfresco-global.properties` file. See See [step 7 of Installing Media Management]({% link media-management/1.3/install/index.md %}) for information on how to set these in the `alfresco-global.properties` file.
+If you do not have FFmpeg or ImageMagick available to Java, then you will not be able to view images and video in Alfresco Share. Ensure that Java has FFmpeg and ImageMagick on its command line path, or define the path location in your `alfresco-global.properties` file. See See [step 7 of Installing Media Management]({% link media-management/latest/install/index.md %}) for information on how to set these in the `alfresco-global.properties` file.

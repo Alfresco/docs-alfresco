@@ -4,9 +4,9 @@ title: Start Media Management
 
 You need to start up ActiveMQ, your content services node, the repository and Alfresco Share.
 
-Ensure that you have installed the required external and internal software before installing Alfresco Media Management. See [Prerequisites for using Media Management]({% link media-management/1.3/install/index.md %}) for more information.
+Ensure that you have installed the required external and internal software before installing Alfresco Media Management. See [Prerequisites for using Media Management]({% link media-management/1.3/install/index.md %}#prerequisites-for-media-management) for more information.
 
-For information on how to set up ActiveMQ and the content services node to start automatically, see **Running Media Management automatically**.
+For information on how to set up ActiveMQ and the content services node to start automatically, see [Running Media Management automatically](#running-media-management-automatically).
 
 For more information on advanced ActiveMQ settings, see [Configuring advanced settings in ActiveMQ](LINK).
 
