@@ -66,4 +66,6 @@
         - title: 'Install with docker'
           path: '/insight-engine/latest/using/sql/syntax'
         - title: 'JBDC Driver'
-          path: '/insight-engine/latest/using/sql/jdbc'       
+          path: '/insight-engine/latest/using/sql/jdbc'
+        - title: 'Troubleshooting'
+          path: '/insight-engine/latest/using/troubleshooting/'       
