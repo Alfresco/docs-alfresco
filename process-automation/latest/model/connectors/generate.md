@@ -42,8 +42,8 @@ The input parameters to generate a document are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| template | File | *Required.* The [template](#template) to use for generating the file. |
-| metadata | JSON | *Optional.* Metadata to be used by the `template` when generating the file. |
+| template | File | *Required.* The [template](#template) to use for generating the file stored as a file variable. |
+| metadata | JSON | *Optional.* Metadata to be used by the `template` when generating the file to include [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) in the output. |
 | outputFileName | String | *Optional.* The name of the generated file, for example `onboarding-form`. |
 | outputFormat | String | *Optional*. The file type for the generated document. Possible values are DOCX and PDF. The default value if PDF. |
 | targetFileMetadata | Content-Metadata | *Optional.* Metadata to store the file with. This is a JSON object of key value pairs. See below for an example. |
@@ -54,9 +54,9 @@ The input parameters to generate a document are:
 | targetFolderId | String | *Requires one.* The nodeId of the folder to store the new file in. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to store the new file in. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 
-> **Note**: `underscoreMetadata` can be set to `true` and the `metadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `metadata` uses `_` then the connector will fail to execute the action.
+> **Note**: `underscoreMetadata` can be set to `true` and the `targetFileMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `targetFileMetadata` uses `_` then the connector will fail to execute the action.
 
-An example of the `metadata` that can be sent with the document is:
+An example of the `targetFileMetadata` that can be stored with the document is:
 
 ```json
 {

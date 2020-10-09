@@ -2,78 +2,101 @@
 title: DocuSign connector
 ---
 
-The DocuSign connector is used to send documents via email to be digitally signed. The process flow waits for a document to be signed before continuing with the process. The signed document
-is saved to the Alfresco Content Services repository folder that corresponds to the process instance ID that called the connector in the following format:
+The DocuSign connector is used to send documents via email to be digitally signed. The process flow waits for a document to be signed before continuing with the process. The signed document is saved to the Content Services repository.
 
-```bash
-<application-name> Site / Document Library / <process-instance-id> / <service-task-id> / <signed-document>
-``` 
+> **Important**: The DocuSign connector requires a [DocuSign](https://www.docusign.com/){:target="_blank"} account to handle document signing.
 
-> **Note**: The DocuSign requires a [DocuSign](https://www.docusign.com/) account to handle document signing.
+The DocuSign connector is displayed on the process diagram as a pen.
 
-The DocuSign connector is graphically represented by the DocuSign logo under the connectors menu whilst modeling a process.
+## Sign document
 
-The `implementation` value of the DocuSign connector in a service task would be similar to the following:
+The **SIGNDOCUMENT** action is used by the DocuSign connector to request a digital signature on a document.
 
-```xml
-<bpmn2:serviceTask id="ServiceTask_1jas8cr" implementation="docusignConnector.SIGNDOCUMENT" />
+The input parameters to request a DocuSign signature are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| file | File | *Required.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file containing the document to be signed. |
+| documentId | Integer | *Optional.* Correlation ID to send to the DocuSign API, for example `250`. |
+| nodeFormat | String | *Optional.* The format of the document to be signed. Values are `pdf` or `docx`. |
+| outputFileName | String | *Optional.* The name of the file that will be created, for example `invoice.pdf`. |
+| recipientEmail | String | *Required.* The email address of the person signing the document. |
+| recipientName | String | *Optional.* The name of the person signing the document, for example `John Doe`. |
+| emailSubject | String | *Optional.* The subject line of the email sent with the document to sign. |
+| signHerePage | String | *Optional.* The page number in the document the `Sign Here` box will appear on, for example `3`. |
+| signHereX | String | *Optional.* The X position of the `Sign Here` box in the document, for example `100`. |
+| signHereY | String | *Optional.* The Y position of the `Sign Here` box in the document, for example `50`. |
+| targetFileMetadata | Content-Metadata | *Optional.* Metadata to store the file with. This is a JSON object of key value pairs. See below for an example. |
+| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFileMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. This allows the JSON to be used in an expression, for example `${metadata.cm:title}` is not valid, whereas `${metadata.cm_title}` is. |
+| targetFileType | Content-Type | *Optional.* The type to set for the signed file, for example `fin:invoice`. |
+| targetFile | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file that should be updated with the signed version of the document. |
+| targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to store the signed document in. |
+| targetFolderId | String | *Requires one.* The nodeId of the folder to store the signed document in. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
+| targetFolderPath | String | *Requires one.* The location path or relative path of the folder to store the signed document in. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
+| timeout | Integer | *Optional.* The timeout period to wait for the document to be signed in milliseconds, for example `910000`. |
+
+> **Note**: `underscoreMetadata` can be set to `true` and the `targetFileMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `targetFileMetadata` uses `_` then the connector will fail to execute the action.
+
+An example of the `targetFileMetadata` that can be stored with the document is:
+
+```json
+{
+"ahr:contract-type": "Full Time",
+"ahr:full-name": "John Doe",
+"ahr:role": "Developer"
+}
 ```
 
-## DocuSign configuration
+The output parameters from signing a document are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| file | File | *Optional.* The signed document available to be mapped to a [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables). |
+
+## Configuration
 
 The DocuSign connector uses the DocuSign REST API. An application needs to be set up and authorized to utilize this functionality in the connector. The following steps outline this process:
 
-1. Sign into your DocuSign account. 
+1. Sign into your DocuSign account.
 2. [Configure an application for JWT authentication](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken){:target="_blank"} including the prerequisites required to setup an RSA key. 
 3. [Grant consent to the application](https://developers.docusign.com/esign-rest-api/guides/authentication/obtaining-consent){:target="_blank"}.
 
-## Configuration parameters
+### Configuration parameters
 
-Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
+The configuration parameters for the DocuSign connector are:
 
-The following are the configuration parameters that need to be set for the DocuSign connector: 
+| Parameter | Description |
+| --------- | ----------- |
+| DOCUSIGN_APILOCATION | *Required.* The URL of the DocuSign REST API. |
+| DOCUSIGN_ACCOUNT_ID | *Required.* The DocuSign account ID the application is registered to. |
+| DOCUSIGN_CLIENT_ID | *Required.* The application integration key from DocuSign. Found under **Admin > API & Keys**. |
+| DOCUSIGN_IMPERSONATED_USER | *Required.* The GUID of the DocuSign user the application should impersonate. Found under **Admin > Users**. |
+| DOCUSIGN_AUTH_SERVER | *Required.* The DocuSign OAuth server location. |
+| DOCUSIGN_JWT_LIFETIME | *Required.* The lifetime of the DocuSign JWT token. |
+| DOCUSIGN_RSA_KEY | *Required.* The private RSA key of the DocuSign application used for JWT authentication. |
+| DOCUSIGN_DEFAULT_EMAIL_SUBJECT | *Required.*  The default email subject line of the email containing the document to sign. |
+| DOCUSIGN_DEFAULT_SIGNHERE_LABEL | *Required.* The default label for the DocuSign **Sign Here** box on the document to sign. |
+| DOCUSIGN_DEFAULT_SIGNHERE_PAGE | *Required.* The default page number for the DocuSign **Sign Here** box to appear on in the document to sign. |
+| DOCUSIGN_DEFAULT_SIGNHERE_POSX | *Required.* The default X position of the **Sign Here** box on the document to sign. |
+| DOCUSIGN_DEFAULT_SIGNHERE_POSY | *Required.* The default Y position of the **Sign Here** box on the document to sign. |
+| DOCUSIGN_DEFAULT_TIMEOUT | *Required.* The default timeout period to wait for the document to be signed in millseconds. |
+| DOCUSIGN_POLL_SLEEP | *Required.* The time between polling in milliseconds. |
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| `DOCUSIGN_APILOCATION` | The URL of the DocuSign REST API to use | 
-| `DOCUSIGN_ACCOUNT_ID` | The DocuSign account that the application is registered to | 
-| `DOCUSIGN_CLIENT_ID` | The application integration key | 
-| `DOCUSIGN_IMPERSONATED_USER_ID` | The GUID of the DocuSign user that the application impersonates  | 
-| `DOCUSIGN_AUTH_SERVER` | The URL of the DocuSign authorization server | 
-| `DOCUSIGN_JWT_LIFETIME` | The expiration time of the JWT expressed in seconds | 
-| `DOCUSIGN_RSA_KEY` | The private RSA key for the DocuSign application | 
-| `ALFRESCO_CONTENT_REPO_BASE_URL` | The base URL of the Content Services deployment |
+## Errors
 
-## Input parameters 
+The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the DocuSign connector are:
 
-The following are the parameters that can be passed to the DocuSign connector as input parameters using the `SIGNDOCUMENT` action:
-
-| Parameter | Description | Type | Required? |
-| --------  | ----------- | ---- | --------- |
-| `nodeId` | The node ID of the file to sign from Alfresco Content Services | String | `*` |
-| `uri` | The URI of the file to sign | String | `*` |
-| `files` | A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to sign | File | `*` |
-| `recipientEmail` | The email address to send the file to for signing | String | Yes |
-| `recipientName` | The name of the email recipient | String | No |
-| `emailSubject` | The subject line of the email | String | No | 
-| `documentId` | A document ID for the Docusign API to use. The value must be positive integer | Integer | No | 
-| `nodeFormat` | The document format for the Docusign API. The default value is `pdf` | String | No |
-| `signHerePage` | The label for the `Sign Here` box in the document | String | No | 
-| `signHereX` | The X position of the `Sign Here` box in the document | String | No |
-| `signHereY` | The Y position of the `Sign Here` box in the document | String | No | 
-| `timeout` | The time to wait for the document to be signed expressed in seconds | Integer | No | 
-| `parentFolder` | The node ID of the folder to store the signed document in. If this value is set, the generated document will be output here and not to the default process instance folder for the process instance | String | No |
-| `outputFileName` | The name of the signed document | String | No |
-| `targetFile` | An existing file to overwrite with the signed document | File | No |
-| `nodeType` | The node type assigned to the signed document in ACS. The default is `cm:content` | String | No |
-
-`*` One of these parameters is required.
-
-## Output parameter
-
-The following is the parameter that is returned to the process by the DocuSign connector as an output parameter using the `SIGNDOCUMENT` action:
-
-| Parameter | Description | Type |
-| --------  | ----------- | ---- |
-| `docusign.result` | The node ID of the signed document | String | 
-| `docusign.error` | A list of errors if any are caught by the connector | String |
+| Error | Description |
+| ----- | ----------- |
+| MISSING_INPUT | A mandatory input variable was not provided. |
+| INVALID_INPUT | The input variable has an invalid type. |
+| UNKNOWN_ERROR | Unexpected runtime error. |
+| MISSING_SOURCE_FILE | Input file not found. |
+| MISSING_TARGET_FILE | Target file and folder not found. |
+| SIGNING_TIMEOUT | Signing document timeout. |
+| STATUS_NOT_FOUND | Error polling DocuSign for status. |
+| MISSING_TOKEN | Could not update or obtain token. |
+| ERROR_READING_FILE | Error reading input file. |
+| ENVELOPE_NOT_CREATED | Could not create envelope in DocuSign. |
+| ERROR_WRITING_FILE | Could not create or write result node. |
+| ERROR_RETRIEVING_FILE | Could not retrieve document from DocuSign. |

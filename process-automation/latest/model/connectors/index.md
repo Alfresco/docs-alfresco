@@ -32,7 +32,7 @@ Connectors are created as [BPMN elements]({% link process-automation/latest/mode
 
 ## Connector modeling
 
-Eery connector instance created in a process definition will be created in the **Connectors** section of a project using the `name` assigned to the instance.
+Every connector instance created in a process definition will be created in the **Connectors** section of a project using the `name` assigned to the instance.
 
 > **Note**: Creating multiple instances of the same connector within a project is only required if different [configuration parameters](#configuration-parameters) are going to be set.
 
