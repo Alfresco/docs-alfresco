@@ -19,7 +19,7 @@ even in conjunction with existing content stores.
 You have two options for installing the S3 Connector:
 
 * [Installing the S3 Connector](#installing)
-* [Installing the S3 Connector with S3MultipleBuckets subsystem](TODO:../tasks/s3-contentstore-mb-amp-install.md)
+* [Installing the S3 Connector with S3MultipleBuckets subsystem](#installingmultibucket)
 
 The steps for both options are very similar, but the second allows you to add `S3MultipleBuckets` as a third alternative 
 for the S3 content store subsystem.
@@ -48,19 +48,19 @@ In order to use the S3 Connector, you will need an AWS account so that you can c
 
 If you want to use the functionality introduced in S3 Connector 2.0, you can configure the following:
 
-* For IAM roles integration, see [Configuring AWS Identity and Access Management](TODO:../tasks/s3-contentstore-iam-config.md).
-* For KMS integration, see [Configuring AWS Key Management Service](TODO:../tasks/s3-contentstore-kms-config.md).
+* For IAM roles integration, see [Configuring AWS Identity and Access Management]({% link aws-s3/latest/config/index.md %}#configiam).
+* For KMS integration, see [Configuring AWS Key Management Service]({% link aws-s3/latest/config/index.md %}#configkeymgmt).
 
 If you want to use the functionality introduced in S3 Connector 2.1, you can configure the following:
 
-* For S3 Connector on-premises configuration, see [Configuring S3 Connector on-premises](TODO:s3-contentstore-onprem-config.md).
-* For AWS Storage Classes configuration, see [Configuring AWS Storage Classes](TODO:s3-contentstore-storage-config.md).
+* For S3 Connector on-premises configuration, see [Configuring S3 Connector on-premises]({% link aws-s3/latest/config/index.md %}#onpremconfig).
+* For AWS Storage Classes configuration, see [Configuring AWS Storage Classes]({% link aws-s3/latest/config/index.md %}#configstorageclass).
 
 If you want to use the functionality introduced in S3 Connector 3.1, you can configure the following:
 
-* For S3 Connector content store subsystems configuration, see [S3 Connector content store subsystems](TODO:s3-contentstore-subsystems.md).
-* For S3MultipleBuckets subsystem configuration, see [Configuring multiple buckets using S3 Connector](TODO:s3-contentstore-multiple-buckets.md).
-* For changes to the S3 Connector configuration, see [Properties reference](TODO:../references/s3-contentstore-ref-config-props.md) and [S3 Connector behavior changes](s3-contentstore-behavior.md).
+* For S3 Connector content store subsystems configuration, see [S3 Connector content store subsystems]({% link aws-s3/latest/config/index.md %}#content-store-subsystems).
+* For S3MultipleBuckets subsystem configuration, see [Configuring multiple buckets using S3 Connector]({% link aws-s3/latest/config/index.md %}#multibucketconfig).
+* For changes to the S3 Connector configuration, see [Properties reference]({% link aws-s3/latest/config/index.md %}#properties-reference) and [Properties behaviour changes]({% link aws-s3/latest/config/index.md %}#properties-behavior-changes).
 
 ## Installing 
 
@@ -78,10 +78,98 @@ The S3 Connector is packaged as an Alfresco Module Package (AMP) file.
 
     For more information, see [Using the Module Management Tool (MMT)](TODO_LINK:https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html) and [Installing an Alfresco Module Package](TODO_LINK:https://docs.alfresco.com/6.2/tasks/amp-install.html).
 
-4.  Check that the [configuration](TODO:s3-contentstore-config.md) is set up correctly for your environment.
+4.  Check that the [configuration]({% link aws-s3/latest/config/index.md %}) is set up correctly for your environment.
 
-    >**Note:** For a new clean installation, we recommend that you choose a pure S3 content store. See [S3 Connector content store subsystems](TODO:../concepts/s3-contentstore-subsystems.md) and [Properties reference](TODO:../references/s3-contentstore-ref-config-props.md) for more details.
+    >**Note:** For a new clean installation, we recommend that you choose a pure S3 content store. See [S3 Connector content store subsystems]({% link aws-s3/latest/config/index.md %}#content-store-subsystems) and [Properties reference]({% link aws-s3/latest/config/index.md %}#properties-reference) for more details.
 
-5.  Starting from version 3.1, the S3 Connector has the deleted content store disabled by default, since this feature is already present in Amazon's S3 service. For details on how to re-enable it, see [S3 Connector deleted content store](TODO:../concepts/s3-contentstore-delete.md).
+5.  Starting from version 3.1, the S3 Connector has the deleted content store disabled by default, since this feature is already present in Amazon's S3 service. For details on how to re-enable it, see [S3 Connector deleted content store]({% link aws-s3/latest/config/index.md %}#enabledeletedcontentstore).
 
 6.  Start Alfresco Content Services.
+
+## Installing with S3MultipleBuckets subsystem {#installingmultibucket}
+
+These steps describe how to install the S3 Connector to an instance of Alfresco Content Services, and how to 
+enable the `S3MultipleBuckets` subsystem sample.
+
+The S3 Connector is packaged as an Alfresco Module Package (AMP) file.
+
+>**Note:** Ensure that you don't start Alfresco Content Services before installing the S3 Connector AMP.
+
+1.  Go to the [Alfresco Support Portal](https://support.alfresco.com).
+
+2.  Download the `alfresco-s3-connector-3.1.x.amp` file.
+
+3.  Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
+
+    For more information, see [Using the Module Management Tool (MMT)](TODO_LINK:https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html) and [Installing an Alfresco Module Package](TODO_LINK:https://docs.alfresco.com/6.2/tasks/amp-install.html).
+
+4.  Unzip the `alfresco-s3-connector-3.1.x.amp` file.
+
+5.  Copy the three sample files and rename them by removing the `.sample` extension.
+
+    The sample files are located under:
+
+    ```text
+    alfresco-s3-connector-3.1.x.amp/config/alfresco/extension/...
+    ```
+
+    They need to be copied to the relevant paths under the following folder:
+
+    ```text
+    $CATALINA_HOME/shared/classes/alfresco/extension/...
+    ```
+
+    1.  Copy and rename `s3-multiple-buckets-context.xml.sample` to:
+
+        ```text
+        s3-multiple-buckets-context.xml
+        ```
+
+    2.  Copy and rename `subsystems/ContentStore/S3MultipleBuckets/S3MultipleBuckets/s3-mb-contentstore-context.xml.sample` to:
+
+        ```text
+        subsystems/ContentStore/S3MultipleBuckets/S3MultipleBuckets/s3-mb-contentstore-context.xml
+        ```
+
+    3.  Copy and rename `subsystems/ContentStore/S3MultipleBuckets/S3MultipleBuckets/s3-mb-contentstore.properties.sample` to:
+
+        ```text
+        subsystems/ContentStore/S3MultipleBuckets/S3MultipleBuckets/s3-mb-contentstore.properties
+        ```
+
+6.  Check that the configuration is set up correctly for your environment.
+
+    1.  Check the S3 Connector properties for store 1 (for example, `connector.s3.*` or `s3.*`)
+
+        See `s3-mb-contentstore.properties` for the complete list.
+
+        The minimum properties required are:
+
+        ```text
+        -Dconnector.s3.accessKey=${AWS_ACCESS_KEY_ID}
+        -Dconnector.s3.secretKey=${AWS_SECRET_ACCESS_KEY}
+        -Dconnector.s3.bucketName=${S3_BUCKET_NAME}
+        -Dconnector.s3.bucketRegion=${S3_BUCKET_REGION}
+        ```
+
+    2.  Check the S3 Connector properties for store 2 (for example, `connector.s3.store2.*` or `s3.store2.*`)
+
+        See `s3-mb-contentstore.properties` for the complete list..
+
+        The minimum properties required are:
+
+        ```text
+        -Dconnector.s3.store2.bucketName=${S3_BUCKET2_NAME}
+        -Dconnector.s3.store2.bucketRegion=${S3_BUCKET_REGION}
+        ```
+
+    3.  Set S3 multiple buckets as the default file content store subsystem:
+
+        ```text
+        filecontentstore.subsystem.name=S3MultipleBuckets
+        ```
+
+7.  Check that any other [configuration]({% link aws-s3/latest/config/index.md %}) is set up correctly for your environment and specifically check the [multiple bucket config]({% link aws-s3/latest/config/index.md %}#multibucketconfig).
+
+8.  Start Alfresco Content Services.
+

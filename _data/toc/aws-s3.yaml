@@ -11,9 +11,6 @@
       path: '/aws-s3/latest/config/'
     - title: 'Using'
       pages:
-        - title: 'Content connector'
-          path: '/aws-s3/latest/using/connector/'
         - title: 'FAQ'
           path: '/aws-s3/latest/using/faq/'
-    - title: "Administer"
-      path: '/aws-s3/latest/admin/'
+
