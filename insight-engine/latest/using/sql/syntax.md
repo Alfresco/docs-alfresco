@@ -92,12 +92,12 @@ These queries search for nodes that contain at least one of the terms `big`, `ye
 
 ## Escaping characters
 
-Any character can be escaped using the backslash "\" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
+Any character can be escaped using the backslash "" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
 
 For example:
 
 ```sql
-cm:my\ content:my\ name
+cm:my content:my name
 ```
 
 ## Search for an exact term
@@ -118,7 +118,7 @@ If you don’t specify a field the search runs against name, description, title,
 
 > **Note:** If cross locale is not configured for the field then an exception occurs.
 
-The list of the default supported types as declared in the <alfresco\_home>/solr4/conf/shared.properties file:
+The list of the default supported types as declared in the <alfresco_home>/solr4/conf/shared.properties file:
 
 `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
 
@@ -143,9 +143,9 @@ Property fields evaluate the search term against a particular property, special 
 
 |Description|Type|Example|
 |-----------|----|-------|
-|Fully qualified property|Property|\{http://www.alfresco.org/model/content/1.0\}name:apple|
-|Fully qualified property|Property|@\{http://www.alfresco.org/model/content/1.0\}name:apple|
-|CMIS style property|Property|cm\_name:apple|
+|Fully qualified property|Property|{http://www.alfresco.org/model/content/1.0}name:apple|
+|Fully qualified property|Property|@{http://www.alfresco.org/model/content/1.0}name:apple|
+|CMIS style property|Property|cm_name:apple|
 |Prefix style property|Property|cm:name:apple|
 |Prefix style property|Property|@cm:name:apple|
 |TEXT|Special|TEXT:apple|
@@ -154,7 +154,7 @@ Property fields evaluate the search term against a particular property, special 
 |TX|Special|TX:"TX"|
 |PARENT|Special|PARENT:"NodeRef"|
 |PRIMARYPARENT|Special|PRIMARYPARENT:"NodeRef"|
-|QNAME|Special|QNAME:"app:company\_home"|
+|QNAME|Special|QNAME:"app:company_home"|
 |CLASS|Special|CLASS:"qname"|
 |EXACTCLASS|Special|EXACTCLASS:"qname"|
 |TYPE|Special|TYPE:"qname"|
@@ -218,7 +218,7 @@ When you search, entries are generally a term or a phrase. The string representa
 
 You can specify either a particular date or a date literal. A date literal is a fixed expression that represents a relative range of time, for example last month, this week, or next year.
 
-`dateTime` field values are stored as Coordinated Universal Time (UTC). The date fields represent a point in time with millisecond precision. For date field formatting, Solr uses [DateTimeFormatter.ISO\_INSTANT](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_INSTANT). The ISO instant formatter formats an instant in Coordinated Universal Time (UTC), for example:
+`dateTime` field values are stored as Coordinated Universal Time (UTC). The date fields represent a point in time with millisecond precision. For date field formatting, Solr uses [DateTimeFormatter.ISO_INSTANT](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_INSTANT). The ISO instant formatter formats an instant in Coordinated Universal Time (UTC), for example:
 
 ```bash
 YYYY-MM-DDThh:mm:ssZ
@@ -242,7 +242,7 @@ where,
 
 ### String literals
 
-String literals for phrases can be enclosed in double quotes or single quotes. Java single character and `\uXXXX`-based escaping are supported within these literals.
+String literals for phrases can be enclosed in double quotes or single quotes. Java single character and `uXXXX`-based escaping are supported within these literals.
 
 Integer and decimal literals conform to the Java definitions.
 
@@ -281,7 +281,7 @@ Sometimes AND and OR are not enough. If you want to find documents that must con
 
 |Operator|Description|
 |--------|-----------|
-|"\|"|The field, phrase, group is optional; a match increases the score.|
+|"|"|The field, phrase, group is optional; a match increases the score.|
 |"+"|The field, phrase, group is mandatory (Note: this differs from Google - see "=")|
 |"-", "!"|The field, phrase, group must not match.|
 
@@ -297,7 +297,7 @@ All `AND` and `OR` constructs can be expressed with these operators.
 
 ## Search for a phrase
 
-Phrases are enclosed in double quotes. Any embedded quotes can be escaped using `\`. If no field is specified then the default TEXT field will be used, as with searches for a single term.
+Phrases are enclosed in double quotes. Any embedded quotes can be escaped using ``. If no field is specified then the default TEXT field will be used, as with searches for a single term.
 
 The whole phrase will be tokenized before the search according to the appropriate data dictionary definition(s).
 
@@ -397,22 +397,22 @@ nameAndTitleAndDesciption -> %(nameAndTitle, cm:description)
 
 ## Search for ranges
 
-Inclusive ranges can be specified in Google-style. There is an extended syntax for more complex ranges. Unbounded ranges can be defined using MIN and MAX for numeric and date types and "\\u0000" and "\\FFFF" for text (anything that is invalid).
+Inclusive ranges can be specified in Google-style. There is an extended syntax for more complex ranges. Unbounded ranges can be defined using MIN and MAX for numeric and date types and "u0000" and "FFFF" for text (anything that is invalid).
 
 |Lucene|Google|Description|Example|
 |------|------|-----------|-------|
-|`[#1 TO #2]`|`#1..#2`|The range \#1 to \#2 inclusive ``#1 <= x <= #2``
+|`[#1 TO #2]`|`#1..#2`|The range #1 to #2 inclusive ``#1 <= x <= #2``
 
 |`0..5``[0 TO 5]`
 
 |
-|`<#1 TO #2]`| |The range \#1 to \#2 including \#2 but not \#1.`#1 < x <= #2`
+|`<#1 TO #2]`| |The range #1 to #2 including #2 but not #1.`#1 < x <= #2`
 
 |`<0 TO 5]`|
-|`[#1 TO #2>`| |The range \#1 to \#2 including \#1 but not \#2.`#1 <= x < #2`
+|`[#1 TO #2>`| |The range #1 to #2 including #1 but not #2.`#1 <= x < #2`
 
 |`[0 TO 5>`|
-|`<#1 TO #2>`| |The range \#1 to \#2 exclusive.`#1 < x < #2`
+|`<#1 TO #2>`| |The range #1 to #2 exclusive.`#1 < x < #2`
 
 |`<0 TO 5>`|
 
@@ -421,7 +421,7 @@ TEXT:apple..banana
 my:int:[0 TO 10]
 my:float:2.5..3.5
 my:float:0..MAX
-mt:text:[l TO "\uFFFF"]
+mt:text:[l TO "uFFFF"]
 ```
 
 ## Search for a single term
@@ -443,7 +443,7 @@ If the appropriate data dictionary definition(s) for the field supports both FTS
 
 Spans and positions are not implemented. Positions will depend on tokenization.
 
-Anything more detailed than one \*(2) two are arbitrarily dependent on the tokenization. An identifier and pattern matching, or dual FTS and ID tokenization, might be the answer in these cases.
+Anything more detailed than one *(2) two are arbitrarily dependent on the tokenization. An identifier and pattern matching, or dual FTS and ID tokenization, might be the answer in these cases.
 
 ```sql
 term[^] - start 

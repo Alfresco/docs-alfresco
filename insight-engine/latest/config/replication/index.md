@@ -14,7 +14,7 @@ The figure below shows a Solr configuration using index replication. The master 
 The master-slave replication requires non-SSL communication between the master server and the slave server.
 
 ## Solr replication: advantages and disadvantages
----
+
 There are advantages and disadvantages of using a master-slave and master-master replication.
 
 ## Advantages and disadvantages of a master-slave index replication
@@ -52,7 +52,7 @@ There are advantages and disadvantages of using a master-slave and master-master
 | |Requires an additional master node, so has slightly higher pre-requisites.|
 
 ## Solr replication configuration
----
+
 The Solr replication feature is implemented as a `RequestHandler`. The simplest configuration involves one Alfresco Content Services node, one Solr master, and one Solr slave.
 
 The Solr master is configured to track the Alfresco Content Services instance while the Solr slave is configured to track the Solr master. The Alfresco Content Services instance is configured to send all the queries to the SOLR slave.
@@ -111,7 +111,7 @@ There can be multiple values for this parameter. If you use `startup`, you need 
 
 ### Configuring Solr slave
 
-Here again, the solrconfig.xml file controls the configuration affecting replication. To configure the slave server, follow the steps below:\`
+Here again, the solrconfig.xml file controls the configuration affecting replication. To configure the slave server, follow the steps below:`
 
 1. Uncomment the `slave` section.
 
@@ -162,15 +162,15 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
 
 ## Additional Solr configuration
 
-Any configuration changes related to the core schema and configuration, or any changes in <solr\_home>/conf must be made to all Solr instances. Replication can be configured to manage the distribution of other core related configuration files.
+Any configuration changes related to the core schema and configuration, or any changes in <solr_home>/conf must be made to all Solr instances. Replication can be configured to manage the distribution of other core related configuration files.
 
 ## Solr master-slave reconfiguration
----
+
 There are additional master-slave configuration requirements for Solr, such as adding a slave server and promoting a slave server.
 
 ## Adding a slave server
 
-To add another slave server to an existing replication configuration, see [Configuring Solr slave](solr-replication-conf.md#slave).
+To add another slave server to an existing replication configuration, see [Configuring Solr slave](#Configuring-Solr-slave).
 
 ## Promoting a slave
 
@@ -228,7 +228,7 @@ To promote a slave, follow the steps below:
     enable.slave=false
     ```
 
-5. Configure all other slave servers (if any) to point to the new master server. Make sure that the state of the slave indexes is either behind or equal to the state of the master server. For more information, see [Configuring Solr slave](solr-replication-conf.md#slave).
+5. Configure all other slave servers (if any) to point to the new master server. Make sure that the state of the slave indexes is either behind or equal to the state of the master server. For more information, see [Configuring Solr slave](#Configuring-Solr-slave).
 
 After the previously broken master server is fixed, it can either be discarded, run as a slave, or run as a second master. To run as a slave, make sure it is behind the new master. It can be restored from a back up of another slave or the current master server.
 
@@ -238,7 +238,7 @@ Use this information for setting up a master-master replication.
 
 1. Set up two separate Solr instances where neither of them know about each other.
 
-    See [Installing and configuring Search and Insight Engine](../concepts/solr-install-config.md).
+    See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}).
 
 2. If you have a clustered environment, both the Solr installations can be done on their own Alfresco nodes in the cluster. If you don't have a clustered environment, both the Solr nodes can talk to their respective Alfresco node directly.
 

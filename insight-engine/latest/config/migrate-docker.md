@@ -5,7 +5,7 @@ If you already have Alfresco Content Services 6.2 with Alfresco Search Services 
 
 Use this information to migrate from Search Services to Search and Insight Engine using Docker Compose.
 
-> **Note:** A reindex is required when you migrate from Search Services to Search and Insight Engine. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Search and Insight Engine externalized configuration](../concepts/external-properties-solr.md). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
+> **Note:** A reindex is required when you migrate from Search Services to Search and Insight Engine. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine externalized configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
 
 1. Insert the following container information into your `docker-compose.yml` file and save it.
 

@@ -1,13 +1,13 @@
 ---
 title: Backing up Alfresco Search and Insight Engine
 ---
-There are a number of ways to back up Alfresco Search and Insight Engine. You can set the Solr indexes backup properties either by using the Admin Console in Share, by editing the <TOMCAT\_HOME>/shared/classes/alfresco-global.properties file, or by using a JMX client, such as JConsole.
+There are a number of ways to back up Alfresco Search and Insight Engine. You can set the Solr indexes backup properties either by using the Admin Console in Share, by editing the <TOMCAT_HOME>/shared/classes/alfresco-global.properties file, or by using a JMX client, such as JConsole.
 
 ## Set up Solr backup properties using Share Admin Console
 
 You can only see the Admin Console if you're an administrator user.
 
-1. Launch the Admin Console. For information, see [Launching the Admin Console](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
+1. Launch the Admin Console. For information, see [Launching the Admin Console](LINK LINK).
 2. In the **Repository Services** section, click **Search Service**.
 
     You see the Search Service page.
@@ -23,7 +23,7 @@ You can only see the Admin Console if you're an administrator user.
 
 ## Specifying Solr backup directory by using alfresco-global.properties file
 
-This task shows how to specify the Solr backup directory by using the <TOMCAT\_HOME>/shared/classes/alfresco-global.properties file.
+This task shows how to specify the Solr backup directory by using the <TOMCAT_HOME>/shared/classes/alfresco-global.properties file.
 
 To set the Solr backup directory using the alfresco-global.properties file, set the value of the following properties to the full path where the backups should be kept:
 

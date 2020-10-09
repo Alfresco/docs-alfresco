@@ -7,7 +7,7 @@ Use the following information to configure Alfresco Search and Insight Engine.
 
 There is a search subsystem and it can be used to connect to Alfresco Search and Insight Engine (which is based on Solr 6).
 
-Just like all previous versions of Solr, the activation and configuration of the Search and Insight Engine subsystem can be done by using either the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file or the admin console, see [Configuring Search and Insight Engine using Admin Console](../tasks/adminconsole-searchservice-solr.md).
+Just like all previous versions of Solr, the activation and configuration of the Search and Insight Engine subsystem can be done by using either the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file or the admin console, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#Configuring using the Admin Console).
 
 If you haven't set the following Solr-related properties in the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file, add these:
 
@@ -26,7 +26,7 @@ These configuration properties are used by Alfresco Content Services to talk to 
 
 The topic describes the properties for configuring the Solr 6 search service.
 
-1. Open the Admin Console. For more information, see [Launching the Admin Console](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
+1. Open the Admin Console. For more information, see [Launching the Admin Console LINK LINK](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
 
 2. In the Repository Services section, click **Search Service**.
 
@@ -53,11 +53,11 @@ The topic describes the properties for configuring the Solr 6 search service.
     |**Approx Transactions to Index**|0|This specifies the estimated number of outstanding transactions that require indexing.|
     |**Indexing in Progress**|No|This specifies if Solr 6 is currently indexing outstanding transactions.|
     |**Memory Usage (GB)**|0|This specifies the current memory usage. The value may vary due to transient memory used by background processing. The value does not include Lucene related caches.|
-    |**Backup Location** (Main Store)|$\{dir.root\}/solr6Backup/alfresco|This specifies the location where the index backup for the main WorkspaceStore is stored on the Solr 6 server.|
-    |**Backup Cron Expression** (Main Store)|0 0 2 \* \* ?|This specifies a unix-like expression, using the same syntax as the cron command, that defines when backups occur. The default value is 0 0 2 \* \* ? meaning the backup is performed daily at 02.00.|
+    |**Backup Location** (Main Store)|${dir.root}/solr6Backup/alfresco|This specifies the location where the index backup for the main WorkspaceStore is stored on the Solr 6 server.|
+    |**Backup Cron Expression** (Main Store)|0 0 2 * * ?|This specifies a unix-like expression, using the same syntax as the cron command, that defines when backups occur. The default value is 0 0 2 * * ? meaning the backup is performed daily at 02.00.|
     |**Backups To Keep** (Main Store)|3|This specifies the number of backups to keep (including the latest backup).|
-    |**Backup Location** (Archive Store properties)|$\{dir.root\}/solr6Backup/archive|This specifies the location where the index backup for ArchiveStore is stored on the Solr 6 server.|
-    |**Backup Cron Expression** (Archive Store properties)|0 0 4 \* \* ?|This specifies a unix-like expression, using the same syntax as the cron command, that defines when backups occur. The default value is 0 0 4 \* \* ? meaning the backup is performed daily at 04.00.|
+    |**Backup Location** (Archive Store properties)|${dir.root}/solr6Backup/archive|This specifies the location where the index backup for ArchiveStore is stored on the Solr 6 server.|
+    |**Backup Cron Expression** (Archive Store properties)|0 0 4 * * ?|This specifies a unix-like expression, using the same syntax as the cron command, that defines when backups occur. The default value is 0 0 4 * * ? meaning the backup is performed daily at 04.00.|
     |**Backups To Keep** (Archive Store properties)|3|This specifies the number of backups to keep.|
     |**CMIS Query**|Use database if possible|This specifies the default mode which defines if and when the database should be used to support a subset of the CMIS Query Language.|
     |**Alfresco Full Text Search**|Use database if possible|This specifies the default mode which defines if and when the database should be used to support a subset of the Alfresco Full Text Search.|
@@ -76,16 +76,16 @@ The Search and Insight Engine distribution (alfresco-insight-engine-distribution
     |Folder/File|Description|
     |-----------|-----------|
     |alfrescoModels|When you install Search and Insight Engine, it creates an empty alfrescoModels directory. When Solr first talks to Alfresco, it pulls the model definitions into this directory.|
-    |conf|This directory contains the shared.properties file. See [Search and Insight Engine externalized configuration](external-properties-solr.md).|
+    |conf|This directory contains the shared.properties file. See [Search and Insight Engine externalized configuration](#Search and Insight Engine externalized configuration).|
     |templates|This directory contains the core templates that define the base configuration for a new Solr core with some configuration properties. This directory also contains the /rerank/conf/solrcore.properties file which you can use to customize the Solr cores.|
-    |solr.xml|This file defines the Solr web application context. For more information see [Format of solr.xml](https://lucene.apache.org/solr/guide/6_6/format-of-solr-xml.html)|
+    |solr.xml|This file defines the Solr web application context. For more information see [Format of solr.xml](https://lucene.apache.org/solr/guide/6_6/format-of-solr-xml.html){:target="_blank"}|
     |data|This folder is generated when a Solr core is created and is where Solr indexes are stored. The default location of the folder is /opt/alfresco-search-services/data.|
 
 * logs directory: This directory contains the Solr-specific logging configuration file.
 
     |Folder/File|Description|
     |-----------|-----------|
-    |log4j.properties|This is the configuration file for Solr-specific logging. The Solr log file can be found at <SOLR\_HOME>/logs/solr.log.|
+    |log4j.properties|This is the configuration file for Solr-specific logging. The Solr log file can be found at <SOLR_HOME>/logs/solr.log.|
 
 * solr directory: This directory contains the Solr binaries and runtime Java library files.
 * solr.in.cmd: Use this file to specify additional Solr configuration options for Windows.
@@ -107,7 +107,7 @@ The following configuration properties are used by an external client, such as A
         |**Description**|Specifies the host name that Alfresco uses to talk to Solr.|
     |**JNDI Property**|java:comp/env/solr/host|
     |**Java System Property**|solr.host or solr.solr.host|
-    |**Environment Variable**|SOLR\_SOLR\_HOST|
+    |**Environment Variable**|SOLR_SOLR_HOST|
     |**Default Value**|`localhost`|
 
 * **`solr.port`**
@@ -115,7 +115,7 @@ The following configuration properties are used by an external client, such as A
         |**Description**|Specifies the port Solr will listen to.|
     |**JNDI Property**|java:comp/env/solr/port|
     |**Java System Property**|solr.port or solr.solr.port|
-    |**Environment Variable**|SOLR\_SOLR\_PORT|
+    |**Environment Variable**|SOLR_SOLR_PORT|
     |**Default Value**|`8983`|
 
 * **`solr.baseUrl`**
@@ -123,7 +123,7 @@ The following configuration properties are used by an external client, such as A
         |**Description**|Specifies the base URL of the Solr server.|
     |**JNDI Property**|java:comp/env/solr/baseurl|
     |**Java System Property**|solr.baseurl or solr.solr.baseurl|
-    |**Environment Variable**|SOLR\_SOLR\_BASEURL|
+    |**Environment Variable**|SOLR_SOLR_BASEURL|
     |**Default Value**|`/solr`|
 
 * **`solr.content.dir` (Removed from Alfresco Search and Insight Engine 2.0)**
@@ -131,16 +131,16 @@ The following configuration properties are used by an external client, such as A
         |**Description**|Specifies the location of the Solr content directory.|
     |**JNDI Property**|java:comp/env/solr/content/dir|
     |**Java System Property**|solr.content.dir or solr.solr.content.dir|
-    |**Environment Variable**|SOLR\_SOLR\_CONTENT\_DIR|
-    |**Default Value**|<SOLR6\_INSTALL\_LOCATION>/contentstore|
+    |**Environment Variable**|SOLR_SOLR_CONTENT_DIR|
+    |**Default Value**|<SOLR6_INSTALL_LOCATION>/contentstore|
 
 * **`solr.model.dir`**
 
         |**Description**|Specifies the location of the Solr model directory.|
     |**JNDI Property**|java:comp/env/solr/model/dir|
     |**Java System Property**|solr.model.dir or solr.solr.model.dir|
-    |**Environment Variable**|SOLR\_SOLR\_MODEL\_DIR|
-    |**Default Value**|<SOLR6\_INSTALL\_LOCATION>/solrhome/alfrescoModel|
+    |**Environment Variable**|SOLR_SOLR_MODEL_DIR|
+    |**Default Value**|<SOLR6_INSTALL_LOCATION>/solrhome/alfrescoModel|
 
 ### Configurable per core values
 
@@ -151,7 +151,7 @@ These properties can also be set in the alfresco-insight-engine/solrhome/templat
         |**Description**|Specifies the externally resolvable host name of the Alfresco web application.|
     |**JNDI Property**|java:comp/env/alfresco/host|
     |**Java System Property**|alfresco.host or solr.alfresco.host|
-    |**Environment Variable**|SOLR\_ALFRESCO\_HOST|
+    |**Environment Variable**|SOLR_ALFRESCO_HOST|
     |**Default Value**|`localhost`|
 
 * **`alfresco.port`**
@@ -159,7 +159,7 @@ These properties can also be set in the alfresco-insight-engine/solrhome/templat
         |**Description**|Specifies the externally resolvable port number of the Alfresco web application.|
     |**JNDI Property**|java:comp/env/alfresco/port|
     |**Java System Property**|alfresco.port or solr.alfresco.port|
-    |**Environment Variable**|SOLR\_ALFRESCO\_PORT|
+    |**Environment Variable**|SOLR_ALFRESCO_PORT|
     |**Default Value**|`8080`|
 
 * **`alfresco.baseUrl`**
@@ -167,7 +167,7 @@ These properties can also be set in the alfresco-insight-engine/solrhome/templat
         |**Description**|Configures the base URL to Alfresco web project.|
     |**JNDI Property**|java:comp/env/alfresco/baseurl|
     |**Java System Property**|alfresco.baseurl or solr.alfresco.baseurl|
-    |**Environment Variable**|SOLR\_ALFRESCO\_BASEURL|
+    |**Environment Variable**|SOLR_ALFRESCO_BASEURL|
     |**Default Value**|`/alfresco`|
 
 * **`alfresco.port.ssl`**
@@ -175,7 +175,7 @@ These properties can also be set in the alfresco-insight-engine/solrhome/templat
         |**Description**|Specifies the HTTPS port for the Alfresco instance that Solr should track and index.|
     |**JNDI Property**|java:comp/env/alfresco/port/ssl|
     |**Java System Property**|alfresco.port.ssl or solr.alfresco.port.ssl|
-    |**Environment Variable**|SOLR\_ALFRESCO\_PORT\_SSL|
+    |**Environment Variable**|SOLR_ALFRESCO_PORT_SSL|
     |**Default Value**|`8443`|
 
 * **`data.dir.root`**
@@ -183,7 +183,7 @@ These properties can also be set in the alfresco-insight-engine/solrhome/templat
         |**Description**|Specifies the top level directory path for the indexes managed by Solr.|
     |**JNDI Property**|java:comp/env/data/dir/root|
     |**Java System Property**|data.dir.root or solr.data.dir.root|
-    |**Environment Variable**|SOLR\_DATA\_DIR\_ROOT|
+    |**Environment Variable**|SOLR_DATA_DIR_ROOT|
     |**Default Value**|`[solr_home]`|
 
 These external values can be overridden by the JNDI attributes from `java:comp/env`, Java System properties, or OS environment variables.
@@ -275,17 +275,17 @@ When you install Alfresco Search and Insight Engine, several Solr configuration 
 
 |Configuration File|Location|Description|
 |------------------|--------|-----------|
-|schema.xml|<SOLR\_HOME>/solrhome/<core>/confFor example <SOLR\_HOME>/solrhome/alfresco/conf or <SOLR\_HOME>/solrhome/archive/conf
+|schema.xml|<SOLR_HOME>/solrhome/<core>/confFor example <SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf
 
 |This file defines the schema for the index including field type definitions with associated analyzers. It contains details about the fields that you can include in your document and also describes how those fields can be used when adding documents to the index or when querying those fields. The properties of this file are managed by an expert user.|
-|core.properties|<SOLR\_HOME>/solrhome/alfresco/core.properties or <SOLR\_HOME>/solrhome/archive/core.properties|This file specifies the cores to be used by Solr.|
-|solrconfig.xml|<SOLR\_HOME>/solrhome/alfresco/conf or <SOLR\_HOME>/solrhome/archive/conf|This file specifies the parameters for configuring Solr. Also, the Solr search components are added to this file. The properties of this file are managed by an expert Administrator user.|
-|solrcore.properties|<SOLR\_HOME>/solrhome/alfresco/conf or <SOLR\_HOME>/solrhome/archive/conf|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one solrcore.properties file in each core's configuration directory. For details, see the [Solr core configuration properties](solrcore-properties-file.md) topic. The properties of this file are managed by an Administrator user.|
-|context.xml|<SOLR\_HOME>|This file specifies the Solr web application context template to use when installing Solr in separate tomcat server.|
-|ssl.repo.client.keystore|<SOLR\_HOME>/solrhome/alfresco/conf or <SOLR\_HOME>/solrhome/archive/conf|This keystore contains the Solr public/private RSA key pair.|
-|ssl.repo.client.truststore|<SOLR\_HOME>/solrhome/alfresco/conf or <SOLR\_HOME>/solrhome/archive/conf|This keystore contains the trusted Alfresco Certificate Authority certificate (which has been used to sign both the repository and Solr certificates)|
+|core.properties|<SOLR_HOME>/solrhome/alfresco/core.properties or <SOLR_HOME>/solrhome/archive/core.properties|This file specifies the cores to be used by Solr.|
+|solrconfig.xml|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This file specifies the parameters for configuring Solr. Also, the Solr search components are added to this file. The properties of this file are managed by an expert Administrator user.|
+|solrcore.properties|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one solrcore.properties file in each core's configuration directory. For details, see the [Solr core configuration properties](#Solr core configuration properties.md) topic. The properties of this file are managed by an Administrator user.|
+|context.xml|<SOLR_HOME>|This file specifies the Solr web application context template to use when installing Solr in separate tomcat server.|
+|ssl.repo.client.keystore|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This keystore contains the Solr public/private RSA key pair.|
+|ssl.repo.client.truststore|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This keystore contains the trusted Alfresco Certificate Authority certificate (which has been used to sign both the repository and Solr certificates)|
 
-> **Note:** The solrcore.properties configuration file is the property configuration file for a Solr core. There is one solrcore.properties file in each core's configuration directory, for more see [Solr core configuration properties](solrcore-properties-file.md).
+> **Note:** The solrcore.properties configuration file is the property configuration file for a Solr core. There is one solrcore.properties file in each core's configuration directory, for more see [Solr core configuration properties](#Solr core configuration properties).
 
 ## Solr core configuration properties
 
@@ -295,7 +295,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |-------------|-----------|-------------|
 |alfresco.aclBatchSize|This property is used for batch fetching updates during tracking.|`10`|
 |`alfresco.acl.tracker.maxParallelism`|Defines the number of threads that are used when indexing documents using the ACL Tracker.|`32`|
-|alfresco.baseUrl|This property configures the base URL to Alfresco Content Services web project. If you need to change the `baseUrl` value, see [Deploying with a different context path](https://docs.alfresco.com/6.1/tasks/deploy-contextpath.html).
+|alfresco.baseUrl|This property configures the base URL to Alfresco Content Services web project. If you need to change the `baseUrl` value, see [Deploying with a different context path LINK LINK](https://docs.alfresco.com/6.1/tasks/deploy-contextpath.html).
 
 |`/alfresco`|
 |alfresco.batch.count|This property indicates the number of updates that should be made to this core before a commit is executed.|`1000`|
@@ -340,7 +340,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |alfresco.stores|This property specifies the repository store that this core should index.|`workspace://SpacesStore`|
 |alfresco.threadDaemon|This property sets whether the threads run as daemon threads or not. If set to `false`, shut down is blocked else it is left unblocked.|`true`|
 |alfresco.threadPriority|This property specifies the priority that all threads must have on the scale of 1 to 10, where 1 has the lowest priority and 10 has the highest priority.|`5`|
-|alfresco.topTermSpanRewriteLimit|Term expansion is used to convert wildcard \* matches into a finite disjunction - e.g. "cat\*" -> "cat OR category OR catalogue OR ... caterpillar". This property controls the number of terms in this disjunction, which are chosen from the index with preference given to more popular terms. If you increase the value too much you may not have good performance and if you decrease the value too much you may not receive any results. How you are affected by variations in the limit will depend on your installation.|`1000`|
+|alfresco.topTermSpanRewriteLimit|Term expansion is used to convert wildcard * matches into a finite disjunction - e.g. "cat*" -> "cat OR category OR catalogue OR ... caterpillar". This property controls the number of terms in this disjunction, which are chosen from the index with preference given to more popular terms. If you increase the value too much you may not have good performance and if you decrease the value too much you may not receive any results. How you are affected by variations in the limit will depend on your installation.|`1000`|
 |alfresco.transactionDocsBatchSize|This property is used for batch fetching updates during tracking.|`100`|
 |alfresco.version|This property specifies the Alfresco Content Services version installed.|`6.2`|
 |alfresco.workQueueSize|This property specifies the maximum number of queued work instances to keep before blocking against further adds.|`-1`|
@@ -395,7 +395,7 @@ Each Alfresco/Share instance is deployed into its own Tomcat servlet container. 
 
 > **Note:** All the servers in a cluster should have static IP addresses assigned to them.
 
-![]({% link desktop-sync/images/cluster-throughput.png %}) 
+![]({% link insight-engine/images/cluster-throughput.png %})
 
 In this deployment scenario the following flows are present:
 
@@ -414,4 +414,4 @@ In this deployment scenario the following flows are present:
   * Tracking tier: Two Solr instances periodically query repositories to detect new transactions, fetch new content, and build local indexes. Tracking is done through the Solr load balancer, which analyses the load and distributes it across the repositories.
   * Search tier: Four repository instances query two Solr instances on demand through the Solr load balancer.
 
-To implement this setup, see [Clustering for high throughput](https://docs.alfresco.com/6.1/tasks/install-config-alf.html).
+To implement this setup, see [Clustering for high throughput LINK LINK](https://docs.alfresco.com/6.1/tasks/install-config-alf.html).

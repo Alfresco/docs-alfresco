@@ -3,7 +3,7 @@ title: Configuring OpenSearch
 ---
 You can configure OpenSearch to use a search engine proxy.
 
-[OpenSearch](http://www.opensearch.org/Home) is a collection of simple formats for sharing search string results, in order to extend existing schemas such as ATOM or RSS. The list of registered search engines is in /config/alfresco/web-scripts-config.xml. You can configure a search engine proxy so that the OpenSearch client indirectly submits a search request through the Alfresco Content Services Web Server (the proxy), rather than directly to the search engine.
+[OpenSearch](http://www.opensearch.org/Home){:target="_blank"} is a collection of simple formats for sharing search string results, in order to extend existing schemas such as ATOM or RSS. The list of registered search engines is in /config/alfresco/web-scripts-config.xml. You can configure a search engine proxy so that the OpenSearch client indirectly submits a search request through the Alfresco Content Services Web Server (the proxy), rather than directly to the search engine.
 
 1. Create a new file called /config/alfresco/extension/web-scripts-config-custom.xml.
 

@@ -3,7 +3,7 @@ title: JDBC Driver
 ---
 Alfresco Search and Insight Engine includes a JDBC thin client that can be used with Alfresco Insight Zeppelin and other SQL clients.
 
-To access the client log into [https://nexus.alfresco.com/nexus/\#welcome](https://nexus.alfresco.com/nexus/#welcome) and search for alfresco-insight-jdbc-2.0.0.jar.
+To access the client log into [https://nexus.alfresco.com/nexus/#welcome](https://nexus.alfresco.com/nexus/#welcome) and search for alfresco-insight-jdbc-2.0.0.jar.
 
 > **Note:** Contact [Alfresco Support](https://support.alfresco.com/) for log in credentials.
 
@@ -89,7 +89,7 @@ The Alfresco JDBC driver can be used from programs like [DbVisualizer](https://w
 
 ```sql
 String sql = "select DBID, LID from alfresco where cm_content = 'world' order by DBID limit 10 ";
-String alfrescoJson = "{\"tenants\":[\"\"],\"locales\":[\"en_US\"],\"defaultNamespace\":\"http://www.alfresco.org/model/content/1.0\",\"textAttributes\":[],\"defaultFTSOperator\":\"OR\",\"defaultFTSFieldOperator\":\"OR\",\"anyDenyDenies\":true,\"query\":\"name:*\",\"templates\":[],\"allAttributes\":[],\"queryConsistency\":\"DEFAULT\",\"authorities\":[\"GROUP_EVERYONE\",\"ROLE_ADMINISTRATOR\",\"ROLE_AUTHENTICATED\",\"admin\"]}";
+String alfrescoJson = "{"tenants":[""],"locales":["en_US"],"defaultNamespace":"http://www.alfresco.org/model/content/1.0","textAttributes":[],"defaultFTSOperator":"OR","defaultFTSFieldOperator":"OR","anyDenyDenies":true,"query":"name:*","templates":[],"allAttributes":[],"queryConsistency":"DEFAULT","authorities":["GROUP_EVERYONE","ROLE_ADMINISTRATOR","ROLE_AUTHENTICATED","admin"]}";
 
 Properties props = new Properties();
 props.put("alfresco.shards", "http://localhost:8983/solr/alfresco")

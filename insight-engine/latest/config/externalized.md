@@ -14,7 +14,7 @@ The following configuration properties are used by an external client, such as A
         |**Description**|Specifies the host name that Alfresco uses to talk to Solr.|
     |**JNDI Property**|java:comp/env/solr/host|
     |**Java System Property**|solr.host or solr.solr.host|
-    |**Environment Variable**|SOLR\_SOLR\_HOST|
+    |**Environment Variable**|SOLR_SOLR_HOST|
     |**Default Value**|`localhost`|
 
 * **`solr.port`**
@@ -22,7 +22,7 @@ The following configuration properties are used by an external client, such as A
         |**Description**|Specifies the port Solr will listen to.|
     |**JNDI Property**|java:comp/env/solr/port|
     |**Java System Property**|solr.port or solr.solr.port|
-    |**Environment Variable**|SOLR\_SOLR\_PORT|
+    |**Environment Variable**|SOLR_SOLR_PORT|
     |**Default Value**|`8983`|
 
 * **`solr.baseUrl`**
@@ -30,7 +30,7 @@ The following configuration properties are used by an external client, such as A
         |**Description**|Specifies the base URL of the Solr server.|
     |**JNDI Property**|java:comp/env/solr/baseurl|
     |**Java System Property**|solr.baseurl or solr.solr.baseurl|
-    |**Environment Variable**|SOLR\_SOLR\_BASEURL|
+    |**Environment Variable**|SOLR_SOLR_BASEURL|
     |**Default Value**|`/solr`|
 
 * **`solr.content.dir` (Removed from Alfresco Search and Insight Engine 2.0)**
@@ -38,16 +38,16 @@ The following configuration properties are used by an external client, such as A
         |**Description**|Specifies the location of the Solr content directory.|
     |**JNDI Property**|java:comp/env/solr/content/dir|
     |**Java System Property**|solr.content.dir or solr.solr.content.dir|
-    |**Environment Variable**|SOLR\_SOLR\_CONTENT\_DIR|
-    |**Default Value**|<SOLR6\_INSTALL\_LOCATION>/contentstore|
+    |**Environment Variable**|SOLR_SOLR_CONTENT_DIR|
+    |**Default Value**|<SOLR6_INSTALL_LOCATION>/contentstore|
 
 * **`solr.model.dir`**
 
         |**Description**|Specifies the location of the Solr model directory.|
     |**JNDI Property**|java:comp/env/solr/model/dir|
     |**Java System Property**|solr.model.dir or solr.solr.model.dir|
-    |**Environment Variable**|SOLR\_SOLR\_MODEL\_DIR|
-    |**Default Value**|<SOLR6\_INSTALL\_LOCATION>/solrhome/alfrescoModel|
+    |**Environment Variable**|SOLR_SOLR_MODEL_DIR|
+    |**Default Value**|<SOLR6_INSTALL_LOCATION>/solrhome/alfrescoModel|
 
 ### Configurable per core values
 
@@ -58,7 +58,7 @@ These properties can also be set in the alfresco-insight-engine/solrhome/templat
         |**Description**|Specifies the externally resolvable host name of the Alfresco web application.|
     |**JNDI Property**|java:comp/env/alfresco/host|
     |**Java System Property**|alfresco.host or solr.alfresco.host|
-    |**Environment Variable**|SOLR\_ALFRESCO\_HOST|
+    |**Environment Variable**|SOLR_ALFRESCO_HOST|
     |**Default Value**|`localhost`|
 
 * **`alfresco.port`**
@@ -66,7 +66,7 @@ These properties can also be set in the alfresco-insight-engine/solrhome/templat
         |**Description**|Specifies the externally resolvable port number of the Alfresco web application.|
     |**JNDI Property**|java:comp/env/alfresco/port|
     |**Java System Property**|alfresco.port or solr.alfresco.port|
-    |**Environment Variable**|SOLR\_ALFRESCO\_PORT|
+    |**Environment Variable**|SOLR_ALFRESCO_PORT|
     |**Default Value**|`8080`|
 
 * **`alfresco.baseUrl`**
@@ -74,7 +74,7 @@ These properties can also be set in the alfresco-insight-engine/solrhome/templat
         |**Description**|Configures the base URL to Alfresco web project.|
     |**JNDI Property**|java:comp/env/alfresco/baseurl|
     |**Java System Property**|alfresco.baseurl or solr.alfresco.baseurl|
-    |**Environment Variable**|SOLR\_ALFRESCO\_BASEURL|
+    |**Environment Variable**|SOLR_ALFRESCO_BASEURL|
     |**Default Value**|`/alfresco`|
 
 * **`alfresco.port.ssl`**
@@ -82,7 +82,7 @@ These properties can also be set in the alfresco-insight-engine/solrhome/templat
         |**Description**|Specifies the HTTPS port for the Alfresco instance that Solr should track and index.|
     |**JNDI Property**|java:comp/env/alfresco/port/ssl|
     |**Java System Property**|alfresco.port.ssl or solr.alfresco.port.ssl|
-    |**Environment Variable**|SOLR\_ALFRESCO\_PORT\_SSL|
+    |**Environment Variable**|SOLR_ALFRESCO_PORT_SSL|
     |**Default Value**|`8443`|
 
 * **`data.dir.root`**
@@ -90,7 +90,7 @@ These properties can also be set in the alfresco-insight-engine/solrhome/templat
         |**Description**|Specifies the top level directory path for the indexes managed by Solr.|
     |**JNDI Property**|java:comp/env/data/dir/root|
     |**Java System Property**|data.dir.root or solr.data.dir.root|
-    |**Environment Variable**|SOLR\_DATA\_DIR\_ROOT|
+    |**Environment Variable**|SOLR_DATA_DIR_ROOT|
     |**Default Value**|`[solr_home]`|
 
 These external values can be overridden by the JNDI attributes from `java:comp/env`, Java System properties, or OS environment variables.

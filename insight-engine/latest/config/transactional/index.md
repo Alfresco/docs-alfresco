@@ -146,8 +146,8 @@ The following AFTS exact matches and patterns are supported:
 ### Full text search for CMIS QL and AFTS
 
 * CMIS QL
-  * IN\_TREE()
-  * IN\_FOLDER()
+  * IN_TREE()
+  * IN_FOLDER()
 * AFTS
   * PATH
 
@@ -163,11 +163,11 @@ The following AFTS exact matches and patterns are supported:
 
 Transactional Metadata Query and the Solr index queries are intended to support different use cases. They differ in queries and options that they support and in the results they generate with respect to collation and scoring.
 
-## Transactional metadata queries supported by database 
----
+## Transactional metadata queries supported by database
+
 Use this information to understand the queries supported by the database.
 
-The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `contains()` predicate function. The CMIS specification supports a subset of Alfresco FTS. For more information on search syntax, see [Alfresco Full Text Search Reference](searchsyntax-intro.md).
+The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `contains()` predicate function. The CMIS specification supports a subset of Alfresco FTS. For more information on search syntax, see [Alfresco Full Text Search Reference]({% link insight-engine/latest/using/sql/.syntax.md %}).
 
 **CMIS QL**
 
@@ -278,7 +278,7 @@ In the following cases, the query will go to the database but the result might n
 
 * `IS NOT NULL`
 * `IS NULL`: Currently, this operator will only find properties that are explicitly NULL as opposed to the property not existing.
-* `SORT`: The multi-valued and `mltext` properties will\\ sort according to one of the values. Ordering is not localized and relies on the database collation. It uses an `INNER JOIN`, which will also filter NULL values from the result set.
+* `SORT`: The multi-valued and `mltext` properties will sort according to one of the values. Ordering is not localized and relies on the database collation. It uses an `INNER JOIN`, which will also filter NULL values from the result set.
 * `d:mltext`: This data type ignores locale. However, if there is more than one locale, the localised values behave as a multi-valued string. Ordering on `mltext` will be undefined as it is effectively multi-valued.
 * `UPPER()` and `LOWER()`: Comparison predicates provide additional support for SQL `UPPER()` and LOWER() functions (that were dropped from a draft version of CMIS specification but are supported for backward compatibility).
 
@@ -291,7 +291,7 @@ The common properties used to configure the transactional metadata query for the
 * `solr.query.cmis.queryConsistency`
 * `solr.query.fts.queryConsistency`
 
-These properties should be set in the TOMCAT\_HOME>/shared/classes/alfresco-global.properties file.
+These properties should be set in the TOMCAT_HOME>/shared/classes/alfresco-global.properties file.
 
 The default value for these properties is `TRANSACTIONAL_IF_POSSIBLE`. However, you can override it with any of the following permitted values:
 
@@ -308,13 +308,13 @@ The first patch does not support boolean, float or double properties, and disjun
 
 The second patch adds the database support for TMDQ equivalent to an out-of-the-box Alfresco One 5.1 install. Some CMIS QL use cases where `OR` would be used are supported by using `IN`. In Alfresco One 5.1 and later versions, these restrictions go away after applying all TMDQ optional patches. The database size will be approximately 25% larger with all indexes applied.
 
-To use or run a query against the `float`, `double`, or `boolean` property data types, you need to run an optional patch that adds the required indexes to the database. To do so, set the following property in the TOMCAT\_HOME>/shared/classes/alfresco-global.properties file:
+To use or run a query against the `float`, `double`, or `boolean` property data types, you need to run an optional patch that adds the required indexes to the database. To do so, set the following property in the TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
 
 ```bash
 system.metadata-query-indexes-more.ignored=false 
 ```
 
-When using all other data types (such as `string`, `integer`, `id`, or `datetime`), to enable the patch that adds the required indexes to the database, set the following property in the TOMCAT\_HOME>/shared/classes/alfresco-global.properties file:
+When using all other data types (such as `string`, `integer`, `id`, or `datetime`), to enable the patch that adds the required indexes to the database, set the following property in the TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
 
 ```bash
 system.metadata-query-indexes.ignored=false 
@@ -330,7 +330,7 @@ When you are upgrading the database, you can add optional indexes in order to su
 
 For large repositories, creating the database indexes to support the transactional metadata query can take some time. To check how long it will take, you can add the first index to the database and note the time taken. The full upgrade is estimated to take less than 10 times this value. However, this can vary depending on the structure of the data, the database, and the size of the repository.
 
-The [SQL patch script](http://dev.alfresco.com/resource/AlfrescoOne/5.0/configuration/alfresco/dbscripts/upgrade/4.2/org.hibernate.dialect.Dialect/metadata-query-indexes.sql) can be run in parts, adding one index at a time. The patch is marked complete by the statement that inserts into alf\_applied\_patch. The patch can be marked as unapplied using the SQL delete statement.
+The [SQL patch script](http://dev.alfresco.com/resource/AlfrescoOne/5.0/configuration/alfresco/dbscripts/upgrade/4.2/org.hibernate.dialect.Dialect/metadata-query-indexes.sql) can be run in parts, adding one index at a time. The patch is marked complete by the statement that inserts into alf_applied_patch. The patch can be marked as unapplied using the SQL delete statement.
 
 ## Configuring search in Alfresco Share
 
@@ -368,7 +368,7 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
 
 2. Open the share-config.xml file and copy the `<config evaluator="string-compare" condition="Search" replace="true">` section.
 
-3. Open the <web-extension>\\share-config-custom.xml file and then paste the copied section.
+3. Open the <web-extension>share-config-custom.xml file and then paste the copied section.
 
 4. Locate the `<max-search-results>250</max-search-results>` property and then edit the value to your preferred number of search results.
 
@@ -382,4 +382,4 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
 
         You have now refreshed the web scripts and set a limit to the number of items a search in Share returns.
 
-> **Note:** Custom searches and searches from the node browser use the `solr.query.maximumResultsFromUnlimitedQuery` property to control search results. For more information, see [Solr core configuration properties](../concepts/solrcore-properties-file.md).
+> **Note:** Custom searches and searches from the node browser use the `solr.query.maximumResultsFromUnlimitedQuery` property to control search results. For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#Solr core configuration properties).

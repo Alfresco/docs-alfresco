@@ -5,15 +5,15 @@ By default, communication between the repository and Solr is protected by SSL wi
 
 > **Note:** For security reasons, you must generate a new set of keys to secure the Solr communication and access to the Solr Admin Console.
 
-For more information, see [Configuring Search and Insight Engine using Admin Console](../tasks/adminconsole-searchservice-solr.md) and [Generating secure keys overview](generate-keys-overview.md).
+For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#Configuring using the Admin Console) and [Secure Keys]({% link insight-engine/latest/config//keysindex.md %}).
 
 ## Repository SSL keystores
----
+
 Use this information to understand the keystores used by the repository for mutual TLS.
 
 The keys and certificates required for mutual TLS on the repository side are set up in Tomcat.
 
-1. Modify <TOMCAT\_HOME>/conf/server.xml and add the following connector:
+1. Modify <TOMCAT_HOME>/conf/server.xml and add the following connector:
 
     ```bash
     <Connector port="8999" protocol="org.apache.coyote.http11.Http11Protocol"
@@ -27,11 +27,11 @@ The keys and certificates required for mutual TLS on the repository side are set
     />
     ```
 
-2. Copy the keystore and truststore files you created in [Generating secure keys for SSL communication](generate-keys-ssl.md) to the machine that's running the repository.
+2. Copy the keystore and truststore files you created in [Generating secure keys for ssl communication]({% link insight-engine/latest/config//keys.index.md %}#Generating-secure-keys-for-ssl-communication) to the machine that's running the repository.
 
 3. Set the parameters in the connector, replacing the `xxxxxxx` and `yyyyy` values.
 
-4. Make sure that the following property is added to the TOMCAT\_HOME>/shared/classes/alfresco-global.properties file:
+4. Make sure that the following property is added to the TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
 
     ```bash
     solr.secureComms=https
@@ -46,15 +46,15 @@ These are:
 * `ssl.repo.client.keystore` contains a Solr public/private RSA key pair
 * `ssl.repo.client.truststore` contains the trusted Alfresco Certificate Authority certificate (which has been used to sign both the repository and Solr certificates)
 
-## onnecting to the SSL-protected Solr web application
----
+## Connecting to the SSL-protected Solr web application
+
 The Solr Admin Web interface allows you to view Solr configuration details, run queries, and analyze document fields.
 
 All Solr URLs, which are bundled within Alfresco Content Services, are protected by SSL. To use these URLs from a browser, you need to import a browser-compatible keystore to allow mutual authentication and decryption to work. The following steps describe how to import the keystore into your browser (these relate to Firefox, other browsers will have a similar mechanism):
 
 1. Open the FireFox **Certificate Manager** by selecting **Firefox > Preferences > Advanced > Certificates > View Certificates > Your Certificates**.
 
-2. Import the browser keystore `browser.p12` that is located in your <ALFRESCO\_HOME>/alf\_data/keystore directory.
+2. Import the browser keystore `browser.p12` that is located in your <ALFRESCO_HOME>/alf_data/keystore directory.
 
 3. Enter the password `alfresco`.
 
@@ -86,7 +86,7 @@ Click on the left or the center of the Solr Admin UI below to learn more about i
 
 ![]({% link insight-engine/images/Solr-admin.png %})
 
-## Solr Admin UI - left panel
+## Solr Admin UI left panel
 
 The left-side of the Solr Admin screen is a menu under the Solr logo that provides the navigation through the screens of the UI. The first set of links are for system-level information and configuration, and provide access to Logging, Core Admin and Java Properties, among other things.
 
@@ -164,4 +164,4 @@ On the left-side of the Solr Admin screen, you will see **Core Selector**. Click
 
 This includes a sub-navigation for the option or text or graphical representation of the requested data.
 
-See [Solr Admin UI - left panel](solradmin-left.md) to know more about each screen.
+See [Solr Admin UI left panel](#Solr-Admin-UI-left-panel) [Solr Admin UI - left panel](solradmin-left.md) to know more about each screen.

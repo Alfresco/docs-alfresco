@@ -16,7 +16,7 @@ Refer to the following link for more information: [https://www.oracle.com/techn
 
 Refer also to the following links: 
 
-* [https://www.gremwell.com/enabling\_ssl\_tls\_renegotiation\_in\_java](https://www.gremwell.com/enabling_ssl_tls_renegotiation_in_java)
+* [https://www.gremwell.com/enabling_ssl_tls_renegotiation_in_java](https://www.gremwell.com/enabling_ssl_tls_renegotiation_in_java)
 * [https://tomcat.apache.org/tomcat-6.0-doc/config/http.html](https://tomcat.apache.org/tomcat-6.0-doc/config/http.html)
 
 If your version of Java does not have the fix, you need to re-enable renegotiation by performing the following steps: 

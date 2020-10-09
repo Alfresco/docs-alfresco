@@ -15,7 +15,7 @@ Mutual TLS is used for authentication between the Repository and Alfresco Search
 This task assumes you have:
 
 * Installed Alfresco Content Services 6.2 or above, with clustering enabled, see [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms).
-* Set the following properties in the <TOMCAT\_HOME>/shared/classes/alfresco-global.properties file:
+* Set the following properties in the <TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
 
     ```bash
     index.subsystem.name=solr6
@@ -29,7 +29,7 @@ This task assumes you have:
 
 2. Extract the Alfresco Search and Insight Engine distribution.
 
-    By default, the contents of alfresco-insight-engine-2.0.x.zip are decompressed in a root folder as /alfresco-insight-engine. See [Search and Insight Engine directory structure](../concepts/solr-directories.md) for more details.
+    By default, the contents of alfresco-insight-engine-2.0.x.zip are decompressed in a root folder as /alfresco-insight-engine. See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine directory structure) for more details.
 
 3. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this update the alfresco-insight-engine/solrhome/conf/shared.properties file:
 
@@ -52,13 +52,13 @@ This task assumes you have:
 
 5. To secure access to Alfresco Search and Insight Engine, you must create a new set of keystores and keys.
 
-    1. Generate secure keys specific to your Alfresco installation. For more information, see [Generating secure keys overview](../concepts/generate-keys-overview.md).
+    1. Generate secure keys specific to your Alfresco installation. For more information, see [Secure Keys]({% link insight-engine/latest/config/index.md %}#Generating secure keys for ssl communication).
 
     2. Create a new keystore directory at alfresco-insight-engine/solrhome.
 
     3. In the production environment, copy your custom keystore and truststore to the alfresco-insight-engine/solrhome/keystore directory.
 
-    4. Update the SSL-related system properties by replacing <SOLR\_HOME> with alfresco-insight-engine/solrhome, and set your keystore and truststore passwords.
+    4. Update the SSL-related system properties by replacing <SOLR_HOME> with alfresco-insight-engine/solrhome, and set your keystore and truststore passwords.
 
         (Windows) update the alfresco-insight-engine/solr.in.cmd file:
 
@@ -100,7 +100,7 @@ This task assumes you have:
         SOLR_PORT=8983
         ```
 
-6. (Optional) If you want to install Alfresco Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Alfresco Search and Insight Engine, for more see [Search and Insight Engine externalized configuration](../concepts/external-properties-solr.md).
+6. (Optional) If you want to install Alfresco Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Alfresco Search and Insight Engine, for more see [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine externalized configuration).
 
     (Windows) update the alfresco-insight-engine/solr.in.cmd file:
 
@@ -141,9 +141,9 @@ This task assumes you have:
     ```bash
     cd alfresco-insight-engine
     ./solr/bin/solr start -a 
-    "-Dcreate.alfresco.defaults=alfresco,archive \
-    -Dsolr.ssl.checkPeerName=false \
-    -Dsolr.allow.unsafe.resourceloading=true \
+    "-Dcreate.alfresco.defaults=alfresco,archive 
+    -Dsolr.ssl.checkPeerName=false 
+    -Dsolr.allow.unsafe.resourceloading=true 
     -Dssl-keystore.password=keystore
     -Dssl-keystore.aliases=ssl-alfresco-ca,ssl-repo-client
     -Dssl-keystore.ssl-alfresco-ca.password=keystore
@@ -168,7 +168,7 @@ This task assumes you have:
     Once Alfresco Search and Insight Engine is up and running, you should see a message like:
 
     ```plain text
-    Waiting up to 180 seconds to see Solr running on port 8983 [\]  
+    Waiting up to 180 seconds to see Solr running on port 8983 []  
     Started Solr server on port 8983 (pid=24289). Happy searching!
     ```
 
@@ -195,15 +195,15 @@ If you are not using sharded Alfresco Search and Insight Engine:
 3. Select **Purge at Startup**.
 
 ## Installing Insight Engine without mutual TLS
----
+
 Use this information to install Alfresco Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS.
 
-Mutual TLS is used for authentication between the Repository and Search and Insight Engine. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy](https://docs.alfresco.com/6.1/concepts/reverse-proxy.html) for more.
+Mutual TLS is used for authentication between the Repository and Search and Insight Engine. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy LINK LINK](https://docs.alfresco.com/6.1/concepts/reverse-proxy.html) for more.
 
 This task assumes you have:
 
 * Installed Alfresco Content Services 6.2 or above, see [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms).
-* Set the following properties in the <TOMCAT\_HOME>/shared/classes/alfresco-global.properties file:
+* Set the following properties in the <TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
 
     ```bash
     index.subsystem.name=solr6
@@ -217,7 +217,7 @@ This task assumes you have:
 
 2. Extract the Search and Insight Engine distribution.
 
-    By default, the contents of alfresco-insight-engine-distribution-2.0.x.zip are decompressed in a root folder as /alfresco-insight-engine. See [Search and Insight Engine directory structure](../concepts/solr-directories.md) for more details.
+    By default, the contents of alfresco-insight-engine-distribution-2.0.x.zip are decompressed in a root folder as /alfresco-insight-engine. See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine directory structure) for more details.
 
 3. Configure HTTP.
 
@@ -237,7 +237,7 @@ This task assumes you have:
         -Dalfresco.secureComms=none
         ```
 
-    See [Core templates](../concepts/solr-core-templates.md) for a brief description of the out-of-the-box Solr core templates.
+    See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/sharding/createindex.md %}#Core templates) for a brief description of the out-of-the-box Solr core templates.
 
 4. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this add the following to the alfresco-insight-engine/solrhome/conf/shared.properties file:
 
@@ -258,7 +258,7 @@ This task assumes you have:
 
     > **Note:** The spell check functionality works with Search and Insight Engine when suggestion is enabled.
 
-6. (Optional) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Search and Insight Engine externalized configuration](../concepts/external-properties-solr.md).
+6. (Optional) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine externalized configuration).
 
     (Windows) update the alfresco-insight-engine/solr.in.cmd file:
 
@@ -295,7 +295,7 @@ This task assumes you have:
     Once Search and Insight Engine is up and running, you should see a message similar to the following:
 
     ```bash
-    Waiting up to 180 seconds to see Solr running on port 8983 [\]  
+    Waiting up to 180 seconds to see Solr running on port 8983 []  
     Started Solr server on port 8983 (pid=24289). Happy searching!
     ```
 
@@ -321,7 +321,7 @@ This task assumes you have:
 
 Use this information to start up Alfresco Content Services 6.2 or above and Alfresco Search and Insight Engine 2.0 using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
-**Prerequisites**
+### Prerequisites
 
 * [Docker](https://docs.docker.com/install/)
   * This allows you to run Docker images and Docker Compose on a single computer.
@@ -338,7 +338,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Alfr
 
 2. Save the file in a local folder.
 
-3. Edit the file and change the Solr 6 service. Add a \# prefix to Alfresco Search Services so it is commented out.
+3. Edit the file and change the Solr 6 service. Add a # prefix to Alfresco Search Services so it is commented out.
 
     ```yaml
         solr6:
@@ -359,7 +359,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Alfr
                 - 8083:8983 #Browser port
     ```
 
-    > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Deploy Alfresco Insight Zeppelin using Docker Compose](deploying-apache-zeppelin.md) for the additional container information you need to add to your docker-compose.yml file.
+    > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Building Reports and Dashboards]({% link insight-engine/latest/using/reports/index.md %}#Installing with Docker Compose) for the additional container information you need to add to your docker-compose.yml file.
 
 4. Save the file.
 

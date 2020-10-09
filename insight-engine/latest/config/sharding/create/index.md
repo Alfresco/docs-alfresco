@@ -21,11 +21,6 @@ In manual sharding, the user is only aware of the existence of the shards and it
 
 At query time, Solr is aware of all the available nodes and selects one node as the coordinator (one node from all the available green ones) and sends the request to it. Also, the shards (A, B, C, D or A, F, C, D) to be used for that request are selected dynamically. In this case, Solr selects F instead of B. So, if one node lags behind or stops responding, Solr stops using it.
 
-Click each method to know more about creating shards.
-
-* [Manual Solr sharding](../tasks/solr-hash-shard.md)
-* [Dynamic Solr sharding](dynamic-sharding.md)
-
 ## Creating Solr shards manually
 
 You can control the distribution of your index by creating, configuring, and registering shards manually.
@@ -34,7 +29,7 @@ You can control the distribution of your index by creating, configuring, and reg
 
 An index can be distributed over several Solr nodes by creating and configuring shards. This can be achieved in three steps. First, the Solr nodes (i.e. instances of Alfresco Content Services) must be started, second the shards must be created, and finally Alfresco Content Services must be configured to point to the Solr nodes.
 
-1. Set the configuration properties that apply to all the cores in a Solr instance in the <ALFRESCO\_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties file.
+1. Set the configuration properties that apply to all the cores in a Solr instance in the <ALFRESCO_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties file.
 
     For shard registration, Alfresco Content Services needs to know the Solr port where the requests should be sent. This can be configured, along with an explicit host name.
 
@@ -43,9 +38,9 @@ An index can be distributed over several Solr nodes by creating and configuring 
     solr.port=8983
     ```
 
-    These properties will be used when registering all cores found under the <SOLR\_HOME> directory. For more information, see [About shared.properties file](../concepts/solr-shared-properties.md).
+    These properties will be used when registering all cores found under the <SOLR_HOME> directory. For more information, see [About shared.properties file](#About-shared.properties-file).
 
-    Once the basic configuration is [complete](../concepts/solr-config-files.md#) then start the Solr nodes.
+    Once the basic configuration is [Complete](../concepts/solr-config-files.md#) [Complete]({% link insight-engine/latest/config/index.md %}#Solr configuration files) then start the Solr nodes.
 
 2. Setup and configure the Solr nodes.
 
@@ -168,7 +163,7 @@ The core templates are specified in the URL used for creating shards, as shown b
 http://<hostN>:<portN>/solr/admin/cores?action=newCore&storeRef=workspace://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&**template=<template>**
 ```
 
-The <SOLR\_HOME>/templates directory contains the following structure:
+The <SOLR_HOME>/templates directory contains the following structure:
 
 |Templates|Description|
 |---------|-----------|
@@ -184,21 +179,21 @@ The core templates include schema.xml and solrconfig.xml. The main purpose is to
 |No.|Rerank template|noRerank template|
 |---|---------------|-----------------|
 |1|The rerank template causes less duplication of the index, and therefore the index is more compact.|The noRerank template causes more duplication of the index, and therefore the index is large.|
-|2|In the rerank template, stop words are included and indexed as common grams. By default, majority of the 100 most frequently used words in English language text are now treated as stop words. For more information, see <SOLR\_HOME>/templates/rerank/conf/lang/stopwords\_en.txt.
+|2|In the rerank template, stop words are included and indexed as common grams. By default, majority of the 100 most frequently used words in English language text are now treated as stop words. For more information, see <SOLR_HOME>/templates/rerank/conf/lang/stopwords_en.txt.
 
-|In the noRerank template, stop words are removed from the words that are tokenised in the English language.For more information, see <SOLR\_HOME>/templates/norerank/conf/lang/stopwords\_en.txt.
+|In the noRerank template, stop words are removed from the words that are tokenised in the English language.For more information, see <SOLR_HOME>/templates/norerank/conf/lang/stopwords_en.txt.
 
 |
-|3|The rerank template supports real rerank with automatic phrasing\* (or auto-phrasing). Queries are run in two stages:1.  Stage one treats phrases as conjunctions and ignores expensive positional information.
+|3|The rerank template supports real rerank with automatic phrasing* (or auto-phrasing). Queries are run in two stages:1.  Stage one treats phrases as conjunctions and ignores expensive positional information.
 2.  Stage two reranks the top queries using a more expensive phrase.
 
-\* *When a user provides individual search terms in a query, the automatic phrasing feature groups those individual terms into a search phrase and returns the query results for the phrase.*
+* *When a user provides individual search terms in a query, the automatic phrasing feature groups those individual terms into a search phrase and returns the query results for the phrase.*
 
 |The noRerank core performs auto-phrasing without re-ranking but the auto-phrase is added to the query.|
 
 ## About shared.properties file
 
-The <ALFRESCO\_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties file is used to set configuration that applies to all the cores in a Solr instance.
+The <ALFRESCO_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties file is used to set configuration that applies to all the cores in a Solr instance.
 
 Most of these settings need to be replicated across all the Solr instances that are a part of the sharded index. However, there are some properties related to dynamic shard registration, such as host and port, which can be set for each machine.
 
@@ -215,7 +210,7 @@ The shared.properties file defines the:
 
 ## Properties defined in the shared.properties file
 
-You can define which properties are treated as identifiers, regardless of how they are defined in the model. These properties must not be tokenised. If this list is changed, a reindex is required. You can also reindex by query. For more information, see [Reindex documents by query](reindex-query.md).
+You can define which properties are treated as identifiers, regardless of how they are defined in the model. These properties must not be tokenised. If this list is changed, a reindex is required. You can also reindex by query. For more information, see [Reindex documents by query](#Reindex documents by query).
 
 If you rename the shared.properties.sample file to shared.properties, it will use the same set of identifier properties that are used in Alfresco One 5.0.
 
@@ -269,7 +264,7 @@ For backward compatibility, this file is absent in Alfresco Content Services 6.2
 
 To configure cross-language search, follow the steps below:
 
-1. Open the <ALFRESCO\_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties.sample file.
+1. Open the <ALFRESCO_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties.sample file.
 2. Set the following properties:
 
     ```bash
@@ -404,7 +399,7 @@ http://localhost:8080/solr/admin/cores?action=newCore&storeRef=workspace://Space
 numNodes=1&nodeInstance=1&property.data.dir.root=<SOLR_HOME>/solrhome/workspace-SpacesStore&shardIds=0,1,2,3,4
 ```
 
-The status of all the available indexes, shards, and instances can be found using a JMX client. For more information, see [Indexing information available in a JMX client](../tasks/index-info-jmx.md).
+The status of all the available indexes, shards, and instances can be found using a JMX client. For more information, see [Indexing JMX client](#Indexing JMX client).
 
 Dynamic sharding will currently use partial indexes to answer queries. For example, there are two shards: Shard1 and Shard2. If there are no instances for Shard2, queries will only use Shard1.
 
@@ -433,9 +428,9 @@ Follow these steps to set up sharding of a non-sharded index or change the numbe
     https://localhost:8443/solr4/admin/cores?action=removeCore&storeRef=workspace://SpacesStore&coreName=archive
     ```
 
-4. Add any custom core templates. For more information, see [Core templates](../concepts/solr-core-templates.md).
+4. Add any custom core templates. For more information, see [Core templates](#Core templates).
 
-5. Configure the <SOLR\_HOME>/conf/shared.properties file. For more information, see [About shared.properties file](../concepts/solr-shared-properties.md).
+5. Configure the <SOLR_HOME>/conf/shared.properties file. For more information, see [About shared.properties file](#About-shared.properties-file).
 
 6. Start the Solr server.
 
@@ -453,7 +448,7 @@ Follow these steps to set up sharding of a non-sharded index or change the numbe
      * `numShards` specifies the number of logical shards.
      * `numNodes` specifies the total number of Solr nodes.
      * `nodeInstance` is the actual Solr instance corresponding to that `host:port`.
-     * `template` defines the basic configuration for a new Solr core with some configuration properties. For more information, see [Core templates](../concepts/solr-core-templates.md).
+     * `template` defines the basic configuration for a new Solr core with some configuration properties. For more information, see [Core templates](#Core templates).
      * `storeRef` specifies reference to a node store.
      Here's an example to show how to set a non-SSL port manually when creating a shard.
 
@@ -483,7 +478,7 @@ Follow these steps to set up sharding of a non-sharded index or change the numbe
 You have a new live index.
 
 ## High availability configuration
----
+
 Sharding a Solr index is a highly scalable approach for improving the throughput and overall performance of large repositories. It provides high availability in case a shard/node fails.
 
 Here are a few examples of a high availability configuration in a sharded Solr setup.
@@ -503,7 +498,7 @@ These are the steps to follow:
 1. Create machines to host Solr shards.
 2. Install and start Alfresco Content Services.
 3. Delete the Alfresco and archive cores.
-4. Configure the <SOLR\_HOME>/conf/shared.properties file.
+4. Configure the <SOLR_HOME>/conf/shared.properties file.
 5. Start the Solr server.
 6. Create your new index shards and instances by configuring the properties on the URL.
 
@@ -526,7 +521,7 @@ These are the steps to follow:
 
     ```bash
     solr.secureComms=none
-    solr.useDynamicShardRegistration=true 
+    solr.useDynamicShardRegistration=true
     ```
 
 8. Restart Alfresco Content Services.
@@ -546,7 +541,7 @@ These are the steps to follow:
 1. Create machines to host Solr shards.
 2. Install and start Alfresco Content Services.
 3. Delete the Alfresco and archive cores.
-4. Configure the <SOLR\_HOME>/conf/shared.properties file.
+4. Configure the <SOLR_HOME>/conf/shared.properties file.
 5. Start the Solr server.
 6. Create your new index shards and instances by configuring the properties on the URL.
 
@@ -584,19 +579,19 @@ These are the steps to follow:
 
 8. Restart Alfresco Content Services.
 
-For more information, see [Installing and configuring Solr shards](../tasks/install-solr-shards.md).
+For more information, see [Solr Sharding]({% link insight-engine/latest/config/sharding/index.md %}).
 
 ## Configuring Sharding with the Admin Console
----
+
 Alfresco Search and Insight Engine supports sharded indexes with SSL. Use the Search Server Sharding page to set up and configure a Solr 6 sharded search index.
 
 Prerequisites for viewing the Search Server Sharding page:
 
 * Check you have installed Alfresco Content Services 6.2 or above and have a valid license.
 
-* Support for shard groups requires a clustered license. Make sure that you enable clustering on your Alfresco Content Services license. For more information, see [Repository server clustering](https://docs.alfresco.com/6.1/tasks/adminconsole-reposerverclustering.html) and [Uploading a new license](https://docs.alfresco.com/6.1/tasks/at-adminconsole-license.html).
+* Support for shard groups requires a clustered license. Make sure that you enable clustering on your Alfresco Content Services license. For more information, see [Repository server clustering LINK](https://docs.alfresco.com/6.1/tasks/adminconsole-reposerverclustering.html) and [Uploading a new license LINK](https://docs.alfresco.com/6.1/tasks/at-adminconsole-license.html).
 
-1. Open the Admin Console. For more information, see [Launching the Admin Console](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
+1. Open the Admin Console. For more information, see [Launching the Admin Console LINK](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
 2. In Repository Services, click **Search Server Sharding**.
 
     You see the Search Server Sharding page. It displays information about dynamic shard index registration, shard groups, and shard instances.
@@ -694,7 +689,7 @@ Prerequisites for viewing the Search Server Sharding page:
         |**Target Index Server**|1|This specifies, out of all the solr nodes above, the number given to the target index server node for this new shard.|
         |**Shards**| |This specifies the specific shards to create, on the node given above. You can also specify a comma-separated list of shards.|
 
-        See [Installing and configuring Solr shards](install-solr-shards.md) to view examples of creating shards when calling the REST URLs directly.
+        See [Solr Sharding]({% link insight-engine/latest/config/sharding/index.md %}) to view examples of creating shards when calling the REST URLs directly.
 
         ![]({% link insight-engine/images/shard-instance.png %})
 
@@ -706,7 +701,7 @@ Prerequisites for viewing the Search Server Sharding page:
 
     12. Click **Close** to close the Index Server Shard Management window.
 
-    You have successfully created an `alfresco` core and an `archive` core. To verify, in a browser, navigate to the Solr URL, [https://localhost:8983/solr](https://localhost:8443/solr4). In the Solr Admin UI, select the core selector drop-down list and verify that both the `alfresco` and `archive` cores are present in the list.
+    You have successfully created an `alfresco` core and an `archive` core. To verify, in a browser, navigate to the Solr URL, 'https://localhost:8983/solr"https://localhost:8443/solr4. In the Solr Admin UI, select the core selector drop-down list and verify that both the `alfresco` and `archive` cores are present in the list.
 
     Validate that you can execute queries from the search public API to the archive core.
 
@@ -741,7 +736,7 @@ Prerequisites for viewing the Search Server Sharding page:
 |
     |**Stores**|workspace://SpacesStore|This specifies the stores that are queryable for all instances.|
     |**Has Content**|Enabled|This property is enabled if content is included for all instances.|
-    |**Shard Method**|DB\_ID|This specifies the method used to define shards. The default shard method is `DB_ID`. You can specify your own shard method in Index Server Shard Management screen > New Shard Group > Properties. For example, `shard.method=ACL_ID`.
+    |**Shard Method**|DB_ID|This specifies the method used to define shards. The default shard method is `DB_ID`. You can specify your own shard method in Index Server Shard Management screen > New Shard Group > Properties. For example, `shard.method=ACL_ID`.
 
 You can also set this property in the alfresco-insight-engine-distribution-2.0.x.zip/solrhome/templates/rerank/conf/solrcore.properties file.
 
@@ -751,17 +746,17 @@ You can also set this property in the alfresco-insight-engine-distribution-2.0.x
 
 9. Use the instance property table to view detailed entity information for all the shards. This is the same information that is displayed in the JMX console, for example, `Base URL`, `Host`, `Last Indexed Changeset Date`, and more.
 
-    For more information, see [Indexing information available in a JMX client](index-info-jmx.md#instance).
+    For more information, see [Indexing JMX client](#Indexing JMX client).
 
     1. Click **Summary** to go to the [http://localhost:8983/solr/admin/cores?action=SUMMARY](http://localhost:8983/solr/admin/cores?action=SUMMARY) page on Solr for the specific core.
 
-        For more information, see [Unindexed Solr Transactions](../concepts/solr-unindex.md).
+        For more information, see [Unindexed Solr Transactions]({% link insight-engine/latest/admin/monitor/index.md %}).
 
         ![]({% link insight-engine/images/solr6-summary.png %})
 
     2. Click **SOLR** to go to the Solr Admin screen for the specific core.
 
-        For more information, see [Connecting to the SSL-protected Solr web application](ssl-protect-solrwebapp.md).
+        For more information, see [Connecting to the SSL-protected Solr web application]({% link insight-engine/latest/config/security/index.md %})
 
 10. The Shard Group Report section displays information about the shard groups and instances. A tabular view of this information is displayed in the shard table in Step 9. This information is read-only.
 
@@ -776,7 +771,7 @@ You can also set this property in the alfresco-insight-engine-distribution-2.0.x
 If you unload or delete a shard from the Solr Admin Console, ensure you restart the Solr server and restore your indexes so that Alfresco can work properly.
 
 ## Indexing JMX client
----
+
 You can use a JMX client, such as JConsole, for monitoring the status of all the available indexes, shards and its instances, and other related information.
 
 The JMX view of all the instancess, shards, and indexes that stick together is displayed at the **MBeans > Alfresco > FlocAdmin > Attributes > Flocs** node. The **Flocs** node displays a tabular view of all the indexes formed by shard instances by registering with any member of the Alfresco Content Services cluster.
@@ -834,7 +829,7 @@ The JMX view of all the instancess, shards, and indexes that stick together is d
 
         |Attribute name|Description|Is configurable or displays state?|Example value|
         |--------------|-----------|----------------------------------|-------------|
-        |\#|Specifies the shard number.|Configurable|`0`|
+        |#|Specifies the shard number.|Configurable|`0`|
         |activeCount|Specifies the number of instances that are currently able to answer queries.|State|`1`|
         |activeTrackingMode|Specifies if the instances for the shard are all `SLAVE`, `MASTER`, or `MIXED`.> **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.
 
@@ -880,7 +875,7 @@ The JMX view of all the instancess, shards, and indexes that stick together is d
     ```
 
 ## Finding shards at query time
----
+
 Use a JMX client to find shards at query time.
 
 1. In JConsole, go to **MBeans > Alfresco > Configuration > Search > managed > solr6 > Attributes**.
@@ -913,7 +908,7 @@ Use a JMX client to find shards at query time.
         ```
 
 ## Reindex docuements by query
----
+
 You can selectively reindex a small subset of the index based on a query. This enables a limited rebuild of the index.
 
 Example 1: To reindex people after changing the first name and last name tokenisation, use the following single-threaded query:

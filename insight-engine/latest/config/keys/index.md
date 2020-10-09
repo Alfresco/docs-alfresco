@@ -39,25 +39,25 @@ Before you start, you must already have OpenSSL and `keytool` available in your 
 
     > **Note:** If the `keystores` folder isn't empty, the script exits without producing any keystore or truststore. You can safely, remove the `keystores` folder if you need to re-run the script.
 
-See [Keystore directory structure](../concepts/keystore-structure.md) for more and [Customizing certificate generation](../concepts/customize-keys.md) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
+See [Keystore directory structure](#keystore-directory-structure) for more and [Customizing certificate generation](#Customizing-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
 
 ## Customizing certificate generation
----
+
 Here is a full list of parameters that allow you to customize your certificates. These parameters will override the default values listed in the `run.sh` and `run.cmd` scripts.
 
 |Parameter|Value|Description|
 |---------|-----|-----------|
-|`-alfrescoversion`|enterprise \| community
+|`-alfrescoversion`|enterprise | community
 
 |Sets the type of Alfresco environment. The default value is enterprise.
 
 |
-|`-keysize`|1024 \| 2048 \| 4096
+|`-keysize`|1024 | 2048 | 4096
 
 |Specifies the RSA key length. The default value is 1024.
 
 |
-|`-keystoretype`|PKCS12 \| JKS \| JCEKS
+|`-keystoretype`|PKCS12 | JKS | JCEKS
 
 |Sets the type of the keystores (containing private keys). The default value is JCEKS.
 
@@ -67,7 +67,7 @@ Here is a full list of parameters that allow you to customize your certificates.
 |Specifies the password for the keystores
 
 |
-|`-truststoretype`|JKS \| JCEKS
+|`-truststoretype`|JKS | JCEKS
 
 |Sets the type of the truststores (containing public keys). The default value is JCEKS.
 
@@ -134,18 +134,18 @@ Example:
 |
 |`-alfrescoformat`
 
-|classic \| current
+|classic | current
 
-|Default format for certificates: current for IE \| SS 2.0.0+ and classic for previous versions.
+|Default format for certificates: current for IE | SS 2.0.0+ and classic for previous versions.
 
 |
 
 > **Note:** If you plan to use custom DNames in your certificates, you must use double quotes around the values. For example:
 
 ```bash
-$ ./run.sh -cacertdname \ 
-"/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Windows Alfresco CA" \
--repocertdname "/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Repo" \
+$ ./run.sh -cacertdname  
+"/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Windows Alfresco CA" 
+-repocertdname "/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Repo" 
 -solrcertdname "/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Solr"
 ```
 
@@ -164,7 +164,7 @@ run.cmd -keystorepass “password" -truststorepass “password"
 ```
 
 ## Keystore directory structure
----
+
 The `keystores` directory contains the following structure and files.
 
 ```bash
@@ -210,7 +210,7 @@ keystores
 
 Use this information to set up your generated certificates in their correct locations.
 
-Before continuing, make sure that you've already completed the steps in [Generating secure keys for SSL communication](generate-keys-ssl.md)
+Before continuing, make sure that you've already completed the steps in [Generating secure keys for SSL communication](#Generating-secure-keys-for-SSL-communication).
 
 1. Copy the files under `/keystores/alfresco` to the Alfresco Content Services install location:
 
@@ -265,7 +265,7 @@ Before continuing, make sure that you've already completed the steps in [Generat
 
         > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file. Also, make sure that the keystore and truststore file locations are correct for your environment.
 
-    See [Installing the Tomcat application server](https://docs.alfresco.com/6.1/tasks/configfiles-change-path.html) and [Solr configuration files](../concepts/solr-config-files.md) for more.
+    See [Installing the Tomcat application server LINK LINK](https://docs.alfresco.com/6.1/tasks/configfiles-change-path.html) and [Solr configuration files]({% link insight-engine/latest/config/index.md %}#solr-configuraion-files) for more.
 
 5. Change the SSL properties in `<SOLR_HOME>/solrhome/templates/rerank/conf/solrcore.properties`.
 
@@ -293,5 +293,4 @@ Before continuing, make sure that you've already completed the steps in [Generat
     <SOLR_HOME>/solrhome/archive/conf/solrcore.properties
     ```
 
-    See [Solr core configuration properties](../concepts/solrcore-properties-file.md) for more.
-
+    See [Solr core configuration properties]({% link insight-engine/latest/config/index.md %}#Solr-core-configuration-properties) for more.

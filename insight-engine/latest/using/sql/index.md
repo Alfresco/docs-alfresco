@@ -31,17 +31,17 @@ The most useful ones are: `PARENT`, `PATH`, `ANCESTOR`, `TYPE`, `ASPECT`, `PROPE
 
 Fields from Alfresco’s out of-the-box content models, as well as fields from custom content models can be referred to using the content model property qname, as in AFTS and the CMIS query language. The `cm_creator` field in the example SQL statement refers to the creator field in the out-of-the-box cm content model. Fields that have a unique local name over all prefixes do not need to use the prefix.
 
-> **Note:** Use "\_" to separate the prefix and the locale name as ":" would have to be escaped.
+> **Note:** Use "_" to separate the prefix and the locale name as ":" would have to be escaped.
 
 ### Escaping Fields
 
-Fields that include reserved words or special characters will need to be escaped using the back tick character (\`). The \`cm\_content.size\` field in the example SQL statement is an example of back tick escaping. The only non-word character that can be used without escaping is the underscore “\_”. We use Apache Calcite which has a list of reserved words that also need to be escaped, see [https://calcite.apache.org/docs/reference.html](https://calcite.apache.org/docs/reference.html). You are most likely to hit reserved keywords picking aliases for fields.
+Fields that include reserved words or special characters will need to be escaped using the back tick character (`). The `cm_content.size` field in the example SQL statement is an example of back tick escaping. The only non-word character that can be used without escaping is the underscore “_”. We use Apache Calcite which has a list of reserved words that also need to be escaped, see [https://calcite.apache.org/docs/reference.html](https://calcite.apache.org/docs/reference.html). You are most likely to hit reserved keywords picking aliases for fields.
 
 ### Select Queries
 
-A curated set of fields are returned by default when \* is used as the field list. Any field in the curated list of fields can be used in the SQL predicate and order by clause of a select \* query.
+A curated set of fields are returned by default when * is used as the field list. Any field in the curated list of fields can be used in the SQL predicate and order by clause of a select * query.
 
-The curated set of fields that are returned with select \* queries include:
+The curated set of fields that are returned with select * queries include:
 
 * `cm_name`
 * `cm_created`
@@ -67,7 +67,7 @@ The curated set of fields that are returned with select \* queries include:
 * `ASPECT`
 * `QNAME`
 
-If you are using a custom model you can specify the extra fields to appear in a select \* query. You must add them to alfresco-insight-engine/solrhome/conf/shared.properties and they can take the form of either of the following formats:
+If you are using a custom model you can specify the extra fields to appear in a select * query. You must add them to alfresco-insight-engine/solrhome/conf/shared.properties and they can take the form of either of the following formats:
 
 > **Note:** The field list is case insensitive.
 
@@ -83,7 +83,7 @@ Or
 solr.sql.alfresco.fieldnames=finance_amount, finance_emp,expense_recorded_at
 ```
 
-Select \* will also return any fields that appear in the predicates for the query, in the following format:
+Select * will also return any fields that appear in the predicates for the query, in the following format:
 
 > **Note:** The predicates are case insensitive.
 
@@ -95,7 +95,7 @@ This query will also return the fields `finance_amount` and `expense_recorded_at
 
 ### Arithmetic Operators
 
-You can use arithmetic operations (+ - \* /) on the SELECT clause.
+You can use arithmetic operations (+ - * /) on the SELECT clause.
 
 ```sql
 select `expense:Amount` / `expense:ExchangeRate` from alfresco where TYPE = 'expense:expenseReport'
@@ -145,13 +145,13 @@ select (alfresco.`cm_content.size`), alfresco.cm_name from alfresco
 
 Alfresco’s SQL count query is an aggregate function that is used to return the number of rows from a table that fulfil the criteria specified.
 
-The following query returns the number of rows that have a value for cm\_title.
+The following query returns the number of rows that have a value for cm_title.
 
 ```sql
 SELECT count(cm_title) from alfresco
 ```
 
-The following query returns the number of rows that have a distinct value for cm\_title.
+The following query returns the number of rows that have a distinct value for cm_title.
 
 ```sql
 SELECT count(distinct(cm_title)) from alfresco
@@ -178,13 +178,13 @@ Alfresco’s SQL predicate is designed to take advantage of the rich search capa
 
 ### Predicates on Text Fields
 
-The basic predicate on a text field performs a phrase search. Below is the syntax of a basic predicate on a text field. It will search for the phrase 'hello world' in the cm\_content field.
+The basic predicate on a text field performs a phrase search. Below is the syntax of a basic predicate on a text field. It will search for the phrase 'hello world' in the cm_content field.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where (cm_content = ‘hello world’)  
 ```
 
-To gain full control of the search predicate for a specific field you can wrap the predicate in parenthesis and enter the query using Alfresco full text search syntax. For example to search for (hello OR world) in the cm\_content field the following search predicate can be used:
+To gain full control of the search predicate for a specific field you can wrap the predicate in parenthesis and enter the query using Alfresco full text search syntax. For example to search for (hello OR world) in the cm_content field the following search predicate can be used:
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where cm_content = ‘(hello OR world)’
@@ -215,31 +215,31 @@ select cm_name, `cm_content.size` from alfresco where `cm_content.size` ='[* TO 
 
 Below are examples of Alfresco Solr range queries:
 
-Selects all cm\_content.size below 2000, with inclusive ranges. The square brackets are inclusive ranges.
+Selects all cm_content.size below 2000, with inclusive ranges. The square brackets are inclusive ranges.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='[* TO 2000]'
 ```
 
-Selects all cm\_content.size below 2000, with an exclusive top range. < and > are exclusive ranges.
+Selects all cm_content.size below 2000, with an exclusive top range. < and > are exclusive ranges.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='[* TO 2000>'
 ```
 
-Selects all cm\_content.size above 2000, with inclusive ranges.
+Selects all cm_content.size above 2000, with inclusive ranges.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='[2000 TO *]'
 ```
 
-Selects all cm\_content.size above 2000, with an exclusive bottom range.
+Selects all cm_content.size above 2000, with an exclusive bottom range.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='<2000 TO *]'
 ```
 
-Selects all cm\_content.size above 100 and below 2000, exclusively.
+Selects all cm_content.size above 100 and below 2000, exclusively.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where cm_content.size ='<100 TO 2000>'
@@ -249,31 +249,31 @@ select cm_name, `cm_content.size` from alfresco where cm_content.size ='<100 TO 
 
 Predicates on null values can be constructed using IS NULL, IS NOT NULL, IN (NULL), and NOT IN (NULL) operands to obtain the results.
 
-The following IS NULL query will return all the rows that have a value of NULL for the field cm\_content.size .
+The following IS NULL query will return all the rows that have a value of NULL for the field cm_content.size .
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` IS NULL
 ```
 
-The following IS NOT NULL query will return all the rows that have a value different from NULL for the field cm\_content.size.
+The following IS NOT NULL query will return all the rows that have a value different from NULL for the field cm_content.size.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` IS NOT NULL
 ```
 
-The following IN NULL query will return all the rows that have cm\_content.size in 'system' or NULL.
+The following IN NULL query will return all the rows that have cm_content.size in 'system' or NULL.
 
 ```sql
 select cm_name, cm_creator, `cm_content.size` from alfresco where cm_creator IN ('System', NULL)
 ```
 
-The following NOT IN NULL query will return all the rows that have cm\_content.size not in 'system' or NULL.
+The following NOT IN NULL query will return all the rows that have cm_content.size not in 'system' or NULL.
 
 ```sql
 select cm_name, cm_creator, `cm_content.size` from alfresco where cm_creator NOT IN ('System', NULL)
 ```
 
-The following NOT IN (NULL) query will return all the rows where cm\_content.size is not equal to 0 and is not NULL.
+The following NOT IN (NULL) query will return all the rows where cm_content.size is not equal to 0 and is not NULL.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` NOT IN (0, NULL)
@@ -435,7 +435,7 @@ There is specific support for SQL time series reporting through the use of virtu
 
 *Virtual Time Dimensions*
 
-Search and Insight Engine automatically creates virtual time dimensions for every datetime field stored in the Alfresco Search Service. The three virtual time dimensions supported are: \_day, \_month, \_year. To use the virtual time dimensions append the virtual time dimension to any datetime field and use it in the GROUP BY clause. Below is an example where the \_day dimension is appended to the cm\_created datetime field. The query creates a daily time series report using the cm\_created\_day virtual time dimension.
+Search and Insight Engine automatically creates virtual time dimensions for every datetime field stored in the Alfresco Search Service. The three virtual time dimensions supported are: _day, _month, _year. To use the virtual time dimensions append the virtual time dimension to any datetime field and use it in the GROUP BY clause. Below is an example where the _day dimension is appended to the cm_created datetime field. The query creates a daily time series report using the cm_created_day virtual time dimension.
 
 ```sql
 select cm_created_day, count(*) as total from alfresco where cm_created >= 'NOW/DAY' group by cm_created_day
@@ -445,7 +445,7 @@ select cm_created_day, count(*) as total from alfresco where cm_created >= 'NOW/
 
 ## Datetime Predicates
 
-A datetime predicate can be used in the WHERE clause to control the datetime range of the time series report. This is a datetime predicate on the cm\_created field. Its important to note that the virtual time dimension field is only used in the field list and GROUP BY clause. The predicate is applied to the non-virtual datetime field in the index. This example uses a date math expression to specify a lower boundary for the time series report and is a datetime predicate on the cm\_created field.
+A datetime predicate can be used in the WHERE clause to control the datetime range of the time series report. This is a datetime predicate on the cm_created field. Its important to note that the virtual time dimension field is only used in the field list and GROUP BY clause. The predicate is applied to the non-virtual datetime field in the index. This example uses a date math expression to specify a lower boundary for the time series report and is a datetime predicate on the cm_created field.
 
 ```sql
 where cm_created >= 'NOW/DAY'

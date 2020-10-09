@@ -54,8 +54,8 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Al
 
     ```bash
     solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.model.dir="your-preferred-location\solrhome\alfrescoModels"
-    -Ddata.dir.root="your-preferred-location\solrhome\"
+    -Dsolr.model.dir="your-preferred-locationsolrhomealfrescoModels"
+    -Ddata.dir.root="your-preferred-locationsolrhome"
     ```
 
 6. (Optional) If you have changed the alfresco-search-services/solr.in.sh or alfresco-search-services/solr.in.cmd file, you must restore it from your backup.
@@ -148,8 +148,8 @@ Use this information to migrate from Alfresco Search and Insight Engine 2.0 to A
 
     ```bash
     solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.model.dir="your-preferred-location\solrhome\alfrescoModels"
-    -Ddata.dir.root="your-preferred-location\solrhome\"
+    -Dsolr.model.dir="your-preferred-locationsolrhomealfrescoModels"
+    -Ddata.dir.root="your-preferred-locationsolrhome"
     ```
 
 7. Start Search Services.

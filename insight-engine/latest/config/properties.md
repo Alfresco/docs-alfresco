@@ -6,7 +6,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |-------------|-----------|-------------|
 |alfresco.aclBatchSize|This property is used for batch fetching updates during tracking.|`10`|
 |`alfresco.acl.tracker.maxParallelism`|Defines the number of threads that are used when indexing documents using the ACL Tracker.|`32`|
-|alfresco.baseUrl|This property configures the base URL to Alfresco Content Services web project. If you need to change the `baseUrl` value, see [Deploying with a different context path](https://docs.alfresco.com/6.1/tasks/deploy-contextpath.html).
+|alfresco.baseUrl|This property configures the base URL to Alfresco Content Services web project. If you need to change the `baseUrl` value, see [Deploying with a different context path LINK LINK](https://docs.alfresco.com/6.1/tasks/deploy-contextpath.html).
 
 |`/alfresco`|
 |alfresco.batch.count|This property indicates the number of updates that should be made to this core before a commit is executed.|`1000`|
@@ -51,7 +51,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |alfresco.stores|This property specifies the repository store that this core should index.|`workspace://SpacesStore`|
 |alfresco.threadDaemon|This property sets whether the threads run as daemon threads or not. If set to `false`, shut down is blocked else it is left unblocked.|`true`|
 |alfresco.threadPriority|This property specifies the priority that all threads must have on the scale of 1 to 10, where 1 has the lowest priority and 10 has the highest priority.|`5`|
-|alfresco.topTermSpanRewriteLimit|Term expansion is used to convert wildcard \* matches into a finite disjunction - e.g. "cat\*" -> "cat OR category OR catalogue OR ... caterpillar". This property controls the number of terms in this disjunction, which are chosen from the index with preference given to more popular terms. If you increase the value too much you may not have good performance and if you decrease the value too much you may not receive any results. How you are affected by variations in the limit will depend on your installation.|`1000`|
+|alfresco.topTermSpanRewriteLimit|Term expansion is used to convert wildcard * matches into a finite disjunction - e.g. "cat*" -> "cat OR category OR catalogue OR ... caterpillar". This property controls the number of terms in this disjunction, which are chosen from the index with preference given to more popular terms. If you increase the value too much you may not have good performance and if you decrease the value too much you may not receive any results. How you are affected by variations in the limit will depend on your installation.|`1000`|
 |alfresco.transactionDocsBatchSize|This property is used for batch fetching updates during tracking.|`100`|
 |alfresco.version|This property specifies the Alfresco Content Services version installed.|`6.2`|
 |alfresco.workQueueSize|This property specifies the maximum number of queued work instances to keep before blocking against further adds.|`-1`|

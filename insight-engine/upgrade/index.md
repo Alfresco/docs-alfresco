@@ -37,8 +37,8 @@ Use this information to upgrade from Alfresco Search and Insight Engine 1.x to S
 
     ```bash
     solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.model.dir="your-preferred-location\solrhome\alfrescoModels"
-    -Ddata.dir.root="your-preferred-location\solrhome\"
+    -Dsolr.model.dir="your-preferred-locationsolrhomealfrescoModels"
+    -Ddata.dir.root="your-preferred-locationsolrhome"
     ```
 
     > **Note:** To check what version of Search Services or Search and Insight Engine you have installed go to http://localhost:8983/solr/.

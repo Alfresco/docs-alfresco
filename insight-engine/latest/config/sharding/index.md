@@ -20,8 +20,8 @@ A shard can have zero or more shard instances. Multiple shard instances have the
 
 Note that if your Solr indexes are sharded, then index backup will be disabled.
 
-## Basic Solr sharding concepts 
----
+## Basic Solr sharding concepts
+
 There are a few basic concepts that are core to understanding Solr sharding. Understanding these concepts from the outset will help in learning more about sharding.
 
 ## Useful terminology
@@ -55,7 +55,7 @@ To use a specific sharding method, when creating a Solr node you must add the re
 
 Alfresco Search and Insight Engine can use any of the following methods for routing documents and ACLs to shards.
 
-### ACL (MOD\_ACL\_ID) v1
+### ACL (MOD_ACL_ID) v1
 
 This sharding method is available in all versions of Search and Insight Engine.
 
@@ -73,7 +73,7 @@ This sharding method is available in all versions of Search and Insight Engine.
     shard.count=<shard.count>
     ```
 
-### ACL (ACL\_ID) v2
+### ACL (ACL_ID) v2
 
 This method is available in all versions of Search and Insight Engine.
 
@@ -85,7 +85,7 @@ This method is available in all versions of Search and Insight Engine.
     shard.count=<shard.count>
     ```
 
-### DBID (DB\_ID)
+### DBID (DB_ID)
 
 This method is available in all versions of Search and Insight Engine and is the default sharding option in Solr 6. Nodes are evenly distributed over the shards at random based on the murmur hash of the DBID. The access control information is duplicated in each shard. The distribution of nodes over each shard is very even and shards grow at the same rate. Also, this is the fall back method if any other sharding information is unavailable.
 
@@ -97,7 +97,7 @@ This method is available in all versions of Search and Insight Engine and is the
     shard.count=<shard.count>
     ```
 
-### DBID range (DB\_ID\_RANGE)
+### DBID range (DB_ID_RANGE)
 
 This method is available in Search and Insight Engine 1.1 and later versions. This routes documents within specific DBID ranges to specific shards. It adds new shards to the cluster without requiring a reindex.
 
@@ -165,12 +165,12 @@ This method is available in all versions of Search and Insight Engine. In this m
     It is possible to extract a part of the property value to use for sharding using a regular expression, for example, a year at the start of a string:
 
     ```bash
-    shard.regex=^\d{4}
+    shard.regex=^d{4}
     ```
 
     If the regular expression doesn't match the property (e.g. the string doesn't start with a four-digit year) then this causes a fallback to DBID sharding.
 
-### Explicit Sharding (EXPLICIT\_ID)
+### Explicit Sharding (EXPLICIT_ID)
 
 This method is available in all versions of Search and Insight Engine. The node is assigned to a shard based on the value of a property (e.g. `cm:type`), which should contain the "explicit" numeric shard ID
 
@@ -185,7 +185,7 @@ This method is available in all versions of Search and Insight Engine. The node 
     shard.count=<shard.count>
     ```
 
-> **Note:** The **ACL v1 (MOD\_ACL\_ID)** sharding method was the only method available in Solr4.
+> **Note:** The **ACL v1 (MOD_ACL_ID)** sharding method was the only method available in Solr4.
 
 ### Availability matrix
 
@@ -352,7 +352,7 @@ Trigger a backup with an `HTTP` command which instructs the `/replication` handl
 
 ```http
 curl http://solrshard20xbm.alfresco.com:9000/solr/<CORE_NAME>/replication?command=backup
-\&location=/mnt/solrBackup\&numberToKeep=1
+&location=/mnt/solrBackup&numberToKeep=1
 ```
 
 where:
@@ -395,7 +395,7 @@ We recommend that existing customers should reindex using the `rerank` core. Thi
 * Better query performance particularly for phrases and stop words
 * Improved cross-language search
 
-This should allow the user to store anywhere between 50 million - 80 million documents in a single shard. For more information, see the [Alfresco Platform News](https://www.alfresco.com/blogs/how-alfresco-powered-a-1-2-billion-document-deployment-on-amazon-web-services/) and [Alfresco 1 billion documents press release with Amazon Aurora](https://www.alfresco.com/node/4141).
+This should allow the user to store anywhere between 50 million - 80 million documents in a single shard. For more information, see the [Alfresco Platform News](https://www.alfresco.com/blogs/how-alfresco-powered-a-1-2-billion-document-deployment-on-amazon-web-services/){:target="_blank"} and [Alfresco 1 billion documents press release with Amazon Aurora](https://www.alfresco.com/node/4141){:target="_blank"}.
 
 > **Note:** Note that changing the number of shards requires a reindex.
 
@@ -403,13 +403,13 @@ This should allow the user to store anywhere between 50 million - 80 million doc
 
 Alfresco Content Services 6.x uses Alfresco Search and Insight Engine (Solr 6), so sharding is supported with full SSL and non-SSL. Make sure you configure the Solr and SSL settings properly.
 
-For more information, see [Installing and configuring Search and Insight Engine with mutual TLS using the distribution zip](../tasks/solr-install.md) and [Installing and configuring Search and Insight Engine without mutual TLS using the distribution zip](../tasks/solr-install-withoutSSL.md).
+For more information, see [Installation options]({% link insight-engine/latest/install/options.md %}).
 
 ## Are there any considerations for query load and number of documents?
 
-Before sharding your Solr index, it is important to consider your query load and the size of your repository. You need to create machines to host Solr. For more information, see [Installing and configuring Search and Insight Engine](../concepts/solr-install-config.md). For example, if you need 5 shards, you need to setup those 5 machines, and have Solr instances running on all the 5 machines. Once your machines are ready, you are ready to set up or register shards.
+Before sharding your Solr index, it is important to consider your query load and the size of your repository. You need to create machines to host Solr. For more information, see [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}). For example, if you need 5 shards, you need to setup those 5 machines, and have Solr instances running on all the 5 machines. Once your machines are ready, you are ready to set up or register shards.
 
-For more information, see [Dynamic shard registration](../concepts/dynamic-sharding.md).
+For more information, see [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create/index.md %}#Dynamic shard registration).
 
 ## After upgrading, can I use my current index while building a new sharded index?
 
@@ -418,14 +418,13 @@ Yes. After upgrading to Alfresco Content Services 6.2, continue to use the old s
 ## Upgrading from 5.0 with Solr 4 to 6.2 (with zero downtime)
 
 1. Upgrade to 6.2 and continue to use the Solr 4 search service as before.
-2. Configure a separate sharded Solr 4 index with the [`rerank` template](../concepts/solr-core-templates.md) to track the repository. For details, see [Installing and configuring Solr shards](../tasks/install-solr-shards.md).
-3. While the new sharded Solr 4 builds its indexes, you can monitor the progress using the Solr Admin Web interface. For details, see [the next question](sharding-best-practices.md#8).
+2. Configure a separate sharded Solr 4 index with the [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create/index.md %}#Core Templates) to track the repository. For details, see [Solr Sharding](#Solr Sharding).
+3. While the new sharded Solr 4 builds its indexes, you can monitor the progress using the Solr Admin Web interface. For details, see [Solr security]({% link insight-engine/latest/config/index.md %}# Connecting to the SSL-protected Solr web applicatio).
 4. When the sharded Solr 4 index is updated, enable the sharded Solr 4 index by setting the `solr.host` property.
 
 ## How do I know the new sharded index is up-to-date?
 
-Go to the Solr Admin Web interface at https://localhost:8443/solr/\#/alfresco and monitor the value of `Approx transactions remaining`. If the value is `0`, it indicates that the index up-to-date.
-
+Go to the Solr Admin Web interface at https://localhost:8443/solr/#/alfresco and monitor the value of `Approx transactions remaining`. If the value is `0`, it indicates that the index up-to-date.
 
 ## Can different shards be inconsistent?
 
