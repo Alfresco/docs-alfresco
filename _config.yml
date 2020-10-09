@@ -57,6 +57,23 @@ defaults:
     values:
       version: 3.1
 
+# Alfresco Content Connector for AWS Glacier
+  - scope:
+      path: "aws-glacier"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for AWS Glacier"
+      location: "aws-glacier"
+      toc: "aws-glacier"
+      support: true
+      versions:
+        - 2.1
+  - scope:
+      path: "aws-glacier/latest"
+    values:
+      version: 2.1
+      latest: true
+
 # Alfresco Content Connector for Azure
   - scope:
       path: "microsoft-azure"
