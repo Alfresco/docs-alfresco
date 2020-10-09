@@ -18,15 +18,39 @@ class ContentTabs extends HTMLElement {
     Array.from(neededTabs).forEach((c) => c.classList.add("is-active"));
   }
 
-  initialRequest(id) {
+  initialRequest(request) {
+    if (!request) return;
+
+    const arequest = request.split("/");
+
+    if (!arequest.length) return;
+
+    const id = arequest[0];
     this.activateTabId(id);
+
+    if (arequest.length > 1) {
+      return this.querySelector(`#${arequest[1]}`).parentNode;
+    }
     return true;
+  }
+
+  changeRequest(request) {
+    return this.initialRequest(request);
+  }
+
+  createHrefForChild(child) {
+    const tabcontent = child.closest("[data-tabid]");
+    const tabid = tabcontent.dataset.tabid;
+    const compid = this.id;
+    return `#${compid}/${tabid}/${child.dataset.originalid}`;
   }
 
   setup() {
     const tabsSection = this.querySelector(".tabs");
     const contentSection = this.querySelector(".contents");
     const id = this.getAttribute("id");
+
+    this.dataset.aredir = "createHrefForChild";
 
     // move tabs contents to contents section (for lazy creating support)
     let contents = tabsSection.querySelectorAll(".tab-content");

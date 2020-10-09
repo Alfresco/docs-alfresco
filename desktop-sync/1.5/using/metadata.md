@@ -1,0 +1,103 @@
+---
+title: Manage the properties for content
+---
+
+{% capture windows %}
+
+## Manage the properties for content on Windows
+
+You can view, edit, and update file and folder properties (i.e. metadata) from the Windows Explorer menu actions.
+
+By default, you can view and edit general properties, such as Title, Name, Description, and Author 
+(if you have the correct permissions).
+
+1. In your **Alfresco** synced folder, find the file or folder that you want to update.
+
+2. Right-click the item and select **Properties**.
+
+    A window appears displaying a number of properties. For example:
+
+    ![]({% link desktop-sync/images/ds-properties-view-win.png %}){:height="491px" width="673px"}
+
+    By default, the properties are read-only.
+
+3. Click **Edit** to start editing the content.
+
+    Note that the **Edit** button changes to **Save** (if you have edit permissions on the selected content).
+
+4. Click **Save** to update the content.
+
+    New changes are shown in the properties panel for Share or Digital Workspace.
+
+    >**Note:**
+    >
+    >* The **Edit** button is not available in the following cases:
+    >    * If a file is declared as a record. See [Governance Services]({% link desktop-sync/1.5/using/ags.md %}) for more.
+    >    * If your role is set to Consumer or Collaborator on files. See [Permissions]({% link desktop-sync/1.5/using/permissions.md %}) for more.
+    >* There are validation checks for all fields.
+    >    * For example, if a property is incorrectly left blank when you click **Save**, a red background appears indicating that there's a problem. Correct the content to fix the problem.
+
+### Bulk editing of properties
+
+You can also edit properties (i.e. metadata) in multiple files simultaneously. The steps are similar to what's described earlier.
+
+1. Select multiple files, right-click and select **Properties**.
+   * This shows the common properties between all of the selected files.
+2. You can now view and edit those common properties.
+
+   For example, if you edit the `Title` field, that title will be updated in all of the selected files.
+   
+{% endcapture %}
+   
+{% capture mac %}   
+    
+## Manage the properties for content on Mac
+
+You can view, edit, and update file and folder properties from the Mac Finder menu actions.
+
+By default, you can view and edit general properties, such as Title, Name, Description, and Author 
+(if you have the correct permissions). If enabled by your IT team, you may be able to view and edit additional properties.
+
+1. In your **Alfresco** synced folder, find the file or folder that you want to update.
+
+2. Right-click the item and select **Properties**.
+
+    A window appears displaying a number of properties. For example:
+
+    ![]({% link desktop-sync/images/ds-properties-view-mac2.png %}){:height="378px" width="690px"}
+
+    By default, the properties are read-only.
+
+3. Click **Edit** to start editing the content.
+
+    Note that the **Edit** button changes to **Save** (if you have edit permissions on the selected content):
+
+    ![]({% link desktop-sync/images/ds-properties-edit-mac.png %}){:height="378px" width="690px"}
+
+    >**Note:** This example shows a different file with an additional aspect (i.e. Webable) and related properties (i.e. Description and Title).
+
+4. Click **Save** to update the content.
+
+    New changes are shown in the properties panel for Share or Digital Workspace.
+
+    >**Note:**
+    >
+    >* The **Edit** button is not available in the following cases:
+    >    * If a file is declared as a record. See [Governance Services]({% link desktop-sync/1.5/using/ags.md %}) for more.
+    >    * If your role is set to Consumer or Collaborator on files. See [Permissions]({% link desktop-sync/1.5/using/permissions.md %}) for more.
+    >* There are validation checks for all fields.
+    >    * For example, if a property is incorrectly left blank when you click **Save**, a red background appears indicating that there's a problem. Correct the content to fix the problem.
+
+### Bulk editing of properties
+
+You can also edit properties in multiple files simultaneously. The steps are similar to what's described earlier.
+
+1. Select multiple files, right-click and select **Properties**.
+   * This shows the common properties between all of the selected files.
+2. You can now view and edit those common properties.
+
+   For example, if you edit the `Title` field, that title will be updated in all of the selected files.
+   
+{% endcapture %}
+
+{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
