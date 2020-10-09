@@ -1,0 +1,11 @@
+# Federation Services 1.0
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/federation-services/latest/'
+    - title: 'Install'
+      path: '/federation-services/latest/install/'
+    - title: 'Configure'
+      path: '/federation-services/latest/config/'
+    - title: 'Administer'
+      path: '/federation-services/latest/admin'
