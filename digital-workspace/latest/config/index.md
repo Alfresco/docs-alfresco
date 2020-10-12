@@ -9,19 +9,19 @@ The following settings can be configured in ../digital-workspace/app.config.json
 
 | Property/Sub-property | Description | Example value |
 | --------  | ----------- | ---- |
-| adf-start-process/name | The name of the process as it appears in Alfresco Process Services including the current days date and time. | The default setting for this is %{processDefinition} - %{datetime}, which will produce, 'Capital Approval Process - Jun 17, 2020, 11:02:07 AM'. |
-| adf-start-process/processDefinitionName | The name of the definition of the process you are using to create an instance. | Capital Approval Process definition. |
-| adf-versions-manager/allowComments | Toggle version comments on/off. | true |
-| aosHost | Server address of the AOS endpoint. | "https://repository.domain.com/alfresco/aos" ***Note:*** Server address has to be https. |
-| application/name | Application name that will be shown in the header of the application and in the page/tab title. | "Digital Workspace" |
-| application/copyright | Copyright text shown on the login page. | "© 2017 - 2020 Alfresco Software, Inc. All rights reserved. | 
-| application/logo | Path to the logo shown in the application header. | "assets/images/alfresco-logo-flower.svg" |
-| authtype | Determines the type of authentication. To use Single Sign-on mode you must change this property to OAuth. See [Single Sign-On (SSO)](https://www.alfresco.com/abn/adf/docs/core/components/login.component/#single-sign-on-sso). | basic |
-| bpmHost | Server address of Alfresco Process Services. | "https://processservices.domain.com:port" |
-| content-metadata/presets | Add custom aspects and properties to be shown in the information drawer. |  |
-| content-metadata/custom | Add custom aspects and properties to be shown in the information drawer. |  |
-| ecmHost | Server address of Alfresco Content Services. | "https://repository.domain.com:port" |
-| files/excluded | Restrict users from uploading certain types of files and folders by setting or extending the list of rules at the "files.excluded" path. | ".DS\_Store", "desktop.ini", "Thumbs.db", ".git" | |
+| adf-start-process/name | The name of the process as it appears in Alfresco Process Services including the current days date and time. The default setting for this is %{processDefinition} - %{datetime}, which will produce, 'Capital Approval Process - Jun 17, 2020, 11:02:07 AM'. |
+| adf-start-process/processDefinitionName | The name of the definition of the process you are using to create an instance, for example `Capital Approval Process definition`. |
+| adf-versions-manager/allowComments | Toggle version comments on/off. |
+| aosHost | Server address of the AOS endpoint, for example `https://repository.domain.com/alfresco/aos` ***Note:*** Server address has to be https. |
+| application/name | Application name that will be shown in the header of the application and in the page/tab title, for example `Digital Workspace` |
+| application/copyright | Copyright text shown on the login page, for example `© 2017 - 2020 Alfresco Software, Inc. All rights reserved`. | 
+| application/logo | Path to the logo shown in the application header for example, `assets/images/alfresco-logo-flower.svg` |
+| authtype | Determines the type of authentication. To use Single Sign-on mode you must change this property to OAuth. See [Single Sign-On (SSO)](https://www.alfresco.com/abn/adf/docs/core/components/login.component/#single-sign-on-sso), for example `basic`. |
+| bpmHost | Server address of Alfresco Process Services for example `https://processservices.domain.com:port`|
+| content-metadata/presets | Add custom aspects and properties to be shown in the information drawer.  |
+| content-metadata/custom | Add custom aspects and properties to be shown in the information drawer.  |
+| ecmHost | Server address of Alfresco Content Services for example `https://repository.domain.com:port` |
+| files/excluded | Restrict users from uploading certain types of files and folders by setting or extending the list of rules at the "files.excluded" path. | ".DS_Store", "desktop.ini", "Thumbs.db", ".git" | |
 | files/match-options, no case | Ensures that the exclusions are case insensitive. | true |
 | files/allowDownload | Toggle downloads of versions on/off. | true |
 | headerColor | Value for the header background color of the application. | #2196F3 |

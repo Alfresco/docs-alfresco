@@ -11,4 +11,4 @@ The Alfresco Digital Workspace is automatically deployed as part of Alfresco Con
 
 See the following video for a quick introduction.
 
-![Introduction Video](https://www.youtube.com/embed/giypeO8Q4cs)
+{% include media.html id="giypeO8Q4cs" %})

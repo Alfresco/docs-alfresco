@@ -6,4 +6,4 @@ Alfresco Digital Workspace has been extended to include Alfresco Governance Serv
 These features require Alfresco Governance Services, and for archival to long term storage, Alfresco Content Connector for AWS S3.
 
 See the following video for a quick introduction to the new governance features.
-![Introduction Video](https://www.youtube.com/embed/D3TGksKU7yw)
+{% include media.html id="D3TGksKU7yw" %}
