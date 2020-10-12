@@ -36,7 +36,7 @@ The topic describes the properties for configuring the Solr 6 search service.
 
 4. Set the Alfresco Search and Insight Engine properties:
 
-    |Solr search property|Example setting|What is it?|
+    |Solr search property|Example setting|Descrption|
     |--------------------|---------------|-----------|
     |**Content Tracking Enabled**|Yes|This setting can be used to disable Solr 6 tracking by separate Solr instance(s) configured to track this server.
 
@@ -275,9 +275,7 @@ When you install Alfresco Search and Insight Engine, several Solr configuration 
 
 |Configuration File|Location|Description|
 |------------------|--------|-----------|
-|schema.xml|<SOLR_HOME>/solrhome/<core>/confFor example <SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf
-
-|This file defines the schema for the index including field type definitions with associated analyzers. It contains details about the fields that you can include in your document and also describes how those fields can be used when adding documents to the index or when querying those fields. The properties of this file are managed by an expert user.|
+|schema.xml|<SOLR_HOME>/solrhome/<core>/confFor example <SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This file defines the schema for the index including field type definitions with associated analyzers. It contains details about the fields that you can include in your document and also describes how those fields can be used when adding documents to the index or when querying those fields. The properties of this file are managed by an expert user.|
 |core.properties|<SOLR_HOME>/solrhome/alfresco/core.properties or <SOLR_HOME>/solrhome/archive/core.properties|This file specifies the cores to be used by Solr.|
 |solrconfig.xml|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This file specifies the parameters for configuring Solr. Also, the Solr search components are added to this file. The properties of this file are managed by an expert Administrator user.|
 |solrcore.properties|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one solrcore.properties file in each core's configuration directory. For details, see the [Solr core configuration properties](#Solr core configuration properties.md) topic. The properties of this file are managed by an Administrator user.|

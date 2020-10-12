@@ -191,158 +191,22 @@ This method is available in all versions of Search and Insight Engine. The node 
 
 |Index Engine|ACL v1|DB ID|Date/time|Metadata|ACL v2|DBID range|Explicit|
 |------------|------|-----|---------|--------|------|----------|--------|
-|Content Services 5.2.0+ Solr 4|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|
-|Content Services 5.2.0+ Content Services 1.0|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|
-|Content Services 6.1+ Search Services or Search and Insight Engine 1.1 + 1.0|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|
-|Content Services 6.1+ Search Services or Search and Insight Engine 1.2+|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|
+|Content Services 5.2.0+ Solr 4|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|
+|Content Services 5.2.0+ Content Services 1.0|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|
+|Content Services 6.1+ Search Services or Search and Insight Engine 1.1 + 1.0|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|
+|Content Services 6.1+ Search Services or Search and Insight Engine 1.2+|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|
 
 ### Comparison Overview
 
 |Index Engine|ACL v1|DB ID|Date/time|Metadata|ACL v2|DBID range|Explicit|
 |------------|------|-----|---------|--------|------|----------|--------|
-|All shards required|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|
-|ACLs replicated on all shards|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|
-|Can add shards as the index grows|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|
+|All shards required|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|
+|ACLs replicated on all shards|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|
+|Can add shards as the index grows|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|
 |Distribution of content over shards|Uneven|Very even|Quite even|Quite even|Quite even|Quite even|Quite even|
-|Falls back to DBID sharding|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|
-|One shard gets new content|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|Possible|Possible|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|
-|Nodes can move shard|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|![]({% link insight-engine/images/red-cross.png %})
-
-|![]({% link insight-engine/images/green-tick.png %})
-
-|
+|Falls back to DBID sharding|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|
+|One shard gets new content|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|Possible|Possible|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|
+|Nodes can move shard|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|
 
 ## Backing up Solr shards
 
@@ -372,7 +236,7 @@ http://solrshard20xbm.alfresco.com:9000/alfresco-search-backups/<CORE_NAME>/repl
 ```
 
 ## Best practices for setting up sharded Solr indexes
----
+
 Use these best practices for setting up and using a sharded installation.
 
 ## Do I need sharding?

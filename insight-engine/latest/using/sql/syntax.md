@@ -141,35 +141,32 @@ Fields fall into three types: property fields, special fields, and fields for da
 
 Property fields evaluate the search term against a particular property, special fields are described in the following table, and data type fields evaluate the search term against all properties of the given type.
 
-|Description|Type|Example|
-|-----------|----|-------|
-|Fully qualified property|Property|{http://www.alfresco.org/model/content/1.0}name:apple|
-|Fully qualified property|Property|@{http://www.alfresco.org/model/content/1.0}name:apple|
-|CMIS style property|Property|cm_name:apple|
-|Prefix style property|Property|cm:name:apple|
-|Prefix style property|Property|@cm:name:apple|
-|TEXT|Special|TEXT:apple|
-|ID|Special|ID:"NodeRef"|
-|ISROOT|Special|ISROOT:T|
-|TX|Special|TX:"TX"|
-|PARENT|Special|PARENT:"NodeRef"|
-|PRIMARYPARENT|Special|PRIMARYPARENT:"NodeRef"|
-|QNAME|Special|QNAME:"app:company_home"|
-|CLASS|Special|CLASS:"qname"|
-|EXACTCLASS|Special|EXACTCLASS:"qname"|
-|TYPE|Special|TYPE:"qname"|
-|EXACTTYPE|Special|EXACTTYPE:"qname"|
-|ASPECT|Special|ASPECT:"qname"|
-|EXACTASPECT|Special|EXACTASPECT:"qname"|
-|ISUNSET|Special|ISUNSET:"property-qname"|
-|ISNULL|Special|ISNULL:"property-qname"|
-|ISNOTNULL|Special|ISNOTNULL:"property-qname"|
-|EXISTS|Special|EXISTS:"name of the property"|
-|SITE|Special|SITE:"shortname of the site"|
-|TAG|Special|TAG: "name of the tag"> **Note:** `TAG` must be in upper case.
-
-|
-|
+|Description|Type|
+|-----------|----|
+|Fully qualified property, for example `{http://www.alfresco.org/model/content/1.0}name:apple`|Property|
+|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`|Property|
+|CMIS style property, for example `cm_name:apple`.|Property|
+|Prefix style property, for example `cm:name:apple`.|Property||
+|Prefix style property, for example `@cm:name:apple`.|Property||
+|TEXT, for example `TEXT:apple`.|Special|
+|ID, for example `ID:"NodeRef"`|Special|
+|ISROOT, for example `ISROOT:T`|Special|
+|TX, for example `TX:"TX"`|Special|
+|PARENT, for example `PARENT:"NodeRef"`|Special|
+|PRIMARYPARENT, for example `PRIMARYPARENT:"NodeRef"`.|Special|
+|QNAME, for example `QNAME:"app:company_home"`.|Special|
+|CLASS, for example `CLASS:"qname"`.|Special|
+|EXACTCLASS, for example `EXACTCLASS:"qname"`.|Special|
+|TYPE, for example `TYPE:"qname"`.|Special|
+|EXACTTYPE, for example `EXACTTYPE:"qname"`.|Special|
+|ASPECT for example `ASPECT:"qname"`.|Special|
+|EXACTASPECT, for example `EXACTASPECT:"qname"`.|Special|
+|ISUNSET for example `ISUNSET:"property-qname"`|Special|
+|ISNULL, for example `ISNULL:"property-qname"`.|Special|
+|ISNOTNULL, for example `ISNOTNULL:"property-qname"`.|Special|
+|EXISTS for example `EXISTS:"name of the property"`.|Special|
+|SITE for example `SITE:"shortname of the site"`.|Special|
+|TAG. TAG: "name of the tag"> **Note:** `TAG` must be in upper case.|Special|
 |Fully qualified data type|Data Type|{http://www.alfresco.org/model/dictionary/1.0}content:apple|
 |prefixed data type|Data Type|d:content:apple|
 
@@ -325,7 +322,7 @@ OR
 
 `AND` and `OR` can be combined with `+`, `|`, `-` with the following meanings:
 
-|AND (no prefix is the same as +)|Explanation|
+|AND (no prefix is the same as +)|Description|
 |----------------------------------|-----------|
 |`big AND dog`|big and dog must occur|
 |`+big AND +dog`|big and dog must occur|
@@ -339,7 +336,7 @@ OR
 |`-big AND -dog`|both big and dog must not occur|
 |`|big AND -dog`|big should occur and dog must not occur|
 
-|OR (no prefix is the same as +)|Explanation|
+|OR (no prefix is the same as +)|Description|
 |---------------------------------|-----------|
 |`dog OR wolf`|dog and wolf should occur, and at least one must match|
 |`+dog OR +wolf`|dog and wolf should occur, and at least one must match|

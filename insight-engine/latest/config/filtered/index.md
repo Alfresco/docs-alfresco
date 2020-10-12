@@ -112,15 +112,15 @@ An example of a filter is `cm:modified`. It specifies the name of the filter fie
 
 **sortBy** - Enables the user to select the order in which the filter results must be shown on the **Search** page. The `sortBy` option is passed to the `FacetFilters` widget and defines how the filters should be sorted. This property has the following options:
 
-    |Option|Description|
-    |------|-----------|
-    |ALPHABETICALLY|Specifies the filter value A-Z.|
-    |REVERSE_ALPHABETICALLY|Specifies the filter value Z-A.|
-    |ASCENDING|Specifies the number of filter results (low to high).|
-    |DESCENDING|Specifies the number of filter results (high to low).|
-    |INDEX|This is a special value reserved for results rendered by filter queries.|
+|Option|Description|
+|------|-----------|
+|ALPHABETICALLY|Specifies the filter value A-Z.|
+|REVERSE_ALPHABETICALLY|Specifies the filter value Z-A.|
+|ASCENDING|Specifies the number of filter results (low to high).|
+|DESCENDING|Specifies the number of filter results (high to low).|
+|INDEX|This is a special value reserved for results rendered by filter queries.|
 
-* **scope** - Enables the user to select the sites where the filter will be available.
+**scope** - Enables the user to select the sites where the filter will be available.
 
 **scopedSites** - Displays a list of sites where the filter will be available.
 

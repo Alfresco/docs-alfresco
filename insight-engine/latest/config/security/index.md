@@ -5,7 +5,7 @@ By default, communication between the repository and Solr is protected by SSL wi
 
 > **Note:** For security reasons, you must generate a new set of keys to secure the Solr communication and access to the Solr Admin Console.
 
-For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#Configuring using the Admin Console) and [Secure Keys]({% link insight-engine/latest/config//keysindex.md %}).
+For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#Configuring using the Admin Console) and [Secure Keys]({% link insight-engine/latest/config/keys/index.md %}).
 
 ## Repository SSL keystores
 
@@ -27,7 +27,7 @@ The keys and certificates required for mutual TLS on the repository side are set
     />
     ```
 
-2. Copy the keystore and truststore files you created in [Generating secure keys for ssl communication]({% link insight-engine/latest/config//keys.index.md %}#Generating-secure-keys-for-ssl-communication) to the machine that's running the repository.
+2. Copy the keystore and truststore files you created in [Generating secure keys for ssl communication]({% link insight-engine/latest/config/keys/index.md %}#Generating-secure-keys-for-ssl-communication) to the machine that's running the repository.
 
 3. Set the parameters in the connector, replacing the `xxxxxxx` and `yyyyy` values.
 
@@ -142,10 +142,7 @@ When you select a core:
     |Overview|This dashboard displays full statistics of the indexes. It shows the index count for each of the cores. It also provides a summary report and an FTS status report. The summary report displays information about the number of nodes in index, transactions in index, approximate transactions remaining, and so on. The FTS status report displays information about the FTS status clean, FTS status dirty, and FTS status new.|
     |Analysis|Allows data analysis according to the field, field type and dynamic rule configurations found in schema.xml.|
     |Dataimport|Displays information about the current status of the Data Import Handler. It enables you to import commands as defined by the options selected on the screen and defined in the configuration file.|
-    |Documents|Provides a simple form allowing execution of various Solr indexing commands directly from the browser. The screen allows you to:    * Copy documents in JSON, CSV or XML and submit them to the index
-    * Upload documents (in JSON, CSV or XML)
-    * Construct documents by selecting fields and field values
-|
+    |Documents|Provides a simple form allowing execution of various Solr indexing commands directly from the browser. The screen allows you to: Copy documents in JSON, CSV or XML and submit them to the index, upload documents (in JSON, CSV or XML), and Construct documents by selecting fields and field values|
     |Files|Displays the current core configuration files such as solrconfig.xml and schema.xml. Configuration files cannot be edited with this screen, so a text editor must be used.|
     |Ping|Enables you to ping a named core and determine whether the core is active. The Ping option does not open a page, but the status of the request can be seen on the core overview page shown when clicking on a collection name. The length of time the request has taken is displayed next to the Ping option, in milliseconds.|
     |Plugins/Stats|Displays statistics for plugins and other installed components.|
@@ -154,7 +151,7 @@ When you select a core:
     |Schema Browser|Displays schema data in a browser window.|
     |Segments info|Visualization of the various segments in the underlying Lucene index for this core|
 
-## Solr Admin UI - center panel
+## Solr Admin UI center panel
 
 The center of the screen shows the detail of the Solr core selected, such as statistics, summary report, and so on.
 
@@ -164,4 +161,4 @@ On the left-side of the Solr Admin screen, you will see **Core Selector**. Click
 
 This includes a sub-navigation for the option or text or graphical representation of the requested data.
 
-See [Solr Admin UI left panel](#Solr-Admin-UI-left-panel) [Solr Admin UI - left panel](solradmin-left.md) to know more about each screen.
+See [Solr Admin UI left panel](#Solr-Admin-UI-left-panel) and [Solr Admin UI center panel](Solr-Admin-UI-center-panel) to know more about each screen.

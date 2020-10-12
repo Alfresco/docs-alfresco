@@ -94,12 +94,9 @@ The configuration affecting replication is controlled by a single file, alresco
 
     where:
 
-    |Parameter name|Description|
+    |Parameter|Description|
     |--------------|-----------|
-    |`replicateAfter`|String specifying action after which replication should occur. Valid values are:    -   `commit`: triggers replication whenever a commit is performed on the master index.
-    -   `optimize`: triggers replication whenever the master index is optimized.
-    -   `startup`: triggers replication whenever the master index starts up.
-There can be multiple values for this parameter. If you use `startup`, you need to have a `commit` and/or `optimize` entry also if you want to trigger replication on future commits or optimizes.|
+    |`replicateAfter`|String specifying action after which replication should occur. Valid values are, `commit`which triggers replication whenever a commit is performed on the master index,`optimize` which triggers replication whenever the master index is optimized and `startup` which triggers replication whenever the master index starts up. There can be multiple values for this parameter. If you use `startup`, you need to have a `commit` and/or `optimize` entry also if you want to trigger replication on future commits or optimizes.|
     |`confFiles`|Comma-separated list of configuration files to replicate.|
 
 2.  Make sure that the solrcore.properties file has the following settings:

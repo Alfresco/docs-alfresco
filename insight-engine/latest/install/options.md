@@ -238,7 +238,7 @@ This task assumes you have:
         -Dalfresco.secureComms=none
         ```
 
-    See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/sharding/createindex.md %}#Core templates) for a brief description of the out-of-the-box Solr core templates.
+    See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/sharding/create/index.md %}#Core templates) for a brief description of the out-of-the-box Solr core templates.
 
 4. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this add the following to the alfresco-insight-engine/solrhome/conf/shared.properties file:
 
