@@ -52,9 +52,11 @@ The main difference is that when you run a container, you are not starting a com
 
 The public Alfresco Docker images are available in the Docker Hub registry. There are also private Enterprise-only images in the Quay.io registry.
 
-Go to [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"} to see a list of images belonging to the `alfresco` user or, alternatively, search for [alfresco](https://hub.docker.com/search?q=alfresco%2F&type=image){:target="_blank"} (note that not all images are visible):
+Go to [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"} to see a list of images belonging to the `alfresco` user or, alternatively, [search for alfresco](https://hub.docker.com/search?q=alfresco%2F&type=image){:target="_blank"} from the Docker Hub home page:
 
 ![Docker images from Alfresco in Docker Hub]({% link content-services/images/dockerhub.png %}){:width="460px" height="595px" style="border:1px solid #d3d3d3"}
+
+> **Note:** This shows a snippet from the page - not all images are visible.
 
 The following Docker images relate to Alfresco Content Services:
 
@@ -125,11 +127,9 @@ Note that the Docker files for Alfresco Share, Alfresco Search Services, and oth
 * Alfresco Search Services: [https://github.com/Alfresco/SearchServices](https://github.com/Alfresco/SearchServices){:target="_blank"}
 * Alfresco Content Services Nginx Proxy: [https://github.com/Alfresco/acs-ingress](https://github.com/Alfresco/acs-ingress){:target="_blank"}
 
-<!--* Alfresco Sync Service: DEPRECATED https://github.com/Alfresco/alfresco-dsync-services-deployment-->
+## Prerequisites
 
-## Deployment prerequisites
-
-There are a number of software requirements for installing (or deploying) Alfresco Content Services when using containerized deployment. <!--KEEP?-->You'll find a list of prerequisites in the GitHub project documentation.
+There are a number of software requirements for installing (or deploying) Alfresco Content Services when using containerized deployment. <!--KEEP? You'll find a list of prerequisites in the GitHub project documentation.-->
 
 Note that the [VERSIONS.md](https://github.com/Alfresco/acs-packaging/blob/master/distribution/src/main/resources/VERSIONS.md){:target="_blank"} file in GitHub lists the supported versions.<!--link to support page-->
 
@@ -147,27 +147,8 @@ To deploy Alfresco Content Services using Helm charts, you need to install the f
 * [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/){:target="_blank"} - the command line tool for Kubernetes.
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
   * There are Helm charts that allow you to deploy Alfresco Content Services in a Kubernetes cluster, for example, on AWS.
-  * See [Deploying Alfresco Content Services with Helm charts on AWS]({% link content-services/latest/install/containers/helm.md %}) for more.
-* **REMOVE** * [Kops](https://github.com/kubernetes/kops#installing){:target="_blank"} - this helps you to manage a Kubernetes cluster.
-* **REMOVE** * [Minikube](https://github.com/kubernetes/minikube){:target="_blank"} - this allows you to run a Kubernetes cluster locally.
-  * Note that Minikube isn't supported, and is only used to assist testing deployments locally, and for evaluations.
-  * See [Deploy with Helm charts using Minikube](../tasks/deploy-helm-minikube.md) for more.
 
-### Manual install using distribution zip
-
-To install Alfresco Content Services using the distribution zip (which also contains the WAR files), make sure that the required software is available on your system:
-
-* Java: OpenJDK 11 is recommended <!--move to /support page-->
-* Application server: Apache Tomcat
-* Database: PostgreSQL or MySQL
-* Message broker: ActiveMQ
-* LibreOffice
-* ImageMagick
-
-For a list of supported components and versions, refer to the `VERSIONS.md` file in the distribution zip.
-<!--Check .md file-->
-
-See [Install using distribution zip]({% link content-services/latest/install/zip/index.md %}) for more.
+See [Install using Helm]({% link content-services/latest/install/containers/helm.md %}) for more.
 
 ### Docker Compose (recommended for evaluations only)
 
@@ -176,6 +157,6 @@ See [Install using distribution zip]({% link content-services/latest/install/zip
 * [Docker Compose](https://docs.docker.com/compose/install/){:target="_blank"}
   * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
 
-> **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose, using the links provided.
+> **Note:** Check the prerequisites for your operating system, for Docker and Docker Compose, using the links provided.
 
 See [Install using Docker Compose]({% link content-services/latest/install/containers/docker-compose.md %}) for more.

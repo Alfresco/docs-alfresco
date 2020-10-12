@@ -158,3 +158,159 @@ Translations in Alfresco Content Services use language packs. The supported lang
 * Simplified Chinese (zh_CN)
 
 The language used switches according to the browser locale. Ensure that your browser is set up to view the relevant locale, which ensures that the special characters display correctly in your installed instance.
+
+## Install integrations
+
+Use this information to review the components or modules that integrate Alfresco Content Services with other applications.
+
+### Services
+
+| Services | Description |
+| -------- | -----------
+| Process Services | |
+| Governance Services | |
+
+### Integrations
+
+| Integrations | Description |
+| ------------ | -----------
+| Sync Service | |
+| Desktop Sync | |
+| Transform Service | |
+| Document Transformation Engine | Paid add-on module |
+| Media Management | Paid add-on module and requires additional software |
+| Search and Insight Engine | Paid add-on module |
+| Search Services | |
+| Federation Services | |
+| Identity Service | |
+| SAML Module for Alfresco Content Services | |
+| Intelligence Services |  |
+| Content Connector for AWS S3 | Paid add-on module |
+| Content Connector for Azure | Paid add-on module |
+| Content Connector for AWS Glacier | |
+| Content Connector for EMC Centera | Paid add-on module and requires additional software |
+| Content Connector for Salesforce | |
+| Content Connector for SAP | Paid add-on module |
+| Outlook Integration | Paid add-on module |
+| Office Services | |
+| Google Docs Integration | |
+
+### Applications
+
+| Applications | Description |
+| ------------ | ----------- |
+| Digital Workspace | |
+
+## Test installation
+
+Installation testing checks that Alfresco Content Services is successfully installed and it's working as expected after installation.
+
+Some of the points that need to be checked prior to testing your installation are:
+
+* Verify the prerequisites you need to install.
+* Verify that, after a successful install, the application works as per the specification document and meets user needs.
+* On uninstall, check that all previously installed files and registry entries are removed as expected.
+
+### Post-installation checks
+
+Once you've successfully installed Alfresco Content Services, test and gain familiarity with the core features and functions.
+
+Here are some tips to familiarize yourself.
+
+> **Note:** We recommend that you create a test site for testing purpose and put all your test data in that site.
+
+* Can you login using your user name and password. See [Logging in](#LINK-tasks/gs-login.md).
+* Can you create a site. See [Creating a new site](#LINK-tasks/gs-site-create.md).
+* Can you add new users to the site. See [Adding users to a site](#LINK-tasks/members-invite.md).
+* Can you add pages to the site. See [Adding pages to a site](#LINK-tasks/gs-customize-site.md).
+* Can you add content to a site library. See [Adding content items](#LINK-tasks/gs-content-add.md).
+* Can you copy or move content from its current location to another folder or any other site. See [Copying content](#LINK-tasks/library-item-copy.md) and [Moving content](#LINK-tasks/library-item-move.md).
+* Can you update content. See [Updating content](#LINK-tasks/library-item-upload.md).
+* Can you manage permissions for a user or a group for accessing content. See [Managing content permissions](#LINK-tasks/library-item-permissions.md).
+* Can you add a new rule to a folder in the site library and check if it works. See [Adding a new rule](#LINK-tasks/library-folder-rules-new.md).
+* Can you edit the new rule. See [Editing a rule](#LINK-tasks/library-folder-rules-edit.md).
+* Can you schedule events, such as meeting, for your team. See [Scheduling events](#LINK-tasks/gs-webinar-schedule.md).
+
+### Post-installation checks (clustered environment)
+
+Once you've successfully installed and configured Alfresco Content Services in a distributed/clustered environment, make sure that the features and customizations you've added work properly.
+
+Here are some of the tips to help you test your customizations.
+
+> **Note:** We recommend that you create a test site for testing purposes, and put all your test data in that site.
+
+* Check that the application server is running.
+* Can you login using your user name and password. See [Signing in](#LINK-tasks/gs-login.md).
+* Check that various components are communicating with each other.
+* For a clustered installation, check if when one node is down, the request is forwarded to the next available node.
+* Check if clustering is working properly by running the [cluster validation tool](#LINK-tasks/adminconsole-reposerverclustering.md) in the Admin Console.
+* Check if you are using a clustering-enabled license.
+* Change the cluster-related properties in the `alfresco-global.properties` file, and check if all the nodes are up and running.
+
+> **Note:** After you've finished testing, remember to delete the test site or test data in order to clear your database.
+
+## Start and stop server
+
+Use this information to run the Alfresco Content Services server and Alfresco Share.
+
+### Start server
+
+Once you've installed Alfresco Content Services using the distribution zip, you can start the server. The server must be running before you can use Alfresco Share.
+
+1. Navigate to the installation directory for your database and start the server.
+
+2. Navigate to the Tomcat `/bin` directory and start the server:
+
+    For example: (Linux)
+
+    ```bash
+    ./startup.sh
+    ```
+
+    For example: (Windows)
+
+    ```bash
+    startup
+    ```
+
+    You need administrator rights to run this command.
+
+3. Browse to the location of your Alfresco Content Services installation:
+
+    For example, `http://<your-host>:8080/alfresco`.
+
+### Stop server
+
+Use this information to stop the server.
+
+1. Navigate to the Tomcat `/bin` directory then choose one of these options to stop the server:
+
+    For example: (Linux)
+
+    ```bash
+    ./shutdown.sh
+    ```
+
+    For example: (Windows)
+
+    ```bash
+    shutdown
+    ```
+
+    You need administrator rights to run this command.
+
+2. Navigate to the installation directory for your database and stop the server.
+
+### Start Alfresco Share
+
+Once you've started Alfresco Content Services, you can start Alfresco Share using a browser.
+
+1. Browse to the location of your installation.
+
+    For example, `http://<your-host>:8080/share`.
+
+    Alfresco Share opens in a browser.
+
+2. Sign in using a user name and password.
+
+    The default administrator user name is `admin`.

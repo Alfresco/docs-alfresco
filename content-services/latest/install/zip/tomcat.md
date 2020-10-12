@@ -181,7 +181,7 @@ The Alfresco Content Services Distribution file is a zip containing the required
 
     See [Install and configure Alfresco Search Services](https://docs.alfresco.com/search-enterprise/concepts/solr-install-config.html)(#LINK) for more information.
 
-You're now ready to [install any additional software]({% link content-services/latest/install/zip/additions.md %}) that you require, and [install integrations]({% link content-services/latest/install/zip/integrations.md %}).
+You're now ready to [install any additional software]({% link content-services/latest/install/zip/additions.md %}) that you require, and [install integrations]({% link content-services/latest/install/zip/additions.md %}#install-integrations).
 
 > **Note:** If you deployed previous versions of Alfresco Content Services, you must remove any temporary files created by your application server. Use the `clean_tomcat.bat` or `clean_tomcat.sh` command.
 
@@ -222,8 +222,46 @@ After you've extracted the Alfresco Content Services distribution zip, several d
     | /conf | This directory contains the Catalina Share and repository xml files|
     | /lib | This directory contains the PostgreSQL JDBC jar file|
     | /shared | This directory includes a number of configuration files for Alfresco Content Services: {::nomarkdown}<ul><li>/shared/classes/alfresco-global.properties.sample<br>The sample global properties file, which is used for configuration properties</li><li>/shared/classes/alfresco-encrypted.properties.sample<br>A sample encrypted properties overlay file</li><li>/shared/classes/alfresco<br>Contains the directory structure for the configuration override files including the extension and web-extension directories</li></ul>{:/} |
-    | /webapps | Contains the following files: {::nomarkdown}<ul><li>alfresco.war - Alfresco WAR file</li><li>share.war - Alfresco Share WAR file</li><li>ROOT.war - Application for the server root<br>The ROOT.war application is required to enable Alfresco Office Services (AOS).</li></ul>{:/}See [Installing Alfresco Office Services manually into an existing web application](https://docs.alfresco.com/aos/tasks/install-server-root.html){:target="_blank"}(#LINK). |
+    | /webapps | Contains the following files: {::nomarkdown}<ul><li>alfresco.war - Alfresco WAR file</li><li>share.war - Alfresco Share WAR file</li><li>ROOT.war - Application for the server root<br>The ROOT.war application is required to enable Alfresco Office Services (AOS).</li></ul>{:/}See [Installing Alfresco Office Services manually into an existing web application](https://docs.alfresco.com/aos/tasks/install-server-root.html)(#LINK). |
 
 * `README.txt`: This file provides version information for Alfresco Content Services and Alfresco Share
 
 * `VERSIONS.md`: This file provides a list of recommended components for the latest Alfresco Content Services release
+
+## Tailor your installation
+
+When installing Alfresco Content Services, an important part of the configuration process is the removal of any unused applications. Use this information to determine any applications that you might want to remove from your installation and how to remove them.
+
+For example, if you want a Share-only tier, remove the Alfresco WAR file and any Solr configurations. Likewise, if you want an Alfresco-only tier, remove the Alfresco Share WAR file and any Solr configurations.
+
+### Remove the alfresco.war file
+
+The Alfresco WAR file is a bundle file containing the required WAR files, additional commands, configuration files, and licenses for a manual installation. Use this information to remove the `alfresco.war` file from your application.
+
+If you want a Share-only tier in your application, you will need to delete the `alfresco.war` file from your application server. The `alfresco.war` file is stored in the `<TOMCAT_HOME>` directory.
+
+1. Navigate to the `<TOMCAT_HOME>/webapps` directory.
+
+2. Delete the `alfresco.war` file.
+
+You've successfully removed the `alfresco.war` file from your application server.
+
+### Remove the share.war file
+
+Use this information to remove the `share.war` file from your application.
+
+If you want an Alfresco Content Services-only tier in your application, you'll need to delete the `share.war` file from your application server. The `share.war` file is stored in the `<TOMCAT-HOME>` directory.
+
+1. Navigate to the `<TOMCAT_HOME>/webapps` directory.
+
+2. Delete the `share.war` file.
+
+You've successfully removed the `share.war` file from your application server.
+
+Next, you can [customize applications](#LINK-concepts/modify-alf-apps.md) such as the configuration for Content Services, Alfresco Share, and Alfresco Search Services.
+
+### Adding a reverse proxy in front of Alfresco Content Services
+
+It's good security practice to have a reverse proxy in front of your Alfresco Content Services infrastructure. This proxy is then configured with a whitelist of allowed URLs, and blocks everything else.
+<!-- needs more details -->
+You can find a sample NGINX configuration in our GitHub project, [https://github.com/Alfresco/acs-ingress](https://github.com/Alfresco/acs-ingress){:target="_blank"}, and the corresponding image in Docker Hub, [alfresco/alfresco-acs-nginx](https://hub.docker.com/r/alfresco/alfresco-acs-nginx){:target="_blank"}.
