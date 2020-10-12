@@ -5,8 +5,6 @@
       path: '/aws-glacier/latest/'
     - title: "Install"
       path: '/aws-glacier/latest/install/'
-    - title: 'Upgrade'
-      path: '/aws-glacier/latest/upgrade/'
     - title: "Configure"
       path: '/aws-glacier/latest/config/'
     - title: 'Using'
