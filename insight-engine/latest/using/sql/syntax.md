@@ -218,7 +218,7 @@ When you search, entries are generally a term or a phrase. The string representa
 
 You can specify either a particular date or a date literal. A date literal is a fixed expression that represents a relative range of time, for example last month, this week, or next year.
 
-`dateTime` field values are stored as Coordinated Universal Time (UTC). The date fields represent a point in time with millisecond precision. For date field formatting, Solr uses [DateTimeFormatter.ISO_INSTANT](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_INSTANT). The ISO instant formatter formats an instant in Coordinated Universal Time (UTC), for example:
+`dateTime` field values are stored as Coordinated Universal Time (UTC). The date fields represent a point in time with millisecond precision. For date field formatting, Solr uses [DateTimeFormatter.ISO_INSTANT](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_INSTANT){:target="_blank"}. The ISO instant formatter formats an instant in Coordinated Universal Time (UTC), for example:
 
 ```bash
 YYYY-MM-DDThh:mm:ssZ
@@ -392,7 +392,7 @@ Templates can refer to other templates.
 
 ```sql
 nameAndTitle -> %(cm:name, cm:title)
-nameAndTitleAndDesciption -> %(nameAndTitle, cm:description)   
+nameAndTitleAndDesciption -> %(nameAndTitle, cm:description)
 ```
 
 ## Search for ranges
@@ -446,8 +446,8 @@ Spans and positions are not implemented. Positions will depend on tokenization.
 Anything more detailed than one *(2) two are arbitrarily dependent on the tokenization. An identifier and pattern matching, or dual FTS and ID tokenization, might be the answer in these cases.
 
 ```sql
-term[^] - start 
-term[$] - end 
+term[^] - start
+term[$] - end
 term[position]
 ```
 

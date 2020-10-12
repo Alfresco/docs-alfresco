@@ -3,10 +3,7 @@ title: Building Reports and Dashboards
 ---
 Alfresco Search and Insight Engine comes with a number of out-of-the box reports and a dashboard builder with pre-configured reports based on Alfresco Insight Zeppelin. Alfresco Insight Zeppelin is a web-based notebook that enables data-driven, interactive data analytics, data visualization, and collaborative documents using SQL.
 
-To use the reports and dashboard builder, you need to install Alfresco Insight Zeppelin using one of the following installation methods:
-
-* Docker Compose see [Deploy Alfresco Insight Zeppelin using Docker Compose](../tasks/deploying-apache-zeppelin.md)
-* Manual installation see [Deploy Alfresco Insight Zeppelin using a distribution zip](../tasks/deploying-apache-zeppelin-zip.md)
+To use the reports and dashboard builder, you need to install Alfresco Insight Zeppelin.
 
 > **Note:** For this version of Alfresco Search and Insight Engine, cluster mode is not supported.
 
@@ -20,8 +17,8 @@ For more information on using Alfresco Insight Zeppelin see [Alfresco Insight Ze
 
 There are several options for installing Alfresco Insight Zeppelin:
 
-* Install manually using a distribution ZIP
-* Install using Docker Compose
+* [Installing with a distribution zip](#Installing-with-a-distribution-zip).
+* [Installing with Docker Compose](#Installing-with-Docker-Compose).
 
 > **Note** You do not need to install Alfresco Insight Zeppelin in order to use Search and Insight Engine.
 
@@ -41,7 +38,7 @@ Use this information to manually install Alfresco Insight Zeppelin using a distr
 
     This script reads the zeppelin.properties file in ZEPPELIN_HOME. Use the zeppelin.properties file to change the Alfresco Content Services repository connection details.
 
-    Alternatively, you can pass `REPO_PROTOCOL`, `REPO_HOST`, and `REPO_PORT` to the script from the command line. For example, `REPO_PROTOCOL=https REPO_HOST=myhost REPO_PORT=8443./substituter.sh`. You don't have to pass all the variables just the ones you want to override. The default values are: `REPO_PROTOCOL=http, REPO_HOST=localhost, and REPO_PORT=8080`. The port number, context path or other properties can be changed in `ZEPPELIN_HOME/conf/zeppelin-env.sh` on Unix like systems (or `ZEPPELIN_HOMEconfzeppelin-env.cmd` for Microsoft Windows). See [Apache Zeppelin Configuration](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html) for a full list of properties.
+    Alternatively, you can pass `REPO_PROTOCOL`, `REPO_HOST`, and `REPO_PORT` to the script from the command line. For example, `REPO_PROTOCOL=https REPO_HOST=myhost REPO_PORT=8443./substituter.sh`. You don't have to pass all the variables just the ones you want to override. The default values are: `REPO_PROTOCOL=http, REPO_HOST=localhost, and REPO_PORT=8080`. The port number, context path or other properties can be changed in `ZEPPELIN_HOME/conf/zeppelin-env.sh` on Unix like systems (or `ZEPPELIN_HOMEconfzeppelin-env.cmd` for Microsoft Windows). See [Apache Zeppelin Configuration](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html){:target="_blank"} for a full list of properties.
 
 4. To start the Alfresco Insight Zeppelin Server, run:
 
@@ -142,7 +139,7 @@ Also, if the domain name of the Alfresco Content Services repository does not ma
 
 You can deploy Alfresco Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.2 and Alfresco Search and Insight Engine.
 
-For details about deployment using the Docker Compose file, see [Deploying Search and Insight Engine using Docker Compose](search-insight-deploying.md).
+For details about deployment using the Docker Compose file, see [Installation options]({% link insight-engine/latest/install/options.md %}#Installing-with-docker-compose).
 
 1. Open your `docker-compose.yml` file, and insert the following container information:
 

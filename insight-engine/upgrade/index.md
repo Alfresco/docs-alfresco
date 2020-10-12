@@ -3,7 +3,7 @@ title: Upgrade to Search and Insight Engine
 ---
 Use this information to upgrade from Alfresco Search and Insight Engine 1.x to Search and Insight Engine 2.0.
 
-> **Note:** A reindex is required when you upgrade from Search and Insight Engine 1.x to Search and Insight Engine 2.0. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Search and Insight Engine externalized configuration](../concepts/external-properties-solr.md). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
+> **Note:** A reindex is required when you upgrade from Search and Insight Engine 1.x to Search and Insight Engine 2.0. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine externalized configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
 
 1. Stop Search and Insight Engine.
 

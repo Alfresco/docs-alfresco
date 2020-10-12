@@ -5,7 +5,7 @@ Use this information to repair a transaction that failed to index.
 
 > **Note:** The default URL for the Solr index is http://localhost:8080/solr/....
 
-To repair an unindexed or failed transaction (as identified by the REPORT option in the [Unindexed Solr Transactions](solr-unindex.md) section), run the following report:
+To repair an unindexed or failed transaction (as identified by the REPORT option in the [Unindexed Solr Transactions]({% link insight-engine/latest/admin/monitor/index.md %}) section), run the following report:
 
 ```http
 http://localhost:8080/solr/admin/cores?action=FIX 
@@ -59,14 +59,14 @@ WARNING: SSL server initiated renegotiation is disabled, closing connection 
 
 This message indicates that one side of the SSL connections is trying to renegotiate the SSL connection. This form of negotiation was found to be susceptible to man-in-the-middle attacks and it was disabled in the Java JSEE stack until a fix could be applied.
 
-Refer to the following link for more information: [https://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html](https://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html).
+Refer to the following link for more information: [https://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html](https://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html){:target="_blank"}.
 
-Refer also to the following links: 
+Refer also to the following links:
 
-* [https://www.gremwell.com/enabling\_ssl\_tls\_renegotiation\_in\_java](https://www.gremwell.com/enabling_ssl_tls_renegotiation_in_java)
-* [https://tomcat.apache.org/tomcat-6.0-doc/config/http.html](https://tomcat.apache.org/tomcat-6.0-doc/config/http.html)
+* [https://www.gremwell.com/enabling\_ssl\_tls\_renegotiation\_in\_java](https://www.gremwell.com/enabling_ssl_tls_renegotiation_in_java){:target="_blank"}
+* [https://tomcat.apache.org/tomcat-6.0-doc/config/http.html](https://tomcat.apache.org/tomcat-6.0-doc/config/http.html){:target="_blank"}
 
-If your version of Java does not have the fix, you need to re-enable renegotiation by performing the following steps: 
+If your version of Java does not have the fix, you need to re-enable renegotiation by performing the following steps:
 
 1. Add the `-Dsun.security.ssl.allowUnsafeRenegotiation=true` option to `JAVA_OPTS`.
 2. Add the `allowUnsafeLegacyRenegotiation="true"` option to the Tomcat SSL connector.

@@ -3,8 +3,9 @@ title: Installation options
 ---
 There are several options for installing Search and Insight Engine:
 
-* Install manually using a distribution ZIP (either with mutual TLS or without mutual TLS)
-* Install using Docker Compose
+* [Installing with a distribution zip with mutual TLS](#Installing-with-a-distribution-zip-with-mutual-TLS)
+* [Installing with a distribution zip without mutual TLS](#Installing-with-a-distribution-zip-without-mutual-TLS)
+* [Installing with Docker Compose](#Installing-with-docker-compose)
 
 ## Installing with mutual TLS with the distribution zip
 

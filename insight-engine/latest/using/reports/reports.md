@@ -5,7 +5,7 @@ Alfresco Insight Zeppelin lets you create reports using SQL. The reports can be 
 
 ## Insight Zeppelin
 
-> **Note:** Before upgrading Alfresco Insight Zeppelin ensure you backup your notes first. Then once the upgrade is complete you can re-import them. See [Export/Import Alfresco Insight Zeppelin Notes](../tasks/search-insight-engine-upgrade-note.md).
+> **Note:** Before upgrading Alfresco Insight Zeppelin ensure you backup your notes first. Then once the upgrade is complete you can re-import them. See [Export/Import Alfresco Insight Zeppelin Notes]({% link insight-engine/latest/config/note.md %})
 
 This is a list of pre-configured reports:
 

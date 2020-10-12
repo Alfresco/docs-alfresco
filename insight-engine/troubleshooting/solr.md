@@ -12,12 +12,12 @@ WARNING: SSL server initiated renegotiation is disabled, closing connection 
 
 This message indicates that one side of the SSL connections is trying to renegotiate the SSL connection. This form of negotiation was found to be susceptible to man-in-the-middle attacks and it was disabled in the Java JSEE stack until a fix could be applied.
 
-Refer to the following link for more information: [https://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html](https://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html). 
+Refer to the following link for more information: [https://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html](https://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html){:target="_blank"}.
 
-Refer also to the following links: 
+Refer also to the following links:
 
-* [https://www.gremwell.com/enabling_ssl_tls_renegotiation_in_java](https://www.gremwell.com/enabling_ssl_tls_renegotiation_in_java)
-* [https://tomcat.apache.org/tomcat-6.0-doc/config/http.html](https://tomcat.apache.org/tomcat-6.0-doc/config/http.html)
+* [https://www.gremwell.com/enabling_ssl_tls_renegotiation_in_java](https://www.gremwell.com/enabling_ssl_tls_renegotiation_in_java){:target="_blank"}
+* [https://tomcat.apache.org/tomcat-6.0-doc/config/http.html](https://tomcat.apache.org/tomcat-6.0-doc/config/http.html){:target="_blank"}
 
 If your version of Java does not have the fix, you need to re-enable renegotiation by performing the following steps: 
 

@@ -5,7 +5,7 @@ Below is a list of the supported and unsupported SQL commands available to use w
 
 ## Supported SQL
 
-> **Note:** If a SQL command is not listed it is not supported. For a list of unsupported SQL commands see [Unsupported SQL Commands](unsupported-sql.md).
+> **Note:** If a SQL command is not listed it is not supported.
 
 ## Select Statements
 
@@ -35,7 +35,7 @@ Fields from Alfresco’s out of-the-box content models, as well as fields from c
 
 ### Escaping Fields
 
-Fields that include reserved words or special characters will need to be escaped using the back tick character (`). The `cm_content.size` field in the example SQL statement is an example of back tick escaping. The only non-word character that can be used without escaping is the underscore “_”. We use Apache Calcite which has a list of reserved words that also need to be escaped, see [https://calcite.apache.org/docs/reference.html](https://calcite.apache.org/docs/reference.html). You are most likely to hit reserved keywords picking aliases for fields.
+Fields that include reserved words or special characters will need to be escaped using the back tick character (`). The `cm_content.size` field in the example SQL statement is an example of back tick escaping. The only non-word character that can be used without escaping is the underscore “_”. We use Apache Calcite which has a list of reserved words that also need to be escaped, see [https://calcite.apache.org/docs/reference.html](https://calcite.apache.org/docs/reference.html){:target="_blank"}. You are most likely to hit reserved keywords picking aliases for fields.
 
 ### Select Queries
 
@@ -346,22 +346,6 @@ SQL aggregations without a GROUP BY clause return a single result tuple with the
 ```sql
 select count(*) as docCount, avg(`cm_content.size`) as content_size from alfresco where cm_owner = 'xyz
 ```
-
-### Aggregate functions
-
-Alfresco SQL supports the following aggregation functions:
-
-* `count(*)`
-* `count(field)`
-* `count(distinct field)`
-* `sum(numeric_field)`
-* `avg(numeric_field)`
-* `min(numeric_field)`
-* `max(numeric_field)`
-
-### Aggregate Fields
-
-Any numeric field can be used within the aggregations sum, avg, min, and max. As with the basic SELECT statements, aggregation fields defined by content models can be referenced using the content model prefix. Fields that are reserved words or contain special characters need to be escaped with the back tick character.
 
 ### Aggregate Result Tuple
 
