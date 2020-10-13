@@ -1,0 +1,28 @@
+---
+title: Support Policies
+---
+A glossary of terms and the Support policy for Alfresco Products, Components, and Versions.
+
+## Product Support Policy
+
+See the [Alfresco Product Support Status](https://www.alfresco.com/services/subscription/technical-support/product-support-status){:target="_blank"} page for the current support state and transition dates for all Alfresco products.
+
+Use the **Glossary** below for definitions, and the [Alfresco Product Support Lifecycle]({% link support/latest/policies/product-lifecycle.md %}) page for an overview on Support states and transitions.
+
+At the time of release for any given Alfresco product or module, Alfresco will attempt to identify dates for support state transitions. Alfresco will identify support state transitions for each family of a given product and each release within each family. Support for given service pack or hotfix bundles will coincide with support transition dates for the family and release to which the service pack or hotfix apply.
+
+In cases where Alfresco cannot identify support state transition dates in advance, the [Alfresco Product Support Status](https://www.alfresco.com/alfresco-product-support-status){:target="_blank"} will reflect ‘TBA’ for that particular transition. Alfresco will announce TBA dates as soon as those dates can be determined. Wherever possible, Alfresco will announce transition dates at least 1 year in advance of the announced date. In some cases, for example, and without limitation, where 3rd party interactions are present, it may not be possible to adhere to the 1 year notification policy.
+
+Alfresco may at its sole discretion restate transition dates for specific products to be later than the currently specified dates. In some cases, for example, and without limitation, where 3rd party interactions are present, Alfresco may at Alfresco’s sole discretion restate transition dates earlier than previously specified dates.
+
+## Glossary
+
+The following is a Glossary of terms related to the Alfresco Product Support policy:
+
+|Term|Description|
+|----|-----------|
+|Version Numbering|Alfresco Software uses a four-place numbering scheme to designate released versions of software. The format is **F.R.SP.HF**, where F indicates the Family, R indicates the Release, SP indicates the service pack and HF indicates the Hot Fix. An example is version 4.2.1.3. Often in referring to general product versions, only the first two numbers are used. For example, both 4.2 and 4.2.1 may be referred to as 4.2.|
+|Family|A family is a fully functional Alfresco Software product that typically contains significant new functionality. A family is referenced using the F portion of the release number as described previously.|
+|Release|A release is a fully functional Alfresco Software product which typically contains cumulative patches and limited new functionality.|
+|Service Pack (SP)|A service pack is a cumulative patch release.|
+|Hot Fix (HF)|A hot fix is a limited patch release.|
