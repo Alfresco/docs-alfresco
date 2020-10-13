@@ -1,4 +1,4 @@
-# Support Handbook
+# Support Handbook 1.0
 - version: 1.0
   pages:
     - title: 'Alfresco Support Handbook'
@@ -7,7 +7,7 @@
       path: '/support/latest/packages/'
     - title: 'Roles and Responsibilities'
       path: '/support/latest/roles/'
-   - title: 'Contact Alfresco Support'
+    - title: 'Contact Alfresco Support'
       path: '/support/latest/contact/'
       pages: 
         - title: 'Support issue resources and case logging'
