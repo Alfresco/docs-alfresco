@@ -3,16 +3,8 @@
   pages:
     - title: 'Introduction'
       path: '/transform-service/latest/'
-    - title: 'Install'
-      pages: 
-        - title: 'Overview'
-          path: '/transform-service/latest/install/'
-        - title: 'Install with Zip'
-          path: '/transform-service/latest/install/zip'
-        - title: 'Install Docker Compose'
-          path: '/transform-service/latest/install/containerized'
-        - title: 'Install with Helm Charts on AWS'
-          path: '/transform-service/latest/install/helm'
+    - title: 'Install'    
+      path: '/transform-service/latest/install/'        
     - title: 'Configure'
       pages: 
         - title: 'Extending Transform Service'
@@ -27,9 +19,6 @@
           path: '/transform-service/latest/config/hello-world'
         - title: 'Configuring a custom T-Engine'
           path: '/transform-service/latest/config/custom-engine'
-    - title: 'Administer'
-      pages: 
-        - title: 'Troubleshooting'
-          path: '/transform-service/latest/admin/'
-        - title: 'Error Handling'
-          path: '/transform-service/latest/admin/error-handling' 
+    - title: 'Troubleshooting'
+      path: '/transform-service/latest/admin/'
+      

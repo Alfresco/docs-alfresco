@@ -1,6 +1,7 @@
 ---
 title: Install Docker Compose
 ---
+
 Use this information to quickly start up Alfresco Content Services (including Transform Service) using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is only recommended for development and test environments.
 
 Since we need to use private (Enterprise-only) Docker images from Quay.io, you need credentials to be able to pull those images from Quay.io. Alfresco customers can request their credentials by logging a ticket at [https://support.alfresco.com/](https://support.alfresco.com/).
