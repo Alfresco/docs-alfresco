@@ -26,4 +26,4 @@ If you are a customer or partner, then you can escalate your enhancement via the
 
 ## Can I request an enhancement for a specific Alfresco product/version
 
-Yes, if your product / version is in "Full Support" state. Please refer to the [Product Support Policy]({% link support/latest/policies/product-policy.md %}) section for more details.
+Yes, if your product or version is in "Full Support" state. Please refer to the [Product Support Policy]({% link support/latest/policies/index.md %}) section for more details.
