@@ -8,5 +8,5 @@ It is recommended you familiarize yourself with the concepts of containerized de
 
 Follow these links to find out how to deploy Digital Workspace using Helm charts or Docker Compose:
 
-* [Deploying Alfresco Content Services with Helm charts on AWS](http://docs.alfresco.com/6.2/tasks/deploy-helm-aws.html).
-* [Deploying using Docker Compose](https://docs.alfresco.com/6.2/tasks/deploy-docker-compose.html).
+* [Deploying Alfresco Content Services with Helm charts on AWS LINK LINK](http://docs.alfresco.com/6.2/tasks/deploy-helm-aws.html).
+* [Deploying using Docker Compose LINK](https://docs.alfresco.com/6.2/tasks/deploy-docker-compose.html).
