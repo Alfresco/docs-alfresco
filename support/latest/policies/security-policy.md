@@ -47,7 +47,7 @@ The severity of the issue and the Product Support Status determines which versio
 
 For support status of your version please refer to the [Alfresco Product Support Status](https://www.alfresco.com/services/subscription/technical-support/product-support-status){:target="_blank"} page.
 
-For definitions and glossary please refer to the [Product Support Lifecycle]({% link support/latest/policies/product-lifecycle.md) page.
+For definitions and glossary please refer to the [Product Support Lifecycle]({% link support/latest/policies/product-lifecycle.md %}) page.
 
 Follows the fix version policy Alfresco Software will apply for security issues:
 
