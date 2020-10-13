@@ -1,0 +1,16 @@
+# Alfresco Content Connector for AWS S3 
+- version: 2.2
+  pages:
+    - title: 'Introduction'
+      path: '/salesforce/latest/'
+    - title: "Install"
+      path: '/salesforce/latest/install/'
+    - title: 'Upgrade'
+      path: '/salesforce/latest/upgrade/'
+    - title: "Configure"
+      path: '/salesforce/latest/config/'
+    - title: 'Using'
+      pages:
+        - title: 'FAQ'
+          path: '/salesforce/latest/using/faq/'
+
