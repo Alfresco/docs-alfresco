@@ -70,7 +70,7 @@ See [Install Docker Compose]({% link transform-service/latest/install/containeri
 
 ### Requirements for using the distribution zip
 
-Before you can use the Transform Service zip, you need to install the following software requirements.
+Before you can use the Transform Service zip, you need to install the software requirements listed in [Supported platforms]({% link transform-service/latest/support/index.md %}).
 
 Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](LINK).
 
