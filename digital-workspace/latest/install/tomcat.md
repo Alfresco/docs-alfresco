@@ -1,7 +1,7 @@
 ---
 title: Install into Tomcat zip
 ---
-To install Alfresco Digital Workspace into Tomcat, you first need to install Alfresco Content Services 6.2 or above using the distribution zip. See [Installing using distribution zip](https://docs.alfresco.com/6.2/concepts/ch-install.html) for more information.
+To install Alfresco Digital Workspace into Tomcat, you first need to install Alfresco Content Services 6.2 or above using the distribution zip. See [Installing using distribution zip LINK](https://docs.alfresco.com/6.2/concepts/ch-install.html) for more information.
 
 1. Log in to the Support Portal at [https://support.alfresco.com](https://support.alfresco.com/).
 
@@ -25,7 +25,7 @@ To install Alfresco Digital Workspace into Tomcat, you first need to install Alf
 
    > **Note:** If Quickshare is disabled in Alfresco Content Services ignore this step.
 
-    To disable Quickshare, set `system.quickshare.enabled=false` in the \tomcat\shared\classes\alfresco-global.properties file. For more information, see [Using the alfresco-global.properties file](https://docs.alfresco.com/6.2/concepts/global-props-intro.html).
+    To disable Quickshare, set `system.quickshare.enabled=false` in the \tomcat\shared\classes\alfresco-global.properties file. For more information, see [Using the alfresco-global.properties file LINK](https://docs.alfresco.com/6.2/concepts/global-props-intro.html).
 
 8. Save the file.
 
