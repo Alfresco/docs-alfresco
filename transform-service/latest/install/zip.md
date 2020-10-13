@@ -6,7 +6,7 @@ Use these instructions to install Transform Service using the distribution zip t
 
 The Transform Service distribution zip file includes all the files required to provide the Transform Service capabilities. Ensure that you've installed the prerequisites before continuing, for more see [Install Transform Service]({% link transform-service/latest/install/index.md %}).
 
-1. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"} and download alfresco-transform-service-distribution-1.3.x.zip.
+1. Download `alfresco-transform-service-distribution-1.3.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
 2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
