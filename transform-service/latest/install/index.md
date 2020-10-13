@@ -43,7 +43,7 @@ The other images are available in DockerHub:
 * `alfresco/alfresco-shared-file-store`
 * `alfresco/alfresco-transform-core-aio`
 
-### Requirements for using Helm Charts**
+### Requirements for using Helm charts
 
 To use the Alfresco Content Services deployment (including the Transform Service), you need to install the following software:
 
