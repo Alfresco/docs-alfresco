@@ -1,5 +1,5 @@
 ---
-title: Escalate An Issue
+title: Escalate an Issue
 ---
 
 Occasionally, an issue requires a faster response, more attention, and a deeper understanding of the impact on your business.

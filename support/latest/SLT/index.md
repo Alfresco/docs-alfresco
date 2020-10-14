@@ -6,7 +6,7 @@ You can view your support cases at any time via the Support Portal. Below are th
 
 Under Developer Support, the initial response target for all cases is one business day regardless of severity. At this time, there is no target offered for case resolution.
 
-All support center telephone numbers are available via the **Contact Us** button on the Support Portal Home Page or you can search for **Support Numbers** within the [Support Portal](https://support.alfresco.com){:target="_blank"}.
+All support center phone numbers are available via the **Contact Support** link on the home page or you can search for **Support Numbers** within the [Support Portal](https://support.alfresco.com){:target="_blank"}.
 
 Initial Service Level Target Response Times
 

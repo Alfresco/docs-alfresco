@@ -1,5 +1,5 @@
 ---
-title: Extensions and integrations support
+title: Extensions and Integrations Support
 ---
 
 Alfresco Content Services is a modular platform and offers certain capabilities in the form of **add-on extensions**, typically packaged as Alfresco Module Package (AMP) or as of Alfresco version 5.1 as Alfresco Simple Modules (JAR), developed by Alfresco Software or by its Community ecosystem. We describe here the different types of extensions they support and compatibility.

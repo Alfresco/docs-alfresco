@@ -1,5 +1,5 @@
 ---
-title: Support issue resources and case logging
+title: Support Issue Resources and Case Logging
 ---
 
 The [Support Portal](https://support.alfresco.com){:target="_blank"} has a variety of self-service tools. You can also log a support case in this portal.
@@ -41,6 +41,6 @@ Please help us to help you by including the following details when you log a cal
 * Attach a JMX Dump, if possible
 * When the issue started
 * Any changes made around this time
-* Impact the issue is having; please refer to [Alfresco Severity definitions](LINK su-severity-defs.md#)
+* Impact the issue is having; please refer to [Alfresco Severity definitions]({% link support/latest/severity/index.md %})
 * Troubleshooting carried out to date
 * Any supporting evidence, such as log files or on-screen messages

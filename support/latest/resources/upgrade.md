@@ -8,7 +8,6 @@ Alfresco Support is often asked for advice on what is likely to change between A
 
 |Upgrade Type|Code Changes|||Advice before applying version in production||
 |------------|------------|------|-------------|-------|----------------|
-
 |||Backup|Testing Cycle|Reindex|Database Changes|
 |------------|------------|------|-------------|-------|----------------|
 |Version Upgrade|Major changes, enhancements, and fixes|Full|Full|Possible|Probable|

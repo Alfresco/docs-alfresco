@@ -9,4 +9,4 @@ Our support centers are open to support all of our customer's local business hou
 |Premier/Enterprise/Partner|24*7 on all Severity One issues. For all other issues, 8AM-6PM (08.00-18.00) Monday to Friday based on the customer contact's local business hours.|
 |Starter/Business|8AM-6PM (08.00-18.00) Monday to Friday based on the customer contact's local business hours.|
 
-All support center telephone numbers are available via the **Contact Us** button on the Support Portal Home Page or you can Search for **Support Numbers** within the [Support Portal](https://support.alfresco.com){:target="_blank"}.
+All support center phone numbers are available via the **Contact Support** link on the home page or you can Search for **Support Numbers** within the [Support Portal](https://support.alfresco.com){:target="_blank"}.

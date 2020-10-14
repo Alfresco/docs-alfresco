@@ -28,6 +28,6 @@ In order for the support team to address your issue, we may request additional i
 
 Normally, a support case is only closed and marked "Resolved" upon your satisfaction. If the reported issue has not been seen before, the issue and resolution will be documented in our Knowledge Base to assist other customers who may encounter the same issue.
 
-To access the Knowledge Base, login to the [Support Portal](https://support.alfresco.com/){:target="_blank"}, and then go to the Solutions Tab.
+To access the Knowledge Base, login to the [Support Portal](https://support.alfresco.com/){:target="_blank"}, and click **Knowledge Base**.
 
 Your feedback is important to us. As the last step in the life cycle, you will be asked to complete a short survey designed to help us improve our service. In addition, you are welcome to let us know your thoughts at any time by emailing us at [support@alfresco.com](mailto:support@alfresco.com).

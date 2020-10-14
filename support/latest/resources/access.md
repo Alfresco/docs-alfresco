@@ -32,4 +32,4 @@ Source code for most Alfresco products, including ACS, APS, and many modules, is
 
 If you are unable to locate the source code for a product or module, or need credentials to the Nexus repository, please contact Alfresco Support.
 
-> **Important:** If you modify the code beyond basic extensions, you will invalidate your support contract. To ensure this does not occur, please contact Alfresco with your proposed changes.
+> **Note:** If you modify the code beyond basic extensions, you will invalidate your support contract. To ensure this does not occur, please contact Alfresco with your proposed changes.
