@@ -1,6 +1,7 @@
 ---
 title: Supported/Unsupported SQL commands
 ---
+
 Below is a list of the supported and unsupported SQL commands available to use when writing queries against your Solr datastore.
 
 ## Supported SQL

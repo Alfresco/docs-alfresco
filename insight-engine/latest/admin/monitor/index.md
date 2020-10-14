@@ -1,6 +1,7 @@
 ---
 title: Unindexed Solr Transactions
 ---
+
 You can check the status of the Solr index to identify the nodes to a transaction that failed to index.
 
 To generate a report for Solr 6, including the last transaction indexed and the time, use:

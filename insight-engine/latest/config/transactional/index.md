@@ -1,6 +1,7 @@
 ---
 title: Transactional metadata query
 ---
+
 Alfresco Content Services supports the execution of a subset of the CMIS Query Language (CMIS QL) and Alfresco Full Text Search (AFTS) queries directly against the database. Also, the noindex subsystem supports queries only against the database. This collection of features is called transactional metadata query (TMDQ).
 
 TMDQ supports use cases where eventual consistency is not the preferred option.

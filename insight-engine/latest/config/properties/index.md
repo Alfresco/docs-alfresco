@@ -1,6 +1,7 @@
 ---
 title: Full text search configuration properties for Solr index 
 ---
+
 The Solr index's full text search properties influence the behaviour of Solr indexes.
 
 The main index and deltas all use the same configuration. The data dictionary settings for properties determine how individual properties are indexed.

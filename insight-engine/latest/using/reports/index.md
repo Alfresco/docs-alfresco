@@ -1,6 +1,7 @@
 ---
 title: Building Reports and Dashboards
 ---
+
 Alfresco Search and Insight Engine comes with a number of out-of-the box reports and a dashboard builder with pre-configured reports based on Alfresco Insight Zeppelin. Alfresco Insight Zeppelin is a web-based notebook that enables data-driven, interactive data analytics, data visualization, and collaborative documents using SQL.
 
 To use the reports and dashboard builder, you need to install Alfresco Insight Zeppelin.

@@ -1,6 +1,7 @@
 ---
 title: Installation options
 ---
+
 There are several options for installing Search and Insight Engine:
 
 * [Installing with a distribution zip with mutual TLS](#Installing-with-a-distribution-zip-with-mutual-TLS)

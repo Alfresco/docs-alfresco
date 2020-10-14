@@ -1,6 +1,7 @@
 ---
 title: Reports and other tools
 ---
+
 Alfresco Insight Zeppelin lets you create reports using SQL. The reports can be put together to make a dashboard. You can also use other business intelligence tools.
 
 ## Insight Zeppelin

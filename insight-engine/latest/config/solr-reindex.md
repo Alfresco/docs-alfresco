@@ -1,6 +1,7 @@
 ---
 title: Performing a full reindex with Solr
 ---
+
 This task describes how to perform a full Solr reindex.
 
 The task assumes you are using only one Solr instance for all nodes in the Alfresco Content Services cluster. If not, then you need to repeat the process on each Solr instance used in the cluster.

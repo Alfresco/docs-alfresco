@@ -1,6 +1,7 @@
 ---
 title: Configuring Alfresco Search and Insight Engine 
 ---
+
 Use the following information to configure Alfresco Search and Insight Engine.
 
 ## Alfresco Search and Insight Engine subsystem

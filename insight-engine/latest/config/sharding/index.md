@@ -1,6 +1,7 @@
 ---
 title: Solr Sharding 
 ---
+
 Solr sharding involves splitting a single Solr index into multiple parts, which may be on different machines. When the data is too large for one node, you can break it up and store it in sections by creating one or more shards, each containing a unique slice of the index.
 
 Sharding is important for two primary reasons:

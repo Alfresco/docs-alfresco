@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting Solr Index and SSL configurations
 ---
+
 Use this information to repair a transaction that failed to index.
 
 > **Note:** The default URL for the Solr index is http://localhost:8080/solr/....

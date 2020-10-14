@@ -1,6 +1,7 @@
 ---
 title: Embed queries in CMIS.
 ---
+
 These examples show how to embed queries in CMIS.
 
 ## Embedded in CMIS contains()

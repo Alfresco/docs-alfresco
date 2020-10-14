@@ -1,6 +1,7 @@
 ---
 title: Export/Import Alfresco Insight Zeppelin Notes
 ---
+
 Before upgrading Alfresco Search and Insight Engine ensure you export each individual Alfresco Insight Zeppelin note so you can reimport them after the upgrade. If you don't do this your notes will be lost as they do not carry over during the upgrade.
 
 > **Note:** When importing an Alfresco Insight Zeppelin note you may need to set its note permissions again.

@@ -1,6 +1,7 @@
 ---
 title: Defining custom search filters
 ---
+
 ## Defining custom search filters using configuration file
 
 You can define and create your own custom filters for being displayed on the search results page.

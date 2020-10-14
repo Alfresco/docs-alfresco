@@ -1,4 +1,6 @@
-# Solr core configuration properties
+---
+title: Solr core configuration properties
+---
 
 The solrcore.properties configuration file is the property configuration file for a Solr core. There is one solrcore.properties file in each core's configuration directory. Use this information to understand the properties of this file, their description, and the default value.
 

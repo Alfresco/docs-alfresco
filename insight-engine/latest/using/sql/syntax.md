@@ -1,6 +1,7 @@
 ---
 title: Alfresco Full Text Search Reference
 ---
+
 The following sections describe the Alfresco Full Text Search (FTS) syntax.
 
 The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `contains()` predicate function. The CMIS specification supports a subset of FTS. The full power of FTS can not be used and, at the same time, maintain portability between CMIS repositories.

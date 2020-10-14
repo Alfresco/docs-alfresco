@@ -1,6 +1,7 @@
 ---
 title: Solr replication
 ---
+
 Solr replication uses the master-slave model to distribute complete copies of a master index to one or more slave servers.
 
 The master server receives all updates and all changes are made against a single master server. Changes made on the master are distributed to all the slave servers which service all query requests from the clients. This enables Solr to remain responsive even with high query traffic.
