@@ -26,7 +26,7 @@ Connectors are created as [BPMN elements]({% link process-automation/latest/mode
 
     * **Create a new instance** if it is the first time using the connector within the project and give it a name.
 
-    * Select an existing instance if the connector has already been used within the project and the tasks will share the same [configuration parameters](LINK), for example using the same SMTP provider to send an email.
+    * Select an existing instance if the connector has already been used within the project and the tasks will share the same [configuration parameters](#configuration-parameters), for example using the same SMTP provider to send an email.
 
 4. Drag the connector onto the diagram canvas and fill in the properties.
 
@@ -84,9 +84,9 @@ An example of the JSON for the Slack connector **SEND_MESSAGE** action is:
 
 ### Events
 
-Events are criteria that can be used by triggers to create trigger events against and execute an action when specific patterns are met. For example, the email connector event **MESSAGE_RECEIVED** can monitor the subject line of emails and if it matches a defined pattern it can start a new process instance.
+Events are used as part of defining event criteria in a [trigger](). When the event criteria specified in a trigger are met, an action is started. Certain connectors can be used for defining event criteria. For example, the email connector event **MESSAGE_RECEIVED** can be used to monitor inbound emails. If a pattern defined in the trigger is met then a trigger action is started.
 
-See [triggers](LINK) for further details on creating event criteria based on connectors.
+See [triggers]({% link process-automation/latest/model/triggers.md %}) for further details on creating event criteria based on connectors.
 
 Connector events contain a set of input and output parameters. Input parameters can be used to define a pattern for when an event should be created and output parameters can be used as values within a trigger action.
 

@@ -57,7 +57,6 @@ An example of how the template can import values from the `metadata` is:
 </html>
 ```
 
-
 ## Configuration parameters
 
 The configuration parameters for the email connector are:
@@ -79,7 +78,7 @@ The configuration parameters for the email connector are:
 | POLLING_PAGINATION | *Optional.* The number of emails retrieved in a single request. |
 | CRON_SCHEDULE | *Optional.* A Cron expression to configure the inbound polling frequency. |
 
-> **Note**: The polling configuration parameters are used when configuring the email connector [triggers](LINK).
+> **Note**: The polling configuration parameters are used when configuring email connector [triggers]({% link process-automation/latest/model/triggers.md %}).
 
 ## Errors
 

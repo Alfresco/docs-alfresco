@@ -137,7 +137,7 @@ The data types that a process variable can be set as are:
 | Boolean | A value of either `true` or `false` |
 | Date | A specific date in the format `YYYY-MM-DD`, for example `2020-04-22` |
 | Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss`, for example `2020-09-10 22:30:00` |
-| File | A [file](LINK) uploaded into a process definition or as part of a process instance or task |
+| File | A [file]({% link process-automation/latest/model/files.md %}) uploaded into a process definition or as part of a process instance or task |
 | JSON | A JSON object, for example `{"flavor" : "caramel"}` |
 | Folder | A folder object described as JSON, for example `"name": "mint-folder"` |
 | Array | A comma separated list of entries, for example `mint, strawberry, vanilla` that will be formatted to `["mint","strawberry","vanilla"]` |
@@ -184,7 +184,7 @@ There are five options for setting the **Mapping** behavior:
 
 When variables are not mapped, there is no transfer of data between process variables and other models within the process.
 
-For example, if **Don't map variables** is selected for a user task in a process then none of the form fields will be populated with values from earlier within the process instance. Simliarly, when the form is completed none of the values entered by the user can be reused later in the process, such as within a decision table.
+For example, if **Don't map variables** is selected for a user task in a process then none of the form fields will be populated with values from earlier within the process instance. Similarly, when the form is completed none of the values entered by the user can be reused later in the process, such as within a decision table.
 
 {% endcapture %}
 {% capture map %}
@@ -213,7 +213,7 @@ If **Map variables** is selected as the **Mapping** type, there are three ways o
 
 An example of using the **Map variables** option is a decision table that contains the input `Price` and the output `Decision` and the process contains the process variables `Total` and `customerResponse` the mapping can be configured like the following:
 
-![Map variables example image]({% link process-automation/images/map-variables.png %})
+![Map variables example image]({% link process-automation/images/map-variables.png %}){:height="300px" width="190px"}
 
 At runtime, the value for the process variable `Total` will be sent as the input to the decision table when that point in the process instance is reached. Once the decision table has evaluated the input, the value of the output `Decision` will be sent back to the process variable `customerResponse` which can then be used later in the process, such as in sending an email to a customer.
 
@@ -229,18 +229,18 @@ For example, if **Map all input variables** is selected for an instance of the e
 
 **Map all output variables** will automatically map values or variables from a model to process variables in the process if their names are identical. If there is no process variable with a matching name to one of the outputs of the model it will be created when the model is executed using the name of the output value or variable. Inputs are not mapped at all, so there will be no initial transfer of data from process variables to the other model.
 
-For example, if **Map all output variables** is selected for a start event that contains a form, the data entered to start the process can be used further in the process by mapping the values from fields within the form to process variables in the process. Process variables can be created during modeling time that use the same name as form fields, or alternatively they will be created automically once the user task is completed at runtime.
+For example, if **Map all output variables** is selected for a start event that contains a form, the data entered to start the process can be used further in the process by mapping the values from fields within the form to process variables in the process. Process variables can be created during modeling time that use the same name as form fields, or alternatively they will be created automatically once the user task is completed at runtime.
 
 {% endcapture %}
 {% capture all %}
 
 **Map all variables** will automatically map the values of process variables to values or variables within a model if their names are identical. It will also map values or variables from a model to the process variables in the process if their names are idenitcal. Additionally, for output variables only, if there is no process variable with a matching name to one of the outputs of the model it will be created when the model is executed using the name of the output value or variable.
 
-For example, if **Map all variables** is selected for a user task that conaints an `orderStatus` field on the form, a process variable with the name `orderStatus` can be used to set the status of an order automatically when the user task is started. Before the task is completed, a user can update the `orderStatus` field on the form and it will update the same process variable when the task is finished with the new status. Additionally, all the other form fields will be created as process variables when the task is completed.
+For example, if **Map all variables** is selected for a user task that contains an `orderStatus` field on the form, a process variable with the name `orderStatus` can be used to set the status of an order automatically when the user task is started. Before the task is completed, a user can update the `orderStatus` field on the form and it will update the same process variable when the task is finished with the new status. Additionally, all the other form fields will be created as process variables when the task is completed.
 
 {% endcapture %}
 
-{% include tabs.html tableid="mapping" opt1="Don't map variables" content1=none opt2="Map variables" content2=map opt3="Map input variables" content3=input opt4="Map output variables" content4=output opt5="Mapp all variables" content5=all %}
+{% include tabs.html tableid="mapping" opt1="Don't map variables" content1=none opt2="Map variables" content2=map opt3="Map input variables" content3=inputs opt4="Map output variables" content4=outputs opt5="Map all variables" content5=all %}
 
 Any mapping configured in a process is stored in the **Extensions Editor** using the ID of the BPMN element. If not sending any variables then the ID of the element will not appear in the mappings section. The following is an example of explicitly mapping variables:
 

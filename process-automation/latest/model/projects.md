@@ -75,32 +75,32 @@ The following is an example of an exploded zip file of a project called *holiday
 
 ```bash
 /holiday/
-	/connectors/
-		emailConnector.json
-	/decision-tables/
-		auto-approve-extensions.json
-		auto-approve.xml
-	/files/
-		approval-policy.bin
-		approval-policy-extensions.json	
-	/forms/
-		approval-form.json
-	/processes/
-		approve-extensions.json
-		approve.bpmn.xml
-		request-extensions.json
-		request.bpmn20.xml
-	/scripts/
-		update-calendar.bin
-		update-calendar-extensions.json
+    /connectors/
+        emailConnector.json
+    /decision-tables/
+        auto-approve-extensions.json
+        auto-approve.xml
+    /files/
+        approval-policy.bin
+        approval-policy-extensions.json	
+    /forms/
+        approval-form.json
+    /processes/
+        approve-extensions.json
+        approve.bpmn.xml
+        request-extensions.json
+        request.bpmn20.xml
+    /scripts/
+        update-calendar.bin
+        update-calendar-extensions.json
     /triggers/
-		approval-email.json
-	/ui/
-		process.json
+        approval-email.json
+    /ui/
+        process.json
     /content-models/
         holiday-model.xml
         holiday-model-extensions.json
-	holiday.json
+    holiday.json
 
 ```
 

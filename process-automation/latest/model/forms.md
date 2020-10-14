@@ -12,7 +12,7 @@ Forms can be used in three different ways:
 
 * As standalone tasks where the form can be used in a task that is not associated to any process.
 
-Forms can also be based on [content models](LINK) allowing content metadata to be updated within a form and subsequently managed in a process using the [content connector](LINK).
+Forms can also be based on [content models]({% link process-automation/latest/model/content-models.md %}) allowing content metadata to be updated within a form and subsequently managed in a process using the [content connector]({% link process-automation/latest/model/connectors/content.md %}).
 
 ## Properties
 
@@ -50,7 +50,7 @@ To create a form:
 
 5. (Optional) If the form is going to be used to manage content metadata, check the **Create initial form content from a content model** box.
 
-6. (Optional) Choose which custom type and custom aspects should be used in the form and whether inherited properties should be included. The list will be generated from the [content models](LINK) available to the project the form is created in.
+6. (Optional) Choose which custom type and custom aspects should be used in the form and whether inherited properties should be included. The list will be generated from the [content models]({% link process-automation/latest/model/content-models.md %}) available to the project the form is created in.
 
 > **Note**: Creating a form based on a content model will automatically create form fields for the properties included in the selected custom type and aspects. These fields will retain any constraints set for them in their content model, such as regular expressions. An [attach file field](#attach-file-fields) will also be added with the label `nodes` for attaching content to the form.
 
@@ -303,7 +303,7 @@ The advanced properties for a text field are:
 Form widgets provide the ability to add custom form fields into a form. There are two stages to including a custom form field in a project:
 
 * Create a custom form widget within the Modeling Application and use it within a form.
-* Develop a [custom user interface](LINK). and the logic for the form widget using the [Application Development Framework](LINK).
+* Develop a [custom user interface](LINK) and the logic for the form widget using the [Application Development Framework](LINK).
 
 ### Custom form widget properties
 
@@ -312,7 +312,7 @@ The basic properties of a form widget are:
 | Property | Description |
 | -------- | ----------- |
 | Form widget name | *Required.* The name of the form widget. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `custom-field` |
-| Value type | *Required.* The type the field will be treated as when mapping it to [process variables](LINK), for example a Boolean form widget can only map to a process variable of type boolean. |
+| Value type | *Required.* The type the field will be treated as when mapping it to [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables), for example a Boolean form widget can only map to a process variable of type boolean. |
 | Icon | *Required.* An SVG image for the field icon. |
 | Form description | *Optional.* A description of what the field does. |
 
@@ -346,7 +346,7 @@ See the [developer section](LINK) for details on how to develop the custom form 
 
 ## Form variables
 
-Form variables can be used to pass and receive values from [process variables](LINK). They can be used to set the [visibility conditions](#visibility-conditions) of form fields and to [display values](#display-value-fields) to form fillers.
+Form variables can be used to pass and receive values from [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables). They can be used to set the [visibility conditions](#visibility-conditions) of form fields and to [display values](#display-value-fields) to form fillers.
 
 ### Form variable properties
 
@@ -368,7 +368,7 @@ The data types that a form variable can be set as are:
 | Boolean | A value of either `true` or `false` |
 | Date | A specific date in the format `YYYY-MM-DD`, for example `2020-04-22` |
 | Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss`, for example `2020-09-10 22:30:00` |
-| File | A [file](LINK) uploaded into a process definition or as part of a process instance or task |
+| File | A [file]({% link process-automation/latest/model/files.md %}) uploaded into a process definition or as part of a process instance or task |
 | JSON | A JSON object, for example `{"flavor" : "caramel"}` |
 | Folder | A folder object described as JSON, for example `"name": "mint-folder"` |
 | Array | A comma separated list of entries, for example `mint, strawberry, vanilla` that will be formatted to `["mint","strawberry","vanilla"]` |

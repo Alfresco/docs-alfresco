@@ -18,7 +18,7 @@ The types of start event are:
 
 ### Start event
 
-Start events are where the trigger is unspecified for starting a process. The trigger can be using a form, manually through the Digital Workspace, using the REST API or from a [trigger](LINK).
+Start events are where the trigger is unspecified for starting a process. The trigger can be using a form, manually through the Digital Workspace, using the REST API or from a [trigger]({% link process-automation/latest/model/triggers.md %}).
 
 {% capture start-prop %}
 
@@ -1760,7 +1760,7 @@ An example of the XML of a multi-instance element is:
 
 ### Script task
 
-Script tasks are used to include [scripts](LINK) in a process definition.
+Script tasks are used to include [scripts]({% link process-automation/latest/model/scripts.md %}) in a process definition.
 
 Script tasks are essentially treated as service tasks and will always have the `implementation` value of `script.EXECUTE`. The `name` of the script that is associated to the script task is used as the `value` under `_activiti_script_` when viewing the **Extensions Editor**.
 
@@ -1782,7 +1782,7 @@ Script tasks can be set to repeat sequentially or in parallel when the process f
 
 #### Script name
 
-The name of the [script](LINK) to use. The script must exist within the same project as the process definition to be selected. Select a script from the dropdown, else create a new one using the **+** symbol.
+The name of the [script]({% link process-automation/latest/model/scripts.md %}) to use. The script must exist within the same project as the process definition to be selected. Select a script from the dropdown, else create a new one using the **+** symbol.
 
 #### Mapping type
 
@@ -1900,7 +1900,7 @@ An example of the XML of a multi-instance element is:
 
 ### Service task
 
-Service tasks are used to include [connectors](LINK), business rule tasks and script tasks in a process.
+Service tasks are used to include [connectors]({% link process-automation/latest/model/connectors/index.md %}), business rule tasks and script tasks in a process.
 
 > **Note**: Service tasks do not emit the `TASK_CREATED` and `TASK_COMPLETED` events. The `INTEGRATION_REQUESTED` and `INTEGRATION_RESULT_RECEIVED` events should be monitored to report or track service tasks instead.
 
@@ -1926,7 +1926,7 @@ The implementation value is used to associate a connector with a service task. F
 
 #### Action
 
-An action selects which of the connector actions that service task should execute, for example whether to send a message or create a new channel in Slack when using the [Slack connector](LINK).
+An action selects which of the connector actions that service task should execute, for example whether to send a message or create a new channel in Slack when using the [Slack connector]({% link process-automation/latest/model/connectors/slack.md %}).
 
 #### Mapping type
 
@@ -2349,7 +2349,7 @@ An example of the XML of a multi-instance element is:
 
 Sub-processes are also known as embedded sub-processes and can be expanded or collapsed. Elements for the sub-process can only be dragged into an expanded sub-process. Use the spanner icon against a sub-process to toggle between a collapsed and expanded state.
 
-A sub-process requires a start and an end event. Only a [standard start event](LINK) can be used in embedded sub-processes. The sequence flow within a sub-process cannot cross its boundary without the sub-process completing. The advantage of a sub-process is that it creates its own scope within a process. This allows for boundary events to be attached to the sub-process.
+A sub-process requires a start and an end event. Only a [standard start event](#start-event) can be used in embedded sub-processes. The sequence flow within a sub-process cannot cross its boundary without the sub-process completing. The advantage of a sub-process is that it creates its own scope within a process. This allows for boundary events to be attached to the sub-process.
 
 > **Note**: When a sub-process is executed as part of a process instance, it does not receive a new `processInstanceId`. The elements within the sub-process will be executed under the ID of the parent process. [Process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) are also shared between a sub-process and its parent with no additional mapping required.
 

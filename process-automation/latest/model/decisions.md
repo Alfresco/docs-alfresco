@@ -4,7 +4,7 @@ title: Decision tables
 
 Decision tables are used to manage business decisions within process workflows. They adhere to the Decision Model and Notation (DMN) standard. Decision tables take at least one input and have at least one output. The inputs are evaluated against a set of rules defined by the modeler and then produce the relevant output(s) that match those rules back to the process.
 
-Decision tables can be added to a process definition by creating a [business rule task](LINK) and selecting the `name` of a decision table from the dropdown.
+Decision tables can be added to a process definition by creating a [business rule task]({% link process-automation/latest/model/processes/index.md %}#business-rule-task) and selecting the `name` of a decision table from the dropdown.
 
 ## Properties
 
@@ -41,7 +41,7 @@ The following is a decision table that selects the best flavor of ice cream to e
 
 ### Inputs
 
-Inputs are the fields a decision table evaluates against. In the ice cream decision table the inputs are `dayOfWeek` and `temperature` of data types `string` and `integer` respectively. [Process variables](LINK) and a [mapping type](LINK) are used to pass the value of an input into the decision table to be evaluated. Inputs also contain a label which are `Day of the week` and `Temperature (Celsius)` in the example.
+Inputs are the fields a decision table evaluates against. In the ice cream decision table the inputs are `dayOfWeek` and `temperature` of data types `string` and `integer` respectively. [Process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) and a [mapping type]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) are used to pass the value of an input into the decision table to be evaluated. Inputs also contain a label which are `Day of the week` and `Temperature (Celsius)` in the example.
 
 The following is the XML for input variable `dayOfWeek`:
 
@@ -72,7 +72,7 @@ Input entries use the FEEL (Friendly Enough Expression Language) language.
 
 ### Outputs
 
-Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. Output values can be passed back to the process using [process variables](LINK) and setting the desired [mapping type](LINK). In the ice cream decision table the output `name` is `flavor` and it is of data type `string`.
+Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. Output values can be passed back to the process using [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) and setting the desired [mapping type]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping). In the ice cream decision table the output `name` is `flavor` and it is of data type `string`.
 
 The following is the XML for the output from the ice cream decision table
 

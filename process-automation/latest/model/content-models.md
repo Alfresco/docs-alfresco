@@ -40,7 +40,7 @@ To use a global content model within a specific project:
 
 2. Click the **NEW** dropdown.
 
-3. Select **Upload > Content Model** and choose the model to import.
+3. Select **Import > Content Model** and choose the model to import.
 
 ### Create a content model in a project
 

@@ -100,7 +100,7 @@ The output parameters from the Comprehend analysis are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | awsResponse | JSON | *Optional.* The result of the analysis from the the Comprehend service. |
-| aisResponse | JSON | *Optional.* The result of the analysis in [Alfresco Intelligence Service](LINK) format. |
+| aisResponse | JSON | *Optional.* The result of the analysis in [Alfresco Intelligence Service]({% link intelligence-services/latest/index.md %}) format. |
 | entities | JSON | *Optional.* The result object containing the entities detected. |
 
 ### Comprehend configuration parameters
@@ -170,7 +170,7 @@ The output parameters from the Rekognition analysis are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | awsResponse | JSON | *Optional.* The result of the analysis from the the Rekognition service. |
-| aisResponse | JSON | *Optional.* The result of the image analysis in [Alfresco Intelligence Service](LINK) format. |
+| aisResponse | JSON | *Optional.* The result of the image analysis in [Alfresco Intelligence Service]({% link intelligence-services/latest/index.md %}) format. |
 | labels | JSON | *Optional.* The result object containing the labels detected. |
 
 ### Rekognition configuration parameters

@@ -208,7 +208,7 @@ The configuration parameters for the REST connector are:
 | --------- | ----------- |
 | EVENT_NOT_MATCH_STATUS | *Optional.* The HTTP response code to return to an external system if no triggers are matched by an incoming webhook request, for example `404`. |
 
-> **Note**: The configuration parameters for the REST connector are used for configuring webhooks using [triggers](LINK).
+> **Note**: The configuration parameters for the REST connector are used for configuring webhooks using [triggers]({% link process-automation/latest/model/triggers.md %}).
 
 ## Errors
 
