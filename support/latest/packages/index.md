@@ -70,7 +70,7 @@ Developer Support is a support offering delivered remotely by a dedicated team o
 
 Unlimited cases can be raised via the Customer Support Portal and will be managed through a separate Development Support Queue, with a 1-business day SLT for initial response. At this time, there is no SLT offered for case resolution.
 
-For more information, see the Alfresco Developer Support Services page [https://www.alfresco.com/services/subscription/technical-support/alfresco-developer-support](https://www.alfresco.com/services/subscription/technical-support/alfresco-developer-support){:target="_blank"}.
+For more information, see the [Alfresco Developer Support Services](https://www.alfresco.com/services/subscription/technical-support/alfresco-developer-support){:target="_blank"} page.
 
 ## Alfresco Partner Support
 

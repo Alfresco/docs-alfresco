@@ -317,8 +317,6 @@ defaults:
       product: "Alfresco Support Handbook"
       location: "support"
       toc: "support"
-      versions:
-        - 1.0
   - scope:
       path: "support/latest"
     values:
