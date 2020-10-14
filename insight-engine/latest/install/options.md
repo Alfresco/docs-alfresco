@@ -4,8 +4,8 @@ title: Installation options
 
 There are several options for installing Search and Insight Engine:
 
-* [Installing with a distribution zip with mutual TLS](#Installing-with-a-distribution-zip-with-mutual-TLS)
-* [Installing with a distribution zip without mutual TLS](#Installing-with-a-distribution-zip-without-mutual-TLS)
+* [Installing with mutual TLS with the distribution zip](#Installing-with-mutual-TLS-with-the-distribution-zip)
+* [Installing without mutual TLS with the distribution zip](#Installing-with-mutual-TLS-with-the-distribution-zip)
 * [Installing with Docker Compose](#Installing-with-docker-compose)
 
 ## Installing with mutual TLS with the distribution zip
@@ -16,7 +16,6 @@ Mutual TLS is used for authentication between the Repository and Alfresco Search
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 6.2 or above, with clustering enabled, see [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms).
 * Set the following properties in the <TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
 
     ```bash
@@ -196,7 +195,7 @@ If you are not using sharded Alfresco Search and Insight Engine:
 2. Deselect **Dynamic Shard Instance Registration**.
 3. Select **Purge at Startup**.
 
-## Installing Insight Engine without mutual TLS
+## Installing without mutual TLS with the distribution zip
 
 Use this information to install Alfresco Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS.
 
@@ -204,7 +203,6 @@ Mutual TLS is used for authentication between the Repository and Search and Insi
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 6.2 or above, see [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms).
 * Set the following properties in the <TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
 
     ```bash
@@ -319,7 +317,7 @@ This task assumes you have:
 
     2. Under **Main (Workspace) Store Tracking Status**, the **Approx Transactions to Index** is **0**.
 
-## Installing using Docker compose
+## Installing with Docker compose
 
 Use this information to start up Alfresco Content Services 6.2 or above and Alfresco Search and Insight Engine 2.0 using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 

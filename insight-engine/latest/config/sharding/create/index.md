@@ -32,7 +32,7 @@ An index can be distributed over several Solr nodes by creating and configuring 
 
 1. Set the configuration properties that apply to all the cores in a Solr instance in the <ALFRESCO_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties file.
 
-    For shard registration, Alfresco Content Services needs to know the Solr port where the requests should be sent. This can be configured, along with an explicit host name.
+   For shard registration, Alfresco Content Services needs to know the Solr port where the requests should be sent. This can be configured, along with an explicit host name.
 
     ```bash
     solr.host=<hostname>
@@ -58,31 +58,31 @@ Let's consider an example for creating 8 shards, 3 instances of each shard, and 
 |Node 5|x||x|x|x||||
 |Node 6||x||x|x|x|||
 
-    To achieve this sharding configuration, follow the steps below for each Solr node N:
+To achieve this sharding configuration, follow the steps below for each Solr node N:
 
-    1. Delete any existing `alfresco` and `archive` cores using the following commands.
+1. Delete any existing `alfresco` and `archive` cores using the following commands.
 
-        ```http
-        https://<hostnameN>:8983/solr/admin/cores?action=removeCore&storeRef=workspace://SpacesStore&coreName=alfresco
-        https://<hostnameN>:8983/solr/admin/cores?action=removeCore&storeRef=workspace://SpacesStore&coreName=archive
-        ```
+ ```http
+ https://<hostnameN>:8983/solr/admin/cores?action=removeCore&storeRef=workspace://SpacesStore&coreName=alfresco
+ https://<hostnameN>:8983/solr/admin/cores?action=removeCore&storeRef=workspace://SpacesStore&coreName=archive
+ ```
 
-    2.  Recreate the sharded cores to set up index tracking.
+2. Recreate the sharded cores to set up index tracking.
 
-        Call the following URLs:
+   Call the following URLs:
 
-        ```http
-        http://<hostnameN>:<portN>/solr/admin/cores?action=newCore&storeRef=workspace://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&template=rerank
-        http://<hostnameN>:<portN>/solr/admin/cores?action=newCore&storeRef=archive://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&template=rerank
-        ```
+   ```http
+   http://<hostnameN>:<portN>/solr/admin/cores?action=newCore&storeRef=workspace://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&template=rerank
+   http://<hostnameN>:<portN>/solr/admin/cores?action=newCore&storeRef=archive://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&template=rerank
+   ```
 
-    3.  For each core (alfresco and archive), the properties can be set at the creation time or updated later.
+3. For each core (alfresco and archive), the properties can be set at the creation time or updated later.
 
-        ```http
-        https://<hostnameN>:<portN>/solr/admin/cores?action=updateCore&storeRef=system://system&property.data.dir.store=<SOME_VALUE>
-        ```
+    ```http
+    https://<hostnameN>:<portN>/solr/admin/cores?action=updateCore&storeRef=system://system&property.data.dir.store=<SOME_VALUE>
+    ```
 
-    You should now have six nodes with four cores, each actively tracking the repository. The following URL options are available for use:
+You should now have six nodes with four cores, each actively tracking the repository. The following URL options are available for use:
 
 |URL option|Description|
 |----------|-----------|
@@ -108,15 +108,15 @@ Let's consider an example for creating 8 shards, 3 instances of each shard, and 
     solr6.store.mappings.value.solrMappingArchive.replicationFactor=3
     ```
 
-    In the above examples, `nodeString` is a list of URLs where the `alfresco` core can be accessed.
+In the above examples, `nodeString` is a list of URLs where the `alfresco` core can be accessed.
 
-    For a two node system with Solr node 1: `http://<hostname1>:<port1>/solr/#/alfresco`, and Solr node 2: `http://<hostname2>:<port2>/solr/#/alfresco`, then:
+For a two node system with Solr node 1: `http://<hostname1>:<port1>/solr/#/alfresco`, and Solr node 2: `http://<hostname2>:<port2>/solr/#/alfresco`, then:
 
-    ```bash
-    solr6.store.mappings.value.solrMappingAlfresco.nodeString=<hostname1>:<port1>/solr/#/alfresco,<hostname2>:<port2>/solr/#/alfresco
-    ```
+   ```bash
+   solr6.store.mappings.value.solrMappingAlfresco.nodeString=<hostname1>:<port1>/solr/#/alfresco,<hostname2>:<port2>/solr/#/alfresco
+   ```
 
-    Similarly, set `nodeString` for the `archive` core.
+Similarly, set `nodeString` for the `archive` core.
 
     > **Note:** These properties can also be configured via a JMX client or using the subsystem properties to reference the composite beans.
 

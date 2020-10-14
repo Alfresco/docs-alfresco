@@ -2,13 +2,9 @@
 title: Migrating Search Services and Search and Insight Engine 
 ---
 
-Use the following to either:
+Use this information to migrate from Search Services to Search and Insight Engine using the distribution zip or docker compose, including how to migrate Search and Insight Engine to Search Services.
 
-* Migrate from Alfresco Content Services 6.2 with Search Services to Alfresco Content Services 6.2 with  Search and Insight Engine.
-* Upgrade and migrate from Alfresco Content Services 5.x with Search Services to Alfresco Content Services 6.2 with Search and Insight Engine.
-* Migrate to Search Services from Insight Engine.
-
-> **Note:** Most migrations can be completed using either Docker Compose or the distribution zip. You can't upgrade Alfresco Content Services 5.x using Docker Compose.
+> **Note:** You can only migrate to Search Services using the distribution zip.
 
 ## Migrating with zip
 
@@ -69,11 +65,13 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Al
 
 There are two steps to migrating your installation from Alfresco Content Services 5.x with Alfresco Search Services to Alfresco Content Services 6.2 with  Search and Insight Engine. First you need to upgrade to Alfresco Content Services 6.2 with Search Services, and then migrate Search Services to Search and Insight Engine.
 
+> **Note:** You can't upgrade Alfresco Content Services 5.x using Docker Compose.
+
 1. Upgrade from Alfresco Content Services 5.x to Alfresco Content Services 6.2, for more see [Upgrading from Solr 4 to Solr 6 search](https://docs.alfresco.com/search-enterprise/tasks/solr4-solr6-migration.html).
 
     > **Note:** You can't do this using Docker Compose.
 
-2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.2 with Search Services 1.3 or above](#Migrating Content Services 6.2 with Search Services 1.3 or above).
+2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.2 with Search Services 1.3 or above](#Migrating-Content-Services-6.2-with-Search-Services-1.3-or-above).
 
 ## Migrating using Docker Compose
 

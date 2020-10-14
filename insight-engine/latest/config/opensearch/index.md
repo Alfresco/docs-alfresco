@@ -12,14 +12,14 @@ You can configure OpenSearch to use a search engine proxy.
 
 2. Create a new search engine proxy, using the `proxy` attribute. For example:
 
-  ```xml
-  <engine label="Alfresco Open Source Talk" proxy="opentalk">
-      <url type="application/rss+xml">http://blogs.alfresco.com/opentalk/
-    os-query?s={searchTerms}&itemstart={startIndex?}&itempage={startPage?}
-    &itemlimit={count?}</url>
-    </engine>
+    ```xml
+    <engine label="Alfresco Open Source Talk" proxy="opentalk">
+        <url type="application/rss+xml">http://blogs.alfresco.com/opentalk/
+      os-query?s={searchTerms}&itemstart={startIndex?}&itempage={startPage?}
+      &itemlimit={count?}</url>
+      </engine>
     ```
 
-    The value of the `proxy` attribute must be a unique name that identifies the search engine.
+   > **note:** The value of the `proxy` attribute must be a unique name that identifies the search engine.
 
-3.  Save /config/alfresco/extension/web-scripts-config-custom.xml.
+3. Save /config/alfresco/extension/web-scripts-config-custom.xml.

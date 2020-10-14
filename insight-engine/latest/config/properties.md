@@ -15,7 +15,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |alfresco.changeSetAclsBatchSize|This property is used for batch fetching updates during tracking, for example `100`.|
 |alfresco.content.tracker.maxParallelism|Defines the number of threads that are used when indexing documents using the Content Tracker, for example `32`.|
 |alfresco.corePoolSize|This property specifies the pool size for multi-threaded tracking. It is used for indexing nodes, for example `3`.|
-|alfresco.cron|This property specifies the cron expression that instructs Solr how often to track Alfresco Content Services and index new or updated content. The default value indicates that Solr tracks every 15 seconds.|`0/15 * * * * ? *`.|
+|alfresco.cron|This property specifies the cron expression that instructs Solr how often to track Alfresco Content Services and index new or updated content. The default value indicates that Solr tracks every 15 seconds i.e. `0/15 * * * * ? *`.|
 |alfresco.doPermissionChecks|This property allows users to see the document name or properties on a search result, for example `true`.|
 |alfresco.encryption.ssl.keystore.location|This property specifies the CLIENT keystore location reference. If the keystore is file-based, the location can reference any path in the file system of the node where the keystore is located, for example `ssl.repo.client.keystore`.|
 |alfresco.encryption.ssl.keystore. passwordFileLocation|This property specifies the location of the file containing the password that is used to access the CLIENT keystore, also the default that is used to store keys within the keystore, for example `ssl-keystore-passwords.properties`.|
@@ -27,7 +27,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |alfresco.encryption.ssl.truststore.type|This property specifies the CLIENT truststore type, for example `JCEKS`.|
 |alfresco.hole.retention|Each track will revisit all transactions from the timestamp of the last in the index, less this value, to fill in any transactions that might have been missed, for example `3600000`.|
 |alfresco.host|This property specifies the host name for the instance that Solr should track and index, for example `localhost`.|
-|`alfresco.nodestate.tracker.cron`|This property controls the frequency of registration of a Search Services shard to Alfresco Content Services, for example `0/10 * * * * ? *)`. > **Note:** The value you set for `alfresco.nodestate.tracker.cron` should be lower than the value you set for `search.solrShardRegistry.shardInstanceTimeoutInSecond`, which is set in the alfresco-global.properties file.|
+|alfresco.nodestate.tracker.cron|This property controls the frequency of registration of a Search Services shard to Alfresco Content Services, for example `0/10 * * * * ? *)`. **Note:** The value you set for `alfresco.nodestate.tracker.cron` should be lower than the value you set for `search.solrShardRegistry.shardInstanceTimeoutInSecond`, which is set in the alfresco-global.properties file.|
 |alfresco.index.transformContent|If this property is set to false, the index tracker will not transform any content and only the metadata will be indexed, for example `false`.|
 |alfresco.keepAliveTime|This property specifies the time (in seconds) to keep non-core idle threads in the pool, for example `120`.|
 |alfresco.lag|When Solr tracking starts, it aims to get up to date to the current time (in seconds), less this lag, for example `1000`.|
@@ -54,7 +54,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |enable.alfresco.tracking|This property instructs Solr if it should index Alfresco Content Services content in the associated repository store or not, for example `true`.|
 |max.field.length|This property specifies the maximum number of tokens to include for each field. By default, all tokens are added, for example `2147483647`.|
 |maxScheduledTransactions|This optional parameter controls the maximum transactions to schedule for reindexing in the admin fix tool. If the admin fix action specifies a value for `maxScheduledTransactions` then the request parameter that is used in the solrcore.properties configuration file is ignored.|
-|search.solrShardRegistry.dbidRangeRefreshTimeoutInSeconds|This property controls the frequency of synchronisation of the shard information between multiple ACS instances for `DBID_Range` sharding, for example `30`. > **Note:** This property is only used when you are using `DBID_Range` sharding with multiple ACS instances.|
+|search.solrShardRegistry.dbidRangeRefreshTimeoutInSeconds|This property controls the frequency of synchronisation of the shard information between multiple ACS instances for `DBID_Range` sharding, for example `30`. **Note:** This property is only used when you are using `DBID_Range` sharding with multiple ACS instances.|
 |solr.authorityCache.autowarmCount|This property configures the Solr result cache, for example `0`.|
 |solr.authorityCache.initialSize|This property configures the caches used in authority filter generation, for example `64`.|
 |solr.authorityCache.size|This property configures the caches used in authority filter generation, for example `64`.|

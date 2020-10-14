@@ -7,8 +7,6 @@
       pages:
         - title: 'Overview'
           path: '/insight-engine/latest/install/'
-        - title: 'Prerequisites'
-          path: '/insight-engine/latest/install/prerequisites/'
         - title: 'Install options'
           path: '/insight-engine/latest/install/options/'
     - title: 'Upgrade and Migration'
@@ -47,7 +45,7 @@
           path: '/insight-engine/latest/admin/'
         - title: 'Solr logging'
           path: '/insight-engine/latest/admin/debugging/'
-        - title: 'Solr Monitoring and troubleshooting'
+        - title: 'Solr Monitoring'
           path: '/insight-engine/latest/admin/monitor/'
         - title: 'Fingerprinting'
           path: '/insight-engine/latest/admin/fingerprinting/'

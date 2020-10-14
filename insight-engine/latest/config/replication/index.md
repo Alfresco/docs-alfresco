@@ -14,10 +14,6 @@ The figure below shows a Solr configuration using index replication. The master 
 
 The master-slave replication requires non-SSL communication between the master server and the slave server.
 
-## Solr replication: advantages and disadvantages
-
-There are advantages and disadvantages of using a master-slave and master-master replication.
-
 ## Advantages and disadvantages of a master-slave index replication
 
 ### Advantages
@@ -44,12 +40,7 @@ There are advantages and disadvantages of using a master-slave and master-master
 |Achieves eventual consistency much more quickly than the master-slave replication.|Solr indexing is eventually consistent irrespective of the method used. It takes slightly longer in a master-slave replication because first the master index is updated and then that index change is replicated to the slave.|
 |In a master-master replication, the master nodes can't be configured to perform differently in different situations.|In the master-slave replication, the master and slave nodes can be configured to perform better under different situations. For example, the master node can be configured for optimal indexing performance, while the slave node can be configured for optimal search performance.|
 |Neither the master-master replication nor the master-slave replication includes any inbuilt functionality to switch Solr targets, in case one node fails.|Neither the master-master replication nor the master-slave replication includes any inbuilt functionality to switch Solr targets, in case one node fails.|
-|If a master node went down, the load balancer will direct all the query requests to a Solr node that was still running.|If a slave node went down, the same load-balancer behaviour would be relied on. But if the master node went down, then intervention would be required to:-   Designate a new master
-
-* Point the slaves to that new master
-* Point the new master to the repository
-
-|
+|If a master node went down, the load balancer will direct all the query requests to a Solr node that was still running.|If a slave node went down, the same load-balancer behaviour would be relied on. But if the master node went down, then intervention would be required to Designate a new master, then point the slaves to that new master, and then Point the new master to the repository|
 | |Requires an additional master node, so has slightly higher pre-requisites.|
 
 ## Solr replication configuration
@@ -97,10 +88,10 @@ The configuration affecting replication is controlled by a single file, alresco
 
     |Parameter|Description|
     |--------------|-----------|
-    |`replicateAfter`|String specifying action after which replication should occur. Valid values are, `commit`which triggers replication whenever a commit is performed on the master index,`optimize` which triggers replication whenever the master index is optimized and `startup` which triggers replication whenever the master index starts up. There can be multiple values for this parameter. If you use `startup`, you need to have a `commit` and/or `optimize` entry also if you want to trigger replication on future commits or optimizes.|
-    |`confFiles`|Comma-separated list of configuration files to replicate.|
+    |replicateAfter|String specifying action after which replication should occur. Valid values are, `commit`which triggers replication whenever a commit is performed on the master index,`optimize` which triggers replication whenever the master index is optimized and `startup` which triggers replication whenever the master index starts up. There can be multiple values for this parameter. If you use `startup`, you need to have a `commit` and/or `optimize` entry also if you want to trigger replication on future commits or optimizes.|
+    |confFiles|Comma-separated list of configuration files to replicate.|
 
-2.  Make sure that the solrcore.properties file has the following settings:
+2. Make sure that the solrcore.properties file has the following settings:
 
     ```bash
     enable.master=true
@@ -109,7 +100,7 @@ The configuration affecting replication is controlled by a single file, alresco
 
 ### Configuring Solr slave
 
-Here again, the solrconfig.xml file controls the configuration affecting replication. To configure the slave server, follow the steps below:`
+Here again, the solrconfig.xml file controls the configuration affecting replication. To configure the slave server, follow the steps below:
 
 1. Uncomment the `slave` section.
 
@@ -139,8 +130,8 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
 
     |Parameter name|Description|
     |--------------|-----------|
-    |`pollInterval`|Interval in which the slave should poll master .Format is *hh:mm:ss*. If this is missing, the slave server does not poll automatically.|
-    |`masterUrl`|Fully qualified URL for the replication handler of master. Make sure the `masterUrl` ends with <tomcat base url>/solr/alfresco.|
+    |pollInterval|Interval in which the slave should poll master .Format is *hh:mm:ss*. If this is missing, the slave server does not poll automatically.|
+    |masterUrl|Fully qualified URL for the replication handler of master. Make sure the `masterUrl` ends with <tomcat base url>/solr/alfresco.|
 
 2. Set the master URL to point to the Solr master. Also, set how often the slave server should poll for changes.
 
@@ -156,7 +147,7 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
     enable.slave=true
     ```
 
-    In this configuration, the Solr instance will only track model changes from the Alfresco Content Services platform.
+In this configuration, the Solr instance will only track model changes from the Alfresco Content Services platform.
 
 ## Additional Solr configuration
 

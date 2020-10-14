@@ -2,7 +2,7 @@
 title: Secure Keys
 ---
 
-This section describes a recommended approach for generating and setting up certificates. It is not required that you use this approach if you have an alternative solution that you already use.
+This section describes a recommended approach for generating secure keys and setting up certificates. It is not required that you use this approach if you have an alternative solution that you already use.
 
 If you're installing Alfresco Content Services using the distribution zip, you need to generate certificates for the repository and Solr. By default, the distribution zips are configured to use SSL, so you'll need to generate these certificates to get your system to run successfully.
 
@@ -63,7 +63,7 @@ Here is a full list of parameters that allow you to customize your certificates.
 |`-caservername`|Any string, localhost by default.|DNS Name of CA Server.|
 |`-alfrescoservername`|Any string, localhost by default.|DNS Name for Alfresco Server.|
 |`-solrservername`|Any string, localhost by default.|DNS Name For Solr Server.|
-|`-alfrescoformat`|classic | current|Default format for certificates: current for IE | SS 2.0.0+ and classic for previous versions.|
+|`-alfrescoformat`|classic| current|Default format for certificates: current for IE SS 2.0.0+ and classic for previous versions.|
 
 > **Note:** If you plan to use custom DNames in your certificates, you must use double quotes around the values. For example:
 
@@ -112,24 +112,12 @@ keystores
 
 |File name|Description|
 |---------|-----------|
-|`browser.p12`|The PKCS12 keystore generated from `ssl.keystore` that contains the repository private key and certificate for use in browsers, such as Firefox.
-
-|
-|`keystore`|Secret key keystore containing the secret key used to encrypt and decrypt node properties.
-
-|
-|`ssl.keystore`|Repository keystore containing the repository private/public key pair and certificate.
-
-|
-|`ssl.truststore`|Repository truststore containing certificates that the repository trusts.
-
-|
-|`ssl-repo-client.keystore`|Solr SSL keystore containing the Solr private/public key pair and certificate.
-
-|
-|`ssl-repo-client.truststore`|Solr truststore containing certificates that the repository trusts.
-
-|
+|browser.p12|The PKCS12 keystore generated from `ssl.keystore` that contains the repository private key and certificate for use in browsers, such as Firefox.|
+|keystore|Secret key keystore containing the secret key used to encrypt and decrypt node properties.|
+|ssl.keystore|Repository keystore containing the repository private/public key pair and certificate.|
+|ssl.truststore|Repository truststore containing certificates that the repository trusts.|
+|ssl-repo-client.keystore|Solr SSL keystore containing the Solr private/public key pair and certificate.|
+|ssl-repo-client.truststore|Solr truststore containing certificates that the repository trusts.|
 
 ## Setting up certificates
 
