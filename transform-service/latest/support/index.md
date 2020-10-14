@@ -2,7 +2,7 @@
 title: Supported Platforms
 ---
 
-The following are the supported platforms for Alfresco Transform Service 1.3:
+The following are the supported platforms and software requirements for Alfresco Transform Service 1.3:
 
 ## Alfresco Content Services
 
@@ -45,4 +45,4 @@ To use the Alfresco Content Services deployment (including the Transform Service
   * There are Helm charts that allow you to deploy Alfresco Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
 * [Kops](https://github.com/kubernetes/kops#installing){:target="_blank"} - this helps you to manage a Kubernetes cluster.
 
-See [Install Transform Service]({% link transform-service/latest/install/index.md %}#Installing-with-helm-charts-AWS) for more.
+See [Install Transform Service]({% link transform-service/latest/install/index.md %}#Installing-with-Helm-Charts-on-AWS) for more.

@@ -179,15 +179,15 @@ Use this information to quickly start up Alfresco Content Services (including Tr
 
 To check which branch tag corresponds to a specific Alfresco Content Services release, review the [release versions](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-chart-releases.md){:target="_blank"} page in GitHub. Choose a version from the left column that corresponds to the required Alfresco Content Services version you want to deploy.
 
-1. Clone the project locally, and then change directory to the project folder:
+   > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose, using the links provided.
 
-> **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose, using the links provided.
-    ```bash
+1. Clone the project locally, and then change directory to the project folder:
+  
+   ```bash
     git clone --branch x.y.z https://github.com/Alfresco/acs-deployment.git
     cd acs-deployment/docker-compose
     ```
 
-See [Install Docker Compose]({% link transform-service/latest/install/containerized.md %})for more. 
     > **Note:** Replace the version number `x.y.z` with the tag that matches the Alfresco Content Services version you want to deploy. For example, if you want Alfresco Content Services 6.2.2, then select tag `4.1.0`.
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
@@ -409,7 +409,7 @@ Here is a summary of the steps required:
 5. Deploy Alfresco Content Services.
 
 Before you can use the Transform Service zip, you need to install the following software requirements.
-    > **Note:** Remember to pass the name of the secret as an extra `--set` argument in the `helm install` command.
+   > **Note:** Remember to pass the name of the secret as an extra `--set` argument in the `helm install` command.
 
 Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](LINK). See [Supported Platforms](LINK) for the supported versions of each component:
 6. Check the status of your deployment.

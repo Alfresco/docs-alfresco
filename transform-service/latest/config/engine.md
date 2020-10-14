@@ -1,6 +1,27 @@
 ---
-title: Developing a new T-Engine
+title: Creating a custom T-Engine
 ---
+
+Alfresco Content Services provides a number of content transforms, but also allows you to add custom transforms. This section describes how to create custom transforms.
+
+The deployment and development of a T-Engine transformer is simpler than in previous versions of Alfresco Content Services.
+
+* Transformers no longer need to be applied as AMPs/JARs on top of the repository.
+* New versions may be deployed separately without restarting the repository.
+* As a standalone Spring Boot application, development and test cycles are reduced.
+* A base Spring Boot application is provided with hook points to extend it with custom transform code.
+* The base also includes the creation of a Docker image for your Spring Boot application. Even if you don't intend to deploy with Docker, this may still be of interest, as the configuration of any tools or libraries used in the transform need only be done once rather than for every development or ad-hoc test environment.
+
+## Developing a new T-Engine
+
+When developing new Local Transformers, it's a good idea to increase the polling frequency of the various locations that contain custom Pipeline, Rendition, Mimetype Definitions, and also of the Transform Service:
+
+```bash
+mimetype.config.cronExpression=0 0/1 * * * ?
+rendition.config.cronExpression=2 0/1 * * * ?
+local.transform.service.cronExpression=4 0/1 * * * ?
+transform.service.cronExpression=6 0/1 * * * ?
+```
 
 Use this information to create a simple Hello World transformer and test it.
 
@@ -121,3 +142,104 @@ public ProbeTestTransform getProbeTestTransform()
 ```
 
 This method provides a way to define a test transform for [T-Engine Probes](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/Probes.md){:target="_blank"}. For example, a test transform of a small file included in the Docker image.
+
+## Running hello world T-Engine standalone
+
+Use this information to run the example Hello World transform engine (T-Engine).
+
+1. Clone the [alfresco-helloworld-transformer](https://github.com/Alfresco/alfresco-helloworld-transformer/tree/master/alfresco-helloworld-transformer-engine){:target="_blank"} project.
+
+2. Navigate to the `alfresco-helloworld-transformer-engine` folder.
+
+3. Build the T-Engine:
+
+    ```bash
+    mvn clean install -Plocal
+    ```
+
+4. Start the T-Engine:
+
+    ```bash
+    docker run -d -p 8090:8090 --name alfresco-helloworld-transformer alfresco/alfresco-helloworld-transformer:latest
+    ```
+
+5. Create a test file named `source_file.txt` with the following content:
+
+    ```bash
+    T-Engines
+    ```
+
+6. Open your browser and go to `http://localhost:8090/`.
+
+    For convenience, the Hello World T-Engine provides an HTML form to POST requests to the `/transform` endpoint.
+
+7. In the HTML Form, choose `source_file.txt`.
+
+8. Specify a language, where the supported languages are: English, Spanish, German.
+
+9. Click `Transform` and then view the downloaded file.
+
+T-Engines provide a `/log` endpoint out of the box. This shows information about transformations performed by the T-Engine. In addition, the T-Engine server logs can be accessed using the Docker `logs` command. For example:
+
+```bash
+docker logs alfresco-helloworld-transformer
+```
+
+See the [Docker documentation](https://docs.docker.com/engine/reference/commandline/logs/){:target="_blank"} for more.
+
+## Configuring a custom T-Engine
+
+Use this information to configure a custom transform engine (T-Engine).
+
+1. Define an HTTP URL and JMS queue name for the T-Engine .
+
+    For example, you can configure custom T-Engines through environment variables:
+
+    ```bash  
+    export TRANSFORMER_URL_<CUSTOM_ENGINE_NAME>="http://custom-engine-host:8090"
+    export TRANSFORMER_QUEUE_<CUSTOM_ENGINE_NAME>="custom-engine-queue"
+    ```
+
+2. (Optional) Configure multi-step (pipeline) transformers:
+
+   1. Specify the mounting location of the pipeline definition file, `custom-pipeline-file.json`.
+
+        For example:
+
+        ```bash
+        /local/path/to/custom-pipeline-file.json:/mounting/location/of/custom-pipeline-file.json
+        ```
+
+   2. Specify the location through an environment variable.
+
+        For example:
+
+        ```bash
+        export TRANSFORMER_ROUTES_ADDITIONAL_<name>="/mounting/location/of/custom-pipeline-file.json"
+        ```
+
+    > **Note:** The `<name>` suffix doesn't need to match any labels - it just differentiates multiple additional route files. However, the T-Engine name can be used as it may help to make debugging easier.
+
+3. Create a JSON file that contains additional pipeline transformers.
+
+    For example:
+
+    ```json
+    {
+      "transformers": [
+        {
+            "transformerName": "pdfToImageViaPng",
+            "transformerPipeline" : [
+              {"transformerName": "pdfrenderer",      "targetMediaType": "image/png"},
+              {"transformerName": "imagemagick"}
+            ],
+            "supportedSourceAndTargetList": [
+            ],
+            "transformOptions": [
+              "pdfRendererOptions",
+              "imageMagickOptions"
+            ]
+        }
+      ]
+    }
+    ```
