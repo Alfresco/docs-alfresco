@@ -35,6 +35,8 @@ See [Install Transform Service]({% link transform-service/latest/install/index.m
 
 ## Software requirements (helm)
 
+> **Note:** (Recommended for evaluations only)
+
 To use the Alfresco Content Services deployment (including the Transform Service), you need to install the following software:
 
 * [AWS CLI](https://github.com/aws/aws-cli#installation){:target="_blank"} - the command line interface for Amazon Web Services.

@@ -19,8 +19,6 @@ The key capabilities of the Transform Service include the ability to:
 
 For information about deploying and configuring the Transform Service, see [Install Transform Service]({% link transform-service/latest/install/index.md %}).
 
-For earlier releases of the Transform Service, see the **Previous Versions** section of [https://docs.alfresco.com](https://docs.alfresco.com){:target="_blank"}.
-
 ## Deployment overview
 
 Some of the Docker images that are used by the Transform Service are uploaded to a private registry, **Quay.io**. Enterprise customers can contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} to request Quay.io account credentials to pull the private (Enterprise-only) Docker images:
