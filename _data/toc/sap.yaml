@@ -1,0 +1,16 @@
+# Alfresco Content Connector for SAP Applications
+- version: 5.0
+  pages:
+    - title: 'Introduction'
+      path: '/sap/latest/'
+    - title: "Install"
+      path: '/sap/latest/install/'
+    - title: 'Upgrade'
+      path: '/sap/latest/upgrade/'
+    - title: "Configure"
+      path: '/sap/latest/config/'
+    - title: 'Using'
+      pages:
+        - title: 'FAQ'
+          path: '/sap/latest/using/faq/'
+
