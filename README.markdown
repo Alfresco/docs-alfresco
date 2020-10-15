@@ -7,7 +7,7 @@ title: README
 
 ### Title
 
-The H1 title for a page is declared in the front matter using `title`.
+The H1 title for a page is declared in the front matter using `title`
 
 ```bash
 ---
