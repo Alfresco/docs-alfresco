@@ -346,6 +346,20 @@ defaults:
     values:
       version: 1.0
 
+# Alfresco Support Handbook 
+  - scope:
+      path: "support"
+    values:
+      layout: "docs"
+      product: "Alfresco Support Handbook"
+      location: "support"
+      toc: "support"
+  - scope:
+      path: "support/latest"
+    values:
+      version: 1.0
+      latest: true
+
 # Alfresco Activiti Enterprise
   - scope:
       path: "activiti"
