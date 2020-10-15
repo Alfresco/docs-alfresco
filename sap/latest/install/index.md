@@ -11,6 +11,8 @@ for information on what you require before you start the installation.
 
 You can download the Alfresco Content Connector for SAP applications software from the: [Alfresco Support Portal](https://support.alfresco.com/)
 
+To set up Communication via HTTPS see this [section]({% link sap/latest/config/index.md %}#securecomms).
+
 ## Prerequisites
 
 This topic lists the environment/software prerequisites for installing and using the SAP Connector.
@@ -105,7 +107,7 @@ establish the connection between Alfresco Content Services (the Repository) and 
 |Property Key|Description|Example Value|
 |------------|-----------|-------------|
 |integrations.sap.system.1.al.alfrescoUser|Username for the connection used to login to Alfresco. Should have admin role.|`admin`|
-|integrations.sap.system.1.al.alfrescoPassword|Password for the user. Either plain-text or use encrypted password. See [Encrypting passwords](#encryptpwd) for more.|`H3ll0W0rlD112!` or `ENC(XbfE4Z112==)`|
+|integrations.sap.system.1.al.alfrescoPassword|Password for the user. Either plain-text or use encrypted password. See [Encrypting passwords]({% link sap/latest/config/index.md %}#encryptpwd) for more.|`H3ll0W0rlD112!` or `ENC(XbfE4Z112==)`|
 |integrations.sap.system.1.al.archiveIds|Comma separated list of all connected SAP Content Repositories of this configuration.|`M1` or `M2,M3,M4`|
 |integrations.sap.system.1.al.documentRoot|The document root folder where all documents from the SAP Content Repositories of the current SAP System Configuration are stored. Must exist and must be entered in XPath syntax.|`/app:company_home/st:sites/cm:sap/cm:documentLibrary/cm:SAP_Documents`|
 |integrations.sap.system.1.al.checkSignature|Enables the signature check for the HTTP Content Server interface. If disabled, all requests will be accepted no matter if they are signed or not.|`true` (default) or `false`|
@@ -116,7 +118,7 @@ establish the connection between Alfresco Content Services (the Repository) and 
 |integrations.sap.system.1.client|The SAP client used to log in to the SAP system.|`100` or `800`|
 |integrations.sap.system.1.systemNumber|The SAP system number.|`00` or `01`|
 |integrations.sap.system.1.user|A SAP *system* user used for the login.|`ALFR3SC0`|
-|integrations.sap.system.1.password|Password for the SAP user. Either plain-text or use encrypted password. See [Encrypting passwords](#encryptpwd) for more.|`H3ll0W0rlD112!` or `ENC(XbfE4Z112==)`|
+|integrations.sap.system.1.password|Password for the SAP user. Either plain-text or use encrypted password. See [Encrypting passwords]({% link sap/latest/config/index.md %}#encryptpwd) for more.|`H3ll0W0rlD112!` or `ENC(XbfE4Z112==)`|
 |integrations.sap.system.1.language|The SAP system language used to login.|`EN` or `DE`|
 |integrations.sap.system.5.webClient.enabled|Enables the document action "Open corresponding business object in SAP" in Alfresco Share to be opened in the SAP Web-GUI. If `true`, the `webclient.url` below must resolve.|`true` or `false` (default)|
 |integrations.sap.system.5.webClient.url|The url to the SAP Web-GUI.|`https://sapserver:port/sap/bc/gui/sap/its/webgui`|
@@ -149,11 +151,11 @@ you can request a trial license.
     ![sap_inst_001_license]({% link sap/images/sap_inst_001_license.png %})
 
 An existing license file is backed up, renamed with the current time stamp, and remain on the file system 
-(for example: `sapContentConnector**YYYY-mm-dd_hh:mm:ss**.l4j`).
+(for example: `sapContentConnectorYYYY-mm-dd_hh:mm:ss.l4j`).
 
 ### Apply the license via the file system
 
-1.  Open the file `alfresco-global.properties` and search for the key `**dir.license.external**`. Note this value as you'll need it next.
+1.  Open the file `alfresco-global.properties` and search for the key `dir.license.external`. Note this value as you'll need it next.
 2.  Navigate to the folder provided in the property value.
 3.  Copy the license file `sapContentConnector.l4j` into that folder.
 4.  Restart the Alfresco Content Services application server.
@@ -170,47 +172,3 @@ You must perform the following steps to install the SAP Connector in a clustered
 4.  On the SAP side, for each SAP Content Repository (transaction `OAC0`) the HTTP-Server must point to the load balancer instead a dedicated application server instance.
     Refer to the Alfresco Content Services documentation to learn more about high availability.
 
-## Communication via HTTPS
-
-Set up a secure communication between Alfresco Content Services and SAP.
-
-The SAP Connector works well over HTTPS. In general, there is no need to configure the SAP Connector. 
-The main part is to prepare the SAP system and Alfresco Content Services with the related certificates 
-to use a secure connection.
-
->**Important:** This chapter only describes the necessary steps to implement the certificate from the Alfresco Content Services web server in SAP and prepare SAP Content Repositories to use HTTPS over HTTP for the communication.
-
-**CAUTION**:
-
-The creation and installation of the certificate on the Alfresco Content Services web server is not part of this chapter.
-
-### Get current certificate from Alfresco
-
-Get the current certificate from Alfresco.
-
-The current certificate used by the Alfresco Content Services webserver must be known (and imported) in SAP. 
-Therefore, export the certificate by following the steps below:
-
->**Important:** The Alfresco Content Services webserver must be up and running on a secure connection. This documentation does not cover the installation and configuration of the SSL connection on Alfresco Content Services side. It only covers how to get the existing certificate.
-
-1.  Open Alfresco Content Services (either Alfresco Share or Alfresco Digital Workspace login page) in a web-browser and view the details of the current certificate.
-
-    ![sap_inst_004_https_002_alf_certificate]({% link sap/images/sap_inst_004_https_002_alf_certificate.png %})
-
-2.  Export the certificate to the local machine (depending on the browser manufacturer).
-
-    ![sap_inst_004_https_002_alf_certificate_export]({% link sap/images/sap_inst_004_https_002_alf_certificate_export.png %})
-
-3.  Make sure to use `DER encoded binary X.509 (.CER)` as export format.
-
-    ![sap_inst_004_https_002_alf_certificate_export_format]({% link sap/images/sap_inst_004_https_002_alf_certificate_export_format.png %})
-
-4.  Once successfully saved, the file will be required in step [Import Alfresco Certificate in SAP PSE](#importcertinsappse).
-
-Prepare the SAP Content Repository to use a secure connection.
-
-### Prepare SAP Content Repository for HTTPS
-### Import Alfresco Certificate in SAP PSE {#importcertinsappse}
-### Restart SAP Internet Communication Manager
-### Testing secured connection
-## Encrypting passwords {#encryptpwd}

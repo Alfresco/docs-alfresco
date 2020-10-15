@@ -13,4 +13,6 @@
       pages:
         - title: 'FAQ'
           path: '/sap/latest/using/faq/'
+    - title: "Administer"
+      path: '/sap/latest/admin/'
 
