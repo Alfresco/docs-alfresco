@@ -142,34 +142,34 @@ Fields fall into three types: property fields, special fields, and fields for da
 
 Property fields evaluate the search term against a particular property, special fields are described in the following table, and data type fields evaluate the search term against all properties of the given type.
 
-|Description|Type|
+|Type|Description|
 |-----------|----|
-|Fully qualified property, for example `{http://www.alfresco.org/model/content/1.0}name:apple`|Property|
-|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`|Property|
-|CMIS style property, for example `cm_name:apple`.|Property|
-|Prefix style property, for example `cm:name:apple`.|Property||
-|Prefix style property, for example `@cm:name:apple`.|Property||
-|TEXT, for example `TEXT:apple`.|Special|
-|ID, for example `ID:"NodeRef"`|Special|
-|ISROOT, for example `ISROOT:T`|Special|
-|TX, for example `TX:"TX"`|Special|
-|PARENT, for example `PARENT:"NodeRef"`|Special|
-|PRIMARYPARENT, for example `PRIMARYPARENT:"NodeRef"`.|Special|
-|QNAME, for example `QNAME:"app:company_home"`.|Special|
-|CLASS, for example `CLASS:"qname"`.|Special|
-|EXACTCLASS, for example `EXACTCLASS:"qname"`.|Special|
-|TYPE, for example `TYPE:"qname"`.|Special|
-|EXACTTYPE, for example `EXACTTYPE:"qname"`.|Special|
-|ASPECT for example `ASPECT:"qname"`.|Special|
-|EXACTASPECT, for example `EXACTASPECT:"qname"`.|Special|
-|ISUNSET for example `ISUNSET:"property-qname"`|Special|
-|ISNULL, for example `ISNULL:"property-qname"`.|Special|
-|ISNOTNULL, for example `ISNOTNULL:"property-qname"`.|Special|
-|EXISTS for example `EXISTS:"name of the property"`.|Special|
-|SITE for example `SITE:"shortname of the site"`.|Special|
-|TAG. TAG: "name of the tag"> **Note:** `TAG` must be in upper case.|Special|
-|Fully qualified data type|Data Type|{http://www.alfresco.org/model/dictionary/1.0}content:apple|
-|prefixed data type|Data Type|d:content:apple|
+|Property|Fully qualified property, for example `{http://www.alfresco.org/model/content/1.0}name:apple`|
+|Poroperty|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`|
+|Property|CMIS style property, for example `cm_name:apple`.|
+|Property|Prefix style property, for example `cm:name:apple`.|
+|Property|Prefix style property, for example `@cm:name:apple`.|
+|Property|TEXT, for example `TEXT:apple`.|
+|Special|ID, for example `ID:"NodeRef"`|
+|Special|ISROOT, for example `ISROOT:T`|
+|Special|TX, for example `TX:"TX"`|
+|Special|PARENT, for example `PARENT:"NodeRef"`|
+|Special|PRIMARYPARENT, for example `PRIMARYPARENT:"NodeRef"`.|
+|Special|QNAME, for example `QNAME:"app:company_home"`.|
+|Special|CLASS, for example `CLASS:"qname"`.|
+|Special|EXACTCLASS, for example `EXACTCLASS:"qname"`.
+|Special|TYPE, for example `TYPE:"qname"`.
+|Special|EXACTTYPE, for example `EXACTTYPE:"qname"`.
+|Special|ASPECT for example `ASPECT:"qname"`.|
+|Special|EXACTASPECT, for example `EXACTASPECT:"qname"`.|
+|Special|ISUNSET for example `ISUNSET:"property-qname"`|
+|Special|ISNULL, for example `ISNULL:"property-qname"`.|
+|Special|ISNOTNULL, for example `ISNOTNULL:"property-qname"`.|
+|Special|EXISTS for example `EXISTS:"name of the property"`.|
+|Special|SITE for example `SITE:"shortname of the site"`.|
+|Special|TAG. TAG: "name of the tag" **Note:** `TAG` must be in upper case.|
+|Fully qualified data type|Data Type, {http://www.alfresco.org/model/dictionary/1.0}content:apple|
+|prefixed data type|Data Type, d:content:apple|
 
 ## Mixed FTS ID behavior
 
@@ -260,7 +260,7 @@ Single terms, phrases, and so on can be combined using "`NOT`" in upper, lower, 
 
 These queries search for nodes that contain the terms `yellow` in any content.
 
-```plain text
+```json
 yellow NOT banana
 yellow !banana
 yellow -banana
@@ -279,7 +279,7 @@ Sometimes AND and OR are not enough. If you want to find documents that must con
 
 |Operator|Description|
 |--------|-----------|
-|"|"|The field, phrase, group is optional; a match increases the score.|
+|","|The field, phrase, group is optional; a match increases the score.|
 |"+"|The field, phrase, group is mandatory (Note: this differs from Google - see "=")|
 |"-", "!"|The field, phrase, group must not match.|
 
@@ -399,20 +399,10 @@ Inclusive ranges can be specified in Google-style. There is an extended syntax f
 
 |Lucene|Google|Description|Example|
 |------|------|-----------|-------|
-|`[#1 TO #2]`|`#1..#2`|The range #1 to #2 inclusive ``#1 <= x <= #2``
-
-|`0..5``[0 TO 5]`
-
-|
-|`<#1 TO #2]`| |The range #1 to #2 including #2 but not #1.`#1 < x <= #2`
-
-|`<0 TO 5]`|
-|`[#1 TO #2>`| |The range #1 to #2 including #1 but not #2.`#1 <= x < #2`
-
-|`[0 TO 5>`|
-|`<#1 TO #2>`| |The range #1 to #2 exclusive.`#1 < x < #2`
-
-|`<0 TO 5>`|
+|`[#1 TO #2]`|`#1..#2`|The range #1 to #2 inclusive ``#1 <= x <= #2``|`0..5``[0 TO 5]`|
+|`<#1 TO #2]`| |The range #1 to #2 including #2 but not #1.`#1 < x <= #2`|`<0 TO 5]`|
+|`[#1 TO #2>`| |The range #1 to #2 including #1 but not #2.`#1 <= x < #2`|`[0 TO 5>`|
+|`<#1 TO #2>`| |The range #1 to #2 exclusive.`#1 < x < #2`|`<0 TO 5>`|
 
 ```sql
 TEXT:apple..banana

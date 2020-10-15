@@ -332,7 +332,7 @@ The basic syntax for Is Nulls is as follows:
 select cm_name, `cm:content.size` from alfresco where `cm:content.size` IS NULL
 ```
 
-## Is Not Null statements
+### Is Not Null statements
 
 The basic syntax for Is Not Null is as follows:
 
@@ -340,7 +340,7 @@ The basic syntax for Is Not Null is as follows:
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` IS NOT NULL
 ```
 
-## Aggregations Without GROUP BY
+### Aggregations Without GROUP BY
 
 SQL aggregations without a GROUP BY clause return a single result tuple with the aggregation results. See below for an example:
 

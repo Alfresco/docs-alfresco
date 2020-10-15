@@ -62,19 +62,19 @@ To achieve this sharding configuration, follow the steps below for each Solr nod
 
 1. Delete any existing `alfresco` and `archive` cores using the following commands.
 
- ```http
- https://<hostnameN>:8983/solr/admin/cores?action=removeCore&storeRef=workspace://SpacesStore&coreName=alfresco
- https://<hostnameN>:8983/solr/admin/cores?action=removeCore&storeRef=workspace://SpacesStore&coreName=archive
- ```
+    ```http
+    https://<hostnameN>:8983/solr/admin/cores?action=removeCore&storeRef=workspace://SpacesStore&coreName=alfresco
+    https://<hostnameN>:8983/solr/admin/cores?action=removeCore&storeRef=workspace://SpacesStore&coreName=archive
+    ```
 
 2. Recreate the sharded cores to set up index tracking.
 
    Call the following URLs:
 
-   ```http
-   http://<hostnameN>:<portN>/solr/admin/cores?action=newCore&storeRef=workspace://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&template=rerank
-   http://<hostnameN>:<portN>/solr/admin/cores?action=newCore&storeRef=archive://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&template=rerank
-   ```
+    ```http
+    http://<hostnameN>:<portN>/solr/admin/cores?action=newCore&storeRef=workspace://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&template=rerank
+    http://<hostnameN>:<portN>/solr/admin/cores?action=newCore&storeRef=archive://SpacesStore&numShards=8&nodeInstance=N&replicationFactor=3&numNodes=6&template=rerank
+    ```
 
 3. For each core (alfresco and archive), the properties can be set at the creation time or updated later.
 
@@ -277,11 +277,11 @@ To configure cross-language search, follow the steps below:
 
 Query time expansion of locales can be defined in the solrconfig.xml file as part of the query language definition.
 
-|Locale parameter|What is it?|
+|Locale parameter|Description|
 |----------------|-----------|
-|`autoDetectQueryLocale`|If true, this uses the query typed in by the user to detect the locale.|
-|`autoDetectQueryLocales`|This specifies a set of locales. One of these may be used in executing the query if `autoDetectQueryLocale=true`.|
-|`fixedQueryLocales`|This specifies a fixed set of locales always used by the query.|
+|autoDetectQueryLocale|If true, this uses the query typed in by the user to detect the locale.|
+|autoDetectQueryLocales|This specifies a set of locales. One of these may be used in executing the query if `autoDetectQueryLocale=true`.|
+|fixedQueryLocales|This specifies a fixed set of locales always used by the query.|
 
 What locales are used?
 
@@ -367,7 +367,7 @@ search.solrShardRegistry.maxAllowedReplicaTxCountDifference=1000
 |Property|Description|
 |--------|-----------|
 |search.solrShardRegistry.purgeOnInit|If true, this property removes persisted shard state from the database when the subsystem starts for example, true|
-|search.solrShardRegistry.shardInstanceTimeoutInSeconds|Specifies that if a shard has not made a tracking request within this time, it will not be used for query. > **Note:** When tracking large change sets or rebuilding your indexes, increase the shard timeout. For example, change the value of this property to 3200 or 7200 seconds|
+|search.solrShardRegistry.shardInstanceTimeoutInSeconds|Specifies that if a shard has not made a tracking request within this time, it will not be used for query. **Note:** When tracking large change sets or rebuilding your indexes, increase the shard timeout. For example, change the value of this property to 3200 or 7200 seconds|
 |search.solrShardRegistry.maxAllowedReplicaTxCountDifference|Specifies that if any shard is more than this number of transactions behind the leading instance, it will not be used, for example 1000 transactions|
 
 If there is more than one index for a store, the most up to date index (the one that has indexed most transactions) will be used. For each shard, an instance is chosen at random from all the shards that are actively tracking and within 1000 transactions of the lead instance.
@@ -589,17 +589,19 @@ Prerequisites for viewing the Search Server Sharding page:
 3. Under Dynamic Shard Instance Registration, select **Dynamic Shard Instance Registration** and set the other shard instance properties.
 
     |Shard registration property|Description|
-    |---------------------------|---------------|-----------|
-    |**Dynamic Shard Instance Registration Enabled**|Select this property to enable dynamic shard instance registration. If disabled, manual shard registration is used, for example Yes.|
-    |**Purge at Startup**|This property purges all persisted dynamic shard instance information at startup, for example No.|
-    |**Instance Timeout (seconds)**|This specifies the number of seconds a shard instance can go without making a tracking call for transactions to the repository before it stops being used for queries.> **Note:** When tracking large change sets or rebuilding your indexes, increase the shard timeout. For example, change the value of this property to 3200 or 7200 seconds.|
-    |**Max Instance Transaction Lag**|This specifies the maximum number of transactions an instance can lag behind the lead instance of the shard before it stops being used for queries, for example 1000.|
+    |---------------------------|---------------|
+    |Dynamic Shard Instance Registration Enabled|Select this property to enable dynamic shard instance registration. If disabled, manual shard registration is used, for example `Yes`.|
+    |Purge at Startup|This property purges all persisted dynamic shard instance information at startup, for example `No`.|
+    |Instance Timeout (seconds)|This specifies the number of seconds a shard instance can go without making a tracking call for transactions to the repository before it stops being used for queries. **Note:** When tracking large change sets or rebuilding your indexes, increase the shard timeout. For example, change the value of this property to 3200 or 7200 seconds.|
+    |Max Instance Transaction Lag|This specifies the maximum number of transactions an instance can lag behind the lead instance of the shard before it stops being used for queries, for example 1000.|
+
 4. Click **Refresh** to refresh this page.
 5. Click **Purge** to remove all registered shard instance information and start from clean.
 6. Click **Clean** to remove inactive registered shard instance information.
 7. Click **Manage** to create and manage shard instances.
     You see the Index Server Shard Management window. Use this window to create individual shards or shard groups.
-    ![sol6](../images/solr6-shard-mgmt.png)
+
+    ![]({% link insight-engine/images/solr6-shard-mgmt.png %})
 
     1. Use Existing Index Servers to view a list of existing index servers and to create new index servers.
         To add a new index server, specify the server address in **New Index Server** and click **Add**.
@@ -618,18 +620,19 @@ Prerequisites for viewing the Search Server Sharding page:
 
         * appears only when you add a new index server.
         * creates a core for a given shard, and therefore, can be used as an alternative to creating shards using the **New Shard Group** section (Step 7f).
-        ![]({% link insight-engine/images/solr6-manage-indexes.png %})
 
-        **Important:** The cores are visible in the Solr Admin web application **only after** you create them using the Index Server Sharding page.
+    ![]({% link insight-engine/images/solr6-manage-indexes.png %})
 
-        * Click **Create Alfresco Index** to create an unsharded Alfresco index.
-        * Click **Create Archive** to create an unsharded archive index.
+     > **Important:** The cores are visible in the Solr Admin web application **only after** you create them using the Index Server Sharding page.
 
-            Use the **Report** section at the end of this page to view the detailed core creation message.
+     * Click **Create Alfresco Index** to create an unsharded Alfresco index.
+     * Click **Create Archive** to create an unsharded archive index.
 
-            Check the Solr Admin UI to ensure that both the indexes are correctly listed.
+      Use the **Report** section at the end of this page to view the detailed core creation message.
 
-            ![]({% link insight-engine/images/solr6_shard.png %})
+      Check the Solr Admin UI to ensure that both the indexes are correctly listed.
+
+     ![]({% link insight-engine/images/solr6_shard.png %})
 
     6. Use **Manage Shared Properties** to update the properties that apply to all Alfresco indexes on an Index Engine.
 
@@ -647,12 +650,12 @@ Prerequisites for viewing the Search Server Sharding page:
 
         |Shard group property|Description|
         |--------------------|---------------|
-        |**Template**|This specifies the template used for the shard group, for example rerank|
-        |**Store**|This specifies the stores that are queryable for all shards, for example workspace://SpacesStore|
-        |**Core**|This specifies the name of the Solr core.|
-        |**Properties**|This specifies the properties to set on the Solr instances. These are the same properties that are set in the solrcore.properties file, for example `solr.suggester.enabled``alfresco.secureComms=https`, `alfresco.port.ssl=8443`, `alfresco.commitInterval=20000`, and `alfresco.newSearcherInterval=30000`.|
-        |**Shards**|This specifies the total number of shards, for example 1.|
-        |**Instances**|This specifies the total number of instances, for example 1.|
+        |Template|This specifies the template used for the shard group, for example rerank|
+        |Store|This specifies the stores that are queryable for all shards, for example `workspace://SpacesStore`|
+        |Core|This specifies the name of the Solr core.|
+        |Properties|This specifies the properties to set on the Solr instances. These are the same properties that are set in the solrcore.properties file, for example `solr.suggester.enabled``alfresco.secureComms=https`, `alfresco.port.ssl=8443`, `alfresco.commitInterval=20000`, and `alfresco.newSearcherInterval=30000`.|
+        |Shards|This specifies the total number of shards, for example 1.|
+        |Instances|This specifies the total number of instances, for example 1.|
 
         ![]({% link insight-engine/images/shard-target-index.png %})
 
@@ -662,10 +665,10 @@ Prerequisites for viewing the Search Server Sharding page:
 
         |Shard property|Description|
         |--------------|---------------|
-        |**Index Server URL**|This specifies the URL to a single index server, for example localhost:8080/sol|
-        |**Nodes**|This specifies the total number of Solr nodes that have been created, for example 1.|
-        |**Target Index Server**|This specifies, out of all the solr nodes above, the number given to the target index server node for this new shard, for example 1.|
-        |**Shards**|This specifies the specific shards to create, on the node given above. You can also specify a comma-separated list of shards.|
+        |Index Server URL|This specifies the URL to a single index server, for example localhost:8080/sol|
+        |Nodes|This specifies the total number of Solr nodes that have been created, for example 1.|
+        |Target Index Server|This specifies, out of all the solr nodes above, the number given to the target index server node for this new shard, for example 1.|
+        |Shards|This specifies the specific shards to create, on the node given above. You can also specify a comma-separated list of shards.|
 
         See [Solr Sharding]({% link insight-engine/latest/config/sharding/index.md %}) to view examples of creating shards when calling the REST URLs directly.
 
@@ -700,19 +703,19 @@ Prerequisites for viewing the Search Server Sharding page:
 
     |Property|Description|
     |---------------------------|-----------|
-    |**Template**|This specifies the template used for the Solr core, for example rerank|
-    |**Low Instance Shards**|This specifies a list of shards that have less than the maximum number of instances.|
-    |**Missing Shards**|This specifies a comma-separated list of shards with no instances, for example `100`.|
-    |**Max Repository Transaction ID**|This specifies the maximum number of transaction IDs in the repository, for example `14,637`.|
-    |**Max Live Instances**|This specifies the maximum number of instances available for any shard that can be used to answer a query, for example `1`.|
-    |**Remaining Transactions**|This specifies the maximum number of transactions remaining for all the lead instances of all the active shards, for example `2`.|
-    |**Number of Shards**|This specifies the total number of shards, for example `4`.|
-    |**Min Active Instances**|This specifies the minimum number of instances available for any shard that can be used to answer a query, for example `1`.|
-    |**Max Changeset ID**|This specifies the highest change set id in the repository, for example `104`|
-    |**Mode**|This specifies whether the instances are `SLAVE`, `MASTER`, or `MIXED`. > **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation, for example master.|
-    |**Stores**|This specifies the stores that are queryable for all instances, for example `workspace://SpacesStore`.|
-    |**Has Content**|This property is enabled if content is included for all instances, for example `Enabled`|
-    |**Shard Method**|This specifies the method used to define shards. The default shard method is `DB_ID`. You can specify your own shard method in Index Server Shard Management screen > New Shard Group > Properties. For example, `shard.method=ACL_ID`. You can also set this property in the alfresco-insight-engine-distribution-2.0.x.zip/solrhome/templates/rerank/conf/solrcore.properties file.|
+    |Template|This specifies the template used for the Solr core, for example rerank|
+    |Low Instance Shards|This specifies a list of shards that have less than the maximum number of instances.|
+    |Missing Shards|This specifies a comma-separated list of shards with no instances, for example `100`.|
+    |Max Repository Transaction ID|This specifies the maximum number of transaction IDs in the repository, for example `14,637`.|
+    |Max Live Instances|This specifies the maximum number of instances available for any shard that can be used to answer a query, for example `1`.|
+    |Remaining Transactions|This specifies the maximum number of transactions remaining for all the lead instances of all the active shards, for example `2`.|
+    |Number of Shards|This specifies the total number of shards, for example `4`.|
+    |Min Active Instances|This specifies the minimum number of instances available for any shard that can be used to answer a query, for example `1`.|
+    |Max Changeset ID|This specifies the highest change set id in the repository, for example `104`|
+    |Mode|This specifies whether the instances are `SLAVE`, `MASTER`, or `MIXED`. **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation, for example master.|
+    |Stores|This specifies the stores that are queryable for all instances, for example `workspace://SpacesStore`.|
+    |Has Content|This property is enabled if content is included for all instances, for example `Enabled`|
+    |Shard Method|This specifies the method used to define shards. The default shard method is `DB_ID`. You can specify your own shard method in Index Server Shard Management screen > New Shard Group > Properties. For example, `shard.method=ACL_ID`. You can also set this property in the alfresco-insight-engine-distribution-2.0.x.zip/solrhome/templates/rerank/conf/solrcore.properties file.|
 
     ![]({% link insight-engine/images/shard-group.png %})
 
@@ -778,7 +781,7 @@ The JMX view of all the instancess, shards, and indexes that stick together is d
 
     |Attribute name|Description|Is configurable or displays state|
     |--------------|-----------|---------------------------------|
-    |activeTrackingMode|Specifies if the instances for the index are all `SLAVE`, `MASTER`, or `MIXED`. > **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.|State|
+    |activeTrackingMode|Specifies if the instances for the index are all `SLAVE`, `MASTER`, or `MIXED`. **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.|State|
     |hasContent|If the index contains content, the value of this attribute is `true`, otherwise `false`.|Configurable|
     |lowReplicaShards|Specifies a comma separated list of shards that have less than `maxReplicas`.|State| |
     |maxReplicas|Specifies the number of instances for the shard which has the maximum number of instances, for example `1`.|State|
@@ -801,8 +804,7 @@ The JMX view of all the instancess, shards, and indexes that stick together is d
         |--------------|-----------|----------------------------------|
         |#|Specifies the shard number, for example `0`.|Configurable|
         |activeCount|Specifies the number of instances that are currently able to answer queries, for example `1`.|State|
-        |activeTrackingMode|Specifies if the instances for the shard are all `SLAVE`, `MASTER`, or `MIXED`. **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.
-        |State|
+        |activeTrackingMode|Specifies if the instances for the shard are all `SLAVE`, `MASTER`, or `MIXED`. **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation.|State|
         |laggingCount|Specifies the number of instances that are currently unable to answer queries because they are too far behind, for example '0'.|State|
         |maxTransactionsRemaining|Specifies the maximum number of transactions left to index for any shard instance, for example `1`.|State|
         |maxTxId|Specifies the maximum number of transaction id indexes by any instance, for example `16903`.|State|

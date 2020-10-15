@@ -60,13 +60,12 @@ Alfresco Search and Insight Engine can use any of the following methods for rout
 
 This sharding method is available in all versions of Search and Insight Engine.
 
-    Nodes and access control lists are grouped by their ACL ID. This places the nodes together with all the access control information required to determine the access to a node in the same shard. Both the nodes and access control information are sharded. The overall index size will be smaller than other methods. Also, the ACL count is usually much smaller than the node count.
+Nodes and access control lists are grouped by their ACL ID. This places the nodes together with all the access control information required to determine the access to a node in the same shard. Both the nodes and access control information are sharded. The overall index size will be smaller than other methods. Also, the ACL count is usually much smaller than the node count.
 
-    This method is beneficial if you have lots of ACLs and the documents are evenly distributed over those ACLs. For example, if you have many Share sites, nodes and ACLs are assigned to shards randomly based on the ACL and the documents to which it applies.
+This method is beneficial if you have lots of ACLs and the documents are evenly distributed over those ACLs. For example, if you have many Share sites, nodes and ACLs are assigned to shards randomly based on the ACL and the documents to which it applies.
 
-    The node distribution may be uneven as it depends how many nodes share ACLs.
-
-    To use this method when creating a shard, set the following configuration:
+The node distribution may be uneven as it depends how many nodes share ACLs.
+To use this method when creating a shard, set the following configuration:
 
     ```bash
     shard.method=MOD_ACL_ID
@@ -78,7 +77,7 @@ This sharding method is available in all versions of Search and Insight Engine.
 
 This method is available in all versions of Search and Insight Engine.
 
-    This sharding method is the same as `ACL ID` v1 except that the murmur hash of the ACL ID is used in preference to its modulus. This gives better distribution of ACLs over shards. The distribution of documents over ACLs is not affected and so the shard sizes can still be skewed.
+This sharding method is the same as `ACL ID` v1 except that the murmur hash of the ACL ID is used in preference to its modulus. This gives better distribution of ACLs over shards. The distribution of documents over ACLs is not affected and so the shard sizes can still be skewed.
 
     ```bash
     shard.method=ACL_ID
@@ -90,7 +89,7 @@ This method is available in all versions of Search and Insight Engine.
 
 This method is available in all versions of Search and Insight Engine and is the default sharding option in Solr 6. Nodes are evenly distributed over the shards at random based on the murmur hash of the DBID. The access control information is duplicated in each shard. The distribution of nodes over each shard is very even and shards grow at the same rate. Also, this is the fall back method if any other sharding information is unavailable.
 
-    To use this method when creating a shard, set the following configuration:
+To use this method when creating a shard, set the following configuration:
 
     ```bash
     shard.method=DB_ID
@@ -102,13 +101,13 @@ This method is available in all versions of Search and Insight Engine and is the
 
 This method is available in Search and Insight Engine 1.1 and later versions. This routes documents within specific DBID ranges to specific shards. It adds new shards to the cluster without requiring a reindex.
 
-    DBID range sharding is the only option to offer auto-scaling as opposed to defining your exact shard count at the start. All the other sharding methods require repartitioning in some way.
+DBID range sharding is the only option to offer auto-scaling as opposed to defining your exact shard count at the start. All the other sharding methods require repartitioning in some way.
 
-    For each shard, you specify the range of DBIDs to be included. As your repository grows you can add shards. Note that when using `shard.range`, the range will be inclusive of the bottom value and exclusive of the top value.
+For each shard, you specify the range of DBIDs to be included. As your repository grows you can add shards. Note that when using `shard.range`, the range will be inclusive of the bottom value and exclusive of the top value.
 
-    **Example 1:** You may aim for shards of 20M nodes in size and expect it to get to 100M over five years. You could create the first shard for nodes 0-20M. As you approach node 20M, you can create the next shard for nodes 20M-40M, and so on.
+**Example 1:** You may aim for shards of 20M nodes in size and expect it to get to 100M over five years. You could create the first shard for nodes 0-20M. As you approach node 20M, you can create the next shard for nodes 20M-40M, and so on.
 
-    To use this method when creating a shard, set the following configuration:
+To use this method when creating a shard, set the following configuration:
 
     ```bash
     shard.method=DB_ID_RANGE
@@ -116,7 +115,7 @@ This method is available in Search and Insight Engine 1.1 and later versions. Th
     shard.instance=<shard.instance>
     ```
 
-    **Example 2:** If there are 100M (million) nodes and you want to split them into 10 shards with 10M nodes each. So, at the start you can specify:
+**Example 2:** If there are 100M (million) nodes and you want to split them into 10 shards with 10M nodes each. So, at the start you can specify:
 
 * 10 shards
 * a shard to include 0-10M
@@ -127,11 +126,11 @@ This method is available in Search and Insight Engine 1.1 and later versions. Th
 
 This method is available in all versions of Search and Insight Engine. The date-based sharding assigns dates sequentially through shards based on the month.
 
-    **Example:** If there are 12 shards, each month would be assigned sequentially to each shard, wrapping round and starting again for each year. The non-random assignment facilitates easier shard management - dropping shards or scaling out replication for some date range. Typical aging strategies could be based on the created date or destruction date.
+**Example:** If there are 12 shards, each month would be assigned sequentially to each shard, wrapping round and starting again for each year. The non-random assignment facilitates easier shard management - dropping shards or scaling out replication for some date range. Typical aging strategies could be based on the created date or destruction date.
 
-    If the property is not present on a node, sharding falls back to the DBID methodto randomly distribute these nodes.
+If the property is not present on a node, sharding falls back to the DBID methodto randomly distribute these nodes.
 
-    To use this method when creating a shard, set the following configuration:
+To use this method when creating a shard, set the following configuration:
 
     ```bash
     shard.key=exif:dateTimeOriginal
@@ -140,7 +139,7 @@ This method is available in all versions of Search and Insight Engine. The date-
     shard.count=<shard.count>
     ```
 
-    Months can be grouped together, for example, by quarter. Each quarter of data would be assigned sequentially through the available shards.
+Months can be grouped together, for example, by quarter. Each quarter of data would be assigned sequentially through the available shards.
 
     ```bash
     shard.date.grouping=3
@@ -150,11 +149,11 @@ This method is available in all versions of Search and Insight Engine. The date-
 
 This method is available in all versions of Search and Insight Engine. In this method, the value of some property is hashed and this hash is used to assign the node to a random shard. All nodes with the same property value will be assigned to the same shard
 
-    Only properties of type `d:text`, `d:date` and `d:datetime` can be used. For example, the recipient of an email, the creator of a node, some custom field set by a rule, or by the domain of an email recipient. The keys are randomly distributed over the shards using murmur hash.
+Only properties of type `d:text`, `d:date` and `d:datetime` can be used. For example, the recipient of an email, the creator of a node, some custom field set by a rule, or by the domain of an email recipient. The keys are randomly distributed over the shards using murmur hash.
 
-    If the property is not present on a node, sharding falls back to the DBID method to randomly distribute these nodes.
+If the property is not present on a node, sharding falls back to the DBID method to randomly distribute these nodes.
 
-    To use this method when creating a shard, set the following configuration:
+To use this method when creating a shard, set the following configuration:
 
     ```bash
     shard.key=cm:creator
@@ -163,21 +162,21 @@ This method is available in all versions of Search and Insight Engine. In this m
     shard.count=<shard.count>
     ```
 
-    It is possible to extract a part of the property value to use for sharding using a regular expression, for example, a year at the start of a string:
+It is possible to extract a part of the property value to use for sharding using a regular expression, for example, a year at the start of a string:
 
     ```bash
     shard.regex=^d{4}
     ```
 
-    If the regular expression doesn't match the property (e.g. the string doesn't start with a four-digit year) then this causes a fallback to DBID sharding.
+If the regular expression doesn't match the property (e.g. the string doesn't start with a four-digit year) then this causes a fallback to DBID sharding.
 
 ### Explicit Sharding (EXPLICIT_ID)
 
 This method is available in all versions of Search and Insight Engine. The node is assigned to a shard based on the value of a property (e.g. `cm:type`), which should contain the "explicit" numeric shard ID
 
-    This method is similar to sharding by metadata. Rather than hashing the property value, it explicitly defines the shard where the node should go. If the property is absent or an invalid number, sharding will fall back to using the `DBID` sharding method. Only text fields are supported. Nodes are allowed to move shards. You can add, remove or change the property that defines the shard.
+This method is similar to sharding by metadata. Rather than hashing the property value, it explicitly defines the shard where the node should go. If the property is absent or an invalid number, sharding will fall back to using the `DBID` sharding method. Only text fields are supported. Nodes are allowed to move shards. You can add, remove or change the property that defines the shard.
 
-    To use this method when creating a shard, set the following configuration:
+To use this method when creating a shard, set the following configuration:
 
     ```bash
     shard.method=EXPLICIT_ID
