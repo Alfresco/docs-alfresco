@@ -41,6 +41,6 @@ Please help us to help you by including the following details when you log a cal
 * Attach a JMX Dump, if possible
 * When the issue started
 * Any changes made around this time
-* Impact the issue is having; please refer to [Alfresco Severity definitions]({% link support/latest/severity/index.md %})
+* Impact the issue is having; please refer to [Alfresco Severity definitions]({% link support/latest/severity.md %})
 * Troubleshooting carried out to date
 * Any supporting evidence, such as log files or on-screen messages
