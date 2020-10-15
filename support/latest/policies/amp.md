@@ -34,7 +34,7 @@ An AMP/JAR developed by the Alfresco Community and therefore unsupported. The ma
 
 ## Alfresco Unsupported Extensions and integrations
 
-An AMP/JAR developed by the Alfresco is considered to be unsupported if it is not documented in the [Official Documentation Online](https://docs.alfresco.com){:target="_blank"}. In addition, the following will also be true:
+An AMP/JAR developed by Alfresco is considered to be unsupported if it is not documented in the [Official Documentation](https://docs.alfresco.com){:target="_blank"}. In addition, the following will also be true:
 
 * The module.title will include the term unsupported (Alfresco One 3.1 onwards)
 * The AMP is only available for download from the Labs sites (Alfresco One 3.1 onwards)

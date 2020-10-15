@@ -4,7 +4,7 @@ title: Upgrade Advice
 
 Alfresco customers and partners who have an active contract are eligible for all Version, Release and Service Pack upgrades. Periodic communications are used to notify all customers and partners, along with updates to the Support Portal.
 
-Alfresco Support is often asked for advice on what is likely to change between Alfresco Content Services (ECM) versions and also what preparation must be completed before upgrading your Alfresco Content Services (ECM) solution. Based on the type of upgrade you are doing, here are the recommendations that we make.
+Alfresco Support is often asked for advice on what is likely to change between Alfresco Content Services (ECM) versions and also what preparation must be completed before upgrading your Alfresco Content Services (ECM) solution. Based on the type of upgrade you are doing, here are the recommendations that we make before applying changes in production.
 
 |Upgrade Type|Code Changes|*Backup|*Testing Cycle|*Reindex|*Database Changes|
 |------------|------------|------|---------|-------|------------|
@@ -12,8 +12,6 @@ Alfresco Support is often asked for advice on what is likely to change between A
 |Release Upgrade|Minor changes, enhancements, and fixes|Full|Full|Unusual|Probable|
 |Service Pack|Fixes|Full|Custom code or extensions only|Unusual|Unusual|
 |Hot Fix|Single Fixes|Full|Full (Alfresco QA test single fix only)|Unusual|Unusual|
-
-*Advice before applying version in production
 
 > **Note:** For Alfresco Content Services, if you are upgrading more than two releases (3.1 to 3.4, or 3.4 to 4.2 for example), please contact Support. For Alfresco Content Services, the advice on service pack upgrades only applies if you are upgrading from the base release (4.1 to 4.1.2 for example). If you are upgrading from a previous release as well (4.0 to 4.1.2 for example), follow the advice for the Release upgrade.
 
