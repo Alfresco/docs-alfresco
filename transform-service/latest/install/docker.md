@@ -1,5 +1,5 @@
 ---
-title: Install Docker Compose
+title: Install with Docker Compose
 ---
 
 Use this information to quickly start up Alfresco Content Services (including Transform Service) using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is only recommended for development and test environments.

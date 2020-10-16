@@ -3,8 +3,16 @@
   pages:
     - title: 'Introduction'
       path: '/transform-service/latest/'
-    - title: 'Install'    
-      path: '/transform-service/latest/install/'        
+    - title: 'Install'
+      pages: 
+        - title: 'Install Transform Service'
+          path: '/transform-service/latest/install/'
+        - title: 'Install with Helm Charts on AWS'
+          path: '/transform-service/latest/install/helm/'
+        - title: 'Install with Docker Compose'
+          path: '/transform-service/latest/install/docker/'
+        - title: 'Install with Zip'
+          path: '/transform-service/latest/install/zip/'       
     - title: 'Configure'
       pages: 
         - title: 'Extending Transform Service'
