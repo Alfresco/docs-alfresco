@@ -68,7 +68,7 @@ The following sub-sections explains each area shown in the screenshot above in m
 
 * **SAP Java Connector Settings**
 
-    Display important information used for the connection from Alfresco Content Services to SAP as well as related information for the [Opening associated Business Object in SAP](TODO:../concepts/sap-connector-open-in-sap.md) feature.
+    Display important information used for the connection from Alfresco Content Services to SAP as well as related information for the [Opening associated Business Object in SAP]({% link sap/latest/config/index.md %}#openassocbusinessobjinsap) feature.
 
     >**Note:** The password for the SAP system user used to connect to SAP is never transmitted, hence it is not displayed in the Administration Console.
 
@@ -82,26 +82,26 @@ The following sub-sections explains each area shown in the screenshot above in m
     |------------|-----------|
     |Green|The SAP Content Repository is up and running.|
     |Yellow|The SAP Content Repository exists in Alfresco Content Services and the certificate was also sent already. However, the certificate still needs to be activated to allow the communication. In this case, a button appears in the **Status** column to enable the certificate. Once enabled, the status color will switch to green.|
-    |Red|There are two options which leads to this state:<br><br>* The SAP Content Repository was not created yet (refer to [1. Create SAP Content Repository](TODO:../tasks/sap-connector-create-sap-repo.md)).<br><br>* The SAP Content Repository exists but the certificate was not sent yet (refer to [2. Secure connection using a certificate](TODO:../tasks/sap-connector-secure-connection.md)).<br><br>However, the message in the `Status` column in such a case will show the exact reason.|
+    |Red|There are two options which leads to this state:<br><br>* The SAP Content Repository was not created yet (refer to [(1) Create SAP Content Repository]({% link sap/latest/config/index.md %}#basic-createsapcontentrepo)).<br><br>* The SAP Content Repository exists but the certificate was not sent yet (refer to [(2) Secure connection using a certificate]({% link sap/latest/config/index.md %}#basic-secureconnwithcert)).<br><br>However, the message in the `Status` column in such a case will show the exact reason.|
 
 * **Jobs**
 
-    This table lists all available jobs and the current state of each SAP Content Repository for it along with the CRON expression used to invoke the job. Refer to [Configuring jobs](TODO:../concepts/sap-connector-jobs.md) to learn more about how to enable or disable jobs for SAP Content Repositories.
+    This table lists all available jobs and the current state of each SAP Content Repository for it along with the CRON expression used to invoke the job. Refer to [Configuring jobs]({% link sap/latest/config/index.md %}#configure-jobs) to learn more about how to enable or disable jobs for SAP Content Repositories.
 
 * **Behaviors**
 
-    Like for the jobs above, this table lists all available behaviors and the current state of each SAP Content Repository for it. Refer to [Configuring behaviors](TODO:../concepts/sap-connector-behaviors.md) to learn more about how to enable or disable behaviors for SAP Content Repositories.
+    Like for the jobs above, this table lists all available behaviors and the current state of each SAP Content Repository for it. Refer to [Configuring behaviors]({% link sap/latest/config/index.md %}#configure-behaviors) to learn more about how to enable or disable behaviors for SAP Content Repositories.
 
 * **Feature: Open corresponding SAP Business Object**
 
-    This section only appears if the [Opening associated Business Object in SAP](TODO:../concepts/sap-connector-open-in-sap.md) feature is used and the default settings was overridden. See [Advanced configuration](sap-connector-open-adv-config.md) for more. It shows the content of related `webClient-config.properties` for the current SAP System Configuration.
+    This section only appears if the [Opening associated Business Object in SAP]({% link sap/latest/config/index.md %}#openassocbusinessobjinsap) feature is used and the default settings was overridden. See [Advanced configuration]({% link sap/latest/config/index.md %}#OpenBusinessObjectSAPAdvancedConfig) for more. It shows the content of related `webClient-config.properties` for the current SAP System Configuration.
 
     ![sap_inst_002_adminconsole_004_openinsap]({% link sap/images/sap_inst_002_adminconsole_004_openinsap.png %})
 
 
 #### Additional Settings
 
-This section only appears if there are any of the additional settings which override the standard behavior of the SAP Connector. See [Additional settings (alfresco-global.properties)](TODO: ‘../references/sap-connector-additional-global-propeties-settings.md) for more. These common settings affect the SAP Connector as they're not related to a particular SAP System Configuration.
+This section only appears if there are any of the additional settings which override the standard behavior of the SAP Connector. See [Additional Alfresco Repository config]({% link sap/latest/config/index.md %}#additionalrepoconifig) for more. These common settings affect the SAP Connector as they're not related to a particular SAP System Configuration.
 
 This section lists all additional settings available in the `alfresco-global.properties` which are used to override core behavior. The **Name** column shows the property key, including the default value (in brackets), and the **Value** column shows the current value used to override the default.
 
@@ -140,7 +140,7 @@ http://localhost:8080/alfresco/s/com/alfresco/sap/admin/healthcheck?archiveId=
 ```
 
 In this case, the Web Script returns all settings that affect the global behavior of the SAP Connector (if available). 
-See [Additional settings (alfresco-global.properties)](TODO:../references/sap-connector-additional-global-propeties-settings.md) 
+See [Additional Alfresco Repository config]({% link sap/latest/config/index.md %}#additionalrepoconifig) 
 for more details. It also lists the `archiveIds` parameter for each available SAP System Configuration, and displays 
 the values (which are the SAP Content Repository names).
 
@@ -158,7 +158,7 @@ http://localhost:8080/alfresco/s/com/alfresco/sap/admin/healthcheck?archiveId=XX
 ```
 
 This prints all settings for the given `archiveId`. It includes all settings of the related SAP System Configuration, 
-and also SAP Connector core settings. See [Additional settings (alfresco-global.properties)](TODO:../references/sap-connector-additional-global-propeties-settings.md) 
+and also SAP Connector core settings. See [Additional Alfresco Repository config]({% link sap/latest/config/index.md %}#additionalrepoconifig) 
 for more details. In addition, it may show any detected configuration errors for this `archiveId`.
 
 ![sap_inst_003_healthwebscript_003]({% link sap/images/sap_inst_003_healthwebscript_003.png %})

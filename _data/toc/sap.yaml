@@ -11,8 +11,8 @@
       path: '/sap/latest/config/'
     - title: 'Using'
       pages:
-        - title: 'FAQ'
-          path: '/sap/latest/using/faq/'
+        - title: 'Troubleshooting'
+          path: '/sap/latest/using/troubleshooting/'
     - title: "Administer"
       path: '/sap/latest/admin/'
 

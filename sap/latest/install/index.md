@@ -3,7 +3,7 @@ title: Install Content Connector for SAP Applications
 ---
 
 The SAP Connector capability for Alfresco Content Services is delivered as a distribution zip file containing repository 
-and Share AMP files, server files for the SAP Connector, and third-party license information.
+and Share {% include tooltip.html word="AMP" text="AMP" %} files, server files for the SAP Connector, and third-party license information.
 
 In these topics you'll install and set up everything you need to run the SAP Connector. 
 See [Prerequisites]({% link sap/latest/install/index.md %}#prerequisites) and [Supported Platforms]({% link sap/latest/support/index.md %}) 
@@ -24,14 +24,14 @@ This topic lists the environment/software prerequisites for installing and using
 
 **SAP requirements**
 
-* SAP ECC 6.0 (or up to latest) with at least SAP GUI 7.30
+* SAP {% include tooltip.html word="SAP_ECC" text="ECC" %} 6.0 (or up to latest) with at least SAP GUI 7.30
 * SAP S/4HANA (build 1809 or up to latest) with at least SAP GUI 7.50
 * SAP dialog user who is able to:
     * Create new SAP Content Repositories (transaction `OAC0`)
     * Create related ArchiveLink customizing in SAP Implementation Guide (transaction `IMG`)
     * Test the ArchiveLink interface in any related module (for example transaction `FB03` for Finance)
 * SAP system user who is able to:
-    * Invoke BAPIs (ABAP function modules via RFC connection)
+    * Invoke BAPIs ({% include tooltip.html word="SAP_ABAP" text="ABAP" %} function modules via RFC connection)
 * SAP Java Connector (JCo): JCo 3.0.x must be installed
 
 **Alfresco requirements**
@@ -55,12 +55,12 @@ This topic lists the environment/software prerequisites for installing and using
         * Mac OS X (for Intel) 64bit x86
 * Firewall does not block HTTP traffic on port 80 / 8080 / 8082.
 * Access to the Alfresco Content Services server with admin privileges to:
-    * Apply the SAP Connector AMP files
+    * Apply the SAP Connector {% include tooltip.html word="AMP" text="AMP" %} files
     * Edit `alfresco-gobal.properties` file
     * Stop/start the application server
 * Alfresco user with admin permissions.
 
-## Installing the SAP Connector
+## Installing the SAP Connector {#installsapconnamps}
 
 These steps describe how to install the SAP Connector to an instance of Alfresco Content Services.
 
@@ -73,9 +73,9 @@ The SAP Connector is packaged as Alfresco Module Package (AMP) files.
     * `sap-content-connector-repo-5.x.amp` for Alfresco Content Services
     * `sap-content-connector-share-5.x.amp` for Alfresco Share
 
-2.  Use the Module Management Tool (MMT) to install the AMP files into the Repository WAR (`alfresco.war`) and the Share WAR (`share.war`).
+2.  Use the Module Management Tool (MMT) to install the {% include tooltip.html word="AMP" text="AMP" %} files into the Repository WAR (`alfresco.war`) and the Share WAR (`share.war`).
 
-    For more information, see [Using the Module Management Tool (MMT)](TODO_LINK:https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html) and [Installing an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/amp-install.html).
+    For more information, see [Using the Module Management Tool (MMT)](TODO_LINK:https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html) and [Installing an Alfresco Module Package](TODO_LINK:https://docs.alfresco.com/6.2/tasks/amp-install.html).
 
 3.  Add the related properties to the `alfresco-global.properties` file.
 
@@ -92,7 +92,7 @@ The SAP Connector is packaged as Alfresco Module Package (AMP) files.
 These are the minimum required properties that must be appended to the `alfresco-global.properties` in order to 
 establish the connection between Alfresco Content Services (the Repository) and SAP.
 
->**Note:** There are additional properties that can be used to login to the SAP system via the SAP JavaConnector (such as using Logon Groups instead of the Gateway). See [Additional SAP JCo properties](TODO:../references/sap-connector-additional-jco-properties.md) which lists the additional properties that are supported.
+>**Note:** There are additional properties that can be used to login to the SAP system via the SAP JavaConnector (such as using Logon Groups instead of the Gateway). See [Additional SAP JCo properties]({% link sap/latest/config/index.md %}#sapjavaconprops) which lists the additional properties that are supported.
 
 1.  Open `alfresco-global.properties` in your Alfresco Content Services installation.
 
@@ -117,7 +117,7 @@ establish the connection between Alfresco Content Services (the Repository) and 
 |integrations.sap.system.1.host|The IP address of the SAP server or the SAP Router string.|`192.168.112.112` or `sap.mydomain.com` or `/H/80.112.112.112/H/192.168.112.112/S/3201`|
 |integrations.sap.system.1.client|The SAP client used to log in to the SAP system.|`100` or `800`|
 |integrations.sap.system.1.systemNumber|The SAP system number.|`00` or `01`|
-|integrations.sap.system.1.user|A SAP *system* user used for the login.|`ALFR3SC0`|
+|integrations.sap.system.1.user|A SAP system user used for the login.|`ALFR3SC0`|
 |integrations.sap.system.1.password|Password for the SAP user. Either plain-text or use encrypted password. See [Encrypting passwords]({% link sap/latest/config/index.md %}#encryptpwd) for more.|`H3ll0W0rlD112!` or `ENC(XbfE4Z112==)`|
 |integrations.sap.system.1.language|The SAP system language used to login.|`EN` or `DE`|
 |integrations.sap.system.5.webClient.enabled|Enables the document action "Open corresponding business object in SAP" in Alfresco Share to be opened in the SAP Web-GUI. If `true`, the `webclient.url` below must resolve.|`true` or `false` (default)|
