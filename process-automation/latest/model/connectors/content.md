@@ -624,7 +624,7 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | UNAUTHORIZED | The request has not been applied because it lacks valid authentication. |
 | FORBIDDEN | The server understood the request but refuses to authorize it. |
 | NOT_FOUND | The server could not find what was requested. |
-| METHOD_NOT_ALLOWED |The request method is known by the server but is not supported. |
+| METHOD_NOT_ALLOWED | The request method is known by the server but is not supported. |
 | NOT_ACCEPTABLE | The server cannot produce a response matching the list of acceptable values. |
 | REQUEST_TIMEOUT | The server would like to shut down this unused connection. |
 | CONFLICT | The request conflicts with current state of the server. |

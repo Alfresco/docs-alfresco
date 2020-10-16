@@ -57,7 +57,7 @@ To release a project:
 
 1. Save any changes to the project components.
 2. Navigate to the project list page of the Modeling Application.
-3. Select the **Release** action from the  **Options** column for the project.
+3. Select the **Release** action from the **Options** column for the project.
 
 Selecting the **View Releases** option for a project displays the version history for the project.
 
