@@ -61,9 +61,10 @@ integrations:
       - title: "Search Services"
         text: "Alfresco Search Services provides the default search service index for Alfresco Content Services and Alfresco Community Edition."
         url: /search-services/latest/
-      - title: "Federation"
-        text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
-        url: /federation-services/latest/
+  - title: "Federation"
+    text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
+    url: /federation-services/latest/
+    image: /assets/img/ic_federation_80px.svg
   - title: "Identity"
     text: "Enable Single Sign On capabilities by configuring user authentication between Identity Service and a supported SAML identity provider."
     url:
