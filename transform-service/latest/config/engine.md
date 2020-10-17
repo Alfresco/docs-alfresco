@@ -25,9 +25,7 @@ transform.service.cronExpression=6 0/1 * * * ?
 
 Use this information to create a simple Hello World transformer and test it.
 
-## Overview
-
-Here, you'll develop, configure and run custom transformers running within a T-Engine.
+In this example, you'll develop, configure and run custom transformers running within a T-Engine.
 
 The code for this example is in the [alfresco-helloworld-transformer](https://github.com/Alfresco/alfresco-helloworld-transformer/tree/master/alfresco-helloworld-transformer-engine){:target="_blank"} project in GitHub. This T-Engine contains a single transformer. However, T-Engines may contain many transformers in a single T-Engine. The transformer takes a source text file containing a name and produces an HTML file with the message:
 
@@ -41,7 +39,7 @@ To demonstrate how to use Renditions, it also takes a transform option that spec
 
 ## Developing and debugging T-Engines
 
-T-Engines are Dockerized Spring Boot applications. They are set up as Maven projects built on top of [alfresco-transformer-base](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transformer-base){:target="_blank"}, which is a sub-project of Alfresco Transform Core. The Alfresco Transformer Base brings in Spring Boot capabilities, as well as base classes, which assist in the creation of new T-Engines. 
+T-Engines are Dockerized Spring Boot applications. They are set up as Maven projects built on top of [alfresco-transformer-base](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transformer-base){:target="_blank"}, which is a sub-project of Alfresco Transform Core. The Alfresco Transformer Base brings in Spring Boot capabilities, as well as base classes, which assist in the creation of new T-Engines.
 
 ### Project setup
 
@@ -99,7 +97,7 @@ The following [engine\_config.json](https://github.com/Alfresco/alfresco-hellowo
 
 * **supportedSourceAndTargetList** is simply a list of source and target Media Types that may be transformed, with an optional `maxSourceSizeBytes` value. In this example configuration, there is only one from text to HTML and we have limited the source file size, to avoid transforming files that clearly don't contain names.
 
-* **The Controller Class**
+### The Controller Class
 
 T-Engines generally extend an `AbstractTransformerController` and provide implementations of the following methods. Take a look at the [HelloWorldController.java](https://github.com/Alfresco/alfresco-helloworld-transformer/blob/master/alfresco-helloworld-transformer-engine/src/main/java/org/alfresco/transformer/HelloWorldController.java){:target="_blank"} example.
 
@@ -127,7 +125,7 @@ Method parameters:
 
 The `transform` method's signature will vary depending on the T-Engine's configuration. The example T-Engine is configured to take a single `language` transform option, but the number of the `transform` method's parameters will have to match the transform options defined in [engine\_config.json](https://github.com/Alfresco/alfresco-helloworld-transformer/blob/master/alfresco-helloworld-transformer-engine/src/main/resources/engine_config.json){:target="_blank"}.
 
-### ProcessTransform
+* **ProcessTransform**
 
 ```java
 public void processTransform(File sourceFile, File targetFile, Map<String, String> transformOptions, Long timeout)
@@ -135,7 +133,7 @@ public void processTransform(File sourceFile, File targetFile, Map<String, Strin
 
 This method handles requests from the Transform Service via a message queue. As it performs the same transform as the `transform` method, they tend to both call a common method to perform the actual transform.
 
-### getProbeTestTransform
+* **getProbeTestTransform**
 
 ```java
 public ProbeTestTransform getProbeTestTransform()
@@ -191,7 +189,7 @@ See the [Docker documentation](https://docs.docker.com/engine/reference/commandl
 
 Use this information to configure a custom transform engine (T-Engine).
 
-1. Define an HTTP URL and JMS queue name for the T-Engine .
+1. Define an HTTP URL and JMS queue name for the T-Engine.
 
     For example, you can configure custom T-Engines through environment variables:
 

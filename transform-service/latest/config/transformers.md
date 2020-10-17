@@ -2,10 +2,6 @@
 title: Configuring Transformers
 ---
 
-Use this information to configure the transformers in the Transform Service.
-
-## Transformer configuration overview
-
 The Transform Router (T-Router) configures engine transformers automatically by retrieving the engine transform configurations from each configured Transform Engine (i.e T-Engine). The engine transform configurations provide the transformer configuration, including the supported transformers and their transform options.
 
 For more information on the format of the transform configuration and instructions on how to create a transform configuration files for a custom engine, see [Creating a T-Engine](https://github.com/Alfresco/acs-packaging/blob/support/SP/6.2.N/docs/creating-a-t-engine.md){:target="_blank"}.

@@ -12,7 +12,6 @@ The following are the supported platforms and software requirements for Alfresco
 
 ## Software requirements (zip)
 
-* Alfresco Content Services 6.2.2 or later
 * Messaging broker: see [Configuring ActiveMQ](LINK)
 * ImageMagick: see [Installing ImageMagick](LINK)
 * LibreOffice: see [Installing LibreOffice](LINK)

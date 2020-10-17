@@ -24,144 +24,9 @@ There are a number of software requirements for deploying Transform Service.
 
 The Transform Service is only deployed as part of Alfresco Content Services for containerized deployments.
 
-However, this is not the case if you're installing Alfresco Content Services using the distribution zip. For more on requirents see [Supported platforms]({% link transform-service/latest/support/index.md %}).
+However, this is not the case if you're installing Alfresco Content Services using the distribution zip. For more on requirements see [Supported platforms]({% link transform-service/latest/support/index.md %}).
 
-## Non-containerized deployment
-
-### Requirements for using the distribution zip
-
-Before you can use the Transform Service zip, you need to install the software requirements listed in [Supported platforms]({% link transform-service/latest/support/index.md %}).
-
-Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](LINK). See [Supported Platforms](LINK) for the supported versions of each component.
-
-## Installing with zip
-
-Use these instructions to install Transform Service using the distribution zip to an instance of Alfresco Content Services.
-
-The Transform Service distribution zip file includes all the files required to provide the Transform Service capabilities. Ensure that you've installed the prerequisites before continuing, for more see [Install Transform Service]({% link transform-service/latest/install/index.md %}).
-
-1. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"} and download alfresco-transform-service-distribution-1.3.x.zip.
-
-2. Extract the zip file into a system directory; for example, `<installLocation>/`.
-
-In this directory you'll see the following content including three runnable JAR files:
-
-* alfresco-shared-file-store-controller-x.y.z.jar
-* alfresco-transform-core-aio-boot-x.y.z.jar
-* alfresco-transform-router-1.3.x.jar
-* README.md
-
-3. Start Active MQ.
-
-    For example, run the following command from the ActiveMQ installation directory:
-
-    ```bash
-    bin/activemq start
-    ```
-
-    For more information on installing and configuring ActiveMQ, see [Configuring ActiveMQ](LINK).
-
-    Check the output to ensure that it starts successfully.
-
-    Make a note of the TCP URL, with example format `tcp://server:port`, where server is the host name of the server where ActiveMQ is installed. This is used in later steps.
-
-    Alfresco Content Services uses ActiveMQ for message queuing with various products, including the Transform Service.
-
-4. Start the Shared File Store controller:
-
-    ```java
-    java -DfileStorePath=/path/to/your/AlfrescoFileStore
-     -jar alfresco-shared-file-store-controller-x.y.z.jar
-    ```
-
-    Check the output to ensure that it starts successfully.
-
-    By default, files are stored in `fileStorePath=/tmp/Alfresco`. This can be modified using the `fileStorePath` parameter as shown in the above example.
-
-    The Shared File Store allows components such as the repository, and the Transform Service to share a common place to store and retrieve files, for example, to enable transforms from an input source file to an output target file.
-
-5. Start the all-in-one Transform Core Engine Spring Boot app:
-
-    ```java
-    java -DPDFRENDERER_EXE="<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer" 
-     -DLIBREOFFICE_HOME="<libreoffice_installation_dir>" 
-     -DIMAGEMAGICK_ROOT="<imagemagick_installation_dir>" 
-     -DIMAGEMAGICK_DYN="<imagemagick_installation_dir>/lib" 
-     -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert" 
-     -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
-     -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-core-aio-boot-x.y.z.jar
-    ```
-
-    > **Note:** You may need to change the paths depending on your operating system.
-
-    Check the output to ensure that it starts successfully.
-
-    The all-in-one core T-Engine combines the five T-Engines (i.e. LibreOffice, ImageMagick, Alfresco PDF Renderer, Tika, and Misc) into one single engine. All functionality that's available in the five T-Engines is available in the all-in-one core T-Engine. The command-line options provide the paths to the installation locations and the URL of the messaging broker.
-
-6. Start the Transform Router Spring Boot app:
-
-    ```java
-    java -DCORE_AIO_URL=http://localhost:8090 
-     -DCORE_AIO_QUEUE=org.alfresco.transform.engine.aio.acs 
-     -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000 
-     -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-router-1.3.x.jar
-    ```
-
-    Check the output to ensure that it starts successfully.
-
-    The Transform Router allows simple (single-step) and pipeline (multi-step) transforms that are passed to the Transform Engines. The command-line options provide the router with the required data for T-Engines, queuing, and file-store URL.
-
-7. Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
-
-    ```bash
-    # ActiveMQ properties:
-    messaging.broker.url=failover:(tcp://server:61616)?timeout=3000
-    messaging.broker.username=$MQUSER
-    messaging.broker.password=$MQPASS
-  
-    # Shared File Store properties:
-    sfs.url=http://localhost:8099
-    sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1/file
-  
-    # Transform Router property:
-    transform.service.url=http://localhost:8095/
-  
-    # Transform Core properties:
-    localTransform.core-aio.url=http://transform-core-aio:8090/
-    alfresco-pdf-renderer.url=http://transform-core-aio:8090/
-    jodconverter.url=http://transform-core-aio:8090/
-    img.url=http://transform-core-aio:8090/
-    tika.url=http://transform-core-aio:8090/
-    transform.misc.url=http://transform-core-aio:8090/
-    ```
-
-    This overrides the default properties provided by Alfresco Content Services.
-
-    > **Note:** Any changes to `alfresco-global.properties` require you to restart Alfresco Content Services to apply the updates. See the Alfresco Content Services documentation [Using the alfresco-global.properties file](LINK) for more.
-
-8. Check that the [configuration]({% link transform-service/latest/config/index.md %}) is set up correctly for your environment.
-
-9. Restart Alfresco Content Services.
-
-10. Ensure that the environment is up and running:
-
-    1.Check the logs for Alfresco Content Services startup.
-
-    2.Monitor ActiveMQ by accessing the Web Console, e.g. `http://localhost:8161/admin/`.
-
-    3.Temporarily enable `TransformDebug` in the repository if you want to see detailed debug log entries.
-
-    4.Navigate to Digital Workspace or Share, and upload a file (such as a `.jpg`, `.png`, `.docx` etc.).
-
-* Check the logs to see the metadata and work performed for the uploaded file. These should be available in the Spring Boot apps:
-  * `alfresco-transform-router`
-  * `alfresco-transform-core-aio`
-
-Files should also be available in the specified path for the `alfresco-shared-file-store`. However, these files will only temporarily appear in the Shared File Store until explicitly deleted by the repository and/or expired and cleaned up.
-
-## Containerized deployments
+### Containerized deployments
 
 The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Alfresco Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"}.
 Use this information to quickly start up Alfresco Content Services (including Transform Service) using Docker Compose.
@@ -170,10 +35,43 @@ The images are downloaded directly from [Docker Hub](https://hub.docker.com/u/al
 > **Note:** A [Quay.io](https://quay.io/) account is needed to pull the Docker images that are needed for the Transform Service.
 
 The other images are available in DockerHub:
-* `alfresco/alfresco-shared-file-store`
-* `alfresco/alfresco-transform-core-aio`
+    *`alfresco/alfresco-shared-file-store`
+    *`alfresco/alfresco-transform-core-aio`
 
-## Installing with docker
+### Non-containerized deployment
+
+Before you can use the Transform Service zip, you need to install the software requirements listed in [Supported platforms]({% link transform-service/latest/support/index.md %}).
+
+Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](LINK). See [Supported Platforms](LINK) for the supported versions of each component.
+
+## Install with Helm Charts on AWS
+
+Use this information to deploy Alfresco Content Services (including the Transform Service) using Helm charts by running a Kubernetes cluster on Amazon Web Services (AWS). These charts are a deployment template which can be used as the basis for your specific deployment needs.
+
+The Helm charts are provided as a reference that can be used to build deployments in AWS. If you're a System administrator, ensure that data persistence, backups, log storage, and other system-level functions have been configured to meet your needs.
+
+You'll need your [Quay.io](https://quay.io){:target="_blank"} account credentials to access the Docker images. If you don't already have these credentials, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
+
+Here is a summary of the steps required:
+
+1. Set up your Kubernetes cluster on AWS.
+2. Install the Kubernetes Dashboard to manage your Kubernetes cluster.
+3. Set up Alfresco Content Services on the Kubernetes cluster, including creating file storage.
+4. To access the images in [Quay.io](https://quay.io/){:target="_blank"}, you'll need to generate a pull secret and apply it to your cluster.
+5. Deploy Alfresco Content Services.
+
+Before you can use the Transform Service zip, you need to install the following software requirements.
+   > **Note:** Remember to pass the name of the secret as an extra `--set` argument in the `helm install` command.
+
+Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](LINK). See [Supported Platforms](LINK) for the supported versions of each component:
+6. Check the status of your deployment.
+
+See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup:
+
+* [Deploying with Helm charts on AWS using Kops](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-deployment-aws_kops.md){:target="_blank"}
+* [Deploying with Helm charts on AWS using EKS](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-deployment-aws_eks.md){:target="_blank"}
+
+## Install with Docker Compose
 
 Use this information to quickly start up Alfresco Content Services (including Transform Service) using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is only recommended for development and test environments.
 
@@ -392,29 +290,129 @@ Use this information to verify that the system started correctly, and to clean u
 
 See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for more on getting started with Docker and using Docker.
 
-## Installing with Helm Charts on AWS
+## Install with zip
 
-Use this information to deploy Alfresco Content Services (including the Transform Service) using Helm charts by running a Kubernetes cluster on Amazon Web Services (AWS). These charts are a deployment template which can be used as the basis for your specific deployment needs.
+Use these instructions to install Transform Service using the distribution zip to an instance of Alfresco Content Services.
 
-The Helm charts are provided as a reference that can be used to build deployments in AWS. If you're a System administrator, ensure that data persistence, backups, log storage, and other system-level functions have been configured to meet your needs.
+The Transform Service distribution zip file includes all the files required to provide the Transform Service capabilities. Ensure that you've installed the prerequisites before continuing, for more see [Install Transform Service]({% link transform-service/latest/install/index.md %}).
 
-You'll need your [Quay.io](https://quay.io){:target="_blank"} account credentials to access the Docker images. If you don't already have these credentials, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
+1. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"} and download alfresco-transform-service-distribution-1.3.x.zip.
 
-Here is a summary of the steps required:
+2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
-1. Set up your Kubernetes cluster on AWS.
-2. Install the Kubernetes Dashboard to manage your Kubernetes cluster.
-3. Set up Alfresco Content Services on the Kubernetes cluster, including creating file storage.
-4. To access the images in [Quay.io](https://quay.io/){:target="_blank"}, you'll need to generate a pull secret and apply it to your cluster.
-5. Deploy Alfresco Content Services.
+    In this directory you'll see the following content including three runnable JAR files:
 
-Before you can use the Transform Service zip, you need to install the following software requirements.
-   > **Note:** Remember to pass the name of the secret as an extra `--set` argument in the `helm install` command.
+    * `alfresco-shared-file-store-controller-x.y.z.jar`
+    * `alfresco-transform-core-aio-boot-x.y.z.jar`
+    * `alfresco-transform-router-1.3.x.jar`
+    * `README.md`
 
-Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](LINK). See [Supported Platforms](LINK) for the supported versions of each component:
-6. Check the status of your deployment.
+3. Start Active MQ.
 
-See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup:
+    For example, run the following command from the ActiveMQ installation directory:
 
-* [Deploying with Helm charts on AWS using Kops](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-deployment-aws_kops.md){:target="_blank"}
-* [Deploying with Helm charts on AWS using EKS](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-deployment-aws_eks.md){:target="_blank"}
+    ```bash
+    bin/activemq start
+    ```
+
+    For more information on installing and configuring ActiveMQ, see [Configuring ActiveMQ](LINK).
+
+    Check the output to ensure that it starts successfully.
+
+    Make a note of the TCP URL, with example format `tcp://server:port`, where server is the host name of the server where ActiveMQ is installed. This is used in later steps.
+
+    Alfresco Content Services uses ActiveMQ for message queuing with various products, including the Transform Service.
+
+4. Start the Shared File Store controller:
+
+    ```java
+    java -DfileStorePath=/path/to/your/AlfrescoFileStore
+     -jar alfresco-shared-file-store-controller-x.y.z.jar
+    ```
+
+    Check the output to ensure that it starts successfully.
+
+    By default, files are stored in `fileStorePath=/tmp/Alfresco`. This can be modified using the `fileStorePath` parameter as shown in the above example.
+
+    The Shared File Store allows components such as the repository, and the Transform Service to share a common place to store and retrieve files, for example, to enable transforms from an input source file to an output target file.
+
+5. Start the all-in-one Transform Core Engine Spring Boot app:
+
+    ```java
+    java -DPDFRENDERER_EXE="<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer"
+     -DLIBREOFFICE_HOME="<libreoffice_installation_dir>"
+     -DIMAGEMAGICK_ROOT="<imagemagick_installation_dir>"
+     -DIMAGEMAGICK_DYN="<imagemagick_installation_dir>/lib"
+     -DIMAGEMAGICK_EXE="<imagemagick_installation_dir>/bin/convert"
+     -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
+     -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
+     -jar alfresco-transform-core-aio-boot-x.y.z.jar
+    ```
+
+    > **Note:** You may need to change the paths depending on your operating system.
+
+    Check the output to ensure that it starts successfully.
+
+    The all-in-one core T-Engine combines the five T-Engines (i.e. LibreOffice, ImageMagick, Alfresco PDF Renderer, Tika, and Misc) into one single engine. All functionality that's available in the five T-Engines is available in the all-in-one core T-Engine. The command-line options provide the paths to the installation locations and the URL of the messaging broker.
+
+6. Start the Transform Router Spring Boot app:
+
+    ```java
+    java -DCORE_AIO_URL=http://localhost:8090
+     -DCORE_AIO_QUEUE=org.alfresco.transform.engine.aio.acs
+     -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
+     -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
+     -jar alfresco-transform-router-1.3.x.jar
+    ```
+
+    Check the output to ensure that it starts successfully.
+
+    The Transform Router allows simple (single-step) and pipeline (multi-step) transforms that are passed to the Transform Engines. The command-line options provide the router with the required data for T-Engines, queuing, and file-store URL.
+
+7. Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
+
+    ```bash
+    # ActiveMQ properties:
+    messaging.broker.url=failover:(tcp://server:61616)?timeout=3000
+    messaging.broker.username=$MQUSER
+    messaging.broker.password=$MQPASS
+  
+    # Shared File Store properties:
+    sfs.url=http://localhost:8099
+    sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1/file
+  
+    # Transform Router property:
+    transform.service.url=http://localhost:8095/
+  
+    # Transform Core properties:
+    localTransform.core-aio.url=http://transform-core-aio:8090/
+    alfresco-pdf-renderer.url=http://transform-core-aio:8090/
+    jodconverter.url=http://transform-core-aio:8090/
+    img.url=http://transform-core-aio:8090/
+    tika.url=http://transform-core-aio:8090/
+    transform.misc.url=http://transform-core-aio:8090/
+    ```
+
+    This overrides the default properties provided by Alfresco Content Services.
+
+    > **Note:** Any changes to `alfresco-global.properties` require you to restart Alfresco Content Services to apply the updates. See the Alfresco Content Services documentation [Using the alfresco-global.properties file](LINK) for more.
+
+8. Check that the [configuration]({% link transform-service/latest/config/index.md %}) is set up correctly for your environment.
+
+9. Restart Alfresco Content Services.
+
+10. Ensure that the environment is up and running:
+
+    1.Check the logs for Alfresco Content Services startup.
+
+    2.Monitor ActiveMQ by accessing the Web Console, e.g. `http://localhost:8161/admin/`.
+
+    3.Temporarily enable `TransformDebug` in the repository if you want to see detailed debug log entries.
+
+    4.Navigate to Digital Workspace or Share, and upload a file (such as a `.jpg`, `.png`, `.docx` etc.).
+
+* Check the logs to see the metadata and work performed for the uploaded file. These should be available in the Spring Boot apps:
+  * `alfresco-transform-router`
+  * `alfresco-transform-core-aio`
+
+Files should also be available in the specified path for the `alfresco-shared-file-store`. However, these files will only temporarily appear in the Shared File Store until explicitly deleted by the repository and/or expired and cleaned up.
