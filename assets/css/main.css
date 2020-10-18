@@ -667,27 +667,60 @@ body > .section.section-landing {
   font-size: 10.5pt;
   color: rgba(33, 35, 40, 0.6);
 }
+
 .content-menu-column ul a:hover {
   color: #212328;
 }
 
-.content-menu-column ul li.is-selected,
+.content-menu-column ul li.is-selected > .menuitem-title,
 .content-menu-column ul li.is-selected > a {
   color: #212328;
   font-weight: 500;
 }
 
+.content-menu-column ul li > span.menuitem-title {
+  cursor: pointer;
+}
+
 .content-menu-column ul li {
-  padding-top: 13px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.content-menu-column ul li:not(:first-child) {
+  margin-top: 13px;
+}
+
 .content-menu-column ul li .menuitem-title {
   width: calc(100% - 30px);
 }
 .content-menu-column ul li .expand-button {
   width: 24px;
+}
+
+#tocspy {
+  border-left: 1px solid rgba(33, 35, 40, 0.12);
+  padding-left: 0px;
+  margin-left: 24px;
+  overflow: visible;
+}
+#tocspy li {
+  padding-left: 0px;
+  justify-content: flex-start;
+}
+#tocspy li::before {
+  border-left: 3px solid rgba(33, 35, 40, 1);
+  content: "";
+  margin-right: 17px;
+  margin-left: -1px;
+  opacity: 0;
+
+  transition: opacity 0.3s linear;
+}
+#tocspy li.is-selected::before {
+  opacity: 1;
+
+  transition: opacity 0.3s linear;
 }
 
 .content-menu-column {
@@ -697,14 +730,15 @@ body > .section.section-landing {
 
 .content-menu-column li.is-expanded > ul {
   overflow: hidden;
-  max-height: var(--max-height);
-  transition: max-height 0.5s;
+  max-height: calc(var(--max-height) + 13px);
+  transition: max-height 0.5s linear, margin-top 0.5s linear;
+  margin-top: 13px;
 }
 
 .content-menu-column li:not(.is-expanded) > ul {
   overflow: hidden;
   max-height: var(--min-height);
-  transition: max-height 0.1s linear;
+  transition: max-height 0.1s linear, margin-top 0.1s linear;
 }
 
 .content-menu-column .expand-button {
@@ -743,6 +777,7 @@ body > .section.section-landing {
 
   transition-duration: 100ms;
   transition-property: top;
+  padding-top: 20px;
 }
 
 .content :not(pre) > code {
@@ -1448,8 +1483,6 @@ a.github-link::after {
 }
 .releasenotes-header p {
   margin-bottom: 42px;
-}
-.releasenotes-header .github {
 }
 
 .release-container {

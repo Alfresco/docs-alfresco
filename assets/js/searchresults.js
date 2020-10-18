@@ -61,7 +61,7 @@ class SearchResults extends HTMLElement {
   }
 
   requestReceived({ escope, etext, scope, text, page }) {
-    this.querySelector("#query").innerText = text;
+    this.querySelector("#querytext").innerText = text;
 
     return requestSearchResults(text, scope, this.pageSize, page - 1).then(
       (r) => {
@@ -224,7 +224,9 @@ class SearchResults extends HTMLElement {
         if (scope) {
           const formattedScope =
             scopeVersion === "latest" ? "Latest" : `Version ${scopeVersion}`;
-          meta.content = `${scope.innerText} | ${formattedScope}`;
+
+          // very strange bug with chrome - if use innertext property, window frame jumps up
+          meta.content = `${scope.innerHTML} | ${formattedScope}`;
           meta.url = `/${scopeId}/${scopeVersion}`;
         }
       }

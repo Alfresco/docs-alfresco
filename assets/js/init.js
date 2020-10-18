@@ -183,6 +183,7 @@ window.onload = () => {
 
         h.removeAttribute("id");
         anchor.id = h.dataset.originalid;
+        anchor.dataset.header = h.tagName;
         h.prepend(anchor);
         anchor.classList.add("is-hidden");
 
@@ -192,6 +193,7 @@ window.onload = () => {
         h.append(btn);
 
         anchor.initialRequest = () => h;
+        anchor.changeRequest = anchor.initialRequest;
       });
     };
 
@@ -199,6 +201,29 @@ window.onload = () => {
 
     headersAnchoring(headers);
   })(document.querySelector(".content"));
+
+  // toc spy
+  const tocSpy = ((selector, container, tocspy) => {
+    if (!container || !tocspy) return;
+    const headers = Array.from(container.querySelectorAll(selector));
+    if (!headers.length) {
+      tocspy.remove();
+      return;
+    }
+
+    const spy = TocSpy(headers, container, tocspy);
+    headers.forEach((h) => {
+      const a = document.getElementById(h.dataset.originalid);
+      a.initialRequest = () => spy.getSectionTopFromHeader(h);
+      a.changeRequest = a.initialRequest;
+    });
+
+    return spy;
+  })(
+    "h2:not(.no-collect)",
+    document.querySelector(".content"),
+    document.getElementById("tocspy")
+  );
 
   // initial scrolling
 
@@ -222,63 +247,80 @@ window.onload = () => {
       return { obj, sub: hash.sub };
     };
 
-    if (location.hash) {
-      // setTimeout(() => {
-      const { obj, sub } = scrollToHash(location.hash);
-      if (obj.initialRequest) {
-        const doScroll = obj.initialRequest(sub);
-        if (doScroll) {
-          doScrolling(
-            Math.max(
-              getElementY(typeof doScroll === "object" ? doScroll : obj) - 20,
-              0
-            ),
-            1000
-          );
-        }
+    const _scrollWindowTo = (obj, initiator) => {
+      let scrollTarget = null;
+      switch (typeof obj) {
+        case "object":
+          scrollTarget = getElementY(obj) - 20;
+          break;
+        case "number":
+          scrollTarget = obj;
+          break;
+        case "boolean":
+          if (obj) scrollTarget = getElementY(initiator) - 20;
+          break;
       }
-      // }, 300);
+      if (scrollTarget !== null) doScrolling(Math.max(scrollTarget, 0), 1000);
+    };
+
+    if (location.hash) {
+      const { obj, sub } = scrollToHash(location.hash);
+      if (obj && obj.initialRequest) {
+        const scrollTo = obj.initialRequest(sub);
+        _scrollWindowTo(scrollTo, obj);
+      }
     }
-
-    // left side menu
-    ((leftmenu) => {
-      if (!leftmenu) return;
-
-      const treeSelect = (li, ...classes) => {
-        const parent = li.closest("#leftside-menu li");
-        if (!parent) return;
-
-        parent.classList.add(...classes);
-        treeSelect(li.parentElement, ...classes);
-      };
-
-      const selected = leftmenu.querySelector("li.is-selected");
-
-      if (selected) treeSelect(selected, "is-expanded");
-
-      Array.from(leftmenu.querySelectorAll(".expand-button")).forEach((p) => {
-        const li = p.closest("li");
-        const ul = li.querySelector("ul");
-        const height = ul.getBoundingClientRect().height;
-        ul.style.setProperty("--max-height", height + "px");
-        p.addEventListener("click", (e) => {
-          li.classList.toggle("is-expanded");
-        });
-      });
-      leftmenu.style.setProperty("--min-height", "0px");
-      leftmenu.classList.add("is-ready-fade");
-    })(document.getElementById("leftside-menu"));
 
     window.addEventListener(
       "hashchange",
-      () => {
+      (e) => {
         const { obj, sub } = scrollToHash(location.hash);
 
-        if (obj.changeRequest) obj.changeRequest(sub);
+        if (obj) {
+          let scrollTo = null;
+          if (obj.changeRequest) {
+            scrollTo = obj.changeRequest(sub);
+            _scrollWindowTo(scrollTo, obj);
+          }
+        }
+        return true;
       },
       false
     );
   })();
+
+  // left side menu
+  ((leftmenu) => {
+    if (!leftmenu) return;
+
+    const treeSelect = (li, ...classes) => {
+      const parent = li.closest("#leftside-menu li");
+      if (!parent) return;
+
+      parent.classList.add(...classes);
+      treeSelect(li.parentElement, ...classes);
+    };
+
+    const selected = leftmenu.querySelector("li.is-selected");
+
+    if (selected) {
+      treeSelect(selected, "is-expanded");
+    }
+
+    Array.from(leftmenu.querySelectorAll(".expand-button")).forEach((p) => {
+      const li = p.closest("li");
+      const ul = li.querySelector("ul");
+      const height = ul.getBoundingClientRect().height;
+      ul.style.setProperty("--max-height", height + "px");
+      const title = li.querySelector(".menuitem-title");
+      const click = (e) => {
+        e.stopPropagation();
+        li.classList.toggle("is-expanded");
+      };
+      p.addEventListener("click", click);
+      if (title) title.addEventListener("click", click);
+    });
+    leftmenu.style.setProperty("--min-height", "0px");
+    leftmenu.classList.add("is-ready-fade");
+  })(document.getElementById("leftside-menu"));
 };
-
-
