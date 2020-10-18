@@ -57,7 +57,7 @@ For the repository configuration, see how to [Configure a T-Engine as a Local Tr
 
 T-Engines must provide a `/transform/config` end point for clients to determine what is supported. This is simply achieved by editing a JSON file.
 
-The following [engine\_config.json](https://github.com/Alfresco/alfresco-helloworld-transformer/blob/master/alfresco-helloworld-transformer-engine/src/main/resources/engine_config.json){:target="_blank"} is taken from the Hello World example, but there are other examples such as the one used by the [Tika T-Engine](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-docker-tika/src/main/resources/engine_config.json){:target="_blank"}.
+The following [engine_config.json](https://github.com/Alfresco/alfresco-helloworld-transformer/blob/master/alfresco-helloworld-transformer-engine/src/main/resources/engine_config.json){:target="_blank"} is taken from the Hello World example, but there are other examples such as the one used by the [Tika T-Engine](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-docker-tika/src/main/resources/engine_config.json){:target="_blank"}.
 
 ```json
 {
@@ -117,7 +117,7 @@ Method parameters:
 * **targetExtension** - The target extension of the transformed file to be returned in the response. This is always provided.
 * **language** - This is the custom transform option defined for the example T-Engine.
 
-The `transform` method's signature will vary depending on the T-Engine's configuration. The example T-Engine is configured to take a single `language` transform option, but the number of the `transform` method's parameters will have to match the transform options defined in [engine\_config.json](https://github.com/Alfresco/alfresco-helloworld-transformer/blob/master/alfresco-helloworld-transformer-engine/src/main/resources/engine_config.json){:target="_blank"}.
+The `transform` method's signature will vary depending on the T-Engine's configuration. The example T-Engine is configured to take a single `language` transform option, but the number of the `transform` method's parameters will have to match the transform options defined in [engine_config.json](https://github.com/Alfresco/alfresco-helloworld-transformer/blob/master/alfresco-helloworld-transformer-engine/src/main/resources/engine_config.json){:target="_blank"}.
 
 * **ProcessTransform**
 
@@ -183,55 +183,67 @@ See the [Docker documentation](https://docs.docker.com/engine/reference/commandl
 
 Use this information to configure a custom transform engine (T-Engine).
 
-1. Define an HTTP URL and JMS queue name for the T-Engine.
+1. Define a T-Engine URL and queue name.
 
     For example, you can configure custom T-Engines through environment variables:
 
-    ```bash  
+    ```bash
     export TRANSFORMER_URL_<CUSTOM_ENGINE_NAME>="http://custom-engine-host:8090"
     export TRANSFORMER_QUEUE_<CUSTOM_ENGINE_NAME>="custom-engine-queue"
     ```
 
-2. (Optional) Configure multi-step (pipeline) transformers:
+2. Configure the new transform routes:
 
-   1. Specify the mounting location of the pipeline definition file, `custom-pipeline-file.json`.
-
-        For example:
-
-        ```bash
-        /local/path/to/custom-pipeline-file.json:/mounting/location/of/custom-pipeline-file.json
-        ```
-
-   2. Specify the location through an environment variable.
+    1. Specify the mounting location of the custom route file, `custom-route-file.yaml`.
 
         For example:
 
         ```bash
-        export TRANSFORMER_ROUTES_ADDITIONAL_<name>="/mounting/location/of/custom-pipeline-file.json"
+        /local/path/to/custom-route-file.yaml:/mounting/location/of/custom-route-file.yaml
         ```
 
-    > **Note:** The `<name>` suffix doesn't need to match any labels - it just differentiates multiple additional route files. However, the T-Engine name can be used as it may help to make debugging easier.
+    2. Specify the location through an environment variable.
 
-3. Create a JSON file that contains additional pipeline transformers.
+        For example:
+
+        ```bash
+        export TRANSFORMER_ROUTES_ADDITIONAL_<name>="/mounting/location/of/custom-route-file.yaml"
+        ```
+
+    > **Note:** The `<name>` suffix doesn't need to match any labels - it just differentiates multiple additional route files. However, the T-Engine name can be used and may help to make debugging easier.
+
+3. Create a YAML file that contains simple (single-step) and multi-step (pipeline) routes.
 
     For example:
 
-    ```json
-    {
-      "transformers": [
-        {
-            "transformerName": "pdfToImageViaPng",
-            "transformerPipeline" : [
-              {"transformerName": "pdfrenderer",      "targetMediaType": "image/png"},
-              {"transformerName": "imagemagick"}
-            ],
-            "supportedSourceAndTargetList": [
-            ],
-            "transformOptions": [
-              "pdfRendererOptions",
-              "imageMagickOptions"
-            ]
-        }
-      ]
-    }
+    ```yaml
+    routes:
+      - sourceMediaType: image/png
+        targetMediaType: application/vnd.alfresco.ai.labels.v1+json
+        maxSourceSizeBytes: 102400000
+        engine: AWS_AI
+
+      - sourceMediaType: image/jpeg
+        targetMediaType: application/vnd.alfresco.ai.labels.v1+json
+        maxSourceSizeBytes: 102400000
+        engine: AWS_AI
+
+      - sourceMediaType: image/gif
+        targetMediaType: application/vnd.alfresco.ai.labels.v1+json
+        maxSourceSizeBytes: 102400000
+        steps:
+        - image/jpeg
+
+      - sourceMediaType: image/tiff
+        targetMediaType: application/vnd.alfresco.ai.labels.v1+json
+        maxSourceSizeBytes: 102400000
+        steps:
+        - image/gif
+        - image/jpeg
+
+      - sourceMediaType: application/pdf
+        targetMediaType: application/vnd.alfresco.ai.labels.v1+json
+        maxSourceSizeBytes: 102400000
+        steps:
+        - image/png
     ```

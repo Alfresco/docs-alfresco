@@ -68,8 +68,8 @@ Follow the linked pages in the Alfresco Content Services documentation, starting
 
 See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup:
 
-* [Deploying with Helm charts on AWS using Kops](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-deployment-aws_kops.md){:target="_blank"}
-* [Deploying with Helm charts on AWS using EKS](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-deployment-aws_eks.md){:target="_blank"}
+* [Deploying with Helm charts on AWS using Kops](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm-deployment-aws_kops.md){:target="_blank"}
+* [Deploying with Helm charts on AWS using EKS](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm-deployment-aws_eks.md){:target="_blank"}
 
 ## Install with Docker Compose
 
@@ -174,19 +174,19 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```bash
-             Container                                 Repository                           ...     Size
+               Container                                 Repository                         ...     Size
         ----------------------------------------------------------------------------------------------------
         docker-compose_activemq_1             alfresco/alfresco-activemq                    ...   545.9 MB
-        docker-compose_alfresco_1             alfresco/alfresco-content-repository          ...   1.324 GB
-        docker-compose_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace   ...   34.35 MB
+        docker-compose_alfresco_1             alfresco/alfresco-content-repository          ...   1.3 GB
+        docker-compose_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace   ...   46.59 MB
         docker-compose_postgres_1             postgres                                      ...   312.5 MB
         docker-compose_proxy_1                alfresco/alfresco-acs-nginx                   ...   20.42 MB
-        docker-compose_share_1                alfresco/alfresco-share                       ...   867.6 MB
-        docker-compose_shared-file-store_1    alfresco/alfresco-shared-file-store           ...   777.8 MB
+        docker-compose_share_1                alfresco/alfresco-share                       ...   837.6 MB
+        docker-compose_shared-file-store_1    alfresco/alfresco-shared-file-store           ...   769.1 MB
         docker-compose_solr6_1                alfresco/alfresco-search-services             ...   1.022 GB
-        docker-compose_sync-service_1         quay.io/alfresco/service-sync                 ...   809.7 MB
-        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio          ...   1.707 GB
-        docker-compose_transform-router_1     quay.io/alfresco/alfresco-transform-router    ...   729.8 MB
+        docker-compose_sync-service_1         quay.io/alfresco/service-sync                 ...   801.3 MB
+        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio          ...   1.682 GB
+        docker-compose_transform-router_1     quay.io/alfresco/alfresco-transform-router    ...   721.2 MB
         ```
 
     2. List the running containers:
@@ -296,7 +296,7 @@ Use these instructions to install Transform Service using the distribution zip t
 
 The Transform Service distribution zip file includes all the files required to provide the Transform Service capabilities. Ensure that you've installed the prerequisites before continuing, for more see [Install Transform Service]({% link transform-service/latest/install/index.md %}).
 
-1. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.3.x.zip`.
+1. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.2.x.zip`.
 
 2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
@@ -304,7 +304,7 @@ The Transform Service distribution zip file includes all the files required to p
 
     * `alfresco-shared-file-store-controller-x.y.z.jar`
     * `alfresco-transform-core-aio-boot-x.y.z.jar`
-    * `alfresco-transform-router-1.3.x.jar`
+    * `alfresco-transform-router.1.2.0.jar`
     * `README.md`
 
 3. Start Active MQ.
@@ -362,7 +362,7 @@ The Transform Service distribution zip file includes all the files required to p
      -DCORE_AIO_QUEUE=org.alfresco.transform.engine.aio.acs
      -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
      -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-router-1.3.x.jar
+     -jar alfresco-transform-router-1.2.0.jar
     ```
 
     Check the output to ensure that it starts successfully.

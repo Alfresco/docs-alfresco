@@ -1,5 +1,5 @@
 ---
-title: Configuring Transformers
+title: Configure Transformers
 ---
 
 The Transform Router (T-Router) configures engine transformers automatically by retrieving the engine transform configurations from each configured Transform Engine (i.e T-Engine). The engine transform configurations provide the transformer configuration, including the supported transformers and their transform options.
