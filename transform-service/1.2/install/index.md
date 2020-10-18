@@ -24,7 +24,7 @@ There are a number of software requirements for deploying Transform Service.
 
 The Transform Service is only deployed as part of Alfresco Content Services for containerized deployments.
 
-However, this is not the case if you're installing Alfresco Content Services using the distribution zip. For more on requirements see [Supported platforms]({% link transform-service/latest/support/index.md %}).
+However, this is not the case if you're installing Alfresco Content Services using the distribution zip. For more on requirements see [Supported platforms]({% link transform-service/1.2/support/index.md %}).
 
 ### Containerized deployments
 
@@ -40,7 +40,7 @@ The other images are available in DockerHub:
 
 ### Non-containerized deployment
 
-Before you can use the Transform Service zip, you need to install the software requirements listed in [Supported platforms]({% link transform-service/latest/support/index.md %}).
+Before you can use the Transform Service zip, you need to install the software requirements listed in [Supported platforms]({% link transform-service/1.2/support/index.md %}).
 
 Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](LINK). See [Supported Platforms](LINK) for the supported versions of each component.
 
@@ -294,7 +294,7 @@ See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for m
 
 Use these instructions to install Transform Service using the distribution zip to an instance of Alfresco Content Services.
 
-The Transform Service distribution zip file includes all the files required to provide the Transform Service capabilities. Ensure that you've installed the prerequisites before continuing, for more see [Install Transform Service]({% link transform-service/latest/install/index.md %}).
+The Transform Service distribution zip file includes all the files required to provide the Transform Service capabilities. Ensure that you've installed the prerequisites before continuing, for more see [Install Transform Service]({% link transform-service/1.2/install/index.md %}).
 
 1. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.2.x.zip`.
 
@@ -397,7 +397,7 @@ The Transform Service distribution zip file includes all the files required to p
 
     > **Note:** Any changes to `alfresco-global.properties` require you to restart Alfresco Content Services to apply the updates. See the Alfresco Content Services documentation [Using the alfresco-global.properties file](LINK) for more information.
 
-8. Check that the [configuration]({% link transform-service/latest/config/index.md %}) is set up correctly for your environment.
+8. Check that the [configuration]({% link transform-service/1.2/config/index.md %}) is set up correctly for your environment.
 
 9. Restart Alfresco Content Services.
 
