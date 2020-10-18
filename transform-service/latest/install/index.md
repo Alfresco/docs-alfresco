@@ -2,13 +2,13 @@
 title: Install Transform Service
 ---
 
-This release provides two main options for deployment: using the distribution zip, or using containerized deployment (as in previous Transform Service releases).
+This release provides two main options for deployment: using the distribution zip, or using containerized deployment.
 
 The Transform Service zip can be applied when installing Alfresco Content Services using the distribution zip.
 
-The Transform Service is also deployed as part of the Alfresco Content Services containerized deployment, using Docker images that are packaged in Helm charts. These charts are a deployment template which can be used as the basis for your specific deployment needs.
+The Transform Service is also deployed as part of the Alfresco Content Services containerized deployment using Docker images that are packaged in Helm charts. These charts are a deployment template that can be used as the basis for your specific deployment needs.
 
-> **Important:** The deployment of the Transform Service with Alfresco Content Services on AWS, such as Amazon EKS (Elastic Kubernetes Service), is only recommended for customers with a good knowledge of Alfresco Content Services, and strong competencies in AWS and containerized deployment.
+> **Important:** Deployment of Transform Service with Alfresco Content Services on AWS, such as Amazon EKS (Elastic Kubernetes Service), is recommended only for customers with a good knowledge of Alfresco Content Services, and strong competencies in AWS and containerized deployment.
 
 The following diagram shows how Alfresco Content Services and the components of the Transform Service interact when deployed using Docker Compose.
 
