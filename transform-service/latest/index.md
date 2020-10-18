@@ -4,7 +4,7 @@ title: Alfresco Transform Service
 
 The Alfresco Transform Service provides a secure, scalable, reliable, and extensible mechanism for converting files from their current format into other formats.
 
-This release of the Transform Service module provides a single all-in-one Transform Core Engine (T-Engine) that performs all the core transforms. This replaces the five separate T-Engines for all but the largest deployments, where it's still advisable to separate out the different types of transforms into their own images. Note that the all-in-one T-Engine is the default option for the Docker Compose deployment and installation using the distribution zip, however Helm deployments continue to use the five separate T-Engines in order to provide balanced throughput and scalability improvements. This release also provides two main options for deployment: using containerized deployment or using the distribution zip.
+Transform Service provides a single all-in-one Transform Core Engine (T-Engine) that performs all the core transforms. This replaces the five separate T-Engines for all but the largest deployments, where it's still advisable to separate out the different types of transforms into their own images. Note that the all-in-one T-Engine is the default option for the Docker Compose deployment and installation using the distribution zip, however Helm deployments continue to use the five separate T-Engines in order to provide balanced throughput and scalability improvements. This release also provides two main options for deployment: using containerized deployment or using the distribution zip.
 
 The key capabilities of the Transform Service include the ability to:
 

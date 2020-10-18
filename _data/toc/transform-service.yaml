@@ -12,9 +12,9 @@
         - title: 'Extend Transform Service'
           path: '/transform-service/latest/config/extend/'
           pages:
-          - title: 'Configuring Transformers'
-            path: '/transform-service/latest/config/extend/transformers/'
-          - title: 'Creating a custom T-Engine'
-            path: '/transform-service/latest/config/extend/engine/'      
+            - title: 'Configuring Transformers'
+              path: '/transform-service/latest/config/extend/transformers/'
+            - title: 'Creating a custom T-Engine'
+              path: '/transform-service/latest/config/extend/engine/'      
     - title: 'Administer'
       path: '/transform-service/latest/admin/'
