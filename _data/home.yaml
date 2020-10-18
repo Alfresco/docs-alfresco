@@ -42,7 +42,7 @@ integrations:
     sub:
       - title: "Transform Service"
         text: "Alfresco Transform Service provides a secure, scalable, reliable, and extensible mechanism for converting files from their current format into other formats."
-        url: /transform-service/latest/ 
+        url: /transform-service/latest/
       - title: "Document Transformation Engine"
         text: "Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents."
         url: /transformation-engine/latest/
