@@ -16,5 +16,5 @@
             path: '/transform-service/latest/config/transformers/'
           - title: 'Creating a custom T-Engine'
             path: '/transform-service/latest/config/engine/'      
-    - title: 'Administer'
-      path: '/transform-service/latest/admin/'
+    - title: 'Troubleshoot'
+      path: '/transform-service/latest/troubleshoot/'

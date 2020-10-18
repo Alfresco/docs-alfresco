@@ -11,9 +11,12 @@ T-Engines are added to the T-Router by adding the engine's URL and JMS queue nam
 The T-Router supports 2 types of transformers:
 
 * **Single-step transformer**: This maps T-Requests to a single T-Engine, which can directly transform the `source media type` to the `target media type` with the provided `transform options` and `source file size`.
-  * For example: `image/png` to `image/png` is handled by the `IMAGEMAGICK` transformer.
+
+  For example: `image/png` to `image/png` is handled by the `IMAGEMAGICK` transformer.
+
 * **Pipeline transformer**: This maps T-Requests to a sequence of intermediate T-Request steps, which are handled by multiple `T-Engines`. These transformers handle situations where there is no single engine that can directly transform one media type to another, but that can be achieved through intermediate media types and transformations.
-* For example: `application/msword` to `image/png` can't be directly performed by one single engine, but it can be handled by `LIBREOFFICE` (which would generate `application/pdf`) and then `PDF_RENDERER`.
+
+  For example: `application/msword` to `image/png` can't be directly performed by one single engine, but it can be handled by `LIBREOFFICE` (which would generate `application/pdf`) and then `PDF_RENDERER`.
 
 Single-step transformers map to a transformer, which in turn maps to an engine. Each engine can have multiple transformers defined in its configuration. The single-step transformers are configured automatically from engine transform configuration files.
 

@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Transform Service
+title: Troubleshoot Transform Service
 ---
 
 Use this information to help troubleshoot the Transform Service.

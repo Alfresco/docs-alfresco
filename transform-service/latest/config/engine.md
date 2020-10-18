@@ -45,17 +45,11 @@ T-Engines are Dockerized Spring Boot applications. They are set up as Maven proj
 
 In order to configure a custom T-Engine as a Spring Boot application in a Docker image, we need to add some configuration. The quickest way to get started is to base your project on [alfresco-helloworld-transformer](https://github.com/Alfresco/alfresco-helloworld-transformer/tree/master/alfresco-helloworld-transformer-engine){:target="_blank"}, as it is fully configured, ready to be built and run, and contains relatively little extra code. It is also possible to start from a blank Maven project with the same folder structure. The key files in this project are:
 
-* **pom.xml**
+* **pom.xml** The POM file defines Alfresco Transform Core as the parent and adds required dependencies. It also configures plugins for building the Spring Boot application and generating the Docker image. It is likely you will need to change the artifact name and add extra dependencies.
 
-    The POM file defines Alfresco Transform Core as the parent and adds required dependencies. It also configures plugins for building the Spring Boot application and generating the Docker image. It is likely you will need to change the artifact name and add extra dependencies.
+* **Application.java** The Application class defines an entry point for the Spring Boot application.
 
-* **Application.java**
-
-    The Application class defines an entry point for the Spring Boot application.
-
-* **Dockerfile**
-
-    The Dockerfile is needed by the `docker-maven-plugin` configured in the `pom.xml` to generate a Docker image. It defines a simple Docker image with our Spring Boot application fat jar copied in, specifies default user information, and exposes port 8090.
+* **Dockerfile** The Dockerfile is needed by the `docker-maven-plugin` configured in the `pom.xml` to generate a Docker image. It defines a simple Docker image with our Spring Boot application fat jar copied in, specifies default user information, and exposes port 8090.
 
 ## T-Engine configuration
 
@@ -91,7 +85,7 @@ The following [engine\_config.json](https://github.com/Alfresco/alfresco-hellowo
 }
 ```
 
-* **transformOptions** provides a list of transform options that may be referenced for use in different transformers. This way, common options don't need to be repeated for each transformer. They can even be shared between T-Engines. In this example, there is only one group of options called `helloWorldOptions`, which has just one option - the `language`. Unless an option has a `"required": true` field, it's considered to be optional. If you look at the [Tika T-Engine](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-docker-tika/src/main/resources/engine_config.json) file, you can see that options may also be grouped. You don't need to specify `sourceMimetype`, `targetMimetype`, `sourceExtension` or `targetExtension` as options, since these are automatically added.
+* **transformOptions** provides a list of transform options that may be referenced for use in different transformers. This way, common options don't need to be repeated for each transformer. They can even be shared between T-Engines. In this example, there is only one group of options called `helloWorldOptions`, which has just one option - the `language`. Unless an option has a `"required": true` field, it's considered to be optional. If you look at the [Tika T-Engine](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-docker-tika/src/main/resources/engine_config.json){:target="_blank"} file, you can see that options may also be grouped. You don't need to specify `sourceMimetype`, `targetMimetype`, `sourceExtension` or `targetExtension` as options, since these are automatically added.
 
 * **transformers** is a list of transformer definitions. Each transformer definition should have a unique `transformerName`, specify a `supportedSourceAndTargetList` and indicate which options it supports. In this example configuration, there is only one transformer called `Hello World` and it accepts `helloWorldOptions`. A transformer may specify references to 0 or more `transformOptions`.
 
