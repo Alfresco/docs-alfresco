@@ -31,7 +31,7 @@ Alfresco Desktop Sync supports SAML authentication with the Identity Service. Se
 
 Alfresco Desktop Sync also supports basic authentication with Alfresco Content Services where Identity Service is not being used.
 
-> **Important:** Alfresco Desktop Sync does not support [SAML Single Sign-On (SSO) for Alfresco Content Services](https://docs.alfresco.com/saml/concepts/saml-overview.html)(#LINK). Users can log in with their credentials using basic authentication, but SAML authentication must not be enforced.
+> **Important:** Alfresco Desktop Sync does not support [SAML Module for Alfresco Content Services](https://docs.alfresco.com/saml/concepts/saml-overview.html)(#LINK). Users can log in with their credentials using basic authentication, but SAML authentication must not be enforced.
 
 ## How can I monitor ActiveMQ?
 

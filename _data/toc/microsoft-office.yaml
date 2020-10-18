@@ -1,0 +1,46 @@
+# Alfresco Office Services 1.3
+- version: 1.3
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-office/latest/'
+    - title: 'Install'
+      path: '/microsoft-office/latest/install/'
+    - title: 'Configure'
+      path: '/microsoft-office/latest/config/'
+    - title: 'Upgrade'
+      path: '/microsoft-office/latest/upgrade/'
+    - title: 'Using'
+      path: '/microsoft-office/latest/using/'
+    - title: 'Administer'
+      path: '/microsoft-office/latest/admin/'
+# Alfresco Office Services 1.2
+- version: 1.2
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-office/1.2/'
+    - title: 'Install'
+      path: '/microsoft-office/1.2/install/'
+    - title: 'Configure'
+      path: '/microsoft-office/1.2/config/'
+    - title: 'Upgrade'
+      path: '/microsoft-office/1.2/upgrade/'
+    - title: 'Using'
+      path: '/microsoft-office/1.2/using/'
+    - title: 'Administer'
+      path: '/microsoft-office/1.2/admin/'
+# Alfresco Office Services 1.1
+- version: 1.1
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-office/1.1/'
+    - title: 'Install'
+      path: '/microsoft-office/1.1/install/'
+    - title: 'Configure'
+      path: '/microsoft-office/1.1/config/'
+    - title: 'Upgrade'
+      path: '/microsoft-office/1.1/upgrade/'
+    - title: 'Using'
+      path: '/microsoft-office/1.1/using/'
+    - title: 'Administer'
+      path: '/microsoft-office/1.1/admin/'
+      
