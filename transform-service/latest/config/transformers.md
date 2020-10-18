@@ -63,7 +63,7 @@ The HTTP URL is for retrieving the engine config, and for transform requests in 
 
 All registered engines are queried via their HTTP URL for transform config on T-Router startup. This allows for auto configuration of engine transformers, and generates a transform config for the T-Router. The T-Router transform config consists of aggregated transform configs from all engines plus all available pipeline transformers. It can be checked using the `/transform/config` endpoint. During the registration process, the engine names provided in the properties are mapped to the corresponding transformers supported by the particular engine and to the corresponding JMS queue.
 
-### T-Router pipeline configuration
+## T-Router pipeline configuration
 
 This section assumes that you're familiar with transformer concepts used in Alfresco Content Services and now in the Transform Service. A good place to start is the [Alfresco Content Services](https://github.com/Alfresco/acs-packaging/blob/support/SP/6.2.N/docs/custom-transforms-and-renditions.md){:target="_blank"} GitHub documentation, as the concepts and transformer configuration are identical.
 
@@ -77,7 +77,7 @@ Each T-Engine may contain multiple transformers, as exposed via its `/transform/
 
 The priority is used in resolving conflicts or to deliberately override existing transforms, where everything else is equal. Each transformer can also have a set of options, for example, an image processing transformer might have options for the target image parameters (resolution, aspect ratio, etc.). All of this information determines the transformer for each incoming request. Pipeline transformers can be defined in terms of other pipeline transformers. Pipelines examples are provided later.
 
-### Out of the box pipeline transformer definitions
+## Out of the box pipeline transformer definitions
 
 The T-Router supports pipeline transformers, allowing it to perform transformations in a sequence of requests to various engines. This functionality is identical in definition to Alfresco Content Services pipeline transformers (starting from Alfresco Transform Service 1.3.0). For more information on these pipelines, see the Alfresco Content Services GitHub documentation on [Configuring a custom transform pipeline](https://github.com/Alfresco/acs-packaging/blob/support/SP/6.2.N/docs/custom-transforms-and-renditions.md#configure-a-custom-transform-pipeline){:target="_blank"} as the T-Router pipeline transformers are defined using the same format. Due to this commonality, pipelines defined in Alfresco Content Services can be moved to Transform Service directly. However, it's worth mentioning that most of the pipeline definitions provided out of the box are identical to the pipeline definitions in Alfresco Content Services.
 
@@ -113,7 +113,7 @@ The above definition will introduce a new transformer, specifically a pipeline t
 
 > **Note:** Pipeline transformers become available only if all of the involved single-step transformers are available. The application logs will report any missing pipeline transformers on startup and config refresh.
 
-### Adding new pipeline transformer definitions
+## Adding new pipeline transformer definitions
 
 Additional transformers can be defined in new JSON or YAML files and specified through environment variables with the `TRANSFORMER_ROUTES_ADDITIONAL_` prefix:
 
@@ -170,7 +170,7 @@ In case of clashes between transformers and their supported transforms:
 
 * If the same transform is specified in multiple transformers with the same transform options, priority and maxSourceFileSize, then one of the transformers will be chosen at random.
 
-### Transform option filtering
+## Transform option filtering
 
 Each transformer can reference transform option names which it claims to support, but a pipeline transformer might reference options for multiple transformers as inherited from its single-step transformers. In order to send the correct options to the correct transformer, the options are filtered for each transform request to a T-Engine.
 
