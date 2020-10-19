@@ -6,10 +6,8 @@ Use this information to troubleshoot common issues when connecting Alfresco to S
 
 ## Associated document not available
 
-There is a known issue with associating (linking) a document. If you associate a document in Alfresco, and then 
-
-download and edit the source document offline, the associated document is not available.
-
+There is a known issue with associating (linking) a document. If you associate a document in Alfresco, 
+and then download and edit the source document offline, the associated document is not available. 
 If you cancel the **Edit Offline** action, the associated document is available.
 
 ## Error when trying to configure Alfresco to Salesforce connection
@@ -69,7 +67,7 @@ If you see the following message in Salesforce:
 Unable to resolve the server's DNS address
 ```
 
-then Alfresco is unavailable. Check whether Alfresco is behind a firewall, or whether your Virtual Private Network (VPN) 
+Then Alfresco is unavailable. Check whether Alfresco is behind a firewall, or whether your Virtual Private Network (VPN) 
 connection has dropped, as both these situations can cause this error.
 
 ## "Error rendering Force.com Canvas application" message in Salesforce
@@ -101,7 +99,7 @@ Alternatively you might not have permission to view the page (it could be on a p
 have been an internal error. Try checking with your Alfresco administrator.
 ```
 
-check that the correct Share URL is specified in the **Canvas App URL** in Salesforce. 
+Check that the correct Share URL is specified in the **Canvas App URL** in Salesforce. 
 See [(3) Configure app in Salesforce]({% link salesforce/latest/install/index.md %}#configappinsalesforce-lightning) for more guidance.
 
 ## HTTP Status 404 or Service Unavailable message
