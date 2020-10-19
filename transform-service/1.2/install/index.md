@@ -66,10 +66,8 @@ Before you can use the Transform Service zip, you need to install the following 
 Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](LINK). See [Supported Platforms](LINK) for the supported versions of each component:
 6. Check the status of your deployment.
 
-See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup:
+See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup.
 
-* [Deploying with Helm charts on AWS using Kops](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm-deployment-aws_kops.md){:target="_blank"}
-* [Deploying with Helm charts on AWS using EKS](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm-deployment-aws_eks.md){:target="_blank"}
 
 ## Install with Docker Compose
 
