@@ -2,6 +2,8 @@
 title: Configure Governance Services
 ---
 
+Use the information on this page to configure Governance Services.
+
 ## Alfresco global properties settings
 
 Use this information to understand the `alfresco-global.properties` properties related to the Governance Services.
