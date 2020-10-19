@@ -1,8 +1,8 @@
 ---
-title: Install the Outlook Integration
+title: Install Outlook Integration
 ---
 
-The Outlook Integration is an extension to Alfresco and Microsoft Outlook that allows you to save and file your 
+Outlook Integration is an extension to Content Services and Microsoft Outlook that allows you to save and file your 
 emails to Alfresco from within Microsoft Outlook, in a centralized and structured way.
 
 You can drag and drop emails in and out of the repository, and add metadata automatically when an email is filed. 
@@ -21,22 +21,23 @@ site if it contains a large number of files.
 You can also create new versions of existing documents, review the version history of a versioned document, 
 and revert back to previous versions.
 
-This information helps system administrators to install, configure and manage the Outlook Integration.
+This information helps system administrators to install, configure, and manage Outlook Integration.
 
-The software you need to install the Outlook Integration is as follows:
+The software you need to install Outlook Integration is as follows:
 
 * AMP files that are applied to Alfresco and provide the administration tooling in Alfresco Share
 * A server license that is applied in Alfresco Share
 * Client licenses that can be applied in Alfresco Share or in Microsoft Outlook
 * A zip file that provides an addition to the Microsoft Outlook toolbar, which you unzip and install before you start up Microsoft Outlook
 
-If you plan to use SAML Single Sign-On (SSO) for Alfresco Content Services authentication, you need to install and configure the Alfresco SAML module.
+If you plan to use SAML Module for Alfresco Content Services authentication, you need to install and 
+configure the SAML Module for Alfresco Content Services.
 
-You can download the Outlook Integration software from the [Alfresco Support Portal](https://support.alfresco.com).
+You can download the Outlook Integration software from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
 
 ## Prerequisites 
 
-There are a number of software requirements for installing the Outlook Integration.
+There are a number of software requirements for installing Outlook Integration.
 
 You need one of each of the following components:
 
@@ -55,38 +56,43 @@ You can use one of the following Outlook releases:
 * Microsoft Outlook 2019 (x86/x64)
 * Microsoft Outlook 2016 (x86/x64)
 * Microsoft Office 2013 (x86/x64)
-* [Visual Studio Tools for Office 4.0 Runtime](https://msdn.microsoft.com/en-us/library/ms178739.aspx)
+* [Visual Studio Tools for Office 4.0 Runtime](https://msdn.microsoft.com/en-us/library/ms178739.aspx){:target="_blank"}
 * Microsoft .NET Framework 4.5 or above
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.0 or later. See [Alfresco Supported Platforms](https://www.alfresco.com/services/subscription/supported-platforms) for more information.
+* Alfresco Content Services 6.0 or later. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
 
-If you plan to use SAML Single Sign-On (SSO) for Alfresco Content Services authentication, check the requirements in [Prerequisites for using SAML SSO with Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-prereqs.html).
+If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements 
+in [Prerequisites for using SAML SSO with Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-prereqs.html).
 
-## Installing AMPs {#install_amps}
+## Install AMPs {#install_amps}
 
-There are three steps to installing the Outlook Integration: install the Alfresco AMP files (the Alfresco Outlook Server software), apply the licenses and then install the Microsoft Outlook zip file (the Alfresco Outlook Client software).
+There are three steps to installing the Outlook Integration: install the Alfresco AMP files 
+(the Alfresco Outlook Server software), apply the licenses and then install the Microsoft Outlook zip file 
+(the Alfresco Outlook Client software).
 
-Make sure you are running the correct versions of operating system and software before you install the AMP files. If you plan to use SAML Single Sign-On (SSO) for Alfresco Content Services authentication, check the requirements in [Prerequisites for using SAML SSO with Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-prereqs.html) for more information.
+Make sure you are running the correct versions of operating system and software before you install the AMP files. 
+If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements 
+in [Prerequisites for using SAML SSO with Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-prereqs.html) for more information.
 
 1.  Stop the Alfresco server.
 
-2.  Browse to the [Alfresco Support Portal](https://support.alfresco.com) and download and unzip the the Outlook Integration zip package:
+2.  Browse to the [Support Portal](https://support.alfresco.com){:target="_blank"} and download and unzip the the Outlook Integration zip package:
 
-    * `alfresco-outlook-integration-2.7.x.zip`
+    `alfresco-outlook-integration-2.7.x.zip`
     
 3.  Copy the provided AMP files to the Alfresco `amps` and `amps_share` directories.
 
     Copy this file to the `amps` directory:
 
-    * `alfresco-outlook-repository-2.7.x.amp`
+    `alfresco-outlook-repository-2.7.x.amp`
     
     and this file to the `amps_share` directory:
 
-    * `alfresco-outlook-share-2.7.x.amp`
+    `alfresco-outlook-share-2.7.x.amp`
     
-4.  To install the AMP files, run the `apply_amps.bat` file from the Alfresco bin directory.
+4.  To install the AMP files, run the `apply_amps.bat` file from the Alfresco `bin` directory.
 
     Check the output from the script to ensure that the AMP files have installed successfully.
 
@@ -101,11 +107,11 @@ Make sure you are running the correct versions of operating system and software 
 
 If you plan to use SAML SSO, you need to install and configure the Alfresco SAML module. See [Installing SAML SSO in Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-config-overview.html) and [Configuring SAML SSO](TODO_LINK:https://docs.alfresco.com/saml/tasks/saml-config.html) for more information.
 
-### Installing server and client licenses in Alfresco Share {#installserverclientlicenses}
+### Install server and client licenses in Alfresco Share {#installserverclientlicenses}
 
 Use Alfresco Share Admin Tools to install your Outlook Integration server and client licenses.
 
-Ensure that you have applied the Alfresco Outlook Server AMP files ([see this section](#install_amps)). 
+Ensure that you have applied the Alfresco Outlook Server AMP files ([see Install Outlook Integration AMPs](#install_amps)). 
 
 1.  Open Alfresco Share, and click **Admin Tools** on the Alfresco toolbar.
 
@@ -113,15 +119,15 @@ Ensure that you have applied the Alfresco Outlook Server AMP files ([see this se
 
     where `localhost:8080` is your Alfresco server and port number.
 
-2.  Select Licenses and click the **Edit** button.
+2.  Select Licenses and click **Edit**.
 
 3.  Open the server license file in a text editor, and copy and paste the contents into the Server License field.
 
-4.  *(Optional)* Open the client license file in a text editor, and copy and paste the contents into the Outlook Client License field.
+4.  *(Optional)* Open the client license file in a text editor, and copy and paste the contents into the **Outlook Client License** field.
 
     Alternatively, specify the client license in Microsoft Outlook in **Alfresco Client > Configure > License**.
 
-    >**Note:** Note that there is no Lotus Notes capability, so you do not need to add information in Lotus Notes Client License.
+    >**Note:** There is no Lotus Notes capability, so you do not need to add information in **Lotus Notes Client License**.
 
 5.  Click **Save**.
 
@@ -129,14 +135,14 @@ Ensure that you have applied the Alfresco Outlook Server AMP files ([see this se
 
     >**Note:** If you added a client license, the license key is displayed, with a message to check the **Alfresco Client > Configure > License** tab in Microsoft Outlook (do this check after you have installed Alfresco Outlook Client).
 
-### Installing the Alfresco Outlook Client in Microsoft Outlook
+### Install the Alfresco Outlook Client in Microsoft Outlook
 
-Inside the Outlook Integration zip is another zip file, which installs the Alfresco Outlook Client into Microsoft Outlook.
+Inside the Outlook Integration zip is another zip file that installs the Alfresco Outlook Client into Microsoft Outlook.
 
 You might need local administrator rights to install .NET 4.5 and Microsoft VS Tools for Office Runtime. 
-Ensure you have already installed the required AMP files in your Alfresco instance ([see this section](#install_amps)). 
+Ensure you have already installed the required AMP files in your Alfresco instance ([see Install Outlook Integration AMPs](#install_amps)). 
 
->**Note:** If you are distributing Alfresco Outlook Client across an organization, see [Installing the Alfresco Outlook Client in unattended mode](#installunattendedmode) for guidance on installing in unattended mode.
+>**Note:** If you are distributing Alfresco Outlook Client across an organization, see [Install the Alfresco Outlook Client in unattended mode](#installunattendedmode) for guidance on installing in unattended mode.
 
 1.  Extract the contents of the `alfresco-outlook-client-2.7.x.zip` file using a standard unzip tool.
 
@@ -164,14 +170,14 @@ Ensure you have already installed the required AMP files in your Alfresco instan
 
     If you did not enter a client license key in Alfresco Share, you must enter one when you open Microsoft Outlook. Navigate to **Alfresco Client > Configure > License** to enter your key.
 
-#### Installing the Alfresco Outlook Client in unattended mode {#installunattendedmode}
+#### Install the Alfresco Outlook Client in unattended mode {#installunattendedmode}
 
 You can automate the Alfresco Outlook Client installation by using the `msiexec` command.
 
 You might need local administrator rights to install .NET 4.5 and Microsoft VS Tools for Office Runtime. 
-Ensure you have already installed the required AMP files in your Alfresco instance ([see this section](#install_amps)).
+Ensure you have already installed the required AMP files in your Alfresco instance ([see Install Outlook Integration AMPs](#install_amps)).
 
->**Note:** If you plan to use SAML Single Sign-On (SSO) for Alfresco Content Services authentication, ensure you have already installed and configured the Alfresco SAML module. See [Installing SAML SSO in Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-config-overview.html) and [Configuring SAML SSO](TODO_LINK:https://docs.alfresco.com/saml/tasks/saml-config.html) for more information.
+>**Note:** If you plan to use SAML Module for Alfresco Content Services authentication, ensure you have already installed and configured the Alfresco SAML module. See [Installing SAML SSO in Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-config-overview.html) and [Configuring SAML SSO](TODO_LINK:https://docs.alfresco.com/saml/tasks/saml-config.html) for more information.
 
 1.  Extract the contents of the `alfresco-outlook-client-2.7.x.zip` file using a standard unzip tool.
 
@@ -213,26 +219,26 @@ Ensure you have already installed the required AMP files in your Alfresco instan
 
 4.  Verify that Alfresco Outlook Client has installed in Microsoft Outlook.
 
-    You will see an *Alfresco Client* tab on the toolbar. Click this tab to view options for configuring the Alfresco Outlook Client.
+    You will see an **Alfresco Client** tab on the toolbar. Click this tab to view options for configuring the Alfresco Outlook Client.
 
     If you did not enter a client license key in Alfresco Share, you must enter one when you open Microsoft Outlook. Navigate to **Alfresco Client > Configure > License** to enter your key.
 
-## Uninstalling 
+## Uninstall
 
-This section walks through how to uninstall the Outlook Integration.
+This section walks through how to uninstall Outlook Integration.
 
-### Uninstalling the Outlook Integration
+### Uninstall Outlook Integration
 
-To uninstall the Alfresco Outlook files, use the Module Management Tool (MMT). To completely remove the Outlook Integration, 
+To uninstall the Alfresco Outlook files, use the Module Management Tool (MMT). To completely remove Outlook Integration, 
 you must uninstall the Outlook package from Alfresco, as well as from Microsoft Outlook on all Windows clients.
 
 This information provides uninstall directions for Alfresco Content Services.
 
->**Note:** See [Uninstalling Outlook Client](#uninstalling-outlook-client) to uninstall the Alfresco Outlook Client.
+>**Note:** See [Uninstall Outlook Client](#uninstall-outlook-client) to uninstall the Alfresco Outlook Client.
 
 1.  Stop the Alfresco server.
 
-2.  Use the information in [Uninstalling an AMP file](TODO_LINK:https://docs.alfresco.com/6.0/tasks/uninstall-amp.html) to uninstall each AMP file.
+2.  Use the information in [Uninstall an AMP file](TODO_LINK:https://docs.alfresco.com/6.0/tasks/uninstall-amp.html) to uninstall each AMP file.
 
     For example, from the Alfresco root directory, you need two commands:
 
@@ -256,13 +262,13 @@ This information provides uninstall directions for Alfresco Content Services.
 
 4.  Restart the Alfresco server.
 
-### Uninstalling Outlook Client
+### Uninstall Outlook Client
 
 Learn how to uninstall the Alfresco Outlook Client.
 
 >**Note:** You can uninstall the Outlook client from your Microsoft Windows machines. Using the standard **Programs > Uninstall Program** feature in Windows. Look for **Alfresco Outlook Client** and uninstall it.
 
-There are two different ways to uninstalling the Alfresco Outlook Client for enterprise installations:
+There are two different ways to uninstall the Alfresco Outlook Client for enterprise installations:
 
 1.  Use the original `.msi` file to uninstall the client by running a single command.
 
@@ -294,4 +300,4 @@ There are two different ways to uninstalling the Alfresco Outlook Client for ent
 
         where `/x = uninstall`, `/q = silent`.
 
-        >**Note:** For more Microsoft msiexec documentation, see [Command-Line Options](https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options).
+        >**Note:** For more Microsoft msiexec documentation, see [Command-Line Options](https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options){:target="_blank"}.

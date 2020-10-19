@@ -1,11 +1,11 @@
 ---
-title: Using the Outlook Integration
+title: Using Outlook Integration
 ---
 
 The Alfresco Outlook Client is part of the Outlook Integration and allows you to use email and repository management 
 without having to leave Microsoft Outlook.
 
-Features of the Outlook Integration include the ability to archive content (i.e. emails, meetings, appointments, and files) 
+Features of Outlook Integration include the ability to archive content (i.e. emails, meetings, appointments, and files) 
 into Alfresco, full metadata support, full search, tagging and workflow capabilities, and the ability to attach files 
 and view archived emails in your inbox. In addition, you can create new versions of existing documents, 
 review the version history of a versioned document, and revert back to previous versions.

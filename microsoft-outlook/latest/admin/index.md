@@ -1,6 +1,8 @@
 ---
-title: Administration of the Outlook Integration
+title: Administer Outlook Integration
 ---
+
+This section contains information related to administration of the Outlook Integration.
 
 ## Using SAML SSO with Outlook Integration {#usingsaml}
 
@@ -18,7 +20,7 @@ Once you've installed the Outlook client and completed the configuration, you sh
 
 ![Alfresco client configuration in Outlook]({% link microsoft-outlook/images/Outlook-connection-saml.png %})
 
-**Additional steps needed when using AD FS with SAML SSO and Outlook**
+### Additional steps needed when using AD FS with SAML SSO and Outlook
 
 >**Note:** The following steps assume you've already [configured your Active Directory Federation Services](TODO_LINK:https://docs.alfresco.com/saml/tasks/saml-adfs.html) (AD FS) identity provider (IdP)
 
@@ -26,6 +28,6 @@ When AD FS is used to authenticate the Outlook Integration, you'll need to check
 
 1.  Log in to AD FS as the administrator, and go to **Authentication Policies**.
 2.  Select **Edit Global Authentication Policy**.
-3.  In the Intranet tab, click the check box next to **Forms Authentication**.
+3.  In the **Intranet** tab, click the check box next to **Forms Authentication**.
 
 This avoids the display of a "white page" in the login page.
