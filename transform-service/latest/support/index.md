@@ -34,7 +34,6 @@ See [Install with Docker Compose]({% link transform-service/latest/install/index
 
 ## Software requirements (Helm)
 
-> **Note:** (Recommended for evaluations only)
 
 To use the Alfresco Content Services deployment (including the Transform Service), you need to install the following software:
 
