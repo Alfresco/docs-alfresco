@@ -32,7 +32,7 @@ See [Install Transform Service]({% link transform-service/latest/install/index.m
 
 See [Install Transform Service]({% link transform-service/latest/install/index.md %}#Installing-with-docker) for more information.
 
-## Software requirements (helm)
+## Software requirements (Helm)
 
 > **Note:** (Recommended for evaluations only)
 
