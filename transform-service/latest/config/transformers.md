@@ -166,7 +166,7 @@ Multiple additional pipeline files can be specified. Ideally, for each new custo
 
 In case of clashes between transformers and their supported transforms:
 
-* f two transformers support the same source and target media type, the transformer with the higher priority is used (i.e. a lower numeric value is considered higher priority).
+* If two transformers support the same source and target media type, the transformer with the higher priority is used (i.e. a lower numeric value is considered higher priority).
 
 * If the same transform is specified in multiple transformers with the same transform options, priority and maxSourceFileSize, then one of the transformers will be chosen at random.
 
