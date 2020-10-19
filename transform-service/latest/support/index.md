@@ -17,7 +17,7 @@ The following are the supported platforms and software requirements for Alfresco
 * LibreOffice: see [Installing LibreOffice](LINK)
 * alfresco-pdf-renderer: see [Installing alfresco-pdf renderer](LINK)
 
-See [Install Transform Service]({% link transform-service/latest/install/index.md %}#Installing-with-zip) for more information.
+See [Install Transform Service]({% link transform-service/latest/install/index.md %}#install-with-zip) for more information.
 
 ## Software requirements (docker)
 
