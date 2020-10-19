@@ -11,7 +11,7 @@
           path: '/digital-workspace/latest/install/tomcat/'
         - title: 'Install into other webserver'
           path: '/digital-workspace/latest/install/other-webserver/'
-        - title: 'Install Docker Compose'
+        - title: 'Install with Docker Compose'
           path: '/digital-workspace/latest/install/containerized/'
     - title: 'Configure'
       path: '/digital-workspace/latest/config/'
