@@ -53,6 +53,13 @@
           path: '/process-automation/latest/model/triggers/'
         - title: 'Content models'
           path: '/process-automation/latest/model/content-models/'
-
-
-
+    - title: 'Administer'
+      pages:
+        - title: 'Overview'
+          path: '/process-automation/latest/admin/'
+        - title: 'Project deployment'
+          path: '/process-automation/latest/admin/release/'
+        - title: 'Process administration'
+          path: '/process-automation/latest/admin/monitor/'
+        - title: 'Users and groups'
+          path: '/process-automation/latest/admin/users/'

@@ -33,7 +33,7 @@ To create a user interface:
 
 ## User interface modeling
 
-Once a user interface has been created, set the type to `content` to deploy the Digital Workspace. This can be accessed by users once a project has been [deployed](LINK) using the format `ui/<name>`, for example `https://alfresco.com/finance-project/ui/content-app`.
+Once a user interface has been created, set the type to `content` to deploy the Digital Workspace. This can be accessed by users once a project has been [deployed]({% link process-automation/latest/admin/release.md %}#deployment) using the format `ui/<name>`, for example `https://alfresco.com/finance-project/ui/content-app`.
 
 ## Custom user interfaces
 

@@ -138,7 +138,7 @@ The advanced properties for an attach file field are:
 | Display retrieve metadata option | Checking this box will allow the form filler to view the metadata of uploaded files |
 | Display remove file option | Checking this box will allow the form filler to remove uploaded files from the form |
 
-> **Important**: Users filling in a form with an attach file field need to be given explicit access to the upload directory if it is outside of the [default storage location](LINK) for the application.
+> **Important**: Users filling in a form with an attach file field need to be given explicit access to the upload directory if it is outside of the [default storage location]({% link process-automation/latest/admin/release.md %}#deploy-steps/storage) for the application.
 
 ### Checkbox fields
 

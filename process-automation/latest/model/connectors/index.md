@@ -142,10 +142,10 @@ The properties of configuration parameters are:
 | Name | *Required.* The name of the parameter, for example `SLACK_XOXB`. |
 | Description | *Optional.* A free text description of what the parameter is for. For example `The Slack bot user token.` |
 | Required | *Required.* Set whether the parameter requires a value when being used, for example `true`. |
-| Secure | *Optional.* Indicates a sensitive property. Properties that are set as secure cannot have their information entered in the Modeling Application and must be entered during [deployment](LINK) to avoid storing them as plain text in the user interface and database. |
+| Secure | *Optional.* Indicates a sensitive property. Properties that are set as secure cannot have their information entered in the Modeling Application and must be entered during [deployment]({% link process-automation/latest/admin/release.md %}#deployment) to avoid storing them as plain text in the user interface and database. |
 | Value | *Optional.* An optional default value for the parameter. This can be overridden at deployment time, for example `xoxb-`. |
 
-The `Value` field for configuration parameters can be filled out during modeling or when the project is [deployed](LINK). Even if properties are entered whilst modeling, they can still be overridden at deployment.
+The `Value` field for configuration parameters can be filled out during modeling or when the project is [deployed]({% link process-automation/latest/admin/release.md %}#deployment). Even if properties are entered whilst modeling, they can still be overridden at deployment.
 
 > **Note**: Properties marked as `Secure` shouldn't have their values entered whilst modeling.
 
@@ -196,8 +196,8 @@ An example of the JSON for the email connector **INVALID_INPUT** error is:
 
 ## Permissions
 
-When a project is [deployed](LINK) service accounts are created for each connector used. The format of the service account name is: `service-account-connector-<connector-name>-<application-name>`.
+When a project is [deployed]({% link process-automation/latest/admin/release.md %}#deployment) service accounts are created for each connector used. The format of the service account name is: `service-account-connector-<connector-name>-<application-name>`.
 
-Read and write access is granted to each service account on the [default storage location](LINK). If the connector reads or writes to files and folders held elsewhere in the repository, the service account will need to be manually given explicit permission to those directories otherwise the connector action will fail.
+Read and write access is granted to each service account on the [default storage location]({% link process-automation/latest/admin/release.md %}#deploy-steps/storage). If the connector reads or writes to files and folders held elsewhere in the repository, the service account will need to be manually given explicit permission to those directories otherwise the connector action will fail.
 
 > **Note**: The service accounts for an application are all added to a group named `<application-name>-service-group` so that permissions can be manually assigned for an entire application if required.
