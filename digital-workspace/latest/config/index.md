@@ -5,7 +5,7 @@ Alfresco Digital Workspace settings are in the following file `../digital-worksp
 
 For more in-depth documentation about how to configure Digital Workspace, see [Application features](https://alfresco-content-app.netlify.com/#/features/){:target="_blank"}.
 
-The following settings can be configured in ../digital-workspace/app.config.json.
+The following settings can be configured in `../digital-workspace/app.config.json`.
 
 | Property/Sub-property | Description |
 | --------  | ----------- |
