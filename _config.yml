@@ -35,6 +35,28 @@ defaults:
     values:
       version: "Community"
 
+# Alfresco Digital Workspace
+  - scope:
+      path: "digital-workspace"
+    values:
+      layout: "docs"
+      product: "Alfresco Digital Workspace"
+      location: "digital-workspace"
+      toc: "digital-workspace"
+      support: true
+      versions:
+        - 1.6
+        - 1.5   
+  - scope:
+      path: "digital-workspace/latest"
+    values:
+      version: 1.6
+      latest: true
+  - scope:
+      path: "digital-workspace/1.5"
+    values:
+      version: 1.5
+
 # Alfresco Google Drive
   - scope:
       path: "google-drive"
