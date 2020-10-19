@@ -30,7 +30,7 @@ See [Install Transform Service]({% link transform-service/latest/install/index.m
 
 > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose.
 
-See [Install Transform Service]({% link transform-service/latest/install/index.md %}#Installing-with-docker) for more information.
+See [Install with Docker Compose]({% link transform-service/latest/install/index.md %}#install-with-docker-compose) for more information.
 
 ## Software requirements (Helm)
 
