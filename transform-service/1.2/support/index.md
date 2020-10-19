@@ -17,9 +17,9 @@ The following are the supported platforms and software requirements for Alfresco
 * LibreOffice: see [Installing LibreOffice](LINK)
 * alfresco-pdf-renderer: see [Installing alfresco-pdf renderer](LINK)
 
-See [Install Transform Service]({% link transform-service/1.2/install/index.md %}#Installing-with-zip) for more information.
+See [Install Transform Service]({% link transform-service/1.2/install/index.md %}#install-with-zip) for more information.
 
-## Software requirements (docker)
+## Software requirements (Docker)
 
 > **Note:** (Recommended for evaluations only)
 
@@ -30,11 +30,9 @@ See [Install Transform Service]({% link transform-service/1.2/install/index.md %
 
 > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose.
 
-See [Install Transform Service]({% link transform-service/1.2/install/index.md %}#Installing-with-docker) for more information.
+See [Install Transform Service]({% link transform-service/1.2/install/index.md %}#install-with-docker-compose) for more information.
 
-## Software requirements (helm)
-
-> **Note:** (Recommended for evaluations only)
+## Software requirements (Helm)
 
 To use the Alfresco Content Services deployment (including the Transform Service), you need to install the following software:
 
@@ -44,4 +42,4 @@ To use the Alfresco Content Services deployment (including the Transform Service
   * There are Helm charts that allow you to deploy Alfresco Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
 * [Kops](https://github.com/kubernetes/kops#installing){:target="_blank"} - this helps you to manage a Kubernetes cluster.
 
-See [Install Transform Service]({% link transform-service/1.2/install/index.md %}#Installing-with-Helm-Charts-on-AWS) for more information.
+See [Install Transform Service]({% link transform-service/1.2/install/index.md %}#install-with-helm-charts) for more information.

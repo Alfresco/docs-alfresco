@@ -2,7 +2,7 @@
 title: Administer Transform Service
 ---
 
-Use this information to help monitor and troubleshoot the Transform Service.
+The following section describes the Transform Service components, and also explain the flow of information between the repository and these components during the transformation process.
 
 ## Transform Service components
 
@@ -55,6 +55,8 @@ The other images are available in DockerHub:
 For information about deploying and configuring the Transform Service, see [Install Transform Service]({% link transform-service/1.2/install/index.md %}).
 
 ## Troubleshoot Transform Services
+
+Use this information to help monitor and troubleshoot the Transform Service.
 
 ### How do I monitor the Transform Engines (e.g. LibreOffice) and the Transform Router
 

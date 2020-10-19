@@ -34,7 +34,6 @@ See [Install with Docker Compose]({% link transform-service/latest/install/index
 
 ## Software requirements (Helm)
 
-
 To use the Alfresco Content Services deployment (including the Transform Service), you need to install the following software:
 
 * [AWS CLI](https://github.com/aws/aws-cli#installation){:target="_blank"} - the command line interface for Amazon Web Services.

@@ -2,7 +2,7 @@
 title: Administer Transform Service
 ---
 
-The following section describes the Transform Service components, and also explain the flow of information between the repository and these components during the transformation process. 
+The following section describes the Transform Service components, and also explain the flow of information between the repository and these components during the transformation process.
 
 ## Transform Service components
 
