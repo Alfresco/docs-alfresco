@@ -43,4 +43,4 @@ To use the Alfresco Content Services deployment (including the Transform Service
   * There are Helm charts that allow you to deploy Alfresco Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
 * [Kops](https://github.com/kubernetes/kops#installing){:target="_blank"} - this helps you to manage a Kubernetes cluster.
 
-See [Install Transform Service]({% link transform-service/latest/install/index.md %}#Installing-with-Helm-Charts-on-AWS) for more information.
+See [Install with Helm charts]({% link transform-service/latest/install/index.md %}#install-with-helm-charts) for more information.
