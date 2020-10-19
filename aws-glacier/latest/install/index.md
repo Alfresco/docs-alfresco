@@ -14,17 +14,17 @@ Alfresco Module Package (AMP) file.
 
 **Alfresco Content Services**
 
--   Alfresco Content Services 6.2 or later, installed using the distribution zip. See [Installing using distribution zip](TODO_LINK:https://docs.alfresco.com/6.2/concepts/ch-install.html) and [Supported Platforms]({% link aws-glacier/latest/support/index.md %}) for more information.
+* Alfresco Content Services 6.2 or later, installed using the distribution zip. See [Installing using distribution zip](TODO_LINK:https://docs.alfresco.com/6.2/concepts/ch-install.html) and [Supported Platforms]({% link aws-glacier/latest/support/index.md %}) for more information.
 
 **Alfresco Governance Services**
 
--   Alfresco Governance Services 3.2 or later, installed using the distribution zip. See [Installing Governance Services using the Distribution zip](TODO_LINK:https://docs.alfresco.com/ags/tasks/rm-amp-install.html) and [Supported Platforms]({% link aws-glacier/latest/support/index.md %}) for more information.
+* Alfresco Governance Services 3.2 or later, installed using the distribution zip. See [Installing Governance Services using the Distribution zip](TODO_LINK:https://docs.alfresco.com/ags/tasks/rm-amp-install.html) and [Supported Platforms]({% link aws-glacier/latest/support/index.md %}) for more information.
 
     >**Note:** You do not need to install Alfresco Governance Services to use the Glacier Connector with Alfresco Content Services. You must have an Alfresco Governance Services license to use the Glacier Connector, even if you do not intend to use Alfresco Governance Services. If you intend to use Alfresco Governance Services with the Glacier Connector, ensure that you read the [Glacier Connector FAQs]({% link aws-glacier/latest/using/faq.md %}) before you proceed.
 
 **Alfresco Content Connector for AWS S3**
 
--   Alfresco Content Connector for AWS S3 3.1 or later, already configured to work with Alfresco Content Services. See [Alfresco Content Connector for AWS S3](TODO_LINK:https://docs.alfresco.com/s3connector/concepts/s3-contentstore-overview.html) for more information.
+* Alfresco Content Connector for AWS S3 3.1 or later, already configured to work with Alfresco Content Services. See [Alfresco Content Connector for AWS S3](TODO_LINK:https://docs.alfresco.com/s3connector/concepts/s3-contentstore-overview.html) for more information.
 
 **AWS related requirements**
 
