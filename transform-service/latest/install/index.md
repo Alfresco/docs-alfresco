@@ -44,7 +44,7 @@ Before you can use the Transform Service zip, you need to install the software r
 
 Follow the linked pages in the Alfresco Content Services documentation, starting from [Installing using distribution zip](LINK). See [Supported Platforms](LINK) for the supported versions of each component.
 
-## Install with Helm Charts on AWS
+## Install with Helm charts
 
 Use this information to deploy Alfresco Content Services (including the Transform Service) using Helm charts by running a Kubernetes cluster on Amazon Web Services (AWS). These charts are a deployment template which can be used as the basis for your specific deployment needs.
 
