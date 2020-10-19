@@ -4,6 +4,23 @@ title: Administer Transform Service
 
 Use this information to help monitor and troubleshoot the Transform Service.
 
+## Deployment overview
+
+Some of the Docker images that are used by the Transform Service are uploaded to a private registry, **Quay.io**. Enterprise customers can contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} to request Quay.io account credentials to pull the private (Enterprise-only) Docker images:
+
+* `alfresco/alfresco-transform-router`
+
+The other images are available in DockerHub:
+
+* `alfresco/alfresco-pdf-renderer`
+* `alfresco/alfresco-imagemagick`
+* `alfresco/alfresco-libreoffice`
+* `alfresco/alfresco-tika`
+* `alfresco/alfresco-shared-file-store`
+* `alfresco/alfresco-transform-misc`
+
+For information about deploying and configuring the Transform Service, see [Install Transform Service]({% link transform-service/1.2/install/index.md %}).
+
 ## Troubleshoot Transform Services
 
 ### How do I monitor the Transform Engines (e.g. LibreOffice) and the Transform Router
@@ -53,7 +70,7 @@ The Transform Service will attempt to retry the transform a few times (this is c
 
 This release will only support a single Alfresco Content Services repository instance. For example, if you have two or more separate Alfresco Content Services deployments (whether clustered or not), then each one will need to its own Transform Service instance.
 
-## Error handling in transform router
+## Error handling in Transform Router
 
 Use this information to review the possible responses from the Transform Router (T-Router) if a problem occurs.
 

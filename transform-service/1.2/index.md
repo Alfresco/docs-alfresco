@@ -19,7 +19,7 @@ The key capabilities of the Transform Service include the ability to:
 
 The following sections describe the Transform Service components, and also explain the flow of information between the repository and these components during the transformation process.
 
-## Components of the Transform Service
+## Transform Service components
 
 The Transform Service handles the essential transforms, such as Microsoft Office documents, images, and PDFs. These include PNG for thumbnails, PDF and JPEG for downloads and previews.
 
@@ -51,20 +51,3 @@ You can replace the AWS services (EKS, MQ, and EFS) with a self-managed Kubernet
 > **Note:** For more detailed representations of the Alfresco Content Services deployment (including the Transform Service), see the GitHub [Docker Compose](https://github.com/Alfresco/acs-deployment/blob/master/docs/docker-compose-deployment.md#structure) and [Helm](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services#structure){:target="_blank"} documentation.
 
 The advantage of using Docker containers is that they provide a consistent environment for development and production. They allow applications to run using microservice architecture. This means you can upgrade an individual service with limited impact on other services.
-
-## Deployment overview
-
-Some of the Docker images that are used by the Transform Service are uploaded to a private registry, **Quay.io**. Enterprise customers can contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} to request Quay.io account credentials to pull the private (Enterprise-only) Docker images:
-
-* `alfresco/alfresco-transform-router`
-
-The other images are available in DockerHub:
-
-* `alfresco/alfresco-pdf-renderer`
-* `alfresco/alfresco-imagemagick`
-* `alfresco/alfresco-libreoffice`
-* `alfresco/alfresco-tika`
-* `alfresco/alfresco-shared-file-store`
-* `alfresco/alfresco-transform-misc`
-
-For information about deploying and configuring the Transform Service, see [Install Transform Service]({% link transform-service/1.2/install/index.md %}).
