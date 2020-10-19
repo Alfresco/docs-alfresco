@@ -56,6 +56,8 @@ For information about deploying and configuring the Transform Service, see [Inst
 
 ## Troubleshoot Transform Services
 
+Use this information to help monitor and troubleshoot the Transform Service.
+
 ### How do I monitor the Transform Engines (e.g. LibreOffice) and the Transform Router
 
 There are two options for monitoring each component:
