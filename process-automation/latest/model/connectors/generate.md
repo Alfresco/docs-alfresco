@@ -47,7 +47,7 @@ The input parameters to generate a document are:
 | outputFileName | String | *Optional.* The name of the generated file, for example `onboarding-form`. |
 | outputFormat | String | *Optional*. The file type for the generated document. Possible values are DOCX and PDF. The default value if PDF. |
 | targetFileMetadata | Content-Metadata | *Optional.* Metadata to store the file with. This is a JSON object of key value pairs. See below for an example. |
-| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFileMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. This allows the JSON to be used in an expression, for example `${metadata.cm:title}` is not valid, whereas `${metadata.cm_title}` is. |
+| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFileMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 | targetFileType | Content-Type | *Optional.* The type to set for the generated file, for example `fin:invoice`. |
 | targetFile | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file that should be updated. |
 | targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to store the new file in. |

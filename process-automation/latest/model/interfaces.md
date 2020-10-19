@@ -10,7 +10,7 @@ The basic properties of a user interface are:
 
 | Property | Description |
 | -------- | ----------- |
-| UI name | *Required.* The name of the interface. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `order-template` |
+| UI name | *Required.* The name of the interface. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `order-template`. |
 | UI description | *Optional.* A description of what the interface should be used for, for example `A template for orders to follow.` |
 
 ## Create a user interface

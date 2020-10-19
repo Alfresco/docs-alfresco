@@ -14,7 +14,7 @@ The actions that can be executed using the Salesforce connector are:
 * [Delete an object instance](#delete-an-object-instance)
 * [Query an object instance](#query-an-object-instance)
 * [Submit a Salesforce object instance for approval](#submit-an-object-instance-for-approval)
-* [Query the current approval processes in Salesforce](#query-approval-processes)
+* [Query the current approval processes in Salesforce](#query-approval-process)
 * [Approve a Salesforce object instance submitted for approval](#approve-an-object-instance-submitted-for-approval)
 * [Reject a Salesforce object instance submitted for approval](#reject-an-object-instance-submitted-for-approval)
 * [Create a new custom object in Salesforce](#create-a-custom-object-definition)
@@ -111,7 +111,7 @@ The output parameters from querying an object from Salesforce are:
 
 ## Submit an object instance for approval
 
-The **APPROVAL_SUBMIT** action is used by the Salesforce connector to submit a a Salesforce object for approval.
+The **APPROVAL_SUBMIT** action is used by the Salesforce connector to submit a Salesforce object for approval.
 
 The input parameters to submit an object for approval are:
 
@@ -130,7 +130,7 @@ The output parameters from submitting an object for approval are:
 
 The **APPROVAL_LIST** action is used by the Salesforce connector to query Salesforce objects awaiting approval.
 
-The output parameters from querying a objects awaiting approval are:
+The output parameters from querying objects awaiting approval are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -197,7 +197,7 @@ The configuration parameters for the Salesforce connector are:
 | SALESFORCE_CLIENT_ID | *Required.* The ID of your Salesforce account. |
 | SALESFORCE_CLIENT_SECRET | *Required.* The secret associated to your Salesforce account. |
 | SALESFORCE_USERNAME | *Required.* The user that the connector will use to interact with Salesforce. |
-| SALESFORCE_PASSWORD | *Required.* The password for the user will use to interact with Salesforce. |
+| SALESFORCE_PASSWORD | *Required.* The password for the user that will interact with Salesforce. |
 | SALESFORCE_SECURITY_TOKEN | *Required.* The security token for the user that will interact with Salesforce. |
 | SALESFORCE_URL_LOGIN | *Required.* The URL to login to Salesforce, for example `https://login.salesforce.com/services/oauth2/token`. |
 | SALESFORCE_SOAP_URL_LOGIN | *Required.* The URL for SOAP requests, for example `https://login.salesforce.com/services/Soap/c/45.0`. |

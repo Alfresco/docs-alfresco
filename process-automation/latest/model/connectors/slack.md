@@ -22,7 +22,7 @@ The input parameters to send a message in Slack are:
 | channelId | String | *Requires one.* The channel ID to send the message to. |
 | channelName | String | *Requires one.* The name of the channel to send the message to. |
 | userId | String | *Requires one.* The user ID of the message recipient. |
-| userEmail | String | *Requires ones.* The email address of the message recipient. |
+| userEmail | String | *Requires one.* The email address of the message recipient. |
 | text | String | *Required.* The contents of the message. The message supports [Freemarker](https://freemarker.apache.org/docs/dgui_datamodel_basics.html){:target="_blank"} syntax, for example `${fullName.lastName}` can be used from the `metadata` parameter to include variables. |
 | metadata | JSON | *Optional.* Metadata to be used by the `text` parameter to include [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) in a message. |
 | requestResponse | String | *Optional.* Set to `no` and a response will be sent back to the process immediately after the message is sent. Set to `any` and a response will be sent back to the process only after a reply is received in the same channel. Set to `thread` and a response will be sent back to the process only after a reply is received in a thread. |
@@ -132,7 +132,7 @@ The configuration parameters for the Slack connector are:
 | Parameter | Description |
 | --------- | ----------- |
 | SLACK_XOXB | *Required.* The Slack bot user token obtained from configuring Slack, beginning `xoxb-`. |
-| SLACK_XOXP | *Required.* The Slack bot admin user token obtained from configuring Slack beginning `xoxp-`. |
+| SLACK_XOXP | *Required.* The Slack bot admin user token obtained from configuring Slack, beginning `xoxp-`. |
 
 ## Errors
 

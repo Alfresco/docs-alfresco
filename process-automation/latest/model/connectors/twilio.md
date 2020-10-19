@@ -29,7 +29,7 @@ The output parameters from sending an SMS using Twilio are:
 
 An account ID and token are required by the connector to access Twilio. These are specific to your Twilio account and act as the authorization credentials.
 
-The values are provided are provided by Twilio when an account is created. They can also be located in the [Twilio setup page](https://www.twilio.com/console/project/settings){:target="_blank"}.
+The values are provided by Twilio when an account is created. They can also be located in the [Twilio setup page](https://www.twilio.com/console/project/settings){:target="_blank"}.
 
 ### Configuration parameters
 

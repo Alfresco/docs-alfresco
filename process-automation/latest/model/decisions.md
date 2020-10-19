@@ -12,7 +12,7 @@ The basic properties of a decision table are:
 
 | Property | Description |
 | -------- | ----------- |
-| Decision table name | *Required.* The name of the decision table. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `temperature-evaluation` |
+| Decision table name | *Required.* The name of the decision table. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `temperature-evaluation`. |
 | Decision table description | *Optional.* A description of what the decision table should be used for, for example `Decision table to select an ice cream flavor based on temperature.` |
 
 ## Create a decision table
@@ -101,7 +101,7 @@ Each row in a decision table is known as a rule. A rule evaluates which outputs 
 * On a Monday when the temperature is below 25°c, you should eat pistachio ice cream.
 * On a Wednesday when the temperature is 25°c or above, you should eat vanilla ice cream.
 * On a Friday you should eat triple chocolate ice cream, irrespective of temperature.
-* On Saturdays or Sundays when the temperature is 25°c or above, you should mint chocolate ice cream.
+* On Saturdays or Sundays when the temperature is 25°c or above, you should eat mint chocolate ice cream.
 * When the temperature is above 35°c you should eat lemon sorbet, irrespective of the day.
 
 > **Note**: If there are multiple inputs in a single rule, decision tables use an `AND` operator between the inputs.

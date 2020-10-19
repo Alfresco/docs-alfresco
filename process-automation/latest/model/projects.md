@@ -121,5 +121,5 @@ File definitions are created and stored for each model in a project:
 * `<trigger-name>.json` is the format that triggers are stored in.
 * `<ui-name>.json` is the format that UI definitions are stored in for content or process.
 * `<content-model-name>.xml` is the format the content model is stored in.
-* `<content-model>-extensions.json` is that format that stores the content model metadata.
+* `<content-model>-extensions.json` is the format that stores the content model metadata.
 * `<project-name>.json` is the project manifest that stores the name and version of a project.

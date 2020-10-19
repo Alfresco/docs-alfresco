@@ -4,7 +4,7 @@ title: REST connector
 
 The REST connector is used to provide a connection with a REST service.
 
-The REST connector is appears on the process diagram as a pair of curly brackets.
+The REST connector appears on the process diagram as a pair of curly brackets.
 
 The actions that can be executed using the REST connector are:
 

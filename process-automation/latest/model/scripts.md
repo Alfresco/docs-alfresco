@@ -100,7 +100,7 @@ The value of the script variable `totalCost` can finally be sent back to the pro
 
 ## Process scripts
 
-Scripts can be used to start a process instances by building a payload.
+Scripts can be used to start a process instance by building a payload.
 
 For example, use the process definition ID and set the process variables using:
 

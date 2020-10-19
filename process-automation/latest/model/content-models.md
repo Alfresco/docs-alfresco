@@ -4,7 +4,7 @@ title: Content models
 
 Content models describe how data should be stored in the repository and the metadata that can be associated to the content and folders within that model.
 
-Each model is identified by a unique namespace, prefix and name and made up of custom types, aspects, properties and constraints.
+Each model is identified by a unique namespace, prefix and name, and made up of custom types, aspects, properties and constraints.
 
 ![Content model diagram]({% link process-automation/images/content-model.png %})
 
@@ -76,10 +76,10 @@ The properties of a custom type are:
 
 | Property | Description |
 | -------- | ----------- |
-| Name | *Required.* The name of the custom type. Custom type names can only contain alphanumeric characters, hyphens and underscores, for example `supplier-invoice` |
-| Parent type | *Required.* A parent type for the custom type. All properties and aspects assigned to the parent are inherited by the child, for example `cm:content` |
-| Title | *Optional.* A display label for the custom type that will be displayed to users, for example `Supplier Invoice` |
-| Description | *Optional.* A free text description of what the custom types is for, for example `An invoice received from a supplier.` |
+| Name | *Required.* The name of the custom type. Custom type names can only contain alphanumeric characters, hyphens and underscores, for example `supplier-invoice`. |
+| Parent type | *Required.* A parent type for the custom type. All properties and aspects assigned to the parent are inherited by the child, for example `cm:content`. |
+| Title | *Optional.* A display label for the custom type that will be displayed to users, for example `Supplier Invoice`. |
+| Description | *Optional.* A free text description of what the custom type is for, for example `An invoice received from a supplier.` |
 
 Custom types are stored as JSON, for example:
 

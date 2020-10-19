@@ -27,7 +27,7 @@ The input parameters to request a DocuSign signature are:
 | signHereX | String | *Optional.* The X position of the `Sign Here` box in the document, for example `100`. |
 | signHereY | String | *Optional.* The Y position of the `Sign Here` box in the document, for example `50`. |
 | targetFileMetadata | Content-Metadata | *Optional.* Metadata to store the file with. This is a JSON object of key value pairs. See below for an example. |
-| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFileMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. This allows the JSON to be used in an expression, for example `${metadata.cm:title}` is not valid, whereas `${metadata.cm_title}` is. |
+| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFileMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 | targetFileType | Content-Type | *Optional.* The type to set for the signed file, for example `fin:invoice`. |
 | targetFile | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file that should be updated with the signed version of the document. |
 | targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to store the signed document in. |

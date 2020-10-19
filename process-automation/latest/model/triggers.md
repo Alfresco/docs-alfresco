@@ -69,9 +69,9 @@ The input parameters for receiving an email are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| pattern | *Required.* A regular expression that selects which emails trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`.  |
+| pattern | *Required.* A regular expression that selects which emails trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`. |
 | echo | *Optional.* An email sent to the original sender of the email that is matched, for example `Your reference number is ${orderNumber}`. |
-| echoError | *Optional.* An email sent to the original sender if an error occurs publishing the event, for example `There was a problem publishing that event.` |
+| echoError | *Optional.* An email sent to the original sender if an error occurs when publishing the event, for example `There was a problem publishing that event.` |
 
 The output parameters that can be used as values within the trigger action for receiving an email are:
 
@@ -95,9 +95,9 @@ The input parameters for receiving an SMS are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| pattern | *Required.* A regular expression that selects which messages trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`.  |
+| pattern | *Required.* A regular expression that selects which messages trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`. |
 | echo | *Optional.* A message sent to the original sender of the text that is matched, for example `Your reference number is ${orderNumber}`. |
-| echoError | *Optional.* A message sent to the original sender if an error occurs publishing the event, for example `There was a problem publishing that event.` |
+| echoError | *Optional.* A message sent to the original sender if an error occurs when publishing the event, for example `There was a problem publishing that event.` |
 
 The output parameters that can be used as values within the trigger action for receiving an SMS are:
 
@@ -118,9 +118,9 @@ The input parameters for a received Slack message are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| pattern | *Required.* A regular expression that selects which messages trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`.  |
+| pattern | *Required.* A regular expression that selects which messages trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`. |
 | echo | *Optional.* A message sent to the user of the message that is matched, for example `Your reference number is ${orderNumber}`. |
-| echoError | *Optional.* A message sent to the user of the message that is matched if an error occurs publishing the event, for example `There was a problem publishing that event.` |
+| echoError | *Optional.* A message sent to the user of the message that is matched if an error occurs when publishing the event, for example `There was a problem publishing that event.` |
 | channelTypes | *Optional.* The channel types to be monitored in Slack, for example `direct-message`,`public-channel` or `mention`. |
 
 The output parameters that can be used as values within the trigger action for a received Slack message are:
@@ -136,7 +136,7 @@ The output parameters that can be used as values within the trigger action for a
 
 ### Webhooks
 
-The [REST connector]({% link process-automation/latest/model/connectors/rest.md %}) can be used to publish an endpoint that external systems such as Github can consume as part of a trigger. The trigger then monitors this webhook and will publish any events that match the specific criteria as part of a project.
+The [REST connector]({% link process-automation/latest/model/connectors/rest.md %}) can be used to publish an endpoint that external systems such as GitHub can consume as part of a trigger. The trigger then monitors this webhook and will publish any events that match the specific criteria as part of a project.
 
 The input parameters for the **INCOMING_WEBHOOK** event is:
 
@@ -180,7 +180,7 @@ The actions that can be set on a trigger are:
 
 * [Start a process](#start-a-process)
 * [Send a signal](#send-a-signal)
-* [Send a message](#receive-a-message)
+* [Receive a message](#receive-a-message)
 * [Execute a script](#execute-a-script)
 * [Any content connector action](#content-connector-actions)
 * [Any connector action](#connector-actions)

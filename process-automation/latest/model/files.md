@@ -10,7 +10,7 @@ The basic properties of a file are:
 
 | Property | Description |
 | -------- | ----------- |
-| File name | *Required.* The name of the file. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `order-template` |
+| File name | *Required.* The name of the file. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `order-template`. |
 | File description | *Optional.* A description of what the file should be used for, for example `A template for orders to follow.` |
 
 ## Create a file

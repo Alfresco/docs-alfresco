@@ -65,10 +65,10 @@ The input parameters to create a file are:
 | targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to create the new file in. |
 | targetFolderId | String | *Requires one.* The nodeId of the folder to create the new file in. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to create the new file in. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
-| autorename | Boolean | *Optional.* If set to `true`, the new file will have an integer added to its name if a file already exists with the the same `fileName`. |
+| autorename | Boolean | *Optional.* If set to `true`, the new file will have an integer added to its name if a file already exists with the same `fileName`. |
 | targetFileType | Content-Type | *Optional.* The type to set the new file as, for example `fin:invoice`. |
 | targetFileMetadata | Content-Metadata | *Optional.* Metadata to store with the new file. This is a JSON object of key value pairs. See below for an example. |
-| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFileMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm:title}` is not valid, whereas `${metadata.cm_title}` is. |
+| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFileMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
 > **Note**: `underscoreMetadata` can be set to `true` and the `targetFileMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `targetFileMetadata` uses `_` then the connector will fail to execute the action.
 
@@ -101,10 +101,10 @@ The input parameters to create a folder are:
 | targetFolder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to create the new folder in. |
 | targetFolderId | String | *Requires one.* The nodeId of the folder to create the new folder in. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to create the new folder in. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
-| autorename | Boolean | *Optional.* If set to `true`, the new folder will have an integer added to its name if a folder already exists with the the same `folderName`. |
+| autorename | Boolean | *Optional.* If set to `true`, the new folder will have an integer added to its name if a folder already exists with the same `folderName`. |
 | targetFolderType | Content-Type | *Optional.* The type to set the new folder as. |
 | targetFolderMetadata | Content-Metadata | *Optional.* Metadata to store with the new folder. This is a JSON object of key value pairs. See below for an example. |
-| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFolderMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm:title}` is not valid, whereas `${metadata.cm_title}` is. |
+| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `targetFolderMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
 > **Note**: `underscoreMetadata` can be set to `true` and the `targetFolderMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `targetFolderMetadata` uses `_` then the connector will fail to execute the action.
 
@@ -214,7 +214,7 @@ The input parameters to select the metadata of a file or folder are:
 | folder | Folder | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to select the metadata for. |
 | nodeId | String | *Requires one.* The ID of the node to select the metadata for. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to select the metadata for. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
-| underscoreMetadata | Boolean | *Optional.* If set to `true`, the output `metadata` will have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. This allows the JSON to be used in an expression, for example `${metadata.cm:title}` is not valid, whereas `${metadata.cm_title}` is. |
+| underscoreMetadata | Boolean | *Optional.* If set to `true`, the output `metadata` will have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
 The output parameters from selecting the metadata of a file or folder are:
 
@@ -375,7 +375,7 @@ The input parameters to update the metadata of a file or folder are:
 | nodeId | String | *Requires one.* The ID of the node to update. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | path | String | *Requires one.* The location path or relative path of the node to update. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | metadata | Content-Metadata | *Required.* Metadata to update the file or folder with. This is a JSON object of key value pairs. See below for an example. |
-| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `metadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm:title}` is not valid, whereas `${metadata.cm_title}` is. |
+| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `metadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
 > **Note**: `underscoreMetadata` can be set to `true` and the `metadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `metadata` uses `_` then the connector will fail to execute the action.
 
@@ -471,7 +471,7 @@ The input parameters to add an aspect are:
 | path | String | *Requires one.* The location path or relative path of the node to add the aspect to. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | aspect | Content-Aspect-Selector | *Required.* The aspect to add to the file or folder, for example `rv:reviewable`. |
 | nodeMetadata | Content-Metadata | *Optional.* Metadata to store with the file or folder. This is a JSON object of key value pairs. See below for an example. |
-| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `nodeMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm:title}` is not valid, whereas `${metadata.cm_title}` is. |
+| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `nodeMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
 > **Note**: `underscoreMetadata` can be set to `true` and the `nodeMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `nodeMetadata` uses `_` then the connector will fail to execute the action.
 
@@ -545,7 +545,7 @@ The input parameters to set the type of a file or folder are:
 | path | String | *Requires one.* The location path or relative path of the node to set the type for. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | nodeType | Content-Type-Selector | *Required.* The type to set for the file or folder, for example `fin:invoice`. |
 | nodeMetadata | Content-Metadata | *Optional.* Metadata to store with the file or folder. This is a JSON object of key value pairs. See below for an example. |
-| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `nodeMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm:title}` is not valid, whereas `${metadata.cm_title}` is. |
+| underscoreMetadata | Boolean | *Optional.* If set to `true`, the input `nodeMetadata` can have its namespace prefixes written with `_` instead of `:`, for example `cm_title` instead of `cm:title`. The output `response` will also have its prefixes replaced. This allows the JSON to be used in an expression, for example `${metadata.cm_title}`, whereas `${metadata.cm:title}` is not valid. |
 
 > **Note**: `underscoreMetadata` can be set to `true` and the `nodeMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `nodeMetadata` uses `_` then the connector will fail to execute the action.
 

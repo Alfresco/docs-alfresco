@@ -199,3 +199,5 @@ An example of the JSON for the email connector **INVALID_INPUT** error is:
 When a project is [deployed](LINK) service accounts are created for each connector used. The format of the service account name is: `service-account-connector-<connector-name>-<application-name>`.
 
 Read and write access is granted to each service account on the [default storage location](LINK). If the connector reads or writes to files and folders held elsewhere in the repository, the service account will need to be manually given explicit permission to those directories otherwise the connector action will fail.
+
+> **Note**: The service accounts for an application are all added to a group named `<application-name>-service-group` so that permissions can be manually assigned for an entire application if required.

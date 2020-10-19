@@ -162,19 +162,19 @@ The advanced properties for a date field are:
 
 Display text fields allow the form designer to display a line of fixed text to the form filler. This text is not editable by the filler themselves. The `Text to display` property is used to enter the text.
 
-Display text fields not have the `Read-only`, `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
+Display text fields do not have the `Read-only`, `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
 
 ### Display value fields
 
 Display value fields allow the form designer to display a value previously entered in the form. The `variables` property is used to select a [form variable](#form-variables) to display.
 
-Display value fields not have the `Read-only`, `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
+Display value fields do not have the `Read-only`, `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
 
 ### Dropdown fields
 
 Dropdown fields allow the form designer to define a set of options a form filler must choose from a list. This list can be a manually entered set of options or it can read from a REST service.
 
-The advanced properties for a manual dropdown field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio next to an option will set it as the `empty value`. An empty value` is taken to mean the field is empty if this option is selected when the form is filled in.
+The advanced properties for a manual dropdown field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio button next to an option will set it as the `empty value`. An empty value` is taken to mean the field is empty if this option is selected when the form is filled in.
 
 The advanced properties for a REST dropdown field are:
 
@@ -274,7 +274,7 @@ The advanced properties for a people field are:
 
 Radio button fields allow the form designer to define a set of options a form filler must choose from. This list can be a manually entered set of options or it can read from a REST service.
 
-The advanced properties for a manual radio button field are allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio next to an option will set it as the default value.
+The advanced properties for a manual radio button field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio next to an option will set it as the default value.
 
 The advanced properties for a REST radio button field are:
 
@@ -379,9 +379,9 @@ The data types that a form variable can be set as are:
 
 To create a form variable:
 
-1. Select the project and form to create a form variable for in the Modeling Application.
+1. Select the project and form to create a form variable in, within the Modeling Application.
 
-2. Select the **Edit Form Variables** button by clicking on a blank section of the canvas
+2. Select the **Edit Form Variables** button by clicking on a blank section of the canvas.
 
 3. Use the **+** symbol to add new variables and enter a name, type, optional value and select whether it is required or not.
 

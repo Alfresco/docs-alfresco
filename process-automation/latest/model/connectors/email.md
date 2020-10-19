@@ -23,12 +23,12 @@ The input parameters to send an email are:
 | charset | String | *Optional* Set the character set of the email, for example `UTF-8`. |
 | html | String | *Optional.* The body of the email in HTML, for example `<p><b>Hello!</b></p>`. |
 | text | String | *Optional.* The body of the email in plain non-rich text. Can be sent in addition to `html` and will be used as a fall-back if HTML is not supported by the email client reading the email. |
-| template | File | *Optional.* The body of the email generated from a [Freemarker template](https://freemarker.apache.org/docs/dgui_quickstart_basics.html){:target="_blank"} stored as a file variable. |
+| template | File | *Optional.* The body of the email generated from a [FreeMarker template](https://freemarker.apache.org/docs/dgui_quickstart_basics.html){:target="_blank"} stored as a file variable. |
 | metadata | JSON | *Optional.* Metadata to be used by the `template` when generating the file to include [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) in the output. |
 
 ### Template
 
-A Freemarker template](https://freemarker.apache.org/docs/dgui_quickstart_basics.html){:target="_blank"} can be used to generate the body of the email. Optional metadata can also be used with the template to insert values from [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) into the document template.
+A FreeMarker template](https://freemarker.apache.org/docs/dgui_quickstart_basics.html){:target="_blank"} can be used to generate the body of the email. Optional metadata can also be used with the template to insert values from [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) into the document template.
 
 An example of the `metadata` that can be used by the template is:
 
@@ -88,9 +88,9 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | ----- | ----------- |
 | MISSING_INPUT | A mandatory input variable was not provided. |
 | INVALID_INPUT | The input variable has an invalid type. |
-| TEMPLATE_READ_ERROR | Cannot read the Freemarker template. |
+| TEMPLATE_READ_ERROR | Cannot read the FreeMarker template. |
 | TEMPLATE_METADATA_ERROR | The template references non-existing metadata. |
-| TEMPLATE_SYNTAX_ERROR | Invalid Freemarker syntax. |
+| TEMPLATE_SYNTAX_ERROR | Invalid FreeMarker syntax. |
 | EMAIL_CONNECTION_ERROR | Unable to connect to email service. |
 | EMAIL_AUTHENTICATION_ERROR | Unable to authenticate into email service. |
 | EMAIL_SEND_ERROR | Unable to send the email. |
