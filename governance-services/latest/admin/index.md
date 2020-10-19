@@ -13,9 +13,7 @@ You can easily configure Governance Services using the Admin Tools.
 
 >**Note:** The user who created the Governance Services site is automatically made a member of the Governance Services Administrator group. Other users can access different areas of the **Admin Tools** depending on the capabilities given to the role that they're in.
 
-1. In a Governance Services site click **Admin Tools**.
-
-    The **Admin Tools** opens on the **Audit** page, with various tools available on the left side of the page. Click a tool to manage that part of your site.
+In a Governance Services site click **Admin Tools** to open the **Audit** page, with various other options available on the left-hand side. Click a tool to manage that part of your site.
 
 ## Audit
 
@@ -118,9 +116,7 @@ You can export the audit log which is useful for archiving it regularly so that 
 
 When you export the audit log, this doesn't affect the audit log in the system.
 
-1. When you've run an audit, click **Export** in the Audit tool of the RM Admin Tools.
-
-    Depending on your browser you'll be prompted to open or save the file or it will be saved automatically. The exported audit log is an HTML file.
+When you've run an audit, click **Export** in the Audit tool of the RM Admin Tools. Depending on your browser you'll be prompted to open or save the file or it will be saved automatically. The exported audit log is an HTML file.
 
 ### Viewing the full log
 
