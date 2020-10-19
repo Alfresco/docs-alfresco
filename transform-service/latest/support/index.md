@@ -19,7 +19,7 @@ The following are the supported platforms and software requirements for Alfresco
 
 See [Install Transform Service]({% link transform-service/latest/install/index.md %}#install-with-zip) for more information.
 
-## Software requirements (docker)
+## Software requirements (Docker)
 
 > **Note:** (Recommended for evaluations only)
 
