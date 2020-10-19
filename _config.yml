@@ -292,6 +292,21 @@ defaults:
       version: 2.2
       latest: true
 
+# Alfresco Process Automation
+  - scope:
+      path: "process-automation"
+    values:
+      layout: "docs"
+      product: "Alfresco Process Automation"
+      location: "process-automation"
+      toc: "process-automation"
+  - scope:
+      path: "process-automation/latest"
+    values:
+      version: 1.0
+      latest: true
+
+
 # Alfresco Federation Services 
   - scope:
       path: "federation-services"
