@@ -9,9 +9,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
-    eventmachine (1.2.7-x64-mingw32)
     ffi (1.12.2)
-    ffi (1.12.2-x64-mingw32)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
     i18n (1.8.2)
@@ -57,8 +55,6 @@ GEM
       jekyll-seo-tag (~> 2.1)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.10-x64-mingw32)
-      mini_portile2 (~> 2.4.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (4.0.5)
@@ -69,8 +65,6 @@ GEM
     rouge (3.19.0)
     safe_yaml (1.0.5)
     sassc (2.3.0)
-      ffi (~> 1.9)
-    sassc (2.3.0-x64-mingw32)
       ffi (~> 1.9)
     searchyll (0.10.2)
       jekyll (>= 3.0)
@@ -87,7 +81,6 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw32
 
 DEPENDENCIES
   jekyll (~> 4.0.1)
