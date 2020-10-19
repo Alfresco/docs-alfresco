@@ -8,7 +8,7 @@ Use the following information to configure Alfresco Search and Insight Engine.
 
 There is a search subsystem and it can be used to connect to Alfresco Search and Insight Engine (which is based on Solr 6).
 
-Just like all previous versions of Solr, the activation and configuration of the Search and Insight Engine subsystem can be done by using either the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file or the admin console, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#Configuring using the Admin Console).
+Just like all previous versions of Solr, the activation and configuration of the Search and Insight Engine subsystem can be done by using either the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file or the admin console, see [Configuring using the Admin Console](#configuring-using-the-admin-console).
 
 If you haven't set the following Solr-related properties in the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file, add these:
 
@@ -78,7 +78,7 @@ This is the Solr configuration directory that is specific to Alfresco. It contai
 |Folder/File|Description|
 |-----------|-----------|
 |alfrescoModels|When you install Search and Insight Engine, it creates an empty alfrescoModels directory. When Solr first talks to Alfresco, it pulls the model definitions into this directory.|
-|conf|This directory contains the shared.properties file. See [Search and Insight Engine externalized configuration](#Search and Insight Engine externalized configuration).|
+|conf|This directory contains the shared.properties file. See [Search and Insight Engine externalized configuration](#search-and-insight-engine-externalized-configuration).|
 |templates|This directory contains the core templates that define the base configuration for a new Solr core with some configuration properties. This directory also contains the /rerank/conf/solrcore.properties file which you can use to customize the Solr cores.|
 |solr.xml|This file defines the Solr web application context. For more information see [Format of solr.xml](https://lucene.apache.org/solr/guide/6_6/format-of-solr-xml.html){:target="_blank"}|
 |data|This folder is generated when a Solr core is created and is where Solr indexes are stored. The default location of the folder is /opt/alfresco-search-services/data.|
@@ -280,25 +280,24 @@ When you install Alfresco Search and Insight Engine, several Solr configuration 
 |schema.xml|<SOLR_HOME>/solrhome/<core>/confFor example <SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This file defines the schema for the index including field type definitions with associated analyzers. It contains details about the fields that you can include in your document and also describes how those fields can be used when adding documents to the index or when querying those fields. The properties of this file are managed by an expert user.|
 |core.properties|<SOLR_HOME>/solrhome/alfresco/core.properties or <SOLR_HOME>/solrhome/archive/core.properties|This file specifies the cores to be used by Solr.|
 |solrconfig.xml|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This file specifies the parameters for configuring Solr. Also, the Solr search components are added to this file. The properties of this file are managed by an expert Administrator user.|
-|solrcore.properties|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one solrcore.properties file in each core's configuration directory. For details, see the [Solr core configuration properties](#Solr core configuration properties.md) topic. The properties of this file are managed by an Administrator user.|
+|solrcore.properties|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one solrcore.properties file in each core's configuration directory. For details, see [Solr core configuration properties](#solr-core-configuration-properties). The properties of this file are managed by an Administrator user.|
 |context.xml|<SOLR_HOME>|This file specifies the Solr web application context template to use when installing Solr in separate tomcat server.|
 |ssl.repo.client.keystore|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This keystore contains the Solr public/private RSA key pair.|
 |ssl.repo.client.truststore|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This keystore contains the trusted Alfresco Certificate Authority certificate (which has been used to sign both the repository and Solr certificates)|
 
-> **Note:** The solrcore.properties configuration file is the property configuration file for a Solr core. There is one solrcore.properties file in each core's configuration directory, for more see [Solr core configuration properties](#Solr core configuration properties).
+> **Note:** The solrcore.properties configuration file is the property configuration file for a Solr core. There is one solrcore.properties file in each core's configuration directory, for more see [Solr core configuration properties](#solr-core-configuration-properties).
 
 ## Solr core configuration properties
 
 The solrcore.properties configuration file is the property configuration file for a Solr core. There is one solrcore.properties file in each core's configuration directory. Use this information to understand the properties of this file, their description, and the default value.
 
-|Property Name|Description|Default Value|
-|-------------|-----------|-------------|
+|Property Name|Description|
+|-------------|-----------|
 |alfresco.aclBatchSize|This property is used for batch fetching updates during tracking, default value`10`.|
 |alfresco.acl.tracker.maxParallelism|Defines the number of threads that are used when indexing documents using the ACL Tracker, default value `32`.|
 |alfresco.baseUrl|This property configures the base URL to Alfresco Content Services web project. If you need to change the `baseUrl` value, see [Deploying with a different context path LINK LINK](https://docs.alfresco.com/6.1/tasks/deploy-contextpath.html), default value `/alfresco`.|
 |alfresco.batch.count|This property indicates the number of updates that should be made to this core before a commit is executed, default value `1000`.|
-|alfresco.cascade.tracker.enabled|Index fields required for path-based queries. Disabling support for path queries (i.e. setting this to false) can speed up indexing in sharded systems.
- NOTE: Updating this property will result in path-based fields not being populated. Consequently it should not be changed after the initial startup of the server, default value `true`.|
+|alfresco.cascade.tracker.enabled|Index fields required for path-based queries. Disabling support for path queries (i.e. setting this to false) can speed up indexing in sharded systems. **Note:** Updating this property will result in path-based fields not being populated. Consequently it should not be changed after the initial startup of the server, default value `true`.|
 |alfresco.cascade.tracker.maxParallelism|Defines the number of threads that are used when indexing documents using the Cascade Tracker, default value `32`.|
 |alfresco.changeSetAclsBatchSize|This property is used for batch fetching updates during tracking, default value `100`.|
 |alfresco.content.tracker.maxParallelism|Defines the number of threads that are used when indexing documents using the Content Tracker, default value `32`.|
@@ -333,7 +332,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |alfresco.stores|This property specifies the repository store that this core should index, default value `workspace://SpacesStore`.|
 |alfresco.threadDaemon|This property sets whether the threads run as daemon threads or not. If set to `false`, shut down is blocked else it is left unblocked, default value `true`.|
 |alfresco.threadPriority|This property specifies the priority that all threads must have on the scale of 1 to 10, where 1 has the lowest priority and 10 has the highest priority, default value `5`.|
-|alfresco.topTermSpanRewriteLimit|Term expansion is used to convert wildcard (*) matches into a finite disjunction - e.g. "cat*" -> "cat OR category OR catalogue OR ... caterpillar". This property controls the number of terms in this disjunction, which are chosen from the index with preference given to more popular terms. If you increase the value too much you may not have good performance and if you decrease the value too much you may not receive any results. How you are affected by variations in the limit will depend on your installation, default value `1000`.|
+|alfresco.topTermSpanRewriteLimit|Term expansion is used to convert wildcard -*- matches into a finite disjunction - e.g. "cat*" -> "cat OR category OR catalogue OR ... caterpillar". This property controls the number of terms in this disjunction, which are chosen from the index with preference given to more popular terms. If you increase the value too much you may not have good performance and if you decrease the value too much you may not receive any results. How you are affected by variations in the limit will depend on your installation, default value `1000`.|
 |alfresco.transactionDocsBatchSize|This property is used for batch fetching updates during tracking, default value `100`.|
 |alfresco.version|This property specifies the Alfresco Content Services version installed, default value `6.2`.|
 |alfresco.workQueueSize|This property specifies the maximum number of queued work instances to keep before blocking against further adds, default value `-1`.|

@@ -4,10 +4,6 @@ title: Installation options
 
 There are several options for installing Search and Insight Engine:
 
-* [Installing with mutual TLS with the distribution zip](#Installing-with-mutual-TLS-with-the-distribution-zip)
-* [Installing without mutual TLS with the distribution zip](#Installing-with-mutual-TLS-with-the-distribution-zip)
-* [Installing with Docker Compose](#Installing-with-docker-compose)
-
 ## Installing with mutual TLS with the distribution zip
 
 Use this information to install Alfresco Search and Insight Engine on the same machine as Alfresco Content Services with mutual TLS.
@@ -30,7 +26,7 @@ This task assumes you have:
 
 2. Extract the Alfresco Search and Insight Engine distribution.
 
-    By default, the contents of alfresco-insight-engine-2.0.x.zip are decompressed in a root folder as /alfresco-insight-engine. See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine directory structure) for more details.
+    By default, the contents of alfresco-insight-engine-2.0.x.zip are decompressed in a root folder as /alfresco-insight-engine. See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
 
 3. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this update the alfresco-insight-engine/solrhome/conf/shared.properties file:
 
@@ -53,7 +49,7 @@ This task assumes you have:
 
 5. To secure access to Alfresco Search and Insight Engine, you must create a new set of keystores and keys.
 
-    1. Generate secure keys specific to your Alfresco installation. For more information, see [Secure Keys]({% link insight-engine/latest/config/index.md %}#Generating secure keys for ssl communication).
+    1. Generate secure keys specific to your Alfresco installation. For more information, see [Secure Keys]({% link insight-engine/latest/config/keys/index.md %}#generating-secure-keys-for-ssl-communication).
 
     2. Create a new keystore directory at alfresco-insight-engine/solrhome.
 
@@ -101,7 +97,7 @@ This task assumes you have:
         SOLR_PORT=8983
         ```
 
-6. (Optional) If you want to install Alfresco Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Alfresco Search and Insight Engine, for more see [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine externalized configuration).
+6. (Optional) If you want to install Alfresco Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Alfresco Search and Insight Engine, for more see [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-externalized-configuration).
 
     (Windows) update the alfresco-insight-engine/solr.in.cmd file:
 
@@ -217,7 +213,7 @@ This task assumes you have:
 
 2. Extract the Search and Insight Engine distribution.
 
-    By default, the contents of alfresco-insight-engine-distribution-2.0.x.zip are decompressed in a root folder as /alfresco-insight-engine. See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine directory structure) for more details.
+    By default, the contents of alfresco-insight-engine-distribution-2.0.x.zip are decompressed in a root folder as /alfresco-insight-engine. See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
 
 3. Configure HTTP.
 
@@ -237,7 +233,7 @@ This task assumes you have:
         -Dalfresco.secureComms=none
         ```
 
-    See [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/sharding/create/index.md %}#Core templates) for a brief description of the out-of-the-box Solr core templates.
+    See [Setting up Solr Sharding]({% link insight-engine/latest/config/sharding/create/index.md %}#core-templates) for a brief description of the out-of-the-box Solr core templates.
 
 4. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this add the following to the alfresco-insight-engine/solrhome/conf/shared.properties file:
 
@@ -258,7 +254,7 @@ This task assumes you have:
 
     > **Note:** The spell check functionality works with Search and Insight Engine when suggestion is enabled.
 
-6. (Optional) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine externalized configuration).
+6. (Optional) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-externalized-configuration).
 
     (Windows) update the alfresco-insight-engine/solr.in.cmd file:
 

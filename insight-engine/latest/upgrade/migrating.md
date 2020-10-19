@@ -10,14 +10,14 @@ Use this information to migrate from Search Services to Search and Insight Engin
 
 You can migrate from Alfresco Content Services 6.2 or above with Search Services 1.3 or above to Alfresco Content Services with Search and Insight Engine 2.0. You can also migrate from Alfresco Content Services 5.x with Search Services 1.3 or below to Alfresco Content Services 6.2 or above with Search and Insight Engine 2.0.
 
-* [Migrating Content Services 6.2 with Search Services 1.3 or above](#Migrating-Content-Services-6.2-with-Search-Services-1.3-or-above)
-* [Migrating Content Services 5.x with Search Services 1.3 or below](#Migrating-Content-Services-5.x-with-Search-Services-1.3-or-below)  
+* [Migrating Content Services 6.2 with Search Services 1.3 or above](#migrating-content-services-62-with-search-services-13-or-above)
+* [Migrating Content Services 5.x with Search Services 1.3 or below](#migrating-content-services-5x-with-Search-Services-13-or-below)  
 
 ## Migrating Content Services 6.2 with Search Services 1.3 or above
 
 Use this information to migrate from Alfresco Search Services 1.3 or above to Alfresco Search and Insight Engine 2.0 using a distribution zip.
 
-> **Note:** A reindex is required when you migrate from Search Services to Search and Insight Engine. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Search and Insight Engine externalized configuration](../concepts/external-properties-solr.md). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
+> **Note:** A reindex is required when you migrate from Search Services to Search and Insight Engine. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Search and Insight Engine externalized configuration]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-externalized-configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
 
 1. Stop Search Services.
 
@@ -67,11 +67,11 @@ There are two steps to migrating your installation from Alfresco Content Service
 
 > **Note:** You can't upgrade Alfresco Content Services 5.x using Docker Compose.
 
-1. Upgrade from Alfresco Content Services 5.x to Alfresco Content Services 6.2, for more see [Upgrading from Solr 4 to Solr 6 search](https://docs.alfresco.com/search-enterprise/tasks/solr4-solr6-migration.html).
+1. Upgrade from Alfresco Content Services 5.x to Alfresco Content Services 6.2, for more see [Upgrading from Solr 4 to Solr 6 search LINK](https://docs.alfresco.com/search-enterprise/tasks/solr4-solr6-migration.html).
 
     > **Note:** You can't do this using Docker Compose.
 
-2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.2 with Search Services 1.3 or above](#Migrating-Content-Services-6.2-with-Search-Services-1.3-or-above).
+2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.2 with Search Services 1.3 or above](#migrating-content-services-62-with-search-services-13-or-above).
 
 ## Migrating using Docker Compose
 
@@ -79,7 +79,7 @@ If you already have Alfresco Content Services 6.2 with Alfresco Search Services 
 
 Use this information to migrate from Search Services to Search and Insight Engine using Docker Compose.
 
-> **Note:** A reindex is required when you migrate from Search Services to Search and Insight Engine. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Configuring Alfresco Search and Insight Engine ]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine externalized configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
+> **Note:** A reindex is required when you migrate from Search Services to Search and Insight Engine. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Search and Insight Engine externalized configuration]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-externalized-configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
 
 1. Insert the following container information into your `docker-compose.yml` file and save it.
 
@@ -111,7 +111,7 @@ Use this information to migrate from Search Services to Search and Insight Engin
 
 Use this information to migrate from Alfresco Search and Insight Engine 2.0 to Alfresco Search Services 2.0 using a distribution zip.
 
-> **Note:** A reindex is required when you migrate from Search and Insight Engine to Search Services. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Configuring Alfresco Search and Insight Engine ]({% link insight-engine/latest/config/index.md %}#Search and Insight Engine externalized configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
+> **Note:** A reindex is required when you migrate from Search and Insight Engine to Search Services. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Search and Insight Engine externalized configuration]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-externalized-configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
 
 1. Stop Search and Insight Engine.
 
