@@ -25,7 +25,7 @@ You can deploy Alfresco Digital Workspace into a different web server than where
 
    > **Note:** If Quickshare is disabled in Alfresco Content Services ignore this step.
 
-    To disable Quickshare, set `system.quickshare.enabled=false` in the \tomcat\shared\classes\alfresco-global.properties file. For more information, see [Using the alfresco-global.properties file](https://docs.alfresco.com/6.2/concepts/global-props-intro.html).
+    To disable Quickshare, set `system.quickshare.enabled=false` in the \tomcat\shared\classes\alfresco-global.properties file. For more information, see [Using the alfresco-global.properties file LINK](https://docs.alfresco.com/6.2/concepts/global-props-intro.html).
 
 8. Save the file.
 
@@ -33,4 +33,4 @@ You can deploy Alfresco Digital Workspace into a different web server than where
 
     `http://<appservername>:8080/digital-workspace`
 
-> **Note:** When deploying Alfresco Digital Workspace to a different web server, it is recommended you setup Cross-Origin Resource Sharing (CORS). For more information, see [Cross Origin Resource Sharing (CORS) filters](LINK) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/).
+> **Note:** When deploying Alfresco Digital Workspace to a different web server, it is recommended you setup Cross-Origin Resource Sharing (CORS). For more information, see [Cross Origin Resource Sharing (CORS) filters](LINK) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/){:target="_blank"}.
