@@ -25,17 +25,17 @@ There are several options for installing Alfresco Insight Zeppelin:
 
 Use this information to manually install Alfresco Insight Zeppelin using a distribution zip.
 
-1. Download the alfresco-insight-zeppelin-2.0.0.zip file from the [Support Portal](http://support.alfresco.com/).
+1. Download the `alfresco-insight-zeppelin-2.0.0.zip` file from the [Support Portal](http://support.alfresco.com/).
 
 2. Unzip the file.
 
 3. Run the following script:
 
-    On Unix-like systems: ZEPPELIN_HOME/bin/substituter.sh
+    On Unix-like systems: `ZEPPELIN_HOME/bin/substituter.sh`
 
-    On Microsoft Windows: ZEPPELIN_HOME/bin/substituter.cmd
+    On Microsoft Windows: `ZEPPELIN_HOME/bin/substituter.cmd`
 
-    This script reads the zeppelin.properties file in ZEPPELIN_HOME. Use the zeppelin.properties file to change the Alfresco Content Services repository connection details.
+    This script reads the `zeppelin.properties` file in ZEPPELIN_HOME. Use the `zeppelin.properties` file to change the Alfresco Content Services repository connection details.
 
     Alternatively, you can pass `REPO_PROTOCOL`, `REPO_HOST`, and `REPO_PORT` to the script from the command line. For example, `REPO_PROTOCOL=https REPO_HOST=myhost REPO_PORT=8443./substituter.sh`. You don't have to pass all the variables just the ones you want to override. The default values are: `REPO_PROTOCOL=http, REPO_HOST=localhost, and REPO_PORT=8080`. The port number, context path or other properties can be changed in `ZEPPELIN_HOME/conf/zeppelin-env.sh` on Unix like systems (or `ZEPPELIN_HOMEconfzeppelin-env.cmd` for Microsoft Windows). See [Apache Zeppelin Configuration](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html){:target="_blank"} for a full list of properties.
 
@@ -59,7 +59,7 @@ Use this information to manually install Alfresco Insight Zeppelin using a distr
 
     On Microsoft Windows: Ctrl + C
 
-By default Alfresco Insight Zeppelin uses Alfresco Content Services to authenticate users, which means every user in Alfresco Content Services will be able to access Zeppelin. To limit the number of users, comment out all the `alfrescoRealm` related configuration settings in ZEPPELIN_HOME/conf/shiro.ini. You can configure your LDAP or AD to allow specific users access to Alfresco Insight Zeppelin.
+By default Alfresco Insight Zeppelin uses Alfresco Content Services to authenticate users, which means every user in Alfresco Content Services will be able to access Zeppelin. To limit the number of users, comment out all the `alfrescoRealm` related configuration settings in `ZEPPELIN_HOME/conf/shiro.ini`. You can configure your LDAP or AD to allow specific users access to Alfresco Insight Zeppelin.
 
 See the following configuration example showing that only users in the `ZeppelinUsers` group have access to the application.
 

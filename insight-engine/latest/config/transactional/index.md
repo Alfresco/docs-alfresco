@@ -292,7 +292,7 @@ The common properties used to configure the transactional metadata query for the
 * `solr.query.cmis.queryConsistency`
 * `solr.query.fts.queryConsistency`
 
-These properties should be set in the TOMCAT_HOME>/shared/classes/alfresco-global.properties file.
+These properties should be set in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file.
 
 The default value for these properties is `TRANSACTIONAL_IF_POSSIBLE`. However, you can override it with any of the following permitted values:
 
@@ -309,13 +309,13 @@ The first patch does not support boolean, float or double properties, and disjun
 
 The second patch adds the database support for TMDQ equivalent to an out-of-the-box Alfresco One 5.1 install. Some CMIS QL use cases where `OR` would be used are supported by using `IN`. In Alfresco One 5.1 and later versions, these restrictions go away after applying all TMDQ optional patches. The database size will be approximately 25% larger with all indexes applied.
 
-To use or run a query against the `float`, `double`, or `boolean` property data types, you need to run an optional patch that adds the required indexes to the database. To do so, set the following property in the TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
+To use or run a query against the `float`, `double`, or `boolean` property data types, you need to run an optional patch that adds the required indexes to the database. To do so, set the following property in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
 ```bash
 system.metadata-query-indexes-more.ignored=false 
 ```
 
-When using all other data types (such as `string`, `integer`, `id`, or `datetime`), to enable the patch that adds the required indexes to the database, set the following property in the TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
+When using all other data types (such as `string`, `integer`, `id`, or `datetime`), to enable the patch that adds the required indexes to the database, set the following property in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
 ```bash
 system.metadata-query-indexes.ignored=false 
@@ -343,7 +343,7 @@ You can limit the time Alfresco Content Services spends on ensuring that the use
 
 You can limit both the time spent and the number of documents checked before Alfresco Content Services returns a search query using the `system.acl.maxPermissionCheckTimeMillis` and the `system.acl.maxPermissionChecks` properties. The default values are 10000 and 1000 respectively.
 
-1. Open the <classpathRoot>/alfresco-global.properties file.
+1. Open the `<classpathRoot>/alfresco-global.properties` file.
 
 2. Set the `system.acl.maxPermissionCheckTimeMillis` property.
 
@@ -369,7 +369,7 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
 
 2. Open the share-config.xml file and copy the `<config evaluator="string-compare" condition="Search" replace="true">` section.
 
-3. Open the <web-extension>share-config-custom.xml file and then paste the copied section.
+3. Open the `<web-extension>share-config-custom.xml` file and then paste the copied section.
 
 4. Locate the `<max-search-results>250</max-search-results>` property and then edit the value to your preferred number of search results.
 
@@ -377,7 +377,7 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
 
     1. Navigate to the web scripts Home page.
 
-        For example, go to: http://<your-host>:8080/share/page/index.
+        For example, go to: `http://<your-host>:8080/share/page/index`.
 
     2. Click **Refresh Web Scripts**.
 

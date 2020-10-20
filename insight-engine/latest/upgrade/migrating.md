@@ -25,7 +25,7 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Al
     ./solr/bin/solr stop
     ```
 
-2. Backup or move the existing alfresco-search-services folder to a preferred location. For example, alfresco-search-services-1.x.
+2. Backup or move the existing `alfresco-search-services` folder to a preferred location. For example, `alfresco-search-services-1.x`.
 
 3. Browse to the [Support Portal](http://support.alfresco.com/).
 
@@ -35,7 +35,7 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Al
     alfresco-insight-engine-distribution-2.0.x.zip
     ```
 
-    By default, the contents are decompressed in a folder at ./alfresco-insight-engine. The folder extracts into the same location as the zip file.
+    By default, the contents are decompressed in a folder at `./alfresco-insight-engine`. The folder extracts into the same location as the zip file.
 
 5. Your indexes for Solr are in another location, use the following commands to point Solr to the right location:
 
@@ -55,11 +55,11 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Al
     -Ddata.dir.root="your-preferred-locationsolrhome"
     ```
 
-6. (Optional) If you have changed the alfresco-search-services/solr.in.sh or alfresco-search-services/solr.in.cmd file, you must restore it from your backup.
+6. (Optional) If you have changed the `alfresco-search-services/solr.in.sh` or `alfresco-search-services/solr.in.cmd` file, you must restore it from your backup.
 
 7. Start Search and Insight Engine.
 
-    > **Note:** To check what version of Search Services or Search and Insight Engine you have installed go to http://localhost:8983/solr/.
+    > **Note:** To check what version of Search Services or Search and Insight Engine you have installed go to `http://localhost:8983/solr/`.
 
 ## Migrating Content Services 5.x with Search Services 1.3 or below
 
@@ -119,7 +119,7 @@ Use this information to migrate from Alfresco Search and Insight Engine 2.0 to A
     ./solr/bin/solr stop
     ```
 
-2. Backup or move the existing ./alfresco-insight-engine folder to a preferred location. For example, alfresco-insight-engine-2.0.
+2. Backup or move the existing `./alfresco-insight-engine` folder to a preferred location. For example, `alfresco-insight-engine-2.0`.
 
 3. Browse to the [Support Portal](http://support.alfresco.com/).
 
@@ -129,9 +129,9 @@ Use this information to migrate from Alfresco Search and Insight Engine 2.0 to A
     alfresco-search-services-distribution-2.0.x.zip
     ```
 
-    By default, the contents are decompressed in a folder at ./alfresco-search-services. The folder extracts into the same location as the zip file.
+    By default, the contents are decompressed in a folder at `./alfresco-search-services`. The folder extracts into the same location as the zip file.
 
-5. (Optional) If you have changed the alfresco-search-services/solr.in.sh or alfresco-search-services/solr.in.cmd file, you must restore it from your backup.
+5. (Optional) If you have changed the `alfresco-search-services/solr.in.sh` or `alfresco-search-services/solr.in.cmd` file, you must restore it from your backup.
 
 6. Your indexes for Solr are in another location (where you saved them in step 2), use the following commands to point Solr to the right location:
 
@@ -153,4 +153,4 @@ Use this information to migrate from Alfresco Search and Insight Engine 2.0 to A
 
 7. Start Search Services.
 
-    > **Note:** To check what version of Search Services or Search and Insight Engine you have installed go to http://localhost:8983/solr/.
+    > **Note:** To check what version of Search Services or Search and Insight Engine you have installed go to `http://localhost:8983/solr/`.

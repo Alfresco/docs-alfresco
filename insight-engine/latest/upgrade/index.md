@@ -12,15 +12,15 @@ Use this information to upgrade from Alfresco Search and Insight Engine 1.x to S
     ./solr/bin/solr stop
     ```
 
-2. Backup or move the existing alfresco-insight-engine folder to a preferred location. For example, alfresco-insight-engine-1.x.
+2. Backup or move the existing alfresco-insight-engine folder to a preferred location. For example, `alfresco-insight-engine-1.x`.
 
-3. Browse to the Support Portal: [http://support.alfresco.com](http://support.alfresco.com/).
+3. Browse to the Support Portal: [Alfresco Support Portal](http://support.alfresco.com/).
 
 4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
 
     **alfresco-insight-engine-distribution-2.0.x.zip**
 
-    By default, the contents are decompressed in a folder at ./alfresco-insight-engine. The folder extracts into the same location as the zip file.
+    By default, the contents are decompressed in a folder at `./alfresco-insight-engine`. The folder extracts into the same location as the zip file.
 
 5. Start Search and Insight Engine 2.0.
 

@@ -4,7 +4,7 @@ title: JDBC Driver
 
 Alfresco Search and Insight Engine includes a JDBC thin client that can be used with Alfresco Insight Zeppelin and other SQL clients.
 
-To access the client log into [https://nexus.alfresco.com/nexus/#welcome](https://nexus.alfresco.com/nexus/#welcome) and search for alfresco-insight-jdbc-2.0.0.jar.
+To access the client log into [https://nexus.alfresco.com/nexus/#welcome](https://nexus.alfresco.com/nexus/#welcome) and search for `alfresco-insight-jdbc-2.0.0.jar`.
 
 > **Note:** Contact [Alfresco Support](https://support.alfresco.com/) for log in credentials.
 
@@ -26,7 +26,7 @@ jdbc:alfresco://localhost:8080?collection=alfresco
 
 Will generate the following request:
 
-[http://localhost:8080/alfresco/api/-default-/public/search/versions/1/jdbc](http://localhost:8080/alfresco/api/-default-/public/search/versions/1/jdbc)
+`http://localhost:8080/alfresco/api/-default-/public/search/versions/1/jdbc`
 
 > **Note:** When using the default HTTP port of 80 you do not need to add it to the database URL.
 
@@ -88,7 +88,7 @@ The Alfresco Search and Insight Engine JDBC driver logs into Alfresco Content Se
 
 The Alfresco JDBC driver can be used from programs like [DbVisualizer](https://www.dbvis.com/) and [SquirrelSql](http://squirrel-sql.sourceforge.net/) but you can also write custom code using Java to perform SQL queries. For example:
 
-```sql
+```java
 String sql = "select DBID, LID from alfresco where cm_content = 'world' order by DBID limit 10 ";
 String alfrescoJson = "{"tenants":[""],"locales":["en_US"],"defaultNamespace":"http://www.alfresco.org/model/content/1.0","textAttributes":[],"defaultFTSOperator":"OR","defaultFTSFieldOperator":"OR","anyDenyDenies":true,"query":"name:*","templates":[],"allAttributes":[],"queryConsistency":"DEFAULT","authorities":["GROUP_EVERYONE","ROLE_ADMINISTRATOR","ROLE_AUTHENTICATED","admin"]}";
 
@@ -127,4 +127,4 @@ Trusted certificates (CAs) that appear by default in your local JVM can be obtai
 $ keytool -list -cacerts
 ```
 
-When using a certificate, including the name of the server of the real DNS in the CN attribute of the certificate, the alfresco.ssl.cheekPeerName setting can be skipped.
+When using a certificate, including the name of the server of the real DNS in the CN attribute of the certificate, the `alfresco.ssl.cheekPeerName` setting can be skipped.

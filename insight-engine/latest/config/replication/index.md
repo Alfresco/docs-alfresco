@@ -173,7 +173,7 @@ To promote a slave, follow the steps below:
 
     1. Go to Solr Admin web interface using:
 
-        ```bash
+        ```http
         https://localhost:8443/solr
         ```
 

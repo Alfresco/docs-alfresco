@@ -119,7 +119,7 @@ If you don’t specify a field the search runs against name, description, title,
 
 > **Note:** If cross locale is not configured for the field then an exception occurs.
 
-The list of the default supported types as declared in the <alfresco_home>/solr4/conf/shared.properties file:
+The list of the default supported types as declared in the `<alfresco_home>/solr4/conf/shared.properties` file:
 
 `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
 
@@ -168,7 +168,7 @@ Property fields evaluate the search term against a particular property, special 
 |Special|EXISTS for example `EXISTS:"name of the property"`.|
 |Special|SITE for example `SITE:"shortname of the site"`.|
 |Special|TAG. TAG: "name of the tag" **Note:** `TAG` must be in upper case.|
-|Fully qualified data type|Data Type, {http://www.alfresco.org/model/dictionary/1.0}content:apple|
+|Fully qualified data type|Data Type, `http://www.alfresco.org/model/dictionary/1.0}content:apple`|
 |prefixed data type|Data Type, d:content:apple|
 
 ## Mixed FTS ID behavior
@@ -177,7 +177,7 @@ This relates to the priority defined on properties in the data dictionary, which
 
 Explicit priority is set by prefixing the query with "=" for identifier pattern matches.
 
-The tilde "~" can be used to force tokenization.
+The tilde (`~`) can be used to force tokenization.
 
 ## Search for fuzzy matching
 
@@ -260,7 +260,7 @@ Single terms, phrases, and so on can be combined using "`NOT`" in upper, lower, 
 
 These queries search for nodes that contain the terms `yellow` in any content.
 
-```json
+```sql
 yellow NOT banana
 yellow !banana
 yellow -banana
@@ -325,30 +325,30 @@ OR
 
 |AND (no prefix is the same as +)|Description|
 |----------------------------------|-----------|
-|`big AND dog`|big and dog must occur|
-|`+big AND +dog`|big and dog must occur|
-|`big AND +dog`|big and dog must occur|
-|`+big AND dog`|big and dog must occur|
-|`big AND |dog`|big must occur and dog should occur|
-|`|big AND dog`|big should occur and dog must occur|
-|`|big AND |dog`|both big and dog should occur, and at least one must match|
-|`big AND -dog`|big must occur and dog must not occur|
-|`-big AND dog`|big must not occur and dog must occur|
-|`-big AND -dog`|both big and dog must not occur|
-|`|big AND -dog`|big should occur and dog must not occur|
+|big AND dog|big and dog must occur|
+|+big AND +dog|big and dog must occur|
+|big AND +dog|big and dog must occur|
+|+big AND dog|big and dog must occur|
+|big AND |dog|big must occur and dog should occur|
+||big AND dog|big should occur and dog must occur|
+||big AND |dog|both big and dog should occur, and at least one must match|
+|big AND -dog|big must occur and dog must not occur|
+|-big AND dog|big must not occur and dog must occur|
+|-big AND -dog|both big and dog must not occur|
+||big AND -dog|big should occur and dog must not occur|
 
 |OR (no prefix is the same as +)|Description|
 |---------------------------------|-----------|
-|`dog OR wolf`|dog and wolf should occur, and at least one must match|
-|`+dog OR +wolf`|dog and wolf should occur, and at least one must match|
-|`dog OR +wolf`|dog and wolf should occur, and at least one must match|
-|`+dog OR wolf`|dog and wolf should occur, and at least one must match|
-|`dog OR |wolf`|dog and wolf should occur, and at least one must match|
-|`|dog OR wolf`|dog and wolf should occur, and at least one must match|
-|`|dog OR |wolf`|dog and wolf should occur, and at least one must match|
-|`dog OR -wolf`|dog should occur and wolf should not occur, one of the clauses must be valid for any result|
-|`-dog OR wolf`|dog should not occur and wolf should occur, one of the clauses must be valid for any result|
-|`-dog OR -wolf`|dog and wolf should not occur, one of the clauses must be valid for any result|
+|dog OR wolf|dog and wolf should occur, and at least one must match|
+|+dog OR +wolf|dog and wolf should occur, and at least one must match|
+|dog OR +wolf|dog and wolf should occur, and at least one must match|
+|+dog OR wolf|dog and wolf should occur, and at least one must match|
+|dog OR |wolf|dog and wolf should occur, and at least one must match|
+||dog OR wolf|dog and wolf should occur, and at least one must match|
+||dog OR |wolf|dog and wolf should occur, and at least one must match|
+|dog OR -wolf|dog should occur and wolf should not occur, one of the clauses must be valid for any result|
+|-dog OR wolf|dog should not occur and wolf should occur, one of the clauses must be valid for any result|
+|-dog OR -wolf|dog and wolf should not occur, one of the clauses must be valid for any result|
 
 ## Search for proximity
 
@@ -465,7 +465,7 @@ The `*` wildcard character can appear on its own and implies Google-style. The "
 
 The following will all find the term apple.
 
-```Plain text
+```sql
 TEXT:app?e
 TEXT:app*
 TEXT:*pple

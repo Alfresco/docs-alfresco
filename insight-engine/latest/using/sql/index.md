@@ -36,7 +36,7 @@ Fields from Alfresco’s out of-the-box content models, as well as fields from c
 
 ### Escaping Fields
 
-Fields that include reserved words or special characters will need to be escaped using the back tick character (`). The `cm_content.size` field in the example SQL statement is an example of back tick escaping. The only non-word character that can be used without escaping is the underscore “_”. We use Apache Calcite which has a list of reserved words that also need to be escaped, see [https://calcite.apache.org/docs/reference.html](https://calcite.apache.org/docs/reference.html){:target="_blank"}. You are most likely to hit reserved keywords picking aliases for fields.
+Fields that include reserved words or special characters will need to be escaped using the back tick character. The `cm_content.size` field in the example SQL statement is an example of back tick escaping. The only non-word character that can be used without escaping is the underscore “_”. We use Apache Calcite which has a list of reserved words that also need to be escaped, see [https://calcite.apache.org/docs/reference.html](https://calcite.apache.org/docs/reference.html){:target="_blank"}. You are most likely to hit reserved keywords picking aliases for fields.
 
 ### Select Queries
 
@@ -68,7 +68,7 @@ The curated set of fields that are returned with select * queries include:
 * `ASPECT`
 * `QNAME`
 
-If you are using a custom model you can specify the extra fields to appear in a select * query. You must add them to alfresco-insight-engine/solrhome/conf/shared.properties and they can take the form of either of the following formats:
+If you are using a custom model you can specify the extra fields to appear in a select * query. You must add them to `alfresco-insight-engine/solrhome/conf/shared.properties` and they can take the form of either of the following formats:
 
 > **Note:** The field list is case insensitive.
 
@@ -248,7 +248,7 @@ select cm_name, `cm_content.size` from alfresco where cm_content.size ='<100 TO 
 
 ### Predicates on Null Fields
 
-Predicates on null values can be constructed using IS NULL, IS NOT NULL, IN (NULL), and NOT IN (NULL) operands to obtain the results.
+Predicates on null values can be constructed using `IS NULL`, `IS NOT NULL`, `IN (NULL)`, and `NOT IN (NULL)` operands to obtain the results.
 
 The following IS NULL query will return all the rows that have a value of NULL for the field cm_content.size .
 
@@ -256,25 +256,25 @@ The following IS NULL query will return all the rows that have a value of NULL f
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` IS NULL
 ```
 
-The following IS NOT NULL query will return all the rows that have a value different from NULL for the field cm_content.size.
+The following IS NOT NULL query will return all the rows that have a value different from NULL for the field `cm_content.size`.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` IS NOT NULL
 ```
 
-The following IN NULL query will return all the rows that have cm_content.size in 'system' or NULL.
+The following IN NULL query will return all the rows that have `cm_content.size` in 'system' or `NULL`.
 
 ```sql
 select cm_name, cm_creator, `cm_content.size` from alfresco where cm_creator IN ('System', NULL)
 ```
 
-The following NOT IN NULL query will return all the rows that have cm_content.size not in 'system' or NULL.
+The following `NOT IN NULL` query will return all the rows that have `cm_content.size` not in 'system' or `NULL`.
 
 ```sql
 select cm_name, cm_creator, `cm_content.size` from alfresco where cm_creator NOT IN ('System', NULL)
 ```
 
-The following NOT IN (NULL) query will return all the rows where cm_content.size is not equal to 0 and is not NULL.
+The following `NOT IN (NULL)` query will return all the rows where `cm_content.size` is not equal to `0` and is not `NULL`.
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` NOT IN (0, NULL)
@@ -282,7 +282,7 @@ select cm_name, `cm_content.size` from alfresco where `cm_content.size` NOT IN (
 
 ### Nested Boolean Predicates
 
-SQL predicates can be combined with Boolean operators AND, OR and NOT and nested with parenthesis.
+SQL predicates can be combined with Boolean operators `AND`, `OR` and `NOT` and nested with parenthesis.
 
 ```sql
 SITE = ‘MySite’ AND `cm_content.mimetype` = 'text/plain'
@@ -294,9 +294,9 @@ The SQL IN operator can be used in the predicate for both numeric and string fie
 
 ### SQL NOT IN Operator
 
-The SQL NOT IN operator can be used in the predicate for both numeric and string fields. Null values are accepted as values in the filter list, but due to SQL limitations the query will produce no results.
+The SQL `NOT IN` operator can be used in the predicate for both numeric and string fields. Null values are accepted as values in the filter list, but due to SQL limitations the query will produce no results.
 
-> **Note:** Use an equivalent query when fetching NULL values instead of including the null as a value of a NOT IN list.
+> **Note:** Use an equivalent query when fetching NULL values instead of including the null as a value of a `NOT IN` list.
 
 ### Order By
 
@@ -310,19 +310,19 @@ select cm_creator, cm_name, exif_manufacturer, audio_trackNumber from alfresco o
 
 ### Limit
 
-SQL SELECT statements can contain a LIMIT clause. If no limit is specified a default limit of 1000 is set.
+SQL SELECT statements can contain a `LIMIT` clause. If no limit is specified a default limit of 1000 is set.
 
 > **Note:** Caution should be used when increasing the default limit as performance and memory consumption increase as the limit increases.
 
 ## SELECT DISTINCT statements
 
-The basic syntax for SELECT DISTINCT is as follows:
+The basic syntax for `SELECT DISTINCT` is as follows:
 
 ```sql
 select distinct cm_name from alfresco where cm_content = 'alfresco' order by cm_name asc
 ```
 
-SELECT DISTINCT queries can also have multiple fields and multiple order by fields.
+`SELECT DISTINCT` queries can also have multiple fields and multiple order by fields.
 
 ### Is Null statements
 
@@ -334,7 +334,7 @@ select cm_name, `cm:content.size` from alfresco where `cm:content.size` IS NULL
 
 ### Is Not Null statements
 
-The basic syntax for Is Not Null is as follows:
+The basic syntax for `Is Not Null` is as follows:
 
 ```sql
 select cm_name, `cm_content.size` from alfresco where `cm_content.size` IS NOT NULL
@@ -342,7 +342,7 @@ select cm_name, `cm_content.size` from alfresco where `cm_content.size` IS NOT N
 
 ### Aggregations Without GROUP BY
 
-SQL aggregations without a GROUP BY clause return a single result tuple with the aggregation results. See below for an example:
+SQL aggregations without a `GROUP BY` clause return a single result tuple with the aggregation results. See below for an example:
 
 ```sql
 select count(*) as docCount, avg(`cm_content.size`) as content_size from alfresco where cm_owner = 'xyz
@@ -350,7 +350,7 @@ select count(*) as docCount, avg(`cm_content.size`) as content_size from alfresc
 
 ### Aggregate Result Tuple
 
-If a field alias is specified for an aggregate function then the field alias will appear in the result tuple. If field aliases are not used then the field name for the aggregate functions will appear as follows: EXPR$1, EXPR$2. These values refer to the function expression by the order they appear in the field list, starting from 1. For example the first function that appears in the query will be named EXPR$1 in the result tuples.
+If a field alias is specified for an aggregate function then the field alias will appear in the result tuple. If field aliases are not used then the field name for the aggregate functions will appear as follows: `EXPR$1`, `EXPR$2`. These values refer to the function expression by the order they appear in the field list, starting from 1. For example the first function that appears in the query will be named EXPR$1 in the result tuples.
 
 ## Aggregations With GROUP BY
 
@@ -404,15 +404,13 @@ It’s not supported when the text field is either freetext or none.
 
 ### Having
 
-The HAVING clause is supported for aggregation functions only. Boolean logic and nested HAVING clauses are supported. The following comparison operations are supported in the HAVING clause: =, >=, <=, !=.
+The `HAVING` clause is supported for aggregation functions only. Boolean logic and nested `HAVING` clauses are supported. The following comparison operations are supported in the `HAVING` clause: `=`, `>=`, `<=`, `!=`.
 
-> **Note:** Support is limited for the HAVING clause in Alfresco Search and Insight Engine 2.0.
+> **Note:** Support is limited for the `HAVING` clause in Alfresco Search and Insight Engine 2.0.
 
 ### Limit
 
-A LIMIT clause can be used to limit the number of aggregations results. If no LIMIT clause is provided a default limit of 1000 is applied.
-
-![]({% link insight-engine/images/hr.png %})
+A `LIMIT` clause can be used to limit the number of aggregations results. If no LIMIT clause is provided a default limit of 1000 is applied.
 
 ### Time Series Aggregations
 
@@ -420,17 +418,15 @@ There is specific support for SQL time series reporting through the use of virtu
 
 *Virtual Time Dimensions*
 
-Search and Insight Engine automatically creates virtual time dimensions for every datetime field stored in the Alfresco Search Service. The three virtual time dimensions supported are: _day, _month, _year. To use the virtual time dimensions append the virtual time dimension to any datetime field and use it in the GROUP BY clause. Below is an example where the _day dimension is appended to the cm_created datetime field. The query creates a daily time series report using the cm_created_day virtual time dimension.
+Search and Insight Engine automatically creates virtual time dimensions for every datetime field stored in the Alfresco Search Service. The three virtual time dimensions supported are:  `_day`, `_month`, `_year`. To use the virtual time dimensions append the virtual time dimension to any datetime field and use it in the `GROUP BY` clause. Below is an example where the `_day` dimension is appended to the `cm_created` datetime field. The query creates a daily time series report using the `cm_created_day` virtual time dimension.
 
 ```sql
 select cm_created_day, count(*) as total from alfresco where cm_created >= 'NOW/DAY' group by cm_created_day
 ```
 
-![]({% link insight-engine/images/hr.png %})
-
 ## Datetime Predicates
 
-A datetime predicate can be used in the WHERE clause to control the datetime range of the time series report. This is a datetime predicate on the cm_created field. Its important to note that the virtual time dimension field is only used in the field list and GROUP BY clause. The predicate is applied to the non-virtual datetime field in the index. This example uses a date math expression to specify a lower boundary for the time series report and is a datetime predicate on the cm_created field.
+A datetime predicate can be used in the `WHERE` clause to control the datetime range of the time series report. This is a datetime predicate on the `cm_create`d field. Its important to note that the virtual time dimension field is only used in the field list and `GROUP BY` clause. The predicate is applied to the non-virtual datetime field in the index. This example uses a date math expression to specify a lower boundary for the time series report and is a datetime predicate on the `cm_created` field.
 
 ```sql
 where cm_created >= 'NOW/DAY'
@@ -467,7 +463,7 @@ select cm_created_day, count(*) from alfresco where cm_created >= '2010-02-01T01
 
 ### Date Math Predicates
 
-Search and Insight Engine also supports a rich set of date math expressions. The example below uses a time series aggregation using date math predicates. The NOW clause signifies the current point in time with milli-second precision. The NOW/MONTH clause rounds the current point in time down to the current MONTH i.e. The -6MONTHS subtracts 6 months from the current month. See the [Solr date math guide](https://lucene.apache.org/solr/guide/6_6/working-with-dates.html#WorkingwithDates-DateMathSyntax) for more details on date math syntax.
+Search and Insight Engine also supports a rich set of date math expressions. The example below uses a time series aggregation using date math predicates. The `NOW` clause signifies the current point in time with milli-second precision. The `NOW/MONTH` clause rounds the current point in time down to the current `MONTH `i.e. The -6MONTHS subtracts 6 months from the current month. See the [Solr date math guide](https://lucene.apache.org/solr/guide/6_6/working-with-dates.html#WorkingwithDates-DateMathSyntax) for more details on date math syntax.
 
 ```sql
 select cm_created_month, count(*) from alfresco where cm_created >= 'NOW/MONTH-6MONTHS' and cm_created <= 'NOW' group by cm_created_month
@@ -483,11 +479,11 @@ Time series aggregations that group by virtual time dimensions are currently lim
 
 ### Order By
 
-By default time series aggregation results are sorted in datetime ascending order. An order by clause can be used to change the direction of the datetime sort or sort by the result of the COUNT function. ORDER BY for other aggregate functions is not yet supported.
+By default time series aggregation results are sorted in datetime ascending order. An order by clause can be used to change the direction of the datetime sort or sort by the result of the COUNT function. `ORDER BY` for other aggregate functions is not yet supported.
 
 ### Having
 
-A HAVING clause can be used to filter time series aggregations results.
+A `HAVING` clause can be used to filter time series aggregations results.
 
 ## Unsupported SQL
 

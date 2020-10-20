@@ -14,7 +14,7 @@ Use this information to understand the keystores used by the repository for mutu
 
 The keys and certificates required for mutual TLS on the repository side are set up in Tomcat.
 
-1. Modify <TOMCAT_HOME>/conf/server.xml and add the following connector:
+1. Modify `<TOMCAT_HOME>/conf/server.xml` and add the following connector:
 
     ```bash
     <Connector port="8999" protocol="org.apache.coyote.http11.Http11Protocol"
@@ -55,7 +55,7 @@ All Solr URLs, which are bundled within Alfresco Content Services, are protected
 
 1. Open the FireFox **Certificate Manager** by selecting **Firefox > Preferences > Advanced > Certificates > View Certificates > Your Certificates**.
 
-2. Import the browser keystore `browser.p12` that is located in your <ALFRESCO_HOME>/alf_data/keystore directory.
+2. Import the browser keystore `browser.p12` that is located in your `<ALFRESCO_HOME>/alf_data/keystore` directory.
 
 3. Enter the password `alfresco`.
 

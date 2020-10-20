@@ -4,7 +4,7 @@ title: Troubleshooting Solr Index and SSL configurations
 
 Use this information to repair a transaction that failed to index.
 
-> **Note:** The default URL for the Solr index is http://localhost:8080/solr/....
+> **Note:** The default URL for the Solr index is `http://localhost:8080/solr/`
 
 To repair an unindexed or failed transaction (as identified by the REPORT option in the [Unindexed Solr Transactions]({% link insight-engine/latest/admin/monitor/index.md %}) section), run the following report:
 
@@ -20,19 +20,19 @@ Use the PURGE parameter to remove transactions, acl transactions, nodes and acls
 http://localhost:8080/solr/admin/cores?action=PURGE&txid=1&acltxid=2&nodeid=3&aclid=4
 ```
 
-Use the REINDEX parameter to reindex a transaction, acl transactions, nodes and acls.
+Use the `REINDEX` parameter to reindex a transaction, acl transactions, nodes and acls.
 
 ```http
 http://localhost:8080/solr/admin/cores?action=REINDEX&txid=1&acltxid=2&nodeid=3&aclid=4
 ```
 
-Use the INDEX parameter to create entries in the index. It can also be used to create duplicate index entries for testing.
+Use the `INDEX` parameter to create entries in the index. It can also be used to create duplicate index entries for testing.
 
 ```http
 http://localhost:8080/solr/admin/cores?action=INDEX&txid=1&acltxid=2&nodeid=3&aclid=4
 ```
 
-Use the RETRY parameter to retry indexing any node that failed to index and was skipped. In other words, it enables the users to attempt to fix documents that failed to index in the past and appear in the solr report (http://localhost:8080/solr/admin/cores?action=REPORT&wt=xml) with the field **Index error count**.
+Use the `RETRY` parameter to retry indexing any node that failed to index and was skipped. In other words, it enables the users to attempt to fix documents that failed to index in the past and appear in the solr report (http://localhost:8080/solr/admin/cores?action=REPORT&wt=xml) with the field **Index error count**.
 
 ```http
 http://localhost:8080/solr/admin/cores?action=RETRY
@@ -45,7 +45,7 @@ Use the following setting to specify an option core for the report. If it is abs
 &core=archive
 ```
 
-You can also fix index issues, check the index cache and backup individual indexes by using JMX. The status of the index can be checked using the JMX client on the **JMX MBeans > Alfresco > solrIndexes > <store>** tabs. The default view is the Solr core summary. The operations run the same consistency checks that are available by URL.
+You can also fix index issues, check the index cache and backup individual indexes by using JMX. The status of the index can be checked using the JMX client on the **JMX MBeans > Alfresco > solrIndexes > `<store>`** tabs. The default view is the Solr core summary. The operations run the same consistency checks that are available by URL.
 
 ## Solr troubleshooting for SSL configurations
 
@@ -53,7 +53,7 @@ When you have an Alfresco Content Services installation that requires an SSL con
 
 If Solr search and/or the Solr tracking is not working properly, you might see this message on the Tomcat console:
 
-```bash
+```plain text
 Aug 22, 2011 8:19:21 PM org.apache.tomcat.util.net.jsse.JSSESupport handShake
 WARNING: SSL server initiated renegotiation is disabled, closing connection 
 ```

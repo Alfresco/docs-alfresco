@@ -69,7 +69,7 @@ If you do not want to save the changes, click **Cancel**.
 
 After you've installed Alfresco Search and Insight Engine, several directories and configuration files related to Solr will be available in the Search and Insight Engine home directory.
 
-The Search and Insight Engine distribution (alfresco-insight-engine-distribution-2.0.x.zip) contains the following artifacts:
+The Search and Insight Engine distribution (`alfresco-insight-engine-distribution-2.0.x.zip`) contains the following artifacts:
 
 ### solrhome directory
 
@@ -79,9 +79,9 @@ This is the Solr configuration directory that is specific to Alfresco. It contai
 |-----------|-----------|
 |alfrescoModels|When you install Search and Insight Engine, it creates an empty alfrescoModels directory. When Solr first talks to Alfresco, it pulls the model definitions into this directory.|
 |conf|This directory contains the shared.properties file. See [Search and Insight Engine externalized configuration](#search-and-insight-engine-externalized-configuration).|
-|templates|This directory contains the core templates that define the base configuration for a new Solr core with some configuration properties. This directory also contains the /rerank/conf/solrcore.properties file which you can use to customize the Solr cores.|
+|templates|This directory contains the core templates that define the base configuration for a new Solr core with some configuration properties. This directory also contains the `/rerank/conf/solrcore.properties` file which you can use to customize the Solr cores.|
 |solr.xml|This file defines the Solr web application context. For more information see [Format of solr.xml](https://lucene.apache.org/solr/guide/6_6/format-of-solr-xml.html){:target="_blank"}|
-|data|This folder is generated when a Solr core is created and is where Solr indexes are stored. The default location of the folder is /opt/alfresco-search-services/data.|
+|data|This folder is generated when a Solr core is created and is where Solr indexes are stored. The default location of the folder is `/opt/alfresco-search-services/data`.|
 
 ### logs directory
 
@@ -89,7 +89,7 @@ This directory contains the Solr-specific logging configuration file.
 
 |Folder/File|Description|
 |-----------|-----------|
-|log4j.properties|This is the configuration file for Solr-specific logging. The Solr log file can be found at <SOLR_HOME>/logs/solr.log.|
+|log4j.properties|This is the configuration file for Solr-specific logging. The Solr log file can be found at `<SOLR_HOME>/logs/solr.log`.|
 
 * solr directory: This directory contains the Solr binaries and runtime Java library files.
 * solr.in.cmd: Use this file to specify additional Solr configuration options for Windows.
@@ -98,96 +98,96 @@ This directory contains the Solr-specific logging configuration file.
 
 ### Search and Insight Engine externalized configuration
 
-As a best practice, use the alfresco-insight-engine/solr.in.sh file (Linux-based platform) or alfresco-insight-engine/solr.in.cmd file (Windows-based platform) to set the external configuration that applies to all the Alfresco Search and Insight Engine cores.
+As a best practice, use the `alfresco-insight-engine`/`solr.in.sh` file (Linux-based platform) or `alfresco-insight-engine`/`solr.in.cmd` file (Windows-based platform) to set the external configuration that applies to all the Alfresco Search and Insight Engine cores.
 
 > **Note:** For any property, only the environment variables should be specified in the solr.in.sh/ solr.in.cmd file. For example, `SOLR_SOLR_HOST`, `SOLR_SOLR_PORT`, or `SOLR_ALFRESCO_PORT`.
 
-The following configuration properties are used by an external client, such as Alfresco to talk to Solr. Besides the solr.in.sh/ solr.in.cmd file, you can also set these properties in the alfresco-insight-engine/solrhome/conf/shared.properties file.
+The following configuration properties are used by an external client, such as Alfresco to talk to Solr. Besides the solr.in.sh/ solr.in.cmd file, you can also set these properties in the `alfresco-insight-engine/solrhome/conf/shared.properties` file.
 
 > **Important:** From Search and Insight Engine 2.0 the `solr.content.dir` property has been removed. The `solr.content.dir` was a filesystem-based extension of the Solr index. It was used for maintaining a copy of the original data indexed in Solr. The storage the `solr.content.dir` provided is available in Solr itself which means that it can be safely removed from Search and Insight Engine 2.0 onwards. The removal of `solr.content.dir` does not mean a loss of functionality because the Solr storage capabilities still retain a copy of the data originally sent for indexing.
 
 #### `solr.host`
 
 |Description|Specifies the host name that Alfresco uses to talk to Solr.|
-|JNDI Property|java:comp/env/solr/host|
-|Java System Property|solr.host or solr.solr.host|
-|Environment Variable|SOLR_SOLR_HOST|
+|JNDI Property|`java:comp/env/solr/host`|
+|Java System Property|`solr.host or solr.solr.host`|
+|Environment Variable|`SOLR_SOLR_HOST`|
 |Default Value|`localhost`|
 
 #### `solr.port`
 
 |Description|Specifies the port Solr will listen to.|
-|JNDI Property|java:comp/env/solr/port|
-|Java System Property|solr.port or solr.solr.port|
-|Environment Variable|SOLR_SOLR_PORT|
+|JNDI Property|`java:comp/env/solr/port`|
+|Java System Property|`solr.port or solr.solr.port`|
+|Environment Variable|`SOLR_SOLR_PORT`|
 |Default Value|`8983`|
 
 #### `solr.baseUrl`
 
 |Description|Specifies the base URL of the Solr server.|
-|JNDI Property|java:comp/env/solr/baseurl|
-|Java System Property|solr.baseurl or solr.solr.baseurl|
-|Environment Variable|SOLR_SOLR_BASEURL|
+|JNDI Property|`java:comp/env/solr/baseurl`|
+|Java System Property|`solr.baseurl or solr.solr.baseurl`|
+|Environment Variable|`SOLR_SOLR_BASEURL`|
 |Default Value|`/solr`|
 
 #### `solr.content.dir` (Removed from Alfresco Search and Insight Engine 2.0)**
 
 |Description|Specifies the location of the Solr content directory.|
-|JNDI Property|java:comp/env/solr/content/dir|
-|Java System Property|solr.content.dir or solr.solr.content.dir|
-|Environment Variable|SOLR_SOLR_CONTENT_DIR|
-|Default Value|<SOLR6_INSTALL_LOCATION>/contentstore|
+|JNDI Property|`java:comp/env/solr/content/dir`|
+|Java System Property|`solr.content.dir or solr.solr.content.dir`|
+|Environment Variable|`SOLR_SOLR_CONTENT_DIR`|
+|Default Value|`<SOLR6_INSTALL_LOCATION>/contentstore`|
 
 #### `solr.model.dir`
 
 |Description|Specifies the location of the Solr model directory.|
-|JNDI Property|java:comp/env/solr/model/dir|
-|Java System Property|solr.model.dir or solr.solr.model.dir|
-|Environment Variable|SOLR_SOLR_MODEL_DIR|
-|Default Value|<SOLR6_INSTALL_LOCATION>/solrhome/alfrescoModel|
+|JNDI Property|`java:comp/env/solr/model/dir`|
+|Java System Property|`solr.model.dir or solr.solr.model.dir`|
+|Environment Variable|`SOLR_SOLR_MODEL_DIR`|
+|Default Value|`<SOLR6_INSTALL_LOCATION>/solrhome/alfrescoModel`|
 
 ### Configurable per core values
 
-These properties can also be set in the alfresco-insight-engine/solrhome/templates/rerank/conf/solrcore.properties file.
+These properties can also be set in the `alfresco-insight-engine/solrhome/templates/rerank/conf/solrcore.properties` file.
 
 #### `alfresco.host`
 
 |Description|Specifies the externally resolvable host name of the Alfresco web application.|
-|JNDI Property|java:comp/env/alfresco/host|
-|Java System Property|alfresco.host or solr.alfresco.host|
-|Environment Variable|SOLR_ALFRESCO_HOST|
+|JNDI Property|`java:comp/env/alfresco/host`|
+|Java System Property|`alfresco.host or solr.alfresco.host`|
+|Environment Variable|`SOLR_ALFRESCO_HOST`|
 |Default Value|`localhost`|
 
 #### `alfresco.port`
 
 |Description|Specifies the externally resolvable port number of the Alfresco web application.|
-|JNDI Property|java:comp/env/alfresco/port|
-|Java System Property|alfresco.port or solr.alfresco.port|
-|Environment Variable|SOLR_ALFRESCO_PORT|
+|JNDI Property|`java:comp/env/alfresco/port`|
+|Java System Property|`alfresco.port or solr.alfresco.port`|
+|Environment Variable|`SOLR_ALFRESCO_PORT`|
 |Default Value|`8080`|
 
 ### `alfresco.baseUrl`
 
 |Description|Configures the base URL to Alfresco web project.|
-|JNDI Property|java:comp/env/alfresco/baseurl|
-|Java System Property|alfresco.baseurl or solr.alfresco.baseurl|
-|Environment Variable|SOLR_ALFRESCO_BASEURL|
+|JNDI Property|`java:comp/env/alfresco/baseurl`|
+|Java System Property|`alfresco.baseurl or solr.alfresco.baseurl`|
+|Environment Variable|`SOLR_ALFRESCO_BASEURL`|
 |Default Value|`/alfresco`|
 
 #### `alfresco.port.ssl`
 
 |Description|Specifies the HTTPS port for the Alfresco instance that Solr should track and index.|
-|JNDI Property|java:comp/env/alfresco/port/ssl|
-|Java System Property|alfresco.port.ssl or solr.alfresco.port.ssl|
-|Environment Variable|SOLR_ALFRESCO_PORT_SSL|
+|JNDI Property|`java:comp/env/alfresco/port/ssl`|
+|Java System Property|`alfresco.port.ssl or solr.alfresco.port.ssl`|
+|Environment Variable|`SOLR_ALFRESCO_PORT_SSL`|
 |Default Value|`8443`|
 
 #### `data.dir.root`
 
 |Description|Specifies the top level directory path for the indexes managed by Solr.|
-|JNDI Property|java:comp/env/data/dir/root|
-|Java System Property|data.dir.root or solr.data.dir.root|
-|Environment Variable|SOLR_DATA_DIR_ROOT|
+|JNDI Property|`java:comp/env/data/dir/root`|
+|Java System Property|`data.dir.root or solr.data.dir.root`|
+|Environment Variable|`SOLR_DATA_DIR_ROOT`|
 |Default Value|`[solr_home]`|
 
 These external values can be overridden by the JNDI attributes from `java:comp/env`, Java System properties, or OS environment variables.
@@ -206,66 +206,66 @@ You need to set these properties only if you are configuring Search and Insight 
 #### `alfresco.secureComms`
 
 |Description|Instructs Solr if it should talk to Alfresco over HTTP or HTTPS. Set to none if a plain HTTP connection should be used.|
-|JNDI Property|java:comp/env/alfresco/securecomms|
-|Java System Property|alfresco.securecommssolr.securecomms|
+|JNDI Property|`java:comp/env/alfresco/securecomms`|
+|Java System Property|`alfresco.securecommssolr.securecomms`|
 |Environment Variable|`SOLR_ALFRESCO_SECURECOMMS`|
 |Default Value|`none / https`|
 
 #### `alfresco.encryption.ssl.keystore.passwordFileLocation`
 
 |Description|Specifies the location of the file containing the password that is used to access the CLIENT keystore.|
-|JNDI Property|java:comp/env/alfresco/encryption/ssl/keystore/passwordfilelocation|
-|Java System Property|alfresco.encryption.ssl.keystore.passwordfilelocationsolr.encryption.ssl.keystore.passwordfilelocation|
+|JNDI Property|`java:comp/env/alfresco/encryption/ssl/keystore/passwordfilelocation`|
+|Java System Property|`alfresco.encryption.ssl.keystore.passwordfilelocationsolr.encryption.ssl.keystore.passwordfilelocation`|
 |Environment Variable|`SOLR_ALFRESCO_ENCRYPTION_SSL_KEYSTORE_PASSWORDFILELOCATION`|
 
 #### `alfresco.encryption.ssl.truststore.passwordFileLocation`
 
 |Description|Specifies the location of the file containing the password that is used to access the CLIENT truststore.|
-|JNDI Property|java:comp/env/alfresco/encryption/ssl/truststore/passwordfilelocation|
-|Java System Property|alfresco.encryption.ssl.truststore.passwordfilelocation|
+|JNDI Property|`java:comp/env/alfresco/encryption/ssl/truststore/passwordfilelocation`|
+|Java System Property|`alfresco.encryption.ssl.truststore.passwordfilelocation`|
 |Environment Variable|`SOLR_ALFRESCO_ENCRYPTION_SSL_TRUSTSTORE_PASSWORDFILELOCATION`|
 
 #### `alfresco.encryption.ssl.keystore.location`
 
 |Description|Specifies the CLIENT keystore location reference. If the keystore is file-based, the location can reference any path in the file system of the node where the keystore is located.|
-|JNDI Property|java:comp/env/alfresco/encryption/ssl/keystore/location|
-|Java System Property|alfresco.encryption.ssl.keystore.location|
+|JNDI Property|`java:comp/env/alfresco/encryption/ssl/keystore/location`|
+|Java System Property|`alfresco.encryption.ssl.keystore.location`|
 |Environment Variable|`SOLR_ALFRESCO_ENCRYPTION_SSL_KEYSTORE_LOCATION`|
 
 #### `alfresco.encryption.ssl.truststore.location`
 
 |Description|Specifies the CLIENT truststore location reference. If the truststore is file-based, the location can reference any path in the file system of the node where the truststore is located.|
-|JNDI Property|java:comp/env/alfresco/encryption/ssl/truststore/location|
-|Java System Property|alfresco.encryption.ssl.truststore.location|
+|JNDI Property|`java:comp/env/alfresco/encryption/ssl/truststore/location`|
+|Java System Property|`alfresco.encryption.ssl.truststore.location`|
 |Environment Variable|`SOLR_ALFRESCO_ENCRYPTION_SSL_TRUSTSTORE_LOCATION`|
 
 #### `alfresco.encryption.ssl.truststore.provider`
 
 |Description|Specifies the Java provider that implements the type attribute (for example, JCEKS type). The provider can be left unspecified and the first provider that implements the truststore type specified is used.|
-|JNDI Property|java:comp/env/alfresco/encryption/ssl/truststore/provider|
-|Java System Property|alfresco.encryption.ssl.truststore.provider|
+|JNDI Property|`java:comp/env/alfresco/encryption/ssl/truststore/provider`|
+|Java System Property|`alfresco.encryption.ssl.truststore.provider`|
 |Environment Variable|`SOLR_ALFRESCO_ENCRYPTION_SSL_TRUSTSTORE_PROVIDER`|
 
 #### `alfresco.encryption.ssl.keystore.type`
 
 |Description|Specifies the CLIENT keystore type.|
-|JNDI Property|java:comp/env/alfresco/encryption/ssl/keystore/type|
-|Java System Property|alfresco.encryption.ssl.keystore.type|
+|JNDI Property|`java:comp/env/alfresco/encryption/ssl/keystore/type`|
+|Java System Property|`alfresco.encryption.ssl.keystore.type`|
 |Environment Variable|`SOLR_ALFRESCO_ENCRYPTION_SSL_KEYSTORE_TYPE`|
 |Default Value|`JCEKS`|
 
 #### `alfresco.encryption.ssl.keystore.provider`
 
 |Description|Specifies the Java provider that implements the type attribute (for example, JCEKS type). The provider can be left unspecified and the first provider that implements the keystore type specified is used.|
-|JNDI Property|java:comp/env/alfresco/encryption/ssl/keystore/provider|
-|Java System Property|alfresco.encryption.ssl.keystore.provider|
+|JNDI Property|`java:comp/env/alfresco/encryption/ssl/keystore/provider`|
+|Java System Property|`alfresco.encryption.ssl.keystore.provider`|
 |Environment Variable|`SOLR_ALFRESCO_ENCRYPTION_SSL_KEYSTORE_PROVIDER`|
 
 #### `alfresco.encryption.ssl.truststore.type`
 
 |Description|Specifies the CLIENT truststore type.|
-|JNDI Property|java:comp/env/alfresco/encryption/ssl/truststore/type|
-|Java System Property|alfresco.encryption.ssl.truststore.type|
+|JNDI Property|`java:comp/env/alfresco/encryption/ssl/truststore/type`|
+|Java System Property|`alfresco.encryption.ssl.truststore.type`|
 |Environment Variable|`SOLR_ALFRESCO_ENCRYPTION_SSL_TRUSTSTORE_TYPE`|
 |Default Value|`JCEKS`|
 
@@ -277,15 +277,15 @@ When you install Alfresco Search and Insight Engine, several Solr configuration 
 
 |Configuration File|Location|Description|
 |------------------|--------|-----------|
-|schema.xml|<SOLR_HOME>/solrhome/<core>/confFor example <SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This file defines the schema for the index including field type definitions with associated analyzers. It contains details about the fields that you can include in your document and also describes how those fields can be used when adding documents to the index or when querying those fields. The properties of this file are managed by an expert user.|
-|core.properties|<SOLR_HOME>/solrhome/alfresco/core.properties or <SOLR_HOME>/solrhome/archive/core.properties|This file specifies the cores to be used by Solr.|
-|solrconfig.xml|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This file specifies the parameters for configuring Solr. Also, the Solr search components are added to this file. The properties of this file are managed by an expert Administrator user.|
-|solrcore.properties|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one solrcore.properties file in each core's configuration directory. For details, see [Solr core configuration properties](#solr-core-configuration-properties). The properties of this file are managed by an Administrator user.|
-|context.xml|<SOLR_HOME>|This file specifies the Solr web application context template to use when installing Solr in separate tomcat server.|
-|ssl.repo.client.keystore|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This keystore contains the Solr public/private RSA key pair.|
-|ssl.repo.client.truststore|<SOLR_HOME>/solrhome/alfresco/conf or <SOLR_HOME>/solrhome/archive/conf|This keystore contains the trusted Alfresco Certificate Authority certificate (which has been used to sign both the repository and Solr certificates)|
+|schema.xml|`<SOLR_HOME>/solrhome/<core>/conf`. For example `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This file defines the schema for the index including field type definitions with associated analyzers. It contains details about the fields that you can include in your document and also describes how those fields can be used when adding documents to the index or when querying those fields. The properties of this file are managed by an expert user.|
+|core.properties|`<SOLR_HOME>/solrhome/alfresco/core.properties` or `<SOLR_HOME>/solrhome/archive/core.properties`|This file specifies the cores to be used by Solr.|
+|solrconfig.xml|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This file specifies the parameters for configuring Solr. Also, the Solr search components are added to this file. The properties of this file are managed by an expert Administrator user.|
+|solrcore.properties| `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one solrcore.properties file in each core's configuration directory. For details, see [Solr core configuration properties](#solr-core-configuration-properties). The properties of this file are managed by an Administrator user.|
+|context.xml|`<SOLR_HOME>`|This file specifies the Solr web application context template to use when installing Solr in separate tomcat server.|
+|ssl.repo.client.keystore|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This keystore contains the Solr public/private RSA key pair.|
+|ssl.repo.client.truststore|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This keystore contains the trusted Alfresco Certificate Authority certificate (which has been used to sign both the repository and Solr certificates)|
 
-> **Note:** The solrcore.properties configuration file is the property configuration file for a Solr core. There is one solrcore.properties file in each core's configuration directory, for more see [Solr core configuration properties](#solr-core-configuration-properties).
+> **Note:** The solrcore.properties configuration file is the property configuration file for a Solr core. There is one `solrcore.properties` file in each core's configuration directory, for more see [Solr core configuration properties](#solr-core-configuration-properties).
 
 ## Solr core configuration properties
 
@@ -336,11 +336,11 @@ The solrcore.properties configuration file is the property configuration file fo
 |alfresco.transactionDocsBatchSize|This property is used for batch fetching updates during tracking, default value `100`.|
 |alfresco.version|This property specifies the Alfresco Content Services version installed, default value `6.2`.|
 |alfresco.workQueueSize|This property specifies the maximum number of queued work instances to keep before blocking against further adds, default value `-1`.|
-|data.dir.root|This property specifies the top level directory path for the indexes managed by Solr, default value /alfresco-insight-engine/solrhome.|
-|data.dir.store|This property specifies the directory relative to data.dir.root where the data for this core is stored, default value workspace/SpacesStore.|
+|data.dir.root|This property specifies the top level directory path for the indexes managed by Solr, default value `/alfresco-insight-engine/solrhome`.|
+|data.dir.store|This property specifies the directory relative to data.dir.root where the data for this core is stored, default value `workspace/SpacesStore`.|
 |enable.alfresco.tracking|This property instructs Solr if it should index Alfresco Content Services content in the associated repository store or not, default value `true`.|
 |max.field.length|This property specifies the maximum number of tokens to include for each field. By default, all tokens are added, default value `2147483647`.|
-|maxScheduledTransactions|This optional parameter controls the maximum transactions to schedule for reindexing in the admin fix tool. If the admin fix action specifies a value for `maxScheduledTransactions` then the request parameter that is used in the solrcore.properties configuration file is ignored.|
+|maxScheduledTransactions|This optional parameter controls the maximum transactions to schedule for reindexing in the admin fix tool. If the admin fix action specifies a value for `maxScheduledTransactions` then the request parameter that is used in the `solrcore.properties` configuration file is ignored.|
 |search.solrShardRegistry.dbidRangeRefreshTimeoutInSeconds|This property controls the frequency of synchronisation of the shard information between multiple ACS instances for `DBID_Range` sharding. **Note:** This property is only used when you are using `DBID_Range` sharding with multiple ACS instances, default value `30`.|
 |solr.authorityCache.autowarmCount|This property configures the Solr result cache, default value `0`.|
 |solr.authorityCache.initialSize|This property configures the caches used in authority filter generation, default value `64`.|
