@@ -1,0 +1,17 @@
+# Microsoft Outlook Integration
+- version: 2.7
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-outlook/latest/'
+    - title: "Install"
+      path: '/microsoft-outlook/latest/install/'
+    - title: 'Upgrade'
+      path: '/microsoft-outlook/latest/upgrade/'
+    - title: "Configure"
+      path: '/microsoft-outlook/latest/config/'
+    - title: "Administer"
+      path: '/microsoft-outlook/latest/admin/'
+    - title: 'Using'
+      path: '/microsoft-outlook/latest/using/'
+
+

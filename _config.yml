@@ -447,6 +447,24 @@ defaults:
     values:
       audience: "developer"
 
+# Alfresco Outlook Integration
+  - scope:
+      path: "microsoft-outlook"
+    values:
+      layout: "docs"
+      product: "Alfresco Outlook Integration"
+      location: "microsoft-outlook"
+      toc: "microsoft-outlook"
+      support: true
+      versions:
+        - 2.7
+  - scope:
+      path: "microsoft-outlook/latest"
+    values:
+      version: 2.7
+      latest: true
+
+
 sass:
   sass_dir: assets/include/scss
 permalink: pretty
