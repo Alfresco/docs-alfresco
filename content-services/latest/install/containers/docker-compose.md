@@ -2,13 +2,13 @@
 title: Install using Docker Compose
 ---
 
-Use this information to quickly start up Alfresco Content Services using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
+Use this information to quickly start up Content Services using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
-To deploy Alfresco Content Services using `docker-compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/latest/install/containers/index.md %}#prerequisites) before continuing.
+To deploy Content Services using `docker-compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/latest/install/containers/index.md %}#prerequisites) before continuing.
 
-1. Download the `docker-compose.yml` file by accessing the Alfresco Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
+1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Alfresco Content Services 6.2, you can apply it directly to the running system. See [Uploading a new license](#LINK at-adminconsole-license.md) for more details.
+    If you already have a valid license file for Content Services 6.2, you can apply it directly to the running system. See [Uploading a new license](#LINK at-adminconsole-license.md) for more details.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
@@ -26,7 +26,7 @@ To deploy Alfresco Content Services using `docker-compose`, download and install
 
     Alfresco customers can request Quay.io credentials by logging a ticket with [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-5. Deploy Alfresco Content Services, including the repository, Share, Postgres database, Search Services, etc.:
+5. Deploy Content Services, including the repository, Share, Postgres database, Search Services, etc.:
 
     ```bash
     docker-compose up
@@ -247,8 +247,8 @@ See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for m
 <!--#LINK 6.1/6.0 >> master -->
 See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project <!--documentation -->for more details.
 
-* In this project, you'll find several Docker Compose files. The default `docker-compose.yml` file contains the latest work-in-progress deployment scripts, and installs the latest *development* version of Alfresco Content Services.
-* To deploy a specific released version of Alfresco Content Services, several *major.minor* Docker Compose files are provided in the `docker-compose` folder of the project.
+* In this project, you'll find several Docker Compose files. The default `docker-compose.yml` file contains the latest work-in-progress deployment scripts, and installs the latest *development* version of Content Services.
+* To deploy a specific released version of Content Services, several *major.minor* Docker Compose files are provided in the `docker-compose` folder of the project.
 * To modify your development environment, for example to change or mount files in the existing images, you'll have to create new custom Docker images (recommended approach). The same approach applies if you want to install AMP files into the repository and Share images. See the [Customization guidelines]({% link content-services/latest/install/containers/customize.md %}) for more.
 
 Using one of the Enterprise Compose files in this project deploys the following system:
@@ -264,7 +264,7 @@ The Docker Compose file provides some default configuration. This section lists 
 | Property | Description |
 | -------- | ----------- |
 | JAVA_TOOL_OPTIONS | Adding this environment variable, allows to set sensitive values (like passwords) that are not passed as arguments to the Java Process |
-| JAVA_OPTS | A set of properties that are picked up by the JVM inside the container. Any Content Services property can be passed to the container using the format `-Dproperty=value` (e.g. `-Ddb.driver=org.postgresql.Driver`). <br><br>For a complete list of properties that can be passed through JAVA_OPTS environment variable, check the [property reference](https://github.com/Alfresco/acs-deployment/blob/master/docs/properties-reference.md){:target="_blank"}<!--LINK to GitHub for now--> |
+| JAVA_OPTS | A set of properties that are picked up by the JVM inside the container. Any Content Services property can be passed to the container using the format `-Dproperty=value` (e.g. `-Ddb.driver=org.postgresql.Driver`).<!--<br><br>For a complete list of properties that can be passed through JAVA_OPTS environment variable, check the [property reference](https://github.com/Alfresco/acs-deployment/blob/master/docs/properties-reference.md){:target="_blank"}--><!--GitHub page needs improving--> |
 
 ### Alfresco Share (share)
 

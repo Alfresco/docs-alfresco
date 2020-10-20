@@ -2,9 +2,9 @@
 title: Install using Helm
 ---
 
-Alfresco Content Services (ACS) is an Enterprise Content Management (ECM) system that's used for document and case management, project collaboration, web content publishing, and compliant records management.  The flexible compute, storage, and database services that Kubernetes offers make it an ideal platform for Alfresco Content Services. This helm chart presents an enterprise-grade Alfresco Content Services configuration that you can adapt to virtually any scenario with the ability to scale up, down or out, depending on your use case.
+Alfresco Content Services (ACS) is an Enterprise Content Management (ECM) system that's used for document and case management, project collaboration, web content publishing, and compliant records management.  The flexible compute, storage, and database services that Kubernetes offers make it an ideal platform for Content Services. This helm chart presents an enterprise-grade Content Services configuration that you can adapt to virtually any scenario with the ability to scale up, down or out, depending on your use case.
 
-The Helm chart in this repository supports deploying the Enterprise or Community Edition of Alfresco Content Services.
+The Helm chart in this repository supports deploying the Enterprise or Community Edition of Content Services.
 
 The Enterprise configuration deploys the following system:
 
@@ -17,17 +17,17 @@ The Community configuration deploys the following system:
 
 ## Considerations
 
-Alfresco provides tested Helm charts as a "deployment template" for customers who want to take advantage of the container orchestration benefits of Kubernetes. These Helm charts are undergoing continual development and improvement, and shouldn't be used "as is" for your production environments, but should help you save time and effort deploying Alfresco Content Services for your organization.
+Alfresco provides tested Helm charts as a "deployment template" for customers who want to take advantage of the container orchestration benefits of Kubernetes. These Helm charts are undergoing continual development and improvement, and shouldn't be used "as is" for your production environments, but should help you save time and effort deploying Content Services for your organization.
 
 The Helm charts in this repository provide a PostgreSQL database in a Docker container and don't configure any logging. This design was chosen so that you can install them in a Kubernetes cluster without changes, and they're flexible enough for adopting to your actual environment.
 
-You should use these charts in your environment only as a starting point, and modify them so that Alfresco Content Services integrates into your infrastructure. You typically want to remove the PostgreSQL container, and connect the `cs-repository` directly to your database (this might require custom images to get the required JDBC driver in the container).
+You should use these charts in your environment only as a starting point, and modify them so that Content Services integrates into your infrastructure. You typically want to remove the PostgreSQL container, and connect the `cs-repository` directly to your database (this might require custom images to get the required JDBC driver in the container).
 
 Another typical change is the integration of your company-wide monitoring and logging tools.
 
 ## Deployment options
 
-For the best results, we recommend [deploying Alfresco Content Services to AWS EKS]({% link content-services/latest/install/containers/helm.md %}).
+For the best results, we recommend [deploying Content Services to AWS EKS]({% link content-services/latest/install/containers/helm.md %}).
 
 <!--If you have a machine with at least 16GB of memory, you can also [deploy using Docker for Desktop](./docker-desktop-deployment.md)(#LINK).-->
 
@@ -41,11 +41,11 @@ There are also several [examples]({% link content-services/latest/install/contai
 
 ## Configuration options
 
-The following table lists the configurable parameters of the Alfresco Content Services chart and their default values.
+The following table lists the configurable parameters of the Content Services chart and their default values.
 
 | Parameter | Description |
 | --------- | ----------- |
-| repository.adminPassword | Administrator password for Alfresco Content Services in md5 hash format. The default value is md5: `209c6174da490caeb422f3fa5a7ae634` (of string `admin`) |
+| repository.adminPassword | Administrator password for Content Services in md5 hash format. The default value is md5: `209c6174da490caeb422f3fa5a7ae634` (of string `admin`) |
 | postgresql.enabled | Enable the use of the postgres chart in the deployment. The default value is `true` |
 | postgresql.postgresUser | Postgresql database user. The default value is `alfresco` |
 | postgresql.postgresPassword | Postgresql database password. The default value is `alfresco` |
@@ -187,7 +187,7 @@ You can change the log levels for the specific Java packages in the content-repo
 > **Note:** Changes are applied only to one content-repository node, the one from which the Admin Console is launched.
 
 * You can change the log levels by modifying `log4j.properties` in the content-repository image and doing a rolling update to the deployment. In this case the settings will be applied system-wide. See the [customization guidelines]({% link content-services/latest/install/containers/customize.md %}) for more.
-* The Alfresco Content Services deployment doesn't include any log aggregation tools. The logs generated by pods will be lost once the pods are terminated.
+* The Content Services deployment doesn't include any log aggregation tools. The logs generated by pods will be lost once the pods are terminated.
 
 ### JMX dump
 
@@ -195,7 +195,7 @@ This tool allows you to download a ZIP file containing information useful for tr
 
 ## Helm deployment with AWS EKS
 
-This section describes how to deploy Alfresco Content Services (ACS) Enterprise or Community using [Helm](https://helm.sh){:target="_blank"} onto [EKS](https://aws.amazon.com/eks/){:target="_blank"}.
+This section describes how to deploy Content Services (ACS) Enterprise or Community using [Helm](https://helm.sh){:target="_blank"} onto [EKS](https://aws.amazon.com/eks/){:target="_blank"}.
 
 Amazon's EKS (Elastic Container Service for Kubernetes) makes it easy to deploy, manage, and scale containerized applications using Kubernetes on AWS. EKS runs the Kubernetes management infrastructure for you across multiple AWS availability zones to eliminate a single point of failure.
 
@@ -218,7 +218,7 @@ The Community configuration will deploy the following system:
 
 Follow the [AWS EKS Getting Started Guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html){:target="_blank"} to create a cluster and prepare your local machine to connect to the cluster. Use the "Managed nodes - Linux" option and specify a `--node-type` of at least m5.xlarge.
 
-As we'll be using Helm to deploy the ACS chart follow the [Using Helm with EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html){:target="_blank"} instructions to setup helm on your local machine.
+As we'll be using Helm to deploy the Content Services chart follow the [Using Helm with EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html){:target="_blank"} instructions to setup helm on your local machine.
 
 Helm also needs to know where to find charts, run the following commands to add the standard Helm repository and the Alfresco incubator and stable repositories to your machine:
 
@@ -230,9 +230,9 @@ helm repo add alfresco-incubator https://kubernetes-charts.alfresco.com/incubato
 
 Optionally, follow the tutorial to [deploy the Kubernetes Dashboard](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html){:target="_blank"}  to your cluster, this can be really useful for troubleshooting issues that may occur.
 
-### Prepare the cluster for ACS
+### Prepare the cluster for Content Services
 
-Now we have an EKS cluster up and running, there are a few one time steps we need to perform to prepare the cluster for ACS to be installed.
+Now we have an EKS cluster up and running, there are a few one time steps we need to perform to prepare the cluster for Content Services to be installed.
 
 #### DNS
 
@@ -354,13 +354,13 @@ Now we have an EKS cluster up and running, there are a few one time steps we nee
     helm install alfresco-nfs-provisioner stable/nfs-client-provisioner --set nfs.server="EFS-DNS-NAME" --set nfs.path="/" --set storageClass.name="nfs-client" --set storageClass.archiveOnDelete=false -n kube-system
     ```
 
-### Deploy ACS
+### Deploy Content Services
 
-Now the EKS cluster is setup we can deploy ACS.
+Now the EKS cluster is setup we can deploy Content Services.
 
 #### Namespace
 
-Namespaces in Kubernetes isolate workloads from each other, create a namespace to host ACS inside the cluster using the following command (we'll then use the `alfresco` throughout the rest of the tutorial):
+Namespaces in Kubernetes isolate workloads from each other, create a namespace to host Content Services inside the cluster using the following command (we'll then use the `alfresco` throughout the rest of the tutorial):
 
 ```bash
 kubectl create namespace alfresco
@@ -450,13 +450,13 @@ Create a docker registry secret to allow the protected images to be pulled from 
 kubectl create secret docker-registry quay-registry-secret --docker-server=quay.io --docker-username=YOUR-USERNAME --docker-password=YOUR-PASSWORD -n alfresco
 ```
 
-#### Choose ACS version
+#### Choose Content Services version
 
-Decide whether you want to install the latest version of ACS (Enterprise or Community) or a previous version and follow the steps in the relevant section below.
+Decide whether you want to install the latest version of Content Services (Enterprise or Community) or a previous version and follow the steps in the relevant section below.
 
 ##### Latest Enterprise version
 
-Deploy the latest version of ACS by running the following command (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created earlier):
+Deploy the latest version of Content Services by running the following command (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created earlier):
 
 ```bash
 helm install acs alfresco-incubator/alfresco-content-services \
@@ -475,11 +475,11 @@ helm install acs alfresco-incubator/alfresco-content-services \
 > **Note:** The command will wait until the deployment is ready.
 
 <!--comment out Community sections-->
-##### Latest Community version
+##### Latest Community Edition version
 
 1. Download the Community values file from the GitHub [repo](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/community_values.yaml){:target="_blank"}.
 
-2. Deploy ACS Community by running the following command (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created earlier):
+2. Deploy Community Edition by running the following command (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created earlier):
 
     ```bash
     helm install acs alfresco-incubator/alfresco-content-services \
@@ -501,7 +501,7 @@ helm install acs alfresco-incubator/alfresco-content-services \
 
 1. Download the version specific values file you require from the [helm/alfresco-content-services](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/){:target="_blank"}) folder.
 
-2. Deploy the specific version of ACS by running the following command (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created earlier and `MAJOR` & `MINOR` with the appropriate values):
+2. Deploy the specific version of Content Services by running the following command (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created earlier and `MAJOR` & `MINOR` with the appropriate values):
 
     ```bash
     helm install acs alfresco-incubator/alfresco-content-services \

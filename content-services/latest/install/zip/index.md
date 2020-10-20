@@ -2,13 +2,13 @@
 title: Install with zip
 ---
 
-This page describes how to manually install Alfresco Content Services using the distribution zip.
+This page describes how to manually install Content Services using the distribution zip.
 
 For a description of the system paths used within this documentation, see [System path conventions](#LINK-reuse/conv-syspaths.md).
 
 ## Prerequisites
 
-To install Alfresco Content Services using the distribution zip (which also contains the WAR files), make sure that the required software is available on your system:
+To install Content Services using the distribution zip (which also contains the WAR files), make sure that the required software is available on your system:
 
 * Java: OpenJDK 11 is recommended <!--move to /support page?-->
 * Application server: Apache Tomcat
@@ -22,13 +22,13 @@ For a list of supported components and versions, refer to the `VERSIONS.md` file
 
 ## Install overview
 
-Use this section to get an overview of the main stages for installing Alfresco Content Services using the distribution zip. It's designed for users who just need a simple checklist to follow.
+Use this section to get an overview of the main stages for installing Content Services using the distribution zip. It's designed for users who just need a simple checklist to follow.
 
-Only the main stages for setting up and configuring Alfresco Content Services are summarized. These include preparing your system for installation, installing the application, configuring it based on your requirements, and finally, testing and getting familiar with Alfresco Content Services.
+Only the main stages for setting up and configuring Content Services are summarized. These include preparing your system for installation, installing the application, configuring it based on your requirements, and finally, testing and getting familiar with Content Services.
 
 Before you start, validate that you have access to the prerequisite software so you can install them in the right order. This includes a JRE, a supported database, Tomcat application server, a message broker (i.e. ActiveMQ), Alfresco Search Services, and additional components (such as ImageMagick).
 
-> **Note:** ActiveMQ is required when manually installing Alfresco Content Services 6.2 onwards. For more information on installing and configuring ActiveMQ, see [Configuring ActiveMQ](#LINK-activemq-overview.md).
+> **Note:** ActiveMQ is required when manually installing Content Services 6.2 onwards. For more information on installing and configuring ActiveMQ, see [Configuring ActiveMQ](#LINK-activemq-overview.md).
 
 To get started, prepare your production server by installing the prerequisite software (JRE, database, and message broker) before continuing.
 
@@ -36,10 +36,10 @@ To get started, prepare your production server by installing the prerequisite so
 2. Generate certificates for mutual TLS.
 3. Download Tomcat and review the installation steps required.
 4. Set up Tomcat.
-5. Install and configure Alfresco Content Services.
+5. Install and configure Content Services.
 6. Install any Alfresco Module Packages such as Alfresco Share, Google Docs Integration, and Alfresco Office Services.
 7. Set up ActiveMQ.
-8. Install third-party software used by Alfresco Content Services. This includes LibreOffice, ImageMagick, and Alfresco PDF Renderer.
+8. Install third-party software used by Content Services. This includes LibreOffice, ImageMagick, and Alfresco PDF Renderer.
 
 Review and test your setup to check that all the installation steps are complete:
 
@@ -47,13 +47,13 @@ Review and test your setup to check that all the installation steps are complete
 2. Start and configure ActiveMQ.
 3. Start the repository.
 
-Follow the remaining links in this guide to see the detailed step-by-step instructions for manually installing Alfresco Content Services.
+Follow the remaining links in this guide to see the detailed step-by-step instructions for manually installing Content Services.
 
-## What you need to install Alfresco Content Services
+## What you need to install Content Services
 
 There are a number of different installation files available to you, each of which you can choose depending on what's already installed on your system.
 
-For new installations or to upgrade Alfresco Content Services, use the distribution zip. Use the Alfresco WAR file to install Alfresco Content Services within an existing Tomcat. The WAR file is included in the distribution zip. In addition, you must install all the required additional components manually.
+For new installations or upgrades, use the distribution zip. Use the Alfresco WAR file to install Content Services within an existing Tomcat. The WAR file is included in the distribution zip. In addition, you must install all the required additional components manually.
 
 All files are available from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}. Click **Product Downloads**, and then select the version of the product you require.
 
@@ -63,9 +63,9 @@ Here's a list of the files to download and install.
 
 | File | Description |
 | ---- | ----------- |
-| alfresco-content-services-distribution-6.2.x.zip | Alfresco Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
+| alfresco-content-services-distribution-6.2.x.zip | Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
 |alfresco-search-services-1.4.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install and configure Alfresco Search Services](https://docs.alfresco.com/search-enterprise/concepts/solr-install-config.html)(#LINK) for more information. |
-| alfresco-content-services-file-transfer-receiver-6.2.1.zip | Alfresco Content Services File Transfer Receiver installation file. The File System Transfer Receiver transfers folders and content from an Alfresco Content Services core repository (the DM) to configured targets using the Transfer Service, for example, a remote file system.<br><br>See [Configuring the File System Transfer Receiver](#LINK-FSTR-intro.md) for more information. |
+| alfresco-content-services-file-transfer-receiver-6.2.1.zip | Content Services File Transfer Receiver installation file. The File System Transfer Receiver transfers folders and content from an Content Services core repository (the DM) to configured targets using the Transfer Service, for example, a remote file system.<br><br>See [Configuring the File System Transfer Receiver](#LINK-FSTR-intro.md) for more information. |
 
 ## Preparing the filesystem and database
 
@@ -77,9 +77,9 @@ These steps describe how to prepare a suitable location for data storage and the
 
     In a clustered environment, this folder needs to be shared between all cluster nodes.
 
-2. Create a new database for Alfresco Content Services.
+2. Create a new database for Content Services.
 
-    It's good security practice to create a new user account for Alfresco Content Services which only has permissions to this database.
+    It's good security practice to create a new user account for Content Services which only has permissions to this database.
 
     For PostgreSQL, run the following commands:
 

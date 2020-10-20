@@ -1,20 +1,20 @@
 ---
-title: Containerized deployment overview
+title: Containers overview
 ---
 
-The following sections help you to understand what containerized deployment is, and the deployment options available for Alfresco Content Services when using containers.
+The following sections help you to understand what containerized deployment is, and the deployment options available for Content Services when using containers.
 
 ## Deployment concepts
 
-Alfresco Content Services deployment introduces a number of concepts.
+Content Services deployment introduces a number of concepts.
 
-The way you deploy and run Alfresco Content Services has changed significantly since version 6.0. Traditionally, you'd download an installer that installed Java, Tomcat, Database, WARs, tools, etc. and everything was configured to work together out-of-the-box. Then you'd use a script to start things off. That's no longer the case and there are no installers available. We'll be working with Docker containers instead.
+The way you deploy and run Content Services has changed significantly since version 6.0. Traditionally, you'd download an installer that installed Java, Tomcat, Database, WARs, tools, etc. and everything was configured to work together out-of-the-box. Then you'd use a script to start things off. That's no longer the case and there are no installers available. We'll be working with Docker containers instead.
 
-You can start Alfresco Content Services from a number of Docker images. These images are available in the [Docker Hub](https://hub.docker.com){:target="_blank"} and [Quay](https://quay.io/){:target="_blank"} repositories. However, starting individual Docker containers based on these images, and configuring them to work together might not be the most productive way to get up and running. To make things easier, and achieve a single-step deploy and run solution, a Docker Compose file is available to quickly start Alfresco Content Services when you need to test something or work on a proof-of-concept (PoC).
+You can start Content Services from a number of Docker images. These images are available in the [Docker Hub](https://hub.docker.com){:target="_blank"} and [Quay](https://quay.io/){:target="_blank"} repositories. However, starting individual Docker containers based on these images, and configuring them to work together might not be the most productive way to get up and running. To make things easier, and achieve a single-step deploy and run solution, a Docker Compose file is available to quickly start Content Services when you need to test something or work on a proof-of-concept (PoC).
 
-There are also **Helm charts** available to deploy Alfresco Content Services in a Kubernetes cluster, for example, on Amazon Web Services (AWS). These charts are a deployment template which can be used as the basis for your specific deployment needs. The Helm charts are undergoing continual development and improvement and should not be used "as-is" for a production deployment, but should help you save time and effort deploying Alfresco Content Services for your organization.
+There are also **Helm charts** available to deploy Content Services in a Kubernetes cluster, for example, on Amazon Web Services (AWS). These charts are a deployment template which can be used as the basis for your specific deployment needs. The Helm charts are undergoing continual development and improvement and should not be used "as-is" for a production deployment, but should help you save time and effort deploying Content Services for your organization.
 
-The following is a list of concepts and technologies that you'll need to understand as part of deploying and using Alfresco Content Services. If you know all about Docker, then you can skip this part.
+The following is a list of concepts and technologies that you'll need to understand as part of deploying and using Content Services. If you know all about Docker, then you can skip this part.
 
 ### Virtual Machine Monitor (Hypervisor)
 
@@ -34,7 +34,7 @@ Docker is one of the most popular container platforms. [Docker](https://www.dock
 
 ### Docker Compose
 
-When you have many containers making up your solution, such as with Alfresco Content Services, and you need to configure each individual container so that they all work well together, then you need a tool for this. Docker Compose is such a tool for defining and running multi-container Docker applications locally. With Compose, you use a [YAML](https://en.wikipedia.org/wiki/YAML){:target="_blank"} file to configure your application's services. Then, with a single command, you create and start all the services from your configuration.
+When you have many containers making up your solution, such as with Content Services, and you need to configure each individual container so that they all work well together, then you need a tool for this. Docker Compose is such a tool for defining and running multi-container Docker applications locally. With Compose, you use a [YAML](https://en.wikipedia.org/wiki/YAML){:target="_blank"} file to configure your application's services. Then, with a single command, you create and start all the services from your configuration.
 
 ### Dockerfile
 
@@ -56,9 +56,9 @@ Go to [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"} to see 
 
 ![Docker images from Alfresco in Docker Hub]({% link content-services/images/dockerhub.png %}){:width="460px" height="595px" style="border:1px solid #d3d3d3"}
 
-> **Note:** This shows a snippet from the page - not all images are visible.
+> **Note:** This shows a snippet from Docker Hub - not all images are visible.
 
-The following Docker images relate to Alfresco Content Services:
+The following Docker images relate to Content Services:
 
 * `alfresco/alfresco-share` - the Share web interface (i.e. `share.war`) running on Apache Tomcat
 * `alfresco/alfresco-search-services` - the Solr 6 based search service running on Jetty
@@ -75,20 +75,20 @@ There are also other supporting features available, such as Docker images for im
 * `alfresco/alfresco-transform-misc`
 * `alfresco/alfresco-transform-core-aio`
 
-Alfresco Content Services provides a number of content transforms, but also allows custom transforms to be added. It's possible to create custom transforms that run in separate processes from the repository, known as Transform Engines (i.e. T-Engines). The same engines may be used in the Community and Enterprise Editions of Alfresco Content Services. They may be directly connected to the repository as Local Transforms. Note that in the Enterprise Edition, the default option is to use them as part of Alfresco Transform Service, which provides more balanced throughput and scalability improvements.
+Content Services provides a number of content transforms, but also allows custom transforms to be added. It's possible to create custom transforms that run in separate processes from the repository, known as Transform Engines (i.e. T-Engines). The same engines may be used in the Community and Enterprise Editions of Content Services. They may be directly connected to the repository as Local Transforms. Note that in the Enterprise Edition, the default option is to use them as part of Alfresco Transform Service, which provides more balanced throughput and scalability improvements.
 
-<!-- Copy content from repo: DOCS-5463 / DOCS-5917 -->
+<!-- Copy content from repo (6.2 only): DOCS-5463 / DOCS-5917 -->
 See [Custom Transforms and Renditions](https://github.com/Alfresco/acs-packaging/blob/master/docs/custom-transforms-and-renditions.md){:target="_blank"} for more.
 
-> **Note:** The core Transform Engine images can be used in Alfresco Content Services. The open-sourced code for the Transform Engines is available in the [Alfresco/alfresco-transform-core](https://github.com/Alfresco/alfresco-transform-core){:target="_blank"} GitHub project.
+> **Note:** The core Transform Engine images can be used in Content Services. The open-sourced code for the Transform Engines is available in the [Alfresco/alfresco-transform-core](https://github.com/Alfresco/alfresco-transform-core){:target="_blank"} GitHub project.
 
-From Alfresco Content Services 6.2.1, you can replace the five separate T-Engines with a single all-in-one Transform Core Engine that performs all the core transforms (i.e. `alfresco/alfresco-transform-core-aio`). Note that the all-in-one core T-Engine is the default option for the Docker Compose deployment, however Helm deployments continue to use the five separate T-Engines in order to provide balanced throughput and scalability improvements.
+From Content Services 6.2.1, you can replace the five separate T-Engines with a single all-in-one Transform Core Engine that performs all the core transforms (i.e. `alfresco/alfresco-transform-core-aio`). Note that the all-in-one core T-Engine is the default option for the Docker Compose deployment, however Helm deployments continue to use the five separate T-Engines in order to provide balanced throughput and scalability improvements.
 
-To build the `alfresco/alfresco-content-repository` image, Alfresco uses the [Alfresco/acs-packaging](https://github.com/Alfresco/acs-packaging){:target="_blank"} GitHub project. This project doesn't include any deployment templates. The [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} GitHub project contains deployment templates and instructions. It includes a Docker Compose script that's used to launch a demo, test, or PoC of Alfresco Content Services. You can customize this script, if you like, in order to run with different versions than those set by default (which are usually the latest versions).
+To build the `alfresco/alfresco-content-repository` image, Alfresco uses the [Alfresco/acs-packaging](https://github.com/Alfresco/acs-packaging){:target="_blank"} GitHub project. This project doesn't include any deployment templates. The [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} GitHub project contains deployment templates and instructions. It includes a Docker Compose script that's used to launch a demo, test, or PoC of Content Services. You can customize this script, if you like, in order to run with different versions than those set by default (which are usually the latest versions).
 
-## What's deployed in Alfresco Content Services
+## What's deployed in Content Services
 
-When you deploy Alfresco Content Services, a number of containers are started.
+When you deploy Content Services, a number of containers are started.
 
 * Alfresco repository with:
   * Alfresco Share Services AMP
@@ -107,11 +107,11 @@ When you deploy Alfresco Content Services, a number of containers are started.
 
 #### Deployment project
 
-The deployment project contains the Docker Compose file to start up an Alfresco Content Services environment locally. You'll find the relevant files in the `docker-compose` folder. To look at the project in more detail, just browse to:
+The deployment project contains the Docker Compose file to start up a Content Services environment locally. You'll find the relevant files in the `docker-compose` folder. To look at the project in more detail, just browse to:
 
 * [https://github.com/Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} for Enterprise deployment
 
-If you're interested in the Helm charts to deploy Alfresco Content Services with Kubernetes, you'll find the relevant files in the `helm/alfresco-content-services` folder.
+If you're interested in the Helm charts to deploy Content Services with Kubernetes, you'll find the relevant files in the `helm/alfresco-content-services` folder.
 
 #### Packaging project
 
@@ -129,11 +129,11 @@ Note that the Docker files for Alfresco Share, Alfresco Search Services, and oth
 
 ## Prerequisites
 
-There are a number of software requirements for installing (or deploying) Alfresco Content Services when using containerized deployment. <!--KEEP? You'll find a list of prerequisites in the GitHub project documentation.-->
+There are a number of software requirements for installing (or deploying) Content Services when using containerized deployment.
 
-Note that the [VERSIONS.md](https://github.com/Alfresco/acs-packaging/blob/master/distribution/src/main/resources/VERSIONS.md){:target="_blank"} file in GitHub lists the supported versions.<!--link to support page-->
+Note that the [VERSIONS.md](https://github.com/Alfresco/acs-packaging/blob/master/distribution/src/main/resources/VERSIONS.md){:target="_blank"} file in GitHub lists the supported versions.
 
-> **Note:** The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Alfresco Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services Download Trial by following the steps in [Deploy using Docker Compose]({% link content-services/latest/install/containers/docker-compose.md %}).
+> **Note:** The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services Download Trial by following the steps in [Deploy using Docker Compose]({% link content-services/latest/install/containers/docker-compose.md %}).
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
@@ -141,12 +141,12 @@ You can review the requirements for your chosen deployment method below.
 
 ### Helm charts
 
-To deploy Alfresco Content Services using Helm charts, you need to install the following software:
+To deploy Content Services using Helm charts, you need to install the following software:
 
 * [AWS CLI](https://github.com/aws/aws-cli#installation){:target="_blank"} - the command line interface for Amazon Web Services.
 * [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/){:target="_blank"} - the command line tool for Kubernetes.
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
-  * There are Helm charts that allow you to deploy Alfresco Content Services in a Kubernetes cluster, for example, on AWS.
+  * There are Helm charts that allow you to deploy Content Services in a Kubernetes cluster, for example, on AWS.
 
 See [Install using Helm]({% link content-services/latest/install/containers/helm.md %}) for more.
 

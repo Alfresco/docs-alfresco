@@ -2,11 +2,11 @@
 title: Helm configuration examples
 ---
 
-Here are some examples of how to deploy Alfresco Content Services (ACS) with various configurations.
+Here are some examples of how to deploy Content Services (ACS) with various configurations.
 
 ## Deploy with AWS Services (S3, RDS and MQ) {#with-aws-services}
 
-This example describes how to deploy ACS onto [EKS](https://aws.amazon.com/eks/){:target="_blank"} and use [S3](https://aws.amazon.com/s3/){:target="_blank"} for content storage, [RDS](https://aws.amazon.com/rds/){:target="_blank"} as an external database and [Amazon MQ](https://aws.amazon.com/amazon-mq/){:target="_blank"} as an external message broker.
+This example describes how to deploy Content Services onto [EKS](https://aws.amazon.com/eks/){:target="_blank"} and use [S3](https://aws.amazon.com/s3/){:target="_blank"} for content storage, [RDS](https://aws.amazon.com/rds/){:target="_blank"} as an external database and [Amazon MQ](https://aws.amazon.com/amazon-mq/){:target="_blank"} as an external message broker.
 
 The diagram below shows the deployment produced by this example:
 
@@ -14,11 +14,11 @@ The diagram below shows the deployment produced by this example:
 
 ### Prerequisites (AWS Services)
 
-Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose ACS version]({% link content-services/latest/install/containers/helm.md %}#choose-ACS-version) section. Return to this page once the docker registry secret is installed.
+Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-Content Services-version) section. Return to this page once the docker registry secret is installed.
 
 ### Set up AWS Services
 
-The following sections describe how to setup the AWS services and highlights the information required to deploy ACS.
+The following sections describe how to setup the AWS services and highlights the information required to deploy Content Services.
 
 #### S3
 
@@ -114,7 +114,7 @@ In order to use the S3 Connector and external database options, the S3 Connector
 
 To use the S3 Connector, RDS, and Amazon MQ, we have to disable the internal default components via the Helm "set" command. Also, provide the service endpoints and credentials we made a note of in the previous sections.
 
-When we bring all this together, you can deploy ACS using the command below (replacing all the `YOUR-XZY` properties with the values gathered during the setup of the services):
+When we bring all this together, you can deploy Content Services using the command below (replacing all the `YOUR-XZY` properties with the values gathered during the setup of the services):
 
 ```bash
 helm install acs alfresco-incubator/alfresco-content-services \
@@ -148,7 +148,7 @@ helm install acs alfresco-incubator/alfresco-content-services \
 
 ## Deploy with Alfresco Intelligence Services {#with-ai}
 
-By default, the [Alfresco Intelligence Services](https://docs.alfresco.com/intelligence/concepts/ai-welcome.html)(#LINK) feature is disabled. This example describes how to deploy ACS onto [EKS](https://aws.amazon.com/eks/){:target="_blank"} with Intelligence Services enabled.
+By default, the [Alfresco Intelligence Services](https://docs.alfresco.com/intelligence/concepts/ai-welcome.html)(#LINK) feature is disabled. This example describes how to deploy Content Services onto [EKS](https://aws.amazon.com/eks/){:target="_blank"} with Intelligence Services enabled.
 
 The diagram below shows the deployment produced by this example:
 
@@ -164,7 +164,7 @@ Follow the steps in the official documentation to [setup an IAM user and an S3 b
 
 ### Deploy (Intelligence)
 
-When we bring all this together, you can deploy ACS using the command below (replacing all the `YOUR-XZY` properties with the values gathered during the setup of the services):
+When we bring all this together, you can deploy Content Services using the command below (replacing all the `YOUR-XZY` properties with the values gathered during the setup of the services):
 
 ```bash
 helm install acs alfresco-incubator/alfresco-content-services \
@@ -215,11 +215,11 @@ This example demonstrates how to enable Alfresco Search Services (`/solr`) for e
     echo -n "$(htpasswd -nbm solradmin somepassword)" | base64
     ```
 
-### Deploy (Search external access)
+### Deploy (Search)
 
-Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose ACS version]({% link content-services/latest/install/containers/helm.md %}#choose-ACS-version) section. Return to this page once the docker registry secret is installed.
+Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-Content Services-version) section. Return to this page once the docker registry secret is installed.
 
-Deploy the latest version of ACS Enterprise by running the command below. You'll need to replace `YOUR-DOMAIN-NAME` with the hosted zone you created previously, and replace `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string and list of whitelisted IP addresses you prepared in the previous section).
+Deploy the latest version of Content Services (Enterprise) by running the command below. You'll need to replace `YOUR-DOMAIN-NAME` with the hosted zone you created previously, and replace `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string and list of whitelisted IP addresses you prepared in the previous section).
 
 ```bash
 helm install acs alfresco-incubator/alfresco-content-services \
@@ -238,9 +238,9 @@ helm install acs alfresco-incubator/alfresco-content-services \
 --namespace=alfresco
 ```
 
-### Upgrade (Search external access)
+### Upgrade (Search)
 
-If you've previously deployed ACS where external Search access was disabled (the default) you can run the following `helm upgrade` command to enable external access for `/solr` (replacing `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string and list of whitelisted IP addresses you prepared in the "Prepare Data" section):
+If you've previously deployed Content Services where external Search access was disabled (the default) you can run the following `helm upgrade` command to enable external access for `/solr` (replacing `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string and list of whitelisted IP addresses you prepared in the "Prepare Data" section):
 
 ```bash
 helm upgrade acs alfresco-incubator/alfresco-content-services \
@@ -271,34 +271,34 @@ kubectl delete secret nosy-tapir-alfresco-search-solr --namespace=alfresco
 kubectl delete ingress nosy-tapir-alfresco-search-solr --namespace=alfresco
 ```
 
-Next, re-try the above "Upgrade ACS Helm Chart" steps, which also re-creates the deleted resource.
+Next, re-try the above "Upgrade Content Services Helm Chart" steps, which also re-creates the deleted resource.
 
 ## Enable email services {#email-enabled}
 
-This example demonstrates how to enable Inbound and Outbound email when installing the ACS Helm chart.
+This example demonstrates how to enable Inbound and Outbound email when installing the Content Services Helm chart.
 
-### Prerequisites (email services)
+### Prerequisites (email)
 
-Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose ACS version]({% link content-services/latest/install/containers/helm.md %}#choose-ACS-version) section. Return to this page once the docker registry secret is installed.
+Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-Content Services-version) section. Return to this page once the docker registry secret is installed.
 
-### Deploy (email server enabled)
+### Deploy (email)
 
-Currently, the ingress-nginx does not support tcp/udp services due to kubernetes limitations and the workaround is to expose the TCP (for example smtp(s), imap(s)) to be accessible from outside over internet, a kubernetes Service LoadBalancer is required.  This means inbound email need to be sent using this Service LoadBalancer address which is serving tcp traffic.  This may means there is an overhead of an extra L4 LoadBalancer cost.  This is purely due to current limitations on Kubernetes for TCP/UDP services and not related to ACS helm setup.
+Currently, the ingress-nginx does not support tcp/udp services due to kubernetes limitations and the workaround is to expose the TCP (for example smtp(s), imap(s)) to be accessible from outside over internet, a kubernetes Service LoadBalancer is required.  This means inbound email need to be sent using this Service LoadBalancer address which is serving tcp traffic.  This may means there is an overhead of an extra L4 LoadBalancer cost.  This is purely due to current limitations on Kubernetes for TCP/UDP services and not related to Content Services helm setup.
 
-So, for example if your ACS Helm chart is enabled with Inbound/Outbound email in domain `*.example.com`, then the service endpoints would be:
+So, for example if your Content Services Helm chart is enabled with Inbound/Outbound email in domain `*.example.com`, then the service endpoints would be:
 
 * `myacs.example.com` - for general Alfresco, Share and Digital Workspace endpoints
-* `smtps-myacs.example.com` - for sending emails to ACS smtp(s) server (for example port: 1125 (smtps), 1144(imaps))
+* `smtps-myacs.example.com` - for sending emails to Content Services smtp(s) server (for example port: 1125 (smtps), 1144(imaps))
 
 It is recommended to enable TLS while configuring SMTP(s) and IMAP(s) configuration.  If TLS is enabled for inbound email, then the helm chart expects the TLS certificate as a Secret before installing the chart.  This secret name is passed on as a parameter with helm chart installation to be used for inbound email with TLS and repository will create keystore and truststore accordingly from the provided SSL certificates.
 
-For example, if your ACS email server name is `smtps-myacs.example.com` and your SSL certificates (self signed or signed) are `cert.pem`, `fullchain.pem` and `privkey.pem` run the following command to create a kubernetes TLS secret:
+For example, if your Content Services email server name is `smtps-myacs.example.com` and your SSL certificates (self signed or signed) are `cert.pem`, `fullchain.pem` and `privkey.pem` run the following command to create a kubernetes TLS secret:
 
 ```bash
 kubectl create secret tls your-cert-secret --key privkey.pem --cert fullchain.pem --namespace=alfresco
 ```
 
-Deploy the latest version of ACS Enterprise by running the command below (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created and replacing the email values appropriately). See the table of [configuration options]({% link content-services/latest/install/containers/helm.md %}#configuration-options) for the full list of available options.
+Deploy the latest version of Content Services Enterprise by running the command below (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created and replacing the email values appropriately). See the table of [configuration options]({% link content-services/latest/install/containers/helm.md %}#configuration-options) for the full list of available options.
 
 ```bash
 helm install acs alfresco-incubator/alfresco-content-services \
@@ -363,14 +363,14 @@ alert-fly-alfresco-cs-email   LoadBalancer   100.XX.33.188   a1dXXXXXab11eaac670
 
 ### References
 
-* [Alfresco Configuring email](https://docs.alfresco.com/6.2/concepts/email.html)(#LINK)
+* [Configuring email](https://docs.alfresco.com/6.2/concepts/email.html)(#LINK)
 * [Kubernetes Ingress-nginx Exposing TCP and UDP services](https://github.com/kubernetes/ingress-nginx/blob/master/docs/user-guide/exposing-tcp-udp-services.md#exposing-tcp-and-udp-services){:target="_blank"}
 
 ## Using a custom metadata keystore {#custom-metadata-keystore}
 
-The Alfresco content repository Docker image comes with a pre-created default keystore that contains a secret key. See more information in [docs.alfresco.com](https://docs.alfresco.com/6.2/concepts/alf-keystores.html)(#LINK) and [Dockerfile](https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile#L81-L85){:target="_blank"}.
+The Alfresco content repository Docker image comes with a pre-created default keystore that contains a secret key. For more information, see [Managing Alfresco keystores](https://docs.alfresco.com/6.2/concepts/alf-keystores.html)(#LINK) and [Dockerfile](https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile#L81-L85){:target="_blank"}.
 
-It is recommended to generate a new keystore in production systems. You can mount it to the content-repository docker image to location `/usr/local/tomcat/shared/classes/alfresco/keystore/`. If the standard names of the keystore and the key are used, you only need to change the password values in [values.yaml](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/values.yaml){:target="_blank"}:
+It is recommended to generate a new keystore in production systems. You can mount it to the `content-repository` docker image to location `/usr/local/tomcat/shared/classes/alfresco/keystore/`. If the standard names of the keystore and the key are used, you only need to change the password values in [values.yaml](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/values.yaml){:target="_blank"}:
 
 ```yaml
 metadataKeystore:
@@ -378,4 +378,4 @@ metadataKeystore:
   keyPassword: ""
 ```
 
-Otherwise, please refer to the full list of configuration options in [Managing Alfresco keystores](https://docs.alfresco.com/6.2/concepts/keystore-config.html)(#LINK).
+Otherwise, refer to the full list of configuration options in [Keystore configuration](https://docs.alfresco.com/6.2/concepts/keystore-config.html)(#LINK).

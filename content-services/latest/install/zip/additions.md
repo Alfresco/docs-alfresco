@@ -2,11 +2,11 @@
 title: Install additional software
 ---
 
-You can install the third-party software used by Alfresco Content Services independently. Some of the software can be installed any time before or after installing Alfresco Content Services.
+You can install the third-party software used by Content Services independently. Some of the software can be installed any time before or after installing Content Services.
 
 ## Install LibreOffice
 
-In Alfresco Content Services, you can transform a document from one format to another, for example, a text file to a PDF file. To access these transformation facilities, you must install LibreOffice. This is optional, and can be done any time after Alfresco Content Services is installed.
+In Content Services, you can transform a document from one format to another, for example, a text file to a PDF file. To access these transformation facilities, you must install LibreOffice. This is optional, and can be done any time after Content Services is installed.
 
 1. Browse to the LibreOffice download site: [LibreOffice download site](https://www.libreoffice.org/download/download/){:target="_blank"}
 
@@ -27,7 +27,7 @@ In Alfresco Content Services, you can transform a document from one format to an
 
     > **Note:** For Windows, set the path using the `\\` separator, or use the forward slash `/` Unix path separator. For example: `c:\\Alfresco\\LibreOffice` or `c:/Alfresco/LibreOffice`.
 
-7. If the Alfresco Content Services server is running, stop and restart the server.
+7. If the Content Services server is running, stop and restart the server.
 
 ### Install Linux libraries
 
@@ -68,7 +68,7 @@ cd <libre-install-dir>/LibreOffice_*.*.*.*_Linux_x86-64_rpm/RPMS/
 sudo dpkg -i *deb
 ```
 
-If LibreOffice doesn't start up normally with Alfresco Content Services, test it manually, for example, by running this startup script:
+If LibreOffice doesn't start up normally with Content Services, test it manually, for example, by running this startup script:
 
 ```bash
 start ex. {installdir}/libreoffice/scripts/libreoffice_ctl.sh start
@@ -79,7 +79,7 @@ If you receive errors that indicate that a library is missing, work with your sy
 
 ## Install ImageMagick
 
-To enable image manipulation in Alfresco Content Services, you must install and configure ImageMagick. Alfresco Content Services uses ImageMagick to manipulate images for previewing.
+To enable image manipulation in Content Services, you must install and configure ImageMagick. Content Services uses ImageMagick to manipulate images for previewing.
 
 1. Verify that ImageMagick is already installed on your system.
 
@@ -89,7 +89,7 @@ To enable image manipulation in Alfresco Content Services, you must install and 
 
     To download ImageMagick, browse to [ImageMagick download website](https://www.imagemagick.org/script/download.php){:target="_blank"}.
 
-    > **Note:** In next steps, you'll make changes to the Alfresco Content Services configuration files to enable the manually installed ImageMagick application. These steps can only be performed after Alfresco Content Services has been installed.
+    > **Note:** In next steps, you'll make changes to the Content Services configuration files to enable the manually installed ImageMagick application. These steps can only be performed after Content Services has been installed.
 
 3. Browse to the `<classpathRoot>` directory. See [System paths](#LINK-reuse/conv-syspaths.md) for more.
 
@@ -110,13 +110,13 @@ To enable image manipulation in Alfresco Content Services, you must install and 
 
 ## Install alfresco-pdf-renderer
 
-Alfresco Content Services uses `alfresco-pdf-renderer` for creating document thumbnails and previews. Use this information to install `alfresco-pdf-renderer` on your system.
+Content Services uses `alfresco-pdf-renderer` for creating document thumbnails and previews. Use this information to install `alfresco-pdf-renderer` on your system.
 
-> **Note:** To use the `alfresco-pdf-renderer`, ensure that Alfresco Content Services is installed. Changes made to the `alfresco-global.properties` file in your installation will change the configuration and enable you to manually install the `alfresco-pdf-renderer` application.
+> **Note:** To use the `alfresco-pdf-renderer`, ensure that Content Services is installed. Changes made to the `alfresco-global.properties` file in your installation will change the configuration and enable you to manually install the `alfresco-pdf-renderer` application.
 
 > **Note:** The `alfresco-pdf-renderer` executable file is platform-specific.
 
-The `alfresco-pdf-renderer` binaries are available in the Alfresco Content Services distribution zip.
+The `alfresco-pdf-renderer` binaries are available in the Content Services distribution zip.
 
 * For Windows:
   * Extract the file `alfresco-pdf-renderer/alfresco-pdf-renderer-1.0-win64.tgz` to a location of your choice.
@@ -144,7 +144,7 @@ The `alfresco-pdf-renderer` binaries are available in the Alfresco Content Servi
 
 ## Install TinyMCE language packs
 
-Translations in Alfresco Content Services use language packs. The supported language packs are:
+Translations in Content Services use language packs. The supported language packs are:
 
 * German (de)English (en)
 * Spanish (es)
@@ -161,7 +161,7 @@ The language used switches according to the browser locale. Ensure that your bro
 
 ## Install integrations
 
-Use this information to review the components or modules that integrate Alfresco Content Services with other applications.
+Use this information to review the components or modules that integrate Content Services with other applications.
 
 ### Services
 
@@ -203,7 +203,7 @@ Use this information to review the components or modules that integrate Alfresco
 
 ## Test installation
 
-Installation testing checks that Alfresco Content Services is successfully installed and it's working as expected after installation.
+Installation testing checks that Content Services is successfully installed and it's working as expected after installation.
 
 Some of the points that need to be checked prior to testing your installation are:
 
@@ -213,7 +213,7 @@ Some of the points that need to be checked prior to testing your installation a
 
 ### Post-installation checks
 
-Once you've successfully installed Alfresco Content Services, test and gain familiarity with the core features and functions.
+Once you've successfully installed Content Services, test and gain familiarity with the core features and functions.
 
 Here are some tips to familiarize yourself.
 
@@ -233,7 +233,7 @@ Here are some tips to familiarize yourself.
 
 ### Post-installation checks (clustered environment)
 
-Once you've successfully installed and configured Alfresco Content Services in a distributed/clustered environment, make sure that the features and customizations you've added work properly.
+Once you've successfully installed and configured Content Services in a distributed/clustered environment, make sure that the features and customizations you've added work properly.
 
 Here are some of the tips to help you test your customizations.
 
@@ -251,11 +251,11 @@ Here are some of the tips to help you test your customizations.
 
 ## Start and stop server
 
-Use this information to run the Alfresco Content Services server and Alfresco Share.
+Use this information to run the Content Services server and Alfresco Share.
 
 ### Start server
 
-Once you've installed Alfresco Content Services using the distribution zip, you can start the server. The server must be running before you can use Alfresco Share.
+Once you've installed Content Services using the distribution zip, you can start the server. The server must be running before you can use Alfresco Share.
 
 1. Navigate to the installation directory for your database and start the server.
 
@@ -275,7 +275,7 @@ Once you've installed Alfresco Content Services using the distribution zip, you 
 
     You need administrator rights to run this command.
 
-3. Browse to the location of your Alfresco Content Services installation:
+3. Browse to the location of your Content Services installation:
 
     For example, `http://<your-host>:8080/alfresco`.
 
@@ -303,7 +303,7 @@ Use this information to stop the server.
 
 ### Start Alfresco Share
 
-Once you've started Alfresco Content Services, you can start Alfresco Share using a browser.
+Once you've started Content Services, you can start Alfresco Share using a browser.
 
 1. Browse to the location of your installation.
 

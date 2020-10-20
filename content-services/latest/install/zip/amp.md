@@ -2,9 +2,9 @@
 title: Install Alfresco Module Package
 ---
 
-An Alfresco Module Package (AMP) is a bundle of code, content model, content, and the directory structure that is used to distribute additional functionality for Alfresco Content Services. Use the Module Management Tool (MMT) to install and manage AMP files. You can install an AMP in an Alfresco WAR using the MMT, or by using the `apply_amps` tool.
+An Alfresco Module Package (AMP) is a bundle of code, content model, content, and the directory structure that is used to distribute additional functionality for Content Services. Use the Module Management Tool (MMT) to install and manage AMP files. You can install an AMP in an Alfresco WAR using the MMT, or by using the `apply_amps` tool.
 
-The MMT is available as a JAR file from the distribution zip (`alfresco-content-services-distribution-6.2.x.zip`), in the zip's `/bin` directory. Place the `/bin` directory and its contents in the same location where you extracted the Alfresco Content Services distribution zip; for example `<installLocation>/bin`.
+The MMT is available as a JAR file from the distribution zip (`alfresco-content-services-distribution-6.2.x.zip`), in the zip's `/bin` directory. Place the `/bin` directory and its contents in the same location where you extracted the Content Services distribution zip; for example `<installLocation>/bin`.
 
 1. Browse to the `/bin` directory, for example:
 
@@ -73,9 +73,9 @@ Some application servers (notably Tomcat) don't always fully clean up their temp
 
 ### Viewing module packages
 
-AMPs are used to package customizations and extensions for deployment. Use the **Module Browser** page to view all the AMPs that have been applied to Alfresco Content Services.
+AMPs are used to package customizations and extensions for deployment. Use the **Module Browser** page to view all the AMPs that have been applied to Content Services.
 
-1. Start Alfresco Content Services.
+1. Start Content Services.
 2. Click **Admin Tools** then **Module Browser**.
 
     The Module Browser page shows a list of all the module packages that are either pre-configured in an out-of-the-box installation or applied by the user, along with the description and version number.
@@ -144,4 +144,4 @@ For each integration, there is always at least one AMP file to remove from the `
 
     Deleting these directories forces Tomcat to read the edited WAR files when Alfresco is restarted.
 
-6. Restart Alfresco Content Services to see your changes.
+6. Restart Content Services to see your changes.
