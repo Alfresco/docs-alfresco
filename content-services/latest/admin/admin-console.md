@@ -1,8 +1,9 @@
 ---
-title: Using the Admin Console
+title: Using the Repository Admin Console
 ---
 
-The Admin Console application that gives you control over the management and settings of the Content Services environment.
+The Repository Admin Console application gives you control over the management and settings of the 
+Content Services environment.
 
 You'll find help text on the Admin Console pages to assist you with setting up the repository.
 
@@ -57,7 +58,7 @@ The settings that you choose in the Admin Console take precedence over any setti
 
 ## Launching the Admin Console {#launchadminconsole}
 
-The Admin Console runs externally to the user interface and therefore you launch the application independently. 
+The Repository Admin Console runs externally to the user interface and therefore you launch the application independently. 
 This allows you to run the Admin Console without the need to run Alfresco Share.
 
 Ensure that the Content Services server is running.
