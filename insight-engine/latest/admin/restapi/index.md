@@ -5,7 +5,7 @@ In addition to default SOLR Core Admin API actions, Alfresco SOLR provides sever
 
 The Base URL for every action is:
 
-```bash
+```http
 http://localhost:8983/solr/admin/cores?action=<action>
 ```
 
@@ -456,14 +456,14 @@ http://localhost:8983/solr/admin/cores?action=enable-indexing
 
 If you call the REPORT action there will be additional information returned
 
-```http
+```bash
 <str name="ACL Tracker>enabled</str> 
 <str name="Metadata Tracker>enabled</str>
 ```
 
 If you call the SUMMARY action there will be additional information returned
 
-```http
+```bash
 <bool name="ACLTracker Enabled">true</str>
 <bool name="MetadataTracker Enabled">true</str>
 <bool name="ContentTracker Enabled">true</str>

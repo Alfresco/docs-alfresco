@@ -22,4 +22,4 @@ You can configure OpenSearch to use a search engine proxy.
 
    > **note:** The value of the `proxy` attribute must be a unique name that identifies the search engine.
 
-3. Save /config/alfresco/extension/web-scripts-config-custom.xml.
+3. Save `/config/alfresco/extension/web-scripts-config-custom.xml`.

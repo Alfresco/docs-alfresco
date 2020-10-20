@@ -56,10 +56,10 @@ Here is a full list of parameters that allow you to customize your certificates.
 |truststorepass|Any string|Specifies the password for the truststores|
 |encstorepass|Any string|Specifies the password for the encryption keystore|
 |encmetadatapass|Any string|Specifies the password for the encryption metadata|
-|cacertdname| |Sets the Distinguished Name of the CA certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco CA"|
-|repocertdname| |Sets the Distinguished Name of the repository certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco Repository"|
-|solrcertdname| |Sets the Distinguished Name of the Solr certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco Repository Client"|
-|browsercertdname| |Sets the Distinguished Name of the browser certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Browser Client"|
+|cacertdname| |Sets the Distinguished Name of the CA certificate, starting with a forward-slash. For example:`/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco CA`|
+|repocertdname| |Sets the Distinguished Name of the repository certificate, starting with a forward-slash. For example:`/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco Repository`|
+|solrcertdname| |Sets the Distinguished Name of the Solr certificate, starting with a forward-slash. For example:`/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco Repository Client`|
+|browsercertdname| |Sets the Distinguished Name of the browser certificate, starting with a forward-slash. For example:`/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Browser Client`|
 |caservername|Any string, localhost by default.|DNS Name of CA Server.|
 |alfrescoservername|Any string, localhost by default.|DNS Name for Alfresco Server.|
 |solrservername|Any string, localhost by default.|DNS Name For Solr Server.|

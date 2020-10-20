@@ -57,9 +57,9 @@ As usual, no SSL queries configured go to the slave.
 
 ### Configuring Solr master
 
-The configuration affecting replication is controlled by a single file, alresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml. To configure the master server, follow the steps below:
+The configuration affecting replication is controlled by a single file, `alresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml`. To configure the master server, follow the steps below:
 
-1. Edit the alresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml file on the master server to change the default replication handler configuration. Remember to uncomment the `master` section.
+1. Edit the `alresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml` file on the master server to change the default replication handler configuration. Remember to uncomment the `master` section.
 
     ```bash
     <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
@@ -131,7 +131,7 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
     |Parameter name|Description|
     |--------------|-----------|
     |pollInterval|Interval in which the slave should poll master .Format is *hh:mm:ss*. If this is missing, the slave server does not poll automatically.|
-    |masterUrl|Fully qualified URL for the replication handler of master. Make sure the `masterUrl` ends with <tomcat base url>/solr/alfresco.|
+    |masterUrl|Fully qualified URL for the replication handler of master. Make sure the `masterUrl` ends with `<tomcat base url>/solr/alfresco`.|
 
 2. Set the master URL to point to the Solr master. Also, set how often the slave server should poll for changes.
 
@@ -151,7 +151,7 @@ In this configuration, the Solr instance will only track model changes from the 
 
 ## Additional Solr configuration
 
-Any configuration changes related to the core schema and configuration, or any changes in <solr_home>/conf must be made to all Solr instances. Replication can be configured to manage the distribution of other core related configuration files.
+Any configuration changes related to the core schema and configuration, or any changes in `<solr_home>/conf` must be made to all Solr instances. Replication can be configured to manage the distribution of other core related configuration files.
 
 ## Solr master-slave reconfiguration
 
