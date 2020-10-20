@@ -99,7 +99,7 @@ default.cm:content.size.isEnabled=true
 
 An example of a filter is `cm:modified`. It specifies the name of the filter field. It is the field on which you want to do a filtered search.
 
-**filterID** - Specifies a unique name to identify the filter. Before adding a new filter, check the existing filters (via [Search Manager](https://docs.alfresco.com/6.1/concepts/super-search-manager.html)) to ensure that the `filterID` does not already exist.
+**filterID** - Specifies a unique name to identify the filter. Before adding a new filter, check the existing filters (via [Search Manager LINK](https://docs.alfresco.com/6.1/concepts/super-search-manager.html)) to ensure that the `filterID` does not already exist.
 
 **displayName** - Specifies the display name of the filter.
 
@@ -127,4 +127,4 @@ An example of a filter is `cm:modified`. It specifies the name of the filter fie
 
 **isEnabled** - Specifies if the filter is enabled for inclusion on the search results page. Disabled filters are not displayed. Only the filters you create via the Share console can be deleted; default filters must be disabled to hide them.
 
-> **Note:** You cannot delete or modify any of the default filters, however you can disable them. To define your own custom filters, see [Defining custom search filters using configuration file](../tasks/filtered-search-custom.md).
+> **Note:** You cannot delete or modify any of the default filters, however you can disable them. To define your own custom filters, see [Defining custom search filters]({% link insight-engine/latest/config/custom.md %}).

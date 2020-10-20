@@ -39,9 +39,9 @@ An index can be distributed over several Solr nodes by creating and configuring 
     solr.port=8983
     ```
 
-    These properties will be used when registering all cores found under the <SOLR_HOME> directory. For more information, see [About shared.properties file](#About-shared.properties-file).
+    These properties will be used when registering all cores found under the <SOLR_HOME> directory. For more information, see [About shared.properties file](#about-shared.properties-file).
 
-    Once the basic configuration is [Complete]({% link insight-engine/latest/config/index.md %}#Solr configuration files) then start the Solr nodes.
+    Once the basic configuration is [Complete]({% link insight-engine/latest/config/index.md %}#solr-configuration-files) then start the Solr nodes.
 
 2. Setup and configure the Solr nodes.
 

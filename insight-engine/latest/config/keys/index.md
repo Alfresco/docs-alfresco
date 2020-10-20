@@ -40,7 +40,7 @@ Before you start, you must already have OpenSSL and `keytool` available in your 
 
     > **Note:** If the `keystores` folder isn't empty, the script exits without producing any keystore or truststore. You can safely, remove the `keystores` folder if you need to re-run the script.
 
-See [Keystore directory structure](#keystore-directory-structure) for more and [Customizing certificate generation](#Customizing-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
+See [Keystore directory structure](#keystore-directory-structure) for more and [Customizing certificate generation](#customizing-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
 
 ## Customizing certificate generation
 
@@ -48,22 +48,22 @@ Here is a full list of parameters that allow you to customize your certificates.
 
 |Parameter|Value|Description|
 |---------|-----|-----------|
-|`-alfrescoversion`|enterprise/community|Sets the type of Alfresco environment. The default value is enterprise.|
-|`-keysize`|1024/2048/4096 |Specifies the RSA key length. The default value is 1024.|
-|`-keystoretype`|PKCS12/JKS/JCEKS|Sets the type of the keystores (containing private keys). The default value is JCEKS.|
-|`-keystorepass`|Any string|Specifies the password for the keystores|
-|`-truststoretype`|JKS/JCEKS|Sets the type of the truststores (containing public keys). The default value is JCEKS.|
-|`-truststorepass`|Any string|Specifies the password for the truststores|
-|`-encstorepass`|Any string|Specifies the password for the encryption keystore|
-|`-encmetadatapass`|Any string|Specifies the password for the encryption metadata|
-|`-cacertdname`| |Sets the Distinguished Name of the CA certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco CA"|
-|`-repocertdname`| |Sets the Distinguished Name of the repository certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco Repository"|
-|`-solrcertdname`| |Sets the Distinguished Name of the Solr certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco Repository Client"|
-|`-browsercertdname`| |Sets the Distinguished Name of the browser certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Browser Client"|
-|`-caservername`|Any string, localhost by default.|DNS Name of CA Server.|
-|`-alfrescoservername`|Any string, localhost by default.|DNS Name for Alfresco Server.|
-|`-solrservername`|Any string, localhost by default.|DNS Name For Solr Server.|
-|`-alfrescoformat`|classic| current|Default format for certificates: current for IE SS 2.0.0+ and classic for previous versions.|
+|alfrescoversion|enterprise/community|Sets the type of Alfresco environment. The default value is enterprise.|
+|keysize|1024/2048/4096 |Specifies the RSA key length. The default value is 1024.|
+|keystoretype|PKCS12/JKS/JCEKS|Sets the type of the keystores (containing private keys). The default value is JCEKS.|
+|keystorepass|Any string|Specifies the password for the keystores|
+|truststoretype|JKS/JCEKS|Sets the type of the truststores (containing public keys). The default value is JCEKS.|
+|truststorepass|Any string|Specifies the password for the truststores|
+|encstorepass|Any string|Specifies the password for the encryption keystore|
+|encmetadatapass|Any string|Specifies the password for the encryption metadata|
+|cacertdname| |Sets the Distinguished Name of the CA certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco CA"|
+|repocertdname| |Sets the Distinguished Name of the repository certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco Repository"|
+|solrcertdname| |Sets the Distinguished Name of the Solr certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco Repository Client"|
+|browsercertdname| |Sets the Distinguished Name of the browser certificate, starting with a forward-slash. For example:"/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Browser Client"|
+|caservername|Any string, localhost by default.|DNS Name of CA Server.|
+|alfrescoservername|Any string, localhost by default.|DNS Name for Alfresco Server.|
+|solrservername|Any string, localhost by default.|DNS Name For Solr Server.|
+|alfrescoformat|classic, current|Default format for certificates: current for IE SS 2.0.0+ and classic for previous versions.|
 
 > **Note:** If you plan to use custom DNames in your certificates, you must use double quotes around the values. For example:
 
@@ -123,7 +123,7 @@ keystores
 
 Use this information to set up your generated certificates in their correct locations.
 
-Before continuing, make sure that you've already completed the steps in [Generating secure keys for SSL communication](#Generating-secure-keys-for-SSL-communication).
+Before continuing, make sure that you've already completed the steps in [Generating secure keys for SSL communication](#generating-secure-keys-for-ssl-communication).
 
 1. Copy the files under `/keystores/alfresco` to the Alfresco Content Services install location:
 
@@ -178,7 +178,7 @@ Before continuing, make sure that you've already completed the steps in [Generat
 
         > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file. Also, make sure that the keystore and truststore file locations are correct for your environment.
 
-    See [Installing the Tomcat application server LINK LINK](https://docs.alfresco.com/6.1/tasks/configfiles-change-path.html) and [Solr configuration files]({% link insight-engine/latest/config/index.md %}#solr-configuraion-files) for more.
+    See [Installing the Tomcat application server LINK LINK](https://docs.alfresco.com/6.1/tasks/configfiles-change-path.html) and [Solr configuration files]({% link insight-engine/latest/config/index.md %}#solr-configuration-files) for more.
 
 5. Change the SSL properties in `<SOLR_HOME>/solrhome/templates/rerank/conf/solrcore.properties`.
 
@@ -206,4 +206,4 @@ Before continuing, make sure that you've already completed the steps in [Generat
     <SOLR_HOME>/solrhome/archive/conf/solrcore.properties
     ```
 
-    See [Solr core configuration properties]({% link insight-engine/latest/config/index.md %}#Solr-core-configuration-properties) for more.
+    See [Solr core configuration properties]({% link insight-engine/latest/config/index.md %}#solr-core-configuration-properties) for more.

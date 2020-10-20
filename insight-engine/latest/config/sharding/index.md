@@ -282,8 +282,8 @@ Yes. After upgrading to Alfresco Content Services 6.2, continue to use the old s
 ## Upgrading from 5.0 with Solr 4 to 6.2 (with zero downtime)
 
 1. Upgrade to 6.2 and continue to use the Solr 4 search service as before.
-2. Configure a separate sharded Solr 4 index with the [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create/index.md %}#Core Templates) to track the repository. For details, see [Solr Sharding](#Solr Sharding).
-3. While the new sharded Solr 4 builds its indexes, you can monitor the progress using the Solr Admin Web interface. For details, see [Solr security]({% link insight-engine/latest/config/index.md %}# Connecting to the SSL-protected Solr web applicatio).
+2. Configure a separate sharded Solr 4 index with the [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create/index.md %}#Core Templates) to track the repository. For details, see [Solr Sharding](#solr-sharding).
+3. While the new sharded Solr 4 builds its indexes, you can monitor the progress using the Solr Admin Web interface. For details, see [Solr security]({% link insight-engine/latest/config/security/index.md %}.
 4. When the sharded Solr 4 index is updated, enable the sharded Solr 4 index by setting the `solr.host` property.
 
 ## How do I know the new sharded index is up-to-date?

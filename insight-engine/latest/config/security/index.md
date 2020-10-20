@@ -6,7 +6,7 @@ By default, communication between the repository and Solr is protected by SSL wi
 
 > **Note:** For security reasons, you must generate a new set of keys to secure the Solr communication and access to the Solr Admin Console.
 
-For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#Configuring using the Admin Console) and [Secure Keys]({% link insight-engine/latest/config/keys/index.md %}).
+For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#configuring-using-the-admin-console) and [Secure Keys]({% link insight-engine/latest/config/keys/index.md %}).
 
 ## Repository SSL keystores
 
@@ -28,7 +28,7 @@ The keys and certificates required for mutual TLS on the repository side are set
     />
     ```
 
-2. Copy the keystore and truststore files you created in [Generating secure keys for ssl communication]({% link insight-engine/latest/config/keys/index.md %}#Generating-secure-keys-for-ssl-communication) to the machine that's running the repository.
+2. Copy the keystore and truststore files you created in [Generating secure keys for ssl communication]({% link insight-engine/latest/config/keys/index.md %}#generating-secure-keys-for-ssl-communication) to the machine that's running the repository.
 
 3. Set the parameters in the connector, replacing the `xxxxxxx` and `yyyyy` values.
 
@@ -162,4 +162,4 @@ On the left-side of the Solr Admin screen, you will see **Core Selector**. Click
 
 This includes a sub-navigation for the option or text or graphical representation of the requested data.
 
-See [Solr Admin UI left panel](#Solr-Admin-UI-left-panel) and [Solr Admin UI center panel](Solr-Admin-UI-center-panel) to know more about each screen.
+See [Solr Admin UI left panel](#solr-admin-ui-left-panel) and [Solr Admin UI center panel](#solr-admin-ui-center-panel) to know more about each screen.

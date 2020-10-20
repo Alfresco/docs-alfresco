@@ -159,7 +159,7 @@ There are additional master-slave configuration requirements for Solr, such as a
 
 ## Adding a slave server
 
-To add another slave server to an existing replication configuration, see [Configuring Solr slave](#Configuring-Solr-slave).
+To add another slave server to an existing replication configuration, see [Configuring Solr slave](#configuring-solr-slave).
 
 ## Promoting a slave
 
@@ -217,7 +217,7 @@ To promote a slave, follow the steps below:
     enable.slave=false
     ```
 
-5. Configure all other slave servers (if any) to point to the new master server. Make sure that the state of the slave indexes is either behind or equal to the state of the master server. For more information, see [Configuring Solr slave](#Configuring-Solr-slave).
+5. Configure all other slave servers (if any) to point to the new master server. Make sure that the state of the slave indexes is either behind or equal to the state of the master server. For more information, see [Configuring Solr slave](#configuring-solr-slave).
 
 After the previously broken master server is fixed, it can either be discarded, run as a slave, or run as a second master. To run as a slave, make sure it is behind the new master. It can be restored from a back up of another slave or the current master server.
 

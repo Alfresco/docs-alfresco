@@ -383,4 +383,5 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
 
         You have now refreshed the web scripts and set a limit to the number of items a search in Share returns.
 
-> **Note:** Custom searches and searches from the node browser use the `solr.query.maximumResultsFromUnlimitedQuery` property to control search results. For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#Solr core configuration properties).
+> **Note:** Custom searches and searches from the node browser use the `solr.query.maximumResultsFromUnlimitedQuery` property to control search results. For more information, see [Solr core configuration properties
+]({% link insight-engine/latest/config/index.md %}#solr-core-configuration-properties).

@@ -12,14 +12,12 @@ Use `http://localhost:9090/zeppelin` to access Alfresco Insight Zeppelin user in
 
 For information on Alfresco Insight Zeppelin user Interface see [Explore Apache Zeppelin UI](https://zeppelin.apache.org/docs/0.8.1/quickstart/explore_ui.html).
 
-For more information on using Alfresco Insight Zeppelin see [Alfresco Insight Zeppelin reports and notes](apache-zeppelin-dashboards-reports.md).
-
 ## Installation options
 
 There are several options for installing Alfresco Insight Zeppelin:
 
-* [Installing with a distribution zip](#Installing-with-a-distribution-zip).
-* [Installing with Docker Compose](#Installing-with-Docker-Compose).
+* [Installing with a distribution zip](#installing-with-a-distribution-zip).
+* [Installing with Docker Compose](#installing-with-docker-compose).
 
 > **Note** You do not need to install Alfresco Insight Zeppelin in order to use Search and Insight Engine.
 
@@ -140,7 +138,7 @@ Also, if the domain name of the Alfresco Content Services repository does not ma
 
 You can deploy Alfresco Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.2 and Alfresco Search and Insight Engine.
 
-For details about deployment using the Docker Compose file, see [Installation options]({% link insight-engine/latest/install/options.md %}#Installing-with-docker-compose).
+For details about deployment using the Docker Compose file, see [Installation options]({% link insight-engine/latest/install/options.md %}#installing-with-docker-compose).
 
 1. Open your `docker-compose.yml` file, and insert the following container information:
 
