@@ -29,3 +29,5 @@
               path: '/content-services/latest/install/containers/helm-examples/'
             - title: 'Customization'
               path: '/content-services/latest/install/containers/customize/'
+    - title: 'Upgrade'
+      path: '/content-services/latest/upgrade/'
