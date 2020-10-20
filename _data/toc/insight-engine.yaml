@@ -56,7 +56,7 @@
         - title: 'Full text search'
           path: '/insight-engine/latest/using/sql/syntax/'
         - title: 'Sample Insight Zepellin SQL'
-          path: '/insight-engine/latest/using/sql/zeppelin.sql'
+          path: '/insight-engine/latest/using/sql/zeppelin-sql'
         - title: 'JBDC Driver'
           path: '/insight-engine/latest/using/sql/jdbc/'
         - title: 'Reports and other tools'
