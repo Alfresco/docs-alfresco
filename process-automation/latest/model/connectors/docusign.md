@@ -4,7 +4,7 @@ title: DocuSign connector
 
 The DocuSign connector is used to send documents via email to be digitally signed. The process flow waits for a document to be signed before continuing with the process. The signed document is saved to the Content Services repository.
 
-> **Important**: The DocuSign connector requires a [DocuSign](https://www.docusign.com/){:target="_blank"} account to handle document signing.
+> **Important**: The DocuSign connector requires a [DocuSign](https://www.docusign.com/){:target="_blank"} account to handle document signing. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
 
 The DocuSign connector is displayed on the process diagram as a pen.
 

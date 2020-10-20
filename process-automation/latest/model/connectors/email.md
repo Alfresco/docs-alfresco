@@ -6,6 +6,8 @@ The email connector is used to send emails using the SMTP protocol as part of a 
 
 The email connector is displayed on the process diagram as an envelope.
 
+> **Important**: The email connector requires an SMTP account to use. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
+
 ## Send
 
 The **SEND** action is used by the email connector to send an email and optional attachments.

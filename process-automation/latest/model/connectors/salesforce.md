@@ -6,6 +6,8 @@ The Salesforce connector is used to integrate with an installation of [Salesforc
 
 The Salesforce connector is displayed on the process diagram with the Salesforce logo.
 
+> **Important**: The Salesforce connector requires a Salesforce account to use. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
+
 The actions that can be executed using the Salesforce connector are:
 
 * [Create an object instance](#create-an-object-instance)

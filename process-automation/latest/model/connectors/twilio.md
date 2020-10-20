@@ -6,6 +6,8 @@ The Twilio connector is used to integrate with an instance of [Twilio](https://t
 
 The Twilio connector is displayed on the process diagram with the Twilio logo.
 
+> **Important**: The TWilio connector requires a Twilio account to use. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
+
 ## Send SMS
 
 The **SEND_SMS** action is used by the Twilio connector to send an SMS message.

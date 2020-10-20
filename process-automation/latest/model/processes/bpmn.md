@@ -1429,7 +1429,7 @@ The basic properties for an exclusive gateway are:
 
 #### Default sequence flow
 
-The name of a sequence flow can be used to select a default flow for the gateway to take. This path will be followed if none of the other sequence flows evaluate to true.
+The name of a [sequence flow](#sequence-flow) can be used to select a default flow for the gateway to take. This path will be followed if none of the other sequence flows evaluate to true. Conditional expressions can be configured on sequence flows to select which path is taken.
 
 {% endcapture %}
 {% capture excl-gate-img %}
@@ -1484,7 +1484,7 @@ The basic properties for an inclusive gateway are:
 
 #### Default sequence flow
 
-The name of a sequence flow can be used to select a default flow for the gateway to take. This path will be followed if none of the other sequence flows evaluate to true.
+The name of a [sequence flow](#sequence-flow) can be used to select a default flow for the gateway to take. This path will be followed if none of the other sequence flows evaluate to true. Conditional expressions can be configured on sequence flows to select which path is taken.
 
 {% endcapture %}
 {% capture incl-gate-img %}
@@ -2618,6 +2618,8 @@ The basic properties for a sequence flow are:
 #### Condition expression
 
 A condition expression can be set when a sequence flow is connected to an inclusive or exclusive gateway. Conditions will be evaluated to decide whether a path is taken or not. The expression syntax can reference process variables using expressions such as `${content.approved} == false}` where that path will be taken if the `approved` attribute of the variable `content` is set to `false`.
+
+Another example of conditional expressions is evaluating a sequence flow is using amounts, for example `${amount>500}` will take the sequence flow if the process variable `amount` is greater than 500 at the point the gateway is reached.
 
 {% endcapture %}
 {% capture sequence-img %}

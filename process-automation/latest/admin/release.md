@@ -69,7 +69,7 @@ Select the users and groups that can access the application. The users and group
 
 Applications that contain connectors need to have their [configuration parameters]({% link process-automation/latest/model/connectors/index.md %}#configuration-parameters) set.
 
-All parameters will appear as key value pairs and additional pairs can be added by clicking **Add config variable**. 
+All parameters will appear as key value pairs and additional pairs can be added by clicking **Add config variable**.
 
 Any default values, or values entered whilst modeling the project will be pre-filled but can still be updated.
 
