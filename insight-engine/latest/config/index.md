@@ -78,7 +78,7 @@ This is the Solr configuration directory that is specific to Alfresco. It contai
 |Folder/File|Description|
 |-----------|-----------|
 |alfrescoModels|When you install Search and Insight Engine, it creates an empty alfrescoModels directory. When Solr first talks to Alfresco, it pulls the model definitions into this directory.|
-|conf|This directory contains the shared.properties file. See [Search and Insight Engine externalized configuration](#search-and-insight-engine-externalized-configuration).|
+|conf|This directory contains the shared.properties file. See [Search and Insight Engine externalized configuration]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-externalized-configuration).|
 |templates|This directory contains the core templates that define the base configuration for a new Solr core with some configuration properties. This directory also contains the `/rerank/conf/solrcore.properties` file which you can use to customize the Solr cores.|
 |solr.xml|This file defines the Solr web application context. For more information see [Format of solr.xml](https://lucene.apache.org/solr/guide/6_6/format-of-solr-xml.html){:target="_blank"}|
 |data|This folder is generated when a Solr core is created and is where Solr indexes are stored. The default location of the folder is `/opt/alfresco-search-services/data`.|

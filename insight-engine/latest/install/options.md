@@ -14,7 +14,7 @@ This task assumes you have:
 
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
-    ```plain text
+    ```text
     index.subsystem.name=solr6
     solr.secureComms=https
     solr.port=8983
@@ -164,7 +164,7 @@ This task assumes you have:
 
     Once Alfresco Search and Insight Engine is up and running, you should see a message like:
 
-    ```plain text
+    ```text
     Waiting up to 180 seconds to see Solr running on port 8983 []  
     Started Solr server on port 8983 (pid=24289). Happy searching!
     ```
@@ -201,7 +201,7 @@ This task assumes you have:
 
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
-    ```plain text
+    ```text
     index.subsystem.name=solr6
     solr.secureComms=none
     solr.port=8983

@@ -53,7 +53,7 @@ When you have an Alfresco Content Services installation that requires an SSL con
 
 If Solr search and/or the Solr tracking is not working properly, you might see this message on the Tomcat console:
 
-```plain text
+```text
 Aug 22, 2011 8:19:21 PM org.apache.tomcat.util.net.jsse.JSSESupport handShake
 WARNING: SSL server initiated renegotiation is disabled, closing connection 
 ```

@@ -44,31 +44,31 @@ The date math expressions consist either adding some quantity of time in a speci
 
 For example, to represents a point in time two months from now, use:
 
-```plain text
+```text
 NOW+2MONTHS
 ```
 
 To represents a point in time one day ago, use:
 
-```plain text
+```text
 NOW-1DAY
 ```
 
 A slash is used to indicate rounding. To represents the beginning of the current hour, use:
 
-```plain text
+```text
 NOW/HOUR
 ```
 
 To represent a point in time six months and three days into the future and then rounds that time to the beginning of that day, use:
 
-```plain text
+```text
 NOW+6MONTHS+3DAYS/DAY
 ```
 
 While date math is most commonly used relative to `NOW`, it can be applied to any fixed moment in time as well:
 
-```plain text
+```text
 1972-05-20T17:33:18.772Z+6MONTHS+3DAYS/DAY
 ```
 
@@ -82,7 +82,7 @@ The `OR` operator is interpreted as "at least one is required, more than one or 
 
 If not otherwise specified, by default search fragments will be `ORed` together.
 
-```plain text
+```text
 big yellow banana
 big OR yellow OR banana
 TEXT:big TEXT:yellow TEXT:banana
@@ -329,13 +329,13 @@ OR
 |+big AND +dog|big and dog must occur|
 |big AND +dog|big and dog must occur|
 |+big AND dog|big and dog must occur|
-|big AND |dog|big must occur and dog should occur|
-||big AND dog|big should occur and dog must occur|
-||big AND |dog|both big and dog should occur, and at least one must match|
+|big AND dog|big must occur and dog should occur|
+|big AND dog|big should occur and dog must occur|
+|big AND dog|both big and dog should occur, and at least one must match|
 |big AND -dog|big must occur and dog must not occur|
 |-big AND dog|big must not occur and dog must occur|
 |-big AND -dog|both big and dog must not occur|
-||big AND -dog|big should occur and dog must not occur|
+|big AND -dog|big should occur and dog must not occur|
 
 |OR (no prefix is the same as +)|Description|
 |---------------------------------|-----------|
@@ -343,9 +343,9 @@ OR
 |+dog OR +wolf|dog and wolf should occur, and at least one must match|
 |dog OR +wolf|dog and wolf should occur, and at least one must match|
 |+dog OR wolf|dog and wolf should occur, and at least one must match|
-|dog OR |wolf|dog and wolf should occur, and at least one must match|
-||dog OR wolf|dog and wolf should occur, and at least one must match|
-||dog OR |wolf|dog and wolf should occur, and at least one must match|
+|dog OR wolf|dog and wolf should occur, and at least one must match|
+|dog OR wolf|dog and wolf should occur, and at least one must match|
+|dog OR wolf|dog and wolf should occur, and at least one must match|
 |dog OR -wolf|dog should occur and wolf should not occur, one of the clauses must be valid for any result|
 |-dog OR wolf|dog should not occur and wolf should occur, one of the clauses must be valid for any result|
 |-dog OR -wolf|dog and wolf should not occur, one of the clauses must be valid for any result|

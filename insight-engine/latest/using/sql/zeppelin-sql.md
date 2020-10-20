@@ -1,5 +1,5 @@
 ---
-title: Sample SQL for Alfresco Insight Zeppelin
+title: Sample Insight Zeppelin SQL
 ---
 
 Using Alfresco Insight Zeppelin you can create some reports with the following example SQL queries:
