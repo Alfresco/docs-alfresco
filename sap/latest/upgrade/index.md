@@ -1,5 +1,5 @@
 ---
-title: Upgrade Content Connector for SAP Applications
+title: Upgrade SAP Connector
 ---
 
 ## Upgrading from Connexas 4.2 to the SAP Connector 5.x
@@ -57,7 +57,7 @@ Use the following steps to proceed with the technical upgrade of the software mo
 3.  Back up the current exploded web application folders for the repository and Alfresco Share.
 4.  Back up the database used for the repository.
 5.  Remove the former *connexas* modules from the `amps` and `amps_share` folders.
-6.  Download the new SAP Connector {% include tooltip.html word="AMP" text="AMP" %} files from the [Alfresco Support Portal](https://support.alfresco.com).
+6.  Download the new SAP Connector {% include tooltip.html word="AMP" text="AMP" %} files from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
 
     Follow mainly the instructions in the [Installing the SAP Connector]({% link sap/latest/install/index.md %}#installsapconnamps) section. After applying the {% include tooltip.html word="AMP" text="AMP" %} files, verify the new SAP Connector version:
 

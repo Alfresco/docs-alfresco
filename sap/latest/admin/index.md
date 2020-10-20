@@ -1,5 +1,5 @@
 ---
-title: Administer Content Connector for SAP Applications
+title: Administer SAP Connector
 ---
 
 ## Administration Console {#sapadminconsole}
@@ -14,7 +14,7 @@ The SAP Connector Administration Console is only available for Alfresco Share. I
 you can use the SAP Connector Administration Health WebScript to check the status of the SAP Connector. 
 See [SAP Connector Administration Health Web Script](#sapadminhealthwebscript) for more.
 
-**Accessing the Administration Console**
+### Accessing the Administration Console
 
 The SAP Connector Administration Console is installed as an *Admin Tool*, so you can access it via the **Admin Tools** 
 toolbar in Alfresco Share. A new menu item **SAP Integration** is available. 

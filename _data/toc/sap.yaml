@@ -9,10 +9,10 @@
       path: '/sap/latest/upgrade/'
     - title: "Configure"
       path: '/sap/latest/config/'
-    - title: 'Using'
-      pages:
-        - title: 'Troubleshooting'
-          path: '/sap/latest/using/troubleshooting/'
     - title: "Administer"
-      path: '/sap/latest/admin/'
+      pages:
+        - title: 'Admin Guide'
+          path: '/sap/latest/admin/'
+        - title: 'Troubleshooting'
+          path: '/sap/latest/admin/troubleshooting/'
 

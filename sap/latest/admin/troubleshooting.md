@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Connector for SAP Applications
+title: Troubleshooting SAP Connector
 ---
 
 Your problem may be related to any one of the following issues:

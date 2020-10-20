@@ -1,5 +1,5 @@
 ---
-title: Install Content Connector for SAP Applications
+title: Install SAP Connector
 ---
 
 The SAP Connector capability for Alfresco Content Services is delivered as a distribution zip file containing repository 
@@ -9,7 +9,7 @@ In these topics you'll install and set up everything you need to run the SAP Con
 See [Prerequisites]({% link sap/latest/install/index.md %}#prerequisites) and [Supported Platforms]({% link sap/latest/support/index.md %}) 
 for information on what you require before you start the installation.
 
-You can download the Alfresco Content Connector for SAP applications software from the: [Alfresco Support Portal](https://support.alfresco.com/)
+You can download the Alfresco Content Connector for SAP applications software from the: [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}
 
 To set up Communication via HTTPS see this [section]({% link sap/latest/config/index.md %}#securecomms).
 
@@ -68,7 +68,7 @@ The SAP Connector is packaged as Alfresco Module Package (AMP) files.
 
 >**Note:** Ensure that you don't start Alfresco Content Services before installing the SAP Connector AMPs.
 
-1.  Go to the [Alfresco Support Portal](https://support.alfresco.com), click **Product Downloads**, and then download the SAP Connector distribution zip, which contains the following files:
+1.  Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, click **Product Downloads**, and then download the SAP Connector distribution zip, which contains the following files:
 
     * `sap-content-connector-repo-5.x.amp` for Alfresco Content Services
     * `sap-content-connector-share-5.x.amp` for Alfresco Share
@@ -170,5 +170,5 @@ You must perform the following steps to install the SAP Connector in a clustered
 2.  Install the `sap-content-connector-share-5.x.amp` for Alfresco Share on each node in the cluster.
 3.  The `alfresco-global.properties` on each node must be updated with the SAP related properties.
 4.  On the SAP side, for each SAP Content Repository (transaction `OAC0`) the HTTP-Server must point to the load balancer instead a dedicated application server instance.
-    Refer to the Alfresco Content Services documentation to learn more about high availability.
+    Refer to the Alfresco Content Services documentation to learn more about [high availability](TODO_LINK:).
 

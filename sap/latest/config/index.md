@@ -1,5 +1,5 @@
 ---
-title: Configure Content Connector for SAP Applications
+title: Configure SAP Connector
 ---
 
 Use this information to configure the SAP Connector. Check the following SAP access privileges in order to continue 
@@ -265,8 +265,6 @@ The following property keys are required for the connection (for description of 
     `integrations.sap.system.1.al.archiveIds = Archive1[,Archive2, ArchiveN]`
 
 2.  Using Wildcard
-
-    CAUTION:
 
     The usage of a Wildcard (`*`) for parameter `archiveIds` is not recommended anymore. For setting up metadata replication specify each SAP Content Repository by its name in the `archiveIds` parameter.
 
@@ -1413,7 +1411,7 @@ Encrypt all passwords used in the `alfresco-global.properties` by the SAP Connec
 
 Make sure the SAP Connector is configured properly and working as expected.
 
-1.  Go to the [Alfresco Support Portal](https://support.alfresco.com).
+1.  Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
 
 2.  Download the related JAR file:
 
