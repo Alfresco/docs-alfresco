@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting
 ---
+
 Here are the answers to some frequently asked questions.
 
 ### When attempting to login a problem with CORS is reported

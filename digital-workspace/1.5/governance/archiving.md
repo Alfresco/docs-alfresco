@@ -1,6 +1,7 @@
 ---
 title: Archiving files
 ---
+
 Alfresco Digital Workspace provides end users with a simple way to archive and retrieve files from Amazon S3 Glacier, a long term, low cost archive store provided by Amazon Web Services.
 
 Archiving and retrieving your files is an important part of information governance. Archiving your files minimizes the cost of storage for infrequently accessed files or you may have a regulatory requirement to archive.

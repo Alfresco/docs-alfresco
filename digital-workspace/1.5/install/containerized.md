@@ -1,5 +1,5 @@
 ---
-title: Install Containerized
+title: Install with Docker compose
 ---
 
 Alfresco Digital Workspace is deployed as part of Alfresco Content Services using Helm charts or a Docker Compose file. Both these methods include a lightweight, pre configured, NGINX server and Digital Workspace application. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.

@@ -1,6 +1,7 @@
 ---
 title: Alfresco Digital Workspace
 ---
+
 Alfresco Digital Workspace is a new content management application built with the Alfresco Application Development Framework (ADF). The user interface has been streamlined making simple tasks such as uploading, downloading, searching for content, and collaborating with others much easier. You can create public, moderated, and private libraries. Access for other users to these libraries can be configured by setting permissions, at an individual or group level. Libraries can be added to your favorites list so they can be accessed easily. The search feature is powerful and includes numerous filters based on your metadata, so you can quickly find what you are looking for.
 
 Alfresco Governance Services functionality for end users is available, including record declaration and archival of files into long term storage.

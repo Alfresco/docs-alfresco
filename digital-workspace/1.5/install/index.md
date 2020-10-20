@@ -1,6 +1,7 @@
 ---
 title: Installing Digital Workspace
 ---
+
 There are a number of different ways to deploy Alfresco Digital Workspace. You can deploy it using Docker images that are packaged in Helm charts or using Docker Compose. You can also install Alfresco Content Services using standard WAR files contained in the distribution zip, and then configure the installation to include Alfresco Digital Workspace.
 
 The deployment methods are:

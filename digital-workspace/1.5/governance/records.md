@@ -1,6 +1,7 @@
 ---
 title: Install Containerized
 ---
+
 Alfresco Governance Services capabilities are all available from the right click menu. You can view, move, and delete records from the collaboration site. You can also declare files as records with the ability to declare multiple files in one action. Rules that facilitate the automation of Governance Services are fully compatible with Alfresco Digital Workspace.
 
 > **Note:** When records are deleted from a collaboration site they are not removed from the records management file plan; only the view of the record from the collaboration site is deleted and the record continues to be managed in the file plan.
