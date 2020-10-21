@@ -305,7 +305,7 @@ The advanced properties for a text field are:
 Form widgets provide the ability to add custom form fields into a form. There are two stages to including a custom form field in a project:
 
 * Create a custom form widget within the Modeling Application and use it within a form.
-* Develop a [custom user interface](LINK) and the logic for the form widget using the [Application Development Framework](LINK).
+* [Develop]({% link process-automation/latest/develop/index.md %}) a custom user interface or extend the Digital Workspace to include the logic for the form widget using the [Application Development Framework (ADF)](https://www.alfresco.com/abn/adf/docs/){:target="_blank"}.
 
 ### Custom form widget properties
 
@@ -344,7 +344,7 @@ Once a custom form widget has been created in a project, it will appear in the p
 
 ### Develop a custom form widget
 
-See the [developer section](LINK) for details on how to develop the custom form widget behavior and how to include it in a custom user interface.
+See the [developer section]({% link process-automation/latest/develop/index.md %}#custom-form-fields) for details on how to develop the custom form widget behavior and how to include it in a custom user interface.
 
 ## Form variables
 

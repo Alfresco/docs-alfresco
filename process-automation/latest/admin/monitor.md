@@ -91,13 +91,7 @@ The properties for each task are:
 | Status | The current status of the task. See the table below for a list of possible statuses. |
 | Created Date | The time since the task was started. |
 | Last Modified | The time since the task was last updated. |
-
-
-| Parent ID | (LINK) |
- 
-
-
-
+| Parent ID | The ID of a parent task if the standalone task has one. |
 
 > **Note**: Further details are available to view for each task by clicking on it. A properties panel will appear on the right-hand side of the screen and certain properties can be edited if the status is `CREATED` or `ASSIGNED`.
 
@@ -128,9 +122,7 @@ The properties for task variables are:
 
 ### Sibling tasks
 
-
-(LINK)
-
+Select the **Sibling Tasks** option to view any other standalone tasks that share the same parent task.
 
 
 ### Audit {#task-audit}

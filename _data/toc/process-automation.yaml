@@ -65,3 +65,5 @@
           path: '/process-automation/latest/admin/users/'
     - title: 'Using'
       path: '/process-automation/latest/using/'
+    - title: 'Develop'
+      path: '/process-automation/latest/develop/'
