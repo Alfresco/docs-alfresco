@@ -1,5 +1,5 @@
 ---
-title: Full text search configuration properties for Solr index 
+title: Properties for Solr index 
 ---
 
 The Solr index's full text search properties influence the behaviour of Solr indexes.

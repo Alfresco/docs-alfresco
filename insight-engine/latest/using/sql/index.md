@@ -1,5 +1,5 @@
 ---
-title: Supported/Unsupported SQL commands
+title: Supported/Unsupported SQL
 ---
 
 Below is a list of the supported and unsupported SQL commands available to use when writing queries against your Solr datastore.
@@ -406,7 +406,7 @@ It’s not supported when the text field is either freetext or none.
 
 The `HAVING` clause is supported for aggregation functions only. Boolean logic and nested `HAVING` clauses are supported. The following comparison operations are supported in the `HAVING` clause: `=`, `>=`, `<=`, `!=`.
 
-> **Note:** Support is limited for the `HAVING` clause in Alfresco Search and Insight Engine 2.0.
+> **Note:** Support is limited for the `HAVING` clause in Search and Insight Engine 2.0.
 
 ### Limit
 
@@ -487,7 +487,7 @@ A `HAVING` clause can be used to filter time series aggregations results.
 
 ## Unsupported SQL
 
-Alfresco Search and Insight Engine supports a subset of SQL. Below is a list of commonly used SQL commands that are not currently supported:
+Search and Insight Engine supports a subset of SQL. Below is a list of commonly used SQL commands that are not currently supported:
 
 ## Commands
 

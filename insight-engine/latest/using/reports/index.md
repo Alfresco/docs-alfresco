@@ -2,30 +2,30 @@
 title: Building Reports and Dashboards
 ---
 
-Alfresco Search and Insight Engine comes with a number of out-of-the box reports and a dashboard builder with pre-configured reports based on Alfresco Insight Zeppelin. Alfresco Insight Zeppelin is a web-based notebook that enables data-driven, interactive data analytics, data visualization, and collaborative documents using SQL.
+Search and Insight Engine comes with a number of out-of-the box reports and a dashboard builder with pre-configured reports based on Insight Zeppelin. Insight Zeppelin is a web-based notebook that enables data-driven, interactive data analytics, data visualization, and collaborative documents using SQL.
 
-To use the reports and dashboard builder, you need to install Alfresco Insight Zeppelin.
+To use the reports and dashboard builder, you need to install Insight Zeppelin.
 
-> **Note:** For this version of Alfresco Search and Insight Engine, cluster mode is not supported.
+> **Note:** For this version of Search and Insight Engine, cluster mode is not supported.
 
-Use `http://localhost:9090/zeppelin` to access Alfresco Insight Zeppelin user interface.
+Use `http://localhost:9090/zeppelin` to access Insight Zeppelin user interface.
 
-For information on Alfresco Insight Zeppelin user Interface see [Explore Apache Zeppelin UI](https://zeppelin.apache.org/docs/0.8.1/quickstart/explore_ui.html).
+For information on Insight Zeppelin user Interface see [Explore Apache Zeppelin UI](https://zeppelin.apache.org/docs/0.8.1/quickstart/explore_ui.html).
 
 ## Installation options
 
-There are several options for installing Alfresco Insight Zeppelin:
+There are several options for installing Insight Zeppelin:
 
 * [Installing with a distribution zip](#installing-with-a-distribution-zip).
 * [Installing with Docker Compose](#installing-with-docker-compose).
 
-> **Note** You do not need to install Alfresco Insight Zeppelin in order to use Search and Insight Engine.
+> **Note** You do not need to install Insight Zeppelin in order to use Search and Insight Engine.
 
 ## Installing with a distribution zip
 
-Use this information to manually install Alfresco Insight Zeppelin using a distribution zip.
+Use this information to manually install Insight Zeppelin using a distribution zip.
 
-1. Download the `alfresco-insight-zeppelin-2.0.0.zip` file from the [Support Portal](http://support.alfresco.com/).
+1. Download the `alfresco-insight-zeppelin-2.0.0.zip` file from the [Support Portal](http://support.alfresco.com/){:target="_blank"}.
 
 2. Unzip the file.
 
@@ -39,7 +39,7 @@ Use this information to manually install Alfresco Insight Zeppelin using a distr
 
     Alternatively, you can pass `REPO_PROTOCOL`, `REPO_HOST`, and `REPO_PORT` to the script from the command line. For example, `REPO_PROTOCOL=https REPO_HOST=myhost REPO_PORT=8443./substituter.sh`. You don't have to pass all the variables just the ones you want to override. The default values are: `REPO_PROTOCOL=http, REPO_HOST=localhost, and REPO_PORT=8080`. The port number, context path or other properties can be changed in `ZEPPELIN_HOME/conf/zeppelin-env.sh` on Unix like systems (or `ZEPPELIN_HOMEconfzeppelin-env.cmd` for Microsoft Windows). See [Apache Zeppelin Configuration](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html){:target="_blank"} for a full list of properties.
 
-4. To start the Alfresco Insight Zeppelin Server, run:
+4. To start the Insight Zeppelin Server, run:
 
     On Unix like systems: `ZEPPELIN_HOME/bin/zeppelin-daemon.sh`
 
@@ -53,13 +53,13 @@ Use this information to manually install Alfresco Insight Zeppelin using a distr
 
 7. Create a new notebook or use the one provided.
 
-8. To stop Alfresco Insight Zeppelin, run:
+8. To stop Insight Zeppelin, run:
 
     On Unix-like systems: `ZEPPELIN_HOME/bin/zeppelin-daemon.sh`
 
     On Microsoft Windows: Ctrl + C
 
-By default Alfresco Insight Zeppelin uses Alfresco Content Services to authenticate users, which means every user in Alfresco Content Services will be able to access Zeppelin. To limit the number of users, comment out all the `alfrescoRealm` related configuration settings in `ZEPPELIN_HOME/conf/shiro.ini`. You can configure your LDAP or AD to allow specific users access to Alfresco Insight Zeppelin.
+By default Insight Zeppelin uses Alfresco Content Services to authenticate users, which means every user in Alfresco Content Services will be able to access Zeppelin. To limit the number of users, comment out all the `alfrescoRealm` related configuration settings in `ZEPPELIN_HOME/conf/shiro.ini`. You can configure your LDAP or AD to allow specific users access to Insight Zeppelin.
 
 See the following configuration example showing that only users in the `ZeppelinUsers` group have access to the application.
 
@@ -82,7 +82,7 @@ securityManager.realms=$ldapRealm
 
 ### SSL Encryption
 
-Ideally Alfresco Insight Zeppelin is deployed on a separate server. If Alfresco Insight Zeppelin is using SSL to communicate with Alfresco Content Services you must add the following settings to each Interpreter configured with Alfresco Insight Zeppelin:
+Ideally Insight Zeppelin is deployed on a separate server. If Insight Zeppelin is using SSL to communicate with Alfresco Content Services you must add the following settings to each Interpreter configured with Insight Zeppelin:
 
 ```bash
 alfresco.enable.ssl=true
@@ -136,7 +136,7 @@ Also, if the domain name of the Alfresco Content Services repository does not ma
 
 ## Installing with Docker Compose
 
-You can deploy Alfresco Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.2 and Alfresco Search and Insight Engine.
+You can deploy Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.2 and Search and Insight Engine.
 
 For details about deployment using the Docker Compose file, see [Installation options]({% link insight-engine/latest/install/options.md %}#installing-with-docker-compose).
 
@@ -154,4 +154,4 @@ For details about deployment using the Docker Compose file, see [Installation op
 
 2. Save the file.
 
-3. Run Alfresco Insight Zeppelin using `http://localhost:9090/zeppelin`.
+3. Run Insight Zeppelin using `http://localhost:9090/zeppelin`.

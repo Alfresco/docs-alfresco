@@ -1,5 +1,5 @@
 ---
-title: Migrating Search Services and Search and Insight Engine 
+title: Migrate Search Services 
 ---
 
 Use this information to migrate from Search Services to Search and Insight Engine using the distribution zip or docker compose, including how to migrate Search and Insight Engine to Search Services.
@@ -15,7 +15,7 @@ You can migrate from Alfresco Content Services 6.2 or above with Search Services
 
 ## Migrating Content Services 6.2 with Search Services 1.3 or above
 
-Use this information to migrate from Alfresco Search Services 1.3 or above to Alfresco Search and Insight Engine 2.0 using a distribution zip.
+Use this information to migrate from Alfresco Search Services 1.3 or above to Search and Insight Engine 2.0 using a distribution zip.
 
 > **Note:** A reindex is required when you migrate from Search Services to Search and Insight Engine. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Search and Insight Engine externalized configuration]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-externalized-configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
 
@@ -27,7 +27,7 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Al
 
 2. Backup or move the existing `alfresco-search-services` folder to a preferred location. For example, `alfresco-search-services-1.x`.
 
-3. Browse to the [Support Portal](http://support.alfresco.com/).
+3. Browse to the [Support Portal](http://support.alfresco.com/){:target="_blank"}.
 
 4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
 
@@ -75,7 +75,7 @@ There are two steps to migrating your installation from Alfresco Content Service
 
 ## Migrating using Docker Compose
 
-If you already have Alfresco Content Services 6.2 with Alfresco Search Services 1.3, 1.4, or 2.0 installed, you can migrate to Alfresco Search and Insight Engine 2.0. Due to the limited capabilities of Docker Compose, this migration method is recommended for development and test environments only.
+If you already have Alfresco Content Services 6.2 with Alfresco Search Services 1.3, 1.4, or 2.0 installed, you can migrate to Search and Insight Engine 2.0. Due to the limited capabilities of Docker Compose, this migration method is recommended for development and test environments only.
 
 Use this information to migrate from Search Services to Search and Insight Engine using Docker Compose.
 
@@ -109,7 +109,7 @@ Use this information to migrate from Search Services to Search and Insight Engin
 
 ## Migrating to Search Services
 
-Use this information to migrate from Alfresco Search and Insight Engine 2.0 to Alfresco Search Services 2.0 using a distribution zip.
+Use this information to migrate from Search and Insight Engine 2.0 to Alfresco Search Services 2.0 using a distribution zip.
 
 > **Note:** A reindex is required when you migrate from Search and Insight Engine to Search Services. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Search and Insight Engine externalized configuration]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-externalized-configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
 
@@ -121,7 +121,7 @@ Use this information to migrate from Alfresco Search and Insight Engine 2.0 to A
 
 2. Backup or move the existing `./alfresco-insight-engine` folder to a preferred location. For example, `alfresco-insight-engine-2.0`.
 
-3. Browse to the [Support Portal](http://support.alfresco.com/).
+3. Browse to the [Support Portal](http://support.alfresco.com/{:target="_blank"}).
 
 4. Download and unzip the Search Services distribution zip file to a preferred location:
 

@@ -125,7 +125,7 @@ Similarly, set `nodeString` for the `archive` core.
 
 Core templates are used to define the base configuration for a new Solr core with some configuration properties.
 
-Alfresco Search and Insight Engine provides two Solr core templates out of the box. These templates live in the following folders:
+Search and Insight Engine provides two Solr core templates out of the box. These templates live in the following folders:
 
 ```bash
 <SOLR_HOME>/templates/rerank
@@ -170,7 +170,7 @@ The `<SOLR_HOME>/templates` directory contains the following structure:
 
 The core templates include schema.xml and solrconfig.xml. The main purpose is to create multiple cores on multiple machines with the same configuration.
 
-> **Note:** The `aps` and `rerankWithQueryLog` templates have been removed from the default distribution of Alfresco Search and Insight Engine from version 1.4 onwards.
+> **Note:** The `aps` and `rerankWithQueryLog` templates have been removed from the default distribution of Search and Insight Engine from version 1.4 onwards.
 
 ### Comparison between the rerank and noRerank templates
 
@@ -570,7 +570,7 @@ For more information, see [Solr Sharding]({% link insight-engine/latest/config/s
 
 ## Configuring Sharding with the Admin Console
 
-Alfresco Search and Insight Engine supports sharded indexes with SSL. Use the Search Server Sharding page to set up and configure a Solr 6 sharded search index.
+Search and Insight Engine supports sharded indexes with SSL. Use the Search Server Sharding page to set up and configure a Solr 6 sharded search index.
 
 Prerequisites for viewing the Search Server Sharding page:
 

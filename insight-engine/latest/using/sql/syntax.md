@@ -1,5 +1,5 @@
 ---
-title: Alfresco Full Text Search Reference
+title: Full text search reference
 ---
 
 The following sections describe the Alfresco Full Text Search (FTS) syntax.

@@ -1,5 +1,5 @@
 ---
-title: Setting Solr logging
+title: Solr logging
 ---
 
 You can set different debug logging levels for Solr components using the Solr log4j properties.

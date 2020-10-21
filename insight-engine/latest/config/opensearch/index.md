@@ -1,5 +1,5 @@
 ---
-title: Configuring OpenSearch
+title: OpenSearch
 ---
 
 You can configure OpenSearch to use a search engine proxy.

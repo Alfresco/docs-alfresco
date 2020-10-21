@@ -1,12 +1,12 @@
 ---
-title: Configuring Alfresco Search and Insight Engine 
+title: Configuring Search and Insight Engine 
 ---
 
-Use the following information to configure Alfresco Search and Insight Engine.
+Use the following information to configure Search and Insight Engine.
 
-## Alfresco Search and Insight Engine subsystem
+## Search and Insight Engine subsystem
 
-There is a search subsystem and it can be used to connect to Alfresco Search and Insight Engine (which is based on Solr 6).
+There is a search subsystem and it can be used to connect to Search and Insight Engine (which is based on Solr 6).
 
 Just like all previous versions of Solr, the activation and configuration of the Search and Insight Engine subsystem can be done by using either the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file or the admin console, see [Configuring using the Admin Console](#configuring-using-the-admin-console).
 
@@ -35,7 +35,7 @@ The topic describes the properties for configuring the Solr 6 search service.
 
 3. In the **Search Service** section, select **Solr 6** from the **Search Service In Use** list.
 
-4. Set the Alfresco Search and Insight Engine properties:
+4. Set the Search and Insight Engine properties:
 
     |Solr search property|Descrption|
     |--------------------|-----------|
@@ -67,7 +67,7 @@ If you do not want to save the changes, click **Cancel**.
 
 ## Search and Insight Engine directory structure
 
-After you've installed Alfresco Search and Insight Engine, several directories and configuration files related to Solr will be available in the Search and Insight Engine home directory.
+After you've installed Search and Insight Engine, several directories and configuration files related to Solr will be available in the Search and Insight Engine home directory.
 
 The Search and Insight Engine distribution (`alfresco-insight-engine-distribution-2.0.x.zip`) contains the following artifacts:
 
@@ -98,7 +98,7 @@ This directory contains the Solr-specific logging configuration file.
 
 ### Search and Insight Engine externalized configuration
 
-As a best practice, use the `alfresco-insight-engine`/`solr.in.sh` file (Linux-based platform) or `alfresco-insight-engine`/`solr.in.cmd` file (Windows-based platform) to set the external configuration that applies to all the Alfresco Search and Insight Engine cores.
+As a best practice, use the `alfresco-insight-engine`/`solr.in.sh` file (Linux-based platform) or `alfresco-insight-engine`/`solr.in.cmd` file (Windows-based platform) to set the external configuration that applies to all the Search and Insight Engine cores.
 
 > **Note:** For any property, only the environment variables should be specified in the solr.in.sh/ solr.in.cmd file. For example, `SOLR_SOLR_HOST`, `SOLR_SOLR_PORT`, or `SOLR_ALFRESCO_PORT`.
 
@@ -130,7 +130,7 @@ The following configuration properties are used by an external client, such as A
 |Environment Variable|`SOLR_SOLR_BASEURL`|
 |Default Value|`/solr`|
 
-#### `solr.content.dir` (Removed from Alfresco Search and Insight Engine 2.0)**
+#### `solr.content.dir` (Removed from Search and Insight Engine 2.0)**
 
 |Description|Specifies the location of the Solr content directory.|
 |JNDI Property|`java:comp/env/solr/content/dir`|
@@ -271,9 +271,9 @@ You need to set these properties only if you are configuring Search and Insight 
 
 ## Solr configuration files
 
-When you install Alfresco Search and Insight Engine, several Solr configuration files are made available to you. The section lists the Solr configuration files, their location in the directory structure, and their description.
+When you install Search and Insight Engine, several Solr configuration files are made available to you. The section lists the Solr configuration files, their location in the directory structure, and their description.
 
-> **Note:** Some of these files are only available once Alfresco Search and Insight Engine has been started for the first time.
+> **Note:** Some of these files are only available once Search and Insight Engine has been started for the first time.
 
 |Configuration File|Location|Description|
 |------------------|--------|-----------|

@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Solr Index and SSL configurations
+title: Troubleshooting
 ---
 
 Use this information to repair a transaction that failed to index.

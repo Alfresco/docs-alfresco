@@ -10,7 +10,7 @@ You can create the keystores, truststores and certificates required to configure
 
 ## Generating secure keys for ssl communication
 
-Use this information to generate certificates for SSL/mutual TLS authentication between the repository and Alfresco Search and Insight Engine, using secure keys specific to your installation.
+Use this information to generate certificates for SSL/mutual TLS authentication between the repository and Search and Insight Engine, using secure keys specific to your installation.
 
 A certificates generator script, `run.sh` (for Linux) and `run.cmd` (for Windows) is provided in a GitHub project. The script consists of two parts - the first part is based on OpenSSL (to generate the certificates), and the second part is based on the Java `keytool` (to build the keystores and truststores). Here, we'll focus on running the script for a standalone Linux or Windows operating system.
 
@@ -108,7 +108,7 @@ keystores
     └── ssl-repo-client.truststore
 ```
 
-> **Note:** The `zeppelin` folder is only required if you're an Enterprise customer using Alfresco Search and Insight Engine.
+> **Note:** The `zeppelin` folder is only required if you're an Enterprise customer using Search and Insight Engine.
 
 |File name|Description|
 |---------|-----------|

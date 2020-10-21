@@ -1,5 +1,5 @@
 ---
-title: Document Fingerprints
+title: Fingerprints
 ---
 
 Alfresco Content Services 6.2 provides support for Document Fingerprints to find related documents. Document Fingerprinting is performed by algorithms that map data, such as documents and files to shorter text strings, also known as fingerprints. This feature is exposed as a part of the Alfresco Full Text Search Query Language.

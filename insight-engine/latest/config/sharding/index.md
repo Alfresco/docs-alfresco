@@ -54,7 +54,7 @@ A specific configuration attribute, called `shard.method` defines the logic/stra
 
 To use a specific sharding method, when creating a Solr node you must add the required configuration properties in `solrcore.properties`. The sharding method is set with the required property, `shard_method`. Additional properties may then be needed, depending on your chosen method. If an invalid `shard_method` is provided, then the system will fallback to DBID routing.
 
-Alfresco Search and Insight Engine can use any of the following methods for routing documents and ACLs to shards.
+Search and Insight Engine can use any of the following methods for routing documents and ACLs to shards.
 
 ### ACL (MOD_ACL_ID) v1
 
@@ -265,15 +265,15 @@ This should allow the user to store anywhere between 50 million - 80 million doc
 
 ## Does sharding work with SSL enabled?
 
-Alfresco Content Services 6.x uses Alfresco Search and Insight Engine (Solr 6), so sharding is supported with full SSL and non-SSL. Make sure you configure the Solr and SSL settings properly.
+Alfresco Content Services 6.x uses Search and Insight Engine (Solr 6), so sharding is supported with full SSL and non-SSL. Make sure you configure the Solr and SSL settings properly.
 
 For more information, see [Installation options]({% link insight-engine/latest/install/options.md %}).
 
 ## Are there any considerations for query load and number of documents?
 
-Before sharding your Solr index, it is important to consider your query load and the size of your repository. You need to create machines to host Solr. For more information, see [Configuring Alfresco Search and Insight Engine]({% link insight-engine/latest/config/index.md %}). For example, if you need 5 shards, you need to setup those 5 machines, and have Solr instances running on all the 5 machines. Once your machines are ready, you are ready to set up or register shards.
+Before sharding your Solr index, it is important to consider your query load and the size of your repository. You need to create machines to host Solr. For more information, see [Configuring Search and Insight Engine]({% link insight-engine/latest/config/index.md %}). For example, if you need 5 shards, you need to setup those 5 machines, and have Solr instances running on all the 5 machines. Once your machines are ready, you are ready to set up or register shards.
 
-For more information, see [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create/index.md %}#Dynamic shard registration).
+For more information, see [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create/index.md %}#do-i-need-dynamic-shard-registration).
 
 ## After upgrading, can I use my current index while building a new sharded index?
 
@@ -282,7 +282,7 @@ Yes. After upgrading to Alfresco Content Services 6.2, continue to use the old s
 ## Upgrading from 5.0 with Solr 4 to 6.2 (with zero downtime)
 
 1. Upgrade to 6.2 and continue to use the Solr 4 search service as before.
-2. Configure a separate sharded Solr 4 index with the [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create/index.md %}#Core Templates) to track the repository. For details, see [Solr Sharding](#solr-sharding).
+2. Configure a separate sharded Solr 4 index to track the repository. For details, see [Solr Sharding](#solr-sharding).
 3. While the new sharded Solr 4 builds its indexes, you can monitor the progress using the Solr Admin Web interface. For details, see [Solr security]({% link insight-engine/latest/config/security/index.md %}.
 4. When the sharded Solr 4 index is updated, enable the sharded Solr 4 index by setting the `solr.host` property.
 

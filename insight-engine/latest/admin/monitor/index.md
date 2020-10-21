@@ -1,5 +1,5 @@
 ---
-title: Unindexed Solr Transactions
+title: Unindexed transactions
 ---
 
 You can check the status of the Solr index to identify the nodes to a transaction that failed to index.

@@ -1,16 +1,16 @@
 ---
-title: JDBC Driver
+title: JDBC driver
 ---
 
-Alfresco Search and Insight Engine includes a JDBC thin client that can be used with Alfresco Insight Zeppelin and other SQL clients.
+Search and Insight Engine includes a JDBC thin client that can be used with Insight Zeppelin and other SQL clients.
 
 To access the client log into [https://nexus.alfresco.com/nexus/#welcome](https://nexus.alfresco.com/nexus/#welcome) and search for `alfresco-insight-jdbc-2.0.0.jar`.
 
-> **Note:** Contact [Alfresco Support](https://support.alfresco.com/) for log in credentials.
+> **Note:** Contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for log in credentials.
 
 ## Connection String
 
-The connection string's host and port should point to the Alfresco Content Services repository. The Alfresco Content Services repository performs the authentication. It applies the access control lists to the request before forwarding the request to Alfresco Search and Insight Engine.
+The connection string's host and port should point to the Alfresco Content Services repository. The Alfresco Content Services repository performs the authentication. It applies the access control lists to the request before forwarding the request to Search and Insight Engine.
 
 The JDBC connection string uses the following format:
 
@@ -82,7 +82,7 @@ alfresco.ssl.checkPeerName: false
 
 ## Authentication and Authorization
 
-The Alfresco Search and Insight Engine JDBC driver logs into Alfresco Content Services using the same credentials used to access the Alfresco Content Services repository. The results of all queries are limited to the documents the user has been authorized to read.
+The Search and Insight Engine JDBC driver logs into Alfresco Content Services using the same credentials used to access the Alfresco Content Services repository. The results of all queries are limited to the documents the user has been authorized to read.
 
 ### Usage
 

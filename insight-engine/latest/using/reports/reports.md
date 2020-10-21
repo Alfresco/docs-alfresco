@@ -1,12 +1,12 @@
 ---
-title: Reports and other tools
+title: Reports and dashboards
 ---
 
-Alfresco Insight Zeppelin lets you create reports using SQL. The reports can be put together to make a dashboard. You can also use other business intelligence tools.
+Insight Zeppelin lets you create reports using SQL. The reports can be put together to make a dashboard. You can also use other business intelligence tools.
 
 ## Insight Zeppelin
 
-> **Note:** Before upgrading Alfresco Insight Zeppelin ensure you backup your notes first. Then once the upgrade is complete you can re-import them. See [Export/Import Alfresco Insight Zeppelin Notes]({% link insight-engine/latest/config/note.md %})
+> **Note:** Before upgrading Insight Zeppelin ensure you backup your notes first. Then once the upgrade is complete you can re-import them. See [Export/Import Insight Zeppelin Notes](#export/import-insight-zeppelin-notes)
 
 This is a list of pre-configured reports:
 
@@ -35,6 +35,32 @@ The following image shows an example dashboard created using the pre-configured 
 
 ## Other business intelligence tools
 
-In addition to using Alfresco Insight Zeppelin for reporting you can also use any application that supports ODBC connectivity.
+In addition to using Insight Zeppelin for reporting you can also use any application that supports ODBC connectivity.
 
 The CData ODBC Driver for Alfresco 2019 enables you to have real-time access to your data so you can run reports on the contents of the repository. Currently Alfresco has tested Tableau and Microsoft Excel. For more information and how to install the CData ODBC Driver see the following documentation [CData ODBC Driver for Alfresco 2019](http://cdn.cdata.com/help/SJE/odbc/default.htm).
+
+## Export/Import Insight Zeppelin Notes
+
+Before upgrading Search and Insight Engine ensure you export each individual Insight Zeppelin note so you can reimport them after the upgrade. If you don't do this your notes will be lost as they do not carry over during the upgrade.
+
+> **Note:** When importing an Insight Zeppelin note you may need to set its note permissions again.
+
+Use these steps to export and import your Insight Zeppelin notes.
+
+1. Go to Insight Zeppelin.
+
+2. On the Welcome to Zeppelin home page access a note.
+
+3. Click the **Export this note** button.
+
+4. Return to the Welcome to Zeppelin home page and repeat the procedure for all your notes.
+
+5. Once the upgrade is complete return to the Welcome to Zeppelin home page.
+
+6. Click **Import note**.
+
+7. Click **Select JSON file** and select the note you want to reimport.
+
+    If you want to reimport the note with a different name you can enter it into the **Import as** field.
+
+8. Repeat the procedure for all your notes.

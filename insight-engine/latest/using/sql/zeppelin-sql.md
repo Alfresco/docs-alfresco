@@ -2,9 +2,9 @@
 title: Sample Insight Zeppelin SQL
 ---
 
-Using Alfresco Insight Zeppelin you can create some reports with the following example SQL queries:
+Using Insight Zeppelin you can create some reports with the following example SQL queries:
 
-> **Note:** Alfresco Insight Zeppelin comes with a note and example reports, see [Alfresco Insight Zeppelin reports and notes]({% link insight-engine/latest/config/note.md %}).
+> **Note:** Insight Zeppelin comes with a note and example reports, see [Insight Zeppelin reports and notes]({% link insight-engine/latest/using/reports/reports.md %}).
 
 ### The number of documents in the repository
 
