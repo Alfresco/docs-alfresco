@@ -88,7 +88,7 @@ You should now have six nodes with four cores, each actively tracking the reposi
 |----------|-----------|
 |numShards|Specifies the number of logical shards, for example `8`.|
 |storeRef|Specifies reference to a node store, for example `workspace://SpacesStore`|
-|template|Defines the base configuration for a new Solr core with some configuration properties set using the URL as shown in Step 1(b).For more information, see [Core templates](#Core-templates), for example `template=rerank`.|
+|template|Defines the base configuration for a new Solr core with some configuration properties set using the URL as shown in Step 1(b).For more information, see [Core templates](#core-templates), for example `template=rerank`.|
 |replicationFactor|Specifies the number of copies of each document (or, the number of physical instances to be created for each logical shard). A `replicationFactor` of 3 means that there will be 3 instances for each logical shard, for example `3`.|
 |nodeInstance|Specifies the Solr node instance being configured, for example `6`.|
 |numNodes|Returns the total number of Solr nodes for example `6`.|
@@ -877,7 +877,7 @@ Use a JMX client to find shards at query time.
         numShards=10
         ```
 
-## Reindex docuements by query
+## Reindex documents by query
 
 You can selectively reindex a small subset of the index based on a query. This enables a limited rebuild of the index.
 
