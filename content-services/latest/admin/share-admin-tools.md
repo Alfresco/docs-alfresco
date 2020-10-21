@@ -138,7 +138,7 @@ Use the **Category Manager** to add, edit, and delete content categories.
 
     You can categorize files using parent categories and their child categories.
 
-2.  Click the category icons (![category-icon]({% link content-services/images/category-icon.png %}){:height="18px" width="18px"}. to expand the list of categories.
+2.  Click the category icons (![category-icon]({% link content-services/images/category-icon.jpg %}){:height="18px" width="18px"}. to expand the list of categories.
 
     When you hover over the category name, you see the available action icons for: **Edit category** (![ico-configure]({% link content-services/images/ico-configure.png %}){:height="18px" width="18px"}ico-configure.png)), **Add category** (![ico-admin-add]({% link content-services/images/ico-admin-add.png %}){:height="18px" width="18px"}, and **Delete category** (![ico-delete]({% link content-services/images/ico-delete.png %}){:height="18px" width="18px"}.
 
