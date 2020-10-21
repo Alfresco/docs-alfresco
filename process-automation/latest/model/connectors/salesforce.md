@@ -21,7 +21,7 @@ The actions that can be executed using the Salesforce connector are:
 * [Reject a Salesforce object instance submitted for approval](#reject-an-object-instance-submitted-for-approval)
 * [Create a new custom object in Salesforce](#create-a-custom-object-definition)
 
-> **Important**: The Salesforce connector requires a [Salesforce developer account](https://developer.salesforce.com/signup){:target="_blank"} to interact with.
+> **Important**: The Salesforce connector requires a [Salesforce developer account](https://developer.salesforce.com/signup){:target="_blank"} to interact with and a **Connected App** set up to interact with the Process Automation connector.
 
 ## Create an object instance
 
@@ -196,11 +196,11 @@ The configuration parameters for the Salesforce connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| SALESFORCE_CLIENT_ID | *Required.* The ID of your Salesforce account. |
-| SALESFORCE_CLIENT_SECRET | *Required.* The secret associated to your Salesforce account. |
+| SALESFORCE_CLIENT_ID | *Required.* The ID of your Salesforce account. When viewing your application in the Salesforce App Manager this is called the **Consumer Key**.  |
+| SALESFORCE_CLIENT_SECRET | *Required.* The secret associated to your Salesforce account. When viewing your application in the Salesforce App Manager this is called the **Consumer Secret**. |
 | SALESFORCE_USERNAME | *Required.* The user that the connector will use to interact with Salesforce. |
 | SALESFORCE_PASSWORD | *Required.* The password for the user that will interact with Salesforce. |
-| SALESFORCE_SECURITY_TOKEN | *Required.* The security token for the user that will interact with Salesforce. |
+| SALESFORCE_SECURITY_TOKEN | *Required.* The security token for the user that will interact with Salesforce. To obtain this token, log into Salesforce with the user and navigate to **Settings > My Personal Information**. |
 | SALESFORCE_URL_LOGIN | *Required.* The URL to login to Salesforce, for example `https://login.salesforce.com/services/oauth2/token`. |
 | SALESFORCE_SOAP_URL_LOGIN | *Required.* The URL for SOAP requests, for example `https://login.salesforce.com/services/Soap/c/45.0`. |
 | SALESFORCE_VERSION | *Required.* The version of Salesforce, for example `45.0`. |
