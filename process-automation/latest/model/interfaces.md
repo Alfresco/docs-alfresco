@@ -39,7 +39,7 @@ Once a user interface has been created, set the type to `content` to deploy the 
 
 ## Custom user interfaces
 
-Custom user interfaces can be [developed](LINK) with the [Application Development Framework](LINK) and deployed as part of the project.
+Custom user interfaces can be [developed]({% link process-automation/latest/develop/index.md %}) with the [Application Development Framework](https://www.alfresco.com/abn/adf/docs/){:target="_blank"} and deployed as part of the project.
 
 ## Actions
 

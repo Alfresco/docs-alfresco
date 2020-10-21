@@ -2,10 +2,7 @@
 title: Overview
 ---
 
-
-
-
-The three areas to develop and extend in Process Automation are:
+The custom development of Process Automation is restricted to four areas:
 
 * Communicating with external systems from an application.
 * Extend the Digital Workspace interface for end users.

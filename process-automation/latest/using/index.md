@@ -6,7 +6,7 @@ The default user interface for managing content, processes and tasks is the [Alf
 
 Users need to have been given [user access]({% link process-automation/latest/admin/release.md %}#deploy-steps/user) to an application in order to access and manage content and processes in the Digital Workspace.
 
-> **Note**: The Digital Workspace can be [extended](LINK) or replaced with a [custom interface](LINK) built using the Application Development Framework.
+> **Note**: The Digital Workspace can be [extended]({% link process-automation/latest/develop/index.md %}#extend-the-digital-workspace) or replaced with a [custom interface]({% link process-automation/latest/develop/index.md %}#develop-a-custom-user-interface) built using the Application Development Framework.
 
 ## Processes
 
