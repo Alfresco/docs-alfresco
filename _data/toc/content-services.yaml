@@ -5,9 +5,9 @@
       path: '/content-services/latest/'
     - title: 'Administer'
       pages:
-        - title: 'Using the Repository Admin Console'
+        - title: 'Repository Admin Console'
           path: '/content-services/latest/admin/admin-console/'
-        - title: 'Using the Share Admin Tools'
+        - title: 'Share Admin Tools'
           path: '/content-services/latest/admin/share-admin-tools/'
         - title: 'Manage file and folder templates'
           path: '/content-services/latest/admin/filefolder-templates/'

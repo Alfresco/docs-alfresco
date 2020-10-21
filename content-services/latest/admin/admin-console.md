@@ -1,5 +1,5 @@
 ---
-title: Using the Repository Admin Console
+title: Repository Admin Console
 ---
 
 The Repository Admin Console application gives you control over the management and settings of the 

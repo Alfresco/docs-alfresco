@@ -1,0 +1,9 @@
+# Alfresco Content Services Tutorials
+- version: 6.2
+  pages:
+    - title: 'Tutorials'
+      path: '/content-services/latest/tutorial/'
+    - title: 'Videos'
+      pages:
+        - title: 'Admin'
+          path: '/content-services/latest/tutorial/admin/'
