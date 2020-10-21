@@ -67,11 +67,11 @@ This method is beneficial if you have lots of ACLs and the documents are evenly 
 The node distribution may be uneven as it depends how many nodes share ACLs.
 To use this method when creating a shard, set the following configuration:
 
-    ```bash
-    shard.method=MOD_ACL_ID
-    shard.instance=<shard.instance>
-    shard.count=<shard.count>
-    ```
+```text
+shard.method=MOD_ACL_ID
+shard.instance=<shard.instance>
+shard.count=<shard.count>
+```
 
 ### ACL (ACL_ID) v2
 
@@ -79,11 +79,11 @@ This method is available in all versions of Search and Insight Engine.
 
 This sharding method is the same as `ACL ID` v1 except that the murmur hash of the ACL ID is used in preference to its modulus. This gives better distribution of ACLs over shards. The distribution of documents over ACLs is not affected and so the shard sizes can still be skewed.
 
-    ```bash
-    shard.method=ACL_ID
-    shard.instance=<shard.instance>
-    shard.count=<shard.count>
-    ```
+```text
+shard.method=ACL_ID
+shard.instance=<shard.instance>
+shard.count=<shard.count>
+```
 
 ### DBID (DB_ID)
 
@@ -91,11 +91,11 @@ This method is available in all versions of Search and Insight Engine and is the
 
 To use this method when creating a shard, set the following configuration:
 
-    ```bash
-    shard.method=DB_ID
-    shard.instance=<shard.instance>
-    shard.count=<shard.count>
-    ```
+```text
+shard.method=DB_ID
+shard.instance=<shard.instance>
+shard.count=<shard.count>
+```
 
 ### DBID range (DB_ID_RANGE)
 
@@ -109,11 +109,11 @@ For each shard, you specify the range of DBIDs to be included. As your repositor
 
 To use this method when creating a shard, set the following configuration:
 
-    ```bash
-    shard.method=DB_ID_RANGE
-    shard.range=0-20000000
-    shard.instance=<shard.instance>
-    ```
+```text
+shard.method=DB_ID_RANGE
+shard.range=0-20000000
+shard.instance=<shard.instance>
+```
 
 **Example 2:** If there are 100M (million) nodes and you want to split them into 10 shards with 10M nodes each. So, at the start you can specify:
 
@@ -132,18 +132,18 @@ If the property is not present on a node, sharding falls back to the DBID method
 
 To use this method when creating a shard, set the following configuration:
 
-    ```bash
-    shard.key=exif:dateTimeOriginal
-    shard.method=DATE
-    shard.instance=<shard.instance>
-    shard.count=<shard.count>
-    ```
+```text
+shard.key=exif:dateTimeOriginal
+shard.method=DATE
+shard.instance=<shard.instance>
+shard.count=<shard.count>
+```
 
 Months can be grouped together, for example, by quarter. Each quarter of data would be assigned sequentially through the available shards.
 
-    ```bash
-    shard.date.grouping=3
-    ```
+```text
+shard.date.grouping=3
+```
 
 ### Metadata (PROPERTY)
 
@@ -155,18 +155,18 @@ If the property is not present on a node, sharding falls back to the DBID method
 
 To use this method when creating a shard, set the following configuration:
 
-    ```bash
-    shard.key=cm:creator
-    shard.method=PROPERTY
-    shard.instance=<shard.instance>
-    shard.count=<shard.count>
-    ```
+```text
+shard.key=cm:creator
+shard.method=PROPERTY
+shard.instance=<shard.instance>
+shard.count=<shard.count>
+```
 
 It is possible to extract a part of the property value to use for sharding using a regular expression, for example, a year at the start of a string:
 
-    ```bash
-    shard.regex=^d{4}
-    ```
+```text
+shard.regex=^d{4}
+```
 
 If the regular expression doesn't match the property (e.g. the string doesn't start with a four-digit year) then this causes a fallback to DBID sharding.
 
@@ -178,12 +178,12 @@ This method is similar to sharding by metadata. Rather than hashing the property
 
 To use this method when creating a shard, set the following configuration:
 
-    ```bash
-    shard.method=EXPLICIT_ID
-    shard.key=cm:targetShardInstance
-    shard.instance=<shard.instance>
-    shard.count=<shard.count>
-    ```
+```text
+shard.method=EXPLICIT_ID
+shard.key=cm:targetShardInstance
+shard.instance=<shard.instance>
+shard.count=<shard.count>
+```
 
 > **Note:** The **ACL v1 (MOD_ACL_ID)** sharding method was the only method available in Solr4.
 
