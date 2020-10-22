@@ -1554,7 +1554,7 @@ Once the Identity Service has been deployed, there are two steps to configure Co
 
 #### Identity Service configuration properties {#isprops}
 
-Use this information to configure Alfresco Content Services to authenticate using Identity Service.
+Use this information to configure Content Services to authenticate using Identity Service.
 
 Configure the `alfresco-global.properties` file using the below properties:
 
@@ -1571,12 +1571,12 @@ Configure the `alfresco-global.properties` file using the below properties:
 |identity-service.auth-server-url|Base URL of the Identity Service server. Will be in the format `https://{server}:{port}/auth`|`http://localhost:8180/auth`|
 |identity-service.realm|Name of the realm configured in the Identity Service.|`alfresco`|
 |identity-service.ssl-required|Whether communication to and from the Identity Service server is over HTTPS. Possible values are `all` for all requests, `external` for external requests or `none`. This property needs to match the equivalent setting for **Require SSL** in your realm within the Identity Service administration console.|`none`|
-|identity-service.resource|The **Client ID** for the client created within your realm that points to Alfresco Content Services.|`alfresco`|
+|identity-service.resource|The **Client ID** for the client created within your realm that points to Content Services.|`alfresco`|
 |identity-service.public-client|The adapter will not send credentials for the client to the Identity Service if this is set to `true`.|`true`|
 
 ## Configuring synchronization
 
-The synchronization subsystem manages the synchronization of Alfresco Content Services with all the user 
+The synchronization subsystem manages the synchronization of Content Services with all the user 
 registries (LDAP servers) in the authentication chain.
 
 The synchronization subsystem supports three modes of synchronization:
@@ -1584,7 +1584,7 @@ The synchronization subsystem supports three modes of synchronization:
 |Synchronization mode|Description|
 |--------------------|-----------|
 |Full|All users and groups are queried, regardless of when they were last modified. All local copies of these users and groups already existing are then updated and new copies are made of new users and groups. Since processing all users and groups in this manner can be fairly time consuming, this mode of synchronization is usually only triggered on the very first sync when the subsystem first starts up. However, synchronization can also be triggered in this mode by the scheduled synchronization job, if `synchronization.synchronizeChangesOnly` is set to false.|
-|Differential|Only those users and groups changed since the last query are queried and created/updated locally. This differential mode is much faster than full synchronization. By default, it is triggered when the subsystem starts up after the first time and also when a user is successfully authenticated who does not yet have a local person object in Alfresco Content Services. This means that new users, and their group information, are pulled over from LDAP servers as and when required with minimal overhead.|
+|Differential|Only those users and groups changed since the last query are queried and created/updated locally. This differential mode is much faster than full synchronization. By default, it is triggered when the subsystem starts up after the first time and also when a user is successfully authenticated who does not yet have a local person object in Content Services. This means that new users, and their group information, are pulled over from LDAP servers as and when required with minimal overhead.|
 |Differential With Removals|All users and groups are queried to determine which ones no longer exist and can be disabled or deleted locally. In order to synchronize the attributes of the remaining users and groups, a differential sync is performed so only those users and groups that have changed since the last sync are updated or added locally.|
 
 ### Synchronization triggers
@@ -1607,8 +1607,8 @@ This records the ID of the authentication subsystem instance that the user or gr
 On synchronization with a zone, only those users and groups tagged with that zone are candidates for deletion. 
 This avoids accidental deletion of built-in groups, such as `ALFRESCO_ADMINISTRATORS`.
 
-When a removed user or group is detected, Alfresco Content Services will behave in one of two ways, depending on the 
-value of the `synchronization.allowDeletions` property. When `true` (the default value), Alfresco Content Services 
+When a removed user or group is detected, Content Services will behave in one of two ways, depending on the 
+value of the `synchronization.allowDeletions` property. When `true` (the default value), Content Services 
 simply deletes the user or group from the local repository. When false, the user or group is simply untagged from 
 its zone, thus converting it to a local user or group. A removed user also loses its memberships from any of the 
 LDAP groups they were in, whereas, a removed group is cleared of all their members. As the user or group is retained in 
@@ -1640,18 +1640,309 @@ The following properties can be configured for the synchronization subsystem.
 |synchronization.allowDeletions|Specifies if deletion of local users and groups is allowed. See the information about [Synchronization deletion](#syncdeletedesc) and [Collision resolution](#synccollisiondesc) for the circumstances under which this can happen. The default is true. If false, then no sync job will be allowed to delete users or groups during the handling of removals or collision resolution.|
 |synchronization.import.cron|Specifies a cron expression defining when the scheduled synchronization job should run, by default at midnight every day.<br><br>For more information about the cron expression, see the [CronTrigger tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-06.html).|
 |synchronization.syncOnStartup|Specifies whether to trigger a differential sync when the subsystem starts up. The default is true. This ensures that when user registries are first configured, the bulk of the synchronization work is done on server startup, rather than on the first login.|
-|synchronization.syncWhenMissingPeopleLogIn|Specifies whether to trigger a differential sync when a user, who does not yet exist, is successfully authenticated. The default is true. If there are users created in the LDAP server that do not already exist, when you start Alfresco Content Services, a differential synchronization is triggered.|
-|synchronization.autoCreatePeopleOnLogin|Specifies whether to create a user with default properties when a user is successfully authenticated, who does not yet exist, and was not returned by a differential sync (if enabled with the specified property). The default is true. Setting this to false allows you to restrict Alfresco Content Services to a subset of those users who could be authenticated by LDAP; only those created by synchronization are allowed to log in. You can control the set of users in this more restricted set by overriding the user query properties of the LDAP authentication subsystem.|
+|synchronization.syncWhenMissingPeopleLogIn|Specifies whether to trigger a differential sync when a user, who does not yet exist, is successfully authenticated. The default is true. If there are users created in the LDAP server that do not already exist, when you start Content Services, a differential synchronization is triggered.|
+|synchronization.autoCreatePeopleOnLogin|Specifies whether to create a user with default properties when a user is successfully authenticated, who does not yet exist, and was not returned by a differential sync (if enabled with the specified property). The default is true. Setting this to false allows you to restrict Content Services to a subset of those users who could be authenticated by LDAP; only those created by synchronization are allowed to log in. You can control the set of users in this more restricted set by overriding the user query properties of the LDAP authentication subsystem.|
 
 ## Managing authentication directories {#manageauthdirs}
+
+Use **Directory Management** in the Repo Admin Console to set up authentication chains, and configure external SSO 
+and FTP authentication. The Directory Management feature gives you the ability to configure and test connections to 
+various directory services. 
+
+The Directory Management page provides an interface for you to:
+
+* create, configure and manage internal directories, OpenLDAP and Active Directory
+* configure authentication chain options for services, such as browser SSO
+* test connections to various services before activating them in the authentication chain
+* manage common user synchronization settings
+* easily set up directory services without using property files
+
 ### Managing the authentication chain
+
+Use these instructions to add and configure the authentication chain.
+
+1.  Open the **Repo Admin Console**.
+
+2.  In the **Directories** section, click **Directory Management**.
+
+    You see the **Directory Management** page.
+
+3.  In the **Authentication Chain** section, specify the name of the new directory in the **Name:** field.
+
+4.  Specify the authentication subsystem type from the **Type:** menu.
+
+    >**Note:** If you have an **External** authentication type, the relevant directory will always appear as the first item in the chain.
+
+5.  Click **Add**.
+
+    The new authentication chain appears in the table.
+
+    The Authentication Chain table has the following fields:
+
+    * **Order**: Use the up and down arrows to reorder the authentication chain.
+    * **Name**: Specifies the name of the authentication chain.
+    * **Type**: Specifies the authentication subsystem type, such as OpenLDAP, Active Directory, Kerberos, and External.
+    * **Enables**: Specifies if authentication is enabled or not.
+    * **Synchronized**: Specifies if the authentication chain is synchronized or not.
+    * **Actions**: Enables you to perform specific actions on the selected authentication chain, such as:
+        * **Edit**: Enables you to configure the authentication directories. See [Managing authentication directories](../concepts/adminconsole-directorymgt-cp.md) for more information.
+        * **Test**: Enables you to run an authentication test. To process the test request, you need a valid user name and password.
+        * **Reset**: Enables you to reset the directory to its initial settings or default values. You will lose all changes you have made to this directory since it was created.
+        * **Remove**: Removes the directory from the authentication chain list.
+        * **Test synchronize**: Enables you to check if synchronization is configured correctly.
+        
+    >**Note:** You can only edit a directory after it has been added and saved. If you have not yet saved the entry, the only option available is Remove.
+
+6.  To manage synchronization with all the user registries (LDAP servers) in the authentication chain, click **Synchronization Settings**.
+
+    You see the Synchronization Settings page. See [Synchronization Settings](#managesyncsettings) for more information.
+
+7.  To start the user directory sync of all users and groups, click **Run Synchronize**.
+
+8.  Click **Save** to apply the changes you have made to the authentication chain.
+
+    If you do not want to save the changes, click **Cancel**.
+
 #### Managing authentication directories using Admin Console
+
+The authentication subsystem support certain properties that can be configured to integrate the subsystem with 
+Content Services. You can manage the various subsystems using their configuration properties.
+
+Click the relevant authentication directory for more information.
+
 ##### Configuring OpenLDAP or Oracle Directory Server
+
+Use these instructions to configure OpenLDAP or Oracle Directory Server using the configuration properties in the Admin Console.
+
+1.  Open the **Repo Admin Console**.
+
+2.  In the **Directories** section, click **Directory Management**.
+
+    You see the **Directory Management** page.
+
+3.  In the **Authentication Chain** section, under **Actions**, click **Edit** for the OpenLDAP or Oracle Directory Server directory.
+
+    >**Note:** You can only edit a directory after it has been added and saved. If you have not yet saved the entry, the only option available is Remove.
+
+    You see the **Edit LDAP Directory** page.
+
+4.  Set the configuration properties.
+
+    |Synchronization property|Example setting|What is it?|
+    |------------------------|---------------|-----------|
+    |Authentication Enabled|Yes|This specifies that the directory will be used to authenticate users.|
+    |User Name Format|-|This specifies how to map the user identifier entered by the user to that passed through to LDAP.|
+    |LDAP Server URL|ldap://ldap.domain.com:389|This specifies the URL of your LDAP server, containing its name and port. The standard ports for LDAP are 389 (and 636 for SSL)|
+    |Security|simple|This specifies the mechanism used authenticate with the LDAP server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](../concepts/auth-ldap-props.md) for more information.|
+    |Default Administrator User Names|-|This specifies a comma separated list of user names to be considered administrators by default. If you are using LDAP for all your users, this maps an LDAP user to be an administrator user.|
+    |Authenticate FTP|Yes|This enables authentication for FTP access.|
+    |Synchronization Enabled|Yes|This enables user and group synchronization. It might be that this connection should only be used for authentication, in which case this flag should be set to false.|
+    |Security Principal Name|cn=Manager,dc=company,dc=com|This specifies the LDAP user to connect for the export operation, if one is required by the `ldap.synchronization.java.naming.security.authentication` authentication mechanism. This should be in the same format as `ldap.authentication.userNameFormat` but with a real user ID instead of `%s`.|
+    |Security|simple|This specifies the mechanism to use to authenticate with the LDAP Synchronization server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](../concepts/auth-ldap-props.md) for more information.|
+    |Group query|(objectclass=groupOfNames)|This specifies the query to select all objects that represent the groups to export. This query is used in full synchronization mode, which by default is scheduled every 24 hours. The default is `(objectclass=groupOfNames)`.|
+    |Security Principal Credentials|secret|This specifies the password for the default principal (only used for LDAP sync). Click **Show Password** to reveal the password. Click **Hide Password** to hide the password.|
+    |User Search Base|ou=People,dc=company,dc=com|This specifies the DN below which to run the user queries.|
+    |Group Search Base|ou=Groups,dc=company,dc=com|This specifies the DN below which to run the group queries.|
+    |Person Differential Query|(&(objectclass=inetOrgPerson)(!(modifyTimestamp<={0})))|This specifies the query to select the objects that represent the users to export that have changed since a certain time. It should use the placeholder {0} in place of a timestamp in the format specified by `ldap.synchronization.timestampFormat`. This query is used in differential synchronization mode, which by default is triggered whenever a user, that does not yet exist, is successfully authenticated.|
+    |Person Query|(objectclass=inetOrgPerson)|This specifies the query to select all objects that represent the users to export. This query is used in full synchronization mode, which by default is scheduled every 24 hours.|
+
+    >**Note:** The Edit LDAP Directory page also displays certain advanced LDAP synchronization properties. It is recommended that you do not change these settings.
+
+5.  Click **Save** to apply the changes you have made to the OpenLDAP or Oracle Directory Server directory.
+
+    If you do not want to save the changes, click **Close**.
+
 ##### Configuring LDAP (Active Directory)
+
+Use these instructions to configure LDAP-AD using the configuration properties in the Admin Console.
+
+1.  Open the **Repo Admin Console**.
+
+2.  In the **Directories** section, click **Directory Management**.
+
+    You see the **Directory Management** page.
+
+3.  In the **Authentication Chain** section, under **Actions**, click **Edit** for the LDAP (Active Directory) directory.
+
+    >**Note:** You can only edit a directory after it has been added and saved. If you have not yet saved the entry, the only option available is Remove.
+
+    You see the **Edit LDAP-AD Directory** page.
+
+4.  Set the configuration properties.
+
+    |Synchronization property|Example setting|What is it?|
+    |------------------------|---------------|-----------|
+    |Authentication Enabled|Yes|This specifies that the directory will be used to authenticate users.|
+    |User Name Format|%s@domain|This specifies how to map the user identifier entered by the user to that passed through to LDAP.|
+    |LDAP Server URL|ldap://$LDAP_HOST:$LDAP_HOST_PORT|This specifies the URL of your LDAP server, containing its name and port. The standard ports for LDAP are 389 (and 636 for SSL)|
+    |Security|simple|This specifies the mechanism used authenticate with the LDAP server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](../concepts/auth-ldap-props.md) for more information.|
+    |Default Administrator User Names|Administrator|This specifies a comma separated list of user names to be considered administrators by default. If you are using LDAP for all your users, this maps an LDAP user to be an administrator user.|
+    |Authenticate FTP|Yes|This enables authentication for FTP access.|
+    |Synchronization Enabled|Yes|This enables user and group synchronization. It might be that this connection should only be used for authentication, in which case this flag should be set to false.|
+    |Security Principal Name|cn=Manager,dc=company,dc=com|This specifies the LDAP user to connect for the export operation, if one is required by the `ldap.synchronization.java.naming.security.authentication` authentication mechanism. This should be in the same format as `ldap.authentication.userNameFormat` but with a real user ID instead of `%s`.|
+    |Security|simple|This specifies the mechanism to use to authenticate with the LDAP Synchronization server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](../concepts/auth-ldap-props.md) for more information.|
+    |Group query|(objectclass=group)|This specifies the query to select all objects that represent the groups to export. This query is used in full synchronization mode, which by default is scheduled every 24 hours. The default is `(objectclass=groupOfNames)`.|
+    |Security Principal Credentials|secret|This specifies the password for the default principal (only used for LDAP sync). Click **Show Password** to reveal the password. Click **Hide Password** to hide the password.|
+    |User Search Base|ou=People,dc=company,dc=com|This specifies the DN below which to run the user queries.|
+    |Group Search Base|ou=Groups,dc=company,dc=com|This specifies the DN below which to run the group queries.|
+    |Person Differential Query|(&(objectclass\=user)(userAccountControl\:1.2.840.113556.1.4.803\:\=512)(!(whenChanged<\={0})))|The query to select the objects that represent the users to import to Content Services that have changed since a certain time. It should use the placeholder {0} in place of a timestamp in the format specified by `ldap.synchronization.timestampFormat`. This query is used in differential synchronization mode, which by default is triggered whenever a user, that does not yet exist, is successfully authenticated.|
+    |Person Query|(objectclass=user)|This specifies the query to select all objects that represent the users to export. This query is used in full synchronization mode, which by default is scheduled every 24 hours.|
+
+    >**Note:** The Edit LDAP Directory page also displays certain advanced LDAP synchronization properties. It is recommended that you do not change these settings.
+
+5.  Click **Save** to apply the changes you have made to LDAP Active Directory.
+
+    If you do not want to save the changes, click **Close**.
+
 ##### Configuring Kerberos {#manageauthdirsconfigkerberso}
+
+Use these instructions to configure Kerberos using the configuration properties in the Admin Console.
+
+1.  Open the **Repo Admin Console**.
+
+2.  In the **Directories** section, click **Directory Management**.
+
+    You see the **Directory Management** page.
+
+3.  In the **Authentication Chain** section, under **Actions**, click **Edit** for the Kerberos directory.
+
+    >**Note:** You can only edit a directory after it has been added and saved. If you have not yet saved the entry, the only option available is Remove.
+
+    You see the **Edit Kerberos Directory** page.
+
+4.  Set the configuration properties.
+
+    |Synchronization property|Example setting|What is it?|
+    |------------------------|---------------|-----------|
+    |User Config Entry Name|Alfresco|This specifies the entry in the JAAS configuration file that should be used for password-based authentication. The recommended default value is Alfresco.|
+    |Administrator User Names|-|This specifies a comma separated list of user names to be considered administrators by default.|
+    |Kerberos Authentication Realm|ALFRESCO.ORG|This specifies the Kerberos realm used for authentication. The realm should be the domain in upper case. For example, if the domain is `alfresco.org`, then the realm should be `ALFRESCO.ORG`.|
+    |HTTP Config Entry Name|AlfrescoHTTP|This specifies the entry in the JAAS configuration file used for web-based SSO. The recommended default value is `AlfrescoHTTP`.|
+    |Strip Username Suffix|Yes|This specifies that the @domain suffix is stripped from Kerberos authenticated user names in SPP, WebDAV, and the Web Client. If not selected, multi-domain users can use the @domain suffix.|
+    |HTTP Password|secret|This specifies the password for the HTTP Kerberos principal. Click **Show Password** to reveal the password. Click **Hide Password** to hide the password.|
+    |Authenticate FTP|Yes|This enables authentication for FTP access.|
+
+5.  Click **Save** to apply the changes you have made to the Kerberos directory.
+
+    If you do not want to save the changes, click **Close**.
+
 ##### Configuring external authentication {#configextauthrepoconsole}
+
+Use these instructions to configure external authentication using the configuration properties in the Admin Console.
+
+1.  Open the **Repo Admin Console**.
+
+2.  In the **Directories** section, click **Directory Management**.
+
+    You see the **Directory Management** page.
+
+3.  In the **Authentication Chain** section, if no element of type **External** exists in the authentication chain list, follow the steps below to add a new External type element:
+
+    1.  Specify a name in the Name text box.
+
+    2.  Set type to `External`.
+
+    3.  Click **Add**.
+
+    4.  Click **Save** to add the new External type element in the authentication chain list.
+
+4.  In the **Authentication Chain** section, under **Actions**, click **Edit** for the External directory.
+
+    >**Note:** You can only edit a directory after it has been added and saved. If you have not yet saved the entry, the only option available is Remove.
+
+    You see the **Edit External Directory** page.
+
+5.  Set the configuration properties.
+
+    |Synchronization property|Example setting|What is it?|
+    |------------------------|---------------|-----------|
+    |Authentication Enabled|Yes|This enables the external directory user authentication. When enabled, Content Services accepts external authentication tokens; ensure that no untrusted direct access to Alfresco's HTTP or AJP ports is allowed.|
+    |Proxy Username|alfresco-system|This specifies the remote user that is considered as the proxy user. **Note:** The default setting for `external.authentication.proxyUserName` is `alfresco-system`. This should only be specified if you are using SSL. See [External authentication and SSO](#extauthsso) for more information.|
+    |Administrator User Names|-|This specifies a comma separated list of user names to be considered administrators by default.|
+    |Proxy Header|X-Alfresco-Remote-User|This specifies the HTTP header that carries the name of a proxied user. The default is `X-Alfresco-Remote-User`.|
+    |User ID Pattern|-|This specifies an optional regular expression used to extract a user ID from the HTTP header. The portion of the header matched by the first bracketed group in the regular expression becomes the user name. If not set, the entire header contents are assumed to be the proxied user name.|
+
+6.  Click **Save** to apply the changes you have made to the External authentication directory.
+
+    If you do not want to save the changes, click **Close**.
+
 ##### Configuring alfrescoNtlm
-#### Managing synchronization settings
+
+
+Use these instructions to configure alfrescoNtlm using the configuration properties in the Admin Console.
+
+1.  Open the **Repo Admin Console**.
+
+2.  In the **Directories** section, click **Directory Management**.
+
+    You see the **Directory Management** page.
+
+3.  In the **Authentication Chain** section, under **Actions**, click **Edit** for the alfrescoNtlm1 directory.
+
+    You see the **Edit Internal Alfresco Directory** page.
+
+4.  Set the configuration properties.
+
+    |Synchronization property|Example setting|What is it?|
+    |------------------------|---------------|-----------|
+    |Allow Guest Login|Yes|This enables guest access.|
+    |Authenticate FTP|Yes|This enables authentication for FTP access.|
+
+5.  Click **Save** to apply the changes you have made to the internal authentication directory.
+
+    If you do not want to save the changes, click **Close**.
+
+#### Managing synchronization settings {#managesyncsettings}
+
+The synchronization settings manage the synchronization of Content Services with all the user registries 
+(LDAP servers) in the authentication chain. Use this information to configure the synchronization subsystem.
+
+1.  Open the **Repo Admin Console**.
+
+2.  In the **Directories** section, click **Directory Management**.
+
+    You see the **Directory Management** page.
+
+3.  Under the **Authentication Chain** section, click **Synchronization Settings**.
+
+    You see the **Synchronization Settings** page.
+
+4.  Set the synchronization properties.
+
+    |Synchronization property|Example setting|What is it?|
+    |------------------------|---------------|-----------|
+    |Sync on Startup|Yes|This triggers synchronization when the subsystem starts up. This ensures that when the user registries are first configured, bulk of synchronization work is done on server startup, rather than on the first login.|
+    |Sync When Missing People Login|Yes|This triggers synchronization when a user, who does not yet exist, is successfully authenticated. The default is `true`.|
+    |Allow Deletions|Yes|This triggers deletion of the local users and groups during synchronization when handling removals or collision resolution. The default is `true`. If `false`, then no sync job will be allowed to delete users or groups during the handling of removals or collision resolution.|
+    |Logging Interval|100|This specifies the number of user or group entries processed during synchronization before the progress is logged at INFO level. It requires the following default entry in log4j.properties: `log4j.logger.org.alfresco.repo.security.sync=info`<br><br>The default is `100`.|
+    |Auto Create People On Login|Yes|This specifies whether to create a user with default properties, when a user is successfully authenticated, who does not yet exist, and was not returned by synchronization (if enabled with the **Sync When Missing People Login** property). The default is `true`.|
+    |Sync Changes Only|Yes|This triggers a differential synchronization. Deselect this option, to run full synchronization. Regardless of this setting, a differential synchronization can still be triggered when a user, who does not yet exist, is successfully authenticated.|
+    |Import CRON Expression|0 0 0 * * ?|This specifies a cron expression which defines when the scheduled synchronization job should run. By default, this is every 24 hours at midnight.|
+    |Sync Worker Threads|1|This specifies the number of worker threads used for synchronization. The default is `1`.|
+
+    >**Note:** Settings are common to all the directories for which synchronization is enabled.
+
+5.  Click **Save** to apply the changes you have made to the authentication chain.
+
+    If you do not want to save the changes, click **Close**.
+
 ### Managing browser based automatic login
+
+Use this information to configure the external authentication subsystem.
+
+1.  Open the **Repo Admin Console**.
+
+2.  In the **Directories** section, click **Directory Management**.
+
+    You see the **Directory Management** page.
+
+3.  In the **Browser Based Automatic Login** section, select a directory to automatically log users by using a browser. Alternatively, select **Disabled** to disable automatic login.
+
+    >**Note:** You can configure other forms of SSO using the external authentication type, such as CAS or Siteminder.
+
+4.  Click **Save** to apply the changes you have made to the authentication chain.
+
+    If you do not want to save the changes, click **Cancel**.
+
 
 

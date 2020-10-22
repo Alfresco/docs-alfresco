@@ -2,3 +2,906 @@
 title: Setting up security (authorization)
 ---
 
+Content Services security comprises a combination of authentication and authorization.
+
+[Authentication]({% link content-services/latest/admin/auth-sync.md %}) is about validating that a user or principal is 
+who or what they claim to be. A user’s credentials can take many forms and can be validated in a number ways. 
+For example, a password validated against an LDAP directory, or a Kerberos ticket validated against a 
+Microsoft Active Directory Server.
+
+Content Services includes:
+
+* An internal, password-based, authentication implementation
+* Support to integrate with many external authentication environments
+* The option to write your own authentication integration and to use several of these options simultaneously
+
+Content Services can integrate with LDAP, Microsoft Active Directory Server, 
+the Java Authentication and Authorization Service (JAAS) and Kerberos. A user ID can also be presented as an 
+HTML attribute over HTTPS to integrate with web-based single-sign-on solutions.
+
+Authorization determines what operations an authenticated user is allowed to perform. There are many authorization models. 
+Popular ones include: Role Based Access Control (RBAC), UNIX-style Access Control Lists (ACLs) and extended ACLs, 
+Windows-style ACLs, and many more. Authorization requirements for the management of records are more detailed and 
+include additional requirements, for example, enforcing access based on security clearance or record state.
+
+Authorization is based on UNIX-extended ACLs. Each node in the repository has an ACL that is used to assign permissions 
+to users and groups. Operations, such as creating a new node, describe what permissions are required to carry out the operation. 
+ACLs are then used to determine if a given user can execute the operation based on the permissions that have been 
+assigned directly to the user or indirectly through a group. An operation is invoking a method on a public service bean. 
+For example, creating a user’s home folder requires invoking methods on several public services; to create the folder, 
+set permissions, disable permission inheritance, and so on. Each public service method invocation will check that the user 
+is allowed to execute the method.
+
+By convention, public service beans are the beans whose names start with capital letters, such as the `NodeService`. 
+You configure the security requirements for public service beans in XML. A given method on a particular service might 
+be available to all users, all users in a specified group, all users with a specified role, or users who have particular 
+permissions on specified arguments to the method or its return value. In addition, for methods that return collections or arrays, 
+their content can be filtered based on user permissions. If the authorization requirements for a method call are not met, 
+the method call will fail and it will throw an `AccessDeniedException`. Non-public beans, such as `nodeService`, 
+do not enforce security; use these only when the enforcement of authorization is not required.
+
+Permission assignments are made in Access Control Lists (ACLs), which are lists of Access Control Entries (ACEs). 
+An ACE associates an authority (group or user) with a permission or set of permissions, and defines whether the permission 
+is denied or allowed for the authority. Every node has a related ACL. When you create a node, it automatically inherits an 
+ACL from its parent. You can alter this behavior after node creation by breaking inheritance or modifying the ACL.
+
+The XML configuration for permissions also defines a context-free ACL for ACEs that apply to all nodes. 
+For example, you could use this to assign everyone Read access to all nodes regardless of what individual ACLs any node has set. 
+(See the Permissions section in this chapter for more details on how to modify the permission model.)
+
+```xml
+<!-- Extension to alfresco\model\permissionDefinitions.xml -->
+<globalPermission permission="Read" authority="GROUP_EVERYONE" />
+```
+
+A check that a user has Read permission for a node is done in two stages. First, the context-free ACL is checked to see 
+if it allows access. If not, the ACL assigned or inherited by the node is checked. A user might be allowed to perform 
+an operation because of permissions assigned to the context-free ACL, assigned to the node’s ACL, inherited by the node 
+from its parent, or a combination of all three.
+
+## Mitigating brute force attack on user passwords
+
+Content Services 6.2 provides basic out-of-the-box protection against brute force attacks on password logins.
+
+To mitigate brute force attacks on user passwords, after a few failed login attempts for any given user id, the user id 
+is locked out and marked as `protected`. The user id stays in the `protected` mode for a six seconds protection period. 
+During this time, even if the correct login details are specified, the user can't login. After the six seconds protection 
+period is over, the user can login with the correct login details.
+
+To summarize, once a user id is `protected`:
+
+* the schedule causes a six seconds delay between the allowed login attempts.
+* authentication requests occurring more frequently than the permitted schedule are denied.
+* next login attempt that is denied due to the rate limiting algorithm generates a WARN message in the Alfresco log file (only once).
+* for every consecutive failed login attempt, if the limit exceeds 10 attempts, a WARN message is shown in the Alfresco log file (only once).
+* details about authentication attempts, including the number of login attempts and time stamp of last login attempt, are cached.
+
+The administrator receives one log message per protection period. To avoid username disclosure in logs, the 
+message displays only the first two letters of the username.
+
+![warn]({% link content-services/images/warn.png %})
+
+The user id stays as `protected` until a correct authentication request is processed after the six seconds protection period. 
+The entry is then removed from the cache.
+
+This login protection feature is enabled by default, and can be configured by adding the following properties to the 
+`alfresco-global.properties` file.
+
+|Property|Description|Default Value|
+|--------|-----------|-------------|
+|authentication.protection.enabled|Specifies if the login protection feature is enabled or disabled.|`true`|
+|authentication.protection.limit|Specifies the number of attempts after which the user id becomes protected.|`10`|
+|authentication.protection.periodSeconds|Specifies the protection period after which a valid login attempt can be done.|`6`|
+
+>**Note:** This feature provides some basic protections against brute force attacks by slowing down repeated logins, but it does not replace more advanced brute force attack detection and mitigation that would be done on the network level or through log analysis.
+
+## Managing Alfresco keystores {#managealfkeystores}
+
+The out-of-the-box Content Services installation has a pre-configured main keystore, which contains a secret 
+key generated by Content Services. If you want to use encrypted properties, you should create your own 
+keystore with your own password, and update the metadata file appropriately.
+
+The default keystore configuration protects the keys by using two levels of passwords - a keystore password and a 
+password for each key. Currently, the keystore contains only a metadata secret key that is used for encrypting and 
+decrypting node properties that are of type `d:encrypted`.
+
+You can also configure a backup keystore. This is useful in case the keys need to be changed. The user can back up the 
+main keystore to the backup keystore location and create a new keystore in its place.
+
+If both the main and backup keystores are configured, the repository encryption works in the *fallback* mode. 
+In this mode, the node properties are decrypted with the main keystore's metadata key first. If that fails, the 
+backup keystore's metadata key is tried. This allows the keystores to be changed on the disk and reloaded without 
+affecting the running of the repository.
+
+Keystores are used also to protect repository/Solr communications using encryption and mutual authentication. 
+In this case, the keystores store RSA keys and certificates. For more information, 
+see [Solr security](TODO_LINK:https://docs.alfresco.com/search-enterprise/concepts/solrsecurity-intro.html).
+
+### Keystore configuration
+
+The way you configure keystores in Content Services has changed. Previously the configuration was stored in properties 
+files like `keystore-passwords.properties` with passwords in plain text. The following properties that were used to 
+configure the keystores have been deprecated.
+
+```text
+encryption.keystore.keyMetaData.location
+encryption.ssl.keystore.keyMetaData.location
+encryption.ssl.truststore.keyMetaData.location
+encryption.keystore.backup.keyMetaData.location
+```
+
+The new way of specifying the configuration is to use JVM system properties.
+
+>**Note:** The old way of configuring keystores will still work for backwards compatibility but it is not recommended for security reasons. If the old approach is used you will see a warning in the logs.
+
+You can configure the main and backup keystores using the `alfresco-global.properties` file.
+
+To configure the main keystore, set the following properties in the `alfresco-global.properties` file:
+
+>**Note:** The "metadata-keystore" properties need to be specified in the `JAVA_TOOL_OPTIONS` property in `<TOMCAT_HOME>/bin/catalina.sh` for Linux based users and `<TOMCAT_HOME>/bin/catalina.bat` for Microsoft Windows users. The old keystore file can be found in the distribution zip `keystore/metadata-keystore`.
+
+|Property|Description|
+|--------|-----------|
+|encryption.keystore.location|Specifies the location of the main keystore.`encryption.keystore.location=${dir.keystore}/keystore`|
+|encryption.keystore.provider|Specifies the main keystore provider.|
+|encryption.keystore.type|Specifies the main keystore type.`encryption.keystore.type=JCEKS`|
+|encryption.keystore.backup.location|Specifies the location of the backup keystore.`encryption.keystore.backup.location=${dir.keystore}/backup-keystore`|
+|encryption.keystore.backup.provider|Specifies the backup keystore provider.|
+|encryption.keystore.backup.type|Specifies the backup keystore type. `encryption.keystore.backup.type=JCEKS`|
+|metadata-keystore.password|The keystore password|
+|metadata-keystore.aliases=metadata|A comma separated list of aliases for the keys in the keystore.|
+|metadata-keystore.metadata.password|Key password.|
+|metadata-keystore.metadata.algorithm|Key algorithm.|
+|ssl-keystore.password|The keystore password.|
+|ssl-keystore.aliases=ssl-alfresco-ca,ssl-repo|Key data bytes in base64.|
+|ssl-keystore.ssl-alfresco-ca.password|Key password.|
+|ssl-keystore.ssl-repo.password|Key password.|
+|ssl-truststore.password|The keystore password|
+|ssl-truststore.aliases=alfresco-ca,ssl-repo-client|A comma separated list of aliases for the keys in the keystore.|
+|ssl-truststore.alfresco-ca.password=|Key password.|
+|ssl-truststore.ssl-repo-client.password=|Key password.|
+
+The new keystore properties use the following format:
+
+```text
+[keystore-id].password - keystore password
+[keystore-id].aliases - comma separated list of aliases for the keys in the keystore
+[keystore-id].[alias].keyData - key data bytes in base64
+[keystore-id].[alias].algorithm - key algorithm
+[keystore-id].[alias].password - key password
+```
+
+The **keystore-id** can be one of the predefined IDs: `metadata-keystore`, `metadata-backup-keystore`, `ssl-keystore`, `ssl-truststore`.
+
+>**Note:** The default configuration of Content Services contained a "metadata" keystore, for more see [Managing Alfresco keystores](#managealfkeystores), but was insecure if you did not regenerate it with your own password. This default keystore has been removed. To ensure your installation is secure you need to regenerate the keystore and configure the new one with the properties above.
+
+The default algorithm used to generate keys does not have acceptable strength (DES). We recommend you use AES which has 
+been reflected in the default configuration. The recommended property values for this will be:
+
+```text
+encryption.keystore.type=pkcs12
+encryption.cipherAlgorithm=AES/CBC/PKCS5Padding
+encryption.keyAlgorithm=AES
+metadata-keystore.password=<password>
+metadata-keystore.aliases=metadata
+metadata-keystore.metadata.password=<password>
+metadata-keystore.metadata.algorithm=AES
+```
+
+And the keys can be generated using
+
+```bash
+keytool -genseckey -dname "$CERT_DNAME" -validity ${CERT_VALIDITY} -alias metadata -keyalg AES -keysize 256 -keystore ${TOMCAT_DIR}/shared/classes/alfresco/keystore/keystore -storetype pkcs12 -storepass ${KEYSTORE_PASSWORD}
+```
+
+>**Important:** Currently it is not possible to upgrade the key in keystore to a new one which means during the upgrade process you will need to specify your configuration in a more secure way and use the old keystore file. The configuration for this upgrade scenario will be:
+
+```text
+encryption.keystore.type=JCEKS
+encryption.cipherAlgorithm=DESede/CBC/PKCS5Padding
+encryption.keyAlgorithm=DESede
+encryption.keystore.location=<path-to-keystore-file>
+metadata-keystore.password=mp6yc0UD9e
+metadata-keystore.aliases=metadata
+metadata-keystore.metadata.password=oKIWzVdEdA
+metadata-keystore.metadata.algorithm=DESede
+```
+
+Some other general encryption properties are:
+
+```text
+encryption.keySpec.class=org.alfresco.encryption.DESEDEKeyGenerator
+encryption.keyAlgorithm=DESede
+encryption.cipherAlgorithm=DESede/CBC/PKCS5Padding
+```
+
+Because of these encryption properties, the keystores and metadata files can be easily located. Also, the metadata 
+file uses a clear text password to access the keystore. For this reason, appropriate operating system permissions 
+should be applied so that the files cannot be accidentally changed nor read by anyone other than an administrator and 
+the username running the repository.
+
+Each keystore must have a corresponding keystore metadata file. This file contains the passwords, its keys, and other 
+metadata relevant to the keystore. The metadata file must contain three entries:
+
+* `aliases=<active key aliases in the key store>`
+* `keystore.password=<key store password>`
+* `metadata.password=<metadata key password>`
+
+At bootstrap, the repository checks if the metadata key in the main keystore has been changed (unless running in the 
+fallback mode, in which case the backup keystore is checked instead). This prevents accidental changes to the keystore. 
+If it detects that the metadata key has been changed, an exception will occur and the bootstrap will stop.
+
+### Keystore generation
+
+Keystore generation can be automatic or manual.
+
+**Automatic keystore generation**
+
+During bootstrap, if the repository detects a missing secret key keystore, it will dynamically create a keystore containing 
+a single metadata secret key. In order to do this, the repository assumes the existence of a keystore metadata file containing 
+information about the metadata key. Specifically, it expects the following properties to be set:
+
+|Property|Description|
+|--------|-----------|
+|[keystore-id].password|The keystore password.|
+|[keystore-id].aliases|A comma separated list of aliases for the keys in the keystore.|
+|[keystore-id].[alias].keyData|Key data bytes in base64.|
+|[keystore-id].[alias].algorithm|Specifies the key algorithm used to generate the secret key.Each Java environment may support a different set of algorithms. For the list of algorithm names that can be specified, see [SecretKeyFactory Algorithms](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#SecretKeyFactory).<br><br>For `keytool` defaults specific to the secret key generation, see the [Oracle documentation - keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html#CHDGIGAE).|
+|[keystore-id].[alias].password|Key password.|
+
+The `keyData` can be generated by executing the class `org.alfresco.encryption.GenerateSecretKey` as shown below:
+
+```bash
+java -classpath "projects/3rd-party/lib/commons/commons-codec-1.4.jar:projects/core/build/dist/alfresco-core-4.0.a.jar"
+ org.alfresco.encryption.GenerateSecretKey
+```
+
+**Manual keystore generation**
+
+A new keystore can be generated using the Java `keytool` command as shown below:
+
+```bash
+keytool -genseckey -alias metadata -keypass <metadata key password> -storepass <key store password> -keystore keystore
+ -storetype JCEKS -keyalg DESede
+```
+
+>**Note:** Make sure the keystore is placed in the location specified by the property `encryption.keystore.location` and that the passwords you have used in the `keytool` commands are placed in the file specified by the property `encryption.keystore.keyMetaData.location`.
+
+### Keystore key registration
+
+The keystore keys are registered with the repository to ensure that they are not accidentally changed.
+
+During bootstrap and JMX keystore reload and re-encryption operations, the repository checks if the main keystore's 
+keys and the metadata key have changed. If they have changed, the repository throws an exception.
+
+## Cryptographic password hashing {#bcryptoverview}
+
+Content Services uses cryptographic password hashing technique to securely store passwords.
+
+All versions Content Services 6.2 used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NLTM) 
+to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. 
+You now have the option to configure Content Services to use Bcrypt to store passwords. By default, the system 
+uses MD4 to allow users to use MD4 hashed passwords for alfrescoNTLM authentication.
+
+Bcrypt is an adaptive hash function based on the Blowfish symmetric block cipher cryptographic algorithm. It is incredibly 
+slow to hash input compared to other functions, but this results in a much better output hash. Content Services 
+is configured to use a strength of `10` to provide a good compromise of speed and strength.
+
+With Bcrypt, the hashing algorithm (also called an encoder) can be configured by setting the `system.preferred.password.encoding` 
+property in the `alfresco-global.properties` file. The supported values for this property are:
+
+* `md4`
+* `sha256`
+* `bcrypt10`
+
+If you provide a different value, the repository won't start.
+
+To maintain backwards compatibility with previous versions, the default setting for this property is:
+
+```text
+system.preferred.password.encoding=md4
+```
+
+After upgrading to Content Services 6.2, when the user logs in or changes the password, the system rehashes 
+the password using the preferred encoding mechanism and stores the mechanism being used. If the preferred encoding is 
+set to `md4`, the system moves the current hashed passwords for that user.
+
+>**Note:** If SAML SSO is enabled, cryptographic password rehashing will not work at login.
+
+You can run a background job to completely remove all the old hashed passwords for those users that have not logged in yet. 
+If the system is still set to `md4`, all user objects will be upgraded. However, the background job will maintain the current hash.
+
+If the background job is executed after the `system.preferred.password.encoding` property has been changed, 
+it will double-hash all the user objects in the system (unless they have already been upgraded by the user logging in). 
+As a result, the system will temporarily hash (until the user logs in) the current hashed password, store the list of encoders used, 
+and clean out the old hashes.
+
+The background job uses the repository's `BatchProcessor` to execute the job. The execution of the job can be controlled 
+if necessary via the following properties:
+
+|Property|Description|
+|--------|-----------|
+|system.upgradePasswordHash.jobBatchSize|Specifies the number of user objects to process in each batch.|
+|system.upgradePasswordHash.jobQueryRange|Specifies the `nodeId` range to search for in each iteration.|
+|system.upgradePasswordHash.jobThreadCount|Specifies the number of threads the batch processor uses.|
+
+Out of the box, this background job is enabled but set to a future date. To configure it, set the 
+`system.upgradePasswordHash.jobCronExpression` property in the `alfresco-global.properties` file. For example, 
+the following setting runs the job every 10 minutes:
+
+```text
+system.upgradePasswordHash.jobCronExpression=0 0/10 * * * ?
+```
+
+Alternatively, the job can be executed immediately via a JMX console. The job makes use of `JobLockService` so it is safe 
+to run in a clustered environment.
+
+If the password upgrade job is enabled, make sure you enable the `log4j.logger.org.alfresco.repo.security.authentication.UpgradePasswordHashWorker` 
+logging in `log4j.properties`.
+
+You can either set it to `trace` or `debug` as shown below:
+
+```text
+log4j.logger.org.alfresco.repo.security.authentication.UpgradePasswordHashWorker=trace
+```
+
+OR
+
+```text
+log4j.logger.org.alfresco.repo.security.authentication.UpgradePasswordHashWorker=debug
+```
+
+`Trace` displays a list of all the processed users. `Debug` is a slightly less verbose output; it displays a list of 
+only those users whose password was changed.
+
+To monitor users that have their passwords upgraded when they log in, add the following in `log4j.properties`:
+
+```text
+log4j.logger.org.alfresco.repo.security.authentication.HashPasswordTransactionListener=debug
+```
+
+## Encrypting properties
+
+The `alfresco-global.properties` file (and other subsystem properties file) holds configuration properties that contain 
+sensitive information or passwords, such as `db.password`. All the properties that can be specified in 
+Content Services under the `alfresco-global.properties` file can be encrypted.
+
+Use this information to encrypt any property using the Alfresco Encrypted Properties Management Tool. 
+This tool uses the RSA/ECB/PKCS1PADDING encryption algorithm.
+
+>**Note:** This functionality is not related to [cryptographic password hashing](#bcryptoverview).
+
+>**Important:** Boolean properties, number properties, and properties that contain expressions cannot be encrypted.
+
+The values for some of the properties that may contain sensitive data (see the list below) is hidden from JMX whereas 
+other values, including non-sensitive values are shown in JMX. The administrator can set new values for the 
+security-sensitive properties in JMX but they can't see the old value.
+
+Here is the list of protected attributes (the value for these will be masked in the JMX console and Admin Console UI):
+
+* `alfresco_user_store.adminpassword`
+* `db.password`
+* `mail.password`
+* `solr.solrPassword`
+* `cryptodoc.jce.key.passwords`
+* `cryptodoc.jce.keystore.password`
+* `ldap.synchronization.java.naming.security.credentials`
+
+### Encrypting configuration properties
+
+You can encrypt sensitive properties in the `alfresco-global.properties` configuration file.
+
+1.  Run the Alfresco Encrypted Properties Management Tool.
+
+    1.  Navigate to `<ALFRESCO_HOME>/bin` directory.
+
+    2.  Locate the Alfresco Encrypted Properties Management Tool, `alfresco-spring-encryptor.jar`.
+
+    3.  Run the executable jar file.
+
+        ```bash
+        java -jar alfresco-spring-encryptor.jar
+        ```
+
+    ![tool]({% link content-services/images/tool.png %})
+
+2.  Generate the public and private keys using the `initkey` function. The public and private key pair is stored in the enterprise directory.
+
+    ```bash
+    java -jar alfresco-spring-encryptor.jar initkey c:/alfresco/tomcat/shared/classes
+    ```
+
+    ![init]({% link content-services/images/init.png %})
+
+    You now have a public key (`alfrescoSpringKey.pub`) and a private key (`alfrescoSpringKey.pri`) in your `<ALFRESCO_HOME>/tomcat/shared/classes/alfresco/extension/enterprise` directory.
+
+    >**Note:** The private key file should be secured with the operating system permissions so that only the Content Services process can read it.
+
+    >**Note:** Anyone can encrypt new values with the public key but only the Alfresco process can read the plain text value with the private key.
+
+3.  Generate the encrypted string for your password/value using the `encrypt` function.
+
+    ```bash
+    java -jar alfresco-spring-encryptor.jar encrypt c:/alfresco/tomcat/shared/classes <password>
+    ```
+
+    >**Note:** In the above command, remember to replace `<password>` with the actual password that you want to encrypt.
+
+    ![encrypt]({% link content-services/images/encrypt.png %})
+
+4.  Validate that the encrypted value obtained in Step 3 will decrypt the password.
+
+    1.  Run the `validate` function.
+
+        ```bash
+        java -jar alfresco-spring-encryptor.jar validate c:/alfresco/tomcat/shared/classes <encrypted value>
+        ```
+
+        >**Note:** In the above command, remember to replace `<encrypted value>` with encrypted string value obtained in Step 3.
+
+    2.  You will be prompted to specify the value. Enter the password/value you want to encrypt.
+
+    3.  You will be prompted to specify the value again. Enter the password/value you want to encrypt.
+
+    ![validate]({% link content-services/images/validate.png %})
+
+5.  Add the encrypted password to `<ALFRESCO_HOME>/tomcat/shared/classes/alfresco-encrypted.properties` file.
+
+    ```text
+    db.password.enc=ENC(<enter encrypted password here>)
+    ```
+    
+    For example:
+    
+    ```text
+    db.password.enc=ENC(QcAf1Lr81meuP2p6Lu9ZQqFY1AsCfoWd)
+    ```
+
+    >**Note:** Uncomment the `db.password.enc` property by removing the "#" character.
+
+6.  Set the value of the `db.password` property in the `alfresco-global.properties` file to point to the `db.password.enc` property in the `alfresco-encrypted.properties` file.
+
+    ```text
+    db.password=${db.password.enc}
+    ```
+
+    >**Note:** Uncomment the `db.password` property by removing the "#" character.
+
+## Authorities
+
+Authorities are people (or persons) or groups.
+
+A group can contain people or other groups as members. The authorities assigned to a user at any time are the `userName` 
+from their associated `Person` node, all of the groups in which the user is a direct or indirect member, and any 
+appropriate dynamic authorities. Dynamic authorities are used for internal roles.
+
+### Dynamic authorities and roles
+
+Content Services uses some custom roles. To implement a custom role, you create a dynamic authority for that role and 
+assign global permissions to it. The internal roles have not been assigned any object-specific rights.
+
+The internal roles are:
+
+* `ROLE_ADMINISTRATOR` is assigned to the default administrators for the configured authentication mechanisms or members of the administration groups defined on the `AuthorityServiceImpl` bean. This role has all rights.
+* `ROLE_OWNER` is assigned to the owner of a node. If there is no explicit owner, this role is assigned to the creator. This role has all rights on the owned node.
+* `ROLE_LOCK_OWNER` is assigned to the owner of the lock on a locked node. This supports a lock owner’s right to check in, cancel a check out, or unlock the node.
+
+Alfresco Share supports the assignment of permissions only to the owner role. You can use such things as the Java API 
+and scripting to make other assignments.
+
+>**Note:** Hierarchical and zoned roles can be added in the future to avoid the hidden group implementation for true roles.
+
+### People and users
+
+When a user logs in, Content Services validates the user’s identifier and password. It uses the identifier to 
+look up the appropriate person details for the user, using the `userName` property on the Person type. You can configure 
+this look-up to be case sensitive or case insensitive. The `userName` property on the matching Person node is used as 
+the actual user authority; it might differ in case from the user identifier presented to the authentication system. 
+After the `Person` node look-up, Content Services is case sensitive when matching authorities to permissions, 
+group membership, roles, and for all other authorization tests.
+
+Any user, who authenticates by any mechanism, must have an associated person node. `Person` nodes can be:
+
+* Explicitly created
+* Created on demand with some default entries
+* Created from LDAP synchronization
+
+Person nodes are explicitly created when using Alfresco Share to manage users.
+
+By default, person nodes are auto-created if not present. If an external authentication system is configured, when 
+any user authenticates, an appropriate person node might not exist. If a person node does not exist and auto-creation 
+is enabled, a person node will then be created using the identifier exactly as presented by the user and validated by 
+the authentication system. The auto-created Person node’s userName will have the same case as typed by the user. 
+LDAP synchronization will create person nodes with the userName, as provided from the LDAP server.
+
+It is possible that LDAP synchronization can change the `userName` associated with a `Person` node. This can happen with a 
+system that uses LDAP synchronization, or a system that creates person nodes on demand, or uses case-insensitive authentication. 
+For example, Andy could log in as “Andy” and the associated Person node is created with the `userName` “Andy.” Later, 
+the LDAP synchronization runs and changes the `userName` to “andy”.
+
+Changes to `Person` node `userName`s will cause updates to other related data, such as ACL assignment.
+
+### Groups
+
+Groups are collections of authorities with a name and display name.
+
+Groups can include other groups or people. You can include a group in one or more other groups, as long as this 
+inclusion does not create any cyclic relationships.
+
+### Zones
+
+All person and group nodes are in one or more zones. You can use zones for any partitioning of authorities. For example, 
+synchronization uses zones to record from which LDAP server users and groups have been synchronized. Zones are used to 
+hide some groups that provide Role Based Access Control (RBAC) role-like functionality from the administration pages of 
+Alfresco Share. Examples of hidden groups are the roles used in Share and Alfresco Records Management. Only users and 
+groups in the default zone are shown for normal group and user selection on the group administration pages. 
+Zones cannot be managed from the administration pages of Share.
+
+Zones are intended to have a tree structure defined by naming convention. Zones are grouped into two areas: 
+*Application-related* zones and *authentication-related* zones.
+
+Within a zone, a group is considered to be a root group if it is not contained by another group in the same zone.
+
+Content Services uses a model for persisting people, groups, and zones. A Person node represents each person, 
+and an `AuthorityContainer` represents groups, which can be used for other authority groupings such as roles. 
+AuthorityContainer and Person are sub-classes of Authority and as such can be in any number of Zones.
+
+![secur-model]({% link content-services/images/secur-model.png %})
+
+#### Application-related zones
+
+Application-related zones, other than the default, hide groups that implement RBAC like roles. Application zones, 
+by convention, start APP. and include:
+
+* `APP.DEFAULT` is for person and group nodes to be found by a normal search. If no zone is specified for a person or group node, they will be a member of this default zone.
+* `APP.SHARE` is for hidden authorities related to Alfresco Share.
+* `APP.RM` will be added for authorities related to RM.
+
+#### Authorization-related zones
+
+Zones are also used to record the primary source of person and group information. They can be held within Content Services 
+or some external source. While authorities can be in many zones, it makes sense for an authority to be in only one 
+authentication-related zone.
+
+* `AUTH.ALF` is for authorities defined within Content Services and not synchronized from an external source. This is the default zone for authentication.
+* `AUTH.EXT.<ID>` is for authorities defined externally, such as in LDAP.
+
+## Defining permissions
+
+Permissions and their groupings are defined in an XML configuration file.
+
+The default file is found in the distribution configuration directory as 
+[permissionDefinitions.xml](https://github.com/Alfresco/alfresco-repository/blob/af2e069b2eabcd5433cee39d83ec06bad6fc69a0/src/main/resources/alfresco/model/permissionDefinitions.xml). 
+This configuration can be replaced or extended.
+
+The following example uses the permission definitions related to the `Ownable` aspect.
+
+```xml
+<!-- ============================================== -->
+   <!-- Permissions associated with the Ownable aspect -->
+   <!-- ============================================== -->
+   
+   <permissionSet type="cm:ownable" expose="selected">
+      
+      <!-- Permission control to allow ownership of the node to be taken from others -->
+      <permissionGroup name="TakeOwnership" requiresType="false" expose="false">
+        <includePermissionGroup permissionGroup="SetOwner" type="cm:ownable" />
+      </permissionGroup>
+       
+      <permissionGroup name="SetOwner" requiresType="false" expose="false"/>
+      
+      <!-- The low level permission to control setting the owner of a node -->
+      <permission name="_SetOwner" expose="false" requiresType="false">
+        <grantedToGroup permissionGroup="SetOwner" />
+        <requiredPermission on="node" type="sys:base" name="_WriteProperties" />
+      </permission>
+      
+</permissionSet>
+```
+
+Permissions and permission groups are defined in a permission set, which is a sub-element of the permissions root element. 
+A permission set is associated with a type or aspect and applies only to that type and sub-types, or aspect and sub-aspects.
+
+A permission has a name. By convention, the names of permissions start with an underscore character. A permission, 
+in its definition, can be granted to any number of permission groups. This means that those permission groups will 
+include the permission. The permission might require that the type or aspect specified on the permission set be 
+present on the node. If a permission is associated with an aspect and the requiresType property is set to true then 
+if that aspect is not applied to a node, the permission does not apply to that node either. If an aspect-related permission 
+definition has the requiresType property set to false, the permission applies to any node, even if the aspect has not 
+been applied to the node.
+
+An aspect can be applied at any time and there are no restrictions as to which aspects can be applied to a type. 
+A permission might also require other permissions be tested on the same node, its children, or its parent. 
+In the example, `_SetOwner` requires `_WriteProperties`. This means you cannot set ownership on a node if you are not 
+allowed to write to its properties. You can also use this to check that all children can be deleted before deleting 
+a folder, or to enforce that you can only read nodes for which you can read all the parents; neither are normally 
+required. The configuration to do this is present in the standard configuration file but is commented out. 
+The `_DeleteNode` permission definition (as shown in the following code snippet) is an example. If permission 
+`A` requires permission `B` and this requirement is implied (by setting the implies attribute of the `requiredPermission`
+element to `true`), assigning an authority permission `A` will also give them permission `B` (as opposed to 
+checking they have permission `B`).
+
+```xml
+<permission name="_DeleteNode" expose="false" >
+    <grantedToGroup permissionGroup="DeleteNode" />
+    <!-- Commented out parent permission check ...
+    <requiredPermission on="parent" name="_ReadChildren" implies="false"/>
+    <requiredPermission on="parent" name="_DeleteChildren" implies="false"/>
+    <requiredPermission on="node" name="_DeleteChildren" implies="false"/>
+     -->
+    <!-- Recursive delete check on children --> 
+    <!--  <requiredPermission on="children" name="_DeleteNode" implies="false"/>  -->
+</permission>
+```
+
+Permissions are normally hidden inside permission groups. Permission groups are made up of permissions and other 
+permission groups. By convention, each permission has a related permission group. Permission groups can then be 
+combined to make other permission groups. As for permissions, a permission group can be exposed by the 
+administration pages of Alfresco Share and might require the presence of a type or aspect to apply to a 
+particular node. In addition, a permission group can allow full control, which grants all permissions and 
+permission groups. As a type or aspect can extend another, a permission group defined for a type or aspect 
+can extend one defined for one of its parent types and be assigned more permissions, include more permission 
+groups, or change what is exposed in the administration pages of the Alfresco Share web clients.
+
+It is unusual to extend or change the default permission model unless you are adding your own types, aspects, and 
+related public services or you wish to make minor modifications to the existing behavior. The following code snippets 
+show how to extend and replace the default permission model.
+
+```xml
+<bean id='permissionsModelDAO'
+class="org.alfresco.repo.security.permissions.impl.model.PermissionModel" init-method="init">
+        <property name="model">
+<-- <value>alfresco/model/permissionDefinitions.xml</value> -->
+<value>alfresco/extension/permissionDefinitions.xml</value>
+        </property>
+        <property name="nodeService">
+            <ref bean="nodeService" />
+        </property>
+        <property name="dictionaryService">
+            <ref bean="dictionaryService" />
+        </property>
+</bean>
+```
+
+The preceding code example shows how to replace the default permission model with one located in the `alfresco/extension` directory. 
+The following code snippet shows how to extend the existing model.
+
+```xml
+<bean id="extendPermissionModel" parent="permissionModelBootstrap">
+   <property name="model" value="alfresco/extension/permissionModelExtension.xml" /> 
+</bean>
+```
+
+### Controlling site creation permissions
+
+By default, any authenticated user can create sites in Share. The creator of the new site is given the `Site Manager` role 
+and they control who has access to the site and in what role.
+
+The beans that enforce security to the repository services based on the currently authenticated user are defined in 
+the [public-services-security-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/public-services-security-context.xml) file.
+
+1.  **Copy** the following code and add it to the `<extension>/custom-model-context.xml` file.
+
+    ```xml
+    <?xml version='1.0' encoding='UTF-8'?>
+    <!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+    <beans>
+        <bean id="SiteService_security" class="org.alfresco.repo.security.permissions.impl.acegi.MethodSecurityInterceptor">
+            <property name="authenticationManager"><ref bean="authenticationManager"/></property>
+            <property name="accessDecisionManager"><ref bean="accessDecisionManager"/></property>
+            <property name="afterInvocationManager"><ref bean="afterInvocationManager"/></property>
+            <property name="objectDefinitionSource">
+                <value>
+                   org.alfresco.service.cmr.site.SiteService.cleanSitePermissions=ACL_NODE.0.sys:base.ReadProperties
+                   org.alfresco.service.cmr.site.SiteService.createContainer=ACL_ALLOW,AFTER_ACL_NODE.sys:base.ReadProperties
+                   org.alfresco.service.cmr.site.SiteService.createSite=ACL_METHOD.GROUP_SITE_CREATORS
+                   org.alfresco.service.cmr.site.SiteService.deleteSite=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.findSites=ACL_ALLOW,AFTER_ACL_NODE.sys:base.ReadProperties
+                   org.alfresco.service.cmr.site.SiteService.getContainer=ACL_ALLOW,AFTER_ACL_NODE.sys:base.ReadProperties
+                   org.alfresco.service.cmr.site.SiteService.listContainers=ACL_ALLOW,AFTER_ACL_NODE.sys:base.ReadProperties
+                   org.alfresco.service.cmr.site.SiteService.getMembersRole=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.getMembersRoleInfo=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.resolveSite=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.getSite=ACL_ALLOW,AFTER_ACL_NODE.sys:base.ReadProperties
+                   org.alfresco.service.cmr.site.SiteService.getSiteShortName=ACL_ALLOW,AFTER_ACL_NODE.sys:base.ReadProperties
+                   org.alfresco.service.cmr.site.SiteService.getSiteGroup=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.getSiteRoleGroup=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.getSiteRoles=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.getSiteRoot=ACL_ALLOW,AFTER_ACL_NODE.sys:base.ReadProperties
+                   org.alfresco.service.cmr.site.SiteService.hasContainer=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.hasCreateSitePermissions=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.hasSite=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.isMember=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.listMembers=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.listMembersInfo=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.listMembersPaged=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.listSiteMemberships=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.listSites=ACL_ALLOW,AFTER_ACL_NODE.sys:base.ReadProperties
+                   org.alfresco.service.cmr.site.SiteService.listSitesPaged=ACL_ALLOW,AFTER_ACL_NODE.sys:base.ReadProperties
+                   org.alfresco.service.cmr.site.SiteService.removeMembership=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.canAddMember=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.setMembership=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.updateSite=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.countAuthoritiesWithRole=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.isSiteAdmin=ACL_ALLOW
+                   org.alfresco.service.cmr.site.SiteService.*=ACL_DENY
+                </value>
+            </property>
+        </bean>
+    </beans>
+    ```
+
+2.  **Modify** the inserted `SiteService_security` bean to match your requirements. For example:
+
+    To give permission to only Administrators to create site, change:
+
+    ```text
+    org.alfresco.service.cmr.site.SiteService.createSite=ACL_ALLOW
+    ```
+
+    to
+
+    ```text
+    org.alfresco.service.cmr.site.SiteService.createSite=ACL_METHOD.ROLE_ADMINISTRATOR
+    ```
+
+    where, `ACL_ALLOW` executes a method that allows access to all users and `ACL_METHOD.ROLE_ADMINISTRATOR` executes a method that allows access to users who are members of the administrator group.
+
+3.  **Save** the file.
+
+4.  **Restart** Content Services.
+
+## Access Control Lists
+
+An Access Control List (ACL) is an ordered list of one or more Access Control Entries (ACE). An ACE associates a 
+single authority to a single permission group or permission, and states whether the permission is to be allowed or denied. 
+All nodes have an associated ACL.
+
+There is one special, context-free, ACL defined in the XML configuration to support global permissions. An ACL specifies 
+if it should inherit ACEs from a parent ACL. The parent ACL is associated with the primary parent node. When a new node 
+is created it automatically inherits all ACEs defined on the parent within which it is created. Linking a node to a 
+secondary parent has no effect on ACE inheritance; the node will continue to inherit permission changes from its 
+primary parent (defined when it was first created).
+
+By default, ACL inheritance is always from the primary parent. The underlying design and implementation does not 
+mandate this. ACL inheritance does not have to follow the parent child relationship. It is possible to change this 
+through the Java API.
+
+There are several types of ACL defined in ACLType. The main types are:
+
+* `DEFINING`
+* `SHARED`
+* `FIXED`
+* `GLOBAL`
+
+A node will be associated with an ACL. It will have a DEFINING ACL if any ACE has been set on the node. DEFINING ACLs 
+include any ACEs inherited from the node’s primary parent and above, if inheritance is enabled. All DEFINING ACLs are 
+associated with one SHARED ACL. This SHARED ACL includes all the ACEs that are inherited from the DEFINING ACL. If the 
+primary children of a node with a DEFINING ACL do not themselves have any specific ACEs defined then they can be 
+assigned the related SHARED ACL. For the primary children of a node with a SHARED ACL that also have no specific ACEs 
+set they can use the same SHARED ACL. A single SHARED ACL can be associated with many nodes. When a DEFINING ACL is updated, 
+it will cascade update any related ACLs by using the ACL relationships rather than walk the node structure. If a DEFINING ACL 
+inherits ACEs, then these will come from the SHARED ACL related to another DEFINING ACL.
+
+ACLs and nodes have two linked tree structures.
+
+FIXED ACLs are not associated with a node but found by name. A node ACL could be defined to inherit from a fixed ACL. 
+A GLOBAL ACL is a special case of a FIXED ACL with a well known name. It will be used to hold the global ACE currently 
+defined in XML.
+
+ACEs comprise an authority, a permission, and a deny/allow flag. They are ordered in an ACL.
+
+### ACL ordering and evaluation
+
+The ACEs within an ACL are ordered and contain positional information reflecting how an ACE was inherited. DEFINING ACLs 
+have entries at even positions; SHARED ACLs have entries at odd positions. For a DEFINING ACL, any ACEs defined for 
+that ACL have position 0, any inherited from the parent ACL have position two, and so on. For a SHARED ACL, ACEs defined 
+on the ACL from which it inherits will have position one.
+
+When Content Services makes permission checks, ACEs are considered in order with the lowest position first. Deny entries 
+take precedence over allow entries at the same position. Once a deny entry is found for a specific authority and 
+permission combination, any matching ACE, at a higher position from further up the inheritance chain, is denied. 
+A deny for one authority does not deny an assignment for a different authority. If a group is denied `Read` permission, 
+a person who is a member of that group can still be assigned `Read` permission using another group or directly with 
+their person `userName`. However, if an authority is granted `Read` (made up of `ReadContent` and `ReadProperties`) and 
+the same authority denied `ReadContent`, they will just be granted `ReadProperties` permission. The administration 
+pages of Alfresco Share do not expose deny.
+
+The default configuration is `any deny denies`. This is set by adding the following property to the `alfresco-global.properties` file:
+
+```text
+security.anyDenyDenies=true  
+```
+
+You can alter the configuration to support `any allow allows`. This is set by adding the following property to the 
+`alfresco-global.properties` file:
+
+```text
+security.anyDenyDenies=false
+```
+
+### An ACL example
+
+This example relates a tree of nodes to two corresponding trees of ACLs. The nodes in the node tree are identified by 
+number and are shown filled in black if they have any ACEs set, or white/clear if not. Primary child relationships are 
+drawn as black lines and secondary child relationships as dashed lines. ACLs in the ACL trees are identified by letter, 
+DEFINING ACLs are shown filled in black, and SHARED ACLs are shown as clear. Under each node on the node tree the 
+related ACL is referenced.
+
+![secur-acl-example]({% link content-services/images/secur-acl-example.png %})
+
+The table describes the ACEs in each ACL and their position.
+
+|ACL format|Authority|Permission|Allow/Deny|Position|
+|----------|---------|----------|----------|--------|
+|ACL A (Defining, no inheritance)|All|Read|Allow|0|
+|ACL B (Shared, inherits from ACL A)|All|Read|Allow|1|
+|ACL C (Defining, inherits from ACL B)|All|Read|Allow|2|
+|ROLE_OWNER|All|Allow|0|
+|GROUP_A|Write|Allow|0|
+|GROUP_A|CreateChildren|Allow|0|
+|ACL D (Shared, inherits from ACL C)|ALL|Read|Allow|3|
+|ROLE_OWNER|All|Allow|1|
+|GROUP_A|Write|Allow|1|
+|GROUP_A|CreateChildren|Allow|1|
+|ACL E (Defining, inherits from ACL B)|All|Read|Allow|2|
+|Andy|All|Allow|0|
+|Bob|Write|Allow|0|
+|Bob|WriteContent|Deny|0|
+|ACL F (Shared, inherits from ACL E)|All|Read|Allow|3|
+|Andy|All|Allow|1|
+|Bob|Write|Allow|1|
+|Bob|WriteContent|Deny|1|
+|ACL G (Defining, no inheritance)|Bob|All|Allow|0|
+|ACL H (Shared, inherits from ACL G)|Bob|All|Allow|1|
+
+ACL A, and any ACL that inherits from it, allows `Read` for everyone (All) unless permissions are subsequently denied for 
+everyone (All). If ACL A is changed, all the ACLs that inherit from ACL A in the ACL tree will reflect this change. 
+In the example, nodes 1-12 would be affected by such a change. Nodes 13 and 14 would not inherit the change due to 
+the definition of ACL G.
+
+ACL C adds `Contributor` and `Editor` permissions for any authority in `GROUP_A`.
+
+>**Note:** The `GROUP_` prefix is normally hidden by the administration pages of Alfresco Share.
+
+Anyone in `GROUP_A` can edit existing content or create new content. The owner ACE means that anyone who creates 
+content then has full rights to it. The ACE assignment for owner is not normally required as all rights are given 
+to node owners in the context-free ACL defined in the default permission configuration.
+
+ACL E adds some specific user ACEs in addition to those defined in ACL A. As an example, it allows Bob `Write` but also 
+denies `WriteContent`. `Write` is made up of `WriteContent` and `WriteProperties`. Bob will only be allowed `WriteProperties`.
+
+ACL G does not inherit and starts a new ACL tree unaffected by any other ACL tree unless an inheritance link is subsequently made.
+
+If a new node was created beneath node 13 or 14 it would inherit ACL H. If a new node was created beneath nodes 
+1, 6, 7, or 8 it would inherit ACL B.
+
+If a node that has a shared ACL has an ACE set, a new defining ACL and a related shared ACL are inserted in the ACL tree. 
+If a defining ACL has all its position 0 ACEs removed, it still remains a defining ACL: There is no automatic clean up 
+of no-op defining ACLs.
+
+## Modifying access control
+
+## Public services
+### Public services configuration
+### Method-level security definition
+
+## Implementation and services
+### Authentication service
+#### Configuring multiple tickets for authentication
+### Person service
+### Authority service
+#### Using guestGroups and adminGroups properties
+##### Configuring guestGroups and adminGroups properties
+### Permission service
+### Ownable service
+
+## Admin password in default authentication
+
+## Security policies and filters
+### Alfresco Share Security policies and filters
+#### Cross-Site Request Forgery (CSRF) filters for Share
+#### Iframes and phishing attack mitigation
+#### Security filters and clickjacking mitigation
+### Alfresco repository security policies and filters
+#### Cross-Site Request Forgery (CSRF) filters for Repository
