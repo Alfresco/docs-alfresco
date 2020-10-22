@@ -882,19 +882,415 @@ of no-op defining ACLs.
 
 ## Modifying access control
 
+Modifying access control can involve changing definitions, adding services, defining types and aspects, or adding 
+definitions to new or existing security interceptors.
+
+Main functions include:
+
+* Changing the definition of existing security interceptors to check for different conditions
+* Adding new public services and related security interceptors
+* Defining new types and aspects and their related permissions
+* Adding new definitions to the security interceptor by implementing an ACEGI `AccessDecisionVoter` and/or `AfterInvocationProvider` (in extreme cases)
+
+A few constraints and design patterns should be observed when modifying access control. Permissions apply to the node as whole. 
+In particular, the same Read rights apply to all properties and content. You should check that methods can be executed and 
+not that a user has a particular permission. The access control restrictions for a public service method can change. 
+Follow the design pattern to implement RBAC roles.
+
+When modifying access control, do not try to split `ReadProperties` and `ReadContent`. This does not make sense for search. 
+A node and all of its properties, including content, are indexed as one entity. Splitting the evaluation of access for 
+content and properties is not possible. Search would have to apply both criteria so as to not leak information. 
+Other services, such as copy, might not behave as expected or might produce nodes in an odd state.
+
+Permissions are assigned at the node level, not at the attribute level. Again, this makes sense with the search capabilities. 
+Search results need to reflect what the user performing the search can see. It makes sense that all properties have the 
+same `Read` access as the node, as nodes are indexed for searching and not individual properties. Applying `Read` ACLs at 
+the property level would require a change to the indexing implementation or a complex post analysis to work out how nodes 
+were found by the search. If not, the values of properties could be deduced by how a readable node was found from a search 
+on restricted properties.
+
+Fine grain attribute permissions could be implemented by using children nodes to partition metadata. Queries would have 
+to be done in parts and joined by hand, as there is no native support for SQL-like join.
+
+Check that method execution is allowed and not that the user has a fixed permission. Rather than checking for `Read` permission 
+in code, check that the appropriate method can be called using the `PublicServiceAccessService` bean. This avoids hard coding 
+to a specific permission implementation and is essential if you intend to mix records management and the content repository. 
+The access restrictions for public service methods can change. The `PublicServiceAccessService` bean allows you to test if 
+any public service method can be invoked successfully with a given set of arguments. It checks all the entry criteria 
+for the method and, assuming these have not changed, the method can be called successfully. The method call can still 
+fail if the conditions for the returned object are not met or some security configuration has changed, such as an ACE is 
+removed, a user is removed from a group, or the method fails for a non-authorization reason.
+
+For those coming from an RBAC background, Content Services has roles in the RBAC sense only for limited internal use. 
+To implement RBAC use zoned groups. These groups will not appear in the administration pages of Alfresco Share as normal 
+groups (unless you also add them to the `APP.DEFAULT` zone) but can be used to assign users and groups to roles. 
+This approach has been taken to support roles in Alfresco Share. To map RBAC terminology to Content Services: 
+operations map to method calls on public service beans, objects map to method arguments including nodes 
+(folders, documents, and so on). Users and permissions/privileges map directly. Content Services allows the 
+assignment of permissions to users or groups.
+
+By default, the owner of an object can manage any aspect of its ACL. Users with `ChangePermissions` rights for a node can 
+also change its ACL. If users have the ability to alter the ACL associated with an object, they can allow other users to 
+do the same. There is no restriction on the permissions they can assign. The Content Services model supports 
+liberal discretionary access control with multi-level grant. A user who can grant access can pass on this right 
+without any restriction. In addition, anyone who can change permissions can carry out the revocation of rights: it is 
+not restricted to the original granter. Normally, when someone can perform an operation you would not expect it is 
+because they own the node and therefore have all permissions for that node.
+
 ## Public services
+
+Security is enforced around public services. Web services, web scripts, Alfresco Share, WebDAV, FTP, CMIS, and more, 
+all use public services, and therefore include security enforcement.
+
+Public services are defined in [public-services-context.xml](https://github.com/Alfresco/alfresco-repository/blob/af2e069b2eabcd5433cee39d83ec06bad6fc69a0/src/main/resources/alfresco/public-services-context.xml).
+
+Access control allows or prevents users or processes acting on behalf of a user, from executing service methods on a 
+particular object by checking if the current user, or any of the authorities granted to the current user, 
+has a particular permission or permission group, or that the user has a particular authority.
+
+For example, on the `NodeService` bean, the `readProperties` method checks that the current user has `Read` permission 
+for the node before invoking the method and returning the node’s properties. On the `SearchService`, the `query` method 
+results are restricted to return only the nodes for which a user has `Read` permission.
+
 ### Public services configuration
+
+Security is enforced in the Spring configuration by defining proxies for each internal service implementation and adding 
+a method interceptor to enforce security for each public service proxy. These interceptors also have other roles. 
+When a method is called on a public service, the security interceptor is called before the method it wraps. 
+At this stage, the interceptor can examine the function arguments to the method and check that the user has the 
+appropriate rights for each argument in order to invoke the method. For example, a method `delete(NodeRef nodeRef)` 
+exists on the node service. The security interceptor can see the `nodeRef` argument before the underlying `delete(...)` 
+method is called. If configured correctly, the interceptor could check that the current user has `Delete` permission 
+for the node. If they do not have the permission, a security exception is raised. If all the entry criteria are met, 
+the method goes ahead.
+
+In a similar manner, after a method has executed the interceptor can examine the returned object and decide if it should 
+return it to the caller. For example, a search method could return a list of nodes. The security interceptor could 
+filter this list for only those nodes for which the current user has `Read` permission.
+
+It is also possible to configure a method so that it can be called by all users, only by users with the admin role, 
+or only by specific users or groups. This can also be enforced by the security method interceptor.
+
+Access control interceptor definitions for public services are included in `<installLocation>\tomcat\webapps\alfresco\WEB-INF\classes\alfresco\public-services-security-context.xml` 
+along with any other supporting beans. This configuration file also defines the location from which the permission 
+model is loaded. The interceptors are wired up to the public services in `<installLocation>\tomcat\webapps\alfresco\WEB-INF\classes\alfresco\public-services-context.xml`. 
+The public services are the only Spring beans to have access control.
+
 ### Method-level security definition
 
+Method access is defined in the normal ACEGI manner with some additions.
+
+The beans required to support Spring ACEGI-based security around method invocation are defined in 
+[public-services-security-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/public-services-security-context.xml). 
+This configures two specific beans: A voter that can authorize method execution based on the permissions granted to the 
+current user for specific arguments to the method, and an after invocation provider to apply security to objects returned by methods.
+
+For the following information detailing preconditions and postconditions, these factors are all relevant:
+
+* `<authority>`
+
+    Represents an authority (user name or group).
+
+* `<#>`
+
+    Represents a method argument index.
+
+* `<permission>`
+
+    Represents the string representation of a permission.
+
+Preconditions take one of the following forms:
+
+* `ACL_METHOD.<authority>`
+
+    Restricts access to the method to those with the given authority. This could be a user name, role or group. Dynamic authorities are not supported.
+
+* `ACL_NODE.<#>.<permission>`
+
+    Restricts access control to users who have the specified permission for the node at the identified argument. If the argument is a `NodeRef`, it will be used; if it is a `StoreRef`, the root node for the store will be used; if it is a `ChildAssociationRef`, the child node will be used.
+
+* `ACL_PARENT.<#>.<permission>`
+
+    Restricts access control to users who have the specified permission for the parent of the node on the identified argument. If the argument is a `NodeRef`, the parent of the node will be used; if it is a `ChildAssociationRef`, the parent node will be used.
+
+* `ROLE`
+
+    Checks for an authority starting with `ROLE_`.
+
+* `GROUP`
+
+    Checks for an authority starting with `GROUP_`.
+
+Here are some examples of method level security parameters:
+
+* `ACL_METHOD.ROLE_ADMINISTRATOR`: Executes a method that allows access to users who are members of the administrator group.
+* `ACL_ALLOW`: Executes a method that allows access to all users.
+
+If more than one `ACL_NODE.<#>.<permission>` , `ACL_PARENT.<#>.<permission>`, or `ACL_METHOD.<permission>` entry is present, 
+then all of the `ACL_NODE` and `ACL_PARENT` permissions must be present and any one of the `ACL_METHOD` restrictions, 
+if present, for the method to execute.
+
+Post-conditions take the forms:
+
+* `AFTER_ACL_NODE.<permission>`
+
+    Similar to `ACL_NODE.<#>.<permission>` but the restriction applies to the return argument.
+
+* `AFTER_ACL_PARENT.<permission>`
+
+    Similar to `ACL_PARENT.<#>.<permission>` but the restriction applies to the return argument.
+
+The support return types are:
+
+* `StoreRef`
+* `ChildAssociationRef`
+* Collections of `StoreRef`, `NodeRef`, `ChildAssociationRef`, and `FileInfo`
+* `FileInfo`
+* `NodeRef`
+* Arrays of `StoreRef`, `NodeRef`, `ChildAssociationRef`, and `FileInfo`
+* `PagingLuceneResultSet`
+* `QueryEngineResults`
+* `ResultSet`
+
+The post-conditions will create access denied exceptions for return types such as `NodeRef`, `StoreRef`, `ChildAssociationRef`, 
+and `FileInfo`. For collections, arrays, and result sets, their members will be filtered based on the access conditions 
+applied to each member.
+
+Continuing the example from the permissions defined for the `Ownable` aspect, the definition for the security interceptor 
+for the related `OwnableService` is shown in the following code snippet.
+
+```xml
+<bean id="OwnableService_security"
+  class="org.alfresco.repo.security.permissions.impl.acegi.MethodSecurityInterceptor">
+   <property name="authenticationManager"><ref bean="authenticationManager"/></property>
+   <property name="accessDecisionManager"><ref local="accessDecisionManager"/></property>
+   <property name="afterInvocationManager"><ref local="afterInvocationManager"/></property>
+   <property name="objectDefinitionSource">
+     <value>
+      org.alfresco.service.cmr.security.OwnableService.getOwner=ACL_NODE.0.sys:base.ReadProperties
+    org.alfresco.service.cmr.security.OwnableService.setOwner=ACL_NODE.0.cm:ownable.SetOwner
+     org.alfresco.service.cmr.security.OwnableService.takeOwnership=ACL_NODE.0.cm:ownable.TakeOwnership
+      org.alfresco.service.cmr.security.OwnableService.hasOwner=ACL_NODE.0.sys:base.ReadProperties
+      org.alfresco.service.cmr.security.OwnableService.*=ACL_DENY
+      </value>
+    </property>
+</bean>
+
+```
+
+Security for the four methods on the `OwnableService` is defined. To invoke the `OwnableService getOwner()` method on a node, 
+the invoker must have permission to read the properties of the target node. To set the owner of a node, a user must have 
+been explicitly assigned the `SetOwner` permission or have all rights to the node. A user can have all rights to a node by 
+using the context-free ACL or be assigned a permission, which grants all permission or includes `SetOwner`. With the default 
+configuration, a user will own any node they create and therefore be able to give ownership to anyone else and possibly 
+not have the right to take ownership back.
+
+The last entry catches and denies access for any other method calls other than those listed. If any additional methods 
+were added to this service and no security configuration explicitly defined for the new methods, 
+these methods would always deny access.
+
 ## Implementation and services
+
+Content Services enforces security services for managing authentication information.
+
+The following key services are involved in access control:
+
+* `AuthenticationService`: responsible for authenticating user name and password.
+* `PersonService`: responsible for obtaining a reference to the `Person` node for a given user name. It also creates, deletes and updates personal information.
+* `AuthorityService`: responsible for managing authorities.
+* `PermissionService`: responsible for managing ACLs and ACEs, and for checking if a user has been assigned a permission for a particular node.
+* `OwnableService`: manages object ownership and is used in evaluation the dynamic `ROLE_OWNER` authority.
+
+Let's consider a possible scenario to understand how the security services work. A user logs in using the *authentication service*, which determines the user's authorities, such as their user name (which is a `USER` authority). The *authority service* adds and manages the relevant groups and roles. The *permission service* maps those users, groups and roles to operations on particular nodes. It also controls the inheritance of permissions and provides a common set of default permissions. The *owner service* is related to the special `OWNER` role and it determines the owner of a node. The *person service* deals with the special case of person nodes, which identify users.
+
+The protection of public services methods is implemented using the Spring method interceptors defined as part of the related ACEGI 0.8.2 security package. The Content Services implementation adds new implementations of the ACEGI interfaces `AccessDecisionVoter` and `AfterInvocationProvider`, which support the configuration elements that have already been described (for example, `ACL_NODE.<#>.<permission>`). These extension classes make use of the key services.
+
 ### Authentication service
+
+Use this information to understand and configure authentication service.
+
+The authentication service provides an API for:
+
+* Authenticating using a user name and password
+* Authenticating using a ticket
+* Creating, updating and deleting authentication information
+* Clearing the current authentication
+* Invalidating a ticket
+* Getting the user name for currently authenticated users
+* Getting a ticket for subsequent re-authentication
+
+The authenticated user name is used as the key to obtain other security information, such as group membership, 
+the details about the person or to record a user as the owner of an object. It is one of the identifiers against 
+which permissions can be assigned.
+
+The authentication service does not provide any details about a user other than authentication. It stores authentication 
+information on the calling thread. Application developers should ensure that this information is cleared.
+
+The authentication service brings together three components:
+
+* authentication component, which supports authentication;
+* authentication DAO, which provides an API to create, delete and update authentication information; and
+* ticket component, which manages and stores tickets that can be obtained after authentication and used in place of authentication.
+
+The implementation and configuration for this service can be found in the `authentication-services-context.xml` file. 
+This default implementation coordinates two service providers for `AuthenticationComponent` and `MutableAuthenticationDAO`. 
+It also uses the permission service provider interface to clear up permissions as users are deleted. 
+Tickets are supported using the ticket component.
+
 #### Configuring multiple tickets for authentication
+
+For each authentication attempt, Alfresco Content Services returns a different session ID, but the same ticket for 
+each user. You can configure multiple tickets using the `authentication.ticket.useSingleTicketPerUser` option.
+
+The `TicketComponent` configuration setting, in `alfresco-global.properties`, has an option called 
+`authentication.ticket.useSingleTicketPerUser`. This option has a default setting of `true`, which means that only 
+one ticket is created for each user, and this ticket is returned for every authentication attempt by that user. 
+If the ticket is invalidated, the user is required to re-authenticate before using the repository.
+
+To set multiple tickets for each user, set `authentication.ticket.useSingleTicketPerUser=false`.
+
 ### Person service
+
+Use this information to understand and configure of person service.
+
+The `PersonService` interface is the API by which nodes of the person type, as defined in 
+[contentModel.xml](https://github.com/Alfresco/alfresco-repository/blob/af2e069b2eabcd5433cee39d83ec06bad6fc69a0/src/main/resources/alfresco/model/contentModel.xml), should be accessed.
+
+The `PersonService` is responsible for all of the following:
+
+* Obtaining a reference to the Person node for a given user name
+* Determining if a person entry exists for a user
+* Potentially creating missing people entries with default settings on demand
+* Supplying a list of mutable properties for each person
+* Creating, deleting, and altering personal information
+
+The beans to support the `PersonService` and its configuration can be found in 
+[authentication-services-context.xml](https://github.com/Alfresco/alfresco-repository/blob/af2e069b2eabcd5433cee39d83ec06bad6fc69a0/src/main/resources/alfresco/authentication-services-context.xml). 
+The principle configuration options are around how people are created on demand if users are managed by using LDAP or 
+some other external user repository.
+
 ### Authority service
+
+Use this information to understand and configure authority service, using the `authority-services-context.xml` file.
+
+The authority service is responsible for:
+
+* Creating and deleting authorities
+* Querying for authorities
+* Structuring authorities into hierarchies
+* Supporting queries for membership
+* Finding all the authorities that apply to the current authenticated user
+* Determining if the current authenticated user has admin rights
+* Managing zones and the assignment of authorities to zones
+
+The default implementation allows a list of group names to define both administration groups and guest groups. 
+Each authentication component defines its own default administrative user(s), which can also be set explicitly. 
+The default service is defined in the [authority-services-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/authority-services-context.xml) file.
+
 #### Using guestGroups and adminGroups properties
-##### Configuring guestGroups and adminGroups properties
+
+The `authority-services-context.xml`, bean id `authorityService` provides the property configuration of the 
+Authority Service implementation. This configuration also allows the designation of specific groups with `admin` or `guest` 
+permissions in the system.
+
+By listing a group under the `guestGroups` property (case insensitive), the users in that group will only be allowed 
+`guest` permission. Likewise, by listing a group under the `adminGroups` property (case insensitive), the users in 
+that group will be provided `admin` permission.
+
+For example, assume that you are synchronizing users into Alfresco Content Services and you specifically want to 
+specify some groups as only guest users in the system. You would override the `authority-services-context.xml` file 
+adding those groups to the `guestGroups` list (case insensitive). As a result, users in those groups will have 
+authenticated logins but limited to guest authorization. 
+
+**Configuring `guestGroups` and `adminGroups` properties**
+
+Use this information to configure the `guestGroups` and `adminGroups` properties.
+
+1.  Download the [authority-services-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/authority-services-context.xml) file.
+
+2.  Paste this file into the `<extension>` directory.
+
+3.  Open the `authority-services-context.xml` file.
+
+    1.  To specify some groups as only guest users, add them to the `guestGroups` property list.
+
+        ```xml
+        <!-- A list of groups with guest rights.    -->
+        <!-*                                      -->
+                <property name="guestGroups">
+                    <set>
+                    </set>
+                </property>
+        ```
+
+    2.  To assign admin rights to some groups, add them to the `adminGroups` property list.
+
+        ```xml
+        <!-- A list of groups with admin rights.    -->
+        <!-*                                      -->
+                <property name="adminGroups">
+                    <set>
+                        <value>ALFRESCO_ADMINISTRATORS</value>
+                    </set>
+                </property>
+        ```
+
+4.  Save the file and then restart the server.
+
 ### Permission service
+
+Use this information to understand and configure permission service.
+
+The permission service is responsible for:
+
+* Providing well known permissions and authorities
+* Providing an API to read, set, and delete permissions for a node
+* Providing an API to query, enable, and disable permission inheritance for a node
+* Determining if the current, authenticated user has a permission for a node
+
+The `PermissionService` interface defines constants for well-known permissions and authorities.
+
+The default implementation coordinates implementations of two service provider interfaces: a `ModelDAO` and a 
+`PermissionsDAO`. A permission is simply a name scoped by the fully qualified name of the type or aspect to which 
+it applies. The beans are defined and configured in 
+[public-services-security-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/public-services-security-context.xml). 
+This file also contains the configuration for security enforcement.
+
+The `ModelDAO` interface defines an API to access a permissions model. The default permission model is in XML and 
+defines permission sets, and their related permission groups and permissions. Global permissions are part of the 
+permission model. There can be more than one permission model defined in XML; they are in practice merged into one 
+permission model. A module can extend the permission model.
+
+The available permissions are defined in the permission model. This is defined in 
+[permissionDefinitions.xml](https://github.com/Alfresco/alfresco-repository/blob/af2e069b2eabcd5433cee39d83ec06bad6fc69a0/src/main/resources/alfresco/model/permissionDefinitions.xml). 
+This configuration is loaded in a bean definition in [public-services-security-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/public-services-security-context.xml). 
+This file also defines global permissions. The definition file is read once at application start-up. If you make 
+changes to this file, you will have to restart the repository in order to apply the changes.
+
 ### Ownable service
+
+Use this information to understand and configure ownable service.
+
+The idea of file ownership is present in both UNIX and Windows. In Alfresco Content Services, the repository has the 
+concept of node ownership. This ownership is optional and is implemented as an aspect.
+
+The owner of a node can have specific ACLs granted to them. Ownership is implemented as the dynamic authority, `ROLE_OWNER`, 
+and is evaluated in the context of each node for which an authorization request is made. The `Ownable` aspect, if present, 
+defines a node’s owner by storing a userName; if the `Ownable` aspect is not present, the creator is used as the default owner. 
+If the `userName` of the current user matches, including case, the `userName` stored as the owner of the node, the current 
+user will be granted all permissions assigned to the authority `ROLE_OWNER`.
+
+The `OwnableService` is responsible for all of the following:
+
+* Determining the owner of a node
+* Setting the owner of a node
+* Determining if a node has an owner
+* Allowing the current user to take ownership of a node
+
+The `OwnableService` is supported by an `Ownable` aspect defined in `<installLocation>\tomcat\webapps\alfresco\WEB-INF\classes\alfresco\model\contentModel.xml`.
+
+There are permissions and permission groups associated with the Ownable aspect in the permission model and related 
+access controls applied to the methods on the public `OwnableService`.
 
 ## Admin password in default authentication
 
