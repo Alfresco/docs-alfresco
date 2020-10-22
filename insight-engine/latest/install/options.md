@@ -4,7 +4,10 @@ title: Installation options
 
 There are several options for installing Search and Insight Engine:
 
-## Installing with mutual TLS with the distribution zip
+* Using the distribution zip (with or without mutual TLS)
+* Using Docker Compose
+
+## Install with mutual TLS (zip)
 
 Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services with mutual TLS.
 
@@ -22,27 +25,26 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-1. Browse to the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"} and download `alfresco-insight-engine-2.0.x.zip`.
+1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-2.0.x.zip`.
 
 2. Extract the Search and Insight Engine distribution.
 
-    By default, the contents of `alfresco-insight-engine-2.0.x.zip` are decompressed in a root folder as /alfresco-insight-engine. See [Search and Insight Engine directory structure
-]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
+    By default, the contents of `alfresco-insight-engine-2.0.x.zip` are decompressed in a root folder as `/alfresco-insight-engine`. See [Search and Insight Engine directory structure]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
 
 3. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this update the `alfresco-insight-engine/solrhome/conf/shared.properties` file:
 
     ```bash
     alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
     alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content
-    alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext 
+    alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
     ```
 
 4. (Optional) Suggestion is disabled by default. To enable suggestion update the `alfresco-insight-engine/solrhome/conf/shared.properties` file.
 
     ```bash
     alfresco.suggestable.property.0={http://www.alfresco.org/model/content/1.0}name
-    alfresco.suggestable.property.1={http://www.alfresco.org/model/content/1.0}title 
-    alfresco.suggestable.property.2={http://www.alfresco.org/model/content/1.0}description 
+    alfresco.suggestable.property.1={http://www.alfresco.org/model/content/1.0}title
+    alfresco.suggestable.property.2={http://www.alfresco.org/model/content/1.0}description
     alfresco.suggestable.property.3={http://www.alfresco.org/model/content/1.0}content
     ```
 
@@ -50,7 +52,7 @@ This task assumes you have:
 
 5. To secure access to Search and Insight Engine, you must create a new set of keystores and keys.
 
-    1. Generate secure keys specific to your Alfresco installation. For more information, see [Secure Keys]({% link insight-engine/latest/config/keys/index.md %}#generating-secure-keys-for-ssl-communication).
+    1. Generate secure keys specific to your Alfresco installation. For more information, see [Secure keys]({% link insight-engine/latest/config/keys.md %}#generate-secure-keys-for-ssl-communication).
 
     2. Create a new keystore directory at `alfresco-insight-engine/solrhome`.
 
@@ -138,10 +140,10 @@ This task assumes you have:
 
     ```bash
     cd alfresco-insight-engine
-    ./solr/bin/solr start -a 
-    "-Dcreate.alfresco.defaults=alfresco,archive 
-    -Dsolr.ssl.checkPeerName=false 
-    -Dsolr.allow.unsafe.resourceloading=true 
+    ./solr/bin/solr start -a
+    "-Dcreate.alfresco.defaults=alfresco,archive
+    -Dsolr.ssl.checkPeerName=false
+    -Dsolr.allow.unsafe.resourceloading=true
     -Dssl-keystore.password=keystore
     -Dssl-keystore.aliases=ssl-alfresco-ca,ssl-repo-client
     -Dssl-keystore.ssl-alfresco-ca.password=keystore
@@ -150,7 +152,7 @@ This task assumes you have:
     -Dssl-truststore.aliases=ssl-alfresco-ca,ssl-repo,ssl-repo-client
     -Dssl-truststore.ssl-alfresco-ca.password=truststore
     -Dssl-truststore.ssl-repo.password=truststore
-    -Dssl-truststore.ssl-repo-client.password=truststore" -f 
+    -Dssl-truststore.ssl-repo-client.password=truststore" -f
     ```
 
     > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine.
@@ -192,7 +194,7 @@ If you are not using sharded Search and Insight Engine:
 2. Deselect **Dynamic Shard Instance Registration**.
 3. Select **Purge at Startup**.
 
-## Installing without mutual TLS with the distribution zip
+## Install without mutual TLS (zip)
 
 Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS.
 
@@ -210,7 +212,7 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-1. Browse to the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"} and download `alfresco-insight-engine-distribution-2.0.x.zip`.
+1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-distribution-2.0.x.zip`.
 
 2. Extract the Search and Insight Engine distribution.
 
@@ -234,7 +236,7 @@ This task assumes you have:
         -Dalfresco.secureComms=none
         ```
 
-    See [Setting up Solr Sharding]({% link insight-engine/latest/config/sharding/create/index.md %}#core-templates) for a brief description of the out-of-the-box Solr core templates.
+    See [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create.md %}#core-templates) for a brief description of the out-of-the-box Solr core templates.
 
 4. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this add the following to the `alfresco-insight-engine/solrhome/conf/shared.properties` file:
 
@@ -248,8 +250,8 @@ This task assumes you have:
 
     ```bash
     alfresco.suggestable.property.0={http://www.alfresco.org/model/content/1.0}name
-    alfresco.suggestable.property.1={http://www.alfresco.org/model/content/1.0}title 
-    alfresco.suggestable.property.2={http://www.alfresco.org/model/content/1.0}description 
+    alfresco.suggestable.property.1={http://www.alfresco.org/model/content/1.0}title
+    alfresco.suggestable.property.2={http://www.alfresco.org/model/content/1.0}description
     alfresco.suggestable.property.3={http://www.alfresco.org/model/content/1.0}content
     ```
 
@@ -314,24 +316,24 @@ This task assumes you have:
 
     2. Under **Main (Workspace) Store Tracking Status**, the **Approx Transactions to Index** is **0**.
 
-## Installing with Docker compose
+## Install with Docker Compose
 
 Use this information to start up Alfresco Content Services 6.2 or above and Search and Insight Engine 2.0 using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
 ### Prerequisites
 
-* [Docker](https://docs.docker.com/install/)
+* [Docker](https://docs.docker.com/install/){:target="_blank"}
   * This allows you to run Docker images and Docker Compose on a single computer.
 
-* [Docker Compose](https://docs.docker.com/compose/install/)
+* [Docker Compose](https://docs.docker.com/compose/install/){:target="_blank"}
   * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
 
-* Access to [Quay](http://www.quay.io)
-  * Docker requires access to certain images which are stored on Quay. You need to use the correct credentials provided by Alfresco to access these images. Contact [Alfresco Support](mailto:support@alfresco.com) to request the credentials.
+* Access to [Quay](https://quay.io/){:target="_blank"}
+  * Docker requires access to certain images which are stored on Quay. You need to use the correct credentials provided by Alfresco to access these images. Contact [Alfresco Support](mailto:support@alfresco.com){:target="_blank"} to request the credentials.
 
 > **Note:** Make sure the following ports are free on your computer: `5432`, `8080`, `8082`, `8083`. These ports are set in the `docker-compose.yml` file.
 
-1. Download the latest Alfresco Content Services `docker-compose.yml` file by accessing the [trial download page](https://www.alfresco.com/platform/content-services-ecm/trial/download).
+1. Download the latest Alfresco Content Services `docker-compose.yml` file by accessing the [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page.
 
 2. Save the file in a local folder.
 
@@ -356,7 +358,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
                 - 8083:8983 #Browser port
     ```
 
-    > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Building Reports and Dashboards]({% link insight-engine/latest/using/reports/index.md %}#Installing with Docker Compose) for the additional container information you need to add to your `docker-compose.yml` file.
+    > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Building Reports and Dashboards]({% link insight-engine/latest/using/index.md %}#Installing with Docker Compose) for the additional container information you need to add to your `docker-compose.yml` file.
 
 4. Save the file.
 
@@ -383,7 +385,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
 
     * Stop the session (by using `CONTROL+C`).
     * Remove the container (using the `--rmi all` option): For example `docker-compose down --rmi all`.
-    * Try allocating more memory resources. As advised in docker-compose.yml set it to at least 16 GB. To adjust the memory, in Docker, go to **Preferences** (or **Settings**) > **Advanced** > **Memory**. Once you have adjusted the memory make sure you restart Docker and wait for the process to finish before continuing.
+    * Try allocating more memory resources. As advised in `docker-compose.yml` set it to at least 16 GB. To adjust the memory, in Docker, go to **Preferences** (or **Settings**) > **Advanced** > **Memory**. Once you have adjusted the memory make sure you restart Docker and wait for the process to finish before continuing.
     * Go back to step 6 and retry the deployment.
 8. Open your browser and check everything starts up correctly:
 

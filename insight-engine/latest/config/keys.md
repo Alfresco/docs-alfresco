@@ -1,5 +1,5 @@
 ---
-title: Secure Keys
+title: Secure keys
 ---
 
 This section describes a recommended approach for generating secure keys and setting up certificates. It is not required that you use this approach if you have an alternative solution that you already use.
@@ -8,7 +8,7 @@ If you're installing Alfresco Content Services using the distribution zip, you n
 
 You can create the keystores, truststores and certificates required to configure SSL/mutual TLS authentication between different services in Alfresco Content Services, such as the repository and Solr.
 
-## Generating secure keys for ssl communication
+## Generate secure keys for SSL communication
 
 Use this information to generate certificates for SSL/mutual TLS authentication between the repository and Search and Insight Engine, using secure keys specific to your installation.
 
@@ -16,7 +16,7 @@ A certificates generator script, `run.sh` (for Linux) and `run.cmd` (for Windows
 
 Before you start, you must already have OpenSSL and `keytool` available in your system path.
 
-1. Browse to the [https://github.com/Alfresco/alfresco-ssl-generator](https://github.com/Alfresco/alfresco-ssl-generator) GitHub project and click Clone or download.
+1. Browse to the [https://github.com/Alfresco/alfresco-ssl-generator](https://github.com/Alfresco/alfresco-ssl-generator) GitHub project and click **Clone** or **Download**.
 
     If you downloaded the project, extract the files to a suitable location.
 
@@ -40,9 +40,9 @@ Before you start, you must already have OpenSSL and `keytool` available in your 
 
     > **Note:** If the `keystores` folder isn't empty, the script exits without producing any keystore or truststore. You can safely, remove the `keystores` folder if you need to re-run the script.
 
-See [Keystore directory structure](#keystore-directory-structure) for more and [Customizing certificate generation](#customizing-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
+See [Keystore directory structure](#keystore-directory-structure) for more and [Customize certificate generation](#customizing-certificate-generation) for a full list of parameters that allow you to customize your certificates. It is recommended that you set your own passwords when generating certificates.
 
-## Customizing certificate generation
+## Customize certificate generation
 
 Here is a full list of parameters that allow you to customize your certificates. These parameters will override the default values listed in the `run.sh` and `run.cmd` scripts.
 
@@ -69,8 +69,8 @@ Here is a full list of parameters that allow you to customize your certificates.
 
 ```bash
 $ ./run.sh -cacertdname  
-"/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Windows Alfresco CA" 
--repocertdname "/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Repo" 
+"/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Windows Alfresco CA"
+-repocertdname "/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Repo"
 -solrcertdname "/C=GB/ST=UK/L=Maidenhead/O=Alfresco/OU=Unknown/CN=Solr"
 ```
 
@@ -79,7 +79,7 @@ It is recommended that you set your own passwords when generating certificates. 
 (For Linux)
 
 ```bash
-$ ./run.sh -keystorepass “password" -truststorepass “password"
+./run.sh -keystorepass “password" -truststorepass “password"
 ```
 
 (For Windows)
@@ -90,7 +90,7 @@ run.cmd -keystorepass “password" -truststorepass “password"
 
 ## Keystore directory structure
 
-The `keystores` directory contains the following structure and files.
+The `keystores` directory contains the following structure and files:
 
 ```bash
 keystores
@@ -119,7 +119,7 @@ keystores
 |ssl-repo-client.keystore|Solr SSL keystore containing the Solr private/public key pair and certificate.|
 |ssl-repo-client.truststore|Solr truststore containing certificates that the repository trusts.|
 
-## Setting up certificates
+## Set up certificates
 
 Use this information to set up your generated certificates in their correct locations.
 
@@ -169,16 +169,16 @@ Before continuing, make sure that you've already completed the steps in [Generat
         <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
             SSLEnabled="true" maxThreads="150" scheme="https"
             keystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
-            keystorePass="password" keystoreType="JCEKS" 
+            keystorePass="password" keystoreType="JCEKS"
             secure="true" connectionTimeout="240000"
             truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"
-            truststorePass="password" truststoreType="JCEKS" 
+            truststorePass="password" truststoreType="JCEKS"
             clientAuth="want" sslProtocol="TLS" />
         ```
 
         > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file. Also, make sure that the keystore and truststore file locations are correct for your environment.
 
-    See [Installing the Tomcat application server LINK LINK](https://docs.alfresco.com/6.1/tasks/configfiles-change-path.html) and [Solr configuration files]({% link insight-engine/latest/config/index.md %}#solr-configuration-files) for more.
+    See [Install the Tomcat application server LINK LINK](https://docs.alfresco.com/6.1/tasks/configfiles-change-path.html) and [Solr configuration files]({% link insight-engine/latest/config/index.md %}#solr-configuration-files) for more.
 
 5. Change the SSL properties in `<SOLR_HOME>/solrhome/templates/rerank/conf/solrcore.properties`.
 
@@ -206,4 +206,4 @@ Before continuing, make sure that you've already completed the steps in [Generat
     <SOLR_HOME>/solrhome/archive/conf/solrcore.properties
     ```
 
-    See [Solr core configuration properties]({% link insight-engine/latest/config/index.md %}#solr-core-configuration-properties) for more.
+    See [Solr core configuration properties]({% link insight-engine/latest/config/properties.md %}) for more.

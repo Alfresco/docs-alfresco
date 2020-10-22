@@ -14,7 +14,7 @@ Use this information to upgrade from Search and Insight Engine 1.x to Search and
 
 2. Backup or move the existing alfresco-insight-engine folder to a preferred location. For example, `alfresco-insight-engine-1.x`.
 
-3. Browse to the Support Portal: [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"}.
+3. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
 4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
 

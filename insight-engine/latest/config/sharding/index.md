@@ -1,5 +1,5 @@
 ---
-title: Solr Sharding 
+title: Solr sharding 
 ---
 
 Solr sharding involves splitting a single Solr index into multiple parts, which may be on different machines. When the data is too large for one node, you can break it up and store it in sections by creating one or more shards, each containing a unique slice of the index.
@@ -25,7 +25,7 @@ Note that if your Solr indexes are sharded, then index backup will be disabled.
 
 There are a few basic concepts that are core to understanding Solr sharding. Understanding these concepts from the outset will help in learning more about sharding.
 
-## Useful terminology
+### Useful terminology
 
 |Term|Description|
 |----|-----------|
@@ -34,7 +34,7 @@ There are a few basic concepts that are core to understanding Solr sharding. Und
 |Shard group|A shard group is a collection of documents. It is composed of one or more shards.|
 |Shard|An index is split into chunks called shards.|
 
-## Basic concepts
+### Basic concepts
 
 A cluster is a collection of one or more nodes (servers) that provide indexing and search capabilities across all nodes. A node is a single server that is part of your cluster, stores your data, and participates in the cluster's indexing and search capabilities.
 
@@ -128,7 +128,7 @@ This method is available in all versions of Search and Insight Engine. The date-
 
 **Example:** If there are 12 shards, each month would be assigned sequentially to each shard, wrapping round and starting again for each year. The non-random assignment facilitates easier shard management - dropping shards or scaling out replication for some date range. Typical aging strategies could be based on the created date or destruction date.
 
-If the property is not present on a node, sharding falls back to the DBID methodto randomly distribute these nodes.
+If the property is not present on a node, sharding falls back to the DBID method to randomly distribute these nodes.
 
 To use this method when creating a shard, set the following configuration:
 
@@ -191,22 +191,22 @@ shard.count=<shard.count>
 
 |Index Engine|ACL v1|DB ID|Date/time|Metadata|ACL v2|DBID range|Explicit|
 |------------|------|-----|---------|--------|------|----------|--------|
-|Content Services 5.2.0+ Solr 4|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|
-|Content Services 5.2.0+ Content Services 1.0|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|
-|Content Services 6.1+ Search Services or Search and Insight Engine 1.1 + 1.0|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|
-|Content Services 6.1+ Search Services or Search and Insight Engine 1.2+|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|
+|Content Services 5.2.0+ Solr 4| Y | N | N | N | N | N | N |
+|Content Services 5.2.0+ Content Services 1.0| Y | Y | Y | Y | Y | N | N |
+|Content Services 6.1+ Search Services or Search and Insight Engine 1.1 + 1.0| Y | Y | Y | Y | Y | Y | N |
+|Content Services 6.1+ Search Services or Search and Insight Engine 1.2+| Y | Y | Y | Y | Y | Y | Y |
 
 ### Comparison Overview
 
 |Index Engine|ACL v1|DB ID|Date/time|Metadata|ACL v2|DBID range|Explicit|
 |------------|------|-----|---------|--------|------|----------|--------|
-|All shards required|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|
-|ACLs replicated on all shards|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|
-|Can add shards as the index grows|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|
+|All shards required| Y | Y | Y | Y | Y | N | Y |
+|ACLs replicated on all shards| N | Y | Y | Y | N | Y | Y |
+|Can add shards as the index grows| N | N | N | N | N | Y | N |
 |Distribution of content over shards|Uneven|Very even|Quite even|Quite even|Quite even|Quite even|Quite even|
-|Falls back to DBID sharding|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|
-|One shard gets new content|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/red-cross.png %})|Possible|Possible|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|
-|Nodes can move shard|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/green-tick.png %})|![]({% link insight-engine/images/red-cross.png %})|![]({% link insight-engine/images/green-tick.png %})|
+|Falls back to DBID sharding| N | N | Y | Y | N | N | Y |
+|One shard gets new content| N | N |Possible|Possible| N | Y | N |
+|Nodes can move shard| Y | N | Y | Y | Y | N | Y |
 
 ## Backing up Solr shards
 
@@ -239,19 +239,19 @@ http://solrshard20xbm.alfresco.com:9000/alfresco-search-backups/<CORE_NAME>/repl
 
 Use these best practices for setting up and using a sharded installation.
 
-## Do I need sharding?
+### Do I need sharding?
 
 If you plan to store 50 million + documents in your repository, you should consider sharding to maximize indexing performance and to enable horizontal scaling to massive content repositories.
 
-## Do I need dynamic shard registration?
+### Do I need dynamic shard registration?
 
 You can set up sharding using either manual or dynamic shard registration. We recommend that you use dynamic shard registration because it is easier to implement than manual sharding.
 
-## How many shards should I have?
+### How many shards should I have?
 
 A general rule of thumb is to divide the total number of documents by 50M (million). If you want to increase the query load or support more than 100 concurrent users, then check the memory specifications or the I/O specifications of the installation machine.
 
-## What are the reindexing recommendations for a sharded installation
+### What are the reindexing recommendations for a sharded installation
 
 We recommend that existing customers should reindex using the `rerank` core. This has the following benefits:
 
@@ -259,38 +259,38 @@ We recommend that existing customers should reindex using the `rerank` core. Thi
 * Better query performance particularly for phrases and stop words
 * Improved cross-language search
 
-This should allow the user to store anywhere between 50 million - 80 million documents in a single shard. For more information, see the [Alfresco Platform News](https://www.alfresco.com/blogs/how-alfresco-powered-a-1-2-billion-document-deployment-on-amazon-web-services/){:target="_blank"} and [Alfresco 1 billion documents press release with Amazon Aurora](https://www.alfresco.com/node/4141){:target="_blank"}.
+This should allow the user to store anywhere between 50 million - 80 million documents in a single shard. For more information, see the [AHow Alfresco powered a 1.2 Billion document deployment on Amazon Web Services](https://www.alfresco.com/blogs/power-platform/how-alfresco-powered-12-billion-document-deployment-amazon-web-services){:target="_blank"} and [Alfresco 1 billion documents press release with Amazon Aurora](https://www.alfresco.com/news/press-releases/alfresco-achieves-benchmarking-milestone-processing-1-billion-documents-amazon){:target="_blank"}.
 
 > **Note:** Note that changing the number of shards requires a reindex.
 
-## Does sharding work with SSL enabled?
+### Does sharding work with SSL enabled?
 
 Alfresco Content Services 6.x uses Search and Insight Engine (Solr 6), so sharding is supported with full SSL and non-SSL. Make sure you configure the Solr and SSL settings properly.
 
 For more information, see [Installation options]({% link insight-engine/latest/install/options.md %}).
 
-## Are there any considerations for query load and number of documents?
+### Are there any considerations for query load and number of documents?
 
 Before sharding your Solr index, it is important to consider your query load and the size of your repository. You need to create machines to host Solr. For more information, see [Configuring Search and Insight Engine]({% link insight-engine/latest/config/index.md %}). For example, if you need 5 shards, you need to setup those 5 machines, and have Solr instances running on all the 5 machines. Once your machines are ready, you are ready to set up or register shards.
 
-For more information, see [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create/index.md %}#do-i-need-dynamic-shard-registration).
+For more information, see [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create.md %}#do-i-need-dynamic-shard-registration).
 
-## After upgrading, can I use my current index while building a new sharded index?
+### After upgrading, can I use my current index while building a new sharded index?
 
 Yes. After upgrading to Alfresco Content Services 6.2, continue to use the old search index server as before, setup a new sharded Solr server with the `rerank` template to reindex the data, and finally, switch over to the new sharded index once the indexing is done and the sharded Solr server is up-to-date.
 
-## Upgrading from 5.0 with Solr 4 to 6.2 (with zero downtime)
+#### Upgrading from 5.0 with Solr 4 to 6.2 (with zero downtime)
 
 1. Upgrade to 6.2 and continue to use the Solr 4 search service as before.
-2. Configure a separate sharded Solr 4 index to track the repository. For details, see [Solr Sharding](#solr-sharding).
-3. While the new sharded Solr 4 builds its indexes, you can monitor the progress using the Solr Admin Web interface. For details, see [Solr security]({% link insight-engine/latest/config/security/index.md %}.
+2. Configure a separate sharded Solr 4 index to track the repository. For details, see [Solr Sharding](#solr-sharding). 
+3. While the new sharded Solr 4 builds its indexes, you can monitor the progress using the Solr Admin Web interface. For details, see [Solr security]({% link insight-engine/latest/config/security.md %}.
 4. When the sharded Solr 4 index is updated, enable the sharded Solr 4 index by setting the `solr.host` property.
 
-## How do I know the new sharded index is up-to-date?
+### How do I know the new sharded index is up-to-date?
 
-Go to the Solr Admin Web interface at https://localhost:8443/solr/#/alfresco and monitor the value of `Approx transactions remaining`. If the value is `0`, it indicates that the index up-to-date.
+Go to the Solr Admin Web interface at `https://localhost:8443/solr/#/alfresco` and monitor the value of `Approx transactions remaining`. If the value is `0`, it indicates that the index up-to-date.
 
-## Can different shards be inconsistent?
+### Can different shards be inconsistent?
 
 Yes. In a sharded setup, eventual consistency can introduce additional query inconsistencies.
 

@@ -12,7 +12,7 @@ Some queries can be executed both transactionally against the database or with e
 
 Improvements to tracking in the Alfresco Solr 6 integration results in less lag to metadata indexing. Metadata updates are impacted less by content indexing or the bulk updates to PATH for `move`, `rename`, `link` and, `unlink` operations.
 
-The database can only be used for a subset of all the queries. These queries can be in the CMIS QL or AFTS QL. CMIS QL expressions are more likely to use TMDQ because of the default behaviour to do exact matches. AFTS QL defaults to full text search and uses constructs not supported by the database engine. For example, PATH queries.
+The database can only be used for a subset of all the queries. These queries can be in the CMIS QL or AFTS QL. CMIS QL expressions are more likely to use TMDQ because of the default behavior to do exact matches. AFTS QL defaults to full text search and uses constructs not supported by the database engine. For example, PATH queries.
 
 In general, TMDQ does not support:
 

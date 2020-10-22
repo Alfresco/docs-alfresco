@@ -4,7 +4,7 @@ title: Sample Insight Zeppelin SQL
 
 Using Insight Zeppelin you can create some reports with the following example SQL queries:
 
-> **Note:** Insight Zeppelin comes with a note and example reports, see [Insight Zeppelin reports and notes]({% link insight-engine/latest/using/reports/reports.md %}).
+> **Note:** Insight Zeppelin comes with a note and example reports, see [Insight Zeppelin reports and notes]({% link insight-engine/latest/using/index.md %}).
 
 ### The number of documents in the repository
 

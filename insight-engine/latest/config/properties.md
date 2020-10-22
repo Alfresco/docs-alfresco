@@ -1,8 +1,12 @@
 ---
-title: Solr core configuration properties
+title: Properties
 ---
 
-The solrcore.properties configuration file is the property configuration file for a Solr core. There is one `solrcore.properties` file in each core's configuration directory. Use this information to understand the properties of this file, their description, and the default value.
+This page lists the configuration properties for a Solr core and the Solr index's full text search.
+
+## Solr core configuration properties
+
+The `solrcore.properties` configuration file is the property configuration file for a Solr core. There's one `solrcore.properties` file in each core's configuration directory. Use this information to understand the properties of this file, their description, and the default value.
 
 |Property|Description|
 |-------------|-----------|
@@ -19,11 +23,11 @@ The solrcore.properties configuration file is the property configuration file fo
 |alfresco.doPermissionChecks|This property allows users to see the document name or properties on a search result, for example `true`.|
 |alfresco.encryption.ssl.keystore.location|This property specifies the CLIENT keystore location reference. If the keystore is file-based, the location can reference any path in the file system of the node where the keystore is located, for example `ssl.repo.client.keystore`.|
 |alfresco.encryption.ssl.keystore. passwordFileLocation|This property specifies the location of the file containing the password that is used to access the CLIENT keystore, also the default that is used to store keys within the keystore, for example `ssl-keystore-passwords.properties`.|
-|alfresco.encryption.ssl.keystore.provider|This property specifies the Java provider that implements the `type` attribute (for example, JCEKS type). The provider can be left unspecified and the first provider that implements the keystore type specified is used.| |
+|alfresco.encryption.ssl.keystore.provider|This property specifies the Java provider that implements the `type` attribute (for example, JCEKS type). The provider can be left unspecified and the first provider that implements the keystore type specified is used.|
 |alfresco.encryption.ssl.keystore.type|This property specifies the CLIENT keystore type, for example `JCEKS`.|
 |alfresco.encryption.ssl.truststore.location|This property specifies the CLIENT truststore location reference. If the truststore is file-based, the location can reference any path in the file system of the node where the truststore is located, for example `ssl.repo.client.truststore`.|
 |alfresco.encryption.ssl.truststore. passwordFileLocation|This property specifies the location of the file containing the password that is used to access the CLIENT truststore, also the default that is used to store keys within the truststore, for example `ssl-truststore-passwords.properties`.|
-|alfresco.encryption.ssl.truststore.provider|This property specifies the Java provider that implements the `type` attribute (for example, JCEKS type). The provider can be left unspecified and the first provider that implements the truststore type specified is used.| |
+|alfresco.encryption.ssl.truststore.provider|This property specifies the Java provider that implements the `type` attribute (for example, JCEKS type). The provider can be left unspecified and the first provider that implements the truststore type specified is used.|
 |alfresco.encryption.ssl.truststore.type|This property specifies the CLIENT truststore type, for example `JCEKS`.|
 |alfresco.hole.retention|Each track will revisit all transactions from the timestamp of the last in the index, less this value, to fill in any transactions that might have been missed, for example `3600000`.|
 |alfresco.host|This property specifies the host name for the instance that Solr should track and index, for example `localhost`.|
@@ -45,7 +49,7 @@ The solrcore.properties configuration file is the property configuration file fo
 |alfresco.stores|This property specifies the repository store that this core should index, for example `workspace://SpacesStore`.|
 |alfresco.threadDaemon|This property sets whether the threads run as daemon threads or not. If set to `false`, shut down is blocked else it is left unblocked, for example `true`.|
 |alfresco.threadPriority|This property specifies the priority that all threads must have on the scale of 1 to 10, where 1 has the lowest priority and 10 has the highest priority, for example `5`.|
-|alfresco.topTermSpanRewriteLimit|Term expansion is used to convert wildcard * matches into a finite disjunction - e.g. "cat*" -> "cat OR category OR catalogue OR ... caterpillar". This property controls the number of terms in this disjunction, which are chosen from the index with preference given to more popular terms. If you increase the value too much you may not have good performance and if you decrease the value too much you may not receive any results. How you are affected by variations in the limit will depend on your installation, for example `1000`.|
+|alfresco.topTermSpanRewriteLimit|Term expansion is used to convert wildcard \* matches into a finite disjunction - e.g. "cat*" -> "cat OR category OR catalogue OR ... caterpillar". This property controls the number of terms in this disjunction, which are chosen from the index with preference given to more popular terms. If you increase the value too much you may not have good performance and if you decrease the value too much you may not receive any results. How you are affected by variations in the limit will depend on your installation, for example `1000`.|
 |alfresco.transactionDocsBatchSize|This property is used for batch fetching updates during tracking, for example `100`.|
 |alfresco.version|This property specifies the Alfresco Content Services version installed, for example `6.2`.|
 |alfresco.workQueueSize|This property specifies the maximum number of queued work instances to keep before blocking against further adds, for example `-1`.|
@@ -85,3 +89,38 @@ The solrcore.properties configuration file is the property configuration file fo
 |solr.readerCache.initialSize|This property configures the Solr result cache, for example `1024`.|
 |solr.readerCache.size|This property configures the Solr result cache, for example `4096`.|
 |solr.request.content.compress|This property when set to `true` will compress the content that is sent back from the repository during system communication, for example `false`.|
+
+## Full text search configuration properties
+
+The Solr index's full text search properties influence the behavior of Solr indexes.
+
+The main index and deltas all use the same configuration. The data dictionary settings for properties determine how individual properties are indexed.
+
+If you wish to change the default value of a property, add the relevant property to the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file and then make the changes.
+
+### Solr index properties
+
+| Property | Description |
+| -------- | ----------- |
+| solr.host=localhost | The host name where the Solr instance is located |
+| solr.port=8080 | The port number on which the Solr instance is running |
+| solr.port.ssl=8443 | The port number on which the Solr SSL support is running. |
+| solr.solrUser=solr | The Solr user name |
+| solr.solrPassword=solr | The Solr password |
+| solr.secureComms=https | The HTTPS connection |
+| solr.solrConnectTimeout=5000 | The Solr connection timeouts in ms |
+| solr.solrPingCronExpression=0 0/5 * * * ? * | The cron expression defining how often the Solr Admin client (used by JMX) pings Solr if it goes away |
+
+### Data dictionary options
+
+The indexing behavior for each property can be set in the content model. By default the index is eventually consistent with the created content and properties are tokenized when indexed. For more information on how to configure indexing for properties in the content model see this [LINK LINK](https://docs.alfresco.com/6.2/references/dev-extension-points-content-model-define-and-deploy.html).
+
+### Indexing options
+
+If you want archive or zip files to be unzipped and the files included in the index, set the following property:
+
+```bash
+transformer.Archive.includeContents=true
+```
+
+The default setting is false.

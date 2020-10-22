@@ -10,9 +10,9 @@ You may choose to secure Search and Insight Engine with SSL.
 
 > **Note:** When choosing to secure Search and Insight Engine with SSL, be aware that there is a known issue when using Solr 6 where the SSL truststore and keystore passwords are visible as text in the Solr 6 process arguments. Alfresco recommends that you ensure the server running Solr 6 is security hardened and access is restricted to admin users only. For more information, see [Apache](https://issues.apache.org/jira/browse/SOLR-8897){:target="_blank"}.
 
-**Important:** Alfresco strongly recommends that you use firewalls and other infrastructure means to ensure that the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
+> **Important:** Alfresco strongly recommends that you use firewalls and other infrastructure means to ensure that the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-You can download the Search and Insight Engine installation file from the Alfresco Support Portal: [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"}. Click Downloads, and then select the version of the product you require.
+You can download the Search and Insight Engine installation file from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. Click **Downloads**, and then select the version of the product you require.
 
 ## Prerequisites
 

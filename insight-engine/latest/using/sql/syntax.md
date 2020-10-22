@@ -310,14 +310,14 @@ Operator precedence is SQL-like (not Java-like). When there is more than one log
 The following shows the operator precedence from highest to lowest:
 
 ```sql
-" 
-[, ], <, > 
-() 
-~ (prefix and postfix), = 
-^ 
-+, |, - 
-NOT, 
-AND 
+"
+[, ], <, >
+()
+~ (prefix and postfix), =
+^
++, |, -
+NOT,
+AND
 OR
 ```
 
@@ -442,8 +442,8 @@ term[position]
 These are of possible use but excluded for now. Lucene surround extensions:
 
 ```sql
-and(terms etc) 
-99w(terms etc) 
+and(terms etc)
+99w(terms etc)
 97n(terms etc)
 ```
 

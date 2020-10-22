@@ -6,7 +6,7 @@ By default, communication between the repository and Solr is protected by SSL wi
 
 > **Note:** For security reasons, you must generate a new set of keys to secure the Solr communication and access to the Solr Admin Console.
 
-For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#configuring-using-the-admin-console) and [Secure Keys]({% link insight-engine/latest/config/keys/index.md %}).
+For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#configuring-using-the-admin-console) and [Secure Keys]({% link insight-engine/latest/config/keys.md %}).
 
 ## Repository SSL keystores
 
@@ -28,7 +28,7 @@ The keys and certificates required for mutual TLS on the repository side are set
     />
     ```
 
-2. Copy the keystore and truststore files you created in [Generating secure keys for ssl communication]({% link insight-engine/latest/config/keys/index.md %}#generating-secure-keys-for-ssl-communication) to the machine that's running the repository.
+2. Copy the keystore and truststore files you created in [Generating secure keys for ssl communication]({% link insight-engine/latest/config/keys.md %}#generating-secure-keys-for-ssl-communication) to the machine that's running the repository.
 
 3. Set the parameters in the connector, replacing the `xxxxxxx` and `yyyyy` values.
 
@@ -40,9 +40,7 @@ The keys and certificates required for mutual TLS on the repository side are set
 
 ## Solr SSL keystores
 
-Solr core has two keystores that it uses for SSL.
-
-These are:
+Solr core has two keystores that it uses for SSL. These are:
 
 * `ssl.repo.client.keystore` contains a Solr public/private RSA key pair
 * `ssl.repo.client.truststore` contains the trusted Alfresco Certificate Authority certificate (which has been used to sign both the repository and Solr certificates)
@@ -71,9 +69,7 @@ All Solr URLs, which are bundled within Alfresco Content Services, are protected
 
 7. Select **Add Exception**.
 
-8. Click **View**.
-
-    This displays the certificate.
+8. Click **View** to display the certificate.
 
 9. Confirm that the certificate was issued by Alfresco Certificate Authority, and then confirm the **Security Exception**.
 
@@ -81,11 +77,9 @@ Access to Solr is granted and the Solr Admin screen is displayed.
 
 The Solr web interface makes it easy for administrators to view the Solr configuration details, run queries, and analyse document fields in order to calibrate a Solr configuration.
 
-The main Solr Admin dashboard is divided into two parts.
+The main Solr Admin dashboard is divided into two parts: the left and center panels.
 
-Click on the left or the center of the Solr Admin UI below to learn more about it.
-
-![]({% link insight-engine/images/Solr-admin.png %})
+![]({% link insight-engine/images/solr-admin.png %})
 
 ## Solr Admin UI left panel
 
@@ -93,9 +87,9 @@ The left-side of the Solr Admin screen is a menu under the Solr logo that provid
 
 After this information is a list of Solr cores configured for your Alfresco Content Services instance. Clicking on a core name shows a secondary menu of information and configuration options for that core specifically. Items in this list include the Schema, Config, Plugins, and an ability to perform queries on indexed data.
 
-The different screens of the Solr Admin UI are described below:
+The different screens of the Solr Admin UI are described below.
 
-## Logging
+### Logging
 
 The **Logging** page shows messages from Solr's log files.
 
@@ -103,7 +97,7 @@ Under **Logging**, when you select **Level**, you see the hierarchy of classpath
 
 ![]({% link insight-engine/images/logging.png %})
 
-## Core Admin
+### Core Admin
 
 The **Core Admin** screen lets you manage your cores.
 
@@ -113,13 +107,13 @@ The main display and available actions provide another way of working with your 
 
 ![]({% link insight-engine/images/coreadmin.png %})
 
-## Java Properties
+### Java Properties
 
 The **Java Properties** screen displays all the properties of the JVM running Solr, including the classpaths, file encodings, JVM memory settings, operating system, and more.
 
 ![]({% link insight-engine/images/javaproperties.png %})
 
-## Thread Dump
+### Thread Dump
 
 The **Thread Dump** screen lets you inspect the currently active threads on your server.
 
@@ -129,7 +123,7 @@ On the right of the thread name, click the down-arrow to see the stacktrace for 
 
 ![]({% link insight-engine/images/threaddump.png %})
 
-## Core-Specific Tools
+### Core-specific tools
 
 Click the **Core Selector** to display a list of Solr cores, with a search box that can be used to find a specific core.
 
@@ -141,10 +135,10 @@ When you select a core:
     |Options|Description|
     |-------|-----------|
     |Overview|This dashboard displays full statistics of the indexes. It shows the index count for each of the cores. It also provides a summary report and an FTS status report. The summary report displays information about the number of nodes in index, transactions in index, approximate transactions remaining, and so on. The FTS status report displays information about the FTS status clean, FTS status dirty, and FTS status new.|
-    |Analysis|Allows data analysis according to the field, field type and dynamic rule configurations found in schema.xml.|
+    |Analysis|Allows data analysis according to the field, field type and dynamic rule configurations found in `schema.xml`.|
     |Dataimport|Displays information about the current status of the Data Import Handler. It enables you to import commands as defined by the options selected on the screen and defined in the configuration file.|
     |Documents|Provides a simple form allowing execution of various Solr indexing commands directly from the browser. The screen allows you to: Copy documents in JSON, CSV or XML and submit them to the index, upload documents (in JSON, CSV or XML), and Construct documents by selecting fields and field values|
-    |Files|Displays the current core configuration files such as solrconfig.xml and schema.xml. Configuration files cannot be edited with this screen, so a text editor must be used.|
+    |Files|Displays the current core configuration files such as `solrconfig.xml` and `schema.xml`. Configuration files cannot be edited with this screen, so a text editor must be used.|
     |Ping|Enables you to ping a named core and determine whether the core is active. The Ping option does not open a page, but the status of the request can be seen on the core overview page shown when clicking on a collection name. The length of time the request has taken is displayed next to the Ping option, in milliseconds.|
     |Plugins/Stats|Displays statistics for plugins and other installed components.|
     |Query|Enables you to submit a structured query about various elements of a core.|
@@ -156,7 +150,7 @@ When you select a core:
 
 The center of the screen shows the detail of the Solr core selected, such as statistics, summary report, and so on.
 
-## Core-specific details
+### Core-specific details
 
 On the left-side of the Solr Admin screen, you will see **Core Selector**. Clicking on the menu displays a list of Solr cores hosted on this Solr node, with a search box that can be used to find a specific core by name.
 

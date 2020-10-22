@@ -359,7 +359,7 @@ The optional URL parameters that can be added:
 Reindex every node marked as ERROR in a core or in every core. Error mode Ids are included in the response for every core.
 
 ```http
-http://localhost:8983/solr/admin/cores?action=retry 
+http://localhost:8983/solr/admin/cores?action=retry
 ```
 
 > **Note:** If indexing has been disabled the `retry` request cannot be executed. Enable indexing and then resubmit the command..
@@ -440,8 +440,8 @@ Sample `scheduled` response
         }
       },
       "aclChangeSetToReindex": {
-            // Provides the same subsection as txToReindex, 
-            // ACLTXID -> ACLs counts instead of TXID -> DBID   
+            // Provides the same subsection as txToReindex,
+            // ACLTXID -> ACLs counts instead of TXID -> DBID
       }
 }
 ```
@@ -451,13 +451,13 @@ Sample `scheduled` response
 Starts the tracking process. The following syntax enables indexing on all (master or standalone) cores:
 
 ```http
-http://localhost:8983/solr/admin/cores?action=enable-indexing 
+http://localhost:8983/solr/admin/cores?action=enable-indexing
 ```
 
 If you call the REPORT action there will be additional information returned
 
 ```bash
-<str name="ACL Tracker>enabled</str> 
+<str name="ACL Tracker>enabled</str>
 <str name="Metadata Tracker>enabled</str>
 ```
 
@@ -483,13 +483,13 @@ Stops the tracking process. The following syntax disables indexing on all (maste
 > **Note:** If tracking has started and this command is used then a rollback of all the trackers is performed. To start tracking again, use ENABLED-INDEXING.
 
 ```http
-http://localhost:8983/solr/admin/cores?action=disable-indexing 
+http://localhost:8983/solr/admin/cores?action=disable-indexing
 ```
 
 If you call the REPORT action there will be additional information returned
 
 ```bash
-<str name="ACL Tracker>enabled</str> 
+<str name="ACL Tracker>enabled</str>
 <str name="Metadata Tracker>enabled</str>
 ```
 

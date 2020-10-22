@@ -59,7 +59,7 @@ integrations:
         url: /insight-engine/latest
       - title: "Search Services"
         text: "Alfresco Search Services provides the default search service index for Alfresco Content Services and Alfresco Community Edition."
-        url: /search-services/latest/
+        url:
       - title: "Federation"
         text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
         url: /federation-services/latest/

@@ -1,5 +1,5 @@
 ---
-title: Embed queries in CMIS.
+title: Embed queries in CMIS
 ---
 
 These examples show how to embed queries in CMIS.

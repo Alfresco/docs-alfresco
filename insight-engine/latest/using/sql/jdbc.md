@@ -8,7 +8,7 @@ To access the client log into [https://nexus.alfresco.com/nexus/#welcome](https:
 
 > **Note:** Contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for log in credentials.
 
-## Connection String
+## Connection string
 
 The connection string's host and port should point to the Alfresco Content Services repository. The Alfresco Content Services repository performs the authentication. It applies the access control lists to the request before forwarding the request to Search and Insight Engine.
 
@@ -80,7 +80,7 @@ alfresco.enable.ssl: true
 alfresco.ssl.checkPeerName: false
 ```
 
-## Authentication and Authorization
+## Authentication and authorization
 
 The Search and Insight Engine JDBC driver logs into Alfresco Content Services using the same credentials used to access the Alfresco Content Services repository. The results of all queries are limited to the documents the user has been authorized to read.
 
@@ -100,7 +100,7 @@ String connectionString = "jdbc:alfresco://localhost:8080?collection=alfresco";
 Connection con = null;
 Statement stmt = null;
 ResultSet rs = null;
-    
+
 try {
         con = DriverManager.getConnection(connectionString, props);
         stmt = con.createStatement();
