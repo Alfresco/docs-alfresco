@@ -380,6 +380,23 @@ defaults:
       version: 1.0
       latest: true
 
+# Alfresco Search and Insight Engine 
+  - scope:
+      path: "insight-engine"
+    values:
+      layout: "docs"
+      product: "Alfresco Search and Insight Engine"
+      location: "insight-engine"
+      toc: "insight-engine"
+      support: true
+      versions:
+        - 2.0
+  - scope:
+      path: "insight-engine/latest"
+    values:
+      version: 2.0
+      latest: true
+
 # Alfresco Sync Service
   - scope:
       path: "sync-service"
