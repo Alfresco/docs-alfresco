@@ -63,6 +63,8 @@
           path: '/process-automation/latest/admin/monitor/'
         - title: 'Users and groups'
           path: '/process-automation/latest/admin/users/'
+        - title: 'Architecture'
+          path: '/process-automation/latest/admin/architecture/'
     - title: 'Using'
       path: '/process-automation/latest/using/'
     - title: 'Develop'

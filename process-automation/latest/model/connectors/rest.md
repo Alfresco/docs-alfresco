@@ -2,7 +2,7 @@
 title: REST connector
 ---
 
-The REST connector is used to provide a connection with a REST service.
+The REST connector is used to provide a connection with a REST service. It can also be used to configure a [webhook]({% link process-automation/latest/model/triggers.md %}#webhooks) as an incoming trigger.
 
 The REST connector appears on the process diagram as a pair of curly brackets.
 

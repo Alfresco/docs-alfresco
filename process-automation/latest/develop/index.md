@@ -56,12 +56,12 @@ To start developing Digital Workspace customizations:
 
     | Property | Description |
     | -------- | ----------- |
-    | API_HOST |
-    | API_CONTENT_HOST |
-    | API_PROCESS_HOST |
-    | OAUTH_HOST |
-    | IDENTITY_HOST |
-    | APP_CONFIG_APPS_DEPLOYED | The name of the deployed application to extend the Digital Workspace against. The name is set when the application is deployed, for example `invoice-approval-application`. |
+    | API_HOST | The API host for the environment in the format `https://alfresco.com`. |
+    | API_CONTENT_HOST | The API host for the content services in the format `https://alfresco.com`. |
+    | API_PROCESS_HOST | The API host for the process services in the format `https://alfresco.com`. |
+    | OAUTH_HOST | The authentication host in the format `https://alfresco.com/auth/realms/alfresco`. |
+    | IDENTITY_HOST | The identity service host in the format `https://alfresco.com/auth/realms/alfresco`. |
+    | APP_CONFIG_APPS_DEPLOYED | The name of the deployed application to extend the Digital Workspace against. The name is set when the application is deployed, for example `[{"name": "invoice-approval-application"}]`. |
 
 5. Run the following command from the root of your local Digital Workspace: `npm run start content-en-cloud`.
 
@@ -87,6 +87,9 @@ Once the extended Digital Workspace has been fully customized and tested it can 
 
     * A link to the source code in S3.
     * The name of the application to update.
+
+        > **Note**: This should match what is configured in the `app.config.json` for the interface.
+
     * The environment the application is deployed in.
     * When the application should be updated with the new interface.
 
@@ -127,7 +130,7 @@ The Yeoman generator can be used to develop custom user interfaces for Process A
 
     "authType": "OAUTH",
     "oauth2": {
-        "host": "https://.../auth/realms/alfresco",
+        "host": "https://{hostname}/auth/realms/alfresco",
         "clientId": "invoice-approval-application",
         "scope": "openid",
         "secret": "",
@@ -141,39 +144,39 @@ The Yeoman generator can be used to develop custom user interfaces for Process A
 
 5. Add the property `"alfresco-deployed-apps"` to the `app.config.json` with the name of the deployed application you are developing an interface for. For example, `"alfresco-deployed-apps": [{"name":"invoice-approval-application"}]`.
 
-6. To develop the interface locally, CORS will need to be bypassed. Edit the `proxy.conf.js`:
+6. To develop the interface locally, CORS will need to be bypassed. Edit the `proxy.conf.js` replacing the `{hostname}` and `{realm}` with those relevant to your environment and realm:
 
     ```js
     module.exports = {
-        "/auth/admin/realms/...": {
-            "target": "https://...",
+        "/auth/admin/realms/{realm}": {
+            "target": "https://{hostname}",
             "secure": false,
             "pathRewrite": {
-                "^/auth/admin/realms/...": ""
+                "^/auth/admin/realms/{realm}": ""
             },
             "changeOrigin": true,
             "logLevel": "debug"
         },
 
         "/auth/realms/...": {
-            "target": "...",
+            "target": "https://{hostname}",
             "secure": false,
             "pathRewrite": {
-                "^/auth/realms/...": ""
+                "^/auth/realms/{realm}": ""
             },
             "changeOrigin": true,
             "logLevel": "debug"
         },
 
         "/": {
-            "target": "...",
+            "target": "https://{hostname}",
             "secure": false,
             "changeOrigin": true,
             "logLevel": "debug"
         },
 
         "/alfresco": {
-            "target": "...",
+            "target": "https://{hostname}",
             "secure": false,
             "changeOrigin": true
         }
@@ -197,7 +200,10 @@ Once the custom interface has been fully developed and tested it can be deployed
 2. Raise a [Support request](https://myalfresco.force.com/support/){:target="_blank"} with this information:
 
     * A link to the source code in S3.
-    * The name of the application to update.
+    * The name of the application to update 
+
+        > **Note**: This should match what is configured in the `app.config.json` for the interface.
+
     * The environment the application is deployed in.
     * When the application should be updated with the new interface.
 
