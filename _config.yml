@@ -107,6 +107,23 @@ defaults:
     values:
       version: 1.0
 
+# Alfresco Content Connector for Salesforce
+  - scope:
+      path: "salesforce"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for Salesforce"
+      location: "salesforce"
+      toc: "salesforce"
+      support: true
+      versions:
+        - 2.2
+  - scope:
+      path: "salesforce/latest"
+    values:
+      version: 2.2
+      latest: true
+
 # Alfresco Identity Service
   - scope:
       path: "identity-service"

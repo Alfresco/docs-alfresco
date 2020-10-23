@@ -102,7 +102,7 @@ integrations:
     sub:
       - title: "Salesforce"
         text: "Alfresco Content Connector for Salesforce allows you to store documents in Alfresco Content Services, but access them directly from Salesforce."
-        url:
+        url: /salesforce/latest/
       - title: "SAP"
         text: "Alfresco Content Connector for SAP applications offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
         url: /sap/latest/
