@@ -91,7 +91,7 @@ integrations:
         url: /microsoft-azure/latest/
       - title: "Amazon Glacier"
         text: "Alfresco Content Connector for AWS Glacier enables access to Amazon S3 Glacier as a storage service optimized for infrequently used data, and suits the long term storage of archive and backup data."
-        url:
+        url: /aws-glacier/latest/
       - title: "EMC Centera"
         text: "Alfresco Content Connector for EMC Centera uses EMC Centera as an alternative content store for Alfresco Content Services."
         url: /centera/latest/
