@@ -90,8 +90,8 @@ The process storage service is used for storing data in the Content Services rep
 
 ## Connectors
 
-Connectors are used to execute logic outside of the [application runtime bundle](#application-runtime-bundle). When the process flow reaches a connector, the values are sent from the process instance to a connector using Spring Cloud Streams via [Rabbit MQ](#rabbit-mq) to be used as part of the logic. The results are sent back to the process instance after the connector has finished and the process flow continues.
+Connectors are used to execute logic outside of the [application runtime bundle](#application-runtime-bundle). When the process flow reaches a connector, the values are sent from the process instance to a connector using the [message broker](#message-broker) to be used as part of the logic. The results are sent back to the process instance after the connector has finished and the process flow continues.
 
-## Rabbit MQ
+## Message broker
 
-[Rabbit MQ](https://www.rabbitmq.com/){:target="_blank"} is the message broker deployed with Process Automation that routes the events emitted by the application runtime bundle to other services asynchronously.
+The message broker deployed with Process Automation routes the events emitted by the application runtime bundle to other services asynchronously.
