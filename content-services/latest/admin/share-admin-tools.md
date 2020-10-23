@@ -297,7 +297,7 @@ An example of a filter is `cm:modified`. It specifies the name of the filter fie
 
 * **displayControl**
 
-    Enables the user to decide the user interface control or how the filter is displayed on the **Search** page. The default option is **Check box**. `displayControl` is the full module name for an Aikau widget which is used for rendering the facet filters. By default, Alfresco Content Services provides `alfresco/search/FacetFilters` which is a basic rendering of the filters available for the facet.
+    Enables the user to decide the user interface control or how the filter is displayed on the **Search** page. The default option is **Check box**. `displayControl` is the full module name for an Aikau widget which is used for rendering the facet filters. By default, Content Services provides `alfresco/search/FacetFilters` which is a basic rendering of the filters available for the facet.
 
 * **maxFilters**
 

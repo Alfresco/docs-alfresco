@@ -65,7 +65,7 @@ Create user accounts with the **Users** option.
 Use the Users tool to upload externally created users from within a comma-separated (CSV) file.
 
 When initially setting up the accounts for your users, it can be time consuming to create multiple users individually. 
-Alfresco Content Services lets you create these users by uploading a file that contains the list of all your users. 
+Content Services lets you create these users by uploading a file that contains the list of all your users. 
 The file needs to contain the names and other details, separated by commas.
 
 You can create this file, either from a text file or from a Microsoft Office spreadsheet. You need to create the file 

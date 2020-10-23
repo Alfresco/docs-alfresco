@@ -51,7 +51,7 @@ the server before the trial period has expired.
 
     **Apply New License** which automatically applies a license file that is stored in the install directory. Note that these steps only work if your currently installed license is invalid.
 
-    1.  Copy the license file to the directory in which Alfresco Content Services is installed.
+    1.  Copy the license file to the directory in which Content Services is installed.
 
         For example, on Windows, copy the file to the `C:\Alfresco directory`; on Linux, copy the file to `/opt/alfresco-x.x.x`.
 
