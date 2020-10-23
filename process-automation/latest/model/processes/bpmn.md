@@ -40,7 +40,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture start-img %}
@@ -96,7 +96,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the error start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the error start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 #### Error
 
@@ -163,7 +163,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the message start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the message start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 #### Message
 
@@ -366,7 +366,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the timer start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the timer start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 #### Timer
 
@@ -1599,7 +1599,7 @@ The name of the [decision table]({% link process-automation/latest/model/decisio
 
 #### Mapping type
 
-The mapping type sets how data is passed between the decision table and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the decision table and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture multi %}
@@ -1786,7 +1786,7 @@ The name of the [script]({% link process-automation/latest/model/scripts.md %}) 
 
 #### Mapping type
 
-The mapping type sets how data is passed between the script and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the script and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture script-img %}
@@ -1930,7 +1930,7 @@ An action selects which of the connector actions that service task should execut
 
 #### Mapping type
 
-The mapping type sets how data is passed between the connector and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the connector and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture service-img %}
@@ -2092,7 +2092,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the user task and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the user task and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture user-img %}
@@ -2242,7 +2242,7 @@ The called element can be set in two ways:
 
 #### Mapping type
 
-The mapping type sets how data is passed between the parent process and the process being started by the call activity. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the parent process and the process being started by the call activity. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 > **Note**: if an **Expression** is used to set which process definition to call in the call element property, it is not possible to explicitly map the variable exchange in the mapping type.
 
