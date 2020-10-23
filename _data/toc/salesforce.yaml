@@ -1,4 +1,4 @@
-# Alfresco Content Connector for AWS S3 
+# Alfresco Content Connector for Salesforce 
 - version: 2.2
   pages:
     - title: 'Introduction'
@@ -9,8 +9,10 @@
       path: '/salesforce/latest/config/'
     - title: 'Using'
       pages:
-        - title: 'Using the Connector'
-          path: '/salesforce/latest/using/connector/'
-        - title: 'Troubleshooting'
-          path: '/salesforce/latest/using/troubleshooting/'
+        - title: 'Overview'
+          path: '/salesforce/latest/using/'
+        - title: 'Recommended content'
+          path: '/salesforce/latest/using/recommend/'
+        - title: 'Troubleshoot'
+          path: '/salesforce/latest/using/troubleshoot/'
 
