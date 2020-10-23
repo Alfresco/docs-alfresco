@@ -131,7 +131,7 @@ Select the **Audit** option to view all audit logs for the selected task. This w
 
 ## Service tasks
 
-The **Services Tasks** section is for monitoring all [service tasks]({% link process-automation/latest/model/processes/index.md %}#service-task) that are running in each application.
+The **Services Tasks** section is for monitoring all [service tasks]({% link process-automation/latest/model/processes/bpmn.md %}#service-task) that are running in each application.
 
 > **Note**: This includes [connectors]({% link process-automation/latest/model/connectors/index.md %}), [decision tables]({% link process-automation/latest/model/decisions.md %}) and [scripts]({% link process-automation/latest/model/scripts.md %}).
 
