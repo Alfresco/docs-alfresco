@@ -8,7 +8,5 @@
     - title: "Configure"
       path: '/aws-glacier/latest/config/'
     - title: 'Using'
-      pages:
-        - title: 'FAQ'
-          path: '/aws-glacier/latest/using/faq/'
+      path: '/aws-glacier/latest/using/'
 
