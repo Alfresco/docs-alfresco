@@ -1139,7 +1139,7 @@ Tickets are supported using the ticket component.
 
 #### Configuring multiple tickets for authentication
 
-For each authentication attempt, Alfresco Content Services returns a different session ID, but the same ticket for 
+For each authentication attempt, Content Services returns a different session ID, but the same ticket for 
 each user. You can configure multiple tickets using the `authentication.ticket.useSingleTicketPerUser` option.
 
 The `TicketComponent` configuration setting, in `alfresco-global.properties`, has an option called 
@@ -1197,7 +1197,7 @@ By listing a group under the `guestGroups` property (case insensitive), the user
 `guest` permission. Likewise, by listing a group under the `adminGroups` property (case insensitive), the users in 
 that group will be provided `admin` permission.
 
-For example, assume that you are synchronizing users into Alfresco Content Services and you specifically want to 
+For example, assume that you are synchronizing users into Content Services and you specifically want to 
 specify some groups as only guest users in the system. You would override the `authority-services-context.xml` file 
 adding those groups to the `guestGroups` list (case insensitive). As a result, users in those groups will have 
 authenticated logins but limited to guest authorization. 
@@ -1271,7 +1271,7 @@ changes to this file, you will have to restart the repository in order to apply 
 
 Use this information to understand and configure ownable service.
 
-The idea of file ownership is present in both UNIX and Windows. In Alfresco Content Services, the repository has the 
+The idea of file ownership is present in both UNIX and Windows. In Content Services, the repository has the 
 concept of node ownership. This ownership is optional and is implemented as an aspect.
 
 The owner of a node can have specific ACLs granted to them. Ownership is implemented as the dynamic authority, `ROLE_OWNER`, 
@@ -1294,10 +1294,497 @@ access controls applied to the methods on the public `OwnableService`.
 
 ## Admin password in default authentication
 
+The Admin user password is used by the default authentication system.
+
+The Admin password for default authentication is set as a part of the initial bootstrap. This is located in 
+`config\alfresco\bootstrap\alfrescoUserStore.xml`. The password is MD4 encoded, as required by `alfrescoNTLM`.
+
+>**Note:** Choose a strong, unique password for your admin account, and consider changing it regularly.
+
+**How to reset the Admin password?**
+
+If you lose or forget the password for the Admin user, you can reset the password in the database using one of 
+the following methods:
+
+* If you know the password of at least one user, then:
+
+    1.  Assign Admin rights to this known user by adding the following line in the `alfresco-global.properties` file.
+    
+        ```text
+        alfresco_user_store.adminusername=username
+        ```
+    
+        where, `username` is the user name of the user whose password is known.
+    
+    2.  Restart the repository.
+    3.  Login as the known user.
+    4.  Reset the Admin user's password.
+    5.  Reset the configuration.
+
+* Reset the Admin password without knowing any user password:
+
+    1.  Configure the authentication component to accept all logins using `org.alfresco.repo.security.authentication.SimpleAcceptOrRejectAllAuthenticationComponentImpl`.
+    2.  Login as a user with Admin rights.
+    3.  Reset the Admin user's password.
+    4.  Revert the configuration.
+
+* Change the password directly in the database:
+
+    >**Note:** These steps works only for Content Services version 3.1 to 5.0.
+    
+    1.  Run the following command to find out the identifying parameters for how the Admin password is stored. Check that you have only one row in the output.
+    
+        ```sql
+        SELECT anp1.node_id,
+               anp1.qname_id,       
+               anp1.string_value       
+        FROM alf_node_properties anp1  
+           INNER JOIN alf_qname aq1 ON aq1.id = anp1.qname_id   
+           INNER JOIN alf_node_properties anp2 ON anp2.node_id = anp1.node_id    
+           INNER JOIN alf_qname aq2 ON aq2.id = anp2.qname_id                    
+        WHERE aq1.local_name = 'password'
+        AND aq2.local_name = 'username'
+        AND anp2.string_value = 'admin'
+        ```
+    
+        The output shows the current MD4 hashed password for the Admin user. Here's an example output:
+    
+        ```sql
+        +---------+----------+----------------------------------+
+        | node_id | qname_id | string_value |                     
+        +---------+----------+----------------------------------+
+        | 4 | 10 | 209c6174da490caeb422f3fa5a7ae634 |                
+        +---------+----------+----------------------------------+
+        1 row in set (0.00 sec)
+        ```
+    
+    2.  To update the password, use the following command:
+    
+        ```sql
+        UPDATE alf_node_properties  
+         SET string_value='209c6174da490caeb422f3fa5a7ae634'
+         WHERE  
+         node_id=THENODEIDABOVE
+         and
+         qname_id=THEQNAMEVALUEABOVE
+        ```
+    
+        Replace `THENODEIDABOVE` and `THEQNAMEVALUEABOVE` with the result values of `node_id` and `qname_id`, obtained in the previous step. In this example, it is `4` and `10`, respectively.
+    
+        >**Note:** Ensure that you use appropriate `AND` conditions in the `UPDATE` query.
+    
+    3.  Restart Content Services.
+
+* Change the password directly in the database:
+
+    >**Note:** These steps works only for Content Services version 5.1 onwards.
+    
+    1.  Run the following query to find out which encoder is being used to store the Admin password. Check that you have only one row in the output.
+    
+        >**Note:** You must encode the password using the result of the query.
+    
+        ```sql
+        SELECT anp1.node_id,
+               anp1.qname_id,
+               anp1.string_value
+        FROM alf_node_properties anp1
+           INNER JOIN alf_qname aq1 ON aq1.id = anp1.qname_id
+           INNER JOIN alf_node_properties anp2 ON anp2.node_id = anp1.node_id
+           INNER JOIN alf_qname aq2 ON aq2.id = anp2.qname_id
+        WHERE aq1.local_name = '**hashIndicator**'
+        AND aq2.local_name = 'username'
+        AND anp2.string_value = 'admin';
+        ```
+    
+        The output shows the current password encoding being used.
+    
+        ```sql
+        +---------+----------+--------------+
+        | node_id | qname_id | string_value |
+        +---------+----------+--------------+
+        |       4 |       94 | **bcrypt10**   |
+        +---------+----------+--------------+
+        1 row in set (0.01 sec)
+        ```
+    
+        If no rows are returned, set the password using the instructions shown above (md4 encoding).
+    
+        If a row is returned, encode the password using the result of the query, which can either be md4 or sha256 or bcrypt10 encoding.
+    
+        Run the following query to find the identifying parameters for how the Admin password is stored.
+    
+        ```sql
+        SELECT anp1.node_id,
+               anp1.qname_id,       
+               anp1.string_value       
+        FROM alf_node_properties anp1  
+           INNER JOIN alf_qname aq1 ON aq1.id = anp1.qname_id   
+           INNER JOIN alf_node_properties anp2 ON anp2.node_id = anp1.node_id    
+           INNER JOIN alf_qname aq2 ON aq2.id = anp2.qname_id                    
+        WHERE aq1.local_name = '**passwordHash**'
+        AND aq2.local_name = 'username'
+        AND anp2.string_value = 'admin';
+        ```
+    
+        The output shows the current hashed password for the Admin user. Here's an example output:
+    
+        ```sql
+        +---------+----------+--------------------------------------------------------------+
+        | node_id | qname_id | string_value                                                 |
+        +---------+----------+--------------------------------------------------------------+
+        |       4 |       93 |**$2a$10$dq/2zNUA.MmECYipl1WMoOyGHYbaygh23PUa3Ox5xDHH7Z0guqF42**|
+        +---------+----------+--------------------------------------------------------------+
+        1 row in set (0.00 sec)
+        ```
+    
+    2.  To update the password, use the following command:
+    
+        ```sql
+        UPDATE alf_node_properties  
+         SET string_value='209c6174da490caeb422f3fa5a7ae634'
+         WHERE  
+         node_id=THENODEIDABOVE
+         and
+         qname_id=THEQNAMEVALUEABOVE
+        ```
+    
+        Replace `THENODEIDABOVE` and `THEQNAMEVALUEABOVE` with the result values of `node_id` and `qname_id`, obtained in the previous step. In this example, it is `4` and `93`, respectively.
+    
+        >**Note:** Ensure that you use appropriate `AND` conditions in the `UPDATE` query.
+    
+    3.  Restart Content Services.
+
 ## Security policies and filters
+
+You can configure a number of policies and filters in Alfresco Share to mitigate security attacks. You can also 
+configure filters in Alfresco Repository to mitigate security attacks when the Content Services ReST API 
+is accessed externally.
+
+The Open Web Application Security Project (OWASP) describes **Cross-Site Request Forgery (CSRF)** as a type of attack that 
+occurs when a malicious web site, email, blog, instant message, or program causes a user's web browser to perform an 
+unwanted action on a trusted site for which the user is currently authenticated (see the 
+[Cross-Site_Request_Forgery Prevention_Cheat_Sheet](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29_Prevention_Cheat_Sheet)).
+
+The Share application must be accessible on the network to be available to users, and so it is protected with a 
+CSRF filter. You should then also ensure that `/alfresco` is protected behind a firewall. If another user interface 
+client is used (that is, not Share), such as an ADF application that directly accesses the Content Services 
+ReST API, then `/alfresco` needs to be protected with a CSRF filter.
+
+If you want to protect those areas against CSRF attacks, then you'll need to implement a solution similar to one of 
+those listed in the [CSRF prevention cheat sheet](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29_Prevention_Cheat_Sheet). 
+Of particular interest is a solution based on Apache with `mod_csrf` because of efficiency and its loose coupling with 
+the applications to protect.
+
 ### Alfresco Share Security policies and filters
+
+You can configure a number of policies and filters in Alfresco Share to mitigate security attacks.
+
+The Share application must be accessible on the network to be available to users, and so it should be protected 
+with a CSRF filter. You should then also ensure that `/alfresco` is protected behind a firewall. If another user 
+interface client is used (that is, not Share), such as an ADF application, then you need to also protect the 
+Alfresco Repository with a CSRF filter.
+
 #### Cross-Site Request Forgery (CSRF) filters for Share
+
+You can configure `CSRFPolicy` in Alfresco Share to prevent CSRF attacks that allow malicious requests to be 
+unknowingly loaded by a user.
+
+You can configure the CSRF filter to run with third party plugins and to stop specific repository services from 
+being accessible directly through the Share proxy.
+
+The filter is implemented in the `org.alfresco.web.site.servlet.CSRFFilter` that reads the `CSRFPolicy` configuration 
+section in `share-security-config.xml`.
+
+`CSRFPolicy` describes how and when the filter mitigates CSRF attacks:
+
+* Each logged in user receives a secret CSRF token
+* The token is communicated to the browser using a `Alfresco-CSRF-Token` cookie
+* When a logged in user performs a POST, PUT or DELETE HTTP request against Share the token must be passed in the request using one of the following methods:
+    * As a custom HTTP request header called `Alfresco-CSRF-Token`
+    * As a URL parameter called `Alfresco-CSRF-Token`
+        >**Note:** Usually the header is required, but in some circumstances a header cannot be used and in this case the token can be passed using a URL parameter. The default configuration only accepts the URL parameter when the `Content-Type` header starts with `multipart/`.
+* Every time the logged in user visits a new Share page the token is renewed
+* The filter checks that the referrer and original HTTP request headers match the current domain (if this is present in the request)
+
+**Do I need to alter my custom code?**
+
+Generally, you should not need to alter your custom code, for example, the following cases need no code alteration:
+
+* You are reading data using GET requests only
+* You are using the standard `Alfresco.util.Ajax`, `alfresco/core/CoreXhr` or `Alfresco.forms.Form` JavaScript classes when creating, updating or deleting data
+* You are writing a non-browser client (for example, a mobile application)
+
+However, in these situations you will need to alter your code:
+
+1.  You are making an `XMLHttpRequest` with POST, PUT or DELETE methods without using the `Alfresco.util.Ajax` or `alfresco/core/CoreXhr` classes. If you are using the native `XMLHttpRequest` object or a third party library such as jQuery, add code to pass the token, for example:
+
+    ```java
+    if (Alfresco.util.CSRFPolicy && Alfresco.util.CSRFPolicy.isFilterEnabled())
+    {
+       xhrHeadersObject[Alfresco.util.CSRFPolicy.getHeader()] = Alfresco.util.CSRFPolicy.getToken();
+    } 
+    ```
+
+    If you are using `YAHOO.util.DataSource` to load data with POST requests, add code similar to this example:
+
+    ```java
+    if (Alfresco.util.CSRFPolicy && Alfresco.util.CSRFPolicy.isFilterEnabled())
+    {
+       yuiDataSource.connMgr.initHeader(Alfresco.util.CSRFPolicy.getHeader(), Alfresco.util.CSRFPolicy.getToken(), false);
+    } 
+    ```
+
+2.  You are making a form upload with enctype `multipart/form-data` without using `Alfresco.forms.Form`.
+
+    When you upload a file by submitting a form with enctype `multipart/form-data` it is not possible to set a header on the request because it is not possible to set a header on any form submission in the browser. Pass the token as a URL parameter instead. If you are using the `Alfresco.forms.Form` class, this is handled for you automatically, otherwise add the token as a URL parameter, for example:
+
+    ```java
+     if (Alfresco.util.CSRFPolicy && Alfresco.util.CSRFPolicy.isFilterEnabled())
+    {
+       url += "?" + Alfresco.util.CSRFPolicy.getParameter() + "=" + encodeURIComponent(Alfresco.util.CSRFPolicy.getToken());
+    } 
+    ```
+
+3.  You are using a Flash movie inside Share to send HTTP requests with method POST.
+
+    If you are using a Flash movie to upload files, using the `flash.net.FileReference ActionScript` class to perform a multipart/form-data request, add the token as a URL parameter in your Javascript before passing in the URL to the Flash movie. If your Flash movie is performing application/json or other text based POST requests, using the `flash.net.URLRequest and/or flash.net.navigateToURL` ActionScript classes and methods, pass the token and the name of the header so that it can be set from the Flash movie.
+
+
+**When else might I need to make code updates**
+
+If servers from other domains are allowed to POST requests to your system, then you need to reconfigure `CSRFPolicy` in 
+your `share-config-custom.xml` file so that the token or header is not checked:
+
+1.  Copy the `CSRFPolicy` configuration in `share-security-config.xml`.
+2.  Paste the configuration into your `share-config-custom.xml` file, ensuring that it is replacing the old configuration section:
+
+    ```xml
+     <config evaluator="string-compare"
+          condition="CSRFPolicy" **replace="true"**> 
+    ```
+
+3.  Copy the following code and add it as the first child of the `<filter>` element:
+
+    ```xml
+    <rule>
+       <request>
+          <method>POST</method>
+          <path>/page/trusted/call/1|/page/trusted/call/2</path>
+       </request>
+       <action name="assertReferer">
+          <param name="always">false</param>
+          <param name="referer">https://www.trustedserver.com/.*</param>
+       </action>
+       <action name="assertOrigin">
+          <param name="always">false</param>
+          <param name="origin">https://www.trustedserver.com</param>
+       </action>
+    </rule>
+    ```
+
+The CSRF filter compares the incoming request with the rule request elements to find one that matches and then invokes 
+the defined actions for that rule before normal Share processing begins.
+
+If you want to completely block certain services in the repository, you can add these URLs to the CSRF filter:
+
+1.  Copy the `CSRFPolicy` configuration in `share-security-config.xml`.
+2.  Paste the configuration into your `share-config-custom.xml` file, ensuring that it is *replacing* the old configuration section:
+
+    ```xml
+     <config evaluator="string-compare"
+          condition="CSRFPolicy" replace="true"> 
+    ```
+
+3.  Copy the following code and add it as the first child of the <filter>  element:
+
+    ```xml
+    <rule>
+       <request>
+          <path>/proxy/alfresco/acme/special/services/.*</path>
+       </request>
+       <action name="throwError">
+          <param name="message">It is not allowed to access this url from your browser</param>
+       </action>
+    </rule>
+          
+    ```
+
 #### Iframes and phishing attack mitigation
+
+You can configure `IFramePolicy` to protect users against a phishing attack, which attempts to acquire information such 
+as user names or passwords by simulating a trustworthy entity.
+
+Content Services allows you to control which domain pages or content are included in Alfresco Share to create 
+a whitelist of allowed domains. A whitelist is a list of email addresses or IP addresses that are considered to be safe 
+for use within your organization.
+
+This `IFramePolicy` is applied when Share includes an `<iframe>` tag while constructing the Web View dashlet. The dashlet 
+will allow only those URLs that have been added to the whitelist. Developers can use the `Alfresco.util.IFramePolicy.isUrlAllowed()` 
+method to check if a URL is allowed for custom implementations of a Web View or `<iframe>` tag is included.
+
+>**Note:** If you have a previous installation which includes a URL from a third-party domain, you will get an error message in your production environment prompting you to configure your `IFramePolicy` configuration by adding the domain to the whitelist.
+
+>**Note:** URLs pointing to the same domain, such as documents or wiki pages inside Share, will continue to work as usual by default.
+
+The whitelist of allowed domains is set in the `<configRootShare>/classes/alfresco/share-security-config.xml` configuration file:
+
+```xml
+<config evaluator="string-compare" condition="IFramePolicy">
+ <same-domain>allow</same-domain>
+  <cross-domain>
+    <url>*</url>
+  </cross-domain>
+</config>
+```
+
+To deny URLs from the current domain, override the existing code in the `share-config-custom.xml` file with the following code:
+
+```xml
+<config evaluator="string-compare" condition="IFramePolicy" replace="true">
+  <same-domain>deny</same-domain>
+</config>
+```
+
+To allow all cross domain URLs, override the existing code in the `share-config-custom.xml` file with the following code:
+
+```xml
+<config evaluator="string-compare" condition="IFramePolicy" replace="true">
+ <cross-domain>
+   <url>*</url>
+ </cross-domain>
+</config>
+```
+
+To allow specific cross domain URLs, override the existing code in the `share-config-custom.xml` file with the following code:
+
+```xml
+<config evaluator="string-compare" condition="IFramePolicy" replace="true">
+ <cross-domain>
+   <url>https://www.owasp.org/</url>
+ </cross-domain>
+</config>
+```
+
 #### Security filters and clickjacking mitigation
+
+You can configure a security filter, `SecurityHeadersPolicy`, that mitigates *clickjacking* attacks in Alfresco Share.
+
+`SecurityHeadersPolicy` is a Java Servlet filter that applies HTTP response headers to incoming requests in Share. 
+The headers that are returned are defined in a configuration section called `SecurityHeadersPolicy` in `alfresco-security-config.xml`.
+
+Three headers are added by default; `X-Frame-Options`, `X-Content-Type-Options` and `X-XSS-Protection`:
+
+```xml
+<config evaluator="string-compare" condition="SecurityHeadersPolicy">
+  <headers>
+    <header>
+      <name>**X-Frame-Options**</name>
+      <value>SAMEORIGIN</value>
+    </header>
+    <header>
+      <name>**X-Content-Type-Options**</name>
+      <value>nosniff</value>
+    </header>
+    <header>
+      <name>**X-XSS-Protection**</name>
+      <value>1; mode=block</value>
+    </header>
+  </headers>
+</config>
+```
+
+**X-Frame-Options header**
+
+Adding this header to an HTTP response tells the browser whether Share pages are permitted inside iframes. In our 
+default configuration we have set this to `SAMEORIGIN` which means that Share pages are only permitted inside iFrames 
+inside Share or in other web applications that live under the same domain. For example, it is possible to include 
+`http://www.acme.com/share` inside an iframe on `http://www.acme.com/portal`.
+
+You can override the configuration and set the header to return `DENY` instead, by placing the following configuration 
+in your `share-config-custom.xml` file:
+
+```xml
+<config evaluator="string-compare" condition="SecurityHeadersPolicy">
+  <headers>
+    <header>
+      <name>X-Frame-Options</name>
+      <value>**DENY**</value>
+    </header>
+  </headers>
+</config>
+```
+
+**X-Content-Type-Options**
+
+This header is valid for Internet Explorer (IE) only. Older versions of IE (8 and below) sniff the content of a returned 
+resource and then execute the content as the content type that IE thinks the resource has, instead of the content type 
+that the server returned. To stop IE from doing this, `nosniff` is returned in the header.
+
+**X-XSS-Protection**
+
+This header is provided by Internet Explorer (IE) to rectify *sanitization* logic that can be used by an attacker to 
+introduce an XSS flaw on your site.
+
+By default Share returns `1; mode=block` for this header, which stops IE from executing sanitized code.
+
+It is also possible to set the value to `0` which stops IE from inspecting the code for XSS attacks.
+
+**Adding other headers**
+
+Content Services supports adding other headers to the configuration, for example, the `Strict-Transport-Security` 
+header forces the browser to allow only `https` communication. This header is not provided by Share, but can be added 
+by using this code:
+
+```xml
+<config evaluator="string-compare" condition="SecurityHeadersPolicy">
+  <headers>
+    <header>
+      <name>**Strict-Transport-Security**</name>
+      <value>**max-age=31536000**</value>
+    </header>
+  </headers>
+</config>
+```
+
 ### Alfresco repository security policies and filters
+
+You can configure filters in the repository to mitigate security attacks when the Content Services ReST API is 
+accessed externally.
+
+The Content Services ReST API must be accessible on the network when the user interface is implemented with the 
+Alfresco Application Development Framework (ADF). The `/alfresco` URL path then needs to be protected with a CSRF filter.
+
 #### Cross-Site Request Forgery (CSRF) filters for Repository
+
+You can configure the repository in Content Services with a filter to prevent CSRF attacks that allow malicious requests 
+to be unknowingly loaded by a user.
+
+>**Note:** The CSRF filter will work correctly only if the Content Services server is configured to use HTTPS.
+
+The CSRF filter can be configured in the [web-client-security-config.xml](https://github.com/Alfresco/acs-packaging/blob/master/war/src/main/resources/alfresco/web-client-security-config.xml#L61) file, 
+which is located in the `alfresco.war` file. In most cases the only thing that needs to be modified is a regular expression 
+that checks the [Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin) and 
+[Referer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) headers. This regular expression can be 
+configured using the `alfresco-global.properties` file. The property configuration then overrides the values in 
+`web-client-security-config.xml`. The following is an example configuration where Content Services runs on the 
+`mydomain.com` host and port `80`:
+
+```text
+# CSRF filter overrides
+csrf.filter.enabled=true
+csrf.filter.referer=https://mydomain.com/*.
+csrf.filter.referer.always=false
+csrf.filter.origin=https://mydomain.com
+csrf.filter.origin.always=false
+```
+
+The `Origin` header will be present in HTTP requests that originate from an HTTPS URL and it will tell you from where the 
+application (such as an ADF application) was loaded. If a non-standard port is used, such as `8443`, then you'll have to 
+include the port number, such as `https://mydomain.com:8443/`. If the `Origin` header is present, then it's checked to 
+make sure it matches the target origin (`csrf.filter.origin`). If the `Origin` header isn't present, verify that the 
+hostname in the `Referer` header matches the target origin (that is, `csrf.filter.referer`).
+
+The `csrf.filter.origin.always` property is a boolean that controls whether the referer/origin header must be present 
+when validated. Some browsers don't set referer due to privacy issues. Some old browsers don't set origin.
+
+To disable the CSRF filter all together set the `csrf.filter.enabled` property to `false`.

@@ -241,7 +241,7 @@ You can integrate Content Services with two LDAP directories so that:
 2.  Copy [ldap-authentication.properties](https://svn.alfresco.com/repos/alfresco-open-mirror/alfresco/HEAD/root/projects/repository/config/alfresco/subsystems/Authentication/ldap/ldap-authentication.properties) to both the `<classpathRoot>/alfresco/extension/subsystems/Authentication/ldap/ldap1/ldap-authentication.properties` and `<classpathRoot>/alfresco/extension/subsystems/Authentication/ldap/ldap2/ldap-authentication.properties` files.
 3.  Edit the properties for `ldap1` and `ldap2` with appropriate settings to complete the configuration. See [LDAP configuration properties](#ldapconfprops) for information on each of the properties.
 
-## Configuring authentication subsystems
+## Configuring authentication subsystems {#configauthsubsystems}
 
 A number of examples demonstrate how to express various authentication configuration requirements in subsystem instances 
 in the authentication chain. They also explain how the authentication chain integrates the functions of multiple subsystem 
