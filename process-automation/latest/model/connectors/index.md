@@ -84,7 +84,7 @@ An example of the JSON for the Slack connector **SEND_MESSAGE** action is:
 
 ### Events
 
-Events are used as part of defining event criteria in a [trigger](). When the event criteria specified in a trigger are met, an action is started. Certain connectors can be used for defining event criteria. For example, the email connector event **MESSAGE_RECEIVED** can be used to monitor inbound emails. If a pattern defined in the trigger is met then a trigger action is started.
+Events are used as part of defining event criteria in a [trigger]({% link process-automation/latest/model/triggers.md %}). When the event criteria specified in a trigger are met, an action is started. Certain connectors can be used for defining event criteria. For example, the email connector event **MESSAGE_RECEIVED** can be used to monitor inbound emails. If a pattern defined in the trigger is met then a trigger action is started.
 
 See [triggers]({% link process-automation/latest/model/triggers.md %}) for further details on creating event criteria based on connectors.
 
