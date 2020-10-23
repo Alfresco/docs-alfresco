@@ -108,7 +108,7 @@ The following diagram shows the artifacts and the relationship between them.
 There are a number of tools you will need to design, execute, and monitor your workflows. Some of these are included 
 and some you can obtain separately.
 
-The following diagram shows the tools used in designing, executing, and monitoring an Alfresco Content Services workflow:
+The following diagram shows the tools used in designing, executing, and monitoring an Content Services workflow:
 
 ![wf-tools]({% link content-services/images/wf-tools.jpg %})
 
@@ -283,7 +283,7 @@ developed workflows. You can also debug current in-flight workflows.
 
 ### Enabling workflow process engines {#enableprocessengines}
 
-Alfresco Content Services workflows run on an embedded Activiti workflow engine. Use Process Engines in the 
+Content Services workflows run on an embedded Activiti workflow engine. Use Process Engines in the 
 Repo Admin Console to enable Activiti workflows and to edit properties.
 
 1.  Open the **Repo Admin Console**.
@@ -333,7 +333,7 @@ To start the Activiti workflow console:
 
 ## Process definitions
 
-You create an Activiti process definition in Alfresco Content Services using the BPMN 2.0 standard.
+You create an Activiti process definition in Content Services using the BPMN 2.0 standard.
 
 The following diagram shows a simple process definition and highlights the terminology used in BPMN 2.0.
 
@@ -381,7 +381,7 @@ Sequence flows are described in detail in the Activiti user guide.
 
 ### Tasks
 
-The integration of Activiti in Alfresco Content Services provides three types of tasks in a process definition.
+The integration of Activiti in Content Services provides three types of tasks in a process definition.
 
 |Task type|Description|
 |---------|-----------|
@@ -448,18 +448,203 @@ conditional flows evaluate to false.
 ![wf-exclusive-diag]({% link content-services/images/wf-exclusive-diag.jpg %})
 
 ### Variables
+
+In a process definition each property in the workflow task model corresponds to a variable available in your workflow.
+
+For example, the Content Services supplied BPM task model defines the property `bpm:assignee`. To reference 
+this property in your process definition you would specify the string `bpm_assignee`. Note that the colon character is 
+replaced by an underscore.
+
+Variables in workflows exist at two levels; the process execution level and the task level. If you set the value of a 
+variable in a task, the new value is not available at the process level. If you want to use a variable across tasks, 
+or between a task and conditional flow, you need to copy the variable to the process execution level. 
+Process level variables are available to tasks and sequence flows.
+
 ### Node objects
+
+In a process definition, repository node references and associations are represented as node objects in Activiti BPMN 2.0. 
+A node object is an object‐oriented view of an item in the repository. It provides accessors for retrieving and setting 
+properties and traversing associations, and methods for performing alfresco actions such as checkin, checkout, and transforms.
+
+The following variables are set by the start task in your process definition, and are accessible after 
+the start task completes:
+
+|Variable|Description|
+|--------|-----------|
+|bpm_workflowDescription|Description for this in‐flight workflow.|
+|bpm_workflowDueDate|Due date for the workflow.|
+|bpm_workflowPriority|Priority for the workflow.|
+|bpm_package|A Repository Node with aspect `bpm:workflowPackage` representing the Workflow package containing content being routed through the workflow.|
+|bpm_context|A Repository Node of type `cm:folder` representing the folder in which the workflow was started.|
+
+The are some special node objects available in the process definition, that are not part of the task model:
+
+|Variable|Description|
+|--------|-----------|
+|initiator|A Repository Node of type `cm:person` representing the person who initiated the workflow.|
+|initiatorhome|A Repository Node of type `cm:space` representing the home folder of the person who initiated the workflow.|
+|companyhome|A Repository Node of type `cm:space` representing the company home root folder.|
+
 ### Listeners
+
+Listeners are an Activiti extension to BPMN 2.0 that implement hook points inside a process definition which are 
+triggered by events during workflow execution. There are two type of listeners, task and execution.
+
+Execution listeners can be configured on the process itself, as well as activities and transitions. Task listeners can 
+only be configured on user tasks.
+
+Listeners enable you to run your own code in the workflow. This can be Javascript or a call to a Java class. 
+The following diagram shows the events in a process definition where you can configure a listener.
+
+![wf-process-definition-listeners]({% link content-services/images/wf-process-definition-listeners.jpg %})
+
+Listeners are described in detail in the Activiti user guide.
+
 #### Task listeners
+
+A task listener must be added to a process definition within a user task. Note that the listener is a child of the 
+BPMN 2.0 `extensionElements` element and is in the activiti namespace since a task listener is an Activiti BPMN 2.0 extension.
+
+The following diagram shows an XML fragment from a process definition that contains Content Services-specific task listener.
+
+![wf-task-listener]({% link content-services/images/wf-task-listener.jpg %})
+
+Listeners are described in detail in the Activiti user guide.
+
 #### Execution listeners
 
-## Task model](../concepts/wf-task-model.md)
-### Specifying the task type](../concepts/wf-specifying-task-type.md)
+Execution listeners are invoked at point in the process outside of user tasks.
 
-## Setting up Activiti designer](../topics/wf-activiti-designer-setup.md)
-### Installing Eclipse](../tasks/wf-install-eclipse.md)
-### Installing Activiti designer](../tasks/wf-install-activiti-designer.md)
+There are three events available:
 
-## Deploying the task model](../topics/wf-deploy-taskmodel.md)
+|Event|Description|
+|-----|-----------|
+|start|Invoked at the beginning of process execution, before the start event.|
+|end|Invoked at the end of the process execution, after the end event.|
+|take|Invoked when a sequence flow is invoked.|
 
-## Deploying a process definition](../topics/wf-intro-deploy-pd.md)
+The code shows an example of an execution listener to be invoked at the beginning of the process execution.
+
+![wf-execution-listener]({% link content-services/images/wf-execution-listener.jpg %})
+
+Listeners are described in detail in the Activiti user guide.
+
+## Task model
+
+The task model is a description of each task in a workflow. It defines attributes associated with that task. 
+A user interface component can use this description to automatically generate an interface suitable for displaying 
+the task information, in addition to initializing a newly created task instance.
+
+The client configuration allows for customization of the UI component that is used for presenting workflow‐related 
+information to the user and taking inputs from the user. Content Services uses resource bundles to select 
+the text that displays. Resource bundles allow language-specific strings to be used to display information about a 
+workflow or task. The following diagram shows the relationship between the process definition and the task model on 
+the server, and the client configurations and resource bundle in the client.
+
+![wf-task-model]({% link content-services/images/wf-task-model.jpg %})
+
+When creating workflows you will need to create the process definition using the graphical designer, create a task model 
+to define your specific metadata items required on a task, and optionally look at customizing the user interface to 
+support the custom task model that you have defined. Using a resource bundle is optional.
+
+Content Services ships with two default workflow models that support the default set of process definitions.
+
+|Workflow Model|Description|
+|--------------|-----------|
+|pmModel.xml|Is the basic workflow content model|
+|workflowModel.xml|Contains more detailed task types and specializes the basic task types from the BPM model|
+
+![wf-task-model-2]({% link content-services/images/wf-task-model-2.jpg %})
+
+The task model is important when considering user interfaces, as the properties from task types are the only properties 
+which can be shown to the user. The following diagram shows how a review task, which is of type `wf:activitiReviewTask` 
+maps to the user interface. The property list in the background is taken from the Activiti workflow explorer.
+
+![wf-task-model-3]({% link content-services/images/wf-task-model-3.jpg %})
+
+### Specifying the task type
+
+Each task in a process definition must correspond to a type in the task model. These tasks have properties which the 
+workflow and user interface can use to present and gather information from the user, change the behavior of the workflow, 
+and monitor the workflow. Tasks interact with the form system to display the forms that the user sees in Alfresco Share.
+
+You specify the task type using the `formKey` attribute on a `userTask` element. If you are developing your BPMN from 
+scratch you can specify this in your XML. If you are using the Activiti designer you can specify it under the main 
+configuration for a task.
+
+![wf-task-model-4]({% link content-services/images/wf-task-model-4.jpg %})
+
+## Setting up Activiti designer
+
+To create process definitions using a graphical user interface you will need to set up the Activiti designer.
+
+### Installing Eclipse
+
+If you do not already have an instance of Eclipse running on your workstation, you will need to install one.
+
+1.  Download the latest version of Eclipse for your platform from [http://www.eclipse.org/downloads](http://www.eclipse.org/downloads).
+2.  Follow the installation instructions on linked to on the download page.
+3.  To run Eclipse, follow the advice in the release notes, `readme_eclipse.html`.
+
+You now have a running eclipse instance in which you can install the Activiti designer plugin.
+
+### Installing Activiti designer
+
+Activiti supplies an Eclipse plugin, the Activiti designer, that can be used to graphically model, test and deploy BPMN 2.0 processes.
+
+Follow these steps to install the plugin.
+
+1.  Start Eclipse.
+
+2.  In the eclipse menu bar, click **Help > Install New Software**.
+
+3.  Click **Add**.
+
+    The **Add Repository** dialog is displayed.
+
+4.  Fill in the name field with ActivitiBPMN 2.0 designer, and fill in the location field with the following URL:
+
+    ```http
+    https://www.activiti.org/designer/update/
+    ```
+
+5.  Click **OK**.
+
+6.  Click **Next** and accept any license agreement check boxes, and then click **Finish**.
+
+    Eclipse will install the latest version of the Activiti designer eclipse plugin.
+
+## Deploying the task model
+
+You deploy your workflow task model using the Spring "Workflow Deployer" bean. The bean can be used in conjunction with 
+Content Services configuration extension mechanism to deploy custom made workflows and models.
+
+In the following example configuration we are deploying a process definition `adHocModel.bpmn2.0.xml`) and a workflow 
+content model `adHocModel.bpmn2.0.xml`. In both properties, the “location” is the classpath location of the XML file.
+
+```xml
+   <bean id="myworkflows.workflowBootstrap" parent="workflowDeployer">
+   <property name="models">
+      <list>
+         <-- Task Model associated with above process definition -->
+         <value>alfresco/workflow/adhocModel.xml</value>
+      </list>
+   </property>
+   <property name="workflowDefinitions">
+      <props>      
+         <prop key="engineId">activiti</prop>     
+         <prop key="location">alfresco/extension/adHocModel.bpmn2.0.xml</prop>     
+         <prop key="mimetype">text/xml</prop>     
+         <prop key="redeploy">false</prop>
+      </props>
+   </property>
+</bean> 
+```
+
+## Deploying a process definition
+
+You can deploy a process definition from the Activiti workflow console or you can deploy it manually using a spring bean.
+
+If you use manual deployment, the Content Services server must be shut down. Process definitions will be 
+deployed when Content Services starts.
+
