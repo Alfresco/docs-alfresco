@@ -2,7 +2,7 @@
 title: User interfaces
 ---
 
-The user interfaces (UI) section sets an end-user interface for users to interact with content, tasks and processes for the project using the [Alfresco Digital Workspace](LINK).
+The user interfaces (UI) section sets an end-user interface for users to interact with content, tasks and processes for the project using the [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
 
 ## Properties
 
@@ -33,11 +33,13 @@ To create a user interface:
 
 ## User interface modeling
 
-Once a user interface has been created, set the type to `content` to deploy the Digital Workspace. This can be accessed by users once a project has been [deployed](LINK) using the format `ui/<name>`, for example `https://alfresco.com/finance-project/ui/content-app`.
+Once a user interface has been created, set the type to `content` to deploy the Digital Workspace with the application. This can be accessed by users once a project has been [deployed]({% link process-automation/latest/admin/release.md %}#deployment) using the format `ui/<name>`, for example `https://alfresco.com/finance-project/ui/content-app`.
+
+> **Note**: An instance of Digital Workspace will be deployed with each application that can only start processes created within that same application. Only users assigned [user access]({% link process-automation/latest/admin/release.md %}#deploy-steps/user) to the application will be able to access the interface.
 
 ## Custom user interfaces
 
-Custom user interfaces can be [developed](LINK) with the [Application Development Framework](LINK) and deployed as part of the project.
+Custom user interfaces can be [developed]({% link process-automation/latest/develop/index.md %}) with the [Application Development Framework](https://www.alfresco.com/abn/adf/docs/){:target="_blank"} and deployed as part of the project.
 
 ## Actions
 

@@ -35,7 +35,7 @@ To create a trigger:
 
 ## Events
 
-Trigger events include specific [BPMN]({% link process-automation/latest/model/processes/bpmn.md %}) states occurring in a process such as a timer being fired, a form being saved or events related to [connectors](% link process-automation/latest/model/connectors/index.md %}) such as an email being received or a webhook REST request.
+Trigger events include specific [BPMN]({% link process-automation/latest/model/processes/bpmn.md %}) states occurring in a process such as a timer being fired, a form being saved or events related to [connectors]({% link process-automation/latest/model/connectors/index.md %}) such as an email being received or a webhook REST request.
 
 The events that can be created for a trigger are:
 
@@ -164,7 +164,7 @@ The output parameters that can be used as values within the trigger action for a
 
 ## Actions
 
-Trigger actions include starting a process instance, sending a BPMN signal or any [connector action](% process-automation/latest/model/connectors/index.md %}#actions). An action contains a payload that is sent from the trigger to the action being started.
+Trigger actions include starting a process instance, sending a BPMN signal or any [connector action]({% link process-automation/latest/model/connectors/index.md %}#actions). An action contains a payload that is sent from the trigger to the action being started.
 
 The values for action payloads can be set in different ways depending on the action being sent and the source event type that generated the action. For example, if the Slack **MESSAGE_RECEIVED** event is used, then the value of an action can use the value of the `slackChannelId` the message was received from.
 

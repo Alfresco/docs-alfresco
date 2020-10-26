@@ -2,9 +2,11 @@
 title: Email connector
 ---
 
-The email connector is used to send emails using the SMTP protocol as part of a process instance.
+The email connector is used to send emails using the SMTP protocol as part of a process instance.  
 
 The email connector is displayed on the process diagram as an envelope.
+
+> **Important**: The email connector requires an email server to use. This server is separate to the Alfresco hosted environment and should be created and managed by customers.
 
 ## Send
 
@@ -15,7 +17,7 @@ The input parameters to send an email are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | to | String | *Required.* The email addresses to send to, for example `jane.doe@jdoe.com`. Multiple addresses are separated by a comma. |
-| from  | String | *Optional.* The email address of the sender, for example `noreply@jdoe.com`. |
+| from  | String | *Required.* The email address of the sender, for example `noreply@jdoe.com`. |
 | cc | String | *Optional.* A carbon copy list of email addresses. Multiple addresses are separated by a comma. |
 | bcc | String | *Optional.* A blind carbon copy list of email addresses. Multiple addresses are separated by a comma. |
 | subject | String | *Optional.* The subject line of the email, for example `Order No: 1234`. |
@@ -28,7 +30,7 @@ The input parameters to send an email are:
 
 ### Template
 
-A FreeMarker template](https://freemarker.apache.org/docs/dgui_quickstart_basics.html){:target="_blank"} can be used to generate the body of the email. Optional metadata can also be used with the template to insert values from [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) into the document template.
+A [FreeMarker template](https://freemarker.apache.org/docs/dgui_quickstart_basics.html){:target="_blank"} can be used to generate the body of the email. Optional metadata can also be used with the template to insert values from [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) into the document template.
 
 An example of the `metadata` that can be used by the template is:
 
@@ -63,19 +65,19 @@ The configuration parameters for the email connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| EMAIL_HOST | *Required.* The host address of the SMTP server. |
-| EMAIL_PORT | *Required.* The port the SMTP server is running on. |
-| EMAIL_USERNAME | *Required.* The username the connector will use to contact the SMTP server. |
-| EMAIL_PASSWORD | *Required.* The password of the user the connector will use to contact the SMTP server. |
-| EMAIL_SMTP_AUTH | *Required.* Sets whether the connection to the SMTP server requires authentication, for example `true`. |
+| EMAIL_HOST | *Required.* The host address of the email server. |
+| EMAIL_PORT | *Required.* The port the email server is running on. |
+| EMAIL_USERNAME | *Required.* The username the connector will use to contact the email server. |
+| EMAIL_PASSWORD | *Required.* The password of the user the connector will use to contact the email server. |
+| EMAIL_SMTP_AUTH | *Required.* Sets whether the connection to the email server requires authentication, for example `true`. |
 | EMAIL_SMTP_STARTTLS | *Required.*  Sets whether the connection uses TLS, for example `true`. |
-| POLLING_PROTOCOL | *Optional.* The protocol to use for inbound emails. |
+| POLLING_PROTOCOL | *Optional.* The protocol to use for inbound emails, for example `imaps`. |
 | POLLING_HOST | *Optional.* The host to be used for inbound emails. |
 | POLLING_PORT | *Optional.* The port to use for inbound emails. |
 | POLLING_USERNAME | *Optional.* The username of the account used for inbound emails. |
 | POLLING_PASSWORD | *Optional.* The password of the user account used for inbound emails. |
-| POLLING_FOLDER | *Optional.* The folder to retrieve inbound emails from. |
-| POLLING_PAGINATION | *Optional.* The number of emails retrieved in a single request. |
+| POLLING_FOLDER | *Optional.* The folder to retrieve inbound emails from, for example `INBOX`. |
+| POLLING_PAGINATION | *Optional.* The number of emails retrieved in a single request, for example `10`. |
 | CRON_SCHEDULE | *Optional.* A Cron expression to configure the inbound polling frequency. |
 
 > **Note**: The polling configuration parameters are used when configuring email connector [triggers]({% link process-automation/latest/model/triggers.md %}).

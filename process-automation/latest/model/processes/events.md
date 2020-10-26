@@ -2,7 +2,7 @@
 title: Engine events
 ---
 
-Engine events are events generated as part of the life cycle of processes. They include events such as when BPMN activity is started, saved, submitted or completed. They can be used as [trigger events]({% link process-automation/latest/model/triggers.md %}) and for [audit](LINK) purposes.
+Engine events are events generated as part of the life cycle of processes. They include events such as when BPMN activity is started, saved, submitted or completed. They can be used as [trigger events]({% link process-automation/latest/model/triggers.md %}) and for [audit]({% link process-automation/latest/admin/monitor.md %}#audit) purposes.
 
 ## Properties
 
