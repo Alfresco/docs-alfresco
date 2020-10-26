@@ -151,7 +151,7 @@ To create a process variable:
 2. Select **Edit Process Variables** against the correct process definition:
 
     * If the diagram contains only one process definition, make sure no BPMN element is selected by clicking on a blank section of the canvas and the **Edit Process Variables** button will be visible in the right-hand properties panel.
-    * If the diagram contains more than one process definition then click on the individual [pools]() to view the **Edit Process Variables** button for each definition.
+    * If the diagram contains more than one process definition then click on the individual [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) to view the **Edit Process Variables** button for each definition.
 
 3. Use the **+** symbol to add new variables and enter a name, type, optional value and select whether it is required or not.
 
@@ -274,7 +274,7 @@ To manage all errors in a diagram:
 
 * Make sure no BPMN element is selected by clicking on a blank section of the canvas and the **Edit Errors** button will be visible in the right-hand properties panel.
 
-* If the diagram contains more than one process definition then clicking on the individual [pools]() will also show the **Edit Errors** button.
+* If the diagram contains more than one process definition then clicking on the individual [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) will also show the **Edit Errors** button.
 
 ## Messages
 
@@ -284,7 +284,7 @@ To manage all messages in a diagram:
 
 * Make sure no BPMN element is selected by clicking on a blank section of the canvas and the **Edit Messages** button will be visible in the right-hand properties panel.
 
-* If the diagram contains more than one process definition then clicking on the individual [pools]() will also show the **Edit Messages** button.
+* If the diagram contains more than one process definition then clicking on the individual [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) will also show the **Edit Messages** button.
 
 ## Actions
 

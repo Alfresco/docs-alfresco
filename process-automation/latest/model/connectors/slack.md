@@ -2,9 +2,11 @@
 title: Slack connector
 ---
 
-The Slack connector is used to integrate with the [Slack](https://slack.com){:target="_blank"} web API and REST time messaging API to create Slack channels and send messages to channels or users. 
+The Slack connector is used to integrate with the [Slack](https://slack.com){:target="_blank"} web API and REST time messaging API to create Slack channels and send messages to channels or users.
 
 The Slack connector is displayed on the process diagram with the Slack logo.
+
+> **Important**: The Slack connector requires a Slack account to use. This account is separate to the Alfresco hosted environment and should be created and managed by customers.
 
 The actions that can be executed using the Slack connector are:
 

@@ -40,7 +40,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture start-img %}
@@ -96,7 +96,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the error start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the error start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 #### Error
 
@@ -163,7 +163,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the message start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the message start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 #### Message
 
@@ -366,7 +366,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the timer start event and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the timer start event and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 #### Timer
 
@@ -1429,7 +1429,7 @@ The basic properties for an exclusive gateway are:
 
 #### Default sequence flow
 
-The name of a sequence flow can be used to select a default flow for the gateway to take. This path will be followed if none of the other sequence flows evaluate to true.
+The name of a [sequence flow](#sequence-flow) can be used to select a default flow for the gateway to take. This path will be followed if none of the other sequence flows evaluate to true. Conditional expressions can be configured on sequence flows to select which path is taken.
 
 {% endcapture %}
 {% capture excl-gate-img %}
@@ -1484,7 +1484,7 @@ The basic properties for an inclusive gateway are:
 
 #### Default sequence flow
 
-The name of a sequence flow can be used to select a default flow for the gateway to take. This path will be followed if none of the other sequence flows evaluate to true.
+The name of a [sequence flow](#sequence-flow) can be used to select a default flow for the gateway to take. This path will be followed if none of the other sequence flows evaluate to true. Conditional expressions can be configured on sequence flows to select which path is taken.
 
 {% endcapture %}
 {% capture incl-gate-img %}
@@ -1599,7 +1599,7 @@ The name of the [decision table]({% link process-automation/latest/model/decisio
 
 #### Mapping type
 
-The mapping type sets how data is passed between the decision table and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the decision table and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture multi %}
@@ -1786,7 +1786,7 @@ The name of the [script]({% link process-automation/latest/model/scripts.md %}) 
 
 #### Mapping type
 
-The mapping type sets how data is passed between the script and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the script and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture script-img %}
@@ -1930,7 +1930,7 @@ An action selects which of the connector actions that service task should execut
 
 #### Mapping type
 
-The mapping type sets how data is passed between the connector and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the connector and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture service-img %}
@@ -2058,9 +2058,9 @@ A single assignee is set in the XML attribute `activiti:assignee` and candidates
 
 Users and groups can be set from three different sources:
 
-* **Static** values are a free text field that has no validation against users in the [Identity Service](LINK). The text entered will require an exact match to a `username` in the Identity Service for the user task to be correctly assigned at runtime.
+* **Static** values are a free text field that has no validation as to whether a user exists or not. The text entered will require an exact match to a `username` in the product environment for the user task to be correctly assigned at runtime.
 
-* **Identity** allows for users and groups to be searched in the [Identity Service](LINK) and selected for the assignment.
+* **Identity** allows for [users and groups]({% link process-automation/latest/admin/users.md %}) to be searched for and selected for the assignment. The users and groups must exist whilst modeling to display in this list.
 
 * **Expression** allows for an expression using [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) to be used to select users and groups for the assignment. Expressions can be a simple process variable such as `${userToAssign}` or an expression such as `${userDetails.username}` that uses a process variable of type JSON. A JSON editor is provided for creating expressions for assignment, however the editor will only be displayed if there are process variables in the process.
 
@@ -2068,7 +2068,7 @@ Users and groups can be set from three different sources:
 
 The assignments for user tasks are stored in the `assignments` property of the **Extensions Editor**.
 
-> **Note**: Users and groups that are selected as assignees or candidates in a user task are automatically added as [users](LINK) when deploying an application if they are set using the static or identity options. Setting an assignee or candidate using the expression source will require the potential users or groups to be manually assigned users when deploying an application.
+> **Note**: Users and groups that are selected as assignees or candidates in a user task are automatically added as [users]({% link process-automation/latest/admin/release.md %}#deploy-steps/user) when deploying an application if they are set using the static or identity options. Setting an assignee or candidate using the expression source will require the potential users or groups to be manually assigned users when deploying an application.
 
 #### Due date
 
@@ -2092,7 +2092,7 @@ Once a form has been selected, it can be edited using the **Open Form** symbol.
 
 #### Mapping type
 
-The mapping type sets how data is passed between the user task and the process. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the user task and the process. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 {% endcapture %}
 {% capture user-img %}
@@ -2242,7 +2242,7 @@ The called element can be set in two ways:
 
 #### Mapping type
 
-The mapping type sets how data is passed between the parent process and the process being started by the call activity. There are [five options](%{ link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
+The mapping type sets how data is passed between the parent process and the process being started by the call activity. There are [five options]({% link process-automation/latest/model/processes/index.md %}#process-variable-mapping) for how to send this data. The default value is **Send no variables**.
 
 > **Note**: if an **Expression** is used to set which process definition to call in the call element property, it is not possible to explicitly map the variable exchange in the mapping type.
 
@@ -2618,6 +2618,8 @@ The basic properties for a sequence flow are:
 #### Condition expression
 
 A condition expression can be set when a sequence flow is connected to an inclusive or exclusive gateway. Conditions will be evaluated to decide whether a path is taken or not. The expression syntax can reference process variables using expressions such as `${content.approved} == false}` where that path will be taken if the `approved` attribute of the variable `content` is set to `false`.
+
+Another example of conditional expressions when evaluating a sequence flow is using amounts, for example `${amount>500}` will take the sequence flow if the process variable `amount` is greater than 500 at the point the gateway is reached.
 
 {% endcapture %}
 {% capture sequence-img %}

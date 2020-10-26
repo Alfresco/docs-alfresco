@@ -6,7 +6,7 @@ Modeling is used to create the templates for automating content-based business p
 
 ## Modeling Application
 
-The Modeling Application is where all models are created and edited. They are stored in projects that can be [deployed by the Admin Application](LINK) when the templates are complete.
+The Modeling Application is where all models are created and edited. They are stored in projects that can be [deployed by the Admin Application]({% link process-automation/latest/admin/release.md %}#deployment) when the templates are complete.
 
 The Modeling Application is accessed using the `/modeling` URL, for example `https://alfresco.com/modeling`.
 

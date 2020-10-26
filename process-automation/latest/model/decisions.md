@@ -4,7 +4,7 @@ title: Decision tables
 
 Decision tables are used to manage business decisions within process workflows. They adhere to the Decision Model and Notation (DMN) standard. Decision tables take at least one input and have at least one output. The inputs are evaluated against a set of rules defined by the modeler and then produce the relevant output(s) that match those rules back to the process.
 
-Decision tables can be added to a process definition by creating a [business rule task]({% link process-automation/latest/model/processes/index.md %}#business-rule-task) and selecting the `name` of a decision table from the dropdown.
+Decision tables can be added to a process definition by creating a [business rule task]({% link process-automation/latest/model/processes/bpmn.md %}#business-rule-task) and selecting the `name` of a decision table from the dropdown.
 
 ## Properties
 
