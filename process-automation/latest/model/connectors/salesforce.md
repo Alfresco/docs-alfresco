@@ -200,7 +200,7 @@ The configuration parameters for the Salesforce connector are:
 | SALESFORCE_CLIENT_SECRET | *Required.* The secret associated to your Salesforce account. When viewing your application in the Salesforce App Manager this is called the **Consumer Secret**. |
 | SALESFORCE_USERNAME | *Required.* The user that the connector will use to interact with Salesforce. |
 | SALESFORCE_PASSWORD | *Required.* The password for the user that will interact with Salesforce. |
-| SALESFORCE_SECURITY_TOKEN | *Required.* The security token for the user that will interact with Salesforce. To obtain this token, log into Salesforce with the user and navigate to **Settings > My Personal Information**. |
+| SALESFORCE_SECURITY_TOKEN | *Required.* The security token for the user that will interact with Salesforce. To obtain this token, log into Salesforce as the user and navigate to **Settings > My Personal Information**. |
 | SALESFORCE_URL_LOGIN | *Required.* The URL to login to Salesforce, for example `https://login.salesforce.com/services/oauth2/token`. |
 | SALESFORCE_SOAP_URL_LOGIN | *Required.* The URL for SOAP requests, for example `https://login.salesforce.com/services/Soap/c/45.0`. |
 | SALESFORCE_VERSION | *Required.* The version of Salesforce, for example `45.0`. |

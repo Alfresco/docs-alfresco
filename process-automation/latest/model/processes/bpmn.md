@@ -2619,7 +2619,7 @@ The basic properties for a sequence flow are:
 
 A condition expression can be set when a sequence flow is connected to an inclusive or exclusive gateway. Conditions will be evaluated to decide whether a path is taken or not. The expression syntax can reference process variables using expressions such as `${content.approved} == false}` where that path will be taken if the `approved` attribute of the variable `content` is set to `false`.
 
-Another example of conditional expressions is evaluating a sequence flow is using amounts, for example `${amount>500}` will take the sequence flow if the process variable `amount` is greater than 500 at the point the gateway is reached.
+Another example of conditional expressions when evaluating a sequence flow is using amounts, for example `${amount>500}` will take the sequence flow if the process variable `amount` is greater than 500 at the point the gateway is reached.
 
 {% endcapture %}
 {% capture sequence-img %}

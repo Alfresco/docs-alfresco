@@ -60,12 +60,12 @@ The users selected for an application are those able to start process instances 
 
 > **Note**: Any users or groups that were assigned to [user tasks]({% link process-automation/latest/model/processes/bpmn.md %}#user-task) using the **Identity** method will already be entered in this field.
 
-Select the users and groups that can access the application. The users and groups must exist and cannot be set as a static values.
+Select the users and groups that can access the application. The users and groups must exist and cannot be set as static values.
 
 {% endcapture %}
 {% capture connector %}
 
-> **Note**: If there are no [connectors]({% link process-automation/latest/model/connectors/index.md %}) in the project being deployed this tab will not show.
+> **Note**: This tab will not appear if there are no [connectors]({% link process-automation/latest/model/connectors/index.md %}) in the project being deployed.
 
 Applications that contain connectors need to have their [configuration parameters]({% link process-automation/latest/model/connectors/index.md %}#configuration-parameters) set.
 

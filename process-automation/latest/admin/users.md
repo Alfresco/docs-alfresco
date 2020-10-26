@@ -49,7 +49,7 @@ The properties for groups are:
 | Property | Description |
 | -------- | ----------- |
 | ID | A unique identifier for the group. This is system generated and cannot be changed. |
-| Name | A name to identify the group with.
+| Name | A name to identify the group.
 
 ### Add a group
 

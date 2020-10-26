@@ -13,6 +13,6 @@ The Admin Application is accessed using the `/admin` URL, for example `https://a
 
 There are three main areas the Admin Application covers:
 
-* A [DevOps section]({% link process-automation/latest/admin/release.md %}) used to deploy projects and manage and upgrade applications.
+* A [DevOps section]({% link process-automation/latest/admin/release.md %}) used to deploy projects, and manage and upgrade applications.
 * A  [Process Admin section]({% link process-automation/latest/admin/monitor.md %}) used to manage process instances, tasks and the audit details of all applications.
 * An [Identity section]({% link process-automation/latest/admin/users.md %}) used to manage users and groups and assign their permissions.

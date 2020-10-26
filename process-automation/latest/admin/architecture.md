@@ -82,7 +82,7 @@ Audit log tables for all application transactions are separate to the runtime ta
 
 ### Notification
 
-The tables used for querying application data are also be used to setup [GraphQL](https://graphql.org/learn/){target="_blank"} against in order to query specific events and use web sockets with.
+The tables used for querying application data are also be used to set up [GraphQL](https://graphql.org/learn/){:target="_blank"} against in order to query specific events and use web sockets with.
 
 ## Process storage service
 

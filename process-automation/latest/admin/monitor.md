@@ -124,14 +124,13 @@ The properties for task variables are:
 
 Select the **Sibling Tasks** option to view any other standalone tasks that share the same parent task.
 
-
 ### Audit {#task-audit}
 
 Select the **Audit** option to view all audit logs for the selected task. This will open the [audit](#audit) section with the filter restricted to the application and the `Event ID` of the selected user task.
 
 ## Service tasks
 
-The **Services Tasks** section is for monitoring all [service tasks]({% link process-automation/latest/model/processes/bpmn.md %}#service-task) that are running in each application.
+The **Service Tasks** section is for monitoring all [service tasks]({% link process-automation/latest/model/processes/bpmn.md %}#service-task) that are running in each application.
 
 > **Note**: This includes [connectors]({% link process-automation/latest/model/connectors/index.md %}), [decision tables]({% link process-automation/latest/model/decisions.md %}) and [scripts]({% link process-automation/latest/model/scripts.md %}).
 
