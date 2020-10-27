@@ -425,6 +425,23 @@ defaults:
       version: 2.0
       latest: true
 
+# Alfresco Search Service
+  - scope:
+      path: "search-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Search Services"
+      location: "search-services"
+      toc: "search-services"
+      support: true
+      versions:
+        - 2.0
+  - scope:
+      path: "search-services/latest"
+    values:
+      version: 2.0
+      latest: true
+
 # Alfresco Sync Service
   - scope:
       path: "sync-service"

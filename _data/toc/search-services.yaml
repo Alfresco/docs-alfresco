@@ -1,0 +1,48 @@
+# Search Services
+- version: 2.0
+  pages:
+    - title: 'Introduction'
+      path: '/search-services/latest/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/search-services/latest/install/'
+        - title: 'Install options'
+          path: '/search-services/latest/install/options/'
+    - title: 'Upgrade / Migrate'
+      pages:
+        - title: 'Upgrade Search Services'
+          path: '/search-services/latest/upgrade/'
+        - title: 'Migrate Search Services'
+          path: '/search-services/latest/upgrade/migrate/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/search-services/latest/config/'
+        - title: 'Properties'
+          path: '/search-services/latest/config/properties/'
+        - title: 'Secure keys'
+          path: '/search-services/latest/config/keys/'
+        - title: 'Solr security'
+          path: '/search-services/latest/config/security/'
+        - title: 'Solr replication'
+          path: '/search-services/latest/config/replication/'
+        - title: 'OpenSearch'
+          path: '/search-services/latest/config/opensearch/'
+        - title: 'Filtered search'
+          path: '/search-services/latest/config/filtered/'
+        - title: 'Transactional metadata query'
+          path: '/search-services/latest/config/transactional/'
+    - title: 'Administer'
+      pages:
+        - title: 'Overview'
+          path: '/search-services/latest/admin/'
+        - title: 'Monitor'
+          path: '/search-services/latest/admin/monitor/'
+        - title: 'SOLR Admin REST API'
+          path: '/search-services/latest/admin/restapi/'
+    - title: 'Using'
+      pages:
+        - title: 'Full text search reference'
+          path: '/search-services/latest/using/'
+
