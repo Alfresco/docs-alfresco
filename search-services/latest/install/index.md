@@ -60,7 +60,7 @@ Here's some background information on the evolution of eventual consistency in A
 * Alfresco Content Services 5.2.x supports Solr 4, Solr 6, and TMDQ.
 * Alfresco Content Services 6.x supports Solr 6, and TMDQ
 
-When changes are made to the repository they are picked up by Solr via a polling mechanism. The required updates are made to the Index Engine to keep the two in sync. This takes some time. The Index Engine may well be in a state that reflects some previous version of the repository. It will eventually catch up and be consistent with the repository \(assuming the repository is not constantly changing\).
+When changes are made to the repository they are picked up by Solr via a polling mechanism. The required updates are made to the Index Engine to keep the two in sync. This takes some time. The Index Engine may well be in a state that reflects some previous version of the repository. It will eventually catch up and be consistent with the repository (assuming the repository is not constantly changing).
 
 When a query is executed, it can happen in any one of the following ways:
 
