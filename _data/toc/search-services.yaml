@@ -13,7 +13,7 @@
       pages:
         - title: 'Upgrade Search Services'
           path: '/search-services/latest/upgrade/'
-        - title: 'Migrate Search Services'
+        - title: 'Migrate Solr 4'
           path: '/search-services/latest/upgrade/migrate/'
     - title: 'Configure'
       pages:

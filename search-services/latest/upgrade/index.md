@@ -18,7 +18,7 @@ Use this information to upgrade from Search Services 1.x to Search Services 2.0.
 
 4. Download and unzip the Search Services distribution zip file to a preferred location:
 
-    **alfresco-search-services-distribution-2.0.x.zip**
+    `alfresco-search-services-2.0.x.zip`
 
     By default, the contents are decompressed in a folder at `./alfresco-search-services`. The folder extracts into the same location as the zip file.
 

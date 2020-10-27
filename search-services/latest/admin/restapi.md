@@ -401,7 +401,7 @@ The URL parameters that can be used:
 
 Stops the tracking process. The following syntax disables indexing on all (master or standalone) cores.:
 
-> **Note:** If tracking has started and this command is used then a rollback of all the trackers is performed. To start tracking again, use ENABLED-INDEXING.
+> **Note:** If tracking has started and this command is used then a rollback of all the trackers is performed. To start tracking again, use `enabled-indexing`.
 
 ```http
 http://localhost:8983/solr/admin/cores?action=disable-indexing

@@ -55,7 +55,7 @@ Here's some background information on the evolution of eventual consistency in A
 
 * Alfresco Enterprise 3.x supported a transactional index of metadata using Apache Lucene.
 * Alfresco Enterprise 4.0 introduced an eventually consistent index based on Apache Solr 1.4.
-* Alfresco One 5.0 moved to Solr 4 and also introduced transaction metadata query \(TMDQ\). TMDQ was added specifically to support the transactional use cases that used to be addressed by the Lucene index in the previous versions. TMDQ uses the database and adds a collection of required indexes as optional patches.
+* Alfresco One 5.0 moved to Solr 4 and also introduced transaction metadata query (TMDQ). TMDQ was added specifically to support the transactional use cases that used to be addressed by the Lucene index in the previous versions. TMDQ uses the database and adds a collection of required indexes as optional patches.
 * Alfresco One 5.1 supports a later version of Solr 4 and made improvements to TMDQ.
 * Alfresco Content Services 5.2.x supports Solr 4, Solr 6, and TMDQ.
 * Alfresco Content Services 6.x supports Solr 6, and TMDQ
@@ -135,7 +135,7 @@ Handling eventual consistency varies from one situation to another. If you need 
 
 This can then be compared with the last transaction on the repository. If they are equal, the query was consistent. The repository state for each node is known when it is added to the index.
 
-If your query goes to the Index Server and it is not up to date, it could be any of the reasons described [Why the database and Index Engine may not be in sync](why-the-database-and-index-engine-may-not-be-in-sync).
+If your query goes to the Index Server and it is not up to date, it could be any of the reasons described [Why the database and Index Engine may not be in sync](#why-the-database-and-index-engine-may-not-be-in-sync).
 
 Using the Index Engine based on Solr 6 gives better consistency for metadata updates. Some update operations that infrequently require many nodes to be updated are now done in the background. These are mostly `move` and `rename` operations that affect structure. So, a node is now renamed quickly. Any structural information that is consequently changed on all of its children is done afterwards.
 

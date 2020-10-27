@@ -69,7 +69,7 @@ If you do not want to save the changes, click **Cancel**.
 
 After you've installed Search Services, several directories and configuration files related to Solr will be available in the Search Services home directory.
 
-The Search Services distribution (`alfresco-insight-engine-distribution-2.0.x.zip`) contains the following artifacts:
+The Search Services distribution `alfresco-search-services-2.0.x.zip` contains the following artifacts:
 
 ### solrhome directory
 
@@ -78,7 +78,7 @@ This is the Solr configuration directory that is specific to Alfresco. It contai
 |Folder/File|Description|
 |-----------|-----------|
 |alfrescoModels|When you install Search Services, it creates an empty alfrescoModels directory. When Solr first talks to Alfresco, it pulls the model definitions into this directory.|
-|conf|This directory contains the shared.properties file. See [Search Services externalized configuration](#search-and-insight-engine-externalized-configuration).|
+|conf|This directory contains the shared.properties file. See [Search Services externalized configuration](#search-services-externalized-configuration).|
 |templates|This directory contains the core templates that define the base configuration for a new Solr core with some configuration properties. This directory also contains the `/rerank/conf/solrcore.properties` file which you can use to customize the Solr cores.|
 |solr.xml|This file defines the Solr web application context. For more information see [Format of solr.xml](https://lucene.apache.org/solr/guide/6_6/format-of-solr-xml.html){:target="_blank"}|
 |data|This folder is generated when a Solr core is created and is where Solr indexes are stored. The default location of the folder is `/opt/alfresco-search-services/data`.|
@@ -98,11 +98,11 @@ This directory contains the Solr-specific logging configuration file.
 
 ### Search Services externalized configuration
 
-As a best practice, use the `alfresco-insight-engine/solr.in.sh` file (Linux-based platform) or `alfresco-insight-engine/solr.in.cmd` file (Windows-based platform) to set the external configuration that applies to all the Search Services cores.
+As a best practice, use the `alfresco-search-services/solr.in.sh` file (Linux-based platform) or `alfresco-search-services/solr.in.cmd` file (Windows-based platform) to set the external configuration that applies to all the Search Services cores.
 
 > **Note:** For any property, only the environment variables should be specified in the solr.in.sh/ solr.in.cmd file. For example, `SOLR_SOLR_HOST`, `SOLR_SOLR_PORT`, or `SOLR_ALFRESCO_PORT`.
 
-The following configuration properties are used by an external client, such as Alfresco to talk to Solr. Besides the solr.in.sh/ solr.in.cmd file, you can also set these properties in the `alfresco-insight-engine/solrhome/conf/shared.properties` file.
+The following configuration properties are used by an external client, such as Alfresco to talk to Solr. Besides the solr.in.sh/ solr.in.cmd file, you can also set these properties in the `alfresco-search-services/solrhome/conf/shared.properties` file.
 
 > **Important:** From Search Services 2.0 the `solr.content.dir` property has been removed. The `solr.content.dir` was a filesystem-based extension of the Solr index. It was used for maintaining a copy of the original data indexed in Solr. The storage the `solr.content.dir` provided is available in Solr itself which means that it can be safely removed from Search Services 2.0 onwards. The removal of `solr.content.dir` does not mean a loss of functionality because the Solr storage capabilities still retain a copy of the data originally sent for indexing.
 
@@ -148,7 +148,7 @@ The following configuration properties are used by an external client, such as A
 
 ### Configurable per core values
 
-These properties can also be set in the `alfresco-insight-engine/solrhome/templates/rerank/conf/solrcore.properties` file.
+These properties can also be set in the `alfresco-search-services/solrhome/templates/rerank/conf/solrcore.properties` file.
 
 #### `alfresco.host`
 
@@ -280,11 +280,11 @@ When you install Search Services, several Solr configuration files are made avai
 |schema.xml|`<SOLR_HOME>/solrhome/<core>/conf`. For example `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This file defines the schema for the index including field type definitions with associated analyzers. It contains details about the fields that you can include in your document and also describes how those fields can be used when adding documents to the index or when querying those fields. The properties of this file are managed by an expert user.|
 |core.properties|`<SOLR_HOME>/solrhome/alfresco/core.properties` or `<SOLR_HOME>/solrhome/archive/core.properties`|This file specifies the cores to be used by Solr.|
 |solrconfig.xml|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This file specifies the parameters for configuring Solr. Also, the Solr search components are added to this file. The properties of this file are managed by an expert Administrator user.|
-|solrcore.properties| `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one `solrcore.properties` file in each core's configuration directory. For details, see [Solr core configuration properties]({% link insight-engine/latest/config/properties.md %}). The properties of this file are managed by an Administrator user.|
+|solrcore.properties| `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one `solrcore.properties` file in each core's configuration directory. For details, see [Solr core configuration properties]({% link search-services/latest/config/properties.md %}). The properties of this file are managed by an Administrator user.|
 |context.xml|`<SOLR_HOME>`|This file specifies the Solr web application context template to use when installing Solr in separate tomcat server.|
 |ssl.repo.client.keystore|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This keystore contains the Solr public/private RSA key pair.|
 |ssl.repo.client.truststore|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This keystore contains the trusted Alfresco Certificate Authority certificate (which has been used to sign both the repository and Solr certificates)|
 |repository.properties|`alfresco/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/`|This file specifies the Solr-related properties in how Alfresco connects to the Solr server, and is used only where the Solr server runs in the same Tomcat instance as Alfresco, since the connection properties are setup to connect to a locally running Solr server. The properties of this file are managed by an Alfresco Administrator user.|
 
-> **Note:** The `solrcore.properties` configuration file is the property configuration file for a Solr core. There is one `solrcore.properties` file in each core's configuration directory. See [Solr core configuration properties]({% link insight-engine/latest/config/properties.md %}) for more.
+> **Note:** The `solrcore.properties` configuration file is the property configuration file for a Solr core. There is one `solrcore.properties` file in each core's configuration directory. See [Solr core configuration properties]({% link search-services/latest/config/properties.md %}) for more.
 

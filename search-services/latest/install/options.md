@@ -211,7 +211,7 @@ This task assumes you have:
 
 2. Extract the Search Services distribution.
 
-    By default, the contents of `alfresco-search-services-distribution-2.0.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/latest/config/index.md %}#search-and-search-services-directory-structure) for more details.
+    By default, the contents of `alfresco-search-services-2.0.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/latest/config/index.md %}#search-and-search-services-directory-structure) for more details.
 
 3. Configure HTTP.
 
