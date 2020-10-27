@@ -35,9 +35,9 @@ In all previous Alfresco Content Services versions, `Solr.war` was bundled with 
 
 There are two cores or indexes in Solr:
 
-**alfresco**: used for searching all live content stored at <SOLR_HOME>/solrhome/alfresco within the Solr search server.
+**alfresco**: used for searching all live content stored at `<SOLR_HOME>/solrhome/alfresco` within the Solr search server.
 
-**archive**: used for searching content that has been marked as deleted at <SOLR_HOME>/solrhome/archive within the Solr search server.
+**archive**: used for searching content that has been marked as deleted at `<SOLR_HOME>/solrhome/archive` within the Solr search server.
 
 ![]({% link search-services/images/solr.png %})
 
@@ -119,7 +119,7 @@ If the Index Engine is up to date, a query against the database or the Index Eng
 ### A node may be continually updated
 
 * It is possible that such a node may never appear in the index.
-* By default, when the Index Engine tracks the repository, it only picks up changes that are older than one second. This is configurable. For example, if we are indexing node 27 in state 120, we only add information for node 27 if it is still in that state. If the node has moved on to state 236, we will skip node 27 until we have indexed state 236 \(assuming it has not moved on again\). This avoids pulling *later* information into the index which may have an updated ACE or present an overall view inconsistent with a repository state. An out-of-date state means we have older information in the index.
+* By default, when the Index Engine tracks the repository, it only picks up changes that are older than one second. This is configurable. For example, if we are indexing node 27 in state 120, we only add information for node 27 if it is still in that state. If the node has moved on to state 236, we will skip node 27 until we have indexed state 236 (assuming it has not moved on again). This avoids pulling *later* information into the index which may have an updated ACE or present an overall view inconsistent with a repository state. An out-of-date state means we have older information in the index.
 
 ## Dealing with eventual consistency
 
