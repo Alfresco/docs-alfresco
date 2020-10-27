@@ -23,7 +23,7 @@ There are two types of bulk import:
 There are a number of restrictions:
 
 * Only one bulk import can be running at a time. This is enforced by the `JobLockService`.
-* Access to the Bulk Import tool is restricted to Alfresco Content Services administrators.
+* Access to the Bulk Import tool is restricted to Content Services administrators.
 * There is a file name length limitation of 255 characters for imported files. This limitation reflects most file systems [limits](https://en.wikipedia.org/wiki/Comparison_of_file_systems#Limits).
 
 ### In-place bulk import
@@ -38,7 +38,7 @@ Three assumptions are made when importing content `in-place`:
     * The default `fileContentStore`
     * A filesystem-based store defined by the content store selector
 * Steps have already been taken prior to import to ensure the content structure is well distributed.
-    * The default `fileContentStore` distributes content, based on the import date (year/month/day/hour/minute). This avoids having thousands of files under the same root, which is inefficient both for the file system and for computing parent associations in Alfresco Content Services (among other things).
+    * The default `fileContentStore` distributes content, based on the import date (year/month/day/hour/minute). This avoids having thousands of files under the same root, which is inefficient both for the file system and for computing parent associations in Content Services (among other things).
     * It is recommended you keep immediate children to a few thousands at a maximum.
     * In order to choose an efficient distribution scheme, you should know that when m files are randomly distributed into n leaf folders, when `m >> n log n` the statistical maximum load of a leaf is `m/n + O(sqrt((m log n)/n))`.
 
@@ -110,7 +110,7 @@ Here is an example using `IMG_1967.jpg.metadata.properties.xml`:
 Additional notes on metadata loading:
 
 * You cannot create a new node based on metadata only, you must have a content file (even if zero bytes) for the metadata to be loaded. Even so, you can "replace" an existing node in the repository with nothing but metadata. Despite the confusing name, this won't replace the content; instead the new metadata is added.
-* The metadata must conform to the type and aspect definitions configured in Alfresco Content Services (including mandatory fields, constraints, and data types). Any violations will terminate the bulk import process.
+* The metadata must conform to the type and aspect definitions configured in Content Services (including mandatory fields, constraints, and data types). Any violations will terminate the bulk import process.
 * Associations between content items loaded by the tool are not yet nicely supported. Associations to objects that are already in the repository can be created using the NodeRef of the target object as the value of the property.
 * Non-string data types (including numeric and date types) have not been exhaustively tested. Date values have been tested and do work when specified using ISO8601 format.
 * Updating the aspects or metadata on existing content will not remove any existing aspects not listed in the new metadata file; this tool is not intended to provide a full file system synchronization mechanism.
@@ -139,7 +139,7 @@ Additional notes on version history loading:
 
 * You cannot create a new node based on a version history only. You must have a head revision of the file.
 * Version numbers do not have to be contiguous. You can number your version files however you want, provided you use whole numbers (integers).
-* The version numbers in your version files will not be used in Alfresco Content Services. The version numbers in Alfresco Content Services will be contiguous, starting at 1.0 and increasing by 1.0 for every version (so 1.0, 2.0, 3.0, and so on). Alfresco Content Services doesn't allow version labels to be set to arbitrary values, and the bulk import doesn't provide any way to specify whether a given version should have a major or minor increment.
+* The version numbers in your version files will not be used in Content Services. The version numbers in Content Services will be contiguous, starting at 1.0 and increasing by 1.0 for every version (so 1.0, 2.0, 3.0, and so on). Content Services doesn't allow version labels to be set to arbitrary values, and the bulk import doesn't provide any way to specify whether a given version should have a major or minor increment.
 * Each version can contain a content update, a metadata update or both. You are not limited to updating everything for every version. If not included in a version, the prior version's content or metadata will remain in place for the next version.
 
 The following example shows all possible combinations of content, metadata, and version files:
@@ -159,7 +159,7 @@ The following example shows all possible combinations of content, metadata, and 
 
 You can bulk import by using the user interface, or with a program.
 
-Alfresco Content Services web scripts are used for bulk importing. If you choose to code the bulk import, 
+Content Services web scripts are used for bulk importing. If you choose to code the bulk import, 
 code examples are provided to help you. In both cases, you can use the reference table to determine the fields and 
 data that are required for a successful import.
 
@@ -199,8 +199,8 @@ The UI web script presents the following simplified HTML form:
 
 ![bulk-upload-streaming]({% link content-services/images/bulk-upload-streaming.png %})
 
-* The **Import directory** field is required and indicates the absolute file system directory to load the content and spaces from, in an OS-specific format. Note that this directory must be locally accessible to the server on which the Alfresco Content Services instance is running. It must either be a local file system or a locally mounted remote file system (mounted using GFS, or similar).
-* The **Target space (Path)** field is also required and indicates the target space to load the content into, as a path starting with `/Company Home`. The separator character is Unix-style `/`, regardless of the platform Alfresco Content Services is running on. This field includes an AJAX auto-suggest feature, so you can type any part of the target space name, and an AJAX search is performed to find and display matching items.
+* The **Import directory** field is required and indicates the absolute file system directory to load the content and spaces from, in an OS-specific format. Note that this directory must be locally accessible to the server on which the Content Services instance is running. It must either be a local file system or a locally mounted remote file system (mounted using GFS, or similar).
+* The **Target space (Path)** field is also required and indicates the target space to load the content into, as a path starting with `/Company Home`. The separator character is Unix-style `/`, regardless of the platform Content Services is running on. This field includes an AJAX auto-suggest feature, so you can type any part of the target space name, and an AJAX search is performed to find and display matching items.
 * The **Target space (NodeRef)** field is an alternative to **Target space (Path)** and indicates the target NodeRef to load the content into.
 * The **Disable rules** check box allows you to turn off rule processing during the bulk import.
 * The **Replace existing files** option indicates whether to replace nodes that already exist in the repository (checked) or skip them (unchecked). Note that if versioning is enabled for a node, the node's existing content and metadata is preserved as the prior version and the new content and/or metadata will be written into the head revision.
@@ -218,9 +218,9 @@ The in-place UI web script presents the following simplified HTML form:
 
 ![bulk-upload-in-place]({% link content-services/images/bulk-upload-in-place.png %})
 
-* The **Store-relative import directory path** field is required and indicates the file system path for loading content and spaces, relative to the content store, in an OS-specific format. Note that this directory must be locally accessible to the server the Alfresco Content Services instance is running on - it must either be a local file system or a locally mounted remote file system (mounted using GFS, or similar). This directory must already be inside an existing content store.
+* The **Store-relative import directory path** field is required and indicates the file system path for loading content and spaces, relative to the content store, in an OS-specific format. Note that this directory must be locally accessible to the server the Content Services instance is running on - it must either be a local file system or a locally mounted remote file system (mounted using GFS, or similar). This directory must already be inside an existing content store.
 * The **Content Store** field is the name of the store that holds the content, as defined within the storage configuration (content store selector or direct `fileContentStore`). The default store is by default named `default`. An autocomplete menu will assist in selecting the name as the first characters are entered. The **Up** and **Down** keyboards keys can be used to navigate the list, in addition to the mouse.
-* The **Target repository path** field is also required and indicates the target space to load the content into, as a path starting with `/Company Home`. The separator character is Unix-style `/`, regardless of the platform Alfresco Content Services is running on. This field includes an AJAX auto-suggest feature, so you can type any part of the target space name, and an AJAX search is performed to find and display matching items.
+* The **Target repository path** field is also required and indicates the target space to load the content into, as a path starting with `/Company Home`. The separator character is Unix-style `/`, regardless of the platform Content Services is running on. This field includes an AJAX auto-suggest feature, so you can type any part of the target space name, and an AJAX search is performed to find and display matching items.
 * The **Disable rules** option allows you to turn off rule processing during the bulk import.
 * The **Batch Size** text field allows you to override the default batch size (the number of directories and files to import at a time, per transaction; defined by the property `bulkImport.batch.batchSize`) to use in the bulk import.
 * The **Number of Threads** text field allows you to override the default number of threads (defined by the property `bulkImport.batch.numThreads`) to use in the bulk import.
@@ -334,7 +334,7 @@ The Bulk Import tool has a number of entry and display fields that are displayed
 
 ## Configuring the File System Transfer Receiver
 
-The File System Transfer Receiver (FSTR) transfers folders and content from an Alfresco Content Services core 
+The File System Transfer Receiver (FSTR) transfers folders and content from an Content Services core 
 repository (the DM) to configured targets using the Transfer Service, for example, a remote file system.
 
 The Transfer Service is accessible as a bean named `TransferService`, and it can be defined, along with other related beans, 
