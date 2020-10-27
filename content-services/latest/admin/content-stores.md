@@ -13,7 +13,7 @@ A content store (`ContentStore`) or combinations of content stores can be used t
 are physically stored. Binary streams can be stored across a range of locations and can be encrypted/decrypted, as necessary. 
 Also, fast versus slow storage options can be wired up together for efficient storage and access.
 
-Alfresco Content Services supports seven different content stores. These are the File content store (default content store), 
+ Content Services supports seven different content stores. These are the File content store (default content store), 
 Content store selector, S3 content store, Caching content store, Aggregating content store, Encrypted content store, and 
 Centera content store. For more information on each content store, see [Content store types](#cstypes).
 
@@ -24,7 +24,7 @@ Centera content store. For more information on each content store, see [Content 
 
 **Content binaries life cycle**
 
-* **Stage 1 - Content writes:** When you create a file in Alfresco Content Services, it becomes a content (in form of a `.bin` file) and is stored in the default file content store, for example `<ALFRESCO_HOME>\alf_data\ contentstore` directory. The metadata for the content is stored in the database. The database contains a reference to the `.bin` file.
+* **Stage 1 - Content writes:** When you create a file in Content Services, it becomes a content (in form of a `.bin` file) and is stored in the default file content store, for example `<ALFRESCO_HOME>\alf_data\ contentstore` directory. The metadata for the content is stored in the database. The database contains a reference to the `.bin` file.
 * **Stage 2 - Content reads:** When a request is made to the `ContentStore` for a `ContentReader`, the client reads the content using methods on the `ContentReader`.
 * **Stage 3 - Copying, moving and versioning files:** The content binaries are **never modified** by any high-level process. Moving, copying and versioning a file merely affects the content metadata. It is possible to end up with several references to the same raw binary content. Also, writes to the file system do not become visible until the metadata has been committed to the database.
 * **Stage 4 - Cleaning up binary files:** When a content URL is no longer attached to any metadata in the system, it is referred to as orphaned. In order to allow adequate time for backup, the content binaries are not deleted immediately. Instead, they are deleted on a schedule. The job runs against the following `CRON` expression:
@@ -50,10 +50,10 @@ full content backups.
 
 ## Content store types {#cstypes}
 
-By default, Alfresco Content Services is configured to save files or content items in the File content store and 
+By default, Content Services is configured to save files or content items in the File content store and 
 orphaned files in the Deleted content store. Other content stores are also provided, which may be used in place of or 
 in addition to the default stores. This information provides an overview on the File content store and additional 
-content stores that you can use with Alfresco Content Services.
+content stores that you can use with Content Services.
 
 ### File content store
 
@@ -64,7 +64,7 @@ Within the root directory, the files are stored in numeric directories based upo
 The reason for storing the files in a directory structure is to assist incremental backup. The metadata of your file is 
 stored in the database.
 
-Alfresco Content Services does not modify any file that is stored in the content store. The `fileContentStore` is pointed 
+ Content Services does not modify any file that is stored in the content store. The `fileContentStore` is pointed 
 to by the `${dir.contentstore}` property.
 
 ### Caching content store (CCS)
@@ -85,7 +85,7 @@ The major classes and interfaces that form the Caching Content Store are:
 
 * `CachingContentStore`: This is the main class that implements the ContentStore interface, and can therefore, be used anywhere that a `ContentStore` could be used. The `CachingContentStore` handles all the high level logic of interaction between the cache and the backing store, while the caching itself is provided by a collaborating `ContentCache` object.
 * `ContentCache`: This class is responsible for putting items into and getting items from the cache. The single supplied implementation (`ContentCacheImpl`) for this class uses a lookup table to keep track of the files that are being managed by the cache, and a directory on the local file system to store the cached content files. The lookup table itself is a `SimpleCache` implementation instance (for example, `DefaultSimpleCache` or `HazelcastSimpleCache`when running a clustered environment).
-* `QuotaManagerStrategy`: The quota managers implement this interface and control how the disk usage is consumed for cached content storage. Alfresco Content Services provides two implementations for this: `UnlimitedQuotaStrategy` (does not restrict disk usage, thereby effectively disabling the quota function) and `StandardQuotaStrategy` (attempts to keep usage below the maximum specified in bytes or MB).
+* `QuotaManagerStrategy`: The quota managers implement this interface and control how the disk usage is consumed for cached content storage. Content Services provides two implementations for this: `UnlimitedQuotaStrategy` (does not restrict disk usage, thereby effectively disabling the quota function) and `StandardQuotaStrategy` (attempts to keep usage below the maximum specified in bytes or MB).
 
 The `CachingContentStore` class is highly configurable and many of its components could be exchanged for other implementations. 
 For example, the lookup table could easily be replaced with a different implementation of `SimpleCache` than that supplied.
@@ -237,7 +237,7 @@ An Aggregating content store (`AggregatingContentStore`) is a content store impl
 
 >**Important:** The aggregate content store, is not supported as 'Encrypted content store'.
 
->**Note:** The Aggregating content store is based upon the Replicating content store that was included in prior releases of Alfresco Content Services, but supports specifically the content aggregation use case, not content replication.
+>**Note:** The Aggregating content store is based upon the Replicating content store that was included in prior releases of Content Services, but supports specifically the content aggregation use case, not content replication.
 
 The Aggregating content store contains a primary store and a set of secondary stores. The order in which the stores 
 appear in the list of participating stores is important. The first store in the list is known as the primary store. 
@@ -340,12 +340,12 @@ Encrypted content store, its components, and how it is administered.
 
 #### Content encryption overview
 
-Use this information to understand Alfresco Content Services implementation of content encryption using the Encrypted 
+Use this information to understand Content Services implementation of content encryption using the Encrypted 
 content store.
 
 >**Important:** Once you make the decision to use Encrypted content store for content encryption, it is irrevocable. This is because when a document is written to this content store, it is encrypted. If you decide to revert to an unencrypted content store, the content cannot be decrypted.
 
->**Important:** If Encrypted content store is enabled on an existing or upgraded Alfresco Content Services installation, only new content will be encrypted but any existing content will not be encrypted.
+>**Important:** If Encrypted content store is enabled on an existing or upgraded Content Services installation, only new content will be encrypted but any existing content will not be encrypted.
 
 **Cryptography process**
 
@@ -362,7 +362,7 @@ The Encrypted content store encrypts content with a master key that is randomly 
 No control is provided for using a specific master key for a specific piece of content, as that would allow attackers to 
 target specific master keys when attempting to access or tamper with content.
 
-Alfresco Content Services uses a set of master keys, which are:
+ Content Services uses a set of master keys, which are:
 
 * Selected in a random fashion
 * Stored in a password-protected keystore
@@ -371,7 +371,7 @@ Alfresco Content Services uses a set of master keys, which are:
 The repository knows which master key was used to encrypt a given symmetric key so that when a user reads a particular document, 
 the repository can decrypt the symmetric key (using that master key) and then use the decrypted symmetric key to decrypt the document content.
 
->**Important:** Alfresco Content Services does not store the master key you provide. Instead, we access it from the keystore. If we cannot access that key, it cannot decrypt the content. So, make sure you maintain the master key and Alfresco Content Services has access to it. Otherwise, you will not be able to read the content.
+>**Important:** Content Services does not store the master key you provide. Instead, we access it from the keystore. If we cannot access that key, it cannot decrypt the content. So, make sure you maintain the master key and Content Services has access to it. Otherwise, you will not be able to read the content.
 
 The following diagram shows the implementation of content encryption using the Encrypted content store over the 
 default content store:
@@ -386,14 +386,14 @@ Consider these issues before using Encrypted content store.
 * Once you make the decision to use Encrypted content store, it is irrevocable. This is because when a document is written to the Encrypted content store, it is encrypted. If you decide to revert to an unencrypted content store, the content cannot be decrypted.
 * The Encrypted content store is a wrapper around the File content store. All content will be encrypted. It is not supported to use the Encrypted content store in any other configuration.
 * Using multiple content stores is not supported by Encrypted content store. This includes using the Content Store Selector or an Aggregating content store in a repository where Encrypted content store is implemented. This type of configuration is likely to expose encrypted content in an unencrypted store, such as in the version history or when the content is deleted.
-* Encrypted content store is separately licensed and requires that you receive a license key from Alfresco Content Services.
+* Encrypted content store is separately licensed and requires that you receive a license key from Content Services.
 * Multi-tenancy is not supported by Encrypted content store.
 
 #### Installing the Encrypted content store
 
 Follow these steps to install the Encrypted content store.
 
-Before you begin, ensure that you have an instance of Alfresco Content Services installed on your machine.
+Before you begin, ensure that you have an instance of Content Services installed on your machine.
 
 1.  Obtain the license (`.lic`) file with content encryption enabled from Alfresco Support.
 
@@ -501,7 +501,7 @@ To add a master key, follow the steps below:
 
 5.  ![encrypt-jmx]({% link content-services/images/encrypt-jmx.png %})
 
-6.  On the **Operation invocation** window, click **stop** to stop the Alfresco Content Services subsystem.
+6.  On the **Operation invocation** window, click **stop** to stop the Content Services subsystem.
 
 7.  ![encrypt-start-jmx]({% link content-services/images/encrypt-start-jmx.png %})
 
@@ -561,7 +561,7 @@ above to manually retire the master key.
 ### Alfresco Content Connector for AWS S3
 
 The Alfresco Content Connector for AWS S3 is an add-on module that provides an alternative content store. It uses 
-Amazon's Simple Storage Service (S3) as the storage mechanism for Alfresco Content Services, allowing for virtually 
+Amazon's Simple Storage Service (S3) as the storage mechanism for Content Services, allowing for virtually 
 unlimited and inexpensive storage.
 
 For more information on the S3 Connector, see [Installing and configuring S3 Connector](TODO_LINK:https://docs.alfresco.com/s3connector/concepts/s3-contentstore-install-intro.html).
@@ -577,21 +577,21 @@ For more information on the Glacier Connector, see [Installing and configuring G
 ### Alfresco Content Connector for Azure
 
 The Alfresco Content Connector for Azure is an add-on module that provides an alternative content store. It uses 
-Microsoft's Azure Blob Storage as the storage mechanism for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage.
+Microsoft's Azure Blob Storage as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
 
 For more information on the Azure Connector, see [Installing and configuring Azure Connector](TODO_LINK:https://docs.alfresco.com/azure/concepts/azure-install-intro.html).
 
 ### Alfresco Content Connector for SAP applications
 
 Alfresco Content Connector for SAP applications is an add-on module that offers seamless integration between 
-Alfresco Content Services and SAP (R/3, S/4HANA). It connects the structured data in SAP with the unstructured data 
-in Alfresco Content Services.
+ Content Services and SAP (R/3, S/4HANA). It connects the structured data in SAP with the unstructured data 
+in Content Services.
 
 For more information on the SAP Connector, see [Installing and configuring SAP Connector](TODO_LINK:https://docs.alfresco.com/sap/concepts/sap-connector-install.html).
 
 ### Alfresco Content Connector for EMC Centera
 
-The Alfresco Content Connector for EMC Centera module provides integration between Alfresco Content Services and 
+The Alfresco Content Connector for EMC Centera module provides integration between Content Services and 
 Content Addressable Storage (CAS) systems.
 
 CAS systems store and locate files using addresses based on the file's content, rather than a physical location address. 
@@ -614,7 +614,7 @@ The benefits of using CAS systems are:
 For more information on installing and configuring the Centera Connector, and setting up `CenteraContentStore` as your 
 main content store, see [Installing and configuring the Alfresco Content Connector for EMC Centera](TODO_LINK:https://docs.alfresco.com/emc/concepts/centera-intro.html).
 
-## Content store selector
+## Content store selector {#cs-selector}
 
 The content store selector provides a mechanism to control the store used for the content file associated with a 
 particular content item.
@@ -830,8 +830,8 @@ The `${dir.contentstore.deleted}` property points to the location where deleted 
 The default deleted content store is a file content store.
 
 When you create a file, a `.bin` file is stored in the default file content store and there is a reference on that `.bin` 
-file in the database. When you delete the document, Alfresco Content Services updates the database. When you purge the 
-deleted items, Alfresco Content Services destroys all references to that .bin file in database. When the scheduled job runs, 
+file in the database. When you delete the document, Content Services updates the database. When you purge the 
+deleted items, Content Services destroys all references to that .bin file in database. When the scheduled job runs, 
 it scans the database and the contentstore directory and moves everything that is not referenced in the database to the 
 `<ALFRESCO_HOME>\alf_data\contentstore.deleted` directory. The content of the `contentstore.deleted` directory is not 
 referenced anywhere. So, you can always delete the contents of this directory (normally just after a backup). 
@@ -879,7 +879,7 @@ filecontentstore.subsystem.name=unencryptedContentStore
 
 The default, unencrypted store is a simple file storage store with its root in `dir.contentstore=${dir.root}/contentstore`. 
 A date-time file structure is used, which makes the store easy to backup and browse. Most commonly, the `dir.contentstore` 
-points to a shared file system when Alfresco Content Services is deployed in a cluster. This is fully supported. 
+points to a shared file system when Content Services is deployed in a cluster. This is fully supported. 
 Any regular file system backup procedure will work without the danger of corruption or loss of data. As a good practice, 
 you should take the database backup before you take the file system backup.
 
@@ -919,12 +919,12 @@ The `contentStoreCleaner` bean identifies and deletes the orphaned content. In t
 
 ## Configuring the Trashcan Cleaner
 
-The Trashcan Cleaner is a scheduled job that periodically purges old content from your Alfresco Content Services trashcan.
+The Trashcan Cleaner is a scheduled job that periodically purges old content from your Content Services trashcan.
 
 When content is deleted, the content store can be configured to move the deleted content into a trashcan. 
 The deleted content can easily recovered from the trashcan, if it is deleted by mistake. The content remains in the 
 trashcan until it is purged or cleaned by the Trashcan Cleaner. The Trashcan Cleaner is a scheduled job that will empty 
-your Alfresco Content Services trashcan.
+your Content Services trashcan.
 
 The Trashcan Cleaner is disabled by default. To configure the Trashcan Cleaner, set the following properties in the 
 `alfresco-global.properties` file:

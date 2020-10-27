@@ -10,7 +10,7 @@ that contain shapes or drawings (.xml content).
 
 ## Standard transform options {#standardtransformoptions}
 
-There are many file types (also known as MIME types) available in Alfresco Content Services and it's not always possible 
+There are many file types (also known as MIME types) available in Content Services and it's not always possible 
 to transform one file type to another.
 
 Most images can be transformed to most other image types, but you can never transform audio or video files. The tables 
@@ -26,7 +26,7 @@ You can also view more information about file types and the proxies used to tran
 http://localhost:8080/alfresco/service/mimetypes?mimetype=*
 ```
 
-where `localhost:8080` is the host and port number of your active Alfresco Content Services instance.
+where `localhost:8080` is the host and port number of your active Content Services instance.
 
 The transformers must validate the content stream mimetype. To configure this, set the following properties in the 
 `alfresco-global.properties` file.
@@ -2790,7 +2790,7 @@ You can also view more information about file types and the proxies used to tran
 http://localhost:8080/alfresco/service/mimetypes?mimetype=*
 ```
 
-where `localhost:8080` is the host and port number of your active Alfresco Content Services instance.
+where `localhost:8080` is the host and port number of your active Content Services instance.
 
 ### Alfresco Outlook Integration
 

@@ -20,7 +20,7 @@ what repository features can be used, as described in [Features not supported in
 
 The multi-tenancy feature is pre-configured out-of-the-box, although it is not enabled by default.
 
-When you install Alfresco Content Services, multi-tenancy is disabled. The multi-tenancy feature is automatically 
+When you install Content Services, multi-tenancy is disabled. The multi-tenancy feature is automatically 
 enabled when the first tenant is created.
 
 >**Note:** Only an Administrator user can create tenants.
@@ -88,9 +88,9 @@ For more information on administration, see [Using the Repo Admin Console]({% li
 
 ### Multi-tenancy implementation
 
-To implement multi-tenancy, Alfresco Content Services has been logically partitioned such that each tenant has access 
+To implement multi-tenancy, Content Services has been logically partitioned such that each tenant has access 
 to their own set of tenant-specific stores. These stores are typically routed to their own physical root directory. 
-This also means that indexes are partitioned, since Alfresco Content Services maintains an index per store.
+This also means that indexes are partitioned, since Content Services maintains an index per store.
 
 All related services are partitioned including node services, security services, workflow services, search and 
 index services, and dictionary services. To support Alfresco Share in a multi-tenant environment, additional 
@@ -103,13 +103,13 @@ name context. For a multi-tenant environment, the log output also shows the tena
 
 * **Modules**
 
-    Alfresco Content Services supports the ability to pre-package AMPs (Alfresco Module Packages) into the Alfresco Content Services WAR, which are installed into the default domain on start up. In a multi-tenant environment, the module is also installed into each tenant domain when the tenant is created or imported.
+    Content Services supports the ability to pre-package AMPs (Alfresco Module Packages) into the Content Services WAR, which are installed into the default domain on start up. In a multi-tenant environment, the module is also installed into each tenant domain when the tenant is created or imported.
 
 ## Features not supported in a multi-tenant environment {#nonsupportedfeaturesmultitenant}
 
 There are some features and components that are not supported in a multi-tenant production environment.
 
-Using multi-tenancy you can configure multiple, independent tenants on a single Alfresco Content Services instance. 
+Using multi-tenancy you can configure multiple, independent tenants on a single Content Services instance. 
 However, multi-tenancy is not supported in the following products and features:
 
 * Alfresco Desktop Sync
