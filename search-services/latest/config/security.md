@@ -17,7 +17,7 @@ The keys and certificates required for mutual TLS on the repository side are set
 
 1. Modify `<TOMCAT_HOME>/conf/server.xml` and add the following connector:
 
-    ```bash
+    ```xml
     <Connector port="8999" protocol="org.apache.coyote.http11.Http11Protocol"
         connectionTimeout="20000"
         SSLEnabled="true" scheme="https" secure="true"
@@ -33,7 +33,7 @@ The keys and certificates required for mutual TLS on the repository side are set
 
 3. Set the parameters in the connector, replacing the `xxxxxxx` and `yyyyy` values.
 
-4. Make sure that the following property is added to the TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
+4. Make sure that the following property is added to the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```bash
     solr.secureComms=https

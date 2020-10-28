@@ -133,7 +133,7 @@ An example of a filter is `cm:modified`. It specifies the name of the filter fie
 
 You can define and create your own custom filters for being displayed on the search results page.
 
-You can define custom filters in the solr-facets-config-custom.properties file. You can also use this file to override the default filter properties.
+You can define custom filters in the `solr-facets-config-custom.properties` file. You can also use this file to override the default filter properties.
 
 1. Navigate to the `<classpathRoot>/alfresco/extension` directory.
 

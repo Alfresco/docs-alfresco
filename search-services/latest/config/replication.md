@@ -61,7 +61,7 @@ The configuration affecting replication is controlled by a single file, `alresc
 
 1. Edit the `alresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml` file on the master server to change the default replication handler configuration. Remember to uncomment the `master` section.
 
-    ```bash
+    ```xml
     <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
         <!--
            To enable simple master/slave replication, uncomment one of the 
@@ -104,7 +104,7 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
 
 1. Uncomment the `slave` section.
 
-    ```bash
+    ```xml
     <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
         <!--
            To enable simple master/slave replication, uncomment one of the 
@@ -188,7 +188,7 @@ To promote a slave, follow the steps below:
 2. Stop the Solr server on the new master.
 3. In the alresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml file, replace the Solr configuration in the replication handler that defines the slave with the one that defines the master.
 
-    ```bash
+    ```xml
     <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler"> 
         <!--
            To enable simple master/slave replication, uncomment one of the 

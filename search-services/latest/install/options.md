@@ -27,7 +27,7 @@ This task assumes you have:
 
 2. Extract the Search Services distribution.
 
-    By default, the contents of `alfresco-search-services-2.0.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/latest/config/index.md %}#search-and-search-services-directory-structure) for more details.
+    By default, the contents of `alfresco-search-services-2.0.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/latest/config/index.md %}#search-services-directory-structure) for more details.
 
 3. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this update the `alfresco-search-services/solrhome/conf/shared.properties` file:
 
@@ -98,7 +98,7 @@ This task assumes you have:
         SOLR_PORT=8983
         ```
 
-6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/latest/config/index.md %}#search-and-search-services-externalized-configuration).
+6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/latest/config/index.md %}#search-services-externalized-configuration).
 
     (Windows) update the `alfresco-search-services/solr.in.cmd` file:
 
@@ -250,7 +250,7 @@ This task assumes you have:
 
     > **Note:** The spell check functionality works with Search Services when suggestion is enabled.
 
-6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/latest/config/index.md %}#search-and-search-services-externalized-configuration).
+6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/latest/config/index.md %}#search-services-externalized-configuration).
 
     (Windows) update the `alfresco-search-services`/`solr.in.cmd` file:
 
