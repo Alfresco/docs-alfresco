@@ -28,7 +28,7 @@ Alfresco Content Services supports use of the Solr search platform for searching
 
 Solr is an open source enterprise search platform that uses lucene as indexing and search engine. Solr is written in Java and runs as a standalone search server. Alfresco Content Services sends HTTP and XML input to Solr and searches for content. Solr updates the cores or indexes and returns the result of the query in XML or JSON format.
 
-In all previous Alfresco Content Services versions, `Solr.war` was bundled with the repository. With Alfresco Content Services 5.2.3, you no longer deploy a `Solr.war` to your application server. Solr 6 is an independently executable standalone application powered by a Jetty server. Alfresco Content Services 5.2 uses Solr 4 as the default search service index. For an improved and efficient search functionality, you can upgrade to Alfresco Content Services with Alfresco Search and Insight Engine (Solr 6).
+In all previous Alfresco Content Services versions, `Solr.war` was bundled with the repository. Starting from Alfresco Content Services 5.2.3, you no longer deploy a `Solr.war` to your application server. Alfresco Content Services 5.2 uses Solr 4 as the default search service index. Solr 6 is an independently executable standalone application powered by a Jetty server.  For improved and efficient search functionality, you can upgrade to Alfresco Content Services with Alfresco Search and Insight Engine (Solr 6).
 
 There are two cores or indexes in Solr:
 
