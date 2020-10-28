@@ -50,7 +50,7 @@ Here's some background information on the evolution of eventual consistency in A
 * Alfresco Enterprise 3.x supported a transactional index of metadata using Apache Lucene.
 * Alfresco Enterprise 4.0 introduced an eventually consistent index based on Apache Solr 1.4.
 * Alfresco One 5.0 moved to Solr 4 and also introduced transaction metadata query (TMDQ). TMDQ was added specifically to support the transactional use cases that used to be addressed by the Lucene index in the previous versions. TMDQ uses the database and adds a collection of required indexes as optional patches.
-* Alfresco One 5.1 supports a later version of Solr 4 and made improvements to TMDQ.
+* Alfresco One 5.1 supported a later version of Solr 4 and made improvements to TMDQ.
 * Alfresco Content Services 5.2.x supports Solr 4, Solr 6, and TMDQ.
 * Alfresco Content Services 6.x supports Solr 6, and TMDQ
 
