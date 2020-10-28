@@ -402,8 +402,9 @@ Follow these steps to set up sharding of a non-sharded index or change the numbe
 
         * solr/home
         * solr/model/dir
+        * solr/content/dir
 
-        > **Note:** All the Solr instances hosting shards on a given host must have separate model and index locations.
+        > **Note:** All the Solr instances hosting shards on a given host must have separate model and index contentstore locations.
 
 2. Install and start Alfresco Content Services.
 
@@ -418,7 +419,7 @@ Follow these steps to set up sharding of a non-sharded index or change the numbe
 
 4. Add any custom core templates. For more information, see [Core templates](#Core templates).
 
-5. Configure the <SOLR_HOME>/conf/shared.properties file. For more information, see [About shared.properties file](#About-shared.properties-file).
+5. Configure the `<SOLR_HOME>/conf/shared.properties` file. For more information, see [About shared.properties file](#About-shared.properties-file).
 
 6. Start the Solr server.
 
@@ -638,7 +639,7 @@ Prerequisites for viewing the Search Server Sharding page:
 
         ![]({% link insight-engine/images/manage-properties.png %})
 
-        These properties are the same as in alfresco-insight-engine-distribution-2.0.x.zip/solrhome/conf/shared.properties. For example:
+        These properties are the same as in alfresco-insight-engine-1.4.x.zip/solrhome/conf/shared.properties. For example:
 
         ```bash
         solr.host=localhost
@@ -715,7 +716,7 @@ Prerequisites for viewing the Search Server Sharding page:
     |Mode|This specifies whether the instances are `SLAVE`, `MASTER`, or `MIXED`. **Note:** The `SLAVE` and `MIXED` instances are not supported for a sharded installation, for example master.|
     |Stores|This specifies the stores that are queryable for all instances, for example `workspace://SpacesStore`.|
     |Has Content|This property is enabled if content is included for all instances, for example `Enabled`|
-    |Shard Method|This specifies the method used to define shards. The default shard method is `DB_ID`. You can specify your own shard method in Index Server Shard Management screen > New Shard Group > Properties. For example, `shard.method=ACL_ID`. You can also set this property in the `alfresco-insight-engine-distribution-2.0.x.zip/solrhome/templates/rerank/conf/solrcore.properties` file.|
+    |Shard Method|This specifies the method used to define shards. The default shard method is `DB_ID`. You can specify your own shard method in Index Server Shard Management screen > New Shard Group > Properties. For example, `shard.method=ACL_ID`. You can also set this property in the `alfresco-insight-engine-1.4.x.zip/solrhome/templates/rerank/conf/solrcore.properties` file.|
 
     ![]({% link insight-engine/images/shard-group.png %})
 

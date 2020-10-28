@@ -92,11 +92,16 @@ The `keystores` directory contains the following structure and files:
 keystores
 ├── alfresco
 │   ├── keystore
+│   ├── keystore-passwords.properties
+│   ├── ssl-keystore-passwords.properties
+│   ├── ssl-truststore-passwords.properties
 │   ├── ssl.keystore
 │   ├── ssl.truststore
 ├── client
 │   └── browser.p12
 └── solr
+│   ├── ssl-keystore-passwords.properties
+│   ├── ssl-truststore-passwords.properties
 │   ├── ssl-repo-client.keystore
 │   └── ssl-repo-client.truststore
 └── zeppelin
@@ -110,6 +115,9 @@ keystores
 |---------|-----------|
 |browser.p12|The PKCS12 keystore generated from `ssl.keystore` that contains the repository private key and certificate for use in browsers, such as Firefox.|
 |keystore|Secret key keystore containing the secret key used to encrypt and decrypt node properties.|
+|keystore-passwords.properties|Contains password protecting the keystore entries.|
+|ssl-keystore-passwords.properties|Contains passwords for SSL keystore.|
+|ssl-truststore-passwords.properties|Contains passwords for SSL truststore.|
 |ssl.keystore|Repository keystore containing the repository private/public key pair and certificate.|
 |ssl.truststore|Repository truststore containing certificates that the repository trusts.|
 |ssl-repo-client.keystore|Solr SSL keystore containing the Solr private/public key pair and certificate.|

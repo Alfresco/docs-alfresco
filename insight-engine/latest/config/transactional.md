@@ -124,7 +124,7 @@ Some differences between the database and TMDQ:
 
 TMDQ can support exact match on all properties (subject to database collation) regardless of the property index configuration in the data model. All text properties can support pattern matching. The database index supports a fixed number of leading characters. The database store a maximum string size before it overflows to another form. Only short form strings can be used in database queries.
 
-Solr supports exact match on all non-text properties. Text properties only support exact and pattern matches if set to tokenised `both` or `false` in the data model. Solr provides supports values up to approximately 32,700 UTF-8 bytes.
+Solr supports exact match on all non-text properties. Text properties only support exact and pattern matches if set to tokenised `both` or `false` in the data model. Solr provides support for values up to approximately 32,700 UTF-8 bytes.
 
 The following specific CMIS QL fields are supported:
 

@@ -103,29 +103,15 @@ cm:my content:my name
 
 ## Search for an exact term
 
-To search for an exact term you must prefix it with "=". The supported syntax:
+To search for an exact term you must prefix it with "=". This ensures that the term will not be tokenized, therefore you can search for stop words.
+If both FTS and ID base search are supported for a specified or implied property, then exact matching will be used where possible.
+For example, the following query will match running but will not be tokenized. If you are using stemming it might not match anything.
 
-* `=term`
-* `=term1 =term2`
-* `=“multi term phrase”`
+```bash
+=running
+```
 
-    > **Note:** `=“multi term phrase”` returns documents only with the exact phrase and terms in the exact order.
-
-* `=field:term`
-* `=field:term1 =field:term2`
-* `=field:“multi term phrase”`
-
-If you don’t specify a field the search runs against name, description, title, and content. If the field specified is `TOKENIZED=false`, only the full field is matched. If the field you specified is `TOKENIZED=TRUE` or `TOKENIZED=BOTH` then the search is run on the cross locale tokenized version of the field.
-
-> **Note:** If cross locale is not configured for the field then an exception occurs.
-
-The list of the default supported types as declared in the `<alfresco_home>/solr4/conf/shared.properties` file:
-
-`alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
-
-`alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
-
-`alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
+For the `cm:name` field, which is in the index as both tokenized and untokenized, it will use the untokenized field. For example, `=part` will only match the exact term "part". If you use `=part*` it will match additional terms, like "partners". If there is no untokenized field in the index, it will fall back to use the tokenized field, and then, with stemming/plurals, it would match.
 
 ## Search in fields
 

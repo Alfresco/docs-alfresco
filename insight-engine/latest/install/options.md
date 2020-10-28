@@ -25,11 +25,11 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-2.0.x.zip`.
+1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-1.4.x.zip`.
 
 2. Extract the Search and Insight Engine distribution.
 
-    By default, the contents of `alfresco-insight-engine-2.0.x.zip` are decompressed in a root folder as `/alfresco-insight-engine`. See [Search and Insight Engine directory structure]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
+    By default, the contents of `alfresco-insight-engine-1.4.x.zip` are decompressed in a root folder as `/alfresco-insight-engine`. See [Search and Insight Engine directory structure]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
 
 3. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this update the `alfresco-insight-engine/solrhome/conf/shared.properties` file:
 
@@ -212,11 +212,11 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-distribution-2.0.x.zip`.
+1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-distribution-1.4.x.zip`.
 
 2. Extract the Search and Insight Engine distribution.
 
-    By default, the contents of `alfresco-insight-engine-distribution-2.0.x.zip` are decompressed in a root folder as `/alfresco-insight-engine`. See [Search and Insight Engine directory structure]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
+    By default, the contents of `alfresco-insight-engine-1.4.x.zip` are decompressed in a root folder as `/alfresco-insight-engine`. See [Search and Insight Engine directory structure]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
 
 3. Configure HTTP.
 
@@ -318,7 +318,7 @@ This task assumes you have:
 
 ## Install with Docker Compose
 
-Use this information to start up Alfresco Content Services 6.2 or above and Search and Insight Engine 2.0 using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
+Use this information to start up Alfresco Content Services 6.0 or above and Search and Insight Engine 1.4 using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
 ### Prerequisites
 
@@ -341,8 +341,8 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
 
     ```yaml
         solr6:
-            #image: alfresco/alfresco-search-services:2.0.0
-            image: quay.io/alfresco/insight-engine:2.0.0
+            #image: alfresco/alfresco-search-services:1.4.x
+            image: quay.io/alfresco/insight-engine:1.4.x
             mem_limit: 2500m
             environment:
                 #Solr needs to know how to register itself with Alfresco
@@ -358,7 +358,7 @@ Use this information to start up Alfresco Content Services 6.2 or above and Sear
                 - 8083:8983 #Browser port
     ```
 
-    > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Building Reports and Dashboards]({% link insight-engine/latest/using/index.md %}#Installing with Docker Compose) for the additional container information you need to add to your `docker-compose.yml` file.
+    > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Building Reports and Dashboards]({% link insight-engine/1.4/using/index.md %}#Installing with Docker Compose) for the additional container information you need to add to your `docker-compose.yml` file.
 
 4. Save the file.
 

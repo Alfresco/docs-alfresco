@@ -32,7 +32,7 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Se
 4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
 
     ```bash
-    alfresco-insight-engine-distribution-2.0.x.zip
+    alfresco-insight-engine-1.4.x.zip
     ```
 
     By default, the contents are decompressed in a folder at `./alfresco-insight-engine`. The folder extracts into the same location as the zip file.
@@ -63,7 +63,7 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Se
 
 ### Migrate Content Services 5.x with Search Services 1.3 or below
 
-There are two steps to migrating your installation from Alfresco Content Services 5.x with Alfresco Search Services to Alfresco Content Services 6.2 with  Search and Insight Engine. First you need to upgrade to Alfresco Content Services 6.2 with Search Services, and then migrate Search Services to Search and Insight Engine.
+There are two steps to migrating your installation from Alfresco Content Services 5.x with Alfresco Search Services to Alfresco Content Services 6.2 with Search and Insight Engine. First you need to upgrade to Alfresco Content Services 6.2 with Search Services, and then migrate Search Services to Search and Insight Engine.
 
 > **Note:** You can't upgrade Alfresco Content Services 5.x using Docker Compose.
 
@@ -85,8 +85,8 @@ Use this information to migrate from Search Services to Search and Insight Engin
 
     ```yaml
         solr6:
-            #image: alfresco/alfresco-search-services:2.0.x (or 1.4, and 1.3)
-            image: quay.io/alfresco/insight-engine:2.0.x
+            #image: alfresco/alfresco-search-services:1.4.x (or 1.3)
+            image: quay.io/alfresco/insight-engine:1.4.x
             mem_limit: 2500m
             environment:
                 #Solr needs to know how to register itself with Alfresco
@@ -126,7 +126,7 @@ Use this information to migrate from Search and Insight Engine 2.0 to Alfresco S
 4. Download and unzip the Search Services distribution zip file to a preferred location:
 
     ```bash
-    alfresco-search-services-distribution-2.0.x.zip
+    alfresco-search-services-1.4.x.zip
     ```
 
     By default, the contents are decompressed in a folder at `./alfresco-search-services`. The folder extracts into the same location as the zip file.

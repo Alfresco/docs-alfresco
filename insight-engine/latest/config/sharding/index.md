@@ -147,7 +147,7 @@ shard.date.grouping=3
 
 ### Metadata (PROPERTY)
 
-This method is available in all versions of Search and Insight Engine. In this method, the value of some property is hashed and this hash is used to assign the node to a random shard. All nodes with the same property value will be assigned to the same shard
+This method is available in all versions of Search and Insight Engine. In this method, the value of some property is hashed and this hash is used to assign the node to a random shard. All nodes with the same property value will be assigned to the same shard.
 
 Only properties of type `d:text`, `d:date` and `d:datetime` can be used. For example, the recipient of an email, the creator of a node, some custom field set by a rule, or by the domain of an email recipient. The keys are randomly distributed over the shards using murmur hash.
 
@@ -216,7 +216,7 @@ Trigger a backup with an `HTTP` command which instructs the `/replication` handl
 
 ```http
 curl http://solrshard20xbm.alfresco.com:9000/solr/<CORE_NAME>/replication?command=backup
-&location=/mnt/solrBackup&numberToKeep=1
+&location=/mnt/solrContentStoreBackup&numberToKeep=1
 ```
 
 where:
@@ -232,7 +232,7 @@ where:
 The backup operation can be monitored to see if it has completed by sending the `details` command to the `/replication` handler, for example:
 
 ```http
-http://solrshard20xbm.alfresco.com:9000/alfresco-search-backups/<CORE_NAME>/replication?command=details
+http://solrshard20xbm.alfresco.com:9000/solr4/<CORE_NAME>/replication?command=details
 ```
 
 ## Best practices for setting up sharded Solr indexes

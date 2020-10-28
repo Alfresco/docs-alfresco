@@ -4,7 +4,7 @@ title: JDBC driver
 
 Search and Insight Engine includes a JDBC thin client that can be used with Insight Zeppelin and other SQL clients.
 
-To access the client log into [https://nexus.alfresco.com/nexus/#welcome](https://nexus.alfresco.com/nexus/#welcome) and search for `alfresco-insight-jdbc-2.0.0.jar`.
+To access the client log into [https://nexus.alfresco.com/nexus/#welcome](https://nexus.alfresco.com/nexus/#welcome) and search for `alfresco-insight-jdbc-1.4.0.jar`.
 
 > **Note:** Contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for log in credentials.
 
@@ -15,13 +15,13 @@ The connection string's host and port should point to the Alfresco Content Servi
 The JDBC connection string uses the following format:
 
 ```bash
-jdbc:alfresco://<alfresco-server-name>:<alfresco-server-port>?collection=alfresco
+jdbc:solr://<alfresco-server-name>:<alfresco-server-port>?collection=alfresco
 ```
 
 For example, this database URL property value:
 
 ```bash
-jdbc:alfresco://localhost:8080?collection=alfresco
+jdbc:solr://localhost:8080?collection=alfresco
 ```
 
 Will generate the following request:
@@ -35,7 +35,7 @@ Will generate the following request:
 When Alfresco Content Services is configured to use HTTPS with a WebProxy like Apache HTTPd or NGINX, the JDBC connection string uses the following format:
 
 ```bash
-jdbc:alfresco://localhost?collection=alfresco
+jdbc:solr://localhost?collection=alfresco
 ```
 
 > **Note:** When using the default connection port of 443 you do not need to add it to the connection string.
@@ -62,7 +62,7 @@ alfresco.enable.ssl: true
 When Alfresco Content Services is configured to use mTLS to communicate with SOLR, the JDBC connection string uses the following format:
 
 ```bash
-jdbc:alfresco://localhost:8443?collection=alfresco
+jdbc:solr://localhost:8443?collection=alfresco
 ```
 
 You need to add the truststore and keystore from SOLR to the properties of the driver using the following:
@@ -96,7 +96,7 @@ Properties props = new Properties();
 props.put("alfresco.shards", "http://localhost:8983/solr/alfresco")
 props.put("json", alfrescoJson);
 
-String connectionString = "jdbc:alfresco://localhost:8080?collection=alfresco";
+String connectionString = "jdbc:solr://localhost:8080?collection=alfresco";
 Connection con = null;
 Statement stmt = null;
 ResultSet rs = null;
