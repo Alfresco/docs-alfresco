@@ -89,7 +89,7 @@ If the Index Engine is up to date, a query against the database or the Index Eng
   * Some nodes may be counted in the wrong facets due to out of date metadata.
   * Some nodes may be ordered using out of date metadata.
 
-### Node Content has changed
+### Node content has changed
 
 * The index reflects out of date content but the metadata is up to date.
   * Some out of date nodes may be in the results when they should not be.
