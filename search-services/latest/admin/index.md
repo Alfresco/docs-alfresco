@@ -30,7 +30,7 @@ This task shows how to specify the Solr backup directory by using the `<TOMCAT_H
 
 To set the Solr backup directory using the `alfresco-global.properties` file, set the value of the following properties to the full path where the backups should be kept:
 
-```bash
+```text
 solr.backup.archive.remoteBackupLocation=
 solr.backup.alfresco.remoteBackupLocation=
 ```
@@ -44,7 +44,7 @@ If you have installed the Oracle Java SE Development Kit (JDK), you can use the 
 
     ![]({% link search-services/images/solr6jmx.png %})
 
-* To use JMX client to setup Solr backup directory, navigate to **MBeans tab > Alfresco > Configuration > Search > managed > solr > Attributes** and change the values for `solr.backup.alfresco.remoteBackupLocation` and `solr.backup.archive.remoteBackupLocation properties`.
+* To use JMX client to setup Solr backup directory, navigate to **MBeans tab > Alfresco > Configuration > Search > managed > solr > Attributes** and change the values for `solr.backup.alfresco.remoteBackupLocation` and `solr.backup.archive.remoteBackupLocation` properties.
 * You may also trigger a backup with an HTTP command which instructs the `/replication` handler to backup Solr, for example:
 
     ```http
@@ -56,7 +56,7 @@ If you have installed the Oracle Java SE Development Kit (JDK), you can use the 
   * `location` specifies the path where the backup will be created. If the path is not absolute then the backup path will be relative to Solr's instance directory.
   * `numberToKeep` specifies the number of backups to keep.
 
-## Solr logging
+### Solr logging
 
 You can set different debug logging levels for Solr components using the Solr log4j properties.
 
@@ -64,7 +64,7 @@ You can set different debug logging levels for Solr components using the Solr lo
 
 2. Edit it to add your required logging setting. For example:
 
-    ```bash
+    ```text
     log4j.logger.org.alfresco.solr.tracker.MetadataTracker=DEBUG
     ```
 
@@ -74,13 +74,13 @@ You can set different debug logging levels for Solr components using the Solr lo
     https://<solrHostName>:<solrPort>/solr/admin/cores?action=LOG4J&resource=log4j-solr.properties
     ```
 
-## Document fingerprints
+### Document fingerprints
 
 Alfresco Content Services 6.2 provides support for Document Fingerprints to find related documents. Document Fingerprinting is performed by algorithms that map data, such as documents and files to shorter text strings, also known as fingerprints. This feature is exposed as a part of the Alfresco Full Text Search Query Language.
 
 Document Fingerprints can be used to find similar content in general or biased towards containment. The language adds a new `FINGERPRINT` keyword:
 
-```bash
+```text
 FINGERPRINT:<DBID | NODEREF | UUID>
 ```
 

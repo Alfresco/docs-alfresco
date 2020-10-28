@@ -18,7 +18,7 @@ SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:'Tutorial")
 
 ## Search Service
 
-```bash
+```java
 ResultSet results = searchService.query(storeRef, SearchService.LANGUAGE_FTS_ALFRESCO, "quick");
 ```
 
@@ -32,7 +32,7 @@ FTS is supported in the node browser.
 
 ## JavaScript
 
-```sql
+```javascript
 search
 {
    query: string,          mandatory, in appropriate format and encoded for the given language
@@ -67,7 +67,7 @@ template
 
 For example:
 
-```sql
+```javascript
  var def =
   {
      query: "cm:name:test*",

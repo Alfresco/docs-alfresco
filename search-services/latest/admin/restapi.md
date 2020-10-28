@@ -15,7 +15,8 @@ By default, responses are expressed in XML but if you add the URL parameter `wt=
 
 Every action response includes a `responseHeader` with the execution time and the status of the request.
 
-```json{
+```json
+{
     "responseHeader": {
       "QTime": 1,
       "status": 0
@@ -377,14 +378,14 @@ http://localhost:8983/solr/admin/cores?action=enable-indexing
 
 If you call the REPORT action there will be additional information returned
 
-```bash
+```xml
 <str name="ACL Tracker>enabled</str>
 <str name="Metadata Tracker>enabled</str>
 ```
 
 If you call the SUMMARY action there will be additional information returned
 
-```bash
+```xml
 <bool name="ACLTracker Enabled">true</str>
 <bool name="MetadataTracker Enabled">true</str>
 <bool name="ContentTracker Enabled">true</str>
@@ -409,14 +410,14 @@ http://localhost:8983/solr/admin/cores?action=disable-indexing
 
 If you call the REPORT action there will be additional information returned
 
-```bash
+```xml
 <str name="ACL Tracker>enabled</str>
 <str name="Metadata Tracker>enabled</str>
 ```
 
 If you call the SUMMARY action there will be additional information returned
 
-```bash
+```xml
 <bool name="ACLTracker Enabled">true</str>
 <bool name="MetadataTracker Enabled">true</str>
 <bool name="ContentTracker Enabled">true</str>

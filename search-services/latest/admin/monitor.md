@@ -10,11 +10,11 @@ This task describes how to perform a full Solr reindex.
 
 The task assumes you are using only one Solr instance for all nodes in the Alfresco Content Services cluster. If not, then you need to repeat the process on each Solr instance used in the cluster.
 
-1. Confirm the location of the Solr core directories for archive and alfresco cores. This can be determined from the solrcore.properties file for both the cores. By default, the solrcore.properties file can be found at `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`. The Solr core location is defined in the `solrcore.properties` file as:
+1. Confirm the location of the Solr core directories for archive and alfresco cores. This can be determined from the solrcore.properties file for both the cores. By default, the `solrcore.properties` file can be found at `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`. The Solr core location is defined in the `solrcore.properties` file as:
 
     For Solr, the default data.dir.root path is:
 
-    ```bash
+    ```text
     data.dir.root=<SOLR_HOME>/solrhome/
     ```
 
