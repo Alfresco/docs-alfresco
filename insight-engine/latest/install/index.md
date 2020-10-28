@@ -32,9 +32,8 @@ In all previous Alfresco Content Services versions, `Solr.war` was bundled with 
 
 There are two cores or indexes in Solr:
 
-**alfresco**: used for searching all live content stored at `<SOLR_HOME>/solrhome/alfresco` within the Solr search server.
-
-**archive**: used for searching content that has been marked as deleted at `<SOLR_HOME>/solrhome/archive` within the Solr search server.
+* **alfresco**: used for searching all live content stored at `<SOLR_HOME>/solrhome/alfresco` within the Solr search server.
+* **archive**: used for searching content that has been marked as deleted at `<SOLR_HOME>/solrhome/archive` within the Solr search server.
 
 ![Solr overview]({% link insight-engine/images/solr.png %})
 
