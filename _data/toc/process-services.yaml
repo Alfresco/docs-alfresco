@@ -4,11 +4,31 @@
     - title: 'Introduction'
       path: '/process-services/latest/'
     - title: "Install"
-      path: '/process-services/latest/install/'
+      pages:
+        - title: 'Overview'
+          path: '/process-services/latest/install/'
+        - title: 'Install manually'
+          path: '/process-services/latest/install/manual/'
+        - title: 'Install using containers'
+          path: '/process-services/latest/install/container/'
     - title: 'Upgrade'
       path: '/process-services/latest/upgrade/'
     - title: "Configure"
-      path: '/process-services/latest/config/'
+      pages:
+        - title: 'Overview'
+          path: '/process-services/latest/config/'
+        - title: 'Authentication'
+          path: '/process-services/latest/config/authenticate/'
+        - title: 'Database'
+          path: '/process-services/latest/config/database/'
+        - title: 'Content systems'
+          path: '/process-services/latest/config/content/'
+        - title: 'External integrations'
+          path: '/process-services/latest/config/external/'
+        - title: 'Application configuration'
+          path: '/process-services/latest/config/application/'
+        - title: 'Multi-tenancy'
+          path: '/process-services/latest/config/multi-tenancy/'
     - title: 'Using'
       pages:
         - title: 'Introduction'
