@@ -39,7 +39,7 @@ There are two cores or indexes in Solr:
 
 > **Important:** For security reasons, it is advised that you generate a new set of keys to secure your Solr communication and access to the Solr Admin Console.
 
-For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %} and [Secure keys]({% link insight-engine/latest/config/keys.md %}.
+For more information, see [Configuring using the Admin Console]({% link insight-engine/latest/config/index.md %}#configure-using-the-admin-console) and [Secure Keys]({% link insight-engine/latest/config/keys.md %}).
 
 ## Eventual consistency
 
