@@ -98,7 +98,7 @@ If the Index Engine is up to date, a query against the database or the Index Eng
 ### Node Content and metadata has changed
 
 * The index reflects the out of date metadata and content.
-  * The index reflects out of date content (the metadata is updated first).
+* The index reflects out of date content (the metadata is updated first).
   * Some out of date nodes may be in the results when they should not be.
   * Some out of date nodes may be missing from the results when they should not be.
   * Some nodes may be counted in facets due to out of date metadata.
