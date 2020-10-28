@@ -36,7 +36,7 @@ There are two cores or indexes in Solr:
 
 **archive**: used for searching content that has been marked as deleted at `<SOLR_HOME>/solrhome/archive` within the Solr search server.
 
-![]({% link insight-engine/images/solr.png %})
+![Solr overview]({% link insight-engine/images/solr.png %})
 
 **Important:** For security reasons, it is advised that you generate a new set of keys to secure your Solr communication and access to the Solr Admin Console.
 
