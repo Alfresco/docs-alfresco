@@ -60,10 +60,6 @@ Here is a full list of parameters that allow you to customize your certificates.
 |repocertdname| |Sets the Distinguished Name of the repository certificate, starting with a forward-slash. For example:`/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco Repository`|
 |solrcertdname| |Sets the Distinguished Name of the Solr certificate, starting with a forward-slash. For example:`/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Alfresco Repository Client`|
 |browsercertdname| |Sets the Distinguished Name of the browser certificate, starting with a forward-slash. For example:`/C=GB/ST=UK/L=Maidenhead/O=Alfresco Software Ltd./OU=Unknown/CN=Custom Browser Client`|
-|caservername|Any string, localhost by default.|DNS Name of CA Server.|
-|alfrescoservername|Any string, localhost by default.|DNS Name for Alfresco Server.|
-|solrservername|Any string, localhost by default.|DNS Name For Solr Server.|
-|alfrescoformat|classic, current|Default format for certificates: current for IE SS 2.0.0+ and classic for previous versions.|
 
 > **Note:** If you plan to use custom DNames in your certificates, you must use double quotes around the values. For example:
 

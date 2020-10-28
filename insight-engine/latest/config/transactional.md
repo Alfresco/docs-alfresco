@@ -20,6 +20,8 @@ In general, TMDQ does not support:
 * Faceting.
 * Any aggregation: This includes counting the total number of matches for the query.
 
+Fingerprint support is only on the Index Server.
+
 AFTS and CMIS queries are parsed to an abstract form. This is then sent to an execution engine. There are two execution engines: the database and the Solr index. The default is to try the database first and fall back to the Solr index, if the query is not supported against the database. This is configurable for a search subsystem and per query using the Java API.
 
 To support TMDQ:

@@ -102,8 +102,6 @@ As a best practice, use the `alfresco-insight-engine/solr.in.sh` file (Linux-bas
 
 The following configuration properties are used by an external client, such as Alfresco to talk to Solr. Besides the solr.in.sh/ solr.in.cmd file, you can also set these properties in the `alfresco-insight-engine/solrhome/conf/shared.properties` file.
 
-> **Important:** From Search and Insight Engine 2.0 the `solr.content.dir` property has been removed. The `solr.content.dir` was a filesystem-based extension of the Solr index. It was used for maintaining a copy of the original data indexed in Solr. The storage the `solr.content.dir` provided is available in Solr itself which means that it can be safely removed from Search and Insight Engine 2.0 onwards. The removal of `solr.content.dir` does not mean a loss of functionality because the Solr storage capabilities still retain a copy of the data originally sent for indexing.
-
 #### `solr.host`
 
 |Description|Specifies the host name that Alfresco uses to talk to Solr.|
@@ -128,7 +126,7 @@ The following configuration properties are used by an external client, such as A
 |Environment Variable|`SOLR_SOLR_BASEURL`|
 |Default Value|`/solr`|
 
-#### `solr.content.dir` (removed from Search and Insight Engine 2.0)
+#### `solr.content.dir`
 
 |Description|Specifies the location of the Solr content directory.|
 |JNDI Property|`java:comp/env/solr/content/dir`|
