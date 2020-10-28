@@ -18,7 +18,7 @@ You can download the Search and Insight Engine installation file from the [Alfre
 
 The supported platforms are the combinations of operating systems, databases, and application servers that are tested and certified for Alfresco Content Services.
 
-Before you install Search and Insight Engine you must install Alfresco Content Services 6.2 or later. You can install Search and Insight Engine using the distribution zip and docker compose, but the docker compose method of installation is only for development and test environments.
+Before you install Search and Insight Engine you must install Alfresco Content Services 6.2 or later. You can install Search and Insight Engine using the distribution zip and Docker Compose, but the Docker Compose method of installation is only for development and test environments.
 
 See [Supported platforms]({% link insight-engine/latest/support/index.md %}) for information about prerequisites and requirements.
 
