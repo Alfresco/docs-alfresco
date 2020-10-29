@@ -305,7 +305,7 @@ Ensure you have read the [supported platforms]({% link process-services/latest/s
 
 After installing you will need to [apply a valid license file](#install-license) to your installation.
 
-### Install Process Services Workspace
+### Install Process Workspace
 
 You can install Process Workspace using a Web Application Archive (WAR) file or by deploying the files manually into your web container.
 

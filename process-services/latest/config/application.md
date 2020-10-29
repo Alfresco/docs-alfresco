@@ -168,7 +168,6 @@ When a task is created that has one or more candidate groups assigned, the group
 
 >**Note:** Users that do not have a primary group defined may not have a group manager. To define the primary group, go to **Identity Management > Users > Select an action > Change primary group**.
 
-
 ## Process and task query lists
 
 Process Services provides REST API operations that allow you to query tasks, process instances, historic tasks and historic process instances. You can also request to include task and process variables by using the parameters `includeTaskLocalVariables` and `includeProcessVariables` and setting their values to `true`. When executing REST API calls that include these variables, the result sets could be quite large and you may wish to limit or control the list size provided in the response. The following table shows the properties you can set in the `activiti-app.properties` file to configure this.

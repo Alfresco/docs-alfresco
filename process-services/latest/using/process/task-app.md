@@ -62,4 +62,4 @@ You can also create a new filter to filter by process definitions, process state
 ## Reports tab
 
 Use the Reports tab to generate reports based on the available parameters. You can view the reports that you saved in 
-the Analytics App. For more information, see [Analytics App]({% link process-services/latest/using/analytics.md %}).
+the Analytics App. For more information, see [Analytics App]({% link process-services/latest/using/process/analytics.md %}).

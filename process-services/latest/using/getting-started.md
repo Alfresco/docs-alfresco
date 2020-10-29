@@ -2,28 +2,17 @@
 title: Getting started with Process Services
 ---
 
-## Introduction
-
 With Process Services it's easy to create, publish, and use process models and apps.
 
 This Getting Started tutorial shows you in 3 steps how to create and use a simple expense approval process app.
 
-**Prerequisites**
+## Prerequisites
 
 Before you begin, make sure that you've following the instructions in [Installing Process Services]({% link process-services/latest/install/index.md %}).
 
-If you’ve registered for our [cloud trial](https://www.alfresco.com/platform/process-services-bpm/trial/online) 
-you don’t need to install anything and are ready to go.
+If you’ve registered for our [cloud trial](https://www.alfresco.com/platform/process-services-bpm/trial/online){:target="_blank"} you don’t need to install anything and are ready to go.
 
-**Steps**
-
-Step 1: [Create process definition](#createprocess)
-
-Step 2: [Create and publish process application](#createpublishapp)
-
-Step 3: [Use process application](#useprocessapp)
-
-## Create a process definition {#createprocess}
+## Step 1: Create a process definition
 
 This is the first of three simple steps in creating a process app.
 
@@ -35,50 +24,48 @@ In this step, you are going to design a simple expense approval process (definit
 
 This process also includes 2 web forms.
 
-1.  Open Process Services from one of the following options:
+1. Open Process Services from one of the following options:
 
     * **Local installation**
 
-        - address - http://localhost:8080/activiti-app/#/
+    * Address - `http://localhost:8080/activiti-app/#/`
+    * Username - `admin@app.activiti.com/`
+    * Password - `admin`
 
-        - sign in - admin@app.activiti.com/
-
-        - password - admin
-
-    * **Cloud trial** - [APS App Cloud](https://activiti.alfresco.com/activiti-app/#/) (use your online trial sign in details)
+    * **Cloud trial** - [APS App Cloud](https://activiti.alfresco.com/activiti-app/#/){:target="_blank"} and use your online trial sign in details.
 
     ![Activiti App Landing Page]({% link process-services/images/gs-dashboard.png %})
 
-2.  Select **App Designer** on your dashboard.
+2. Select **App Designer** on your dashboard.
 
-3.  Select **Create Process**.
+3. Select **Create Process**.
 
-4.  Give the process model a name (for example “Expense approval”) and a description, then select the **BPMN Editor** as the Editor type.
+4. Give the process model a name (for example “Expense approval”) and a description, then select the **BPMN Editor** as the Editor type.
 
-5.  Select **Create new model**.
+5. Select **Create new model**.
 
     >**Note:** If this is the first time you’ve used Process Services then some help tips may be displayed. You can click **Next** to watch them or press Esc. to close them.
 
-6.  The start event is displayed on the canvas as a circle. Double-click on it and type a name, for example “Submit expense”, then click on the canvas.
+6. The start event is displayed on the canvas as a circle. Double-click on it and type a name, for example “Submit expense”, then click on the canvas.
 
-7.  Click the circle again and drag and drop the ![User Task]({% link process-services/images/gs-ico-user-task.png %}){:height="18px" width="18px"} User task icon to the right.
+7. Click the circle again and drag and drop the ![User Task]({% link process-services/images/gs-ico-user-task.png %}){:height="18px" width="18px"} User task icon to the right.
 
     ![Drag and Drop User Task]({% link process-services/images/gs-drag-user-task.png %})
 
     This adds a user task after the start event.
 
-8.  Double-click on the user task and type a name, for example “Review”, then click on the canvas.
+8. Double-click on the user task and type a name, for example “Review”, then click on the canvas.
 
     ![Review Task]({% link process-services/images/gs-review.png %})
 
-9.  Click the user task again and drag and drop the ![End event]({% link process-services/images/gs-end-event.png %}){:height="18px" width="18px"} end event icon (circle) to the right.
+9. Click the user task again and drag and drop the ![End event]({% link process-services/images/gs-end-event.png %}){:height="18px" width="18px"} end event icon (circle) to the right.
 
 10. Double-click on the end event and type a name, for example “End process”, then click on the canvas.
 
     ![End Process]({% link process-services/images/gs-end-process.png %})
 
     The process model now has three stages:
-    
+
     ![Three stages]({% link process-services/images/gs-three-stages.png %})
 
 11. Click ![Validate Model]({% link process-services/images/gs-ico-validate.png %}){:height="18px" width="18px"} **Validate the model** on the toolbar.
@@ -89,12 +76,12 @@ This process also includes 2 web forms.
 
     * One for the requester to submit the expense (start event)
     * One for the manager to review the expense request (user task).
-    
+
     You can create forms:
 
     * Directly from the Process editor (embedded in the BPMN model)
     * Separately from the process model and then reference them in the design by adding a key
-    
+
     In this example they’ll be created directly from the Process editor.
 
 12. Click the start event and then click **Referenced form** in the properties panel.
@@ -113,7 +100,7 @@ This process also includes 2 web forms.
     * Amount
     * Date
     * Attach File
-    
+
 16. Hover over the **Text** stencil and click the ![Edit]({% link process-services/images/gs-ico-edit.png %}){:height="18px" width="18px"} Edit icon, then type "Text" as the Label and click **Close**.
 
     Repeat this step for the other stencils you added, and type the following labels:
@@ -121,7 +108,7 @@ This process also includes 2 web forms.
     * Amount
     * Date
     * Attachment
-    
+
     ![Add Labels]({% link process-services/images/gs-add-labels.png %})
 
 17. Click ![Save]({% link process-services/images/gs-ico-save.png %}){:height="18px" width="18px"} then **Save and close editor**.
@@ -153,42 +140,42 @@ This process also includes 2 web forms.
 
     * Approve
     * Reject
-    
+
     ![Outcomes]({% link process-services/images/gs-outcomes.png %})
 
 24. Click ![Save]({% link process-services/images/gs-ico-save.png %}){:height="18px" width="18px"} then **Save and close editor.**
 
 25. In the Process editor click ![Save]({% link process-services/images/gs-ico-save.png %}){:height="18px" width="18px"} then **Save**.
 
-## Create and publish the process application {#createpublishapp}
-   
+## Step 2: Create and publish the process application
+
 Once you’ve created a process definition, you can create an app and add the process to it, then publish the app.
 
-1.  Click **App Designer** on your dashboard then click the **Apps** tab and select **Create App**.
+1. Click **App Designer** on your dashboard then click the **Apps** tab and select **Create App**.
 
-2.  Give the app a name (for example “Expense Approval”) and a description, then click **Create new app definition**.
+2. Give the app a name (for example “Expense Approval”) and a description, then click **Create new app definition**.
 
-3.  Click **Edit included models**.
+3. Click **Edit included models**.
 
-4.  Select the Expense approval model. The ![Selected icon]({% link process-services/images/gs-selected.png %}){:height="18px" width="18px"} icon shows that you’ve selected it. Then click **Close**.
+4. Select the Expense approval model. The ![Selected icon]({% link process-services/images/gs-selected.png %}){:height="18px" width="18px"} icon shows that you’ve selected it. Then click **Close**.
 
-5.  Click ![Save icon]({% link process-services/images/gs-ico-save.png %}){:height="18px" width="18px"} then select the **Publish?** option and **Save and close editor**.
+5. Click ![Save icon]({% link process-services/images/gs-ico-save.png %}){:height="18px" width="18px"} then select the **Publish?** option and **Save and close editor**.
 
-6.  Click ![Back icon]({% link process-services/images/gs-back.png %}){:height="18px" width="18px"} to return to your dashboard.
+6. Click ![Back icon]({% link process-services/images/gs-back.png %}){:height="18px" width="18px"} to return to your dashboard.
 
-7.  Click + to add a new app then select the Expense Approval app and click **Deploy**.
+7. Click + to add a new app then select the Expense Approval app and click **Deploy**.
 
    ![App added]({% link process-services/images/gs-app-added.png %})
 
    The Expense Approval app is added to your dashboard.
 
-## Use the process application {#useprocessapp}
+## Step 3: Use the process application
 
 When you’ve created and published a process app, it can be used to request a new expense for approval.
 
-1.  Click the **Expense Approval** app on your dashboard then click **Start**.
+1. Click the **Expense Approval** app on your dashboard then click **Start**.
 
-2.  Complete the requested information and click **Start Process** to submit the new expense.
+2. Complete the requested information and click **Start Process** to submit the new expense.
 
    ![Start process]({% link process-services/images/gs-start-process.png %})
 
@@ -198,13 +185,13 @@ When you’ve created and published a process app, it can be used to request a n
 
    ![Green review]({% link process-services/images/gs-green-review.png %})
 
-3.  Click **Review** under Active Tasks to review the claim.
+3. Click **Review** under Active Tasks to review the claim.
 
    >**Note:** This would usually be done by a user with the required approval level.
 
    ![Approve expense]({% link process-services/images/gs-approve-expense.png %})
 
-4.  Click **Approve** to complete the task.
+4. Click **Approve** to complete the task.
 
    This completes the claim as it is now at the end of the process flow.
 

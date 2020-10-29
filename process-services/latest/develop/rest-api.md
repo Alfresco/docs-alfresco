@@ -2734,7 +2734,7 @@ GET api/enterprise/content/{contentId}/rendition/thumbnail
 
 ### Identity Management
 
-For more info about Identity Management, see [this]({% link process-services/latest/using/identity.md %}) section.
+For more info about Identity Management, see [this]({% link process-services/latest/using/process/identity.md %}) section.
 
 #### Tenants
 

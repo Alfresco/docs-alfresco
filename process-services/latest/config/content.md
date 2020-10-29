@@ -25,11 +25,11 @@ It is also possible to retrieve and update content properties in a Content Servi
 
 There are three ways to configure a connection to Content Services:
 
-* Using the Identity Service to configure Single Sign On (SSO)
-* Using basic authentication
+* [Using the Identity Service to configure Single Sign On (SSO)](configure-a-connection-using-single-sign-on)
+* [Using basic authentication](#configure-a-connection-using-basic-authentication)
 * [Using the Share Connector]({% link process-services/latest/using/share-connector.md %})
 
-### Configure a connection using Single Sign On (SSO)
+### Configure a connection using Single Sign On
 
 A Content Services connection to Process Services can be created using the Identity Service so that communication between the two systems is achieved using tokens instead of stored credentials. You need the following:
 

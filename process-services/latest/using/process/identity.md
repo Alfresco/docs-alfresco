@@ -36,7 +36,7 @@ Custom email templates can be created centrally or within an application when it
 
 Templates can contain process and task variables using the format `${title}` where the variable is called `title`.
 
-The following predefined variables can also be used depending on the `assignment` of the [user task]({% link process-services/latest/using/bpmn.md%}#user-task):
+The following predefined variables can also be used depending on the `assignment` of the [user task]({% link process-services/latest/using/process/bpmn.md%}#user-task):
 
 |Assignment|Variable|
 |----------|--------|

@@ -29,8 +29,8 @@ as it may overwrite values that were set for the same variables in other success
 Decision tables follow the [Decision Model Notation (DMN) specification](http://www.omg.org/spec/DMN/1.0/).
 
 In the following, we will create a simple process that makes use of a Decision task and its Decision Table. 
-We will use the [BPMN editor]({% link process-services/latest/using/bpmn.md %}), but you can just as well use the 
-[Step editor]({% link process-services/latest/using/step.md %}) to achieve the same result.
+We will use the [BPMN editor]({% link process-services/latest/using/process/bpmn.md %}), but you can just as well use the 
+[Step editor]({% link process-services/latest/using/process/step.md %}) to achieve the same result.
  
 First let’s take a look at the process we want to create:
 
@@ -44,7 +44,7 @@ at the tasks before the "Calculate bonus" Decision task.
 
 The process' start form is shown below and defines 4 fields: `obligationsCompleted` (boolean), 
 `additionalAchievements` (string), `completedDate` (date) and `dueDate` (date). 
-See the [Form editor]({% link process-services/latest/using/form.md %}) section for more information on how to create forms.
+See the [Form editor]({% link process-services/latest/using/process/form.md %}) section for more information on how to create forms.
 
 ![decision-process-start-form]({% link process-services/images/decision-process-start-form.png %})
 

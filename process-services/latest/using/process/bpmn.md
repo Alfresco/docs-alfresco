@@ -195,7 +195,7 @@ A user task is depicted as a rounded rectangle with a user icon on the top-left 
 |Form properties|This is a property that exists for compatibility with Process Services community. When using Process Services to work with task lists and forms, do not set this property.|
 |Due date|Allows to configure a due date for the task. In the task list, tasks can be sorted by due date to see which tasks are needed to be completed the soonest. The possible ways of configuring are:<br><br>**No due date**<br><br>This is the default value.<br><br>**Expression definition (Advanced)**<br><br>Uses an Process Services expression to resolve the due date (for example, this expression could call a Spring bean).<br><br>**Fixed duration after task creation**<br><br>Allows to configure an amount of time, starting from the creation of the task.<br><br>**Based on field**<br><br>Allows to configure the due date based on a previous field in the process instance, by adding or subtracting a certain amount of time.<br><br>**Based on variable**<br><br>Allows to configure the due date based on a variable previously declared in the process instance, by adding or subtracting a certain amount of time.|
 |Allow email notifications|When enabled, an email will be sent to the assignee when the task is assigned to them.|
-|Email template|The template of the email to use when **Allow email notifications** is enabled. A custom email template can be selected from a list available to the tenant, or a new custom template created for the application. See [custom templates]({% link process-services/latest/using/identity.md %}#custom-email-templates) for instructions on creating a template.|
+|Email template|The template of the email to use when **Allow email notifications** is enabled. A custom email template can be selected from a list available to the tenant, or a new custom template created for the application. See [custom templates]({% link process-services/latest/using/process/identity.md %}#custom-email-templates) for instructions on creating a template.|
 |Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be created as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
 |Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
 |Execution listeners|Execution listeners configured for this instance. An execution listener lets you execute Java code or evaluate an expression when an event occurs during process execution.|
@@ -272,7 +272,7 @@ A script task is visualized as a rounded rectangle with a paper icon inside.
 A Business rule task executes one or more rules.
 
 Business rule tasks are mainly there for compatibility with the community product Activiti. 
-Alfresco recommends that you use [Decision tables]({% link process-services/latest/using/rules.md %}) with Process Services
+Alfresco recommends that you use [Decision tables]({% link process-services/latest/using/process/rules.md %}) with Process Services
 
 A business rule is depicted as a rounded rectangle with a table icon in the top-left corner.
 
@@ -483,7 +483,7 @@ A Generate document task appears as a rounded rectangle with a document icon on 
 
 You use a decision task to select a decision table while designing your process model. A decision table enables you to 
 define a set of business rules that will be applied when it’s executed. 
-See the [business rules]({% link process-services/latest/using/rules.md %}) section for more information.
+See the [business rules]({% link process-services/latest/using/process/rules.md %}) section for more information.
 
 A decision task is depicted as a rounded rectangle with a table icon the top-left corner.
 
@@ -517,7 +517,7 @@ The updated entities can then be mapped to variables and used while creating pro
 |Id|A unique identifier for this element.|
 |Name|A name for this element.|
 |Documentation|A description of this element.|
-|Attribute mapping|Attributes mapped for this element instance. Click to invoke the Change value for "Attribute Mapping" dialog, where you can map entities or Data Models with form fields and variables used in your process. See the [Data Models]({% link process-services/latest/using/models.md %}) section for more details.|
+|Attribute mapping|Attributes mapped for this element instance. Click to invoke the Change value for "Attribute Mapping" dialog, where you can map entities or Data Models with form fields and variables used in your process. See the [Data Models]({% link process-services/latest/using/process/models.md %}) section for more details.|
 
 ## Structural components
 
@@ -1053,4 +1053,4 @@ updating properties rather than retrieving.
 
 ### Call Alfresco Action
 
-See this [documentation]({% link process-services/latest/using/step.md %}#callalfaction).
+See this [documentation]({% link process-services/latest/using/process/step.md %}#callalfaction).

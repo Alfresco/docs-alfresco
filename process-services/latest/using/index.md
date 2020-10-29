@@ -1,12 +1,9 @@
 ---
-title: Introduction to using Process Services
+title: Overview of using Process Services
 ---
 
-To quickly get started with Process Services go to the [Getting Started Guide]({% link process-services/latest/using/getting-started.md %}).
+The [Process Services application]({% link process-services/latest/using/process/index.md %}) describes how to model process definitions, forms and decision tables.
 
-Process Services gives you two ways of accessing your tasks and processes:
+[Process Workspace]({% link process-services/latest/using/workspace.md %}) is and alternative end-user interface for starting and managing tasks and processes that are currently running.
 
-* [**Process Workspace App**]({% link process-services/latest/using/workspace.md %}) - Process Services 1.11 introduces this new end-user app for working with tasks and processes. For developers, this is a new user experience based on ADF 2.0, enabling high customization and faster time-to-value.
-* [**Process Services Landing Page**]({% link process-services/latest/using/landing-page.md %}) - The Landing Page continues to provide a user interface for managing your tasks but with the additional features for process design and profile management. 
-
-
+To quickly get started with Process Services by creating, publishing and using your first application, see the [Getting Started Guide]({% link process-services/latest/using/getting-started.md %}).

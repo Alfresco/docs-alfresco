@@ -457,7 +457,7 @@ defined by an administrator on your Process Services server. You can supply para
 directly in the URL or from process variables in forms, and you can extract properties from the JSON response 
 into process variables for use in your process definition.
 
->**Note:** A user with administration privileges will need to add endpoints for standard REST calls, with Username and Password pairs that are permitted for basic authentication. An administrator can add these endpoints and authentications on the Tenant page of the [Identity Management]({% link process-services/latest/using/identity.md %}) app. The benefit of using standard endpoints is that they can be easily switched for test and deployment configurations. It is also possible to use a REST step to call the Process Services REST API.
+>**Note:** A user with administration privileges will need to add endpoints for standard REST calls, with Username and Password pairs that are permitted for basic authentication. An administrator can add these endpoints and authentications on the Tenant page of the [Identity Management]({% link process-services/latest/using/process/identity.md %}) app. The benefit of using standard endpoints is that they can be easily switched for test and deployment configurations. It is also possible to use a REST step to call the Process Services REST API.
 
 The REST call step dialog contains four tabs that let you fully define the call.
 
@@ -509,7 +509,7 @@ Use this step to generate a Microsoft Word or PDF document from a template in Mi
 The process step will substitute any variables you place in the template document with process and form variables. 
 You can upload global template documents for use by all users, or upload personal template documents for your own use.
 
->**Note:** A user with administration privileges can upload global templates. An administrator can add templates on the Tenant page of the [Identity Management]({% link process-services/latest/using/identity.md %}) app.
+>**Note:** A user with administration privileges can upload global templates. An administrator can add templates on the Tenant page of the [Identity Management]({% link process-services/latest/using/process/identity.md %}) app.
 
 The Generate Document step dialog contains the following tabs to define the task:
 
@@ -562,7 +562,7 @@ download the generated document of the completed process in the Process Services
 
 The decision step enables you to create a Decision Table. A decision table is an easier expression to creating business rules.
 
-See the [Business rules - decision tables]({% link process-services/latest/using/rules.md %}) section for more details on Decision Tables.
+See the [Business rules - decision tables]({% link process-services/latest/using/process/rules.md %}) section for more details on Decision Tables.
 
 ### Content-related steps
 
@@ -594,7 +594,7 @@ properties rather than retrieving.
 
 The Call Alfresco Action enables you to invoke standard Alfresco Content Services actions from Process Services.
 
->**Note:** Alfresco Actions are asynchronous. This is important to note if you have multiple tasks executing against the same node(s) in Alfresco Content Services. To control a sequence of actions against a node, use a [Service Task]({% link process-services/latest/using/bpmn.md %}#service-task) instead.
+>**Note:** Alfresco Actions are asynchronous. This is important to note if you have multiple tasks executing against the same node(s) in Alfresco Content Services. To control a sequence of actions against a node, use a [Service Task]({% link process-services/latest/using/process/bpmn.md %}#service-task) instead.
 
 |Property|Description|
 |--------|-----------|
@@ -610,7 +610,7 @@ The Call Alfresco Action enables you to invoke standard Alfresco Content Service
 
 This step enables you to write a document or all documents uploaded in your process to an Alfresco Content Services on-premise repository.
 
->**Note:** A user with administration privileges will need to add accounts for the Alfresco Content Services repositories that you can publish to. An administrator can add repositories on the Tenant page of the [Identity Management]({% link process-services/latest/using/identity.md %}) app. The list of repositories you can publish to is then shown on your Personal Info page. If you click on a repository, an account to access the repository is added for you.
+>**Note:** A user with administration privileges will need to add accounts for the Alfresco Content Services repositories that you can publish to. An administrator can add repositories on the Tenant page of the [Identity Management]({% link process-services/latest/using/process/identity.md %}) app. The list of repositories you can publish to is then shown on your Personal Info page. If you click on a repository, an account to access the repository is added for you.
 
 The Publish to Alfresco step dialog contains three tabs that let you fully define the task.
 
