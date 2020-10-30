@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-Alfresco Content Services is pre-configured with a set of system configuration parameters. Many of the system configuration parameters are completely exposed as properties, which you can configure for your specific environment requirements.
+Content Services is pre-configured with a set of system configuration parameters. Many of the system configuration parameters are completely exposed as properties, which you can configure for your specific environment requirements.
 
 If you're configuring other services, integrations or modules, look in the **Configure** section of each product listed in the [Docs home page](https://docs.alfresco.com/){:target="_blank"}.
 
@@ -529,7 +529,7 @@ For advanced configuration, you can also extend or override the Spring bean defi
 
 The Spring bean definitions are within configuration files in the following directories:
 
-* The `<extension>` directory contains the configuration files for extending Alfresco Content Services.
+* The `<extension>` directory contains the configuration files for extending Content Services.
 * The `<web-extension>` directory contains the configuration files for extending Alfresco Share.
 
 1. Browse to the `<extension>` directory. For example, for Tomcat:

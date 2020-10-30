@@ -9,5 +9,6 @@
         - title: 'Overview'
           path: '/content-services/latest/config/'
         - title: 'Subsystems'
-          path: '/content-services/latest/config/subsystems/' 
-  
+          path: '/content-services/latest/config/subsystems/'
+        - title: 'Databases'
+          path: '/content-services/latest/config/databases/'
