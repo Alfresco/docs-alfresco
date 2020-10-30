@@ -15,7 +15,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Operating systems** | |
 | Red Hat Enterprise Linux 7.6 x64 | |
 | Windows Server 2019 | |
-| Windows Server 2019 | |
+| Windows Server 2016 | |
 | Amazon Linux | |
 | CentOS 7 x64| |
 | Ubuntu 18.04 | |
@@ -23,7 +23,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 |  |  |
 | **Databases** | |
 | MySQL 5.7.23 | `mysql-connector-java-5.1.40-bin.jar` |
-| MS SQL Server 2017 | Microsoft JDBC Driver 7.2.2.jre11 for SQL Server. See [here](https://docs.microsoft.com/en-us/sql/connect/jdbc/system-requirements-for-the-jdbc-driver){:target="_blank"} for JDBC Driver supported versions. |
+| MS SQL Server 2017 | `mssql-jdbc-7.2.2.jre11.jar` |
 | Oracle 19c | |
 | Oracle 18c | |
 | Oracle 12c | `OJDBC8.jar – 12.2.0.1` or `OJDBC7.jar – 12.1.0.2` |
@@ -117,7 +117,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | **Operating systems** | |
 | Red Hat Enterprise Linux 7.6 x64 | |
 | Windows Server 2019 | |
-| Windows Server 2019 | |
+| Windows Server 2016 | |
 | Amazon Linux | |
 | CentOS 7 x64| |
 | Ubuntu 18.04 | |
@@ -125,7 +125,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | | |
 | **Databases** | |
 | MySQL 5.7.23 | `mysql-connector-java-5.1.40-bin.jar` |
-| MS SQL Server 2017 | Microsoft JDBC Driver 7.2.2.jre11 for SQL Server. See [here](https://docs.microsoft.com/en-us/sql/connect/jdbc/system-requirements-for-the-jdbc-driver){:target="_blank"} for JDBC Driver supported versions. |
+| MS SQL Server 2017 | `mssql-jdbc-7.2.2.jre11.jar` |
 | Oracle 19c | |
 | Oracle 18c | |
 | Oracle 12c | `OJDBC8.jar – 12.2.0.1` or `OJDBC7.jar – 12.1.0.2` |
@@ -226,7 +226,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | **Operating systems** | |
 | Red Hat Enterprise Linux 7.6 x64 | |
 | Windows Server 2019 | |
-| Windows Server 2019 | |
+| Windows Server 2016 | |
 | Amazon Linux | |
 | CentOS 7 x64| |
 | Ubuntu 18.04 | |
@@ -234,7 +234,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | | |
 | **Databases** | |
 | MySQL 5.7.23 | `mysql-connector-java-5.1.40-bin.jar` |
-| MS SQL Server 2017 | Microsoft JDBC Driver 7.2.2.jre11 for SQL Server. See [here](https://docs.microsoft.com/en-us/sql/connect/jdbc/system-requirements-for-the-jdbc-driver){:target="_blank"} for JDBC Driver supported versions. |
+| MS SQL Server 2017 | `mssql-jdbc-7.2.2.jre11.jar` |
 | Oracle 19c | |
 | Oracle 18c | |
 | Oracle 12c | `OJDBC8.jar – 12.2.0.1` or `OJDBC7.jar – 12.1.0.2` |
