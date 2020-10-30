@@ -20,7 +20,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | CentOS 7 x64| |
 | Ubuntu 18.04 | |
 | SUSE 12.0 SP1 x64 |
-| | |
+|  |  |
 | **Databases** | |
 | MySQL 5.7.23 | `mysql-connector-java-5.1.40-bin.jar` |
 | MS SQL Server 2017 | Microsoft JDBC Driver 7.2.2.jre11 for SQL Server. See [here](https://docs.microsoft.com/en-us/sql/connect/jdbc/system-requirements-for-the-jdbc-driver){:target="_blank"} for JDBC Driver supported versions. |
@@ -77,7 +77,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Services 1.4 | |
 | Alfresco Federation Services 1.0 | |
 | Identity Service 1.3 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| SAML Single Sign-On (SSO) for Alfresco Content Services 1.2.1 | |
+| SAML Module for Alfresco Content Services 1.2.1 | |
 | Alfresco Intelligence Services 1.2 | |
 | Alfresco Intelligence Services 1.1 | |
 | Alfresco Content Connector for AWS S3 3.1 | Only compatible with Alfresco Media Management 1.4.2 or above. |
@@ -182,7 +182,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Identity Service 1.3 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.2 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.1 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| SAML Single Sign-On (SSO) for Alfresco Content Services 1.2.0 | |
+| SAML Module for Alfresco Content Services 1.2.0 | |
 | Alfresco Intelligence Services 1.1 | |
 | Alfresco Content Connector for AWS S3 3.1 | Only compatible with Alfresco Media Management 1.4.2 or above. |
 | Alfresco Content Connector for AWS S3 3.0 | |
@@ -288,7 +288,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Federation Services 1.0 | |
 | Identity Service 1.2 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.1 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| SAML Single Sign-On (SSO) for Alfresco Content Services 1.2.0 | |
+| SAML Module for Alfresco Content Services 1.2.0 | |
 | Alfresco Intelligence Services 1.1 | |
 | Alfresco Content Connector for AWS S3 3.1 | Only compatible with Alfresco Media Management 1.4.2 or above. |
 | Alfresco Content Connector for AWS S3 3.0 | |
@@ -323,4 +323,4 @@ Alfresco Content Connector for Azure 1.1 | |
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="Content Services 6.2.2" content1=six-two-two opt2="Content Services 6.2.1" content2=six-two-one opt3="Content Services 6.2.0" content3=six-two-zero %}
+{% include tabs.html tableid="supported-platforms" opt1="6.2.2" content1=six-two-two opt2="6.2.1" content2=six-two-one opt3="6.2.0" content3=six-two-zero %}
