@@ -1640,7 +1640,7 @@ administrator, the data ends up in the database tables.
 However, typically, the users/groups of a company are managed in a centralized data store such as LDAP (or Active Directory). 
 Process Services can be configured to connect to such a server and synchronize the IDM data to the database table.
 
-See [External Identity Management (LDAP/Active Directory)]({% link process-services/latest/using/process/identity.md %}) for more information on how 
+See [External Identity Management (LDAP/Active Directory)]({% link process-services/latest/using/process/index.md %}#identity-management) for more information on how 
 to set this up. The basic idea behind it is that the LDAP server will periodically be polled and the IDM data in the 
 database tables will be synchronized: created, updated or deleted depending on what the LDAP server returns and what 
 currently is in the database tables.

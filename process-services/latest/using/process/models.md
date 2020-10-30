@@ -16,7 +16,7 @@ To use the Data Model functionality effectively, perform one or all of the follo
 ## Connecting a data model to a relational database
 
 You can establish connection from your process with a relational database. To enable the connection, 
-you must first register the data source for your tenant in the [Identity Management app]({% link process-services/latest/using/process/identity.md %}) 
+you must first register the data source for your tenant in the [Identity Management app]({% link process-services/latest/using/process/index.md %}#identity-management) 
 in Process Services.
 
 To configure the data source follow these steps:

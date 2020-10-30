@@ -4,7 +4,7 @@ title: Using the Share Connector
 
 The Share Connector enables you to start and run processes and and tasks in an Alfresco Share environment. You can create process definitions in Process Services, and deploy them to Share.
 
->**Important:** The Share Connector is deprecated and [no longer supported](https://hub.alfresco.com/t5/alfresco-content-services-blog/architecture-changes-for-alfresco-content-services-version-6-0/ba-p/288930)(:target="_blankk") in Alfresco Content Services 6.0. Existing deployments are supported throughout the life cycle of Alfresco Content Services 5.x. Deployments should now use the [Application Development Framework](https://www.alfresco.com/ecm-software/application-development-framework)(:target="_blank").
+>**Important:** The Share Connector is deprecated and [no longer supported](https://hub.alfresco.com/t5/alfresco-content-services-blog/architecture-changes-for-alfresco-content-services-version-6-0/ba-p/288930){:target="_blank"} in Alfresco Content Services 6.0. Existing deployments are supported throughout the life cycle of Alfresco Content Services 5.x. Deployments should now use the [Application Development Framework](https://www.alfresco.com/ecm-software/application-development-framework){:target="_blank"}.
 
 Installing Share Connector changes the standard workflow and task management to access the processes and tasks by default, however you can still use the standard Share workflow capabilities.
 
@@ -114,7 +114,7 @@ You can modify the default settings by changing either the port or the repositor
 
 #### Process Services port
 
-The default settings assume that Process Services is running on [http://127.0.0.1:8080/](http://127.0.0.1:8080/). If so, you don’t have to do anything.
+The default settings assume that Process Services is running on `http://127.0.0.1:8080/`. If so, you don’t have to do anything.
 
 If you have Process Services running on another domain or port (that is, 9090), you can override the default setting by adding the following line at the bottom of the `<alfresco-tomcat>/shared/classes/alfresco-global.properties` file in Tomcat, where the repository is located:
 
@@ -126,7 +126,7 @@ activiti.domain=http://127.0.0.1:9090
 
 The following steps explain how to configure the repository settings.
 
-**Modifying the default integration name**
+**Modify the default integration name**
 
 You can modify the default Alfresco Content Services integration name by setting the value of 
 `activiti.alfrescoRepositoryName`. This value must correspond to an Alfresco Content Services repository 
@@ -140,7 +140,7 @@ configured in Activiti. The default name for the integration is `alfresco-1`, ho
 
 2. Modify the value after the hyphen (`-`) with a number that matches the `Id` of the repository. The `repository Id` is available as a column in the **Activiti app > Identity Management app > Tenants > Alfresco Repositories** list.
 
-**Modifying the Activiti app name**
+**Modify the Activiti app name**
 
 You can modify the Activiti app name to display the same app name in Share by modifying the following value in the `alfresco-global.properties` file:
 
@@ -148,7 +148,7 @@ You can modify the Activiti app name to display the same app name in Share by mo
 activiti.appDefinitionName=Some Custom App
 ```
 
-**Setting the secret key**
+**Set the secret key**
 
 When Alfresco Content Services communicates with Process Services, it sends a secret token and user name and switches 
 it for user specific Process Services token.
@@ -174,7 +174,7 @@ The secret token appears in clear text, therefore, to avoid saving it like that:
 
 Login to the Process Services landing page to set up the configuration for the Share Connector.
 
-#### Configuring the LDAP settings
+#### Configuring LDAP settings
 
 You can find the LDAP settings for Process Services in the `activiti-ldap.properties` file located here:
 
@@ -182,12 +182,9 @@ You can find the LDAP settings for Process Services in the `activiti-ldap.proper
 webapps/activiti-app/WEB-INF/classes/META-INF/activiti-app/activiti-ldap.properties
 ```
 
-The default configuration works with the sample LDAP settings provided with the installation bundle, however you can 
-easily override them by creating a new file called `<InstallLocation>/lib/activiti-ldap.properties`, and override the 
-properties that requires changing.
+The default configuration works with the sample LDAP settings provided with the installation bundle, however you can easily override them by creating a new file called `<InstallLocation>/lib/activiti-ldap.properties`, and override the properties that requires changing.
 
-For further details about configuring LDAP for Process Services, see 
-[External Identity Management (LDAP/Active Directory)]({% link process-services/latest/config/index.md %}#extimldapad).
+For further details about configuring LDAP for Process Services, see [External Identity Management (LDAP/Active Directory)]({% link process-services/latest/config/authenticate.md %}#ldap-and-active-directory).
 
 #### Alfresco Content Services settings
 
@@ -196,7 +193,7 @@ To configure Alfresco Content Services settings in Process Services, you must pe
 * Enable Share Connector
 * Add a repository
 
-##### Enabling Share Connector
+##### Enable Share Connector
 
 By default, the bundled *Review Processes* app is not created. To create one, add the following file into the 
 `<InstallLocation>/lib/activiti-app.properties`.
@@ -208,18 +205,15 @@ app.review-workflows.enabled=true
 
 Restart Process Services for it to take effect.
 
-##### Adding a repository
+##### Add a repository
 
 You can add a repository from the Identity Management app.
 
-**To add a repository:**
+1. Start the Process Services server and log in as administrator.
 
-(1) Start the Process Services server and log in as administrator.
+2. Open the **Profile Management (Identity Management)** app, and click **Tenants** tab > **Alfresco Repositories**.
 
-(2) Open the **Profile Management (Identity Management)** app, and click **Tenants** tab > **Alfresco Repositories**.
-
-(3) In **Alfresco Repositories**, create a repository pointing to the Alfresco Content Services server and Share Connector. 
-The following is an example of the form, assuming you are running Alfresco Content Services on the same machine and on port 8080:
+3. In **Alfresco Repositories**, create a repository pointing to the Alfresco Content Services server and Share Connector. The following is an example of the form, assuming you are running Alfresco Content Services on the same machine and on port 8080:
 
 |Field|Value|
 |-----|-----|
@@ -230,17 +224,14 @@ The following is an example of the form, assuming you are running Alfresco Conte
 |Alfresco Share connector|(enabled)|
 |Secret|activiti-share-connector-secret|
 
-Once the repository is created, you can see your new repository in the **Alfresco Repositories** list. If the id set 
-to 1, you are good to go and all default values are fine. However, if it is set to something else, for example, `1002`, 
-you must stop the server and make sure your Id appears as `alfresco-1002` in the following files, and then restart your servers:
+Once the repository is created, you can see your new repository in the **Alfresco Repositories** list. If the ID is setto 1, you are good to go and all default values are fine. However, if it is set to something else, for example, `1002`, you must stop the server and make sure your Id appears as `alfresco-1002` in the following files, and then restart your servers:
 
 * In the Alfresco Content Services `tomcat/shared/classes/alfresco-global.properties` - Override the default by adding a new line with `activiti.alfrescoRepositoryName=alfresco-1002`
 * In the Process Services `tomcat/lib/activiti-app.properties` - The property named `integration.login.alfresco-1.secret` should be named `integration.login.alfresco-1002.secret`
 
-In addition, to make this repository work for features such as **Publish to Alfresco** or browse Alfresco for documents 
-from Process Services, verify that a user has a user account for the repository.
+In addition, to make this repository work for features such as **Publish to Alfresco** or browse Alfresco for documents from Process Services, verify that a user has a user account for the repository.
 
-#### Changing the default process for a site
+#### Change the default process for a site
 
 You can change the default process name for a site to the exact same name as the Process App name.
 
@@ -271,15 +262,15 @@ Property = `abs:appDefinitionName`
     log4j.logger.com.activiti.alfresco=debug
     ```
 
-## Setting up the Share Connector Demo
+## Set up the Share Connector demo
 
 This section describes how to set up the Share Connector demo.
 
-### Installing Alfresco Content Services
+### Install Alfresco Content Services
 
 1. Install Alfresco Content Services using the installer in Advanced mode. For Tomcat Port configuration, make sure you bump up each port by 10, for example, 8080 to 8090 and so on.
 2. After the installation is complete, start Alfresco Content Services using the Application Manager app located in the home folder.
-3. Verify if Alfresco Content Services works on [http://127.0.0.1:8090/share/](http://127.0.0.1:8090/share/), log out, and stop just the *Tomcat Server* in the Application Manager app.
+3. Verify if Alfresco Content Services works on `http://127.0.0.1:8090/share/`, log out, and stop just the *Tomcat Server* in the Application Manager app.
 4. Copy the following files from the `activiti-share-connector.zip` to their corresponding folders inside the Alfresco Content Services installation directory:
     * `<zip>/alfresco/amps/activiti.alfresco.repo-X.X.X.amp` to `<alfresco-dir>/amps`
     * `<zip>/alfresco/amps_share/activiti.alfresco.share-X.X.X.amp` to `<alfresco-dir>/amps_share`
@@ -306,7 +297,7 @@ This section describes how to set up the Share Connector demo.
     JAVA_OPTS="-XX:MaxPermSize=512M -Xms512M -Xmx8192M $JAVA_OPTS"
     ```
 
-### Installing Share Connector
+### Install the Share Connector
 
 Follow these steps to install the Share Connector:
 
@@ -364,7 +355,7 @@ This section describes how to get started with using the Share Connector.
 
 >**Note:** Make sure that LDAP is running before you start Alfresco Content Services and Process Services so they can sync their user databases against the LDAP server.
 
-1. View Alfresco Share on [http://127.0.0.1:8090/share/](http://127.0.0.1:8090/share/) and Process Services on [http://127.0.0.1:8080/activiti-app/](http://127.0.0.1:8080/activiti-app/)
+1. View Alfresco Share on `http://127.0.0.1:8090/share/` and Process Services on `http://127.0.0.1:8080/activiti-app/`
 2. Login as a user that exist in the demo LDAP system:
 
     |Username|Password|Process Services role|Alfresco Content Services role|
@@ -382,10 +373,9 @@ When logging into Process Services as an *admin*, you can view the process defin
 
 ### Process Services Administrator application
 
-You can use the Process Services Administrator application with the [Setting up the Share Connector Demo](#setting-up-the-share-connector-demo), 
-however you must first update the endpoint in the Administrator application.
+You can use the Process Services Administrator application with the [Setting up the Share Connector Demo](#setting-up-the-share-connector-demo), however you must first update the endpoint in the Administrator application.
 
-**To update the Process Services endpoint:**
+To update the Process Services endpoint:
 
 1. Sign in to the Process Services app with the default admin/admin credentials:
 
@@ -421,9 +411,9 @@ Follow these steps to start creating and running processes in Alfresco Share.
 
     In the embedded app, you can create process definitions and deploy them to Alfresco Share.
 
-### Starting a workflow on a file
+### Start a workflow on a file
 
-In your site’s document library in Alfresco Share, you can start a workflow on one or more files. The following steps 
+In your site’s document library in Alfresco Share, you can start a workflow on one or more files. The following steps
 describe how to initiate a workflow using one of the pre-defined processes on two files.
 
 **Prerequisite**: You must create your own site in Alfresco Share and have some files and folders added to it.
@@ -444,16 +434,13 @@ describe how to initiate a workflow using one of the pre-defined processes on tw
 
 You have successfully started an process on the selected files in an site.
 
-### Starting a workflow in Alfresco Share
+### Start a workflow in Alfresco Share
 
-This tutorial walks you through the steps required to run your first process as a workflow from Alfresco Share using 
-the **My Activiti Tasks** dashlet.
+This tutorial walks you through the steps required to run your first process as a workflow from Alfresco Share using the **My Activiti Tasks** dashlet.
 
-All process definitions that you deploy to Apps in Process Services are available to you in Alfresco Share. 
-This section assumes that you have deployed the first process workflow using the app-creating-process 
-tutorial described in [Getting Started]({% link process-services/latest/using/getting-started.md %}). If not, follow the tutorial to deploy the workflow.
+All process definitions that you deploy to Apps in Process Services are available to you in Alfresco Share. This section assumes that you have deployed the first process workflow using the app-creating-process tutorial described in [Getting Started]({% link process-services/latest/using/getting-started.md %}). If not, follow the tutorial to deploy the workflow.
 
-1. Go to the Alfresco Share dashboard, [http://localhost:8090/share](http://localhost:8090/share).
+1. Go to the Alfresco Share dashboard, `http://localhost:8090/share`.
 
     You run a process as a workflow.
 
@@ -483,7 +470,7 @@ tutorial described in [Getting Started]({% link process-services/latest/using/ge
 
 You have run a process definition as a workflow in Share. My tasks, My workflows pages, and the associated Process Services for this Share site can all be accessed from the **Tasks** menu.
 
-### Creating rules
+### Create rules
 
 You can create rules to manage folders in a process. There are two ways to create rules in the Share Connector:
 
@@ -514,7 +501,7 @@ The rule is applied to the selected folder and displayed on the **Rules** page. 
 * **New Rule** - Click to add more rules to a folder as you need in the same way as you would add new rules.
 * **Run Rules** - Click to manually run the rules on existing folder items or subfolders at any time.
 
-## Integrating Process Services with Alfresco Content Services
+## Integrate Process Services with Alfresco Content Services
 
 When Process Services is integrated with an Alfresco Content Services server, the following types of communication are supported:
 
@@ -538,15 +525,11 @@ parameters.put(SessionParameter.USER, username);
 parameters.put(SessionParameter.PASSWORD, password);
 ```
 
-If a user account for the repository is already defined inside the Process Services Identity Management app, 
-then the user name and password of that user account will be used.
+If a user account for the repository is already defined inside the Process Services Identity Management app, then the user name and password of that user account will be used.
 
-However, if there is no user account defined and the repository configuration in the Identity Management app is 
-configured to use the Share Connector, then Process Services will pass a secret key with the user name to 
-Alfresco Content Services to create a ticket. The username is defined in the `EXTERNAL_ID` column of the `USERS` database table.
+However, if there is no user account defined and the repository configuration in the Identity Management app is configured to use the Share Connector, then Process Services will pass a secret key with the user name to Alfresco Content Services to create a ticket. The username is defined in the `EXTERNAL_ID` column of the `USERS` database table.
 
-The secret key can be retrieved by calling a REST service (web script) in Alfresco Content Services, which was deployed 
-when installing the Share Connector module in the repository, using the following HTTP call:
+The secret key can be retrieved by calling a REST service (web script) in Alfresco Content Services, which was deployed when installing the Share Connector module in the repository, using the following HTTP call:
 
 ```bash
 POST http://alfrescoserver.com/alfresco/service/activiti/sso/alfresco-ticket
@@ -564,15 +547,11 @@ which will return 200 with the following response body:
 }
 ```
 
-When Process Services receives this ticket, it will use the string `"ROLE_STRING"` (instead of using a "real" username) 
-as the user parameter and the ticket as the password parameter:
+When Process Services receives this ticket, it will use the string `"ROLE_STRING"` (instead of using a "real" username) as the user parameter and the ticket as the password parameter:
 
 ```javascript
 parameters.put(SessionParameter.USER, "ROLE_TICKET");
 parameters.put(SessionParameter.PASSWORD, ticket);
 ```
 
-In addition, Process Services uses the Public API (for example, when listing sites for a user) and regular HTTP calls 
-with `basic auth`. For an existing user account, the user name and password are specified in the same way. 
-However, if the Share Connector is configured for the repository, use the constant `ROLE_TICKET` as the user name 
-and the ticket received from Alfresco Content Services as password with basic authentication.
+In addition, Process Services uses the Public API (for example, when listing sites for a user) and regular HTTP calls with `basic auth`. For an existing user account, the user name and password are specified in the same way. However, if the Share Connector is configured for the repository, use the constant `ROLE_TICKET` as the user name and the ticket received from Alfresco Content Services as password with basic authentication.
