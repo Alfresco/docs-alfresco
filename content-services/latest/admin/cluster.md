@@ -107,7 +107,7 @@ Use the following table as a template to design your solution.
 
 However, you can configure your distribution differently. Each distribution and clustering solution has its own advantages 
 and disadvantages. To configure distribution and clustering optimally, contact 
-[Alfresco Consulting](http://www.alfresco.com/services/consulting){:target:"_blank"} or your Alfresco certified partner.
+[Alfresco Consulting](http://www.alfresco.com/services/consulting){:target="_blank"} or your Alfresco certified partner.
 
 For a better understanding of initiating clustering for high availability and high throughput, see 
 [Scenario: Clustering for redundancy](#scenarioredundancycluster) and 

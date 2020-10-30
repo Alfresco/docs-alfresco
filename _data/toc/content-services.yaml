@@ -43,3 +43,5 @@
           path: '/content-services/latest/admin/backup-restore/'
         - title: 'Heartbeat feature'
           path: '/content-services/latest/admin/heartbeat/'
+        - title: 'Troubleshooting'
+          path: '/content-services/latest/admin/troubleshoot/'

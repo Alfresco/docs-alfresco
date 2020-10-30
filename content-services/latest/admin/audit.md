@@ -309,7 +309,7 @@ Map:
    /MyApp/createStore/rootNode = NodeRef[workspace://SpacesStore/fd123...]
 ```
 
-## Key tools and files
+## Key tools and files {#keytoolsandfiles}
 
 Some initial information on key tools and files to get you started.
 
