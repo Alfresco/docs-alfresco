@@ -5,7 +5,7 @@ title: Configure databases
 You can configure supported databases for use with Content Services:
 
 * Amazon Relational Database Service (RDS) in the cloud
-  * Choose either MySQL, Oracle, Microsoft SQL Server, PostgreSQL, or Amazon Aurora
+  * Choose either Amazon Aurora, MySQL, Oracle, PostgreSQL, or Microsoft SQL Server
 * MySQL or MariaDB
 * Oracle
 * PostgreSQL
@@ -17,13 +17,13 @@ Before continuing, check the [Supported platforms]({% link content-services/late
 
 Amazon RDS makes it easy to set up, operate, and scale a relational database in the cloud. It's a web service running in the cloud and provides relational database for use with Content Services. Amazon RDS supports and gives you online access to the capabilities of the following relational database management systems (RDBMS):
 
+* Amazon Aurora
 * MySQL
 * Oracle
-* Microsoft SQL Server
 * PostgreSQL
-* Amazon Aurora
+* Microsoft SQL Server
 
-As good practice, when using an Amazon EC2 environment, you may want to use Amazon's Simple Storage Service (S3) where an S3 bucket is used as a content store. See [Alfresco Content Connector for AWS S3](https://docs.alfresco.com/s3connector/concepts/s3-contentstore-overview.html)(#LINK) for more information.
+As good practice, when using an Amazon's Elastic Compute Cloud (EC2) environment, you may want to use Amazon's Simple Storage Service (S3) where an S3 bucket is used as a content store. See [Alfresco Content Connector for AWS S3](https://docs.alfresco.com/s3connector/concepts/s3-contentstore-overview.html)(#LINK) for more information.
 
 Read the following sections to configure a database for Amazon RDS.
 
@@ -799,7 +799,7 @@ The following table describes the properties that you **SHOULD** edit:
 
 | Property | Description |
 | -------- | ----------- |
-| db.txn.isolation | The JDBC code number for the transaction isolation level, corresponding to those in the `java.sql.Connection` class. The value of -1 indicates that the database's default transaction isolation level should be used. For the Microsoft SQL Server JDBC driver, the special value of 4096 should be used to enable snapshot isolation. The default value is `-1` |
+| db.txn.isolation | The JDBC code number for the transaction isolation level, corresponding to those in the `java.sql.Connection` class. The value of `-1` indicates that the database's default transaction isolation level should be used. For the Microsoft SQL Server JDBC driver, the special value of `4096` should be used to enable snapshot isolation. The default value is `-1` |
 | db.pool.initial | The number of connections opened when the pool is initialized. The default value is `10` |
 | db.pool.validate.query | The SQL query that is used to ensure that your connections are still alive. This is useful if your database closes long-running connections after periods of inactivity.{::nomarkdown}<ul><li>For Oracle database, use `SELECT 1 from dual`</li><li>For MySQL database, use `SELECT 1`</li><li>For SQL Server database, use `SELECT 1`</li><li>For PostgreSQL database, use `SELECT 1`</li></ul>{:/} |
 

@@ -497,7 +497,7 @@ Configuration is implemented using three types of files:
 * Bean files
 * Spring bean definitions
 
-### Customize extension files](../tasks/config-config.md)
+### Customize extension files
 
 Extension files end with the extension `.xml`, and define `<config>` tags. A typical configuration file is `<web-extension>/share-config-custom.xml`.
 
