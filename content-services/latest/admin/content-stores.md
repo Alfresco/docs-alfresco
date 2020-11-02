@@ -448,7 +448,7 @@ You can configure the Encrypted content store using the JMX client, such as JCon
 
 There are a number of properties that need to be set for the Encrypted content store.
 
-Set these properties in the alfresco-global.properties file.
+Set these properties in the `alfresco-global.properties` file.
 
 |Property|Description|
 |--------|-----------|
