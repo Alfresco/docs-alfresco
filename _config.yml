@@ -8,6 +8,7 @@ defaults:
       product: "Alfresco Content Services"
       toc: "content-services"
       location: "content-services"
+      tutorial: true
       support: true
       versions:
         - 6.2
@@ -19,6 +20,10 @@ defaults:
     values:
       version: 6.2
       latest: true
+  - scope:
+      path: "content-services/latest/tutorial"
+    values:
+      toc: "content-services-services-tutorial"
   - scope:
       path: "content-services/6.1"
     values:
