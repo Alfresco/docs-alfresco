@@ -15,7 +15,7 @@ type provides the JMX object naming scheme, where possible. Each section lists t
 
 The following is summary of the `alfresco-global.properties` that can be viewed and changed in a JMX client.
 
->**WARNING**: Be aware that any [changes](#editablembeans) you make to attributes/properties in the live system are written to the database. The next time that Alfresco Content Services starts, these values will take precedence over any values specified in properties files, for example, `alfresco-global.properties`.
+>**WARNING**: Be aware that any [changes](#editablembeans) you make to attributes/properties in the live system are written to the database. The next time that Content Services starts, these values will take precedence over any values specified in properties files, for example, `alfresco-global.properties`.
 
 |alfresco.authentication.allowGuestLogin|Specifies whether to allow guest access.|
 |authentication.chain|Specifies the authentication chain.|
@@ -1629,10 +1629,10 @@ JMX values (Managed Bean or MBean attributes) are exposed in the Repo Admin Cons
 or external tools like JConsole. The editable management beans are described here with their default values where 
 attributes are not already explained in the Admin Console.
 
-The default values given are the defaults for an installer-installed instance of Alfresco Content Services on Windows. 
+The default values given are the defaults for an installer-installed instance of Content Services on Windows. 
 These values can differ if you are using a different install method or operating system.
 
->**WARNING**: Be aware that any changes you make to attributes in the live system are written to the database. The next time that Alfresco Content Services starts, these values will take precedence over any values specified in properties files, for example, `alfresco-global.properties`.
+>**WARNING**: Be aware that any changes you make to attributes in the live system are written to the database. The next time that Content Services starts, these values will take precedence over any values specified in properties files, for example, `alfresco-global.properties`.
 
 ### Alfresco:Type=Configuration, Category=ActivitiesFeed
 

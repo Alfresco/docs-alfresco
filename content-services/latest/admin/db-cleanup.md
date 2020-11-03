@@ -16,7 +16,7 @@ You can schedule or manually trigger the `propTablesCleanupTrigger` script to cl
 (`alf_audit_` and `alf_prop_` tables).
 
 If you plan to run a scheduled cleanup job for a large database (i.e. table sizes greater than 10 million rows), use 
-the V2 cleanup job. Note that this is the default algorithm used in Alfresco Content Services 6.2.1 onwards. 
+the V2 cleanup job. Note that this is the default algorithm used in Content Services 6.2.1 onwards. 
 See [Alternative method for scheduling cleanup of database tables](#alternativedbcleanup) for more.
 
 `propTablesCleanupTrigger` is a `MonitoredCronTrigger` script, and a schedule to run this script can be set in the 
@@ -53,7 +53,7 @@ you might experience database conflicts and related errors.
 
 You can use an alternative algorithm for the cleanup of database tables. This is recommended for large databases 
 (i.e. table sizes greater than 10 million rows). Note that this is the default algorithm used in 
-Alfresco Content Services 6.2.1 onwards.
+Content Services 6.2.1 onwards.
 
 **Property table cleaner default settings**
 
@@ -68,7 +68,7 @@ system.delete_not_exists.read_only=false
 system.delete_not_exists.timeout_seconds=-1
 ```
 
-If you're running an earlier version than Alfresco Content Services 6.2.1, then follow the steps in the remainder of 
+If you're running an earlier version than Content Services 6.2.1, then follow the steps in the remainder of 
 this page to use the V2 algorithm.
 
 ### Running the new job in read-only mode

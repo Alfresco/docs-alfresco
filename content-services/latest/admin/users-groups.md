@@ -2,9 +2,10 @@
 title: Managing users and groups
 ---
 
-Use this information to administer your users and groups in Content Services. 
+Before you can set up any security you need users and groups to work with. Use this information to administer your 
+users and groups in Content Services. 
 
->**Note:** The Content Services repository would normally be connected to a directory service to sync users and groups into the daytabase, see [Setting up authentication and sync]({% link content-services/latest/admin/auth-sync.md %})
+>**Note:** The Content Services repository would normally be connected to a directory service to sync users and groups into the database, see [Setting up authentication and sync]({% link content-services/latest/admin/auth-sync.md %})
 
 ## Managing users {#manageusers}
 

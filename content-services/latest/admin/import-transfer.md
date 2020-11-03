@@ -1,5 +1,5 @@
 ---
-title: Importing and transferring files
+title: Import and transfer tools
 ---
 
 Use this information to import files using the Bulk Import Tool, or transfer files using the File System Transfer Receiver (FSTR).
