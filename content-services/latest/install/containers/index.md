@@ -77,7 +77,6 @@ There are also other supporting features available, such as Docker images for im
 
 Content Services provides a number of content transforms, but also allows custom transforms to be added. It's possible to create custom transforms that run in separate processes from the repository, known as Transform Engines (i.e. T-Engines). The same engines may be used in the Community and Enterprise Editions of Content Services. They may be directly connected to the repository as Local Transforms. Note that in the Enterprise Edition, the default option is to use them as part of Alfresco Transform Service, which provides more balanced throughput and scalability improvements.
 
-<!-- Copy content from repo (6.2 only): DOCS-5463 / DOCS-5917 -->
 See [Custom Transforms and Renditions](https://github.com/Alfresco/acs-packaging/blob/master/docs/custom-transforms-and-renditions.md){:target="_blank"} for more.
 
 > **Note:** The core Transform Engine images can be used in Content Services. The open-sourced code for the Transform Engines is available in the [Alfresco/alfresco-transform-core](https://github.com/Alfresco/alfresco-transform-core){:target="_blank"} GitHub project.
@@ -98,12 +97,14 @@ When you deploy Content Services, a number of containers are started.
 * Alfresco Share with:
   * Alfresco Google Docs Integration Share AMP
 * Alfresco Search Services (Solr 6)
-* A Postgres Database
-* [Alfresco Transform Service](https://docs.alfresco.com/transform/concepts/transformservice-overview.html)
-* [Alfresco Digital Workspace](https://docs.alfresco.com/adw/concepts/welcome-adw.html)
+* A PostgreSQL database
+* [Alfresco Transform Service](https://docs.alfresco.com/transform/concepts/transformservice-overview.html)(#LINK)
+* [Alfresco Digital Workspace](https://docs.alfresco.com/adw/concepts/welcome-adw.html)(#LINK)
 * [Alfresco Sync Service]({% link sync-service/latest/index.md %})
 
 ### GitHub projects
+
+Below are links to various GitHub projects that are used to deploy Content Services, build the repository artifacts, or provide supporting services.
 
 #### Deployment project
 

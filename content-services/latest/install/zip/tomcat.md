@@ -257,4 +257,4 @@ Next, you can [customize applications](#LINK-concepts/modify-alf-apps.md) such a
 
 It's good security practice to have a reverse proxy in front of your Content Services infrastructure. This proxy is then configured with a whitelist of allowed URLs, and blocks everything else.
 
-You can find a sample NGINX configuration in our GitHub project, [https://github.com/Alfresco/acs-ingress](https://github.com/Alfresco/acs-ingress){:target="_blank"}, and the corresponding image in Docker Hub, [alfresco/alfresco-acs-nginx](https://hub.docker.com/r/alfresco/alfresco-acs-nginx){:target="_blank"}.
+You can find a sample NGINX configuration in our [GitHub project](https://github.com/Alfresco/acs-ingress){:target="_blank"}, and the corresponding image in [Docker Hub](https://hub.docker.com/r/alfresco/alfresco-acs-nginx){:target="_blank"}.

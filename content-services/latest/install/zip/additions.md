@@ -165,15 +165,15 @@ Use this information to review the components or modules that integrate Content 
 
 ### Services
 
-| Services | Description |
-| -------- | -----------
+| Services | Notes |
+| -------- | ----- |
 | Process Services | |
 | Governance Services | |
 
 ### Integrations
 
-| Integrations | Description |
-| ------------ | -----------
+| Integrations | Notes |
+| ------------ | ----- |
 | Sync Service | |
 | Desktop Sync | |
 | Transform Service | |
@@ -197,8 +197,8 @@ Use this information to review the components or modules that integrate Content 
 
 ### Applications
 
-| Applications | Description |
-| ------------ | ----------- |
+| Applications | Notes |
+| ------------ | ----- |
 | Digital Workspace | |
 
 ## Test installation

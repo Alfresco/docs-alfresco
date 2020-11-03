@@ -45,9 +45,9 @@ The MMT is available as a JAR file from the distribution zip (`alfresco-content-
     java -jar alfresco-mmt.jar install example-amp.amp alfresco.war -preview
     ```
 
-    Review the modification to check the changes that will update any existing files.
+    Review the installation preview to check how existing files in the WAR file will be updated, once you run the command without `-preview`.
 
-    The following example will install the AMP file:
+    The following example installs the AMP file:
 
     ```java
     java -jar alfresco-mmt.jar install example-amp.amp alfresco.war -verbose

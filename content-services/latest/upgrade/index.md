@@ -122,9 +122,9 @@ These steps assume that you've got an existing Content Services installation (`a
 
 5. If you're happy with the upgraded system, remove the old installation and repository.
 
-6. (Optional) Perform this additional step only if you've configured multi-tenancy and are upgrading. <!--CHECK multi-tenancy-->
+6. (Optional) Perform this additional step only if you've configured multi-tenancy and are upgrading.
 
-    If upgrading to the latest version, your existing MT sample extension files are no longer relevant and must be deleted. It's also recommended that you backup your existing MT files.
+    If upgrading to the latest version, your existing multi-tenancy (MT) sample extension files are no longer relevant and must be deleted. It's also recommended that you backup your existing MT files.
 
     1. Take a backup of the following three existing MT extension files and delete them from the existing MT extension directory:
 

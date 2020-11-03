@@ -4,7 +4,7 @@ title: Install using Docker Compose
 
 Use this information to quickly start up Content Services using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
-To deploy Content Services using `docker-compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/latest/install/containers/index.md %}#prerequisites) before continuing.
+To deploy Content Services using Docker Compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/latest/install/containers/index.md %}#prerequisites) before continuing.
 
 1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
@@ -244,8 +244,7 @@ See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for m
 
 ### Deployment project in GitHub
 
-<!--#LINK 6.1/6.0 >> master -->
-See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project <!--documentation -->for more details.
+See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project for more details.
 
 * In this project, you'll find several Docker Compose files. The default `docker-compose.yml` file contains the latest work-in-progress deployment scripts, and installs the latest *development* version of Content Services.
 * To deploy a specific released version of Content Services, several *major.minor* Docker Compose files are provided in the `docker-compose` folder of the project.
@@ -263,8 +262,8 @@ The Docker Compose file provides some default configuration. This section lists 
 
 | Property | Description |
 | -------- | ----------- |
-| JAVA_TOOL_OPTIONS | Adding this environment variable, allows to set sensitive values (like passwords) that are not passed as arguments to the Java Process |
-| JAVA_OPTS | A set of properties that are picked up by the JVM inside the container. Any Content Services property can be passed to the container using the format `-Dproperty=value` (e.g. `-Ddb.driver=org.postgresql.Driver`).<!--<br><br>For a complete list of properties that can be passed through JAVA_OPTS environment variable, check the [property reference](https://github.com/Alfresco/acs-deployment/blob/master/docs/properties-reference.md){:target="_blank"}--><!--GitHub page needs improving--> |
+| JAVA_TOOL_OPTIONS | Adding this environment variable, allows to set sensitive values (like passwords) that are not passed as arguments to the Java Process. |
+| JAVA_OPTS | A set of properties that are picked up by the JVM inside the container. Any Content Services property can be passed to the container using the format `-Dproperty=value` (e.g. `-Ddb.driver=org.postgresql.Driver`). |
 
 ### Alfresco Share (share)
 
@@ -290,7 +289,7 @@ The Docker Compose file provides some default configuration. This section lists 
 | APP_BASE_SHARE_URL | Base Share URL. For example `{protocol}//{hostname}{:port}/workspace/#/preview/s` |
 | AUTH_TYPE | The authentication type. To use Single Sign-on mode you must change this property to OAUTH. The default value is `BASIC` |
 | PROVIDER | The default value is `ALL` |
-| ENVIRONMENT_SUFFIX | Only for Process Cloud<!--what's this?--> instance. The default value is `_CLOUD` |
+| ENVIRONMENT_SUFFIX | Only for Process Cloud instance. The default value is `_CLOUD` |
 | API_HOST |  |
 | API_CONTENT_HOST |  |
 | API_CONTENT_HOST_LOCAL | The default value is `http://localhost:8080` |
@@ -451,13 +450,13 @@ The table below shows the location of the Dockerfile for each container used in 
 
 | Container | Dockerfile location |
 | --------- | --------------------|
-| alfresco | https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile |
-| share | https://github.com/Alfresco/share/blob/master/packaging/docker/Dockerfile |
-| solr6 | https://github.com/Alfresco/InsightEngine/blob/master/search-services/packaging/src/docker/Dockerfile |
+| alfresco | [https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile](https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile){:target="_blank"} |
+| share | [https://github.com/Alfresco/share/blob/master/packaging/docker/Dockerfile](https://github.com/Alfresco/share/blob/master/packaging/docker/Dockerfile){:target="_blank"} |
+| solr6 | [https://github.com/Alfresco/InsightEngine/blob/master/search-services/packaging/src/docker/Dockerfile](https://github.com/Alfresco/InsightEngine/blob/master/search-services/packaging/src/docker/Dockerfile){:target="_blank"} |
 | <nobr>digital-workspace</nobr> | https://github.com/Alfresco/alfresco-digital-workspace-app/blob/develop/Dockerfile |
-| activemq | https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile |
+| activemq | [https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile](https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile){:target="_blank"} |
 | <nobr>sync-service</nobr> | https://github.com/Alfresco/dsync-services/blob/master/service-sync/packaging/docker/Dockerfile |
 | <nobr>transform-router</nobr> | https://github.com/Alfresco/alfresco-transform-service/blob/master/alfresco-transform-router/src/main/docker/Dockerfile |
-| <nobr>transform-core-aio</nobr> | https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-core-aio/alfresco-transform-core-aio-boot/Dockerfile |
+| <nobr>transform-core-aio</nobr> | [https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-core-aio/alfresco-transform-core-aio-boot/Dockerfile](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-core-aio/alfresco-transform-core-aio-boot/Dockerfile){:target="_blank"} |
 | <nobr>shared-file-store</nobr> | https://github.com/Alfresco/alfresco-shared-file-store/blob/master/controller/Dockerfile |
-| proxy | https://github.com/Alfresco/acs-ingress/blob/master/Dockerfile |
+| proxy | [https://github.com/Alfresco/acs-ingress/blob/master/Dockerfile](https://github.com/Alfresco/acs-ingress/blob/master/Dockerfile){:target="_blank"} |

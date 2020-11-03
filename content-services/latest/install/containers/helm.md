@@ -10,11 +10,6 @@ The Enterprise configuration deploys the following system:
 
 ![Helm Deployment Enterprise]({% link content-services/images/helm-enterprise.png %}){:width="460" height="440px"}
 
-<!--comment out Community sections-->
-The Community configuration deploys the following system:
-
-![Helm Deployment Community]({% link content-services/images/helm-community.png %}){:width="" height=""} 
-
 ## Considerations
 
 Alfresco provides tested Helm charts as a "deployment template" for customers who want to take advantage of the container orchestration benefits of Kubernetes. These Helm charts are undergoing continual development and improvement, and shouldn't be used "as is" for your production environments, but should help you save time and effort deploying Content Services for your organization.
@@ -28,8 +23,6 @@ Another typical change is the integration of your company-wide monitoring and lo
 ## Deployment options
 
 For the best results, we recommend [deploying Content Services to AWS EKS]({% link content-services/latest/install/containers/helm.md %}).
-
-<!--If you have a machine with at least 16GB of memory, you can also [deploy using Docker for Desktop](./docker-desktop-deployment.md)(#LINK).-->
 
 There are also several [examples]({% link content-services/latest/install/containers/helm-examples.md %}) showing how to deploy with various configurations:
 
@@ -51,13 +44,13 @@ The following table lists the configurable parameters of the Content Services ch
 | postgresql.postgresPassword | Postgresql database password. The default value is `alfresco` |
 | postgresql.postgresDatabase | Postgresql database name. The default value is `alfresco` |
 | database.external | Enable the use of an externally provisioned database. The default value is `false` |
-| database.driver | External database driver. The default value is '' |
-| database.user | External database user. The default value is '' |
-| database.password | External database password . The default value is '' |
-| database.url | External database JDBC URL. The default value is '' |
+| database.driver | External database driver (blank by default) |
+| database.user | External database user (blank by default) |
+| database.password | External database password  (blank by default) |
+| database.url | External database JDBC URL (blank by default) |
 | alfresco-search.resources.requests.memory | Alfresco Search Services requests memory. The default value is `250Mi` |
 | alfresco-search.ingress.enabled | Enable external access for Alfresco Search Services. The default value is `false` |
-| alfresco-search.ingress.basicAuth | If `alfresco-search.ingress.enabled` is `true`, you need to provide a `base64` encoded `htpasswd` format user name & password (example: `echo -n "$(htpasswd -nbm solradmin somepassword)"` where `solradmin` is username and `somepassword` is the password). The default value is None |
+| alfresco-search.ingress.basicAuth | If `alfresco-search.ingress.enabled` is `true`, you need to provide a `base64` encoded `htpasswd` format user name & password (example: `echo -n "$(htpasswd -nbm solradmin somepassword)"` where `solradmin` is username and `somepassword` is the password). The default value is `None` |
 | alfresco-search.ingress.whitelist_ips | If `alfresco-search.ingress.enabled` is `true`, you can restrict `/solr` to a list of IP addresses of CIDR notation. The default value is `0.0.0.0/0` |
 | persistence.repository.enabled | Enable Volume Persistence on repository. The default value is `true` |
 | s3connector.enabled | Switch this to `true` if you have access to the S3 Connector AMP. The default value is `false` |
@@ -104,7 +97,6 @@ The following table lists the configurable parameters of the Content Services ch
 
 To customize the Helm deployment, for example applying AMPs, we recommend following the best practice of creating your own custom Docker image(s). The following customization guidelines walk you through this process.
 
-<!--Customization Guidelines-->
 Any customizations (including major configuration changes) should be done inside the Docker image, resulting in the creation of a new image with a new tag. This approach allows changes to be tracked in the source code (Dockerfile) and rolling updates to the deployment in the K8s cluster.
 
 The helm chart configuration customization should only include environment-specific changes (for example DB server connection properties) or altered Docker image names and tags. The configuration changes applied via `--set` will only be reflected in the configuration stored in k8s cluster, a better approach would be to have those in source control i.e. maintain your own values files.
@@ -184,7 +176,7 @@ kubectl logs -f acs-alfresco-cs-repository-69545958df-6wzl6 -n alfresco
 
 You can change the log levels for the specific Java packages in the content-repository via the Admin Console. Use the following URL to access it: `https://<host>/alfresco/service/enterprise/admin/admin-log-settings`
 
-> **Note:** Changes are applied only to one content-repository node, the one from which the Admin Console is launched.
+> **Note:** Changes are only applied to the `content-repository` node from which the Admin Console is launched.
 
 * You can change the log levels by modifying `log4j.properties` in the content-repository image and doing a rolling update to the deployment. In this case the settings will be applied system-wide. See the [customization guidelines]({% link content-services/latest/install/containers/customize.md %}) for more.
 * The Content Services deployment doesn't include any log aggregation tools. The logs generated by pods will be lost once the pods are terminated.
@@ -202,11 +194,6 @@ Amazon's EKS (Elastic Container Service for Kubernetes) makes it easy to deploy,
 The Enterprise configuration will deploy the following system:
 
 ![ACS Enterprise on EKS]({% link content-services/images/helm-eks-enterprise.png %})
-
-<!--comment out Community items-->
-The Community configuration will deploy the following system:
-
-![ACS Community on EKS]({% link content-services/images/helm-eks-community.png %})
 
 ### Prerequisites
 
@@ -474,32 +461,9 @@ helm install acs alfresco-incubator/alfresco-content-services \
 
 > **Note:** The command will wait until the deployment is ready.
 
-<!--comment out Community sections-->
-##### Latest Community Edition version
-
-1. Download the Community values file from the GitHub [repo](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/community_values.yaml){:target="_blank"}.
-
-2. Deploy Community Edition by running the following command (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created earlier):
-
-    ```bash
-    helm install acs alfresco-incubator/alfresco-content-services \
-    --values=community_values.yaml \
-    --set externalPort="443" \
-    --set externalProtocol="https" \
-    --set externalHost="acs.YOUR-DOMAIN-NAME" \
-    --set persistence.enabled=true \
-    --set persistence.storageClass.enabled=true \
-    --set persistence.storageClass.name="nfs-client" \
-    --atomic \
-    --timeout 10m0s \
-    --namespace=alfresco
-    ```
-
-    > **Note:** The command will wait until the deployment is ready.
-
 ##### Previous Enterprise version
 
-1. Download the version specific values file you require from the [helm/alfresco-content-services](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/){:target="_blank"}) folder.
+1. Download the version specific values file you require from the [helm/alfresco-content-services](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/){:target="_blank"} folder.
 
 2. Deploy the specific version of Content Services by running the following command (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created earlier and `MAJOR` & `MINOR` with the appropriate values):
 

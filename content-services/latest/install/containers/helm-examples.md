@@ -14,13 +14,13 @@ The diagram below shows the deployment produced by this example:
 
 ### Prerequisites (AWS Services)
 
-Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-Content Services-version) section. Return to this page once the docker registry secret is installed.
+Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-Content Services-version) section. Return to this page once the Docker registry secret is installed.
 
 ### Set up AWS Services
 
 The following sections describe how to setup the AWS services and highlights the information required to deploy Content Services.
 
-#### S3
+#### **S3**
 
 1. Create an S3 bucket in the same region as your cluster using the following command (replacing `YOUR-BUCKET-NAME` with a name of your choice):
 
@@ -40,7 +40,7 @@ The following sections describe how to setup the AWS services and highlights the
     aws eks describe-nodegroup --cluster-name YOUR-CLUSTER-NAME --nodegroup-name linux-nodes --query "nodegroup.nodeRole" --output text
     ```
 
-4. In the [IAM console](https://console.aws.amazon.com/iam/home) find the role discovered in the previous step and create a new inline policy (highlighted in the screenshot below) using the JSON content below (replacing `YOUR-BUCKET-NAME` with the name you chose in the step one):
+4. In the [IAM console](https://console.aws.amazon.com/iam/home) find the role discovered in the previous step and create a new inline policy (highlighted in the screenshot below) using the JSON content below (replacing `YOUR-BUCKET-NAME` with the name you chose in the step 1):
 
     ```json
     {
@@ -63,56 +63,56 @@ The following sections describe how to setup the AWS services and highlights the
 
     ![S3 IAM Policy]({% link content-services/images/eks-s3-iam-policy.png %})
 
-#### RDS
+#### **RDS**
 
-1. Create an Aurora cluster using the "Create database" wizard in the [RDS Console](https://console.aws.amazon.com/rds/home){:target="_blank"}.
+1. Create an Aurora cluster using the **Create database** wizard in the [RDS Console](https://console.aws.amazon.com/rds/home){:target="_blank"}.
 
-    * Select the "Standard Create" option so you can choose the VPC later
-    * Select the "Amazon Aurora with PostgreSQL compatibility" Edition
-    * Select "11.7" for the Version
-    * Provide a "DB cluster identifier" of your choosing
-    * Change the "Master username" to `alfresco`
-    * In the "Connectivity" section select the VPC created by eksctl that contains your EKS cluster
-    * Expand the "Additional configuration" section and provide a "Initial database name" of `alfresco`
-    * Leave all other options set to the default
-    * Press the orange "Create database" button
+    * Select the **Standard Create** option so you can choose the VPC later.
+    * Select the **Amazon Aurora with PostgreSQL compatibility** Edition.
+    * Select **11.7** for the Version.
+    * Provide a **DB cluster identifier** of your choosing.
+    * Change the **Master username** to `alfresco`.
+    * In the **Connectivity** section, select the VPC created by eksctl that contains your EKS cluster.
+    * Expand the **Additional configuration** section and provide an **Initial database name** of `alfresco`.
+    * Leave all other options set to the default.
+    * Press the orange **Create database** button.
 
-2. Once the cluster has been created (it can take a few minutes) make a note of the generated master password using the "View credentials details" button in the header banner.
-3. Select the database with the "Writer" role and click on the default security group link (as shown in the screenshot below)
+2. Once the cluster has been created (it can take a few minutes) make a note of the generated master password using the **View credentials details** button in the header banner.
+3. Select the database with the **Writer** role and click on the default security group link:
 
     ![DB Security Group]({% link content-services/images/eks-db-security-group.png %})
 
-4. Add an inbound rule for PostgreSQL traffic from the VPC CIDR range (it will be the same as the NFS rule setup earlier) as shown in the screenshot below:
+4. Add an inbound rule for PostgreSQL traffic from the VPC CIDR range (it will be the same as the NFS rule setup earlier):
 
     ![DB Inbound Rules]({% link content-services/images/eks-db-inbound-rules.png %})
 
-5. Finally, take a note of the database Endpoint (shown in the screenshot in step 3)
+5. Finally, take a note of the database **Endpoint** (shown in the screenshot in step 3)
 
-#### Amazon MQ
+#### **Amazon MQ**
 
-1. Create an Amazon MQ broker using the "Create brokers" wizard in the [MQ Console](https://console.aws.amazon.com/amazon-mq/home){:target="_blank"}.
+1. Create an Amazon MQ broker using the **Create brokers** wizard in the [MQ Console](https://console.aws.amazon.com/amazon-mq/home){:target="_blank"}.
 
-    * Select "Single-instance broker" option and press the Next button
-    * Provide a "Broker name" of your choosing
-    * In the "ActiveMQ Access" section specify `alfresco` as the "Username" and a "Password" of your choice
-    * In the "Additional settings" section choose the "Select existing VPC and subnet(s)" option
-    * Select the VPC created by eksctl that contains your EKS cluster
-    * Choose the "Select existing security groups" option and select the VPC's default security group from the list
-    * Leave all other options set to the default
-    * Press the orange "Create broker" button
+    * Select **Single-instance broker** option and press the Next button.
+    * Provide a **Broker name** of your choosing.
+    * In the **ActiveMQ Access** section, specify `alfresco` as the **Username** and a **Password** of your choice.
+    * In the **Additional settings** section, choose the **Select existing VPC and subnet(s)** option.
+    * Select the VPC created by eksctl that contains your EKS cluster.
+    * Choose the **Select existing security groups** option and select the VPC's default security group from the list.
+    * Leave all other options set to the default.
+    * Press the orange **Create broker** button.
 
 2. Once the broker has been created (it can take a few minutes), view the broker details, and click on the link to the security group.
-3. Add an inbound rule for ActiveMQ traffic (TCP port 61617) from the VPC CIDR range (it will be the same as the NFS rule setup earlier) as shown in the screenshot below:
+3. Add an inbound rule for ActiveMQ traffic (TCP port 61617) from the VPC CIDR range (it will be the same as the NFS rule setup earlier):
 
     ![MQ Inbound Rules]({% link content-services/images/eks-mq-inbound-rules.png %})
 
-4. Finally, take a note of the OpenWire Endpoint displayed in the "Connections" section
+4. Finally, take a note of the **OpenWire Endpoint** displayed in the **Connections** section.
 
 ### Deploy (AWS Services)
 
 In order to use the S3 Connector and external database options, the S3 Connector AMP and database drivers are required, respectively. Fortunately, a Docker image has been pre-packaged with the artifacts and can be used as-is for our deployment. To use the image, you can override the `repository.image.repository` property.
 
-To use the S3 Connector, RDS, and Amazon MQ, we have to disable the internal default components via the Helm "set" command. Also, provide the service endpoints and credentials we made a note of in the previous sections.
+To use the S3 Connector, RDS, and Amazon MQ, we have to disable the internal default components via the Helm `set` command. Also, provide the service endpoints and credentials we made a note of in the previous sections.
 
 When we bring all this together, you can deploy Content Services using the command below (replacing all the `YOUR-XZY` properties with the values gathered during the setup of the services):
 
@@ -144,7 +144,7 @@ helm install acs alfresco-incubator/alfresco-content-services \
 --namespace=alfresco
 ```
 
-> **Note:** Alternatively, Aurora MySQL can be used instead of PostgreSQL by selecting the "Amazon Aurora with MySQL compatibility" option and version `5.7.12` in the create database wizard. You'll also need to change the `database.driver` value to `org.mariadb.jdbc.Driver` and change the `database.url` to `jdbc:mariadb:aurora//YOUR-DATABASE-ENDPOINT:3306/alfresco?useUnicode=yes&characterEncoding=UTF-8`.
+> **Note:** Alternatively, Aurora MySQL can be used instead of PostgreSQL by selecting the **Amazon Aurora with MySQL compatibility** option and version `5.7.12` in the create database wizard. You'll also need to change the `database.driver` value to `org.mariadb.jdbc.Driver` and change the `database.url` to `jdbc:mariadb:aurora//YOUR-DATABASE-ENDPOINT:3306/alfresco?useUnicode=yes&characterEncoding=UTF-8`.
 
 ## Deploy with Alfresco Intelligence Services {#with-ai}
 
@@ -156,7 +156,7 @@ The diagram below shows the deployment produced by this example:
 
 ### Prerequisites (Intelligence)
 
-Follow the [AWS Services](#deploy-with-aws-services-_s3_-rds-and-mq)){:target="_blank"} example up to the [Deploy](#with-aws-services.md#deploy){:target="_blank"} section and return to this page.
+Follow the [AWS Services](#deploy-with-aws-services-_s3_-rds-and-mq){:target="_blank"} example up to the [Deploy](#with-aws-services.md#deploy){:target="_blank"} section and return to this page.
 
 ### Set up S3 bucket
 
@@ -207,9 +207,9 @@ This example demonstrates how to enable Alfresco Search Services (`/solr`) for e
 
 ### Prepare data
 
-1. Obtain the list of IP addresses you want to allow access to `/solr`
-2. Format the IP addresses as a comma separated list of CIDR blocks i.e. `192.168.0.0/16,10.0.0.0/16`, to allow access to everyone use `0.0.0.0/0`
-3. Generate a `base64` encoded `htpasswd` formatted string using the following command, where "solradmin" is username and "somepassword" is the password:
+1. Obtain the list of IP addresses you want to allow access to `/solr`.
+2. Format the IP addresses as a comma separated list of CIDR blocks i.e. `192.168.0.0/16,10.0.0.0/16`. To allow access to everyone use `0.0.0.0/0`.
+3. Generate a `base64` encoded `htpasswd` formatted string using the following command, where `solradmin` is the username and `somepassword` is the password:
 
     ```bash
     echo -n "$(htpasswd -nbm solradmin somepassword)" | base64
@@ -217,9 +217,9 @@ This example demonstrates how to enable Alfresco Search Services (`/solr`) for e
 
 ### Deploy (Search)
 
-Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-Content Services-version) section. Return to this page once the docker registry secret is installed.
+Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-content-services-version) section. Return to this page once the Docker registry secret is installed.
 
-Deploy the latest version of Content Services (Enterprise) by running the command below. You'll need to replace `YOUR-DOMAIN-NAME` with the hosted zone you created previously, and replace `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string and list of whitelisted IP addresses you prepared in the previous section).
+Deploy the latest version of Content Services (Enterprise) by running the command below. You'll need to replace `YOUR-DOMAIN-NAME` with the hosted zone you created previously, and replace `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string and list of whitelisted IP addresses you prepared in the previous section.
 
 ```bash
 helm install acs alfresco-incubator/alfresco-content-services \
@@ -238,9 +238,9 @@ helm install acs alfresco-incubator/alfresco-content-services \
 --namespace=alfresco
 ```
 
-### Upgrade (Search)
+### Upgrade (Search) {#upgrade-search}
 
-If you've previously deployed Content Services where external Search access was disabled (the default) you can run the following `helm upgrade` command to enable external access for `/solr` (replacing `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string and list of whitelisted IP addresses you prepared in the "Prepare Data" section):
+If you've previously deployed Content Services where external Search access was disabled (the default), you can run the following `helm upgrade` command to enable external access for `/solr` (replacing `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string, and list of whitelisted IP addresses you [prepared earlier](#prepare-data):
 
 ```bash
 helm upgrade acs alfresco-incubator/alfresco-content-services \
@@ -249,11 +249,11 @@ helm upgrade acs alfresco-incubator/alfresco-content-services \
 --set alfresco-search.ingress.whitelist_ips="YOUR_IPS" \
 ```
 
-> **Note:** There are known issues when upgrading a Helm chart relating to Helm cache.
-
-* `https://github.com/kubernetes/helm/issues/3275`
-* `https://github.com/kubernetes/helm/issues/1193`
-* `https://github.com/kubernetes/helm/pull/4146`
+>**Note:** There are known issues when upgrading a Helm chart relating to Helm cache.
+>
+>* [https://github.com/kubernetes/helm/issues/3275](https://github.com/kubernetes/helm/issues/3275){:target="_blank"}
+>* [https://github.com/kubernetes/helm/issues/1193](https://github.com/kubernetes/helm/issues/1193){:target="_blank"}
+>* [https://github.com/kubernetes/helm/pull/4146](https://github.com/kubernetes/helm/pull/4146){:target="_blank"}
 
 If your `helm upgrade` fails due to any of these example errors:
 
@@ -263,7 +263,7 @@ Error: UPGRADE FAILED: no Secret with the name "nosy-tapir-alfresco-search-solr"
 Error: UPGRADE FAILED: no Ingress with the name "nosy-tapir-alfresco-search-solr" found
 ```
 
-Then, simply delete that resource. Below is an example:
+Then, simply delete that resource using one of the following examples:
 
 ```bash
 kubectl delete secret nosy-tapir-alfresco-search-solr --namespace=alfresco
@@ -271,7 +271,7 @@ kubectl delete secret nosy-tapir-alfresco-search-solr --namespace=alfresco
 kubectl delete ingress nosy-tapir-alfresco-search-solr --namespace=alfresco
 ```
 
-Next, re-try the above "Upgrade Content Services Helm Chart" steps, which also re-creates the deleted resource.
+Next, re-try the [upgrade (Search)](#upgrade-search) steps, which also re-creates the deleted resource.
 
 ## Enable email services {#email-enabled}
 
@@ -279,7 +279,7 @@ This example demonstrates how to enable Inbound and Outbound email when installi
 
 ### Prerequisites (email)
 
-Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-Content Services-version) section. Return to this page once the docker registry secret is installed.
+Follow the [EKS deployment]({% link content-services/latest/install/containers/helm.md %}#helm-deployment-with-aws-eks) guide up to the [Choose Content Services version]({% link content-services/latest/install/containers/helm.md %}#choose-Content Services-version) section. Return to this page once the Docker registry secret is installed.
 
 ### Deploy (email)
 
@@ -330,7 +330,7 @@ helm install acs alfresco-incubator/alfresco-content-services \
 --namespace=alfresco
 ```
 
-> **Note:** If you're using GMail or Yahoo as the outbound email server, your application's attempts to send outgoing emails may be blocked by email providers due to their security policies, as it considers the authentication attempts to be suspicious. When this happens, you will receive a security alert at the corresponding email address. To proceed, you will need to manually confirm the validity of the authentication attempt before the email provider will permit the application to send outbound emails. For more information on [Less secure apps & your Google Account](https://support.google.com/accounts/answer/6010255){:target="_blank"}.
+> **Note:** If you're using GMail or Yahoo as the outbound email server, your application's attempts to send outgoing emails may be blocked by email providers due to their security policies, as it considers the authentication attempts to be suspicious. When this happens, you will receive a security alert at the corresponding email address. To proceed, you will need to manually confirm the validity of the authentication attempt before the email provider will permit the application to send outbound emails. See [Less secure apps & your Google Account](https://support.google.com/accounts/answer/6010255){:target="_blank"} for more information.
 
 ### Exposing email service
 
@@ -340,7 +340,7 @@ Ingress-nginx currently does not support TCP or UDP services.  The Helm chart wi
 kubectl get services `kubectl get services --namespace=alfresco | grep email | awk '{print $1}'` --namespace=alfresco
 ```
 
-This produces an output similar to the one below - the ELB DNS name is shown in the "EXTERNAL-IP" column.
+This produces an output similar to the one below - the ELB DNS name is shown in the `EXTERNAL-IP` column.
 
 ```bash
 NAME                          TYPE           CLUSTER-IP      EXTERNAL-IP                                                               PORT(S)          AGE
