@@ -2,10 +2,7 @@
 title: Using the Form Editor 
 ---
 
-The form editor provides a powerful drag and drop interface to let you design forms from a rich set of controls. 
-You can define form outcomes and create forms with multiple tabs. Individual controls and whole tabs can be made 
-visible depending on the value of other form fields and process variables. You can design your form with groups of 
-controls in varying numbers of columns.
+The form editor provides a powerful drag and drop interface to let you design forms from a rich set of controls. You can define form outcomes and create forms with multiple tabs. Individual controls and whole tabs can be made visible depending on the value of other form fields and process variables. You can design your form with groups of controls in varying numbers of columns.
 
 ![app-form-editor]({% link process-services/images/app-form-editor-1.png %})
 
@@ -52,4 +49,3 @@ Allows you to upload and attach files from the file system or other sources, for
 |File source|Sets the location for where files can be uploaded from. Alfresco Content is from an APS instance, whilst local file is local to the form filler|
 
 >**Note:** Setting `alfresco.content.useLatestVersion` to `true` in `activiti-app.properties` will ensure that the latest version of the file will be used.
-

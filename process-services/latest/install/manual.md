@@ -253,7 +253,7 @@ Ensure you have read the [supported platforms]({% link process-services/latest/s
 
 3. Create a user and password. This example will use `alfresco/alfresco`
 
-    > **Important:** You do not need to complete this step if you use the same user you created when [installing Process Services](#installing-process-services-manually) and can skip to the next step.
+    > **Important:** You do not need to complete this step if you use the same user you created when [installing Process Services](#install-process-services) and can skip to the next step.
 
     In MySQL:
 

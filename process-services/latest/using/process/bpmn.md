@@ -2,8 +2,7 @@
 title: Using the BPMN Editor 
 ---
 
-With the BPMN editor you can create process definitions using the capabilities of BPMN 2.0. You build your process by 
-dragging and dropping from a palette of grouped components to a canvas on which your process diagram is built.
+With the BPMN editor you can create process definitions using the capabilities of BPMN 2.0. You build your process by dragging and dropping from a palette of grouped components to a canvas on which your process diagram is built.
 
 ![BPMN Editor]({% link process-services/images/app-bpmn-editor-1.png %})
 
@@ -27,38 +26,27 @@ The BPMN editor is structured into several areas:
 
     When you first use the BPMN editor, a short guided tour runs showing you the components of the editor and running through the initial steps involved in creating a process definition. You can rerun the tour at any time by clicking the icon in the toolbar.
 
+When you open the BPMN editor to create a new process definition, the canvas already contains a Start Event. Clicking on any event on the canvas frames the event icon with a dotted line and reveals a number of controls.
 
-When you open the BPMN editor to create a new process definition, the canvas already contains a Start Event. 
-Clicking on any event on the canvas frames the event icon with a dotted line and reveals a number of controls.
-
-The controls below the icon allow you to delete the BPMN object, or change in to another object in the same group. 
-For example, you can change a Start event to a Start timer event. The controls to the right of the icon allow you to 
-specify the next object type in the process. The list presented includes only those object types that are valid in 
-the sequence after the current object. In addition, there are controls that allow you to create flows connecting 
-other existing events in your diagrams, and to annotate the event.
+The controls below the icon allow you to delete the BPMN object, or change in to another object in the same group. For example, you can change a Start event to a Start timer event. The controls to the right of the icon allow you to specify the next object type in the process. The list presented includes only those object types that are valid in the sequence after the current object. In addition, there are controls that allow you to create flows connecting other existing events in your diagrams, and to annotate the event.
 
 There are two ways of adding BPMN objects to your process:
 
-* Use the controls that appear when you click on a current object icon. Using this method will create a valid 
-connector between the current event icon and the new event icon.
+* Use the controls that appear when you click on a current object icon. Using this method will create a valid connector between the current event icon and the new event icon.
 
-* Drag and drop an object icon from the palette. In this case you add flows to the current event icons in the 
-process yourself by picking the icons from the palette.
+* Drag and drop an object icon from the palette. In this case you add flows to the current event icons in the process yourself by picking the icons from the palette.
 
-
-The following object groups are shown in a collapsible list in the palette. The groups consist of all the objects 
-available in the BPMN 2.0 specification, and additional Process Services extensions such as the 
-Publish to Alfresco task, Publish to Box, Publish to Google Drive.
+The following object groups are shown in a collapsible list in the palette. The groups consist of all the objects available in the BPMN 2.0 specification, and additional Process Services extensions such as the Publish to Alfresco task, Publish to Box, Publish to Google Drive.
 
 ## Start events
 
 A start event indicates where a process starts. You can define a start event in one of the following ways:
 
-* Start on the arrival of a message
-* Start at specific time intervals
-* Start as a result of an error
-* Start when a specific signal is raised
-* Start on no specific trigger
+* [Start on no specific trigger](#none-start-event)
+* [Start at specific time intervals](#start-timer-event)
+* [Start when a specific signal is raised](#start-signal-event)
+* [Start on the arrival of a message](#start-message-event)
+* [Start as a result of an error](#start-error-event)
 
 In the XML representation, the type start event is specified as a sub-element.
 
@@ -87,16 +75,13 @@ A none start event can have a *start form*. If so, the start form will be displa
 
 ### Start timer event
 
-A timer start event initiates a process instance at specific time. You can use it both for processes which must 
-start only once and for processes that must start in repeated time intervals.
+A timer start event initiates a process instance at specific time. You can use it both for processes which must start only once and for processes that must start in repeated time intervals.
 
 It is visualized as a circle with a clock icon.
 
 ![bpmn.timer-start-event]({% link process-services/images/bpmn.timer-start-event.png %})
 
-Note that a process instance started by a timer start event can’t have a start form, as it is started by the system. 
-Similarly, it does not have a process initiator like a *none start event*. As such when assigning tasks later on in 
-the process definition, keep in mind that the assignment *'assigned to process initiator'* will not work.
+Note that a process instance started by a timer start event can’t have a start form, as it is started by the system. Similarly, it does not have a process initiator like a *none start event*. As such when assigning tasks later on in the process definition, keep in mind that the assignment *'assigned to process initiator'* will not work.
 
 >**Note:** A subprocess can’t have a timer start event.
 
@@ -106,16 +91,13 @@ the process definition, keep in mind that the assignment *'assigned to process i
 |Name|A name for this element.|
 |Documentation|A description of this element.|
 |Execution listeners|Execution listeners configured for this instance. An execution listeners is a piece of logic that is not shown in the diagram and can be used for technical purposes.|
-|Time Cycle|A timer cycle defined in [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601) format, for example: `R3/PT10H`.|
-|Time Date in ISO-8601|A point in time defined as a [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601) date, for example: `2015-04-12T20:20:32Z`.|
-|Time Duration|A period of time defined as a [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601) duration, for example: `PT5M`.|
+|Time Cycle|A timer cycle defined in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} format, for example: `R3/PT10H`.|
+|Time Date in ISO-8601|A point in time defined as an [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} date, for example: `2015-04-12T20:20:32Z`.|
+|Time Duration|A period of time defined as an [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} duration, for example: `PT5M`.|
 
 ### Start signal event
 
-A signal start event starts a process instance using a named signal. The signal is fired from a process instance 
-using the intermediary signal throw event (or programmatically through the java or REST API). 
-In both cases, a process instance for any process definitions that have a signal start event with the same name are started. 
-You can select a synchronous or asynchronous start of the process instances.
+A signal start event starts a process instance using a named signal. The signal is fired from a process instance using the intermediary signal throw event (or programmatically through the java or REST API). In both cases, a process instance for any process definitions that have a signal start event with the same name are started. You can select a synchronous or asynchronous start of the process instances.
 
 A signal start event is visualized as a circle with a triangle inside. The triangle is white inside.
 
@@ -131,8 +113,7 @@ A signal start event is visualized as a circle with a triangle inside. The trian
 
 ### Start message event
 
-A message start event starts a process instance using a named message. It is mainly used for starting 
-process instances from external systems.
+A message start event starts a process instance using a named message. It is mainly used for starting process instances from external systems.
 
 It is depicted as a circle with an envelope icon inside. The envelope is white inside.
 
@@ -170,14 +151,29 @@ It is visualized as a circle with lightning icon inside. The icon is white insid
 
 ## Activities
 
-An activity describes a single item of work to be performed in a process. Process Services provides some Activity 
-types that are additional to those described in the BPMN 2.0 specification.
+An activity describes a single item of work to be performed in a process. Process Services provides some Activity types that are additional to those described in the BPMN 2.0 specification.
+
+The types of activities are:
+
+* [User task](#user-task)
+* [Service task](#service-task)
+* [Script task](#script-task)
+* [Business rule task](#business-rule-task)
+* [Receive task](#receive-task)
+* [Manual task](#manual-task)
+* [Mail task](#mail-task)
+* [Camel task](#camel-task)
+* [Mule task](#mule-task)
+* [REST call task](#rest-call-task)
+* [Generate document task](#generate-document-task)
+* [Decision task](#decision-task)
+* [Store entity task](#store-entity-task)
 
 An activity is always visualized as a rectangle with rounded corners.
 
 ### User task
 
-A user task enables you to model work to be done by a human actor. When process execution arrives at a user task in 
+A user task enables you to model work to be done by a human actor. When process execution arrives at a user task in
 the process definition, it creates a new task in the task list of the assignee or assignees defined in the task.
 
 A user task is depicted as a rounded rectangle with a user icon on the top-left corner.
@@ -234,16 +230,11 @@ A service task is visualized as a rounded rectangle with a cog icon inside.
 |Asynchronous|(Advanced) Define this task as asynchronous. This means the task will not be executed as part of the current action of the user, but later. This can be useful if it’s not important to have the task immediately ready.|
 |Exclusive|(Advanced) Define this task as exclusive. This means that, when there are multiple asynchronous elements of the same process instance, none will be executed at the same time. This is useful to solve race conditions.|
 
-For a service task it is recommended to make them asynchronous. For example, suppose a service task is called after 
-the user completes a form. When the service task is synchronous, the logic will be executed during the completion 
-action of the user. This means the user has to wait until this logic is finished to have the UI refreshed. 
-Often, this is not needed or wanted. By making the service task asynchronous, the UI will be refreshed when the 
-task is completed. The logic will be executed later.
+For a service task it is recommended to make them asynchronous. For example, suppose a service task is called after the user completes a form. When the service task is synchronous, the logic will be executed during the completion action of the user. This means the user has to wait until this logic is finished to have the UI refreshed. Often, this is not needed or wanted. By making the service task asynchronous, the UI will be refreshed when the task is completed. The logic will be executed later.
 
 ### Script task
 
-A script task defines a JavaScript script or other script language (JSR-223 compatible language) 
-that is executed when a process instance executes this step.
+A script task defines a JavaScript script or other script language (JSR-223 compatible language) that is executed when a process instance executes this step.
 
 A script task is visualized as a rounded rectangle with a paper icon inside.
 
@@ -271,8 +262,7 @@ A script task is visualized as a rounded rectangle with a paper icon inside.
 
 A Business rule task executes one or more rules.
 
-Business rule tasks are mainly there for compatibility with the community product Activiti. 
-Alfresco recommends that you use [Decision tables]({% link process-services/latest/using/process/rules.md %}) with Process Services
+Business rule tasks are mainly there for compatibility with the community product Activiti. Alfresco recommends that you use [Decision tables]({% link process-services/latest/using/process/rules.md %}) with Process Services
 
 A business rule is depicted as a rounded rectangle with a table icon in the top-left corner.
 
@@ -299,8 +289,7 @@ A business rule is depicted as a rounded rectangle with a table icon in the top-
 
 ### Receive task
 
-A Receive Task waits for the arrival of an external trigger. This trigger is sent programmatically 
-(via Java or REST API). For process to process triggering, use the signal events.
+A Receive Task waits for the arrival of an external trigger. This trigger is sent programmatically (via Java or REST API). For process to process triggering, use the signal events.
 
 A receive task is visualized as a rounded rectangle with an envelope icon in the top-left corner.
 
@@ -324,9 +313,7 @@ A receive task is visualized as a rounded rectangle with an envelope icon in the
 
 ### Manual task
 
-A Manual Task defines a task that is external to Process Services. You use it to model work done which 
-the Process Engine does not know of. A manual task is handled as a pass-through activity, 
-the Process Engine automatically continues the process from the instant process execution arrives at a manual task activity.
+A Manual Task defines a task that is external to Process Services. You use it to model work done which the Process Engine does not know of. A manual task is handled as a pass-through activity, the Process Engine automatically continues the process from the instant process execution arrives at a manual task activity.
 
 ![bpmn.manual-task]({% link process-services/images/bpmn.manual-task.png %})
 
@@ -347,8 +334,7 @@ the Process Engine automatically continues the process from the instant process 
 
 ### Mail task
 
-You can enhance your business process with this automatic mail service task that sends emails to one or more recipients. 
-The task supports normal email features such as cc lists, bcc lists, and HTML content.
+You can enhance your business process with this automatic mail service task that sends emails to one or more recipients. The task supports normal email features such as cc lists, bcc lists, and HTML content.
 
 The mail task is depicted as a rounded rectangle with an envelope icon in the top-left corner.
 
@@ -385,8 +371,7 @@ A camel task is visualized as a rounded rectangle with a camel icon in the top-l
 
 ![bpmn.camel-task]({% link process-services/images/bpmn.camel-task.png %})
 
-You can find more information on Apache Camel [here](http://camel.apache.org/). 
-Note that Camel is by default not installed and would need to be added by the system admin.
+You can find more information on Apache Camel [here](http://camel.apache.org/){:target="_blank"}. Note that Camel is by default not installed and would need to be added by the system admin.
 
 |Property|Description|
 |--------|-----------|
@@ -412,8 +397,7 @@ A mule task is visualized as a rounded rectangle with the Mule logo in the top-l
 
 ![bpmn.mule-task]({% link process-services/images/bpmn.mule-task.png %})
 
-You can find more information on Mule ESB using [https://www.mulesoft.com/resources/esb/what-mule-esb](https://www.mulesoft.com/resources/esb/what-mule-esb). 
-Note that Mule is by default not installed and would need to be added by the system admin.
+You can find more information on [Mule ESB here](https://www.mulesoft.com/resources/esb/what-mule-esb){:target="_blank"}. Note that Mule is by default not installed and would need to be added by the system admin.
 
 |Property|Description|
 |--------|-----------|
@@ -434,10 +418,9 @@ Note that Mule is by default not installed and would need to be added by the sys
 |Completion condition (Multi-instance)|A multi-instance activity normally ends when all instances end. You can specify an expression here to be evaluated each time an instance ends. If the expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends.|
 |Is for compensation|If this activity is used for compensating the effects of another activity, you can declare it to be a compensation handler. For more information on compensation handlers see the Developer Guide.|
 
-### Rest call task
+### REST call task
 
-The rest call task is used to communicate with a REST endpoint. The endpoint can be defined in the process definition, 
-or it can be defined company-wide by an administrator. In the latter case, a logical name is all that is needed.
+The rest call task is used to communicate with a REST endpoint. The endpoint can be defined in the process definition, or it can be defined company-wide by an administrator. In the latter case, a logical name is all that is needed.
 
 A rest call task is visualized as a rounded rectangle with a rocket icon the top-left corner.
 
@@ -456,12 +439,9 @@ Note that the REST call task always is executed asynchronously.
 
 ### Generate document task
 
-The Generate document task generates a document in Word or PDF format and stores the reference to the document 
-as a process variable. The document is based on a (Word) template that describes how the document needs to be rendered, 
-using process variables and various constructs (such as if-clauses and loops).
+The Generate document task generates a document in Word or PDF format and stores the reference to the document as a process variable. The document is based on a (Word) template that describes how the document needs to be rendered, using process variables and various constructs (such as if-clauses and loops).
 
-See [Document Templates]({% link process-services/latest/develop/dev-ext.md %}#document-templates) in the Developing section for how to modify the 
-template for the Generate document task.
+See [Document Templates]({% link process-services/latest/develop/dev-ext.md %}#document-templates) in the Developing section for how to modify the template for the Generate document task.
 
 A Generate document task appears as a rounded rectangle with a document icon on the top-left corner.
 
@@ -481,9 +461,7 @@ A Generate document task appears as a rounded rectangle with a document icon on 
 
 ### Decision task
 
-You use a decision task to select a decision table while designing your process model. A decision table enables you to 
-define a set of business rules that will be applied when it’s executed. 
-See the [business rules]({% link process-services/latest/using/process/rules.md %}) section for more information.
+You use a decision task to select a decision table while designing your process model. A decision table enables you to define a set of business rules that will be applied when it’s executed. See the [business rules]({% link process-services/latest/using/process/rules.md %}) section for more information.
 
 A decision task is depicted as a rounded rectangle with a table icon the top-left corner.
 
@@ -507,8 +485,7 @@ A decision task is depicted as a rounded rectangle with a table icon the top-lef
 
 ### Store Entity task
 
-Use the Store entity task to update data models or entities with process values such as variables or form fields. 
-The updated entities can then be mapped to variables and used while creating processes.
+Use the Store entity task to update data models or entities with process values such as variables or form fields. The updated entities can then be mapped to variables and used while creating processes.
 
 ![storeentity]({% link process-services/images/storeentity.png %})
 
@@ -521,27 +498,30 @@ The updated entities can then be mapped to variables and used while creating pro
 
 ## Structural components
 
-You use structural components to group multiple components in a sub process to reuse in a parent process definition, 
+You use structural components to group multiple components in a sub process to reuse in a parent process definition,
 and to embed and call other process definitions from inside your own process.
+
+The types of structural components are:
+
+* [Sub-process](#sub-process)
+* [Collapsed sub-process](#collapsed-sub-process)
+* [Event sub-process](#event-sub-process)
+* [Call activity](#call-activity)
 
 ### Sub-process
 
-A sub process is a single activity that contains activities, gateways, and events which form a process. 
-A sub process is completely embedded inside a parent process.
+A sub process is a single activity that contains activities, gateways, and events which form a process. A sub process is completely embedded inside a parent process.
 
 A sub-process is visualized as a rounded rectangle:
 
 ![bpmn.embedded-subprocess]({% link process-services/images/bpmn.embedded-subprocess.png %})
 
-You can use a sub process to create a new scope for events. Events that are thrown during execution of the sub process, 
-can be caught by [Boundary events](#boundary-events) on the boundary of the sub process, 
-creating a scope for that event limited to just the sub process.
+You can use a sub process to create a new scope for events. Events that are thrown during execution of the sub process, can be caught by [Boundary events](#boundary-events) on the boundary of the sub process, creating a scope for that event limited to just the sub process.
 
 Sub-processes must have the following characteristics:
 
 * A sub process has exactly one none start event. No other start event types are permitted. A sub process must have at least one end event.
 * Sequence flow cannot cross sub process boundaries.
-
 
 |Property|Description|
 |--------|-----------|
@@ -559,19 +539,13 @@ Sub-processes must have the following characteristics:
 
 ### Collapsed sub-process
 
-You use a collapsed sub-process to add an existing process from your available process definitions as a sub-process 
-to the process definition you are currently editing.
+You use a collapsed sub-process to add an existing process from your available process definitions as a sub-process to the process definition you are currently editing.
 
-When you drag a collapsed sub-process from the palette to your canvas, and click on the Referenced Subprocess property, 
-you are presented with a visual list of the process definitions you have access to. You can choose from the list, 
-and the chosen process will be added to the current process definition. Note the process chosen must have exactly 
-one none start event, and no other start event type, and it must have at least one end event.
+When you drag a collapsed sub-process from the palette to your canvas, and click on the Referenced Subprocess property, you are presented with a visual list of the process definitions you have access to. You can choose from the list, and the chosen process will be added to the current process definition. Note the process chosen must have exactly one none start event, and no other start event type, and it must have at least one end event.
 
-Note that during process instance execution, there is no difference between a collapsed or embedded sub-process. 
-They both share the full process instance context (unlike the *call activity*).
+Note that during process instance execution, there is no difference between a collapsed or embedded sub-process. They both share the full process instance context (unlike a [call activity](#call-activity)).
 
-Note that when you click on the plus icon in a collapsed sub-process, the BPMN editor will open the referenced 
-sub-process definition.
+Note that when you click on the plus icon in a collapsed sub-process, the BPMN editor will open the referenced sub-process definition.
 
 A collapsed sub-process is visualized as a rounded rectangle with a plus icon inside.
 
@@ -594,20 +568,13 @@ A collapsed sub-process is visualized as a rounded rectangle with a plus icon in
 
 ### Event sub-process
 
-An event sub-process is a sub-process that is triggered by an event. You can use an event sub-process in your 
-main process, or in any sub-process.
+An event sub-process is a sub-process that is triggered by an event. You can use an event sub-process in your main process, or in any sub-process.
 
-The event sub-process start event defines the event to be handled by the sub-process, so the type of start event you 
-use must have an event associated with it – none start events are not supported but the event sub-processes. 
-Your event sub-process can be started by a start message event, start signal event or a start error event. 
-The subscription to the start event is created when the scope, process instance or sub-process, 
-hosting the event sub-process is created. The subscription is removed when the scope is destroyed.
+The event sub-process start event defines the event to be handled by the sub-process, so the type of start event you use must have an event associated with it – none start events are not supported but the event sub-processes. Your event sub-process can be started by a start message event, start signal event or a start error event. The subscription to the start event is created when the scope, process instance or sub-process, hosting the event sub-process is created. The subscription is removed when the scope is destroyed.
 
-Your event sub-process does not have any incoming or outgoing sequence flows. 
-An event sub-process is triggered by an event, so there can be no incoming sequence flow.
+Your event sub-process does not have any incoming or outgoing sequence flows. An event sub-process is triggered by an event, so there can be no incoming sequence flow.
 
-The best way to look at an event subprocess is as a *method* or *routine* that is called when something happens, 
-and handle it appropriately.
+The best way to look at an event subprocess is as a *method* or *routine* that is called when something happens, and handle it appropriately.
 
 An event sub-process is visualized like a sub-process with a dashed border.
 
@@ -626,7 +593,7 @@ An event sub-process is visualized like a sub-process with a dashed border.
 
 A call activity is used to execute another process definition as part of the current process instance.
 
-The main difference between a sub-process and a call activity is that the call activity does not share context with 
+The main difference between a sub-process and a call activity is that the call activity does not share context with
 the process instance. Process variables are explicitly mapped between the process instance and the call activity.
 
 A call activity is visualized as a rounded rectangle with a thick border.
@@ -654,23 +621,23 @@ A call activity is visualized as a rounded rectangle with a thick border.
 
 You use gateways to control the flow of execution in your process.
 
-In order to explain how Sequence Flows are used within a Process, BPMN 2.0 uses the concept of a token. 
-Tokens traverse sequence flows and pass through the elements in the process. The token is a theoretical concept 
-used to explain the behavior of Process elements by describing how they interact with a token as it “traverses” 
-the structure of the Process. Gateways are used to control how tokens flow through sequence flows as 
-they converge and diverge in a process.
+In order to explain how Sequence Flows are used within a Process, BPMN 2.0 uses the concept of a token. Tokens traverse sequence flows and pass through the elements in the process. The token is a theoretical concept
+used to explain the behavior of Process elements by describing how they interact with a token as it “traverses” the structure of the Process. Gateways are used to control how tokens flow through sequence flows as they converge and diverge in a process.
 
-As the term gateway suggests, it is a gating mechanism that either allows or prevents passage of a token through 
-the gateway. As tokens arrive at a gateway, they can be merged together on input and/or split apart on output from the gateway.
+As the term gateway suggests, it is a gating mechanism that either allows or prevents passage of a token through the gateway. As tokens arrive at a gateway, they can be merged together on input and/or split apart on output from the gateway.
 
 A gateway is displayed as a diamond, with an icon inside. The icon depicts the type of gateway.
 
+The types of gateway are:
+
+* [Exclusive gateway](#exclusive-gateway)
+* [Parallel gateway](#parallel-gateway)
+* [Inclusive gateway](#inclusive-gateway)
+* [Event based gateway](#event-based-gateway)
+
 ### Exclusive gateway
 
-You use an exclusive gateway to model a decision in your process. When execution arrives at an exclusive gateway, 
-the outgoing sequence flows are evaluated in the order in which they are defined. 
-The first sequence flow whose condition evaluates to true, or which does not have a condition set, 
-is selected and the process continues.
+You use an exclusive gateway to model a decision in your process. When execution arrives at an exclusive gateway, the outgoing sequence flows are evaluated in the order in which they are defined. The first sequence flow whose condition evaluates to true, or which does not have a condition set, is selected and the process continues.
 
 An exclusive gateway is visualized as a diamond shape with an X inside.
 
@@ -689,8 +656,7 @@ Note that if no sequence flow is selected, an exception will be thrown.
 
 ### Parallel gateway
 
-You use a parallel gateway to model concurrency in a process. It allows you to fork multiple outgoing paths of 
-execution or join multiple incoming paths of execution.
+You use a parallel gateway to model concurrency in a process. It allows you to fork multiple outgoing paths of execution or join multiple incoming paths of execution.
 
 A parallel gateway is visualized as a diamond shape with a plus icon:
 
@@ -698,13 +664,9 @@ A parallel gateway is visualized as a diamond shape with a plus icon:
 
 In a fork, all outgoing sequence flows are followed in parallel, which creates one concurrent execution for each sequence flow.
 
-In a join, all concurrent executions arriving at the parallel gateway wait at the gateway until an execution has 
-arrived for every incoming sequence flow. Then the process continues past the joining gateway. 
-Note that the gateway simply waits until the required number of executions has been reached and does not 
-check if the executions are coming from different incoming sequence flow.
+In a join, all concurrent executions arriving at the parallel gateway wait at the gateway until an execution has arrived for every incoming sequence flow. Then the process continues past the joining gateway. Note that the gateway simply waits until the required number of executions has been reached and does not check if the executions are coming from different incoming sequence flow.
 
-A single parallel gateway can both fork and join, if there are multiple incoming and outgoing sequence flow. 
-The gateway will first join all incoming sequence flows, before splitting into multiple concurrent paths of executions.
+A single parallel gateway can both fork and join, if there are multiple incoming and outgoing sequence flow. The gateway will first join all incoming sequence flows, before splitting into multiple concurrent paths of executions.
 
 >**Note**. Unlike other gateways, the parallel gateway does not evaluate conditions. Any conditions defined on the sequence flow connected with the parallel gateway are ignored.
 
@@ -720,27 +682,17 @@ The gateway will first join all incoming sequence flows, before splitting into m
 
 You use an inclusive to join and fork multiple sequence flows based on conditions.
 
-Like an exclusive gateway you can define conditions on outgoing sequence flows and the inclusive gateway will 
-evaluate them, but an inclusive gateway can take more than one sequence flow, like the parallel gateway.
+Like an exclusive gateway you can define conditions on outgoing sequence flows and the inclusive gateway will evaluate them, but an inclusive gateway can take more than one sequence flow, like the parallel gateway.
 
-All outgoing sequence flow conditions are evaluated. Every sequence flow with a condition that evaluates to true, 
-is followed in parallel, creating one concurrent execution for each sequence flow.
+All outgoing sequence flow conditions are evaluated. Every sequence flow with a condition that evaluates to true, is followed in parallel, creating one concurrent execution for each sequence flow.
 
-The join behavior for an inclusive gateway is more complex than the parallel gateway counterparts. 
-All concurrent executions arriving at the inclusive gateway wait at the gateway until executions that *can* reach 
-the inclusive gateway have reached the inclusive gateway. To determine this, all current executions of the process 
-instance are evaluated, checking if there is a path from that point in the process instance to the inclusive gateway. 
-(ignoring any conditions on the sequence flow). When one such execution is found, the inclusive gateway join 
-behavior does not activate.
+The join behavior for an inclusive gateway is more complex than the parallel gateway counterparts. All concurrent executions arriving at the inclusive gateway wait at the gateway until executions that *can* reach the inclusive gateway have reached the inclusive gateway. To determine this, all current executions of the process instance are evaluated, checking if there is a path from that point in the process instance to the inclusive gateway. (ignoring any conditions on the sequence flow). When one such execution is found, the inclusive gateway join behavior does not activate.
 
 An inclusive gateway is visualized as a diamond shape with a circle icon inside:
 
 ![bpmn.inclusive-gateway]({% link process-services/images/bpmn.inclusive-gateway.png %})
 
-Note that an inclusive gateway can have both fork and join behavior, in which case there are multiple incoming and 
-outgoing sequence flows for the same inclusive gateway. The gateway will join all incoming sequence flows that have a 
-process token, before splitting into multiple concurrent paths of executions for the outgoing sequence 
-flows that have a condition that evaluates to true.
+Note that an inclusive gateway can have both fork and join behavior, in which case there are multiple incoming and outgoing sequence flows for the same inclusive gateway. The gateway will join all incoming sequence flows that have a process token, before splitting into multiple concurrent paths of executions for the outgoing sequence flows that have a condition that evaluates to true.
 
 |Property|Description|
 |--------|-----------|
@@ -755,21 +707,15 @@ flows that have a condition that evaluates to true.
 
 You use an event gateway to route process flow based on events.
 
-Each outgoing sequence flow of the event gateway must be connected to an intermediate catching event. 
-When process execution reaches an event gateway execution is suspended, and for each outgoing sequence flow, 
-an event subscription is created. The flow for the event that occurs first, will be followed.
+Each outgoing sequence flow of the event gateway must be connected to an intermediate catching event. When process execution reaches an event gateway execution is suspended, and for each outgoing sequence flow, an event subscription is created. The flow for the event that occurs first, will be followed.
 
-Outgoing sequence flows connect to an event gateway are never "executed", but they do allow the process engine to 
-determine which events an execution arriving at an event-based gateway needs to subscribe to. 
-The following restrictions apply to event gateways:
+Outgoing sequence flows connect to an event gateway are never "executed", but they do allow the process engine to determine which events an execution arriving at an event-based gateway needs to subscribe to. The following restrictions apply to event gateways:
 
 * The gateway must have two or more outgoing sequence flows.
-* An event-based gateway can only be followed by intermediate catching events. Receive tasks after an event gateway 
-are not supported by Process Services.
+* An event-based gateway can only be followed by intermediate catching events. Receive tasks after an event gateway are not supported by Process Services.
 * An intermediate catching event connected to an event gateway must have a single incoming sequence flow.
 
-An event gateway is visualized as a diamond shape with a plus icon inside. Unlike the parallel gateway, 
-the plus icon is not colored black inside:
+An event gateway is visualized as a diamond shape with a plus icon inside. Unlike the parallel gateway, the plus icon is not colored black inside:
 
 ![bpmn.event-gateway]({% link process-services/images/bpmn.event-gateway.png %})
 
@@ -786,15 +732,19 @@ the plus icon is not colored black inside:
 
 You use boundary events to handle an event associated with an activity. A boundary event is always attached to an activity.
 
-While the activity the boundary event is attached to *is active* (meaning the process instance execution is currently 
-executing it right there), the boundary event is listening for a certain type of trigger. 
-When the event is caught, the activity is either interrupted and the sequence flow going out of the event is followed 
-(interrupting behavior) or a new execution is created from the boundary event (non-interrupting behavior).
+While the activity the boundary event is attached to *is active* (meaning the process instance execution is currently executing it right there), the boundary event is listening for a certain type of trigger. When the event is caught, the activity is either interrupted and the sequence flow going out of the event is followed (interrupting behavior) or a new execution is created from the boundary event (non-interrupting behavior).
+
+The types of boundary event are:
+
+* [Boundary timer event](#boundary-timer-event)
+* [Boundary error event](#boundary-error-event)
+* [Boundary signal event](#boundary-signal-event)
+* [Boundary message event](#boundary-message-event)
+* [Boundary cancel and compensation event](#boundary-cancel-and-compensation-event)
 
 ### Boundary timer event
 
-A boundary timer event puts a timer on the activity it is defined on. When the timer fires, the sequence flow going 
-out the boundary event is followed.
+A boundary timer event puts a timer on the activity it is defined on. When the timer fires, the sequence flow going out the boundary event is followed.
 
 A boundary timer event is visualized as a circle with a clock icon inside:
 
@@ -806,14 +756,13 @@ A boundary timer event is visualized as a circle with a clock icon inside:
 |Name|A name for this element.|
 |Documentation|A description of this element.|
 |Cancel activity|Defines if the boundary event interrupts the activity is defined upon or not.|
-|Time Cycle|A timer cycle defined in [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601) format, for example: `R3/PT10H`.|
-|Time Date in ISO-8601|A point in time defined as a [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601) date, for example: `2015-04-12T20:20:32Z`.|
-|Time Duration|A period of time defined as a [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601) duration, for example: `PT5M`.|
+|Time Cycle|A timer cycle defined in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} format, for example: `R3/PT10H`.|
+|Time Date in ISO-8601|A point in time defined as an [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} date, for example: `2015-04-12T20:20:32Z`.|
+|Time Duration|A period of time defined as a [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} duration, for example: `PT5M`.|
 
 ### Boundary error event
 
-A boundary error event catches an error that is thrown within the boundaries of the activity the event is based on 
-and continues process execution from the event.
+A boundary error event catches an error that is thrown within the boundaries of the activity the event is based on and continues process execution from the event.
 
 A boundary error event is always interrupting.
 
@@ -830,8 +779,7 @@ A boundary timer event is visualized as a circle with a lightning icon inside:
 
 ### Boundary signal event
 
-A boundary signal event listens to a signal being fired (from within the process instance or system-wide) 
-while the activity upon which the event is defined is active.
+A boundary signal event listens to a signal being fired (from within the process instance or system-wide) while the activity upon which the event is defined is active.
 
 A boundary signal event is visualized as a circle with a triangle icon inside:
 
@@ -861,21 +809,17 @@ A boundary message event is visualized as a circle with an envelope icon inside:
 
 ### Boundary cancel and compensation event
 
-The boundary cancel and compensation event are currently experimental features. 
-See [http://activiti.org/userguide/index.html#bpmnBoundaryCancelEvent](https://www.activiti.org/5.x/userguide/index.html#bpmnBoundaryCancelEvent) for more information on them.
+The boundary cancel and compensation event are currently experimental features. See [http://activiti.org/userguide/index.html#bpmnBoundaryCancelEvent](https://www.activiti.org/5.x/userguide/index.html#bpmnBoundaryCancelEvent){:target="_blank"} for more information on them.
 
 ## Intermediate catching events
 
-An intermediate catching event is a step in the process where the process needs to wait for a specific trigger 
-(in BPMN this is described as *catching* semantics).
+An intermediate catching event is a step in the process where the process needs to wait for a specific trigger (in BPMN this is described as *catching* semantics).
 
 An intermediate event is displayed as two concentric circles containing an icon. The icon shows the type of intermediate event:
 
 ![bpmn.intermediate-catch-events]({% link process-services/images/bpmn.intermediate-catch-events.png %})
 
-Conceptually, the intermediate catch events are close to the boundary events, with that exception they don’t 
-define a scope (the activity) for when the event is active. An intermediate catch event is active as long as the 
-trigger hasn’t happened. A boundary event on the other hand can be destroyed if the activity completed.
+Conceptually, the intermediate catch events are close to the boundary events, with that exception they don’t define a scope (the activity) for when the event is active. An intermediate catch event is active as long as the trigger hasn’t happened. A boundary event on the other hand can be destroyed if the activity completed.
 
 All the supported intermediate catch events are configured similar to their boundary event counterparts.
 
@@ -895,11 +839,16 @@ the icon shows the type of intermediate event. A throwing none event contains no
 
 You use an end event to signify the end of a process or sub-process, or the end of a path in a process or sub-process.
 
-In a subprocess or process instance, only when all executions have reached an end event will the subprocess be 
-continued or the whole process instance ended.
+In a subprocess or process instance, only when all executions have reached an end event will the subprocess be continued or the whole process instance ended.
 
-An end event is displayed as thick black circle which may contain an icon. If present, the icon shows the type of end event. 
-A none end event has no icon.
+An end event is displayed as thick black circle which may contain an icon. If present, the icon shows the type of end event. A none end event has no icon.
+
+The types of end event are:
+
+* [None end event](#none-end-event)
+* [Error end event](#error-end-event)
+* [Terminate end event](#terminate-end-event)
+* [Cancel end event](#cancel-end-event)
 
 ### None end event
 
@@ -920,8 +869,7 @@ You use the end error event to throw an error and end the current path of execut
 
 ![bpmn.error-end-event]({% link process-services/images/bpmn.error-end-event.png %})
 
-The error can be caught by an intermediate boundary error event that matches the error. 
-If no matching boundary error event is found, an exception will be thrown
+The error can be caught by an intermediate boundary error event that matches the error. If no matching boundary error event is found, an exception will be thrown
 
 |Property|Description|
 |--------|-----------|
@@ -933,11 +881,7 @@ If no matching boundary error event is found, an exception will be thrown
 
 ### Terminate end event
 
-When a terminate end event is reached, the current process instance or sub-process will be terminated. 
-Conceptually, when an execution arrives in a terminate end event, the first scope (process or sub-process) 
-will be determined and ended. Note that in BPMN 2.0, a sub-process can be an embedded sub-process, call activity, 
-event sub-process or transaction sub-process. This rule applies in general, for example, when there is a multi-instance 
-call activity or embedded subprocess, only that instance will be ended, the other instances and the process instance are not affected.
+When a terminate end event is reached, the current process instance or sub-process will be terminated. Conceptually, when an execution arrives in a terminate end event, the first scope (process or sub-process) will be determined and ended. Note that in BPMN 2.0, a sub-process can be an embedded sub-process, call activity, event sub-process or transaction sub-process. This rule applies in general, for example, when there is a multi-instance call activity or embedded subprocess, only that instance will be ended, the other instances and the process instance are not affected.
 
 ![bpmn.terminate-end-event]({% link process-services/images/bpmn.terminate-end-event.png %})
 
@@ -950,8 +894,7 @@ call activity or embedded subprocess, only that instance will be ended, the othe
 
 ### Cancel end event
 
-The cancel end event ends the current path of execution and throws a cancel event that can be caught on 
-the boundary of a transaction subprocess.
+The cancel end event ends the current path of execution and throws a cancel event that can be caught on the boundary of a transaction subprocess.
 
 ![bpmn.cancel-end-event]({% link process-services/images/bpmn.cancel-end-event.png %})
 
@@ -964,28 +907,17 @@ the boundary of a transaction subprocess.
 
 ## Swimlanes
 
-You use swimlanes to display activities in your process divided by business function or participant group. 
-A process definition can have one swimlane diagram containing one pool, which in turn contains one or more lanes. 
-The pool represents the whole process, and each lane corresponds to a business function or participant group.
+You use swimlanes to display activities in your process divided by business function or participant group. A process definition can have one swimlane diagram containing one pool, which in turn contains one or more lanes. The pool represents the whole process, and each lane corresponds to a business function or participant group.
 
-For example, the process of selling a book consists of several activities: ordering a book, processing the order, 
-shipping the book, and reading the book. However, the activities are performed by participants in different groups: 
-by the customer, by the sales department, by the warehouse, or store. In the following diagram, process definitions 
-have one pool called Sell a book with three lanes: Customer, Sales, and Store. The process sequence flow moves 
-between lanes in the pool as the order progresses.
+For example, the process of selling a book consists of several activities: ordering a book, processing the order, shipping the book, and reading the book. However, the activities are performed by participants in different groups: by the customer, by the sales department, by the warehouse, or store. In the following diagram, process definitions have one pool called Sell a book with three lanes: Customer, Sales, and Store. The process sequence flow moves between lanes in the pool as the order progresses.
 
 ![bpmn.swimlanes.png]({% link process-services/images/bpmn.swimlanes.png %})
 
-When you drag a pool to your process diagram, it creates an unnamed pool containing one unnamed lane. 
-You can add lanes by dragging a lane icon from the palette to the canvas. When you hover over the name box of the pool, 
-the whole pool border turns green, indicating the lane will be added to the pool when you release the mouse button.
+When you drag a pool to your process diagram, it creates an unnamed pool containing one unnamed lane. You can add lanes by dragging a lane icon from the palette to the canvas. When you hover over the name box of the pool, the whole pool border turns green, indicating the lane will be added to the pool when you release the mouse button.
 
 ## Artifacts
 
-You use artifacts to provide additional information about the process. The BPMN editor supports the text annotation 
-artifact which associates additional text to an element in your process, or to the process itself. 
-The text does not influence the execution of a process and is provided by the process designer to 
-give information to the user of the process.
+You use artifacts to provide additional information about the process. The BPMN editor supports the text annotation artifact which associates additional text to an element in your process, or to the process itself. The text does not influence the execution of a process and is provided by the process designer to give information to the user of the process.
 
 **Text annotation**
 
@@ -1005,12 +937,11 @@ Use this section for actions specific to Alfresco Content Services content store
 * Publish to Alfresco task - upload content to Alfresco Repository
 * Retrieve Alfresco Properties - fetch metadata (properties) for content in the Alfresco Repository
 * Update Alfresco Properties - update metadata (properties) for content in the Alfresco Repository
-* Call Alfresco Action - invoke a Repository Action 
+* Call Alfresco Action - invoke a Repository Action
 
 ### Publish to Alfresco task / Box / Google Drive
 
-The publish task enables you to publish items that were created or modified during process instance execution 
-to a content store. Currently, the following content stores are supported:
+The publish task enables you to publish items that were created or modified during process instance execution to a content store. Currently, the following content stores are supported:
 
 * Alfresco Content Services
 * Box
@@ -1030,10 +961,7 @@ A publish task is depicted as a rounded rectangle with the icon of the content s
 
 ### Retrieve Alfresco Properties
 
-The Retrieve Alfresco Properties option enables you to retrieve content-specific properties from 
-Alfresco Content Services and map it to a form field or variable, for example properties of a document. 
-You can retrieve document information after a document is added or referenced via the Attachment 
-form field in Share Connector.
+The Retrieve Alfresco Properties option enables you to retrieve content-specific properties from Alfresco Content Services and map it to a form field or variable, for example properties of a document. You can retrieve document information after a document is added or referenced via the Attachment form field in Share Connector.
 
 |Property|Description|
 |--------|-----------|
@@ -1044,13 +972,10 @@ form field in Share Connector.
 
 ### Update Alfresco Properties
 
-The Update Alfresco Properties option enables you to update content-specific properties in Alfresco Content Services 
-via a form field or variable. For example, you can update properties of a document linked from Alfresco Content Services 
-via a form attachment field, or process variable.
+The Update Alfresco Properties option enables you to update content-specific properties in Alfresco Content Services via a form field or variable. For example, you can update properties of a document linked from Alfresco Content Services via a form attachment field, or process variable.
 
-The Properties sheet displays the same fields as Retrieve Alfresco properties, except that is used for 
-updating properties rather than retrieving.
+The Properties sheet displays the same fields as Retrieve Alfresco properties, except that is used for updating properties rather than retrieving.
 
 ### Call Alfresco Action
 
-See this [documentation]({% link process-services/latest/using/process/step.md %}#callalfaction).
+See this [documentation]({% link process-services/latest/using/process/step.md %}#call-alfresco-action).

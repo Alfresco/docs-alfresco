@@ -1,5 +1,5 @@
 ---
-title: Developing extensions for Process Services
+title: Develop extensions for Process Services
 ---
 
 This guide describes how to develop extensions and customize Process Services.
