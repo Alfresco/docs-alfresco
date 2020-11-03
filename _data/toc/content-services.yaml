@@ -5,6 +5,8 @@
       path: '/content-services/latest/'
     - title: 'Administer'
       pages:
+        - title: 'System paths convention'
+          path: '/content-services/latest/admin/sys-paths/'
         - title: 'Admin Tools'
           pages:
             - title: 'Repository Admin Console'
@@ -43,6 +45,8 @@
           path: '/content-services/latest/admin/license-process/'
         - title: 'Manage file and folder templates'
           path: '/content-services/latest/admin/filefolder-templates/'
+        - title: 'File metadata extraction'
+          path: '/content-services/latest/admin/metadata-extraction/'
         - title: 'Creating and managing workflows'
           path: '/content-services/latest/admin/workflows/'
         - title: 'Managing transformations'
