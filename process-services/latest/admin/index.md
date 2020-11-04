@@ -14,11 +14,7 @@ The following diagram gives a high-level overview of the technical components in
 
 ![high_level_architecture_aps]({% link process-services/images/high_level_architecture_aps.png %}){:height="450px" width="638px"}
 
-Process Services is packaged as a standard Java Web application (WAR file) that can be deployed in any supported 
-Java web container. The WAR file contains the Java logic, REST API resources, and the user interface HTML and 
-JavaScript files. The application is stateless, which means it does not use any sessions, and requests can be handled 
-by any node in a clustered setup (see [Cluster configuration and monitoring]({% link process-services/latest/admin/index.md %}#cluster-configuration-and-monitoring) 
-for more information on multi-node setup).
+Process Services is packaged as a standard Java Web application (WAR file) that can be deployed in any supported Java web container. The WAR file contains the Java logic, REST API resources, and the user interface HTML and JavaScript files. The application is stateless, which means it does not use any sessions, and requests can be handled by any node in a clustered setup (see [Cluster configuration and monitoring](#cluster-configuration-and-monitoring) for more information on multi-node setup).
 
 ## Technical implementation details
 
@@ -39,11 +35,9 @@ Process Services uses the following external systems:
 
 The Process Engine is managed using the Administrator application. This is also provided as a WAR file.
 
-The App Designer is an Eclipse plugin that can be used by developers to create BPMN 2.0 process definitions within 
-their Eclipse IDE. You can also configure the plugin to pull and push process definition models.
+The App Designer is an Eclipse plugin that can be used by developers to create BPMN 2.0 process definitions within their Eclipse IDE. You can also configure the plugin to pull and push process definition models.
 
-The application can also connect to other on-premise or cloud systems, such as Alfresco Content Services, Box, and 
-Google Drive (not shown in the diagram).
+The application can also connect to other on-premise or cloud systems, such as Alfresco Content Services, Box, and Google Drive (not shown in the diagram).
 
 To learn more about Process Services architecture, see our [Alfresco ArchiTech Talks video](https://www.youtube.com/watch?v=gyz2By2g1p8){:target="_blank"}.
 

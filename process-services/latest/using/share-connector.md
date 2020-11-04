@@ -304,11 +304,11 @@ Follow these steps to install the Share Connector:
 1. Install Process Services using the installer.
 
 2. Verify the database configuration. By default, the demo H2 database is used, therefore you might want to configure Process Services to use the same database as your Alfresco Content Services installation.
-    * Typically, you should create a new database schema for Process Services to use, and then configure it as described in [Database configuration]({% link process-services/latest/config/index.md %}#database-configuration).
+    * Typically, you should create a new database schema for Process Services to use, and then configure it as described in [Database configuration]({% link process-services/latest/config/database.md %}).
 
 3. Make sure your Process Services app has a license installed. You can add a license file manually to the `tomcat/lib` directory, or load it through the user interface.
 
-    To load a license file from the UI, see [uploading_a_license_from_the_user_interface]({% link process-services/latest/install/index.md %}#uploading-a-license-file) Make sure you sign out from Process Services and stop the server.
+    To load a license file from the UI, see [uploading_a_license_from_the_user_interface]({% link process-services/latest/install/manual.md %}#license) Make sure you sign out from Process Services and stop the server.
 
 4. To use the same demo LDAP server, copy the following file from `activiti-share-connector.zip` into its corresponding folder in the Process Services installation directory:
 

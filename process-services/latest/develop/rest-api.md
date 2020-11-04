@@ -2,21 +2,15 @@
 title: Process Services ReST API
 ---
 
-Process Services comes with a ReST API. The ReST API exposes the generic Process Engine operations. It also includes a 
-dedicated set of ReST API endpoints for features specific to Process Services.
+Process Services comes with a ReST API. The ReST API exposes the generic Process Engine operations. It also includes a dedicated set of ReST API endpoints for features specific to Process Services.
 
-**Important:** An internal ReST API also exists that is used as ReST endpoints by the JavaScript user interface. 
-Do NOT use this API as the ReST API URLs might modify the product to use unsupported features. In addition, 
-the internal ReST API uses a different authentication mechanism tailored towards web browser use.
+**Important:** An internal ReST API also exists that is used as ReST endpoints by the JavaScript user interface. Do NOT use this API as the ReST API URLs might modify the product to use unsupported features. In addition, the internal ReST API uses a different authentication mechanism tailored towards web browser use.
 
 ## Enabling CORS
 
-Solutions that use Process Services REST APIs may be in a different domain or port. This is known as 
-Cross Origin Resource Sharing (CORS).
+Solutions that use Process Services REST APIs may be in a different domain or port. This is known as Cross Origin Resource Sharing (CORS).
 
-By default, CORS is not allowed to provide a high level of security. This can be alleviated by using web proxies which 
-consolidate different domains and ports or by enabling CORS in Process Services configuration. For more information, 
-see [Configuring CORS]({% link process-services/latest/config/index.md %}#configuring-cors).
+By default, CORS is not allowed to provide a high level of security. This can be alleviated by using web proxies which consolidate different domains and ports or by enabling CORS in Process Services configuration. For more information, see [Configuring CORS]({% link process-services/latest/config/index.md %}#cors).
 
 ## ReST API Authorization
 
@@ -32,24 +26,19 @@ If you are using basic authentication, you must set all requests with the `Autho
 
 If you are using OAuth 2 to authenticate users for SSO, see [OAuth 2 SSO](#oauth-2-sso-overview) for more information.
 
-If you choose to use Impersonation, you can impersonate a user with an Admin account to authenticate and set a different 
-user for authorization. To enable this, add the `activiti-user` and `activiti-user-value-type` request headers to the 
-REST API. Where, `activiti-user` should be set to the required user account identifier and `activiti-user-value-type` to 
-the user account identifier type. The header `activiti-user-value-type` can be one of the following values:
+If you choose to use Impersonation, you can impersonate a user with an Admin account to authenticate and set a different user for authorization. To enable this, add the `activiti-user` and `activiti-user-value-type` request headers to the REST API. Where, `activiti-user` should be set to the required user account identifier and `activiti-user-value-type` to the user account identifier type. The header `activiti-user-value-type` can be one of the following values:
 
 * `userIdType`: User’s database ID
 * `userEmailType`: User’s Email address
 * `userExternalIdType`: User’s ID in an external authentication service such as LDAP or Active Directory
 
-For example, in the `external-form-example` Web application, an Admin account is used for authentication and a 
-different user account to implement authorization.
+For example, in the `external-form-example` Web application, an Admin account is used for authentication and a different user account to implement authorization.
 
 >**Note:** You must have an Admin role to be able to add the above request headers. In addition, the users should have already been added to Process Services manually, or by synchronization with LDAP or Active Directory.
 
 ### OAuth 2 SSO overview
 
-The OAuth 2.0 authorization framework enables an application to access protected resources on behalf of a user 
-without storing a password.
+The OAuth 2.0 authorization framework enables an application to access protected resources on behalf of a user without storing a password.
 
 OAuth 2.0 defines four roles:
 
@@ -58,16 +47,13 @@ OAuth 2.0 defines four roles:
 * **Client**: Specifies your build application that makes protected resource (REST APIs) requests on behalf of the resource owner. Before it may do so, it must be authorized by the resource owner.
 * **Authorization server**: Specifies the server issuing access tokens to the client after successfully authenticating against Ping Identity, Azure Identity Services, or Site Minder.
 
-OAuth 2 SSO support in Process Services introduces a new set of components that allow developers to leverage the 
-Alfresco REST APIs using OAuth 2 authorization.
+OAuth 2 SSO support in Process Services introduces a new set of components that allow developers to leverage the Alfresco REST APIs using OAuth 2 authorization.
 
 ![oauth-overview]({% link process-services/images/oauth-overview.png %}){:height="356px" width="700px"}
 
-The addition of OAuth 2 in Process Services is the first step towards a single standards-authorization and 
-identity services across the Alfresco Digital Business Platform. Using OAuth you can have:
+The addition of OAuth 2 in Process Services is the first step towards a single standards-authorization and identity services across the Alfresco Digital Business Platform. Using OAuth you can have:
 
-* a standard-based authorization infrastructure to integrate applications and solutions using Process Services 
-REST APIs with other enterprise applications which use OAuth.
+* a standard-based authorization infrastructure to integrate applications and solutions using Process Services REST APIs with other enterprise applications which use OAuth.
 
 * configurable integration with OAuth authorization servers that can issue OAuth 2 tokens, such as Ping Identity, Azure Identity Services, or Site Minder, with support for custom and JWT tokens.
 * a unified OAuth 2 stack to facilitate OAuth 2 SSO for ADF and other applications across both Process Services and Alfresco Content Services.
@@ -90,18 +76,15 @@ Use this information to install OAuth 2 SSO for Process Services.
 
 Installing OAuth 2 module:
 
-The OAuth 2 module is an integrated library of the Process Services. It Is automatically installed as part of 
-the `activiti-app` web application.
+The OAuth 2 module is an integrated library of the Process Services. It Is automatically installed as part of the `activiti-app` web application.
 
 Installing Alfresco OAuth 2 Authorization server
 
-The Alfresco OAuth 2 Authorization server is available as a java web archive (WAR) available to Process Services 
-via [Alfresco's maven repository](https://artifacts.alfresco.com/nexus/content/repositories/activiti-enterprise-releases/org/alfresco/alfresco-oauth2/1.0.0/alfresco-oauth2-1.0.0.war).
+The Alfresco OAuth 2 Authorization server is available as a java web archive (WAR) available to Process Services via [Alfresco's maven repository](https://artifacts.alfresco.com/nexus/content/repositories/activiti-enterprise-releases/org/alfresco/alfresco-oauth2/1.0.0/alfresco-oauth2-1.0.0.war){:target="_blank"}.
 
 #### Configuring OAuth 2 for the Process Services
 
-To configure OAuth 2, you need to register your application with an OAuth 2 Authorization server and then configure 
-the OAuth 2 client using the `activiti-app.properties` file.
+To configure OAuth 2, you need to register your application with an OAuth 2 Authorization server and then configure the OAuth 2 client using the `activiti-app.properties` file.
 
 **Registering with an OAuth 2 Authorization server**
 
@@ -113,25 +96,17 @@ This will vary from server to server but the server will invariably provide:
 * the client secret that must be kept secret.
 * an authorization URL to use in your application.
 
-All these components are used in configuring the OAuth 2 client. For more information, see 
-*Configuring the OAuth 2 client* below.
+All these components are used in configuring the OAuth 2 client. For more information, see *Configuring the OAuth 2 client* below.
 
-You may use an OAuth 2 Authorization server of your choice but for applications involving Alfresco Content Services, 
-it is recommended that you use the Alfresco OAuth 2 Authorization server. To know more about installing and configuring 
-the Alfresco OAuth 2 Authorization server, see [Configuring the Alfresco OAuth 2 Authorization server](#configoauthserver).
+You may use an OAuth 2 Authorization server of your choice but for applications involving Alfresco Content Services, it is recommended that you use the Alfresco OAuth 2 Authorization server. To know more about installing and configuring the Alfresco OAuth 2 Authorization server, see [Configuring the Alfresco OAuth 2 Authorization server](#configoauthserver).
 
-Note that OAuth 2 is an authorization system and not an identity management system. Although it eliminates the need for 
-custom applications to login via the REST API, it still requires all users to have a profile in Process Services with a 
-user name that matches the user name of the OAuth 2 Authorization server. However, there is no need for the passwords to match. 
-Passwords are only useful if you want to allow users to log in to the standard Alfresco Content Services application.
+Note that OAuth 2 is an authorization system and not an identity management system. Although it eliminates the need for custom applications to login via the REST API, it still requires all users to have a profile in Process Services with a user name that matches the user name of the OAuth 2 Authorization server. However, there is no need for the passwords to match. Passwords are only useful if you want to allow users to log in to the standard Alfresco Content Services application.
 
-You can use LDAP sync or the Alfresco Content Services Security Extensions to have a single identity service for both the 
-Alfresco Content Services profiles and the OAuth 2 Authorization server.
+You can use LDAP sync or the Alfresco Content Services Security Extensions to have a single identity service for both the Alfresco Content Services profiles and the OAuth 2 Authorization server.
 
 **Configuring the OAuth 2 client**
 
-To use the OAuth 2 client from your REST applications, you first need to configure it using the information obtained 
-by the OAuth 2 authorization server.
+To use the OAuth 2 client from your REST applications, you first need to configure it using the information obtained by the OAuth 2 authorization server.
 
 To configure the OAuth 2 client, add the following properties to the `activiti-app.properties` file:
 
@@ -152,12 +127,9 @@ security.oauth2.client.checkToken=http://localhost:9191/oauth/check_token
 
 **Using the OAuth 2 module**
 
-After successfully configuring the Process Services OAuth 2 module, you can develop, test, and deploy the applications 
-using the Process Services REST APIs and OAuth 2.
+After successfully configuring the Process Services OAuth 2 module, you can develop, test, and deploy the applications using the Process Services REST APIs and OAuth 2.
 
-As a developer, you can integrate the OAuth 2 flow, which starts with getting the authorization token. For browser, 
-mobile, and other UI-based applications, this will usually be done using a login UI interface provided by the service 
-to the user. For communication purpose, the server-side applications will use the client secret.
+As a developer, you can integrate the OAuth 2 flow, which starts with getting the authorization token. For browser, mobile, and other UI-based applications, this will usually be done using a login UI interface provided by the service to the user. For communication purpose, the server-side applications will use the client secret.
 
 OAuth 2 caters for four authorization scenarios called *grant types*. These are:
 
@@ -166,11 +138,9 @@ OAuth 2 caters for four authorization scenarios called *grant types*. These are:
 * **Client credentials** for application access by confidential clients.
 * **Implicit** that has been superseded by the Authorization Code scenario with a no secret code.
 
-As a developer, you can choose the scenario that best suits your use case and the specific problem you are trying to 
-solve. This will be a direct call between your code and the authorization server.
+As a developer, you can choose the scenario that best suits your use case and the specific problem you are trying to solve. This will be a direct call between your code and the authorization server.
 
-After obtaining the token, you integrate it and use it as a part of calling the Process Services REST APIs. 
-This is done by adding the token as an Authorization header.
+After obtaining the token, you integrate it and use it as a part of calling the Process Services REST APIs. This is done by adding the token as an Authorization header.
 
 ```text
 Authorization: Bearer <token>
@@ -191,9 +161,7 @@ $  curl -i -H "Authorization: Bearer d1c7dc0b-b1e1-4039-923e-55199473bd5b"
         http://localhost:8080/activiti-app/api/enterprise/app-version
 ```
 
-When a REST request is made using the OAuth 2 header, Process Services acts as the Resource Server of the OAuth 2 specification. 
-Using the OAuth 2 module Process Services attempts to validate the token against the OAuth 2 Authorization server. 
-This is done using the URL specified in the `security.oauth2.client.checkToken` property of the `activiti-app.properties` file.
+When a REST request is made using the OAuth 2 header, Process Services acts as the Resource Server of the OAuth 2 specification. Using the OAuth 2 module Process Services attempts to validate the token against the OAuth 2 Authorization server. This is done using the URL specified in the `security.oauth2.client.checkToken` property of the `activiti-app.properties` file.
 
 Here's an example of the HTTP call made by Process Services OAuth 2 module to validate the token:
 
@@ -207,17 +175,11 @@ Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW <- base 64 encoding ${security
 token=CHECK_ACCESS_TOKEN
 ```
 
-The Authorization server responds with a JSON object as specified in the [Introspection Response of the OAuth 2 specification](https://tools.ietf.org/html/rfc7662#section-2.2). 
-One of the properties of the object is the user name, which matches the user name found in the user database of Process Services. 
-This allows the process service to identify which registered user is the one associated to the REST request.
+The Authorization server responds with a JSON object as specified in the [Introspection Response of the OAuth 2 specification](https://tools.ietf.org/html/rfc7662#section-2.2){:target="_blank"}. One of the properties of the object is the user name, which matches the user name found in the user database of Process Services. This allows the process service to identify which registered user is the one associated to the REST request.
 
-Spring security is used to call the OAuth 2 server and validate the token. Token validation is an area that has been standardised recently. 
-For more information, see [OAuth 2.0 Token Introspection](https://tools.ietf.org/html/rfc7662). Commercial OAuth 2 servers or 
-services may not be yet compliant with the standard. For more information, 
-see [http://stackoverflow.com/questions/12296017](http://stackoverflow.com/questions/12296017/how-to-validate-an-oauth-2-0-access-token-for-a-resource-server).
+Spring security is used to call the OAuth 2 server and validate the token. Token validation is an area that has been standardised recently. For more information, see [OAuth 2.0 Token Introspection](https://tools.ietf.org/html/rfc7662){:target="_blank"}. Commercial OAuth 2 servers or services may not be yet compliant with the standard. For more information, see [http://stackoverflow.com/questions/12296017](http://stackoverflow.com/questions/12296017/how-to-validate-an-oauth-2-0-access-token-for-a-resource-server){:target="_blank"}.
 
-For non-standard validation approaches, you may use `apiSecurityOverride` of the security extensibility provided by 
-Process Services and override the `com.activiti.security.oauth2.Oauth2RequestHeaderService` class using `@Component(value = "ActivitiOauth2RequestHeaderService")`.
+For non-standard validation approaches, you may use `apiSecurityOverride` of the security extensibility provided by Process Services and override the `com.activiti.security.oauth2.Oauth2RequestHeaderService` class using `@Component(value = "ActivitiOauth2RequestHeaderService")`.
 
 #### Configuring the Alfresco OAuth 2 Authorization server {#configoauthserver}
 
@@ -230,8 +192,7 @@ You can provide the `application.properties` file in the following locations:
 * A classpath `/config` package
 * The classpath root
 
-The server loads the properties from the `application.properties` file in order of precedence. The properties defined in 
-locations higher in the list override those defined in lower locations.
+The server loads the properties from the `application.properties` file in order of precedence. The properties defined in locations higher in the list override those defined in lower locations.
 
 The properties file contains the following properties
 
@@ -270,8 +231,7 @@ Here's the sample response:
 
 #### Using the Alfresco OAuth 2 Authorization server
 
-The Alfresco OAuth 2 Authorization server can be used as part of the OAuth 2 flows. The server needs to be used in 
-conjunction with the LDAP sync for users from the Alfresco Content Services LDAP directory.
+The Alfresco OAuth 2 Authorization server can be used as part of the OAuth 2 flows. The server needs to be used in conjunction with the LDAP sync for users from the Alfresco Content Services LDAP directory.
 
 Use this information to know how the different scenarios are supported.
 
@@ -281,10 +241,7 @@ Use this information to know how the different scenarios are supported.
 http://tools.ietf.org/html/rfc6749#section-4.1
 ```
 
-The authorization code grant type is used to obtain both access tokens and refresh tokens. It is optimized for 
-confidential clients, such as server side application. Since this is a redirection-based flow, the client must be 
-capable of interacting with the resource owner's `user-agent` (typically, a web browser) and capable of receiving 
-incoming requests (via redirection) from the Authorization server.
+The authorization code grant type is used to obtain both access tokens and refresh tokens. It is optimized for confidential clients, such as server side application. Since this is a redirection-based flow, the client must be capable of interacting with the resource owner's `user-agent` (typically, a web browser) and capable of receiving incoming requests (via redirection) from the Authorization server.
 
 *Authorization Request:*
 
@@ -369,10 +326,7 @@ Here's an example of response:
 
 **Implicit grant type**
 
-The implicit grant type ([http://tools.ietf.org/html/rfc6749#section-4.2](http://tools.ietf.org/html/rfc6749#section-4.2) ) 
-is used to obtain access tokens (it does not support the issuance of refresh tokens) and is optimized for public clients 
-known to operate a particular redirection URI. These clients are typically implemented in a browser using a scripting 
-language such as JavaScript clients or mobile applications. This flow is recommended when storing client id and client secret is not recommended
+The implicit grant type ([http://tools.ietf.org/html/rfc6749#section-4.2](http://tools.ietf.org/html/rfc6749#section-4.2){:target="_blank"} ) is used to obtain access tokens (it does not support the issuance of refresh tokens) and is optimized for public clients known to operate a particular redirection URI. These clients are typically implemented in a browser using a scripting language such as JavaScript clients or mobile applications. This flow is recommended when storing client id and client secret is not recommended
 
 *Authorization request:*
 
@@ -395,8 +349,7 @@ where:
 
 *Response:*
 
-If the resource owner grants access request, the Authorization server issues an access token and delivers it to the 
-client. The following response is sent:
+If the resource owner grants access request, the Authorization server issues an access token and delivers it to the client. The following response is sent:
 
 ```html
 HTTP/1.1 302 Found Location:
@@ -415,9 +368,7 @@ where:
 
 **Resource owner password credentials grant type**
 
-The [resource owner password credentials grant type](http://tools.ietf.org/html/rfc6749#section-4.3) is suitable in 
-cases where the resource owner has a trust relationship with the client, such as the device operating system or a 
-highly privileged application.
+The [resource owner password credentials grant type](http://tools.ietf.org/html/rfc6749#section-4.3){:target="_blank"} is suitable in cases where the resource owner has a trust relationship with the client, such as the device operating system or a highly privileged application.
 
 *Access Token Request:*
 
@@ -501,14 +452,11 @@ Secure Hello!
 
 **Client credentials**
 
-The [client credentials grant type](http://tools.ietf.org/html/rfc6749#section-4.4) is not currently implemented.
+The [client credentials grant type](http://tools.ietf.org/html/rfc6749#section-4.4){:target="_blank"} is not currently implemented.
 
 **External Token**
 
-As defined in the [OAuth 2 specification](https://tools.ietf.org/html/rfc6749#section-4.5), it is possible to define 
-custom grant. You can override the generation of the token using the `grant_type`, `external_auth`. 
-Additionally, you can submit the token and the refresh token. This grant type can be used in the scenario where the 
-OAuth server is already present and you want to use the proxy part of this server.
+As defined in the [OAuth 2 specification](https://tools.ietf.org/html/rfc6749#section-4.5){:target="_blank"}, it is possible to define custom grant. You can override the generation of the token using the `grant_type`, `external_auth`. Additionally, you can submit the token and the refresh token. This grant type can be used in the scenario where the OAuth server is already present and you want to use the proxy part of this server.
 
 Set the following properties:
 
@@ -552,15 +500,13 @@ where:
 
 ## Using the ReST API Explorer
 
-Process Services comes with a built-in REST API Explorer. This lets you discover and test the REST APIs of a 
-locally running Process Services instance.
+Process Services comes with a built-in REST API Explorer. This lets you discover and test the REST APIs of a locally running Process Services instance.
 
-The REST API Explorer is based on the [OpenAPI (Swagger) initiative](https://openapis.org/) and provides an interface 
-for the REST API. You can browse the available API endpoints and test operations available within a particular API group.
+The REST API Explorer is based on the [OpenAPI (Swagger) initiative](https://openapis.org/){:target="_blank"} and provides an interface for the REST API. You can browse the available API endpoints and test operations available within a particular API group.
 
-Access the REST API Explorer with the link: [http://localhost:8080/activiti-app/api-explorer.html](http://localhost:8080/activiti-app/api-explorer.html).
+Access the REST API Explorer at this link: `http://localhost:8080/activiti-app/api-explorer.html`.
 
-There is also a public [REST API Explorer](https://activiti.alfresco.com/activiti-app/api-explorer.html).
+There is also a public [REST API Explorer](https://activiti.alfresco.com/activiti-app/api-explorer.html){:target="_blank"}.
 
 This screenshot shows what the REST API Explorer looks like:
 
@@ -586,16 +532,12 @@ Process Services provides a RAML file that works with popular REST API developme
 
 The RAML file complements the REST API Explorer, providing a best-in-class enterprise tooling for APIs.
 
-RESTful API Modeling Language (RAML) is a language to describe RESTful APIs. The language is YAML-based with a json 
-format available, and it provides the constructs to describe RESTful or practically-RESTful APIs. 
-Practically-RESTful APIs are those that do not comply with the all constraints of REST.
+RESTful API Modeling Language (RAML) is a language to describe RESTful APIs. The language is YAML-based with a json
+format available, and it provides the constructs to describe RESTful or practically-RESTful APIs. Practically-RESTful APIs are those that do not comply with the all constraints of REST.
 
-The language aims to promote reuse, discovery and pattern-sharing, as well as merit-based emergence of patterns. 
-Tooling for RAML varies from modeling to software life cycle management and API description conversion. 
-For more information about RAML, see [https://raml.org](https://raml.org).
+The language aims to promote reuse, discovery and pattern-sharing, as well as merit-based emergence of patterns. Tooling for RAML varies from modeling to software life cycle management and API description conversion. For more information about RAML, see [https://raml.org](https://raml.org){:target="_blank"}.
 
-Process Services provides a description of all enterprise REST APIs using RAML and in json format. The description 
-follows RAML 0.8 but can easily be converted to the recent RAML 1.0 standard by using tools like Apimatic ().
+Process Services provides a description of all enterprise REST APIs using RAML and in json format. The description follows RAML 0.8 but can easily be converted to the recent RAML 1.0 standard by using tools like Apimatic.
 
 You can access the RAML description of all Enterprise REST APIs in Process Services using the following URL:
 
@@ -607,24 +549,19 @@ This URL returns the entire RAML description of the enterprise APIs.
 
 **Using the RAML file for Process Services**
 
-The Process Services RAML file can be used with tools supporting RAML to integrate it in API life cycle of 
-enterprise systems.
+The Process Services RAML file can be used with tools supporting RAML to integrate it in API life cycle of enterprise systems.
 
-Mulesoft provides a free RAML IDE called API Workbench. This is a plugin for the free editor, Atom, that can be used 
-to view the Process Services RAML file. For information on how to download and setup the Atom plugin, 
-see [http://apiworkbench.com/docs](http://apiworkbench.com/docs).
+Mulesoft provides a free RAML IDE called API Workbench. This is a plugin for the free editor, Atom, that can be used to view the Process Services RAML file. For information on how to download and setup the Atom plugin, see [http://apiworkbench.com/docs](http://apiworkbench.com/docs){:target="_blank"}.
 
-In addition, Mulesoft provides a web-based RAML API designer that can be used to combine Process Services REST APIs 
-in RAML-based API and system design. See [https://www.mulesoft.com/platform/api/anypoint-designer](https://www.mulesoft.com/platform/api/anypoint-designer).
+In addition, Mulesoft provides a web-based RAML API designer that can be used to combine Process Services REST APIs in RAML-based API and system design. See [https://www.mulesoft.com/platform/api/anypoint-designer](https://www.mulesoft.com/platform/api/anypoint-designer){:target="_blank"}.
 
-For a full list of tools that can use RAML throughout the entire application development life cycle see [http://raml.org/projects/projects](http://raml.org/projects/projects).
+For a full list of tools that can use RAML throughout the entire application development life cycle see [http://raml.org/projects/projects](http://raml.org/projects/projects){:target="_blank"}.
 
 ## Process Services ReST API
 
 The REST API exposes data and operations that are specific to Process Services.
 
-In contrast to the Process Engine REST API, the Process Services REST API can be called using any user. 
-The following sections describe the supported REST API endpoints.
+In contrast to the Process Engine REST API, the Process Services REST API can be called using any user. The following sections describe the supported REST API endpoints.
 
 ### Server Information
 
@@ -648,8 +585,7 @@ GET api/enterprise/app-version
 
 ### Profile
 
-This operation returns account information for the current user. This is useful to get the name, email, 
-the groups that the user is part of, the user picture, and so on.
+This operation returns account information for the current user. This is useful to get the name, email, the groups that the user is part of, the user picture, and so on.
 
 ```bash
 GET api/enterprise/profile
@@ -763,8 +699,7 @@ with a json body that looks like
 
 ### Runtime Apps
 
-When a user logs into Process Services, the landing page is displayed containing all the apps that the user is 
-allowed to see and use.
+When a user logs into Process Services, the landing page is displayed containing all the apps that the user is allowed to see and use.
 
 The corresponding REST API request to get this information is:
 
@@ -815,8 +750,7 @@ The `id` and `modelId` property of the apps are important here, as they are used
 
 ### App Definitions List
 
-When a user logs into Process Services, the landing page is displayed containing all the apps that the user is allowed 
-to see and use.
+When a user logs into Process Services, the landing page is displayed containing all the apps that the user is allowed to see and use.
 
 The corresponding REST API request to get this information is:
 
@@ -867,8 +801,7 @@ The `id` and `modelId` property of the apps are important here, as they are used
 
 ### App Import And Export
 
-It is possible to export app definitions and import them again. From the REST API point of view, this is useful to 
-bootstrap an environment (for users or continuous integration).
+It is possible to export app definitions and import them again. From the REST API point of view, this is useful to bootstrap an environment (for users or continuous integration).
 
 To export an app definition, you need the `modelId` from a runtime app or the `id` of an app definition model, and call:
 
@@ -884,8 +817,7 @@ To import an app again, post the zip file as multipart file to:
 POST api/enterprise/app-definitions/import
 ```
 
-To import an app to an existing app definition to create a new version instead of importing a new app definition, 
-post the zip file as multipart file to:
+To import an app to an existing app definition to create a new version instead of importing a new app definition, post the zip file as multipart file to:
 
 ```bash
 POST api/enterprise/app-definitions/{modelId}/import
@@ -2259,15 +2191,11 @@ If everything works as expected and the task is accessible to the current user, 
 
 ## Process Engine ReST API
 
-The Process Engine REST API is a supported equivalent of the Activiti Open Source API. This means that all operations 
-described in the [Activiti User Guide](http://activiti.org/userguide/index.html#_rest_api) are available as documented 
-there, except for REST endpoints that are not relevant for the enterprise product (for example, forms, as they are 
-implemented differently).
+The Process Engine REST API is a supported equivalent of the Activiti Open Source API. This means that all operations described in the [Activiti User Guide](http://activiti.org/userguide/index.html#_rest_api){:target="_blank"} are available as documented there, except for REST endpoints that are not relevant for the enterprise product (for example, forms, as they are implemented differently).
 
 This REST API is available on `<your-server-and-context-root>/api/`
 
-For example, fetching process definitions is described as an HTTP GET on `repository/process-definitions`. 
-This maps to:
+For example, fetching process definitions is described as an HTTP GET on `repository/process-definitions`. This maps to:
 
 ```xml
 <your-server-and-context-root>/api/repository/process-definitions
@@ -2279,8 +2207,7 @@ For example `<your-server-and-context-root>/api/repository/process-definitions?t
 
 ## Historic processes and tasks
 
-This section covers the examples for querying historic process instances and task instances in the Process Services API. 
-You can query for historic process instances and tasks to get information about ongoing and past process instances, or tasks.
+This section covers the examples for querying historic process instances and task instances in the Process Services API. You can query for historic process instances and tasks to get information about ongoing and past process instances, or tasks.
 
 ### Historic process instance queries
 
@@ -2298,8 +2225,7 @@ POST api/enterprise/historic-tasks/query
 
 ### Get historic process instances
 
-The following table lists the request parameters to be used in the JSON body POST. For example, to filter historic 
-process instances that completed before the given date (`startedBefore`):
+The following table lists the request parameters to be used in the JSON body POST. For example, to filter historic process instances that completed before the given date (`startedBefore`):
 
 ```bash
 POST api/enterprise/historic-process-instances/query
@@ -2340,8 +2266,7 @@ Example response:
 . . .
 ```
 
-Where, `size` is the size of the page or number of items per page. By default, the value is `25`, `start` is the page to start on. 
-Pages are counted from 0-N. By default, the value is 0, which means 0 will be the first page.
+Where, `size` is the size of the page or number of items per page. By default, the value is `25`, `start` is the page to start on. Pages are counted from 0-N. By default, the value is 0, which means 0 will be the first page.
 
 |`processInstanceId`|An ID of the historic process instance.|
 |`processDefinitionKey`|The process definition key of the historic process instance.|
@@ -2363,8 +2288,7 @@ Pages are counted from 0-N. By default, the value is 0, which means 0 will be th
 
 ### Get historic task instances
 
-The following table lists the request parameters that can be used in the JSON body POST. For example, 
-in case of `taskCompletedAfter`:
+The following table lists the request parameters that can be used in the JSON body POST. For example, in case of `taskCompletedAfter`:
 
 ```bash
 POST api/enterprise/historic-tasks/query
@@ -2583,11 +2507,9 @@ To retrieve the content attached to a process instance:
 GET api/enterprise/process-instances/{processInstanceId}/content
 ```
 
-By default, this will return all content: The related content (for example content uploaded via the UI in the 
-"related content" section of the task detail page) and the field content (content uploaded as part of a form).
+By default, this will return all content: The related content (for example content uploaded via the UI in the "related content" section of the task detail page) and the field content (content uploaded as part of a form).
 
-To only return the related content, add `?isRelatedContent=true` to the url. Similarly, add `?isRelatedContent=false` 
-when the return response should include only field content.
+To only return the related content, add `?isRelatedContent=true` to the url. Similarly, add `?isRelatedContent=false` when the return response should include only field content.
 
 Similarly, for a task:
 
@@ -2595,11 +2517,9 @@ Similarly, for a task:
 GET api/enterprise/tasks/{taskId}/content
 ```
 
-By default, this will return all content: The related content (for example content uploaded via the UI in the 
-"related content" section of the task detail page) and the field content (content uploaded as part of a form).
+By default, this will return all content: The related content (for example content uploaded via the UI in the "related content" section of the task detail page) and the field content (content uploaded as part of a form).
 
-To only return the related content, add `?isRelatedContent=true` to the url. Similarly, add `?isRelatedContent=false` 
-when the return response should include only field content.
+To only return the related content, add `?isRelatedContent=true` to the url. Similarly, add `?isRelatedContent=false` when the return response should include only field content.
 
 **Example response:**
 
@@ -2657,8 +2577,7 @@ POST api/enterprise/process-instances/{processInstanceId}/raw-content
 ```
 
 where the body contains a *multipart file*. Add the `isRelatedContent` parameter to the url to set whether the content 
-is *related* or not. For a process instance, this currently won’t have any influence on what is visible in the UI. 
-Note that the default value for this parameter is `false`.
+is *related* or not. For a process instance, this currently won’t have any influence on what is visible in the UI. Note that the default value for this parameter is `false`.
 
 To upload content to a task:
 
@@ -2666,9 +2585,7 @@ To upload content to a task:
 POST api/enterprise/tasks/{taskId}/raw-content
 ```
 
-where the body contains a *multipart file*. Add the `isRelatedContent` parameter to the url to set whether the content 
-is *related* or not. If `true`, the content will show up in the "related content" section of the task details. 
-Note that the default value for this parameter is `false`.
+where the body contains a *multipart file*. Add the `isRelatedContent` parameter to the url to set whether the content is *related* or not. If `true`, the content will show up in the "related content" section of the task details. Note that the default value for this parameter is `false`.
 
 To relate content (eg from Alfresco) to a process instance:
 
@@ -2685,9 +2602,7 @@ where the json body contains following properties:
 * mimeType
 * linkUrl
 
-Add the `isRelatedContent` parameter to the url to set whether the content is related or not. If `true`, the content 
-will show up in the "related content" section of the task details. Note that the default value for this parameter is `true` 
-(different from the call above with regular content!).
+Add the `isRelatedContent` parameter to the url to set whether the content is related or not. If `true`, the content will show up in the "related content" section of the task details. Note that the default value for this parameter is `true` (different from the call above with regular content!).
 
 **Example body (from Alfresco OnPremise):**
 
@@ -2977,8 +2892,7 @@ GET api/enterprise/admin/groups/{groupId}
 }
 ```
 
-Use the optional request parameter `includeAllUsers` (boolean value, by default true) to avoid getting all the 
-users at once (not ideal if there are many users).
+Use the optional request parameter `includeAllUsers` (boolean value, by default true) to avoid getting all the users at once (not ideal if there are many users).
 
 Use the following call:
 
@@ -3047,8 +2961,7 @@ DELETE api/enterprise/admin/groups/{groupId}/capabilities/{groupCapabilityId}
 
 #### Alfresco Content Services repositories
 
-A tenant administrator can configure one or more Alfresco Content Services repositories to use when working with content. 
-To retrieve the repositories configured for the tenant of the user used to do the request:
+A tenant administrator can configure one or more Alfresco Content Services repositories to use when working with content. To retrieve the repositories configured for the tenant of the user used to do the request:
 
 ```bash
 GET api/enterprise/profile/accounts/alfresco

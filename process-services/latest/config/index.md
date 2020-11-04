@@ -2,19 +2,16 @@
 title: Configure Process Services
 ---
 
-Configure Process Services using a properties file named `activiti-app.properties`. This file must be placed on the 
-application server’s classpath to be found.
+Configure Process Services using a properties file named `activiti-app.properties`. This file must be placed on the application server’s classpath to be found.
 
 Additionally, the properties file is available with the following options:
 
 * An `activiti-app.properties` file with default values in the WAR file (or exploded WAR folder) under the `WEB-INF/classes/META-INF/activiti-app` folder.
 * An `activiti-app.properties` file with custom values on the classpath. For example, the `WEB-INF/classes` folder of the WAR, the `/lib` folder of Tomcat, or other places specific to the web container being used.
 
-The values of a configuration file on the classpath have precedence over the values in the 
-`WEB-INF/classes/META-INF/activiti-app/activiti-app.properties` file.
+The values of a configuration file on the classpath have precedence over the values in the `WEB-INF/classes/META-INF/activiti-app/activiti-app.properties` file.
 
-For the Process Services user interface, there is an additional configuration file named `app-cfg.js`. 
-This file is located inside the .war file’s `script` directory.
+For the Process Services user interface, there is an additional configuration file named `app-cfg.js`. This file is located inside the .war file’s `script` directory.
 
 At a minimum, the application requires the following settings to run:
 
@@ -161,3 +158,23 @@ If you start up the application without a license, it will enter read only mode;
 |license.multi-tenant|If no license is available on first bootstrap this property decides if system will go into single or multi-tenant mode. The default value is `false`. |
 |license.default-tenant|If no license is available on first bootstrap this property decides the name of the default tenant. The default value is `tenant`. |
 |license.allow-upload|Decides if license uploads should be allowed in the system or not. The default value is `true`. |
+
+## Cookie configuration
+
+Process Services uses an HTTP cookie to store a user session. You can use multiple cookies for different browsers and devices. The application uses a database table to store the cookie values (called **tokens** internally), to allow a shared persistent session store in a multi-node setup.
+
+It’s possible to change the settings regarding cookies:
+
+|Property|description|default|
+|--------|-----------|-------|
+|security.cookie.max-age|The maximum age of a cookie, expressed in seconds. The max-age determines the period in which the browser will send the cookie with the requests.|2678400 (31 days)|
+|security.cookie.refresh-age|The age of a cookie before it is refreshesd. Refreshing means a new token will be created and a new cookie will be returned which the browser will use for subsequent requests. Setting the refresh-age low, will result in many new database rows when the user is using the application.To avoid that a user is suddenly logged out when using the application when reaching the max-age above, tokens are refreshed after this period (expressed in seconds).|86400 (1 day)|
+
+By default, cookies will have the `secure` flag set, when the request being made is HTTPS. If you only want to use the remember-me cookie over HTTPS (i.e. make the *secure* flag mandatory), set the property `security.cookie.always-secure` to `true`.
+
+To avoid that the persistent token table gets too full, a background job periodically removes obsolete cookie token values. Possible settings:
+
+|Property|description|default|
+|--------|-----------|-------|
+|security.cookie.database-removal.max-age|The maximum age an entry in the database needs to have to be removed.|Falls back to the `security.cookie.max-age` setting if not found. This effectively means that cookies which are no longer valid could be removed immediately from the database table.|
+|security.cookie.database-removal.cronExpression|The cron expression determining when the obsolete database table entries for the cookie values will be checked for removal.|`0 0 1 * * ?` (01:00 at night)|
