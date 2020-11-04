@@ -79,7 +79,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Identity Service 1.3 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | SAML Module for Alfresco Content Services 1.2.1 | |
 | Alfresco Intelligence Services 1.2 | |
-| Alfresco Intelligence Services 1.1 | |
 | Alfresco Content Connector for AWS S3 3.1 | Only compatible with Alfresco Media Management 1.4.2 or above. |
 | Alfresco Content Connector for AWS S3 3.0 | |
 Alfresco Content Connector for Azure 1.1 | |
