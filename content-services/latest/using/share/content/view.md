@@ -12,7 +12,7 @@ View the details page for a folder to conveniently see all information and actio
 
     > **Note:** Make sure you haven't selected **Hide Folders** in the Options menu.
 
-2. Click ![View Details icon](../../../images/view-folder-detail-icon.png) **View Details**.
+2. Click ![View Details icon]({% link content-services/images/view-folder-detail-icon.png %}) **View Details**.
 
     The Folder Details page displays all folder information, including properties and permissions. This page includes social features and folder actions.
 
@@ -30,11 +30,11 @@ The info includes the file location and name, version number, the user who last 
 
 With the options you can:
 
-* Click ![Like icon](../../../images/ico-download.png) to download a file.
-* Click ![Like icon](../../../images/like-icon.png) to like a file. You can click it again to unlike it.
-* Click ![Favorite icon](../../../images/favorite-icon.png) to favorite a file. You can click it again to unfavorite it.
-* Click ![Comment icon](../../../images/comment-icon.png) to comment on a file. When you've entered your comment click **Add Comment**.
-* Click ![Share icon](../../../images/ico-share.png) to share a file. You can copy a link or share it directly on social media.
+* Click ![Like icon]({% link content-services/images/ico-download.png %}) to download a file.
+* Click ![Like icon]({% link content-services/images/like-icon.png %}) to like a file. You can click it again to unlike it.
+* Click ![Favorite icon]({% link content-services/images/favorite-icon.png %}) to favorite a file. You can click it again to unfavorite it.
+* Click ![Comment icon]({% link content-services/images/comment-icon.png %}) to comment on a file. When you've entered your comment click **Add Comment**.
+* Click ![Share icon]({% link content-services/images/ico-share.png %}) to share a file. You can copy a link or share it directly on social media.
 
 #### Preview
 
@@ -48,9 +48,9 @@ When you preview a Microsoft Office, PDF, or other text-based file type (not an 
 
 You can also:
 
-* **Download** ![Like icon](../../../images/ico-download.png) the file in its original format or as a PDF.
-* Click ![Advanced Search icon](../../../images/ico-link.png) to share a link to the file, and even select to **Link to current page**.
-* Click ![Advanced Search icon](../../../images/advanced-search-icon.png) to search for text within the file.
+* **Download** ![Like icon]({% link content-services/images/ico-download.png %}) the file in its original format or as a PDF.
+* Click ![Advanced Search icon]({% link content-services/images/ico-link.png %}) to share a link to the file, and even select to **Link to current page**.
+* Click ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) to search for text within the file.
 
 #### Comments
 
@@ -67,12 +67,12 @@ The actions and details are grouped in sections that you can expand and collapse
 > **Note:** The viewing options are saved for the next time you preview this file.
 
 * **Document Actions** - All actions available for the file.
-* **Tags** - Tags associated with the item. Click ![Configure icon](../../../images/ico-configure.png) to display the Edit Properties page. On this page click **Select** beneath the **Tags** label to edit the tags. You can add and remove existing tags, and create new tags.
+* **Tags** - Tags associated with the item. Click ![Configure icon]({% link content-services/images/ico-configure.png %}) to display the Edit Properties page. On this page click **Select** beneath the **Tags** label to edit the tags. You can add and remove existing tags, and create new tags.
 * **Share** - Select and copy this link to share it with others.
-* **Properties** - Click ![Configure icon](../../../images/ico-configure.png) to edit the properties of the file.
-* **Permissions** - Click ![Permissions icon](../../../images/ico-manage-permissions.png) to edit the permissions for this file.
-* **Workflows** - Displays tasks that this file is included in. The profile picture of the user who started the task and the task type are shown. Click ![Tasks icon](../../../images/ico-workflow.png) to start a new task for this file, and click a task description to view the task.
-* **Version History** - Displays previous versions. Click ![Upload version icon](../../../images/ico-version-upload.png) to upload a new version, ![Replace version icon](../../../images/ico-version-revert.png) to replace the current version with a previous version, ![Download icon](../../../images/ico-version-download.png) to download a previous version, or ![Version properties icon](../../../images/ico-version-properties.png) to view previous version properties.
+* **Properties** - Click ![Configure icon]({% link content-services/images/ico-configure.png %}) to edit the properties of the file.
+* **Permissions** - Click ![Permissions icon]({% link content-services/images/ico-manage-permissions.png %}) to edit the permissions for this file.
+* **Workflows** - Displays tasks that this file is included in. The profile picture of the user who started the task and the task type are shown. Click ![Tasks icon]({% link content-services/images/ico-workflow.png %}) to start a new task for this file, and click a task description to view the task.
+* **Version History** - Displays previous versions. Click ![Upload version icon]({% link content-services/images/ico-version-upload.png %}) to upload a new version, ![Replace version icon]({% link content-services/images/ico-version-revert.png %}) to replace the current version with a previous version, ![Download icon]({% link content-services/images/ico-version-download.png %}) to download a previous version, or ![Version properties icon]({% link content-services/images/ico-version-properties.png %}) to view previous version properties.
 
 ### View a file in a browser
 
@@ -88,7 +88,7 @@ While the preview feature lets you view a file in Alfresco Share, you also have 
 
 When a file has geolocation data attached to it you can view the file location on Google Maps directly from Alfresco Share.
 
-1. Hover over a file that has the Geolocation Metadata available icon ![Geolocation metadata icon](../../../images/geographic-icon.png).
+1. Hover over a file that has the Geolocation Metadata available icon ![Geolocation metadata icon]({% link content-services/images/geographic-icon.png %}).
 
 2. Click **More** then **View on Google Maps**.
 

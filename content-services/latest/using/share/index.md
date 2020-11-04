@@ -119,7 +119,7 @@ You can resize most dashlets.
 
 To resize a dashlet click and drag on the bottom edge of the dashlet until it's the height you want. This is saved between sessions.
 
-> **Note:** If you hover over a dashlet header then a ![Add Event icon](../../../images/help-1.png) icon appears. Click it for an explanation of what the dashlet does. This stays open until you close it or navigate away from the dashboard.
+> **Note:** If you hover over a dashlet header then a ![Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. This stays open until you close it or navigate away from the dashboard.
 
 ## What can I do with my dashlets?
 
@@ -175,20 +175,20 @@ Each dashlet has a unique role:
 
     Displays the website of your choice.
 
-        * Click the ![](../../../images/ico-configure.png) configure icon to specify the website.
+        * Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to specify the website.
         * Click the dashlet title to open the website in a separate window.
 
 * RSS Feed
 
     Displays the Alfresco website feed by default.
 
-        * Click the ![](../../../images/ico-configure.png) configure icon to change the RSS feed.
+        * Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
 
 * Alfresco Add-ons RSS Feed
 
     Displays the Newest Add-ons feed from the Alfresco Add-ons website by default.
 
-        * Click the ![](../../../images/ico-configure.png) configure icon to change the RSS feed.
+        * Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
 
 * My Discussions**
 
@@ -207,7 +207,7 @@ Each dashlet has a unique role:
 
     Displays the results of a pre-configured search.
 
-        * Click the ![](../../../images/ico-configure.png) configure icon to define the search.
+        * Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to define the search.
 
 * My Document Workspaces
 
@@ -265,7 +265,7 @@ On the site dashboard, only a site manager can configure the Saved Search dashle
 
 1. Navigate to your personal dashboard or enter a site.
 
-2. On the Saved Search dashlet, click the ![Configure](../../../images/ico-configure.png) configure icon.
+2. On the Saved Search dashlet, click the ![Configure]({% link content-services/images/ico-configure.png %}) configure icon.
 
     The Enter Search Term dialog box opens.
 
@@ -347,7 +347,7 @@ You can subscribe to an RSS Feed in the following places:
 
 An RSS Feed button or icon shows you where the feeds are available.
 
-1. Click the ![RSS Feed](../../../images/ico-rss.png) **RSS Feed** button or icon next to a feed you want to subscribe to.
+1. Click the ![RSS Feed]({% link content-services/images/ico-rss.png %}) **RSS Feed** button or icon next to a feed you want to subscribe to.
 
     This initiates the subscription process. What you see next depends on the browser you're using.
 

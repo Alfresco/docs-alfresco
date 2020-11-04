@@ -6,9 +6,9 @@ In Alfresco you can use social features to like, favorite, and comment on files 
 
 These social features are available in the file preview screen, in the Site Content dashlet, and in several of the Document Library views. You can select to view just favorite files in several of your user and site dashlets.
 
-* Click ![Like icon](../../../images/like-icon.png) to like an file/folder. You can click it again to unlike it.
-* Click ![Favorite icon](../../../images/favorite-icon.png) to favorite an file/folder. You can click it again to unfavorite it.
-* Click ![Comment icon](../../../images/comment-icon.png) **Comment** to comment on an file/folder. When you've entered your comment click **Add**.
+* Click ![Like icon]({% link content-services/images/like-icon.png %}) to like an file/folder. You can click it again to unlike it.
+* Click ![Favorite icon]({% link content-services/images/favorite-icon.png %}) to favorite an file/folder. You can click it again to unfavorite it.
+* Click ![Comment icon]({% link content-services/images/comment-icon.png %}) **Comment** to comment on an file/folder. When you've entered your comment click **Add**.
 
 > **Note:** You can't add comments if your permission level on the site is set to Consumer. Speak to your Alfresco administrator if you need to change your permission level.
 
@@ -48,7 +48,7 @@ You can edit a comment to change what it says.
 
 1. Find the content (file or folder) that you commented on and click on it to open it in the file preview screen.
 
-2. Click the ![Edit Comment icon](../../../images/ico-configure.png) edit comment icon for the comment you want to edit.
+2. Click the ![Edit Comment icon]({% link content-services/images/ico-configure.png %}) edit comment icon for the comment you want to edit.
 
     This icon is available only to the user who created the comment and site managers. The comment list displays the last ten comments added.
 
@@ -64,7 +64,7 @@ You can delete a comment that you created, and site managers can delete any comm
 
 1. Find the content (file or folder) that you commented on and click on it to open it in the file preview screen.
 
-2. Click the ![Delete icon](../../../images/ico-delete.png) Delete Comment icon for the comment you want to delete.
+2. Click the ![Delete icon]({% link content-services/images/ico-delete.png %}) Delete Comment icon for the comment you want to delete.
 
     This icon is available only to the user who created the comment and site managers. The comment list displays the last ten comments added.
 

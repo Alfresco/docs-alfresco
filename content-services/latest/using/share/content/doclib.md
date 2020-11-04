@@ -14,7 +14,7 @@ Access the site Document Library to view and work with the content in the curren
 
     > **Note:** In the **Options** menu you can also show and hide folders, switch to fullscreen view, and set up an RSS feed.
 
-3. Use the sort menu at the top of the list to change the criteria used to sort the items and click the ![Sort icon](../../../images/sort-icon.png) icon to toggle between ascending and descending sort order.
+3. Use the sort menu at the top of the list to change the criteria used to sort the items and click the ![Sort icon]({% link content-services/images/sort-icon.png %}) icon to toggle between ascending and descending sort order.
 
     > **Note:** The view options you select (library view, sort order, hide/show folder selection) are specific to your user account. These settings are carried over from the current site to all other sites that you view. They are saved between sessions and remain the preferred view until you change it.
 
@@ -22,7 +22,7 @@ Access the site Document Library to view and work with the content in the curren
 
     > **Note:** If you're using a Mac then it might seem that not all of the actions are available. This is because with a Mac sometimes the scrollbars are hidden. To display the scrollbars go **System Preferences** > **General** and select to always show scroll bars.
 
-    In the other views, click the ![Information icon](../../../images/ico-information.png) information button for an item to display the item details, version, actions, and social features.
+    In the other views, click the ![Information icon]({% link content-services/images/ico-information.png %}) information button for an item to display the item details, version, actions, and social features.
 
 ### Exploring the library
 
@@ -54,7 +54,7 @@ The **Documents** list in the explorer panel provides the following views:
 
     Displays the files you have marked as favorites
 
-The **Library** section displays the folder structure in a tree view. The symbol ![Subfolders](../../../images/Subfolders.png) indicates a library folder contains subfolders. Click on a folder to expand or collapse it.
+The **Library** section displays the folder structure in a tree view. The symbol ![Subfolders]({% link content-services/images/Subfolders.png %}) indicates a library folder contains subfolders. Click on a folder to expand or collapse it.
 
 The **Categories** tree lets you filter the library contents by category. Click a category to expand the branch; click it again to collapse it.
 
@@ -65,7 +65,7 @@ The **Tags** list displays the tags currently associated with one or more files.
 The breadcrumb path above the file list displays your current position in the tree. Each breadcrumb item is a link so you can easily return to any part of the current navigation path. You can:
 
 * Click a link to return to the corresponding folder.
-* Click ![Navigate Up](../../../images/navigate-up-icon.png) to display the contents of the folder one level higher.
+* Click ![Navigate Up]({% link content-services/images/navigate-up-icon.png %}) to display the contents of the folder one level higher.
 * Click **Options** then **Hide Breadcrumb** / **Show Breadcrumb** to hide/show the breadcrumb path.
 
 For each piece of content (folders and files) you view in the**Document Library** you can:
@@ -91,13 +91,13 @@ If you select one of the more visually rich views, the way you interact with con
 
 * **Resize the thumbnails**
 
-    ![Size slider](../../../images/GV-slider.png)
+    ![Size slider]({% link content-services/images/GV-slider.png %})
 
     Use the resizing bar to make the thumbnails larger and smaller. This lets you choose how much detail you see in the main view so you can either quickly scan many smaller images or preview larger ones without needing to view the details page.
 
 * **Display the information panel**
 
-    Click the ![Information icon](../../../images/ico-information.png) Information icon to display content details and available actions.
+    Click the ![Information icon]({% link content-services/images/ico-information.png %}) Information icon to display content details and available actions.
 
 * **Select content**
 

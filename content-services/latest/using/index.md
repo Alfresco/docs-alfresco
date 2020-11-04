@@ -39,7 +39,7 @@ To start the Getting Started guide you need to sign in to Alfresco Share.
 
     This opens your personal dashboard. You can now configure the dashboard so that it shows the information most important to you.
 
-    ![Your Personal Dashboard](../../images/gs-firstlogin.png)
+    ![Your Personal Dashboard]({% link content-services/images/gs-firstlogin.png %})
 
 ## Personalizing Alfresco Share
 
@@ -59,7 +59,7 @@ You can customize your dashboard so that you only see the information that you'r
 
 To customize your dashboard appearance and content:
 
-1. Click ![Customize Dashboard icon](../../images/settings-icon.png) to show the Customize User Dashboard page.
+1. Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) to show the Customize User Dashboard page.
 
 2. Click **Change Layout** to display the available layouts.
 
@@ -69,7 +69,7 @@ To customize your dashboard appearance and content:
 
 5. Drag and drop **My Profile** and then **My Calendar** to Column 3.
 
-    ![Customize User Dashboard: Add Dashlets](../../images/gs-dashlets.png)
+    ![Customize User Dashboard: Add Dashlets]({% link content-services/images/gs-dashlets.png %})
 
 6. Select **Hide from Dashboard** for the Get Started Panel.
 
@@ -99,7 +99,7 @@ To update your profile:
 
 When your colleagues view your profile they'll see all the details you've entered.
 
-![My Profile](../../images/gs-my-profile.png)
+![My Profile]({% link content-services/images/gs-my-profile.png %})
 
 ## Building a site
 
@@ -123,7 +123,7 @@ The first thing that you need to do is to create a site and choose its settings.
 
         > **Note:** By setting the site to **Public** all users in your organization can see and join the site. Selecting **Moderated** means that everyone can see it but a site manager has to approve requests to join. If you set the site visibility to **Private**, only users that you, the Site Manager, add to a site will be able to see and join the site. The visibility setting you select is displayed next to the site name when a user is in the site. See [Alfresco Share sites]({% link content-services/latest/using/share/sites.md %}) for more information on site visibility settings.
 
-    ![Create Site](../../images/gs-create-site.png)
+    ![Create Site]({% link content-services/images/gs-create-site.png %})
 
 3. If you have modules such as Records Management installed, then there will be an additional Type option. Select **Collaboration Site** to create a standard site.
 
@@ -135,7 +135,7 @@ The first thing that you need to do is to create a site and choose its settings.
 
 A site dashboard displays all information and activities associated with the site. You can customize the site dashboard just as you did with your personal dashboard.
 
-1. Click ![Customize Dashboard icon](../images/settings-icon.png) then Customize Dashboard.
+1. Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) then Customize Dashboard.
 
 2. Leave the current layout as it is and click **Add Dashlets**.
 
@@ -151,7 +151,7 @@ You can add features to your site such as a discussion forum, a wiki, or a blog.
 
 At the top of your site dashboard are tabs for areas of your site. By default you have Site Dashboard, Document Library, and Site Members. You can add additional features as needed for a site and choose a site homepage. If you look at the Wiki dashlet that you added previously, you'll see that it says that no page is configured. You're now going to configure a wiki for the site.
 
-1. Click ![Customize Dashboard icon](../../images/settings-icon.png) and then **Customize Site**.
+1. Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) and then **Customize Site**.
 
 2. Drag the Wiki and Calendar icons down into the Current Site Pages area, and click **OK**.
 
@@ -183,7 +183,7 @@ You're going to add two documents that you created previously to your site.
 
 2. You're going to drag and drop the content in - go to the location where you saved your two files, select them, and drag and drop them directly to the drag and drop area on the Document Library.
 
-    ![Drag and drop](../images/gs-dragdrop.png)
+    ![Drag and drop]({% link content-services/images/gs-dragdrop.png %})
 
     It's as simple as that. Your documents are now uploaded to the site library.
 
@@ -207,7 +207,7 @@ Updating your content in Alfresco Share is easy to do and you can even select wh
 
 5. Back in Alfresco Share, hover your curser over the document and click **Upload New Version**.
 
-    ![Update File page](../../images/UpdateFile.png)
+    ![Update File page]({% link content-services/images/UpdateFile.png %})
 
 6. In the Update File page click the browse icon and find and select the "Working Copy" document.
 
@@ -245,11 +245,11 @@ As well as uploading content, you can also create content right in Alfresco Shar
 
 5. When you're done, close the Google Docs browser tab.
 
-    In Alfresco Share you'll see the file displays the ![Geolocation metadata icon](../../images/ico-googledocs.png) icon to show that it's open in Google Docs.
+    In Alfresco Share you'll see the file displays the ![Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}) icon to show that it's open in Google Docs.
 
 6. In Alfresco Share, click **More** then **Check In Google Doc**.
 
-7. Now hover over the new item, click ![Edit](../../images/ico-configure.png), and type a new name for the item then press ENTER.
+7. Now hover over the new item, click ![Edit]({% link content-services/images/ico-configure.png %}), and type a new name for the item then press ENTER.
 
 ## Being social
 
@@ -265,7 +265,7 @@ You can schedule an online meeting to welcome new users and discuss the purpose 
 
 1. Click **More** then **Calendar** to open the calendar.
 
-2. Hover over a date on the calendar and click the **Add Event** icon (![Add Event icon](../../images/ico-add-event.png)).
+2. Hover over a date on the calendar and click the **Add Event** icon (![Add Event icon]({% link content-services/images/ico-add-event.png %})).
 
 3. Add an event title as the What; because you're holding the meeting online you don't need to enter a Where, but you can enter a description if you like.
 
@@ -275,13 +275,13 @@ You can schedule an online meeting to welcome new users and discuss the purpose 
 
 5. Click **Home** and you'll see the meeting in the Site Activities dashlet.
 
-    ![Site activites dashlet](../../images/gs-site-activities.png)
+    ![Site activites dashlet]({% link content-services/images/gs-site-activities.png %})
 
 ### Adding users to your site
 
 Now that you've created a site and added content, the next step is to invite other Alfresco Share users to the site.
 
-1. Click the Add User icon (![Invite to Site](../../images/invite-to-site-icon.png)) at the top of the dashboard to open the Add Users page.
+1. Click the Add User icon (![Invite to Site]({% link content-services/images/invite-to-site-icon.png %})) at the top of the dashboard to open the Add Users page.
 
     > **Note:** You don't need to be on your site dashboard to do this - the **Add Users** option is available from everywhere in your site.
 
@@ -317,7 +317,7 @@ When you look at the site dashboard you can see site activity and details of con
 
     Once that's done you can see there are **Favorite**, **Like** and **Comment** options.
 
-    ![Site content dashlet](LINK ../../images/gs-site-content-dashlet.png)
+    ![Site content dashlet](LINK ]({% link content-services/images/gs-site-content-dashlet.png %})
 
 5. Now click the **Favorite** option for one of the documents.
 

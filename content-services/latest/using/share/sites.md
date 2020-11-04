@@ -30,7 +30,7 @@ The manager of any site—whether public or private—can add users.
 
 **Note:** The visibility setting of a site is displayed next to the site name when you're in the site.
 
-You can remove yourself from a site at any time by clicking ![settings](../../../images/settings-icon.png) in the site and selecting **Leave Site**.
+You can remove yourself from a site at any time by clicking ![settings]({% link content-services/images/settings-icon.png %}) in the site and selecting **Leave Site**.
 
 ## Accessing existing sites
 
@@ -65,7 +65,7 @@ When you join sites you gain access to the content that's stored on them.
 
 4. Click on a site to go straight to the site dashboard.
 
-    > **Note:** Click ![Customize Dashboard icon](../../../images/settings-icon.png) to leave or join a site, depending on whether you're already a member or not. If you request to join a moderated site then site managers are notified and you'll need to wait until they give you access.
+    > **Note:** Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) to leave or join a site, depending on whether you're already a member or not. If you request to join a moderated site then site managers are notified and you'll need to wait until they give you access.
 
 5. Click **Sites** and you can add or remove the current site from your favorite sites list.
 
@@ -75,7 +75,7 @@ When you join sites you gain access to the content that's stored on them.
 
 It's quick and easy to leave a site when you no longer want to be a member.
 
-1. On the dashboard of the site you want to leave, click ![settings](../../../images/settings-icon.png) then **Leave Site**.
+1. On the dashboard of the site you want to leave, click ![settings]({% link content-services/images/settings-icon.png %}) then **Leave Site**.
 
 2. Click **OK** to confirm that you want to leave the site.
 
@@ -113,7 +113,7 @@ Additional features can be set up by a site manager when they're [customizing a 
 
 The site dashboard contains information specific to the current site, and like your user dashboard, site information is organized and displayed in dashlets.
 
-The site name is displayed at the top of the screen. The site manager has additional options under the ![settings](../../../images/settings-icon.png) tools menu and an additional ![Invite to Site](../../../images/invite-to-site-icon.png) add users button to set up and manage the site and it's members.
+The site name is displayed at the top of the screen. The site manager has additional options under the ![settings]({% link content-services/images/settings-icon.png %}) tools menu and an additional ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) add users button to set up and manage the site and it's members.
 
 Sites are made up of different features, or pages, which you can find under the **More** menu. Each new site includes only a library, but a site manager can customize the site to include any combination of pages, including a wiki, a blog, a calendar, a discussion forum, web links, and data lists.
 
@@ -125,7 +125,7 @@ There's a **Site Members** link for managing the site membership.
 
 A site manager can resize most dashlets by clicking and dragging on the bottom edge of the dashlet until it's the height you want. This is saved between sessions.
 
-> **Note:** If you hover over a dashlet header then a ![Add Event icon](../../../images/help-1.png) icon appears. Click it for an explanation of what the dashlet does. This stays open until you close it or navigate away from the dashboard.
+> **Note:** If you hover over a dashlet header then a ![Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. This stays open until you close it or navigate away from the dashboard.
 
 ## Choosing a site homepage
 
@@ -135,7 +135,7 @@ Site managers have the option to remove the site dashboard for individual sites.
 
 1. Enter a site.
 
-2. Click ![settings](../../../images/settings-icon.png) then **Customize Site**.
+2. Click ![settings]({% link content-services/images/settings-icon.png %}) then **Customize Site**.
 
     The Site Dashboard is shown by default as one of your Current Site Pages.
 
@@ -197,14 +197,14 @@ Any combination of the site dashlets can appear on the dashboard:
     Displays a selected page from the site wiki.
 
         * Click the name of the wiki page in the dashlet header to navigate to the wiki.
-        * Click the ![configure](../../../images/ico-configure.png) configure icon to select a different wiki page to display in the dashlet. This is available only if you are a site manager.
+        * Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to select a different wiki page to display in the dashlet. This is available only if you are a site manager.
 
 * Site Links
 
     Displays the web links compiled by site users.
 
         * Click a link to open the related website.
-        * Click the ![link details](../../../images/ico-link-details.png) link's details icon to view the full link and any related comments.
+        * Click the ![link details]({% link content-services/images/ico-link-details.png %}) link's details icon to view the full link and any related comments.
 
 * Image Preview
 
@@ -213,7 +213,7 @@ Any combination of the site dashlets can appear on the dashboard:
         * Click a thumbnail to open the image in the current window.
         * Click the View Details icon to preview or work with the image in the library.
         * Click the Download icon to download a copy of the image to your computer.
-        * Click the ![configure](../../../images/ico-configure.png) configure icon to specify a folder. The dashlet will display the images in just that folder.
+        * Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to specify a folder. The dashlet will display the images in just that folder.
 
 * Site File Type Breakdown
 
@@ -233,26 +233,26 @@ Any combination of the site dashlets can appear on the dashboard:
 
     Displays a website configured by a site manager.
 
-        * Click the ![](../../../images/ico-configure.png) configure icon to select a website to display.
+        * Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to select a website to display.
 
 * Site Notice
 
     Displays a custom message posted by a site manager
 
-        * Click the ![configure](../../../images/ico-configure.png) configure icon to edit or change the message. This is available only if you are a site manager.
+        * Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to edit or change the message. This is available only if you are a site manager.
         > **Tip:** This dashlet title can be customized, so the dashlet will probably have a label other than **Site Notice**.
 
 * RSS Feed
 
     Displays the Alfresco website feed by default.
 
-        * Click the ![configure](../../../images/ico-configure.png) configure icon to change the RSS feed.
+        * Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
 
 * Alfresco Add-ons RSS Feed
 
     Displays the Newest Add-ons feed from the Alfresco Add-ons website by default.
 
-        * Click the ![configure](../../../images/ico-configure.png) configure icon to change the RSS feed.
+        * Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
 
 * Site Data Lists
 
@@ -278,7 +278,7 @@ Any combination of the site dashlets can appear on the dashboard:
 
     Displays the results of a pre-configured search.
 
-        * Click the ![configure](../../../images/ico-configure.png) configure icon to define the search.
+        * Click the ![configure]({% link content-services/images/ico-configure.png %}) configure icon to define the search.
 
 ### Configuring the RSS feed dashlets
 
@@ -375,7 +375,7 @@ Each new site contains a library, and the site manager can [add other features](
 
 1. Enter a site.
 
-2. Click ![settings](../../../images/settings-icon.png) then **Customize Site**.
+2. Click ![settings]({% link content-services/images/settings-icon.png %}) then **Customize Site**.
 
 3. Choose a site theme.
 
@@ -399,7 +399,7 @@ Like your user dashboard, site information is organized and displayed in dashlet
 
 1. Enter a site.
 
-2. Click ![Settings](../../../images/settings-icon.png) then **Customize Dashboard**.
+2. Click ![Settings]({% link content-services/images/settings-icon.png %}) then **Customize Dashboard**.
 
     The Customize Dashboard page displays the current layout and configuration of your dashboard.
 
@@ -433,7 +433,7 @@ Only a site manager can edit the site details.
 
 1. Enter a site.
 
-2. Click ![Settings icon](../../../images/settings-icon.png) then **Edit Site Details**.
+2. Click ![Settings icon]({% link content-services/images/settings-icon.png %}) then **Edit Site Details**.
 
 3. Change the site details as necessary.
 
@@ -459,7 +459,7 @@ Only a site manager can delete a site.
 
 1. Enter a site.
 
-2. Click ![Settings icon](../../../images/settings-icon.png) then **Delete Site**.
+2. Click ![Settings icon]({% link content-services/images/settings-icon.png %}) then **Delete Site**.
 
 3. Click **OK** to confirm the deletion.
 
@@ -495,7 +495,7 @@ You can add any user, either internal to your organization or an external user.
 
 > **Note:** External users can only be added if your Alfresco administrator has [enabled the external users panel](link share-enable-external-user.md).
 
-1. Click ![Invite to Site](../../../images/invite-to-site-icon.png) in the site you want to add users to, or click **Add Users** in the Site Members dashlet.
+1. Click ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) in the site you want to add users to, or click **Add Users** in the Site Members dashlet.
 
     You can also open the Add Users page directly from the Site Members page.
 
@@ -543,7 +543,7 @@ All managers of a site will be receive an email and be given a new approval task
 
 Inviting users one at a time to join your site can be time consuming. To save time you can add entire user groups.
 
-1. Click ![Invite to Site](../../../images/invite-to-site-icon.png) in the site you want to add groups to, or click **Add Users** in the Site Members dashlet.
+1. Click ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) in the site you want to add groups to, or click **Add Users** in the Site Members dashlet.
 
     You can open the Add Users page directly from the Site Members page.
 
@@ -617,9 +617,9 @@ If your account is an administrator account, then you can make yourself a site m
 
 > **Note:** Users who aren't an Alfresco administrator don't have this option. They need to request a role change from an existing site manager.
 
-In a site click ![Settings](../../../images/settings-icon.png) then **Become Site Manager**.
+In a site click ![Settings]({% link content-services/images/settings-icon.png %}) then **Become Site Manager**.
 
-You are now a manager of the site. You'll see that you have additional options available when you click ![Settings](../../../images/settings-icon.png).
+You are now a manager of the site. You'll see that you have additional options available when you click ![Settings]({% link content-services/images/settings-icon.png %}).
 
 ### Removing a site member or site group
 

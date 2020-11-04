@@ -201,7 +201,7 @@ Only a Site Manager, a site Collaborator, and the user who created the comment c
 
     The detail view displays the selected link along with any related comments.
 
-2. Position your cursor over the comment you want to edit to display the available actions and then click the ![Edit](../images/ico-configure.png) Edit icon.
+2. Position your cursor over the comment you want to edit to display the available actions and then click the ![Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
 
     This action is available only when the currently signed in user has permission to edit the comment.
 
@@ -227,7 +227,7 @@ Only a Site Manager and the user who created the comment can delete it.
 
     The detail view displays the selected link along with any related comments.
 
-2. Position your cursor over the comment you want to delete to display the available actions and then click the ![Delete](../images/ico-delete.png) Delete option.
+2. Position your cursor over the comment you want to delete to display the available actions and then click the ![Delete]({% link content-services/images/ico-delete.png %}) Delete option.
 
     This action is available only when the currently signed in user has permission to delete the comment.
 

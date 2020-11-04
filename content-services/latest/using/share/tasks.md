@@ -122,7 +122,7 @@ You can view the full details of all workflows that you have started.
 
     The Details page displays all information related to this workflow.
 
-    * Click **View Current Tasks** at the top of the page to jump to the Current Tasks section which displays the tasks generated from the selected workflow. From here you can view ![view task](../../../images/ico-view-task.png) or edit ![configure](../../../images/ico-configure.png) a task.
+    * Click **View Current Tasks** at the top of the page to jump to the Current Tasks section which displays the tasks generated from the selected workflow. From here you can view ![view task]({% link content-services/images/ico-view-task.png %}) or edit ![configure]({% link content-services/images/ico-configure.png %}) a task.
     * Click the link in the Most Recently Completed Task section to view details on the last task completed as part of this workflow. This task also appears in the History section.
     * Look at completed tasks in the History section. Click a task to view its details.
     * Click an item in the Items list to see it in the file preview screen. Click your browser’s Back button to return to the Workflow Details page.
@@ -169,7 +169,7 @@ You can view the details for an individual task or for the workflow that initiat
 
     * **View Task**: Displays the task details
     * **View Workflow**: Displays the workflow details
-    > **Note:** An icon (![pooled](../../../images/im-pooled.png)) indicates a pooled task. Pooled tasks that can be claimed are marked as **Unassigned**.
+    > **Note:** An icon (![pooled]({% link content-services/images/im-pooled.png %})) indicates a pooled task. Pooled tasks that can be claimed are marked as **Unassigned**.
 
 3. Click the **Task Details** and **Workflow Details** options to move between the two page views.
 
@@ -180,7 +180,7 @@ You can view the details for an individual task or for the workflow that initiat
     The Workflow Details page displays the information for the workflow that generated this task.
 
     * Click **View Process Diagram** to display a graphical representation of the workflow. A red border highlights the current stage of the workflow. Click anywhere on the graphic to close it.
-    * Click **View Current Tasks** at the top of the page to jump to the Current Tasks section which displays the tasks generated from the selected workflow. From here you can view ![view task](../../../images/ico-view-task.png) or edit ![configure](../../../images/ico-configure.png) a task.
+    * Click **View Current Tasks** at the top of the page to jump to the Current Tasks section which displays the tasks generated from the selected workflow. From here you can view ![view task]({% link content-services/images/ico-view-task.png %}) or edit ![configure]({% link content-services/images/ico-configure.png %}) a task.
     * Click the link in the Most Recently Completed Task section to view details on the last task completed as part of this workflow. This task also appears in the History section.
     * Look at completed tasks in the History section. Click a task to view it's details.
     * Click an item in the Items list to see it in the file preview screen. Click your browser’s Back button to return to the Workflow Details page.

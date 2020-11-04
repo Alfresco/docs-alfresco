@@ -44,7 +44,7 @@ If you're a [Search Manager](link super-search-manager.md) super user then you'l
 
 As well as the search box on the toolbar, there are also additional advanced search features for finding [people](link ../tasks/people-search.md), [sites](link ../tasks/sites-search.md), and [content](link ../tasks/search-advanced.md).
 
-> **Tip:** If a file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon](link ../../../images/advanced-search-icon.png) on the file preview to search for text in the file.
+> **Tip:** If a file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon](link ../]({% link content-services/images/advanced-search-icon.png %}) on the file preview to search for text in the file.
 
 ## Search tips
 
@@ -141,7 +141,7 @@ The profile details are organized across several pages:
 
 Use the search box in the toolbar to access the advanced search.
 
-1. Click ![Advanced Search icon](link ../../../images/advanced-search-icon.png) in the search box then click **Advanced Search**.
+1. Click ![Advanced Search icon](link ../]({% link content-services/images/advanced-search-icon.png %}) in the search box then click **Advanced Search**.
 
     The Advanced Search screen displays.
 

@@ -8,9 +8,9 @@ A search runs when you open the contents of the Smart Folder, and the results ar
 
 For example, a Smart Folder called My video files might be created to contain all files that I created that have a video format. Every time I open the My video files folder, the search runs, and all my video files are available in that folder, wherever in the repository I have created them.
 
-You might not even know that you are using Smart Folders. If you see this icon, ![Folder with a magnifying glass representing a Smart Folder](../../../images/sf.png), then the folder is smart. Files are also automatically classified when they're uploaded into these folders.
+You might not even know that you are using Smart Folders. If you see this icon, ![Folder with a magnifying glass representing a Smart Folder]({% link content-services/images/sf.png %}), then the folder is smart. Files are also automatically classified when they're uploaded into these folders.
 
-The diagram shows a physical file system, and how a Smart Folder structure is created to contain files relevant to a particular customer:![Physical repository shown on the left with folders and files that relate to a customer. These are brought together into a new Smart Folder structure in Alfresco](../../../images/sf-mapping.png)
+The diagram shows a physical file system, and how a Smart Folder structure is created to contain files relevant to a particular customer:![Physical repository shown on the left with folders and files that relate to a customer. These are brought together into a new Smart Folder structure in Alfresco]({% link content-services/images/sf-mapping.png %})
 
 Smart Folders have a limited set of actions:
 
@@ -36,7 +36,7 @@ You can apply a Smart Folder structure to a physical folder by using aspects.
 
 2. Click Create, then Folder to create a new folder. Enter the folder name and Save.
 
-    Alternatively, select an existing physical folder. A physical folder is one that you have created: ![Physical folder icon](../../../images/folder.png)
+    Alternatively, select an existing physical folder. A physical folder is one that you have created: ![Physical folder icon]({% link content-services/images/folder.png %})
 
 3. Hover over the folder and from the menu, select More, then Manage Aspects.
 

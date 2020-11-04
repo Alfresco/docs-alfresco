@@ -38,7 +38,7 @@ When you define a rule, it only applies to new content added to the folder. File
 
 You can create rules for a folder, in much the same way that you might apply rules to your emails.
 
-> **Note:** If a folder already has rules applied to it (indicated by the ![rules](../../../images/rules-icon.png) icon) you can add new rules to it by [adding a set of rules](library-folder-rules-new.md).
+> **Note:** If a folder already has rules applied to it (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) you can add new rules to it by [adding a set of rules](library-folder-rules-new.md).
 
 1. Hover over a folder with no rules applied and click **More** then **Manage Rules**.
 
@@ -70,7 +70,7 @@ You can create rules for a folder, in much the same way that you might apply rul
 
     > **Note:** The **Copy** option copies items in the folder only, not the contents of any sub-folders. Select the additional **Deep Copy** option if you want to also copy sub-folders and their contents.
 
-    > **Note:** The ![missing info](../../../images/im-missinginfo.png) icon indicates where any required information is missing from your condition or action.
+    > **Note:** The ![missing info]({% link content-services/images/im-missinginfo.png %}) icon indicates where any required information is missing from your condition or action.
 
 8. Select additional options:
 
@@ -119,7 +119,7 @@ See [Tasks and workflows](../tasks/library-folder-rules-simpleworkflow.md) for m
 
 The **Link to Rule Set** option lets you reuse an existing rule set that's already defined for another folder.
 
-> **Note:** If a folder already has linked rules applied (rules are indicated by the ![rules](../../../images/rules-icon.png) icon) you can link to new rules by [linking to a different rule set](library-folder-rules-change-link.md).
+> **Note:** If a folder already has linked rules applied (rules are indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) you can link to new rules by [linking to a different rule set](library-folder-rules-change-link.md).
 
 1. Hover over a folder with no rules applied and click **More** then **Manage Rules**.
 
@@ -205,13 +205,13 @@ For example, you could set up rules to create a simple workflow that manages con
     * **Run rule in background** Lets you continue working while the rule is running. You can also select an action to run if an error occurs with the rule. These actions are set up by your Alfresco administrator.
 11. Click **Create**, or **Create and Create Another** to save this rule and start creating another.
 
-In the **Document Library** the symbol ![simple workflow](../../../images/im-rules-simpleworkflow.png) to the left of an item indicates that a simple workflow has been applied to it. The approve and reject actions (with their defined labels) appear in the action list for these items.
+In the **Document Library** the symbol ![simple workflow]({% link content-services/images/im-rules-simpleworkflow.png %}) to the left of an item indicates that a simple workflow has been applied to it. The approve and reject actions (with their defined labels) appear in the action list for these items.
 
 #### Start Process action details
 
 The Start Process action allows you to create a folder rule in Alfresco Share that triggers an Alfresco Process Services process. To access the Perform Action section of the rule definition, select **Start Process** and then click the **Options** button.
 
-![Start Process Options fields](../../../images/aps-action.png)
+![Start Process Options fields]({% link content-services/images/aps-action.png %})
 
 * **Process definition**: Select the process model from Process Services that you want to use from the drop down list. The drop down list will include the Process Services review processes and any other custom ones that have been created in the Process Services apps that you have access to.
 * **Process name**: Enter a custom name you want to give for the process instance when the rule triggers.
@@ -248,7 +248,7 @@ See [Troubleshooting rules and actions](https://docs.alfresco.com/6.2/concepts/t
 
 A set of rules can include any number of individual rules, and you can add new rules to a folder as you need.
 
-1. Hover over a folder with rules applied (indicated by the ![rules](../../../images/rules-icon.png) icon) and click **More** then **Manage Rules**.
+1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
 
 2. Click **New Rule**.
 
@@ -260,7 +260,7 @@ After creating the last rule you return to the Rules page. Any new rules created
 
 You might need to revisit your rules from time to time and make some changes to keep them current. If you don’t want to use a specific rule anymore but think you might need it again in the future, you can just disable it.
 
-1. Hover over a folder with rules applied (indicated by the ![rules](../../../images/rules-icon.png) icon) and click **More** then **Manage Rules**.
+1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
 
 2. On the left side of the page, click the rule you want to edit.
 
@@ -276,7 +276,7 @@ You might need to revisit your rules from time to time and make some changes to 
 
 When a folder has a rule applied that you don't need anymore, you can delete the individual rule.
 
-1. Hover over a folder with rules applied (indicated by the ![rules](../../../images/rules-icon.png) icon) and click **More** then **Manage Rules**.
+1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
 
 2. On the left side of the page, click the rule you want to delete.
 
@@ -292,7 +292,7 @@ When a folder has a rule applied that you don't need anymore, you can delete the
 
 As part of managing your rule set you can pick the order in which the rules are run. If your folder has inherited rules, those are always run first in the order they're listed. Any rules marked as inactive are simply skipped.
 
-1. Hover over a folder with rules applied (indicated by the ![rules](../../../images/rules-icon.png) icon) and click **More** then **Manage Rules**.
+1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
 
 2. On the left side of the page drag and drop rules to where you want them in the list.
 
@@ -306,7 +306,7 @@ If a folder is inheriting rules from a parent folder, you can easily switch them
 
 Switching inherited rules on and off works at an individual folder level, and will not affect any other folders.
 
-1. Hover over a folder with rules applied (indicated by the ![rules](../../../images/rules-icon.png) icon) and then **Manage Rules**.
+1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and then **Manage Rules**.
 
     If a folder has inherited rules these are displayed on the left side of the page.
 
@@ -318,7 +318,7 @@ Switching inherited rules on and off works at an individual folder level, and wi
 
 When you create or edit a rule set, the rules aren't automatically applied to the existing folder items. You can manually run the rules at any time to apply them to all content. Only the items that meet the conditions will be affected.
 
-1. Hover over a folder with rules applied (indicated by the ![rules](../../../images/rules-icon.png) icon) and click **More** then **Manage Rules**.
+1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
 
 2. Click **Run Rules**.
 
@@ -342,7 +342,7 @@ Changes to the rule set have to be done in the folder where the rules were origi
 
 If you want to change the rules you're linked to, you can easily link to a different rule set.
 
-1. Hover over a folder with rules applied (indicated by the ![rules](../../../images/rules-icon.png) icon) and click **More** then **Manage Rules**.
+1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
 
 2. Click **Change**.
 
@@ -362,7 +362,7 @@ If you want to change the rules you're linked to, you can easily link to a diffe
 
 If you don't need your rules anymore, breaking the link is just a single click away. This leaves the folder without any rules.
 
-1. Hover over a folder with rules applied (indicated by the ![rules](../../../images/rules-icon.png) icon) and click **More** then **Manage Rules**.
+1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
 
 2. Click **Unlink**.
 

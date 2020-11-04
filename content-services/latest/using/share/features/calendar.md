@@ -28,19 +28,19 @@ The main view defaults to a calendar displaying the current month. The explorer 
 
     1. Use the **Day**, **Week**, and **Month** buttons to change the main display to a daily, weekly, or monthly view.
 
-    2. Use the Previous ![Previous](../images/ico-cal-left.png) and Next ![Next](../images/ico-cal-right.png) buttons to move forward and backward through the calendar, either a day, week, or month at a time, depending on the current view.
+    2. Use the Previous ![Previous]({% link content-services/images/ico-cal-left.png %}) and Next ![Next]({% link content-services/images/ico-cal-right.png %}) buttons to move forward and backward through the calendar, either a day, week, or month at a time, depending on the current view.
 
     3. Click **Agenda** to view a list of the upcoming events scheduled for this site.
 
     4. Click **Today** to display the current date.
 
-        By default the Day and Week views display only the working hours. Click the ![Show working hours](../images/ico-cal-showall.png) Show all hours icon to display the full day.
+        By default the Day and Week views display only the working hours. Click the ![Show working hours]({% link content-services/images/ico-cal-showall.png %}) Show all hours icon to display the full day.
 
 2. Use the calendar in the browsing pane to navigate through the months without affecting the main view.
 
-    1. Click ![Previous](../images/ico-cal-arrowleft.png) to display the previous month.
+    1. Click ![Previous]({% link content-services/images/ico-cal-arrowleft.png %}) to display the previous month.
 
-    2. Click ![Next](../images/ico-cal-arrowright.png) to display the next month.
+    2. Click ![Next]({% link content-services/images/ico-cal-arrowright.png %}) to display the next month.
 
     3. Click **This Month** beneath the calendar to reset it to the current month. The current day and any dates with scheduled events are highlighted.
 

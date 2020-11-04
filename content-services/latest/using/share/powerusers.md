@@ -43,11 +43,11 @@ The Search Manager is accessed from the search results screen. Just type a searc
 
 **Note:** Filtered search results can be bookmarked for quick and easy access.
 
-All existing filters (including default filters) are shown along with their details, in the order that they are shown on the search results screen. You can change the order by using the ![arrows](../../../images/arrows.png) buttons to move filters up or down the order.
+All existing filters (including default filters) are shown along with their details, in the order that they are shown on the search results screen. You can change the order by using the ![arrows]({% link content-services/images/arrows.png %}) buttons to move filters up or down the order.
 
 Click **Create New Filter** to [create new search filters](LINK ../tasks/create-filter.md).
 
-Most of the filter details are can be edited by hovering over them and clicking the ![Configure icon](../../../images/ico-configure.png) icon that displays.
+Most of the filter details are can be edited by hovering over them and clicking the ![Configure icon]({% link content-services/images/ico-configure.png %}) icon that displays.
 
 **Filter ID**
 :The unique filter ID. Click on this to edit any details.
@@ -95,6 +95,6 @@ In the Search Manager you can quickly create your own custom filters with a wide
 11. Select the Filter Availability:
 
     * **Everywhere** - shown on all sites
-    * **Selected sited** - only shown on selected sites. Click ![add](../../../images/ico-add.png) to add a site then select it from the list and click ![tick](../../../images/ico-tick.png) to confirm. Click ![add](../../../images/ico-add.png) to add more sites if required.
+    * **Selected sited** - only shown on selected sites. Click ![add]({% link content-services/images/ico-add.png %}) to add a site then select it from the list and click ![tick]({% link content-services/images/ico-tick.png %}) to confirm. Click ![add]({% link content-services/images/ico-add.png %}) to add more sites if required.
 
 12. Click **Save**

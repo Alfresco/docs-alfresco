@@ -96,7 +96,7 @@ Files you edit are temporarily stored in Google Docs, then removed from Google D
 
 3. When you're done, close the Google Docs browser tab.
 
-    In Alfresco Share you'll see the file displays the ![Geolocation metadata icon](../../../images/ico-googledocs.png) icon to show that it's open in Google Docs.
+    In Alfresco Share you'll see the file displays the ![Geolocation metadata icon]({% link content-services/images/ico-googledocs.png %}) icon to show that it's open in Google Docs.
 
 4. In Alfresco Share, click **More** then **Check In Google Doc**.
 
@@ -196,11 +196,11 @@ Edit the basic details of a folder or file to change its name, description, and 
 
     On the Select page the left column lists the tags being used in this network. The right column displays the tags already associated with the folder or item.
 
-    1. **Create a new tag:** Type the tag name and click the ![Create Tag icon](../../../images/ico-create-tag.png) Create new item icon (or press ENTER). Create one tag at a time. The tag can be a single word or a string of words.
+    1. **Create a new tag:** Type the tag name and click the ![Create Tag icon]({% link content-services/images/ico-create-tag.png %}) Create new item icon (or press ENTER). Create one tag at a time. The tag can be a single word or a string of words.
 
-    2. **Add an existing tag:** Find a tag in the left column and click the ![Add Tag icon](../../../images/ico-add-tag.png) Add icon to associate it with the current folder or item.
+    2. **Add an existing tag:** Find a tag in the left column and click the ![Add Tag icon]({% link content-services/images/ico-add-tag.png %}) Add icon to associate it with the current folder or item.
 
-    3. **Remove an existing tag:** Find a tag in the right column and click the ![Remove Tag icon](../../../images/ico-remove-tag.png) Remove icon.
+    3. **Remove an existing tag:** Find a tag in the right column and click the ![Remove Tag icon]({% link content-services/images/ico-remove-tag.png %}) Remove icon.
 
     4. Click **OK** to save the changes.
 
@@ -256,13 +256,13 @@ You can easily share an file - even with people who don't have an Alfresco Share
 
 People with access to the URL can view the file. Those with an Share account have the option of signing in; those without an account can create one.
 
-This option is available in the Document Library Detailed view and on the file preview screen. In the Document Library graphical views click ![Information icon](../../../images/ico-information.png) to see the option.
+This option is available in the Document Library Detailed view and on the file preview screen. In the Document Library graphical views click ![Information icon]({% link content-services/images/ico-information.png %}) to see the option.
 
 1. In the **Document Library** find the file you want to share.
 
     You can only share files, not folders.
 
-2. Click ![Share icon](../../../images/ico-share.png) **Share**.
+2. Click ![Share icon]({% link content-services/images/ico-share.png %}) **Share**.
 
     A window appears displaying the URL for this file.
 
@@ -280,7 +280,7 @@ This option is available in the Document Library Detailed view and on the file p
     * Facebook: Write a comment to post with the link and select how you want to share it. Click **Share Link**.
     * Twitter: Edit the message as necessary and click **Tweet**.
     * Google+: Write a comment to post with the link and specify who you want to share it with. Click **Share**.
-    > **Note:** If an file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon](../../../images/ico-link.png) on the file preview to share a link to the item, and even select to **Link to current page**.
+    > **Note:** If an file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon]({% link content-services/images/ico-link.png %}) on the file preview to share a link to the item, and even select to **Link to current page**.
 
 When you don’t want your publicly shared file to be available anymore, you can break the link. Once you make the link invalid, anyone who tries to access it will be unable to reach the public page.
 
@@ -300,9 +300,9 @@ For a detailed list of aspects available and what they do, see [About aspects](.
 
 2. In the **Document Actions** list click **Manage Aspects**.
 
-3. In the **Available to Add** list click ![Add icon](../../../images/ico-add.png) next to the aspects you want to add to the file.
+3. In the **Available to Add** list click ![Add icon]({% link content-services/images/ico-add.png %}) next to the aspects you want to add to the file.
 
-    Click ![Delete icon](../../../images/ico-delete.png) to remove any existing aspects from the **Currently Selected** list.
+    Click ![Delete icon]({% link content-services/images/ico-delete.png %}) to remove any existing aspects from the **Currently Selected** list.
 
 4. Click **Apply changes**.
 
@@ -322,7 +322,7 @@ This can be really useful to hide and restrict content to only a set group of si
 
 > **Note:** Remember to keep your content secure. If you give someone access to a file or folder then they'll see the breadcrumb path to it, even when they don't have access to it's parent folder.
 
-![Local permissions privacy](../../../images/local-permissions-privacy.png)
+![Local permissions privacy]({% link content-services/images/local-permissions-privacy.png %})
 
 > **Note:** Don't give permissions to users who aren't a member of the site, as this can cause problems with the document library.
 
@@ -330,8 +330,8 @@ This can be really useful to hide and restrict content to only a set group of si
 
 2. Manage the inherited permissions:
 
-    * ![Inherit Permissions On](../../../images/ico-enabled-on.png) **Inherit Permissions** shows that permissions are being inherited from the parent folder. Click this button to ignore the inherited permissions.
-    * ![Inherit Permissions Off](../../../images/ico-enabled-off.png) **Inherit Permissions** shows that permissions are not being inherited from the parent folder.Click this button to inherit the permissions.
+    * ![Inherit Permissions On]({% link content-services/images/ico-enabled-on.png %}) **Inherit Permissions** shows that permissions are being inherited from the parent folder. Click this button to ignore the inherited permissions.
+    * ![Inherit Permissions Off]({% link content-services/images/ico-enabled-off.png %}) **Inherit Permissions** shows that permissions are not being inherited from the parent folder.Click this button to inherit the permissions.
 
 3. Manage the local permissions:
 

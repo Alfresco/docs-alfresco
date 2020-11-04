@@ -32,11 +32,11 @@ Each user has full access to the toolbar and dashlet functionality available on 
 
 ### Site dashboard
 
-![Site Dashboard Permissions](../../../images/site-dashboard-perms.png)
+![Site Dashboard Permissions]({% link content-services/images/site-dashboard-perms.png %})
 
 ### Site dashlets
 
-![Site Dashlets Permissions](../../../images/site-dashlets-perms-a1.png)
+![Site Dashlets Permissions]({% link content-services/images/site-dashlets-perms-a1.png %})
 
 ## Content permissions
 
@@ -46,7 +46,7 @@ The following sections detail the user permissions for content.
 
 Folders and files:
 
-![Library Permissions](../../../images/library-perms-a1.png)
+![Library Permissions]({% link content-services/images/library-perms-a1.png %})
 
 (1) A user with the role Consumer can copy a folder or file to another site if the user performing the action has the role of Manager, Collaborator, or Contributor in the target site.
 
@@ -54,38 +54,38 @@ Folders and files:
 
 Folders only:
 
-![Folder Permissions](../../../images/folder-perms-a1.png)
+![Folder Permissions]({% link content-services/images/folder-perms-a1.png %})
 
 Files only:
 
-![Content Item Permissions](../../../images/item-perms-a1.png)
+![Content Item Permissions]({% link content-services/images/item-perms-a1.png %})
 
 ### Calendar
 
-![Calendar Permissions](../../../images/calendar-perms-a1.png)
+![Calendar Permissions]({% link content-services/images/calendar-perms-a1.png %})
 
 ### Wiki
 
-![Wiki Permissions](../../../images/wiki-perms-a1.png)
+![Wiki Permissions]({% link content-services/images/wiki-perms-a1.png %})
 
 ### Discussions
 
-![Discussions Permissions](../../../images/discussions-perms-a1.png)
+![Discussions Permissions]({% link content-services/images/discussions-perms-a1.png %})
 
 ### Blog
 
-![Blog Permissions](../../../images/blog-perms-a1.png)
+![Blog Permissions]({% link content-services/images/blog-perms-a1.png %})
 
 ### Links
 
-![Links Permissions](../../../images/links-perms-a1.png)
+![Links Permissions]({% link content-services/images/links-perms-a1.png %})
 
 ### Data Lists
 
-![Data Lists Permissions](../../../images/datalists-perms-a1.png)
+![Data Lists Permissions]({% link content-services/images/datalists-perms-a1.png %})
 
 ## Member permissions
 
 The following section details the member permissions.
 
-![Members Permissions](../../../images/member-perms.png)
+![Members Permissions]({% link content-services/images/member-perms.png %})

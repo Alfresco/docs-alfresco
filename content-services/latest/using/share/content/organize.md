@@ -38,7 +38,7 @@ You can move content to relocate it to another location within the current libra
 
     When you move a folder, all of its content moves with it.
 
-    > **Note:** In some views you'll need to click the ![Information icon](../../../../../images/ico-information.png) information icon.
+    > **Note:** In some views you'll need to click the ![Information icon](../../../]({% link content-services/images/ico-information.png %}) information icon.
 
 3. Choose the site and folder where you want to place the content.
 
@@ -58,7 +58,7 @@ You can copy content between locations, within a site or across different sites.
 
 2. Hover over a file/folder and click **Copy to**.
 
-    > **Note:** In some views you'll need to click the ![Information icon](../../../../../images/ico-information.png) information icon.
+    > **Note:** In some views you'll need to click the ![Information icon](../../../]({% link content-services/images/ico-information.png %}) information icon.
 
     > **Note:** You're copying only the current version. The version history and comments are not carried over with the content.
 
@@ -80,7 +80,7 @@ You can create links to content between Alfresco locations, within a site or acr
 
 2. Hover over a file/folder and click **Copy to**.
 
-    > **Note:** In some views you'll need to click the ![Information icon](../../../images/ico-information.png) information icon.
+    > **Note:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
 
 3. Choose the site and folder where you want to create a link to the content.
 
@@ -88,7 +88,7 @@ You can create links to content between Alfresco locations, within a site or acr
 
 4. Click **Create Link**.
 
-    A link to the content is created. Links to other content have "Link to" added to their name and are represented by the ![Linked file](../../../images/ico-copied-file.png) and ![Linked Folder](../../../images/ico-copied-folder.png) icons.
+    A link to the content is created. Links to other content have "Link to" added to their name and are represented by the ![Linked file]({% link content-services/images/ico-copied-file.png %}) and ![Linked Folder]({% link content-services/images/ico-copied-folder.png %}) icons.
 
 When you click on a linked file or folder, or select **Locate Linked Item**, the original file or folder will be shown in its original site.
 
@@ -126,9 +126,9 @@ You can quickly rename files and folders.
 
 1. Find the file/folder you want to rename.
 
-2. Hover your cursor over the content name to display the ![Configure icon](../../../images/ico-configure.png) edit icon.
+2. Hover your cursor over the content name to display the ![Configure icon]({% link content-services/images/ico-configure.png %}) edit icon.
 
-    > **Note:** In some views you'll need to click the ![Information icon](../../../images/ico-information.png) information icon.
+    > **Note:** In some views you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
 
 3. Click this icon to enter editing mode.
 
@@ -175,7 +175,7 @@ In the **Document Library** you can manage tags in the item list or by editing t
 
     * **Remove a tag**
 
-    In the list of associated tags, click ![Delete button](../../../images/ico-delete.png) to remove an existing tag.
+    In the list of associated tags, click ![Delete button]({% link content-services/images/ico-delete.png %}) to remove an existing tag.
 
 > **Note:** Data lists don't support tagging.
 
@@ -195,11 +195,11 @@ To make content easier to find you can create and manage tags for files and fold
 
 1. In the library find the content you want to tag.
 
-2. Hover your cursor over a tag to display the ![Tag icon](../../../images/ico-configure.png) tag icon, or if the content has no tags hover your cursor over the label **No Tags**.
+2. Hover your cursor over a tag to display the ![Tag icon]({% link content-services/images/ico-configure.png %}) tag icon, or if the content has no tags hover your cursor over the label **No Tags**.
 
-    > **Note:** In some views this option isn't available or you'll need to click the ![Information icon](../../../images/ico-information.png) information icon.
+    > **Note:** In some views this option isn't available or you'll need to click the ![Information icon]({% link content-services/images/ico-information.png %}) information icon.
 
-3. Click ![Tag icon](../../../images/ico-configure.png).
+3. Click ![Tag icon]({% link content-services/images/ico-configure.png %}).
 
 4. Create and manage the tags:
 

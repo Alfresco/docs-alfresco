@@ -75,7 +75,7 @@ Only a Site Manager, a Site Collaborator, and the user who created the list can 
 
 1. In the Data lists explorer panel position your cursor over the list you want to edit to display the available actions.
 
-2. Click the ![Edit](../images/ico-configure.png) Edit icon.
+2. Click the ![Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
 
     The Edit List Details dialog box appears displaying the current list details.
 
@@ -95,7 +95,7 @@ Only the Site Manager and the user who created the list can delete it.
 
 1. In the Data lists explorer panel position your cursor over the list you want to delete to display the available actions.
 
-2. Click the ![Delete](../images/ico-delete.png) Delete option.
+2. Click the ![Delete]({% link content-services/images/ico-delete.png %}) Delete option.
 
     A message prompts you to confirm the deletion of the selected list.
 
@@ -143,7 +143,7 @@ Only a Site Manager, a Site Collaborator, and the user who created the item can 
 
 2. Position your cursor over the list item you want to edit to display the available actions.
 
-3. Click the ![Edit](../images/ico-configure.png) Edit icon.
+3. Click the ![Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
 
     The Edit Data Item dialog box appears displaying the details for the selected item.
 
@@ -161,7 +161,7 @@ Quickly and easily create a new list item by duplicating an existing item in the
 
 2. Position your cursor over the list item you want to duplicate to display the available actions.
 
-3. Click the ![Duplicate](../images/ico-datalist-duplicate.png) Edit icon.
+3. Click the ![Duplicate]({% link content-services/images/ico-datalist-duplicate.png %}) Edit icon.
 
     The new item is created. Its details are identical to the selected list item.
 
@@ -177,7 +177,7 @@ Only the Site Manager and the user who created the item can delete it.
 
 2. Position your cursor over the list item you want to delete to display the available actions.
 
-3. Click the ![Delete](../images/ico-delete.png) Delete option.
+3. Click the ![Delete]({% link content-services/images/ico-delete.png %}) Delete option.
 
     A message prompts you to confirm the deletion.
 

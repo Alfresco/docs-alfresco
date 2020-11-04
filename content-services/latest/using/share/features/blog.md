@@ -200,7 +200,7 @@ Only a Site Manager, a Site Collaborator, and the user who created the comment c
 
     The post view displays the selected blog post and the related comments.
 
-3. Position your cursor over the comment you want to edit to display the available actions and then click the ![Edit](../images/ico-configure.png) Edit icon.
+3. Position your cursor over the comment you want to edit to display the available actions and then click the ![Edit]({% link content-services/images/ico-configure.png %}) Edit icon.
 
     This action is available only when the currently signed in user has permission to edit the comment.
 
@@ -228,7 +228,7 @@ Only a Site Manager, a Site Collaborator, and the user who created the comment c
 
     The post view displays the selected blog post and the related comments.
 
-3. Position your cursor over the comment you want to delete to display the available actions and then click the ![Delete](../images/ico-delete.png) Delete option.
+3. Position your cursor over the comment you want to delete to display the available actions and then click the ![Delete]({% link content-services/images/ico-delete.png %}) Delete option.
 
     This action is available only when the currently signed in user has permission to delete the comment.
 

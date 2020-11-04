@@ -14,7 +14,7 @@ If you want, add multiple copies of each dashlet and then set the filters so tha
 
 **Note:** The Get Started panel links to the Alfresco Share Help where you can watch help videos. You can always **Hide** it and show it again later.
 
-1. Click ![Customize Dashboard icon](../../../images/settings-icon.png) to start customizing your dashboard.
+1. Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) to start customizing your dashboard.
 
 2. Change the dashboard layout:
 
