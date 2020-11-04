@@ -18,7 +18,7 @@ In Content Services, you can transform a document from one format to another, fo
 
 5. Change the installation directory to:
 
-    * (Windows) `c:\\Alfresco\\LibreOffice`
+    * (Windows) `c:\Alfresco\LibreOffice`
     * (Linux) `/opt/alfresco/LibreOffice`
 
     If you're installing LibreOffice on Linux, you also need a number of libraries to be installed. See [Install Linux libraries](#install-linux-libraries) for more.

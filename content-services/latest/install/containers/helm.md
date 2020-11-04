@@ -2,7 +2,7 @@
 title: Install using Helm
 ---
 
-Alfresco Content Services (ACS) is an Enterprise Content Management (ECM) system that's used for document and case management, project collaboration, web content publishing, and compliant records management.  The flexible compute, storage, and database services that Kubernetes offers make it an ideal platform for Content Services. This helm chart presents an enterprise-grade Content Services configuration that you can adapt to virtually any scenario with the ability to scale up, down or out, depending on your use case.
+Alfresco Content Services (ACS) is an Enterprise Content Management (ECM) system that's used for document and case management, project collaboration, web content publishing, and compliant records management.  The flexible compute, storage, and database services that Kubernetes offers make it an ideal platform for Content Services. This Helm chart presents an enterprise-grade Content Services configuration that you can adapt to virtually any scenario with the ability to scale up, down or out, depending on your use case.
 
 The Helm chart in this repository supports deploying the Enterprise or Community Edition of Content Services.
 
@@ -24,82 +24,21 @@ Another typical change is the integration of your company-wide monitoring and lo
 
 For the best results, we recommend [deploying Content Services to AWS EKS]({% link content-services/latest/install/containers/helm.md %}).
 
-There are also several [examples]({% link content-services/latest/install/containers/helm-examples.md %}) showing how to deploy with various configurations:
+There are also several [Helm examples]({% link content-services/latest/install/containers/helm-examples.md %}) that show you how to deploy with various configurations:
 
 * [Deploy with AWS Services (S3, RDS and MQ)]({% link content-services/latest/install/containers/helm-examples.md %}#with-aws-services)
-* [Deploy with Intelligence Services]({% link content-services/latest/install/containers/helm-examples.md %}#with-ai)
-* [Enable access to Search Services]({% link content-services/latest/install/containers/helm-examples.md %}#search-external-access)
+* [Deploy with Alfresco Intelligence Services]({% link content-services/latest/install/containers/helm-examples.md %}#with-ai)
+* [Enable access to Alfresco Search Services]({% link content-services/latest/install/containers/helm-examples.md %}#search-external-access)
 * [Enable Email Services]({% link content-services/latest/install/containers/helm-examples.md %}#email-enabled)
 * [Use a custom metadata keystore]({% link content-services/latest/install/containers/helm-examples.md %}#custom-metadata-keystore)
-
-## Configuration options
-
-The following table lists the configurable parameters of the Content Services chart and their default values.
-
-| Parameter | Description |
-| --------- | ----------- |
-| repository.adminPassword | Administrator password for Content Services in md5 hash format. The default value is md5: `209c6174da490caeb422f3fa5a7ae634` (of string `admin`) |
-| postgresql.enabled | Enable the use of the postgres chart in the deployment. The default value is `true` |
-| postgresql.postgresUser | Postgresql database user. The default value is `alfresco` |
-| postgresql.postgresPassword | Postgresql database password. The default value is `alfresco` |
-| postgresql.postgresDatabase | Postgresql database name. The default value is `alfresco` |
-| database.external | Enable the use of an externally provisioned database. The default value is `false` |
-| database.driver | External database driver (blank by default) |
-| database.user | External database user (blank by default) |
-| database.password | External database password  (blank by default) |
-| database.url | External database JDBC URL (blank by default) |
-| alfresco-search.resources.requests.memory | Alfresco Search Services requests memory. The default value is `250Mi` |
-| alfresco-search.ingress.enabled | Enable external access for Alfresco Search Services. The default value is `false` |
-| alfresco-search.ingress.basicAuth | If `alfresco-search.ingress.enabled` is `true`, you need to provide a `base64` encoded `htpasswd` format user name & password (example: `echo -n "$(htpasswd -nbm solradmin somepassword)"` where `solradmin` is username and `somepassword` is the password). The default value is `None` |
-| alfresco-search.ingress.whitelist_ips | If `alfresco-search.ingress.enabled` is `true`, you can restrict `/solr` to a list of IP addresses of CIDR notation. The default value is `0.0.0.0/0` |
-| persistence.repository.enabled | Enable Volume Persistence on repository. The default value is `true` |
-| s3connector.enabled | Switch this to `true` if you have access to the S3 Connector AMP. The default value is `false` |
-| s3connector.config | S3 configuration - see [S3 Connector properties reference](https://docs.alfresco.com/s3connector/references/s3-contentstore-ref-config-props.html)(#LINK). Example: `s3connector.config.bucketName: myS3Bucket`. The default value is `{}` |
-| s3connector.secrets | S3 secrets configuration - see [S3 Connector properties reference](https://docs.alfresco.com/s3connector/references/s3-contentstore-ref-config-props.html)(#LINK). Example: `s3connector.secrets.accessKey: AJJJJJJJJ`. The default value is `{}` |
-| email.server.enabled | Enables the email server - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `false` |
-| email.server.port | Specifies the port number for the email server - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `1125` |
-| email.server.domain | Specifies the name or the IP address of the network to bind the email server to - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
-| email.server.enableTLS  | STARTTLS  is an extension to plain text communication protocols - see [Inbound SMTP Email Server Configuration](https://hub.alfresco.com/t5/alfresco-content-services-hub/inbound-smtp-email-server-configuration/ba-p/289370){:target="_blank"}. The default value is `true` |
-| email.server.hideTLS | STARTTLS  is an extension to plain text communication protocols - see [Inbound SMTP Email Server Configuration](https://hub.alfresco.com/t5/alfresco-content-services-hub/inbound-smtp-email-server-configuration/ba-p/289370){:target="_blank"}. The default value is `false` |
-| email.server.requireTLS | STARTTLS  is an extension to plain text communication protocols - see [Inbound SMTP Email Server Configuration](https://hub.alfresco.com/t5/alfresco-content-services-hub/inbound-smtp-email-server-configuration/ba-p/289370){:target="_blank"}. The default value is `false` |
-| email.server.auth.enabled | Authentication is turned on by setting the following property - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `true` |
-| email.server.connections.max  | The maximum number of connections allowed.  Increase this number to favour the email subsystem at the expense of the rest of alfresco - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `3` |
-| email.server.allowed.senders  | Provides a comma-separated list of email REGEX patterns of allowed senders - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
-| email.server.blocked.senders  | Provides a comma-separated list of email REGEX patterns of blocked senders - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
-| email.inbound.enabled | Enable/Disable the inbound email service - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `false` |
-| email.inbound.unknownUser | The username to authenticate with when the sender address is not recognized in alfresco - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `anonymous` |
-| email.inbound.emailContributorsAuthority  | Allow the email contributors to belong to an authority  - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
-| email.handler.folder.overwriteDuplicates  | Should duplicate messages to a folder overwrite each other or be named with a (number) - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `true` |
-| mail.encoding | Specifies UTF-8 encoding for email - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `UTF-8` |
-| mail.host | Specifies the host name of the SMTP host, that is, the host name or IP address of the server to which email should be sent - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
-| mail.port | Specifies the port number on which the SMTP service runs (the default is 25) - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `25` |
-| mail.protocol | Specifies which protocol to use for sending email - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `smtps` |
-| mail.username | Specifies the user name of the account that connects to the smtp server - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
-| mail.password | Specifies the password for the user name used in mail.username - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
-| mail.from.default | Specifies the email address from which email notifications are sent - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
-| mail.from.enabled | If this property is set to false, then the value set in mail.from.default is always used - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
-| mail.smtp.auth | Specifies if authentication is required or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
-| mail.smtp.debug | Specifies if debugging SMTP is required or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `false` |
-| mail.smtp.starttls.enable | Specifies if the transport layer security needs to be enabled or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
-| mail.smtp.timeout | Specifies the timeout in milliseconds for SMTP - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `20000` |
-| mail.smtps.auth | Specifies if authentication for smtps is required or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
-| mail.smtps.starttls.enable  | Specifies if the transport layer security for smtps needs to be enabled or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
-| imap.server.enabled | Enables or disables the IMAP subsystem - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `false` |
-| imap.server.port | IMAP has a reserved port number of 143 - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `1143` |
-| imap.server.host | Replace this value with the IP address (or corresponding DNS name) of your external IP interface - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `0.0.0.0` |
-| imap.server.imap.enabled | Enables or disables the IMAP subsystem - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `true` |
-| imap.server.imaps.enabled | Enables or disables the IMAP subsystem - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `true` |
-| imap.server.imaps.port | IMAP has a reserved port number of 143 - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `1144` |
-| imap.mail.from.default | Configuring the email client with IMAP - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK) |
-| imap.mail.to.default | Configuring the email client with IMAP - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK) |
 
 ## Customize
 
 To customize the Helm deployment, for example applying AMPs, we recommend following the best practice of creating your own custom Docker image(s). The following customization guidelines walk you through this process.
 
-Any customizations (including major configuration changes) should be done inside the Docker image, resulting in the creation of a new image with a new tag. This approach allows changes to be tracked in the source code (Dockerfile) and rolling updates to the deployment in the K8s cluster.
+Any customizations (including major configuration changes) should be done inside the Docker image, resulting in the creation of a new image with a new tag. This approach allows changes to be tracked in the source code (Dockerfile) and rolling updates to the deployment in the Kubernetes cluster.
 
-The helm chart configuration customization should only include environment-specific changes (for example DB server connection properties) or altered Docker image names and tags. The configuration changes applied via `--set` will only be reflected in the configuration stored in k8s cluster, a better approach would be to have those in source control i.e. maintain your own values files.
+The Helm chart configuration customization should only include environment-specific changes (for example DB server connection properties) or altered Docker image names and tags. The configuration changes applied via `--set` will only be reflected in the configuration stored in Kubernetes cluster, a better approach would be to have those in source control i.e. maintain your own values files.
 
 ### Creating custom Docker images
 
@@ -107,83 +46,11 @@ The [Docker Compose customization guidelines]({% link content-services/latest/in
 
 ### Using custom Docker images
 
-Once you've created your custom image, you can either change the default values in the appropriate values file in the [helm/alfresco-content-services folder](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services){:target="_blank"}, or you can override the values via the `--set` command-line option during install:
+Once you've created your custom image, you can either change the default values in the appropriate values file in the [helm/alfresco-content-services folder](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services){:target="_blank"}, or you can override the values via the `--set` command-line option during the install:
 
 ```bash
 helm install alfresco-incubator/alfresco-content-services --set repository.image.repository="yourRegistry" --set repository.image.tag="yourTag" --set share.image.repository="yourRegistry" --set share.image.tag="yourTag"
 ```
-
-## Troubleshooting
-
-Here's some help for diagnosing and resolving any issues you may encounter.
-
-### Kubernetes dashboard
-
-The easiest way to troubleshoot issues on a Kubernetes deployment is to use the dashboard. Assuming you've deployed the dashboard in the cluster, you can use the following steps to explore your deployment:
-
-1. Retrieve the service account token with the following command:
-
-    ```bash
-    kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
-    ```
-
-2. Run the kubectl proxy:
-
-    ```bash
-    kubectl proxy &
-    ```
-
-3. Open a browser and navigate to: `http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login`
-
-4. Select **Token**, enter the token retrieved in step 1, and click **Sign in**.
-
-5. Select `alfresco` from the **Namespace** menu, click **Pods**, and then the pod name.
-
-    To view the logs, press the **Menu** icon in the toolbar as highlighted below:
-
-    ![Kubernetes Dashboard]({% link content-services/images/k8s-dashboard.png %})
-
-### Port-forwarding to a pod
-
-This approach allows you to connect to a specific application in the cluster.
-See the [Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/){:target="_blank"} for details.
-
-You can access any component of the deployment that's not exposed via ingress rules in this way, for example Alfresco Search, DB or individual transformers.
-
-### Viewing log files via command-line
-
-You can view log files for individual pods from the command-line using the kubectl utility.
-
-Retrieve the list of pods in the alfresco namespace by using the following command:
-
-```bash
-kubectl get pods -n alfresco
-```
-
-Then to retrieve the logs for a pod using the following command (replacing the pod name appropriately):
-
-```bash
-kubectl logs acs-alfresco-cs-repository-69545958df-6wzl6 -n alfresco
-```
-
-To continually follow the log file for a pod, use the `-f` options:
-
-```bash
-kubectl logs -f acs-alfresco-cs-repository-69545958df-6wzl6 -n alfresco
-```
-
-### Changing log levels
-
-You can change the log levels for the specific Java packages in the content-repository via the Admin Console. Use the following URL to access it: `https://<host>/alfresco/service/enterprise/admin/admin-log-settings`
-
-> **Note:** Changes are only applied to the `content-repository` node from which the Admin Console is launched.
-
-* You can change the log levels by modifying `log4j.properties` in the content-repository image and doing a rolling update to the deployment. In this case the settings will be applied system-wide. See the [customization guidelines]({% link content-services/latest/install/containers/customize.md %}) for more.
-* The Content Services deployment doesn't include any log aggregation tools. The logs generated by pods will be lost once the pods are terminated.
-
-### JMX dump
-
-This tool allows you to download a ZIP file containing information useful for troubleshooting and supporting your system. Issue a GET request (Admin only) to: `https://<host>/alfresco/service/api/admin/jmxdump`
 
 ## Helm deployment with AWS EKS
 
@@ -198,16 +65,16 @@ The Enterprise configuration will deploy the following system:
 ### Prerequisites
 
 * You've read the main `acs-deployment` [project README](https://github.com/Alfresco/acs-deployment/blob/master/README.md#prerequisites){:target="_blank"}  prerequisites section
-* You've read the [main Helm README](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/README.md){:target="_blank"}  page
+* You've read the [main Helm README](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/README.md){:target="_blank"} page
 * You are proficient in AWS and Kubernetes
 
 ### Set up an EKS cluster
 
-Follow the [AWS EKS Getting Started Guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html){:target="_blank"} to create a cluster and prepare your local machine to connect to the cluster. Use the "Managed nodes - Linux" option and specify a `--node-type` of at least m5.xlarge.
+Follow the [AWS EKS Getting Started Guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html){:target="_blank"} to create a cluster and prepare your local machine to connect to the cluster. Use the **Managed nodes - Linux** option and specify a `--node-type` of at least `m5.xlarge`.
 
-As we'll be using Helm to deploy the Content Services chart follow the [Using Helm with EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html){:target="_blank"} instructions to setup helm on your local machine.
+As we'll be using Helm to deploy the Content Services chart, follow the [Using Helm with EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html){:target="_blank"} instructions to set up Helm on your local machine.
 
-Helm also needs to know where to find charts, run the following commands to add the standard Helm repository and the Alfresco incubator and stable repositories to your machine:
+Helm also needs to know where to find charts. Run the following commands to add the standard Helm repository and the Alfresco incubator and stable repositories to your machine:
 
 ```bash
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -215,7 +82,7 @@ helm repo add alfresco-stable https://kubernetes-charts.alfresco.com/stable
 helm repo add alfresco-incubator https://kubernetes-charts.alfresco.com/incubator
 ```
 
-Optionally, follow the tutorial to [deploy the Kubernetes Dashboard](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html){:target="_blank"}  to your cluster, this can be really useful for troubleshooting issues that may occur.
+Optionally, follow the tutorial to [deploy the Kubernetes Dashboard](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html){:target="_blank"}  to your cluster. This can be really useful for troubleshooting issues that you may occur.
 
 ### Prepare the cluster for Content Services
 
@@ -225,9 +92,9 @@ Now we have an EKS cluster up and running, there are a few one time steps we nee
 
 1. Create a hosted zone in Route53 using [these steps](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html){:target="_blank"} if you don't already have one available.
 
-2. Create a public certificate for the hosted zone created in step 1 in Certificate Manager using [these steps](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html){:target="_blank"} if you don't have one already available and make a note of the certificate ARN for use later.
+2. Create a public certificate for the hosted zone (created in step 1) in Certificate Manager using [these steps](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html){:target="_blank"} if you don't have one already available. Make a note of the certificate ARN for use later.
 
-3. Create a file called `external-dns.yaml` with the text below (replacing `YOUR-DOMAIN-NAME` with the domain name you created in step 1). This manifest defines a service account and a cluster role for managing DNS.
+3. Create a file called `external-dns.yaml` with the text below (replace `YOUR-DOMAIN-NAME` with the domain name you created in step 1). This manifest defines a service account and a cluster role for managing DNS:
 
     ```yaml
     apiVersion: v1
@@ -293,35 +160,35 @@ Now we have an EKS cluster up and running, there are a few one time steps we nee
             - --log-level=debug
     ```
 
-4. Use the kubectl command to deploy the external-dns service.
+4. Use the `kubectl` command to deploy the external-dns service.
 
    ```bash
    kubectl apply -f external-dns.yaml -n kube-system
    ```
 
-5. Find the name of the role used by the nodes by running the following command (replacing `YOUR-CLUSTER-NAME` with the name you gave your cluster):
+5. Find the name of the role used by the nodes by running the following command (replace `YOUR-CLUSTER-NAME` with the name you gave your cluster):
 
     ```bash
     aws eks describe-nodegroup --cluster-name YOUR-CLUSTER-NAME --nodegroup-name linux-nodes --query "nodegroup.nodeRole" --output text
     ```
 
-6. In the [IAM console](https://console.aws.amazon.com/iam/home){:target="_blank"} find the role discovered in the previous step and attach the "AmazonRoute53FullAccess" managed policy as shown in the screenshot below:
+6. In the [IAM console](https://console.aws.amazon.com/iam/home){:target="_blank"} find the role discovered in the previous step and attach the **AmazonRoute53FullAccess** managed policy as shown in the screenshot below:
 
     ![Attach Policy]({% link content-services/images/eks-attach-policy.png %})
 
 #### File system
 
-1. Create an Elastic File System in the VPC created by EKS using [these steps](https://docs.aws.amazon.com/efs/latest/ug/creating-using-create-fs.html){:target="_blank"} ensuring a mount target is created in each subnet. Make a note of the File System ID (circled in the screenshot below).
+1. Create an Elastic File System in the VPC created by EKS using [these steps](https://docs.aws.amazon.com/efs/latest/ug/creating-using-create-fs.html){:target="_blank"} ensuring a mount target is created in each subnet. Make a note of the File System ID (circled in the screenshot below):
 
     ![EFS]({% link content-services/images/eks-efs.png %})
 
-2. Find The ID of VPC created when your cluster was built using the command below (replacing `YOUR-CLUSTER-NAME` with the name you gave your cluster):
+2. Find the ID of the VPC created when your cluster was built (replace `YOUR-CLUSTER-NAME` with the name you gave your cluster):
 
     ```bash
     aws eks describe-cluster --name YOUR-CLUSTER-NAME --query "cluster.resourcesVpcConfig.vpcId" --output text
     ```
 
-3. Find The CIDR range of VPC using the command below (replacing `VPC-ID` with the ID retrieved in the previous step):
+3. Find the CIDR range of the VPC (replace `VPC-ID` with the ID retrieved in the previous step):
 
     ```bash
     aws ec2 describe-vpcs --vpc-ids VPC-ID --query "Vpcs[].CidrBlock" --output text
@@ -335,7 +202,7 @@ Now we have an EKS cluster up and running, there are a few one time steps we nee
 
     ![NFS Inbound Rules]({% link content-services/images/eks-nfs-inbound-rules.png %})
 
-6. Deploy an NFS Client Provisioner with Helm using the following command (replacing `EFS-DNS-NAME` with the string "file-system-id.efs.aws-region.amazonaws.com" where file-system-id is the ID retrieved in step 1 and aws-region is the region you're using e.g. "fs-72f5e4f1.efs.us-east-1.amazonaws.com"):
+6. Deploy an NFS Client Provisioner with Helm using the following command (replace `EFS-DNS-NAME` with the string `file-system-id.efs.aws-region.amazonaws.com` where the `file-system-id` is the ID retrieved in step 1 and `aws-region` is the region you're using, e.g. `fs-72f5e4f1.efs.us-east-1.amazonaws.com`):
 
     ```bash
     helm install alfresco-nfs-provisioner stable/nfs-client-provisioner --set nfs.server="EFS-DNS-NAME" --set nfs.path="/" --set storageClass.name="nfs-client" --set storageClass.archiveOnDelete=false -n kube-system
@@ -347,7 +214,7 @@ Now the EKS cluster is setup we can deploy Content Services.
 
 #### Namespace
 
-Namespaces in Kubernetes isolate workloads from each other, create a namespace to host Content Services inside the cluster using the following command (we'll then use the `alfresco` throughout the rest of the tutorial):
+Namespaces in Kubernetes isolate workloads from each other. Create a namespace to host Content Services inside the cluster using the following command. We'll then use the `alfresco` namespace throughout the rest of the tutorial:
 
 ```bash
 kubectl create namespace alfresco
@@ -402,13 +269,13 @@ kubectl create namespace alfresco
       namespace: alfresco
     ```
 
-2. Use the kubectl command to create the cluster roles required by the ingress service.
+2. Use the `kubectl` command to create the cluster roles required by the ingress service:
 
     ```bash
     kubectl apply -f ingress-rbac.yaml -n alfresco
     ```
 
-3. Deploy the ingress using the following command (replacing `ACM_CERTIFICATE_ARN` and `YOUR-DOMAIN-NAME` with the ARN of the certificate and hosted zone created earlier in the DNS section):
+3. Deploy the ingress (replace `ACM_CERTIFICATE_ARN` and `YOUR-DOMAIN-NAME` with the ARN of the certificate and hosted zone created earlier in the DNS section):
 
     ```bash
     helm install acs-ingress ingress-nginx/ingress-nginx \
@@ -431,7 +298,7 @@ kubectl create namespace alfresco
 
 #### Docker registry secret
 
-Create a docker registry secret to allow the protected images to be pulled from Quay.io by running the following command (replacing `YOUR-USERNAME` and `YOUR-PASSWORD` with your credentials):
+Create a docker registry secret to allow the protected images to be pulled from Quay.io by running the following command (replace `YOUR-USERNAME` and `YOUR-PASSWORD` with your credentials):
 
 ```bash
 kubectl create secret docker-registry quay-registry-secret --docker-server=quay.io --docker-username=YOUR-USERNAME --docker-password=YOUR-PASSWORD -n alfresco
@@ -439,11 +306,11 @@ kubectl create secret docker-registry quay-registry-secret --docker-server=quay.
 
 #### Choose Content Services version
 
-Decide whether you want to install the latest version of Content Services (Enterprise or Community) or a previous version and follow the steps in the relevant section below.
+Decide whether you want to install the latest version of Content Services (Enterprise) or a previous version, and follow the steps in the relevant section below.
 
 ##### Latest Enterprise version
 
-Deploy the latest version of Content Services by running the following command (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created earlier):
+Deploy the latest version of Content Services by running the following command (replace `YOUR-DOMAIN-NAME` with the hosted zone you created earlier):
 
 ```bash
 helm install acs alfresco-incubator/alfresco-content-services \
@@ -465,7 +332,7 @@ helm install acs alfresco-incubator/alfresco-content-services \
 
 1. Download the version specific values file you require from the [helm/alfresco-content-services](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/){:target="_blank"} folder.
 
-2. Deploy the specific version of Content Services by running the following command (replacing `YOUR-DOMAIN-NAME` with the hosted zone you created earlier and `MAJOR` & `MINOR` with the appropriate values):
+2. Deploy the specific version of Content Services by running the following command (replace `YOUR-DOMAIN-NAME` with the hosted zone you created earlier, and `MAJOR` & `MINOR` with the appropriate values):
 
     ```bash
     helm install acs alfresco-incubator/alfresco-content-services \
@@ -492,22 +359,153 @@ When the deployment is complete, you can access the following URLs. Replace `YOU
 * Alfresco Share: `https://acs.YOUR-DOMAIN-NAME/share`
 * API Explorer: `https://acs.YOUR-DOMAIN-NAME/api-explorer`
 
-If you deployed Enterprise you'll also have access to:
+Since you deployed Enterprise, you'll also have access to:
 
 * Alfresco Digital Workspace: `https://acs.YOUR-DOMAIN-NAME/workspace/`
 * Alfresco Sync Service: `https://acs.YOUR-DOMAIN-NAME/syncservice/healthcheck`
 
-If you requested an extended trial license, navigate to the Admin Console and apply your license:
+If you're running Content Services 6.2 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
 
 * [https://acs.YOUR-DOMAIN-NAME/alfresco/service/enterprise/admin/admin-license](http://localhost:8080/alfresco/service/enterprise/admin/admin-license){:target="_blank"} (this only applies for the Enterprise Download Trial)
-* Default username and password is ```admin```
+* Default username and password is `admin`
 * See [Uploading a new license](https://docs.alfresco.com/6.2/tasks/at-adminconsole-license.html)(#LINK) for more details
 
-### Configure
+### Configuration options
 
-By default, this tutorial installs an out-of-the-box setup, however there are many [configuration options](#configuration-options). There are also several [examples]({% link content-services/latest/install/containers/helm-examples.md %}) covering various use cases.
+By default, this tutorial installs an out-of-the-box setup, however there are many configuration options shown in the table below. There are also several [examples]({% link content-services/latest/install/containers/helm-examples.md %}) covering various use cases.
+
+The following table lists the configurable parameters of the Content Services chart and their default values.
+
+| Parameter | Description |
+| --------- | ----------- |
+| repository.adminPassword | Administrator password for Content Services in md5 hash format. The default value is md5: `209c6174da490caeb422f3fa5a7ae634` (of string `admin`) |
+| postgresql.enabled | Enable the use of the postgres chart in the deployment. The default value is `true` |
+| postgresql.postgresUser | Postgresql database user. The default value is `alfresco` |
+| postgresql.postgresPassword | Postgresql database password. The default value is `alfresco` |
+| postgresql.postgresDatabase | Postgresql database name. The default value is `alfresco` |
+| database.external | Enable the use of an externally provisioned database. The default value is `false` |
+| database.driver | External database driver (blank by default) |
+| database.user | External database user (blank by default) |
+| database.password | External database password  (blank by default) |
+| database.url | External database JDBC URL (blank by default) |
+| alfresco-search.resources.requests.memory | Alfresco Search Services requests memory. The default value is `250Mi` |
+| alfresco-search.ingress.enabled | Enable external access for Alfresco Search Services. The default value is `false` |
+| alfresco-search.ingress.basicAuth | If `alfresco-search.ingress.enabled` is `true`, you need to provide a `base64` encoded `htpasswd` format user name & password (example: `echo -n "$(htpasswd -nbm solradmin somepassword)"` where `solradmin` is username and `somepassword` is the password). The default value is `None` |
+| alfresco-search.ingress.whitelist_ips | If `alfresco-search.ingress.enabled` is `true`, you can restrict `/solr` to a list of IP addresses of CIDR notation. The default value is `0.0.0.0/0` |
+| persistence.repository.enabled | Enable Volume Persistence on repository. The default value is `true` |
+| s3connector.enabled | Switch this to `true` if you have access to the S3 Connector AMP. The default value is `false` |
+| s3connector.config | S3 configuration - see [S3 Connector properties reference](https://docs.alfresco.com/s3connector/references/s3-contentstore-ref-config-props.html)(#LINK). Example: `s3connector.config.bucketName: myS3Bucket`. The default value is `{}` |
+| s3connector.secrets | S3 secrets configuration - see [S3 Connector properties reference](https://docs.alfresco.com/s3connector/references/s3-contentstore-ref-config-props.html)(#LINK). Example: `s3connector.secrets.accessKey: AJJJJJJJJ`. The default value is `{}` |
+| email.server.enabled | Enables the email server - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `false` |
+| email.server.port | Specifies the port number for the email server - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `1125` |
+| email.server.domain | Specifies the name or the IP address of the network to bind the email server to - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
+| email.server.enableTLS  | STARTTLS  is an extension to plain text communication protocols - see [Inbound SMTP Email Server Configuration](https://hub.alfresco.com/t5/alfresco-content-services-hub/inbound-smtp-email-server-configuration/ba-p/289370){:target="_blank"}. The default value is `true` |
+| email.server.hideTLS | STARTTLS  is an extension to plain text communication protocols - see [Inbound SMTP Email Server Configuration](https://hub.alfresco.com/t5/alfresco-content-services-hub/inbound-smtp-email-server-configuration/ba-p/289370){:target="_blank"}. The default value is `false` |
+| email.server.requireTLS | STARTTLS  is an extension to plain text communication protocols - see [Inbound SMTP Email Server Configuration](https://hub.alfresco.com/t5/alfresco-content-services-hub/inbound-smtp-email-server-configuration/ba-p/289370){:target="_blank"}. The default value is `false` |
+| email.server.auth.enabled | Authentication is turned on by setting the following property - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `true` |
+| email.server.connections.max  | The maximum number of connections allowed.  Increase this number to favour the email subsystem at the expense of the rest of alfresco - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `3` |
+| email.server.allowed.senders  | Provides a comma-separated list of email REGEX patterns of allowed senders - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
+| email.server.blocked.senders  | Provides a comma-separated list of email REGEX patterns of blocked senders - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
+| email.inbound.enabled | Enable/Disable the inbound email service - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `false` |
+| email.inbound.unknownUser | The username to authenticate with when the sender address is not recognized in alfresco - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `anonymous` |
+| email.inbound.emailContributorsAuthority  | Allow the email contributors to belong to an authority  - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
+| email.handler.folder.overwriteDuplicates  | Should duplicate messages to a folder overwrite each other or be named with a (number) - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `true` |
+| mail.encoding | Specifies UTF-8 encoding for email - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `UTF-8` |
+| mail.host | Specifies the host name of the SMTP host, that is, the host name or IP address of the server to which email should be sent - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
+| mail.port | Specifies the port number on which the SMTP service runs (the default is 25) - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `25` |
+| mail.protocol | Specifies which protocol to use for sending email - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `smtps` |
+| mail.username | Specifies the user name of the account that connects to the smtp server - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
+| mail.password | Specifies the password for the user name used in mail.username - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
+| mail.from.default | Specifies the email address from which email notifications are sent - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
+| mail.from.enabled | If this property is set to false, then the value set in mail.from.default is always used - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
+| mail.smtp.auth | Specifies if authentication is required or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
+| mail.smtp.debug | Specifies if debugging SMTP is required or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `false` |
+| mail.smtp.starttls.enable | Specifies if the transport layer security (TLS) needs to be enabled or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
+| mail.smtp.timeout | Specifies the timeout in milliseconds for SMTP - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `20000` |
+| mail.smtps.auth | Specifies if authentication for SMTPS is required or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
+| mail.smtps.starttls.enable  | Specifies if the transport layer security for smtps needs to be enabled or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
+| imap.server.enabled | Enables or disables the IMAP subsystem - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `false` |
+| imap.server.port | IMAP has a reserved port number of 143 - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `1143` |
+| imap.server.host | Replace this value with the IP address (or corresponding DNS name) of your external IP interface - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `0.0.0.0` |
+| imap.server.imap.enabled | Enables or disables the IMAP subsystem - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `true` |
+| imap.server.imaps.enabled | Enables or disables the IMAP subsystem - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `true` |
+| imap.server.imaps.port | IMAP has a reserved port number of 143 - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `1144` |
+| imap.mail.from.default | Configuring the email client with IMAP - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK) |
+| imap.mail.to.default | Configuring the email client with IMAP - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK) |
 
 This deployment is also not fully secured by default. To learn about and apply further restrictions including pod security, network policies etc., see the [EKS Best Practices for Security](https://aws.github.io/aws-eks-best-practices/){:target="_blank"}.
+
+## Troubleshooting
+
+Here's some help for diagnosing and resolving any issues you may encounter.
+
+### Kubernetes dashboard
+
+The easiest way to troubleshoot issues on a Kubernetes deployment is to use the dashboard. Assuming you've deployed the dashboard in the cluster, you can use the following steps to explore your deployment:
+
+1. Retrieve the service account token with the following command:
+
+    ```bash
+    kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
+    ```
+
+2. Run the `kubectl` proxy:
+
+    ```bash
+    kubectl proxy &
+    ```
+
+3. Open a browser and navigate to: `http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login`
+
+4. Select **Token**, enter the token retrieved in step 1, and click **Sign in**.
+
+5. Select `alfresco` from the **Namespace** menu, click **Pods**, and then the pod name.
+
+    To view the logs, press the **Menu** icon in the toolbar as highlighted below:
+
+    ![Kubernetes Dashboard]({% link content-services/images/k8s-dashboard.png %})
+
+### Port-forwarding to a pod
+
+This approach allows you to connect to a specific application in the cluster.
+See the [Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/){:target="_blank"} for details.
+
+You can access any component of the deployment that's not exposed via ingress rules in this way, for example Alfresco Search Services, DB or individual transformers.
+
+### View log files via command-line
+
+You can view log files for individual pods from the command-line using the `kubectl` utility.
+
+Retrieve the list of pods in the `alfresco` namespace:
+
+```bash
+kubectl get pods -n alfresco
+```
+
+Retrieve the logs for a pod using the following command (replace the pod name accordingly):
+
+```bash
+kubectl logs acs-alfresco-cs-repository-69545958df-6wzl6 -n alfresco
+```
+
+To continually follow the log file for a pod, use the `-f` option:
+
+```bash
+kubectl logs -f acs-alfresco-cs-repository-69545958df-6wzl6 -n alfresco
+```
+
+### Change log levels
+
+You can change the log levels for the specific Java packages in the content-repository via the Admin Console. Use the following URL to access it: `https://<host>/alfresco/service/enterprise/admin/admin-log-settings`
+
+> **Note:** Changes are only applied to the `content-repository` node from which the Admin Console is launched.
+
+* You can change the log levels by modifying `log4j.properties` in the content-repository image and doing a rolling update to the deployment. In this case the settings will be applied system-wide. See the [customization guidelines]({% link content-services/latest/install/containers/customize.md %}) for more.
+* The Content Services deployment doesn't include any log aggregation tools. The logs generated by pods will be lost once the pods are terminated.
+
+### JMX dump
+
+This tool allows you to download a ZIP file containing information useful for troubleshooting and supporting your system. Issue a GET request (Admin only) to: `https://<host>/alfresco/service/api/admin/jmxdump`.
 
 ### Cleanup
 
@@ -527,7 +525,7 @@ This deployment is also not fully secured by default. To learn about and apply f
 
 4. Go to the [IAM console](https://console.aws.amazon.com/iam/home){:target="_blank"} and remove the AmazonRoute53FullAccess managed policy we added to the NodeInstanceRole in the File System section otherwise the cluster will fail to delete in the next step.
 
-5. Finally, delete the EKS cluster (replacing `YOUR-CLUSTER-NAME` with the name you gave your cluster):
+5. Finally, delete the EKS cluster (replace `YOUR-CLUSTER-NAME` with the name you gave your cluster):
 
     ```bash
     eksctl delete cluster --name YOUR-CLUSTER-NAME

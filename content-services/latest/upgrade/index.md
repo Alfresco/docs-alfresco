@@ -140,7 +140,7 @@ These steps assume that you've got an existing Content Services installation (`a
 
         You need to copy the database once only, as it's upgraded by the first node that's upgraded. The other nodes detect it's been upgraded and skip the database upgrade step.
 
-        **CAUTION:**
+        > **CAUTION:**
 
         In a clustered environment, when the cloned nodes are restarted with a cluster license, the nodes may try to join the existing production cluster, and point to a cloned database instead of the production cluster database. This can lead to corrupted data.
 

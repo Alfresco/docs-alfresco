@@ -103,9 +103,7 @@ The Content Services distribution file is a zip containing the required WAR file
 
 1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
-2. Download the following file:
-
-    `alfresco-content-services-distribution-6.2.x.zip`
+2. Download the file: `alfresco-content-services-distribution-6.2.x.zip`
 
 3. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 
@@ -175,7 +173,7 @@ The Content Services distribution file is a zip containing the required WAR file
         share.protocol=http
         ```
 
-8. Save the file without the .sample extension.
+8. Save the file without the `.sample` extension.
 
 9. Install Alfresco Search Services.
 
@@ -187,7 +185,7 @@ You're now ready to [install any additional software]({% link content-services/l
 
 > **Note:** If you're include Alfresco Content Connector for AWS S3 as part of your installation, don't start Content Services before applying the S3 AMP file.
 
-> **Important:** After installation, you must generate and install your own certificates to secure the installation. For more information, see [Generating secure keys](https://docs.alfresco.com/search-enterprise/concepts/generate-keys-overview.html)(#LINK).
+> **Important:** After installation, you must generate and install your own certificates to secure the installation. For more information, see [Generate secure keys](https://docs.alfresco.com/search-enterprise/concepts/generate-keys-overview.html)(#LINK).
 
 ### Directory structure
 
@@ -195,31 +193,31 @@ After you've extracted the Content Services distribution zip, several directorie
 
 | Folder | File/Sub-folder | Description |
 | ------ | --------------- | ----------- |
-| alfresco-pdf-renderer | alfresco-pdf-renderer-1.0-linux.tgz | Binary file for Linux |
-| | alfresco-pdf-renderer-1.0-win64.tgz | Binary file for Windows |
+| alfresco-pdf-renderer | `alfresco-pdf-renderer-1.0-linux.tgz` | Binary file for Linux |
+| | `alfresco-pdf-renderer-1.0-win64.tgz` | Binary file for Windows |
 | | | |
-| amps | alfresco-share-services.amp | Contains Alfresco Share AMP |
+| amps | `alfresco-share-services.amp` | Contains Alfresco Share AMP |
 | | | |
-| bin | alfresco-spring-encryptor.jar | Alfresco Encrypted Properties Management Tool |
-| | apply_amps.bat | Windows batch file for Tomcat application server installs, used to apply all AMP files in the `<installLocation>` directory. |
-| | apply_amps.sh | Linux script file for Tomcat application server installs, used to apply all AMP files in the `<installLocation>` directory. |
-| | clean_tomcat.bat | Windows batch file for cleaning out temporary application server files from previous installations |
-| | clean_tomcat.sh | Linux script for cleaning out temporary application server files from previous installations |
-| | alfresco-mmt.jar | Alfresco Module Management Tool (MMT) |
+| bin | `alfresco-spring-encryptor.jar` | Alfresco Encrypted Properties Management Tool |
+| | `apply_amps.bat` | Windows batch file for Tomcat application server installs, used to apply all AMP files in the `<installLocation>` directory. |
+| | `apply_amps.sh` | Linux script file for Tomcat application server installs, used to apply all AMP files in the `<installLocation>` directory. |
+| | `clean_tomcat.bat` | Windows batch file for cleaning out temporary application server files from previous installations |
+| | `clean_tomcat.sh` | Linux script for cleaning out temporary application server files from previous installations |
+| | `alfresco-mmt.jar` | Alfresco Module Management Tool (MMT) |
 | | | |
 | licenses | | Third-party license files |
 | | | |
-| web-server | /conf | Contains the Catalina repository and Alfresco Share XML files |
-| | /lib | Contains the PostgreSQL JDBC JAR file |
-| | /shared/classes/alfresco | Directory structure for the configuration override files, including the `extension` and `web-extension` directories |
-| | /shared/classes/alfresco-global.properties.sample | A sample global properties file |
-| | /shared/classes/alfresco-encrypted.properties.sample | A sample encrypted properties overlay file |
-| | /webapps/alfresco.war | Alfresco WAR file |
-| | /webapps/share.war | Alfresco Share WAR file |
-| | /webapps/ROOT.war | Application for the server root. The `ROOT.war` application is required to enable Alfresco Office Services (AOS). See [Install Alfresco Office Services manually into an existing web application](https://docs.alfresco.com/aos/tasks/install-server-root.html)(#LINK) |
+| web-server | `/conf` | Contains the Catalina repository and Alfresco Share XML files |
+| | `/lib` | Contains the PostgreSQL JDBC JAR file |
+| | `/shared/classes/alfresco` | Directory structure for the configuration override files, including the `extension` and `web-extension` directories |
+| | `/shared/classes/alfresco-global.properties.sample` | A sample global properties file |
+| | `/shared/classes/alfresco-encrypted.properties.sample` | A sample encrypted properties overlay file |
+| | `/webapps/alfresco.war` | Alfresco WAR file |
+| | `/webapps/share.war` | Alfresco Share WAR file |
+| | `/webapps/ROOT.war` | Application for the server root. The `ROOT.war` application is required to enable Alfresco Office Services (AOS). See [Install Alfresco Office Services manually into an existing web application](https://docs.alfresco.com/aos/tasks/install-server-root.html)(#LINK) |
 | | | |
-| &lt;root> | README.txt | Version information for Content Services and Alfresco Share |
-| | VERSIONS.md | List of recommended components for the latest Content Services release |
+| &lt;root> | `README.txt` | Version information for Content Services and Alfresco Share |
+| | `VERSIONS.md` | List of recommended components for the latest Content Services release |
 
 ## Tailor your installation
 
