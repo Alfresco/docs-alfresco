@@ -1,9 +1,9 @@
 ---
 title: Tutorials overview
 ---
-Watch these videos to see what you can do with Alfresco Content Services.
+Watch these videos to see what you can do with Content Services.
 
-You can see videos for Alfresco Content Services integrations:
+You can see videos for Content Services integrations:
 
 * Alfresco Media Management: Alfresco Media Management video tutorials
 * Alfresco Outlook Integration: Alfresco Outlook Integration video tutorials

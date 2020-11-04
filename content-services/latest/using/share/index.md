@@ -31,7 +31,7 @@ It's always available at the top of the page, wherever you are in Share.
 :Opens the People Finder page where you search for other users.
 
 ***Repository***
-:Opens the repository which shows all the content stored in Alfresco Content Services.
+:Opens the repository which shows all the content stored in Content Services.
 
 ***Admin Tools***
 :System administrators only have this option which opens the Admin Tools.

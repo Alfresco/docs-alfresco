@@ -6,11 +6,11 @@ While the Document Library is the focal point for working with content in Alfres
 
 Each of these areas can be accessed wherever you are in Share, from the links at the top of the screen.
 
-The **My Files** and **Shared Files** areas are locations with Share, whereas the **Repository** is an overview of everything in your Alfresco Content Services system.
+The **My Files** and **Shared Files** areas are locations with Share, whereas the **Repository** is an overview of everything in your Content Services system.
 
 * **My Files**: This is an area that only you can access. No-one else can see the files here and every user has their own, unique **My Files** area. It's great for saving draft content to, removing the need for trying to remember where you saved it on your laptop, or was it saved to your mobile...
 * **Shared Files**: This area can be accessed by everyone in your organization. It's a great way to quickly share files with other users that's not ready to be uploaded to a site yet.
-* **Repository**: The area lets you view all Alfresco Content Services content you have access to - all the sites, all the system files, everything is available here. You can work just as you would in a site Document Library but here you have a higher view of everything that's available. It's also very handy for Alfresco administrators who want to work with system files.
+* **Repository**: The area lets you view all Content Services content you have access to - all the sites, all the system files, everything is available here. You can work just as you would in a site Document Library but here you have a higher view of everything that's available. It's also very handy for Alfresco administrators who want to work with system files.
 
 ## My Files
 
@@ -34,7 +34,7 @@ The functionality available in the **Shared Files** area is identical to what yo
 
 ## Repository
 
-The **Repository** displays all the Alfresco Content Services content that you have access to, including content of all sites that you're a member of.
+The **Repository** displays all the Content Services content that you have access to, including content of all sites that you're a member of.
 
 > **Note:** If the **Repository** isn't available on the toolbar, contact your system administrator.
 

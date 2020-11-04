@@ -2,7 +2,7 @@
 title: Working with replicated content
 ---
 
-Alfresco Content Services administrators can configure Alfresco Content Services systems so that content is replicated across multiple repositories. Files and folders created as the result of a replication job display the **Transferred from another Repository** icon in the file list.
+Content Services administrators can configure Content Services systems so that content is replicated across multiple repositories. Files and folders created as the result of a replication job display the **Transferred from another Repository** icon in the file list.
 
 This icon indicates that this is replicated, not original, content. Depending on the transfer configuration, the content can be read-only.
 

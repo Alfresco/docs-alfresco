@@ -18,7 +18,7 @@ Smart Folders have a limited set of actions:
     * Update: You can update files in a Smart Folder. Updating a property might result in a file being removed from the current Smart Folder (because it no longer meets the query criteria).
     * Delete, Edit Properties, Unzip To, Sync, Locate To, Move, and Copy actions for files are not supported.
 
-The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Applying a Smart Folder Template](../tasks/sf-using-aspects.md).
+The Smart Folder itself can't be edited in Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Applying a Smart Folder Template](../tasks/sf-using-aspects.md).
 
 Your system administrator creates templates that you can load for different purposes, for example; a structure for a claim, or to file PDF files separately from video or audio files, or just to personalise the folder structure by user.
 
@@ -77,7 +77,7 @@ With Smart Folders you can:
 * Provide one or more metadata-driven taxonomies to build a folder tree, so that any folder or file can be displayed in multiple folders, appropriate to the business context without the need for filing
 * Automatically classify new files and inherit or map metadata to the file itself
 * Easily replicate Smart Folder structures
-* Apply to existing content without the need to restart Alfresco Content Services
+* Apply to existing content without the need to restart Content Services
 
 ### Can I delete a file from a Smart Folder?
 

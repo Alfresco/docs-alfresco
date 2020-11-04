@@ -1,33 +1,33 @@
 ---
-title: Using Alfresco Content Services from other applications
+title: Using Content Services from other applications
 ---
 
 There are several ways to access and use content without being in Alfresco Share.
 
 * Microsoft Office
 
-    You can open, edit, and save files directly from Microsoft Office apps such as Word and Excel. This same functionality also lets you open files from Windows Explorer, as well as the option to map a network drive to Alfresco Content Services.
+    You can open, edit, and save files directly from Microsoft Office apps such as Word and Excel. This same functionality also lets you open files from Windows Explorer, as well as the option to map a network drive to Content Services.
 
 * Microsoft Outlook
 
-    With Alfresco Outlook Integration you can save and file your emails to Alfresco Content Services from within Microsoft Outlook. You can drag and drop emails in and out of Alfresco Share, and add properties automatically when an email is filed. Other features full search, tagging, metadata support, and workflow capabilities.
+    With Alfresco Outlook Integration you can save and file your emails to Content Services from within Microsoft Outlook. You can drag and drop emails in and out of Alfresco Share, and add properties automatically when an email is filed. Other features full search, tagging, metadata support, and workflow capabilities.
 
 * Windows Explorer shortcuts
 
     There are also some shortcuts available that your Alfresco administrator can enable so you can work with files from Windows Explorer or from your desktop.
 
-## Using Alfresco Content Services from Microsoft Office
+## Using Content Services from Microsoft Office
 
 With Alfresco Office Services (AOS) you can access content directly from your Microsoft Office applications.
 
 This means that you can browse, open, and save Microsoft Office files (Word, PowerPoint, and Excel
-) in Alfresco Content Services without the need to access Alfresco Share through Chrome, Firefox, or another web browser.
+) in Content Services without the need to access Alfresco Share through Chrome, Firefox, or another web browser.
 
 You can also browse content from Windows Explorer, or map a network drive.
 
 For more information about Alfresco Office Services, see [Alfresco Office Services](LINK https://docs.alfresco.com/aos/concepts/aos-user.html).
 
-## Using Alfresco Content Services from Microsoft Outlook
+## Using Content Services from Microsoft Outlook
 
 With Alfresco Outlook Integration you can use email and repository management without leaving Microsoft Outlook.
 
@@ -39,7 +39,7 @@ For more information about Alfresco Outlook Integration, see [Alfresco Outlook I
 
 You can work with files without actually being in the Alfresco Share interface.
 
-Your administrator can map the repository so that you can access your content using Windows Explorer or a desktop shortcut. If you are working in this way, then there will be up to three additional files shown on each level of the Alfresco Content Services file structure:
+Your administrator can map the repository so that you can access your content using Windows Explorer or a desktop shortcut. If you are working in this way, then there will be up to three additional files shown on each level of the Content Services file structure:
 
 * __CheckInOut.exe
 * __ShowDetails.exe
@@ -55,7 +55,7 @@ You can use these files to add content to the repository, check documents in and
 
 You can easily drag and drop content to the repository from outside Share.
 
-> **Note:** This functionality is available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator, so that you can access it from Windows Explorer.
+> **Note:** This functionality is available in a Windows environment if the Content Services repository has been mapped by your administrator, so that you can access it from Windows Explorer.
 
 1. Select a file in Windows Explorer or your desktop.
 
@@ -67,7 +67,7 @@ You can easily drag and drop content to the repository from outside Share.
 
 You can use the CheckInOut.exe to check content out so that you can work on it securely.
 
-> **Note:** The CheckInOut.exe is available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
+> **Note:** The CheckInOut.exe is available in a Windows environment if the Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
 
 1. In Windows Explorer, drag a file from the mapped repository onto the CheckInOut.exe icon.
 
@@ -89,7 +89,7 @@ You can use the CheckInOut.exe to check content out so that you can work on it s
 
 You can use the ShowDetails.exe to view item details and properties.
 
-> **Note:** The ShowDetails.exe is available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
+> **Note:** The ShowDetails.exe is available in a Windows environment if the Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
 
 1. Select a file in the mapped repository in Windows Explorer or your desktop.
 
@@ -103,7 +103,7 @@ You can use the ShowDetails.exe to view item details and properties.
 
 You can use the Share.url to open the Share in a browser window.
 
-The Share.url is a shortcut to Share. It's available in a Windows environment if the Alfresco Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
+The Share.url is a shortcut to Share. It's available in a Windows environment if the Content Services repository has been mapped by your administrator so that you can access it from Windows Explorer.
 
 1. In Windows Explorer go to the location in the repository that you want to open.
 

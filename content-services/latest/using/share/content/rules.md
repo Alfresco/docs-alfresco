@@ -91,7 +91,7 @@ Actions don't apply to files in subfolders, unless the **Rule applies to subfold
 
 |Action|What the action does|
 |------|--------------------|
-|**Execute script**|Runs a custom JavaScript script from the Data Dictionary/Scripts folder. There are a number of sample scripts available. The list can vary depending on how Alfresco Content Services is configured for your organization.|
+|**Execute script**|Runs a custom JavaScript script from the Data Dictionary/Scripts folder. There are a number of sample scripts available. The list can vary depending on how Content Services is configured for your organization.|
 |**Copy**|Creates copies of files in the location of your choice. Select the additional **Deep Copy** option if you want to also copy sub-folders and their contents.|
 |**Move**|Moves all files and subfolders to the location of your choice.|
 |**Check in**|Files that are currently checked out will be checked in. For example, they will be checked in before being moved to another folder. Select **Options** to choose whether they will be checked in as minor or major versions.|
@@ -220,7 +220,7 @@ The Start Process action allows you to create a folder rule in Alfresco Share th
 
 Important notes on the usage of the Start Process action:
 
-* To create a rule using the Start Process action in Alfresco Content Services you must also be a user in Process Services.
+* To create a rule using the Start Process action in Content Services you must also be a user in Process Services.
 * To perform content actions in a folder that has a Process Services action rule defined, a user must be a Content Services and Process Services user.
 * The Start Process action is designed to work with "Create" events only. It cannot be used for "Update" events.
 * When creating a rule for Start Process action, the criteria for “Content of type or sub-type” must be set to “Content”.

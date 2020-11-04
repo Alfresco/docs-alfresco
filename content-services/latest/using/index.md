@@ -287,7 +287,7 @@ Now that you've created a site and added content, the next step is to invite oth
 
 2. Type the full or partial name of a user you want to invite and click **Search**.
 
-    > **Note:** An internal user is someone in your organization. This tutorial will add the test user, Alice Beecher, but if your Alfresco Content Services administrator has already set up users, then you can add real users if you prefer.
+    > **Note:** An internal user is someone in your organization. This tutorial will add the test user, Alice Beecher, but if your Content Services administrator has already set up users, then you can add real users if you prefer.
 
 3. Click **Select** to add the user to the **Set User Role** list.
 
