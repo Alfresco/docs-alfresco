@@ -77,7 +77,6 @@ class SearchResults extends HTMLElement {
   }
 
   initialRequest(request) {
-    console.log("initial");
     if (!request) return;
 
     const orequest = this.parseRequest(request);

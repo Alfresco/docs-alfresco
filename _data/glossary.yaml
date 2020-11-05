@@ -1,2 +1,12 @@
 community: the open source alternative for content services. Distributed under the LGPLv3 license, it is free to download and use forever. Alfresco Community Edition has limits in terms of scalability and availability and is not supported, which makes it best suited for developers and technical enthusiasts in non-business critical environments.
 form: used to capture data into specially designed field types such as text, date, file uploads and multiple choice radio buttons. They are where human intervention is required within a process and this intervention is handled by filling in a form.
+SAP_ABAP: Advanced Business Application Programming (SAP)
+AMP: Alfresco Module Package
+SAP_DIR: Document Info Record (SAP)
+SAP_ECC: SAP ERP Central Component
+SAP_IMG: Implementation Guide (SAP)
+SAP_JCo: SAP Java Connector
+SAP_PSE: Personal Security Environment (SAP)
+SAP_OSS: Online Service System (SAP)
+
+

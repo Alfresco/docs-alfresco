@@ -678,6 +678,10 @@ body > .section.section-landing {
   font-weight: 500;
 }
 
+.content-menu-column ul li > span.menuitem-title {
+  cursor: pointer;
+}
+
 .content-menu-column ul li {
   display: flex;
   flex-wrap: wrap;
@@ -703,12 +707,6 @@ body > .section.section-landing {
 #tocspy li {
   padding-left: 0px;
   justify-content: flex-start;
-
-  /* transition: border-left-color 0.5s linear, border-left-width 0.5s linear,
-    padding-left 0.5s linear; */
-}
-#tocspy li.is-selected {
-  /* padding-left: 0; */
 }
 #tocspy li::before {
   border-left: 3px solid rgba(33, 35, 40, 1);
@@ -1485,8 +1483,6 @@ a.github-link::after {
 }
 .releasenotes-header p {
   margin-bottom: 42px;
-}
-.releasenotes-header .github {
 }
 
 .release-container {
