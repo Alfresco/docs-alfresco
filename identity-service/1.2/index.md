@@ -1,5 +1,5 @@
 ---
-title: Alfresco Identity Service
+title: Identity Service
 ---
 
 The Identity Service is responsible for supporting user authentication of other Alfresco software.
