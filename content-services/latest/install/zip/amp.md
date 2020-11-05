@@ -29,8 +29,8 @@ The MMT is available as a JAR file from the distribution zip (`alfresco-content-
 
     | Option | Description |
     | ------ | ----------- |
-    | &lt;AMPFileLocation>| The location of the AMP file that you want to install. |
-    | &lt;WARFileLocation> | The location of the WAR file for your installation. |
+    | AMPFileLocation| The location of the AMP file that you want to install. |
+    | WARFileLocation | The location of the WAR file for your installation. |
     | -verbose | Install command option. Enables detailed output containing what is being updated and to where it is being copied. |
     | -directory | Install command option. Indicates that the AMP file location specified is a directory. All AMP files found in the directory and its sub directories are installed. |
     | -force | Install command option. Forces installation of AMP regardless of currently installed module version. |

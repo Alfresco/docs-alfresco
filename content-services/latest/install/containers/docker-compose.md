@@ -134,7 +134,7 @@ Use this information to verify that the system started correctly, and to clean u
 
         ```bash
         docker-compose logs <service-name>
-        docker container logs `<container-name>`
+        docker container logs <container-name>
         ```
 
         For example, to check the logs for Share, run any of the following commands:

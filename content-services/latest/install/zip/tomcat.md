@@ -216,7 +216,7 @@ After you've extracted the Content Services distribution zip, several directorie
 | | `/webapps/share.war` | Alfresco Share WAR file |
 | | `/webapps/ROOT.war` | Application for the server root. The `ROOT.war` application is required to enable Alfresco Office Services (AOS). See [Install Alfresco Office Services manually into an existing web application](https://docs.alfresco.com/aos/tasks/install-server-root.html)(#LINK) |
 | | | |
-| &lt;root> | `README.txt` | Version information for Content Services and Alfresco Share |
+| root | `README.txt` | Version information for Content Services and Alfresco Share |
 | | `VERSIONS.md` | List of recommended components for the latest Content Services release |
 
 ## Tailor your installation
