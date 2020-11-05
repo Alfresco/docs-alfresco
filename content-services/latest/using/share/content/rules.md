@@ -2,7 +2,8 @@
 title: Applying rules to folders
 ---
 
-In the library you can define folder rules to manage your content automatically. You can come up with many creative solutions to make sure specific content processes are automated all without you having to do the work yourself.
+In the library you can define folder rules to manage your content automatically. You can come up with many creative 
+solutions to make sure specific content processes are automated all without you having to do the work yourself.
 
 Rules dictate how content entering, leaving, or currently residing in a folder is managed.
 
@@ -26,19 +27,21 @@ Here are some examples of how you can use rules to automate repetitive tasks:
 * All GIF files placed in the *Images* folder will be transformed to PNG files
 * All presentation documents placed in the *Published* folder will be transformed to Flash and copied to the *Assets* folder
 
-### Defining rules for a folder
+## Defining rules for a folder
 
-Use folder rules to manage your files automatically. There are two ways to define rules: create your own rules or link to rules already created for a different folder.
+Use folder rules to manage your files automatically. There are two ways to define rules: create your own rules or link 
+to rules already created for a different folder.
 
-When you define a rule, it only applies to new content added to the folder. Files that were in the folder before the rule was defined aren't affected by it. You can manually apply the folder rules with the **Run Rules** action.
+When you define a rule, it only applies to new content added to the folder. Files that were in the folder before the 
+rule was defined aren't affected by it. You can manually apply the folder rules with the **Run Rules** action.
 
 > **Note:** Even if the folder doesn't have its own rules, it could have inherited rules from a parent folder. A message on the Rules page lets you know if this is the case.
 
-#### Creating a rule
+### Creating a rule {#createrule}
 
 You can create rules for a folder, in much the same way that you might apply rules to your emails.
 
-> **Note:** If a folder already has rules applied to it (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) you can add new rules to it by [adding a set of rules](library-folder-rules-new.md).
+> **Note:** If a folder already has rules applied to it (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) you can add new rules to it by [adding a set of rules](#addtosetofrules).
 
 1. Hover over a folder with no rules applied and click **More** then **Manage Rules**.
 
@@ -51,6 +54,7 @@ You can create rules for a folder, in much the same way that you might apply rul
     * **Items are created or enter this folder**: The rule will be applied to content that gets added to this folder. This includes any item that is copied to, created in, or uploaded to the folder.
     * **Items are updated**: When an item in this folder is modified, the rule will be applied to it.
     * **Items are deleted or leave this folder**: The rule will be applied to content that is moved out of the folder or deleted.
+    
     > **Note:** A rule can have more than one event, condition, and action. Click the + or - to add or remove rows.
 
 5. Select if the rule will be applied **If all criteria are met**, **Unless all criteria are met**, or both.
@@ -60,11 +64,12 @@ You can create rules for a folder, in much the same way that you might apply rul
     * The rule is applied if the item title contains the word 'urgent' (**If all criteria are met**)
     * The rule is applied if the item title does not contain the word 'urgent' (**Unless all criteria are met**)
     * The rule is applied if the item title contains the word 'urgent', unless the item was created before a specified date (**If all criteria are met** and **Unless all criteria are met**)
+    
 6. Select criteria for which content the rule will apply to, and remember that you can use the + and - icons to add and remove extra criteria.
 
     > **Note:** Selecting **Show more** on the criteria menu gives you additional properties to choose from. Use the folders on the Select property page to search properties, then select a property on the right of the page. Selecting **Show in menu** shows the property in all condition lists for the current rule.
 
-7. Select the [rule action](../references/rule-actions.md) you want performed when the conditions are met.
+7. Select the [rule action](#ruleactions) you want performed when the conditions are met.
 
     When you've selected an action you then need to select further options, for example if you select to copy or move items click **Select** to specify where the content will be copied or moved to.
 
@@ -77,15 +82,17 @@ You can create rules for a folder, in much the same way that you might apply rul
     * **Disable rule**: Switch off the rule.
     * **Rule applies to subfolders**: Apply the rule to this folder and all its subfolders.
     * **Run rule in background** Lets you continue working while the rule is running. You can also select an action to run if an error occurs with the rule. These actions are set up by your Alfresco administrator.
+    
 9. Click **Create**, or **Create and Create Another** to save this rule and start creating another.
 
-#### Rule actions
+### Rule actions {#ruleactions}
 
 When you're setting up a rule in Alfresco Share there are lots of default actions available.
 
 Selected actions are performed on files that meet the criteria of the event and conditions that you've selected.
 
-Actions don't apply to files in subfolders, unless the **Rule applies to subfolders** option is selected before a rule is created.
+Actions don't apply to files in subfolders, unless the **Rule applies to subfolders** option is selected before a rule 
+is created.
 
 > **Note:** Additional rule actions are available with modules such as Alfresco Records Management, or if they've been set up by your Alfresco administrator.
 
@@ -96,30 +103,26 @@ Actions don't apply to files in subfolders, unless the **Rule applies to subfold
 |**Move**|Moves all files and subfolders to the location of your choice.|
 |**Check in**|Files that are currently checked out will be checked in. For example, they will be checked in before being moved to another folder. Select **Options** to choose whether they will be checked in as minor or major versions.|
 |**Check out**|Checks out files automatically, with a working copy created in the location of your choice.|
-|**Link to category**|Links files or folders to a category of your choice, such as a region or classification. See [Tagging and categorizing content](../tasks/site-content-tag.md) for more.|
-|**Add aspect**|Adds a property aspect to files, to give it additional behaviours or properties. See [About Aspects](../concepts/aspect-about.md) for more.|
-|**Remove aspect**|Removes a property aspect from files, to remove functionality or properties. See [About Aspects](../concepts/aspect-about.md) for more.|
-|**Add simple workflow**|Adds files to a workflow. By default there is an approval task. You can also click to add a reject task. **Note:** You can click on **Approve** and **Reject** to rename the steps and to select a location to copy and move approved/rejected files to.
-
-See [Tasks and workflows](../tasks/library-folder-rules-simpleworkflow.md) for more.
-
-|
+|**Link to category**|Links files or folders to a category of your choice, such as a region or classification. See [Tagging and categorizing content]({% link content-services/latest/using/share/content/organize.md %}#tagcategorizecontent) for more.|
+|**Add aspect**|Adds a property aspect to files, to give it additional behaviours or properties. See [About Aspects](TODO_LINK:../concepts/aspect-about.md) for more.|
+|**Remove aspect**|Removes a property aspect from files, to remove functionality or properties. See [About Aspects](TODO_LINK:../concepts/aspect-about.md) for more.|
+|**Add simple workflow**|Adds files to a workflow. By default there is an approval task. You can also click to add a reject task. **Note:** You can click on **Approve** and **Reject** to rename the steps and to select a location to copy and move approved/rejected files to.<br><br>See [Tasks and workflows](#createsimpleworkflow) for more info.|
 |**Send email**|When files and subfolders are added you can select to send notifications by email. Click **Message** to select recipients and add the message of your choice.|
 |**Transform and copy content**|When applicable, add copies of files, in the format of your choice, to another location. For example you can generate a copy of a Word document in PDF format in a different folder.|
 |**Transform and copy image**|When applicable, add copies of image files, in the format of your choice, to another location. For example you can generate a copy of a GIF file in PNG format in a different folder.|
 |**Extract common metadata fields**|Embedded metadata is extracted from files and added to the file properties. Microsoft Office document properties, LibreOffice, and a number of other formats are supported.|
 |**Import**|ZIP and ACP files are automatically unpacked. Select a location where the unpacked files will be placed.|
-|**Specialise type**|When applicable, changes a file's content type. For example, changes a standard file into a policy document and adds the appropriate metadata for that content type. See [Changing the content type](../tasks/library-item-change-type.md) for more.|
+|**Specialise type**|When applicable, changes a file's content type. For example, changes a standard file into a policy document and adds the appropriate metadata for that content type. See [Changing the content type]({% link content-services/latest/using/share/content/files-folders.md %}#changetype) for more.|
 |**Increment Counter**|Automatically increments the value of a number (integer) property. This will generally only be used by Alfresco administrators.|
 |**Set property value**|Select a property and then enter a default value. Files with that property will have it changed to the entered value.|
 |**Embed properties as metadata in content**|Embeds file properties directly into the binary file as metadata. The information contained in those files can help in searching and workflows.|
-|**Start Process**|You can use this action to create a folder rule in Share that triggers an Alfresco Process Services process. See [Configuring the APS Action](../topics/prod-setup.md) and [Start Process action details](../tasks/aps-action-details.md) for more.|
+|**Start Process**|You can use this action to create a folder rule in Share that triggers an Alfresco Process Services process. See [Configuring the APS Action](TODO:../topics/prod-setup.md) and [Start Process action details](#startprocessactiondetails) for more.|
 
-#### Linking to an existing rule set
+### Linking to an existing rule set
 
 The **Link to Rule Set** option lets you reuse an existing rule set that's already defined for another folder.
 
-> **Note:** If a folder already has linked rules applied (rules are indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) you can link to new rules by [linking to a different rule set](library-folder-rules-change-link.md).
+> **Note:** If a folder already has linked rules applied (rules are indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) you can link to new rules by [linking to a different rule set](#linktodifferentruleset).
 
 1. Hover over a folder with no rules applied and click **More** then **Manage Rules**.
 
@@ -137,11 +140,13 @@ The **Link to Rule Set** option lets you reuse an existing rule set that's alrea
 
 5. Click **Done**.
 
-#### Creating a simple workflow
+### Creating a simple workflow {#createsimpleworkflow}
 
-You can set up rules to trigger a simple workflow that's made up of review and approval steps. When an item enters a folder with this type of rule applied, it will have additional actions available.
+You can set up rules to trigger a simple workflow that's made up of review and approval steps. When an item enters a 
+folder with this type of rule applied, it will have additional actions available.
 
-You configure the rule to specify the user actions and flow of the content between folders. You can also add complexity to a simple workflow by creating rules for other folders and passing content around from location to location.
+You configure the rule to specify the user actions and flow of the content between folders. You can also add complexity 
+to a simple workflow by creating rules for other folders and passing content around from location to location.
 
 For example, you could set up rules to create a simple workflow that manages content as follows:
 
@@ -163,6 +168,7 @@ For example, you could set up rules to create a simple workflow that manages con
     * **Items are created or enter this folder**: The rule will be applied to content that gets added to this folder. This includes any item that is copied to, created in, or uploaded to the folder.
     * **Items are updated**: When an item in this folder is modified, the rule will be applied to it.
     * **Items are deleted or leave this folder**: The rule will be applied to content that is moved out of the folder or deleted.
+    
     > **Note:** A rule can have more than one event, condition, and action. Click the + or - to add or remove rows
 
 5. Select if the rule will be applied **If all criteria are met**, **Unless all criteria are met**, or both.
@@ -172,6 +178,7 @@ For example, you could set up rules to create a simple workflow that manages con
     * The rule is applied if the item title contains the word 'urgent' (**If all criteria are met**)
     * The rule is applied if the item title does not contain the word 'urgent' (**Unless all criteria are met**)
     * The rule is applied if the item title contains the word 'urgent', unless the item was created before a specified date (**If all criteria are met** and **Unless all criteria are met**)
+
 6. Select criteria for which content the rule will apply to, and remember that you can use the + and - icons to add and remove extra criteria.
 
     > **Note:** Selecting **Show more** on the criteria menu gives you additional properties to choose from. Use the folders on the Select property page to search properties, then select a property on the right of the page. Selecting **Show in menu** shows the property in all condition lists for the current rule.
@@ -203,11 +210,12 @@ For example, you could set up rules to create a simple workflow that manages con
     * **Disable rule**: Switch off the rule.
     * **Rule applies to subfolders**: Apply the rule to this folder and all its subfolders.
     * **Run rule in background** Lets you continue working while the rule is running. You can also select an action to run if an error occurs with the rule. These actions are set up by your Alfresco administrator.
+
 11. Click **Create**, or **Create and Create Another** to save this rule and start creating another.
 
 In the **Document Library** the symbol ![simple workflow]({% link content-services/images/im-rules-simpleworkflow.png %}) to the left of an item indicates that a simple workflow has been applied to it. The approve and reject actions (with their defined labels) appear in the action list for these items.
 
-#### Start Process action details
+### Start Process action details {#startprocessactiondetails}
 
 The Start Process action allows you to create a folder rule in Alfresco Share that triggers an Alfresco Process Services process. To access the Perform Action section of the rule definition, select **Start Process** and then click the **Options** button.
 
@@ -228,7 +236,7 @@ Important notes on the usage of the Start Process action:
 * When designing Process Services processes to be triggered from Content Services, the process definition should have a Start form that contains an Attach File field named 'content'.
 * Process Services processes which are triggered from a Process Services action, and their related Tasks, can only be managed through Process Services related interfaces and not through Alfresco Share.
 
-### Working with a set of rules
+## Working with a set of rules
 
 You can easily view and maintain the individual rules that makes up the rule set. You can add, edit, and delete rules, make a rule inactive, and change the run order. You can also manually run rules.
 
@@ -242,9 +250,9 @@ A check mark to the left of the rule means it's active.
 
 Selecting an individual rule in this list displays its details on the right side of the page.
 
-See [Troubleshooting rules and actions](https://docs.alfresco.com/6.2/concepts/troubleshooting-type.html) for information about resolving problems with rules.
+See [Troubleshooting rules and actions](TODO:https://docs.alfresco.com/6.2/concepts/troubleshooting-type.html) for information about resolving problems with rules.
 
-#### Adding to a set of rules
+### Adding to a set of rules {#addtosetofrules}
 
 A set of rules can include any number of individual rules, and you can add new rules to a folder as you need.
 
@@ -252,13 +260,14 @@ A set of rules can include any number of individual rules, and you can add new r
 
 2. Click **New Rule**.
 
-    On the New Rule page you can add a new rule to a set of rules in exactly the same way as the first time you created a rule, see [creating a rule](library-folder-rules-define-create.md).
+    On the New Rule page you can add a new rule to a set of rules in exactly the same way as the first time you created a rule, see [creating a rule](#createrule).
 
 After creating the last rule you return to the Rules page. Any new rules created are added at the end of the rule set.
 
-#### Editing a rule
+### Editing a rule
 
-You might need to revisit your rules from time to time and make some changes to keep them current. If you don’t want to use a specific rule anymore but think you might need it again in the future, you can just disable it.
+You might need to revisit your rules from time to time and make some changes to keep them current. If you don’t want to 
+use a specific rule anymore but think you might need it again in the future, you can just disable it.
 
 1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
 
@@ -272,7 +281,7 @@ You might need to revisit your rules from time to time and make some changes to 
 
 5. Click **Save**.
 
-#### Deleting a rule
+### Deleting a rule
 
 When a folder has a rule applied that you don't need anymore, you can delete the individual rule.
 
@@ -288,9 +297,10 @@ When a folder has a rule applied that you don't need anymore, you can delete the
 
 4. When you're asked to confirm the deletion, click **Delete**.
 
-#### Reordering the rules in the rule set
+### Reordering the rules in the rule set
 
-As part of managing your rule set you can pick the order in which the rules are run. If your folder has inherited rules, those are always run first in the order they're listed. Any rules marked as inactive are simply skipped.
+As part of managing your rule set you can pick the order in which the rules are run. If your folder has inherited rules, 
+those are always run first in the order they're listed. Any rules marked as inactive are simply skipped.
 
 1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
 
@@ -300,7 +310,7 @@ As part of managing your rule set you can pick the order in which the rules are 
 
 3. Click **Save**.
 
-#### Switching off inherited rules
+### Switching off inherited rules
 
 If a folder is inheriting rules from a parent folder, you can easily switch them on and off as needed.
 
@@ -314,9 +324,10 @@ Switching inherited rules on and off works at an individual folder level, and wi
 
     Any inherited rules are switched off for the folder and **Don't Inherit Rules** is shown. You can click **Don't Inherit Rules** to switch inherited rules back on for the folder.
 
-#### Manually running rules
+### Manually running rules
 
-When you create or edit a rule set, the rules aren't automatically applied to the existing folder items. You can manually run the rules at any time to apply them to all content. Only the items that meet the conditions will be affected.
+When you create or edit a rule set, the rules aren't automatically applied to the existing folder items. You can 
+manually run the rules at any time to apply them to all content. Only the items that meet the conditions will be affected.
 
 1. Hover over a folder with rules applied (indicated by the ![rules]({% link content-services/images/rules-icon.png %}) icon) and click **More** then **Manage Rules**.
 
@@ -326,19 +337,23 @@ When you create or edit a rule set, the rules aren't automatically applied to th
 
     * **Run rules for this folder**
     * **Run rules for this folder and its subfolders**
+    
     A message lets you know when the rules have run.
 
-### Working with linked rules
+## Working with linked rules
 
-When a folder has linked rules there are less editing options than when it has its own set of rules. You can either link to a different rule set or you can break the link completely.
+When a folder has linked rules there are less editing options than when it has its own set of rules. You can either link 
+to a different rule set or you can break the link completely.
 
-When you select the **Manage Rules** action for a folder with linked rules, the Rules page shows the name and path of the folder whose rule set is being referenced.
+When you select the **Manage Rules** action for a folder with linked rules, the Rules page shows the name and path of 
+the folder whose rule set is being referenced.
 
 > **Note:** The folder might also inherit rules from a parent folder. A message lets you know if this is the case.
 
-Changes to the rule set have to be done in the folder where the rules were originally defined. It's easy to get to the Rules page for the source folder: just click **View Rule Set**.
+Changes to the rule set have to be done in the folder where the rules were originally defined. It's easy to get to the 
+Rules page for the source folder: just click **View Rule Set**.
 
-#### Linking to a different rule set
+### Linking to a different rule set {#linktodifferentruleset}
 
 If you want to change the rules you're linked to, you can easily link to a different rule set.
 
@@ -358,7 +373,7 @@ If you want to change the rules you're linked to, you can easily link to a diffe
 
 5. Click **Done**.
 
-#### Breaking the link to a rule set
+### Breaking the link to a rule set
 
 If you don't need your rules anymore, breaking the link is just a single click away. This leaves the folder without any rules.
 

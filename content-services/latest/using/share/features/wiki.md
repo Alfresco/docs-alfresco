@@ -6,15 +6,18 @@ The wiki lets site users create pages for a collaborative wiki.
 
 When you enter the wiki the page view displays the wiki main page. Click **Wiki Page List** to display the wiki list.
 
-The wiki page list displays a summary of all pages created for the current site's wiki. Select a page in this list to view it in the page view.
+The wiki page list displays a summary of all pages created for the current site's wiki. Select a page in this list to 
+view it in the page view.
 
-In both views (wiki list and page view) you can create, delete, view details for, and edit a wiki page. You must be in the page view to rename a wiki page.
+In both views (wiki list and page view) you can create, delete, view details for, and edit a wiki page. You must be in 
+the page view to rename a wiki page.
 
-> **Note:** See [Customizing a site](../tasks/site-customize.md) for how to switch the wiki on and off for a site.
+> **Note:** See [Customizing a site]({% link content-services/latest/using/share/sites.md %}#customizesite) for how to switch the wiki on and off for a site.
 
 ## Accessing the wiki
 
-Access the wiki to view the wiki content related to the current site. In the wiki you can create, delete, rename, and edit the wiki pages. You can perform most actions from both the wiki list and the page view.
+Access the wiki to view the wiki content related to the current site. In the wiki you can create, delete, rename, and 
+edit the wiki pages. You can perform most actions from both the wiki list and the page view.
 
 1. In a site click **More** then **Wiki**.
 
@@ -32,30 +35,30 @@ Access the wiki to view the wiki content related to the current site. In the wik
 
 The browsing feature in the wiki lets you filter the wiki pages so you can easily locate specific content.
 
-The wiki page list displays all wiki pages in the current site organized chronologically. The most recent page appears at the top of the list.
+The wiki page list displays all wiki pages in the current site organized chronologically. The most recent page appears 
+at the top of the list.
 
-The browsing pane on the left side of the page lets you display a subset of the wiki content by selecting a specific view or a tag. Whether you are browsing by view or tag, the wiki list displays a summary of the pages matching the selected option. The summary includes:
+The browsing pane on the left side of the page lets you display a subset of the wiki content by selecting a specific 
+view or a tag. Whether you are browsing by view or tag, the wiki list displays a summary of the pages matching the 
+selected option. The summary includes:
 
-    * the wiki page name
-    * the user who created the page
-    * the date and time the page was created
-    * the user who last modified the page
-    * the date and time the page was last modified
-    * a sample of the content
-    * the tags associated with the page
+* the wiki page name
+* the user who created the page
+* the date and time the page was created
+* the user who last modified the page
+* the date and time the page was last modified
+* a sample of the content
+* the tags associated with the page
 
 The **Pages** list in the browsing pane provides the following views:
 
-**Recently Modified**
-:Displays the pages modified in the past seven days
-**All**
-:Displays all pages created in the wiki for the current site
-**Recently Added**
-:Displays the pages created in the past seven days
-**My Pages**
-:Displays the pages created by the currently signed in user
+* **Recently Modified**: Displays the pages modified in the past seven days
+* **All**: Displays all pages created in the wiki for the current site
+* **Recently Added**: Displays the pages created in the past seven days
+* **My Pages**: Displays the pages created by the currently signed in user
 
-The **Tags** list displays the tags currently associated with one or more wiki pages. The number following the tag tells you how many wiki pages are associated with the tag.
+The **Tags** list displays the tags currently associated with one or more wiki pages. The number following the tag 
+tells you how many wiki pages are associated with the tag.
 
 To browse the wiki pages:
 
@@ -72,7 +75,8 @@ The selected wiki page appears in the page view.
 
 ## Creating the wiki main page
 
-When you create a new site, the site's wiki contains a main page, which is empty. You will likely choose to make this the introductory page for the site wiki.
+When you create a new site, the site's wiki contains a main page, which is empty. You will likely choose to make this 
+the introductory page for the site wiki.
 
 1. In the wiki click **Main Page** if the main page is not already displayed.
 
@@ -106,7 +110,7 @@ You can create a new wiki page from both the wiki list and the page view.
 
 2. Type a **Title** for the page.
 
-    The **Title** does not support the following special characters: \ / . ? # and |. When the title contains a disallowed character the **Save** button is disabled.
+    The **Title** does not support the following special characters: `\ / . ? # and |`. When the title contains a disallowed character the **Save** button is disabled.
 
     > **Note:** The title can include a period as long as it is not the last character.
 
@@ -120,7 +124,7 @@ You can create a new wiki page from both the wiki list and the page view.
 
     Click and drag the bottom right corner to resize the text editor.
 
-    To create a link to another wiki page, type **[[Page Name]]**. If the page indicated does not exist, it is automatically created for you. Note that this creates an empty wiki page. It will not appear in the wiki list until you provide content for it.
+    To create a link to another wiki page, type `[[Page Name]]`. If the page indicated does not exist, it is automatically created for you. Note that this creates an empty wiki page. It will not appear in the wiki list until you provide content for it.
 
 4. Optionally, add existing or create new tags for the wiki page.
 
@@ -154,7 +158,7 @@ Edit a wiki page to create new content, edit existing content, and add tags.
 
     Click and drag the bottom right corner to resize the text editor.
 
-    To create a link to another wiki page, type **[[Page Name]]**. If the page indicated does not exist, it is automatically created for you. Note that this creates an empty wiki page. It will not appear in the wiki list until you provide content for it.
+    To create a link to another wiki page, type `[[Page Name]]`. If the page indicated does not exist, it is automatically created for you. Note that this creates an empty wiki page. It will not appear in the wiki list until you provide content for it.
 
 4. Edit the tags for this wiki page as necessary.
 
@@ -180,17 +184,20 @@ You rename a wiki page in the page view.
 
 4. Type the new name for the wiki page.
 
-    The wiki page title does not support the following special characters: \ / . ? # and |. When the title contains a disallowed character the **Save** button is disabled.
+    The wiki page title does not support the following special characters: `\ / . ? # and |`. When the title contains a disallowed character the **Save** button is disabled.
 
     > **Note:** The title can include a period as long as it is not the last character.
 
 5. Click **Save**.
 
-The page view reflects the name change and this wiki page retains the history of the original page. A page with the original name is also created. It contains a link to the updated page so that users will not be presented with broken links when using the wiki.
+The page view reflects the name change and this wiki page retains the history of the original page. A page with the 
+original name is also created. It contains a link to the updated page so that users will not be presented with broken 
+links when using the wiki.
 
 ## Deleting a wiki page
 
-Delete a wiki page when you no longer want it to appear in the wiki for the current site. You can perform this task from both the wiki list and the page view.
+Delete a wiki page when you no longer want it to appear in the wiki for the current site. You can perform this task 
+from both the wiki list and the page view.
 
 1. In the wiki list locate the wiki page you want to delete.
 
@@ -206,7 +213,9 @@ Delete a wiki page when you no longer want it to appear in the wiki for the curr
 
 ## Viewing the wiki page details
 
-View wiki page details to see the version history, view the tags associated with the page, and list the wiki pages that link to the selected page. You can view the page details from both the wiki list and the page view. On this page, you can view previous versions of the page and even revert to a specific version.
+View wiki page details to see the version history, view the tags associated with the page, and list the wiki pages that 
+link to the selected page. You can view the page details from both the wiki list and the page view. On this page, you 
+can view previous versions of the page and even revert to a specific version.
 
 1. In the wiki list locate the wiki page whose details you want to view.
 

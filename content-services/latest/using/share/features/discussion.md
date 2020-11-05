@@ -2,17 +2,19 @@
 title: The discussion forum
 ---
 
-The discussion forum lets you post user-generated content related to a site. These topics often take the form of questions or comments with threaded discussions.
+The discussion forum lets you post user-generated content related to a site. These topics often take the form of 
+questions or comments with threaded discussions.
 
 Members of a site can create new topics and can also reply to a posting to take part in a discussion on a specific topic.
 
-> **Note:** See [Customizing a site](link ../tasks/site-customize.md) for how to switch the discussion forum on and off for a site.
+> **Note:** See [Customizing a site]({% link content-services/latest/using/share/sites.md %}#customizesite) for how to switch the discussion forum on and off for a site.
 
 ## Accessing the discussion forum
 
 Access the discussion forum to view the discussion topics for the current site.
 
-Within a discussion you can create new topics, as well as edit and delete topics you created. You can also take part in a discussion by replying to a topic.
+Within a discussion you can create new topics, as well as edit and delete topics you created. You can also take part 
+in a discussion by replying to a topic.
 
 1. In a site click **More** then **Discussions**.
 
@@ -26,6 +28,7 @@ Within a discussion you can create new topics, as well as edit and delete topics
     * the number of replies to the topic
     * a sample of the content
     * the tags associated with the topic
+    
 2. Use the **<<** and **>>** navigation buttons to move forward and backward through multiple pages of topics.
 
 3. Click **Simple View** to display only the basic topic information: title, creation date/time, and author.
@@ -40,16 +43,13 @@ The explorer panel on the left side of the page lets you display a subset of the
 
 The **Topics** list in the browsing pane provides the following views:
 
-**New**
-: Displays the topics created or updated in the past seven days
-**Most Active**
-:Displays the topics with the most replies
-**All**
-:Displays all topics
-**My Topics**
-:Displays the topics created by the current user
+* **New**: Displays the topics created or updated in the past seven days
+* **Most Active**: Displays the topics with the most replies
+* **All**: Displays all topics
+* **My Topics**: Displays the topics created by the current user
 
-The **Tags** list displays the tags currently associated with one or more discussion topics. The number following the tag tells you how many discussion topics are associated with the tag.
+The **Tags** list displays the tags currently associated with one or more discussion topics. The number following the 
+tag tells you how many discussion topics are associated with the tag.
 
 **To browse the discussion topics:**
 
@@ -65,9 +65,11 @@ The **Tags** list displays the tags currently associated with one or more discus
 
 ## Viewing a topic
 
-The discussion forum topics display in either a summary view or a simple list. Viewing a topic allows you to see the full contents of the discussion.
+The discussion forum topics display in either a summary view or a simple list. Viewing a topic allows you to see the 
+full contents of the discussion.
 
-Although you can perform actions on a topic from the main page, you might want to view the topic before you edit, delete, or reply to it in order to confirm that you have selected the correct one.
+Although you can perform actions on a topic from the main page, you might want to view the topic before you edit, delete, 
+or reply to it in order to confirm that you have selected the correct one.
 
 1. In the Discussions feature browse the discussion topics to find the one you want to view.
 
@@ -81,7 +83,8 @@ Although you can perform actions on a topic from the main page, you might want t
 
 ## Replying to a discussion
 
-Reply to a topic to take part in the discussion. You can reply to the original discussion topic or any replies already created for that topic. Each reply is nested to visually indicate the discussion flow.
+Reply to a topic to take part in the discussion. You can reply to the original discussion topic or any replies already 
+created for that topic. Each reply is nested to visually indicate the discussion flow.
 
 1. In the Discussions feature click the name of a topic to open it.
 

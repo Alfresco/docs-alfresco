@@ -2,9 +2,10 @@
 title: Viewing content
 ---
 
-To get a closer look at a file or folder without downloading it, you can view it on the file preview screen. This gives you more detail, a preview, and access to social features, actions, and version history.
+To get a closer look at a file or folder without downloading it, you can view it on the file preview screen. 
+This gives you more detail, a preview, and access to social features, actions, and version history.
 
-### Viewing folder details
+## Viewing folder details
 
 View the details page for a folder to conveniently see all information and actions in one place.
 
@@ -18,15 +19,17 @@ View the details page for a folder to conveniently see all information and actio
 
 Click the folder in the breadcrumb trail at the top of the screen to return to the item list for that folder.
 
-### Viewing a file
+## Viewing a file
 
-You can preview files by clicking on the thumbnail or name in the document library. All file details and actions are available on this one screen.
+You can preview files by clicking on the thumbnail or name in the document library. All file details and actions are 
+available on this one screen.
 
 The preview screen is split into four sections.
 
-#### Info and options
+### Info and options
 
-The info includes the file location and name, version number, the user who last modified the file, and the date/time of the modification. An icon to the left of these shows the file type.Above this info is a link to return to the document library.
+The info includes the file location and name, version number, the user who last modified the file, and the date/time of 
+the modification. An icon to the left of these shows the file type.Above this info is a link to return to the document library.
 
 With the options you can:
 
@@ -36,13 +39,14 @@ With the options you can:
 * Click ![Comment icon]({% link content-services/images/comment-icon.png %}) to comment on a file. When you've entered your comment click **Add Comment**.
 * Click ![Share icon]({% link content-services/images/ico-share.png %}) to share a file. You can copy a link or share it directly on social media.
 
-#### Preview
+### Preview
 
 The preview options depend on what kind of file you're previewing.
 
 A video preview has standard video playback controls.
 
-When you preview a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can zoom in and out, click **Maximize** to view a larger preview, and scroll between pages of multi-page files.
+When you preview a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can zoom in 
+and out, click **Maximize** to view a larger preview, and scroll between pages of multi-page files.
 
 > **Note:** The zoom level and current page number are saved for the next time you preview this item.
 
@@ -52,7 +56,7 @@ You can also:
 * Click ![Advanced Search icon]({% link content-services/images/ico-link.png %}) to share a link to the file, and even select to **Link to current page**.
 * Click ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) to search for text within the file.
 
-#### Comments
+### Comments
 
 Comments are beneath the preview. Here you can add a comment, as well as edit and delete comments you've added.
 
@@ -60,7 +64,7 @@ Comments are beneath the preview. Here you can add a comment, as well as edit an
 
 The comment list displays the 10 most recent comments. Click previous (<<) and next (>>) to see more comments.
 
-#### Actions and details list
+### Actions and details list
 
 The actions and details are grouped in sections that you can expand and collapse.
 
@@ -74,9 +78,10 @@ The actions and details are grouped in sections that you can expand and collapse
 * **Workflows** - Displays tasks that this file is included in. The profile picture of the user who started the task and the task type are shown. Click ![Tasks icon]({% link content-services/images/ico-workflow.png %}) to start a new task for this file, and click a task description to view the task.
 * **Version History** - Displays previous versions. Click ![Upload version icon]({% link content-services/images/ico-version-upload.png %}) to upload a new version, ![Replace version icon]({% link content-services/images/ico-version-revert.png %}) to replace the current version with a previous version, ![Download icon]({% link content-services/images/ico-version-download.png %}) to download a previous version, or ![Version properties icon]({% link content-services/images/ico-version-properties.png %}) to view previous version properties.
 
-### View a file in a browser
+## View a file in a browser
 
-While the preview feature lets you view a file in Alfresco Share, you also have the option of viewing it in your default browser.
+While the preview feature lets you view a file in Alfresco Share, you also have the option of viewing it in your 
+default browser.
 
 1. Hover over a file in the document library.
 
@@ -84,7 +89,7 @@ While the preview feature lets you view a file in Alfresco Share, you also have 
 
     A new browser window opens displaying the selected file. For some file types, such as Microsoft Office documents, Share launches the file in its associated program.
 
-### View a file on Google Maps
+## View a file on Google Maps
 
 When a file has geolocation data attached to it you can view the file location on Google Maps directly from Alfresco Share.
 

@@ -4,7 +4,8 @@ title: Using social features
 
 In Alfresco you can use social features to like, favorite, and comment on files and folders.
 
-These social features are available in the file preview screen, in the Site Content dashlet, and in several of the Document Library views. You can select to view just favorite files in several of your user and site dashlets.
+These social features are available in the file preview screen, in the Site Content dashlet, and in several of the 
+Document Library views. You can select to view just favorite files in several of your user and site dashlets.
 
 * Click ![Like icon]({% link content-services/images/like-icon.png %}) to like an file/folder. You can click it again to unlike it.
 * Click ![Favorite icon]({% link content-services/images/favorite-icon.png %}) to favorite an file/folder. You can click it again to unfavorite it.
@@ -16,15 +17,17 @@ These social features are available in the file preview screen, in the Site Cont
 
 Adding comments to content is a convenient way of giving feedback. You can edit and delete any comments that you added.
 
-You can't add comments if your permission level on the site is set to Consumer. Speak to your Alfresco administrator if you need to change your permission level.
+You can't add comments if your permission level on the site is set to Consumer. Speak to your Alfresco administrator 
+if you need to change your permission level.
 
 Only site managers can edit and delete another user's comments.
 
-## Adding a comment
+### Adding a comment
 
 You can add comments to folders and individual files to give other users information or notes.
 
-You can comment on both files and folders. This feature is available in a file preview screen, in the Site Content dashlet, and in several of the Document Library views.
+You can comment on both files and folders. This feature is available in a file preview screen, in the Site Content dashlet, 
+and in several of the Document Library views.
 
 > **Note:** You can't add comments if your permission level on the site is set to Consumer. Speak to your administrator if you need to change your permission level.
 
@@ -42,7 +45,7 @@ You can comment on both files and folders. This feature is available in a file p
 
     Your comment appears at the top of the list. You have the option to edit comments you've made, and site managers can edit any comments.
 
-## Editing a comment
+### Editing a comment
 
 You can edit a comment to change what it says.
 
@@ -58,7 +61,7 @@ You can edit a comment to change what it says.
 
     The user name and profile picture beside the comment indicate who added it. These details are not replaced with your own if you are editing another user's comment.
 
-## Deleting a comment
+### Deleting a comment
 
 You can delete a comment that you created, and site managers can delete any comment.
 

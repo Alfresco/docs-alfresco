@@ -10,40 +10,19 @@ Alfresco Share content is stored in sites, and each individual site has its own 
 
 The toolbar is designed to help you to navigate Alfresco Share and to quickly find, create, and share content.
 
-It's always available at the top of the page, wherever you are in Share.
+It's always available at the top of the page, wherever you are in Share:
 
-***Home***
-:Opens your user dashboard (or any screen that you have selected to be your home page).
-
-***My Files***
-:Opens the My Files area where you can store your own personal content.
-
-***Shared Files***
-:Opens the Shared Files area where you can quickly share content with other users without adding it to a site.
-
-***Sites***
-:Options to open a recent or favorite site, create a site, view all the sites you're a member of, or open the Site Finder page where you can search for sites and manage your site membership.
-
-***Tasks***
-:Options to open the My Tasks page where you can manage your tasks, or view workflows that you've started.
-
-***People***
-:Opens the People Finder page where you search for other users.
-
-***Repository***
-:Opens the repository which shows all the content stored in Content Services.
-
-***Admin Tools***
-:System administrators only have this option which opens the Admin Tools.
-
-***Sites Manager***
-:Only Alfresco administrators and Site administrators have this option which opens the Sites Manager. If you are an Alfresco administrator, you can access the Site Manager through the **Admin Tools** on the toolbar. If you are a Site administrator, you'll have an additional **Sites Manager** option on the toolbar.
-
-***User* menu**
-:Click on your name to open the user menu. You can access your user profile, change your password, open the user help, and log out.
-
-***Search***
-:Use the search box to find files, sites, and people.
+* **Home**: Opens your user dashboard (or any screen that you have selected to be your home page).
+* **My Files**: Opens the My Files area where you can store your own personal content.
+* **Shared Files**: Opens the Shared Files area where you can quickly share content with other users without adding it to a site.
+* **Sites**: Options to open a recent or favorite site, create a site, view all the sites you're a member of, or open the Site Finder page where you can search for sites and manage your site membership.
+* **Tasks**: Options to open the My Tasks page where you can manage your tasks, or view workflows that you've started.
+* **People**: Opens the People Finder page where you search for other users.
+* **Repository**: Opens the repository which shows all the content stored in Content Services.
+* **Admin Tools**: System administrators only have this option which opens the Admin Tools.
+* **Sites Manager**: Only Alfresco administrators and Site administrators have this option which opens the Sites Manager. If you are an Alfresco administrator, you can access the Site Manager through the **Admin Tools** on the toolbar. If you are a Site administrator, you'll have an additional **Sites Manager** option on the toolbar.
+* **<user> menu**: Click on your name to open the user menu. You can access your user profile, change your password, open the user help, and log out.
+* **Search**: Use the search box to find files, sites, and people.
 
 ## User dashboard
 
@@ -51,77 +30,48 @@ Wherever you are in Alfresco Share, you can click **Home** or **User Dashboard**
 
 The dashlets on this page give you a simple and up-to-date overview of what's been going on in the sites you're a member of.
 
-> **Note:** If you've [set your home page](link ../tasks/set-homepage.md) then when you click **Home** that page will open.
+> **Note:** If you've [set your home page]({% link content-services/latest/using/share/dashboard.md %}#sethomepage) then when you click **Home** that page will open.
 
-You can customize your dashboard to display the information that interests you. Each dashlet you select is displayed on the dashboard. The available dashlets are:
+You can customize your dashboard to display the information that interests you. Each dashlet you select is displayed on the dashboard. 
 
-***My Sites***
+The available dashlets are:
 
-    Displays the sites that you belong to
+* **My Sites**: Displays the sites that you belong to
+* **My Activities**: Tracks the most recent activities in your sites
+* **My Tasks**: Displays your tasks
 
-***My Activities***
+* **My Documents**: Tracks your content in all site libraries
 
-    Tracks the most recent activities in your sites
+* **My Profile**: Displays a summary of your personal details
 
-***My Tasks***
+* **My Calendar**: Displays upcoming events scheduled for your sites
 
-    Displays your tasks
+* **Content I'm Editing**: Displays the last three library items, blog posts (drafts, not published posts), wiki pages, and discussion forum posts that you edited
 
-***My Documents***
+* **Web View**: Display a website which you select by hovering over the dashlet on your dashboard
 
-    Tracks your content in all site libraries
+* **RSS Feed**: Hover over the dashlet on your dashboard to select an RSS feed (displays the Alfresco website feed by default)
 
-***My Profile***
+* **Alfresco Add-ons RSS Feed**: Displays the latest news from the Alfresco Add-ons website by default
 
-    Displays a summary of your personal details
+* **My Discussions**: Displays the most recent topics created in the discussion forums of all sites you belong to
 
-***My Calendar***
+* **Site Search**: Lets you quickly search all sites you belong to
 
-    Displays upcoming events scheduled for your sites
+* **Saved Search**: Displays the results of a specific search that you configure
 
-***Content I'm Editing***
+* **My Document Workspaces**: Displays all Document Workspace sites that you belong to (Document Workspaces are created in Microsoft Word)
 
-    Displays the last three library items, blog posts (drafts, not published posts), wiki pages, and discussion forum posts that you edited
-
-***Web View***
-
-    Display a website which you select by hovering over the dashlet on your dashboard
-
-***RSS Feed***
-
-    Hover over the dashlet on your dashboard to select an RSS feed (displays the Alfresco website feed by default)
-
-***Alfresco Add-ons RSS Feed***
-
-    Displays the latest news from the Alfresco Add-ons website by default
-
-***My Discussions***
-
-    Displays the most recent topics created in the discussion forums of all sites you belong to
-
-***Site Search***
-
-    Lets you quickly search all sites you belong to
-
-***Saved Search***
-
-    Displays the results of a specific search that you configure
-
-***My Document Workspaces***
-
-    Displays all Document Workspace sites that you belong to (Document Workspaces are created in Microsoft Word)
-
-***My Meeting Workspaces***
-
-    Displays all Meeting Workspace sites that you belong to (Meeting Workspaces are created in Microsoft Outlook)
+* **My Meeting Workspaces**: Displays all Meeting Workspace sites that you belong to (Meeting Workspaces are created in Microsoft Outlook)
 
 You can resize most dashlets.
 
-To resize a dashlet click and drag on the bottom edge of the dashlet until it's the height you want. This is saved between sessions.
+To resize a dashlet click and drag on the bottom edge of the dashlet until it's the height you want. This is saved 
+between sessions.
 
 > **Note:** If you hover over a dashlet header then a ![Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. This stays open until you close it or navigate away from the dashboard.
 
-## What can I do with my dashlets?
+## What can I do with my dashlets? {#whatcanidowithmydashlets}
 
 As well as giving you an overview of activity and information in Alfresco Share, the dashlets also give you links to various areas of Share and let you carry out a range of actions.
 
@@ -331,7 +281,7 @@ Click the Alfresco logo at the bottom of Alfresco Share.
 
     A box opens showing which version of Share you're working with.
 
-## Subscribing to an RSS feed
+## Subscribing to an RSS feed {#subtorssfeed}
 
 There are several places in Alfresco Share where you can subscribe to RSS feeds. These feeds let you automatically receive regular updates on various activities.
 

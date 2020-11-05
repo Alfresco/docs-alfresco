@@ -101,7 +101,7 @@ The dashboard for the selected site appears.
 
 The default areas available in a site are the **Site Dashboard**, **Document Library**, and the **Site Members** areas. If a site has additional site features then you'll also see a **More** menu.
 
-Additional features can be set up by a site manager when they're [customizing a site](link site-customize.md).
+Additional features can be set up by a site manager when they're [customizing a site](#customizesite).
 
 1. In a site click **Document Library**, **Site Members**, or **More** and select an option from the **More** menu.
 
@@ -367,7 +367,7 @@ You can create a site from anywhere in Alfresco Share, and are automatically mad
 
 You'll see the dashboard for the new site which you can now customize. Sites that you create are automatically added to your **Favorites** list.
 
-### Customizing a site
+### Customizing a site {#customizesite}
 
 Once you've created a site you can customize it to add extra features.
 
@@ -597,7 +597,7 @@ Use the search feature to find a particular site member. You can also list all s
 
 4. Click **Search**.
 
-### Changing a site role
+### Changing a site role {#changesiterole}
 
 A site manager can amend a member or group role to change what they can do in a site.
 

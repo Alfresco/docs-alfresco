@@ -4,7 +4,8 @@ title: The calendar
 
 The site calendar lets you schedule and track events related to the current site.
 
-Site members can create events that appear on the calendar for all site users to see. These events also display in the Site Calendar dashlet. You can view the calendar by day, week, or month. The Agenda view displays upcoming events.
+Site members can create events that appear on the calendar for all site users to see. These events also display in the 
+Site Calendar dashlet. You can view the calendar by day, week, or month. The Agenda view displays upcoming events.
 
 > **Note:** See [Customizing a site](link ../tasks/site-customize.md) for how to switch the calendar on and off for a site.
 
@@ -22,7 +23,8 @@ Within the calendar you can create events, as well as edit and delete any events
 
 ## Browsing the calendar
 
-The main view defaults to a calendar displaying the current month. The explorer panel to the left provides another calendar for navigating the months without affecting the main view.
+The main view defaults to a calendar displaying the current month. The explorer panel to the left provides another 
+calendar for navigating the months without affecting the main view.
 
 1. In the calendar use the navigation buttons to change the main calendar view:
 
@@ -56,13 +58,15 @@ The main view defaults to a calendar displaying the current month. The explorer 
 
 ## Viewing an event
 
-The calendar displays only the event name and time, so to view full details you must open the event. Once open you can edit or delete the event.
+The calendar displays only the event name and time, so to view full details you must open the event. Once open you can 
+edit or delete the event.
 
 1. In the calendar find the event you want to view in one of the following ways:
 
     * Navigate the calendar on the main view.
     * Navigate the calendar in the explorer panel and select a date to update the main view calendar.
     * Click **Agenda** to display upcoming events.
+    
 2. On the main view click the event you are interested in. You can do this in any view: Day, Week, Month, or Agenda.
 
     The Event Information dialog box displays the full details of the selected event. The Related Content section shows where you can find material associated with the event if a location has been provided. Click the link to jump to that folder in the library.
@@ -80,6 +84,7 @@ Any site member can schedule an event in the site calendar. The event appears in
     * Click **Add Event**.
     * Click on an event date on the explorer panel calendar and then click **Add Event**.
     * Navigate the calendar on the main view and click an event date.
+    
     > **Note:** To create an event in the Agenda view you must use the **Add Event** button in the header.
 
     Simply clicking **Add Event** causes the start and end dates to default to the current date. Specifying a date first, as in the other two methods, causes the start and end dates to default to the date selected.
@@ -106,7 +111,7 @@ Any site member can schedule an event in the site calendar. The event appears in
 
 8. Optionally, select a folder to indicate to users where material related to the event is located:
 
-    > **Note:** The Related Content section is not visible by default. Contact your system administrator to update <configRootShare\>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties and <configRootShare\>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties if you cannot see this feature.
+    > **Note:** The Related Content section is not visible by default. Contact your system administrator to update `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties` and `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties` if you cannot see this feature.
 
     1. In the Related Content section, click **Browse**.
 
@@ -122,7 +127,8 @@ The dialog box closes and the calendar displays the new event as scheduled.
 
 ## Editing event details
 
-Edit a scheduled event to change any of the details, including the location, date, and time. You can also add and remove tags, and change the library folder associated with the event.
+Edit a scheduled event to change any of the details, including the location, date, and time. You can also add and 
+remove tags, and change the library folder associated with the event.
 
 1. In the calendar find and click on the event you want to edit.
 
@@ -136,7 +142,7 @@ Edit a scheduled event to change any of the details, including the location, dat
 
 4. Add or change the library folder in the Related Content section to indicate where related event material is located.
 
-    > **Note:** The Related Content section is not visible by default. Contact your system administrator to update `<configRootShare\>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties` and `<configRootShare\>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties` if you cannot see this feature.
+    > **Note:** The Related Content section is not visible by default. Contact your system administrator to update `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties` and `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties` if you cannot see this feature.
 
 5. Click **Save**.
 
