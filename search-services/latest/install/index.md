@@ -43,7 +43,7 @@ There are two cores or indexes in Solr:
 
 **Important:** For security reasons, it is advised that you generate a new set of keys to secure your Solr communication and access to the Solr Admin Console.
 
-For more information, see [Configuring using the Admin Console]({% link search-services/latest/config/index.md %} and [Secure keys]({% link search-services/latest/config/keys.md %}.
+For more information, see [Configuring using the Admin Console]({% link search-services/latest/config/index.md %} and [Secure keys]({% link search-services/latest/config/keys.md %}).
 
 > **Note:** The Admin Console is only available when you are using Alfresco Content Services Enterprise.
 
