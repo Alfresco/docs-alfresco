@@ -23,7 +23,7 @@ defaults:
   - scope:
       path: "content-services/latest/tutorial"
     values:
-      toc: "content-services-services-tutorial"
+      toc: "content-services-tutorial"
   - scope:
       path: "content-services/6.1"
     values:
