@@ -1,8 +1,38 @@
-# Alfresco Content Services 
+# Alfresco Content Services
 - version: 6.2
   pages:
     - title: 'Introduction'
       path: '/content-services/latest/'
+      
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/content-services/latest/install/'
+        - title: 'Install with zip'
+          pages:
+            - title: 'Overview'
+              path: '/content-services/latest/install/zip/'
+            - title: 'Install on Tomcat'
+              path: '/content-services/latest/install/zip/tomcat/'
+            - title: 'Install Alfresco Module Package'
+              path: '/content-services/latest/install/zip/amp/'
+            - title: 'Install additional software'
+              path: '/content-services/latest/install/zip/additions/'
+        - title: 'Install using containers'
+          pages:
+            - title: 'Overview'
+              path: '/content-services/latest/install/containers/'
+            - title: 'Install using Docker Compose'
+              path: '/content-services/latest/install/containers/docker-compose/'
+            - title: 'Install using Helm'
+              path: '/content-services/latest/install/containers/helm/'
+            - title: 'Helm install examples'
+              path: '/content-services/latest/install/containers/helm-examples/'
+            - title: 'Customization'
+              path: '/content-services/latest/install/containers/customize/'
+    - title: 'Upgrade'
+      path: '/content-services/latest/upgrade/'
+
     - title: 'Administer'
       pages:
         - title: 'System paths convention'
