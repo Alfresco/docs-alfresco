@@ -57,10 +57,10 @@ There are multiple options you can use to make your search more specific.
 
 |To search for|Enter the search criteria|This searches|
 |-------------|-------------------------|-------------|
-|the word *banana* anywhere it exists|`banana OR =banana`|names, titles, descriptions, and content|
+|the word *banana* anywhere it exists|`banana`<br><br>or<br><br>`=banana`|names, titles, descriptions, and content|
 |the exact phrase *banana peel* anywhere it exists|`banana peel`|names, titles, descriptions, and content|
 |the words *banana*, *peel*, and *slippery* where they all appear together in any order or position|`banana AND peel AND slippery`|names, titles, descriptions, and content|
-|content containing any of the words *banana*, *peel*, and *slippery*|`banana peel slippery OR banana OR peel OR slippery`|names, titles, descriptions, and content|
+|content containing any of the words *banana*, *peel*, and *slippery*|`banana peel slippery` <br><br>or<br><br>`banana OR peel OR slippery`|names, titles, descriptions, and content|
 |the word *banana* where it is used in a title|`title:banana`|titles|
 |the word *banana* where it is used in a name|`name:banana`|names of folders and content items in the library; wiki page titles|
 |the word *banana* where it is used in the description|`description:banana`|descriptions of folders and content items in the library; descriptions of data lists|
@@ -75,7 +75,8 @@ There are multiple options you can use to make your search more specific.
 
 ## Using the Site Finder {#sitefinder}
 
-You can search for sites using the search box on the toolbar or you can use the Site Finder to get more detailed site information.
+You can search for sites using the search box on the toolbar or you can use the Site Finder to get more detailed site 
+information.
 
 From the search results you can navigate to a site, join or leave sites, and delete a site (managers only).
 
@@ -117,14 +118,10 @@ When you search for a user, you can view their profile details.
 
 The profile details are organized across several pages:
 
-**Info**
-:Displays the user's personal details, including contact information, company details, and a photo.
-**Sites**
-:Lists the sites the user belongs to.
-**Content**
-: Displays two lists detailing the user's recent site activities. The **Recently added** list displays the last three pieces of content that the user added to any site. This includes wiki pages, blog postings, library content, and discussion items. The **Recently modified** list displays the last three pieces of content the user edited.
-**Following (#)**
-: Displays a list of people the user is following.The number to the right of the page label indicates how many people are currently being followed by this user. If the user has marked their list as private, this page will not appear in the profile.
+* **Info**: Displays the user's personal details, including contact information, company details, and a photo.
+* **Sites**: Lists the sites the user belongs to.
+* **Content**: Displays two lists detailing the user's recent site activities. The **Recently added** list displays the last three pieces of content that the user added to any site. This includes wiki pages, blog postings, library content, and discussion items. The **Recently modified** list displays the last three pieces of content the user edited.
+* **Following (#)**: Displays a list of people the user is following.The number to the right of the page label indicates how many people are currently being followed by this user. If the user has marked their list as private, this page will not appear in the profile.
 
 ## Using the Advanced Search {#advancedsearch}
 
@@ -138,22 +135,21 @@ Use the search box in the toolbar to access the advanced search.
 
     * **Content**: Searches for all types of content
     * **Folders**: Searches for all folders and containers, such as library folders and data lists
+    
 3. Enter your search criteria.
 
     To search by modification date, click the calendar icon to select a date from a calendar.
 
     To search by the user who last modified the content, enter the appropriate user name in the **Modifier** field.
 
-    **Tip:** You can type `*` to complete a word if you don't know the full word you're searching for. For example, both **resco* and *alf** will show results for *alfresco*.
+    **Tip:** You can type `*` to complete a word if you don't know the full word you're searching for. For example, both `*resco` and `alf*` will show results for `alfresco`.
 
 4. Click **Search**.
 
     All the files and folders found by your search are shown. You can now:
 
-        * Click on a result to open it.
+    * Click on a result to open it.
+    * Click on one or more of the filter options to switch them on and off and narrow down the search results.
+    * Hover over a result and click **Actions** and select an option from the menu.
 
-        * Click on one or more of the filter options to switch them on and off and narrow down the search results.
-
-        * Hover over a result and click **Actions** and select an option from the menu.
-
-        > **Tip:** You can delete a file this way but the search results won't be updated until you run a new search.
+    > **Tip:** You can delete a file this way but the search results won't be updated until you run a new search.

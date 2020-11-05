@@ -2,33 +2,44 @@
 title: Using Smart Folders
 ---
 
-A Smart Folder is a way of grouping files from different locations in Alfresco Share into a single folder, so that you can quickly find similar files.
+A Smart Folder is a way of grouping files from different locations in Alfresco Share into a single folder, so that you 
+can quickly find similar files.
 
-A search runs when you open the contents of the Smart Folder, and the results are displayed. It is “smart”, because there is no physical folder to represent it in the repository.
+A search runs when you open the contents of the Smart Folder, and the results are displayed. It is “smart”, because 
+there is no physical folder to represent it in the repository.
 
-For example, a Smart Folder called My video files might be created to contain all files that I created that have a video format. Every time I open the My video files folder, the search runs, and all my video files are available in that folder, wherever in the repository I have created them.
+For example, a Smart Folder called My video files might be created to contain all files that I created that have a 
+video format. Every time I open the My video files folder, the search runs, and all my video files are available in 
+that folder, wherever in the repository I have created them.
 
-You might not even know that you are using Smart Folders. If you see this icon, ![Folder with a magnifying glass representing a Smart Folder]({% link content-services/images/sf.png %}), then the folder is smart. Files are also automatically classified when they're uploaded into these folders.
+You might not even know that you are using Smart Folders. If you see this icon, 
+![Folder with a magnifying glass representing a Smart Folder]({% link content-services/images/sf.png %}), then the folder 
+is smart. Files are also automatically classified when they're uploaded into these folders.
 
-The diagram shows a physical file system, and how a Smart Folder structure is created to contain files relevant to a particular customer:![Physical repository shown on the left with folders and files that relate to a customer. These are brought together into a new Smart Folder structure in Alfresco]({% link content-services/images/sf-mapping.png %})
+The diagram shows a physical file system, and how a Smart Folder structure is created to contain files relevant to a 
+particular customer:![Smart folder mapping]({% link content-services/images/sf-mapping.png %})
 
 Smart Folders have a limited set of actions:
 
-    * Add/ Create: You can add files to a Smart Folder. The file is put into a physical folder, as specified by the filing rule.
-    * Update: You can update files in a Smart Folder. Updating a property might result in a file being removed from the current Smart Folder (because it no longer meets the query criteria).
-    * Delete, Edit Properties, Unzip To, Sync, Locate To, Move, and Copy actions for files are not supported.
+* **Add/Create**: You can add files to a Smart Folder. The file is put into a physical folder, as specified by the filing rule.
+* **Update**: You can update files in a Smart Folder. Updating a property might result in a file being removed from the current Smart Folder (because it no longer meets the query criteria).
+* **Delete, Edit Properties, Unzip To, Sync, Locate To, Move, and Copy** actions for files are not supported.
 
-The Smart Folder itself can't be edited in Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Applying a Smart Folder Template](../tasks/sf-using-aspects.md).
+The Smart Folder itself can't be edited in Content Services, except through the Smart Folder Template. For more 
+information about Smart Folder Templates, see [Applying a Smart Folder Template](#applysmartfoldertemplate).
 
-Your system administrator creates templates that you can load for different purposes, for example; a structure for a claim, or to file PDF files separately from video or audio files, or just to personalise the folder structure by user.
+Your system administrator creates templates that you can load for different purposes, for example; a structure for a 
+claim, or to file PDF files separately from video or audio files, or just to personalise the folder structure by user.
 
-Take a look at the videos to learn more: [Smart Folders videos](https://docs.alfresco.com/6.2/topics/smart-video-tutorials.html)
+Take a look at the videos to learn more: [Smart Folders videos](TODO:https://docs.alfresco.com/6.2/topics/smart-video-tutorials.html)
 
-System administrators and business analysts can find more information here: [Configuring Smart Folders](https://docs.alfresco.com/6.2/concepts/sf-intro.html) and in the tutorial: [Smart Folders tutorial](https://docs.alfresco.com/6.2/tasks/sf-tutorial.html).
+System administrators and business analysts can find more information here: 
+[Configuring Smart Folders](TODO:https://docs.alfresco.com/6.2/concepts/sf-intro.html) and in the tutorial: 
+[Smart Folders tutorial](TODO:https://docs.alfresco.com/6.2/tasks/sf-tutorial.html).
 
 > **Note:** The videos and labels within images are in English.
 
-## Applying a Smart Folder Template
+## Applying a Smart Folder Template {#applysmartfoldertemplate}
 
 You can apply a Smart Folder structure to a physical folder by using aspects.
 
@@ -48,7 +59,7 @@ You can apply a Smart Folder structure to a physical folder by using aspects.
 
     If your system administrator has created templates for your organization, you can find these by drilling down to Data Dictionary/Smart Folder Templates.
 
-    System administrators can find more information about the templates here: [Enabling Smart Folders](LINK sf-config-examples.md).
+    System administrators can find more information about the templates here: [Enabling Smart Folders](TODO:sf-config-examples.md).
 
     The physical folder that you selected now has a Smart Folder structure under it, containing files that apply to the search criteria in the Smart Folders Template. For example, if you apply the standard smartFoldersExample.json template, you have a number of folders:
 
