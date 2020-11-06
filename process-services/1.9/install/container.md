@@ -1,8 +1,9 @@
 ---
 title: Install using containers
+nav: false
 ---
 
-Containers can only be used to install Process Services for trail, testing and development purposes. This is done using Docker for Desktop.
+Containers can only be used to install Process Services for trial, testing and development purposes. This is done using Docker for Desktop.
 
 ## Install with Docker
 
