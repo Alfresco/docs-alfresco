@@ -6,7 +6,7 @@ Alfresco Search and Insight Engine is our new generation of analytics using Alfr
 
 Alfresco Insight Zeppelin is built on top of Apache Zeppelin 0.8.1 and comes bundled as a report builder. It is pre-configured to easily build custom reports with SQL, including against Custom Metadata. Alfresco Insight Zeppelin is the only supported visualization tool that works with Search and Insight Engine.
 
-Currently the following are not supported with Alfresco Search and Insight Engine 2.0:
+Currently the following are not supported with Alfresco Search and Insight Engine 1.4:
 
 * Alfresco Process Services
 * Reporting on audit and activity feeds from Alfresco Content Services

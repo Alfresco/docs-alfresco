@@ -8,16 +8,14 @@ Use this information to migrate from Search Services to Search and Insight Engin
 
 ## Migrate with zip
 
-You can migrate from Alfresco Content Services 6.0 or above with Search Services 1.3 or above to Alfresco Content Services with Search and Insight Engine 2.0. You can also migrate from Alfresco Content Services 5.x with Search Services 1.3 or below to Alfresco Content Services 6.0 or above with Search and Insight Engine 2.0.
+You can migrate from Alfresco Content Services 6.0 or above with Search Services 1.3 or above to Alfresco Content Services with Search and Insight Engine 1.4. You can also migrate from Alfresco Content Services 5.x with Search Services 1.3 or below to Alfresco Content Services 6.0 or above with Search and Insight Engine 1.4.
 
 * [Migrating Content Services 6.0 with Search Services 1.3 or above](#migrating-content-services-60-with-search-services-13-or-above)
 * [Migrating Content Services 5.x with Search Services 1.3 or below](#migrating-content-services-5x-with-search-services-13-or-below)  
 
 ### Migrate Content Services 6.0 with Search Services 1.3 or above
 
-Use this information to migrate from Alfresco Search Services 1.3 or above to Search and Insight Engine 2.0 using a distribution zip.
-
-> **Note:** A reindex is required when you migrate from Search Services to Search and Insight Engine. `solr.content.dir` is no longer used from Search and Insight Engine 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Search and Insight Engine externalized configuration]({% link insight-engine/1.4/config/index.md %}#search-and-insight-engine-externalized-configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
+Use this information to migrate from Alfresco Search Services 1.3 or above to Search and Insight Engine 1.4 using a distribution zip.
 
 1. Stop Search Services.
 
