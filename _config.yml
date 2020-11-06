@@ -217,29 +217,21 @@ defaults:
       support: true
       versions:
         - 1.11
+        - 1.10
+        - 1.9
   - scope:
       path: "process-services/latest"
     values:
       version: 1.11
       latest: true
-
-# Alfresco Process Services (APS)
   - scope:
-      path: "process-services"
+      path: "process-services/1.10"
     values:
-      layout: "docs"
-      product: "Alfresco Process Services"
-      location: "process-services"
-      toc: "process-services"
-      support: true
-      versions:
-        - 1.11
+      version: 1.10
   - scope:
-      path: "process-services/latest"
+      path: "process-services/1.9"
     values:
-      version: 1.11
-      latest: true
-
+      version: 1.9
 
 # Alfresco Content Connector for AWS S3
   - scope:
