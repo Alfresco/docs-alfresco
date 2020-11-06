@@ -1,5 +1,0 @@
----
-title: Digital Workspace
----
-
-INTRO

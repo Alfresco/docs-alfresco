@@ -4,7 +4,7 @@ title: Getting started with Alfresco Share
 
 Use the Getting Started guide to quickly learn the basics, and find more detailed information in Using Alfresco Share help.
 
-> **Note:** If you prefer to use Alfresco Digital Workspace instead of Alfresco Share, see the [Digital Workspace documentation]({% link digital-workspace/latest/index.md %}). Alfresco Digital Workspace is a new content management application built with the Alfresco Application Development Framework (ADF). Digital Workspace offers a simplified experience for working with content and more comprehensive extensibility for developers.
+> **Note:** If you prefer to use Alfresco Digital Workspace instead of Alfresco Share, see the [Digital Workspace documentation](TODO_LINK:). Alfresco Digital Workspace is a new content management application built with the Alfresco Application Development Framework (ADF). Digital Workspace offers a simplified experience for working with content and more comprehensive extensibility for developers.
 
 For most of us, today's work environment means we spend much of our time working in teams that can extend beyond our 
 workplace, and even our enterprise, to include partners, consultants, external agencies, and customers.
