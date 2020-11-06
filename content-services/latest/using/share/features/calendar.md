@@ -7,7 +7,7 @@ The site calendar lets you schedule and track events related to the current site
 Site members can create events that appear on the calendar for all site users to see. These events also display in the 
 Site Calendar dashlet. You can view the calendar by day, week, or month. The Agenda view displays upcoming events.
 
-> **Note:** See [Customizing a site](link ../tasks/site-customize.md) for how to switch the calendar on and off for a site.
+> **Note:** See [Customizing a site]({% link content-services/latest/using/share/sites.md %}#customizesite) for how to switch the calendar on and off for a site.
 
 ## Accessing the calendar
 
@@ -89,7 +89,7 @@ Any site member can schedule an event in the site calendar. The event appears in
 
     Simply clicking **Add Event** causes the start and end dates to default to the current date. Specifying a date first, as in the other two methods, causes the start and end dates to default to the date selected.
 
-    The **Add Event** dialog box opens. Fields marked with an asterisk (\*) are required.
+    The **Add Event** dialog box opens. Fields marked with an asterisk (`*`) are required.
 
 2. Type a name for the event in the **What** box.
 

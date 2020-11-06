@@ -190,7 +190,7 @@ This video shows you how to create content.
 
 As well as creating files from scratch, you can also create files from templates.
 
-> **Note:** Templates are only available if your Alfresco administrator has [set some up for you](TODO: ../concepts/templated-nodes-intro.md).
+> **Note:** Templates are only available if your Alfresco administrator has [set some up for you](TODO:../concepts/templated-nodes-intro.md).
 
 1. Select the folder where you want to add the content.
 

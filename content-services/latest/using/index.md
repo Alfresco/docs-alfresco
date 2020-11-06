@@ -169,7 +169,7 @@ a wiki for the site.
 
 2. Drag the Wiki and Calendar icons down into the Current Site Pages area, and click **OK**.
 
-    > **Note:** Take a look at [(Alfresco site features)](LINK ../concepts/alfresco-features.md) for more details on these features.
+    > **Note:** Take a look at [Alfresco site features]({% link content-services/latest/using/share/features/index.md %}) for more details on these features.
 
 Back on the site dashboard you can see that the wiki and calendar have been added. You now have a site set up! It's 
 time to start adding some content.

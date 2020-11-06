@@ -16,7 +16,7 @@ also add comments to other members' blog posts.
 
 1. In a site click **More** then **Blog**.
 
-    > > **Note:** In each site the feature names can be customized. If the site manager has done this, the link might have a name other than **Blog**.
+    > **Note:** In each site the feature names can be customized. If the site manager has done this, the link might have a name other than **Blog**.
 
     This opens the blog. The main page defaults to the **Latest** view so you see a list of the internally published posts that have been created or edited in the past seven days. The summary includes the following details (where applicable):
 
@@ -27,6 +27,7 @@ also add comments to other members' blog posts.
     * a sample of the content
     * the number of replies to the post
     * the tags associated with the post
+    
     Where the list contains more posts than can be displayed on a single page, navigation links become enabled at the top and bottom of the item list. The number in bold indicates your current page. Click a page number to display a specific page. Use the previous (<<) and next (>>) links to move forward and backward through multiple pages of posts.
 
 2. Click **Simple View** to display only the basic blog post information: title, date/time of publishing, and author.
@@ -77,7 +78,7 @@ detailed view display all available actions, you must view a post in order to ad
 
 2. Click the title of the post or click **Read** beneath the post.
 
-    > > **Note:** If the main page displays the simple view you must click the title of the post.
+    > **Note:** If the main page displays the simple view you must click the title of the post.
 
     The post view displays the selected blog post in its entirety along with any related comments.
 

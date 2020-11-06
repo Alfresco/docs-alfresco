@@ -31,29 +31,12 @@ This can help you to locate specific items in the library.
 
 The **Documents** list in the explorer panel provides the following views:
 
-* **All Documents**
-
-    Displays all files in the library
-
-* **I'm Editing**
-
-    Displays the files you currently have checked out
-
-* **Others are Editing**
-
-    Displays the files checked out by other site members
-
-* **Recently Modified**
-
-    Displays files modified in the past seven days
-
-* **Recently Added**
-
-    Displays files added to the library in the past seven days
-
-* **My Favorites**
-
-    Displays the files you have marked as favorites
+* **All Documents**: Displays all files in the library
+* **I'm Editing**: Displays the files you currently have checked out
+* **Others are Editing**: Displays the files checked out by other site members
+* **Recently Modified**: Displays files modified in the past seven days
+* **Recently Added**: Displays files added to the library in the past seven days
+* **My Favorites**: Displays the files you have marked as favorites
 
 The **Library** section displays the folder structure in a tree view. The symbol ![Subfolders]({% link content-services/images/Subfolders.png %}) 
 indicates a library folder contains subfolders. Click on a folder to expand or collapse it.
