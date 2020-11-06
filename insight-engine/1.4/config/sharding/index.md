@@ -267,23 +267,23 @@ This should allow the user to store anywhere between 50 million - 80 million doc
 
 Alfresco Content Services 6.x uses Search and Insight Engine (Solr 6), so sharding is supported with full SSL and non-SSL. Make sure you configure the Solr and SSL settings properly.
 
-For more information, see [Installation options]({% link insight-engine/latest/install/options.md %}).
+For more information, see [Installation options]({% link insight-engine/1.4/install/options.md %}).
 
 ### Are there any considerations for query load and number of documents?
 
-Before sharding your Solr index, it is important to consider your query load and the size of your repository. You need to create machines to host Solr. For more information, see [Configuring Search and Insight Engine]({% link insight-engine/latest/config/index.md %}). For example, if you need 5 shards, you need to setup those 5 machines, and have Solr instances running on all the 5 machines. Once your machines are ready, you are ready to set up or register shards.
+Before sharding your Solr index, it is important to consider your query load and the size of your repository. You need to create machines to host Solr. For more information, see [Configuring Search and Insight Engine]({% link insight-engine/1.4/config/index.md %}). For example, if you need 5 shards, you need to setup those 5 machines, and have Solr instances running on all the 5 machines. Once your machines are ready, you are ready to set up or register shards.
 
-For more information, see [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create.md %}#do-i-need-dynamic-shard-registration).
+For more information, see [Setting up Solr sharding]({% link insight-engine/1.4/config/sharding/create.md %}#do-i-need-dynamic-shard-registration).
 
 ### After upgrading, can I use my current index while building a new sharded index?
 
-Yes. After upgrading to Alfresco Content Services 6.2, continue to use the old search index server as before, setup a new sharded Solr server with the `rerank` template to reindex the data, and finally, switch over to the new sharded index once the indexing is done and the sharded Solr server is up-to-date.
+Yes. After upgrading to Alfresco Content Services 6.0, continue to use the old search index server as before, setup a new sharded Solr server with the `rerank` template to reindex the data, and finally, switch over to the new sharded index once the indexing is done and the sharded Solr server is up-to-date.
 
-#### Upgrading from 5.0 with Solr 4 to 6.2 (with zero downtime)
+#### Upgrading from 5.0 with Solr 4 to 6.0 (with zero downtime)
 
-1. Upgrade to 6.2 and continue to use the Solr 4 search service as before.
+1. Upgrade to 6.0 and continue to use the Solr 4 search service as before.
 2. Configure a separate sharded Solr 4 index to track the repository. For details, see [Solr Sharding](#solr-sharding). 
-3. While the new sharded Solr 4 builds its indexes, you can monitor the progress using the Solr Admin Web interface. For details, see [Solr security]({% link insight-engine/latest/config/security.md %}.
+3. While the new sharded Solr 4 builds its indexes, you can monitor the progress using the Solr Admin Web interface. For details, see [Solr security]({% link insight-engine/1.4/config/security.md %}.
 4. When the sharded Solr 4 index is updated, enable the sharded Solr 4 index by setting the `solr.host` property.
 
 ### How do I know the new sharded index is up-to-date?

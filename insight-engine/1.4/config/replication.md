@@ -227,7 +227,7 @@ Use this information for setting up a master-master replication.
 
 1. Set up two separate Solr instances where neither of them know about each other.
 
-    See [Configuring Search and Insight Engine]({% link insight-engine/latest/config/index.md %}).
+    See [Configuring Search and Insight Engine]({% link insight-engine/1.4/config/index.md %}).
 
 2. If you have a clustered environment, both the Solr installations can be done on their own Alfresco nodes in the cluster. If you don't have a clustered environment, both the Solr nodes can talk to their respective Alfresco node directly.
 

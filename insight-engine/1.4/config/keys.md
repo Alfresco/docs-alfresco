@@ -147,67 +147,71 @@ Before continuing, make sure that you've already completed the steps in [Generat
 
     1. In `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` update the following:
 
-        ```bash
-        dir.keystore=${ALF_DATA_DIR}/keystore
-        # encryption
-        solr.secureComms=https
-        # ssl encryption
-        encryption.ssl.keystore.location=${dir.keystore}/ssl.keystore
-        encryption.ssl.keystore.type=JCEKS
-        encryption.ssl.keystore.keyMetaData.location=encryption.ssl.truststore.location=${dir.keystore}/ssl.truststore
-        encryption.ssl.truststore.type=JCEKS
-        encryption.ssl.truststore.keyMetaData.location=
-        # secret key keystore
-        configurationencryption.keystore.location=${dir.keystore}/keystore
-        encryption.keystore.keyMetaData.location=encryption.keystore.type=JCEKS
-        solr.host=localhost
-        solr.port=8983
-        solr.port.ssl=8983
-        ```
+    ```bash
+    dir.keystore=${ALF_DATA_DIR}/keystore
+    # encryption
+    solr.secureComms=https
+    # ssl encryption
+    encryption.ssl.keystore.location=${dir.keystore}/ssl.keystore
+    encryption.ssl.keystore.type=JCEKS
+    encryption.ssl.keystore.keyMetaData.location=${dir.keystore}/ssl-keystore-passwords.properties
+    encryption.ssl.truststore.location=${dir.keystore}/ssl.truststore
+    encryption.ssl.truststore.type=JCEKS
+    encryption.ssl.truststore.keyMetaData.location=${dir.keystore}/ssl-truststore-passwords.properties
+    # secret key keystore configuration
+    encryption.keystore.location=${dir.keystore}/keystore
+    encryption.keystore.keyMetaData.location=${dir.keystore}/keystore-passwords.properties
+    encryption.keystore.type=JCEKS
+    solr.host=localhost
+    solr.port=8983
+    solr.port.ssl=8983
+    ```
 
-        > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
+    > **Note:** If you are using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
 
     2. For the Tomcat SSL Connector in `<TOMCAT_HOME>/conf/server.xml` update the following:
 
-        ```bash
-        <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
-            SSLEnabled="true" maxThreads="150" scheme="https"
-            keystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
-            keystorePass="password" keystoreType="JCEKS"
-            secure="true" connectionTimeout="240000"
-            truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"
-            truststorePass="password" truststoreType="JCEKS"
-            clientAuth="want" sslProtocol="TLS" />
-        ```
+      ```bash
+     <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
+     SSLEnabled="true" maxThreads="150" scheme="https"
+     keystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
+     keystorePass="password" keystoreType="JCEKS"
+     secure="true" connectionTimeout="240000"
+     truststoreFile="/usr/local/tomcat/alf_data/keystore/ssl.truststore"
+     truststorePass="password" truststoreType="JCEKS"
+     clientAuth="want" sslProtocol="TLS" />
+     ```
 
-        > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file. Also, make sure that the keystore and truststore file locations are correct for your environment.
+    > **Note:** If you are using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file. Also, make sure that the keystore and truststore file locations are correct for your environment.
 
-    See [Install the Tomcat application server LINK LINK](https://docs.alfresco.com/6.1/tasks/configfiles-change-path.html) and [Solr configuration files]({% link insight-engine/latest/config/index.md %}#solr-configuration-files) for more.
+    See [Install the Tomcat application server LINK LINK](https://docs.alfresco.com/6.0/tasks/configfiles-change-path.html) and [Solr configuration files]({% link insight-engine/1.4/config/index.md %}#solr-configuration-files) for more.
 
 5. Change the SSL properties in `<SOLR_HOME>/solrhome/templates/rerank/conf/solrcore.properties`.
 
-    The `rerank` template is used to generate the `alfresco` and `archive` Solr cores when you first run Alfresco Search Services.
+    The `rerank` template is used to generate the `alfresco` and `archive` Solr cores when you first run Search and Insight Engine Services.
 
     ```bash
-    # encryption
+   # encryption
     alfresco.secureComms=https
+
     # ssl
     alfresco.encryption.ssl.keystore.type=JCEKS
-    alfresco.encryption.ssl.keystore.location=<SOLR_HOME>/ssl-repo-client.keystore
-    alfresco.encryption.ssl.keystore.passwordFileLocation=
+    alfresco.encryption.ssl.keystore.location=<SOLR_HOME>/keystore/ssl.repo.client.keystore
+    alfresco.encryption.ssl.keystore.passwordFileLocation=<SOLR_HOME>/keystore/ssl-keystore-passwords.properties
     alfresco.encryption.ssl.truststore.type=JCEKS
-    alfresco.encryption.ssl.truststore.location=<SOLR_HOME>/ssl-repo-client.truststore
-    alfresco.encryption.ssl.truststore.passwordFileLocation=alfresco.host=localhost
+    alfresco.encryption.ssl.truststore.location=<SOLR_HOME>/keystore/ssl.repo.client.truststore
+    alfresco.encryption.ssl.truststore.passwordFileLocation=<SOLR_HOME>/keystore/ssl-truststore-passwords.properties
+    alfresco.host=localhost
     alfresco.port.ssl=8443
     ```
 
-    > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
+    > **Note:** If you are using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
 
-    If the `alfresco` and `archive` cores already exist, ensure that `alfresco.secureComms` is set to `https` for both the cores in the following files:
+    If the `alfresco` and `archive` cores already exist, ensure that `alfresco.secureComms` is set to `https` and alfresco encryption properties are set for both the cores in the following files:
 
     ```bash
     <SOLR_HOME>/solrhome/alfresco/conf/solrcore.properties
     <SOLR_HOME>/solrhome/archive/conf/solrcore.properties
     ```
 
-    See [Solr core configuration properties]({% link insight-engine/latest/config/properties.md %}) for more.
+    See [Solr core configuration properties]({% link insight-engine/1.4/config/properties.md %}) for more.

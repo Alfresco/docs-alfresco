@@ -41,7 +41,7 @@ An index can be distributed over several Solr nodes by creating and configuring 
 
     These properties will be used when registering all cores found under the `<SOLR_HOME>` directory. For more information, see [About shared.properties file](#about-shared.properties-file).
 
-    Once the basic configuration is [complete]({% link insight-engine/latest/config/index.md %}#solr-configuration-files) then start the Solr nodes.
+    Once the basic configuration is [complete]({% link insight-engine/1.4/config/index.md %}#solr-configuration-files) then start the Solr nodes.
 
 2. Setup and configure the Solr nodes.
 
@@ -224,7 +224,7 @@ You can define which properties are used for suggestion.
 #alfresco.suggestable.property.3={http://www.alfresco.org/model/content/1.0}content
 ```
 
-Suggestion can also be configured for the search subsystem and for any SOLR core using properties. If the shared.properties file is missing in Alfresco Content Services 6.2, suggestion will be configured as it is in Alfresco One 5.0.
+Suggestion can also be configured for the search subsystem and for any SOLR core using properties. If the shared.properties file is missing in Alfresco Content Services 6.0, suggestion will be configured as it is in Alfresco One 5.0.
 
 You can define which properties are used for tokenisation with the Solr word delimiter factory.
 
@@ -249,7 +249,7 @@ You can define which property types are used for tokenisation with the Solr word
 
 The cross core configuration options to use specific locales for cross-locale searches are set in the shared.properties file. Cross language search uses the appropriate stemmed tokens for all locales.
 
-For backward compatibility, this file is absent in Alfresco Content Services 6.2 to provide options equivalent to Alfresco One 5.0.
+For backward compatibility, this file is absent in Alfresco Content Services 6.0 to provide options equivalent to Alfresco One 5.0.
 
 To configure cross-language search, follow the steps below:
 
@@ -568,7 +568,7 @@ These are the steps to follow:
 
 8. Restart Alfresco Content Services.
 
-For more information, see [Solr sharding]({% link insight-engine/latest/config/sharding/index.md %}).
+For more information, see [Solr sharding]({% link insight-engine/1.4/config/sharding/index.md %}).
 
 ### Configuring sharding with the Admin Console
 
@@ -576,7 +576,7 @@ Search and Insight Engine supports sharded indexes with SSL. Use the Search Serv
 
 Prerequisites for viewing the Search Server Sharding page:
 
-* Check you have installed Alfresco Content Services 6.2 or above and have a valid license.
+* Check you have installed Alfresco Content Services 6.0 or above and have a valid license.
 
 * Support for shard groups requires a clustered license. Make sure that you enable clustering on your Alfresco Content Services license. For more information, see [Repository server clustering LINK](https://docs.alfresco.com/6.1/tasks/adminconsole-reposerverclustering.html) and [Uploading a new license LINK](https://docs.alfresco.com/6.1/tasks/at-adminconsole-license.html).
 
@@ -671,7 +671,7 @@ Prerequisites for viewing the Search Server Sharding page:
         |Target Index Server|This specifies, out of all the solr nodes above, the number given to the target index server node for this new shard, for example 1.|
         |Shards|This specifies the specific shards to create, on the node given above. You can also specify a comma-separated list of shards.|
 
-        See [Solr sharding]({% link insight-engine/latest/config/sharding/index.md %}) to view examples of creating shards when calling the REST URLs directly.
+        See [Solr sharding]({% link insight-engine/1.4/config/sharding/index.md %}) to view examples of creating shards when calling the REST URLs directly.
 
         ![]({% link insight-engine/images/shard-instance.png %})
 
@@ -726,13 +726,13 @@ Prerequisites for viewing the Search Server Sharding page:
 
     1. Click **Summary** to go to the [http://localhost:8983/solr/admin/cores?action=SUMMARY](http://localhost:8983/solr/admin/cores?action=SUMMARY) page on Solr for the specific core.
 
-        For more information, see [Unindexed Solr Transactions]({% link insight-engine/latest/admin/monitor.md %}#unindexed-transactions).
+        For more information, see [Unindexed Solr Transactions]({% link insight-engine/1.4/admin/monitor.md %}#unindexed-transactions).
 
         ![]({% link insight-engine/images/solr6-summary.png %})
 
     2. Click **SOLR** to go to the Solr Admin screen for the specific core.
 
-        For more information, see [Connecting to the SSL-protected Solr web application]({% link insight-engine/latest/config/security.md %})
+        For more information, see [Connecting to the SSL-protected Solr web application]({% link insight-engine/1.4/config/security.md %})
 
 10. The Shard Group Report section displays information about the shard groups and instances. A tabular view of this information is displayed in the shard table in Step 9. This information is read-only.
 

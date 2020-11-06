@@ -15,11 +15,12 @@ Mutual TLS is used for authentication between the Repository and Search and Insi
 
 This task assumes you have:
 
+* Installed Alfresco Content Services 6.0 or above, with clustering enabled
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
     index.subsystem.name=solr6
-    solr.secureComms=https
+    solr.secureComms=none
     solr.port=8983
     ```
 
@@ -29,7 +30,7 @@ This task assumes you have:
 
 2. Extract the Search and Insight Engine distribution.
 
-    By default, the contents of `alfresco-insight-engine-1.4.x.zip` are decompressed in a root folder as `/alfresco-insight-engine`. See [Search and Insight Engine directory structure]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
+    By default, the contents of `alfresco-insight-engine-1.4.x.zip` are decompressed in a root folder as `/alfresco-insight-engine`. See [Search and Insight Engine directory structure]({% link insight-engine/1.4/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
 
 3. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this update the `alfresco-insight-engine/solrhome/conf/shared.properties` file:
 
@@ -52,7 +53,7 @@ This task assumes you have:
 
 5. To secure access to Search and Insight Engine, you must create a new set of keystores and keys.
 
-    1. Generate secure keys specific to your Alfresco installation. For more information, see [Secure keys]({% link insight-engine/latest/config/keys.md %}#generate-secure-keys-for-ssl-communication).
+    1. Generate secure keys specific to your Alfresco installation. For more information, see [Secure keys]({% link insight-engine/1.4/config/keys.md %}#generate-secure-keys-for-ssl-communication).
 
     2. Create a new keystore directory at `alfresco-insight-engine/solrhome`.
 
@@ -63,12 +64,10 @@ This task assumes you have:
         (Windows) update the `alfresco-insight-engine/solr.in.cmd` file:
 
         ```bash
-        set SOLR_SSL_KEY_STORE=<SOLR_HOME>/keystore/ssl-repo-client.keystore
-        set SOLR_SSL_KEY_STORE_PASSWORD=keystore
-        set SOLR_SSL_KEY_STORE_TYPE=JCEKS
-        set SOLR_SSL_TRUST_STORE=<SOLR_HOME>/keystore/ssl-repo-client.truststore
-        set SOLR_SSL_TRUST_STORE_PASSWORD=truststore
-        set SOLR_SSL_TRUST_STORE_TYPE=JCEKS
+        set SOLR_SSL_KEY_STORE=<SOLR_HOME>\keystore\ssl.repo.client.keystore
+        set SOLR_SSL_KEY_STORE_PASSWORD=password
+        set SOLR_SSL_TRUST_STORE=<SOLR_HOME>\keystore\ssl.repo.client.truststore
+        set SOLR_SSL_TRUST_STORE_PASSWORD=password
         set SOLR_SSL_NEED_CLIENT_AUTH=true
         set SOLR_SSL_WANT_CLIENT_AUTH=false
         ```
@@ -76,15 +75,13 @@ This task assumes you have:
         (Linux) update the `alfresco-insight-engine/solr.in.sh` file:
 
         ```bash
-        SOLR_SSL_KEY_STORE=<SOLR_HOME>/keystore/ssl-repo-client.keystore
-        SOLR_SSL_KEY_STORE_PASSWORD=keystore
-        SOLR_SSL_KEY_STORE_TYPE=JCEKS
-        SOLR_SSL_TRUST_STORE=<SOLR_HOME>/keystore/ssl-repo-client.truststore
-        SOLR_SSL_TRUST_STORE_PASSWORD=truststore
-        SOLR_SSL_TRUST_STORE_TYPE=JCEKS
-        SOLR_SSL_NEED_CLIENT_AUTH=true
-        SOLR_SSL_WANT_CLIENT_AUTH=false
-        ```
+       SOLR_SSL_KEY_STORE=<SOLR_HOME>/keystore/ssl.repo.client.keystore
+       SOLR_SSL_KEY_STORE_PASSWORD=password
+       SOLR_SSL_TRUST_STORE=<SOLR_HOME>/keystore/ssl.repo.client.truststore
+       SOLR_SSL_TRUST_STORE_PASSWORD=password 
+       SOLR_SSL_NEED_CLIENT_AUTH=true 
+       SOLR_SSL_WANT_CLIENT_AUTH=false
+       ```
 
     5. Set the `SOLR_PORT` environment variable:
 
@@ -100,7 +97,7 @@ This task assumes you have:
         SOLR_PORT=8983
         ```
 
-6. (Optional) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Configuring Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-externalized-configuration).
+6. (Optional) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Configuring Search and Insight Engine]({% link insight-engine/1.4/config/index.md %}#search-and-insight-engine-externalized-configuration).
 
     (Windows) update the `alfresco-insight-engine/solr.in.cmd` file:
 
@@ -131,6 +128,8 @@ This task assumes you have:
             ```bash
             ssl-repo-client.keystore
             ssl-repo-client.truststore
+            ssl-keystore-passwords.properties
+            ssl-truststore-passwords.properties
             ```
 
     * If the alfresco and archive cores already exist, ensure that `alfresco.secureComms` is set to `https` for both the cores. For example:
@@ -140,19 +139,7 @@ This task assumes you have:
 
     ```bash
     cd alfresco-insight-engine
-    ./solr/bin/solr start -a
-    "-Dcreate.alfresco.defaults=alfresco,archive
-    -Dsolr.ssl.checkPeerName=false
-    -Dsolr.allow.unsafe.resourceloading=true
-    -Dssl-keystore.password=keystore
-    -Dssl-keystore.aliases=ssl-alfresco-ca,ssl-repo-client
-    -Dssl-keystore.ssl-alfresco-ca.password=keystore
-    -Dssl-keystore.ssl-repo-client.password=keystore
-    -Dssl-truststore.password=truststore
-    -Dssl-truststore.aliases=ssl-alfresco-ca,ssl-repo,ssl-repo-client
-    -Dssl-truststore.ssl-alfresco-ca.password=truststore
-    -Dssl-truststore.ssl-repo.password=truststore
-    -Dssl-truststore.ssl-repo-client.password=truststore" -f
+    ./solr/bin/solr start -a "-Djavax.net.ssl.keyStoreType=JCEKS -Djavax.net.ssl.trustStoreType=JCEKS -Dsolr.ssl.checkPeerName=false -Dcreate.alfresco.defaults=alfresco,archive"
     ```
 
     > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine.
@@ -180,9 +167,7 @@ This task assumes you have:
 
     The logs are stored in the `alfresco-insight-engine/logs/solr.log` file, by default. This can be configured in `solr.in.sh` (for Linux) or `solr.in.cmd` (for Windows) using `SOLR_LOGS_DIR`.
 
-    You have successfully created an `alfresco` core and an `archive` core. To verify, in a browser, navigate to the Solr URL, [https://localhost:8983/solr](https://localhost:8983/solr).
-
-    > **Note:** You need to install the browser.p12 certificate in your browser before accessing this URL.
+    You have successfully created an `alfresco` core and an `archive` core. To verify, in a browser, navigate to the Solr URL, [https://localhost:8983/solr](https://localhost:8983/solr). 
 
     In the Solr Admin UI, select the core selector drop-down list and verify that both the `alfresco` and `archive` cores are present.
 
@@ -198,10 +183,11 @@ If you are not using sharded Search and Insight Engine:
 
 Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS.
 
-Mutual TLS is used for authentication between the Repository and Search and Insight Engine. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy LINK LINK](https://docs.alfresco.com/6.1/concepts/reverse-proxy.html) for more.
+Mutual TLS is used for authentication between the Repository and Search and Insight Engine. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy LINK LINK](https://docs.alfresco.com/6.0/concepts/reverse-proxy.html) for more.
 
 This task assumes you have:
 
+* Installed Alfresco Content Services 6.0 or above
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
@@ -216,7 +202,7 @@ This task assumes you have:
 
 2. Extract the Search and Insight Engine distribution.
 
-    By default, the contents of `alfresco-insight-engine-1.4.x.zip` are decompressed in a root folder as `/alfresco-insight-engine`. See [Search and Insight Engine directory structure]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
+    By default, the contents of `alfresco-insight-engine-1.4.x.zip` are decompressed in a root folder as `/alfresco-insight-engine`. See [Search and Insight Engine directory structure]({% link insight-engine/1.4/config/index.md %}#search-and-insight-engine-directory-structure) for more details.
 
 3. Configure HTTP.
 
@@ -236,7 +222,7 @@ This task assumes you have:
         -Dalfresco.secureComms=none
         ```
 
-    See [Setting up Solr sharding]({% link insight-engine/latest/config/sharding/create.md %}#core-templates) for a brief description of the out-of-the-box Solr core templates.
+    See [Setting up Solr sharding]({% link insight-engine/1.4/config/sharding/create.md %}#core-templates) for a brief description of the out-of-the-box Solr core templates.
 
 4. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this add the following to the `alfresco-insight-engine/solrhome/conf/shared.properties` file:
 
@@ -257,7 +243,7 @@ This task assumes you have:
 
     > **Note:** The spell check functionality works with Search and Insight Engine when suggestion is enabled.
 
-6. (Optional) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Configuring Search and Insight Engine]({% link insight-engine/latest/config/index.md %}#search-and-insight-engine-externalized-configuration).
+6. (Optional) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Configuring Search and Insight Engine]({% link insight-engine/1.4/config/index.md %}#search-and-insight-engine-externalized-configuration).
 
     (Windows) update the `alfresco-insight-engine`/`solr.in.cmd` file:
 
