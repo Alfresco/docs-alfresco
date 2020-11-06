@@ -1,11 +1,7 @@
 # Alfresco Governance Services Tutorials
 - version: 3.3
   pages:
-    - title: 'Tutorials'
-      path: '/governance-services/latest/tutorial/'
-    - title: 'Videos'
-      pages:
-        - title: 'Records Management'
-          path: '/governance-services/latest/tutorial/governance-services/'
-        - title: 'Security marks and classification'
-          path: '/governance-services/latest/tutorial/securitymarks-classify/'
+    - title: 'Records Management'
+      path: '/governance-services/latest/tutorial/governance-services/'
+    - title: 'Security marks and classification'
+      path: '/governance-services/latest/tutorial/securitymarks-classify/'

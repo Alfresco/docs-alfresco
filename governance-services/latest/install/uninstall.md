@@ -43,7 +43,7 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
        -    Description:   Alfresco Governance Services Enterprise Repository Extension    
    ```
 
-    You'll need the Enterprise Module ID, `alfresco-rm-enterprise-repo`, to uninstall the AMP file.
+    To uninstall the AMP file, you'll need the Enterprise Module ID `alfresco-rm-enterprise-repo`.
 
 3. Find the Share RM AMP file using the following command:
 
@@ -62,7 +62,7 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
               
     ```
 
-    You'll need the Module ID, `alfresco-rm-enterprise-share`, to uninstall the AMP file.
+    To uninstall the AMP file, you'll need the Enterprise Module ID `alfresco-rm-enterprise-share`.
 
 4. Use these commands to uninstall the AMP files:
 
