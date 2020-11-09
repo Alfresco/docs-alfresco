@@ -4,14 +4,14 @@ title: Install using the distribution ZIP
 
 Governance Services is installed by applying two AMP files to an existing Alfresco Content Services installation.
 
-The Alfresco Governance Services distribution zip file contain the following AMP files:
+The Governance Services distribution zip file contain the following AMP files:
 
 |alfresco-governance-services-enterprise-repo-3.3.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Content Services installation.|
 |alfresco-governance-services-enterprise-share-3.3.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Share installation.|
 
 >**Note:** Install the AMPs manually using the Module Management Tool (MMT), rather than using the `apply_amps` tool.
 
-1. Browse to the [Support Portal](http://support.alfresco.com) and download the Alfresco Governance Services distribution zip, which contains the following files:
+1. Browse to the [Support Portal](http://support.alfresco.com) and download the Governance Services distribution zip, which contains the following files:
 
     * alfresco-governance-services-enterprise-repo-3.3.x.amp
     * alfresco-governance-services-enterprise-share-3.3.x.amp

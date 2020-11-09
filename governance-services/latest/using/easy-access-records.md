@@ -156,7 +156,7 @@ You can create records from files in non-Governance Services sites and select th
 
 4. Click **Declare and File**.
 
-   The file is added to the chosen destination folder in your Alfresco Governance Services site. It's still visible in the original site, identified by the ![Easy access record]({% link governance-services/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, but is locked and has a limited set of actions.
+   The file is added to the chosen destination folder in your Governance Services site. It's still visible in the original site, identified by the ![Easy access record]({% link governance-services/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, but is locked and has a limited set of actions.
     
    >**Note:** If you don't have a Records Management role, if your permission level is set to 'consumer' or the file is locked, you won't see the **File as Record** action. A file that has been filed as a record can be deleted but the record remains in the File Plan.
 

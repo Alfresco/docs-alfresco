@@ -54,7 +54,7 @@ recommended for development and test environments only.
         Password: <Quay.io Credential Password>
     ```
 
-5. In the command prompt change directory to the location of the `docker-compose.yml` file and deploy Alfresco Governance Services using the following command:
+5. In the command prompt change directory to the location of the `docker-compose.yml` file and deploy Governance Services using the following command:
 
    ```bash
     $ docker-compose up
