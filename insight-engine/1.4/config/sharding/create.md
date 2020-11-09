@@ -39,7 +39,7 @@ An index can be distributed over several Solr nodes by creating and configuring 
     solr.port=8983
     ```
 
-    These properties will be used when registering all cores found under the `<SOLR_HOME>` directory. For more information, see [About shared.properties file](#about-shared.properties-file).
+    These properties will be used when registering all cores found under the `<SOLR_HOME>` directory. For more information, see [About shared properties file](#about-shared-properties-file).
 
     Once the basic configuration is [complete]({% link insight-engine/1.4/config/index.md %}#solr-configuration-files) then start the Solr nodes.
 
@@ -180,7 +180,7 @@ The core templates include `schema.xml` and `solrconfig.xml`. The main purpose i
 |2|In the rerank template, stop words are included and indexed as common grams. By default, majority of the 100 most frequently used words in English language text are now treated as stop words. For more information, see `<SOLR_HOME>/templates/rerank/conf/lang/stopwords_en.txt`.|In the noRerank template, stop words are removed from the words that are tokenised in the English language. For more information, see `<SOLR_HOME>/templates/norerank/conf/lang/stopwords_en.txt`.|
 |3|The rerank template supports real rerank with automatic phrasing (or auto-phrasing). Queries are run in two stages: 1. Stage one treats phrases as conjunctions and ignores expensive positional information. 2. Stage two reranks the top queries using a more expensive phrase. When a user provides individual search terms in a query, the automatic phrasing feature groups those individual terms into a search phrase and returns the query results for the phrase. |The noRerank core performs auto-phrasing without re-ranking but the auto-phrase is added to the query.|
 
-### About shared.properties file
+### About shared properties file
 
 The `<ALFRESCO_HOME>/alfresco-insight-engine/solrhome/conf/shared.properties` file is used to set configuration that applies to all the cores in a Solr instance.
 
@@ -188,7 +188,7 @@ Most of these settings need to be replicated across all the Solr instances that 
 
 These Solr instance specific settings can be omitted but you may have to define the correct host that the repository will use to communicate to Solr, for example, using an internal IP address in a cloud environment. By default, the host is detected by Java, the port will default to 8080, and the tomcat port is either determined by JMX or that explicitly defined in the shared.properties file.
 
-The shared.properties file defines the:
+The shared properties file defines the:
 
 * properties that are treated as identifiers
 * properties that are used to generate suggestions
@@ -197,7 +197,7 @@ The shared.properties file defines the:
 * `solr.host` property
 * `solr.port` property
 
-#### Properties defined in the shared.properties file
+#### Properties defined in the shared properties file
 
 You can define which properties are treated as identifiers, regardless of how they are defined in the model. These properties must not be tokenised. If this list is changed, a reindex is required. You can also reindex by query. For more information, see [Reindex documents by query](#reindex-documents-by-query).
 
@@ -419,7 +419,7 @@ Follow these steps to set up sharding of a non-sharded index or change the numbe
 
 4. Add any custom core templates. For more information, see [Core templates](#Core templates).
 
-5. Configure the `<SOLR_HOME>/conf/shared.properties` file. For more information, see [About shared.properties file](#About-shared.properties-file).
+5. Configure the `<SOLR_HOME>/conf/shared.properties` file. For more information, see [About shared properties file](#about-shared-properties-file).
 
 6. Start the Solr server.
 

@@ -16,8 +16,8 @@ For information on Insight Zeppelin user Interface see [Explore Apache Zeppelin 
 
 There are several options for installing Insight Zeppelin:
 
-* [Installing with a distribution zip](#installing-with-a-distribution-zip).
-* [Installing with Docker Compose](#installing-with-docker-compose).
+* [Install with a distribution zip](#install-with-a-distribution-zip).
+* [Install with Docker Compose](#install-with-docker-compose).
 
 > **Note** You do not need to install Insight Zeppelin in order to use Search and Insight Engine.
 
@@ -138,7 +138,7 @@ Also, if the domain name of the Alfresco Content Services repository does not ma
 
 You can deploy Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.0 and above and Search and Insight Engine.
 
-For details about deployment using the Docker Compose file, see [Installation options]({% link insight-engine/1.4/install/options.md %}#installing-with-docker-compose).
+For details about deployment using the Docker Compose file, see [Installation options]({% link insight-engine/1.4/install/options.md %}#install-with-docker-compose).
 
 1. Open your `docker-compose.yml` file, and insert the following container information:
 
