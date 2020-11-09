@@ -595,11 +595,26 @@ defaults:
       support: true
       versions:
         - 2.7
+        - 2.6
+        - 2.5
+        - 2.4
   - scope:
       path: "microsoft-outlook/latest"
     values:
       version: 2.7
       latest: true
+  - scope:
+      path: "microsoft-outlook/2.6"
+    values:
+      version: 2.6
+  - scope:
+      path: "microsoft-outlook/2.5"
+    values:
+      version: 2.5
+  - scope:
+      path: "microsoft-outlook/2.4"
+    values:
+      version: 2.4
 
 
 sass:

@@ -8,9 +8,9 @@ Features of Outlook Integration include the ability to archive content (i.e. ema
 
 >**Important:** In this documentation, the term 'email' is used to refer to emails, meetings, and appointments for the sake of readability.
 
-For information about installing and configuring the Outlook Integration, see [Installing and configuring the Outlook Integration]({% link microsoft-outlook/latest/install/index.md %}).
+For information about installing and configuring the Outlook Integration, see [Installing and configuring the Outlook Integration]({% link microsoft-outlook/2.6/install/index.md %}).
 
-## Archiving content in Outlook
+## Archiving emails in Outlook
 
 You can archive emails to a site or folder by dragging and dropping the email into a folder in your chosen site in the Alfresco sidebar.
 
@@ -29,7 +29,7 @@ When you drag and drop the email with a subject that already exists in a specifi
     ![This screen capture shows the metadata dialog with a metadata selector and associated fields, plus icons for the actions listed.]({% link microsoft-outlook/images/Outlook-metadata-dialog.png %})
 
     * The first line indicates the number of emails that you are archiving (in this case, **1 / 1** is 1 of 1 emails), and the title of the current email. If you're archiving more than one email, the **Next** and **Previous** options are enabled so that you can page between the emails.
-        >**Note:** By default, Alfresco Outlook Integration displays the subject line of the email document as the title. See [Configuring alternative naming of emails in Outlook]({% link microsoft-outlook/latest/config/index.md %}#configalternativenamingemails) if you want to change this behavior.
+        >**Note:** By default, Alfresco Outlook Integration displays the subject line of the email document as the title. See [Configuring alternative naming of emails in Outlook]({% link microsoft-outlook/2.6/config/index.md %}#configalternativenamingemails) if you want to change this behavior.
     * If you have email attachments, the **Apply to all attachments** option is enabled and you can apply any metadata you enter to all attachments related to that email.  
     * If you're archiving more than one email, the **Apply to all emails** option is enabled and you can apply the same metadata to all emails that are being archived.
         >**Note:** You can only try to archive one type of Outlook item at a time, either emails, meetings or appointments.
@@ -46,7 +46,7 @@ When you drag and drop the email with a subject that already exists in a specifi
 
         The **Transfer** tab color is green if the transfer progresses successfully, or red if there are issues. For file transfer issues, a link to the log is displayed in the tab content.
 
-        >**Note:** It is not possible to start another upload while the background transfer is in progress. Also, in Alfresco Outlook Integration 2.7, the **Workflow** tab is disabled by default.
+        >**Note:** It is not possible to start another upload while the background transfer is in progress. Also, the **Workflow** tab is disabled by default.
 
     A check is made for duplicates during email archiving. The ID of each email is checked to see if it has already been saved in the repository or on the same site. If the email has already been saved, a message is displayed saying that the message already exists in the repository, giving details of who archived the file, when it was archived, and the path of the archived file. You can open the previously archived email, save a new version of the email with a different subject, or cancel the archive operation.
 
@@ -54,14 +54,14 @@ When you drag and drop the email with a subject that already exists in a specifi
 
     1. The Alfresco Outlook Client checks if the email to be uploaded already exists in the upload location.
     2. If it does exist, the version detection dialog is shown, and offers you an alternative name.
-    3. Next, there's a check to see if the email exists in another folder, either at site-level or repository-level (depending what your IT team has configured). See [Configuring Outlook email settings in Alfresco Share]({% link microsoft-outlook/latest/config/index.md %}#configoutlookemailsettings) for guidance on customizing **Integration Settings**.
+    3. Next, there's a check to see if the email exists in another folder, either at site-level or repository-level (depending what your IT team has configured). See [Configuring Outlook email settings in Alfresco Share]({% link microsoft-outlook/2.6/config/index.md %}#configoutlookemailsettings) for guidance on customizing **Integration Settings**.
     4. If a match is found, the Alfresco Outlook Client shows the duplication dialog, presenting a reference to the duplicate email in the other folder.
 
     When an email is archived, it is usually identified with an Alfresco icon in the Outlook inbox: ![Alfresco archive icon in Outlook]({% link microsoft-outlook/images/Outlook_alf_icon.png %}){:height="18px" width="18px"}
 
     An email that is archived as an attachment can be opened directly by double-clicking the email in Outlook. The email opens in a new window and can be read normally. An email that is archived as a link can be loaded into Outlook by clicking the link in the email.
 
-    See [Outlook metadata settings]({% link microsoft-outlook/latest/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
+    See [Outlook metadata settings]({% link microsoft-outlook/2.6/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
 
 ## Archiving folders in Outlook
 
@@ -91,7 +91,7 @@ You can create different types of folders within a particular location and assig
 
     The system updates the navigation panel and shows the new folder.
 
-   See [Outlook metadata settings]({% link microsoft-outlook/latest/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
+   See [Outlook metadata settings]({% link microsoft-outlook/2.6/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
 
 ## Managing files using the Alfresco sidebar
 
@@ -105,11 +105,7 @@ In Outlook, use the sidebar to browse and work with your connected repository.
 
 2. There are two tabs available: **Explore** and **Workflow**.
 
-    These tabs are shown at the bottom of the sidebar and allow you to switch from one view to another.
-
-    The **Explore** view and allows you to work with your files and folders in Alfresco Share.
-
-    >**Note:** In Alfresco Outlook Integration 2.7, the **Explore** tab is only available if the **Workflow** tab is also enabled to save space for more content. The **Workflow** tab is hidden by default.
+    >**Note:** In Alfresco Outlook Integration 2.6, the **Workflow** tab is disabled by default.
 
 3. Use the following tasks to learn about these tabs.
 
@@ -119,13 +115,15 @@ Work with your files and folders using the Alfresco sidebar.
 
 1. Click the **Explore** tab from the **Alfresco Outlook Client** sidebar, or navigate through the list view.
 
-    ![]({% link microsoft-outlook/images/outlook-sidebar-annotated.png %})
+    ![]({% link microsoft-outlook/images/2.4-6-outlook-sidebar-annotated.png %})
 
-    >**Note:** In Alfresco Outlook Integration 2.7, the **Explore** tab is only available if the **Workflow** tab is also enabled to save space for more content. The **Workflow** tab is hidden by default.
+    Explore is the default view and allows you to work with your files and folders in Alfresco Share.
+
+    >**Note:** In Alfresco Outlook Integration 2.6, the **Workflow** tab is disabled by default.
 
 2. Repo location selector: choose which sites and content you wish to see. You can see the full repository in this view, or limit the view to certain sites only (**All Sites**, **My Sites** or **Favorite Sites**).
 
-3. Content filter: choose to view all content, or only your favourite files or folders.
+3. Content filter: choose to view all content, or only your favorite files or folders.
 
 4. View selector: choose whether to see your content in a tree view or a list view.
 
@@ -154,7 +152,7 @@ Work with your files and folders using the Alfresco sidebar.
 
 6. Drag and drop files into the repository. A number of options are available, depending on your configuration settings.
 
-    The options available to you are shown in the right-click context menu. For example, if you have selected a Microsoft Office file, you can edit this online in addition to other standard options. See [Configuring extended settings in Outlook]({% link microsoft-outlook/latest/config/index.md %}#configure-extended-settings) for more information on configuration settings.
+    The options available to you are shown in the right-click context menu. For example, if you have selected a Microsoft Office file, you can edit this online in addition to other standard options. See [Configuring extended settings in Outlook]({% link microsoft-outlook/2.6/config/index.md %}#configure-extended-settings) for more information on configuration settings.
 
     If your IT team has enabled email duplication prevention, the Alfresco Outlook Client will receive information from the server that a particular email document already exists (either in the repository or the site). The following message is presented:
 
@@ -194,7 +192,7 @@ Start workflows using the Alfresco sidebar.
 
         Upcoming appointments and tasks are shown in the left panel.
 
-        >**Note:** In Alfresco Outlook Integration 2.7, the **Workflow** tab is disabled by default. Contact your IT team for further help.
+        >**Note:** In Alfresco Outlook Integration 2.6, the **Workflow** tab is disabled by default. Contact your IT team for further help.
 
     >**Note:** If your IT team has configured SAML authentication without single-sign on (SSO), when you select the **Workflow** dialog, you'll be prompted to enter your login credentials even though you've already logged in successfully.
 
@@ -251,9 +249,9 @@ Create new versions of files by dragging & dropping them into the Alfresco sideb
 
     Select an action for each file listed in the Versioning dialog.
 
-    >**Note:** You might see a **Metadata** dialog if this has been configured by your IT team. Enter the information needed for archiving. See [Archiving content in Outlook](#archiving-content-in-outlook) for more details.
+    >**Note:** You might see a **Metadata** dialog if this has been configured by your IT team. Enter the information needed for archiving. See [Archiving emails in Outlook](#archiving-emails-in-outlook) for more details.
 
-    See [Outlook metadata settings]({% link microsoft-outlook/latest/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
+    See [Outlook metadata settings]({% link microsoft-outlook/2.6/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
 
 3. For explicit versioning: drag and drop a single file onto an existing file in the Alfresco sidebar. You will see the **Versioning** dialog.
 
