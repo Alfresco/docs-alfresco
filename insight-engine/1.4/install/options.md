@@ -344,7 +344,7 @@ Use this information to start up Alfresco Content Services 6.0 or above and Sear
                 - 8083:8983 #Browser port
     ```
 
-    > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Building Reports and Dashboards]({% link insight-engine/1.4/using/index.md %}#Installing with Docker Compose) for the additional container information you need to add to your `docker-compose.yml` file.
+    > **Note:** If you want to use the Apache Zeppelin visualization interface with Search and Insight Engine you have to deploy it using Docker Compose along with Alfresco Content Services, you cannot install it manually. See [Building Reports and Dashboards]({% link insight-engine/1.4/using/index.md %}#Install with Docker Compose) for the additional container information you need to add to your `docker-compose.yml` file.
 
 4. Save the file.
 
