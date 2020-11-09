@@ -47,24 +47,24 @@ The supplied subsystem categories are:
 
 | Subsystem name | Functional area | More information|
 | -------------- | --------------- | ----------------|
-| ActivitiesFeed | Activities notifications | [Configure the Activities Feed](#LINK-tasks/adminconsole-activitiesfeed.md) |
-| Audit | Audit related functions | [Auditing](#LINK-audit-intro.md) |
-| Authentication|Authentication related functions | [Set up authentication and security](#LINK-auth-intro.md) |
-| ContentStore | Properties for the encrypted and non-encrypted Content Stores | [Set up content stores](#LINK-manage-cs-home.md) |
-| email | Outbound and inbound SMTP property settings | [Configure inbound and outbound email](#LINK-email-intro.md) |
-| fileServers | Properties for the FTP servers | [Configure file servers](#LINK-fileserv-subsystem-intro.md) |
-| googledocs | Properties for Google Docs integration | [Install and configure Google Docs Integration](https://docs.alfresco.com/googledocs/tasks/googledocs-amp-install.html)(#LINK) |
-| imap|Properties for the IMAP service | [Configure the email client with IMAP](#LINK-imap-intro.md) |
-| OOoDirect | OpenOffice transformations settings (use LibreOffice where possible)  | [Configure OpenOffice transformations in place of LibreOffice](#LINK-tasks/OOo-props-config.md) |
-| OOoJodconverter | Default settings for LibreOffice transformations | [Configure LibreOffice](#LINK-OOo-subsystems-intro.md) |
-| Replication | Settings for the replication jobs tool | [Set up and manage content replication](#LINK-admintools-replication-config.md) |
-| Search|Search mechanism | [Alfresco Search Services](https://docs.alfresco.com/search-enterprise/concepts/search-home.html)(#LINK) |
-| Subscriptions | Settings for the activities feeds | [Enable the Subscription Service](#LINK-tasks/adminconsole-subscriptionservice.md) |
-| Synchronization | Synchronization of local user and group information with the user registry exporters (usually LDAP directories) in the authentication chain | [Configure synchronization](#LINK-sync-intro.md) |
-| sysAdmin | Properties for server administration | [Configure server administration settings](#LINK-tasks/adminconsole-systemsettings.md) |
-| thirdparty | Properties for third-party software, for example, ImageMagick | [Change the OOoJodconverter subsystems](#LINK-tasks/OOo-subsystems-config.md) |
-| Transformers | Properties for the transformation server | [Manage transformations](#LINK-managing-transformations.md) |
-| wcm_deployment_receiver | Properties for WCM Deployment Receiver | [The Workflow Console](#LINK-tasks/adminconsole-workflowconsole.md) |
+| ActivitiesFeed | Activities notifications | [Configure Activities Feed]({% link content-services/latest/config/email.md %}#configure-activities-feed) |
+| Audit | Audit related functions | [Auditing]({% link content-services/latest/admin/audit.md %}) |
+| Authentication | Authentication related functions | [Set up authentication and security]({% link content-services/latest/admin/auth-sync.md %}) |
+| ContentStore | Properties for the encrypted and non-encrypted Content Stores | [Set up content stores]({% link content-services/latest/admin/content-stores.md %}) |
+| email | Outbound and inbound SMTP property settings | [Configure inbound and outbound email]({% link content-services/latest/config/email.md %}) |
+| fileServers | Properties for the FTP servers | [Configure file servers]({% link content-services/latest/config/file-servers.md %}) |
+| googledocs | Properties for Google Docs integration | [Alfresco Google Docs Integration]({% link google-drive/latest/index.md %}) |
+| imap | Properties for the IMAP service | [Configure email client with IMAP]({% link content-services/latest/config/email.md %}#configure-imap) |
+| OOoDirect | OpenOffice transformations settings (use LibreOffice where possible) | [Configure OpenOffice transformations in place of LibreOffice]({% link content-services/latest/config/libreoffice.md %}#configure-openoffice) |
+| OOoJodconverter | Default settings for LibreOffice transformations | [Configure LibreOffice]({% link content-services/latest/config/libreoffice.md %}) |
+| Replication | Settings for the replication jobs tool | [Set up and manage content replication]({% link content-services/latest/admin/replication.md %}) |
+| Search | Search mechanism | [Alfresco Search Services](https://docs.alfresco.com/search-enterprise/concepts/search-home.html)(#LINK) |
+| Subscriptions | Settings for the activities feeds | [Enable Subscription Service]({% link content-services/latest/config/email.md %}#enable-subscription-service) |
+| Synchronization | Synchronization of local user and group information with the user registry exporters (usually LDAP directories) in the authentication chain | [Configure synchronization]({% link content-services/latest/admin/auth-sync.md %}#configuring-synchronization) |
+| sysAdmin | Properties for server administration | [Configure server administration settings]({% link content-services/latest/config/repository.md %}#adminconsole-systemsettings.md) <!--FIX LINK-->| 
+| thirdparty | Properties for third-party software, for example, ImageMagick | [Change the OOoJodconverter subsystems]({% link content-services/latest/config/libreoffice.md %}#change-ooojodconverter) |
+| Transformers | Properties for the transformation server | [Manage transformations]({% link content-services/latest/admin/transformations.md %}) |
+| wcm_deployment_receiver | Properties for WCM Deployment Receiver | [The Workflow Console]({% link content-services/latest/admin/workflows.md %}#workflowconsole) |
 
 ## Subsystem configuration files
 
