@@ -39,7 +39,7 @@ If you install manually using the WAR file, you can modify properties in the `al
 
 A sample global properties file is supplied with the installation. By default, the file contains sample settings for running Content Services, for example, the location of the content and index data, the database connection properties, the location of third-party software, and database driver properties.
 
-### Modify global properties file {modify-global-props}
+### Modify global properties file {#modify-global-props}
 
 > **Important:** For edits to the `alfresco-global.properties` file, when specifying paths for Windows systems, you must replace the Windows path separator characters with either the `\\` separator or the forward slash `/` Unix path separator.
 
@@ -55,7 +55,7 @@ If you're installing manually, then you can use the `alfresco-global.properties.
 
     For example: `dir.root=/var/data/alfresco/alf_data`
 
-    > **Note:** It is strongly recommended that you always set this value to an absolute file system path as shown above. This ensures that no matter how the instance is started, it will always find the directories where content has previously been written.
+    > **Note:** It's strongly recommended that you always set this value to an absolute file system path as shown above. This ensures that no matter how the instance is started, it will always find the directories where content has previously been written.
 
 3. Set the database connection properties.
 
@@ -549,7 +549,7 @@ The Spring bean definitions are within configuration files in the following dire
 
 The Activity Email Summary ignores certain activity types by default. Use this information to override the Spring bean definition to include these activity types.
 
-The Spring bean definition for the ActivitiesFeed subsystem is called `activities-feed-context.xml` and can be downloaded from the Alfresco SVN: [activities-feed-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/subsystems/ActivitiesFeed/default/activities-feed-context.xml){:target="_blank"}.
+The Spring bean definition for the ActivitiesFeed subsystem is called `activities-feed-context.xml` and can be downloaded from the Alfresco SVN: [activities-feed-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/subsystems/ActivitiesFeed/default/activities-feed-context.xml){:target="_blank"}.
 
 1. Download the file and save to the `<subsystems/ActivitiesFeed/default>` directory.
 

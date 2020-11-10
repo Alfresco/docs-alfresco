@@ -40,7 +40,7 @@
           path: '/content-services/latest/config/subsystems/'
         - title: 'Databases'
           path: '/content-services/latest/config/databases/'
-        - title: 'Repository (todo)'
+        - title: 'Repository'
           path: '/content-services/latest/config/repository/'
         - title: 'File servers'
           path: '/content-services/latest/config/file-servers/'
