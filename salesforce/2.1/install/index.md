@@ -2,11 +2,14 @@
 title: Install Salesforce Connector
 ---
 
-You now have a choice of selecting your organization's user interface experience: Salesforce Classic UI or the new Salesforce Lightning UI.
+You now have a choice of selecting your organization's user interface experience: Salesforce Classic UI or the new 
+Salesforce Lightning UI.
 
-The Lightning Experience offers a more streamlined user experience by providing tools to create components that are reusable across applications and devices.
+The Lightning Experience offers a more streamlined user experience by providing tools to create components that are 
+reusable across applications and devices.
 
-To begin, [install the AMP files](#installamps) and then [install the app in Salesforce](#installapp). Depending on what's the best layout for your organization, choose one of the following UIs:
+To begin, [install the AMP files](#installamps) and then [install the app in Salesforce](#installapp). Depending on 
+what's the best layout for your organization, choose one of the following UIs:
 
 * [Install Salesforce Connector - Lightning Experience](#install-lightning)
 * [Install Salesforce Connector - Classic](#installclassic)
@@ -17,16 +20,17 @@ There are a number of software requirements for using the Salesforce Connector.
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.2.1 or later
-* Identity Service 1.3 or later (if you plan to use Single Sign On (SSO))
+* Alfresco Content Services 6.0 or later
 
 ### Salesforce requirements
 
-Salesforce Group is the minimum requirement. See [Salesforce Connected Apps](https://help.salesforce.com/apex/HTViewHelpDoc?id=connected_app_overview.htm){:target="_blank"} for guidance on levels of Salesforce required with connected apps.
+Salesforce Group is the minimum requirement. See [Salesforce Connected Apps](https://help.salesforce.com/apex/HTViewHelpDoc?id=connected_app_overview.htm){:target="_blank"} 
+for guidance on levels of Salesforce required with connected apps.
 
 ### Java requirements
 
-* OpenJDK 11 and above.
+* OpenJDK 11 or Java 8 for Alfresco Content Services 6.1 and above.
+* Java 8 for Alfresco Content Services 6.0.
 
 ### Other requirements
 
@@ -36,7 +40,8 @@ Your Salesforce and Alfresco instances must be on a shared network or otherwise 
 
 Download and install the AMP files to connect to Salesforce.
 
-Make sure you are running the correct versions of operating system and software before you install the AMP files. See [Prerequisites for using Salesforce Connector](#prerequisites) for more information.
+Make sure you are running the correct versions of operating system and software before you install the AMP files. 
+See [Prerequisites for using Salesforce Connector](#prerequisites) for more information.
 
 1. Stop the Alfresco server.
 
@@ -46,11 +51,11 @@ Make sure you are running the correct versions of operating system and software 
 
     Copy this file to the `amps` directory:
 
-    * `alfresco-content-connector-for-salesforce-repo-2.2.x.amp`
+    * `alfresco-content-connector-for-salesforce-repo-2.1.x.amp`
 
     Copy this file to the `amps_share` directory:
 
-    * `alfresco-content-connector-for-salesforce-share-2.2.x.amp`
+    * `alfresco-content-connector-for-salesforce-share-2.1.x.amp`
 
 4. To install the AMP files, run the `apply_amps.bat` file from the Alfresco `bin` directory.
 
@@ -104,7 +109,9 @@ The Alfresco Content Connector app is available on the Salesforce AppExchange.
 
 This task assumes that you are installing the app through the AppExchange.
 
-If you've been provided a URL to install the Salesforce Connector, log in to Salesforce, and paste the URL you've been given into your browser. Select the required security level option, click **Install**, and then click **Done** when the installation is complete.
+If you've been provided a URL to install the Salesforce Connector, log in to Salesforce, and paste the URL you've been 
+given into your browser. Select the required security level option, click **Install**, and then click **Done** when 
+the installation is complete.
 
 1. Search for Alfresco Content Connector in the [Salesforce AppExchange](https://appexchange.salesforce.com/){:target="_blank"}, and download the app.
 
@@ -140,7 +147,9 @@ If you've been provided a URL to install the Salesforce Connector, log in to Sal
 
     From here you can choose to **View Components**, **View Dependencies**, or **Uninstall**.
 
-Depending on what's the best layout for your organization, you can choose either to [Install the Salesforce Connector - Lightning Experience](#install-lightning) or [Install the Salesforce Connector - Classic](#installclassic).
+Depending on what's the best layout for your organization, you can choose either to 
+[Install the Salesforce Connector - Lightning Experience](#install-lightning) or 
+[Install the Salesforce Connector - Classic](#installclassic).
 
 ## Install Salesforce Connector - Lightning Experience {#install-lightning}
 
@@ -150,7 +159,9 @@ Use this information to install the AMP files in Alfresco, and the Alfresco App 
 
 After you've installed the app, create a new connected app definition using the Salesforce Setup menu.
 
-Make sure that you've downloaded the Alfresco Content Connector app, as described in [Step 2: Install the app in Salesforce](#installapp). In this task, you'll use the Setup menu in Salesforce to customize the install. You need administrator rights to make these changes.
+Make sure that you've downloaded the Alfresco Content Connector app, as described in 
+[Step 2: Install the app in Salesforce](#installapp). In this task, you'll use the Setup menu in Salesforce to 
+customize the install. You need administrator rights to make these changes.
 
 1. In your Salesforce account, find Setup. This is accessible by clicking the gear icon, ![]({% link salesforce/images/gear.png %}){:height="18px" width="18px"}, from the top-right toolbar on the Salesforce page.
 
@@ -169,7 +180,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
         >**Note:** A suggested name is `Alfresco_for_Salesforce`. You'll need to remember the API Name when you configure the Alfresco Setup tab.
 
-        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/2.1/using/troubleshoot.md %}) for guidance.
 
     3. **Contact Email**: Enter an administrator email address.
     4. Check **Enable OAuth Settings**.
@@ -217,9 +228,11 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
 ### Step 4: Enable Salesforce in the Admin Console
 
-You'll need to copy the Salesforce consumer key and consumer secret from your connected app into the Alfresco Admin Console. These credentials prove that Alfresco has permission to be displayed in and communicate with Salesforce.
+You'll need to copy the Salesforce consumer key and consumer secret from your connected app into the Alfresco Admin Console. 
+These credentials prove that Alfresco has permission to be displayed in and communicate with Salesforce.
 
-Make sure that you've applied your AMP files, downloaded the Alfresco Content Connector app, and created a connected app, as described in the previous sections. You need administrator rights to make these changes.
+Make sure that you've applied your AMP files, downloaded the Alfresco Content Connector app, and created a connected app, 
+as described in the previous sections. You need administrator rights to make these changes.
 
 1. In your Salesforce account, click the gear icon ![]({% link salesforce/images/gear.png %}){:height="18px" width="18px"} from the top-right toolbar on the Salesforce page, and click **Setup Home**.
 
@@ -271,7 +284,8 @@ Make sure that you've applied your AMP files, downloaded the Alfresco Content Co
 
 Configure the Alfresco site that you want to point to, and map your metadata.
 
-Make sure that you've downloaded the Alfresco Content Connector app, as described in [Step 2:. Install the app in Salesforce](#installapp). You need administrator rights to make these changes.
+Make sure that you've downloaded the Alfresco Content Connector app, as described in 
+[Step 2:. Install the app in Salesforce](#installapp). You need administrator rights to make these changes.
 
 1. In Salesforce, click **Alfresco Content Connector**. This is available from the **App Launcher**.
 
@@ -281,7 +295,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
     If your API name appears as `Alfresco_Content_Connector_for_Salesforce`, then you must to change it to `Alfresco_for_Salesforce`.
 
-    This sets the Alfresco site that you want to use for your content. If this isn't set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+    This sets the Alfresco site that you want to use for your content. If this isn't set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/2.1/using/troubleshoot.md %}) for guidance.
 
 3. You'll see two tabs; **Site to Object Mapping** and **Metadata Mapping**. Select a tab and you'll see the Alfresco login screen. Log in to your connected Alfresco instance.
 
@@ -325,76 +339,81 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
     Here is an example of a completed Alfresco Setup tab:
 
     ![site_and_metadata]({% link salesforce/images/site_and_metadata.png %})
+    
+    
+### Step 6: Adding the Alfresco app in Salesforce {#addappusinglightningcomponent}
 
-### Step 6: Add the Alfresco app using a Salesforce Lightning Component {#addappusinglightningcomponent}
+Lastly, you'll need to load the Alfresco canvas app for page layouts. You can add the app to any record type that 
+supports layouts (for example; Accounts, Cases, and Opportunities). This is done by setting Alfresco for Salesforce 
+example page layouts as the default for selected user profiles.
 
-To allow the Alfresco Content Connector to appear in the Lightning experience view of Salesforce you need to add a Salesforce lightning component.
+Make sure that you've downloaded the Alfresco Content Connector app, as described in 
+[Step 2: Install the app in Salesforce](#installapp). You need administrator rights to make these changes. 
 
-Make sure that you've downloaded the Alfresco Content Connector app, as described in [Step 2: Install the app in Salesforce](#installapp). You need administrator rights to make these changes. You also need to have a custom Salesforce domain that has been deployed and activated for your users, for more see [Configure SSO for Salesforce]({% link salesforce/latest/config/index.md %}#prereqs).
+To create the Visualforce Pages for each object where you want the app to appear, follow these steps:
 
-To create the Lightning Component follow these steps:
+1.  In your Salesforce account, find Setup. This is accessible by clicking the gear icon ![gear]({% link salesforce/images/gear.png %}){:height="18px" width="18px"} from the top-right toolbar on the Salesforce page. See [How to find Setup](https://help.salesforce.com/apex/HTViewHelpDoc?id=basics_nav_setup.htm){:target="_blank"} for more guidance.
 
-1. Login to Salesforce Lightning view with an administrator account.
+    From Setup, enter Visualforce Pages in the Quick Find search bar and then select **Visualforce Pages**.
 
-2. Click the gear icon ![gear]({% link salesforce/images/gear.png %}){:height="18px" width="18px"} from the top-right toolbar on the Salesforce page and select **Developer Console**.
+2.  Click **New** to open the Visualforce Page editor.
 
-3. Go to **File > New > Lightning Component**.
+    1.  Enter a **Label** for the page. The label is displayed where the page appears in the page layout.
 
-    You will see the New Lightning Bundle window.
+    2.  Enter a **Name** for the page.
 
-4. Enter a Name and a Description and click **Submit**.
+    3.  Check **Available for Salesforce mobile apps and Lightning Pages**.
 
-    >**Note:** You do not need to select any of the check boxes.
+        ![sf-visualforce-page]({% link salesforce/images/sf-visualforce-page.png %})
 
-5. Select the Component part of the bundle by clicking **COMPONENT** in the right hand pane.
+    4.  Copy and paste the following code in the **Visualforce Markup** editor:
 
-6. Remove any code already in there, and copy and paste the following code snippet into the window.
+        ```xml
+        <apex:page standardController="{Your Object Name}">
+            <apex:canvasApp id="AlfCanvas" applicationName="{Your Connected App API Name}" width="100%" height="450px" scrolling="auto"/>
+        </apex:page>
+        ```
 
-    ```xml
-    <aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
-        <aura:attribute name="canvasParameters" type="string" />
-        <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-        <force:canvasApp canvasId="Alfresco" developerName="THE NAME OF YOUR CANVAS APP" height="450px" width="1300px" parameters="{!v.canvasParameters}"/>
-    </aura:component>
-    ```
+        >**Note:** Replace `{Your Object Name}` with the `sObject` or `custom object API` name where you want the app to appear. For example, `Account`, `Lead`, `Asset`, or `training__c`.
 
-7. Edit the code and add the name of your **Canvas App** as the value of the `developerName` property.
+        >**Note:** Replace the \{`Your Connected App API Name}` with the API Name you set when creating the Connected App definition. For example, `Alfresco_Content_Connector_for_Salesforce`.
 
-8. Select the Controller part of the bundle by clicking **CONTROLLER** in the right hand pane.
+3.  **Save** your settings.
 
-9. Remove any code already in there, and copy and paste the following code snippet into the window.
+    Repeat Step 2 and 3 for every object where you want the app to appear.
 
-    ```json
-    ({
-        doInit : function(cmp, evt, helper) {
-            var recordId = cmp.get("v.recordId");
-            var sObjectName = cmp.get("v.sObjectName");
-            cmp.set("v.canvasParameters", JSON.stringify({
-                recordId: recordId,
-                type: sObjectName
-            }));
-        }
-    })
-    ```
+4.  Now for each Salesforce object where you want the app to appear, you need to add the Visualforce page you just created in the Lightning page layout. To do so, follow these steps:
 
-10. Click **File** and **Save All**.
+    1.  For example, if the Salesforce object is `Account`, then on the Salesforce page, click **Accounts**.
 
-11. Edit your Record page by clicking the gear icon ![gear]({% link salesforce/images/gear.png %}){:height="18px" width="18px"} and then clicking **Edit**.
+        The ACCOUNTS screen appears listing all the accounts.
 
-12. Under the Custom heading in the left hand pane drag over and then drop the component into the desired location on the Activity tab of the Record page.
+    2.  Click the account where you want the Visualforce page to appear.
 
-    >**Note:** If your Component is not visible you will see a message that will instruct you to deploy your domain.
+    3.  Click the gear icon ![gear]({% link salesforce/images/gear.png %}){:height="18px" width="18px"} from the top-right toolbar on the Salesforce page.
 
-13. Click the Activation button on the top right, to activate your change.
+    4.  Click **Edit Page**.
 
-    Review the Activation Opportunity Record Page and assign the level you want for this component.
+    5.  Select **Visualforce** from the **Standard** components list in the scrollable window.
 
-14. Click **Close**.
+        You can drag and place the component where you want it on the page.
 
-15. Click the **Save** button on the top right and then the Salesforce **Back** button directly above it.
+    6.  Specify a **Label** for the Visualforce page. If no label is specified, the default label of the Visualforce page is used.
 
-    The component is now ready to use.
+    7.  Select the Visualforce page you have created from the **Visualforce Page Name** drop-down list. This field is mandatory.
 
+    8.  Specify a minimum **Height** of 450 pixels.
+
+    9.  **Save** your settings.
+
+        If you're editing the page for the first, you may need to activate the page if this is the first time you are editing the page.
+
+        It can take a little while for the Alfresco widget to load for the first time.
+
+5.  Open a record that has the new page layout. You should now be able to see an Alfresco section, with a Files tab. You can add files here by dragging and dropping them, or by using the Upload button.
+
+    You can also add new folders with the Create button. Equally, any files added in Alfresco can be seen in this window. This content is stored directly in Alfresco and can be viewed either in Salesforce, or in your usual Alfresco site.
+    
 ## Install Salesforce Connector - Classic {#installclassic}
 
 Use this information to install the AMP files in Alfresco, and the Alfresco App in Salesforce with the Classic UI.
@@ -420,7 +439,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
         >**Note:** A suggested name is `Alfresco_for_Salesforce`. You'll need to remember the API Name when you configure the **Alfresco Setup** tab.
 
-        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+        >**Note:** If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/2.1/using/troubleshoot.md %}) for guidance.
 
     3. **Contact Email**: Enter an administrator email address.
     4. Check **Enable OAuth Settings**.
@@ -519,7 +538,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
     If your API name appears as `Alfresco_Content_Connector_for_Salesforce` then you must to change it to `Alfresco_for_Salesforce`.
 
-    This sets the Alfresco site that you want to use for Alfresco content. If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/latest/using/troubleshoot.md %}) for guidance.
+    This sets the Alfresco site that you want to use for Alfresco content. If this is not set up correctly, you'll see an error message. See [Troubleshooting]({% link salesforce/2.1/using/troubleshoot.md %}) for guidance.
 
 3. You'll see two tabs; **Site to Object Mapping** and **Metadata Mapping**. Select a tab and you'll see the Alfresco login screen. Log on to your connected Alfresco instance.
 
