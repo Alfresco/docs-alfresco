@@ -16,7 +16,7 @@ services:
         url:
   - title: "Governance"
     text: "Alfresco Governance Services controls important information that needs to be retained over time. It's used in highly regulated environments, for managing governmental information or personnel records, or where information might be audited."
-    url:
+    url: /governance-services/latest/
     image: /assets/img/ic_governance_80px.svg
     sub:
       - title: "Read documentation"
