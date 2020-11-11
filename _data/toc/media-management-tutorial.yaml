@@ -1,0 +1,11 @@
+# Media Management Tutorials
+- version: 1.4
+  pages:
+    - title: 'Tutorials'
+      path: '/media-management/latest/tutorial/'
+
+- version: 1.3
+  pages:
+    - title: 'Tutorials'
+      path: '/media-management/1.3/tutorial/'
+

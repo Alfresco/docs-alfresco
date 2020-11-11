@@ -25,3 +25,11 @@ securitygroups: These are security controls that can be created in addition to t
 securitymark: Security marks are the individual components that make up a security group with each mark representing a different security requirement. They're applied to content and users to control access to content. Only users with a mark assigned to them can see content that has been classified with that mark.
 transfer: You can transfer records and record folders between locations. Transferred records/folders are temporarily held in the Transfers area of the File Plan until you hover over them and click Complete Transfer.
 unfiledrecords: When a record is declared from a non-Records Management site it's added to the Unfiled Records area. It then needs to be added to a records folder.
+SAP_ABAP: Advanced Business Application Programming (SAP)
+AMP: Alfresco Module Package
+SAP_DIR: Document Info Record (SAP)
+SAP_ECC: SAP ERP Central Component
+SAP_IMG: Implementation Guide (SAP)
+SAP_JCo: SAP Java Connector
+SAP_PSE: Personal Security Environment (SAP)
+SAP_OSS: Online Service System (SAP)

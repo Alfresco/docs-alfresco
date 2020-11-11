@@ -19,7 +19,7 @@ function doScrolling(elementY, duration) {
   });
 }
 
-(function () {
+window.onload = () => {
   // search bar
 
   setupSearchBar();
@@ -38,54 +38,12 @@ function doScrolling(elementY, duration) {
   // tooltips
   document.addEventListener("touchstart", (e) => dismissAllTooltips(e));
 
-  // initial scrolling
-
-  const initialHashCheck = () => {
-    if (location.hash) {
-      const parseHash = (hash) =>
-        /^#([^\/]*)\/?((?:[^\/]*\/?)+)?$/.exec(location.hash);
-      const hash = parseHash(location.hash);
-
-      if (!hash) return;
-
-      const id = hash[1];
-      const sub = hash[2];
-
-      if (!id) return;
-
-      const obj = document.getElementById(id);
-      if (!obj) return;
-
-      if (obj.initialRequest) {
-        const doScroll = obj.initialRequest(sub);
-        if (doScroll) {
-          doScrolling(getElementY(obj), 1000);
-        }
-
-        if (obj.changeRequest) {
-          window.addEventListener(
-            "hashchange",
-            () => {
-              const hash = parseHash(location.hash);
-              if (obj.id == hash[1]) obj.changeRequest(hash[2]);
-            },
-            false
-          );
-        }
-      }
-    }
-  };
-
-  initialHashCheck();
-
-  hljs.initHighlightingOnLoad();
-
   // code copy button
 
   (() => {
     const codeTags = document.querySelectorAll("pre > code");
 
-    const template = `<button class="button"><span class="icon is-small"><i class="copy-icon"></i></span></button>`;
+    const template = `<button class="button"><alfresco-tooltip class="tooltip" data-tooltip-mode="manual" data-tooltip-text="Code copied to clipboard."><span class="icon is-small"><i class="copy-icon"></i></span></alfresco-tooltip></button>`;
 
     Array.from(codeTags).forEach((c) => {
       const preTag = c.parentElement;
@@ -93,9 +51,11 @@ function doScrolling(elementY, duration) {
       copyContainer.innerHTML = template;
       copyContainer.classList.add("copy-pane");
 
-      const btn = copyContainer.querySelector("button");
+      const tooltip = copyContainer.querySelector("alfresco-tooltip");
+
+      const btn = copyContainer.querySelector(".button");
       btn.addEventListener("click", (e) => {
-        var el = document.createElement("textarea");
+        const el = document.createElement("textarea");
         el.value = c.textContent;
         document.body.appendChild(el);
         el.style.display = "block";
@@ -111,47 +71,26 @@ function doScrolling(elementY, duration) {
         // clean up element
         document.body.removeChild(el);
 
+        tooltip.open();
         btn.classList.add("is-happy");
-        if (btn.dataset.switchtimer) {
+
+        const deleteTimeout = () => {
           clearTimeout(parseInt(btn.dataset.switchtimer));
           btn.dataset.switchtimer = "";
+        };
+        if (btn.dataset.switchtimer) {
+          deleteTimeout();
         }
         btn.dataset.switchtimer = setTimeout(() => {
           btn.classList.remove("is-happy");
+          tooltip.close();
+          deleteTimeout();
         }, 1000);
       });
 
       preTag.prepend(copyContainer);
     });
   })();
-
-  // left side menu
-  ((leftmenu) => {
-    if (!leftmenu) return;
-
-    const treeSelect = (li, ...classes) => {
-      const parent = li.closest("#leftside-menu li");
-      if (!parent) return;
-
-      parent.classList.add(...classes);
-      treeSelect(li.parentElement, ...classes);
-    };
-
-    const selected = leftmenu.querySelector("li.is-selected");
-    if (selected) treeSelect(selected, "is-selected", "is-expanded");
-
-    Array.from(leftmenu.querySelectorAll(".expand-button")).forEach((p) => {
-      const li = p.closest("li");
-      const ul = li.querySelector("ul");
-      const height = ul.getBoundingClientRect().height;
-      ul.style.setProperty("--max-height", height + "px");
-      p.addEventListener("click", (e) => {
-        li.classList.toggle("is-expanded");
-      });
-    });
-    leftmenu.style.setProperty("--min-height", "0px");
-    leftmenu.classList.add("is-ready-fade");
-  })(document.getElementById("leftside-menu"));
 
   // rating bar
   ((rating) => {
@@ -187,4 +126,201 @@ function doScrolling(elementY, duration) {
       }
     });
   })(document.getElementById("version-selector"));
-})();
+
+  // notifications
+
+  const showPreparedNotification = (notif) => {
+    notif.classList.add("is-active");
+  };
+
+  (() => {
+    if (typeof Storage !== "undefined") {
+      const cookiesAccepted = localStorage.getItem("cookies-accepted");
+      if (cookiesAccepted) return;
+
+      const notif = document.getElementById("cookies-notif");
+
+      if (!notif) return;
+
+      notif.querySelector("button").addEventListener("click", () => {
+        localStorage.setItem("cookies-accepted", new Date().toString());
+        notif.classList.remove("is-active");
+      });
+
+      showPreparedNotification(notif);
+    }
+  })();
+
+  // anchors generator
+
+  ((container) => {
+    if (!container) return;
+
+    container.createHref = (e) => `#${e.dataset.originalid}`;
+    container.dataset.aredir = "createHref";
+
+    const headersCollector = (container) => {
+      return Array.from(
+        container.querySelectorAll(
+          "h2:not(.no-collect), h3:not(.no-collect), h4:not(.no-collect), h5:not(.no-collect), h6:not(.no-collect)"
+        )
+      );
+    };
+
+    const headersAnchoring = (headers) => {
+      headers.forEach((h) => {
+        h.classList.add("is-collected");
+        let hrefGenerator = null;
+        const redir = h.closest("[data-aredir]");
+        if (!redir) return;
+
+        hrefGenerator = redir[redir.dataset.aredir].bind(redir);
+
+        // we should move original id to the hidden element to prevent
+        // native page jumping without ugly returning to the top of window
+        const anchor = document.createElement("a");
+        h.dataset.originalid = h.id;
+
+        h.removeAttribute("id");
+        anchor.id = h.dataset.originalid;
+        anchor.dataset.header = h.tagName;
+        h.prepend(anchor);
+        anchor.classList.add("is-hidden");
+
+        const btn = document.createElement("a");
+        btn.classList.add("button");
+        btn.href = hrefGenerator(h);
+        h.append(btn);
+
+        anchor.initialRequest = () => h;
+        anchor.changeRequest = anchor.initialRequest;
+      });
+    };
+
+    const headers = headersCollector(container);
+
+    headersAnchoring(headers);
+  })(document.querySelector(".content"));
+
+  // toc spy
+  const tocSpy = ((selector, container, tocspy) => {
+    if (!container || !tocspy) return;
+    const headers = Array.from(container.querySelectorAll(selector));
+    if (!headers.length) {
+      tocspy.remove();
+      return;
+    }
+
+    const spy = TocSpy(headers, container, tocspy);
+    headers.forEach((h) => {
+      const a = document.getElementById(h.dataset.originalid);
+      a.initialRequest = () => spy.getSectionTopFromHeader(h);
+      a.changeRequest = a.initialRequest;
+    });
+
+    return spy;
+  })(
+    "h2:not(.no-collect)",
+    document.querySelector(".content"),
+    document.getElementById("tocspy")
+  );
+
+  // initial scrolling
+
+  (() => {
+    const parseHash = (hash) => {
+      const ahash = /^#([^\/]*)\/?((?:[^\/]*\/?)+)?$/.exec(hash);
+
+      if (!ahash || !ahash[1]) return null;
+
+      const id = ahash[1];
+      const sub = ahash[2];
+
+      return { id, sub };
+    };
+
+    const scrollToHash = (rawHash) => {
+      const hash = parseHash(rawHash);
+      if (!hash) return {};
+
+      const obj = document.getElementById(hash.id);
+      return { obj, sub: hash.sub };
+    };
+
+    const _scrollWindowTo = (obj, initiator) => {
+      let scrollTarget = null;
+      switch (typeof obj) {
+        case "object":
+          scrollTarget = getElementY(obj) - 20;
+          break;
+        case "number":
+          scrollTarget = obj;
+          break;
+        case "boolean":
+          if (obj) scrollTarget = getElementY(initiator) - 20;
+          break;
+      }
+      if (scrollTarget !== null) doScrolling(Math.max(scrollTarget, 0), 1000);
+    };
+
+    if (location.hash) {
+      const { obj, sub } = scrollToHash(location.hash);
+      if (obj && obj.initialRequest) {
+        const scrollTo = obj.initialRequest(sub);
+        _scrollWindowTo(scrollTo, obj);
+      }
+    }
+
+    window.addEventListener(
+      "hashchange",
+      (e) => {
+        const { obj, sub } = scrollToHash(location.hash);
+
+        if (obj) {
+          let scrollTo = null;
+          if (obj.changeRequest) {
+            scrollTo = obj.changeRequest(sub);
+            _scrollWindowTo(scrollTo, obj);
+          }
+        }
+        return true;
+      },
+      false
+    );
+  })();
+
+  // left side menu
+  ((leftmenu) => {
+    if (!leftmenu) return;
+
+    const treeSelect = (li, ...classes) => {
+      const parent = li.closest("#leftside-menu li");
+      if (!parent) return;
+
+      parent.classList.add(...classes);
+      treeSelect(li.parentElement, ...classes);
+    };
+
+    const selected = leftmenu.querySelector("li.is-selected");
+
+    if (selected) {
+      treeSelect(selected, "is-expanded");
+    }
+
+    Array.from(leftmenu.querySelectorAll(".expand-button")).forEach((p) => {
+      const li = p.closest("li");
+      const ul = li.querySelector("ul");
+      const height = ul.getBoundingClientRect().height;
+      ul.style.setProperty("--max-height", height + "px");
+      const title = li.querySelector(".menuitem-title");
+      const click = (e) => {
+        e.stopPropagation();
+        li.classList.toggle("is-expanded");
+      };
+      p.addEventListener("click", click);
+      if (title) title.addEventListener("click", click);
+    });
+    leftmenu.style.setProperty("--min-height", "0px");
+    leftmenu.classList.add("is-ready-fade");
+  })(document.getElementById("leftside-menu"));
+};
