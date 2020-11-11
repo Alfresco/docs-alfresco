@@ -166,6 +166,9 @@ The spacing after a set of tabs should be continuous.
 | `signHereX` | *Optional.*  {% include tooltip.html word="community" text="Alfresco Community Edition" %} The X position of the `Sign Here` box in the document | String | No |
 
 
+
+{% include tooltip.html word="capabilities" text="capabilities" %}
+
 Space between.
 
 

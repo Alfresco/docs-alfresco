@@ -7,8 +7,8 @@ or installed manually using a standalone ZIP distribution.
 
 There are two options for installing the Identity Service:
 
-* [Deploying using Helm charts]({% link identity-service/latest/install/k8s/index.md %})
-* [Install manually using a ZIP distribution]({% link identity-service/latest/install/zip/index.md %})
+* [Install using Helm charts]({% link identity-service/latest/install/k8s/index.md %})
+* [Install using a ZIP distribution]({% link identity-service/latest/install/zip/index.md %})
 
 **Note:** It is recommended that you familiarize yourself with the [concepts of containerized deployment](TODO_LINK:https://docs.alfresco.com/6.1/concepts/deploy-overview.html) before working with Docker, Kubernetes, and Helm.
 

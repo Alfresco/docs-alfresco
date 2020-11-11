@@ -7,9 +7,9 @@
       pages:
         - title: 'Overview'
           path: '/identity-service/latest/install/'
-        - title: 'To Kubernetes Cluster'
+        - title: 'Install to Kubernetes cluster'
           path: '/identity-service/latest/install/k8s/'
-        - title: 'From ZIP file'
+        - title: 'Install from ZIP file'
           path: '/identity-service/latest/install/zip/'
     - title: 'Upgrade'
       path: '/identity-service/latest/upgrade/'
@@ -23,9 +23,9 @@
       pages:
         - title: 'Overview'
           path: '/identity-service/1.2/install/'
-        - title: 'To Kubernetes Cluster'
+        - title: 'Install to Kubernetes cluster'
           path: '/identity-service/1.2/install/k8s/'
-        - title: 'From ZIP file'
+        - title: 'Install from ZIP file'
           path: '/identity-service/1.2/install/zip/'
     - title: 'Upgrade'
       path: '/identity-service/1.2/upgrade/'

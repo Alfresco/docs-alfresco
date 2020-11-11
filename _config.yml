@@ -206,22 +206,27 @@ defaults:
     values:
       version: 1.5
 
-# Alfresco Process Services (APS)
+# Alfresco Governance Services
   - scope:
-      path: "process-services"
+      path: "governance-services"
     values:
       layout: "docs"
-      product: "Alfresco Process Services"
-      location: "process-services"
-      toc: "process-services"
+      product: "Alfresco Governance Services"
+      location: "governance-services"
+      toc: "governance-services"
+      tutorial: true
       support: true
       versions:
-        - 1.11
+        - 3.3
   - scope:
-      path: "process-services/latest"
+      path: "governance-services/latest"
     values:
-      version: 1.11
+      version: 3.3
       latest: true
+  - scope:
+      path: "governance-services/latest/tutorial"
+    values:
+      toc: "governance-services-tutorial"
 
 # Alfresco Process Services (APS)
   - scope:
@@ -240,6 +245,22 @@ defaults:
       version: 1.11
       latest: true
 
+# Alfresco Document Transformation Engine
+  - scope:
+      path: "transformation-engine"
+    values:
+      layout: "docs"
+      product: "Alfresco Document Transformation Engine"
+      location: "transformation-engine"
+      toc: "transformation-engine"
+      support: true
+      versions:
+        - 2.2
+  - scope:
+      path: "transformation-engine/latest"
+    values:
+      version: 2.2
+      latest: true
 
 # Alfresco Content Connector for AWS S3
   - scope:
@@ -284,23 +305,6 @@ defaults:
       path: "microsoft-office/1.1"
     values:
       version: 1.1
-
-# Alfresco Document Transformation Engine
-  - scope:
-      path: "transformation-engine"
-    values:
-      layout: "docs"
-      product: "Alfresco Document Transformation Engine"
-      location: "transformation-engine"
-      toc: "transformation-engine"
-      support: true
-      versions:
-        - 2.2
-  - scope:
-      path: "transformation-engine/latest"
-    values:
-      version: 2.2
-      latest: true
 
 # Alfresco Transform Service
   - scope:
