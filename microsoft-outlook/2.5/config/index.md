@@ -508,17 +508,7 @@ See step **11** for the complete example of metadata settings.
 
     Note how the rule is similar to the custom content metadata configuration. The `<list-view>` and `<match>` elements can be assigned names, which will be displayed in the list view configuration of the Alfresco Outlook Client. The user can still define which columns of a particular server-side list view configuration are enabled/disabled.
 
-20. To provide users with the capability to rename the email subject before uploading it to the repository, use this example:
-
-    ```xml
-    <match pattern="/app:company_home" type="folder">
-        <target>
-            <property name="cm:subjectline" />
-        </target>
-    </match>
-    ```
-
-21. Save your changes and restart Microsoft Outlook.
+20. Save your changes and restart Microsoft Outlook.
 
     The template changes are applied.
 
@@ -674,7 +664,7 @@ These settings define global controls across your enterprise and are applied imm
 
     3. **Site**: emails with same messageID are not allowed across a site.
 
-    >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook]({% link microsoft-outlook/latest/using/index.md %}#managing-file-versions-in-outlook) for more details.
+    >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook]({% link microsoft-outlook/2.5/using/index.md %}#managing-file-versions-in-outlook) for more details.
 
 5. Specify a number in **Page size** to limit the number of files and folders visible at a time in the Explore view of the Alfresco sidebar in Outlook.
 
@@ -757,7 +747,7 @@ These settings define global controls across your enterprise.
 
 4. Select Licenses from the Tools menu and click **Edit** to add new licenses.
 
-    See [Installing server and client licenses in Alfresco Share]({% link microsoft-outlook/latest/install/index.md %}#installserverclientlicenses) for more information about installing licenses.
+    See [Installing server and client licenses in Alfresco Share]({% link microsoft-outlook/2.5/install/index.md %}#installserverclientlicenses) for more information about installing licenses.
 
 5. Select **System Info** from the Tools menu to view system information.
 
@@ -873,14 +863,7 @@ You can configure Outlook extended settings; for example, change the display lan
     * **PDF**: Use drag and drop to convert Office files to PDF format and attach them to email.
     * **Link to PDF**: Use drag and drop to convert Office files to PDF format and add to the email as an HTTP link.
 
-8. Use web URIs for: Controls the target application for calling a browser directly from Outlook.
-
-    Options are:
-
-    * Alfresco Share (standard)
-    * Alfresco ADF (Application Development Framework)
-
-    The location of the ADF client application must be configured in Share Admin Tools by your IT team.
+8. Use web URIs for: Controls the target application for calling a browser directly from Outlook. Alfresco Share is the only valid option in Alfresco 5.0 and later.
 
 9. **Show tooltip on email hover**: Select to see a tool tip when you hover over an email.
 
@@ -928,17 +911,17 @@ Set the configuration template to import when the configuration dialog is called
 
 Use the Alfresco Client Settings XML file for advanced configuration of Alfresco Microsoft Outlook client.
 
-The `AlfrescoClientSettings-2.7.x.xml` file contains advanced configuration properties.
+The `AlfrescoClientSettings-2.5.x.xml` file contains advanced configuration properties.
 Use this file to set up attributes and metadata settings.
 
-1. Locate and open `AlfrescoClientSettings-2.7.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
+1. Locate and open `AlfrescoClientSettings-2.5.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
 
     The `<outlook>` section contains elements that you can configure to customize the Alfresco Outlook Client, and also additional `<storage>`, `<connection>`, `<logging>`, `<restrictions>`, and `<tabs>` sections:
 
     Here is a sample configuration file:
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
+     <?xml version="1.0" encoding="utf-8"?>
     <settings>
       <outlook format="1.0" dragPrio="document" showExplorer="true" showExplorerNew="false" defaultBrowser="true" visibleSites="public" visibleNodes="default" showEmailTooltip="false" hoverPreview="true" isSitesRoot="true" showMySites="false" folderSort="name_asc" dateSortView="subject" sendLinkUrl="details" panelViewMode="tree" searchMode="standard" mailNameDisplayPattern="" culture="en" customAppTitle="" customRibbonTitle="" customMenuTitle="">
         <connection url="http://127.0.0.1:8080/" shareUrl="share" alfrescoUrl="alfresco" login="admin" password="7DkTRpO8sfo=" checkCertificate="true" checkVersion="true" authentication="basic" webApp="2" shareAlterUrl="" settingsCheckInterval="480" />
@@ -947,6 +930,16 @@ Use this file to set up attributes and metadata settings.
         <feature autoPaging="false" highlightTexts="false" collapsible="true" tokenAlterMode="false" messageIcon="false" saml="true" />
         <explorer-search-properties />
         <search-properties />
+        <runtime explorerDock="default" explorerHeight="1278" explorerWidth="410" centralChangeDate="0001-01-01T00:00:00" centralChangeLocked="false" centralSitesRoot="false" suppressSitesScopeMessage="false" lastAlf50="true" lastPath="">
+          <listView lastSortOrder="ascending">
+            <columns />
+          </listView>
+        </runtime>
+        <archiveHistory>
+          <server url="http://127.0.0.1:8080/alfresco">
+            <folder remotePath="/Company Home/Sites/Outlook test site" remoteId="f01c7ed9-898f-4ba3-adb9-245ee700bd85" />
+          </server>
+        </archiveHistory>
       </outlook>
     </settings>
     ```
@@ -964,11 +957,11 @@ Use this file to set up attributes and metadata settings.
     |`hoverPreview`|Controls the behavior of the Preview window in the Search tab of the Alfresco sidebar|`true`: preview window is shown when hovering over the found item. This is the default setting.<br><br>`false`: preview window is not shown when hovering over the found item.|
     |`isSitesRoot`|Sets a root folder to show in the Explore tab of the Alfresco sidebar|`true`: root is the Sites folder. This is the default setting.<br><br>`false`: root is the Company Home folder.|
     |`mailNameDisplayPattern=" #subject (#from)"`|Modifies the email appearance in the Explore tab of the Alfresco sidebar|Use these variables to modify the email fields displayed: `#subject`, `#from`, `#to`, `#sent`|
-    |`culture`|Sets the language used in Alfresco Outlook Client|Possible settings:`en`: English<br><br>`de`: German<br><br>`es`: Spanish<br><br>`it`: Italian<br><br>`fr`: French<br><br>`ja`: Japanelse<br><br>`ru`: Russian<br><br>`zh-cn`: Chinese (Simplified)<br><br>`pt-br`: Brazilian Portuguese<br><br>`nl`: Dutch<br><br>`nb-no`: Norwegian (Bokmal)<br><br>`cs`: Czech<br><br>`da`: Danish<br><br>`sv`: Swedish<br><br>`fi`: Finnish<br><br>`pl`: Polish<br><br>|
+    |`culture`|Sets the language used in Alfresco Outlook Client|Possible settings:`en`: English<br><br>`de`: German<br><br>`es`: Spanish<br><br>`it`: Italian<br><br>`fr`: French<br><br>`ja`: Japanelse<br><br>`ru`: Russian<br><br>`zh-cn`: Chinese (Simplified)<br><br>`pt-br`: Brazilian Portuguese<br><br>`nl`: Dutch<br><br>`nb-no`: Norwegian (Bokmal)<br><br>|
     |`customAppTitle`|Renames Alfresco Outlook Client sidebar|Enter your chosen title as a text string.|
     |`customRibbonTitle`|Renames the Alfresco Client tab|Enter your chosen title as a text string.|
     |`customMenuTitle`|Renames the Alfresco Client option when right clicking a file|Enter your chosen title as a text string.**Note:** If you set this option, the same value is applied to `customRibbonTitle` if `customRibbonTitle` is blank.|
-    |`sendLinkUrl`|Controls the behavior of links to files in Alfresco|`details`: link to the Document Details page is created. This is the default setting.<br><br>`download`: link to the Document Download page is created (only applies for Share URLs)|
+    |`sendLinkUrl`|Controls the behavior of links to files in Alfresco|`details`: link to the Document Details page is created. This is the default setting.<br><br>`download`: link to the Document Download page is created|
     |`folderSort`|Sets the sorting options for folders in the Explore tab of the Alfresco sidebar|`name_asc`: folders are sorted in alphabetical order. This is the default setting.<br><br>`name_desc`: folders are sorted in reverse alphabetical order<br><br>`modified_asc`: folders are sorted by date modified ascending<br><br>`modified_desc`: folders are sorted by date modified descending|
     |`dateSortView`|Sets the date sort display options in the Explore tab of the Alfresco sidebar|`subject`: files are sorted by subject or name. This is the default setting.<br><br>`date`: files are sorted by date and subject<br><br>`datetime`: files are sorted by date and time, and subject|
     |`showEmailTooltip`|Controls whether a tool tip is shown when hovering over an email|`true`: tool tip is shown when hovering over the email. This is the default setting.<br><br>`false`: tool tip is not shown when hovering over the email.|
@@ -996,7 +989,7 @@ Use this file to set up attributes and metadata settings.
     |`shareUrl`|Path to Alfresco Share|`share`: this is the default setting. Specify a text string for an alternative path.|
     |`alfrescoUrl`|Path to Alfresco repository|`alfresco`: this is the default setting. Specify a text string for an alternative path.|
     |`authentication`|Authentication type for connection to Alfresco|`basic`: basic authentication is used to connect to Alfresco<br><br>`windows`: Kerberos authentication is used to connect to Alfresco<br><br>`saml`: SAML authentication is used to connect to Alfresco<br><br>**Note:** Contact Alfresco support before using these settings.|
-    |`webApp`|Which Alfresco web application is used to display details, links, etc. outside of the Outlook Integration.|`2`: Share. This is the default setting.<br><br>`3`: ADF|
+    |`webApp`|Which Alfresco WAR file to use in the `/webapps` folder|`1`: alfresco.war<br><br>`2`: share.war. This is the default setting.|
     |`shareAlterUrl=""`|Sets alternative URL for Alfresco Share|Specify your alternative URL.<br><br>|
     |`checkCertificate`|Specifies whether to check for a server certificate|`true`: certificate is checked and if it is not correct then the connection fails. This is the default setting.<br><br>`false`: certificate is not checked|
     |`checkVersion`|Specifies whether to check the Alfresco server version|`true`: version is checked and if it is not correct then the connection fails. This is the default setting.<br><br>`false`: version is not checked|
@@ -1024,67 +1017,45 @@ Use this file to set up attributes and metadata settings.
 
 7. Configure the attributes that you need for the `<restrictions>` element.
 
-    1. For the high resolution front-end of the Alfresco Outlook Client:
-
-        Restrictions can be set either to apply globally or context-based. The context-based configuration supports a specific location, and the behavior of Microsoft Office and non-Microsoft Office documents.
-
-        Here are some examples:
-
-        |Attribute|Description|
-        |---------|-----------|
-        |`<action type="browse" enabled="false" enabledForMsOffice="true" />`|Open menu item is hidden for any item in the repository, but is visible for Microsoft Office documents.|
-        |`<action type="edit" enabled="false" location="/app:company_home/st:sites/cm:qa-ext-custom-metadata/cm:documentLibrary/cm:_x0031__x0020__x0026__x0020_2_x0026_3" />`|Edit menu item is disabled for any Microsoft Office documents in the specified location.|
-        |`<action type="delete" enabled="false" enabledForMsOffice="true" location="/app:company_home/st:sites/cm:qa-ext-custom-metadata/cm:documentLibrary/cm:_x0031__x0020__x0026__x0020_2_x0026_3" />`|Delete is enabled only for Microsoft Office documents in the specified location:|
-        |`<action type="delete" enabled="false" />`|Delete is disabled at the repository level for any item. The previous option overrides this one.|
-        |`<action type="checkout" enabledForMsOffice="false"/>`|Checkout is disabled at the repository level for any Microsoft Office document.|
-        |`<action type="download" enabled="false" />`|Download is disabled at the repository level for any item.|
-
-    2. For all versions of the Alfresco Outlook Client:
-
-        |Attribute|Description|Value|
-        |---------|-----------|-----|
-        |`<action type="new-folder" enabled="true" />`|Sets action: create a new folder|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="new-document" enabled="true" />`|Sets action: create a new file|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="edit" enabled="true" />`|Sets action: edit online|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="rename-document" enabled="true" />`|Sets action: rename a file|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="rename-folder" enabled="true" />`|Sets action: rename a folder|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="delete" enabled="true" />`|Sets action: delete|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="send-content" enabled="true" />`|Sets action: email as an attachment|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="send-link" enabled="true" />`|Sets action: email as link|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="set-favorite" enabled="true" />`|Sets action: add to favorites|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="workflow" enabled="true" />`|Sets action: start workflow|`true`: action is enabled (only available if `webApp` is set to Share). This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="details-msg" enabled="true" />`|Sets action: Alfresco Details|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="details" enabled="true" />`|Sets action: details|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="download-pdf" enabled="true" />`|Sets action: download as a PDF|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="download" enabled="true" />`|Sets action: download|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="import-msg" enabled="true" />`|Sets action: import message|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="browse" enabled="true" />`|Sets action: open|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="search-full-text" enabled="true" />`|Sets action: Search text and metadata in Search menu|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="search-metadata" enabled="true" />`|Sets action: Search metadata in Search menu|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="search-sites" enabled="true" />`|Sets action: Search sites in Search menu|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="set-metadata" enabled="true" />`|Sets action: edit metadata|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="checkout" enabled="true" />`|Sets action: checkout|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="cancel-checkout" enabled="true" />`|Sets action: cancel checkout|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="version-history" enabled="true" />`|Sets action: version history|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
-        |`<action type="download-drop" enabled="true"/>`|Sets action: drag & drop<br><br>Drag & drop was formerly linked to the "download" restriction and is now independent.<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
-        |`<action type="copy-document" enabled="true"/>`|Sets action: copy document<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
-        |`<action type="move-document" enabled="true"/>`|Sets action: move document<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
-        |`<action type="copy-folder" enabled="true"/>`|Sets action: copy folder<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
-        |`<action type="move-folder" enabled="true"/>`|Sets action: move folder<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
-
-8. Configure the attributes that you need for the `<tabs>` element:
-
     |Attribute|Description|Value|
     |---------|-----------|-----|
-    |`<tab type="workflow" enabled="true" />`|Controls visibility of Workflow tab in Alfresco sidebar in low resolution mode|`true`: Workflow tab is visible.<br><br>`false`: Workflow tab is not visible. This is the default setting.|
+    |`<action type="new-folder" enabled="true" />`|Sets action: create a new folder|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="new-document" enabled="true" />`|Sets action: create a new file|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="edit" enabled="true" />`|Sets action: edit online|`true`: action is enabled. This is the default setting. `false`: action is not enabled|
+    |`<action type="rename-document" enabled="true" />`|Sets action: rename a file|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="rename-folder" enabled="true" />`|Sets action: rename a folder|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="delete" enabled="true" />`|Sets action: delete|`true`: action is enabled. This is the default setting. `false`: action is not enabled|
+    |`<action type="send-content" enabled="true" />`|Sets action: email as an attachment|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="send-link" enabled="true" />`|Sets action: email as link|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="set-favorite" enabled="true" />`|Sets action: add to favorites|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="workflow" enabled="true" />`|Sets action: start workflow|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="details-msg" enabled="true" />`|Sets action: Alfresco Details|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="details" enabled="true" />`|Sets action: details|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="download-pdf" enabled="true" />`|Sets action: download as a PDF|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="download" enabled="true" />`|Sets action: download|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="import-msg" enabled="true" />`|Sets action: import message|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="browse" enabled="true" />`|Sets action: open|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="search-full-text" enabled="true" />`|Sets action: Search text and metadata in Search menu|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="search-metadata" enabled="true" />`|Sets action: Search metadata in Search menu|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="search-sites" enabled="true" />`|Sets action: Search sites in Search menu|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="set-metadata" enabled="true" />`|Sets action: edit metadata|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="checkout" enabled="true" />`|Sets action: checkout|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="cancel-checkout" enabled="true" />`|Sets action: cancel checkout|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
+    |`<action type="version-history" enabled="true" />`|Sets action: version history|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled|
 
-9. Configure the attributes that you need for the `<metadata>` element:
+8.Configure the attributes that you need for the `<tabs>` element:
 
-    |Attribute|Description|Value|
-    |---------|-----------|-----|
-    |`extended`|Controls automatic completion of metadata|Use the `<extended>` element to specify text that you would like auto-completed for metadata. You can define one or more properties in the `<autofill>` element. Use the format shown in the example:|
+|Attribute|Description|Value|
+|---------|-----------|-----|
+|`<tab type="workflow" enabled="true" />`|Controls visibility of Workflow tab in Alfresco sidebar in low resolution mode|`true`: Workflow tab is visible.<br><br>`false`: Workflow tab is not visible. This is the default setting.|
 
-    ```xml
+9.Configure the attributes that you need for the `<metadata>` element:
+
+|Attribute|Description|Value|
+|---------|-----------|-----|
+|`extended`|Controls automatic completion of metadata|Use the `<extended>` element to specify text that you would like auto-completed for metadata. You can define one or more properties in the `<autofill>` element. Use the format shown in the example:|
+
+```xml
     <metadata>
       <extended>
         <autofill>  
