@@ -189,12 +189,6 @@ The following image shows an example dashboard created using the pre-configured 
 
 ![]({% link insight-engine/images/exampledashboard1.png %})
 
-### Other business intelligence tools
-
-In addition to using Insight Zeppelin for reporting you can also use any application that supports ODBC connectivity.
-
-The CData ODBC Driver for Alfresco 2019 enables you to have real-time access to your data so you can run reports on the contents of the repository. Currently Alfresco has tested Tableau and Microsoft Excel. For more information and how to install the CData ODBC Driver see the following documentation [CData ODBC Driver for Alfresco 2019](http://cdn.cdata.com/help/SJE/odbc/default.htm).
-
 ### Export/Import Insight Zeppelin notes
 
 Before upgrading Search and Insight Engine ensure you export each individual Insight Zeppelin note so you can reimport them after the upgrade. If you don't do this your notes will be lost as they do not carry over during the upgrade.

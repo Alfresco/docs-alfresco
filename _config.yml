@@ -464,7 +464,7 @@ defaults:
       path: "insight-engine/1.4"
     values:
       version: 1.4
-      latest: true
+      latest: 
 
 # Alfresco Search Service
   - scope:

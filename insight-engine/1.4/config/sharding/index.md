@@ -215,7 +215,7 @@ To avoid any data loss, you can make backups of one or all the sharded Solr inde
 Trigger a backup with an `HTTP` command which instructs the `/replication` handler to backup the Solr shards, for example:
 
 ```http
-curl http://solrshard20xbm.alfresco.com:9000/solr/<CORE_NAME>/replication?command=backup
+curl http://solrshard20xbm.alfresco.com:9000/solr4/<CORE_NAME>/replication?command=backup
 &location=/mnt/solrContentStoreBackup&numberToKeep=1
 ```
 
