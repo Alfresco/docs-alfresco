@@ -354,7 +354,7 @@ OR
 
 These examples show how to embed queries in CMIS.
 
-## Embedded in CMIS contains()
+### Embedded in CMIS contains()
 
 ```sql
 - strict queries
