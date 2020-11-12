@@ -13,7 +13,7 @@
             <div class="dropdown-menu" id="dropdown-menu" role="menu">
               <div class="dropdown-content">
 
-                {% assign versions = page.versions | compact | sort | reverse %}
+                {% assign versions = page.versions | compact %}
                 {% for v in versions %}
                 
                 {%if v == page.version%}

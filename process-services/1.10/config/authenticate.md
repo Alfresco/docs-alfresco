@@ -19,7 +19,7 @@ The Identity Service needs to be [deployed](TODO_LINK:https://docs.alfresco.com/
 
 Once the Identity Service has been deployed, you will need to [configure Process Services](#properties) to authenticate with it.
 
->**Note:** Please refer to the [supported platforms]({% link process-services/latest/support/index.md %}) page to see which parts of Process Services are compatible with the Identity Service.
+>**Note:** Please refer to the [supported platforms]({% link process-services/1.10/support/index.md %}) page to see which parts of Process Services are compatible with the Identity Service.
 
 >**Note:** Process Services requires an email address as the user name when logging into the Identity Service.
 
