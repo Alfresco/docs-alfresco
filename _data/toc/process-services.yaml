@@ -65,7 +65,7 @@
           path: '/process-services/latest/develop/rest-api/'
 
 # Alfresco Process Services 1.10
-- version: 1.10
+- version: '1.10'
   pages:
     - title: 'Introduction'
       path: '/process-services/1.10/'
