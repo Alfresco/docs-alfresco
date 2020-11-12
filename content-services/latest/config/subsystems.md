@@ -61,7 +61,7 @@ The supplied subsystem categories are:
 | Search | Search mechanism | [Alfresco Search Services](https://docs.alfresco.com/search-enterprise/concepts/search-home.html)(#LINK) |
 | Subscriptions | Settings for the activities feeds | [Enable Subscription Service]({% link content-services/latest/config/email.md %}#enable-subscription-service) |
 | Synchronization | Synchronization of local user and group information with the user registry exporters (usually LDAP directories) in the authentication chain | [Configure synchronization]({% link content-services/latest/admin/auth-sync.md %}#configuring-synchronization) |
-| sysAdmin | Properties for server administration | [Configure server administration settings]({% link content-services/latest/config/repository.md %}#adminconsole-systemsettings.md) <!--FIX LINK-->| 
+| sysAdmin | Properties for server administration | [Configure server administration settings]({% link content-services/latest/config/repository.md %}#sysadmin) |
 | thirdparty | Properties for third-party software, for example, ImageMagick | [Change the OOoJodconverter subsystems]({% link content-services/latest/config/libreoffice.md %}#change-ooojodconverter) |
 | Transformers | Properties for the transformation server | [Manage transformations]({% link content-services/latest/admin/transformations.md %}) |
 | wcm_deployment_receiver | Properties for WCM Deployment Receiver | [The Workflow Console]({% link content-services/latest/admin/workflows.md %}#workflowconsole) |

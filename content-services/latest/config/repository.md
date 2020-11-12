@@ -45,7 +45,7 @@ Follow these steps to check if Content Services is set to read-only mode or not:
 
 {% include tabs.html opt1="Global properties" content1=global opt2="JMX" content2=jmx %}
 
-## Deploy with a different context path
+## Deploy with a different context path {#deploy-contextpath}
 
 There are a number of updates that you need to make if you want to deploy to a context path that isn't `/alfresco`.
 
@@ -112,9 +112,9 @@ Follow these steps if you want to deploy to a context path that's not `/alfresco
 
 Follow this guidance if you want to run Content Service with a reverse proxy.
 
-1. If the reverse proxy maps the target server to a different context path, or if you deployed specifically to a different context path, you need to follow the steps in [Deploying with a different context path](deploy-contextpath.md#), with the following changes:
+1. If the reverse proxy maps the target server to a different context path, or if you deployed specifically to a different context path, you need to follow the steps in [Deploy with a different context path](#deploy-contextpath), with the following changes:
 
-    1. In step [2](deploy-contextpath.md#alfresco-global), update the values in the `alfresco-global.properties` file:
+    1. In step [2](#deploy-contextpath), update the values in the `alfresco-global.properties` file:
 
         ```bash
         alfresco.context=xxx
@@ -125,7 +125,12 @@ Follow this guidance if you want to run Content Service with a reverse proxy.
 
         where `xxx` are the externally visible context, host name, port number and protocol values.
 
-    2. You must specify the context path that's externally visible in all steps, and not the context path that the repository is actually running on. Exceptions are in step [1](deploy-contextpath.md#step-1) and in step [3](deploy-contextpath.md#share-config) if Share is connecting to the repository directly and not through the reverse proxy. The other exception is in step [7](deploy-contextpath.md#solr) if Solr is contacted directly and not through the reverse proxy.
+    2. You must specify the context path that's externally visible in all steps, and not the context path that the repository is actually running on.
+
+        Exceptions are in:
+
+        * Step [1](#deploy-contextpath) and step [3](#deploy-contextpath) - if Share is connecting to the repository directly and not through the reverse proxy.
+        * Step [7](#deploy-contextpath) - if Solr is contacted directly and not through the reverse proxy.
 
 ## Tune the JVM
 
@@ -348,7 +353,7 @@ In addition, you can also set the following non-standard properties for authenti
 | https.proxyUser | Specifies the user name to use with an authenticated proxy used by the HTTPS protocol handler. It should be left unset if the proxy doesn't require authentication. |
 | https.proxyPassword | Specifies the password to use with an authenticated proxy used by the HTTPS protocol handler. It should be left unset if the proxy doesn't require authentication. |
 
-## Configure server administration properties
+## Configure server administration properties {#sysadmin}
 
 The **sysAdmin** subsystem allows real-time control across some of the general repository properties. The sysAdmin subsystem replaces the `RepoServerMgmt` management bean.
 
