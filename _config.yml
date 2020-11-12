@@ -172,16 +172,13 @@ defaults:
     values:
       version: 1.1
   - scope:
-      path: "identity-service/1.1"
+      path: "identity-service/1.1/tutorial"
     values:
       toc: "identity-service-tutorial"
   - scope:
       path: "identity-service/1.0"
     values:
       version: 1.0
-  - scope:
-      path: "identity-service/1.0"
-    values:
       tutorial: false
 
 # Alfresco Desktop Sync
@@ -205,6 +202,28 @@ defaults:
       path: "desktop-sync/1.5"
     values:
       version: 1.5
+
+# Alfresco Governance Services
+  - scope:
+      path: "governance-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Governance Services"
+      location: "governance-services"
+      toc: "governance-services"
+      tutorial: true
+      support: true
+      versions:
+        - 3.3
+  - scope:
+      path: "governance-services/latest"
+    values:
+      version: 3.3
+      latest: true
+  - scope:
+      path: "governance-services/latest/tutorial"
+    values:
+      toc: "governance-services-tutorial"
 
 # Alfresco Process Services (APS)
   - scope:
@@ -232,6 +251,23 @@ defaults:
       path: "process-services/1.9"
     values:
       version: 1.9
+
+# Alfresco Document Transformation Engine
+  - scope:
+      path: "transformation-engine"
+    values:
+      layout: "docs"
+      product: "Alfresco Document Transformation Engine"
+      location: "transformation-engine"
+      toc: "transformation-engine"
+      support: true
+      versions:
+        - 2.2
+  - scope:
+      path: "transformation-engine/latest"
+    values:
+      version: 2.2
+      latest: true
 
 # Alfresco Content Connector for AWS S3
   - scope:
@@ -276,23 +312,6 @@ defaults:
       path: "microsoft-office/1.1"
     values:
       version: 1.1
-
-# Alfresco Document Transformation Engine
-  - scope:
-      path: "transformation-engine"
-    values:
-      layout: "docs"
-      product: "Alfresco Document Transformation Engine"
-      location: "transformation-engine"
-      toc: "transformation-engine"
-      support: true
-      versions:
-        - 2.2
-  - scope:
-      path: "transformation-engine/latest"
-    values:
-      version: 2.2
-      latest: true
 
 # Alfresco Transform Service
   - scope:
@@ -446,11 +465,17 @@ defaults:
       support: true
       versions:
         - 2.0
+        - 1.4
   - scope:
       path: "insight-engine/latest"
     values:
       version: 2.0
       latest: true
+  - scope:
+      path: "insight-engine/1.4"
+    values:
+      version: 1.4
+      latest: 
 
 # Alfresco Search Service
   - scope:

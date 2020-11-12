@@ -12,12 +12,12 @@ services:
     image: /assets/img/ic_process_80px.svg
     sub:
       - title: "On premise"
-        url: /process-services/latest
-      - title: "Process on Alfresco Cloud"
-        url:
+        url: /process-services/latest/
+      - title: "Process Automation on Alfresco Cloud"
+        url: /process-automation/latest/
   - title: "Governance"
     text: "Alfresco Governance Services controls important information that needs to be retained over time. It's used in highly regulated environments, for managing governmental information or personnel records, or where information might be audited."
-    url:
+    url: /governance-services/latest/
     image: /assets/img/ic_governance_80px.svg
     sub:
       - title: "Read documentation"
@@ -61,9 +61,10 @@ integrations:
       - title: "Search Services"
         text: "Alfresco Search Services provides the default search service index for Alfresco Content Services and Alfresco Community Edition."
         url: /search-services/latest/
-      - title: "Federation"
-        text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
-        url: /federation-services/latest/
+  - title: "Federation"
+    text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
+    url: /federation-services/latest/
+    image: /assets/img/ic_federation_80px.svg
   - title: "Identity"
     text: "Enable Single Sign On capabilities by configuring user authentication between Identity Service and a supported SAML identity provider."
     url:
@@ -124,24 +125,19 @@ applications:
     image: /assets/img/logo_dw_72px.svg
   - title: "Application Development Framework"
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
-    url:
+    url: 'https://www.alfresco.com/abn/adf/docs/'
     image: /assets/img/logo_adf_72px.svg
   - title: "Content Mobile"
     text: "Alfresco Content Services for mobile allows you to view, edit, and share information in and out of the office via the mobile app."
-    url:
+    url: /content-mobile/latest/
     image: /assets/img/logo_cm_72px.svg
-    sub:
-      - title: "iOS"
-        url:
-      - title: "Android"
-        url:
-  - title: "Process for iOS"
-    text: "Alfresco Process Services for mobile allows you to start new processes and interact with related content via the mobile app."
-    url:
-    image: /assets/img/logo_pm_72px.svg
-    sub:
-      - title: "iOS"
-        url:
-      - title: "Android"
-        url:
+#  - title: "Process for iOS"
+#    text: "Alfresco Process Services for mobile allows you to start new processes and interact with related content #via the mobile app."
+#    url:
+#    image: /assets/img/logo_pm_72px.svg
+#    sub:
+#      - title: "iOS"
+#        url:
+#      - title: "Android"
+#        url:
         
