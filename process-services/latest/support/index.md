@@ -5,7 +5,7 @@ title: Supported platforms
 Here is a list of the individual components that have been through the complete 
 Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
 
-**Last modified: March 31 2020**
+**Last modified: November 12 2020**
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact 
 our Support team [Alfresco Support Portal](https://support.alfresco.com).
@@ -35,7 +35,7 @@ our Support team [Alfresco Support Portal](https://support.alfresco.com).
 |PostgreSQL 11.4|✓|`postgresql-42.2.5.jar`|
 |PostgreSQL 10.11|✓|`postgresql-42.2.5.jar`|
 |PostgreSQL 10.9|✓|`postgresql-42.2.5.jar`|
-|Amazon Aurora|✓|`mysql-connector-java-5.1.42.jar`|
+|Amazon Aurora|✓| Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 
 **Application servers**
 
