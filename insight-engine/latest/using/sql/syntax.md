@@ -426,12 +426,12 @@ For example:
   var results = search.query(def); 
 ```
 
-### Templates
+## Templates
 
 FTS is not supported in FreeMarker.
 
 
-### Search for proximity
+## Search for proximity
 
 Google-style proximity is supported.
 
@@ -444,7 +444,7 @@ big *(3) apple
 TEXT:(big *(3) apple)
 ```
 
-### Search query templates
+## Search query templates
 
 The FTS query language supports query templates. These are intended to help when building application specific searches.
 
@@ -474,7 +474,7 @@ nameAndTitle -> %(cm:name, cm:title)
 nameAndTitleAndDesciption -> %(nameAndTitle, cm:description)
 ```
 
-### Search for ranges
+## Search for ranges
 
 Inclusive ranges can be specified in Google-style. There is an extended syntax for more complex ranges. Unbounded ranges can be defined using MIN and MAX for numeric and date types and "u0000" and "FFFF" for text (anything that is invalid).
 
@@ -493,7 +493,7 @@ my:float:0..MAX
 mt:text:[l TO "uFFFF"]
 ```
 
-### Search for a single term
+## Search for a single term
 
 Single terms are tokenized before the search according to the appropriate data dictionary definition(s).
 
@@ -508,7 +508,7 @@ Both of these queries will find any nodes with the word "banana" in any property
 
 If the appropriate data dictionary definition(s) for the field supports both FTS and untokenized search, then FTS search will be used. FTS will include synonyms if the analyzer generates them. Terms cannot contain whitespace.
 
-### Search for spans and positions
+## Search for spans and positions
 
 Spans and positions are not implemented. Positions will depend on tokenization.
 
@@ -528,7 +528,7 @@ and(terms etc)
 97n(terms etc)
 ```
 
-### Search for term expansion
+## Search for term expansion
 
 To force tokenization and term expansion, prefix the term with `~`.
 
@@ -538,7 +538,7 @@ For a property with both ID and FTS indexes, where the ID index is the default, 
 ~running
 ```
 
-### Search for wildcards
+## Search for wildcards
 
 Wildcards are supported in terms, phrases, and exact phrases using `*` to match zero, one, or more characters and `?` to match a single character.
 
