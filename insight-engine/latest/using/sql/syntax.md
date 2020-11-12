@@ -426,7 +426,7 @@ For example:
   var results = search.query(def); 
 ```
 
-## Templates
+### Templates
 
 FTS is not supported in FreeMarker.
 
