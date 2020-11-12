@@ -178,16 +178,13 @@ defaults:
     values:
       version: 1.1
   - scope:
-      path: "identity-service/1.1"
+      path: "identity-service/1.1/tutorial"
     values:
       toc: "identity-service-tutorial"
   - scope:
       path: "identity-service/1.0"
     values:
       version: 1.0
-  - scope:
-      path: "identity-service/1.0"
-    values:
       tutorial: false
 
 # Alfresco Desktop Sync
