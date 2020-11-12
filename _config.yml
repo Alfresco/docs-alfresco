@@ -236,11 +236,21 @@ defaults:
       support: true
       versions:
         - 1.11
+        - "1.10"
+        - 1.9
   - scope:
       path: "process-services/latest"
     values:
       version: 1.11
       latest: true
+  - scope:
+      path: "process-services/1.10"
+    values:
+      version: "1.10"
+  - scope:
+      path: "process-services/1.9"
+    values:
+      version: 1.9
 
 # Alfresco Document Transformation Engine
   - scope:
@@ -556,40 +566,6 @@ defaults:
     values:
       version: 1.0
       latest: true
-
-# Alfresco Activiti Enterprise
-  - scope:
-      path: "activiti"
-    values:
-      layout: "docs"
-      product: "Alfresco Activiti Enterprise"
-      toc: "activiti"
-      versions:
-        - 7.1.0-M8
-        - 7.1.0-M7
-        - 7.1.0-M6
-        - 7.1.0-M5
-      audiences:
-        - "admin"
-        - "developer"
-        - "user"
-  - scope:
-      path: "activiti/latest"
-    values:
-      version: 7.1.0-M8
-      latest: true
-  - scope:
-      path: "activiti/latest/admin"
-    values:
-      audience: "admin"
-  - scope:
-      path: "activiti/latest/user"
-    values:
-      audience: "user"
-  - scope:
-      path: "activiti/latest/developer"
-    values:
-      audience: "developer"
 
 # Alfresco Outlook Integration
   - scope:

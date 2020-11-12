@@ -134,25 +134,13 @@ Create custom email templates to send an email to the assigned user of a user ta
 
 Custom email templates can be created centrally or within an application when it is being designed.
 
-Templates can contain process and task variables using the format `${title}` where the variable is called `title`.
-
-The following predefined variables can also be used depending on the `assignment` of the [user task]({% link process-services/latest/using/process/bpmn.md%}#user-task):
+The following predefined variables can be used depending on the `assignment` of the [user task]({% link process-services/1.10/using/process/bpmn.md%}#user-task):
 
 |Assignment|Variable|
 |----------|--------|
 |Single User Task|`taskCreator`, `taskName`, `taskDirectUrl`, `homeUrl`|
 |Group Task|`groupName`, `taskName`, `taskDirectUrl`, `homeUrl`|
 |Candidate User Task|`taskName`, `taskDirectUrl`, `homeUrl`|
-
->**Note:** If a process or task variable uses the same name as a predefined variable, the value of the process or task variable takes precedence in the template.
-
-The following is an example of a custom email template using variables:
-
-```text
-A ${taskName} has been assigned to ${userName} for approval by ${dateDue}. 
-
-If a response is not received within ${sla} it will be automatically approved. 
-```
 
 Custom email templates can be created at the tenant level or per application:
 
@@ -245,37 +233,6 @@ Group 2
 ```
 
 Result: *Group 1.1* has been created as a subgroup of *Group 1*.
-
-#### Add an existing group
-
-1. Select a group, for example *Group 2*.
-2. Click **add existing group**.
-3. Enter an existing group name, for example *Group 1.1*.
-4. Select the group from the dropdown menu.
-
-```text
-Group 1 
-
-Group 2 
-    Group 1.1
-```
-
-Result: *Group 1.1* has been moved from being a subgroup of *Group 1* to *Group 2*.
-
-Another example:
-
-1. Select a group, for example *Group 1*.
-2. Click **add existing group**.
-3. Enter an existing group name, for example *Group 2*.
-4. Select the group from the dropdown menu.
-
-```text
-Group 1 
-    Group 2 
-        Group 1.1
-```
-
-Result: *Group 2* has been added as a subgroup of *Group 1* and *Group 1.1* persists as a subgroup of *Group 2*.
 
 #### Delete a group
 

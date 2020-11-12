@@ -19,7 +19,7 @@ The Identity Service needs to be [deployed](TODO_LINK:https://docs.alfresco.com/
 
 Once the Identity Service has been deployed, you will need to [configure Process Services](#properties) to authenticate with it.
 
->**Note:** Please refer to the [supported platforms]({% link process-services/latest/support/index.md %}) page to see which parts of Process Services are compatible with the Identity Service.
+>**Note:** Please refer to the [supported platforms]({% link process-services/1.9/support/index.md %}) page to see which parts of Process Services are compatible with the Identity Service.
 
 >**Note:** Process Services requires an email address as the user name when logging into the Identity Service.
 
@@ -45,7 +45,6 @@ Configure the `activiti-identity-service.properties` file using the below proper
 |keycloak.autodetect-bearer-only| *Required.* This should be set to true if your application serves both a web application and web services. It allows for the redirection of unauthorized users of the web application to the Identity Service sign in page, but send a HTTP 401 to unauthenticated SOAP or REST clients.|
 |keycloak.token-store| *Required.* The location of where the account information token is stored. Possible values are `cookie` or `session`.|
 |keycloak.enable-basic-auth| *Optional.* Whether basic authentication is supported by the adapter. If set to `true` then a secret must also be provided.|
-|activiti.use-browser-based-logout| *Optional.* Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|
 
 ## OAuth 2
 
@@ -210,13 +209,6 @@ And also the filter that is used (which defaults to a `userPrincipalName` compar
 ldap.authentication.active-directory.searchFilter=(&(objectClass=user)(userPrincipalName={0}))
 ```
 
-The following property can be set to `true` to allow for basic authentication to be used as a fallback for
-LDAP authentication. This allows for system or service users to be utilized for certain actions, such as making specific REST API calls:
-
-```text
-ldap.allow.database.authenticaion.fallback=true
-```
-
 ### Synchronization
 
 The synchronization component will periodically query the IDM system and change the user and group database. There are two synchronization *modes*: full and differential.
@@ -267,9 +259,7 @@ These are settings that are generic or shared between user and group objects. Fo
 
 |Property|Description|
 |--------|-----------|
-|ldap.synchronization.users.ignoreCase|If this property is set to `true` then the synchronization will ignore the case that users are stored in within the source database when syncing users.|
 |ldap.synchronization.userSearchBase|The user search base restricts the LDAP user query to a sub section of a tree on the LDAP server. For example: `ou=users,dc=alfresco,dc=com`. |
-|ldap.synchronization.syncAdditionalUsers|Set to `true` if users outside of the `userSearchBase` but included in the `groupSearchBase` should be synchronized.|
 |ldap.synchronization.personQuery|The query to select all objects that represent the users to import (used in the **Full Synchronization Query**). For example in LDAP: `(objectclass\=inetOrgPerson)` and in AD: `(&(objectclass\=user)(userAccountControl\:1.2.840.113556.1.4.803\:\=512))`|
 |ldap.synchronization.personDifferentialQuery|The query to select objects that represent the users to import that have changed since a certain time (used in the **Differential Synchronization Query**).|
 |ldap.synchronization.userIdAttributeName|The attribute name on people objects found in LDAP to use as the user ID in Alfresco. For example in LDAP: `uid` and in AD: `cn`. |
