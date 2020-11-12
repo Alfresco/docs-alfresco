@@ -350,7 +350,7 @@ OR
 |-dog OR wolf|dog should not occur and wolf should occur, one of the clauses must be valid for any result|
 |-dog OR -wolf|dog and wolf should not occur, one of the clauses must be valid for any result|
 
-### Embed queries in CMIS
+## Embed queries in CMIS
 
 These examples show how to embed queries in CMIS.
 
