@@ -1,3 +1,0 @@
-## Supported Platforms
-
-Activiti Enterprise is supported with the following deployments...

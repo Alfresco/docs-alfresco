@@ -599,30 +599,30 @@ body > .section.section-landing {
 }
 
 .content h1 {
-  font-size: 36pt;
+  font-size: 28pt;
   margin-top: 40px !important;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   font-weight: 600;
 }
 
 .content h2 {
-  font-size: 25.5pt;
-  margin-top: 37px !important;
-  margin-bottom: 37px;
-  font-weight: normal;
+  font-size: 23pt;
+  margin-top: 20px !important;
+  margin-bottom: 15px;
+  font-weight: 500;
 }
 
 .content h3 {
-  font-size: 21pt;
-  margin-top: 1em !important;
-  margin-bottom: 1em;
-  font-weight: 600;
+  font-size: 20pt;
+  margin-top: 20px !important;
+  margin-bottom: 15px;
+  font-weight: 400;
 }
 .content h4 {
   font-size: 18pt;
-  margin-top: 1em !important;
-  margin-bottom: 1em;
-  font-weight: normal;
+  margin-top: 20px !important;
+  margin-bottom: 15px;
+  font-weight: 300;
 }
 .content h5 {
   font-size: 13.5pt;
@@ -1120,7 +1120,7 @@ a.github-link::after {
   .dropdown-content
   a.dropdown-item.special
   .query:empty:after {
-  content: "Start type to search...";
+  content: "Start typing to search...";
   height: 30px;
   font-style: italic;
   color: gray;
