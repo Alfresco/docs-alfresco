@@ -10,28 +10,26 @@ With Alfresco Records Management you can declare files in non-Records Management
 original site, identified by the ![Easy access record]({% link governance-services/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, 
 but is locked and with a limited set of actions available.
 
-This means that most users never need to think about records, {% include tooltip.html word="fileplan" text="file plans" %}, 
-or {% include tooltip.html word="retentionschedule" text="retention schedule" %}s. They just declare the 
+This means that most users never need to think about records, {% include tooltip.html word="fileplan" text="file plans" %}, or {% include tooltip.html word="retentionschedule" text="retention schedule" %}s. They just declare the 
 file as a record, and the rest is handled by the Records Administrator and any rules that they've set up.
 
-When a record is created from a file it's added to the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} 
-area of the Records Management site. 
-A Records Manager then has numerous options for [Filing an unfiled record]({% link governance-services/latest/using/file-records.md %}#filing-an-unfiled-record) and 
-[Managing unfiled records]({% link governance-services/latest/using/manage-fileplan.md %}#managing-unfiled-records)
+When a record is created from a file it's added to the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} area of the Records Management site. 
+A Records Manager then has numerous options for [Filing an unfiled record]({% link governance-services/3.3/using/file-records.md %}#filing-an-unfiled-record) and 
+[Managing unfiled records]({% link governance-services/3.3/using/manage-fileplan.md %}#managing-unfiled-records)
 
 There are three options available for declaring files as records:
 
-* **File as Record**
+* **Declare as Record**
 
-    Use File as Record to declare records from files in non-Governance Services sites and then select a destination folder where they will be filed as a record.
+    A file declared as a record is added to the Unfiled Records area, in the explorer panel of the Records Management site.
 
-    >**Note:** You don't have to select a destination folder and if you don't the created record can be found in the unfiled records area.
+    It's still visible in its original site as an easy access record, identified by the ![Easy access record]({% link governance-services/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, but is locked and with a limited set of actions available.
 
-* **File Version as Record**
+* **Declare Version as Record**
 
-    Use File Version as Record to create a record from a version of a file and then to select a destination folder where the version will be filed as a record.
+    The version of a file declared as a record is added to the Unfiled Records area, in the explorer panel of the Records Management site, and is identified there as a version record by the ![Version record]({% link governance-services/images/ico-record-version.png %}){:height="18px" width="18px"} icon.
 
-    >**Note:** You don't have to select a destination folder and if you don't the created record can be found in the unfiled records area.
+    It's still available in its original site, with a full set of actions available.
 
 * **Auto-Declare Options**
 
@@ -57,9 +55,9 @@ have the required {% include tooltip.html word="securityclassification" text="se
 
 There are four security classification levels you can assign. {% include tooltip.html word="securitygroups" text="Security groups" %} provide additional classification options.
 
->**Note:** You can also [classify records]({% link governance-services/latest/using/smc.md %}#classifyrecordsfolderscategories) in the File Plan.
+>**Note:** You can also [classify records]({% link governance-services/3.3/using/smc.md %}#classifyrecordsfolderscategories) in the File Plan.
 
-See [Classification rules and tips]({% link governance-services/latest/using/smc.md %}#classification-rules-and-tips) for more on classifying content.
+See [Classification rules and tips]({% link governance-services/3.3/using/smc.md %}#classification-rules-and-tips) for more on classifying content.
 
 You can autoclassify by by adding instructions, manually apply classifications and security marks, or both.
 
@@ -130,7 +128,7 @@ You can autoclassify by by adding instructions, manually apply classifications a
 
     You cannot use security marks you do not posses when classifying content, unless you also use a security mark you do posses from the same group. If you have a security mark from a security group 'any' then you can view and assign all other marks from that group. When using marks (either when Classifying Content or creating Instructions) that you don't posses, you must include a mark from the same group to avoid losing access to the content. An error will appear if you attempt to create an instruction using only a mark you don't have, or have not included a mark from the same group.
 
-    See [How security controls work]({% link governance-services/latest/using/smc.md %}#how-security-controls-work) for more details.
+    See [How security controls work]({% link governance-services/3.3/using/smc.md %}#how-security-controls-work) for more details.
 
 19. Click **Classify**.
 
@@ -160,22 +158,47 @@ You can create records from files in non-Governance Services sites and select th
 
    The file is added to the chosen destination folder in your Governance Services site. It's still visible in the original site, identified by the ![Easy access record]({% link governance-services/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, but is locked and has a limited set of actions.
     
-   >**Note:** If the file is locked, you won't see the **File as Record** action. A file that has been filed as a record can be deleted but the record remains in the File Plan.
+   >**Note:** If you don't have a Records Management role, if your permission level is set to 'consumer' or the file is locked, you won't see the **File as Record** action. A file that has been filed as a record can be deleted but the record remains in the File Plan.
 
-## File version as a record
+## Declaring a file as a record
+
+You can create records from files in non-Records Management sites and add them straight into the {% include tooltip.html word="fileplan" text="File Plan" %}.
+
+1. In the **Document Library** of an Alfresco site find the file you want to declare as a record.
+
+2. Hover over the file and click **More** then **Declare as Record**.
+
+    The file is added to the **Unfiled Records** area, in the explorer panel of your Records Management site. 
+    It's still visible in its original site, identified by the ![Easy access record]({% link governance-services/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, 
+    but is locked and with a limited set of actions available.
+
+    >**Note:** You can't declare a record if your permission level for the site is Consumer, or if the file is locked.
+
+    A file that has been declared as a record can be deleted. The records remain in the File Plan.
+
+This record can now be filed in the File Plan. You can find it in the **Unfiled Records** area in the File Plan explorer panel. 
+New records display in the File Plan as incomplete records. You need to make sure any required metadata is added before 
+you can set records to {% include tooltip.html word="recordcompleted" text="complete" %}.
+
+>**Note:** You can also set up folder rules in a non-Records Management site so the files can be automatically declared as records. For example, you could create a rule that when a file is tagged as "Confirmed", then a record will be created of that file and added to the Records Management site.
+
+See also video explaining [declaring a file as a record]({% link governance-services/3.3/tutorial/governance-services/index.md %}#declare-an-easy-access-record).  
+
+## Declaring a file version as a record
 
 When files are updated in Alfresco, a new version number of the file is created. You can declare one or more of these 
-versions as records, allowing you to keep a record of the changes that have been made throughout the life cycle of a file.
+versions as records, allowing you to keep on record changes that have been made throughout the life cycle of a file.
 
-1.  In the Document Library of an Alfresco site find the file you want to file a version of as a record.
+1. In the Document Library of an Alfresco site find the file you want to declare a version of as a record.
 
     >**Tip:** You can see a file's version history by clicking on the file, then in the file preview screen scrolling down to the Version History section. You can revert to previous versions by clicking the ![Revert version]({% link governance-services/images/ico-revert-version.png %}){:height="18px" width="18px"} icon.
 
-2.  Hover over the file and click **More** then **File Version as Record**. Select a location where you would like to file the record.
+2. Hover over the file and click **More** then **Declare Version as Record**.
 
-    You don't have to select a destination folder and if you don't the created record can be found in the unfiled records area.
+    The file is added to the Unfiled Records folder, in the explorer panel of your Records Management site, and is identified there as a version record by the ![Version record]({% link governance-services/images/ico-record-version.png %}){:height="18px" width="18px"} icon. The file is still available in its original site, with a full set of actions available.
 
-    >**Note:** If the file is locked or synced with an Alfresco in the Cloud site you won't see the **File version as Record** action. A file that has been filed as a record can be deleted but the record remains in the File Plan.
+    >**Note:** You can't declare a version as a record if your permission level for the site is Consumer, or if the file is locked, or synced with an Alfresco in the Cloud site.
+
 
 You can find these records in the {% include tooltip.html word="unfiledrecords" text="Unfiled Records" %} folder in the File Plan explorer panel. New records display in the 
 File Plan as incomplete records. Any required metadata needs to be added before the records can be set to complete.

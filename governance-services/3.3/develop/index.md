@@ -13,7 +13,7 @@ You can download the API Explorer from:
 
 * [Alfresco Nexus](https://nexus.alfresco.com/nexus/#welcome){:target="_blank"}
 
-    >**Note:** Contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for log in credentials. Once you're logged in search for `alfresco-governance-services-enterprise-rest-api-explorer-3.4.x.war`.
+    >**Note:** Contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for log in credentials. Once you're logged in search for `alfresco-governance-services-enterprise-rest-api-explorer-3.3.x.war`.
 
 
 Deploy it on the same port as Governance Services and test the APIs with your server directly from the API Explorer.

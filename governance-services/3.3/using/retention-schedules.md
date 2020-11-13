@@ -35,7 +35,7 @@ Retention steps can be manually completed once they are considered eligible (the
 have been completed), though the retain and cut off steps can be completed automatically by a system process that is run daily. 
 All other retention steps must be completed manually, or by setting up a rule to complete them automatically. 
 If a retention step is complete, then additional options are available for folders or records, dependant on whether the 
-retention schedule is set to folder or record level, see [Actioning retention steps]({% link governance-services/latest/using/manage-fileplan.md %}#processing-records).
+retention schedule is set to folder or record level, see [Actioning retention steps]({% link governance-services/3.3/using/manage-fileplan.md %}#processing-records).
 
 ## Example of a retention schedule
 
@@ -75,7 +75,7 @@ A retention schedule is created against and associated with a record {% include 
 
 Next you need to add steps to the retention schedule.
 
-See also video explaining [creating a retention schedule]({% link governance-services/latest/tutorial/governance-services/index.md %}#create-a-retention-schedule).
+See also video explaining [creating a retention schedule]({% link governance-services/3.3/tutorial/governance-services/index.md %}#create-a-retention-schedule).
 
 ## Creating retention schedule steps
 
@@ -106,8 +106,8 @@ it's control over records and folders.
 
     |Option|Description|
     |------|-----------|
-    |After a period of|Select the time period after which the step action will take place.<br><br>**Note:** If you select XML Duration from the Period Type drop down list you can specify a time interval using XML syntax.<br><br>The syntax should take the form of:<br><br>P = Period (required)<br><br>nY = Number of years<br><br>nM = Number of months<br><br>nD = Number of days<br><br>T = Start time of a time section (required if specifying hours, minutes, or seconds)<br><br>nH = Number of hours<br><br>nM = Number of minutes<br><br>nS = Number of seconds<br><br>For example, 'P2M10D' represents two months and ten days.<br><br>Created Date = The date when the file or record is first added to Alfresco.<br><br>Retention Action = The date when the last retention action took place. Don't select this for the first step in the schedule.<br><br>The "Quarter" option splits the year into 4 sets of 3 months, beginning with Jan/Feb/March. "Financial Quarter" is the same but based on the start of your system-configured financial year. See [Customizing the end of the financial year]({% link governance-services/latest/config/index.md %}#customize-end-of-year).|
-    |When event happens|Select the event after which the step action will take place.<br><br>Most events must be completed manually in the record details page, or you can use rules to automatically complete these events.<br><br>The Obsolete, Superseded, and Related Record Transferred To Inactive Storage events are automatically completed when [relevant relationships are set up between records]({% link governance-services/latest/using/manage-fileplan.md %}#creating-relationships-between-records).|
+    |After a period of|Select the time period after which the step action will take place.<br><br>**Note:** If you select XML Duration from the Period Type drop down list you can specify a time interval using XML syntax.<br><br>The syntax should take the form of:<br><br>P = Period (required)<br><br>nY = Number of years<br><br>nM = Number of months<br><br>nD = Number of days<br><br>T = Start time of a time section (required if specifying hours, minutes, or seconds)<br><br>nH = Number of hours<br><br>nM = Number of minutes<br><br>nS = Number of seconds<br><br>For example, 'P2M10D' represents two months and ten days.<br><br>Created Date = The date when the file or record is first added to Alfresco.<br><br>Retention Action = The date when the last retention action took place. Don't select this for the first step in the schedule.<br><br>The "Quarter" option splits the year into 4 sets of 3 months, beginning with Jan/Feb/March. "Financial Quarter" is the same but based on the start of your system-configured financial year. See [Customizing the end of the financial year]({% link governance-services/3.3/config/index.md %}#customize-end-of-year).|
+    |When event happens|Select the event after which the step action will take place.<br><br>Most events must be completed manually in the record details page, or you can use rules to automatically complete these events.<br><br>The Obsolete, Superseded, and Related Record Transferred To Inactive Storage events are automatically completed when [relevant relationships are set up between records]({% link governance-services/3.3/using/manage-fileplan.md %}#creating-relationships-between-records).|
 
     >**Note:** You can select both options, or multiple events, and have the action triggered by **Whichever event is earlier** or **When all events have happened**.
 
@@ -128,7 +128,7 @@ it's control over records and folders.
 
 You return to the category details page, which displays the retention steps. Click **View Description** to the right of a step to display the description.
 
-See also video explaining [creating retention schedule steps]({% link governance-services/latest/tutorial/governance-services/index.md %}#create-retention-schedule-steps).
+See also video explaining [creating retention schedule steps]({% link governance-services/3.3/tutorial/governance-services/index.md %}#create-retention-schedule-steps).
 
 ## Editing a retention schedule
 

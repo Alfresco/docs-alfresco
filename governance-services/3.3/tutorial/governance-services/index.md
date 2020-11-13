@@ -52,6 +52,12 @@ See how you can file a record.
 
 {% include media.html id="YfJBxc2lF5o" %}
 
+## Declare an Easy Access Record
+
+See how you can declare an {% include tooltip.html word="easyaccessrecords" text="easy access record" %}.  
+
+{% include media.html id="glGKvfv_zws" %}
+
 ## File an Unfiled Record  
 
 Learn how to file a record that is {% include tooltip.html word="unfiledrecords" text="unfiled" %}.
