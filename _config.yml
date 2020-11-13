@@ -214,14 +214,23 @@ defaults:
       tutorial: true
       support: true
       versions:
+        - 3.4
         - 3.3
   - scope:
       path: "governance-services/latest"
     values:
-      version: 3.3
+      version: 3.4
       latest: true
   - scope:
       path: "governance-services/latest/tutorial"
+    values:
+      toc: "governance-services-tutorial"
+  - scope:
+      path: "governance-services/3.3"
+    values:
+      version: 3.3
+  - scope:
+      path: "governance-services/3.3/tutorial"
     values:
       toc: "governance-services-tutorial"
 

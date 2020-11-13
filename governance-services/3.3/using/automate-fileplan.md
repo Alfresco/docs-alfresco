@@ -77,15 +77,17 @@ You can create rules for a category or folder, in much the same way that you mig
 
     When you've selected an action you might need to select further options, for example if you select to reject items click **Reject** to specify a reason.
 
-    If you select **File to**, **Copy to**, **Move to**, **File Version as Record** or **File as Record** you can specify the location of where to store the record by entering a location in **Record Folder Location**, for example `/category/subcategory/folder`. Click **Select** to choose an existing folder or a combination of the two. Select **Create Full Path to Folder** to ensure the specified path is created if it doesn't already exist. It won't be created if it doesn't fit the File Plan structure.
+    If you select **File to**, **Copy to**, **Move to** or **File as Record** specify the location of where to store the record by entering a location in **Record Folder Location**, for example */category/subcategory/folder*. Click **Select** to choose an existing folder or a combination of the two.
 
-    >**Note:** For **File Version as Record** and **File as Record** you don't have to select a destination folder and if you don't the created record can be found in the unfiled records area.
+    >**Note:** For **Declare as Record** you can only specify a **Record Folder Location** by entering it manually.
+
+    Select **Create Full Path to Folder** to ensure the specified path is created if it doesn't already exist. It won't be created if it doesn't fit the File Plan structure.
+
+    >**Note:** For **Declare as Record** this function is not available.
 
     There are also extensive [autocomplete options](#rules-autocomplete-options).
 
-    If you select **Execute script** then scripts are only available if they've been set up by your Alfresco administrator in **Repository > Data Dictionary > Records Management > Records Management Scripts**.
-
-    If you select **Worm Lock** you must have configured Amazon S3. For more information on WORM Lock see [Working with Amazon S3 WORM]({% link governance-services/latest/using/worm.md %})
+    If you select **Execute script** then scripts are only available if they've been set up by your Alfresco administrator in Repository > Data Dictionary > Records Management > Records Management Scripts.
 
 8. Select additional options:
 
