@@ -1,5 +1,5 @@
 ---
-title: Retension schedule
+title: Retention schedule
 ---
 
 Retention schedules define how records are managed in the Records Management system until their eventual destruction 
