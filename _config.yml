@@ -251,6 +251,14 @@ defaults:
       path: "governance-services/3.1/tutorial"
     values:
       toc: "governance-services-tutorial"
+  - scope:
+      path: "governance-services/3.0"
+    values:
+      version: 3.0
+  - scope:
+      path: "governance-services/3.0/tutorial"
+    values:
+      toc: "governance-services-tutorial"
 
 # Alfresco Process Services (APS)
   - scope:
