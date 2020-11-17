@@ -3,7 +3,6 @@
   pages:
     - title: 'Introduction'
       path: '/content-services/latest/'
-
     - title: 'Install'
       pages:
         - title: 'Overview'
@@ -58,7 +57,8 @@
               path: '/content-services/latest/config/smart-folders/sf-tutorial/'
             - title: 'FAQ'
               path: '/content-services/latest/config/smart-folders/sf-faq/'
-
+        - title: 'Mobile'
+          path: '/content-services/latest/config/mobile/'
     - title: 'Administer'
       pages:
         - title: 'System paths convention'
