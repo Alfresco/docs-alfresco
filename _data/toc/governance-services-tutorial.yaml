@@ -15,3 +15,19 @@
       path: '/governance-services/3.3/tutorial/governance-services/'
     - title: 'Security marks and classification'
       path: '/governance-services/3.3/tutorial/securitymarks-classify/'
+- version: 3.2
+  pages:
+    - title: 'Tutorials'
+      path: '/governance-services/3.2/tutorial/'
+    - title: 'Records Management'
+      path: '/governance-services/3.2/tutorial/governance-services/'
+    - title: 'Security marks and classification'
+      path: '/governance-services/3.2/tutorial/securitymarks-classify/'
+- version: 3.1
+  pages:
+    - title: 'Tutorials'
+      path: '/governance-services/3.1/tutorial/'
+    - title: 'Records Management'
+      path: '/governance-services/3.1/tutorial/governance-services/'
+    - title: 'Security marks and classification'
+      path: '/governance-services/3.1/tutorial/securitymarks-classify/'

@@ -216,6 +216,8 @@ defaults:
       versions:
         - 3.4
         - 3.3
+        - 3.2
+        - 3.1
   - scope:
       path: "governance-services/latest"
     values:
@@ -231,6 +233,22 @@ defaults:
       version: 3.3
   - scope:
       path: "governance-services/3.3/tutorial"
+    values:
+      toc: "governance-services-tutorial"
+  - scope:
+      path: "governance-services/3.2"
+    values:
+      version: 3.2
+  - scope:
+      path: "governance-services/3.2/tutorial"
+    values:
+      toc: "governance-services-tutorial"
+  - scope:
+      path: "governance-services/3.1"
+    values:
+      version: 3.1
+  - scope:
+      path: "governance-services/3.1/tutorial"
     values:
       toc: "governance-services-tutorial"
 
