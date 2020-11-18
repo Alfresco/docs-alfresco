@@ -6,7 +6,7 @@
           <div class="dropdown is-clickable" id="version-selector">
             <div class="dropdown-trigger">
               <button class="button is-rounded is-small" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span class="arrow">{{page.version}}</span>
+                <span class="arrow">{{page.version | capitalize}}</span>
               </button>
             </div>
 
@@ -14,6 +14,11 @@
               <div class="dropdown-content">
 
                 {% assign versions = page.versions | compact %}
+
+                {% if page.product == "Alfresco Governance Services" %}
+                {% assign versions = versions | push: "community" %}
+                {% endif %}
+
                 {% for v in versions %}
                 
                 {%if v == page.version%}
@@ -34,29 +39,30 @@
                   <span>{{v}}</span><span class="tag is-success">Latest</span>
                 </a>
 
+                {% elsif forloop.last == true and page.product == "Alfresco Governance Services" %}
+
+                <hr class="dropdown-divider">
+                <a href="{{page.url | replace: replace_version, v}}" class="dropdown-item{{current}}">
+                    <span>{{v | capitalize}}</span>
+                  </a>
+
+                {% elsif forloop.last == true and page.product == "Alfresco Content Services" %}
+
+                <hr class="dropdown-divider">
+                <a href="{{page.url | replace: replace_version, v}}" class="dropdown-item{{current}}">
+                    <span>{{v | capitalize}}</span>
+                </a>
+
                 {% else %}
 
                 <a href="{{page.url | replace: replace_version, v}}" class="dropdown-item{{current}}">
-                  <span>{{v}}</span>
+                  <span>{{v | capitalize}}</span>
                 </a>
 
                 {% endif %}
                 
                 {% endfor %}
 
-                {% if page.product == "Alfresco Content Services" and page.version != "community" %}
-                <hr class="dropdown-divider">
-
-                {% if page.latest == true %}
-
-                <a href="{{page.url | replace: "latest", "community"}}" class="dropdown-item" >Community</a>
-
-                {% else %}
-
-                <a href="{{page.url | replace: page.version, "community"}}" class="dropdown-item">Community</a>
-
-                {% endif %}
-                {% endif %}
               </div>
             </div>
 

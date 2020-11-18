@@ -262,7 +262,7 @@
         - title: 'APIs'
           path: '/governance-services/3.0/develop/'
 
-- version: "Community"
+- version: "community"
   pages:
     - title: 'Introduction'
       path: '/governance-services/community/'
