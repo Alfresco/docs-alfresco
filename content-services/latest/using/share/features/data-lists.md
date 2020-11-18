@@ -2,8 +2,7 @@
 title: Data lists
 ---
 
-The data lists component lets site members create and manage lists of data relevant to the site. Users can work with 
-their own lists and can also contribute to lists created by other site members.
+The data lists component lets site members create and manage lists of data relevant to the site. Users can work with their own lists and can also contribute to lists created by other site members.
 
 > **Note:** See [Customizing a site]({% link content-services/latest/using/share/sites.md %}#customizesite) for how to switch data lists on and off for a site.
 
@@ -13,16 +12,15 @@ Access the data lists component to view the lists created for the current site.
 
 In this component you can create new lists, as well as edit and delete any lists that you created.
 
-1. In a site click **More** then **Data Lists**.
+In a site click **More** then **Data Lists**.
 
-    > **Note:** In each site the feature names can be customized. If the site manager has done this, the link might have a name other than **Data Lists**.
+> **Note:** In each site the feature names can be customized. If the site manager has done this, the link might have a name other than **Data Lists**.
 
     This opens the feature. The browsing pane displays a list of all existing data lists for the current site.
 
 ## Viewing a list
 
-The **Lists** section of the explorer panel displays the data lists for the current site. Once you select a list to 
-view you can apply filters to display specific list items within that list.
+The **Lists** section of the explorer panel displays the data lists for the current site. Once you select a list to view you can apply filters to display specific list items within that list.
 
 The **Items** list in the explorer panel provides the following options for filtering the rows displayed in the current list:
 
@@ -103,8 +101,7 @@ A message indicates the selected list has been deleted.
 
 Once you create a list you can populate it with list items.
 
-You can add items to both your own lists and lists created by other site members. Do this by creating new items or 
-duplicating existing list items.
+You can add items to both your own lists and lists created by other site members. Do this by creating new items or duplicating existing list items.
 
 To maintain your lists you can also edit and delete items.
 
@@ -152,8 +149,7 @@ Only a Site Manager, a Site Collaborator, and the user who created the item can 
 
 ### Duplicating a list item
 
-Quickly and easily create a new list item by duplicating an existing item in the same list. This is a particularly 
-useful action if the two items have similar details.
+Quickly and easily create a new list item by duplicating an existing item in the same list. This is a particularly useful action if the two items have similar details.
 
 1. Click on a data list in the Data lists explorer panel.
 
@@ -193,7 +189,7 @@ There are two methods to select multiple list items in the current data list. Yo
 
     * Click a check box to select the associated list item.
     * Click **Select** at the top of the data list and click **All**.
-    
+
     Click **None** to clear the list selections. Click **Invert Selection** to toggle the check boxes to their opposite state.
 
 The appropriate check boxes appear selected in the data list.
@@ -208,8 +204,7 @@ The **Selected Items** list displays the actions that you can perform on multipl
 * **Delete**: Deletes the selected list items
 * **Deselect All**: Clears the check boxes of the currently selected list items
 
-When a data list is longer than one page you can select items on multiple pages. However, the selected action is 
-performed only on the items on the page currently displayed.
+When a data list is longer than one page you can select items on multiple pages. However, the selected action is performed only on the items on the page currently displayed.
 
 1. Click on a data list in the Data lists explorer panel.
 

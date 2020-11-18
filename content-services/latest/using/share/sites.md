@@ -4,11 +4,9 @@ title: Sites
 
 A site is a area where you can share content and collaborate with other site members.
 
-Any user can create a site. The site creator becomes the **Site Manager** by default, though additional or alternate 
-managers can be added after this.
+Any user can create a site. The site creator becomes the **Site Manager** by default, though additional or alternate managers can be added after this.
 
-Each site has a visibility setting that marks the site as `public`, `moderated`, or `private`. This setting controls 
-who can see the site and how users become site members.
+Each site has a visibility setting that marks the site as `public`, `moderated`, or `private`. This setting controls who can see the site and how users become site members.
 
 |Site visibility|Description|
 |---------------|-----------|
@@ -26,8 +24,7 @@ You can remove yourself from a site at any time by clicking ![settings]({% link 
 
 Accessing an existing site is easy.
 
-You can search for sites using the Site Finder, the search box on the toolbar, or you might receive an email 
-notification that you've been added to a site.
+You can search for sites using the Site Finder, the search box on the toolbar, or you might receive an email notification that you've been added to a site.
 
 If you see a link to a site anywhere in Alfresco Share, just click the link to have a look.
 
@@ -70,9 +67,7 @@ It's quick and easy to leave a site when you no longer want to be a member.
 
 2. Click **OK** to confirm that you want to leave the site.
 
-    >**Restriction:** All sites require a site manager so if you're the only manager of a site you can't leave it.
-
-    > **Note:** You can also leave a site by clicking **Leave** in the Site Finder.
+    > **Note:** All sites require a site manager so if you're the only manager of a site you can't leave it. You can also leave a site by clicking **Leave** in the Site Finder.
 
 ### Entering a site
 
@@ -90,8 +85,7 @@ The dashboard for the selected site appears.
 
 ### Moving around a site
 
-The default areas available in a site are the **Site Dashboard**, **Document Library**, and the **Site Members** areas. 
-If a site has additional site features then you'll also see a **More** menu.
+The default areas available in a site are the **Site Dashboard**, **Document Library**, and the **Site Members** areas. If a site has additional site features then you'll also see a **More** menu.
 
 Additional features can be set up by a site manager when they're [customizing a site](#customizesite).
 
@@ -103,17 +97,11 @@ Additional features can be set up by a site manager when they're [customizing a 
 
 ## Site dashboard
 
-The site dashboard contains information specific to the current site, and like your user dashboard, site information is 
-organized and displayed in dashlets.
+The site dashboard contains information specific to the current site, and like your user dashboard, site information is organized and displayed in dashlets.
 
-The site name is displayed at the top of the screen. The site manager has additional options under the 
-![settings]({% link content-services/images/settings-icon.png %}) tools menu and an additional 
-![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) add users button to set up and manage 
-the site and it's members.
+The site name is displayed at the top of the screen. The site manager has additional options under the ![settings]({% link content-services/images/settings-icon.png %}) tools menu and an additional ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) add users button to set up and manage the site and it's members.
 
-Sites are made up of different features, or pages, which you can find under the **More** menu. Each new site includes 
-only a library, but a site manager can customize the site to include any combination of pages, including a wiki, a blog, 
-a calendar, a discussion forum, web links, and data lists.
+Sites are made up of different features, or pages, which you can find under the **More** menu. Each new site includes only a library, but a site manager can customize the site to include any combination of pages, including a wiki, a blog, a calendar, a discussion forum, web links, and data lists.
 
 > **Note:** Site managers can [choose a site homepage](#choosehomepage) other than the dashboard, or remove the dashboard altogether.
 
@@ -129,9 +117,7 @@ A site manager can resize most dashlets by clicking and dragging on the bottom e
 
 Site dashboards are the default homepage on all Alfresco Share sites.
 
-Site managers have the option to remove the site dashboard for individual sites. Whichever page comes first in the 
-Current Site Pages will then become the default homepage for the site. You can also keep the dashboard, but reorder the 
-pages to that a different page is the homepage.
+Site managers have the option to remove the site dashboard for individual sites. Whichever page comes first in the Current Site Pages will then become the default homepage for the site. You can also keep the dashboard, but reorder the pages to that a different page is the homepage.
 
 1. Enter a site.
 
@@ -151,11 +137,9 @@ You can always add the site dashboard back later.
 
 ## What can I do with the site dashlets?
 
-As well as giving you an overview of activity and information on Alfresco Share, the dashlets also give you links to 
-various areas of Share and let you carry out a range of actions.
+As well as giving you an overview of activity and information on Alfresco Share, the dashlets also give you links to various areas of Share and let you carry out a range of actions.
 
-When a user name, site name, or item appears as a link, you can click it to navigate to the related page. When you hover 
-over some dashlets additional options are displayed.
+When a user name, site name, or item appears as a link, you can click it to navigate to the related page. When you hover over some dashlets additional options are displayed.
 
 > **Note:** The RSS Feed, Alfresco Add-ons RSS Feed, and Web View site dashlets on the site dashboard are identical to those on your personal dashboard. The My Discussions, Site Search, and Saved Search dashlets are identical to those on your user dashboard, but on the site dashboard the results displayed are specific to the current site.
 
@@ -184,8 +168,7 @@ Any combination of the site dashlets can appear on the dashboard:
 
 ### Configuring the RSS feed dashlets
 
-There are two RSS feed dashlets that you can include on your personal and site dashboards: RSS Feed and Alfresco 
-Add-ons RSS Feed. On both dashlets you can edit the default URL to display any RSS feed.
+There are two RSS feed dashlets that you can include on your personal and site dashboards: RSS Feed and Alfresco Add-ons RSS Feed. On both dashlets you can edit the default URL to display any RSS feed.
 
 1. Click the **Configure** icon on the dashlet title.
 
@@ -245,11 +228,11 @@ When you create a new site, you are automatically made the manager. This gives y
 
 You can create a site from anywhere in Alfresco Share, and are automatically made the manager of the site you create.
 
-> **Note:** A site *can* have multiple managers.
+> **Note:** A site can have multiple managers.
 
 1. Open the **Sites** menu on the toolbar and click **Create Site**.
 
-    > **Note:** You can also create a site from your My Sites dashlet: click **Create Site**.
+    You can also create a site from your My Sites dashlet: click **Create Site**.
 
 2. Enter the site details:
 
@@ -264,7 +247,7 @@ You can create a site from anywhere in Alfresco Share, and are automatically mad
     * **Public**: All users can view a public site in their own organization, whether or not they have joined the site. Users who join the site are listed as site members and can work with the site content, depending on their assigned roles.
     * **Moderated**: The same as a **Public** site but the site manager must approve a users request to join.
     * **Private**: Only available to the site manager and any users added to the site.
-    
+
     > **Note:** The visibility setting you select is displayed next to the site name when a user is in the site. See [Alfresco Share sites]({% link content-services/latest/using/share/sites.md %}) for more information on site visibility settings.
 
 5. Click **Save**.
@@ -275,9 +258,7 @@ You'll see the dashboard for the new site which you can now customize. Sites tha
 
 Once you've created a site you can customize it to add extra features.
 
-Each new site contains a library, and the site manager can [add other features]({% link content-services/latest/using/share/features/index.md %}), 
-such as a wiki, a blog, and a calendar. These features can be further customized by renaming, and creating a theme or 
-color scheme. You can also [choose a site homepage](#choosehomepage).
+Each new site contains a library, and the site manager can [add other features]({% link content-services/latest/using/share/features/index.md %}), such as a wiki, a blog, and a calendar. These features can be further customized by renaming, and creating a theme or color scheme. You can also [choose a site homepage](#choosehomepage).
 
 1. Enter a site.
 
@@ -289,7 +270,7 @@ color scheme. You can also [choose a site homepage](#choosehomepage).
 
     You have to move the pages one at a time. You can drag the pages around to reorder them the way you want to see them in the site. The leftmost page will become the site homepage.
 
-    > **Note:** You can **Rename** pages or **Remove** them from a site - each of the Current Site Pages displays the option to do this.
+    > **Note:** You can **Rename** pages or **Remove** them from a site - each of the Current Site Pages displays these options.
 
 5. Click **OK** to save your changes.
 
@@ -299,8 +280,7 @@ With the site customized you can now customize the site dashboard to display inf
 
 ### Customizing the site dashboard
 
-Like your user dashboard, site information is organized and displayed in dashlets. As a site manager you can change 
-the site layout, choose dashlets, and configure the display order.
+Like your user dashboard, site information is organized and displayed in dashlets. As a site manager you can change the site layout, choose dashlets, and configure the display order.
 
 >**Note:** Filters on the Site Activities dashlet let you customize the activities it displays. You can add multiple copies of this dashlet and then set the filters so that each one displays different information.
 
@@ -350,8 +330,7 @@ Only a site manager can edit the site details.
 
 ### Favoriting a site
 
-You can mark a site as a favorite to add it to the Favorites list in the Sites menu. This lets you quickly access the 
-site from anywhere in Alfresco Share. You can mark any number of sites this way.
+You can mark a site as a favorite to add it to the Favorites list in the Sites menu. This lets you quickly access the site from anywhere in Alfresco Share. You can mark any number of sites this way.
 
 While in a site, open the **Sites** menu on the toolbar and click **Add Current Site to Favorites**.
 
@@ -441,7 +420,7 @@ All managers of a site will be receive an email and be given a new approval task
 
     You can also click **Tasks** then **My Tasks** to get to the approval task, or access it direct from the notification email that was sent.
 
-    > **Note:** You'll also see any Pending Invites. From Alfresco One version 5.1 or later, users are added to sites and invites are only sent if your Alfresco Administrator has specifically configured this option.
+    > **Note:** You'll also see any Pending Invites. Users are added to sites and invites are only sent if your Alfresco Administrator has specifically configured this option.
 
 2. Click **Approve**, or click **View** to view the approval task where you can approve, reject, and comment on the request to join.
 

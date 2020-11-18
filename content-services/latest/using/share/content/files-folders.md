@@ -2,31 +2,25 @@
 title: Work with files and folders
 ---
 
-Once files are added to a site, site members can access and work with them. In addition to adding more files, 
-members can view, download, edit, and delete files.
+Once files are added to a site, site members can access and work with them. In addition to adding more files, members can view, download, edit, and delete files.
 
 ## Editing files
 
 There are multiple ways to edit content. These options are available whenever suitable for a file type.
 
-The **Edit Offline** action lets you download a file to your computer so you can edit it there. This locks the file in 
-the library to prevent others from editing it simultaneously. It's available for every file.
+The **Edit Offline** action lets you download a file to your computer so you can edit it there. This locks the file in the library to prevent others from editing it simultaneously. It's available for every file.
 
-The **Edit in Microsoft Office** action lets you edit a file in the appropriate MS Office program. The file is locked 
-in Alfresco Share while it's being edited. It's available only for Microsoft Office 2003 or later files.
+The **Edit in Microsoft Office** action lets you edit a file in the appropriate MS Office program. The file is locked in Alfresco Share while it's being edited. It's available only for Microsoft Office 2003 or later files.
 
-The **Edit in Alfresco Share** action lets you edit plain text, HTML, or XML files directly in the document library. 
-It's available for these file types, which can all be created with the **Create** feature in the library.
+The **Edit in Alfresco Share** action lets you edit plain text, HTML, or XML files directly in the document library. It's available for these file types, which can all be created with the **Create** feature in the library.
 
-The **Edit in Google Docs** action lets you work with files in Google Docs. The file is locked in Alfresco Share while 
-it's being edited. It's available for supported document, presentation, and spreadsheet formats.
+The **Edit in Google Docs** action lets you work with files in Google Docs. The file is locked in Alfresco Share while it's being edited. It's available for supported document, presentation, and spreadsheet formats.
 
 You can also edit the properties of a file, or upload content as a new version of an existing file.
 
 ### Editing files offline
 
-When you edit a file offline it's downloaded to your computer and locked in the library, so that other users can't 
-overwrite it while you make changes offline.
+When you edit a file offline it's downloaded to your computer and locked in the library, so that other users can't overwrite it while you make changes offline.
 
 1. Hover over a file and click **More** then **Edit Offline**.
 
@@ -56,7 +50,7 @@ You can edit plain text, HTML, and XML files directly in Alfresco Share.
 
 2. Edit the file details and content as required.
 
-    The **Name** does not support the following special characters: `* " < > \ / . ? : and \|`. When the name contains a disallowed character the **Save** button is disabled.
+    The **Name** does not support the following special characters: `* " < > \ / . ? : and |`. When the name contains a disallowed character the **Save** button is disabled.
 
     > **Note:** The folder name *can* include a period as long as it is not the last character. This lets you add an extension (for example, `.txt`, `.html`, or `.xml`).
 
@@ -92,9 +86,7 @@ Files you edit are temporarily stored in Google Docs, then removed from Google D
 
     If prompted, authorize Share to access your Google Docs account. If you have a Google Username in your Alfresco Share profile then it will be used as the default account.
 
-    > **Note:** If your browser asks you to allow popups for Google Docs then go ahead and do so. If you're using Safari you won't be able to use Google Docs until you enable all popups in the settings, so for security reasons you may prefer to use a different browser.
-
-    > **Note:** If you previously locked the file for editing and are returning to it, you'll have the action **Resume Editing in Google Docs**.
+    > **Note:** If your browser asks you to allow popups for Google Docs then go ahead and do so. If you're using Safari you won't be able to use Google Docs until you enable all popups in the settings, so for security reasons you may prefer to use a different browser. If you previously locked the file for editing and are returning to it, you'll have the action **Resume Editing in Google Docs**.
 
     The file opens in Google Docs in a new browser tab. It's locked in Share so that other users can't edit it while you're working on it. The file stays locked until you either discard or save your changes.
 
@@ -116,7 +108,7 @@ Files you edit are temporarily stored in Google Docs, then removed from Google D
 
     > **Note:** See [Google Docs FAQs](#googledocsfaq) for more on working with Google Docs.
 
-#### Sharing Google Docs files
+### Sharing Google Docs files
 
 You can share Google Docs files while you are editing them so multiple users can work with a document at the same time.
 
@@ -140,69 +132,25 @@ You can share Google Docs files while you are editing them so multiple users can
 
 6. When you've finished your editing close the Google Drive tabs and in your Share editing session click **Save to Alfresco Share**.
 
-#### Google Docs FAQs {#googledocsfaq}
+### Google Docs FAQs {#googledocsfaq}
 
-If you have any problems working with files in Google Docs, have a look through the list to see if there is a way to 
-resolve your issue.
+If you have any problems working with files in Google Docs, have a look through the list to see if there is a way to resolve your issue.
 
-**An error is shown when using Google Docs in Internet Explorer (IE)**
-
-Google Drive/Google Editor only support the two most recent versions of IE (11 & 10). All other versions will see a 
-message indicating that their browser is outdated. (The same applies to Safari (not supported on Windows), Firefox, 
-and Google Chrome – only the last two versions are supported.)
-
-**Is the Share button now available in Google Docs?**
-
-The Share button is fully functional.
-
-**A blank screen or a warning that you need permission to access an item is displayed**
-
-There maybe a conflict between the Google OAuth credentials set on your Alfresco Share account and those you have 
-attempted to open the document with or that you are currently signed into Google with. Sign out of your Google account 
-and sign back into the original account used to edit the document.
-
-**Your document will be "downgraded"**
-
-When you try to edit a document that can be imported into Google Docs but Google does not allow you to export it in 
-the same format, you see a message to indicate that your document will be downgraded. This should read "upgraded" rather 
-than downgraded.
-
-**Documents discarded or saved to Alfresco Share are still visible in Google Drive**
-
-Improvements have been made by Google so that this should no longer be an issue.
-
-**The Edit in Google Docs option is not available**
-
-In some circumstances, the **dit in Google Docs** option is not available. For example, when trying to edit documents or 
-spreadsheets larger than 2MB and presentations larger than 50MB, or the file type is not supported for editing. You will 
-not see the option when you do not have write permission to the document. The **Edit in Google Docs** option is also not 
-available when using IE8.
-
-**Google Docs spreadsheets appear to be truncated**
-
-When creating a spreadsheet in Google Docs, and then saving it to Alfresco Share, when editing it again in Google, the 
-rows and columns may appear to be truncated. The spreadsheet is still fully functional and you can add new rows and 
-columns in Google Docs. If you open the document in Excel, you will see that there are no truncation issues.
-
-The issue is caused by Google optimizing the file internals to a minimum so that it can be transferred as a smaller 
-file size.
-
-**Why wasn't the Document Title updated after I checked the document back in?**
-
-There is a lag between the save time of the title and when it is available through the Google API. So, if you quickly 
-save the document after changing the title, this may result in the title not being updated in Alfresco Share when you 
-check the document back in.
-
-**Messages saying "something went wrong... please reload" and "sorry the file does not exist"**
-
-When you edit or view a Google Doc from Alfresco Share, it's temporarily stored in Google Docs. If it's checked in or 
-the editing is cancelled from in Share, then this temporary version is removed from Google Drive and is no longer available. 
-The file can be accessed from Share.
+| Question | Solution |
+|----------|----------|
+|An error is shown when using Google Docs in Internet Explorer (IE) | Google Drive/Google Editor only support the two most recent versions of IE (11 & 10). All other versions will see a message indicating that their browser is outdated. (The same applies to Safari (not supported on Windows), Firefox, and Google Chrome – only the last two versions are supported.) |
+| Is the Share button now available in Google Docs? | The Share button is fully functional.|
+| A blank screen or a warning that you need permission to access an item is displayed | There maybe a conflict between the Google OAuth credentials set on your Alfresco Share account and those you have attempted to open the document with or that you are currently signed into Google with. Sign out of your Google account and sign back into the original account used to edit the document.|
+| Your document will be "downgraded" | When you try to edit a document that can be imported into Google Docs but Google does not allow you to export it in the same format, you see a message to indicate that your document will be downgraded. This should read "upgraded" rather than downgraded. |
+| Documents discarded or saved to Alfresco Share are still visible in Google Drive | Improvements have been made by Google so that this should no longer be an issue. |
+|  The Edit in Google Docs option is not available | In some circumstances, the **dit in Google Docs** option is not available. For example, when trying to edit documents or spreadsheets larger than 2MB and presentations larger than 50MB, or the file type is not supported for editing. You will not see the option when you do not have write permission to the document. The **Edit in Google Docs** option is also not available when using IE8. |
+| Google Docs spreadsheets appear to be truncated | When creating a spreadsheet in Google Docs, and then saving it to Alfresco Share, when editing it again in Google, the rows and columns may appear to be truncated. The spreadsheet is still fully functional and you can add new rows and columns in Google Docs. If you open the document in Excel, you will see that there are no truncation issues. The issue is caused by Google optimizing the file internals to a minimum so that it can be transferred as a smaller file size. |
+| Why wasn't the Document Title updated after I checked the document back in? | There is a lag between the save time of the title and when it is available through the Google API. So, if you quickly save the document after changing the title, this may result in the title not being updated in Alfresco Share when you check the document back in. |
+| Messages saying "something went wrong... please reload" and "sorry the file does not exist" | When you edit or view a Google Doc from Alfresco Share, it's temporarily stored in Google Docs. If it's checked in or the editing is cancelled from in Share, then this temporary version is removed from Google Drive and is no longer available. The file can be accessed from Share. |
 
 ### Editing file and folder properties
 
-Edit the basic details of a folder or file to change its name, description, and tags. 
-These properties are also referred to as *metadata*.
+Edit the basic details of a folder or file to change its name, description, and tags. These properties are also referred to as *metadata*.
 
 > **Note:** If the selected folder or file has the `Classifiable` aspect applied, there will be an additional **Categories** option available.
 
@@ -212,7 +160,7 @@ These properties are also referred to as *metadata*.
 
 2. Edit the details.
 
-    The **Name** doesn't support the following special characters: `* " < > \ / ? : and \|`.
+    The **Name** doesn't support the following special characters: `* " < > \ / ? : and |`.
 
     > **Note:** The name can include a period as long as it is not the last character.
 
@@ -234,8 +182,7 @@ These properties are also referred to as *metadata*.
 
 You can upload content from your computer to update a file.
 
-Doing this to a file you've locked updates the content and removes the lock at the same time. You can also do this to 
-an unlocked file to update it without first downloading it to your computer.
+Doing this to a file you've locked updates the content and removes the lock at the same time. You can also do this to an unlocked file to update it without first downloading it to your computer.
 
 1. Find the file you want to update.
 
@@ -277,14 +224,11 @@ You can quickly download files from Alfresco Share so that you have a local copy
 
 ## Sharing files
 
-You can easily share an file - even with people who don't have an Alfresco Share account. Clicking the **Share** action 
-generates a URL that you can send by email or publish using social networking websites.
+You can easily share an file - even with people who don't have an Alfresco Share account. Clicking the **Share** action generates a URL that you can send by email or publish using social networking websites.
 
-People with access to the URL can view the file. Those with an Share account have the option of signing in; those 
-without an account can create one.
+People with access to the URL can view the file. Those with an Share account have the option of signing in; those without an account can create one.
 
-This option is available in the Document Library Detailed view and on the file preview screen. In the Document Library 
-graphical views click ![Information icon]({% link content-services/images/ico-information.png %}) to see the option.
+This option is available in the Document Library Detailed view and on the file preview screen. In the Document Library graphical views click ![Information icon]({% link content-services/images/ico-information.png %}) to see the option.
 
 1. In the **Document Library** find the file you want to share.
 
@@ -308,11 +252,10 @@ graphical views click ![Information icon]({% link content-services/images/ico-in
     * **Facebook**: Write a comment to post with the link and select how you want to share it. Click **Share Link**.
     * **Twitter**: Edit the message as necessary and click **Tweet**.
     * **Google+**: Write a comment to post with the link and specify who you want to share it with. Click **Share**.
-    
+
     > **Note:** If an file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon]({% link content-services/images/ico-link.png %}) on the file preview to share a link to the item, and even select to **Link to current page**.
 
-When you don’t want your publicly shared file to be available anymore, you can break the link. Once you make the link 
-invalid, anyone who tries to access it will be unable to reach the public page.
+When you don’t want your publicly shared file to be available anymore, you can break the link. Once you make the link invalid, anyone who tries to access it will be unable to reach the public page.
 
 1. Find the file you previously shared.
 
@@ -322,8 +265,7 @@ invalid, anyone who tries to access it will be unable to reach the public page.
 
 ## Applying aspects {#applyaspects}
 
-You can use aspects to add extra functionality, properties, or options to files. Alfresco Share provides you with a 
-list of default aspects.
+You can use aspects to add extra functionality, properties, or options to files. Alfresco Share provides you with a list of default aspects.
 
 For a detailed list of aspects available and what they do, see [About aspects](TODO:../concepts/aspect-about.md).
 
@@ -341,18 +283,13 @@ For a detailed list of aspects available and what they do, see [About aspects](T
 
 ## Managing file and folder permissions
 
-You can override the default site permissions for any content you add to the document library. This lets you control 
-what site members can see and do with your content.
+You can override the default site permissions for any content you add to the document library. This lets you control what site members can see and do with your content.
 
-Each user has an assigned role in the site - Manager, Collaborator, Contributor, or Consumer - and each role has a 
-default set of permissions. This controls the actions site members can 
-[perform in the site]({% link content-services/latest/using/share/permissions.md %}).
+Each user has an assigned role in the site - Manager, Collaborator, Contributor, or Consumer - and each role has a default set of permissions. This controls the actions site members can [perform in the site]({% link content-services/latest/using/share/permissions.md %}).
 
 > **Note:** In Content Services 6.2.2 and above changing permissions on a node with no explicit permissions (i.e. all permissions are inherited from a parent) has a time limit for the ACL propagation on children. This is needed for large node-trees where changes cannot be performed synchronously in one transaction due to resource limitations. In these cases the updates to the nodes will be scheduled for asynchronous processing which will be used for all changes that could not be completed within the set time limit. The limit can be configured by changing the `system.fixedACLs.maxTransactionTime` property in the `\tomcat\shared\classes\alfresco-global.properties` file. The processing is handled by the `fixedACLsUpdater` job which can be scheduled to run by changing a CRON expression in the property: `system.fixedACLsUpdater.cronExpression`.
 
-The Manage Permissions feature goes beyond the site permissions. It lets you override a user's site role for a 
-particular content item or folder. This means you can give a site member either more or less access to specific 
-content compared to what they can do with other content in the library.
+The Manage Permissions feature goes beyond the site permissions. It lets you override a user's site role for a particular content item or folder. This means you can give a site member either more or less access to specific content compared to what they can do with other content in the library.
 
 This can be really useful to hide and restrict content to only a set group of site members.
 

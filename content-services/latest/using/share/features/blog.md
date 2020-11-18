@@ -4,15 +4,13 @@ title: The blog
 
 The site blog lets you add commentary, descriptions of events, and other material related to your site.
 
-Site members can create, edit, and add comments to blog postings. The postings can be saved as drafts and then, when 
-ready, published to the internal blog.
+Site members can create, edit, and add comments to blog postings. The postings can be saved as drafts and then, when ready, published to the internal blog.
 
 ## Accessing the blog
 
 Access the blog to view all published blog posts for the current site. You can also see your own unpublished (draft) posts.
 
-In the blog you can write new posts and you can edit, publish, and delete posts that you previously created. You can 
-also add comments to other members' blog posts.
+In the blog you can write new posts and you can edit, publish, and delete posts that you previously created. You can also add comments to other members' blog posts.
 
 1. In a site click **More** then **Blog**.
 
@@ -27,7 +25,7 @@ also add comments to other members' blog posts.
     * a sample of the content
     * the number of replies to the post
     * the tags associated with the post
-    
+
     Where the list contains more posts than can be displayed on a single page, navigation links become enabled at the top and bottom of the item list. The number in bold indicates your current page. Click a page number to display a specific page. Use the previous (<<) and next (>>) links to move forward and backward through multiple pages of posts.
 
 2. Click **Simple View** to display only the basic blog post information: title, date/time of publishing, and author.
@@ -38,8 +36,7 @@ also add comments to other members' blog posts.
 
 The browsing feature in the blog lets you filter the posts so you can easily navigate the blog content.
 
-The explorer panel on the left side of the Blog lets you display a subset of the blog posts by selecting a specific view, 
-a period of time (month), or a tag.
+The explorer panel on the left side of the Blog lets you display a subset of the blog posts by selecting a specific view, a period of time (month), or a tag.
 
 The **Posts** list in the browsing pane provides the following views:
 
@@ -50,8 +47,7 @@ The **Posts** list in the browsing pane provides the following views:
 
 The **Archives** list organizes posts by month and year.
 
-The **Tags** list displays all tags currently associated with one or more blog posts. The number following the tag tells 
-you how many blog posts are associated with the tag.
+The **Tags** list displays all tags currently associated with one or more blog posts. The number following the tag tells you how many blog posts are associated with the tag.
 
 To browse the blog posts:
 
@@ -67,12 +63,9 @@ To browse the blog posts:
 
 ## Viewing a blog post
 
-Browsing the blog displays the existing posts in the main view. These posts display in either a summary view or a 
-simple list. Viewing a post lets you to see the full contents of the post.
+Browsing the blog displays the existing posts in the main view. These posts display in either a summary view or a simple list. Viewing a post lets you to see the full contents of the post.
 
-Although you can perform actions on a post from the main page, viewing a post lets you confirm you have selected the 
-correct post before performing an irreversible action, such as deleting the post. While both the simple view and the 
-detailed view display all available actions, you must view a post in order to add a comment to it.
+Although you can perform actions on a post from the main page, viewing a post lets you confirm you have selected the correct post before performing an irreversible action, such as deleting the post. While both the simple view and the detailed view display all available actions, you must view a post in order to add a comment to it.
 
 1. Browse the blog posts to locate the post you want to view.
 
@@ -88,8 +81,7 @@ detailed view display all available actions, you must view a post in order to ad
 
 Create a new blog post to add information or a commentary related to the current site.
 
-When you create a new post you can save it as a draft without publishing it or you can immediately publish it to the 
-current site’s blog. This makes it available for other site users to view and comment on.
+When you create a new post you can save it as a draft without publishing it or you can immediately publish it to the current site’s blog. This makes it available for other site users to view and comment on.
 
 1. Click **New Post**.
 
@@ -111,7 +103,7 @@ current site’s blog. This makes it available for other site users to view and 
 
     * Click **Save as Draft** to save the post without publishing it. The post will not appear in the post list.
     * Click **Publish Internally** to publish the post to the internal blog, making it available for other users of this site.
-    
+
     The new post appears as users will see it. The text (Draft) appears after the title if the post remains unpublished. The text **(Published)** appears after the title once the post has been published externally.
 
 6. Click **Blog Post List** to return to the main view.
@@ -166,11 +158,9 @@ A message indicates the selected blog post has been deleted.
 
 ## Working with comments
 
-Adding comments to a blog post helps make the site blog interactive. While all users with access to the site can view 
-the blog conversations, only site members can add comments.
+Adding comments to a blog post helps make the site blog interactive. While all users with access to the site can view the blog conversations, only site members can add comments.
 
-The number of replies added to a post is recorded and displayed for each posting. You must view a post to add, view, 
-and manage the related comments.
+The number of replies added to a post is recorded and displayed for each posting. You must view a post to add, view, and manage the related comments.
 
 ### Adding a comment to a post
 

@@ -26,8 +26,7 @@ Access the site Document Library to view and work with the content in the curren
 
 ## Exploring the library
 
-You can filter which items you see in the library using the explorer panel on the left side of the library. 
-This can help you to locate specific items in the library.
+You can filter which items you see in the library using the explorer panel on the left side of the library. This can help you to locate specific items in the library.
 
 The **Documents** list in the explorer panel provides the following views:
 
@@ -38,19 +37,15 @@ The **Documents** list in the explorer panel provides the following views:
 * **Recently Added**: Displays files added to the library in the past seven days
 * **My Favorites**: Displays the files you have marked as favorites
 
-The **Library** section displays the folder structure in a tree view. The symbol ![Subfolders]({% link content-services/images/Subfolders.png %}) 
-indicates a library folder contains subfolders. Click on a folder to expand or collapse it.
+The **Library** section displays the folder structure in a tree view. The symbol ![Subfolders]({% link content-services/images/Subfolders.png %}) indicates a library folder contains subfolders. Click on a folder to expand or collapse it.
 
-The **Categories** tree lets you filter the library contents by category. Click a category to expand the branch; 
-click it again to collapse it.
+The **Categories** tree lets you filter the library contents by category. Click a category to expand the branch; click it again to collapse it.
 
-The **Tags** list displays the tags currently associated with one or more files. The number following the tag tells you 
-how many files have that tag.
+The **Tags** list displays the tags currently associated with one or more files. The number following the tag tells you how many files have that tag.
 
 > **Note:** When you filter content using **Tags** view, items have additional **Locate File** and **Locate Folder** actions to show the actual location of content in the library tree.
 
-The breadcrumb path above the file list displays your current position in the tree. Each breadcrumb item is a link so 
-you can easily return to any part of the current navigation path. You can:
+The breadcrumb path above the file list displays your current position in the tree. Each breadcrumb item is a link so you can easily return to any part of the current navigation path. You can:
 
 * Click a link to return to the corresponding folder.
 * Click ![Navigate Up]({% link content-services/images/navigate-up-icon.png %}) to display the contents of the folder one level higher.
@@ -65,23 +60,17 @@ For each piece of content (folders and files) you view in the**Document Library*
 
 The **Options** menu in the **Document Library** lets you customize how you view content.
 
-The default view for the library is **Detailed View**. This view displays the basic details for each file or folder as 
-well as a thumbnail, description, tags, and social features (Favorite, Like, Comment, and Share). **Simple View** just 
-displays the basic details..
+The default view for the library is **Detailed View**. This view displays the basic details for each file or folder as well as a thumbnail, description, tags, and social features (Favorite, Like, Comment, and Share). **Simple View** just displays the basic details..
 
-You can use the other view options to get a more visual representation of site content, or to view content in a more 
-basic table format.
+You can use the other view options to get a more visual representation of site content, or to view content in a more basic table format.
 
-At the bottom of the **Options** menu you can click to **Set** or **Remove** the current view as the default view for 
-the folder you're in.
+At the bottom of the **Options** menu you can click to **Set** or **Remove** the current view as the default view for the folder you're in.
 
-In all viewing options, just click an file name to open the file preview screen. Click a folder name to open that folder 
-so you can view its contents.
+In all viewing options, just click an file name to open the file preview screen. Click a folder name to open that folder so you can view its contents.
 
 With **Media View** and **Audio View** you'll see extra file information.
 
-If you select one of the more visually rich views, the way you interact with content changes slightly. Here are some 
-useful features you'll find in these views.
+If you select one of the more visually rich views, the way you interact with content changes slightly. Here are some useful features you'll find in these views.
 
 * **Resize the thumbnails**
 

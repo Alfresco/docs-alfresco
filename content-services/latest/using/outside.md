@@ -32,8 +32,7 @@ For more information about Alfresco Outlook Integration, see [Alfresco Outlook I
 
 You can work with files without actually being in the Alfresco Share interface.
 
-Your administrator can map the repository so that you can access your content using Windows Explorer or a desktop shortcut. 
-If you are working in this way, then there will be up to three additional files shown on each level of the Content Services file structure:
+Your administrator can map the repository so that you can access your content using Windows Explorer or a desktop shortcut. If you are working in this way, then there will be up to three additional files shown on each level of the Content Services file structure:
 
 * `__CheckInOut.exe`
 * `__ShowDetails.exe`
@@ -41,8 +40,7 @@ If you are working in this way, then there will be up to three additional files 
 
 > **Note:** The Share.url is only available within site folders, rather than everywhere in the repository.
 
-You can use these files to add content to the repository, check documents in and out, view document details, and 
-open Alfresco Share in a browser window.
+You can use these files to add content to the repository, check documents in and out, view document details, and open Alfresco Share in a browser window.
 
 > **Note:** These options only function when you are working in a Windows environment.
 

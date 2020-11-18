@@ -6,8 +6,7 @@ You can use the search box on the toolbar to search for files, sites, and people
 
 Type your search into the search box, and a list of matching files, sites, and people will be shown as you type.
 
-If you're in a site you can click **Search all content** or **Search in <sitename>** to search all sites or just the 
-site you're in. Private sites that you're not a member of, and their files, aren't shown.
+If you're in a site you can click **Search all content** or **Search in ***sitename***** to search all sites or just the site you're in. Private sites that you're not a member of, and their files, aren't shown.
 
 There are lots of [search tips](#searchtips) available, including:
 
@@ -41,11 +40,9 @@ You can now:
 
 > **Note:** Click the **Search in** menu to search in all sites or just in the site you're in.
 
-If you're a [Search Manager]({% link content-services/latest/using/share/powerusers.md %}#searchmanager) super user then you'll have an additional **Search Manager** 
-option you can click where you can create new search filters.
+If you're a [Search Manager]({% link content-services/latest/using/share/powerusers.md %}#searchmanager) super user then you'll have an additional **Search Manager** option you can click where you can create new search filters.
 
-As well as the search box on the toolbar, there are also additional advanced search features for finding 
-[people](#peoplefinder), [sites](#sitefinder), and [content](#advancedsearch).
+As well as the search box on the toolbar, there are also additional advanced search features for finding [people](#peoplefinder), [sites](#sitefinder), and [content](#advancedsearch).
 
 > **Tip:** If a file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon]({% link content-services/images/advanced-search-icon.png %}) on the file preview to search for text in the file.
 
@@ -75,8 +72,7 @@ There are multiple options you can use to make your search more specific.
 
 ## Using the Site Finder {#sitefinder}
 
-You can search for sites using the search box on the toolbar or you can use the Site Finder to get more detailed site 
-information.
+You can search for sites using the search box on the toolbar or you can use the Site Finder to get more detailed site information.
 
 From the search results you can navigate to a site, join or leave sites, and delete a site (managers only).
 
@@ -135,7 +131,7 @@ Use the search box in the toolbar to access the advanced search.
 
     * **Content**: Searches for all types of content
     * **Folders**: Searches for all folders and containers, such as library folders and data lists
-    
+
 3. Enter your search criteria.
 
     To search by modification date, click the calendar icon to select a date from a calendar.

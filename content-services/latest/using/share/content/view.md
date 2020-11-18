@@ -2,8 +2,7 @@
 title: Viewing content
 ---
 
-To get a closer look at a file or folder without downloading it, you can view it on the file preview screen. 
-This gives you more detail, a preview, and access to social features, actions, and version history.
+To get a closer look at a file or folder without downloading it, you can view it on the file preview screen. This gives you more detail, a preview, and access to social features, actions, and version history.
 
 ## Viewing folder details
 
@@ -21,15 +20,13 @@ Click the folder in the breadcrumb trail at the top of the screen to return to t
 
 ## Viewing a file
 
-You can preview files by clicking on the thumbnail or name in the document library. All file details and actions are 
-available on this one screen.
+You can preview files by clicking on the thumbnail or name in the document library. All file details and actions are available on this one screen.
 
 The preview screen is split into four sections.
 
 ### Info and options
 
-The info includes the file location and name, version number, the user who last modified the file, and the date/time of 
-the modification. An icon to the left of these shows the file type.Above this info is a link to return to the document library.
+The info includes the file location and name, version number, the user who last modified the file, and the date/time of the modification. An icon to the left of these shows the file type.Above this info is a link to return to the document library.
 
 With the options you can:
 
@@ -45,8 +42,7 @@ The preview options depend on what kind of file you're previewing.
 
 A video preview has standard video playback controls.
 
-When you preview a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can zoom in 
-and out, click **Maximize** to view a larger preview, and scroll between pages of multi-page files.
+When you preview a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can zoom in and out, click **Maximize** to view a larger preview, and scroll between pages of multi-page files.
 
 > **Note:** The zoom level and current page number are saved for the next time you preview this item.
 
@@ -80,8 +76,7 @@ The actions and details are grouped in sections that you can expand and collapse
 
 ## View a file in a browser
 
-While the preview feature lets you view a file in Alfresco Share, you also have the option of viewing it in your 
-default browser.
+While the preview feature lets you view a file in Alfresco Share, you also have the option of viewing it in your default browser.
 
 1. Hover over a file in the document library.
 

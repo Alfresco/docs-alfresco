@@ -189,9 +189,7 @@ Your user profile includes more information than just your contact details. Here
 
 It's easy to check which version of Alfresco Share you're using.
 
-Click the Alfresco logo at the bottom of Alfresco Share.
-
-    A box opens showing which version of Share you're working with.
+Click the Alfresco logo at the bottom of Alfresco Share. A box opens showing which version of Share you're working with.
 
 ## Subscribing to an RSS feed {#subtorssfeed}
 

@@ -4,8 +4,7 @@ title: The calendar
 
 The site calendar lets you schedule and track events related to the current site.
 
-Site members can create events that appear on the calendar for all site users to see. These events also display in the 
-Site Calendar dashlet. You can view the calendar by day, week, or month. The Agenda view displays upcoming events.
+Site members can create events that appear on the calendar for all site users to see. These events also display in the Site Calendar dashlet. You can view the calendar by day, week, or month. The Agenda view displays upcoming events.
 
 > **Note:** See [Customizing a site]({% link content-services/latest/using/share/sites.md %}#customizesite) for how to switch the calendar on and off for a site.
 
@@ -15,36 +14,35 @@ Access the calendar to view upcoming events for the current site.
 
 Within the calendar you can create events, as well as edit and delete any events that you created.
 
-1. In a site click **More** then **Calendar**.
+In a site click **More** then **Calendar**.
 
-    > **Note:** In each site the feature names can be customized. If the site manager has done this, the link might have a name other than **Calendar**.
+> **Note:** In each site the feature names can be customized. If the site manager has done this, the link might have a name other than **Calendar**.
 
     This opens the calendar which defaults to the Month view. Any events scheduled in the current month are displayed on the calendar.
 
 ## Browsing the calendar
 
-The main view defaults to a calendar displaying the current month. The explorer panel to the left provides another 
-calendar for navigating the months without affecting the main view.
+The main view defaults to a calendar displaying the current month. The explorer panel to the left provides another calendar for navigating the months without affecting the main view.
 
 1. In the calendar use the navigation buttons to change the main calendar view:
 
-    1. Use the **Day**, **Week**, and **Month** buttons to change the main display to a daily, weekly, or monthly view.
+    a. Use the **Day**, **Week**, and **Month** buttons to change the main display to a daily, weekly, or monthly view.
 
-    2. Use the Previous ![Previous]({% link content-services/images/ico-cal-left.png %}) and Next ![Next]({% link content-services/images/ico-cal-right.png %}) buttons to move forward and backward through the calendar, either a day, week, or month at a time, depending on the current view.
+    b. Use the Previous ![Previous]({% link content-services/images/ico-cal-left.png %}) and Next ![Next]({% link content-services/images/ico-cal-right.png %}) buttons to move forward and backward through the calendar, either a day, week, or month at a time, depending on the current view.
 
-    3. Click **Agenda** to view a list of the upcoming events scheduled for this site.
+    c. Click **Agenda** to view a list of the upcoming events scheduled for this site.
 
-    4. Click **Today** to display the current date.
+    d. Click **Today** to display the current date.
 
         By default the Day and Week views display only the working hours. Click the ![Show working hours]({% link content-services/images/ico-cal-showall.png %}) Show all hours icon to display the full day.
 
 2. Use the calendar in the browsing pane to navigate through the months without affecting the main view.
 
-    1. Click ![Previous]({% link content-services/images/ico-cal-arrowleft.png %}) to display the previous month.
+    a. Click ![Previous]({% link content-services/images/ico-cal-arrowleft.png %}) to display the previous month.
 
-    2. Click ![Next]({% link content-services/images/ico-cal-arrowright.png %}) to display the next month.
+    b. Click ![Next]({% link content-services/images/ico-cal-arrowright.png %}) to display the next month.
 
-    3. Click **This Month** beneath the calendar to reset it to the current month. The current day and any dates with scheduled events are highlighted.
+    c. Click **This Month** beneath the calendar to reset it to the current month. The current day and any dates with scheduled events are highlighted.
 
 3. Click a date on the browsing pane calendar to load the selected date on the calendar in the main view.
 
@@ -58,15 +56,14 @@ calendar for navigating the months without affecting the main view.
 
 ## Viewing an event
 
-The calendar displays only the event name and time, so to view full details you must open the event. Once open you can 
-edit or delete the event.
+The calendar displays only the event name and time, so to view full details you must open the event. Once open you can edit or delete the event.
 
 1. In the calendar find the event you want to view in one of the following ways:
 
     * Navigate the calendar on the main view.
     * Navigate the calendar in the explorer panel and select a date to update the main view calendar.
     * Click **Agenda** to display upcoming events.
-    
+
 2. On the main view click the event you are interested in. You can do this in any view: Day, Week, Month, or Agenda.
 
     The Event Information dialog box displays the full details of the selected event. The Related Content section shows where you can find material associated with the event if a location has been provided. Click the link to jump to that folder in the library.
@@ -84,7 +81,7 @@ Any site member can schedule an event in the site calendar. The event appears in
     * Click **Add Event**.
     * Click on an event date on the explorer panel calendar and then click **Add Event**.
     * Navigate the calendar on the main view and click an event date.
-    
+
     > **Note:** To create an event in the Agenda view you must use the **Add Event** button in the header.
 
     Simply clicking **Add Event** causes the start and end dates to default to the current date. Specifying a date first, as in the other two methods, causes the start and end dates to default to the date selected.
@@ -113,11 +110,11 @@ Any site member can schedule an event in the site calendar. The event appears in
 
     > **Note:** The Related Content section is not visible by default. Contact your system administrator to update `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties` and `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties` if you cannot see this feature.
 
-    1. In the Related Content section, click **Browse**.
+    a. In the Related Content section, click **Browse**.
 
-    2. On the Browse Folders dialog box navigate the library folder structure and select the appropriate folder.
+    b. On the Browse Folders dialog box navigate the library folder structure and select the appropriate folder.
 
-    3. Click **OK**.
+    c. Click **OK**.
 
     The selected path is displayed on the **Add Event** page.
 
@@ -127,8 +124,7 @@ The dialog box closes and the calendar displays the new event as scheduled.
 
 ## Editing event details
 
-Edit a scheduled event to change any of the details, including the location, date, and time. You can also add and 
-remove tags, and change the library folder associated with the event.
+Edit a scheduled event to change any of the details, including the location, date, and time. You can also add and remove tags, and change the library folder associated with the event.
 
 1. In the calendar find and click on the event you want to edit.
 

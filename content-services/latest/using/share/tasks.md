@@ -2,16 +2,11 @@
 title: Tasks and workflows
 ---
 
-Tasks and workflows help you keep track of the things you and other users need to do. You can create a standalone 
-task or workflow, or you can attach a file to it.
+Tasks and workflows help you keep track of the things you and other users need to do. You can create a standalone task or workflow, or you can attach a file to it.
 
-A workflow is a process that controls a specific task, such as a document review. Each task can be assigned to one or 
-more people when a workflow is being created. Workflow creators can select to automatically send a notification email 
-to users that are assigned a task as part of the workflow, but whether an email is sent or not the task will be visible 
-in the users My Tasks dashlet.
+A workflow is a process that controls a specific task, such as a document review. Each task can be assigned to one or more people when a workflow is being created. Workflow creators can select to automatically send a notification email to users that are assigned a task as part of the workflow, but whether an email is sent or not the task will be visible in the users My Tasks dashlet.
 
-Once all the task actions required by a workflow have been finished, the workflow will move from active to completed 
-status. At this point you're free to delete the workflow.
+Once all the task actions required by a workflow have been finished, the workflow will move from active to completed status. At this point you're free to delete the workflow.
 
 Individual users manage their own tasks, and the person who created a workflow manages the workflow.
 
@@ -154,7 +149,7 @@ You can view the details for an individual task or for the workflow that initiat
 
     * **View Task**: Displays the task details
     * **View Workflow**: Displays the workflow details
-    
+
     > **Note:** An icon (![pooled]({% link content-services/images/im-pooled.png %})) indicates a pooled task. Pooled tasks that can be claimed are marked as **Unassigned**.
 
 3. Click the **Task Details** and **Workflow Details** options to move between the two page views.
@@ -163,7 +158,7 @@ You can view the details for an individual task or for the workflow that initiat
 
     * In the Items list, click an item to preview it in the library. Click your browser’s Back button to return to the Task Details page.
     * Click **Edit** to edit the task.
-    
+
     The Workflow Details page displays the information for the workflow that generated this task.
 
     * Click **View Process Diagram** to display a graphical representation of the workflow. A red border highlights the current stage of the workflow. Click anywhere on the graphic to close it.
@@ -194,5 +189,5 @@ Tasks assigned to you appear in two places: the My Tasks personal dashlet and th
     * **Release to Pool**: Click **Release to Pool** to place a task back in the pool. The task will appear in the task list as *Unassigned* and can be claimed by another user. This action is available only for pooled tasks that are currently owned by you.
     * **Add**: Click **Add** beneath the file list to locate and select files to add to the task. This action is available only for Adhoc tasks.
     * **Task Done**: When you complete a task it returns to the user who started the associated workflow. Click **Task Done** to finish a task. This removes it from your task list.
-    
+
     When the selected action is complete you are redirected to an appropriate screen.

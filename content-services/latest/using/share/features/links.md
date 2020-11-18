@@ -2,8 +2,7 @@
 title: Site links
 ---
 
-The links component lets site members compile a list of web links that are related to the site or that might be of 
-interest to site users. These can be internal links pointing to site pages or external links pointing to any web address.
+The links component lets site members compile a list of web links that are related to the site or that might be of interest to site users. These can be internal links pointing to site pages or external links pointing to any web address.
 
 The comment feature allows site members to add and manage comments on the site links.
 
@@ -27,7 +26,7 @@ In this component you can create new links, as well as edit and delete the links
     * the user who created the link
     * a description of the link
     * the tags associated with the link
-    
+
 2. Use the **<<** and **>>** navigation buttons to move forward and backward through multiple pages of links.
 
 3. Click **Simple View** to display only the basic link details: title and URL.
@@ -52,9 +51,9 @@ To browse the links:
 
 1. In the Links feature select an option in the explorer panel:
 
-    1. In the **Links** list click a view to display the links in the current site that correspond to that selection.
+    a. In the **Links** list click a view to display the links in the current site that correspond to that selection.
 
-    2. In the **Tags** list click the tag you're interested in to display all links in the current site associated with that tag.
+    b. In the **Tags** list click the tag you're interested in to display all links in the current site associated with that tag.
 
 2. Click **Simple View** to display only the basic link details: title and URL.
 
@@ -64,11 +63,9 @@ To browse the links:
 
 ## Viewing a link
 
-The main view of the Links feature displays the existing links for this site. You can choose a summary view or a 
-simple list. Viewing a link enables you to see the full link details as well as any comments that have been added.
+The main view of the Links feature displays the existing links for this site. You can choose a summary view or a simple list. Viewing a link enables you to see the full link details as well as any comments that have been added.
 
-Although you can perform actions on a link from the main page, you might want to view the link before you edit or delete 
-it in order to confirm that you have selected the correct one.
+Although you can perform actions on a link from the main page, you might want to view the link before you edit or delete it in order to confirm that you have selected the correct one.
 
 1. In the Links feature browse the links to find the one you want to view.
 
@@ -80,8 +77,7 @@ it in order to confirm that you have selected the correct one.
 
 ## Creating a new link
 
-Create a new site link to provide easy access to information that could be of interest or use to the site members. 
-You can add any internal or external web address.
+Create a new site link to provide easy access to information that could be of interest or use to the site members. You can add any internal or external web address.
 
 1. In the Links feature click **New Link**.
 
@@ -161,7 +157,7 @@ In the links list you can quickly delete multiple links rather than removing the
 
     * Click the check box to left of each link you want to delete.
     * Click **Select** at the top of the list and click **All** to select all links in the current view.
-    
+
     Click **None** to clear the list selections. Click **Invert Selection** to toggle the check boxes to their opposite state.
 
     The appropriate check boxes appear selected in the links list.

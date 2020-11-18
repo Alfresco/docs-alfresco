@@ -6,8 +6,7 @@ Use the Getting Started guide to quickly learn the basics, and find more detaile
 
 > **Note:** If you prefer to use Alfresco Digital Workspace instead of Alfresco Share, see the [Digital Workspace documentation](TODO_LINK:). Alfresco Digital Workspace is a new content management application built with the Alfresco Application Development Framework (ADF). Digital Workspace offers a simplified experience for working with content and more comprehensive extensibility for developers.
 
-For most of us, today's work environment means we spend much of our time working in teams that can extend beyond our 
-workplace, and even our enterprise, to include partners, consultants, external agencies, and customers.
+For most of us, today's work environment means we spend much of our time working in teams that can extend beyond our workplace, and even our enterprise, to include partners, consultants, external agencies, and customers.
 
 With Alfresco Share it's simple to share information, run projects, and collaborate effectively.
 
@@ -18,8 +17,7 @@ This guide gives you an introduction to some of the features of Alfresco Share:
 * Work with content and add it to your site
 * Be social! Add users to your site, set up meetings and use social media features
 
-You'll also be shown other little tricks and tips to help you get more out of Alfresco Share, so you can work and 
-collaborate efficiently and effectively.
+You'll also be shown other little tricks and tips to help you get more out of Alfresco Share, so you can work and collaborate efficiently and effectively.
 
 The video shows an overview of the Alfresco Share features:
 
@@ -45,14 +43,11 @@ To start the Getting Started guide you need to sign in to Alfresco Share.
 
 ## Personalizing Alfresco Share
 
-Having installed Alfresco Share and signed in, the first thing you can do is to personalize Alfresco Share to your 
-own tastes and needs.
+Having installed Alfresco Share and signed in, the first thing you can do is to personalize Alfresco Share to your own tastes and needs.
 
 You're going to update your dashboard and your profile.
 
-Your dashboard is made up of dashlets - each dashlet displays summary information on different parts of Alfresco Share, 
-such as your latest updates, your tasks, or your sites. There are two different sets of dashlets available - one set for 
-your personal Alfresco Share dashboard and one set that is used to customize individual sites that you set up.
+Your dashboard is made up of dashlets - each dashlet displays summary information on different parts of Alfresco Share, such as your latest updates, your tasks, or your sites. There are two different sets of dashlets available - one set for your personal Alfresco Share dashboard and one set that is used to customize individual sites that you set up.
 
 As well as adding and removing dashlets you can also customize your dashboard layout.
 
@@ -84,15 +79,13 @@ To customize your dashboard appearance and content:
 
     > **Note:** You can also resize dashlets to line them up nicely - just click on the bottom of a dashlet then drag up and down to resize it.
 
-Your dashboard is now customized exactly as you want it - this isn't fixed though, you can change the dashboard whenever 
-you like. You can click My Dashboard from anywhere in Alfresco Share to take a look at your dashboard.
+Your dashboard is now customized exactly as you want it - this isn't fixed though, you can change the dashboard whenever you like. You can click My Dashboard from anywhere in Alfresco Share to take a look at your dashboard.
 
 ### Updating your profile
 
 Alfresco Share user profiles help you to identify who a user is and what they do in your organization.
 
-Your name is displayed at the top of the screen. When you click on the name a menu opens where you can update profile 
-details, change your password, search the help, and log out.
+Your name is displayed at the top of the screen. When you click on the name a menu opens where you can update profile details, change your password, search the help, and log out.
 
 To update your profile:
 
@@ -112,9 +105,7 @@ When your colleagues view your profile they'll see all the details you've entere
 
 Now that you've personalized your own dashboard and profile, you're ready to set up a site.
 
-Collaboration in Alfresco Share is based around the concept of creating sites that teams can share content in, but an 
-Alfresco Share site is more than just a place to share and manage content. You can schedule and manage meetings and 
-calendars, publish blogs and set up forums where you can have team discussions, and even write content online and publish it to a wiki.
+Collaboration in Alfresco Share is based around the concept of creating sites that teams can share content in, but an Alfresco Share site is more than just a place to share and manage content. You can schedule and manage meetings and calendars, publish blogs and set up forums where you can have team discussions, and even write content online and publish it to a wiki.
 
 ### Creating a new site
 
@@ -142,8 +133,7 @@ The first thing that you need to do is to create a site and choose its settings.
 
 ### Customizing the site dashboard
 
-A site dashboard displays all information and activities associated with the site. You can customize the site dashboard 
-just as you did with your personal dashboard.
+A site dashboard displays all information and activities associated with the site. You can customize the site dashboard just as you did with your personal dashboard.
 
 1. Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) then Customize Dashboard.
 
@@ -153,17 +143,13 @@ just as you did with your personal dashboard.
 
 3. Drag the **Wiki** dashlet onto Column 1 and click **OK**.
 
-You can resize the dashlets on the site dashboard as required. You are now nearly ready to add content to your site, 
-just one more step first to customize the site further.
+You can resize the dashlets on the site dashboard as required. You are now nearly ready to add content to your site, just one more step first to customize the site further.
 
 ### Adding features to a site
 
 You can add features to your site such as a discussion forum, a wiki, or a blog.
 
-At the top of your site dashboard are tabs for areas of your site. By default you have Site Dashboard, Document Library, 
-and Site Members. You can add additional features as needed for a site and choose a site homepage. If you look at the 
-Wiki dashlet that you added previously, you'll see that it says that no page is configured. You're now going to configure 
-a wiki for the site.
+At the top of your site dashboard are tabs for areas of your site. By default you have Site Dashboard, Document Library, and Site Members. You can add additional features as needed for a site and choose a site homepage. If you look at the Wiki dashlet that you added previously, you'll see that it says that no page is configured. You're now going to configure a wiki for the site.
 
 1. Click ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}) and then **Customize Site**.
 
@@ -171,18 +157,15 @@ a wiki for the site.
 
     > **Note:** Take a look at [Alfresco site features]({% link content-services/latest/using/share/features/index.md %}) for more details on these features.
 
-Back on the site dashboard you can see that the wiki and calendar have been added. You now have a site set up! It's 
-time to start adding some content.
+Back on the site dashboard you can see that the wiki and calendar have been added. You now have a site set up! It's time to start adding some content.
 
 ## Working with content
 
 Before you begin working with content, we'll look at the two different concepts of content there are in Alfresco Share.
 
-The first is content that is actually part of Alfresco Share features themselves, such as updates to a wiki, a new 
-blog posts, or forum discussions.
+The first is content that is actually part of Alfresco Share features themselves, such as updates to a wiki, a new blog posts, or forum discussions.
 
-The second is content items such as documents, spreadsheets, or images that are stored in the Document Library. 
-These can be uploaded or created directly from Alfresco Share.
+The second is content items such as documents, spreadsheets, or images that are stored in the Document Library. These can be uploaded or created directly from Alfresco Share.
 
 So now that you know the differences in content types, it's time to start adding content to your site.
 
@@ -206,8 +189,7 @@ You're going to add two documents that you created previously to your site.
 
 ### Editing content
 
-Updating your content in Alfresco Share is easy to do and you can even select whether to edit in Microsoft Office, 
-offline, or in Google Docs.
+Updating your content in Alfresco Share is easy to do and you can even select whether to edit in Microsoft Office, offline, or in Google Docs.
 
 1. In the Document Library item list, hover your cursor over one of the files.
 
@@ -355,8 +337,7 @@ When you look at the site dashboard you can see site activity and details of con
 
 ### Following users
 
-There can be many users of a system, so it is likely that there will be some users whose activities will be of more 
-importance to you. You can choose to follow these users so that you can easily keep track of what they've been doing.
+There can be many users of a system, so it is likely that there will be some users whose activities will be of more importance to you. You can choose to follow these users so that you can easily keep track of what they've been doing.
 
 1. Click **Site Dashboard**.
 
@@ -382,8 +363,7 @@ You'll see that the top of the page shows how many people you're following.
 
 ## More resources
 
-This is the end of the Alfresco Share Getting Started guide, and you should now be able to use Alfresco Share in ways 
-that will improve how you work on a day to day basis.
+This is the end of the Alfresco Share Getting Started guide, and you should now be able to use Alfresco Share in ways that will improve how you work on a day to day basis.
 
 In this getting started guide you've learnt how to:
 
@@ -393,8 +373,7 @@ In this getting started guide you've learnt how to:
 * Add users to your site, set up meetings, and use social media-style features
 * View and understand site activities
 
-This is just the beginnings of what you can achieve with Alfresco Share; we'd really recommend that you take some time 
-to look at our other learning resources and try out other features that will help you to do great work:
+This is just the beginnings of what you can achieve with Alfresco Share; we'd really recommend that you take some time to look at our other learning resources and try out other features that will help you to do great work:
 
 * Read the [(Using Alfresco Share)]({% link content-services/latest/using/share/index.md %}) documentation on other features
 * Watch the Alfresco Share 'How To' videos [('How To' videos)]({% link content-services/latest/tutorial/index.md %})

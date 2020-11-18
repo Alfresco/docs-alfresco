@@ -2,8 +2,7 @@
 title: Your profile and dashboard
 ---
 
-You can customize your user profile and dashboard however you like without affecting anyone else - you're the only 
-person that sees your dashboard.
+You can customize your user profile and dashboard however you like without affecting anyone else - you're the only person that sees your dashboard.
 
 Some of your user profile details are visible to your colleagues so it's good to keep these details up to date.
 
@@ -41,11 +40,9 @@ If you want, add multiple copies of each dashlet and then set the filters so tha
 
 ## Setting your home page {#sethomepage}
 
-Your default Alfresco Share home page is your user dashboard, but you can set it to be any page in Share that you have 
-access to.
+Your default Alfresco Share home page is your user dashboard, but you can set it to be any page in Share that you have access to.
 
-This can save you time if most of your work is done from a specific Share location, by taking you straight to that 
-screen every time you sign in.
+This can save you time if most of your work is done from a specific Share location, by taking you straight to that screen every time you sign in.
 
 1. Go to the page that you want to be your home page.
 
@@ -61,11 +58,9 @@ screen every time you sign in.
 
 ## Updating your profile
 
-User profiles help you to identify a user's roles and responsibilities, or even find out who's who in your organization 
-by checking profile pictures.
+User profiles help you to identify a user's roles and responsibilities, or even find out who's who in your organization by checking profile pictures.
 
-When you click on your name at the top of the screen a menu opens where you can update profile details, change your 
-password, search the help, and log out.
+When you click on your name at the top of the screen a menu opens where you can update profile details, change your password, search the help, and log out.
 
 1. Click your user name and select **My Profile**, then **Edit Profile**.
 
@@ -123,8 +118,7 @@ Choose whether or not you want to receive notifications by email. The emails kee
 
 ## Disabling site activity notifications
 
-You can disable site activity feeds so that updates from specific sites aren't included in your email notifications or 
-the My Activities dashlet on your dashboard.
+You can disable site activity feeds so that updates from specific sites aren't included in your email notifications or the My Activities dashlet on your dashboard.
 
 1. Click your user name on the toolbar and click **My Profile**.
 

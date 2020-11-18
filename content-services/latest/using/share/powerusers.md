@@ -4,30 +4,25 @@ title: Power users
 
 Alfresco Share power users have additional options that aren't available to standard users.
 
-These options are made available when your Alfresco administrator gives you advanced permissions by signing you up to 
-a power user group.
+These options are made available when your Alfresco administrator gives you advanced permissions by signing you up to a power user group.
 
 The current additional options available are:
 
 * Sites Manager
 * Search Manager
 
-If you have the following permissions you can access the Site Manager through an additional link on the toolbar, and 
-the Search Manager from the Search Results screen.
+If you have the following permissions you can access the Site Manager through an additional link on the toolbar, and the Search Manager from the Search Results screen.
 
 * Sites Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `SITES_ADMINISTRATORS` permissions groups.
 * Search Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `ALFRESCO_SEARCH_ADMINISTRATORS` permissions groups.
 
 ## Sites Manager
 
-The Sites Manager is used for maintaining sites. You have control over the visibility of all sites as well as deleting 
-sites or making yourself a site manager.
+The Sites Manager is used for maintaining sites. You have control over the visibility of all sites as well as deleting sites or making yourself a site manager.
 
 > **Note:** Sites Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `SITES_ADMINISTRATORS` permissions groups. If you are in the `ALFRESCO_ADMINISTRATORS` group, you can access the Site Manager through the **Admin Tools** on the toolbar. If you are a member of `SITE_ADMINISTRATORS` group, you'll have an additional **Sites Manager** option on the toolbar.
 
-The Sites Manager displays the names and status of created sites, regardless of their visibility setting. You can use 
-the **Visibility** menu to change the visibility of any site, for example, change the site visibility to either 
-**Public**, **Moderated**, or **Private**. Any visibility change you make to a site is made immediately.
+The Sites Manager displays the names and status of created sites, regardless of their visibility setting. You can use the **Visibility** menu to change the visibility of any site, for example, change the site visibility to either **Public**, **Moderated**, or **Private**. Any visibility change you make to a site is made immediately.
 
 With the **Actions** menu, there are two options:
 
@@ -40,19 +35,15 @@ With the Search Manager you can see details of existing search filters and creat
 
 > **Note:** Search Manager is available to users in the `ALFRESCO_ADMINISTRATORS` and `ALFRESCO_SEARCH_ADMINISTRATORS` permissions groups.
 
-The Search Manager is accessed from the search results screen. Just type a search in the search box and press Enter, 
-then on the search results screen click **Search Manager**.
+The Search Manager is accessed from the search results screen. Just type a search in the search box and press Enter, then on the search results screen click **Search Manager**.
 
 **Note:** Filtered search results can be bookmarked for quick and easy access.
 
-All existing filters (including default filters) are shown along with their details, in the order that they are shown 
-on the search results screen. You can change the order by using the ![arrows]({% link content-services/images/arrows.png %}) 
-buttons to move filters up or down the order.
+All existing filters (including default filters) are shown along with their details, in the order that they are shown on the search results screen. You can change the order by using the ![arrows]({% link content-services/images/arrows.png %}) buttons to move filters up or down the order.
 
 Click **Create New Filter** to [create new search filters](#createnewsearchfilter).
 
-Most of the filter details are can be edited by hovering over them and clicking the 
-![Configure icon]({% link content-services/images/ico-configure.png %}) icon that displays:
+Most of the filter details are can be edited by hovering over them and clicking the ![Configure icon]({% link content-services/images/ico-configure.png %}) icon that displays:
 
 * **Filter ID**: The unique filter ID. Click on this to edit any details.
 * **Filter Name**: The name of the filter shown in the search results screen. Default filters display the internationalized message key rather than the filter name that's shown on the search results screen.
