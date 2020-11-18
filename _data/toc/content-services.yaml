@@ -59,6 +59,8 @@
               path: '/content-services/latest/config/smart-folders/sf-faq/'
         - title: 'Mobile'
           path: '/content-services/latest/config/mobile/'
+        - title: 'Process Services actions'
+          path: '/content-services/latest/config/action/'
     - title: 'Administer'
       pages:
         - title: 'System paths convention'
