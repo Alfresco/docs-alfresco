@@ -2,48 +2,43 @@
 title: Install using the distribution ZIP
 ---
 
-Governance Services is installed by applying two AMP files to an existing Alfresco Content Services installation.
+Governance Services is installed by applying two AMP files to an existing Alfresco Community Edition installation.
 
 The Governance Services distribution zip file contain the following AMP files:
 
-|alfresco-rm-enterprise-repo-3.0.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Content Services installation.|
-|alfresco-rm-enterprise-share-3.0.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Share installation.|
+|alfresco-rm-community-repo-3.0.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Community Edition installation.|
+|alfresco-rm-community-share-3.0.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Share installation.|
 
 >**Note:** Install the AMPs manually using the Module Management Tool (MMT), rather than using the `apply_amps` tool.
-
-1. Browse to the [Support Portal](http://support.alfresco.com){:target="_blank"} and download the Governance Services distribution zip, which contains the following files:
-
-    * alfresco-rm-enterprise-repo-3.0.x.amp
-    * alfresco-rm-enterprise-share-3.0.x.amp
     
-2. Stop the Alfresco Content Services server.
+1. Stop the Alfresco Community Edition server.
 
-3. Delete the `tomcat\webapps\alfresco` and `tomcat\webapps\share` folders in the Alfresco Content Services installation directory.
+2. Delete the `tomcat\webapps\alfresco` and `tomcat\webapps\share` folders in the Alfresco Community Edition installation directory.
 
-    Deleting these directories forces Tomcat to read the edited WAR files when Alfresco Content Services is restarted.
+    Deleting these directories forces Tomcat to read the edited WAR files when Alfresco Community Edition is restarted.
 
     >**Note:** If you are using non-Windows systems, such as Mac OS X and Linux, you'll need to replace the backslashes by forward slashes in directory paths.
 
-4. Copy the AMP files to the Alfresco `amps` and `amps_share` directories.
+3. Copy the AMP files to the Alfresco `amps` and `amps_share` directories.
 
-    * Copy the `alfresco-rm-enterprise-repo-3.0.x.amp` file to the Alfresco `amps` directory.
-    * Copy the `alfresco-rm-enterprise-share-3.0.x.amp` file to the Alfresco `amps_share` directory.
+    * Copy the `alfresco-rm-community-repo-3.0.x.amp` file to the Alfresco `amps` directory.
+    * Copy the `alfresco-rm-community-share-3.0.x.amp` file to the Alfresco `amps_share` directory.
     
-5. Change into the root of the Alfresco Content Services installation directory. Directories specified in the following procedures are relative to this directory.
+4. Change into the root of the Alfresco Community Edition installation directory. Directories specified in the following procedures are relative to this directory.
 
-6. Run the following commands to install the AMP files:
+5. Run the following commands to install the AMP files:
 
     ```bash
-    java -jar bin\alfresco-mmt.jar install amps\alfresco-rm-enterprise-repo-3.0.x.amp tomcat\webapps\alfresco.war
+    java -jar bin\alfresco-mmt.jar install amps\alfresco-rm-community-repo-3.0.x.amp tomcat\webapps\alfresco.war
     ```
 
     ```bash
-    java -jar bin\alfresco-mmt.jar install amps_share\alfresco-rm-enterprise-share-3.0.x.amp tomcat\webapps\share.war
+    java -jar bin\alfresco-mmt.jar install amps_share\alfresco-rm-community-share-3.0.x.amp tomcat\webapps\share.war
     ```
 
-7. Start the Alfresco Content Services server.
+6. Start the Alfresco Community Edition server.
 
-8. Check the AMP files have been installed successfully, using these commands:
+7. Check the AMP files have been installed successfully, using these commands:
 
     ```bash
     java -jar bin\alfresco-mmt.jar list tomcat\webapps\alfresco.war
@@ -55,7 +50,7 @@ The Governance Services distribution zip file contain the following AMP files:
     java -jar bin\alfresco-mmt.jar list tomcat\webapps\share.war
     ```
 
-9. Start Share by browsing to:
+8. Start Share by browsing to:
 
     `http://<your-server-name>:<port number>/share`
 

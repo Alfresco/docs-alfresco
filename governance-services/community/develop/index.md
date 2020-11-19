@@ -11,10 +11,7 @@ the endpoints using the Governance Services API Explorer.
 
 You can download the API Explorer from:
 
-* [Alfresco Nexus](https://nexus.alfresco.com/nexus/#welcome){:target="_blank"}
-
-    >**Note:** Contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for log in credentials. Once you're logged in search for `alfresco-rm-enterprise-rest-api-explorer-3.0.x.war`.
-
+* [Alfresco Community RM ReST API Explorer](https://download.alfresco.com/cloudfront/release/community/RM/3.0.a/alfresco-rm-community-rest-api-explorer-3.0.a.war)
 
 Deploy it on the same port as Governance Services and test the APIs with your server directly from the API Explorer.
 

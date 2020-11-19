@@ -1,10 +1,9 @@
 ---
-title: Alfresco Governance Services
+title: Alfresco Governance Services Community Edition
 ---
 
-Governance Services combines Records Management with Security Controls and Classification.
+Governance Services controls important information that needs to be retained over time. It's used in highly regulated 
+environments, for managing governmental information or personnel records, or where information might be audited.
 
-Governance Services is fully compliant with a baseline of DoD 5015.02. With Governance Services you can fully automate 
-the record lifecycle from capture through retention to final destruction. Users can create records direct from any 
-Alfresco Share site. On top of this security controls and classification give you complete control over who can see 
-which records and when.
+Fully integrated into Alfresco Community Edition, Governance Services makes it easy to work with files and have them 
+declared as records at the right time, without changing the way you work.

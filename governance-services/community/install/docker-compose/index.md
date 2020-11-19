@@ -12,53 +12,42 @@ recommended for development and test environments only.
     * This allows you to run Docker images and Docker Compose on a single computer.
 * [Docker Compose](https://docs.docker.com/compose/install/)
     * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
-* Access to [Quay](http://www.quay.io)
-    * Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/). These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
 >**Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file.
 
 ## Installation steps
 
-1. Download the Alfresco Content Services 6.0 [docker-compose.yml](https://raw.githubusercontent.com/Alfresco/acs-deployment/support/HF/1.0/docker-compose/docker-compose.yml) file from GitHub.
+1.  Download the Alfresco Community Edition [docker-compose.yml](https://raw.githubusercontent.com/Alfresco/acs-community-deployment/1.0.0/docker-compose/docker-compose.yml) file from GitHub.
 
-2. Save the file in a local folder.
+2.  Save the file in a local folder.
 
 3. Edit the file and change the following two services:
 
     Add a `#` prefix to the Alfresco Content Repository and Alfresco Share Docker image locations so they are commented out, 
-    and add the Alfresco Governance image locations, change 3.0.x to latest 3.0 version:
+    and add the Alfresco Governance image locations:
 
     ```text
     services:
         alfresco:
-            #image: alfresco/alfresco-content-repository:6.0
-            image: quay.io/alfresco/alfresco-governance-repository-enterprise:3.0.x
-           
+            #image: alfresco/alfresco-content-repository-community:6.0.7-ga
+            image: alfresco/alfresco-governance-repository-community:3.0.a
+            ... 
     ```
 
     ```text
         share:
-            #image: alfresco/alfresco-share:6.0
-            image: quay.io/alfresco/alfresco-governance-share-enterprise:3.0.x
-           
+            #image: alfresco/alfresco-share:6.0.b
+            image: alfresco/alfresco-governance-share-community
+            ... 
     ```
 
-4. In a command prompt login to Quay using the following command (to open up access to Enterprise Docker images):
-
-    ```bash
-    $ docker login quay.io
-        login against server at https://quay.io/v1/
-        Username: <Quay.io Credential Username>
-        Password: <Quay.io Credential Password>
-    ```
-
-5. In the command prompt change directory to the location of the `docker-compose.yml` file and deploy Governance Services using the following command:
+4. In the command prompt change directory to the location of the `docker-compose.yml` file and deploy Governance Services using the following command:
 
    ```bash
     $ docker-compose up
    ```
 
-   This downloads the images, fetches all the dependencies, creates each container, and then starts the system. If you downloaded the project and changes were made to the project settings, any new images will be pulled from Quay before the system starts.
+   This downloads the images, fetches all the dependencies, creates each container, and then starts the system. If you downloaded the project and changes were made to the project settings, any new images will be pulled before the system starts.
 
    As an alternative, you can also start the containers in the background by running:
 
@@ -66,7 +55,7 @@ recommended for development and test environments only.
     $ docker-compose up -d
    ```
 
-7. Wait for the logs to complete.
+5. Wait for the logs to complete.
 
     ```text
     ...
@@ -89,7 +78,7 @@ recommended for development and test environments only.
     
     >**Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
 
-8. Open your browser and check everything starts up correctly:
+6. Open your browser and check everything starts up correctly:
 
     * Share: `http://localhost:8080/share`
 

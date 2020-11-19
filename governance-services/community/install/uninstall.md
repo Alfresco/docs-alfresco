@@ -10,7 +10,7 @@ representing the Governance Services UI component is applied to the Alfresco Sha
 
 Both of the AMP files need to be removed in order to uninstall Governance Services. 
 Use the Module Management Tool (MMT) to do this. For more information on the tool, 
-see [Module Management Tool (MMT)](TODO_LINK:http://docs.alfresco.com/5.2/concepts/dev-extensions-modules-management-tool.html)
+see [Module Management Tool (MMT)](TODO_LINK:http://docs.alfresco.com/community/concepts/dev-extensions-modules-management-tool.html)
 
 The MMT is a command line tool. The syntax for uninstalling an AMP file using MMT is:
 
@@ -31,19 +31,14 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
     This shows the core RM components:
 
     ```bash
-    Module 'org_alfresco_module_rm' installed in 'webapps/alfresco'
-       -    Title:        AGS Repo
-       -    Version:      3.0.0
-       -    Install Date: Sun May 6 12:04:49 BST 2018
-       -    Description:   Alfresco Governance Services Repository Extension
-    Module 'alfresco-rm-enterprise-repo' installed in 'webapps/alfresco'
-       -    Title:        AGS Enterprise Repo
-       -    Version:      3.0.0
-       -    Install Date: Sun May 6 12:04:49 BST 2018
-       -    Description:   Alfresco Governance Services Enterprise Repository Extension    
+    Module 'org_alfresco_module_rm' installed in 'tomcat\webapps\alfresco.war'
+    -    Title:        Records Management
+    -    Version:      3.0
+    -    Install Date: Sun May 6 12:04:49 BST 2018
+    -    Description:   Alfresco Record Management Extension
    ```
 
-    To uninstall the AMP file, you'll need the Enterprise Module ID `alfresco-rm-enterprise-repo`.
+    To uninstall the AMP file, you'll need the Enterprise Module ID `org_alfresco_module_rm`.
 
 3. Find the Share RM AMP file using the following command:
 
@@ -54,24 +49,23 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
     This shows the Share RM component:
 
     ```bash
-    Module 'alfresco-rm-enterprise-share' installed in 'tomcat\webapps\share.war'
+    Module 'org_alfresco_module_rm_share' installed in 'tomcat\webapps\share.war'
     -    Title:        Alfresco Record Management Share Extension
     -    Version:      3.0
-    -    Install Date: Sun May 6 12:04:49 BST 2018
+    -    Install Date: Sun May 6 12:05:24 BST 2018
     -    Description:   Alfresco Record Management Share Extension           
-              
     ```
 
-    To uninstall the AMP file, you'll need the Enterprise Module ID `alfresco-rm-enterprise-share`.
+    To uninstall the AMP file, you'll need the Enterprise Module ID `org_alfresco_module_rm_share`.
 
 4. Use these commands to uninstall the AMP files:
 
     ```bash
-    $ java -jar bin\alfresco-mmt.jar uninstall alfresco-rm-enterprise-repo tomcat\webapps\alfresco.war            
+    $ java -jar bin\alfresco-mmt.jar uninstall org_alfresco_module_rm tomcat\webapps\alfresco.war            
     ```
 
     ```bash
-    $ java -jar bin\alfresco-mmt.jar uninstall alfresco-rm-enterprise-share tomcat\webapps\share.war            
+    $ java -jar bin\alfresco-mmt.jar uninstall org_alfresco_module_rm_share tomcat\webapps\share.war            
     ```
 
 5. You can check that the AMP files have been removed by rerunning the commands:

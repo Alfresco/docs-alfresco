@@ -11,19 +11,6 @@ If your organization is required to meet DoD 5015.2 compliance, then select **{%
 Records on a DoD 5015.2 site have additional mandatory metadata the must be completed. 
 Mandatory metadata includes the originator, the originating organization, the {% include tooltip.html word="fileplan" text="File Plan" %}, the destroy action.
 
-## How does classification interact with standard Records Management permissions?
-
-There are two levels of interaction between classification and permissions. To view a classified file or record you 
-need to have read permissions for that file and the required clearance level. 
-To classify a file or record, or edit the classification, you need to have read and file permission and clearance 
-to use the classification level(s) involved.
-
-## Why can't I see a classified record when I have the required clearance?
-
-Having the required clearance level isn't all that's needed to view a classified record. 
-You also need to have the required permissions, including but not restricted to permission to view the category, 
-permission to view the folder, and permission to view the record.
-
 ## Why are the tags showing more files than I can see?
 
 Depending on your {% include tooltip.html word="securityclassification" text="security classification" %} level, some files or records might be hidden from you in Alfresco. 
