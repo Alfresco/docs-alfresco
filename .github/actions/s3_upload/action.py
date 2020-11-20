@@ -23,6 +23,7 @@ def main():
             key = re.search('redirects/(.*)', filename).group(1)
 
             response = client.put_object(
+                ACL='public-read',
                 Bucket=BUCKET,
                 Key=key,
                 WebsiteRedirectLocation=url
