@@ -93,3 +93,9 @@
           path: '/content-services/latest/admin/troubleshoot/'
         - title: 'Heartbeat feature'
           path: '/content-services/latest/admin/heartbeat/'
+    - title: 'Develop'
+      pages:
+        - title: 'Architecture'
+          path: '/content-services/latest/develop/architecture/'
+        - title: 'ReST API Guide'
+          path: '/content-services/latest/develop/rest-api-guide/'
