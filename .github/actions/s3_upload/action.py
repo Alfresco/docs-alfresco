@@ -10,7 +10,7 @@ MODIFIED_FILES = "files_modified.json"
 BUCKET = os.environ.get("BUCKET_NAME", None)
 
 
-if __name__ == '__main__':
+def main():
     session = boto3.Session(profile_name='crossaccount')
     client = session.client('s3')
 
@@ -45,3 +45,7 @@ def get_url_from_file(filename):
     with open(filename, "r") as f:
         url = f.readline()
     return url
+
+
+if __name__ == '__main__':
+    main()
