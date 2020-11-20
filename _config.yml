@@ -641,6 +641,9 @@ exclude:
   - redirects/
   - .github/
   - README.md
+  - README.markdown
+  - Dockerfile
+  - docker-compose.yml
   - .gitignore
   # - .sass-cache/
   - .jekyll-cache/
