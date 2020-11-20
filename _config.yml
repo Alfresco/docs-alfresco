@@ -624,7 +624,7 @@ plugins:
 
 highlighter: none
 
-# Elasticsearch settings
+# Elasticsearch/Searchyll settings
 elasticsearch:
   url: https://search-docs-dev-kcq7soqflyxmts7m3a3prekrzi.us-east-1.es.amazonaws.com
   index_name: sandbox

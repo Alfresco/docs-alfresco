@@ -45,9 +45,11 @@ def get_json_from_file(filename):
 def get_url_from_file(filename):
     with open(filename, "r") as f:
         url = f.readline()
-    return re.search(
-        'https://production.docs.alfresco.com(.*)', url
-    ).group(1)
+
+    if "alfresco.com" in url:
+        return re.search('(.*)alfresco.com(.*)', url).group(2)
+
+    return url
 
 
 if __name__ == '__main__':
