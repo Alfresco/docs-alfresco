@@ -57,6 +57,8 @@
               path: '/content-services/latest/config/smart-folders/sf-tutorial/'
             - title: 'FAQ'
               path: '/content-services/latest/config/smart-folders/sf-faq/'
+        - title: 'Content models'
+          path: '/content-services/latest/config/models/'
         - title: 'Mobile'
           path: '/content-services/latest/config/mobile/'
         - title: 'Process Services actions'

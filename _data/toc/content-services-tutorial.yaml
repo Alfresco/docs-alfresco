@@ -7,3 +7,5 @@
       pages:
         - title: 'Admin'
           path: '/content-services/latest/tutorial/admin/'
+    - title: 'Using the Model Manager'
+      path: '/content-services/latest/tutorial/model/'
