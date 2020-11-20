@@ -1,0 +1,5 @@
+name: 'S3 Upload'
+description: 'Uploads Redirect Objects to S3'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
