@@ -1,5 +1,8 @@
-{% assign toch = site.data.toc.[page.location] | where: 'version',  page.version %}
-{% assign toc = toch[0] %}
+{% for toc in site.data.toc.[page.toc] %}
+    {% if toc.version == page.version %}
+        {% assign selected_toc = toc %}
+    {% endif %}
+{% endfor %}
 <ul id="leftside-menu">
-{% include toc_part.html pages=toc.pages %}
+{% include toc_part.html pages=selected_toc.pages %}
 </ul>
