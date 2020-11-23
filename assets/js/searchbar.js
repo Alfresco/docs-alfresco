@@ -221,6 +221,14 @@ const setupSearchBar = () => {
   const escapeHandler = (e) => {
     if (e.code === "Escape") searchClose.click();
   };
+  let oldScrollPos = window.pageYOffset;
+  const scrollHandler = (e) => {
+    var currentScrollPos = window.pageYOffset;
+    if (oldScrollPos > currentScrollPos+30) {
+      searchClose.click();
+    }
+    oldScrollPos = currentScrollPos;
+  }
 
   // open search bar
   if (searchToggler) {
@@ -230,6 +238,8 @@ const setupSearchBar = () => {
       if (searchHolder.classList.contains("is-active")) return;
 
       document.addEventListener("keyup", escapeHandler);
+      oldScrollPos = window.pageYOffset
+      window.addEventListener("scroll", scrollHandler)
 
       searchHolder.ontransitionend = (e) => {
         if (e.propertyName === "opacity") {
@@ -262,6 +272,7 @@ const setupSearchBar = () => {
       if (!searchHolder.classList.contains("is-active")) return;
 
       document.removeEventListener("keyup", escapeHandler);
+      window.removeEventListener("scroll", scrollHandler)
 
       searchHolder.classList.remove("is-active");
 

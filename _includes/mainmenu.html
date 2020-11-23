@@ -6,18 +6,43 @@
         <img src="/assets/img/alfresco-logo.svg" alt="Alfresco logo"/>
       </a>
 
-      <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarBasicExample" role="button">
+      <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbaralfresco" role="button">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
+    <div class="navbar-extra">
+      {% if include.showsearch %}
+      <a class="navbar-item" href="/" id="search-toggle">
+        <i class="icon-search"></i>
+      </a>
+        
+      {% endif %}
 
-    <div class="navbar-menu" id="navbarBasicExample">
-      <div class="navbar-start">
-        <a class="navbar-item is-hoverable" href="/">
-          Docs
+      <div class="navbar-item has-dropdown is-hoverable" onclick="this.classList.toggle('is-active')">
+        <a class="navbar-link">
+          Eng
         </a>
+  
+        <div class="navbar-dropdown is-boxed navbar-lang">
+          <a href="/de/" class="navbar-item">
+            Deutch
+          </a>
+          <a href="/sve/" class="navbar-item">
+            Svenska
+          </a>
+        </div>
+      </div>  
+    </div>
+
+    <div class="navbar-menu" id="navbaralfresco">
+      <div class="navbar-start">
+        <div class="navbar-item">
+          <a class="navbar-link is-arrowless" href="/">
+            Docs
+          </a>
+        </div>
 
       </div>
 
@@ -53,31 +78,6 @@
             {%include submenu_small.html submenu=site.data.home.applications%}
           </div>
         </div>
-        {% if include.showsearch %}
-        <a class="navbar-item" href="/" id="search-toggle">
-          <i class="icon-search"></i>
-        </a>
-          
-        {% endif %}
-
-    <!---Hide language dropdown
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Eng
-          </a>
-
-          <div class="navbar-dropdown is-boxed navbar-lang">
-            <a class="navbar-item">
-              Deutch
-            </a>
-            <a class="navbar-item">
-              Svenska
-            </a>
-          </div>
-        </div>
-
-    --->
       </div>
     </div>
   </nav>
