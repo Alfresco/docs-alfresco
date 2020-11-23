@@ -37,6 +37,8 @@
       pages:
         - title: 'System paths convention'
           path: '/content-services/latest/admin/sys-paths/'
+        - title: 'Deployment Architecture'
+          path: '/content-services/latest/admin/deployment-architecture/'
         - title: 'Admin Tools'
           pages:
             - title: 'Repository Admin Console'
@@ -95,7 +97,15 @@
           path: '/content-services/latest/admin/heartbeat/'
     - title: 'Develop'
       pages:
-        - title: 'Architecture'
-          path: '/content-services/latest/develop/architecture/'
-        - title: 'ReST API Guide'
-          path: '/content-services/latest/develop/rest-api-guide/'
+        - title: 'Software Architecture'
+          path: '/content-services/latest/develop/software-architecture/'
+        - title: 'Extension Packaging (Modules)'
+          path: '/content-services/latest/develop/extension-packaging/'
+        - title: 'Extension Points'
+          pages:
+          - title: 'Content Model'
+            path: '/content-services/latest/develop/content-model/'
+        - title: 'APIs'
+          pages:
+          - title: 'ReST API Guide'
+            path: '/content-services/latest/develop/rest-api-guide/'

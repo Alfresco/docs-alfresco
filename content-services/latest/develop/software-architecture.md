@@ -1,12 +1,12 @@
 ---
-title: Architecture
+title: Software Architecture
 ---
 
 This gives an introduction to the Content Services architecture from a developer's perspective. At its core is 
 a repository that provides a store for content, and a wide range of services that can be used by content applications 
 to manipulate the content.
 
-The following diagram illustrates the three main components that the Alfresco Content Services consits of. The **Platform**, 
+The following diagram illustrates the three main components that the Content Services consits of. The **Platform**, 
 the User Interface (**UI**), and the **Search** engine. These components are implemented as separate web applications:
 
 ![acs_60_architecture_overview]({% link content-services/images/acs_60_architecture_overview.png %})
@@ -24,7 +24,7 @@ supporting exactly the use cases needed by the domain. Giving the end-users the 
 
 The Platform and UI components run in the same Apache Tomcat web application server. The Search component runs in its 
 own Jetty web application server. The Platform is usually also integrated with a Directory Server (LDAP) to be able to 
-sync users and groups with Alfresco Content Services. And most installations also integrates with an SMTP server so the 
+sync users and groups with Content Services. And most installations also integrates with an SMTP server so the 
 Platform can send emails, such as site invitations.
 
 For more information about the internals of the Platform, and specifically the content repository, see the 
@@ -44,7 +44,7 @@ These extensions points have various formats, but include:
 
 ## Guiding design principles
 
-The Alfresco Content Services architecture supports the requirements of Enterprise Content Management (ECM) applications, 
+The Content Services architecture supports the requirements of Enterprise Content Management (ECM) applications, 
 such as Document Management (DM), Web Content Management (WCM), Records Management (RM), Digital Asset Management (DAM), 
 and Search.
 
@@ -55,7 +55,7 @@ in isolation but in the context of the whole system.
 
 ### Simple, simple, simple
 
-Alfresco Content Services aims to be as simple as possible to develop against, customize, deploy, and use. The simplest 
+Content Services aims to be as simple as possible to develop against, customize, deploy, and use. The simplest 
 and probably most widely deployed ECM solution is the shared document drive: the architecture is driven by the aim to be 
 as simple as a shared drive.
 
@@ -65,26 +65,26 @@ Every service and feature is designed up front to scale in terms of size of data
 
 ### Modular approach
 
-Alfresco Content Services architecture takes a modular approach in which capabilities are bundled into modules whose 
+Content Services architecture takes a modular approach in which capabilities are bundled into modules whose 
 implementation can be replaced if required, or not included at all. Aspect-Oriented Programming (AOP) techniques allow 
 for fine-tuning and optimization of an ECM solution.
 
 ### Incorporating best-of-breed libraries
 
-Where possible, Alfresco Content Services incorporates best-of-breed third-party libraries. The open source nature 
+Where possible, Content Services incorporates best-of-breed third-party libraries. The open source nature 
 lends itself to integrating with the wealth of available open source libraries. This is done whenever it is more 
 profitable to integrate than build or whenever expertise is better provided in another project rather than in-house.
 
 ### Environment independence
 
-Alfresco Content Services does not dictate the environment upon which it depends, allowing choice in the operating system, 
+Content Services does not dictate the environment upon which it depends, allowing choice in the operating system, 
 database, application server, browser, and authentication system to use when deploying. ECM is less about the application 
-and more about the services embedded within an application. You can choose how to package Alfresco Content Services — 
+and more about the services embedded within an application. You can choose how to package Content Services — 
 for example, as a web application, an embedded library, or portlet.
 
 ### Solid core
 
-The heart of Alfresco Content Services is implemented in Java. This decision was driven by the wealth of available 
+The heart of Content Services is implemented in Java. This decision was driven by the wealth of available 
 Java libraries, monitoring tools, and enterprise integrations. Java is also a trusted runtime for many enterprises 
 wishing to deploy applications in their data centers. Each capability is implemented as a black-box Java service 
 tested independently and tuned appropriately.
@@ -92,7 +92,7 @@ tested independently and tuned appropriately.
 ### Scriptable extensions
 
 Extensions will always need to be created for custom solutions and there are many custom solutions versus the single 
-Alfresco Content Services core. Therefore, extension points are developed using JVM-based scripting languages, allowing 
+Content Services core. Therefore, extension points are developed using JVM-based scripting languages, allowing 
 a much wider pool of developers to build extensions versus those that can contribute to the core. Extensions are 
 packaged entities, allowing for the growth of a library of third-party reusable extensions.
 
@@ -106,25 +106,25 @@ improve integration possibilities, and hook into the ecosystems built around the
 The architecture promotes a system designed for community contribution. In particular, the architecture principles of a 
 solid core, modularity, standards compliance, simplicity of development, and scriptable extensions encourage contribution 
 of plug-ins and custom ECM solutions. Participation complements the open source approach to the development of 
-Alfresco Content Services and fosters growth of the Alfresco community. As the community grows, the quality of self 
-service improves, as well as the quality of feedback. This, in turn, enhances Alfresco Content Services and creates the 
+Content Services and fosters growth of the Alfresco community. As the community grows, the quality of self 
+service improves, as well as the quality of feedback. This, in turn, enhances Content Services and creates the 
 ultimate feedback loop.
 
 ## System overview
 
-At the core of the Alfresco Content Services system is a repository supported by a server that persists content, 
+At the core of the Content Services system is a repository supported by a server that persists content, 
 metadata, associations, and full text indexes. Programming interfaces support multiple languages and protocols upon 
 which developers can create custom applications and solutions. Out-of-the-box applications provide standard solutions 
 such as document management and records management.
 
-The Alfresco Content Services system is implemented in Java, which means that it can run on most servers that can run 
+The Content Services system is implemented in Java, which means that it can run on most servers that can run 
 the Java Standard Edition. The platform components have been implemented using the Spring framework, which provides 
 the ability to modularize functionality, such as versioning, security, and rules. The platform provides a scripting 
 environment to simplify adding new functionality and developing new programming interfaces. This portion of the 
 architecture is known as Web Scripts and can be used for both data and presentation services. The lightweight architecture 
 is easy to download, install, and deploy.
 
-Ultimately, Alfresco Content Services is used to implement ECM solutions, such as document management and records management. 
+Ultimately, Content Services is used to implement ECM solutions, such as document management and records management. 
 There can also be elements of collaboration and search across these solutions.
 
 A content management solution is typically divided into clients and a server. The clients offer users a user interface 
@@ -133,7 +133,7 @@ against a shared server, where each client is tailored for the environment in wh
 
 ### Clients
 
-Alfresco Content Services offers a web-based client called Alfresco Share, built entirely with the web script technology. 
+Content Services offers a web-based client called Alfresco Share, built entirely with the web script technology. 
 Share provides content management capabilities with simple user interfaces, tools to search and browse the repository, 
 content such as thumbnails and associated metadata, previews, and a set of collaboration tools such as wikis and discussions. 
 Share is organized as a set of sites that can be used as a meeting place for collaboration. It's a web-based application 
@@ -164,7 +164,7 @@ supported protocols, such as FTP, WebDAV, IMAP, and Microsoft SharePoint protoco
 
 The server side repository with its services is also referred to as the platform.
 
-## Platform architecture
+## Platform architecture {#platformarch}
 
 The platform architecture consists of the repository and related services. The platform contains the key extension points 
 for building your own extensions.
@@ -246,37 +246,37 @@ processes to be triggered. In particular, the repository provides the following 
 * **Rules**: declarative definition of processes based on addition, update, or removal of nodes (for example, the equivalent of email rules)
 
 Models also define kinds of relationships, property data types, and value constraints. A special data type called `content` 
-allows a property to hold arbitrary length binary data. Alfresco Content Services comes prepackaged with several content models. 
+allows a property to hold arbitrary length binary data. Content Services comes prepackaged with several content models. 
 You can define new models for specific use cases from scratch or by inheriting definitions from existing models.
 
 For more information see [content model introduction](TODO:../references/dev-extension-points-content-model.md).
 
 ### Access protocols
 
-Alfresco Content Services supports a number of different protocols for accessing the content repository. Their 
+Content Services supports a number of different protocols for accessing the content repository. Their 
 availability extends the options available to developers, when building their own applications and extensions.
 
 Protocols provide developers with another possible avenue for building their own applications and extensions. For example, 
 if you are building a client application to connect with multiple repositories from multiple vendors, including 
-Alfresco Content Services, then CMIS is a consideration. If you are building a client to connect via the SharePoint Protocol, 
+Content Services, then CMIS is a consideration. If you are building a client to connect via the SharePoint Protocol, 
 then use the Alfresco Office Services (AOS). Protocols provide a resource for developers, in addition to the numerous other 
 extension points and APIs built into Alfresco.
 
 When any of these protocols are used to access or upload content to the repository, access control is always enforced 
 based on configured permissions, regardless of what protocol that is used.
 
-The following table list some of the main protocols supported by Alfresco Content Services and links to more detailed 
+The following table list some of the main protocols supported by Content Services and links to more detailed 
 documentation:
 
 |Protocol|Description|Support Status|
 |--------|-----------|--------------|
-|HTTP|The main protocol used to access the repository via for example the ReST APIs.|Standard in Alfresco Content Services and Community Edition.|
-|[WebDAV](TODO:troubleshoot-webdav.md)|Web-based Distributed Authoring and Versioning is a set of HTTP extensions that lets you manage files collaboratively on web servers. It has strong support for authoring scenarios such as locking, metadata, and versioning. Many content production tools, such as the Microsoft Office suite, support WebDAV. Additionally, there are tools for mounting a WebDAV server as a network drive.|Standard in Alfresco Content Servicesand Community Edition.|
-|[FTP](TODO:fileserv-ftp-intro.md)|File Transfer Protocol - standard network protocol for file upload, download and manipulation. Useful for bulk uploads and downloads.|Standard in Alfresco Content Services and Community.|
-|[Alfresco Office Services](TODO_LINK:https://docs.alfresco.com/aos/concepts/aos-intro.html)|Alfresco Office Services (AOS) allow you to access Alfresco Content Services directly from all your Microsoft Office applications.|Standard in Alfresco Content Services and Community Edition.|
-|[CMIS](TODO:../pra/1/topics/cmis-welcome.md)|Alfresco fully implements both the [CMIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cmis){:target="_blank"}. 1.0 and 1.1 standards to allow your application to manage content and metadata in an on-premise repository.|Standard in Alfresco Content Services and Community Edition.|
-|[IMAP](TODO:imap-intro.md)|Internet Message Access Protocol - allows access to email on a remote server. Alfresco Content Services can present itself as an email server, allowing clients such as Microsoft Outlook, Thunderbird, Apple Mail and other email clients to access the content repository, and manipulate folders and files contained there. IMAP supports three modes of operation:<br><br>1. `Archive`: allows email storage in the repository by using drag/drop and copy/paste from the IMAP client.<br><br>2. `Virtual`: folders and files held in the repository are exposed as emails within the IMAP client with the ability to view metadata and trigger actions using links embedded in the email body.<br><br>3. `Mixed`: a combination of both archive and virtual.|Standard in Alfresco Content Services and Community Edition.|
-|[SMTP](TODO:email-intro.md)|It is possible to email content into the repository (InboundSMTP). A folder can be dedicated as an email target.|Standard in Alfresco Content Services and Community Edition.|
+|HTTP|The main protocol used to access the repository via for example the ReST APIs.|Standard in Content Services and Community Edition.|
+|[WebDAV](TODO:troubleshoot-webdav.md)|Web-based Distributed Authoring and Versioning is a set of HTTP extensions that lets you manage files collaboratively on web servers. It has strong support for authoring scenarios such as locking, metadata, and versioning. Many content production tools, such as the Microsoft Office suite, support WebDAV. Additionally, there are tools for mounting a WebDAV server as a network drive.|Standard in Content Servicesand Community Edition.|
+|[FTP](TODO:fileserv-ftp-intro.md)|File Transfer Protocol - standard network protocol for file upload, download and manipulation. Useful for bulk uploads and downloads.|Standard in Content Services and Community.|
+|[Alfresco Office Services](TODO_LINK:https://docs.alfresco.com/aos/concepts/aos-intro.html)|Alfresco Office Services (AOS) allow you to access Content Services directly from all your Microsoft Office applications.|Standard in Content Services and Community Edition.|
+|[CMIS](TODO:../pra/1/topics/cmis-welcome.md)|Alfresco fully implements both the [CMIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cmis){:target="_blank"}. 1.0 and 1.1 standards to allow your application to manage content and metadata in an on-premise repository.|Standard in Content Services and Community Edition.|
+|[IMAP](TODO:imap-intro.md)|Internet Message Access Protocol - allows access to email on a remote server. Content Services can present itself as an email server, allowing clients such as Microsoft Outlook, Thunderbird, Apple Mail and other email clients to access the content repository, and manipulate folders and files contained there. IMAP supports three modes of operation:<br><br>1. `Archive`: allows email storage in the repository by using drag/drop and copy/paste from the IMAP client.<br><br>2. `Virtual`: folders and files held in the repository are exposed as emails within the IMAP client with the ability to view metadata and trigger actions using links embedded in the email body.<br><br>3. `Mixed`: a combination of both archive and virtual.|Standard in Content Services and Community Edition.|
+|[SMTP](TODO:email-intro.md)|It is possible to email content into the repository (InboundSMTP). A folder can be dedicated as an email target.|Standard in Content Services and Community Edition.|
 
 All the protocol bindings expose folders and documents held in the repository. This means a client tool accessing the 
 repository using the protocol can navigate through folders, examine properties, and read content. Most protocols also 
@@ -292,7 +292,7 @@ property files or JMX.
 
 ### Modularity
 
-The Alfresco Content Services system is modular. Every moving part is encapsulated as a service, where each service 
+The Content Services system is modular. Every moving part is encapsulated as a service, where each service 
 provides an external face in a formally defined interface and has one or more black-box implementations.
 
 The system is designed this way to allow for:
@@ -300,10 +300,10 @@ The system is designed this way to allow for:
 * Pick and mix of services for building an ECM solution
 * Reimplementation of individual services
 * Multiple implementations of a service, where the appropriate implementation is chosen based on the context within which the solution is executed
-* A pattern for extending Alfresco Content Services (at design and runtime)
+* A pattern for extending Content Services (at design and runtime)
 * Easier testing of services
 
-To support this approach, Alfresco Content Services used the Spring framework for its factory, Dependency Injection, 
+To support this approach, Content Services used the Spring framework for its factory, Dependency Injection, 
 and Aspect-Oriented Programming (AOP) capabilities. Services are bound together through their interfaces and configured 
 using Spring’s declarative Dependency Injection:
 
@@ -315,8 +315,8 @@ in through Spring AOP behind the service interface. This means that service impl
 It also means the cross-cutting concerns can be configured independently or even switched off across the server if, for example, 
 performance is the top-most requirement and the feature is not necessary.
 
-Multiple services are aggregated into an Alfresco Content Services subsystem where a subsystem represents a complete 
-coherent capability of the Alfresco Content Services server, such as authentication, transformation, and protocols. 
+Multiple services are aggregated into an Content Services subsystem where a subsystem represents a complete 
+coherent capability of the Content Services server, such as authentication, transformation, and protocols. 
 As a unit, subsystems have their own lifecycle where they can be shut down and restarted while the server is running. 
 This is useful to disable aspects of the server, or reconfigure parts of it, such as how LDAP synchronization is mapped. 
 Each subsystem supports its own administration interface that is accessible through property files or JMX.
@@ -349,7 +349,7 @@ referred to as ADF, is built on top of the Angular JavaScript framework. You can
 [Alfresco web components](https://www.alfresco.com/abn/adf/docs/core/components/info-drawer-tab.component/){:target="_blank"} 
 that can be used to build a content management web application and/or a process management web application.
 
-There are a number of web components that you can use to integrate your web application with Alfresco Content Services (ACS). 
+There are a number of web components that you can use to integrate your web application with Content Services (ACS). 
 Here are some of these components:
 
 * **Folder Hierarchy Breadcrumbs** - display a breadcrumb with clickable folder path
@@ -446,7 +446,7 @@ is used, which uses the JavaScript API indirectly. But there are situations when
 JavaScript API directly, such as when ADF cannot be used. ADF is based on Angular and if another JavaScript library 
 such as React has been adopted, then it is beneficial to use the Alfresco JavaScript API directly from React.
 
-The Alfresco JavaScript library abstracts the Alfresco Content Services (ACS) ReST API and the 
+The Alfresco JavaScript library abstracts the Content Services (ACS) ReST API and the 
 Alfresco Process Services (APS) ReST API, so a lot of work has been done to make it smooth to use the 
 Alfresco ReST APIs from a third party JavaScript library. For example, authentication with both ACS and APS is 
 handled automatically by the Alfresco JavaScript library.
@@ -754,49 +754,6 @@ To implement the Hello World page in Aikau we have to go through the following s
 * Choose what Surf Page you want to use as a basis (dp, hdp, rdp etc)
 
 For a full tutorial and introduction to Aikau Pages, see ([Introduction to Aikau Pages](TODO:dev-extensions-share-architecture-extension-points-intro-aikau-pages.md)).
-
-#### Share extension points 
-
-As you can imagine, there are loads of extension points that you can use in the Share UI to build a customized version 
-of the user interface. In this article we have looked at the major ones, which are old school Surf Pages, Aikau Surf pages, 
-Aikau widgets, web scripts, Surf Module extensions, and dashlets. I know we did not explicitly look at how to implement dashlets, 
-but it is the same thing as implementing a Web Script.
-
-There are many more extension points though, for example the Document Library page in a site can be extended via 
-something called Document Library Actions. It is important to know about these supported extension points, and follow them, 
-as otherwise your code might not work in a future release of Alfresco Content Services, and you might have trouble getting 
-the support you need.
-
-Here is a list of each supported extension point in Share, for a comprehensive description of each one go to the 
-[Share Extension Points](TODO:dev-extensions-share-extension-points-introduction.md) section (OOTB = Out-of-the-box functionality):
-
-|Extension Point Name|
-|--------------------|
-|[Share Configuration](TODO:dev-extensions-share-configuration.md)|
-|[Form Controls]TODO:(dev-extensions-share-form-controls.md)|
-|[Form Filters](TODO:dev-extensions-share-form-filters.md)|
-|[Form Field Validation Handlers](TODO:dev-extensions-share-form-field-validation-handlers.md)|
-|[Evaluators](TODO:dev-extensions-share-evaluators.md)|
-|[Site Presets](TODO:dev-extensions-share-site-presets.md)|
-|[Share Themes](TODO:dev-extensions-share-themes.md)|
-|[Document Library](TODO:dev-extensions-share-doclib-actions.md)|
-|[Surf Extension Modules](TODO:dev-extensions-share-surf-extension-modules.md)|
-|[Surf Web Scripts](TODO:dev-extensions-share-surf-web-scripts.md)|
-|[Surf Web Script JavaScript Root Objects](TODO:dev-extensions-share-surf-web-script-js-root-objects.md)|
-|[Surf Pages](TODO:dev-extensions-share-surf-pages.md)|
-|[Surf Dashlets](TODO:dev-extensions-share-surf-dashlets.md)|
-|[Surf Widgets](TODO:dev-extensions-share-surf-widgets.md)|
-|[Aikau Menus](TODO:dev-extensions-share-aikau-menus.md)|
-|[Aikau Pages](TODO:dev-extensions-share-aikau-pages.md)|
-|[Aikau Dashlets](TODO:dev-extensions-share-aikau-dashlets.md)|
-|[Aikau Widgets](TODO:dev-extensions-share-aikau-widgets.md)|
-|[Modifying OOTB Surf Pages](TODO:dev-extensions-share-override-ootb-surf-pages.md)|
-|[Modifying OOTB Surf Dashlets](TODO:dev-extensions-share-override-ootb-surf-dashlets.md)|
-|[Modifying OOTB Surf Widgets](TODO:dev-extensions-share-override-ootb-surf-widgets.md)|
-|[Modifying OOTB Aikau Pages](TODO:dev-extensions-share-override-ootb-aikau-pages.md)|
-|[Modifying OOTB Aikau Dashlets](TODO:dev-extensions-share-override-ootb-aikau-dashlets.md)|
-|[Modifying OOTB Aikau Widgets](TODO:dev-extensions-share-override-ootb-aikau-widgets.md)|
-|[Modifying OOTB Surf Web Scripts](TODO:dev-extensions-share-override-ootb-surf-webscripts.md)|
 
 #### Surf Pages introduction 
 
@@ -1144,7 +1101,7 @@ called `HelloWorldTextWidget.css`, create it in the same place as the Widget cla
 }      
 ```
 
-Now restart Alfresco Content Services and then access the page with the `http://localhost:8080/share/page/hdp/ws/helloworld` URL. 
+Now restart Content Services and then access the page with the `http://localhost:8080/share/page/hdp/ws/helloworld` URL. 
 You should see the following page in Share:
 
 ![dev-extensions-share-surf-page-helloworld-aikau]({% link content-services/images/dev-extensions-share-surf-page-helloworld-aikau.png %})
@@ -1173,7 +1130,7 @@ JavaScript and Groovy. Templates are written using FreeMarker. You can build bot
 websites using Surf, and it provides out-of-the-box support for rendering content delivered through content delivery 
 services, such as CMIS, Atom, and RSS.
 
->**Note:** The Groovy `invokedynamic` `indy` library is included in Alfresco Content Services. Depending on the JVM version, you can target close to Java performance for dynamic Groovy with `invokedynamic` support activated.
+>**Note:** The Groovy `invokedynamic` `indy` library is included in Content Services. Depending on the JVM version, you can target close to Java performance for dynamic Groovy with `invokedynamic` support activated.
 
 **Features:**
 
@@ -1185,3 +1142,29 @@ services, such as CMIS, Atom, and RSS.
 * **Two-tier architecture**: Surf works in a decoupled architecture where the presentation tier is separate from the content services tier.
 * **Production, development, and staging/preview**: Configure Surf to work in a number of deployment scenarios including development, preview, or production environments.
 * **Development tools**: Tools that plug into the SpringSource suite of development tools include Eclipse add-ons for SpringSource Tool Suite, as well as Spring Roo plug-ins to enable scaffolding and script-driven site generation.
+
+## APIs
+
+To access and extend out-of-the-box services, the content application server exposes two flavors of API, each designed 
+for a specific type of client.
+
+The two main categories of API that are available to use when interacting with the Alfresco Repository is the remote 
+and the embedded APIs.
+
+### Remote APIs
+
+The main remote Application Programmaing Interface (API) is the [Alfresco ReST API](TODO:../pra/1/topics/pra-welcome.md), 
+which should be the first place you go to when you want to interact with the Alfresco Repository remotely. 
+If portability is very important, than have a look at the [CMIS ReST API](TODO:../pra/1/topics/cmis-welcome.md), 
+which is a standard implemented by many ECM vendors.
+
+### Embedded APIs
+
+The embedded APIs have traditionally been used a lot to build customizations that run inside the same JVM as the 
+Alfresco Repository. There are both a [Public Java API](TODO:java-public-api-list.md) and a [Repository JavaScript API](TODO:API-JS-intro.md). 
+Before using the embedded APIs a thorough investigation should be done to rule out the possibility of building the extension 
+with a remote a remote API. It is not recommended to build embedded extensions unless it is absoutely necessary. 
+They make it difficult during upgrades and can quite easily have unintended side effects on core repository functionality, 
+such as file upload.
+
+For an overview of all APIs navigate to this [page](TODO:dev-api-intro.md).
