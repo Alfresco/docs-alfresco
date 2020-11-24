@@ -2083,7 +2083,7 @@ footer .copyright img {
   
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 350px) {
   .langing-section-header h1 {
     font-size: 18pt;
   }
