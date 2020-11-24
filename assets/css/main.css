@@ -604,6 +604,7 @@ body > .section.section-landing {
 
 .column.column-content {
   margin-left: 24px;
+  overflow: hidden;
 }
 
 .content h1 {
