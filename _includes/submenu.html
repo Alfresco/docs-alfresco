@@ -2,6 +2,11 @@
 <div class="columns">
     {%assign subindex = 0%}
     {%for s in site.data.home.integrations %}
+      {%if subindex > 3 %}
+        </div><div class="columns">
+        {%assign subindex = 0%}
+      {%endif%}
+      {% assign subindex = subindex | plus:1 %}
     <div class="column">
       <div class="container">
       <h1>{{s.title}}</h1>
@@ -12,13 +17,11 @@
       {%endfor%}
       </div>
     </div>
-        {% assign subindex = subindex | plus:1 %}
-        {%if subindex > 3 %}
-        </div><div class="columns">
-        {%assign subindex = 0%}
-      {%endif%}
     {%endfor%}
+
+    {%if subindex > 0%}
     {% for item in (1..4) offset:subindex %}
-      <div class="column"> </div>
+      <div class="column">1</div>
     {% endfor %}
-</div>
+    {%endif%}
+ </div>

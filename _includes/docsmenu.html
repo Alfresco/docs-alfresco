@@ -68,15 +68,14 @@
 
           </div>
         </div>
+{% unless page.tutorial == nil and page.api == nil and page.support == nil and page.release == nil %}
         <div class="tabs">
           <ul>
 {%capture pagebase%}/{{page.location}}/{% if page.latest == true %}latest{%else%}{{page.version}}{%endif%}/{%endcapture%}
 
-{% unless page.tutorial == nil and page.api == nil and page.support == nil and page.release == nil %}
 <li class="{%if pagebase == page.url %}is-active{%endif%}">
     <a href="{{pagebase}}">Reference</a>
 </li>
-{% endunless %}
 
 {% if page.tutorial == true %}
 {% capture href %}{{pagebase}}tutorial/{%endcapture%}
@@ -108,5 +107,7 @@
 
           </ul>
         </div>
+{% endunless %}
+
       </div>
     </section>

@@ -1779,6 +1779,8 @@ footer .copyright img {
     z-index: 20;
   }
 
+  
+
   .navbar-extra .navbar-item.is-active .navbar-dropdown  {
     opacity: 1;
     pointer-events: auto;
@@ -1882,6 +1884,7 @@ footer .copyright img {
   }
   nav.navbar .navbar-integrations {
     width: unset;
+    padding-bottom: 0px;
   }
 
   .column.column-content {
@@ -1939,7 +1942,7 @@ footer .copyright img {
 }
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .landing-mainimage {
     width: 100%;
     height: 100vw;
@@ -1991,6 +1994,15 @@ footer .copyright img {
   .section-applications .column:nth-child(2)  {
     margin-bottom: 0px;
   }
+  .section-integrations .section-landing-element p,
+  .section-services .section-landing-element p {
+    margin-right: 50px;
+  }
+
+  .section-integrations a,
+  .section-applications li a, .section-applications li > p {
+    padding-right: 50px;
+  }
 
   .navbar-integrations .column {
     padding-top: 16px;
@@ -2000,13 +2012,9 @@ footer .copyright img {
     border-bottom: 1px solid rgba(33, 35, 40, 0.12);
     padding-bottom: 16px;
   }
-  .navbar-integrations .columns:last-child .column:nth-last-child(2) .container {
-    border-bottom: none;
-    padding-bottom: 0px;
-  }
     
-  .navbar-integrations .columns:last-child .column:last-child {
-    padding: 0px;
+  .navbar-integrations .columns:last-child .column:last-child .container {
+    border-bottom: none;
   }
   .notif-box {
     bottom: 0px;
@@ -2073,4 +2081,10 @@ footer .copyright img {
     width: 100%;
   }
   
+}
+
+@media screen and (max-width: 300px) {
+  .langing-section-header h1 {
+    font-size: 18pt;
+  }
 }
