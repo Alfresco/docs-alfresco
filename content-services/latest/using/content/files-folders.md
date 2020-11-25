@@ -1,5 +1,5 @@
 ---
-title: Work with files and folders
+title: Files and folders
 ---
 
 Once files are added to a site, site members can access and work with them. In addition to adding more files, members can view, download, edit, and delete files.
@@ -285,7 +285,7 @@ For a detailed list of aspects available and what they do, see [About aspects](T
 
 You can override the default site permissions for any content you add to the document library. This lets you control what site members can see and do with your content.
 
-Each user has an assigned role in the site - Manager, Collaborator, Contributor, or Consumer - and each role has a default set of permissions. This controls the actions site members can [perform in the site]({% link content-services/latest/using/share/permissions.md %}).
+Each user has an assigned role in the site - Manager, Collaborator, Contributor, or Consumer - and each role has a default set of permissions. This controls the actions site members can [perform in the site]({% link content-services/latest/using/permissions.md %}).
 
 > **Note:** In Content Services 6.2.2 and above changing permissions on a node with no explicit permissions (i.e. all permissions are inherited from a parent) has a time limit for the ACL propagation on children. This is needed for large node-trees where changes cannot be performed synchronously in one transaction due to resource limitations. In these cases the updates to the nodes will be scheduled for asynchronous processing which will be used for all changes that could not be completed within the set time limit. The limit can be configured by changing the `system.fixedACLs.maxTransactionTime` property in the `\tomcat\shared\classes\alfresco-global.properties` file. The processing is handled by the `fixedACLsUpdater` job which can be scheduled to run by changing a CRON expression in the property: `system.fixedACLsUpdater.cronExpression`.
 
@@ -332,7 +332,7 @@ You can take ownership of files and folders from other users.
 
 You may need to do this if someone who owned a file or folder has left your company and you need to take responsibility for it.
 
-> **Note:** You need to be a Site Manager or have permission to delete a file or folder to become its owner, see [User roles and permissions]({% link content-services/latest/using/share/permissions.md %}).
+> **Note:** You need to be a Site Manager or have permission to delete a file or folder to become its owner, see [User roles and permissions]({% link content-services/latest/using/permissions.md %}).
 
 1. Click on a file to open the file preview.
 
@@ -361,3 +361,11 @@ You can only change the content type if your Alfresco administrator has configur
 4. Click **OK**.
 
     When you give a file a type property it is shown on both the file preview screen and the Edit Properties screen for the file.
+
+## Replicated content
+
+Content Services administrators can configure Content Services systems so that content is replicated across multiple repositories. Files and folders created as the result of a replication job display the **Transferred from another Repository** icon in the file list.
+
+This icon indicates that this is replicated, not original, content. Depending on the transfer configuration, the content can be read-only.
+
+Content marked with this icon also displays the action **View in Source Repository**. Select this action to display the file preview screen for the related *original* content file or folder.

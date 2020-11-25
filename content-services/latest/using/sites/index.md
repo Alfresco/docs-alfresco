@@ -1,5 +1,5 @@
 ---
-title: Sites
+title: Overview of sites
 ---
 
 A site is a area where you can share content and collaborate with other site members.
@@ -248,7 +248,7 @@ You can create a site from anywhere in Alfresco Share, and are automatically mad
     * **Moderated**: The same as a **Public** site but the site manager must approve a users request to join.
     * **Private**: Only available to the site manager and any users added to the site.
 
-    > **Note:** The visibility setting you select is displayed next to the site name when a user is in the site. See [Alfresco Share sites]({% link content-services/latest/using/share/sites.md %}) for more information on site visibility settings.
+    > **Note:** The visibility setting you select is displayed next to the site name when a user is in the site. See [Alfresco Share sites]({% link content-services/latest/using/sites/index.md %}) for more information on site visibility settings.
 
 5. Click **Save**.
 
@@ -258,7 +258,7 @@ You'll see the dashboard for the new site which you can now customize. Sites tha
 
 Once you've created a site you can customize it to add extra features.
 
-Each new site contains a library, and the site manager can [add other features]({% link content-services/latest/using/share/features/index.md %}), such as a wiki, a blog, and a calendar. These features can be further customized by renaming, and creating a theme or color scheme. You can also [choose a site homepage](#choosehomepage).
+Each new site contains a library, and the site manager can add other features, such as a wiki, a blog, and a calendar. These features can be further customized by renaming, and creating a theme or color scheme. You can also [choose a site homepage](#choosehomepage).
 
 1. Enter a site.
 
@@ -398,7 +398,7 @@ You can add any user, either internal to your organization or an external user.
 
 4. Set the site role for each user, or use **Set all roles to** to assign the same role to all users. This controls what the user can do in the site.
 
-    > **Note:** See [User roles and permissions]({% link content-services/latest/using/share/permissions.md %}) for more about site roles.
+    > **Note:** See [User roles and permissions]({% link content-services/latest/using/permissions.md %}) for more about site roles.
 
     Once you've selected site roles for all the users you've selected, the **Add Users** button will be switched on.
 
@@ -446,7 +446,7 @@ Inviting users one at a time to join your site can be time consuming. To save ti
 
 5. Set the site role for each group, or use **Set all roles to** to assign the same role to all groups. This controls what the groups users can do in the site.
 
-    > **Note:** See [User roles and permissions]({% link content-services/latest/using/share/permissions.md %}) for more about site roles.
+    > **Note:** See [User roles and permissions]({% link content-services/latest/using/permissions.md %}) for more about site roles.
 
     Once you've selected site roles for all the groups you've selected, the **Add Groups** button will be switched on.
 

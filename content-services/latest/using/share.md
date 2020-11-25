@@ -1,10 +1,37 @@
 ---
-title: Finding your way around
+title: Alfresco Share
 ---
 
 Find everything you need to know for using Alfresco Share on a daily basis.
 
+With Alfresco Share it's simple to share information, run projects, and collaborate effectively by
+
+* Personalizing Alfresco Share with your own dashboard and user profile
+* Build a site for your team
+* Work with content and add it to your site
+* Add users to your site, set up meetings and use social media features
+
+There are a set of [video tutorials]({% link content-services/latest/tutorial/video/index.md %}) related to Alfresco Share, including a [tour of the available features]({% link content-services/latest/tutorial/video/index.md %}#tour-of-alfresco-share).
+
 Alfresco Share content is stored in sites, and each individual site has its own dashboard made up of *dashlets*.
+
+## Signing in
+
+To get started with Alfresco Share you first need to sign in.
+
+1. Enter the following on the sign in screen:
+
+    **Username**: *your user name*
+
+    **Password**: *your password*
+
+    > **Note:** You can get the sign in URL from your IT team. If you've downloaded Alfresco Share straight to your computer then the default url is `127.0.0.1:8080/share`.
+
+2. Click **Sign In**.
+
+    This opens your personal dashboard. You can now configure the dashboard so that it shows the information most important to you.
+
+    ![Your Personal Dashboard]({% link content-services/images/gs-firstlogin.png %})
 
 ## Alfresco Share toolbar
 
@@ -21,7 +48,7 @@ It's always available at the top of the page, wherever you are in Share:
 * **Repository**: Opens the repository which shows all the content stored in Content Services.
 * **Admin Tools**: System administrators only have this option which opens the Admin Tools.
 * **Sites Manager**: Only Alfresco administrators and Site administrators have this option which opens the Sites Manager. If you are an Alfresco administrator, you can access the Site Manager through the **Admin Tools** on the toolbar. If you are a Site administrator, you'll have an additional **Sites Manager** option on the toolbar.
-* **<user> menu**: Click on your name to open the user menu. You can access your user profile, change your password, open the user help, and log out.
+* **`User` menu**: Click on your name to open the user menu. You can access your user profile, change your password, open the user help, and log out.
 * **Search**: Use the search box to find files, sites, and people.
 
 ## User dashboard
@@ -30,7 +57,7 @@ Wherever you are in Alfresco Share, you can click **Home** or **User Dashboard**
 
 The dashlets on this page give you a simple and up-to-date overview of what's been going on in the sites you're a member of.
 
-> **Note:** If you've [set your home page]({% link content-services/latest/using/share/dashboard.md %}#sethomepage) then when you click **Home** that page will open.
+> **Note:** If you've [set your home page]({% link content-services/latest/using/dashboard.md %}#sethomepage) then when you click **Home** that page will open.
 
 You can customize your dashboard to display the information that interests you. Each dashlet you select is displayed on the dashboard. 
 

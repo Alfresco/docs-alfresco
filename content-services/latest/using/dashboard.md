@@ -1,5 +1,5 @@
 ---
-title: Your profile and dashboard
+title: Profiles and dashboards
 ---
 
 You can customize your user profile and dashboard however you like without affecting anyone else - you're the only person that sees your dashboard.
@@ -30,7 +30,7 @@ If you want, add multiple copies of each dashlet and then set the filters so tha
 
         > **Note:** You can drag and drop dashlets around the columns to change the display order, or to the trash can (or press DELETE) to remove them.
 
-        See [What can I do with my dashlets?]({% link content-services/latest/using/share/index.md %}#whatcanidowithmydashlets) for more.
+        See [What can I do with my dashlets?]({% link content-services/latest/using/index.md %}#whatcanidowithmydashlets) for more.
 
 4. Select whether to show or hide the Get Started Panel.
 

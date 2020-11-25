@@ -1,5 +1,5 @@
 ---
-title: Applying rules to folders
+title: Folder rules
 ---
 
 In the library you can define folder rules to manage your content automatically. You can come up with many creative solutions to make sure specific content processes are automated all without you having to do the work yourself.
@@ -97,7 +97,7 @@ Actions don't apply to files in subfolders, unless the **Rule applies to subfold
 |**Move**|Moves all files and subfolders to the location of your choice.|
 |**Check in**|Files that are currently checked out will be checked in. For example, they will be checked in before being moved to another folder. Select **Options** to choose whether they will be checked in as minor or major versions.|
 |**Check out**|Checks out files automatically, with a working copy created in the location of your choice.|
-|**Link to category**|Links files or folders to a category of your choice, such as a region or classification. See [Tagging and categorizing content]({% link content-services/latest/using/share/content/organize.md %}#tagcategorizecontent) for more information.|
+|**Link to category**|Links files or folders to a category of your choice, such as a region or classification. See [Tagging and categorizing content]({% link content-services/latest/using/content/manage.md %}#tagcategorizecontent) for more information.|
 |**Add aspect**|Adds a property aspect to files, to give it additional behaviors or properties. See [About Aspects](TODO_LINK:../concepts/aspect-about.md) for more information.|
 |**Remove aspect**|Removes a property aspect from files, to remove functionality or properties. See [About Aspects](TODO_LINK:../concepts/aspect-about.md) for more information.|
 |**Add simple workflow**|Adds files to a workflow. By default there is an approval task. You can also click to add a reject task. You can click on **Approve** and **Reject** to rename the steps and to select a location to copy and move approved/rejected files to. See [Tasks and workflows](#createsimpleworkflow) for more information.|
@@ -106,7 +106,7 @@ Actions don't apply to files in subfolders, unless the **Rule applies to subfold
 |**Transform and copy image**|When applicable, add copies of image files, in the format of your choice, to another location. For example you can generate a copy of a GIF file in PNG format in a different folder.|
 |**Extract common metadata fields**|Embedded metadata is extracted from files and added to the file properties. Microsoft Office document properties, LibreOffice, and a number of other formats are supported.|
 |**Import**|ZIP and ACP files are automatically unpacked. Select a location where the unpacked files will be placed.|
-|**Specialise type**|When applicable, changes a file's content type. For example, changes a standard file into a policy document and adds the appropriate metadata for that content type. See [Changing the content type]({% link content-services/latest/using/share/content/files-folders.md %}#changetype) for more information.|
+|**Specialise type**|When applicable, changes a file's content type. For example, changes a standard file into a policy document and adds the appropriate metadata for that content type. See [Changing the content type]({% link content-services/latest/using/content/files-folders.md %}#changetype) for more information.|
 |**Increment Counter**|Automatically increments the value of a number (integer) property. This will generally only be used by Alfresco administrators.|
 |**Set property value**|Select a property and then enter a default value. Files with that property will have it changed to the entered value.|
 |**Embed properties as metadata in content**|Embeds file properties directly into the binary file as metadata. The information contained in those files can help in searching and workflows.|

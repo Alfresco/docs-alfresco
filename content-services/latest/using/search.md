@@ -1,5 +1,5 @@
 ---
-title: Searching for content
+title: Search
 ---
 
 You can use the search box on the toolbar to search for files, sites, and people.
@@ -40,7 +40,7 @@ You can now:
 
 > **Note:** Click the **Search in** menu to search in all sites or just in the site you're in.
 
-If you're a [Search Manager]({% link content-services/latest/using/share/powerusers.md %}#searchmanager) super user then you'll have an additional **Search Manager** option you can click where you can create new search filters.
+If you're a [Search Manager]({% link content-services/latest/using/permissions.md %}#searchmanager) super user then you'll have an additional **Search Manager** option you can click where you can create new search filters.
 
 As well as the search box on the toolbar, there are also additional advanced search features for finding [people](#peoplefinder), [sites](#sitefinder), and [content](#advancedsearch).
 

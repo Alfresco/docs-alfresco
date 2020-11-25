@@ -1,5 +1,5 @@
 ---
-title: Using Smart Folders
+title: Smart Folders
 ---
 
 A Smart Folder is a way of grouping files from different locations in Alfresco Share into a single folder, so that you can quickly find similar files.
