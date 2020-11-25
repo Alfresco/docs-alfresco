@@ -2845,7 +2845,7 @@ The formats listed are in addition to the standard formats as specified in [Stan
 |image/x-xpixmap|Yes|
 |image/x-xwindowdump|Yes|
 
-### Document Transformation Engine
+### Document Transformation Engine {#doctransformengine}
 
 Transformation Engine gives an alternative method of remote transformation for a range of applications including pdf, 
 Word, Excel, PowerPoint and openxmlformats. It also supports a range of image transformations. The formats listed are 
