@@ -262,6 +262,10 @@ nav.navbar .navbar-lang {
   margin-bottom: 50px;
 }
 
+.footer .extra-links {
+  flex-wrap: wrap;
+}
+
 /* sections */
 
 body > .section {
@@ -1323,6 +1327,7 @@ a.github-link::after {
 
 .content-table-wrapper {
   overflow-x: scroll;
+  margin-bottom: 16px;
 }
 
 .copy-pane {
