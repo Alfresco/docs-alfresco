@@ -105,6 +105,16 @@
           pages:
           - title: 'Content Model'
             path: '/content-services/latest/develop/content-model/'
+          - title: 'Repository Actions'
+            path: '/content-services/latest/develop/repo-actions/'
+          - title: 'Web Scripts'
+            path: '/content-services/latest/develop/web-scripts/'
+          - title: 'Behavior Policies'
+            path: '/content-services/latest/develop/behavior-policies/'
+          - title: 'Bootstrap content'
+            path: '/content-services/latest/develop/bootstrap-content/'
+          - title: 'Module Components'
+            path: '/content-services/latest/develop/module-components/'
         - title: 'APIs'
           pages:
           - title: 'ReST API Guide'
