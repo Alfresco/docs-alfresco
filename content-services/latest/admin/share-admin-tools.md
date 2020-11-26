@@ -162,7 +162,7 @@ You can delete any of the sites in the Site Manager list by selecting **Delete S
 
 The `I'm a Site Manager` column shows the sites where you have the Site Manager permission. If you'ren't already a manager of a site, then select **Become Site Manager** from the **Actions** menu.
 
-Take a look at this video to learn more: [Site Manager]({% link content-services/latest/tutorial/admin/index.md %}#usingsitesmanager)
+Take a look at this video to learn more: [Site Manager]({% link content-services/latest/tutorial/video/sites.md %}#use-sites-manager)
 
 ## Search Manager
 
@@ -172,7 +172,7 @@ Filtered search is a powerful search feature that allows users to filter and cus
 
 You can configure filtered search either by using [configuration files](#configfilteredsearch) or by using the Search Manager.
 
-Take a look at this video to learn more: [Search Manager]({% link content-services/latest/tutorial/admin/index.md %}#usingsearchmanager)
+Take a look at this video to learn more: [Search Manager]({% link content-services/latest/tutorial/video/content.md %}#use-search-manager)
 
 ### Configure filtered search using configuration files {#configfilteredsearch}
 
