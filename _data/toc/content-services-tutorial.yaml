@@ -5,6 +5,8 @@
       pages:
         - title: 'Overview'
           path: '/content-services/latest/tutorial/'
+        - title: 'Configure Model Manager'
+          path: '/content-services/latest/tutorial/model/'
         - title: 'Videos'
           pages:
             - title: 'Alfresco Share videos'
