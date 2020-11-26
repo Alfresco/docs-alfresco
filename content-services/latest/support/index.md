@@ -323,4 +323,3 @@ Alfresco Content Connector for Azure 1.1 | |
 {% endcapture %}
 
 {% include tabs.html tableid="supported-platforms" opt1="6.2.2" content1=six-two-two opt2="6.2.1" content2=six-two-one opt3="6.2.0" content3=six-two-zero %}
-

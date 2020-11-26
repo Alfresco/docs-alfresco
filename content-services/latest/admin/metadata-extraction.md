@@ -1,20 +1,16 @@
 ---
 title: File metadata extraction
-nav: false
 ---
 
 This page contains information about metadata extraction, which happens when a file is uploaded to the Alfresco repository.
- 
-For information about configuring metadata extractors, see 
-[Metadata Extractors](TODO:dev-extension-points-custom-metadata-extractor.md).
 
-## File metadata mapping to Repository properties 
+For information about configuring metadata extractors, see [Metadata Extractors](TODO_LINK:dev-extension-points-custom-metadata-extractor.md).
 
-Use this information to understand the default mapping in Content Services between file types, 
-metadata extractors, and mapped properties.
+## File metadata mapping to Repository properties
 
-This table provides information about the fields that can be extracted from certain file types, such as a `.pdf`, 
-and the Repository content model property, such as `cm:author`, that the extracted field maps to.
+Use this information to understand the default mapping in Content Services between file types, metadata extractors, and mapped properties.
+
+This table provides information about the fields that can be extracted from certain file types, such as a `.pdf`, and the Repository content model property, such as `cm:author`, that the extracted field maps to.
 
 |File type|Extracted Field|Content model property|
 |---------|---------------|----------------------|
