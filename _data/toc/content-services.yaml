@@ -1,7 +1,7 @@
 # Alfresco Content Services
 - version: 6.2
   pages:
-    - title: 'Introduction'
+    - title: Introduction
       path: '/content-services/latest/'
     - title: 'Install'
       pages:
@@ -123,3 +123,36 @@
           path: '/content-services/latest/admin/troubleshoot/'
         - title: 'Heartbeat feature'
           path: '/content-services/latest/admin/heartbeat/'
+
+    - title: 'Using'
+      pages:
+        - title: 'Overview'
+          path: '/content-services/latest/using/'
+        - title: 'Alfresco Share'
+          path: '/content-services/latest/using/share/'
+        - title: 'Profiles and dashboards'
+          path: '/content-services/latest/using/dashboard/'
+        - title: 'Sites'
+          pages:
+            - title: 'Overview'
+              path: '/content-services/latest/using/sites/'
+            - title: 'Features'
+              path: '/content-services/latest/using/sites/features/'
+        - title: 'Content'
+          pages:
+            - title: 'Overview'
+              path: '/content-services/latest/using/content/'
+            - title: 'Manage content'
+              path: '/content-services/latest/using/content/manage/'
+            - title: 'Files and folders'
+              path: '/content-services/latest/using/content/files-folders/'
+            - title: 'Folder rules'
+              path: '/content-services/latest/using/content/rules/'
+        - title: 'Tasks and workflows'
+          path: '/content-services/latest/using/tasks/'
+        - title: 'Search'
+          path: '/content-services/latest/using/search/'
+        - title: 'Smart Folders'
+          path: '/content-services/latest/using/smart-folders/'
+        - title: 'Roles and permissions'
+          path: '/content-services/latest/using/permissions/'

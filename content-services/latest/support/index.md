@@ -4,7 +4,7 @@ title: Supported platforms
 
 Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services.
 
-Last modified: **October 19 2020**
+Last modified: **November 12 2020**
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact [Support](https://support.alfresco.com){:target="_blank"}.
 
@@ -31,7 +31,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | PostgreSQL 11.4 | `Postgresql-42.2.6.jar` |
 | PostgreSQL 10.9 | `Postgresql-42.2.1.jar` |
 | MariaDB 10.2.18 | `mariadb-java-client-2.2.5.jar` |
-| Amazon Aurora | `mariadb-java-client-2.2.5.jar` |
+| Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 | | |
 | **Message brokers** | |
 | ActiveMQ v5.15.8 | |
@@ -131,7 +131,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | PostgreSQL 11.4 | `Postgresql-42.2.6.jar` |
 | PostgreSQL 10.9 | `Postgresql-42.2.1.jar` |
 | MariaDB 10.2.18 | `mariadb-java-client-2.2.5.jar` |
-| Amazon Aurora | `mariadb-java-client-2.2.5.jar` |
+| Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 | | |
 | **Message brokers** | |
 | ActiveMQ v5.15.8 | |
@@ -240,7 +240,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | PostgreSQL 11.4 | `Postgresql-42.2.6.jar` |
 | PostgreSQL 10.9 | `Postgresql-42.2.1.jar` |
 | MariaDB 10.2.18 | `mariadb-java-client-2.2.5.jar` |
-| Amazon Aurora | `mariadb-java-client-2.2.5.jar` |
+| Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 | | |
 | **Message brokers** | |
 | ActiveMQ v5.15.8 | |
@@ -323,3 +323,4 @@ Alfresco Content Connector for Azure 1.1 | |
 {% endcapture %}
 
 {% include tabs.html tableid="supported-platforms" opt1="6.2.2" content1=six-two-two opt2="6.2.1" content2=six-two-one opt3="6.2.0" content3=six-two-zero %}
+
