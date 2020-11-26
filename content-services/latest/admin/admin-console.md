@@ -2,14 +2,9 @@
 title: Repository Admin Console
 ---
 
-The Repository Admin Console application gives you control over the management and settings of the 
-Content Services environment.
+The Repository Admin Console application gives you control over the management and settings of the Content Services environment.
 
-You'll find help text on the Admin Console pages to assist you with setting up the repository.
-
-You can access the Admin Console directly from the 
-[Alfresco Share Admin Tools]({% link content-services/latest/admin/share-admin-tools.md %}) or open it as a 
-standalone session, see [Launching the Admin Console](#launchadminconsole).
+You'll find help text on the Admin Console pages to assist you with setting up the repository. See how to [launch the Admin Console](#launch-admin-console) directly.
 
 ## Overview
 
@@ -19,78 +14,72 @@ The Admin Console is a tool comprising separate pages that identify a particular
 
 * System Summary: [Viewing the System Summary](#systemsummary)
 * Consoles:
-    * GoogleDocs: [Configuring Google Docs using Admin Tools](TODO_LINK:https://docs.alfresco.com/googledocs/tasks/adminconsole-googledocs.html)
-    * Model and Messages: [Managing models using the Admin Console](TODO_LINK:../tasks/adminconsole-modelconsole.md)
-    * Tenant: [Managing tenants]({% link content-services/latest/admin/multi-tenancy.md %}#managetenants)
-    * Workflow: [The Workflow Console]({% link content-services/latest/admin/workflows.md %}#workflowconsole)
+  * GoogleDocs: [Configuring Google Docs using Admin Tools](TODO_LINK:https://docs.alfresco.com/googledocs/tasks/adminconsole-googledocs.html)
+  * Model and Messages: [Managing models using the Admin Console](TODO_LINK:../tasks/adminconsole-modelconsole.md)
+  * Tenant: [Managing tenants]({% link content-services/latest/admin/multi-tenancy.md %}#managetenants)
+  * Workflow: [The Workflow Console]({% link content-services/latest/admin/workflows.md %}#workflowconsole)
 * Email Services:
-    * Inbound Email: [Managing inbound emails](TODO_LINK:../tasks/adminconsole-inboundemail.md)
-    * Outbound Email: [Managing outbound emails](TODO_LINK:../tasks/adminconsole-outboundemail.md)
+  * Inbound Email: [Managing inbound emails](TODO_LINK:../tasks/adminconsole-inboundemail.md)
+  * Outbound Email: [Managing outbound emails](TODO_LINK:../tasks/adminconsole-outboundemail.md)
 * General:
-    * License: [Uploading a new license]({% link content-services/latest/admin/license-process.md %}#uploadlicense)
-    * Repository Information: [Viewing Repository Information](#viewrepoinfo)
-    * System Settings: [Configuring server administration settings](TODO_LINK:../tasks/adminconsole-systemsettings.md)
+  * License: [Uploading a new license]({% link content-services/latest/admin/license.md %}#uploadlicense)
+  * Repository Information: [Viewing Repository Information](#viewrepoinfo)
+  * System Settings: [Configuring server administration settings](TODO_LINK:../tasks/adminconsole-systemsettings.md)
 * Repository Services:
-    * Activities Feed: [Configuring the Activities Feed](TODO_LINK:../tasks/adminconsole-activitiesfeed.md)
-    * Repository Server Clustering: [Managing members of a cluster]({% link content-services/latest/admin/cluster.md %}#managecluster)
-    * Index Server Sharding: [Configuring Search Services sharding using the Admin Console](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/adminconsole-indexserver-sharding.html)
-    * Process Engines: [Enabling workflow process engines]({% link content-services/latest/admin/workflows.md %}#enableprocessengines)
-    * Replication Service: [Enabling the Replication Service]({% link content-services/latest/admin/replication.md %}#enablereplication)
-    * Search Service: [Configuring Search Services using Admin Console](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/adminconsole-searchservice-solr.html)
-    * Subscription Service: [Enabling the Subscription Service](TODO_LINK:../tasks/adminconsole-subscriptionservice.md)
-    * Transformation Services: [Changing the OOoJodconverter subsystems](TODO_LINK:../tasks/OOo-subsystems-config.md)
-    >**Note:** Use Repository Services to manage individual repository servers. This function cannot be accessed through a load balancer.
+  * Activities Feed: [Configuring the Activities Feed](TODO_LINK:../tasks/adminconsole-activitiesfeed.md)
+  * Repository Server Clustering: [Managing members of a cluster]({% link content-services/latest/admin/cluster.md %}#managecluster)
+  * Index Server Sharding: [Configuring Search Services sharding using the Admin Console](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/adminconsole-indexserver-sharding.html)
+  * Process Engines: [Enabling workflow process engines]({% link content-services/latest/admin/workflows.md %}#enableprocessengines)
+  * Replication Service: [Enabling the Replication Service]({% link content-services/latest/admin/replication.md %}#enablereplication)
+  * Search Service: [Configuring Search Services using Admin Console](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/adminconsole-searchservice-solr.html)
+  * Subscription Service: [Enabling the Subscription Service](TODO_LINK:../tasks/adminconsole-subscriptionservice.md)
+  * Transformation Services: [Changing the OOoJodconverter subsystems](TODO_LINK:../tasks/OOo-subsystems-config.md)
+    >**Note:** Use Repository Services to manage individual repository servers. This function can't be accessed through a load balancer.
 * Support Tools:
-    * Download JMX Dump: [JMX Settings]({% link content-services/latest/admin/support-tools.md %}#jmxsettings)
-    * Node Browser: [Using the Node Browser](TODO_LINK:../tasks/adminconsole-nodebrowser.md)
+  * Download JMX Dump: [JMX Settings]({% link content-services/latest/admin/support-tools.md %}#jmxsettings)
+  * Node Browser: [Using the Node Browser](TODO_LINK:../tasks/adminconsole-nodebrowser.md)
 * Directory Management: [Managing authentication directories]({% link content-services/latest/admin/auth-sync.md %}#manageauthdirs)
 * Virtual File Systems:
-    * File Servers: [Enabling file servers](TODO_LINK:../tasks/adminconsole-fileservers.md)
-    * IMAP Service: [Enabling the IMAP Service using the Admin Console](TODO_LINK:../tasks/adminconsole-IMAPservice.md)
+  * File Servers: [Enabling file servers](TODO_LINK:../tasks/adminconsole-fileservers.md)
+  * IMAP Service: [Enabling the IMAP Service using the Admin Console](TODO_LINK:../tasks/adminconsole-IMAPservice.md)
 
 The links provide more information on configuring these activities.
 
-You can use the Admin Console as your main tool to help you manage your production environment. It is a simple alternative 
-to using a JMX console, or manually setting properties in the `alfresco-global.properties` file.
+You can use the Admin Console as your main tool to help you manage your production environment. It is a simple alternative to using a JMX console, or manually setting properties in the `alfresco-global.properties` file.
 
-The settings that you choose in the Admin Console take precedence over any setting that you add in the 
-`alfresco-global.properties` file.
+The settings that you choose in the Admin Console take precedence over any setting that you add in the `alfresco-global.properties` file.
 
-## Launching the Admin Console {#launchadminconsole}
+## Launch Admin Console
 
-The Repository Admin Console runs externally to the user interface and therefore you launch the application independently. 
-This allows you to run the Admin Console without the need to run Alfresco Share.
+The Repository Admin Console runs externally to the user interface and therefore you launch the application independently. This allows you to run the Admin Console without the need to run Alfresco Share.
 
 Ensure that the Content Services server is running.
 
-1.  Enter the following URL in a browser window:
+1. Enter the following URL in a browser window:
 
     ```http
     http://<your-host-name>:<alfresco-port>/alfresco/service/enterprise/admin
     ```
 
-    Where `<your-host-name>` is the host name where you are running the Content Services server and `<alfresco-port>` is the port number on which the server is running (by default, the port number is `8080`).
+    Where `<your-host-name>` is the host name where you're running the Content Services server and `<alfresco-port>` is the port number on which the server is running (by default, the port number is `8080`).
 
     An **Authentication Required** prompt displays, showing the IP address or name and the port number of the server.
 
-2.  Enter your user name and password.
+2. Enter your user name and password.
 
     Your user name and password must be for an account with administrator permissions. The default administrator user name and password is `admin`.
 
     The Admin Console displays in a browser window. The title bar shows the host name and its IP address.
 
-    You will remain logged into the Admin Console for the duration of the browser session. If you close the browser window completely and then connect to the Admin Console using the URL, you will be prompted to enter your account details again.
+    You will remain logged into the Admin Console for the duration of the browser session. If you close the browser window completely and then connect to the Admin Console using the URL, you'll be prompted to enter your account details again.
 
     A useful starting point in the Admin Console is the [System Summary](#systemsummary) page, which gives an overview of which settings are enabled or disabled.
 
-## Viewing the System Summary {#systemsummary}
+## View System Summary {#systemsummary}
 
-System Summary in the Admin Console shows an overview of the status of the repository, including the general 
-system information, subsystem status, clustering settings, the current authentication chain, and details of 
-which AMPs are applied to the system.
+System Summary in the Admin Console shows an overview of the status of the repository, including the general system information, subsystem status, clustering settings, the current authentication chain, and details of which AMPs are applied to the system.
 
-There are no actions or entry fields on the System Summary page. This page is a high-level overview of the 
-setting you have chosen or are set as default on the repository.
+There are no actions or entry fields on the System Summary page. This page is a high-level overview of the setting you've chosen or are set as default on the repository.
 
 The overview is divided into the following sections:
 
@@ -107,93 +96,76 @@ The overview is divided into the following sections:
 * Alfresco Module Packages (AMPs)
 * Users and Groups
 
-**System Information**
+### System Information
 
-The System Information summary shows the general details of the installation. This information is useful for 
-confirming the installation details, Java installation details, the host operating system specification and 
-memory details.
+The System Information summary shows the general details of the installation. This information is useful for confirming the installation details, Java installation details, the host operating system specification and memory details.
 
-**File Systems**
+### File Systems
 
-The File Systems summary shows the settings from the File Servers page. See 
-[Enabling File Servers](TODO_LINK:../tasks/adminconsole-fileservers.md) for more information.
+The File Systems summary shows the settings from the File Servers page. See [Enabling File Servers](TODO_LINK:../tasks/adminconsole-fileservers.md) for more information.
 
-**Transformation Services**
+### Transformation Services
 
-The Transformation Services summary shows the settings from the Transformation Services page. See 
-[Changing the OOoJodconverter subsystems](TODO_LINK:../tasks/OOo-subsystems-config.md) for more information.
+The Transformation Services summary shows the settings from the Transformation Services page. See [Changing the OOoJodconverter subsystems](TODO_LINK:../tasks/OOo-subsystems-config.md) for more information.
 
-**Indexing Subsystem**
+### Indexing Subsystem
 
-The Indexing Subsystem summary shows the settings from the Search Service page. See 
-[Configuring Search Services](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/adminconsole-searchservice-solr.html) for more information.
+The Indexing Subsystem summary shows the settings from the Search Service page. See [Configuring Search Services](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/adminconsole-searchservice-solr.html) for more information.
 
-**Repository Clustering**
+### Repository Clustering
 
-The Repository Clustering summary shows the settings from the Repository Server Clustering page. See 
-[Repository Server Clustering]({% link content-services/latest/admin/cluster.md %}#managecluster) for more information.
+The Repository Clustering summary shows the settings from the Repository Server Clustering page. See [Repository Server Clustering]({% link content-services/latest/admin/cluster.md %}#managecluster) for more information.
 
-**Activities Feed**
+### Activities Feed
 
-The Activities Feed summary shows the settings from the Activities Feed page. See 
-[Setting the Activities Feed](TODO_LINK:../tasks/adminconsole-activitiesfeed.md) for more information.
+The Activities Feed summary shows the settings from the Activities Feed page. See [Setting the Activities Feed](TODO_LINK:../tasks/adminconsole-activitiesfeed.md) for more information.
 
-**Authentication**
+### Authentication
 
-The Authentication summary shows the settings from the Directory Management page, in particular, the current 
-authentication chain. See [Managing authentication directories]({% link content-services/latest/admin/auth-sync.md %}#manageauthdirs) for more information.
+The Authentication summary shows the settings from the Directory Management page, in particular, the current authentication chain. See [Managing authentication directories]({% link content-services/latest/admin/auth-sync.md %}#manageauthdirs) for more information.
 
-**Email**
+### Email
 
-The Email summary shows the settings from the Inbound Email and Outbound Email pages. See 
-[Managing inbound emails](TODO_LINK:../tasks/adminconsole-inboundemail.md) and 
-[Managing outbound emails](TODO_LINK:../tasks/adminconsole-outboundemail.md) for more information.
+The Email summary shows the settings from the Inbound Email and Outbound Email pages. See [Managing inbound emails](TODO_LINK:../tasks/adminconsole-inboundemail.md) and [Managing outbound emails](TODO_LINK:../tasks/adminconsole-outboundemail.md) for more information.
 
-**Auditing Services**
+### Auditing Services
 
 The Auditing Services summary indicates the status of auditing in Content Services.
 
-**Content Stores**
+### Content Stores
 
 The Content Stores summary lists the location of the default content stores.
 
-**Module Packages**
+### Module Packages
 
 The Module Packages summary identifies which modules have been applied to this instance of Content Services.
 
-**Users and Groups**
+### Users and Groups
 
 The Users and Groups summary shows the number of individual users and groups within the system.
 
-## Viewing Repository Information {#viewrepoinfo}
+## View Repository Information {#viewrepoinfo}
 
-Repository Information in the Admin Console shows details of the repository as it was originally installed. 
-It also shows the current Content Services version.
+Repository Information in the Admin Console shows details of the repository as it was originally installed. It also shows the current Content Services version.
 
-1.  Open the **Admin Console**.
+1. Open the **Admin Console**.
 
-2.  In the General section, click **Repository Information**.
+2. In the General section, click **Repository Information**.
 
     You see the **Repository Information** page showing the details of your installation.
 
-## Customizing the Admin Console
+## Customize Admin Console
 
-The Admin Console displays the most common administration activities. You can customize the Admin Console to show 
-different options, properties, and layout, or you can create completely new pages.
-The Admin Console is composed of default administration pages. Each Admin Console page is a simple web script 
-component built from a library of useful functions and macros that are imported into each Admin Console web script.
+The Admin Console displays the most common administration activities. You can customize the Admin Console to show different options, properties, and layout, or you can create completely new pages.
+The Admin Console is composed of default administration pages. Each Admin Console page is a simple web script component built from a library of useful functions and macros that are imported into each Admin Console web script.
 
-The JavaScript library functions do the background work for the Admin Console, retrieving the JMX MBean properties and 
-then transferring them to flexible FreeMarker macros. The FreeMarker macros render the appropriate control for a 
-JMX property automatically and consistently.
+The JavaScript library functions do the background work for the Admin Console, retrieving the JMX MBean properties and then transferring them to flexible FreeMarker macros. The FreeMarker macros render the appropriate control for a JMX property automatically and consistently.
 
-If no additional processing logic is required, the web script library functions automatically persist them back to 
-the correct property.
+If no additional processing logic is required, the web script library functions automatically persist them back to the correct property.
 
-JMX form-style pages are simple to build. Example pages that you can create include: Thread Dump, Active Sessions, 
-Log4J settings, and Test Transforms.
+JMX form-style pages are simple to build. Example pages that you can create include: Thread Dump, Active Sessions, Log4J settings, and Test Transforms.
 
-### Admin Console Example page
+### Admin Console example page
 
 When you customize the Admin Console, you can use the example page as a starting point.
 
@@ -208,11 +180,9 @@ The files that you use for working with the example Admin Console page are:
 
 See the [Web script components](TODO_LINK:ws-components.md) section for more information on these files.
 
-There are also additional properties files that contain the associated strings for localized content in the 
-supported languages.
+There are also additional properties files that contain the associated strings for localized content in the supported languages.
 
-The following snippet shows the controller code from the `admin-example.get.js` file, which retrieves 
-the `Subject`, `Issued`, and `RemainingDays` properties from the `License` JMX bean:
+The following snippet shows the controller code from the `admin-example.get.js` file, which retrieves the `Subject`, `Issued`, and `RemainingDays` properties from the `License` JMX bean:
 
 ```javascript
 <import resource="classpath:alfresco/enterprise/webscripts/.../admin-common.lib.js">
@@ -245,11 +215,9 @@ The resulting output from the `admin-example` web script displays the following:
 
 ![adminconsole-custom-example11]({% link content-services/images/adminconsole-custom-example11.png %})
 
-The values from the License JMX bean are read-only. The template macros understand when the JMX beans are read-only, 
-and therefore, display the text as read-only.
+The values from the License JMX bean are read-only. The template macros understand when the JMX beans are read-only, and therefore, display the text as read-only.
 
-When the JMX beans are editable or if you want to show a different form field, add the following line to change the 
-template:
+When the JMX beans are editable or if you want to show a different form field, add the following line to change the template:
 
 ```xml
 <@attrtext attribute=attributes["Subject"] />
