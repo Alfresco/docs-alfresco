@@ -1,11 +1,11 @@
 services:
   - title: "Content"
     text: "Alfresco Content Services offers full-featured ECM for organizations that require enterprise-grade scalability, performance, and 24x7 support for business-critical content and compliance."
-    url: /content/latest/
     image: /assets/img/ic_content_80px.svg
+    url: /content-services/latest/
     sub:
       - title: "Read documentation"
-        url:
+        url: /content-services/latest/
   - title: "Process"
     text: "Alfresco Process Services (powered by Activiti) is an enterprise Business Process Management (BPM) solution targeted at business people and developers."
     url:
