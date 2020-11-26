@@ -2,6 +2,7 @@ services:
   - title: "Content"
     text: "Alfresco Content Services offers full-featured ECM for organizations that require enterprise-grade scalability, performance, and 24x7 support for business-critical content and compliance."
     image: /assets/img/ic_content_80px.svg
+    url: /content-services/latest/
     sub:
       - title: "Read documentation"
         url: /content-services/latest/

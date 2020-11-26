@@ -1,5 +1,5 @@
 ---
-title: Using the Model Manager tutorial
+title: Configure the Model Manager tutorial
 ---
 
 In this tutorial you will learn how to create custom models and implement content modeling using the Model Manager.

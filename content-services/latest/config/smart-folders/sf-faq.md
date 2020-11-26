@@ -24,7 +24,7 @@ Yes there are. See [Best practices when using Smart Folders]({% link content-ser
 
 ## Where can I find technical documentation?
 
-Use the Smart Folder tutorial, [Smart Folders tutorial]({% link content-services/latest/config/smart-folders/sf-tutorial.md %}), to set up a working Smart Folder configuration. General configuration information is here: [Configure Smart Folders]({% link content-services/latest/config/index.md %}).
+Use the Smart Folder tutorial, [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}), to set up a working Smart Folder configuration. General configuration information is here: [Configure Smart Folders]({% link content-services/latest/config/index.md %}).
 
 ## Which components or subsystems do Smart Folders provide?
 
