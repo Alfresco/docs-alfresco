@@ -1,5 +1,6 @@
 ---
-title: Tutorials
+title: Tutorials overview
 ---
+The following tutorials are available for Alfresco Content Services.
 
-This section contains different types of tutorials, such as video tutorials.
+Watch the videos to see what you can do with Alfresco Content Services.
