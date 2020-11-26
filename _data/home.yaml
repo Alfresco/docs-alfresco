@@ -97,8 +97,8 @@ integrations:
       - title: "EMC Centera"
         text: "Alfresco Content Connector for EMC Centera uses EMC Centera as an alternative content store for Alfresco Content Services."
         url: /centera/latest/
-  - title: "Business Connector"
-    text: "Connectors are used to handle interactions between external systems and a process. For example, interacting with an installation of Slack to post messages, calling a custom REST API, and passing the response back to a process."
+  - title: "Business Connectors"
+    text: "Business connectors are used to handle interactions between external systems and a process. For example, interacting with an installation of Slack to post messages, calling a custom REST API, and passing the response back to a process."
     url:
     image: /assets/img/ic_business_connectors_80px.svg
     sub:
