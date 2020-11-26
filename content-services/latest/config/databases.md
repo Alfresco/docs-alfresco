@@ -110,7 +110,7 @@ You can configure a MySQL database on Amazon RDS for use with Content Services, 
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html) provided.
+3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html)(#LINK) provided.
 
 4. Install the MySQL database connector.
 
@@ -175,7 +175,7 @@ The Oracle database is case sensitive, so any configuration setting that you add
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html) provided.
+3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html)(#LINK) provided.
 
 4. Install the Oracle database connector to allow the database to talk to the server.
 
@@ -253,7 +253,7 @@ To configure the database:
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html) provided.
+3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html)(#LINK) provided.
 
 4. Install the PostgreSQL database connector to allow the database to talk to the server.
 
@@ -324,7 +324,7 @@ To configure the database:
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html) provided.
+3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html)(#LINK) provided.
 
 4. Install the Microsoft SQL Server database connector to allow the database to talk to the server.
 
@@ -399,7 +399,7 @@ You can configure a MySQL or MariaDB database connection (with a MySQL JDBC driv
 
     If you're using MySQL and require the use of non-US-ASCII characters, you need to set the encoding for internationalization. This allows you to store content with accents in the repository. The database must be created with the UTF-8 character set and the `utf8_bin` collation. Although MySQL is a unicode database, and Unicode strings in Java, the JDBC driver might corrupt your non-English data. Ensure that you keep the `?useUnicode=yes&characterEncoding=UTF-8` parameters at the end of the JDBC URL.
 
-    > **Note:** You also must ensure that the MySQL database is set to use UTF-8 and InnoDB. See [Optimizing MySQL]({% link content-services/latest/config/databases.md %}#optimize-mysql) for more information.
+    > **Note:** You also must ensure that the MySQL database is set to use UTF-8 and InnoDB. See [Optimizing MySQL](#optimize-mysql) for more information.
 
 3. Increase the maximum connections setting in the MySQL configuration file.
 
@@ -694,7 +694,7 @@ You can configure a Microsoft SQL Server database for use with Content Services.
 
 2. Increase the available connections setting in the Microsoft SQL Server configuration file.
 
-    Follow the instructions in [Configuring the user connections option](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-user-connections-server-configuration-option?redirectedfrom=MSDN&view=sql-server-ver15){target="_blank"} to update the setting.
+    Follow the instructions in [Configuring the user connections option](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-user-connections-server-configuration-option?redirectedfrom=MSDN&view=sql-server-ver15){:target="_blank"} to update the setting.
 
 3. Create a database named `alfresco`.
 
@@ -863,7 +863,7 @@ The following table describes example commands for specific databases. These com
 
 | Database | Example maintenance commands |
 | -------- | ---------------------------- |
-| MySQL | ANALYZE ([ANALYZE TABLE Statement](https://dev.mysql.com/doc/refman/5.6/en/analyze-table.html){:target="_blank"}<br><br>Consult with an experienced, certified MySQL DBA who has InnoDB experience (Content Services can't use a MyISAM database and hence an InnoDB-experienced MySQL DBA is required). |
-| PostgreSQL | VACUUM and ANALYZE ([Routine Database Maintenance Tasks](https://www.postgresql.org/docs/10/maintenance.html){:target="_blank"}<br><br>Consult with an experienced, certified PostgreSQL DBA. |
+| MySQL | ANALYZE ([ANALYZE TABLE Statement](https://dev.mysql.com/doc/refman/5.6/en/analyze-table.html){:target="_blank"})<br><br>Consult with an experienced, certified MySQL DBA who has InnoDB experience (Content Services can't use a MyISAM database and hence an InnoDB-experienced MySQL DBA is required). |
+| PostgreSQL | VACUUM and ANALYZE ([Routine Database Maintenance Tasks](https://www.postgresql.org/docs/10/maintenance.html){:target="_blank"})<br><br>Consult with an experienced, certified PostgreSQL DBA. |
 | Oracle | See [Database Performance Tuning Guide](https://docs.oracle.com/cd/B19306_01/server.102/b14211/stats.htm#g49431){:target="_blank"} (depending on version)<br><br>Consult with an experienced, certified Oracle DBA. |
 | Microsoft SQL Server | ALTER INDEX REBUILD ([Transact-SQL](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-index-transact-sql?redirectedfrom=MSDN&view=sql-server-ver15){:target="_blank"})<br>UPDATE STATISTICS ([Transact-SQL](https://docs.microsoft.com/en-us/sql/t-sql/statements/update-statistics-transact-sql?redirectedfrom=MSDN&view=sql-server-ver15){:target="_blank"})<br><br>Consult with an experienced, certified MS SQL Server DBA. |

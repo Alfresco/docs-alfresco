@@ -110,6 +110,7 @@ To simplify the creation of a claim folder, you can create a folder rule to add 
     * Select **Define Rule When:** and **Items are created or enter this folder**
     * Check **If all criteria are met:** and select **Content of type or sub-type is folder**
     * Select **Perform Action:** and **Execute script**, and select the `addAspect_claimsFolder.js` file
+    
     > **Note:** Make sure that these options are not selected:
     >
     > * Rule applies to subfolders

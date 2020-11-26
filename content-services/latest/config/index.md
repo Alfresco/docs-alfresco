@@ -4,7 +4,7 @@ title: Overview
 
 Content Services is pre-configured with a set of system configuration parameters. Many of the system configuration parameters are completely exposed as properties, which you can configure for your specific environment requirements.
 
-If you're configuring other services, integrations or modules, look in the **Configure** section of each product listed in the [Docs home page](https://docs.alfresco.com/){:target="_blank"}.
+If you're configuring other services, integrations or modules, look in the **Configure** section of each product listed in the [Docs home page]({% link index.markdown %}).
 
 Use the following methods to configure Content Services:
 
@@ -25,13 +25,13 @@ Use the following methods to configure Content Services:
 
 * **Global properties file**
 
-  The global properties file (`alfresco-global.properties`) is used to detect extended properties. For example, when you install Content Services, many of the installation settings are saved in the global properties file. The global properties file is used to detect the extended properties. You can use the global properties to set all your property settings; whenever you make a change, you must restart the server to apply those changes. See [Using the alfresco-global.properties file](#LINK-global-props-intro.md) for more information.
+  The global properties file (`alfresco-global.properties`) is used to detect extended properties. For example, when you install Content Services, many of the installation settings are saved in the global properties file. The global properties file is used to detect the extended properties. You can use the global properties to set all your property settings; whenever you make a change, you must restart the server to apply those changes. See [Using the `alfresco-global.properties` file](#LINK-global-props-intro.md) for more information.
 
 * **JMX client**
 
   The JMX client allows you to edit the settings while the system is running. The settings you change are automatically persisted in the database and synchronized across a cluster. When you start up Content Services, the system initially uses the `alfresco-global.properties` file to set the properties in the JMX client, but then any changes you make in the JMX client persist in the database but are not reflected back into the `alfresco-global.properties` file. See [Using a JMX client to change settings dynamically](#LINK-concepts-jmx-intro-config.md) for more information.
 
-## Using alfresco-global.properties
+## Using `alfresco-global.properties`
 
 The global properties `alfresco-global.properties` file contains the customizations for extending Content Services.
 
@@ -155,7 +155,7 @@ You can disable common product components, if you don't require them for your Co
 
 > **Note:** If you're unsure of the effect of disabling a feature, contact [Alfresco Support for recommendations.
 
-Add the following property settings to the alfresco-global.properties file:
+Add the following property settings to the `alfresco-global.properties` file:
 
 | Property | Description |
 | -------- | ------------|
@@ -549,7 +549,7 @@ The Spring bean definitions are within configuration files in the following dire
 
 The Activity Email Summary ignores certain activity types by default. Use this information to override the Spring bean definition to include these activity types.
 
-The Spring bean definition for the ActivitiesFeed subsystem is called `activities-feed-context.xml` and can be downloaded from the Alfresco SVN: [activities-feed-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/subsystems/ActivitiesFeed/default/activities-feed-context.xml){:target="_blank"}.
+The Spring bean definition for the ActivitiesFeed subsystem is called `activities-feed-context.xml` and can be downloaded from the Alfresco SVN: [`activities-feed-context.xml`](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/subsystems/ActivitiesFeed/default/activities-feed-context.xml){:target="_blank"}.
 
 1. Download the file and save to the `<subsystems/ActivitiesFeed/default>` directory.
 

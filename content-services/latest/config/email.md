@@ -441,10 +441,7 @@ Use this information to configure customized email templates for your registered
 
 There are a number of properties for configuring customized email templates when using the v1 REST APIs. Once you have developed your custom application, add the required properties in the global properties file (alfresco-global.properties) to register your application. In this file you can also set the path to each email template and any linked assets (such as images and company logo) to use your own branding.
 
-The `shared-links` and `request-password-reset` APIs provide a way to send email notifications. To view these APIs, navigate to:
-
-* [https://api-explorer.alfresco.com/api-explorer/#!/shared-links/emailSharedLink](https://api-explorer.alfresco.com/api-explorer/#!/shared-links/emailSharedLink){:target="_blank"}
-* [https://api-explorer.alfresco.com/api-explorer/#!/people/requestPasswordReset](https://api-explorer.alfresco.com/api-explorer/#/people){:target="_blank"}
+The [`shared-links`](https://api-explorer.alfresco.com/api-explorer/#!/shared-links/emailSharedLink){:target="_blank"} and [`request-password-reset`](https://api-explorer.alfresco.com/api-explorer/#/people){:target="_blank"} APIs provide a way to send email notifications. To view these APIs, navigate to:
 
 One of the mandatory properties in the request body of these APIs, `client`, sets the name of your registered client application. Registering a client means you can create a unique email template for each client, and configure the required email template and assets using different properties.
 

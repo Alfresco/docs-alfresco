@@ -214,7 +214,7 @@ You can set files and folders to inherit metadata using Smart Folders.
 
 One of the most useful features of Smart Folders is the ability to automatically classify new files and inherit or map metadata to the file itself. This is possible by using Type-based Smart Folders, so that when you drag and drop files into your Smart Folder structure, they inherit any properties that you've set up in the Smart Folder Template.
 
-Use the [Smart Folders tutorial]({% link content-services/latest/config/smart-folders/sf-tutorial.md %}) to set up a Smart Folder framework using Type-based Smart Folders, and in [Adding new claim files](#sf-tutorial-5) you'll see metadata inheritance in action.
+Use the [Smart Folders tutorial]({% link content-services/latest/config/smart-folders/sf-tutorial.md %}) to set up a Smart Folder framework using Type-based Smart Folders, and in [Adding new claim files]({% link content-services/latest/config/smart-folders/sf-tutorial.md %}#sf-tutorial-5) you'll see metadata inheritance in action.
 
 Take a look at the [Metadata Inheritance video](#LINK-smart-video-04.md), and [Type-based Smart Folders](#sf-folder-type) for more information.
 
@@ -226,7 +226,7 @@ A Smart Folder Template is a configuration file that contains one or more querie
 
 You can customize a copy of the `smartFoldersExample.json` template, which is available from **Repository > Data Dictionary > Smart Folder Templates** in Alfresco Share. The [Smart Folders tutorial]({% link content-services/latest/config/smart-folders/sf-tutorial.md %}) also provides links to a variety of examples.
 
-For more information about Alfresco Full Text Search (AFTS), see [Alfresco Full Text Search reference](https://docs.alfresco.com/search-enterprise/concepts/searchsyntax-intro.html){:target="_blank"}.
+For more information about Alfresco Full Text Search (AFTS), see [Alfresco Full Text Search reference](https://docs.alfresco.com/search-enterprise/concepts/searchsyntax-intro.html)(#LINK).
 
 A node is defined by the following properties:
 
@@ -254,7 +254,7 @@ Here are some tips on notation:
 | ----------- | ----------- |
 | %ACTUAL_PATH% | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded repository path of the physical parent folder. Only the physical parent folder (or next physical folder up the folder tree) can use `%ACTUAL_PATH%`. |
 | %CURRENT_USER% | Account name of the user. |
-| _x0020_ | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded whitespace character. |
+| \_x0020\_ | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded whitespace character. |
 | <> | Use angle brackets, for example, `<cm:name>`, to inherit property values from the physical parent folder. Used for inheritance in a filing rule and in a query. |
 
 The following code fragments give more information about these properties.
@@ -503,7 +503,7 @@ Server Configuration and Alfresco Search Services:
 * Ensure that your system administrator has configured Alfresco Content Services to use Alfresco Search Services with `Solr 6` as a search service.
 * Configure transactional queries in the Search Service to use the database always, or if possible.
 * When you define a search query, restrict the query to certain types or aspects (using +TYPE or +ASPECT), otherwise the query will search for all content.
-* When defining a filing rule for a Smart Folder, use a transactional query for that folder where possible, otherwise uploaded files will not appear immediately. See [Transactional metadata queries supported by database](https://docs.alfresco.com/search-enterprise/concepts/intrans-metadata-query.html){:target="_blank"} for more information.
+* When defining a filing rule for a Smart Folder, use a transactional query for that folder where possible, otherwise uploaded files will not appear immediately. See [Transactional metadata queries supported by database](https://docs.alfresco.com/search-enterprise/concepts/intrans-metadata-query.html)(#LINK) for more information.
 
 Smart Folder Templates:
 
