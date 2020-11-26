@@ -145,7 +145,7 @@ authentication.chain=alfrescoNtlm1:alfrescoNtlm
 
 You can configure the properties of `alfrescoNtlm1` using the `alfresco-global.properties` file.
 
-### Configuring the authentication chain
+### Configuring the authentication chain {#authchainconfig}
 
 You can add to or completely replace the default authentication chain.
 
@@ -259,7 +259,7 @@ The authentication configuration examples adopt the following structured approac
     3.  Copy the properties files into your new folder.
     4.  Edit the properties files to record the required configuration of the subsystem instance.
 
-### Configuring external authentication
+### Configuring external authentication {#extauthconfig}
 
 Use this information to enable the external authentication subsystem using the `alfresco-global.properties` file and the 
 [Repository Admin Console]({% link content-services/latest/admin/admin-console.md %}).
