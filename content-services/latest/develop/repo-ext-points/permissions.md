@@ -231,7 +231,7 @@ Here we can see that the site permissions (roles) basically just re-uses the sta
 `Editor` role will not be available when working with site content.
 
 Now, let's **define a custom permission** for publishing web content classified with the ACME Content Model 
-([more info]({% link content-services/latest/develop/content-model.md %})). We will assume we have a document library 
+([more info]({% link content-services/latest/develop/repo-ext-points/content-model.md %})). We will assume we have a document library 
 action that can be used to publish web content as follows:
 
 ```xml

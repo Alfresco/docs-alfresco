@@ -321,7 +321,7 @@ public class JSONResponseWebScript extends AbstractWebScript {
 The Hello World Web Script demonstrates most of the features available to us when implementing web scripts. However, 
 it might not be the most realistic Web Script implementation, it is not something we would need to do in a "real" project. 
 It is more likely that we will have to implement a ReST API based on a custom content model, such as the 
-[ACME sample content model]({% link content-services/latest/develop/content-model.md %}).
+[ACME sample content model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 The key principles of REST involve separating your API into logical resources. These resources are manipulated using 
 HTTP requests where the method (GET, POST, PUT, DELETE) has specific meaning.
@@ -559,9 +559,11 @@ The template file should be called `acme-documents.post.html.ftl` to be associat
 
 ## More Information
 
+* [Admin Console Component Web Script]({% link content-services/latest/develop/repo-ext-points/admin-console-components.md %})
 * [Web Script naming conventions](TODO:../concepts/ws-component-name.md)
-* [JavaScript root objects](TODO:API-JS-rootscoped.md) - for use in a JavaScript controller
-* [FreeMarker root objects](TODO:API-FreeMarker-defaultmodel.md) - for use in a template
+* [Out-of-the-box JavaScript root objects]({% link content-services/latest/develop/repo-root-objects-ref.md %}) - for use in a JavaScript controller
+* [Custom JavaScript root objects]({% link content-services/latest/develop/repo-ext-points/javascript-root-objects.md %}) - for use in a JavaScript controller
+* [Out-of-the-box FreeMarker root objects](TODO:API-FreeMarker-defaultmodel.md) - for use in a template
 * [Where to put your web scripts](TODO:../concepts/ws-presentation-locations.md) (When trying them out without a build project)
 * [Caching approach](TODO:../concepts/ws-caching-about.md) - HTTP Response caching and web scripts
 * [Presentation Tier web scripts](TODO:../concepts/dev-extensions-share-surf-web-scripts.md) - i.e. Surf web scripts

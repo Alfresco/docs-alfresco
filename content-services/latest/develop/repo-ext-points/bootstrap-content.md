@@ -536,7 +536,7 @@ we get when exporting a site. So to bootstrap a file it will look like this:
 ```
 
 Besides using patches to bootstrap content there is also the `ImporterModuleComponent` that can be used to bootstrap/import 
-content into the Repository, for more information about this see [Module Components]({% link content-services/latest/develop/module-components.md %}).
+content into the Repository, for more information about this see [Module Components]({% link content-services/latest/develop/repo-ext-points/module-components.md %}).
 
 ## Deployment - App Server
 

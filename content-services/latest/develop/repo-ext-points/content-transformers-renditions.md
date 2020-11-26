@@ -41,7 +41,7 @@ will show the updated transformations.
 When working with transformations and renditions it is important to make sure that the involved mimetypes are known to 
 Alfresco Content Services. So when accessing the "mimetypes" Web Script make sure the mimetypes that will be used in 
 transformations and renditions are included there, if not you would have to register them with Alfresco Content Services, 
-see the [Mimetypes extension point]({% link content-services/latest/develop/mimetypes.md %}) for more information about that.
+see the [Mimetypes extension point]({% link content-services/latest/develop/repo-ext-points/mimetypes.md %}) for more information about that.
 
 The Spring bean definitions for the transformer implementations can be found in the `content-services-context.xml` file. 
 This file is contained in the repository JAR and can be found as follows in an installation:

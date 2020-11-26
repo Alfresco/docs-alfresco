@@ -114,7 +114,7 @@ It is called `ImporterModuleComponent` and you can use it by defining the a Spri
 ```
 
 Note here the use also of the `appliesToVersion` property. For more information about bootstrapping content see this 
-[extension point]({% link content-services/latest/develop/bootstrap-content.md %}).
+[extension point]({% link content-services/latest/develop/repo-ext-points/bootstrap-content.md %}).
 
 ## Deployment - App Server
 

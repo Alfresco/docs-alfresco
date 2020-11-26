@@ -192,7 +192,7 @@ As patches are implemented in Java it is better to use an SDK project for deploy
 
 ## More Information
 
-* See the [Bootstrap content]({% link content-services/latest/develop/bootstrap-content.md %}) extension point for out-of-the-box patch implementations that import content.
+* See the [Bootstrap content]({% link content-services/latest/develop/repo-ext-points/bootstrap-content.md %}) extension point for out-of-the-box patch implementations that import content.
 
 ## Sample Code
 
