@@ -16,3 +16,4 @@ Some of the key capabilities of Content Service include:
 Alfresco customers should also take a look at the [Alfresco Support Handbook](https://docs.alfresco.com/support/concepts/su-welcome.html){:target="_blank"}.
 
 > **Note:** See the [Supported platforms]({% link content-services/latest/support/index.md %}) page for compatibility between Content Services and other applications.
+
