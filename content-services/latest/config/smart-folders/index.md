@@ -212,7 +212,7 @@ You can set files and folders to inherit metadata using Smart Folders.
 
 One of the most useful features of Smart Folders is the ability to automatically classify new files and inherit or map metadata to the file itself. This is possible by using Type-based Smart Folders, so that when you drag and drop files into your Smart Folder structure, they inherit any properties that you've set up in the Smart Folder Template.
 
-Use the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) to set up a Smart Folder framework using Type-based Smart Folders, and in [Adding new claim files]({% link content-services/latest/tutorial/smart.md %}{% link content-services/latest/tutorial/smart.md %}#sf-tutorial-5) you'll see metadata inheritance in action.
+Use the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) to set up a Smart Folder framework using Type-based Smart Folders, and in [Adding new claim files]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-5) you'll see metadata inheritance in action.
 
 Take a look at the [Metadata Inheritance video](#LINK-smart-video-04.md), and [Type-based Smart Folders](#sf-folder-type) for more information.
 
