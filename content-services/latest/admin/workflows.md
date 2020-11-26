@@ -143,7 +143,6 @@ Use the Workflow Console in the Repo Admin Console to manage Activiti workflows,
         * `<varName>` is the variable name
         * `[*]` defines a collection (if specified)
         * `<varValue>` is the variable value (comma-separated list of values)
-
         ```javascript
         var bpm:assignee*=admin,fred
         var wf:notifyMe=true
@@ -156,7 +155,6 @@ Use the Workflow Console in the Repo Admin Console to manage Activiti workflows,
         * `<varName>` is the variable name
         * `[*]` defines a collection (if specified)
         * `<varValue>` is the variable value (comma-separated list of values)
-
         ```javascript
         var bpm:assignee* person admin,fred
         ```
@@ -168,7 +166,6 @@ Use the Workflow Console in the Repo Admin Console to manage Activiti workflows,
         * `<varName>` is the variable name
         * `[*]` defines a collection (if specified)
         * `<varValue>` is the variable value (comma-separated list of values)
-
         ```javascript
         var bpm:groupAssignee group GROUP_Engineering
         ```

@@ -1324,7 +1324,6 @@ If you want to completely block certain services in the repository, you can add 
           <param name="message">It is not allowed to access this url from your browser</param>
        </action>
     </rule>
-
     ```
 
 #### Iframes and phishing attack mitigation

@@ -23,7 +23,13 @@
         <div class="columns">
           <div class="column is-narrow content-menu-column">
             <div class="left-side-menu">
-            <ul id="leftside-menu" class="scope-selector">
+              <button class="button close-toc" onclick="tocToggler()">
+                <span class="icon is-small">
+                  <img src="/assets/img/clear_24px.svg">
+                </span>
+                <span>Filters</span>
+              </button>
+              <ul id="leftside-menu" class="scope-selector">
               {%for group in site.data.scopes%}
                 <li class="">
                 <span  class="menuitem-title">{{group[1].title}}</span>
@@ -42,7 +48,8 @@
             </div>
           </div>
           <div class="column column-content">
-              {{content}}
+            <button class="button is-rounded" id="table-of-contents" onclick="tocToggler()">Filters</button>
+            {{content}}
           </div>
 
         </div>

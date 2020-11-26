@@ -201,7 +201,6 @@ To demonstrate step-by-step configuration of the `CachingContentStore` class, th
            </map>
        </property>
     </bean>
-
     <bean id="cachedContentCleaner"
        class="org.alfresco.repo.content.caching.cleanup.CachedContentCleaner"
        init-method="init">
@@ -210,7 +209,6 @@ To demonstrate step-by-step configuration of the `CachingContentStore` class, th
        <property name="cache" ref="contentCache"/>
        <property name="usageTracker" ref="standardQuotaManager"/>
     </bean>
-
     <bean id="cachingContentStoreCleanerTrigger" class="org.alfresco.util.CronTriggerBean">
        <property name="jobDetail">
            <ref bean="cachingContentStoreCleanerJobDetail" />
@@ -270,7 +268,6 @@ The following configuration defines an additional tiered storage solution. The d
       <constructor-arg>
          <value>${dir.contentstore}</value>
       </constructor-arg>
-
       <!-- Uncomment the property below to add content filesize limit.
       <property name="contentLimitProvider" ref="defaultContentLimitProvider"/>
       -->
@@ -281,7 +278,6 @@ The following configuration defines an additional tiered storage solution. The d
       <constructor-arg>
          <value>${dir.contentstore1}</value>
       </constructor-arg>
-
       <!-- Uncomment the property below to add content filesize limit.
       <property name="contentLimitProvider" ref="defaultContentLimitProvider"/>
       -->
@@ -291,7 +287,6 @@ The following configuration defines an additional tiered storage solution. The d
       <constructor-arg>
          <value>${dir.contentstore2}</value>
       </constructor-arg>
-
       <!-- Uncomment the property below to add content filesize limit.
       <property name="contentLimitProvider" ref="defaultContentLimitProvider"/>
       -->
@@ -301,7 +296,6 @@ The following configuration defines an additional tiered storage solution. The d
       <constructor-arg>
          <value>${dir.contentstore3}</value>
       </constructor-arg>
-
       <!-- Uncomment the property below to add content filesize limit.
       <property name="contentLimitProvider" ref="defaultContentLimitProvider"/>
       -->
@@ -313,7 +307,6 @@ The following configuration defines an additional tiered storage solution. The d
        class="org.alfresco.repo.content.replication.AggregatingContentStore" >
 
       <property name="primaryStore" ref="defaultContentStore" />
-
       <property name="secondaryStores">
           <list>
               <ref bean="tier1ContentStore" />
@@ -321,7 +314,6 @@ The following configuration defines an additional tiered storage solution. The d
               <ref bean="tier3ContentStore" />
           </list>
       </property>
-
   </bean>
 </beans>
 ```
@@ -596,7 +588,6 @@ The following example defines two file stores, in addition to the standard defau
           <value>${dir.root}/storeA</value>
        </constructor-arg>
     </bean>
-
     <bean id="secondSharedFileContentStore" class="org.alfresco.repo.content.filestore.FileContentStore">
        <constructor-arg>
           <value>${dir.root}/storeB</value>
@@ -730,7 +721,6 @@ This configuration must be saved as an extension, for example, `<extension>\samp
          <ref bean="deletedContentBackupListeners" />
       </property>
    </bean>
-
 </beans>
 ```
 
@@ -758,7 +748,6 @@ The following example shows the configuration of the `cm:storeSelector` aspect u
          </form>
       </forms>
    </config>
-
    <config evaluator="string-compare" condition="DocumentLibrary" replace="true">
      <aspects>
          <!-- Aspects that a user can see -->

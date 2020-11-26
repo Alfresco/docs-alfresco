@@ -188,7 +188,6 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
                 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
                 http://www.hazelcast.com/schema/spring
                 http://www.hazelcast.com/schema/spring/hazelcast-spring-2.4.xsd">
-
    <!--
         Hazelcast distributed messaging configuration - Share web-tier cluster config
         - see http://www.hazelcast.com/docs.jsp
@@ -216,7 +215,6 @@ To enable the Hazelcast cluster messaging, edit this section on each Share Tomca
          </hz:network>
       </hz:config>
    </hz:hazelcast>
-
    <bean id="webframework.cluster.clusterservice" class="org.alfresco.web.site.ClusterTopicService" init-method="init">
       <property name="hazelcastInstance" ref="webframework.cluster.slingshot" />
       <property name="hazelcastTopicName"><value>slingshot-topic</value></property>
@@ -595,7 +593,6 @@ Use this information to track clustering issues.
     ```
 
 * The underlying clustering technology, Hazelcast, is configured to use `log4j` for logging. Therefore, you can configure logging for the whole Hazelcast top-level package, as shown:
-
     ```text
     log4j.logger.com.hazelcast=info
     ```

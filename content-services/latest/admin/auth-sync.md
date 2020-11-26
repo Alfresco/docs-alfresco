@@ -2,7 +2,7 @@
 title: Set up authentication and sync
 ---
 
-Use this information to manage user authentication. Set up if users should be authenticated with the database, ldap, SSO etc. Set up how user and group information should be synced (imported) with Content Services. Users and groups canalso be managed from the Share [Admin Tools]({% link content-services/latest/admin/users-groups.md %}), but it's more common to sync with a Directory Service, which is discussed here.
+Use this information to manage user authentication. Set up if users should be authenticated with the database, LDAP, SSO etc. Set up how user and group information should be synced (imported) with Content Services. Users and groups can also be managed from the Share [Admin Tools]({% link content-services/latest/admin/users-groups.md %}), but it's more common to sync with a Directory Service, which is discussed here.
 
 Authentication subsystems and authentication chains are discussed first as an understanding of those is necessary when configuring authentication and synchronization.
 
@@ -770,7 +770,6 @@ This example uses an Active Directory server and configures an instance of the `
     ldap.synchronization.groupSearchBase=ou=Security Groups,ou=Alfresco\,dc=domain,dc=com
     ldap.synchronization.userSearchBase=ou=User Accounts,ou=Alfresco,dc=domain,dc=com
     ```
-
     There are a large number of configurable properties for `ldap-ad`, which demonstrates the flexibility of Alfresco’s LDAP infrastructure. Luckily, because `ldap-ad` already has sensible defaults configured for a typical Active Directory set up, there are only a few edits you must make to tailor the subsystem instance to your needs.
 
     The following table is a summary of the settings that have been changed:
@@ -1029,13 +1028,11 @@ In this example, our Windows domain controller/ Active Directory/ KDC host name 
     default_realm = ALFRESCO.ORG
     default_tkt_enctypes = rc4-hmac
     default_tgs_enctypes = rc4-hmac
-
     [realms]
     ALFRESCO.ORG = {
        kdc = adsrv.alfresco.org
        admin_server = adsrv.alfresco.org
     }
-
     [domain_realm]
     adsrv.alfresco.org = ALFRESCO.ORG
     .adsrv.alfresco.org = ALFRESCO.ORG
@@ -1053,7 +1050,6 @@ In this example, our Windows domain controller/ Active Directory/ KDC host name 
     Alfresco {
        com.sun.security.auth.module.Krb5LoginModule sufficient;
     };
-
     AlfrescoHTTP
     {
        com.sun.security.auth.module.Krb5LoginModule required
@@ -1063,7 +1059,6 @@ In this example, our Windows domain controller/ Active Directory/ KDC host name 
        keyTab="C:/etc/http<host>.keytab"
        principal="HTTP/<host>.<domain>";
     };
-
     ShareHTTP
     {
        com.sun.security.auth.module.Krb5LoginModule required
@@ -1126,7 +1121,6 @@ You can configure the Alfresco Share server and Active Directory server to work 
                     <endpoint-url>http://localhost:8080/alfresco/s</endpoint-url>
                     <identity>none</identity>
                  </endpoint>
-
                  <endpoint>
                     <id>alfresco</id>
                     <name>Alfresco - user access</name>
@@ -1135,7 +1129,6 @@ You can configure the Alfresco Share server and Active Directory server to work 
                     <endpoint-url>http://localhost:8080/alfresco/s</endpoint-url>
                     <identity>user</identity>
                  </endpoint>
-
                  <endpoint>
                     <id>alfresco-feed</id>
                     <name>Alfresco Feed</name>
@@ -1158,7 +1151,6 @@ You can configure the Alfresco Share server and Active Directory server to work 
                 </endpoint>
               </remote>
            </config>
-
            <config evaluator="string-compare" condition="Remote">
               <remote>
                  <ssl-config>
@@ -1179,7 +1171,6 @@ You can configure the Alfresco Share server and Active Directory server to work 
                     <description>Connects to an Alfresco instance using cookie-based authentication</description>
                     <class>org.alfresco.web.site.servlet.SlingshotAlfrescoConnector</class>
                  </connector>
-
                  <connector>
                     <id>alfrescoHeader</id>
                     <name>Alfresco Connector</name>
@@ -1187,7 +1178,6 @@ You can configure the Alfresco Share server and Active Directory server to work 
                     <class>org.alfresco.web.site.servlet.SlingshotAlfrescoConnector</class>
                     <userHeader>SsoUserHeader</userHeader>
                  </connector>
-
                  <endpoint>
                     <id>alfresco</id>
                     <name>Alfresco - user access</name>
@@ -1197,7 +1187,6 @@ You can configure the Alfresco Share server and Active Directory server to work 
                     <identity>user</identity>
                     <external-auth>true</external-auth>
                  </endpoint>
-
                  <endpoint>
                     <id>alfresco-api</id>
                     <parent-id>alfresco</parent-id>

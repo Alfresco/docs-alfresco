@@ -34,7 +34,7 @@ The Admin Console is a tool comprising separate pages that identify a particular
   * Search Service: [Configuring Search Services using Admin Console](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/adminconsole-searchservice-solr.html)
   * Subscription Service: [Enabling the Subscription Service](TODO_LINK:../tasks/adminconsole-subscriptionservice.md)
   * Transformation Services: [Changing the OOoJodconverter subsystems](TODO_LINK:../tasks/OOo-subsystems-config.md)
-    >**Note:** Use Repository Services to manage individual repository servers. This function can't be accessed through a load balancer.
+    > **Note:** Use Repository Services to manage individual repository servers. This function can't be accessed through a load balancer.
 * Support Tools:
   * Download JMX Dump: [JMX Settings]({% link content-services/latest/admin/support-tools.md %}#jmxsettings)
   * Node Browser: [Using the Node Browser](TODO_LINK:../tasks/adminconsole-nodebrowser.md)

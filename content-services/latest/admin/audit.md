@@ -90,7 +90,6 @@ A data producer generates data that can potentially be audited. Data is generate
                ...
              /aspects
                ...
-
      Example data:
        /alfresco-access/transaction/action=MOVE
        /alfresco-access/transaction/node=workspace://SpacesStore/74a5985a-45dd-4698-82db-8eaeff9df8d7
