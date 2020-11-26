@@ -1,5 +1,6 @@
 ---
 title: File metadata extraction
+nav: false
 ---
 
 This page contains information about metadata extraction, which happens when a file is uploaded to the Alfresco repository.

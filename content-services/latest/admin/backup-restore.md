@@ -1,5 +1,6 @@
 ---
 title: Backing up and restoring
+nav: false
 ---
 
 This information describes the process for backing up the content repository only. It assumes that components other 

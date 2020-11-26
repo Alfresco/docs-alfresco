@@ -1,5 +1,6 @@
 ---
 title: Install Alfresco Module Package
+nav: false
 ---
 
 An Alfresco Module Package (AMP) is a bundle of code, content model, content, and the directory structure that is used to distribute additional functionality for Content Services. Use the Module Management Tool (MMT) to install and manage AMP files. You can install an AMP in an Alfresco WAR using the MMT, or by using the `apply_amps` tool.
