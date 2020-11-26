@@ -4,9 +4,10 @@ title: Supported platforms
 
 The following are the supported platforms for the Identity Service version 1.3:
 
-c Content Services supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
+| Version | Notes |
+| ------- | ----- |
+| Content Services 6.2.2 | Content Services supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Content Services 6.2.1 | Content Services supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| Content Services 6.1.1 | Content Services supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Digital Workspace 1.5 | |
 | Office Services 1.3 | |
 | Governance Services 3.3 | |
