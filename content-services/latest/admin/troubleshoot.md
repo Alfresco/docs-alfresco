@@ -11,11 +11,9 @@ For additional help, refer to the following:
 * [Repo Admin Console]({% link content-services/latest/admin/admin-console.md %}) for more information, specifically [support tools]({% link content-services/latest/admin/support-tools.md %})
 * [Share Admin Tools]({% link content-services/latest/admin/share-admin-tools.md %}) to view various installation and setup information
 
-## Setting log levels
+## Set log levels
 
-The `log4j.properties` file lets you configure logging levels to provide debugging information when troubleshooting. 
-To set up logging policies, you must prepend `log4j.logger` to the class name you want to log to, and set the logging 
-level. You can set the log level dynamically using the JMX client.
+The `log4j.properties` file lets you configure logging levels to provide debugging information when troubleshooting. To set up logging policies, you must prepend `log4j.logger` to the class name you want to log to, and set the logging level. You can set the log level dynamically using the JMX client.
 
 When using log4j, you should:
 
@@ -31,11 +29,11 @@ When using log4j, you should:
     WEB-INF/classes/alfresco/extension/...-log4j.properties
     ```
 
->**Note:** A `dev-log4j.properties` file should not be packaged as a part of any product.
+> **Note:** A `dev-log4j.properties` file should not be packaged as a part of any product.
 
 Logging uses the Log4J `HierarchyDynamicMBean`.
 
->**Note:** Log levels are not cluster-aware. If needed, the log level change will need to be applied to each machine. Some consoles (for example, JManage) can provide basic facilities for accessing each machine in an application cluster.
+> **Note:** Log levels are not cluster-aware. If needed, the log level change will need to be applied to each machine. Some consoles (for example, JManage) can provide basic facilities for accessing each machine in an application cluster.
 
 * Editable attributes are a dynamic list of loggers with the `logLevel` attribute, which can be changed to OFF, FATAL, ERROR, WARN, INFO, DEBUG or TRACE (editable).
 
@@ -43,11 +41,11 @@ Logging uses the Log4J `HierarchyDynamicMBean`.
 
     The following steps provide instructions on adding loggers using JConsole:
 
-1.  Click **Alfresco > Log4jHierarchy > Operations > addLoggerMBean**.
+1. Click **Alfresco > Log4jHierarchy > Operations > addLoggerMBean**.
 
-2.  Type the full **className** in **Name** on the right hand pane.
+2. Type the full **className** in **Name** on the right hand pane.
 
-3.  Click **addLoggerMBean**.
+3. Click **addLoggerMBean**.
 
     A dialog box is displayed with the title **Operation return value**. If the operation is successful, the body of the dialog box contains the `className` you provided, preceded by `log4j:logger=`. If the operation is unsuccessful, the body of the dialog box shows `null`.
 
@@ -55,7 +53,7 @@ Logging uses the Log4J `HierarchyDynamicMBean`.
 
 Use this information to help troubleshoot your installation.
 
-**ImageMagick**
+### ImageMagick
 
 Error message on the console:
 
@@ -64,18 +62,16 @@ ERROR [AbstractImageMagickContentTransformer]
 JMagickContentTransformer not available:
 ERROR [AbstractImageMagickContentTransformer]
 ImageMagickContentTransformer not available:
-Failed to execute command: imconvert ... 
+Failed to execute command: imconvert ...
 ```
 
-These issues will not cause the server to fail. Content Services is reporting that external document 
-transformation engines are not available for use by the server. You can remove the transformation references if 
-they are not required.
+These issues won't cause the server to fail. Content Services is reporting that external document transformation engines are not available for use by the server. You can remove the transformation references if they're not required.
 
-**JAVA_HOME**
+### JAVA_HOME
 
 Make sure the `JAVA_HOME` variable is set correctly for your Java installation.
 
-**FTP Socket**
+### FTP Socket
 
 Error message on server startup:
 
@@ -83,10 +79,10 @@ Error message on server startup:
 ERROR [protocol] FTP Socket error
 ```
 
-**Port already in use**
+### Port already in use
 
 ```text
-java.net.BindException: Address already in use: 
+java.net.BindException: Address already in use:
 JVM_Bind at
 ```
 
@@ -94,46 +90,44 @@ JVM_Bind at
 java.net.PlainSocketImpl.socketBind(Native Method)
 ```
 
-Check to see if you have any services running against port 8080 for the Content Services server or port 21 
-for the FTP integration.
+Check to see if you have any services running against port 8080 for the Content Services server or port 21 for the FTP integration.
 
 ## Using the Node Browser
 
-Use Node Browser in the Repo Admin Console or in Share Admin Tools as a debugging aid to browse the raw repository 
-structure. This feature is intended for developers responsible for customizing the application.
+Use Node Browser in the Repo Admin Console or in Share Admin Tools as a debugging aid to browse the raw repository structure. This feature is intended for developers responsible for customizing the application.
 
 This is a read-only feature with basic search capability.
 
-1.  Open the [Repo Admin Console]({% link content-services/latest/admin/admin-console.md %}#launchadminconsole).
+1. Open the [Repo Admin Console]({% link content-services/latest/admin/admin-console.md %}#launch-admin-console).
 
-2.  In the **Support Tools** section, click **Node Browser**. You see the **Node Browser Console** page.
+2. In the **Support Tools** section, click **Node Browser**. You see the **Node Browser Console** page.
 
-3.  In the **Store** section, select the store of interest:
+3. In the **Store** section, select the store of interest:
 
     * `workspace://SpacesStore` - live content
-    * `archive://SpacesStore` - archived content (soft deleted) 
+    * `archive://SpacesStore` - archived content (soft deleted)
     * `workspace://version2Store` - older content version history
     * `user://alfrescoUserStore` - nodes of type `usr:user` is stored, note that nodes of type `cm:person` is stored in the `workspace://SpacesStore`
     * `system://system` - info about installed modules
-    * `workspace://lightWeightVersionStore` 
-    
+    * `workspace://lightWeightVersionStore`
+
     Each store is an area of the repository and within each store, the nodes of that store are organized hierarchically. The node displayed is the root node of the selected store.
 
-4.  Click **Root List**.
+4. Click **Root List**.
 
     The **Node Browser** page displays details of the properties, aspects, children, parents, associations, source associations, and permissions for the selected node.
 
-5.  Search the selected store, as needed:
+5. Search the selected store, as needed:
 
-    1.  Select the search type: `noderef`, `fts-alfresco`, `lucene`, `xpath`, `selectnodes`, `cmis-strict`, `cmis-alfresco`, `db-afts`, `db-cmis`.
+    1. Select the search type: `noderef`, `fts-alfresco`, `lucene`, `xpath`, `selectnodes`, `cmis-strict`, `cmis-alfresco`, `db-afts`, `db-cmis`.
 
-    2.  Enter the search criteria in the field provided.
+    2. Enter the search criteria in the field provided.
 
-    3.  Click **Execute**.
+    3. Click **Execute**.
 
-**Using the Node Browser in Share Admin Tools**
+### Using the Node Browser in Share Admin Tools
 
-1.  Go to [Share Admin Tools]({% link content-services/latest/admin/share-admin-tools.md %}), and then click **Node Browser**.
+1. Go to [Share Admin Tools]({% link content-services/latest/admin/share-admin-tools.md %}), and then click **Node Browser**.
 
     By default, the search criteria `PATH:"/"` is shown in the Node Browser field for the `workspace://SpacesStore` repository store. Each store is an area of the repository. The nodes contained within each store are organized hierarchically. The node displayed is the root node of the selected store.
 
@@ -141,16 +135,15 @@ This is a read-only feature with basic search capability.
 
     See [Alfresco Full Text Search reference](TODO_LINK:https://docs.alfresco.com/search-enterprise/concepts/searchsyntax-intro.html) for more detail.
 
-2.  Enter your search criteria in the Note Browser field.
+2. Enter your search criteria in the Note Browser field.
 
-3.  Click **Search**.
+3. Click **Search**.
 
-4.  Click the link in the **Reference** column to browse the details.
+4. Click the link in the **Reference** column to browse the details.
 
     The details of the properties, aspects, children, parents, associations, source associations, and permissions are displayed for the node.
 
-5.  Click **Back to Search** to browse another node.
-
+5. Click **Back to Search** to browse another node.
 
 You can use another search syntax by choosing one of the following types from the **Search** list:
 
@@ -163,30 +156,26 @@ You can use another search syntax by choosing one of the following types from th
 * `db-afts`
 * `db-cmis`
 
-## Debugging an installation
+## Debug an installation
 
-When developing add-ins, fixing bugs, or changing Content Services from the source code, it is helpful to 
-debug an instance running on a standard application server. You can configure Content Services and Eclipse to 
-provide a real-time view of the server and to troubleshoot issues by stepping through the code line by line.
+When developing add-ins, fixing bugs, or changing Content Services from the source code, it is helpful to debug an instance running on a standard application server. You can configure Content Services and Eclipse to provide a real-time view of the server and to troubleshoot issues by stepping through the code line by line.
 
-To debug a running server, you must connect to the JVM in which Content Services is running. The following 
-steps configure the JVM to expose an interface for this connection, and then configure Eclipse to connect to and 
-control that JVM.
+To debug a running server, you must connect to the JVM in which Content Services is running. The following steps configure the JVM to expose an interface for this connection, and then configure Eclipse to connect to and control that JVM.
 
-### Configuring the JVM
+### Configure the JVM
 
 You can configure the JVM to expose an interface for connection to the server.
 
 Before you start, you must:
 
-* Have a fully installed, configured, and running instance of Content Services. These steps assume you are using Tomcat on Windows, but the steps are similar for other application servers on other systems.
-* Have an IDE installed. These steps describe how to configure Eclipse, which must be installed first ([Eclipse](http://www.eclipse.org/downloads){:target="_blank"})
-* [Download source code](https://github.com/Alfresco/alfresco-enterprise-repo){:target="_blank"}. This project has more instructions on how to set up a dev env. 
+* Have a fully installed, configured, and running instance of Content Services. These steps assume you're using Tomcat on Windows, but the steps are similar for other application servers on other systems.
+* Have an IDE installed. These steps describe how to configure Eclipse, which must be installed first ([Eclipse](https://www.eclipse.org/downloads/){:target="_blank"})
+* [Download source code](https://github.com/Alfresco/alfresco-enterprise-repo){:target="_blank"}. This project has more instructions on how to set up a dev env.
 * Ensure the source code is the same version as the installed server.
 
-1.  Verify that the server is not running.
+1. Verify that the server is not running.
 
-2.  Edit the JVM options used to start the Tomcat instance.
+2. Edit the JVM options used to start the Tomcat instance.
 
     For example, set the following:
 
@@ -196,43 +185,43 @@ Before you start, you must:
 
     where `address` is a port for your system.
 
-3.  Save the file and close the editor.
+3. Save the file and close the editor.
 
-### Configuring Eclipse
+### Configure Eclipse
 
 This task describes how to configure Eclipse to connect to and control the JVM.
 
-1.  From the Run menu, choose the **Open Debug** dialog.
+1. From the Run menu, choose the **Open Debug** dialog.
 
-2.  Right-click **Remote Java Application** and select **New**.
+2. Right-click **Remote Java Application** and select **New**.
 
-3.  In the Name box, type Debug Local Tomcat Alfresco.
+3. In the Name box, type Debug Local Tomcat Alfresco.
 
-4.  Next to Project, click **Browse**, and select **Web Client**. If this is not available as an option, ensure your source code matches that of your server.
+4. Next to Project, click **Browse**, and select **Web Client**. If this is not available as an option, ensure your source code matches that of your server.
 
-5.  In Connection Properties, enter the port number.
+5. In Connection Properties, enter the port number.
 
-6.  Check **Allow Termination of remote VM** if you want to be able to stop the server from the Eclipse console.
+6. Check **Allow Termination of remote VM** if you want to be able to stop the server from the Eclipse console.
 
-7.  Click **Apply** to save the configuration.
+7. Click **Apply** to save the configuration.
 
-## Troubleshooting an upgrade
+## Troubleshoot an upgrade
 
 Use these tips for diagnosing and resolving any issues that might arise as a result of an upgrade.
 
-1.  Immediately after starting the server, make a copy of the `alfresco.log` file.
+1. Immediately after starting the server, make a copy of the `alfresco.log` file.
 
-2.  In the `alfresco.log` file, note the locations of the temporary files containing the SQL statements executed during the upgrade, and make a copy of these temporary files.
+2. In the `alfresco.log` file, note the locations of the temporary files containing the SQL statements executed during the upgrade, and make a copy of these temporary files.
 
-3.  Submit the log file and temporary files to Alfresco Support.
+3. Submit the log file and temporary files to Alfresco Support.
 
-## Troubleshooting rules and actions
+## Troubleshoot rules and actions
 
 Use these troubleshooting tips when working with rules and actions.
 
-**Type specialization action problems with Mac OS/X**
+### Type specialization action problems with Mac OS/X**
 
-If you are using Mac OS/X 10.8.3 or later, the type specialization action is not performed when you save a Microsoft Word document.
+If you're using Mac OS/X 10.8.3 or later, the type specialization action is not performed when you save a Microsoft Word document.
 
 To resolve this issue, edit your `alfresco-global.properties` file to set the following value:
 
@@ -240,23 +229,19 @@ To resolve this issue, edit your `alfresco-global.properties` file to set the fo
 policy.content.update.ignoreEmpty=false
 ```
 
-## Troubleshooting clustering
+## Troubleshoot clustering
 
 Use these troubleshooting tips when testing cache clustering.
 
-In **Linux/Unix** environments, you can use `netstat -ln` to check that the correct ports have been opened by 
-the server on the correct network adapters. You can use `telnet <hostname><port>` to check if each open port can be 
-reached by each cluster member.
+In **Linux/Unix** environments, you can use `netstat -ln` to check that the correct ports have been opened by the server on the correct network adapters. You can use `telnet <hostname><port>` to check if each open port can be reached by each cluster member.
 
-If your cluster members are using NAT and IPv4 addresses, you might need to force the server to listen on IP V4 addresses 
-rather than IP V6. To do this, add:
+If your cluster members are using NAT and IPv4 addresses, you might need to force the server to listen on IP V4 addresses rather than IP V6. To do this, add:
 
 ```text
--Djava.net.preferIPv4Stack=true 
+-Djava.net.preferIPv4Stack=true
 ```
 
-to the startup options of Content Services JVM. In a standard **Linux/Unix** installation, this would require 
-editing of the `JAVA_OPTS` variable in the following script:
+to the startup options of Content Services JVM. In a standard **Linux/Unix** installation, this would require editing of the `JAVA_OPTS` variable in the following script:
 
 ```text
 tomcat/scripts/ctl.sh
@@ -272,19 +257,18 @@ and then running the scripts:
 
 ```bash
 tomcat/scripts/serviceinstall.bat REMOVE
-tomcat/scripts/serviceinstall.bat INSTALL 
+tomcat/scripts/serviceinstall.bat INSTALL
 ```
 
 to re-register the service with the new option.
 
-For more information on the process of initiating clustering and the options available for configuring clustering, 
-see [Setting up clustering]({% link content-services/latest/admin/cluster.md %}).
+See [Setting up clustering]({% link content-services/latest/admin/cluster.md %}) for more information on the process of initiating clustering and the options available for configuring clustering.
 
-## Troubleshooting LibreOffice subsystems
+## Troubleshoot LibreOffice subsystems
 
 Use these tips for troubleshooting the LibreOffice subsystems.
 
-1.  Enable the following log4j properties to debug:
+1. Enable the following log4j properties to debug:
 
     ```text
     log4j.logger.org.alfresco.enterprise.repo.content=DEBUG
@@ -293,45 +277,42 @@ Use these tips for troubleshooting the LibreOffice subsystems.
 
     For information about how to create a `log4j.properties` file, see [Key tools and files]({% link content-services/latest/admin/audit.md %}#keytoolsandfiles).
 
-    >**Note:** The OOoDirect debug entry is: `log4j.logger.org.alfresco.repo.content.transform=DEBUG`.
+    > **Note:** The OOoDirect debug entry is: `log4j.logger.org.alfresco.repo.content.transform=DEBUG`.
 
-2.  If Tomcat is not shutdown gracefully, the `soffice.bin` process cannot be stopped. This can result in errors when starting Tomcat with port 8080 being is use. If this occurs, manually kill the `soffice.bin` process.
+2. If Tomcat is not shutdown gracefully, the `soffice.bin` process can't be stopped. This can result in errors when starting Tomcat with port 8080 being is use. If this occurs, manually kill the `soffice.bin` process.
 
-3.  You might see a failure to connect error message.
+3. You might see a failure to connect error message.
 
     If the LibreOffice process takes more than 10 seconds to fully start up, then Content Services fails to connect to it. If this occurs, manually kill the `soffice.bin` process before attempting to restart the `Jodconverter` subsystem.
 
-    >**Note:** The next time that you start LibreOffice, it usually starts fast enough to connect (this is due to operating system caching).
+    > **Note:** The next time that you start LibreOffice, it usually starts fast enough to connect (this is due to operating system caching).
 
-4.  If the LibreOffice home location is incorrect, the `Jodconverter` subsystem will still start, but no LibreOffice process will be running or connected. The error is reported in the console but not in the `alfresco.log` file.
+4. If the LibreOffice home location is incorrect, the `Jodconverter` subsystem will still start, but no LibreOffice process will be running or connected. The error is reported in the console but not in the `alfresco.log` file.
 
     The correct value for the `jodconverter.officeHome` property varies with host operating system.
 
     * For Mac OS X, it should be set to the directory that contains `MacOS/soffice.bin`, which is `/Applications/LibreOffice/Contents` by default.
     * For other operating systems, it should be set to the directory that contains `program/soffice.bin`.
-    
-5.  When restarting the `Jodconverter` subsystem using JMX, you need to set the enabled property to `true` (this will also stop the JOD subsystem if it is running); then use the **start** operation to start the `Jodconverter` subsystem with the new property settings.
 
-6.  The `Jodconverter` can run a pool of multiple reusable instances of the `soffice` LibreOffice process. To use this capability, set the `jodconverter.portNumbers` property to a comma-separated list of port numbers, all of which must be available for use. For example, `2022, 2023, 2024` for a pool of three `soffice` processes.
+5. When restarting the `Jodconverter` subsystem using JMX, you need to set the enabled property to `true` (this will also stop the JOD subsystem if it is running); then use the **start** operation to start the `Jodconverter` subsystem with the new property settings.
 
-7.  The `Jodconverter` supports configurable restart behavior for the LibreOffice `soffice` process. To ensure that potential memory leaks in LibreOffice do not accumulate and affect performance, the JodConverter will restart an `soffice` process after a given number of tasks (transformations, metadata extractions) have been performed. The default for `jodConverter.maxTasksPerProcess` is 200.
+6. The `Jodconverter` can run a pool of multiple reusable instances of the `soffice` LibreOffice process. To use this capability, set the `jodconverter.portNumbers` property to a comma-separated list of port numbers, all of which must be available for use. For example, `2022, 2023, 2024` for a pool of three `soffice` processes.
 
-8.  The `Jodconverter` allows long-running or hung tasks to be timed out. The first timeout is controlled by `jodconverter.taskQueueTimeout`, which is 30000 by default (30000 milliseconds = 30 seconds). If a task spends this long in a `JodConverter` queue awaiting execution, it will be dropped from the queue. The second timeout is controlled by `jodconverter.taskExecutionTimeout`, which is 120000 by default (120000 milliseconds = 2 minutes). If a task has been executing within an `soffice` process for longer than this period, that `soffice` process will be terminated and restarted.
+7. The `Jodconverter` supports configurable restart behavior for the LibreOffice `soffice` process. To ensure that potential memory leaks in LibreOffice do not accumulate and affect performance, the JodConverter will restart an `soffice` process after a given number of tasks (transformations, metadata extractions) have been performed. The default for `jodConverter.maxTasksPerProcess` is 200.
 
-9.  Throughput of OOo-related tasks, such as transformations, can be balanced against available hardware resources (memory, CPU) by altering the pool size and the two timeout timers.
+8. The `Jodconverter` allows long-running or hung tasks to be timed out. The first timeout is controlled by `jodconverter.taskQueueTimeout`, which is 30000 by default (30000 milliseconds = 30 seconds). If a task spends this long in a `JodConverter` queue awaiting execution, it'll be dropped from the queue. The second timeout is controlled by `jodconverter.taskExecutionTimeout`, which is 120000 by default (120000 milliseconds = 2 minutes). If a task has been executing within an `soffice` process for longer than this period, that `soffice` process will be terminated and restarted.
 
-## Troubleshooting the JMX Dumper
+9. Throughput of OOo-related tasks, such as transformations, can be balanced against available hardware resources (memory, CPU) by altering the pool size and the two timeout timers.
+
+## Troubleshoot JMX Dumper
 
 Use this information if you need to troubleshoot the JMX Dumper.
 
-Invoking the JMX Dumper can result in a stack trace in the log file. When you open `jmx-dumper.zip`, it is trying to 
-find a data source defined in the `web.xml` file. (`<res-ref-name>jdbc/dataSource</res-ref-name>`), but this data source 
-is not declared in the `alfresco.xml` file.
+Invoking the JMX Dumper can result in a stack trace in the log file. When you open `jmx-dumper.zip`, it is trying to find a data source defined in the `web.xml` file. (`<res-ref-name>jdbc/dataSource</res-ref-name>`), but this data source is not declared in the `alfresco.xml` file.
 
-To prevent this logging message for appearing, you can configure the data source in the 
-`$CATALINA_BASE/conf/[enginename]/[hostname]/alfresco.xml` file.
+To prevent this logging message for appearing, you can configure the data source in the `$CATALINA_BASE/conf/[enginename]/[hostname]/alfresco.xml` file.
 
-## Troubleshooting WebDAV
+## Troubleshoot WebDAV
 
 Diagnose and resolve issues that might arise when configuring WebDAV.
 
@@ -340,8 +321,7 @@ Content Services uses two implementations of WebDAV:
 * RFC-compliant WebDAV: `alfresco/webdav`
 * Microsoft-compliant WebDAV: `alfresco/aos`
 
-Microsoft WebDAV extensions (MS-DAVEXT) are only partially compatible with the WebDAV standard, therefore it is 
-recommended that you use `/alfresco/aos` on Windows clients and `/alfresco/webdav` on Linux-based systems.
+Microsoft WebDAV extensions (MS-DAVEXT) are only partially compatible with the WebDAV standard, therefore it is recommended that you use `/alfresco/aos` on Windows clients and `/alfresco/webdav` on Linux-based systems.
 
 (Windows)
 
@@ -353,37 +333,28 @@ recommended that you use `/alfresco/aos` on Windows clients and `/alfresco/webda
 * Add your server IP to the Trusted sites list in Windows Internet Explorer
 * Make sure the **WebClient** service is running. To do so, follow the steps:
 
-    1.  Start `services.msc`.
-    2.  Start the **WebClient** service.
-    
-    >**Note:** For details on running the **WebClient** service, see [Enabling the WebClient service in Windows](https://docs.microsoft.com/en-gb/archive/blogs/johnguin/enabling-the-webclient-service-in-windows){:target="_blank"}.
+    1. Start `services.msc`.
+    2. Start the **WebClient** service.
 
-* If you are not using SSL, check your connection configuration for Windows and Microsoft Office.
+    > **Note:** For details on running the **WebClient** service, see [Enabling the WebClient service in Windows](https://docs.microsoft.com/en-gb/archive/blogs/johnguin/enabling-the-webclient-service-in-windows){:target="_blank"}.
 
-    >**Note:** Refer to Microsoft for details on setting the Basic Authentication Level key in the Registry Editor.
+* If you're not using SSL, check your connection configuration for Windows and Microsoft Office.
 
-* If you can connect to the server but cannot authenticate your login details, check if you can use the same user name and password to log in to Alfresco Share.
+    > **Note:** Refer to Microsoft for details on setting the Basic Authentication Level key in the Registry Editor.
 
-### Moving a file or folder using WebDAV on an Ubuntu client causes loss of metadata and creates a new node reference
+* If you can connect to the server but can't authenticate your login details, check if you can use the same user name and password to log in to Alfresco Share.
 
-There is a known issue where Ubuntu creates a new `nodeRef` when you move a file or a folder in WebDAV, 
-because it uses PUT and DELETE methods instead of a MOVE method. As a result, the `nodeRef` for the file or folder 
-changes and any associated metadata is lost. This issue applies to all versions of Ubuntu, but does not occur when 
-using a Windows client.
+### Move file or folder using WebDAV on an Ubuntu client causes loss of metadata and creates a new node reference
 
-### Editor role cannot edit content using WebDAV and Cyberduck version 4.4+
+There is a known issue where Ubuntu creates a new `nodeRef` when you move a file or a folder in WebDAV, because it uses PUT and DELETE methods instead of a MOVE method. As a result, the `nodeRef` for the file or folder changes and any associated metadata is lost. This issue applies to all versions of Ubuntu, but does not occur when using a Windows client.
 
-There is a known issue when using WebDAV with Cyberduck 4.4 and later, where content cannot be edited due to 
-insufficient permissions. To avoid this, you can either use a version of Cyberduck earlier than 4.4, or assign permissions 
-to the user to allow them to create files.
+### Editor role can't edit content using WebDAV and Cyberduck version 4.4+
+
+There is a known issue when using WebDAV with Cyberduck 4.4 and later, where content can't be edited due to insufficient permissions. To avoid this, you can either use a version of Cyberduck earlier than 4.4, or assign permissions to the user to allow them to create files.
 
 ### Slow response when working with WebDav resources on Microsoft Windows Vista or 7
 
-There is a known issue where you may experience poor performance when opening a WebDav folder, copying files to or 
-from a WebDav folder, or changing from one folder to another on the WebDav folder. This can be caused because when 
-WebClient issues a WebDAV command it checks for a web proxy server. If you have Auto-Proxy detection enabled and there 
-isn't a proxy server in the environment between the client and WebDAV resource, WebClient waits for the timeout of 
-Auto-Proxy detection. Command completion therefore will take longer due to the wait for the Auto-Proxy detection timeout.
+There is a known issue where you may experience poor performance when opening a WebDav folder, copying files to or from a WebDav folder, or changing from one folder to another on the WebDav folder. This can be caused because when WebClient issues a WebDAV command it checks for a web proxy server. If you have Auto-Proxy detection enabled and there isn't a proxy server in the environment between the client and WebDAV resource, WebClient waits for the timeout of Auto-Proxy detection. Command completion therefore will take longer due to the wait for the Auto-Proxy detection timeout.
 
 For more information and a work around see [Slow response working with WebDAV resources on Windows Vista or Windows 7](https://support.microsoft.com/en-us/help/2445570/slow-response-working-with-webdav-resources-on-windows-vista-or-window){:target="_blank"}.
 
@@ -445,7 +416,7 @@ argsfile   /usr/local/var/run/slapd.args
 #
 # if no access controls are present, the default policy
 # allows anyone and everyone to read anything but restricts
-# updates to rootdn.  (e.g., "access to * by * read")
+# updates to rootdn. (e.g., "access to * by * read")
 #
 # rootdn can always read and write EVERYTHING!
 
@@ -457,18 +428,18 @@ database  bdb
 suffix  "dc=company,dc=com"
 rootdn  "cn=Manager,dc=company,dc=com"
 # Cleartext passwords, especially for the rootdn, should
-# be avoid.  See slappasswd(8) and slapd.conf(5) for details.
+# be avoid. See slappasswd(8) and slapd.conf(5) for details.
 # Use of strong authentication encouraged.
 # This is secret ....
 rootpw          {SSHA}u9AUUYOSVX6idlXcwyYOAG6G84oHFpvG
-# The database directory MUST exist prior to running slapd AND 
+# The database directory MUST exist prior to running slapd AND
 # should only be accessible by the slapd and slap tools.
 # Mode 700 recommended.
 directory  /usr/local/var/openldap-data
 # Indices to maintain
 index  objectClass  eq
 
-# Clear text to allow hashing 
+# Clear text to allow hashing
 password-hash  {CLEARTEXT}
 
 # SASL mappings for md5 digest authentication
@@ -533,12 +504,12 @@ o: Company Software Inc.
 dn: cn=Group One,ou=Groups,dc=company,dc=com
 objectclass: groupOfNames
 cn: Group One
-member: uid=fullname,ou=People,dc=company,dc=com 
+member: uid=fullname,ou=People,dc=company,dc=com
 
 dn: cn=Group Two,ou=Groups,dc=company,dc=com
 objectclass: groupOfNames
 cn: Group Two
-member: cn=Group One,ou=Groups,dc=company,dc=com 
+member: cn=Group One,ou=Groups,dc=company,dc=com
 member: uid=walrus,ou=People,dc=company,dc=com
 ```
 
@@ -546,7 +517,7 @@ member: uid=walrus,ou=People,dc=company,dc=com
 
 Tips for using Active Directory with the LDAP synchronization.
 
-* You might need to give special permissions in the Active Directory to the account that you are using to do the LDAP bind (as configured in `ldap.synchronization.java.naming.security.principal`). To do this, open Active Directory Users and Computers, right click on the domain, and select **Delegate Control...** Click **Next**, then select the user that you are using for the LDAP bind and click **Next**. The permission that they will need is on the next screen **Read all inetOrgPerson information.**
+* You might need to give special permissions in the Active Directory to the account that you're using to do the LDAP bind (as configured in `ldap.synchronization.java.naming.security.principal`). To do this, open Active Directory Users and Computers, right click on the domain, and select **Delegate Control...** Click **Next**, then select the user that you're using for the LDAP bind and click **Next**. The permission that they will need is on the next screen **Read all inetOrgPerson information.**
 * The example URL in `ldap.authentication.java.naming.provider.url` does not use SSL. SSL is recommended for production systems. You'll need to switch the port from 389 (below, non-SSL) to 636 for SSL.
 * It is often helpful to screen out non-user accounts and disabled accounts. The default user queries in the `ldap-ad` subsystem type do this by checking bit fields on the `userAccountControl` attribute. For example:
 
@@ -554,56 +525,51 @@ Tips for using Active Directory with the LDAP synchronization.
     userAccountControl:1.2.840.113556.1.4.803:=512
     ```
 
-## Troubleshooting SMTP inbound email using StartTLS
+## Troubleshoot SMTP inbound email using StartTLS
 
 For StartTLS support to work for inbound email, you must configure SSL for Java.
 
-To identify whether you are having this problem, enable `DEBUG` logging for the class `org.subethamail` in your `log4j.properties` file.
+To identify whether you're having this problem, enable `DEBUG` logging for the class `org.subethamail` in your `log4j.properties` file.
 
 ```text
 startTLS() failed: no cipher suites in common
 ```
 
-Also, to enable efficient inbound mail server logging in debug mode, you need a log4j option that allows you to track mails, 
-including the sender details, recipient details, subject and the reason for rejection/acceptance. To do so, enable `DEBUG` 
-logging for the `class org.subethamail.smtp.server.ConnectionHandler` as shown:
+Also, to enable efficient inbound mail server logging in debug mode, you need a log4j option that allows you to track mails, including the sender details, recipient details, subject and the reason for rejection/acceptance. To do so, enable `DEBUG` logging for the `class org.subethamail.smtp.server.ConnectionHandler` as shown:
 
 ```text
 log4j.logger.org.subethamail.smtp.server.ConnectionHandler=debug  
 ```
 
-The following process outlines one method for creating a self-signed certificate. However, this can differ between 
-JVM vendors, so see the JVM documentation for more information.
+The following process outlines one method for creating a self-signed certificate. However, this can differ between JVM vendors, so see the JVM documentation for more information.
 
-1.  Create a suitable key and certificate:
+1. Create a suitable key and certificate:
 
     ```bash
     keytool -genkey -keystore mySrvKeystore -keyalg RSA
     ```
 
-2.  Add the following somewhere in your Tomcat configuration. For example, `/etc/tomcat5/tomcat7.conf`.
+2. Add the following somewhere in your Tomcat configuration. For example, `/etc/tomcat5/tomcat7.conf`.
 
     ```text
     JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.keyStore=mySrvKeystore -Djavax.net.ssl.keyStorePassword=123456"
     ```
 
-## Handling a higher rate of outbound TCP connections
+## Handle higher rate of outbound TCP connections
 
-If you are using the Web Services API on a Windows client and frequently see errors such as 
-`java.net.BindException: Address already in use: connect` in the client application, you might need to tune the client 
-operating system parameters so that it can handle a higher rate of outbound TCP connections.
+If you're using the Web Services API on a Windows client and frequently see errors such as `java.net.BindException: Address already in use: connect` in the client application, you might need to tune the client operating system parameters so that it can handle a higher rate of outbound TCP connections.
 
-1.  Open the **Registry**.
+1. Open the **Registry**.
 
-2.  Under the following registry entry:
+2. Under the following registry entry:
 
     ```text
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TCPIP\Parameters
     ```
 
-3.  Key in the registry of the Windows client machine.
+3. Key in the registry of the Windows client machine.
 
-4.  Add the following registry entries:
+4. Add the following registry entries:
 
     * `TcpTimedWaitDelay`
 
@@ -613,70 +579,58 @@ operating system parameters so that it can handle a higher rate of outbound TCP 
 
         Add this DWORD with a value of 32768.
 
-5.  Refer to the Windows documentation for further details on these registry entries.
+5. Refer to the Windows documentation for further details on these registry entries.
 
-## Troubleshooting IMAP
+## Troubleshoot IMAP
 
 Use this information to troubleshoot IMAP problems.
 
 ### IMAP scale limitations
 
-If you mount more than 5000 folders or mailbox folders, depending on the IMAP client that you are using, you might not be 
-able to view more than the first 5000 folders.
+If you mount more than 5000 folders or mailbox folders, depending on the IMAP client that you're using, you might not be able to view more than the first 5000 folders.
 
-In order to avoid this situation, you should limit the number of folders that are being mounted. 
+In order to avoid this situation, you should limit the number of folders that are being mounted.
 
 For example:
 
 * Do not mount from the company root space if you know that you have a very large folder structure. Choose a specific site to reduce the number of folders being mounted.
 * Do not extract attachments to a separate folder (`imap.attachments.mode=SEPARATE`), particularly for large repositories. When you specify `imap.attachments.mode`, choose one of the following settings:
-    * `imap.attachments.mode=COMMON`: all attachments for all emails are extracted to one folder
-    * `imap.attachments.mode=SAME`: attachments are extracted to the same folder as the original message
+  * `imap.attachments.mode=COMMON`: all attachments for all emails are extracted to one folder
+  * `imap.attachments.mode=SAME`: attachments are extracted to the same folder as the original message
 
 ### IMAP server error message
 
 ```text
 Exception in thread "Thread-53" java.lang.RuntimeException:
 java.net.BindException: Cannot assign requested address:
-JVM_Bind at com.icegreen.greenmail.imap.ImapServer.run(ImapServer.java:53) 
+JVM_Bind at com.icegreen.greenmail.imap.ImapServer.run(ImapServer.java:53)
 Caused by: java.net.BindException:
-Cannot assign requested address: JVM_Bind 
+Cannot assign requested address: JVM_Bind
 ```
 
 This error message is related to the IP address or hostname that has been provided for binding. To resolve this issue:
 
 * Check that the IP address or hostname you provided is correct for your `imap.server.host` setting.
-* Check that the port you are using is not blocked. The default port to use is 143.
+* Check that the port you're using is not blocked. The default port to use is 143.
 * Check that firewalls are not blocking this IP address or hostname.
 * Use the command line tool Netstat to check your network connections.
 
-    >**Note:** You should not use localhost as the `imap.server.host` - update this value with the IP address (or corresponding DNS address) of your external IP interface. A value of 0.0.0.0 in Unix will make it listen on the specified port on all IP interfaces.
+    > **Note:** You should not use localhost as the `imap.server.host` - update this value with the IP address (or corresponding DNS address) of your external IP interface. A value of 0.0.0.0 in Unix will make it listen on the specified port on all IP interfaces.
 
-## Troubleshooting database scheme problems
+## Troubleshoot database scheme problems
 
-The **Schema Difference Tool** provides a way of identifying and troubleshooting problems in database schemas.
+The **Schema Difference Tool** provides a way of identifying and troubleshooting problems in database schemas. Such problems can sometimes arise when performing certain version upgrades or customized installations.
 
-Such problems can sometimes arise when performing certain version upgrades or customized installations.
+The Schema Difference Tool can be used when troubleshooting or examining the database schema for a repository. The tool has two main functions:
 
-**Background**
+1. Producing schema dumps as XML files.
+2. Validating a database schema.
 
-The Schema Difference Tool can be used when troubleshooting or examining the database schema for an repository. 
+Schema dumps were available in previous versions of Content Services. However, prior to the introduction of the Schema Difference Tool, the only way to judge the validity of the schema was to examine the file manually and compare schemas with simple text tools such as the Unix diff command. The Schema Difference Tool performs a certain amount of automatic comparison that removes much of the effort needed in making these comparisons.
 
-The tool has two main functions:
+If any changes are made to the database schema during server start-up (such as a fresh install) then the tool performs both schema dumping and validation as described. The dumps and validation are made both pre-upgrade (that is before the schema changes) and post-upgrade.
 
-1.  Producing schema dumps as XML files.
-2.  Validating a database schema.
-
-Schema dumps were available in previous versions of Content Services. However, prior to the introduction of the 
-Schema Difference Tool, the only way to judge the validity of the schema was to examine the file manually and compare 
-schemas with simple text tools such as the Unix diff command. The Schema Difference Tool performs a certain amount of 
-automatic comparison that removes much of the effort needed in making these comparisons.
-
-If any changes are made to the database schema during server start-up (such as a fresh install) then the tool performs 
-both schema dumping and validation as described. The dumps and validation are made both pre-upgrade (that is before the 
-schema changes) and post-upgrade.
-
-**Definition of terms used**
+### Definition of terms used
 
 The terms given are used throughout the rest of this section.
 
@@ -692,14 +646,14 @@ The terms given are used throughout the rest of this section.
 
     The database schema that will be compared and validated with respect to a reference schema. For example, if installing an repository from scratch, then the newly created schema will be a target schema for comparison against the appropriate reference schema.
 
-### Performing schema dumps
+### Perform schema dumps
 
 Schema dumps are XML representations of the database schema.
 
 Schema dumps can take place in two situations:
 
-1.  The dump is triggered automatically on startup due to a difference being found between the reference and actual database schema.
-2.  The dump is manually triggered by using a JMX client.
+1. The dump is triggered automatically on startup due to a difference being found between the reference and actual database schema.
+2. The dump is manually triggered by using a JMX client.
 
 Each of these scenarios is described in the following sections.
 
@@ -707,11 +661,9 @@ Each of these scenarios is described in the following sections.
 
 Schema dumps are performed automatically on server startup, if changes in database schema are detected.
 
-Schema dumps are XML representations of the RDBMS schema. They should conform to the XSD: 
-`http://www.alfresco.org/repo/db-schema/db-schema.xsd` The XSD file is embedded in the repository.
+Schema dumps are XML representations of the RDBMS schema. They should conform to the XSD: `http://www.alfresco.org/repo/db-schema/db-schema.xsd` The XSD file is embedded in the repository.
 
-A schema dump is performed automatically during repository server start up, if there were changes made to the 
-database schema. The log will indicate if any dumps were performed, and entries such as these will be present:
+A schema dump is performed automatically during repository server start up, if there were changes made to the database schema. The log will indicate if any dumps were performed, and entries such as these will be present:
 
 ```text
 2017-02-16 11:51:19,907 INFO  [org.alfresco.repo.domain.schema.SchemaBootstrap] [localhost-startStop-1] Normalized schema dumped to file
@@ -722,11 +674,11 @@ database schema. The log will indicate if any dumps were performed, and entries 
 
 Similar entries for the post-upgrade files will also be present.
 
->**Note:** The legacy tool is still included and will create dumps of its own - the log messages look similar but should not be confused with the new format dumps.
+> **Note:** The legacy tool is still included and will create dumps of its own - the log messages look similar but should not be confused with the new format dumps.
 
->**Note:** JBPM has been removed from Content Services. Schema dump will ignore any JBPM tables and not treat their presence or absence as an error.
+> **Note:** JBPM has been removed from Content Services. Schema dump will ignore any JBPM tables and not treat their presence or absence as an error.
 
-#### Triggering dumps by using JMX
+#### Trigger dumps by using JMX
 
 Schema dumps can also be triggered manually by using a JMX client.
 
@@ -734,36 +686,26 @@ In addition to automatic dumping, dumps can be manually invoked by use of the JM
 
 The JMX category **Alfresco > DatabaseInformation > SchemaExport** contains two operations:
 
-1.  `java.util.List dumpSchemaToXML()`
-2.  `java.util.List dumpSchemaToXML(String prefixList)`
+1. `java.util.List dumpSchemaToXML()`
+2. `java.util.List dumpSchemaToXML(String prefixList)`
 
-The first operation takes no parameters and when invoked will create three dump files one for each prefix `alf_` and `act_`. 
-The prefix means that only tables and sequences whose names begin with the prefix will be included in the dump. 
-Related items, such as the indexes belonging to a particular table, will be dumped regardless of name.
+The first operation takes no parameters and when invoked will create three dump files one for each prefix `alf_` and `act_`. The prefix means that only tables and sequences whose names begin with the prefix will be included in the dump. Related items, such as the indexes belonging to a particular table, will be dumped regardless of name.
 
-The second variation takes a single `String` parameter and is a comma-separated list of prefixes that you wish to dump. 
-If this operation were invoked with the parameter `alf_acl_, alf_node_` for example, then two files would be created 
-(one for each prefix). The tables dumped in the first file would include `alf_acl_change_set` and `alf_acl_member`. 
-Tables in the second file would include `alf_node_aspects` and `alf_node_assoc`. Neither file would include 
-`alf_locale` or `alf_permission` since they do not carry one of the supplied prefixes.
+The second variation takes a single `String` parameter and is a comma-separated list of prefixes that you wish to dump. If this operation were invoked with the parameter `alf_acl_, alf_node_` for example, then two files would be created (one for each prefix). The tables dumped in the first file would include `alf_acl_change_set` and `alf_acl_member`. Tables in the second file would include `alf_node_aspects` and `alf_node_assoc`. Neither file would include `alf_locale` or `alf_permission` since they do not carry one of the supplied prefixes.
 
-Both of these calls will result in the log showing the location of the dumped files, but they also return a `List` of path names. 
-JConsole will helpfully display these lists in a copy/paste friendly manner.
+Both of these calls will result in the log showing the location of the dumped files, but they also return a `List` of path names. JConsole will helpfully display these lists in a copy/paste friendly manner.
 
-### Performing schema validation
+### Perform schema validation
 
-Schema validation of schema dumps can happen either due to a schema change during repository start up, or can be 
-triggered manually by using JMX.
+Schema validation of schema dumps can happen either due to a schema change during repository start up, or can be triggered manually by using JMX.
 
 Schema validation is performed with differencing and validation.
 
 #### Differencing
 
-Differencing produces similar information to that obtained by using the Unix tool `diff` against a known 'good' 
-reference schema dump and a potentially problematic target schema dump.
+Differencing produces similar information to that obtained by using the Unix tool `diff` against a known 'good' reference schema dump and a potentially problematic target schema dump.
 
-However, since the tool is designed for performing a comparison between two database schemas, rather than arbitrary text, 
-the output is more specific about the types of difference. 
+However, since the tool is designed for performing a comparison between two database schemas, rather than arbitrary text, the output is more specific about the types of difference.
 
 The types of difference that can be reported are:
 
@@ -771,18 +713,9 @@ The types of difference that can be reported are:
 * A database object appears in the reference schema but no corresponding object has been identified in the target database.
 * A database object appears in the target schema but no corresponding object has been identified in the reference database.
 
-One advantage of the Schema Differencing Tool differencing over traditional diff tool comparisons is that an index is 
-not recognized by the exact text appearing in a dump. Instead it is identified by which table the index belongs to, 
-which columns are indexed and in what order. If an index has the expected name and belongs to the correct table but has 
-the wrong columns, or the correct columns in the wrong order, then differences will be reported. Or conversely, if the 
-correct table has an index with the correct columns in the correct order, but has the wrong index name, 
-then this will be reported. The name can be ignored during comparisons (useful for auto-generated index names) or can be 
-taken into account. Part of the task of producing reference schema files is to specify this behavior 
-using `DbValidator` objects, which are explained in the following sections.
+One advantage of the Schema Differencing Tool differencing over traditional diff tool comparisons is that an index is not recognized by the exact text appearing in a dump. Instead it is identified by which table the index belongs to, which columns are indexed and in what order. If an index has the expected name and belongs to the correct table but has the wrong columns, or the correct columns in the wrong order, then differences will be reported. Or conversely, if the correct table has an index with the correct columns in the correct order, but has the wrong index name, then this will be reported. The name can be ignored during comparisons (useful for auto-generated index names) or can be taken into account. Part of the task of producing reference schema files is to specify this behavior using `DbValidator` objects, which are explained in the following sections.
 
-**Index related example**
-
-Supposing we have the following index defined in the reference schema:
+For example, suppose we have the following index defined in the reference schema:
 
 |Index name|`permission_id`|
 |Parent table|`alf_access_control_entry`|
@@ -807,19 +740,16 @@ This index is specified in the schema reference file in this way (parts omitted 
 </table>
 ```
 
-When the target schema's index is compared against this reference then firstly a list of candidate matches are produced. 
-There can be more than one matching index in the target schema, in which case a redundant database object warning is issued.
+When the target schema's index is compared against this reference then firstly a list of candidate matches are produced. There can be more than one matching index in the target schema, in which case a redundant database object warning is issued.
 
-Candidate matches are produced dependent on object type. 
+Candidate matches are produced dependent on object type.
 
 For indexes:
 
-1.  If the parent table is the same and the index name is the same, then it is considered the same index.
-2.  If the name is different but the parent table is the same and the columns indexed are the same, and in the same order, then it is is considered to be the same index.
+1. If the parent table is the same and the index name is the same, then it is considered the same index.
+2. If the name is different but the parent table is the same and the columns indexed are the same, and in the same order, then it is is considered to be the same index.
 
-Taking the first scenario for matching and using the `permission_id` index defined in the example, then if the 
-`permission_id` index in the target database has the `allowed` and `applies` columns in the reverse order than is expected, 
-the log file would notify us of validation problems:
+Taking the first scenario for matching and using the `permission_id` index defined in the example, then if the `permission_id` index in the target database has the `allowed` and `applies` columns in the reverse order than is expected, the log file would notify us of validation problems:
 
 ```text
 2012-01-31 11:24:24,280  WARN  [domain.schema.SchemaBootstrap] [RMI TCP Connection(11)-10.244.50.71]
@@ -829,36 +759,24 @@ Schema validation found 2 potential problems, results written to:
 
 The contents of the report file would look similar to the following:
 
-```text 
+```text
 Difference: expected index .alf_access_control_entry.permission_id.columnNames[2]="allowed",
 but was .alf_access_control_entry.permission_id.columnNames[2]="applies"
 Difference: expected index .alf_access_control_entry.permission_id.columnNames[3]="applies",
 but was .alf_access_control_entry.permission_id.columnNames[3]="allowed"
 ```
 
-Each line shows a problem with a particular database property. Here it indicates that the property at the path 
-`.alf_access_control_entry.permission_id.columnNames[2]` has the value `applies` but according to the reference schema 
-should be allowed. The leading dot of the path can be ignored (the schema name would be present before the leading dot 
-in the case of Oracle for example), then there is the table name `alf_access_control_entry`, the index name 
-`permission_id` within that, and a zero-indexed list property within that. The third item (index 2) is the property at 
-fault: `columnNames[2]`.
+Each line shows a problem with a particular database property. Here it indicates that the property at the path `.alf_access_control_entry.permission_id.columnNames[2]` has the value `applies` but according to the reference schema should be allowed. The leading dot of the path can be ignored (the schema name would be present before the leading dot in the case of Oracle for example), then there is the table name `alf_access_control_entry`, the index name `permission_id` within that, and a zero-indexed list property within that. The third item (index 2) is the property at fault: `columnNames[2]`.
 
-Similarly, the next line indicates that the next item in the column name list, `columnNames[3]`, has the value `allowed` 
-but was expected to be `applies`.
+Similarly, the next line indicates that the next item in the column name list, `columnNames[3]`, has the value `allowed` but was expected to be `applies`.
 
 #### Validation
 
-The Schema Difference tool can use schema reference XML files to perform validation in addition to that performed by 
-simple differencing.
+The Schema Difference tool can use schema reference XML files to perform validation in addition to that performed by simple differencing.
 
-Validation allows the application of more complex rules than whether there is a difference between two property values. 
-Validation is performed by `DbValidator` objects. A chain of `DbValidator` objects is associated with each database object 
-in the reference schema. Each of these is executed in turn and given the chance to create validation errors based on 
-the corresponding object in the target schema.
+Validation allows the application of more complex rules than whether there is a difference between two property values. Validation is performed by `DbValidator` objects. A chain of `DbValidator` objects is associated with each database object in the reference schema. Each of these is executed in turn and given the chance to create validation errors based on the corresponding object in the target schema.
 
-If an index has not been given a specific name then the RDBMS will auto-generate one at creation time. This means that 
-the reference schema cannot specify the exact name that the index in the target database will have. 
-This would lead to schema differences being reported if it were not for the use of validators. 
+If an index has not been given a specific name then the RDBMS will auto-generate one at creation time. This means thatthe reference schema can't specify the exact name that the index in the target database will have. This would lead to schema differences being reported if it were not for the use of validators.
 
 A `NameValidator` can be specified for such an index:
 
@@ -877,21 +795,11 @@ A `NameValidator` can be specified for such an index:
 </index>
 ```
 
-This example is from a schema reference file (`Schema-Reference-ALF.xml`) and indicates that although in the original 
-reference schema the index was named `SQL120116153558430` any index having the appropriate parent table, column names 
-(and column order) is valid as long as the name matches the regular expression `SQL[0-9]+`.
+This example is from a schema reference file (`Schema-Reference-ALF.xml`) and indicates that although in the original reference schema the index was named `SQL120116153558430` any index having the appropriate parent table, column names (and column order) is valid as long as the name matches the regular expression `SQL[0-9]+`.
 
-When the validator is invoked, it checks that the name property of the index matches the supplied regular expression. 
-In addition to this, the validator reports, when configured to, that it takes responsibility for the name property of the index. 
-This stops the Schema Difference Tool from applying the differencing logic to the property. A `DbValidator` can choose 
-to apply its validation in addition to the differencing logic by not taking sole responsibility for any properties. 
-Conversely a validator can also take sole responsibility for an entire database object in which case no differencing logic 
-is applied to any part of the object.
+When the validator is invoked, it checks that the name property of the index matches the supplied regular expression. In addition to this, the validator reports, when configured to, that it takes responsibility for the name property of the index. This stops the Schema Difference Tool from applying the differencing logic to the property. A `DbValidator` can choose to apply its validation in addition to the differencing logic by not taking sole responsibility for any properties. Conversely a validator can also take sole responsibility for an entire database object in which case no differencing logic is applied to any part of the object.
 
-Perhaps a specific unsupported upgrade path has introduced an unexpected schema change - it might not be a problem, 
-but it is important that differences are highlighted so that a decision can be made on whether the difference represents 
-a problem and whether a fix will need to be made. On running the Schema Difference Tool, the following might be observed 
-in the log files:
+Perhaps a specific unsupported upgrade path has introduced an unexpected schema change - it might not be a problem, but it is important that differences are highlighted so that a decision can be made on whether the difference represents a problem and whether a fix will need to be made. On running the Schema Difference Tool, the following might be observed in the log files:
 
 ```text
 2012-01-31 14:28:50,697  WARN  [domain.schema.SchemaBootstrap] [main] Schema validation found 1 potential problems, results written to:
@@ -900,37 +808,29 @@ in the log files:
 class path resource [alfresco/dbscripts/create/org.hibernate.dialect.Oracle9Dialect/Schema-Reference-ACT.xml]
 ```
 
-The ACT database object is as expected, but there is a difference between the target schema and the ALF 
-(`alf_ prefixed` database objects) schema reference. Looking at that file it can be seen that an index that is expected 
-to have been auto-generated has been created with an explicit name:
+The ACT database object is as expected, but there is a difference between the target schema and the ALF (`alf_ prefixed` database objects) schema reference. Looking at that file it can be seen that an index that is expected to have been auto-generated has been created with an explicit name:
 
 ```text
 Validation: index ALFUSER.ALF_ACCESS_CONTROL_ENTRY.SQL120131142718040.name="idx_alf_ace_auth" fails to match rule: name must match pattern 'SQL[0-9]+'
 ```
 
-Specifically, the error report is stating that the index defined in the schema reference having the name `SQL120131142718040` 
-belonging to the table `ALF_ACCESS_CONTROL_ENTRY` is expected to be named in the same way: prefixed with SQL then a 
-string of one or more digits.
+Specifically, the error report is stating that the index defined in the schema reference having the name `SQL120131142718040` belonging to the table `ALF_ACCESS_CONTROL_ENTRY` is expected to be named in the same way: prefixed with SQL then a string of one or more digits.
 
-A similar problem to the auto-generated name problem is when a database object is created automatically. Some databases 
-create indexes on the fly, rather than being an explicit part of the schema declaration. It is not known whether they will 
-exist at the time the Schema Difference Tool is run. To suppress such errors an `IgnoreObjectValidator` can be used - 
-it takes responsibility for validation of the associated database object, but performs no actual validation
+A similar problem to the auto-generated name problem is when a database object is created automatically. Some databases create indexes on the fly, rather than being an explicit part of the schema declaration. It is not known whether they will exist at the time the Schema Difference Tool is run. To suppress such errors an `IgnoreObjectValidator` can be used - it takes responsibility for validation of the associated database object, but performs no actual validation
 
 In addition to automatic validation, validation can be manually invoked by use of the JMX interface.
 
->**Note:** This is an enterprise only feature.
+> **Note:** This is an enterprise only feature.
 
 The JMX category **Alfresco > DatabaseInformation > SchemaValidator** contains one operation:
 
 ```text
-void validateSchema()            
+void validateSchema()
 ```
 
-The operation takes no parameters and returns nothing. However, if the operation is invoked then validation will be 
-performed and the log will show the results:
+The operation takes no parameters and returns nothing. However, if the operation is invoked then validation will be performed and the log will show the results:
 
-```text     
+```text
 2012-01-31 14:51:46,770  INFO  [domain.schema.SchemaBootstrap] [RMI TCP Connection(13)-10.244.50.71] Compared database schema
 with reference schema (all OK): class path resource
 [alfresco/dbscripts/create/org.hibernate.dialect.PostgreSQLDialect/Schema-Reference-ALF.xml]
