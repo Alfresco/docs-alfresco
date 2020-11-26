@@ -1,5 +1,5 @@
 ---
-title: Smart Folders - Tutorial
+title: Configure Smart Folders tutorial
 ---
 
 In this seven-step tutorial you'll create a simple claims management solution.
@@ -24,7 +24,7 @@ The diagram shows the final folder structure that you will create during this tu
 
 For background information on Smart Folder Templates, see [What's a Smart Folder?]({% link content-services/latest/config/smart-folders/index.md %}#sf-whatis)
 
-### Step 1. Set up claims management
+### Step 1: Set up claims management {#sf-tutorial-1}
 
 To set up the claims framework, you need to create a custom content model, then create a folder structure for your content.
 
@@ -56,7 +56,7 @@ You need a custom content model to specify the metadata that the claims solution
 
 You're now ready to configure your claim.
 
-### Step 2. Configure claims management
+### Step 2: Configure claims management {#sf-tutorial-2}
 
 To configure the claims framework, add the sample template to the Data Dictionary and enable the claims aspect.
 
@@ -89,7 +89,7 @@ The example data model that you imported in the previous task contains the `clex
 
 You're now ready to create a new claim.
 
-### Step 3. (Optional) Create a rule to define your Smart Folder structure {#sf-tutorial-3}
+### Step 3: (Optional) Create a rule to define your Smart Folder structure {#sf-tutorial-3}
 
 You can create a simple folder rule to add an aspect automatically to your folder structure.
 
@@ -118,7 +118,7 @@ To simplify the creation of a claim folder, you can create a folder rule to add 
 
 5. When you're done, click **Create**.
 
-### Step 4. Create a new claim
+### Step 4: Create a new claim {#sf-tutorial-4}
 
 You can create a new claim structure using the Smart Folder Template, and edit a new claim.
 
@@ -146,7 +146,7 @@ You can create a new claim structure using the Smart Folder Template, and edit a
 
 You can now add some files to your claim.
 
-### Step 5. Add new claim files
+### Step 5: Add new claim files {#sf-tutorial-5}
 
 Add some files for the new claim.
 
@@ -176,7 +176,7 @@ You can add any files you like to the site Document Library for your claim. For 
 
 You've set up a claim structure, and learned how to configure it with a template, create a new claim folder, and populate it with content.
 
-### Step 6. Apply multiple templates {#sf-tutorial-6}
+### Step 6: Apply multiple templates {#sf-tutorial-6}
 
 You can use multiple Smart Folder Templates at the same time, to help you find your content more easily.
 
@@ -208,7 +208,7 @@ You can add System or Custom Smart Folders to your structure to use alongside th
 
     You'll see the new folder hierarchy displayed, showing **Claims by type**, **My open claims**, and **Policy documents**. These Smart Folders are displayed in addition to the Smart Folders we set up under the **Claims Application** folder.
 
-### Step 7. Add policy files and review the final claim structure
+### Step 7: Add policy files and review the final claim structure {#sf-tutorial-7}
 
 You can add files relating to the policy and review the Smart Folder structure that you've created for managing claims.
 

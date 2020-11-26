@@ -791,6 +791,8 @@ body > .section.section-landing {
   transition-duration: 100ms;
   transition-property: top;
   padding-top: 20px;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 
 .content :not(pre) > code {

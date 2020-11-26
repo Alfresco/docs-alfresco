@@ -92,7 +92,7 @@ Before you use Smart Folders, consider the use cases and scenarios that are appr
 
 * Define a custom content model
 
-    To get you started, you can use the example model that is provided with the [Smart Folders tutorial]({% link content-services/latest/config/smart-folders/sf-tutorial.md %}) for more information. See [Content modeling with Model Manager](#LINK-admintools-cmm-intro.md) for more information on content models.
+    To get you started, you can use the example model that is provided with the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) for more information. See [Content modeling with Model Manager](#LINK-admintools-cmm-intro.md) for more information on content models.
 
 * Create a Smart Folder Template
 
@@ -106,7 +106,7 @@ Before you use Smart Folders, consider the use cases and scenarios that are appr
   * Enable Share actions in the `share-config-custom.xml` file. <!--DEV GUIDE: See [Configure Share Actions with Smart Folders](#sf-share-actions.md) for more information.-->
   * Configure other Smart Folders properties in the `alfresco-global.properties` file. See [Smart Folders global properties settings](#sf-props) for more information.
 
-You can then test and deploy your solution. Use the [Smart Folders tutorial]({% link content-services/latest/config/smart-folders/sf-tutorial.md %}) to understand more about the basic Smart Folders setup.
+You can then test and deploy your solution. Use the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) to understand more about the basic Smart Folders setup.
 
 This diagram shows the recommended workflow:![Diagram showing four steps - create use cases, define content model, implement Smart Folder and Type, then test. Four arrows specifying implement, deploy, test and adopt.]({% link content-services/images/sf-workflow.png %})
 
@@ -134,15 +134,13 @@ A predefined template is available by selecting the System Smart Folder aspect. 
 
     The default Smart Folders Template is visible: `smartFoldersExample.json`. You can upload your own template here, and can see any other templates that you've already added.
 
-    If you use your own template, make sure that you change the type to Smart Folder Template. See [Apply multiple templates](#sf-tutorial-6) for more information.
+    If you use your own template, make sure that you change the type to Smart Folder Template. See [Apply multiple templates]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-6) for more information.
 
     If you store templates anywhere else in your repository, navigate to the template and select it. You can use them later by selecting the Custom Smart Folder aspect.
 
     There's no need to restart Alfresco Content Services. When you edit properties on nodes that have the Custom Smart Folder aspect applied, the new Smart Folder is included in the Smart Folder Template menu. See [Apply a Smart Folder Template](#LINK_USING-sf-using-aspects.md) for more information.
 
     If you need to customize the template, see [Applying a Smart Folder Template](#LINK_USING-sf-using-aspects.md) for information on the sample file structure, and [Smart Folder Template syntax](#sf-syntax) for guidance on the Smart Folder Template JSON format.
-
-
 
 ## Type-based, System, and Custom Smart Folders {#sf-type}
 
@@ -178,7 +176,7 @@ The `smart.folders.config.type.templates.qname.filter` property can be set to on
 
 Advanced Smart Folders settings are provided in the `<tomcat>/shared/classes/alfresco-global.properties.sample` file.
 
-The setup of Type-based Smart Folders is somewhat complex, but is explained in detail in the tutorial. See [Configure claims management](#sf-tutorial-2) and [Create a new claim](#sf-tutorial-4) for more information.
+The setup of Type-based Smart Folders is somewhat complex, but is explained in detail in the tutorial. See [Configure claims management]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-2) and [Create a new claim]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-4) for more information.
 
 ### System Smart Folders {#sf-folder-system}
 
@@ -206,7 +204,7 @@ These are the key elements of the Custom Smart Folder:
 * Loaded using the Custom Smart Folder (smf:customConfigSmartFolder) aspect
 * Selected using the Smart Folder Template specific to your custom template
 
-Advanced Smart Folders settings are provided in the `<tomcat>/shared/classes/alfresco-global.properties.sample` file. See [Enable Smart Folders](#enable-smart-folders) and [Apply multiple templates](#sf-tutorial-6) for more information.
+Advanced Smart Folders settings are provided in the `<tomcat>/shared/classes/alfresco-global.properties.sample` file. See [Enable Smart Folders](#enable-smart-folders) and [Apply multiple templates]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-6) for more information.
 
 ## Metadata inheritance
 
@@ -214,7 +212,7 @@ You can set files and folders to inherit metadata using Smart Folders.
 
 One of the most useful features of Smart Folders is the ability to automatically classify new files and inherit or map metadata to the file itself. This is possible by using Type-based Smart Folders, so that when you drag and drop files into your Smart Folder structure, they inherit any properties that you've set up in the Smart Folder Template.
 
-Use the [Smart Folders tutorial]({% link content-services/latest/config/smart-folders/sf-tutorial.md %}) to set up a Smart Folder framework using Type-based Smart Folders, and in [Adding new claim files]({% link content-services/latest/config/smart-folders/sf-tutorial.md %}#sf-tutorial-5) you'll see metadata inheritance in action.
+Use the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) to set up a Smart Folder framework using Type-based Smart Folders, and in [Adding new claim files]({% link content-services/latest/tutorial/smart.md %}{% link content-services/latest/tutorial/smart.md %}#sf-tutorial-5) you'll see metadata inheritance in action.
 
 Take a look at the [Metadata Inheritance video](#LINK-smart-video-04.md), and [Type-based Smart Folders](#sf-folder-type) for more information.
 
@@ -224,7 +222,7 @@ You can build your own Smart Folder Template using these guidelines.
 
 A Smart Folder Template is a configuration file that contains one or more queries to define the nodes of a hierarchical tree of "smart" folders. It's a JSON (Java Script Object Notation) file that defines one node object for every Smart Folder.
 
-You can customize a copy of the `smartFoldersExample.json` template, which is available from **Repository > Data Dictionary > Smart Folder Templates** in Alfresco Share. The [Smart Folders tutorial]({% link content-services/latest/config/smart-folders/sf-tutorial.md %}) also provides links to a variety of examples.
+You can customize a copy of the `smartFoldersExample.json` template, which is available from **Repository > Data Dictionary > Smart Folder Templates** in Alfresco Share. The [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) also provides links to a variety of examples.
 
 For more information about Alfresco Full Text Search (AFTS), see [Alfresco Full Text Search reference](https://docs.alfresco.com/search-enterprise/concepts/searchsyntax-intro.html)(#LINK).
 
