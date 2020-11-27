@@ -99,12 +99,16 @@
       pages:
         - title: 'Software architecture'
           path: '/content-services/latest/develop/software-architecture/'
+        - title: 'Software development kit (SDK)'
+          path: '/content-services/latest/develop/sdk/'
         - title: 'Extension packaging (modules)'
           path: '/content-services/latest/develop/extension-packaging/'
-        - title: 'Extension Points'
+        - title: 'Extension points overview'
+          path: '/content-services/latest/develop/overview-ext-points/'
+        - title: 'Platform extension points'
           pages:
           - title: 'Overview'
-            path: '/content-services/latest/develop/overview-ext-points/'
+            path: '/content-services/latest/develop/repo-ext-points/overview/'
           - title: 'Content model'
             path: '/content-services/latest/develop/repo-ext-points/content-model/'
           - title: 'Actions'
@@ -143,6 +147,10 @@
             path: '/content-services/latest/develop/repo-ext-points/audit-log/'
           - title: 'Admin Console Components'
             path: '/content-services/latest/develop/repo-ext-points/admin-console-components/'
+        - title: 'Share UI extension points'
+          pages:
+          - title: 'Overview'
+            path: '/content-services/latest/develop/share-ext-points/overview/'
         - title: 'APIs'
           pages:
           - title: 'ReST API guide'
