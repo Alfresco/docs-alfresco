@@ -191,6 +191,8 @@ The options for working with folders are:
 {% endcapture %}
 {% capture ios-manage %}
 
+#### Folders and files
+
 The options for working with files and folders are:
 
 > **Note**: The options available depend on your individual permissions.
@@ -237,6 +239,19 @@ Tap on a task and you’ll see more details about the task. If the task relates 
 
 {% capture and-tasks %}
 
+### Filter tasks
+
+By default, all active tasks are displayed. To filter by specific task types:
+
+1. Tap the down arrow.
+2. Select the task type to view from the menu.
+
+To create a custom filter:
+
+1. Tap on **My Filter**.
+2. Enter the filter requirements for `Status`, `Date Due`, `Priority`, and `Assignee`.
+3. Tap **View Tasks**.
+
 ### Task actions
 
 Depending on whether you have a review or to do task open, you can tap a choice of actions:
@@ -255,19 +270,6 @@ Depending on whether you have a review or to do task open, you can tap a choice 
 Tap **View** and select to show either **My Tasks** or **Tasks I Started**.
 
 > **Note:** You can also accept and reject invitations to sites in the **My Tasks** section.
-
-### Filter tasks
-
-By default, all active tasks are displayed. To filter by specific task types:
-
-1. Tap the down arrow.
-2. Select the task type to view from the menu.
-
-To create a custom filter:
-
-1. Tap on **My Filter**.
-2. Enter the filter requirements for `Status`, `Date Due`, `Priority`, and `Assignee`.
-3. Tap **View Tasks**.
 
 ### Task actions
 

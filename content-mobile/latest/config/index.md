@@ -8,7 +8,7 @@ The mobile application can then be configured for the correct accounts and setti
 
 ## Connect to an account
 
-If you’re already got a Content Services or Community Edition user, you can connect to your account.
+If you've already got a Content Services or Community Edition user, you can connect to your account.
 
 We recommend connecting to version 6.1 or later.
 
