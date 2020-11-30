@@ -17,7 +17,7 @@ The root objects available to your JavaScript code will depend on the context in
 contexts will have access to a different set of root objects. There are several contexts to be considered:
 
 * Repository Web scripts
-* Surf Web Scripts (see this [reference]({% link content-services/latest/develop/surf-root-objects-ref.md %}))
+* Surf Web Scripts (see this [reference]({% link content-services/latest/develop/reference/surf-root-objects-ref.md %}))
 * Rules/actions
 * Workflow
 * Share

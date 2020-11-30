@@ -561,7 +561,7 @@ The template file should be called `acme-documents.post.html.ftl` to be associat
 
 * [Admin Console Component Web Script]({% link content-services/latest/develop/repo-ext-points/admin-console-components.md %})
 * [Web Script naming conventions](TODO:../concepts/ws-component-name.md)
-* [Out-of-the-box JavaScript root objects]({% link content-services/latest/develop/repo-root-objects-ref.md %}) - for use in a JavaScript controller
+* [Out-of-the-box JavaScript root objects]({% link content-services/latest/develop/reference/repo-root-objects-ref.md %}) - for use in a JavaScript controller
 * [Custom JavaScript root objects]({% link content-services/latest/develop/repo-ext-points/javascript-root-objects.md %}) - for use in a JavaScript controller
 * [Out-of-the-box FreeMarker root objects](TODO:API-FreeMarker-defaultmodel.md) - for use in a template
 * [Where to put your web scripts](TODO:../concepts/ws-presentation-locations.md) (When trying them out without a build project)

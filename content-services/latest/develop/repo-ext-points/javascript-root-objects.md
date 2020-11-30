@@ -61,7 +61,7 @@ See Deployment SDK Project instead.
 
 ## More Information
 
-* [Repository JavaScript root objects reference]({% link content-services/latest/develop/repo-root-objects-ref.md %}) (Have a look at what root objects are available for repository web scripts, and so on)
-* [Surf root object reference]({% link content-services/latest/develop/surf-root-objects-ref.md %}) (Have a look at what root objects are available for Surf web scripts)
+* [Repository JavaScript root objects reference]({% link content-services/latest/develop/reference/repo-root-objects-ref.md %}) (Have a look at what root objects are available for repository web scripts, and so on)
+* [Surf root object reference]({% link content-services/latest/develop/reference/surf-root-objects-ref.md %}) (Have a look at what root objects are available for Surf web scripts)
 
 
