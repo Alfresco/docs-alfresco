@@ -32,3 +32,4 @@ applications:
   title: "Applications"
   scopes:
     digital-workspace: "Digital Workspace"
+    content-mobile: "Content Services for Mobile"

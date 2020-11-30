@@ -599,6 +599,20 @@ defaults:
       version: 2.7
       latest: true
 
+# Alfresco Content Services for Mobile
+  - scope:
+      path: "content-mobile"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Services for Mobile"
+      location: "content-mobile"
+      toc: "content-mobile"
+  - scope:
+      path: "content-mobile/latest"
+    values:
+      version: 1.0
+      latest: true
+
 
 sass:
   sass_dir: assets/include/scss
