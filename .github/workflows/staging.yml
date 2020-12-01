@@ -8,6 +8,7 @@ on:
       - '.github/**'
 
 env:
+  AWS_DEFAULT_REGION: us-east-1
   BUCKET_NAME: ${{ secrets.STAGING_BUCKET_NAME }}
   DISTRIBUTION_ID: ${{ secrets.STAGING_DISTRIBUTION_ID }}
   RUNNER_ROLE: ${{ secrets.EAD_PRODUCTION_RUNNER_ROLE }}
@@ -24,9 +25,17 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+
+    - name: AWS Assume Role
+      uses: ./.github/actions/assume_role
+
     - name: Run Jekyll Build
       uses: ./.github/actions/jekyll_build
       env:
         JEKYLL_CONFIG: _config.yml,_config.staging.yml
+
     - name: Run S3 Sync
       uses: ./.github/actions/s3_sync
+
+    - name: Run Redirects S3 Upload
+      uses: ./.github/actions/s3_upload

@@ -1,0 +1,5 @@
+name: 'AWS Assume Role'
+description: 'AWS Assume Role Configuration'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

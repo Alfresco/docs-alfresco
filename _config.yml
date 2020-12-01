@@ -644,6 +644,7 @@ plugins:
 
 highlighter: none
 
+# Elasticsearch/Searchyll settings
 elasticsearch:
   url: https://search-docs-dev-kcq7soqflyxmts7m3a3prekrzi.us-east-1.es.amazonaws.com
   index_name: sandbox
@@ -657,8 +658,12 @@ elasticsearch:
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - redirects/
   - .github/
   - README.md
+  - README.markdown
+  - Dockerfile
+  - docker-compose.yml
   - .gitignore
   # - .sass-cache/
   - .jekyll-cache/
