@@ -612,7 +612,7 @@ each node. These are defined by using the `userPermissions` property on the `app
 The default set of permissions should not be reduced without fully understanding the impact on actions, indicators, and 
 metadata evaluators already in use throughout Share.
 
-#### Document Library web tier
+#### Document Library web tier {#doclibconfig}
 
 In versions of Alfresco Share previous to 4.0, the client-side JavaScript requested JSON data from the repository directly 
 by using the proxy servlet. From 4.0 onwards, there is a new data web script (at `/components/documentlibrary/data/`) that 
@@ -1125,7 +1125,7 @@ There are four columns that are always present in the table, which can be hidden
 All other columns must be defined in the `propertyColumns` array. The property attribute can be set to either a document 
 property, such as `cm:name` or a metadata template renderer such as `size`, `tags` or `date`.
 
-## Share themes
+## Share themes {#sharethemeconfig}
 
 When you run Share, the look and feel is set by a default theme. Use this information to select one of the alternative 
 themes available in Share, and also how to create and use your own themes for corporate branding.

@@ -14,9 +14,9 @@ such as Folder Rules, Workflows, Web Scripts, and Scheduled Jobs. The following 
 Check-Out, Check-In, Update, Add Aspect, Copy, Cut, Paste, Send Email, Move, Specialize Type, Edit, and Delete.
 
 An action can contain both a back-end part (business logic) and a front-end part (UI widgets). The back-end implementation 
-is usually done by extending the alfresco.war with what is known as a Repository Action. This Extension Point documentation 
-describes the back end. The front-end implementation is usually achieved by extending the Alfresco share.war with a 
-[Document Library Action](TODO:../concepts/dev-extensions-share-doclib-actions.md).
+is usually done by extending the `alfresco.war` with what is known as a Repository Action. This Extension Point documentation 
+describes the back end. The front-end implementation is usually achieved by extending the Alfresco `share.war` with a 
+[Document Library Action]({% link content-services/latest/develop/share-ext-points/doclib.md %}).
 
 Actions are Spring beans that act upon a content node. You develop actions using Java and register them with the 
 repository through a Spring configuration file. Actions provide the ideal place to put your common, highly reusable 

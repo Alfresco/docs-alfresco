@@ -53,7 +53,7 @@ The form has a drop down where the user can select the Five Star rating he or sh
 interface will be used to demonstrate how the Rating Service can be used, it is by no mean a complete Five Star rating 
 user interface. Everyone will have different ideas around how it should look like, what widgets and icons to use etc.
 
-Let's start by defining the [Document Library]({% link content-services/latest/develop/share-ext-points/doclib-actions.md %}) action 
+Let's start by defining the [Document Library]({% link content-services/latest/develop/share-ext-points/doclib.md %}) action 
 (note that this is not a repository extension but should be part of a 
 [Share JAR Module]({% link content-services/latest/develop/sdk.md %}#workingshare)):
 

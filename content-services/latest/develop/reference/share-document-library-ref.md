@@ -64,7 +64,7 @@ The `jsNode` properties are:
 |**Categories**||
 |`categories`|Returns an array of the format [`categoryName`, `category path`]|
 
-## Predefined evaluators
+## Predefined evaluators {#predefinedevaluatorsref}
 
 This information provides a list of the evaluators that are defined in the core Alfresco Share code.
 
