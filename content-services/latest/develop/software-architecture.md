@@ -509,10 +509,11 @@ The following sections get into a bit more details around Surf pages and Aikau p
 #### Server Side Framework (Surf) {#surf-framework}
 
 The layout of a Share page is defined with the Surf development framework, which is a server side framework 
-([Surf deep dive](TODO:surf-fwork-intro.md)). This means that the involved files are processed on the server side (compared 
-to Browser processing of JavaScript files). Surf is based on the Model View Controller (MVC) pattern where the controller(s) 
-is mostly implemented in server side JavaScript (The Rhino JavaScript engine is included on the server side). 
-The template is written in FreeMarker, and the model is a hash map that is set up in the controller(s) and available in the template.
+([Surf deep dive]({% link content-services/latest/develop/reference/surf-framework-ref.md %})). This means that the
+involved files are processed on the server side (compared to Browser processing of JavaScript files). Surf is based on
+the Model View Controller (MVC) pattern where the controller(s) is mostly implemented in server side JavaScript
+(The Rhino JavaScript engine is included on the server side). The template is written in FreeMarker, and the model is a
+hash map that is set up in the controller(s) and available in the template.
 
 Each page template defines one or more regions for things like header, footer, body, navigation, see the following picture:
 

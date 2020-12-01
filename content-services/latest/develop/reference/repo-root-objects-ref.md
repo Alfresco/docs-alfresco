@@ -16,8 +16,8 @@ which properties can be accessed and a variety of methods called as dictated by 
 The root objects available to your JavaScript code will depend on the context in which the code is invoked. Different 
 contexts will have access to a different set of root objects. There are several contexts to be considered:
 
-* Repository Web scripts
-* Surf Web Scripts (see this [reference]({% link content-services/latest/develop/reference/surf-root-objects-ref.md %}))
+* Repository Web scripts (see this [reference]({% link content-services/latest/develop/reference/repo-root-objects-ref.md %}))
+* Surf Web Scripts (see this [reference]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfrootobjects))
 * Rules/actions
 * Workflow
 * Share

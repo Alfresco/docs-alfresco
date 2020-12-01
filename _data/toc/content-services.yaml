@@ -180,7 +180,7 @@
           pages:
           - title: 'Repository JavaScript root objects'
             path: '/content-services/latest/develop/reference/repo-root-objects-ref/'
-          - title: 'Surf JavaScript root objects'
-            path: '/content-services/latest/develop/reference/surf-root-objects-ref/'
+          - title: 'Surf Framework'
+            path: '/content-services/latest/develop/reference/surf-framework-ref/'
           - title: 'Share Document Library'
             path: '/content-services/latest/develop/reference/share-document-library-ref/'
