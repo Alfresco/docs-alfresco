@@ -114,6 +114,8 @@ The output parameters that can be used as values within the trigger action for r
 
 The [Slack connector]({% link process-automation/latest/model/connectors/slack.md %}) contains a **MESSAGE_RECEIVED** event. This event allows for Slack messages to be monitored and an event published when specific criteria are met.
 
+> **Note:** Make sure the Slack connector [event subscription]({% link process-automation/latest/model/connectors/slack.md %}#event-subscription) has been configured in order to receive notifications from the Slack API.
+
 The input parameters for a received Slack message are:
 
 | Parameter | Description |

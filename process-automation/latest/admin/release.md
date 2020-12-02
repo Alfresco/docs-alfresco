@@ -13,14 +13,6 @@ The **Project Releases** section displays a list of all [released projects]({% l
 > 2. Find or search for your project in the list of projects.
 > 3. Select the **Release** action from the **Options** column for the project.
 
-There are two options for deploying a released project. Both are available by selecting the options against a released project:
-
-* **Create Deployment Descriptor** steps through the configuration for deploying a project, but stops short of actually deploying the project. This allows the descriptor to be exported from one environment and imported into another, for example between test and production. A deployment descriptor can be subsequently deployed.
-
-* **Deploy** steps through the configuration for deploying a project and deploys the project into its own namespace.
-
-> **Note**: Even if directly deploying a project, a deployment descriptor is still created.
-
 ### Properties {#project-properties}
 
 The properties for a released project are:
@@ -34,7 +26,9 @@ The properties for a released project are:
 
 ### Deployment
 
-After choosing to **Create Deployment Descriptor** or **Deploy** a released project, there are a number of configurations required depending on the contents of the project.
+After choosing to **Deploy** a released project, there are a number of configuration settings required depending on the contents of the project.
+
+> **Note**: When a project is deployed, a [deployment descriptor](#deployment-descriptors) is created. Deployment descriptors can be exported from one environment and imported into another, for example between test and production. See the [deployment service architecture]({% link process-automation/latest/admin/architecture.md %}#deployment-service) for further details on the deployment process.
 
 {% capture name %}
 
@@ -98,9 +92,9 @@ After clicking **Create** the deployment descriptor will be created and the appl
 
 ## Deployment descriptors
 
-The **Deployment Descriptors** section displays a list of all deployment descriptors in the environment. These can be from creating a deployment descriptor from a project release, or from importing a deployment descriptor from another environment, for example from test to production.
+The **Deployment Descriptors** section displays a list of all deployment descriptors in the environment. These are created by the [deployment service]({% link process-automation/latest/admin/architecture.md %}#deployment-service) whenever a project is deployed.
 
-Deployment descriptors are fully configured projects ready to be deployed into applications. Although no further configuration is required, they can still be updated before being deployed.
+Deployment descriptors are fully configured projects that can be exported and imported between environments, for example between test and production.
 
 ### Properties {#deploy-properties}
 
@@ -112,14 +106,6 @@ The properties for deployment descriptors are:
 | Status | The status of the descriptor. Once it has been created it will display as `DescriptorCreated`. |
 | Created | The date and time the descriptor was created. |
 | Modified | The date and time since the descriptor was last modified. |
-
-### Deploy a deployment descriptor
-
-A deployment descriptor can be deployed if the project it was created from has not yet been deployed. The [configurations](#deployment) that were set when creating the descriptor can still be updated before deploying the application.
-
-> **Note**: A deployment descriptor can only be used to deploy a single application. To deploy multiple instances of the same released project different names must be chosen when creating a descriptor or deploying it.
-
-A deployment descriptor can only be deleted if it has not been deployed. If the descriptor has been deployed, the application must first be undeployed before the descriptor can be deleted.
 
 ### Export and import
 

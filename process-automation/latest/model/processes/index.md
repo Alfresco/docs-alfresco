@@ -30,6 +30,24 @@ To create a process:
 
 4. Enter a name and optional description. By default the name will be shared between the diagram and process definition and the description will apply to the process definition.
 
+### Import a process from Process Services
+
+Process diagrams exported from [Alfresco Process Services]({% link process-services/latest/index.md %}) can be imported into the Modeling Application by selecting the **APS Process** option when choosing to [create a new process](#create-a-process) by importing an existing model.
+
+
+The Process Service element types that are supported for import are:
+
+| Process Services type | Process Automation type | Notes |
+| --------------------- | ----------------------- | ----- |
+| Script task | [Script task]({% link process-automation/latest/model/processes/bpmn.md %}#script-task) | A script and a script task will be created for each script. {::nomarkdown}<ul><li>Only Javascript is supported.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li></ul>{:/} |
+| User task | [User task]({% link process-automation/latest/model/processes/bpmn.md %}#user-task) | A user task will be created for each user task. {::nomarkdown}<ul><li>Forms are not supported.</li><li>Date format is now fixed.</li><li>Due date is not supported.</li><li><code>Initiator</code> is not supported.</li><li>Category option removed.</li><li>Exclusive option removed.</li><li>Allow email notifications option removed.</li><li>Email template option removed.</li><li>Task and execution listeners removed.</li><li>Asynchronous option removed.</li></ul>{:/} |
+| Mail task | [Email connector]({% link process-automation/latest/model/connectors/email.md %}) | An instance of the email connector is created and an email connector task is created for each mail task. {::nomarkdown}<ul><li>Connector parameters need to be mapped.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li></ul>{:/} |
+| REST call task | [REST connector]({% link process-automation/latest/model/connectors/rest.md %}) | An instance of the REST connector is created and a REST connector task is created for each REST call task. {::nomarkdown}<ul><li>Connector parameters need to be mapped.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li></ul>{:/} |
+| Service task | [Service task]({% link process-automation/latest/model/processes/bpmn.md %}#service-task) | A blank service task will be created, however service tasks in Process Automation do not work in the same way they do in Process Services. There is no way to invoke an external Java class or execute an expression with them. |
+| Generate document task | [Generate document connector]({% link process-automation/latest/model/connectors/generate.md %}) |  An instance of the generate document connector is created and a generate document task is created for each generate document task. {::nomarkdown}<ul><li>Connector parameters need to be mapped.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li></ul>{:/} |
+
+
+
 ## Diagrams
 
 Diagrams hold one or more process definitions. If multiple process definitions are modeled within a diagram it is important to remember that the scope of each is restricted and the only way to communicate between them is via [message](#message) or [error](#error) events.
