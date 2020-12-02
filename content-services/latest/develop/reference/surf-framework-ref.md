@@ -8,6 +8,24 @@ based on the Model View Controller (MVC) pattern where the controller(s) is most
 (The Rhino JavaScript engine is included on the server side). The template is written in FreeMarker, and the model is a 
 hash map that is set up in the controller(s) and available in the template.
 
+When building new presentation templates or web components, developers can choose to use the FreeMarker and JavaScript 
+technologies. These are the default and preferred way to build high performance and lightweight web parts. They are easy 
+to build and require no server restarts.
+
+The availability of these APIs speeds the time it takes to develop new functionality. Most Surf platform features are 
+available as root scope JavaScript and FreeMarker objects. Developers are able to work with the full range of objects 
+available in the Surf framework. Objects represent entities such as component bindings, pages, templates, the request 
+context, users, remote connections, and credential management.
+
+>**Important:** The FreeMarker Template API and the JavaScript API use a common object model. This means that the objects available to the JavaScript API are very similar (in most cases, identical) to those made available by the FreeMarker API. It is highly recommended that the standard development pattern of the logic work being performed in JavaScript and presentation work being performed in FreeMarker should be followed where possible.
+
+The Surf platform FreeMarker Template Processor provides capabilities similar to those provided by the repository 
+FreeMarker Engine. **It does not, however, provide direct access to the repository concepts, such as nodes, properties, 
+or aspects that developers of repository tier web scripts will be familiar with.**
+
+The Surf platform web script runtime extends the templating and scripting capabilities that are already provided by the 
+web script runtime, providing additional web-tier related root-scoped API objects.
+
 ## Surf content types
 
 In Spring Surf, content is divided into *Semantic content* and *Presentation content*, and the web application looks at 
@@ -649,8 +667,8 @@ be one of: the current page, the template for the page, or a component bound wit
 
 Following is the complete list of Surf platform root-scope objects.
 
-|Type|Description|
-|----|-----------|
+|Object|Description|
+|------|-----------|
 |`context`|The request context of the current page. This object is always available.|
 |`user`|The current user. This object is always available.|
 |`content`|The current content instance. This object is available if the dispatcher is rendering a page for a given content object ID.|
@@ -667,6 +685,375 @@ Following is the complete list of Surf platform root-scope objects.
 |`head`|Concatenated component `.head` template output.|
 |`app`|Helper object for dealing with the web application's environment.|
 |`msg`|FreeMarker method object to resolve internationalization message IDs into label strings.|
+
+### context object
+
+The context object provides a single point of reference for information about the user, the current rendering page, 
+template, and other context. It provides this information so that individual rendering pieces do not need to calculate 
+it themselves.
+
+Each unit of work within the rendering pipeline is provided with a context object. This render context object is local 
+to the currently rendering object instance but wraps the context of the original request to the page. The wrapped request 
+context object is manufactured at the top of the request chain and is then made available to all templates, regions, 
+components, chromes, and anything else downstream.
+
+The request `context` object provides the following properties.
+
+|Property|Description|
+|--------|-----------|
+|`contentId`|The ID of the content being rendered. Available if the dispatcher is rendering a page for a given content object ID.|
+|`content`|The content being rendered. Available if the dispatcher is rendering a page for a given content object ID. For example:|
+ 
+```javascript
+var pageTitle = context.page.title;
+var userFullName = context.user.fullName;
+var contentTitle = context.content.properties["title"];
+var customValue = context.properties["customValue"];
+```
+
+|`resource`|Returns the content resource currently being rendered.|
+|`id`|The internally managed ID for the current request Each request has a unique ID available to it that is guaranteed unique for each request. It is generally only used for debugging purposes.|
+|`pageId`|The ID of the page being rendered.|
+|`page`|The page object being rendered.|
+|`templateId`|The ID of the template being rendered.|
+|`template`|The template object being rendered.|
+|`user`|The current user.|
+|`themeId`|The current theme ID.|
+|`theme`|The current theme object.|
+|`formatId`|The format ID for the current request.|
+|`properties`|Associative array of all context values.|
+|`authenticated`|Returns true if there is a non-guest current user.|
+|`externalAuthentication`|Returns true if external authentication is being used to manage the user.|
+|`siteConfiguration`|Returns the site configuration as a `ScriptModelObject`.|
+|`linkBuilder`|Returns the `ScriptLinkBuilder` instance for the current request.|
+|`websiteTitle`|Returns the website title.|
+|`uri`|Returns the URI.|
+|`rootPage`|Returns the root page for the site.|
+|`previewWebappId`|Returns the web app ID.|
+|`previewStoreId`|Returns store ID.|
+|`previewUserId`|Returns user ID.|
+|`frameworkTitle`|Returns the framework title.|
+|`frameworkVersion`|Returns the framework version.|
+|`parameters`|Returns a key-value map of parameters in the incoming request.|
+|`attributes`|Returns attributes.|
+|`headers`|Returns headers.|
+
+### user object
+
+The user object provides a number of properties describing the user.
+
+|Property|Description|
+|--------|-----------|
+|`properties`|An associative array of user properties.|
+|`id`|The user identifier.|
+|`name`|The Principal name (most commonly, this will be the same as the user ID).|
+|`fullName`|The user's full name (for example, Joe Dwight Smith).|
+|`firstName`|The user's first name (for example, Joe). Read/write.|
+|`middleName`|The user's middle name (for example, Dwight). Read/write.|
+|`lastName`|The user's last name (for example, Smith). Read/write.|
+|`email`|The user's email address. Read/write.|
+|`organization`|The user's organization. Read/write.|
+|`jobTitle`|The user's job title. Read/write.|
+|`location`|The user's location. Read/write.|
+|`biography`|The user's biography. Read/write.|
+|`telephone`|The user's telephone entry. Read/write.|
+|`mobilePhone`|The user's mobile phone entry. Read/write.|
+|`skype`|The user's Skype name. Read/write.|
+|`instantMsg`|The user's instant messaging ID. Read/write.|
+|`googleUsername`|User name for Google account. REad/write.|
+|`companyPostcode`|The user's company post code. Read/write.|
+|`companyTelephone`|The user's company telephone entry. Read/write.|
+|`companyFax`|The user's company fax entry. Read/write.|
+|`companyEmail`|The user's company email address. Read/write.|
+|`companyAddress1`|The user's company address entry 1. Read/write.|
+|`companyAddress2`|The user's company address entry 2. Read/write.|
+|`companyAddress3`|The user's company address entry 3. Read/write.|
+|`isAdmin`|Returns a boolean. True if user is an administrator.|
+|`isGuest`|Returns a boolean. True if user is a guest.|
+|`nativeUser`|Returns the underlying user object for access to additional methods on custom user objects.|
+|`capabilities`|Get a map of capabilities (boolean assertions) for the user.|
+
+For example, to output text based on the current user location property, use:
+
+```xml
+<#if user.location == "Boston">
+  <p>Welcome to the Red Sox appreciation page, ${user.firstName}!</p>
+</#if>
+```
+
+The user object provides a number of methods:
+
+|Method|Description|
+|--------|-----------|
+|`save`|Persists any changes to the user object's properties.|
+|`getUser(String userId)`|Returns a user object with populated details for the given User ID. The `userId` parameter is a string representing the user ID of the user. Returns a `ScriptUser` object, or `null` if the user cannot be found.|
+
+### content object
+
+The `content` object provides a number of properties that describe a piece of content, such as a document.
+
+|Property|Description|
+|--------|-----------|
+|`id`|The ID of the content object.|
+|`typeId`|The type ID of the content object.|
+|`properties`|An associative array of properties about the object.|
+
+The following properties are metadata fields about the object:
+
+|`timestamp`|The time (long) when the object was loaded.|
+|`endpointId`|The ID of the endpoint from which the object was loaded.|
+|`isLoaded`|Whether the object successfully loaded.|
+|`statusCode`|Status code from the attempt to load the object.|
+|`statusMessage`|Status message from the attempt to load the object.|
+
+The following properties contain the payload of the document itself:
+
+|`text`|The content of the selected object as text.|
+|`xml`|The content of the selected object as XML.|
+
+For example, you can work with metadata about the currently selected object as follows:
+
+```javascript
+var id = content.id;
+var typeId = content.typeId;
+var endpointId = content.endpointId;
+var timestamp = content.timestamp;
+var isLoaded = content.isLoaded;
+var statusCode = content.statusCode;
+var statusMessage = content.statusMessage;
+var modifiedDate = content.properties["cm:modified"];
+```
+
+You can also write components that work with the data of the object. This is particularly useful if you are dispatching 
+from XML of Web Form based objects:
+
+```javascript
+var text = content.text;
+var xml = context.xml;
+
+// parse the xml and load properties into our model
+var e4x = new XML(content.xml);
+model.productName = e4x.*::name.toString();
+model.productDescription = e4x.*::description.toString();
+```
+
+Where the XML could be the following:
+
+```xml
+<pr:product xmlns:alf="http://www.alfresco.org"
+            xmlns:chiba="http://chiba.sourceforge.net/xforms"
+            xmlns:ev="http://www.w3.org/2001/xml-events"
+            xmlns:pr="http://www.alfresco.org/alfresco/pr"
+            xmlns:xf="http://www.w3.org/2002/xforms"
+            xmlns:xhtml="http://www.w3.org/1999/xhtml"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+   <pr:name>Demo Product 1</pr:name>
+   <pr:description>Demo Product 1</pr:description>
+</pr:product>
+```
+
+>**Note:** The `content` object is available only if an object ID is provided as part of the page URL.
+
+### page object
+
+The page object provides a number of properties describing a page.
+
+|Property|Description|
+|--------|-----------|
+|`url`|The URL helper object.|
+|`id`|The page object ID.|
+|`title`|The page definition title.|
+|`titleId`|The page definition title internationalization message ID.|
+|`description`|The page definition description.|
+|`descriptionId`|The page definition description internationalization message ID.|
+|`theme`|The theme ID.|
+|`properties`|Custom page definition properties, as defined within the page XML descriptor within the optional properties element; returned as a map, such as: `page.properties["mycustomprop"]`|
+
+>**Note:** The `page` object is available only within the context of a page render.
+
+### template object
+
+The template object provides a single property.
+
+|Property|Description|
+|--------|-----------|
+|`properties`|Custom page definition properties, as defined within the template XML descriptor within the optional properties element; returned as a map.|
+
+### config object
+
+The configuration object contains component configuration in XML format.
+
+Each component can have a snippet of XML configuration associated with it. The configuration can be any XML content and 
+should be placed within a file named `<yourcomponent>.<method>.config.xml`. This object provides access to either the 
+XML text content (for script model) or XML DOM (for FreeMarker template model) within the configuration.
+
+For JavaScript access, the most common mechanism to process the XML config is to use the E4X XML DOM object.
+
+For example, given the following XML configuration file `filters.get.config.xml`:
+
+```xml
+<filters>
+   <filter id="all" label="All" />
+   <filter id="new" label="New" />
+   <filter id="drafts" label="Drafts" />
+</filters>
+```
+
+Would be retrieved by using the config `.script` accessor and processed in JavaScript:
+
+```javascript
+var cfg = new XML(config.script);
+   for each(var filter in cfg..filter)
+   {
+      var id = filter.@id.toString();
+      var label: filter.@label.toString();
+      // do some work with the values
+   }
+```
+
+Within a FreeMarker template the built-in XML DOM node object can be used. For example:
+
+```xml
+<#list config.script["filters"]["filter"].@id as f>${f}</#list>
+```
+
+The application global configuration and scoped configuration can be accessed by using the `global` and `scoped` accessors. 
+
+For example:
+
+```xml
+<#assign helpPages = config.scoped["HelpPages"]["help-pages"]>
+<#-- Global flags retrieved from web-framework-config-application -->
+<#assign DEBUG=(config.global.flags.childrenMap["client-debug"][0].value = "true")>
+```
+
+See the online FreeMarker documentation for more information on XML DOM processing.
+
+### theme object
+
+The current theme ID string.
+
+### instance object
+
+When rendering a page, the `instance` object will represent the current page model object. When rendering a template, 
+the `instance` object will represent the current template model object. The parent `page` object will also be available 
+as usual if the template is running within the context of a page.
+
+When rendering a component, the `instance` object will represent the current component model object. The parent `template` 
+and `page` objects will also be available as usual if the component is running within the context of a template and page.
+
+The `instance` object provides the following properties:
+
+|Property|Description|
+|--------|-----------|
+|`object`|The currently executing object (page, template, or component).|
+|`id`|The ID of the currently executing object.|
+|`htmlId`|The page-unique HTML ID for the currently executing object.|
+|`properties`|An associative array of properties about the currently rendering object.|
+
+The `instance` object provides the following methods:
+
+|Method|Description|
+|--------|-----------|
+|`getParameterNames()`|Returns a String[] of the names of the request parameters.|
+|`getParameter(String name)`|Returns the parameter value for the given parameter name.|
+|`getParameters()`|Returns an associative Array of the request parameter name/value pairs.|
+
+
+### sitedata object
+
+The sitedata object provides information about a site such as its configuration and root page.
+
+The `sitedata` object provides the following properties. The property types include:
+
+* Framework properties.
+* Properties that provide arrays of all objects of a given type.
+* Properties that provide associative arrays (or maps) of all instances for a given object type. These maps are keyed by object ID.
+
+|Property|Description|
+|--------|-----------|
+|`rootPage`|Root page object for the web site/application.|
+|`siteConfiguration`|Configuration object for the web site/application.|
+|`objectTypeIds`|Return a string array of object type IDs.|
+|`chrome`|Provides an array of all `Chrome` objects.|
+|`components`|Provides an array of all `Component` objects.|
+|`componentTypes`|Provides an array of all `ComponentType` objects.|
+|`configurations`|Provides an array of all `Configuration` objects.|
+|`contentAssociations`|Provides an array of all `ContentAssociation` objects.|
+|`pages`|Returns an array of all `Page` objects.|
+|`pageTypes`|Provides an array of all `PageType` objects.|
+|`pageAssociations`|Provides an array of all `PageAssociation` objects.|
+|`templates`|Provides an array of all `Template` objects.|
+|`templateTypes`|Provides an array of all `TemplateType` objects.|
+|`themes`|Provides an array of all `Theme` objects.|
+|`chromeMap`|Provides an associative array of all `Chrome` objects.|
+|`componentsMap`|Provides an associative array of all `Component` objects.|
+|`componentTypesMap`|Provides an associative array of all `ComponentType` objects.|
+|`configurationsMap`|Provides an associative array of all `Configuration` objects.|
+|`contentAssociationsMap`|Provides an associative array of all `ContentAssociation` objects.|
+|`pagesMap`|Provides an associative array of all `Page` objects.|
+|`pageAssociationsMap`|Provides an associative array of all `PageAssociation` objects.|
+|`templatesMap`|Provides an associative array of all `Template` objects.|
+|`templateTypesMap`|Provides an associative array of all `TemplateType` objects.|
+|`themesMap`|Provides an associative array of all `Theme` objects.|
+
+|Method|Description|
+|--------|-----------|
+|`getObjectTypeName`|This method returns the object type name, given the object type ID. Parameter `objectTypeId` is a string representing the object type ID. Returns a string representing the object type name, or null if the object type ID cannot be found.|
+|`getObjectTypeDescription`|This method returns the object type description, given the object type ID. Parameter `objectTypeId` is a string representing the object type ID. Returns a string representing the object type name, or null if the object type ID cannot be found.|
+|`getObjects`|This method returns an array of objects of the given object type ID. Parameter `objectTypeId` is a string representing the object type ID. Returns an array of objects of the specified type ID.|
+|`getObjectsMap`|This method returns a map of all instances of the given type. The map is keyed on object ID. Parameter `objectTypeId` is a string representing the object type ID. Returns a map of objects keyed on object ID.|
+|`newObject`|These methods return a newly created `ScriptModelObject`.  Returns a newly created object with the specified object type and ID.|
+|`newObject(String objectTypeId)`|Parameter `objectTypeId` is a string representing the object type ID.|
+|`newObject(String objectTypeId, String objectId)`|Parameter `objectId` is a string representing the object ID. |
+|`newChrome`|This method creates and returns a new Chrome object instance. Returns a `ScriptModelObject` representing the new Chrome instance. The ID for the instance is generated using the Web Framework's random GUID generator.|
+|`newComponent`|These methods create and return a new Component object instance. The scope, region and sourceId parameters should be set before the object is persisted. Returns a `ScriptModelObject` representing the new Component instance. The ID for the instance is generated using the Web Framework's random GUID generator.
+|`newComponent(String componentTypeId)`|Parameter `componentTypeId` is a string representing the component type ID.|                
+|`newComponent(String scope, String regionId, String sourceId)`|Parameter `scope` is one of `global`, `template` or `page`. Parameter `regionId`is the ID of the region to bind to. Parameter `sourceId` is the source ID for the given scope.|
+|`newComponent(String componentTypeId, String scope, String regionId, String sourceId)`||
+|`newComponentType`|This method returns a `ScriptModelObject` representing a new ComponentType instance of the specified type. Returns a `ScriptModelObject` representing the new ComponentType instance. The ID for the instance is generated using the Web Framework's random GUID generator.|
+|`newConfiguration`|These methods create and return a new Configuration object instance. Returns a `ScriptModelObject` representing the new Configuration instance. The ID for the instance is generated using the Web Framework's random GUID generator.|
+|`newConfiguration(String sourceId)`| Parameter `sourceId` is a string representing the value to assign to the sourceId property.|
+|`newContentAssociation`|This method creates and returns a new ContentAssociation object instance. Returns a `ScriptModelObject` representing the new ContentAssociation instance. The ID for the instance is generated using the Web Framework's random GUID generator.|
+|`newPage`|these methods create and return a new Page object instance. Returns a `ScriptModelObject` representing the new Page instance. The ID for the instance is generated using the Web Framework's random GUID generator.|
+|`newPage(String id)`|Parameter `id` is a string representing the page instance id.|
+|`newPage(String id, String title, String description)`| Parameter `title` is the title of the page instance. Parameter `description` is the description of the page instance.|
+|`newPage(String id, String title, String titleId, String description, String descriptionId)`|Parameter `titleId` is the message bundle key used to look up the title of the page instance. Parameter `descriptionId` is the message bundle key used to look up the description of the page instance.|
+|`newPageAssociation`|This method creates and returns a new PageAssociation object instance. Returns a `ScriptModelObject` representing the new PageAssociation instance. The ID for the instance is generated using the Web Framework's random GUID generator.|
+|`newPageType`|This method creates and returns a new Chrome object instance. Parameter `objectId` is a string representing the object ID. Returns a `ScriptModelObject` representing the new PageType instance. The ID for the instance is generated using the Web Framework's random GUID generator.|
+|`newTemplate`|These methods create and return a new Template object instance. Returns a `ScriptModelObject` representing the new Template instance. The ID for the instance is generated using the Web Framework's random GUID generator.|
+|`newTemplate(String templateTypeId)`|Parameter `templateTypeId` is a string representing the id of the template type to be created.|
+|`newTemplate(String templateTypeId, String title, String description)`|Parameter `title` is the title of the template instance. Parameter `description` is the description of the template instance.|
+|`newTemplate(String templateTypeId, String title, String titleId, String description, String descriptionId)`|Parameter `titleId` is the message bundle key used to look up the title of the page instance. Parameter `descriptionId` is the message bundle key used to look up the description of the page instance.|
+|`newTemplateType`|This method creates and returns a new TemplateType object instance. Parameter `objectId` is a string representing the object ID. Returns a `ScriptModelObject` representing the new TemplateType instance. The ID for the instance is generated using the Web Framework's random GUID generator.|
+|`newTheme`|This method returns a newly created `ScriptModelObject` representing a new Theme. Parameter `objectId` is a string representing the object ID. Returns a `ScriptModelObject` representing a new Theme.|
+|`newPreset`|Creates model objects based on a given preset id. The preset is looked up and processed by the PresetManager bean. The various objects found in the preset will be generated using the supplied name/value map of tokens. Parameter `presetId` is a string representing the ID of the preset to generate. Parameter `tokens` is a Token name/value map. Returns void|
+|`findComponents(String scope, String regionId, String sourceId, String componentTypeId)`|Searches for Component instances within the web application that match the provided constraints. If a constraint is set to null, it is not considered as part of the search. Parameter `scope` is the value of the scope property of the instance. Parameter `regionId` is the value of the regionId property of the instance. Parameter `sourceId` is the value of the sourceId property of the instance. Parameter `componentTypeId` is the value of the componentTypeId property of the instance. Returns an array of `ScriptModelObject` instances that wrap the Component results of the search.|
+|`findWebScripts`||
+|`findChildPageAssociations`||
+|`findPageAssociations`||
+|`findChildPages`||
+|`findParentPages`||
+|`findContentAssociations`||
+|`findComponentsMap`||
+|`findPageAssociationsMap`||
+|`findContentAssociationsMap`||
+|`findTemplatesMap`||
+|`findConfiguration`||
+|`findTemplate`||
+|`removeTemplate`||
+|`bindComponent`||
+|`unbindComponent`||
+|`associateTemplate`||
+|`unassociateTemplate`||
+|`associatePage`||
+|`unassociatePage`||
+|`associateContent`||
+|`unassociateContent`||
+|`associateContentType`||
+|`unassociateContentType`||
 
 ## Surf object XML quick reference (siteData)
 

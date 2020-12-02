@@ -63,7 +63,7 @@ Note the use of the `http` [connector]({% link content-services/latest/develop/r
 when communicating with external Web Services. Now, to create a Web Script you also need a descriptor, which is defined 
 in XML and looks something like this:
 
-```
+```xml
 <webscript>
    <shortname>London Weather</shortname>
    <description>Simple Surf Web Script fetching London weather information</description>
@@ -72,9 +72,11 @@ in XML and looks something like this:
 </webscript>   
 ```
 
-Web Script descriptor file names follow a naming convention: `<web script id>.<http method>.desc.xml`, the above descriptor should be stored in a file called londonweather.get.desc.xml to link it to the controller.The template for a Web Script is defined in FreeMarker and looks something like this:
+Web Script descriptor file names follow a naming convention: `<web script id>.<http method>.desc.xml`, the above 
+descriptor should be stored in a file called `londonweather.get.desc.xml` to link it to the controller. The template for 
+a Web Script is defined in FreeMarker and looks something like this:
 
-```
+```xml
 <div>
 <#if weather?exists>
     <h1>London Weather Today</h1>
@@ -85,17 +87,23 @@ Web Script descriptor file names follow a naming convention: `<web script id>.<h
 </div>
 ```
 
-Web Script template file names follow a naming convention: `<web script id>.<http method>.<format>.ftl`, the above template should be stored in a file called londonweather.get.html.ftl to link it to the descriptor.The London weather web script does not need any authentication with Alfresco Content Services so it could actually be called directly from the browser with the `http://localhost:8080/share/service/tutorial/london-weather` URL, and we should see a response similar to:
+Web Script template file names follow a naming convention: `<web script id>.<http method>.<format>.ftl`, the above 
+template should be stored in a file called `londonweather.get.html.ftl` to link it to the descriptor. The London weather 
+web script does not need any authentication with Alfresco Content Services so it could actually be called directly from 
+the browser with the `http://localhost:8080/share/service/tutorial/london-weather` URL, and we should see a response 
+similar to:
 
 **London Weather Today**
 
 **light rain**
 
-It is more likely though that we would use this Web Scrip as a basis for a [Surf Dashlet](dev-extensions-share-surf-dashlets.md).
+It is more likely though that we would use this Web Scrip as a basis for a [Surf Dashlet]({% link content-services/latest/develop/share-ext-points/surf-dashlets.md %}).
 
-If we instead want to fetch and present data from the repository, we will most likely call an out-of-the-box repository web script, although it is common to implement and use your own repository web scripts. To connect and call an Alfresco repository web script (that is, Data web script) you will do something like this:
+If we instead want to fetch and present data from the repository, we will most likely call an out-of-the-box repository 
+web script, although it is common to implement and use your own repository web scripts. To connect and call an Alfresco 
+repository web script (that is, Data web script) you will do something like this:
 
-```
+```javascript
 var filterValue = args.filter;
 if (filterValue == null) {
    filterValue = "";
@@ -108,11 +116,17 @@ model.people = peopleJSON["people"];
 model.filterValue = filterValue;  
 ```
 
-For this controller to successfully pass on authentication information when making the repository web script call it need to be called in context of a [Surf Page](dev-extensions-share-surf-pages.md) or a [Surf Dashlet](dev-extensions-share-surf-dashlets.md). Note the use of the `alfresco` [connector](surf-connectors-endpoints.md) when communicating with a repository, This connector assumes that you will call the older **deprecated** [v0 REST API](http://docs.alfresco.com/5.0/references/RESTful-Repository.html) (http://localhost:8080/alfresco/service). We use it here as the feature of searching for people is not yet available in the v1 REST API.
+For this controller to successfully pass on authentication information when making the repository web script call it 
+need to be called in context of a [Surf Page]({% link content-services/latest/develop/share-ext-points/surf-pages.md %}) or a 
+[Surf Dashlet]({% link content-services/latest/develop/share-ext-points/surf-dashlets.md %}). Note the use of the `alfresco` 
+[connector]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#connectorsandcreds) when communicating 
+with a repository, This connector assumes that you will call the older **deprecated** [v0 REST API](TODO:http://docs.alfresco.com/5.0/references/RESTful-Repository.html) 
+(`http://localhost:8080/alfresco/service`). We use it here as the feature of searching for people is not yet available in the v1 REST API.
 
-We should use the [v1 REST API](../pra/1/topics/pra-welcome-aara.md) as much as possible, which requires a different connector called `alfresco-api`. Here is an example controller that uses the v1 API to get all the sites in the Repository:
+We should use the [v1 REST API](TODO:../pra/1/topics/pra-welcome-aara.md) as much as possible, which requires a 
+different connector called `alfresco-api`. Here is an example controller that uses the v1 API to get all the sites in the Repository:
 
-```
+```javascript
 var siteJSON = {}
 var connector = remote.connect("alfresco-api");
 var result = connector.get("/-default-/public/alfresco/versions/1/sites");
@@ -123,7 +137,9 @@ if (result.status.code == status.STATUS_OK) {
 model.sites = siteJSON["list"]["entries"];
 ```
 
-Can then be displayed via the following template example:```
+Can then be displayed via the following template example:
+
+```xml
 <#if sites?? && (sites?size > 0)>
 <h1>Search Result:</h1>
     Found ${sites?size} sites.
@@ -136,7 +152,14 @@ Can then be displayed via the following template example:```
 </#if>
 ```
 
-The v1 REST API is actually split up into two different APIs depending on what we want to do. If we want to manage files and folders then we will have to use the CMIS API. And when we want to access Alfresco specific content, such as sites, then we need to use the Alfresco Content Services REST API. Both of these are accessible via the `alfresco-api` connector. As we saw above, the Alfresco v1 REST API is accessible via the `/-default-/public/alfresco/versions/1` URL. The CMIS API is accessible via the `/-default-/public/cmis/versions/1.1` URL. The following is an example of a Surf Web Script controller that uses the CMIS API to access the top folders and files in the repository:```
+The v1 REST API is actually split up into two different APIs depending on what we want to do. If we want to manage 
+files and folders then we will have to use the CMIS API. And when we want to access Alfresco specific content, 
+such as sites, then we need to use the Alfresco Content Services REST API. Both of these are accessible via the 
+`alfresco-api` connector. As we saw above, the Alfresco v1 REST API is accessible via the `/-default-/public/alfresco/versions/1` 
+URL. The CMIS API is accessible via the `/-default-/public/cmis/versions/1.1` URL. The following is an example of a 
+Surf Web Script controller that uses the CMIS API to access the top folders and files in the repository:
+
+```javascript
 var connector = remote.connect("alfresco-api");
 
 // Get some stuff via CMIS REST API
@@ -154,7 +177,9 @@ model.topContent = topFolderContentJSON["objects"];
 model.docs = docs["results"];
 ```
 
-This controller puts the top folder content and search result into the model and we can use it in a template as follows: ```
+This controller puts the top folder content and search result into the model and we can use it in a template as follows: 
+
+```xml
 <#if topContent?? && (topContent?size > 0)>
 <h1>Top Folders:</h1>
     Found ${topContent?size} content items in the top folder (/Company Home).
@@ -178,37 +203,57 @@ ${d.properties["cmis:name"].value}
 </#if>
 ```
 
-Note that we need to use different way of accessing the CMIS properties than the standard . (dot) notation.
+Note that we need to use different way of accessing the CMIS properties than the standard `.` (dot) notation.
 
-**Warning:** When parsing the JSON response do not use the `eval('('+result+')');` function as it is not secure. Instead use `jsonUtils.toObject` as in the above examples.
+>**Warning:** When parsing the JSON response do not use the `eval('('+result+')');` function as it is not secure. Instead use `jsonUtils.toObject` as in the above examples.
 
-|
-|Deployment - App Server|* tomcat/shared/classes/alfresco/web-extension/site-webscripts/ (Untouched by re-depolyments and upgrades)
-* tomcat/webapps/share/components/ (when web resources are included you need to put them directly into the exploded webapp, this is **NOT** recommended. Use a [Share AMP](https://github.com/Alfresco/alfresco-sdk/blob/master/docs/working-with-generated-projects/working-with-share.md) project instead)
+## Web script locations
 
-|
-|[Deployment All-in-One SDK project](https://github.com/Alfresco/alfresco-sdk/blob/master/docs/getting-started.md)|* aio/share-jar/src/main/resources/alfresco/web-extension/site-webscripts
-* aio/share-jar/src/main/resources/META-INF/resources/share-jar/components (when web resources such as CSS and JS are included)
+Web scripts need to be located on the application server classpath.
 
-|
-|More Information|* [Presentation Tier Web Scripts](ws-types-presentation.md)
-* [Where to put your Web Scripts](ws-presentation-locations.md) (When trying them out without a build project)
-* [Controller Root Objects](../references/APISurf-rootscoped.md) (Root objects that can be used in the JavaScript controller)
-* [Template Root Objects](../references/APISurf-templates.md) (Root objects that can be used when the main FreeMarker template for a Page is rendered)
-* [Component Root Objects](../references/APISurf-components.md) (Root objects that can be used when the FreeMarker template is rendered for a Page Component Web Script)
-* [Caching approach](ws-caching-about.md) - HTTP Response caching and Web Scripts (from repository web script section but still applicable)
+There are certain locations where it is the convention to locate your web scripts. The normal location when using the 
+Tomcat application server is `./tomcat/shared/classes/alfresco`. Within that directory there are a couple of directories 
+you should know about:
 
-**Important**. There are two [types](ws-types.md) of web scripts, [Repository Web Scripts](ws-types-data.md) and [Surf Web Scripts](ws-types-presentation.md). When you work with Surf web scripts you have access to different content ([root objects](ws-presentation-root-objects.md)) then when using repository web scripts.
+* `extension` - your repository-tier web scripts will most likely be located here, typically in `templates/webscripts`. Web scripts are usually organized into packages below this directory, for example `org/alfresco/*`. You might create a package `com/mycompany/*` in which you can locate your company's web scripts.
+* `web-extension` - custom Share configuration can go directly into this directory. There are two important sub-directories in the `web-extension` directory: `site-data` and `site-webscripts`. `site-data` would contain Surf configuration XML files, such as page definitions, template-instances and components (see the Surf Framework documentation). The `site-webscripts` directory would contain your presentation tier web scripts, consisting of description files, JavaScript controllers and FreeMarker template files.
 
+## Root objects
 
-|
-|Sample Code|* [Custom Surf Pages, Surf Dashlets, and Surf Web Scripts](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-surf-dashlet-and-page-share)
+Web scripts written to run in the presentation tier have access to presentation-tier root objects, not available in 
+the repository context.
 
-|
-|Tutorials|* [XML Configuration](../tasks/ws-config.md) - Additional XML configuration for Web Script (from repository web script section but still applicable)
-* [Cache Control](../tasks/ws-cache-using.md) - Additional Cache control configuration for Web Script (from repository web script section but still applicable)
-* [POST data processing](../tasks/ws-request-process.md) - Additional Cache control configuration for Web Script (from repository web script section but still applicable)
-* [Exploring the Root Objects](../tasks/surf-tutorials-exploring-root-objects.md)
+When running a web script in the presentation tier, the web script has access to numerous root objects that are only 
+available in the presentation tier. Likewise, some root objects that are available to web scripts when running in the 
+repository tier are not available to web scripts running in the presentation tier. For example, objects associated with 
+core repository concepts, such as nodes, are not directly available to web scripts running in the presentation tier.
 
-|
-|Alfresco Developer Blogs| |
+* [Surf root objects - controller]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfrootobjects) 
+* [FreeMarker root objects - template]({% link content-services/latest/develop/reference/freemarker-ref.md %})
+
+## Deployment - App Server
+
+* `tomcat/shared/classes/alfresco/web-extension/site-webscripts/` (Untouched by re-depolyments and upgrades)
+* `tomcat/webapps/share/components/` (when web resources are included you need to put them directly into the exploded webapp, this is **NOT** recommended. Use a Share JAR Module project instead)
+
+## Deployment All-in-One SDK project
+
+* `aio/share-jar/src/main/resources/alfresco/web-extension/site-webscripts`
+* `aio/share-jar/src/main/resources/META-INF/resources/share-jar/components` (when web resources such as CSS and JS are included)
+
+## More Information
+
+* [Template Root Objects](TODO:../references/APISurf-templates.md) (Root objects that can be used when the main FreeMarker template for a Page is rendered)
+* [Component Root Objects](TODO:../references/APISurf-components.md) (Root objects that can be used when the FreeMarker template is rendered for a Page Component Web Script)
+* [Caching approach](TODO:ws-caching-about.md) - HTTP Response caching and Web Scripts (from repository web script section but still applicable)
+
+## Sample Code
+
+* [Custom Surf Pages, Surf Dashlets, and Surf Web Scripts](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-surf-dashlet-and-page-share){:target="_blank"}
+
+## Tutorials
+
+* [XML Configuration](TODO:../tasks/ws-config.md) - Additional XML configuration for Web Script (from repository web script section but still applicable)
+* [Cache Control](TODO:../tasks/ws-cache-using.md) - Additional Cache control configuration for Web Script (from repository web script section but still applicable)
+* [POST data processing](TODO:../tasks/ws-request-process.md) - Additional Cache control configuration for Web Script (from repository web script section but still applicable)
+* [Exploring the Root Objects](TODO:../tasks/surf-tutorials-exploring-root-objects.md)
