@@ -241,12 +241,6 @@ core repository concepts, such as nodes, are not directly available to web scrip
 * `aio/share-jar/src/main/resources/alfresco/web-extension/site-webscripts`
 * `aio/share-jar/src/main/resources/META-INF/resources/share-jar/components` (when web resources such as CSS and JS are included)
 
-## More Information
-
-* [Template Root Objects](TODO:../references/APISurf-templates.md) (Root objects that can be used when the main FreeMarker template for a Page is rendered)
-* [Component Root Objects](TODO:../references/APISurf-components.md) (Root objects that can be used when the FreeMarker template is rendered for a Page Component Web Script)
-* [Caching approach](TODO:ws-caching-about.md) - HTTP Response caching and Web Scripts (from repository web script section but still applicable)
-
 ## Sample Code
 
 * [Custom Surf Pages, Surf Dashlets, and Surf Web Scripts](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-surf-dashlet-and-page-share){:target="_blank"}

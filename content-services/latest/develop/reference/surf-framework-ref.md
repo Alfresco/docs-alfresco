@@ -636,7 +636,7 @@ model.cmis = connector.get("/api/path/workspace/SpacesStore");
 
 By simply coding to the remote object, you do not need to worry about how to connect to the endpoint or pass along user state.
 
-### Remote API
+### Remote API {#remoteapi}
 
 The `remote` root-scoped object lets you connect to remote services and retrieve data feeds.
 
@@ -1055,7 +1055,7 @@ The `sitedata` object provides the following properties. The property types incl
 |`associateContentType`||
 |`unassociateContentType`||
 
-## Surf object XML quick reference (siteData)
+## Surf object XML quick reference (siteData) {#surfobjsitedata}
 
 Surf objects are defined in XML. This document provides a quick reference guide to the most commonly used Surf objects, 
 and how they are defined in XML.
@@ -1069,7 +1069,7 @@ It's important to note that the `alfresco/web-extension/site-data` directory wil
 `alfresco/site-data` directory. Usually core Alfresco Content Services objects would be located in `alfresco/site-data` 
 directory, and third-party overrides/extensions would be located in `alfresco/web-extension/site-data`.
 
-### Component
+### Component {#surfcomponentxml}
 
 Component instances describe bindings between a region and a rendering engine that is responsible for generating the 
 component's markup. Typically the rendering engine is the Surf web script engine.
@@ -1228,7 +1228,7 @@ classpath:/alfresco/web-extension/site-data/configurations/default.site.configur
 </component>
 ```
 
-### Page
+### Page {#surfpagexml}
 
 A page describes a URL-addressable destination that has been resolved and for which a view must be produced. A page 
 aligns with the concept of a web page from the end user's point of view. Pages are often arranged into page hierarchies 
@@ -1298,7 +1298,7 @@ classpath:/alfresco/web-extension/site-data/pages/products.xml
 </page>
 ```
 
-### Template instance
+### Template instance {#surftemplateinstancexml}
 
 Template instances wrap configuration around a template file. The template file receives all the properties of the 
 template instance and can use these properties to inform its rendering logic. This empowers a single template file to 

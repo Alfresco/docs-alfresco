@@ -1,5 +1,5 @@
 ---
-title: Mimetypes Extension Point
+title: Repo JavaScript Root Objects Extension Point
 ---
 
 A number of JavaScript root objects are available when you are implementing a controller for a Repo Web Script, such as 
