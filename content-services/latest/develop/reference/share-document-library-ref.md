@@ -272,7 +272,7 @@ The following controls are available.
     * `maxLength`: Defines the maximum number of characters the user can enter
     * `size`: Defines the size of the text field
 
-### Forms configuration syntax
+### Forms configuration syntax {#formsconfigsyntax}
 
 The share-config-custom.xml file uses an XML configuration syntax.
 

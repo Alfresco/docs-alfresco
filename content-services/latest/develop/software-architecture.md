@@ -957,7 +957,7 @@ If you do that you end up with the pattern for how most of the old school Share 
 
 Next we will have a look at how to implement the same Hello World page the new way with Aikau.
 
-#### Aikau Pages introduction
+#### Aikau Pages introduction {#aikauintro}
 
 Use this information for a brief overview of Aikau Pages.
 
