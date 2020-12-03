@@ -43,9 +43,6 @@ The Process Service element types that are supported for import are:
 | Mail task | [Email connector]({% link process-automation/latest/model/connectors/email.md %}) | An instance of the email connector is created and an email connector task is created for each mail task. {::nomarkdown}<ul><li>Connector parameters need to be mapped.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li></ul>{:/} |
 | REST call task | [REST connector]({% link process-automation/latest/model/connectors/rest.md %}) | An instance of the REST connector is created and a REST connector task is created for each REST call task. {::nomarkdown}<ul><li>Connector parameters need to be mapped.</li><li>Connector needs to be configured.</li><li>Multi-instance is not supported.</li><li>Execution listeners removed.</li><li> Asynchronous option removed.</li><li>Exclusive option removed.</li><li>Is for compensation option removed.</li></ul>{:/} |
 
-
-
-
 ## Diagrams
 
 Diagrams hold one or more process definitions. If multiple process definitions are modeled within a diagram it is important to remember that the scope of each is restricted and the only way to communicate between them is via [message](#message) or [error](#error) events.
