@@ -41,6 +41,7 @@ The events that can be created for a trigger are:
 
 * [BPMN engine activities](#bpmn-engine-events)
 * [Form save and submission events](#forms)
+* [A user interface event action](#user-interface)
 * [Content connector events](#content-connector)
 * [An email being received](#email-received)
 * [An SMS being received](#sms-received)
@@ -56,6 +57,17 @@ BPMN engine events are mostly configured using the `elementId` which is the `ID`
 ### Forms
 
 The saving and submission of a [form]({% link process-automation/latest/model/forms.md %}) can be monitored as a trigger event. The specific form and the process definition it is attached to are used to create the trigger event.
+
+### User interface
+
+A [custom end-user action]({% link process-automation/latest/model/interfaces.md %}#event) of type **Event** can be set on the Digital Workspace user interface. When a user clicks the action in the Ditial Workspace an event is fired that can be linked to a trigger action.
+
+The input parameters for a user interface action are:
+
+| Parameter | Description |
+| --------- | ----------- |
+| uIName | *Required.* The name of the user interface that contains the action, for example `content`. |
+| Name | *Required.* The name of the action of type **Event** to monitor, for example `share-with-accounts`. |
 
 ### Content connector
 

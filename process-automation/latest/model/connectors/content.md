@@ -569,6 +569,8 @@ The output parameters from setting the type of a file or folder are:
 
 The governance actions are used to declare content as records in the repository.
 
+> **Note:** Governance actions require [Alfresco Governance Services]({% link governance-services/latest/index.md %}) to be installed in Alfresco Cloud.
+
 The governance actions are:
 
 * [Declare a record](#declare-record)

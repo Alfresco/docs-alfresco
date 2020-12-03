@@ -2,7 +2,7 @@
 title: User interfaces
 ---
 
-The user interfaces (UI) section sets an end-user interface for users to interact with content, tasks and processes for the project using the [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
+The user interfaces (UI) section sets an end user interface for users to interact with content, tasks and processes for the project using the [Alfresco Digital Workspace]({% link process-automation/latest/using/index.md %}).
 
 ## Properties
 
@@ -37,7 +37,7 @@ Once a user interface has been created, set the type to `content` to deploy the 
 
 > **Note**: An instance of Digital Workspace will be deployed with each application that can only start processes created within that same application. Only users assigned [user access]({% link process-automation/latest/admin/release.md %}#deploy-steps/user) to the application will be able to access the interface.
 
-Custom end-user actions can be created for the Digital Workspace. This enables custom options in menus that can be set to display on files or folders with specific names, or when an aspect is applied to a node. There are three parts to defining custom actions:
+Custom end user actions can be created for the Digital Workspace. This enables custom options to be added to various menus displayed to users. Rules can be set for the actions to only display on files or folders with specific names, or when an aspect is applied to a node. There are three parts to defining custom actions:
 
 * The [action](#actions) itself that will executed when the option is clicked.
 * A list of one or more [rules](#rules) to describe which nodes the action will be displayed on.
@@ -45,27 +45,86 @@ Custom end-user actions can be created for the Digital Workspace. This enables c
 
 ### Actions
 
-There are four types of end-user action that can be configured:
+There are four types of end user actions that can be configured:
 
-* [Event](#event)
-* [Form](#form)
-* [Navigation](#navigation)
-* [Start process](#start-process)
+* [Events](#event) that are used in conjunction with a [trigger]({% link process-automation/latest/model/triggers.md %}) to start a trigger action when clicked by a user.
+* [Forms](#form) that display a [form]({% link process-automation/latest/model/forms.md %}) to the user to fill in, independent of a user task or process.
+* [Navigation](#navigation) to set a URL to redirect to when clicked by the user.
+* [Start process](#start-process) to start a named process when clicked by the user, and optionally include the file the action was launched from when clicked.
 
 #### Event
 
+Event actions are directly referenced by [triggers]({% link process-automation/latest/model/triggers.md %}) when they are clicked. This means that an action can post a predefined message to a Slack channel or send an email notifying an email group about the document.
+
+> **Note:** If a [user interface trigger action]({% link process-automation/latest/model/triggers.md %}#user-interface) is not created that references the event action then nothing will happen when the action is clicked by an end user.
+
+The properties of an event action are:
+
+| Property | Description |
+| -------- | ----------- |
+| Name | *Required.* The name of the action. **Note:** This is not the text that will appear to the end user in a menu. |
+| Type | *Required.* The type of action will be `Event`. |
+| Use selected nodes in action | *Optional.* Sets whether the nodes selected when the action is clicked can be used in the event or not, for example `true`. |
+
 #### Form
+
+Form actions open a [form]({% link process-automation/latest/model/forms.md %}) in Digital Workspace that users can fill in when the action is clicked. The form in question can be completely independent of a process and user task. Forms allow users to enter some information and use the output, for example to use a [trigger]({% link process-automation/latest/model/triggers.md %}#forms) on the form submission event.
+
+The properties of a form action are:
+
+| Property | Description |
+| -------- | ----------- |
+| Name | *Required.* The name of the action. **Note:** This is not the text that will appear to the end user in a menu. |
+| Type | *Required.* The type of action will be `Form`. |
+| Form | *Required.* The name of the form to display when the action is clicked. |
+| Use selected nodes in action | *Optional.* Sets whether the nodes selected when the action is clicked can be used in the form or not, for example `true`. |
 
 #### Navigation
 
+Navigation actions open a link when they are clicked by an end user. The link can be relative, for example opening another document from the repository, or the link can be absolute, such as to open another application.
+
+The properties of a navigation action are:
+
+| Property | Description |
+| -------- | ----------- |
+| Name | *Required.* The name of the action. **Note:** This is not the text that will appear to the end user in a menu. |
+| Type | *Required.* The type of action will be `Navigation`. |
+| Target | *Required.* The absolute or relative link the action will direct to, for example `https://wikipedia.org`. |
+| Open in new tab | *Optional.* Sets whether the link opens in a new tab or not, for example `false`. |
+| Use selected nodes in action | *Optional.* Sets whether the nodes selected when the action is clicked can be used in the navigation URL or not, for example `true`. |
+
+> **Note:** The `Target` can use the variable `${nodes}` if `Use selected nodes in action` is set to `true` to pass the node ID to the link, for example `personal-files/(viewer:view/${nodes})?location=%2Fpersonal-files`.
+
 #### Start process
+
+A start process action will start a process when the action is clicked. If the selected process contains a form on the [start event]({% link process-automation/latest/model/processes/bpmn.md %}#start-events) with an [attach file field]({% link process-automation/latest/model/forms.md %}#attach-file-fields) and `Use selected nodes in action` is set to `true`, then the file that was selected when the action was clicked will be attached to it automatically.
+
+The properties of a start process action are:
+
+| Property | Description |
+| -------- | ----------- |
+| Name | *Required.* The name of the action. **Note:** This is not the text that will appear to the end user in a menu. |
+| Type | *Required.* The type of action will be `Start process`. |
+| Process | *Required.* The name of the process to start when the action is clicked. |
+| Use selected nodes in action | *Optional.* Sets whether the nodes selected when the action is clicked can be used in the process or not, for example `true`. |
 
 ### Rules
 
+Rules are used to define when an action is displayed to the end user. This is achieved using a series of evaluators, operators and optional nested groups.
 
+Rule groups must:
 
+* All be met for the action to display using **Every**.
+* At least one met for the action to display using **Some**.
+* Must not be met for the action to display using **Not**.
+
+> **Note:** Individual evaluators in a rule can be set to evaluate negatively using the `!` against them. For example, if the evaluator `app.navigation.isTrashCan` is set to evaluate negatively then the user must *not* be in the trashcan for the action to appear.
+
+Some evaluators take additional operators such as `contains`, `equals` or `matches`. For example, the evaluator `selection.currentFolder.name` can use a fully qualified folder name such as `Invoices` or use a regular expression such as `^(I|i)nvoices`.
 
 #### Application evaluators
+
+Application evaluators check a user's permissions on files and folders to set whether action will be displayed.
 
 The application evaluators are:
 
@@ -110,6 +169,8 @@ The application evaluators are:
 
 #### Navigation evaluators
 
+Navigation evaluators use the location within the repository structure to set whether an action will be displayed.
+
 The navigation evaluators are:
 
 | Evaluator | Description |
@@ -137,6 +198,8 @@ The navigation evaluators are:
 
 #### Node property evaluators
 
+Node property evaluators use the types, aspects and properties of folders and files to set whether an action will be displayed.
+
 The node property evaluators are:
 
 | Evaluator | Description |
@@ -154,18 +217,95 @@ The node property evaluators are:
 | selection.currentFolder.property | The current folder has the indicated property and their values satisfy the condition. |
 | selection.currentFolder.name | The current folder matches the condition in their name. |
 
-
 ### Features
 
+A user action can be associated to a feature once it has been defined and the rules for when to display it have been configured. This determines in which menu or view the action is displayed.
 
+The properties to configure the action feature are:
 
+| Property | Description |
+| -------- | ----------- |
+| Title | *Required.* The text displayed to the end user in the menu, for example `Start invoice process`. |
+| Description | *Optional.* The tooltip for the action in the menu, for example `Start the invoice process with the intial invoice attached.`. |
+| Icon | *Required.* The icon that will be displayed to the end user in the menu next to the `Title`. |
+| Order | *Optional.* The order the action will appear in the menu list. The higher the number the lower down the list, or further right in a list it is displayed. |
+| Action | *Required.*  The selected action to execute. |
+| Visibility | *Optional.* The rule to use for evaluating whether a user can see the action. |
+| Enabled | *Optional.* The rule to use for evaluating whether the action is enabled or not. |
 
+Actions can be displayed in different parts of the Digital Workspace by associating them with different features.
 
+#### Application header feature
 
+The application header will display an action next to the search bar and user information:
 
+![application header image]({% link process-automation/images/feature-app-header.png %})
 
+#### Application header menu feature
 
+The application header menu will display an action in the application header menu next to items such as **Settings** and **About**:
 
+![application header menu image]({% link process-automation/images/feature-app-header-menu.png %})
+
+#### Application toolbar feature
+
+The application toolbar will display an action underneath the header where items such as a breadcrumb are normall placed:
+
+![application toolbar image]({% link process-automation/images/feature-app-toolbar.png %})
+
+#### Dropdown button feature
+
+The dropdown button will display an action in the left-hand menu as a new item:
+
+![dropdown button image]({% link process-automation/images/feature-dropdown.png %})
+
+#### Context menu feature
+
+The context menu will display an action in the menu displayed when right-clicking a node:
+
+![context menu image]({% link process-automation/images/feature-context-menu.png %})
+
+#### Sidebar feature
+
+The sidebar will display an action in the properties sidebar:
+
+![sidebar image]({% link process-automation/images/feature-sidebar.png %})
+
+#### Sidebar toolbar feature
+
+The sidebar toolbar will display an action on the toolbar within the properties sidebar:
+
+![sidebar toolbar image]({% link process-automation/images/feature-sidebar-toolbar.png %})
+
+#### Viewer feature
+
+The viewer will display an action on the file viewer page:
+
+![viewer image]({% link process-automation/images/feature-viewer.png %})
+
+#### Viewer toolbar feature
+
+The viewer toolbar will display an action on the toolbar located on the file viewer page:
+
+![viewer toolbar image]({% link process-automation/images/feature-viewer-toolbar.png %})
+
+#### Viewer toolbar menu feature
+
+The viewer toolbar menu will display an action in the dropdown menu in the toolbar located on the file viewer page:
+
+![viewer toolbar menu image]({% link process-automation/images/feature-viewer-toolbar-menu.png %})
+
+#### Viewer shared feature
+
+The shared viewer will display an action on the file viewer page of a shared file:
+
+![viewer shared image]({% link process-automation/images/feature-viewer-shared.png %})
+
+#### Viewer shared toolbar feature
+
+The shared viewer toolbar will display an action on the toolbar located on the file viewer page of a shared file:
+
+![viewer shared toolbar image]({% link process-automation/images/feature-viewer-shared-toolbar.png %})
 
 ## Custom user interfaces
 

@@ -2082,7 +2082,7 @@ Script tasks can be set to repeat sequentially or in parallel when the process f
 
 #### Priority
 
-An optional priority for the user task between 0 and 4. The priority property is to aid end-users in their task management.  
+An optional priority for the user task between 0 and 4. The priority property is to aid end users in their task management.  
 
 #### Form name
 
