@@ -1282,7 +1282,7 @@ change the presentation.css file and, if required, replace or add images to the 
 
 5.  Edit the properties in this section to change the theme.
 
-## Share Forms
+## Share Forms {#shareformsconfig}
 
 Alfresco Share presents data view and entry forms throughout its user interface, which are built on the Surf framework. 
 This framework provides a convention for implementing forms.
@@ -1375,7 +1375,7 @@ configuration file. The default configuration files are listed here so that you 
 1.  Open the ./tomcat/shared/classes/alfresco/<web-extension>/share-config-custom.xml file.
 2.  Modify the forms configuration settings using the XML configuration syntax.
 
-### Customizing forms controls
+### Customizing forms controls {#customizeformcontrols}
 
 One of the most common customizations is to add new controls. A control is the label for a field and the interface that 
 the user interacts with for setting the value of the field.
@@ -1627,7 +1627,7 @@ The aspects that appear can be defined on a type by type basis, and you can cont
     </config>
     ```
 
-### Configuring a form control
+### Configuring a form control {#formcontrolconfig}
 
 Most of the built in controls have parameters that allow some basic customization.
 
@@ -1791,7 +1791,7 @@ but without any visual grouping.
 
 3.  Save the file.
 
-### Providing a custom form control
+### Providing a custom form control {#customformcontrol}
 
 If none of the out-of-the-box controls are sufficient, you can add new controls and reference them. Controls are FreeMarker 
 template snippets, therefore, they contain only the HTML markup required to represent the control. The templates need to 

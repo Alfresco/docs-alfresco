@@ -175,7 +175,12 @@
             path: '/content-services/latest/develop/share-ext-points/surf-widgets/'
           - title: 'Surf Extension Modules'
             path: '/content-services/latest/develop/share-ext-points/surf-extension-modules/'
-
+          - title: 'Form Controls'
+            path: '/content-services/latest/develop/share-ext-points/form-controls/'
+          - title: 'Form Processor'
+            path: '/content-services/latest/develop/share-ext-points/form-processor/'
+          - title: 'Form Processor Filters'
+            path: '/content-services/latest/develop/share-ext-points/form-processor-filters/'
         - title: 'Useful Tools'
           pages:
           - title: 'SurfBug'
