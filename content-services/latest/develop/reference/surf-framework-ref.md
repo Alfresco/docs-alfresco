@@ -1031,18 +1031,20 @@ The `sitedata` object provides the following properties. The property types incl
 |`newTheme`|This method returns a newly created `ScriptModelObject` representing a new Theme. Parameter `objectId` is a string representing the object ID. Returns a `ScriptModelObject` representing a new Theme.|
 |`newPreset`|Creates model objects based on a given preset id. The preset is looked up and processed by the PresetManager bean. The various objects found in the preset will be generated using the supplied name/value map of tokens. Parameter `presetId` is a string representing the ID of the preset to generate. Parameter `tokens` is a Token name/value map. Returns void|
 |`findComponents(String scope, String regionId, String sourceId, String componentTypeId)`|Searches for Component instances within the web application that match the provided constraints. If a constraint is set to null, it is not considered as part of the search. Parameter `scope` is the value of the scope property of the instance. Parameter `regionId` is the value of the regionId property of the instance. Parameter `sourceId` is the value of the sourceId property of the instance. Parameter `componentTypeId` is the value of the componentTypeId property of the instance. Returns an array of `ScriptModelObject` instances that wrap the Component results of the search.|
-|`findWebScripts`||
-|`findChildPageAssociations`||
-|`findPageAssociations`||
-|`findChildPages`||
-|`findParentPages`||
-|`findContentAssociations`||
-|`findComponentsMap`||
-|`findPageAssociationsMap`||
-|`findContentAssociationsMap`||
-|`findTemplatesMap`||
-|`findConfiguration`||
-|`findTemplate`||
+|`findWebScripts`|Returns an array of `Object` instances that represent web scripts that match the family name. Parameter `family` is a string representing the family.|
+|`findChildPageAssociations`|Searches for `PageAssociation` instances within the web application that are of association type 'child' and which match the specified constraints. If a constraint is set to null, it is not considered as part of the search. Parameter `sourceId` ia a string representing the source id and parameter `destId` is a string representing the destination id. Returns an array of `Object` instances that represent the PageAssociation results of the search.|
+|`findPageAssociations`|Searches for `PageAssociation` instances within the web application that are of specified association type and which match the specified constraints. If a constraint is set to null, it is not considered as part of the search. Parameter `sourceId` ia a string representing the source id and parameter `destId` is a string representing the destination id. Parameter `associationType` is a string representing the association type. Returns an array of `Object` instances that represent the PageAssociation results of the search.|
+|`findChildPages`|Searches for child pages of the given page. Parameter `sourceId` is a string representing the source id. Returns an array of `Object` instances that represent the child page results of the search.|
+|`findParentPages`|Searches for parent pages of the given page. Parameter `pageId` is a string representing the page id. Returns an array of `Object` instances that represent the parent page results of the search.|
+|`findContentAssociations`|Searches for `ContentAssociation` instances within the web application that match the specified constraints. If a constraint is set to null, it is not considered as part of the search. Parameters are `sourceId` a string representing the source id, `destId` a string representing the destination id, `assocType` a string representing the association type, `formatId` a string representing the format id. Returns an array of `Object` instances that wrap the ContentAssociation results of the search.|
+|`findComponentsMap`|Provides a map of `ScriptModelObjects` that wrap Component instances. The map is keyed by Component object id. Parameters are `scope` a string representing the scope, `regionId` a string representing the region id, `sourceId` a string representing the source id, `componentTypeId` a string representing the component type id. Returns a Scriptable object that represents a map of component instances keyed by component id.|
+|`findPageAssociationsMap`|Provides a map of `ScriptModelObjects` that wrap `PageAssociation` instances. The map is keyed by `PageAssociation` object id. Parameters are `sourceId` a string representing the source id, `destId` a string representing the destination id, `associationType` a string representing the association type. Returns a Scriptable object that represents a map of PageAssociation instances keyed on object id.|
+|`findContentAssociationsMap`|Provides a map of `ScriptModelObjects` that wrap `ContentAssociation` instances. The map is keyed by `ContentAssociation` object id. Parameters are `sourceId` a string representing the source id, `sourceType` a string representing the source type, `destId` a string representing the destination id, `assocType` a string representing the association type, `formatId` a string representing the format id. Returns an array of `Object` instances that wrap the ContentAssociation results of the search.|
+|`findTemplatesMap`|Provides a map of `ScriptModelObjects` that wrap `Template` instances. The map is keyed by format id. Parameter `pageId` is a string representing the page id. Returns a `Scriptable` object that contains a map of `ScriptModelObjects` that wrap `Template` instances. The map being keyed on format id.|
+|`findConfiguration`|Looks up `Configuration` instances and returns the first instance that is found for the matching constraints. Parameter `sourceId` is a string representing the source id. Returns a `ScriptModelObject` instance that wraps the Configuration instance.|
+|`findTemplate`|These methods look up template instances and return the first instance that is found for the matching constraints. Returns a `ScriptModelObject` instance that wraps the Template instance.|
+|`findTemplate(String pageId)`|Parameter `pageId` is a string representing the page id.|
+|`findTemplate(String pageId, String formatId)`| Parameter `formatId` is a string representing the format id.|
 |`removeTemplate`||
 |`bindComponent`||
 |`unbindComponent`||

@@ -191,6 +191,8 @@
             path: '/content-services/latest/develop/share-ext-points/form-processor-filters/'
           - title: 'Form Field Validation Handlers'
             path: '/content-services/latest/develop/share-ext-points/form-field-validation-handlers/'
+          - title: 'Modifying out-of-the-box code'
+            path: '/content-services/latest/develop/share-ext-points/modify-ootb-code/'
         - title: 'Useful Tools'
           pages:
           - title: 'SurfBug'
