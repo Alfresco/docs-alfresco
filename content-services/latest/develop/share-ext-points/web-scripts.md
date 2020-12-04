@@ -241,6 +241,11 @@ core repository concepts, such as nodes, are not directly available to web scrip
 * `aio/share-jar/src/main/resources/alfresco/web-extension/site-webscripts`
 * `aio/share-jar/src/main/resources/META-INF/resources/share-jar/components` (when web resources such as CSS and JS are included)
 
+## More Information
+
+* [Web Script Reference]({% link content-services/latest/develop/reference/web-scripts-ref.md %})
+* [Surf root objects]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surfrootobjects)
+
 ## Sample Code
 
 * [Custom Surf Pages, Surf Dashlets, and Surf Web Scripts](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-surf-dashlet-and-page-share){:target="_blank"}

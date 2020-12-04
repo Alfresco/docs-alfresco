@@ -238,7 +238,7 @@ You can integrate Content Services with two LDAP directories so that:
     authentication.chain=ldap1:ldap,ldap2:ldap
     ```
 
-2.  Copy [ldap-authentication.properties](https://svn.alfresco.com/repos/alfresco-open-mirror/alfresco/HEAD/root/projects/repository/config/alfresco/subsystems/Authentication/ldap/ldap-authentication.properties) to both the `<classpathRoot>/alfresco/extension/subsystems/Authentication/ldap/ldap1/ldap-authentication.properties` and `<classpathRoot>/alfresco/extension/subsystems/Authentication/ldap/ldap2/ldap-authentication.properties` files.
+2.  Copy [ldap-authentication.properties](https://github.com/Alfresco/alfresco-community-repo/blob/master/repository/src/main/resources/alfresco/subsystems/Authentication/ldap/ldap-authentication.properties) to both the `<classpathRoot>/alfresco/extension/subsystems/Authentication/ldap/ldap1/ldap-authentication.properties` and `<classpathRoot>/alfresco/extension/subsystems/Authentication/ldap/ldap2/ldap-authentication.properties` files.
 3.  Edit the properties for `ldap1` and `ldap2` with appropriate settings to complete the configuration. See [LDAP configuration properties](#ldapconfprops) for information on each of the properties.
 
 ## Configuring authentication subsystems {#configauthsubsystems}

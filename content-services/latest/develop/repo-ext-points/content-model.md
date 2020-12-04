@@ -1075,7 +1075,149 @@ define our custom content models:
 <namespace uri="http://ns.adobe.com/xap/1.0/rights/"                                   prefix="xmpRights"/>
 ```
 
-## Deployment - App Server
+## Metadata XML schema
+
+A content metamodel is formally described by an XML-schema document. When in doubt about how to express a content model 
+or understand the full capabilities of the content metamodel, interrogate the XML schema as it provides the definitive 
+description of the content metamodel.
+
+The target namespace of the content metamodel XML schema is
+
+`http://www.alfresco.org/model/dictionary/1.0`
+
+You can locate the latest content metamodel XSD schema 
+[here](https://github.com/Alfresco/alfresco-community-repo/blob/master/repository/src/main/resources/alfresco/model/modelSchema.xsd){:target="_blank"}
+
+## Content models and CMIS
+
+CMIS defines a data model, which encapsulates the core concepts found in most repositories. Alfresco Content Services 
+provides an implementation of the CMIS bindings and maps the content metamodel to the CMIS domain model. This allows 
+content models defined in Alfresco Content Services to be exposed and manipulated by using CMIS.
+
+The following summarizes the CMIS data model:
+
+![5-5]({% link content-services/images/5-5.png %})
+
+The core of the domain model allows for the definition of object types with associated properties. A type ID identifies 
+types, which inherits their definition from a parent type. Features of a type include whether they can be queried by 
+the CMIS query language, filed into multiple folders, and controlled by using permissions. Features of a property 
+include its data type, whether a value is required, and a default value if one is not explicitly provided.
+
+Because these features are familiar, you can map between the CMIS data model and the content metamodel with little loss 
+of information.
+
+The Alfresco Content Services content metamodel is mapped to the CMIS data model as follows:
+
+* **Type**: Maps to CMIS Object Type
+* **Property**: Maps to CMIS Property Definition
+* **Peer Association**: Maps to CMIS Relationship
+
+### Mapping child associations
+
+CMIS has built-in support for hierarchies through CMIS Folder and CMIS Document.
+
+Alfresco Content Services maps its out-of-the-box types `cm:folder` and `cm:content` (as defined in the domain model) to CMIS Folder and CMIS Document, respectively. A folder can contain a mixture of documents and folders, allowing for a hierarchy of documents to be built. Through this, CMIS supports an implicit notion of parent to child, to which is used by Alfresco Content Services to map its child association. Subtypes of `cm:folder` and `cm:content` are exposed as subtypes of CMIS Folder and Document, respectively.
+
+
+## Deploying a content model
+
+A content model is defined in its entirety as a single XML document that must comply with the content metamodel XSD schema 
+provided by the repository. Each model contains a set of related and coherent definitions and is deployed as a unit.
+
+You can deploy several content models to the repository. Definitions in one content model can depend on definitions in 
+another content model, allowing for the sharing of definitions.
+
+You can deploy a content model into the repository using the bootstrap method, which requires a reboot; or the dynamic method, 
+which does not require a reboot. You can also manage models using the Admin Console.
+
+### Dynamic deployment approach
+
+When deploying a model, the bootstrap approach places content model XML files into the classpath. The dynamic approach 
+places the files in the repository itself under the **/Company Home/Data Dictionary/Models** folder.
+
+Alfresco Share provides full access to the repository **Data Dictionary** folder. Upon creating or uploading a content model 
+XML file, the model, by default, will not be active.
+
+To activate a model:
+
+1.  Load the model file into the **/Company Home/Data Dictionary/Models** folder.
+2.  Click on **Edit Properties** for the model file.
+3.  Select the **Model Active** checkbox.
+4.  Click the **Save** button to save your changes. The model is now active.
+
+To deactivate a model:
+
+1.  Click on **Edit Properties** for the model file.
+2.  Clear the **Model Active** checkbox.
+3.  Click the **Save** button to save your changes. The model is now inactive.
+
+>**Important:** There are restrictions on what changes you can make to a content model XML file and when you can delete a content model XML file. Only incremental additions are allowed; that is, changes that do not require modifications to existing data in the repository, or do not modify existing definitions and their properties. You can delete the content model only if it is not used by any data in the repository.
+
+### Managing models using the Repo Admin Console {#deployadminconsole}
+
+Use the **Model and Messages Console** in the [Repo Admin Console]({% link content-services/latest/admin/admin-console.md %}) to manage models.
+
+1.  Open the Admin Console (`http://{host}:{port}/alfresco/service/enterprise/admin`).
+
+2.  In the **Consoles** section, click **Model and Messages Console**.
+
+    You see the **Model and Messages Console** page.
+
+    ![dev-extensions-repo-content-model-admin-console]({% link content-services/images/dev-extensions-repo-content-model-admin-console.png %})
+
+3.  Perform the following as required for administering models:
+
+    1.  To list all deployed models that are stored in the repository data dictionary, type show models.
+
+    2.  To upload model to repository and load into runtime data dictionary, type deploy model.
+
+        This command also sets the repository model as active. If a model is already deployed, then it will be updated and re-deployed.
+
+        ```bash
+        deploy model alfresco/extension/exampleModel.xml
+        ```
+
+    3.  To permanently delete model from repository (all versions) and unload from runtime data dictionary, type undeploy model.
+
+        ```bash
+        undeploy model exampleModel.xml
+        ```
+
+    4.  To set repository model to active and load into runtime data dictionary, type activate model.
+
+        ```bash
+        activate model exampleModel.xml
+        ```
+
+    5.  To set repository model to inactive and unload from runtime data dictionary, type deactivate model.
+
+        ```bash
+        deactivate model exampleModel.xml
+        ```
+
+4.  Perform the following as required for administering message resource bundles:
+
+    1.  To list all deployed message resource bundles that are stored in the repository data dictionary, type show messages.
+
+    2.  To upload message resource bundle to repository and runtime message service, type deploy messages.
+
+        ```bash
+        deploy messages alfresco/extension/lifecycle-messages
+        ```
+
+    3.  To remove message resource bundle from repository and from runtime message service, type undeploy messages.
+
+        ```bash
+        undeploy messages lifecycle-messages
+        ```
+
+    4.  To reload message resource bundle from repository into runtime message service, type reload messages.
+
+        ```bash
+        reload messages lifecycle-messages
+        ```
+
+### Deployment - App Server
 
 * **Content Model Definition**: `tomcat/shared/classes/alfresco/extension/myContentModel.xml` (File name can be anything you like as long as you refer to it in the Spring context file)
 * **Content Model Bootstrap**: `tomcat/shared/classes/alfresco/extension/my-content-model-context.xml` (File name has to end in `-context.xml` to be picked up as Spring Bean context file)
@@ -1083,7 +1225,7 @@ define our custom content models:
 
 These file locations are untouched by re-deployments and upgrades.
  
-## Deployment All-in-One SDK project
+### Deployment All-in-One SDK project
 
 * **Content Model Definition**: `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/model/content-model.xml`
 * **Content Model Localization**: `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/messages/content-model.properties`

@@ -20,7 +20,7 @@ The Admin Console is a tool comprising separate pages that identify a particular
 * System Summary: [Viewing the System Summary](#systemsummary)
 * Consoles:
     * GoogleDocs: [Configuring Google Docs using Admin Tools](TODO_LINK:https://docs.alfresco.com/googledocs/tasks/adminconsole-googledocs.html)
-    * Model and Messages: [Managing models using the Admin Console](TODO_LINK:../tasks/adminconsole-modelconsole.md)
+    * Model and Messages: [Managing models using the Admin Console]({% link content-services/latest/develop/repo-ext-points/content-model.md %}#deployadminconsole)
     * Tenant: [Managing tenants]({% link content-services/latest/admin/multi-tenancy.md %}#managetenants)
     * Workflow: [The Workflow Console]({% link content-services/latest/admin/workflows.md %}#workflowconsole)
 * Email Services:
