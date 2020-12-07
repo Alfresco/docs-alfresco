@@ -1045,17 +1045,25 @@ The `sitedata` object provides the following properties. The property types incl
 |`findTemplate`|These methods look up template instances and return the first instance that is found for the matching constraints. Returns a `ScriptModelObject` instance that wraps the Template instance.|
 |`findTemplate(String pageId)`|Parameter `pageId` is a string representing the page id.|
 |`findTemplate(String pageId, String formatId)`| Parameter `formatId` is a string representing the format id.|
-|`removeTemplate`||
-|`bindComponent`||
-|`unbindComponent`||
-|`associateTemplate`||
-|`unassociateTemplate`||
-|`associatePage`||
-|`unassociatePage`||
-|`associateContent`||
-|`unassociateContent`||
-|`associateContentType`||
-|`unassociateContentType`||
+|`removeTemplate`|Looks up the given `Page` and unbinds any `Template` instances that are bound to the page (keyed by formatId). If you would like to remove the default Template instance, set formatId to null. Parameters are `pageId` a string representing the page id and `formatId` a string representing the format id. Returns void|
+|`bindComponent`|These methods bind components. Returns void.|
+|`bindComponent(String componentId, String scope, String regionId, String sourceId)`|Parameters `componentId` a string representing the component id, `scope` a string representing the scope, `regionId` a string representing the region id, `sourceId` a string representing the source id| 
+|`bindComponent(ScriptModelObject componentObject, String scope, String regionId, String sourceId)`|`componentObject` a string representing the component object.|
+|`unbindComponent`|These methods unbind components. Returns void.|
+|`unbindComponent(String componentId)`|Parameter `componentId` a string representing the component id|
+|`unbindComponent(String scope, String regionId, String sourceId)`|Parameters `scope` a string representing the scope, `regionId` a string representing the region id, `sourceId` a string representing the source id|
+|`associateTemplate`|These methods associate a template. Returns void.|
+|`associateTemplate(String templateId, String pageId)`|Parameters `templateId` a string representing the template id, `pageId` a string representing the page id.|
+|`associateTemplate(String templateId, String pageId, String formatId)`|Parameter `templateId` a string representing the template id.|
+|`unassociateTemplate`|These methods unassociate a template. Returns void.|
+|`unassociateTemplate(String pageId)`|Parameter `pageId` a string representing the page id.|
+|`unassociateTemplate(String pageId, String formatId)`|Parameter `formatId` a string representing the format id.|
+|`associatePage`|Associates a page. Parameters `sourceId` a string representing the source id, `destId` a string representing the destination id. Returns void|
+|`unassociatePage`|Unassociates a page. Parameters `sourceId` a string representing the source id, `destId` a string representing the destination id. Returns void|
+|`associateContent`|Associates content. Parameters `contentId` a string representing the content id, `templateId` a string representing the template id, `assocType` a string representing the association type, `formatId` a string representing the format id. Returns void|
+|`unassociateContent`|Unassociates content. Parameters `contentId` a string representing the content id, `templateId` a string representing the template id, `formatId` a string representing the format id. Returns void|
+|`associateContentType`|Associates content type. Parameters `contentTypeId` a string representing the content type id, `templateId` a string representing the template id, `assocType`a string representing the association type, `formatId` a string representing the format id. Returns void|
+|`unassociateContentType`|Unassociates content type. Parameters `contentTypeId` a string representing the content type id, `templateId` a string representing the template id, `formatId` a string representing the format id. Returns void|
 
 ## Surf object XML quick reference (siteData) {#surfobjsitedata}
 
