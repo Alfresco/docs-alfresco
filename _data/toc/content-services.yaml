@@ -153,6 +153,8 @@
           pages:
           - title: 'Content model tutorials'
             path: '/content-services/latest/develop/repo-ext-points/tutorials/content-model-tutorials/'
+          - title: 'Web Script tutorials'
+            path: '/content-services/latest/develop/repo-ext-points/tutorials/web-script-tutorials/'
         - title: 'Share UI extension points'
           pages:
           - title: 'Overview'
