@@ -2,26 +2,21 @@
 title: Using Salesforce Connector
 ---
 
-With the Salesforce Connector you can upload, create, and delete files, and link Alfresco content with Salesforce records. 
+With the Salesforce Connector you can upload, create, and delete files, and link Alfresco content with Salesforce records.
 You can also browse and search Alfresco directly from within Salesforce.
 
-There are two methods you can use to work with your Alfresco content in Salesforce. If your Salesforce administrator 
-has added the Alfresco app to your Salesforce settings, you can use Alfresco:
+There are two methods you can use to work with your Alfresco content in Salesforce. If your Salesforce administrator has added the Alfresco app to your Salesforce settings, you can use Alfresco:
 
 1. Directly in a Salesforce record (if the Alfresco app has been added to the record layout)
 2. By using the **Alfresco Repository** tab on the Salesforce toolbar. Use this method if you need to associate or link files with Salesforce records.
 
-Salesforce administrators can use this information to install and configure the Salesforce Connector: 
-[Installing and configuring the Salesforce Connector]({% link salesforce/2.1/install/index.md %}).
+Salesforce administrators can use this information to install and configure the Salesforce Connector: [Installing and configuring the Salesforce Connector]({% link salesforce/2.1/install/index.md %}).
 
 ## Working with Alfresco content in a Salesforce record
 
 You can work with your Alfresco files directly from a Salesforce record.
 
-The Alfresco app can be added to any record type that supports layouts (for example; Accounts, Cases, and Opportunities), 
-if it's been added by your Salesforce administrator. You'll see a section containing Alfresco content if the app has 
-been added to the record type. The name of this section depends on what your Salesforce administrator has called it. 
-In this task, we'll call it the Alfresco section.
+The Alfresco app can be added to any record type that supports layouts (for example; Accounts, Cases, and Opportunities), if it's been added by your Salesforce administrator. You'll see a section containing Alfresco content if the app has been added to the record type. The name of this section depends on what your Salesforce administrator has called it. In this task, we'll call it the Alfresco section.
 
 1. In Salesforce, click the record that you want to work with. For example, this might be a specific account from the **Accounts** tab in Salesforce.
 2. In the **Alfresco** section, enter your Alfresco login details. Contact your system administrator if you don't know what your login details are for Alfresco. See [Logging in to Alfresco](https://docs.alfresco.com/6.2/tasks/gs-login.html)(#LINK) for more information.
@@ -38,7 +33,6 @@ In this task, we'll call it the Alfresco section.
     File actions include **Download**, **View in Browser**, and **Remove Association** if a file or folder has been linked with the record. See [Linking Alfresco content with a Salesforce record](#linkingrecord) for more information about linking content with records.
 
     >**Note:** You can also delete content that you have created or have permission to delete.
-
     >**Note:** While you are editing a file, associated files are not visible. After you have checked the file in, any file associations are then shown.
 
     ![View of Alfresco in a record]({% link salesforce/images/salesforce-record-files.png %})
