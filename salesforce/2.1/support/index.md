@@ -7,4 +7,3 @@ The following are the supported platforms for the Content Connector for Salesfor
 | Version | Notes |
 | ------- | ----- |
 | Alfresco Content Services 6.0 |  |
-
