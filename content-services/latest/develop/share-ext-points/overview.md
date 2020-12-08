@@ -11,6 +11,9 @@ existing pages, display custom metadata, modify the menu, and so on.
 To fully understand the extension points it is a good idea to first read through the  
 [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture) section.
 
+Also, you should get familiar with the [Alfresco SDK]({% link content-services/latest/develop/sdk.md %}) as it is 
+the recommended way of developing Share extensions.
+
 The Share extension points can be grouped into three different categories:
 
 * **Declarative** - XML configuration that requires no coding

@@ -149,6 +149,10 @@
             path: '/content-services/latest/develop/repo-ext-points/audit-log/'
           - title: 'Admin Console Components'
             path: '/content-services/latest/develop/repo-ext-points/admin-console-components/'
+        - title: 'Platform extension tutorials'
+          pages:
+          - title: 'Content model tutorials'
+            path: '/content-services/latest/develop/repo-ext-points/tutorials/content-model-tutorials/'
         - title: 'Share UI extension points'
           pages:
           - title: 'Overview'

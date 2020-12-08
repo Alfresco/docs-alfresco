@@ -14,6 +14,9 @@ as APIs (in Java, JavaScript and FreeMarker, for example), tutorials, and refere
 To fully understand the extension points it is a good idea to first read through the  
 [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch) section.
 
+Also, you should get familiar with the [Alfresco SDK]({% link content-services/latest/develop/sdk.md %}) as it is 
+the recommended way of developing platform extensions.
+
 The following table lists platform extension points, also referred to as Repository extension points, and links to 
 relevant documentation:
 
