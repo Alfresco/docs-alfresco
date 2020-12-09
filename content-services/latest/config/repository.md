@@ -59,7 +59,7 @@ Follow these steps if you want to deploy to a context path that's not `/alfresco
 
 2. Update `alfresco-global.properties` with the name of the context path: `alfresco.context=new-context-path`.
 
-3. Update `share-config-custom.xml` as described in [Configuring the Share default port](#LINK-share-change-port.md)<!--DEV GUIDE!-->.
+3. Update `share-config-custom.xml` as described in [Configuring the Share default port](#LINK-share-change-port.md).
 
 4. Update the context path setting in the `_vti_bin` application:
 
@@ -448,7 +448,7 @@ There are a number of ways to handle SSL communication when connecting to the re
 
 When you install Content Service, port `8443` is automatically configured for SSL communication between Solr and the repository. This means that the default setting is set to use client certificates for any authentication (the connector on port 8443 is configured with `certificateVerification="required"`).
 
-This causes complications when there's communication between a browser protocol and the repository, because Tomcat requests a client certificate for that communication too; for example, when you're using Alfresco Office Services to connect between a Microsoft application and the repository. For more information, see [Installing and configuring Alfresco Office Services](https://docs.alfresco.com/aos/concepts/aos-intro.html)(#LINK).
+This causes complications when there's communication between a browser protocol and the repository, because Tomcat requests a client certificate for that communication too; for example, when you're using [Alfresco Office Services]({% link microsoft-office/latest/index.md %}) to connect between a Microsoft application and the repository.
 
 You can still connect to the repository without a client certificate, however if a certificate is present (for example, if you've installed certificates in your Windows certificate store), then the certificate must be signed by the same Certificate Authority that's used for authentication between the repository and Solr. If you select one of the Windows installed certificates, you won't be able to progress, because the certificate isn't one that's expected for the Solr to repository communication. In this situation, you need to cancel the certificate window and then you can proceed. If you have no client certificates, you can use port 8443 without issues.
 
@@ -457,7 +457,7 @@ These topics discuss how to set up SSL for non-Solr communication with the repos
 * If you're setting up a production environment, use a proxy server to handle SSL communication.
 * If you're configuring a test environment, you might want to edit your configuration files directly (and listen for SSL on a port that's not port 8443; for example, port 443).
 
-If you're interested in setting up SSL and security for Solr, this is discussed in detail in [Solr security](https://docs.alfresco.com/search-enterprise/concepts/solrsecurity-intro.html)(#LINK).
+If you're interested in setting up SSL and security for Solr, this is discussed in detail in [Solr security]({% link search-services/latest/config/security.md %}).
 
 ### Configure SSL for a production environment {#ssl-prod}
 
@@ -666,8 +666,7 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
 
 * You've already set up Content Service with Tomcat 8.5, running HTTP on port 8080.
   * Follow the steps in [Install using distribution zip]({% link content-services/latest/install/zip/index.md %}) if you haven't already done so.
-* You may have already setup HTTPS on port 8443 for Content Service to communicate with Alfresco Search Services.
-  * See [Install and configure Alfresco Search Services](https://docs.alfresco.com/search-enterprise/concepts/solr-install-config.html)(#LINK) to learn more about the Search Services setup.
+* You may have already setup HTTPS on port 8443 for Content Service to communicate with [Alfresco Search Services]({% link search-services/latest/index.md %}).
 * In our documentation, such as [Secure Sockets Layer (SSL) and the repository](#ssl-repo), port 8443 is generally provided as an example when setting up secure HTTPS connections. This is recommended only for use with Alfresco Search Services as it should use real client certificates, where `certificateVerification="required"`. For this development or test setup, we won't necessarily use client certificates, so we'll setup a separate HTTPS connector on a different port. You can have multiple connectors in Tomcat that use HTTPS and different ports.
 
 1. Copy the `alf_data/keystore` folder from the distribution zip to `<CATALINA_BASE>/alf_data/keystore`.
@@ -764,7 +763,7 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
 
     If you installed the Alfresco Office Services AMP, you'll also be able to edit files from your Microsoft Office applications.
 
-    See [Considerations when using Alfresco Office Services](https://docs.alfresco.com/aos/concepts/aos-issues.html)(#LINK) for more details.
+    See [Considerations when using Alfresco Office Services]({% link microsoft-office/latest/index.md %}) for more details.
 
 ## Configure the repository cache
 
@@ -957,9 +956,9 @@ Aspects can have properties that, when added, can enhance the content types. You
 | Aspects | Description | Changes in behavior/Share interface |
 | ------- | ----------- | ----------------------------------- |
 | Classifiable | Enables categories to be assigned to a content item. For example, content items can be categorized under Languages, Region, Software Document Classification, and so on. | Adding the Classifiable aspect displays an additional **Categories** property in the document properties. |
-| Complianceable | This aspect is no longer valid. For compliance-related behavior, use [Alfresco Governance Services](#LINK). |
+| Complianceable | This aspect is no longer valid. For compliance-related behavior, use [Alfresco Governance Services]({% link governance-services/latest/index.md %}). |
 | Dublin Core | Enables metadata (such as publisher, contributor, identifier) to be added to a content item. | Adding the Dublin Core aspect displays the following additional metadata properties in the document properties: {::nomarkdown}<ul><li>Publisher</li><li>Contributor</li><li>Type</li><li>Identifier</li><li>Source</li><li>Coverage</li><li>Rights</li><li>Subject</li></ul>{:/} |
-| Effectivity | This aspect is no longer valid. For compliance-related behavior, use [Alfresco Governance Services](#LINK). |
+| Effectivity | This aspect is no longer valid. For compliance-related behavior, use [Alfresco Governance Services]({% link governance-services/latest/index.md %}). |
 | Summarizable | Enables addition of a brief description about the content item. | Adding the Summarizable aspect displays an additional **Summary** property in the document properties. |
 | Versionable | Enables versioning of a content item each time it's edited (checked out and checked back in or updated). In Alfresco Share, content items are versionable by default. | Adding the Versionable aspect displays the version history of a content item in the **Version History**. |
 | Emailed | Captures email-related information of the content item, if it's received as an email attachment. | Adding the Emailed aspect displays additional properties (such as Originator, Addressee, Addresses, Sent Date and Subject) in the document properties. |
@@ -1144,7 +1143,7 @@ The following table shows the possible combinations of settings along with the b
 | False | True | No indexing at all. |
 | False | False | No indexing at all. |
 
-See [Managing aspects](#LINK-USING-library-item-manage-aspects.md) for more information.
+See [Managing aspects]({% link content-services/latest/using/content/files-folders.md %}#applyaspects) for more information.
 
 ## Defer the start of CRON based jobs
 
@@ -1171,7 +1170,7 @@ You can set a delay for all cron based jobs; in other words, jobs that use the `
     log4j.logger.org.alfresco.repo.activities.feed.cleanup.FeedCleaner=trace
     ```
 
-    This file will override subsystem settings that aren't applicable in `alfresco-global.properties`.<!--DEVELOPER GUIDE: For more information about log4j extensions, see [log4j.properties file](#LINK-concepts/dev-extensions-modules-module-log4j.md).-->
+    This file will override subsystem settings that aren't applicable in `alfresco-global.properties`.
 
 5. Start the server.
 

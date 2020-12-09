@@ -19,7 +19,7 @@ The Smart Folder structure is created by associating a Smart Folder Template wit
 
 The folder structure can be personalised by user, for example, if you create a folder called My Files, you can populate it with files relevant to each user.
 
-Take a look at the videos to learn more: [Smart Folders videos](#LINK-smart-video-tutorials.md)
+Take a look at the videos to learn more: [Smart Folders videos](% link content-services/latest/tutorial/video/content.md %}#smart-folder-overview)
 
 ## What's a Smart Folder? {#sf-whatis}
 
@@ -48,7 +48,7 @@ Smart Folders have a limited set of actions:
 * Update: You can update files in a Smart Folder. Updating a property might result in a file being removed from the current Smart Folder (because it no longer meets the query criteria).
 * Delete, Edit Properties, Unzip To, Sync, Locate To, Move, and Copy actions for files aren't supported.
 
-The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template. See [Applying a Smart Folder Template](#LINK-USING-using-aspects.md) for more information.
+The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template.
 
 Physical folders can be displayed inside Smart Folders as long as the physical folder matches the query criteria.
 
@@ -92,7 +92,7 @@ Before you use Smart Folders, consider the use cases and scenarios that are appr
 
 * Define a custom content model
 
-    To get you started, you can use the example model that is provided with the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) for more information. See [Content modeling with Model Manager](#LINK-admintools-cmm-intro.md) for more information on content models.
+    To get you started, you can use the example model that is provided with the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) for more information. See [Content modeling with Model Manager]({% link content-services/latest/config/models.md %}) for more information on content models.
 
 * Create a Smart Folder Template
 
@@ -138,9 +138,9 @@ A predefined template is available by selecting the System Smart Folder aspect. 
 
     If you store templates anywhere else in your repository, navigate to the template and select it. You can use them later by selecting the Custom Smart Folder aspect.
 
-    There's no need to restart Alfresco Content Services. When you edit properties on nodes that have the Custom Smart Folder aspect applied, the new Smart Folder is included in the Smart Folder Template menu. See [Apply a Smart Folder Template](#LINK_USING-sf-using-aspects.md) for more information.
+    There's no need to restart Alfresco Content Services. When you edit properties on nodes that have the Custom Smart Folder aspect applied, the new Smart Folder is included in the Smart Folder Template menu.
 
-    If you need to customize the template, see [Applying a Smart Folder Template](#LINK_USING-sf-using-aspects.md) for information on the sample file structure, and [Smart Folder Template syntax](#sf-syntax) for guidance on the Smart Folder Template JSON format.
+    If you need to customize the template, see [Applying a Smart Folder Template]({% link content-services/latest/using/smart-folders.md %}) for information on the sample file structure, and [Smart Folder Template syntax](#sf-syntax) for guidance on the Smart Folder Template JSON format.
 
 ## Type-based, System, and Custom Smart Folders {#sf-type}
 
@@ -191,7 +191,7 @@ These are the key elements of System Smart Folders:
 
     > **Note:** When you add a template to **Repository > Data Dictionary > Smart Folder Templates**, select **Change Type** and choose the Smart Folder Template type, to ensure that the new template is displayed in the list in **Repository > Data Dictionary > Smart Folder Templates**.
 
-Advanced Smart Folders settings are provided in the `<tomcat>/shared/classes/alfresco-global.properties.sample` file. See [Apply a Smart Folder Template](#LINK-USING-using-aspects.md) for more information.
+Advanced Smart Folders settings are provided in the `<tomcat>/shared/classes/alfresco-global.properties.sample` file. See [Apply a Smart Folder Template]({% link content-services/latest/using/smart-folders.md %}) for more information.
 
 ### Custom Smart Folders {sf-folder-custom}
 
@@ -214,7 +214,7 @@ One of the most useful features of Smart Folders is the ability to automatically
 
 Use the [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) to set up a Smart Folder framework using Type-based Smart Folders, and in [Adding new claim files]({% link content-services/latest/tutorial/smart.md %}#sf-tutorial-5) you'll see metadata inheritance in action.
 
-Take a look at the [Metadata Inheritance video](#LINK-smart-video-04.md), and [Type-based Smart Folders](#sf-folder-type) for more information.
+Take a look at the [Metadata Inheritance video]({% link content-services/latest/tutorial/video/content.md %}#smart-folder-metadata), and [Type-based Smart Folders](#sf-type) for more information.
 
 ## Smart Folder Template syntax {#sf-syntax}
 
@@ -224,7 +224,7 @@ A Smart Folder Template is a configuration file that contains one or more querie
 
 You can customize a copy of the `smartFoldersExample.json` template, which is available from **Repository > Data Dictionary > Smart Folder Templates** in Alfresco Share. The [Smart Folders tutorial]({% link content-services/latest/tutorial/smart.md %}) also provides links to a variety of examples.
 
-For more information about Alfresco Full Text Search (AFTS), see [Alfresco Full Text Search reference](https://docs.alfresco.com/search-enterprise/concepts/searchsyntax-intro.html)(#LINK).
+For more information about Alfresco Full Text Search (AFTS), see [Alfresco Full Text Search reference]({% link search-services/latest/using/index.md %}).
 
 A node is defined by the following properties:
 
@@ -501,7 +501,7 @@ Server Configuration and Alfresco Search Services:
 * Ensure that your system administrator has configured Alfresco Content Services to use Alfresco Search Services with `Solr 6` as a search service.
 * Configure transactional queries in the Search Service to use the database always, or if possible.
 * When you define a search query, restrict the query to certain types or aspects (using +TYPE or +ASPECT), otherwise the query will search for all content.
-* When defining a filing rule for a Smart Folder, use a transactional query for that folder where possible, otherwise uploaded files will not appear immediately. See [Transactional metadata queries supported by database](https://docs.alfresco.com/search-enterprise/concepts/intrans-metadata-query.html)(#LINK) for more information.
+* When defining a filing rule for a Smart Folder, use a transactional query for that folder where possible, otherwise uploaded files will not appear immediately. See [Transactional metadata queries supported by database]({% link search-services/latest/config/transactional.md %}) for more information.
 
 Smart Folder Templates:
 

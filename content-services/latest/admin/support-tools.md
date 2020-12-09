@@ -101,7 +101,7 @@ If you've changed settings using JMX, then these are persisted through sessions,
 
 You can also click **Export** to download a JMX dump.
 
-See [JMX monitoring and management extensions](TODO_LINK:../concepts/jmx-enhance.md) for more information.
+See [JMX monitoring and management extensions]({% link content-services/latest/config/index.md %}#jmx-monitoring-and-management-extensions) for more information.
 
 ## Log Settings
 
@@ -123,7 +123,7 @@ You can:
 
 Use this tool to view details of all software patches applied to the Content Services database schema.
 
-See [Troubleshooting schema-related problems](TODO_LINK:schema-diff-tool-intro.md) for more information on how to manage schema-related issues.
+See [Troubleshooting schema-related problems]({% link content-services/latest/admin/troubleshoot.md %}#troubleshoot-database-scheme-problems) for more information on how to manage schema-related issues.
 
 ## System Performance
 

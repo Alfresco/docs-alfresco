@@ -8,9 +8,9 @@ The standard ActiveMQ installation runs with a basic configuration. You can conf
 
 For information about installing ActiveMQ for your specific product, see:
 
-* [Alfresco Media Management](https://docs.alfresco.com/mm/tasks/mq-auto.html)(#LINK)
+* [Alfresco Media Management]({% link media-management/latest/install/index.md %})
 * [Alfresco Sync Service]({% link sync-service/latest/install/options.md %})
-* [Alfresco Transform Service](https://docs.alfresco.com/transform/concepts/transformservice-overview.html)(#LINK)
+* [Alfresco Transform Service]({% link transform-service/latest/install/index.md %})
 
 For more advanced configuration, such as security, transport connectors, or memory settings, see [Configure advanced settings for ActiveMQ](#advanced).
 

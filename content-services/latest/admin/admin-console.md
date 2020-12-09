@@ -14,34 +14,34 @@ The Admin Console is a tool comprising separate pages that identify a particular
 
 * System Summary: [Viewing the System Summary](#systemsummary)
 * Consoles:
-  * GoogleDocs: [Configuring Google Docs using Admin Tools](TODO_LINK:https://docs.alfresco.com/googledocs/tasks/adminconsole-googledocs.html)
+  * GoogleDocs: [Configuring Google Docs using Admin Tools]({% link google-drive/latest/config/index.md %}#configure-using-the-admin-console)
   * Model and Messages: [Managing models using the Admin Console](TODO_LINK:../tasks/adminconsole-modelconsole.md)
   * Tenant: [Managing tenants]({% link content-services/latest/admin/multi-tenancy.md %}#managetenants)
   * Workflow: [The Workflow Console]({% link content-services/latest/admin/workflows.md %}#workflowconsole)
 * Email Services:
-  * Inbound Email: [Managing inbound emails](TODO_LINK:../tasks/adminconsole-inboundemail.md)
-  * Outbound Email: [Managing outbound emails](TODO_LINK:../tasks/adminconsole-outboundemail.md)
+  * Inbound Email: [Managing inbound emails]({% link content-services/latest/config/email.md %})
+  * Outbound Email: [Managing outbound emails]({% link content-services/latest/config/email.md %})
 * General:
   * License: [Uploading a new license]({% link content-services/latest/admin/license.md %}#uploadlicense)
   * Repository Information: [Viewing Repository Information](#viewrepoinfo)
-  * System Settings: [Configuring server administration settings](TODO_LINK:../tasks/adminconsole-systemsettings.md)
+  * System Settings: [Configuring server administration settings]({% link content-services/latest/config/repository.md %}#sysadmin)
 * Repository Services:
-  * Activities Feed: [Configuring the Activities Feed](TODO_LINK:../tasks/adminconsole-activitiesfeed.md)
+  * Activities Feed: [Configuring the Activities Feed]({% link content-services/latest/config/email.md %}#configure-activities-feed)
   * Repository Server Clustering: [Managing members of a cluster]({% link content-services/latest/admin/cluster.md %}#managecluster)
-  * Index Server Sharding: [Configuring Search Services sharding using the Admin Console](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/adminconsole-indexserver-sharding.html)
+  * Index Server Sharding: [Configuring sharding using the Admin Console]({% link insight-engine/latest/config/sharding/index.md %})
   * Process Engines: [Enabling workflow process engines]({% link content-services/latest/admin/workflows.md %}#enableprocessengines)
   * Replication Service: [Enabling the Replication Service]({% link content-services/latest/admin/replication.md %}#enablereplication)
-  * Search Service: [Configuring Search Services using Admin Console](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/adminconsole-searchservice-solr.html)
-  * Subscription Service: [Enabling the Subscription Service](TODO_LINK:../tasks/adminconsole-subscriptionservice.md)
-  * Transformation Services: [Changing the OOoJodconverter subsystems](TODO_LINK:../tasks/OOo-subsystems-config.md)
+  * Search Service: [Configuring Search Services using Admin Console]({% link search-services/latest/config/index.md %}#configure-using-the-admin-console)
+  * Subscription Service: [Enabling the Subscription Service]({% link content-services/latest/config/email.md %}#enable-subscription-service)
+  * Transformation Services: [Changing the OOoJodconverter subsystems]({% link content-services/latest/config/libreoffice.md %}#change-ooojodconverter)
     > **Note:** Use Repository Services to manage individual repository servers. This function can't be accessed through a load balancer.
 * Support Tools:
   * Download JMX Dump: [JMX Settings]({% link content-services/latest/admin/support-tools.md %}#jmxsettings)
-  * Node Browser: [Using the Node Browser](TODO_LINK:../tasks/adminconsole-nodebrowser.md)
+  * Node Browser: [Using the Node Browser]({% link content-services/latest/admin/troubleshoot.md %}#using-the-node-browser)
 * Directory Management: [Managing authentication directories]({% link content-services/latest/admin/auth-sync.md %}#manageauthdirs)
 * Virtual File Systems:
-  * File Servers: [Enabling file servers](TODO_LINK:../tasks/adminconsole-fileservers.md)
-  * IMAP Service: [Enabling the IMAP Service using the Admin Console](TODO_LINK:../tasks/adminconsole-IMAPservice.md)
+  * File Servers: [Enabling file servers]({% link content-services/latest/config/file-servers.md %})
+  * IMAP Service: [Enabling the IMAP Service using the Admin Console]({% link content-services/latest/config/email.md %}#configure-imap)
 
 The links provide more information on configuring these activities.
 
@@ -102,15 +102,15 @@ The System Information summary shows the general details of the installation. Th
 
 ### File Systems
 
-The File Systems summary shows the settings from the File Servers page. See [Enabling File Servers](TODO_LINK:../tasks/adminconsole-fileservers.md) for more information.
+The File Systems summary shows the settings from the File Servers page. See [Enabling File Servers]({% link content-services/latest/config/file-servers.md %}) for more information.
 
 ### Transformation Services
 
-The Transformation Services summary shows the settings from the Transformation Services page. See [Changing the OOoJodconverter subsystems](TODO_LINK:../tasks/OOo-subsystems-config.md) for more information.
+The Transformation Services summary shows the settings from the Transformation Services page. See [Changing the OOoJodconverter subsystems]({% link content-services/latest/config/libreoffice.md %}#change-ooojodconverter) for more information.
 
 ### Indexing Subsystem
 
-The Indexing Subsystem summary shows the settings from the Search Service page. See [Configuring Search Services](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/adminconsole-searchservice-solr.html) for more information.
+The Indexing Subsystem summary shows the settings from the Search Service page. See [Configuring Search Services]({% link search-services/latest/config/index.md %}) for more information.
 
 ### Repository Clustering
 
@@ -118,7 +118,7 @@ The Repository Clustering summary shows the settings from the Repository Server 
 
 ### Activities Feed
 
-The Activities Feed summary shows the settings from the Activities Feed page. See [Setting the Activities Feed](TODO_LINK:../tasks/adminconsole-activitiesfeed.md) for more information.
+The Activities Feed summary shows the settings from the Activities Feed page. See [Setting the Activities Feed]({% link content-services/latest/config/email.md %}#configure-activities-feed) for more information.
 
 ### Authentication
 
@@ -126,7 +126,7 @@ The Authentication summary shows the settings from the Directory Management page
 
 ### Email
 
-The Email summary shows the settings from the Inbound Email and Outbound Email pages. See [Managing inbound emails](TODO_LINK:../tasks/adminconsole-inboundemail.md) and [Managing outbound emails](TODO_LINK:../tasks/adminconsole-outboundemail.md) for more information.
+The Email summary shows the settings from the Inbound Email and Outbound Email pages. See [Managing inbound and outbound emails]({% link content-services/latest/config/email.md %}) for more information.
 
 ### Auditing Services
 
@@ -173,10 +173,10 @@ The Admin Console example page is called `admin-example` and contains comments t
 
 The files that you use for working with the example Admin Console page are:
 
-* [admin-example.get.js](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.js)
-* [admin-example.get.html.ftl](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.html.ftl)
-* [admin-example.get.desc.xml](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.desc.xml)
-* [admin-example.get.properties](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.properties)
+* [admin-example.get.js](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.js){:target="_blank"}
+* [admin-example.get.html.ftl](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.html.ftl){:target="_blank"}
+* [admin-example.get.desc.xml](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.desc.xml){:target="_blank"}
+* [admin-example.get.properties](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.properties){:target="_blank"}
 
 See the [Web script components](TODO_LINK:ws-components.md) section for more information on these files.
 

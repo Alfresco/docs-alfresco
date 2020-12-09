@@ -71,7 +71,7 @@ You can also configure a backup keystore. This is useful in case the keys need t
 
 If both the main and backup keystores are configured, the repository encryption works in the *fallback* mode. In this mode, the node properties are decrypted with the main keystore's metadata key first. If that fails, the backup keystore's metadata key is tried. This allows the keystores to be changed on the disk and reloaded without affecting the running of the repository.
 
-Keystores are used also to protect repository/Solr communications using encryption and mutual authentication. In this case, the keystores store RSA keys and certificates. For more information, see [Solr security](TODO_LINK:https://docs.alfresco.com/search-enterprise/concepts/solrsecurity-intro.html).
+Keystores are used also to protect repository/Solr communications using encryption and mutual authentication. In this case, the keystores store RSA keys and certificates. For more information, see [Solr security](% link search-services/latest/config/security.md %}).
 
 ### Keystore configuration
 
