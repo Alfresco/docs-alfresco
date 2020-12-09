@@ -1,0 +1,21 @@
+# Alfresco Content Services Tutorials
+- version: 6.2
+  pages:
+    - title: 'Tutorials'
+      pages:
+        - title: 'Overview'
+          path: '/content-services/latest/tutorial/'
+        - title: 'Configure Model Manager'
+          path: '/content-services/latest/tutorial/model/'
+        - title: 'Configure Smart Folders'
+          path: '/content-services/latest/tutorial/smart/'
+        - title: 'Videos'
+          pages:
+            - title: 'Alfresco Share videos'
+              path: '/content-services/latest/tutorial/video/'
+            - title: 'Content management videos'
+              path: '/content-services/latest/tutorial/video/content/'
+            - title: 'Site management videos'
+              path: '/content-services/latest/tutorial/video/sites/'
+            - title: 'Model Manager videos'
+              path: '/content-services/latest/tutorial/video/model/'

@@ -1,95 +1,151 @@
-# Alfresco Content Services 
+# Alfresco Content Services
 - version: 6.2
   pages:
-    - title: 'Alfresco Content Services'
-      path: /content/6.2/user/
-    - title: 'Tables'
-      path: /content/6.2/user/tables/
+    - title: Introduction
+      path: '/content-services/latest/'
+    - title: 'Install'
       pages:
-        - title: 'Tables overview'
-          path: /content/6.2/user/tables/
-        - title: 'Blocks'
-          path: /content/6.2/user/tables/blocks/
+        - title: 'Overview'
+          path: '/content-services/latest/install/'
+        - title: 'Install with zip'
           pages:
-            - title: 'Blocks overview'
-              path: /content/6.2/user/tables/blocks/
-            - title: 'Front matter'
-              path: /content/6.2/user/tables/blocks/front/
-    - title: 'Headers'
-      path: /content/6.2/user/headers/
-      pages:
-        - title: 'Tooltips'
-          path: /content/6.2/user/headers/tooltips/  
-        - title: 'Tabs'
-          path: /content/6.2/user/headers/          
-    - title: 'Does Not Exist'
-      path: /content/6.2/user/exist
-      pages:
-        - title: 'Fake'
-          path: /content/6.2/user/fake
-        - title: 'Fake Two'
-          path: /content/6.2/user/fake2
+            - title: 'Overview'
+              path: '/content-services/latest/install/zip/'
+            - title: 'Install on Tomcat'
+              path: '/content-services/latest/install/zip/tomcat/'
+            - title: 'Install Alfresco Module Package'
+              path: '/content-services/latest/install/zip/amp/'
+            - title: 'Install additional software'
+              path: '/content-services/latest/install/zip/additions/'
+        - title: 'Install using containers'
           pages:
-            - title: 'Fake Child 1'
-              path: /content/6.2/user/fake-child
-            - title: 'Fake Child 2'
-              path: /content/6.2/user/fake-child-2    
-- version: 6.2              
-  audience: administrator
-  pages:
-    - title: 'User Folder'
-      path: /content/6.2/user
+            - title: 'Overview'
+              path: '/content-services/latest/install/containers/'
+            - title: 'Install using Docker Compose'
+              path: '/content-services/latest/install/containers/docker-compose/'
+            - title: 'Install using Helm'
+              path: '/content-services/latest/install/containers/helm/'
+            - title: 'Helm install examples'
+              path: '/content-services/latest/install/containers/helm-examples/'
+            - title: 'Customization'
+              path: '/content-services/latest/install/containers/customize/'
+    - title: 'Upgrade'
+      path: '/content-services/latest/upgrade/'
+    - title: 'Configure'
       pages:
-        - title: 'Tables'
-          path: /content/6.2/user/tables
-        - title: 'Blocks'
-          path: /content/6.2/user/blocks
-        - title: 'Front matter'
-          path: /content/6.2/user/front
-        - title: 'Headers'
-          path: /content/6.2/user/headers
+        - title: 'Overview'
+          path: '/content-services/latest/config/'
+        - title: 'Subsystems'
+          path: '/content-services/latest/config/subsystems/'
+        - title: 'Databases'
+          path: '/content-services/latest/config/databases/'
+        - title: 'Repository'
+          path: '/content-services/latest/config/repository/'
+        - title: 'File servers'
+          path: '/content-services/latest/config/file-servers/'
+        - title: 'Email'
+          path: '/content-services/latest/config/email/'
+        - title: 'LibreOffice'
+          path: '/content-services/latest/config/libreoffice/'
+        - title: 'ActiveMQ'
+          path: '/content-services/latest/config/activemq/'
+        - title: 'Smart Folders'
           pages:
-          - title: 'Tooltips'
-            path: /content/6.2/user/headers/tooltips  
-          - title: 'Tabs'
-            path: /content/6.2/user/headers/tabs          
-    - title: 'Does Not Exist'
-      path: /content/6.2/user/exist
+            - title: 'Overview'
+              path: '/content-services/latest/config/smart-folders/'
+            - title: 'FAQ'
+              path: '/content-services/latest/config/smart-folders/sf-faq/'
+        - title: 'Content models'
+          path: '/content-services/latest/config/models/'
+        - title: 'Mobile'
+          path: '/content-services/latest/config/mobile/'
+        - title: 'Process Services actions'
+          path: '/content-services/latest/config/action/'
+    - title: 'Administer'
       pages:
-        - title: 'Fake'
-          path: /content/6.2/user/fake
-        - title: 'Fake Two'
-          path: /content/6.2/user/fake2
+        - title: 'Overview'
+          path: '/content-services/latest/admin/'
+        - title: 'Admin Tools'
           pages:
-            - title: 'Fake Child 1'
-              path: /content/6.2/user/fake-child
-            - title: 'Fake Child 2'
-              path: /content/6.2/user/fake-child-2            
-  
-- version: 6.1
-  audience: user
-  pages:
-    - title: 'User Folder'
-      path: /content/6.1/user
-      pages:
-        - title: 'Tables'
-          path: /content/6.1/user/tables
-        - title: 'Blocks'
-          path: /content/6.1/user/blocks
-        - title: 'Front matter'
-          path: /content/6.1/user/front
-        - title: 'Headers'
-          path: /content/6.1/user/headers
-    - title: 'Does Not Exist'
-      path: /content/6.1/user/exist
-      pages:
-        - title: 'Fake'
-          path: /content/6.1/user/fake
-        - title: 'Fake Two'
-          path: /content/6.1/user/fake2
+            - title: 'Repository Admin Console'
+              path: '/content-services/latest/admin/admin-console/'
+            - title: 'Share Admin Tools'
+              path: '/content-services/latest/admin/share-admin-tools/'
+            - title: 'Support Tools'
+              path: '/content-services/latest/admin/support-tools/'
+            - title: 'Import and transfer tools'
+              path: '/content-services/latest/admin/import-transfer/'
+        - title: 'Manage security'
           pages:
-            - title: 'Fake Child 1'
-              path: /content/6.1/user/fake-child
-            - title: 'Fake Child 2'
-              path: /content/6.1/user/fake-child-2  
-
+          - title: 'Users and groups'
+            path: '/content-services/latest/admin/users-groups/'
+          - title: 'Authentication and sync'
+            path: '/content-services/latest/admin/auth-sync/'
+          - title: 'Authorization'
+            path: '/content-services/latest/admin/security/'
+          - title: 'Auditing'
+            path: '/content-services/latest/admin/audit/'
+        - title: 'Backup and migrate'
+          pages:
+          - title: 'Backup and restore'
+            path: '/content-services/latest/admin/backup-restore/'
+          - title: 'Migration'
+            path: '/content-services/latest/admin/migrating/'
+        - title: 'High availability features'
+          pages:
+          - title: 'Clustering'
+            path: '/content-services/latest/admin/cluster/'
+          - title: 'Multi-tenancy'
+            path: '/content-services/latest/admin/multi-tenancy/'
+          - title: 'Content replication'
+            path: '/content-services/latest/admin/replication/'
+        - title: 'Licenses'
+          path: '/content-services/latest/admin/license/'
+        - title: 'File and folder templates'
+          path: '/content-services/latest/admin/templates/'
+        - title: 'File metadata extraction'
+          path: '/content-services/latest/admin/metadata-extraction/'
+        - title: 'Workflows'
+          path: '/content-services/latest/admin/workflows/'
+        - title: 'Transformations'
+          path: '/content-services/latest/admin/transformations/'
+        - title: 'Content stores'
+          path: '/content-services/latest/admin/content-stores/'
+        - title: 'Database table cleanup'
+          path: '/content-services/latest/admin/db-cleanup/'
+        - title: 'JMX reference'
+          path: '/content-services/latest/admin/jmx-reference/'
+        - title: 'Troubleshooting'
+          path: '/content-services/latest/admin/troubleshoot/'
+    - title: 'Using'
+      pages:
+        - title: 'Overview'
+          path: '/content-services/latest/using/'
+        - title: 'Alfresco Share'
+          path: '/content-services/latest/using/share/'
+        - title: 'Profiles and dashboards'
+          path: '/content-services/latest/using/dashboard/'
+        - title: 'Sites'
+          pages:
+            - title: 'Overview'
+              path: '/content-services/latest/using/sites/'
+            - title: 'Features'
+              path: '/content-services/latest/using/sites/features/'
+        - title: 'Content'
+          pages:
+            - title: 'Overview'
+              path: '/content-services/latest/using/content/'
+            - title: 'Manage content'
+              path: '/content-services/latest/using/content/manage/'
+            - title: 'Files and folders'
+              path: '/content-services/latest/using/content/files-folders/'
+            - title: 'Folder rules'
+              path: '/content-services/latest/using/content/rules/'
+        - title: 'Tasks and workflows'
+          path: '/content-services/latest/using/tasks/'
+        - title: 'Search'
+          path: '/content-services/latest/using/search/'
+        - title: 'Smart Folders'
+          path: '/content-services/latest/using/smart-folders/'
+        - title: 'Roles and permissions'
+          path: '/content-services/latest/using/permissions/'

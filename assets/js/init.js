@@ -38,6 +38,20 @@ window.onload = () => {
   // tooltips
   document.addEventListener("touchstart", (e) => dismissAllTooltips(e));
 
+  // tables wrapper
+
+  ((container) => {
+    if (!container) return;
+
+    const tables = container.querySelectorAll("table:not(.no-wrap)");
+
+    tables.forEach((t) => {
+      const wrapper = document.createElement('div');
+      wrap(t, wrapper);
+      wrapper.classList.add("content-table-wrapper");
+    })
+  })(document.querySelector(".column-content"));
+
   // code copy button
 
   (() => {
@@ -274,6 +288,13 @@ window.onload = () => {
     window.addEventListener(
       "hashchange",
       (e) => {
+        // if content is hidden, then we need to remove toc
+        const contentContainer = document.querySelector('.column-content');
+        if (contentContainer) {
+          const containerDisplay = window.getComputedStyle(contentContainer).getPropertyValue('display');
+          if (containerDisplay === 'none') tocToggler();  
+        }
+            
         const { obj, sub } = scrollToHash(location.hash);
 
         if (obj) {
@@ -289,38 +310,86 @@ window.onload = () => {
     );
   })();
 
-  // left side menu
-  ((leftmenu) => {
-    if (!leftmenu) return;
-
-    const treeSelect = (li, ...classes) => {
-      const parent = li.closest("#leftside-menu li");
-      if (!parent) return;
-
-      parent.classList.add(...classes);
-      treeSelect(li.parentElement, ...classes);
-    };
-
-    const selected = leftmenu.querySelector("li.is-selected");
-
-    if (selected) {
-      treeSelect(selected, "is-expanded");
-    }
-
-    Array.from(leftmenu.querySelectorAll(".expand-button")).forEach((p) => {
-      const li = p.closest("li");
-      const ul = li.querySelector("ul");
-      const height = ul.getBoundingClientRect().height;
-      ul.style.setProperty("--max-height", height + "px");
-      const title = li.querySelector(".menuitem-title");
-      const click = (e) => {
-        e.stopPropagation();
-        li.classList.toggle("is-expanded");
-      };
-      p.addEventListener("click", click);
-      if (title) title.addEventListener("click", click);
-    });
-    leftmenu.style.setProperty("--min-height", "0px");
-    leftmenu.classList.add("is-ready-fade");
-  })(document.getElementById("leftside-menu"));
+  showLeftMenu(document.getElementById("leftside-menu"));
 };
+
+function showLeftMenu(leftmenu, expandAll = false) {
+  if (!leftmenu || leftmenu.dataset.inited) return;
+  const container = leftmenu.closest('.content-menu-column');
+  const containerDisplay = window.getComputedStyle(container).getPropertyValue('display');
+
+  // temporary show the element to compute heights 
+  container.style.display = "block";
+
+  const treeSelect = (li, ...classes) => {
+    const parent = li.closest("#leftside-menu li");
+    if (!parent) return;
+
+    parent.classList.add(...classes);
+    treeSelect(li.parentElement, ...classes);
+  };
+
+  const selected = leftmenu.querySelector("li.is-selected");
+
+  if (selected) {
+    treeSelect(selected, "is-expanded");
+  }
+
+  Array.from(leftmenu.querySelectorAll(".expand-button")).forEach((p) => {
+    const li = p.closest("li");
+    const ul = li.querySelector("ul");
+    // 13px - margin for inner list
+    const height = ul.getBoundingClientRect().height + 13;
+    ul.style.setProperty("--max-height", height + "px");
+    const title = li.querySelector(".menuitem-title");
+    const click = (e) => {
+      e.stopPropagation();
+      li.classList.toggle("is-expanded");
+    };
+    p.addEventListener("click", click);
+    if (title) title.addEventListener("click", click);
+    if (expandAll) li.classList.toggle("is-expanded", true);
+  });
+  leftmenu.style.setProperty("--min-height", "0px");
+  leftmenu.classList.add("is-ready-fade");
+  leftmenu.dataset.inited = "true";
+  container.style.display = ""; 
+}
+
+function tocToggler() {
+  const body = document.querySelector("body");
+  body.classList.toggle("toc-body");
+  showLeftMenu(document.getElementById("leftside-menu"), body.classList.contains("toc-body"));
+
+}
+
+function wrap(el, wrapper) {
+  el.parentNode.insertBefore(wrapper, el);
+  wrapper.appendChild(el);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});

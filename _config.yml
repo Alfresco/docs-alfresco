@@ -8,6 +8,8 @@ defaults:
       product: "Alfresco Content Services"
       toc: "content-services"
       location: "content-services"
+      tutorial: true
+      support: true
       versions:
         - 6.2
         - 6.1
@@ -18,6 +20,10 @@ defaults:
     values:
       version: 6.2
       latest: true
+  - scope:
+      path: "content-services/latest/tutorial"
+    values:
+      toc: "content-services-tutorial"
   - scope:
       path: "content-services/6.1"
     values:
@@ -628,6 +634,20 @@ defaults:
       version: 2.7
       latest: true
 
+# Alfresco Content Services for Mobile
+  - scope:
+      path: "content-mobile"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Services for Mobile"
+      location: "content-mobile"
+      toc: "content-mobile"
+  - scope:
+      path: "content-mobile/latest"
+    values:
+      version: 1.0
+      latest: true
+
 
 sass:
   sass_dir: assets/include/scss
@@ -659,6 +679,7 @@ plugins:
 
 highlighter: none
 
+# Elasticsearch/Searchyll settings
 elasticsearch:
   url: https://search-docs-dev-kcq7soqflyxmts7m3a3prekrzi.us-east-1.es.amazonaws.com
   index_name: sandbox
@@ -672,8 +693,12 @@ elasticsearch:
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - redirects/
   - .github/
   - README.md
+  - README.markdown
+  - Dockerfile
+  - docker-compose.yml
   - .gitignore
   # - .sass-cache/
   - .jekyll-cache/
