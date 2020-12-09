@@ -1857,14 +1857,685 @@ useful to step through the controller script code line by line to pinpoint the c
 
 ## Creating a Folder Listing Java-backed web script
 
+A Folder Listing Java-backed web script mimics the behavior of the `dir` command in Microsoft Windows, or `ls` in 
+Linux and Mac OS X.The controller script in this implementation is in Java. The client interacts with it through HTTP 
+requests and responses. In comparison to an implementation with JavaScript, this allows you to build a library of 
+scripted web scripts exposing a well-defined interface and then, over time, replace their implementation with Java, 
+if requirements such as performance become critical. As long as the interface does not change, the user will not notice.
 
 ### Creating the scripted components of a Folder Listing web script
+
+The first task in creating a Folder Listing web script is to create the scripted components.
+
+1.  Log in to Alfresco Share:
+
+    1.  Open a web browser and enter the URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Click the Repository link in the Share header.
+
+3.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+4.  Create a web script description document for the Java Folder Listing example:
+
+    1.  In the Create menu, select **XML**.
+    2.  Enter the name for the web script in the Name field: `javadir.get.desc.xml`
+    3.  Type the following in the content box:
+
+        ```xml
+        <webscript>
+          <shortname>Folder Listing Utility</shortname>
+          <description>Java-backed implementation of listing folder contents
+          </description>
+          <url>/javadir/{folderpath}?verbose={verbose?}</url>
+          <authentication>user</authentication>
+        </webscript>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the org/example folder using the breadcrumb trail.
+
+5.  Create a web script response template for your Java Folder Listing example:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name for the web script in the Name field: `javadir.get.html.ftl`
+    3.  Type the following in the content box:
+
+        ```xml
+        <html>
+         <head>
+          <title>Folder ${folder.displayPath}/${folder.name}</title>
+          </head>
+         <body>
+           <p>Alfresco ${server.edition} Edition v${server.version} : dir</p>
+          <p>Contents of folder ${folder.displayPath}/${folder.name}</p>
+          <table>
+           <#list folder.children as child>
+           <tr>
+           <td><#if child.isContainer>d</#if></td>
+           <#if verbose>
+             <td>${child.properties.modifier}</td>
+             <td><#if child.isDocument>
+               ${child.properties.content.size}</#if></td>
+             <td>${child.properties.modified?date}</td>
+           </#if>
+           <td>${child.name}</td>
+           </tr>
+           </#list>
+          </table>
+         </body>
+        </html>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the org/example folder using the breadcrumb trail.
+
+The web script description specifies a URI template containing the tokens `{folderpath}` and `{verbose?}`. The 
+`folderpath` token represents the folder to list and the `verbose` URI argument specifies whether a verbose listing 
+is required or not. The HTML response template renders the contents of the specified folder, taking into account the 
+`verbose` flag. It does this by accessing the web script model values named `folder` and `verbose`.
+
+The web script is not yet complete, as it is still missing its controller. The controller must parse the URI to extract 
+the token values, interact with the repository to locate the specified folder, and populate the model for subsequent 
+rendering by the HTML response template.
+
+It is also possible to create these files as stand-alone files using an external text editor. Once these files are 
+created you could locate them as follows:
+
+```text
+./tomcat/shared/classes/alfresco/extension/templates/webscripts/org/example/javadir.get.desc.xml
+./tomcat/shared/classes/alfresco/extension/templates/webscripts/org/example/javadir.get.html.ftl     
+```
+
 ### Developing a controller for a Folder Listing Java-backed web script
+
+To complete the Folder Listing Java-backed web script, you must create its controller. The controller parses the URI to 
+extract the token values, interacts with the repository to locate the specified folder, and populates the model for 
+subsequent rendering by the HTML response template.
+
+This develops a controller in Java.
+
+1.  Create the Java class for the Folder Listing web script:
+
+    1.  Launch your Java IDE.
+    2.  Create a Java package called `org.example`
+    3.  Create a Java class called `JavaDir`
+    4.  Implement the Java class as follows:
+
+        ```java
+        package org.example;
+        
+        import java.util.HashMap;
+        import java.util.Map;
+        
+        import org.alfresco.repo.model.Repository;
+        import org.alfresco.service.cmr.repository.NodeRef;
+        import org.springframework.extensions.webscripts.Cache;
+        import org.springframework.extensions.webscripts.DeclarativeWebScript;
+        import org.springframework.extensions.webscripts.Status;
+        import org.springframework.extensions.webscripts.WebScriptException;
+        import org.springframework.extensions.webscripts.WebScriptRequest;
+        
+        public class JavaDir extends DeclarativeWebScript
+        {
+        	private Repository repository;
+        
+        	public void setRepository(Repository repository)
+        	{
+        		this.repository = repository;
+        	}
+        
+        	protected Map<String, Object> executeImpl(WebScriptRequest req,
+        			Status status, Cache cache)
+   			{
+        
+        		NodeRef folder;
+        		
+        		// extract folder listing arguments from URI
+        		String verboseArg = req.getParameter("verbose");
+        		Boolean verbose = Boolean.parseBoolean(verboseArg);
+        		
+        		Map<String, String> templateArgs =
+        				req.getServiceMatch().getTemplateVars();
+        		String folderPath = templateArgs.get("folderpath");
+        		
+        		if (folderPath.equals("Company Home")){
+        			
+        			folder = repository.getCompanyHome();	
+        						
+        		}
+        		else {
+        			String nodePath = "workspace/SpacesStore/" + folderPath;
+        			folder = repository.findNodeRef("path", nodePath.split("/"));
+        		}
+        		
+        		// validate that folder has been found
+        		if (folder == null)
+        		{
+        			throw new WebScriptException(Status.STATUS_NOT_FOUND,
+        					"Folder " + folderPath + " not found");
+        		}
+        
+        		// construct model for response template to render
+        		Map<String, Object> model = new HashMap<String, Object>();
+        		model.put("verbose", verbose);
+        		model.put("folder", folder);
+        		return model;
+  			}
+        }
+        ```
+
+    5.  Compile the Java class.
+
+        >**Note:** You will need to link against the various required classes that are imported, such as `DeclarativeWebScript`. To do this you will need to import the Alfresco SDK into your IDE workspace, or you can import the various Alfresco projects into your workspace from the source code. You can then configure your project properties to include the required projects and libraries into your Java Build Path. Projects that need to be linked could include `Core`, `Data Model`, `Deployment`, `MBean`, `Remote API`, `Repository`, and `Web Framework Commons`. Libraries could include the `spring-webscripts` and `spring-webscripts-api` JAR files. The projects and libraries you need to include will depend on what your Java-backed web script actually needs to do.
+
+    6.  Place the compiled Java class into the folder `<install_dir>/tomcat/webapps/alfresco/WEB-INF/classes/org/example`.
+
+2.  Create the Spring Framework configuration for registering your web script Java class:
+
+    1.  Create an XML file called `javadir-context.xml`.
+    2.  Register the Java class as follows:
+
+        ```xml
+        <?xml version='1.0' encoding='UTF-8'?>
+        <!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN 2.0//EN'
+          'http://www.springframework.org/dtd/spring-beans-2.0.dtd'>
+        <beans>
+          <bean id="webscript.org.example.javadir.get"
+            class="org.example.JavaDir" parent="webscript">
+          <property name="repository" ref="repositoryHelper"/>
+          </bean>
+        </beans>
+        ```
+
+    3.  Place the Spring Framework configuration file into the extension classpath of the Alfresco Content Services server, in this case `<install_dir>/tomcat/shared/classes/alfresco/extension/javadir-context.xml`.
+
+        >**Important:** When deploying a Java-backed web script to the Alfresco Content Services server, you must restart the server to fully register the web script.
+
+3.  In Share, create a folder test under the Repository root.
+
+4.  Upload some sample content files to the `test` folder.
+
+5.  Test your Java-backed web script by typing the following in a tab of your web browser:
+
+    `http://localhost:8080/alfresco/service/javadir/Company%20Home/test?verbose=true`
+
+    If successful, a verbose listing of the contents of the test folder displays.
+
+6.  Test your Java-backed web script again by typing the following in your web browser:
+
+    `http://localhost:8080/alfresco/service/javadir/Company%20Home`
+
+    If successful, a verbose listing of the contents of the Company Home folder displays. Externally, this Folder Listing web script looks and behaves the same as its scripted web script implementation.
+
+For ease of reference here are the standalone files that were created in this project, along with their locations:
+
+```text
+./tomcat/shared/classes/alfresco/extension/javadir-context.xml
+./tomcat/shared/classes/alfresco/extension/templates/webscripts/org/example/javadir.get.desc.xml
+./tomcat/shared/classes/alfresco/extension/templates/webscripts/org/example/javadir.get.html.ftl
+./tomcat/webapps/alfresco/WEB-INF/classes/org/example/JavaDir.class     
+```
+
 ### Parsing the URI
+
+Your Folder Listing web script defines the following URI template with one URI-path token and one query parameter 
+token: `<uri>/javadir/{folderpath}?verbose={verbose?}</uri>`
+
+To extract the values provided for the `{folderpath}` and `{verbose}` tokens, the following Java code is used:
+
+```java
+...
+String verboseArg = req.getParameter("verbose");
+Boolean verbose = Boolean.parseBoolean(verboseArg);
+Map<String, String> templateArgs = req.getServiceMatch().getTemplateVars();
+String folderPath = templateArgs.get("folderpath");
+...
+```
+
+Access to the request that invoked the web script is through the `req` parameter of the `executeImpl()` method. This 
+parameter encapsulates everything about the request, including its URI, query parameters, and header values. In particular, 
+the `getParameter()` method of the request provides access to query parameters, which your web script uses to retrieve 
+the value of the verbose flag. If the query parameter is not specified on the URI, the returned value is null.
+
+Access to tokens specified in the URI path is also through the `req` parameter. A map of all URI-path token values 
+indexed by token name is provided by `req.getServiceMatch().getTemplateVars()`. Your web script uses this map to 
+retrieve the value of the folderpath token. URI-path token values are never null.
+
+Imagine a client has made the following URI request: `/javadir/Company%20Home?verbose=true`
+
+The resulting value of `verbose` is true and the value of `folderpath` is `Company Home`.
+
 ### Calling services
+
+As a Java-backed web script, all services provided by the Alfresco Content Services server are available for use. Any 
+Java API within the server process, subject to security controls, is accessible.
+
+Access to services is provided through Dependency Injection (DI); instead of the Java-backed web script locating its 
+dependent services, the dependent services are handed to the web script.
+
+Alfresco Content Services uses the Spring Framework for its Dependency Injection capabilities. This means that 
+dependencies are specified in a separate XML configuration file as part of the Java-backed web script registration. 
+For each dependency, the Java-backed web script provides a setter method for accepting a reference to the dependent 
+service. The Spring Framework invokes each of the setter methods with the appropriate configured dependency during the 
+initialization of the Java-backed web script. By the time the web script is executed, all dependent services are 
+available within the `executeImpl()` method.
+
+Your Folder Listing web script must locate the folder within the repository, identified by the `folderpath` token. 
+To accomplish this, the web script injects a Repository service that provides some simple content repository access 
+capabilities.
+
+```java
+...
+public class JavaDir extends DeclarativeWebScript
+{
+  private Repository repository;
+  public void setRepository(Repository repository)
+  {
+    this.repository = repository;
+  }
+  protected Map<String, Object> executeImpl(WebScriptRequest req,
+    Status status, Cache cache)
+  {
+    ...
+		if (folderPath.equals("Company Home")){		
+			folder = repository.getCompanyHome();	
+		}
+		else {
+			String nodePath = "workspace/SpacesStore/" + folderPath;
+			folder = repository.findNodeRef("path", nodePath.split("/"));
+		}    ...
+   }
+}
+```
+
 ### Setting the response status code
+
+A web script uses a response status code to inform the calling client of its execution outcome. In Java, exceptions are 
+often used for this and Java-backed web scripts can follow suit.
+
+The Folder Listing web script validates that the provided folder path actually exists in the repository using the 
+following code pattern:
+
+```java
+...
+if (folder == null)
+{
+   throw new WebScriptException(Status.STATUS_NOT_FOUND,
+    "Folder " + folderPath + " not found");
+}
+...
+```
+
+The `WebScriptException` class is a special kind of exception supported by the Web Script Framework, which carries a 
+status code and message. Whenever a web script throws this kind of exception, the Web Script Framework translates it 
+into the equivalent status on the HTTP response. All other exceptions are caught by the Web Script Framework and 
+translated into the 500 status code, which means an internal error occurred. In all cases, the status response template 
+has access to details such as the status code, status message, and exception call stack. Throwing an exception is not 
+always ideal, so the Web Script Framework provides another approach to setting the response status code. The `executeImpl()` 
+method is passed a Status object, which allows the web script to set the status explicitly.
+
+Your Folder Listing Web script can implement folder validation using the following alternate code:
+
+```java
+...
+if (folder == null)
+{
+   status.setCode(Status.SC_NOT_FOUND);
+   status.setMessage("Folder " + folderPath + " not found");
+   status.setRedirect(true);
+   return;
+}
+...
+```
+
+One advantage of setting the status explicitly is that the web script can control whether a status response template is 
+used to render the status through the `setRedirect()` method. Exceptions can be handled in a similar manner:
+
+```java
+...
+catch(ConstraintException e)
+{
+  status.setCode(Status.SC_FORBIDDEN);
+  status.setMessage("Cannot create folder");
+  status.setException(e);
+  status.setRedirect(true);
+}
+...      
+```
+
+The `setException()` method allows the web script to associate the status with the caught exception.
+
 ### Constructing the model
+
+The controller creates a model for subsequent rendering by a response template. A model is a map of values indexed by 
+name. In Java, the model is simply returned from the `executeImpl()` method as a `Map`.
+
+The Folder Listing web script constructs a `HashMap` and places the `verbose` flag and located `folder` into it:
+
+```java
+...
+  Map<String, Object> model = new HashMap<String, Object>();
+  model.put("verbose", verbose);
+  model.put("folder", folder);
+  return model;
+...
+```
+
+The model is then subsequently available to response templates, which can use the values to render the output. Values 
+placed into the map by Java are converted to values that the FreeMarker template language can access. For example, 
+your Java Folder Listing web script places a `NodeRef` into the model under the name `folder`, which it received from 
+the `Repository` service. A `NodeRef` represents a reference to an object residing in the content repository. The 
+Web Script Framework converts `NodeRefs` into full objects so that FreeMarker templates can easily reference their 
+object properties and methods as demonstrated by your Folder Listing response template:
+
+`Contents of folder ${**folder**.displayPath}/${**folder**.name}`
+
+A Java-backed web script does not have to create a model. In this case, the `executeImpl()` method can return null.
+
 ### Registering a Java-backed web script
+
+You must register a Java-backed web script with the Web Script Framework through Spring Framework configuration, which 
+supports the notion of a bean: a declaration of a Java class instance.
+
+Each Java-backed web script is defined by its own bean declaration. For example, the Java Folder Listing web script is 
+declared as follows:
+
+```xml
+...
+<beans>
+...
+  <bean id="webscript.org.example.javadir.get"
+   class="org.example.JavaDir" parent="webscript">
+...
+  </bean>
+...
+</beans>
+```
+
+Spring beans have a unique identifier through their `id` attribute and construct an instance of the Java class as named 
+through their `class` attribute. The Web Script Framework uses the following bean `id` naming convention for locating 
+Java-backed web scripts:
+
+`webscript.<web script package>.<web script id>.<http method>`
+
+The `<web script package>`, `<web script id>`, and `<http method>` bind the Java class to the associated web script. 
+The `class` attribute refers to the Java class implementing the Java-backed web script. Finally, all web script bean 
+declarations must have the parent `'webscript`.
+
+In this tutorial the bean file was located at:
+
+```text
+./tomcat/shared/classes/alfresco/extension/javadir-context.xml
+```
+
 ### Declaring service dependencies
+
+The Spring bean is where service dependencies are declared.
+
+The Folder Listing web script declares a single dependency on the `Repository` service as follows:
+
+```xml
+...
+<bean id="webscript.org.example.javadir.get"
+  class="org.example.JavaDir" parent="webscript">
+** <property name="repository" ref="repositoryHelper"/>**
+</bean>
+...    
+
+```
+
+Each dependency is represented by a `<property>` element whose `name` attribute identifies the setter method to call 
+and whose `ref` attribute identifies the service to depend on. The `ref` value is actually an ID of another bean. 
+All Alfresco Content Services services are declared as beans, so can be injected in this way. In the example, repository 
+maps to the `setRepository()` method and `repositoryHelper` maps to the bean representing the `Repository` service.
+
+```java
+...
+public class JavaDir extends DeclarativeWebScript
+{
+  ...
+  public void <b>setRepository</b>(Repository repository)
+  {
+  ...
+  }
+}
+```
+
+Although this example only declares a single dependency, you can declare multiple dependencies. The Spring Framework 
+calls setter methods during the initialization of the Java-backed web script, so all dependencies are resolved by the 
+time the `executeImpl()` is invoked.
+
 ## Creating a new kind of web script
+
+To extend the capabilities of the Web Script Framework, you can develop a new kind of web script to encapsulate behavior 
+you want to reuse across many scripted web scripts.
+
+This example encapsulates the logic for finding a node in the content repository given a node path and placing that 
+node into the web script model. Web scripts of this kind only have to declaratively specify the node path in their 
+web script description for the model to automatically populate with the associated node.
+
+1.  Create the Java class for your new web script:
+
+    1.  Launch your Java IDE.
+    2.  Create a Java package whose name is: `org.example`
+    3.  Create a Java class whose name is: `NodeWebScript`
+    4.  Implement the Java class as follows:
+
+        ```java
+        package org.example;
+        
+        import java.io.Serializable;
+        import java.util.HashMap;
+        import java.util.Map;
+        
+        import org.alfresco.repo.model.Repository;
+        import org.alfresco.service.cmr.repository.NodeRef;
+        import org.springframework.extensions.webscripts.Cache;
+        import org.springframework.extensions.webscripts.DeclarativeWebScript;
+        import org.springframework.extensions.webscripts.Status;
+        import org.springframework.extensions.webscripts.WebScriptException;
+        import org.springframework.extensions.webscripts.WebScriptRequest;
+        
+        public class NodeWebScript extends DeclarativeWebScript {
+        
+        	private Repository repository;
+        
+        	public void setRepository(Repository repository) {
+        		this.repository = repository;
+        	}
+        
+        	protected Map<String, Object> executeImpl(WebScriptRequest req,
+        			Status status, Cache cache) {
+        
+        		// extract node path from description extensions
+        		Map<String, Serializable> extensions = getDescription().getExtensions();
+        		String path = (String) extensions.get("path");
+        
+        		// search for folder within Alfresco content repository
+        		String nodePath = "workspace/SpacesStore/" + path;
+        		NodeRef node = repository.findNodeRef("path", nodePath.split("/"));
+        
+        		// validate that node has been found
+        		if (node == null) {
+        			throw new WebScriptException(Status.STATUS_NOT_FOUND, "Path "
+        					+ path + " not found");
+        		}
+        		// construct model for response template to render
+        		Map<String, Object> model = new HashMap<String, Object>();
+        		model.put("node", node);
+        		return model;
+        	}
+        }
+        ```
+
+    5.  Compile the Java class.
+    6.  Place the compiled Java class into the folder `org/example` within the web application classpath of the Alfresco Content Services server. For example, you can use ./tomcat/webapps/alfresco/WEB-INF/classes/org/example.
+
+2.  Create a Java class for extracting the node path configuration for your new kind of web script:
+
+    1.  Create a Java class in the package `org.example` whose name is: `NodeWebScriptExtension`.
+    2.  Implement the Java class as follows:
+
+        ```java
+        package org.example;
+        
+        import java.io.InputStream;
+        import java.io.Serializable;
+        import java.util.HashMap;
+        import java.util.Map;
+        import org.dom4j.Document;
+        import org.dom4j.DocumentException;
+        import org.dom4j.Element;
+        import org.dom4j.io.SAXReader;
+        import org.springframework.extensions.webscripts.DescriptionExtension;
+        import org.springframework.extensions.webscripts.WebScriptException;
+        
+        public class NodeWebScriptExtension implements DescriptionExtension
+        {
+        	public Map<String, Serializable> parseExtensions(String serviceDescPath,
+        			InputStream servicedesc)
+        			{
+        		Map<String, Serializable> extensions =
+        				new HashMap<String, Serializable>();
+        				SAXReader reader = new SAXReader();
+        				try
+        				{
+        
+        					// extract path value from description document
+        					Document document = reader.read(servicedesc);
+        					Element rootElement = document.getRootElement();
+        					Element pathElement = rootElement.element("path");
+        					String path = pathElement.getTextTrim();
+        					extensions.put("path", path);
+        				}
+        				catch (DocumentException e)
+        				{
+        					throw new WebScriptException("Failed to parse", e);
+        				}
+        				return extensions;
+        			}
+        }
+        ```
+
+    3.  Compile the Java class.
+    4.  Place the compiled Java class into the folder `org/example` within the web application classpath of the Alfresco Content Services server. For example, you can use ./tomcat/webapps/alfresco/WEB-INF/classes/org/example.
+
+3.  Create the Spring Framework configuration file for registering your new web script.
+
+    1.  Create an XML file whose name is: `nodewebscript-context.xml`
+    2.  Register the Java classes as follows:
+
+        ```xml
+        <?xml version='1.0' encoding='UTF-8'?>
+        <!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN 2.0//EN'
+        'http://www.springframework.org/dtd/spring-beans-2.0.dtd'>
+        
+        <beans>
+          <bean id="webscript.org.example.nodewebscript"
+            class="org.example.NodeWebScript" parent="webscript"
+            scope="prototype">
+          <property name="repository" ref="repositoryHelper"/>
+          </bean>
+        
+          <bean id="webscriptdesc.org.example.nodewebscript"
+            class="org.example.NodeWebScriptExtension"/>
+        </beans>
+        ```
+
+    3.  Place the Spring Framework configuration into the extension classpath of the Alfresco Content Services server. For example, you can use `./tomcat/shared/classes/alfresco/extension`.
+
+4.  Restart Alfresco Content Services to fully register the Java-backed web script.
+
+Your example Java class extends `DeclarativeWebScript` just like other Java-backed web scripts. Its primary purpose is 
+to locate a node in the repository given a node path, which it does using the `Repository` service. The `NodeRef` 
+returned from the `Repository` service is placed into the web script model under the name `node`.
+
 ### Testing the new kind of web script
+
+When developing a scripted web script, you can specify its kind through its web script description document. If the new 
+kind of web script supports extensions to the web script description document, you must provide those as well. Otherwise, 
+development of the web script is the same as any other web script.
+
+This example implements a simple web script based on the example `NodeWebScript` kind, which renders information about 
+the `Data Dictionary` folder in the repository.
+
+1.  Log in to Alfresco Share:
+
+    1.  Open a web browser and enter the URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+3.  Create a web script description document for your Data Dictionary information sample:
+
+    1.  In the Create menu, select **XML**.
+    2.  Enter the name for the web script in the Name field: `info.get.desc.xml`
+    3.  Type the following in the content box:
+
+        ```xml
+        <webscript kind="org.example.nodewebscript">
+          <shortname>Node Info</shortname>
+          <description>Demonstration of Web script Kind</description>
+          <url>/info</url>
+          <authentication>user</authentication>
+          <path>Company Home/Data Dictionary</path>
+        </webscript>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the folder org/example using the breadcrumb trail.
+
+4.  Create a web script response template for your Data Dictionary information sample:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name for the web script in the Name field: `info.get.html.ftl`
+    3.  Type the following in the content box:
+
+        ```text
+        ${node.name} created on ${node.properties.created?date}
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumbs trail.
+
+5.  Register the Data Dictionary Information web script with Alfresco Content Services:
+
+    1.  Type the following in your web browser, and log in with the user name `admin` and password `admin` if requested:`http://localhost:8080/alfresco/service/index`
+    2.  Click **Refresh Web Scripts**. A message displays indicating there is one additional web script.
+
+6.  Test the web script:
+
+    1.  Open a web browser tab and enter: `http://localhost:8080/alfresco/service/info`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+    3.  Look for a message similar to the following:
+
+        ```text
+        Data Dictionary created on Feb 15, 2013                       
+        ```
+
+        This means your web script is working.
+
+The web script kind is specified through the `kind` attribute of the `<webscript>` element contained within the 
+web script description document. Its value is the `<web script kind id>` as defined in the Spring configuration for 
+the new kind of web script.
+
+In your example, the `NodeWebScript` kind is selected by specifying its identifier of `org.example .nodewebscript`:
+
+```xml
+<webscript **kind="org.example.nodewebscript"**>
+. . .
+**<path>**Company Home/Data Dictionary</path>
+. . .
+</webscript>
+```
+
+As expected by the `NodeWebScript`, the description document also specifies a path to a node in the repository. In the 
+example, you specify the Data Dictionary folder through the custom `<path>` element. Your example does not provide a 
+controller script, as the `NodeWebScript` Java class already encapsulates the behavior of locating a node given a path 
+and populating the web script model. In this case, the located node is placed into the web script model under the 
+name `node`.
+
+`${node.name} created on ${node.properties.created?date}`
+
+This means the response template can simply refer to `node` to render the output.
