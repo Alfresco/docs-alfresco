@@ -21,16 +21,15 @@ This means that you can browse, open, and save Microsoft Office files (Word, Pow
 
 You can also browse content from Windows Explorer, or map a network drive.
 
-For more information about Alfresco Office Services, see [Alfresco Office Services](TODO_LINK:https://docs.alfresco.com/aos/concepts/aos-user.html).
+For more information about Alfresco Office Services, see [Alfresco Office Services]({% link microsoft-office/latest/index.md %}).
 
 ## Using Content Services from Microsoft Outlook
 
 With Alfresco Outlook Integration you can use email and repository management without leaving Microsoft Outlook.
 
-You can directly archive emails into Alfresco Share, use the full metadata support, full search, tagging and workflow 
-capabilities, and attach files and view archived emails in your inbox.
+You can directly archive emails into Alfresco Share, use the full metadata support, full search, tagging and workflow capabilities, and attach files and view archived emails in your inbox.
 
-For more information about Alfresco Outlook Integration, see [Alfresco Outlook Integration](TODO_LINK:https://docs.alfresco.com/outlook/concepts/Outlook-overview.html).
+For more information about Alfresco Outlook Integration, see [Alfresco Outlook Integration]({% link microsoft-outlook/latest/index.md %}).
 
 ## Using the Windows Explorer shortcuts
 

@@ -368,7 +368,7 @@ If you're running Content Services 6.2 (i.e. the latest version) and already hav
 
 * [https://acs.YOUR-DOMAIN-NAME/alfresco/service/enterprise/admin/admin-license](http://localhost:8080/alfresco/service/enterprise/admin/admin-license){:target="_blank"} (this only applies for the Enterprise Download Trial)
 * Default username and password is `admin`
-* See [Uploading a new license](https://docs.alfresco.com/6.2/tasks/at-adminconsole-license.html)(#LINK) for more details
+* See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details
 
 ### Configuration options
 

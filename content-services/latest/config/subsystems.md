@@ -58,7 +58,7 @@ The supplied subsystem categories are:
 | [OOoDirect]({% link content-services/latest/config/libreoffice.md %}#configure-openoffice) | OpenOffice transformations settings (use LibreOffice where possible) |
 | [OOoJodconverter]({% link content-services/latest/config/libreoffice.md %}) | Default settings for LibreOffice transformations |
 | [Replication]({% link content-services/latest/admin/replication.md %}) | Settings for the replication jobs tool |
-| [Search](https://docs.alfresco.com/search-enterprise/concepts/search-home.html)(#LINK) | Search mechanism |
+| [Search]({% link search-services/latest/index.md %}) | Search mechanism |
 | [Subscriptions]({% link content-services/latest/config/email.md %}#enable-subscription-service) | Settings for the activities feeds |
 | [Synchronization]({% link content-services/latest/admin/auth-sync.md %}#configuring-synchronization) | Synchronization of local user and group information with the user registry exporters (usually LDAP directories) in the authentication chain |
 | [sysAdmin]({% link content-services/latest/config/repository.md %}#sysadmin) | Properties for server administration |
