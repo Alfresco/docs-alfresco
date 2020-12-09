@@ -534,27 +534,1330 @@ This is simply the vanilla Hello User web script response passed as an argument 
 defined by the `alf_callback` query parameter. The full response is treated as JavaScript by the web browser, which executes it.
 
 ## Processing complex HTTP requests
+
+Content negotiation makes it possible to serve different versions of a document at a given URI so that a client can 
+specify which version best fits its capabilities. For example, a web browser can specify which type of image is preferred, 
+such as GIF or PNG, for display purposes.
+
+A client uses an Accept header to specify a prioritized list of preferred MIME types for the response. When the 
+Web Script Framework receives an HTTP request with an Accept header, it responds with the web script response format 
+that most closely matches the highest-priority MIME type preference.
+
+By default, content negotiation is disabled; however, each web script can enable content negotiation by declaring its 
+requirements in its descriptor document. This involves mapping an incoming Accept header MIME type preference to one of 
+its response formats.
+
+1.  Log in to Alfresco Share:
+
+    1.  Open a web browser and enter the URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Click the Repository link in the Share header.
+
+3.  Navigate to **Data Dictionary > Web Scripts Extensions**.
+
+4.  Create a folder to represent the top-level package structure (skip this step if the **org** space already exists):
+
+    1.  In the Create menu, select **Create Folder**.
+    2.  Enter the name for the folder in the Name field: `org`
+    3.  Click **Save**.
+    4.  Navigate to the freshly created org folder.
+
+5.  Create a sub-package (skip this step if the **example** space already exists):
+
+    1.  In the Create menu, select **Create Folder**.
+    2.  Enter the name for the folder in the Name field: `example`
+    3.  Click Save.
+    4.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+6.  Create a web script description document for your content negotiation sample:
+
+    1.  In the Create menu, select **XML**.
+    2.  Enter the name for the web script in the Name field as: `negotiate.get.desc.xml`
+    3.  Type the following in the content box:
+
+        ```xml
+        <webscript>
+          <shortname>Negotiation Sample</shortname>
+          <description>Response format driven by content negotiation</description>
+          <url>/negotiate</url>
+          <negotiate accept="text/html">html</negotiate>
+          <negotiate accept="application/json">json</negotiate>
+        </webscript>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+7.  Create an HTML response template for your content negotiation sample:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name in the Name field: `negotiate.get.html.ftl`
+    3.  Type the following in the content box:
+
+        ```xml
+        <html>
+          <body>HTML response.</body>
+        </html>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder
+
+8.  Create a JSON response template for your content negotiation sample:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name in the Name field: `negotiate.get.json.ftl`
+    3.  Type the following in the content box:
+
+        ```json
+        {"response": "json"}
+        ```
+
+    4.  Click **Create**.
+
+9.  Register the web script with Alfresco Content Services.
+
+    1.  Open a new tab in the web browser.
+    2.  In the new tab, enter the URL: `http://localhost:8080/alfresco/service/index`
+    3.  If prompted, log in with the user name `admin` and password `admin`.
+    4.  Click **Refresh Web Scripts**. (The number of web scripts will increase.)
+
+    Content negotiation is declared by listing the mappings between an incoming preferred MIME type and a web script response format. In your sample, the HTML and JSON response formats are mapped to the `text/html` and application/json MIME types, respectively:
+
+    ```xml
+    ...
+    <negotiate accept="text/html">html</negotiate>
+    <negotiate accept="application/json">json</negotiate>
+    ...
+    ```
+
+10. Type the following in your command line to test that your sample web script responds appropriately to content negotiation by explicitly requesting JSON:
+
+    ```bash
+    curl -H "Accept: application/json" "http://localhost:8080/alfresco/service/negotiate"
+    ```
+
+    The response is:
+
+    ```json
+    {"response": "json"}
+    ```
+
+11. Type the following in your command line to test that the best response format is chosen:
+
+    ```bash
+    curl -H "Accept: text/xml,text/*" "http://localhost:8080/alfresco/service/negotiate"
+    ```
+
+    This time the response is:
+
+    ```xml
+    <html><body>HTML response.</body></html>
+    ```
+
+Your sample web script does not provide an XML response format so cannot respond to the preferred `text/xml` MIME type; 
+however, it can respond with the HTML response format that matches the second preference of `text/*`.
+
 ## Configuring a web script
+
+When developing a web script, you can implement capabilities that provide flexibility in how they behave. The 
+Web Script Framework supports this by allowing each web script to carry a configuration file, which the web script can 
+interrogate to alter its behavior.
+
+This task demonstrates how to create a web script whose response is driven by a configuration file.
+
+1.  Log in to Alfresco Share:
+
+    1.  Open a web browser and enter the URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Click on the Repository link in the Share header.
+
+3.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+4.  Create a web script description document for your configuration sample:
+
+    1.  In the Create menu, select XML.
+    2.  Enter the name for the web script in the **Name** field as: `configuration.get.desc.xml`
+    3.  Type the following in the content box:
+
+        ```xml
+        <webscript>
+          <shortname>Configuration Sample</shortname>
+          <description>Response driven from configuration</description>
+          <url>/config</url>
+          <authentication>user</authentication>
+        </webscript>
+        ```
+
+    4.  Click **Create**.
+
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+5.  Create a configuration file for your configuration sample:
+
+    1.  In the Create menu, select **XML**.
+    2.  Enter the name in the **Name** field: `configuration.get.config.xml`
+    3.  Type the following in the content box:
+
+        ```xml
+        <greeting>
+          <text>Hello</text>
+          <repeat>3</repeat>
+        </greeting>        
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+6.  Create a controller script for your configuration sample:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name in the **Name** field: `configuration.get.js`
+    3.  Type the following in the content box:
+
+        ```javascript
+        var greeting = new XML(config.script); 
+        model.repeat = parseInt(greeting.repeat);
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+7.  Create a response template for your configuration sample:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name in the **Name** field, such as: `configuration.get.html.ftl`
+    3.  Type the following in the content box:
+
+        ```xml
+        <#list 1..repeat as i>
+            ${config.script.greeting.text}
+        </#list>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+8.  Register the web script with Alfresco Content Services.
+
+    1.  In a web browser, create a new tab.
+    2.  In the newly created tab, enter the URL: `http://localhost:8080/alfresco/service/index`
+    3.  If prompted, log in with the user name `admin` and password `admin`.
+    4.  Click **Refresh Web Scripts**. The number of web scripts available will increment.
+
+    The configuration file name `configuration.get.config.xml` adheres to the naming convention defined by the Web Script Framework. Configuration file names are structured as: `<web script id>.<http method>.config.xml`.
+
+    The `<web script id>` identifies the web script and must be the same as the web script ID defined in the file name of the associated web script description document. The `<http method>` specifies which HTTP method initiates the web script and must be the same as the associated web script description document.
+
+    Finally, all configuration file names must end with `.config.xml`, which indicates to the Web Script Framework that the file is a configuration file.
+
+    Configuration is expressed as any valid XML. In your sample, you specify the greeting text to render and the number of times to repeat the greeting. Controller scripts access the configuration XML through the root object named `config.script`. Additionally, E4X, a JavaScript XML API, is used to traverse the XML structure and extract values.
+
+    ```javascript
+    ...
+    var greeting = new XML(config.script); 
+    model.repeat = greeting.repeat; 
+    ... 
+    ```
+
+    Your sample extracts the number of times to repeat the greeting from the configuration XML and places the value into the Web script model with the name `repeat`.
+
+9.  Test your configuration sample by typing the following in your command line:
+
+    ```bash
+    curl -uadmin:admin "http://localhost:8080/alfresco/service/config"
+    ```
+
+    The response is:
+
+    ```text
+    Hello 
+    Hello 
+    Hello
+    ```
+
+You have altered the configuration by modifying the configuration XML file, or by creating a new configuration file of 
+the same name in a web script location that comes earlier in the Web Script Framework search path.
+
 ## Creating a web script using cache controls
+
+Caching is an important aspect of web scripts and is often required to support high-load applications such as websites 
+backed by Alfresco Content Services. You should consider caching when developing web scripts.
+
+This task demonstrates cache controls by creating a sample web script that sets the last modified date.
+
+1.  Log in to Alfresco Share:
+
+    1.  Open a web browser and enter the URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+3.  Create a web script description document for your cache sample:
+
+    1.  In the Create menu, select **XML**.
+    2.  Enter the name for the web script in the Name field: `cache.get.desc.xml`
+    3.  Type the following in the content box:
+
+        ```xml
+        <webscript>
+          <shortname>Cache example</shortname>
+          <description>Demonstrate cache controls</description>
+          <url>/cache</url>
+          <authentication>user</authentication>
+          <cache>
+            <never>false</never>
+            <mustrevalidate/>
+          </cache>
+        </webscript>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+4.  Create a controller script for your cache sample:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name in the Name field: `cache.get.html.ftl`
+    3.  Type the following in the content box:
+
+        ```text
+        Cached response
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the org/example folder using the breadcrumb trail.
+
+5.  Register the web script with Alfresco Content Services.
+
+    1.  Create a new browser tab.
+    2.  In the browser tab, enter the URL: `http://localhost:8080/alfresco/service/index`
+    3.  If prompted, log in with the user name `admin` and password `admin`.
+    4.  Click **Refresh Web Scripts**.
+
+    A message indicates there is an additional web script.
+
+    >**Note:** The Web Script Framework does not perform any caching of its own. It ensures correct HTTP headers are transmitted based on the web script cache controls for an external cache to interpret.
+
+6.  Test your cache sample with cURL by typing the following in your command line:
+
+    ```bash
+    curl -uadmin:admin -v "http://localhost:8080/alfresco/service/cache"
+    ```
+
+    The returned response is similar to the following, where the `Cache-Control` and `Last-Modified` headers are present:
+
+    ```text
+    * About to connect() to localhost port 8080 (#0)
+    * Trying ::1... connected
+    * Connected to localhost (::1) port 8080 (#0)
+    * Server auth using Basic with user ‘admin’
+    > GET /alfresco/service/cache HTTP/1.1
+    > Authorization: Basic YWRtaW46YWRtaW4=
+    > Host: localhost:8080
+    > Accept: */*
+    >
+    < HTTP/1.1 200 OK
+    < Server: Apache-Coyote/1.1
+    < Cache-Control: must-revalidate
+    < Last-Modified: Tue, 02 Feb 2010 09:07:05 GMT
+    < Content-Type: text/html;charset=UTF-8
+    < Content-Length: 16
+    < Date: Tue, 02 Feb 2010 09:07:05 GMT
+    ```
+
 ## Processing multipart forms
+
+This task demonstrates how to handle `multipart/form-data` form submits by creating two web scripts for the 
+following functions:
+
+* Present a form that allows the selection of a file along with title and description
+* Upload the selected file into the repository
+
+1.  Log in to Alfresco Share
+
+    1.  Open a web browser and enter the following URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Click the Repository link in the Share header.
+
+3.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+4.  Create a web script description document for your form:
+
+    1.  In the Create menu, select **XML**.
+    2.  Enter the name for the web script in the Name field: `multipart.get.desc.xml`
+    3.  Type the following in the content box:
+
+        ```xml
+        <webscript>
+          <shortname>File Upload Sample</shortname>
+          <description>Form to upload file.</description>
+          <url>/multipart</url>
+          <authentication>user</authentication>
+        </webscript>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+5.  Create an HTML response template for your form:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name in the Name field: `multipart.get.html.ftl`
+    3.  Type the following in the content box:
+
+        ```xml
+        <html>
+          <body>
+            <form action="${url.service}" method="post" enctype="multipart/form-data">
+              File: <input type="file" name="file"><br>
+              Title: <input name="title"><br>
+              Description: <input name="description"><br>
+              <input type="submit" name="submit" value="Upload">
+            </form>
+          </body>
+        </html>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+6.  Create a web script description document for your upload web script:
+
+    1.  In the Create menu, select **XML**.
+    2.  Enter the name in the Name field: `multipart.post.desc.xml`
+    3.  Type the following in the content box:
+
+        ```xml
+        <webscript>
+          <shortname>File Upload Sample</shortname>
+          <description>Handling of multipart/form-data requests.</description>
+          <url>/multipart</url>
+          <authentication>user</authentication>
+        </webscript>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the org/example folder using the breadcrumb trail.
+
+7.  Create a controller script for your upload web script:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name in the Name field: `multipart.post.js`
+    3.  Type the following in the content box:
+
+        ```javascript
+        // extract file attributes
+        var title = args.title;
+        var description = args.description;
+        
+        // extract file
+        var file = null;
+        for each (field in formdata.fields)
+        {
+          if (field.name == "file" && field.isFile)
+          {
+            file = field;
+          }
+        }
+        
+        // ensure file has been uploaded
+        if (file.filename == "")
+        {
+          status.code = 400;
+          status.message = "Uploaded file cannot be located";
+          status.redirect = true;
+        }
+        else
+        {
+          // create document in company home from uploaded file
+          upload = companyhome.createFile(file.filename) ;
+          upload.properties.content.guessMimetype(file.filename);
+          upload.properties.content.write(file.content);
+          upload.properties.title = title;
+          upload.properties.description = description;
+          upload.save();
+          // setup model for response template
+          model.upload = upload;
+        }
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the org/example folder using the breadcrumb trail.
+
+8.  Create a response template for your upload web script:
+
+    1.  In the Create menu, select **plain Text**.
+    2.  Enter the name in the Name field: `multipart.post.html.ftl`
+    3.  Type the following in the content box:
+
+        ```xml
+        <html>
+          <body>
+            Uploaded ${upload.name} of size ${upload.properties.content.size}.
+          </body>
+        </html>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+9.  Register the web scripts with Alfresco.
+
+    1.  Switch to a new browser tab, enter the URL: `http://localhost:8080/alfresco/service/index`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+    3.  Click **Refresh Web Scripts**.
+
+    A message indicates there are two additional web scripts.
+
+
+Your sample form consists of only three input fields, where one is of type `file`. The form posts its content to the 
+action URI as identified by the root object `url.service`, which for this sample is `/multipart` and specifies the 
+`multipart/form-data` content type.
+
+```xml
+... 
+<form action="${url.service}" method="post" enctype="multipart/form-data"> 
+...
+```
+
+Your two web scripts are mapped to the same URI. However, the form is attached to the HTTP GET method and the upload is 
+attached to the HTTP POST method, which allows your form to post to the same URI as the form itself.
+
+When `multipart/form-data` is posted to a web script, the Web Script Framework provides a special root object named 
+`formdata` that allows access to the posted request through a simple API, hiding the complexities of parsing the request 
+directly. The API provides access to each form field, including its name and value. For form fields of type `file`, 
+the content of the uploaded file is also provided. To simplify even further, all fields other than those of type file 
+are also added to the root objects `args` and `argsM`. Your upload web script extracts the form title and description 
+fields from the `args` root object and locates the uploaded file through the `formdata` root object.
+
+```javascript
+...
+var title = args.title;
+var description = args.description;
+var file = null;
+for each (field in formdata.fields)
+{
+  if (field.name == "file" &amp;&amp; field.isFile)
+  {
+    file = field;
+  }
+}
+...
+```
+
+If a file has been uploaded, the upload web script creates a new document within the Alfresco content repository under 
+the `Company Home` folder. The document is named after the file name of the uploaded file and its content is taken from 
+the file content.
+
+```javascript
+...
+upload = companyhome.createFile(file.filename) ;
+upload.properties.content.guessMimetype(file.filename);
+upload.properties.content.write(file.content);
+...
+```
+
+The created document is placed into the web script model, allowing the upload response template to render a message 
+confirming the name and size of the uploaded file.
+
+```javascript
+...
+model.upload = upload;
+...
+```
+
 ### Testing the upload web script
+
+This task demonstrates how to test an upload web script.
+
+1.  Launch the upload form:
+
+    1.  Open a web browser and enter the following URL: `http://localhost:8080/alfresco/service/multipart`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+    3.  Fill in the file, title, and description fields of the form.
+    4.  Click **Upload**.
+
+    If you see a confirmation message detailing the name and size of the uploaded file, your web script is working.
+
+2.  Locate the created document in the repository.
+
+    1.  Open a web browser and enter the following URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+    3.  Click the Repository link in the Share header and locate the document whose name matches the uploaded file name.
+    4.  Examine the properties and content of the created document.
+
 ## Creating request processing web scripts
+
+When performing an HTTP POST to a web script, the posted request body often contains content that needs processing by 
+the web script. To allow access to the request body, the Web Script Framework provides a special root object named 
+`requestbody` that represents the content of the request. The `requestbody` is a `ScriptContent` object allowing access 
+to the request content either as a string or as a content stream.
+
+This task demonstrates request processing by creating a web script, which simply responds with the content of the HTTP request.
+
+1.  Log in to Alfresco Share:
+
+    1.  Open a web browser and enter the URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+3.  Create a web script description document for your request body sample:
+
+    1.  In the Create menu, select **XML**.
+    2.  Enter the name for the web script in the Name field: `requestbody.post.desc.xml`
+    3.  Type the following in the content box:
+
+        ```xml
+        <webscript>
+          <shortname>Request Body Sample</shortname>
+          <description>Render the request body in the response</description>
+          <url>/requestbody</url>
+          <authentication>user</authentication>
+        </webscript>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+4.  Create a controller script for your request body sample:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name in the Name field: `requestbody.post.js`
+    3.  Type the following in the content box:
+
+        ```javascript
+        model.requestcontent = requestbody.content;
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+5.  Create an HTML response template for your request body sample:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name in the Name field: `requestbody.post.html.ftl`
+    3.  Type the following in the content box:
+
+        ```javascript
+        ${requestcontent}
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+6.  Register the web scripts with Alfresco Content Services.
+
+    1.  In a new web browser tab, enter the URL: `http://localhost:8080/alfresco/service/index`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+    3.  Click **Refresh Web Scripts**.
+
+    A message indicates there is an additional web script.
+
+    Your example consists of just two lines of code. The controller script extracts the request content from the `requestbody` root object and places it into the Web script model under the name `requestcontent`. The response template simply outputs the model value into the response.
+
+7.  Test this web script with cURL by typing the following in your command line:
+
+    ```bash
+    curl -uadmin:admin -H "Content-Type: application/json" --data-binary "{\"request\":\"body\"}" "http://localhost:8080/alfresco/service/requestbody"
+    ```
+
+    This posts a request body of `{"request": "body"}` to your web script, which in turn responds with: `{"request": "body"}`
+
+Often the content posted in a request is structured using data formats such as XML or JSON, which the web script has to 
+parse. Parser code is generally painful to develop, so the Web Script Framework provides a mechanism known as a 
+Format Reader that parses a request of a given MIME type into an object that represents the request content. The object 
+is then supplied to the controller script, which can interrogate the object to extract request content.
+
 ### Extending the request processing web script
+
+You can extend the request processing web script example by adding a new controller script that uses the `json` root 
+object provided by the Web Script Framework.
+
+This task demonstrates how to extend the request processing web script.
+
+1.  Log in to Alfresco Share:
+
+    1.  Open a web browser and enter the URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+3.  Create an additional controller script for your request body sample:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name in the Name field: `requestbody.post.json.js`
+    3.  Type the following in the content box:
+
+        ```javascript
+        model.requestcontent = json.get("request");
+        ```
+
+    4.  Click **Create**.
+
+4.  Re-register the web script with Alfresco Content Services.
+
+    1.  In a web browser tab, enter the URL: `http://localhost:8080/alfresco/service/index`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+    3.  Click **Refresh Web Scripts**.
+
+    Format Readers are not invoked automatically. You have to ask the Web Script Framework to convert the response and provide the resulting object to the controller script. You can do this by creating a controller script with an alternate naming convention: `<web script id>.<httpmethod>.<format>.js`
+
+    The difference here is that the controller script file name also contains the `<format>` segment, indicating to the Web Script Framework that requests of the specified format are handled by this controller and require the converted root object.
+
+    In the example, you create a new controller script named requestbody.post.json.js to handle JSON posted requests. This controller now has access to the `json` root object, as provided by the JSON Format Reader, and can extract values directly from the JSON document.
+
+    ```javascript
+    ...
+    model.requestcontent = json.get("request");
+    ...
+    ```
+
+5.  Test the updated web script with cURL by typing the following in your command line:
+
+    ```bash
+    curl -uadmin:admin -H "Content-Type: application/json" --data-binary
+    "{\"request\": \"body\"}" "http://localhost:8080/alfresco/service/requestbody"
+    ```
+
+    This posts a request body of `{"request": "body"}` to your web script, which in turn responds with: `body`
+
+    Instead of echoing the complete request as before, the updated controller script extracts the value named request from the JSON document and places it into the web script model, which in this case is the value `body`.
+
 ## Creating a photo search script
+
+This tutorial shows you how to develop a script that provides the ability to search a site for photos.
+
+There are no prerequisites for this tutorial.
+
+This tutorial takes you through the creation of a simple web script to search a site for photos.
+
+1.  Create the web script description file:In your favorite editor create the file `photo-search.get.desc.xml` with the following contents:
+
+    ```xml
+    <webscript>
+       <shortname>Photo Search</shortname>
+       <description>Searches the specified site for photos</description>
+       <url>/photo-search/{site}?maxResults={maxResults?}</url>
+       <format default="html">extension</format>
+       <authentication>user</authentication>
+    </webscript>
+    ```
+
+    Save the file in the following directory `<installLocation>/tomcat/shared/classes/alfresco/extension/templates/webscripts`. You will need to create the `templates` and `webscripts` sub-directories as they do not exist by default. You might also need to change this directory path if you are using a Java application server other than Tomcat.
+
+2.  In the same directory create the JavaScript controller, `photo-search.get.js`:
+
+    ```javascript
+    const DEFAULT_MAX_RESULTS = 500;
+    const SITES_SPACE_QNAME_PATH = "/app:company_home/st:sites/";
+    
+    function doSearch(siteId, maxResults)
+    {
+        var alfQuery =
+            'ASPECT:"exif:exif"' +
+            ' AND PATH:"' + SITES_SPACE_QNAME_PATH + '/cm:' + siteId +
+            '/cm:documentLibrary//*"' +
+            ' AND NOT TYPE:"{http://www.alfresco.org/model/content/1.0}thumbnail"' +
+            ' AND NOT TYPE:"{http://www.alfresco.org/model/content/1.0}folder"';
+    
+        var queryDef = {
+            query: alfQuery,
+            language: "fts-alfresco",
+            page: {maxItems: maxResults},
+            templates: []
+        };
+    
+        return search.query(queryDef);
+    }
+    
+    function main()
+    {
+        var siteId = url.templateArgs.site;
+        var maxResults = (args.maxResults !== null) ? parseInt(args.maxResults) : 
+            DEFAULT_MAX_RESULTS; 
+    
+        var nodes = doSearch(siteId, maxResults);
+    
+        model.nodes = nodes;
+        model.site = siteId;
+    }
+    
+    main();
+    ```
+
+3.  Now create a template file, `photo-search.get.html.ftl`, in the same directory, to display some information about the photos found:
+
+    ```xml
+    <p>List of photos in site: ${site}</p>
+    <table border="3">
+      <tr><th>File name</th><th>Properties</th><th>Manufacturer</th><th>dateTimeOriginal</th><th>focalLength</th></tr>
+    
+      <#assign manufacturer = "{http://www.alfresco.org/model/exif/1.0}manufacturer"/>  
+      <#assign dateTimeOriginal = "{http://www.alfresco.org/model/exif/1.0}dateTimeOriginal"/>  
+      <#assign focalLength = "{http://www.alfresco.org/model/exif/1.0}focalLength"/>  
+    
+      <#list nodes as node>
+        <tr>
+          <td>${node.name}</td>
+          <td>
+            <#assign keys = node.properties?keys/>
+            <#list keys as k>
+              ${k}
+            </#list>
+         </td>
+          <td>
+            <#if node.properties[manufacturer]?exists>
+              ${node.properties[manufacturer]}
+            </#if>
+          </td>
+          <td>
+            <#if node.properties[dateTimeOriginal]?exists>
+              ${node.properties[dateTimeOriginal]?date}
+            </#if>
+          </td>
+          <td>
+            <#if node.properties[focalLength]?exists>
+              ${node.properties[focalLength]}
+            </#if>
+          </td>
+        </tr>
+      </#list>
+    </table>
+    ```
+
+    This FreeMarker template displays some EXIF information for each photo.
+
+4.  Restart Alfresco Content Services to ensure that the newly created `templates/webscripts` directory is added to the Tomcat classpath.
+
+5.  In Share, create a sample site such as `sample-site`.
+
+6.  Upload a number of different files, including some photos, into your sample site's document library.
+
+7.  Run the script using a URL such as `http://localhost:8080/alfresco/service/photo-search/<sample-site>`. You can change `<sample-site>` to be the name of a site you have created.
+
 ## Developing a Folder Listing web script
+
+This tutorial describes how to create a Folder Listing web script that mimics the behavior of the `dir` command in 
+Microsoft Windows, or `ls` in Linux and Mac OS X.
+
+Given a folder path, the web script lists the contents of that folder in the repository in abbreviated or verbose form 
+depending on a user provided flag.
+
 ### Creating a description document
+
+This task creates a web script description document for a Folder Listing web script.
+
+1.  Log in to Alfresco Share:
+
+    1.  Open a web browser and enter the URL: `http://localhost:8080/share`
+
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Click the Repository link in the Share header.
+
+3.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+4.  Create a web script description document for the Folder Listing example:
+
+    1.  In the Create menu, select **XML**.
+    2.  Enter the name for the web script in the Name field: `dir.get.desc.xml`
+    3.  Type the following in the content box:
+
+        ```xml
+        <webscript> 
+          <shortname>Folder Listing Utility</shortname> 
+          <description>Sample demonstrating the listing of folder contents</description>
+          <url>/dir/{folderpath}?verbose={verbose?}</url> 
+          <format default="html">extension</format> 
+          <authentication>user</authentication> 
+        </webscript>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+
+You now have a web script package named`/org/example` where you will place all your component files for the Folder 
+Listing web script. You have already placed the description document there, which is named `dir.get.desc.xml`.
+
+Your Folder Listing web script defines the following short name and description:
+
+```xml
+<shortname>Folder Listing Utility</shortname>
+<description>Sample demonstrating the listing of folder contents</description>
+```
+
+As the Folder Listing web script queries the repository, you must ensure that only authenticated users have access. 
+This means the web script will only return folder contents that the authenticated user has permission to see.
+
+Your Folder Listing web script defines the following level of authentication: `<authentication>user</authentication>`
+
 ### Creating a controller script
+
+The description document describes the Folder Listing web script and a JavaScript controller script implements its 
+behavior. The controller establishes the folder to list from the invoked URI and query the repository for that folder 
+ensuring error conditions are catered for.
+
+1.  Log in to Alfresco Share:
+
+    1.  Open a web browser and enter the URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+3.  Create a web script controller script for your Folder Listing example:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name for the web script in the Name field: `dir.get.js`
+    3.  Type the following in the content box:
+
+        ```javascript
+        // extract folder listing arguments from URI
+        var verbose = (args.verbose == "true" ? true : false);
+        var folderpath = url.templateArgs.folderpath;
+        
+        // search for folder within Alfresco content repository
+        var folder = roothome.childByNamePath(folderpath);
+        
+        // validate that folder has been found
+        if (folder == undefined || !folder.isContainer) {
+           status.code = 404;
+           status.message = "Folder " + folderpath + " not found.";
+           status.redirect = true;
+        }
+        
+        // construct model for response template to render
+        model.verbose = verbose;
+        model.folder = folder; 
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the org/example folder using the breadcrumb trail.
+
+The component script file name `dir.get.js` adheres to the naming convention defined by the Web Script Framework. 
+
+Your Folder Listing example now comprises the following two component files:
+
+1.  `/org/example/dir.get.desc.xml`
+2.  `/org/example/dir.get.js`
+
+The Web Script Framework knows that both these files are related to the same web script, as they share web script 
+package, web script ID, and HTTP method.
+
 ### Parsing the web script URI
+
+A web script is invoked when a URI is requested that matches one of the URI templates defined by the web script. The 
+web script might need to access the requested URI to allow it to extract arguments that might have been passed in as 
+URI query parameters or embedded as values in the URI path.
+
+Your Folder Listing web script defines the following URI template with one URI-path token and one query parameter token: 
+`<uri>/dir/{folderpath}?verbose={verbose?}</uri>`
+
+To extract the values provided for the `{folderpath}` and `{verbose}` tokens, your Folder Listing controller script uses 
+the following JavaScript:
+
+```javascript
+...
+var verbose = (args.verbose == "true" ? true : false);
+var folderpath
+...
+```
+
+The `args` root object is a special object provided by the Web Script Framework to all controller scripts. 
+It represents a map of the URI query-parameter values indexed by their name. In this case, the controller script is 
+extracting the `verbose` query parameter. If the query parameter is not specified on the URI, the returned value is null.
+
+The `url.templateArgs` root object is another special object provided by the Web Script Framework. It represents a map 
+of all values provided for tokens in the URI path, indexed by token name. In this case, the controller script is 
+extracting the value for the `folderpath` token. URI-path values are never null.
+
+Imagine a client has made the following URI request: `/dir/Company%20Home?verbose=true`
+
+The resulting value of `verbose` is true and the value of `folderpath` is `Company Home`.
+
 ### Calling services
+
+Controller scripts have access to services provided by Alfresco Content Services. This allows a web script to query or 
+perform operations against content residing in the repository. Services are exposed as root objects and each service 
+provides its own API to program against.
+
+Your Folder Listing web script needs to retrieve the folder value provided on the URI, identified by the 
+`{folderpath}` token:
+
+```javascript
+...
+var folder = roothome.childByNamePath(folderpath);
+...
+```
+
+The `roothome` root object is a special object provided by the Web Script Framework, which represents the root folder 
+in the repository. From this object, it is possible to navigate through the content repository folder hierarchy or find 
+sub-folders by name. Your controller script finds a sub-folder using the folder name provided in the URI.
+
+There are many other root objects available to controller templates.
+
 ### Constructing the model
+
+The controller script creates a model for subsequent rendering by a response template. A model is a map of values 
+indexed by their name, which can be read from and written to by the controller script.
+
+The Folder Listing web script adds the verbose flag and retrieved folder to the model:
+
+```javascript
+...
+model.verbose = verbose;
+model.folder = folder;
+...
+```
+
+The `model` root object is provided to the controller script by the Web Script Framework. All items added to the model 
+are available to the response template.
+
 ### Creating a response template
+
+The final stage of web script execution is to render a response back to the initiating client in an appropriate format 
+based on the client's preference. A response template written in FreeMarker is responsible for rendering each format 
+provided by the web script.
+
+The Folder Listing web script provides a response in HTML for rendering to a web browser, and one in JSON for consumption 
+by other clients. The response lists all the documents and folders contained within the folder retrieved by the 
+controller script as specified in the Folder Listing web script URL.
+
+1.  Log in to Alfresco Share:
+
+    1.  Open a web browser and enter the URL: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Click the Repository link in the Share header.
+
+3.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+4.  Create a web script response template for your Folder Listing example:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name for the web script in the Name field: `dir.get.html.ftl`
+    3.  Type the following in the content box:
+
+        ```xml
+        <html>
+          <head>
+            <title>Folder ${folder.displayPath}/${folder.name}</title>
+          </head>
+          <body>
+            <p>Alfresco ${server.edition} Edition v${server.version} : dir</p>
+            <p>Contents of folder ${folder.displayPath}/${folder.name}</p>
+            <table>
+            <#list folder.children as child>
+               <tr>
+                   <td><#if child.isContainer>d</#if></td>
+                   <#if verbose>
+                      <td>${child.properties.modifier}</td>
+                      <td><#if child.isDocument>
+                         ${child.properties.content.size}</#if></td>
+                      <td>${child.properties.modified?date}</td>
+                   </#if>
+                   <td>${child.name}</td>
+               </tr>
+            </#list>
+            </table>
+          </body>
+        </html>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate to the org/example folder using the breadcrumb trail.
+
+    The component script file name`dir.get.html.ftl`, adheres to the naming convention defined by the Web Script Framework. All response template file names must end with `.ftl`. The `<web script id>` identifies the web script and must be the same as the web script ID defined in the file name of the associated web script description document. The `<http method>` specifies which HTTP method will initiate the web script and again must be the same as the associated web script description document. The format rendered by the response template is represented by `<format>`, the Web Script Framework abbreviation for a MIME type.
+
+Your Folder Listing example now has the following three component files:
+
+1.  `/org/example/dir.get.desc.xml`
+2.  `/org/example/dir.get.js`
+3.  `/org/example/dir.get.html.ftl`
+
+The Web Script Framework knows that all of these files are related to the same web script as they share web script 
+package, web script ID, and HTTP method.
+
 #### Accessing the model
+
+Response templates have access to the model created by the controller script. Each named value added to the model is 
+accessible as a template root object by its respective model name.
+
+Your Folder Listing controller script placed two values into the model: one named folder, a folder object, and the 
+other named verbose, a boolean. Your response template uses these two values to drive the rendered output on the response:
+
+```xml
+...
+Contents of folder ${folder.displayPath}/${folder.name}
+. . .
+<#list folder.children as child>
+. . .
+<#if verbose>
+. . .
+</#if>
+</#list>
+...
+```
+
+The `folder` object renders properties of the folder and iterates through its children while the `verbose` flag 
+determines if extra detail should be output.
+
 #### Accessing services
+
+As well as model root objects, response templates have access to services provided by the Alfresco Content Services 
+server, allowing a response template to directly query or navigate parts of the repository or access the context within 
+which the web script is executing, such as the currently authenticated user.
+
+Although response templates can perform their own logic, this should not be encouraged. It is better to implement 
+web script logic in controller scripts, allowing the response template to focus only on rendering the output. 
+This allows the easy creation of multiple response templates, as logic does not have to be duplicated in each. 
+It also means logic is encapsulated in one place, so changes to logic are centralized.
+
+The Folder Listing web script first renders details about the server:
+
+`Alfresco ${server.edition} Edition v${server.version} : dir`
+
+The `server` root object is a special object provided by the Web Script Framework, which represents the server within 
+which the web script is executing. In this case, the response template simply accesses properties of the server.
+
+There are many other root objects available to response templates.
+
 ### Registering and testing web scripts
+
+The web script index provides some administration of web scripts, in particular, for those developers creating new web scripts.
+
+With a complete Folder Listing web script implementation, you can register and test your web script.
+
+1.  Register the web script with Alfresco Content Services:
+
+    1.  In your browser, enter: `http://localhost:8080/alfresco/service/index`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Click **Refresh Web Scripts** on the Web Scripts Home page.
+
+    The Web Script Framework find all web scripts and registers them with Alfresco Content Services. When there is a problem registering a web script, the index provides a list of web scripts that failed registration along with the reason for the failure.
+
+3.  Perform your first test:
+
+    1.  In your browser, enter: `http://localhost:8080/alfresco/service/dir/Company%20Home`
+    2.  If you see the contents of the Company Home folder listed, your web script is working.
+
+4.  Check the verbose flag:
+
+    1.  In your browser, enter: `http://localhost:8080/alfresco/service/dir/Company%20Home?verbose=true`
+    2.  If you see the contents of the Company Home folder listed in verbose form, your web script is working.
+
+5.  Check the error handling of a folder that does not exist:
+
+    1.  In your browser, enter: `http://localhost:8080/alfresco/service/dir/doesnotexist`
+    2.  If you see an error page detailing a 404 status response, your web script is working.
+
+    When testing status response codes, it is useful to test with the cURL client to access to the status code sent on the HTTP response. For example, to repeat the 'folder does not exist' test with cURL, type the following in your command line:
+
+    `curl -uadmin:admin -v "http://localhost:8080/alfresco/service/dir/doesnotexist"`
+
+    The returned response is similar to the following where the 404 status code is explicitly logged:
+
+    ```text
+    * About to connect() to localhost port 8080 (#0)
+    *   Trying ::1... connected
+    * Connected to localhost (::1) port 8080 (#0)
+    * Server auth using Basic with user 'admin'
+    > GET /alfresco/service/dir/doesnotexist HTTP/1.1
+    > Authorization: Basic YWRtaW46YWRtaW4=
+    > Host: localhost:8080
+    > Accept: */*
+    > 
+    < HTTP/1.1 404 Not Found
+    < Server: Apache-Coyote/1.1
+    < Cache-Control: no-cache
+    < Pragma: no-cache
+    < Content-Type: text/html;charset=UTF-8
+    < Content-Length: 1487
+    < Date: Tue, 26 Jan 2010 10:28:28 GMT
+    ```
+
+You have registered and tested a web script implementation. Each time a web script component file is modified, you must 
+register the web script again by using the web script index page.
+
 ### Creating multiple response templates
+
+A web script can support multiple response formats to allow it to be used by a variety of clients. For example, it can 
+render an HTML response for human consumption in a web browser, and a JSON response for machine consumption by other clients.
+
+This task adds support for JSON to the Folder Listing web script, in addition to HTML.
+
+1.  Log in to Alfresco Share:
+
+    1.  In your browser, enter: `http://localhost:8080/share/`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Click on the Repository link in the Share header.
+
+3.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+4.  Create a JSON response template for your Folder Listing example:
+
+    1.  In the Create menu, select **Plain Text**.
+    2.  Enter the name for the web script in the Name field: `dir.get.json.ftl`
+    3.  Type the following in the content box:
+
+        ```json
+        { 
+          "server" : "Alfresco ${server.edition} Edition v${server.version}",
+          "folder" :
+          {
+            "path" : "${folder.displayPath}",
+            "name" : "${folder.name}" 
+          },
+          "children" : [
+            <#list folder.children as child>
+            {
+                "isfolder" : <#if child.isContainer>true<#else>false</#if>,
+                <#if verbose>
+                "modifier" : "${child.properties.modifier}",
+                "size" : <#if child.isDocument>
+                  ${child.properties.content.size?c}<#else>null</#if>,
+                "modified" : "${child.properties.modified?date}",
+                </#if>
+                "name" : "${child.name}"
+            }<#if child_has_next>,</#if>
+          </#list>
+          ]
+        }
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the `org/example` folder using the breadcrumb trail.
+
+5.  Register the web script again:
+
+    1.  In a new browser tab, enter: `http://localhost:8080/alfresco/service/index`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+    3.  Click **Refresh Web Scripts**. A message indicates all web scripts have refreshed.
+
+6.  Test your response template:
+
+    1.  Type the following in your command line:
+
+        `curl -uadmin:admin "http://localhost:8080/alfresco/service/dir/Company%20Home.json"`
+
+    2.  If you see the contents of the Company Home folder, your response template is working.
+
+    Each web script supports an unlimited number of response templates; however, there can only be one response template for each format. This is enforced by the naming convention for response templates. Your Folder Listing web script now supports two formats: HTML and JSON.
+
+7.  Type the following in your command line to request the contents of a folder that does not exist in JSON format:
+
+    `curl -uadmin:admin "http://localhost:8080/alfresco/service/dir/doesnotexist.json"`
+
+    The web script responds with an error response, but in JSON format, as the client requested.
+
+    >**Note:** Whenever you change a web script implementation, including adding and removing response templates, you must re-register the web script by using the web script index.
+
 #### Adding a response status code template
+
+Response status code templates allow a web script to render a custom response for a given status code. This is useful 
+for providing unique information about a status code or to render a custom human readable interface. Your Folder Listing 
+web script returns a 404 (Not Found) status code if the requested folder to list does not exist in the content repository. 
+By default, the web script responds with a generic response that provides details about the status including its 
+descriptive message. This is useful for diagnosis but might not be consumable by the typical user of the web script. 
+You can add a custom response status code template that renders a human readable message when the folder cannot be found.
+
+1.  Log in to Alfresco Share:
+
+    1.  In your browser, enter: `http://localhost:8080/share`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Click on the Repository link in the Share header.
+
+3.  Navigate to **Data Dictionary > Web Scripts Extensions > org > example**.
+
+4.  Create the response status code template:
+
+    1.  In the Create menu, select `Plain Text`.
+    2.  Enter the name for the web script in the Name field: `dir.get.html.404.ftl`
+    3.  Type the following in the content box:
+
+        ```xml
+        <html>
+           <body>
+             <p>Alfresco ${server.edition} Edition v${server.version} : dir</p>
+             <p>Folder <b>${url.templateArgs.folderpath}</b> not found.</p>
+           </body>
+        </html>
+        ```
+
+    4.  Click **Create**.
+    5.  Navigate back to the folder org/example using the breadcrumb trail.
+
+5.  Test your response code template:
+
+    1.  Type the following in a new browser tab:
+
+        `http://localhost:8080/alfresco/service/dir/doesnotexist`
+
+    2.  If you see the custom message, your response status code template is working.
+
+    As with all web script component files, response status code template file names adhere to a naming convention as defined by the Web Script Framework.
+
+Response status code templates have access to the same root objects as normal web script response templates except the 
+default templates `<code>.ftl` and `status.ftl` only have access to the root objects `url`, `status`, `server`, and `date`.
+
+When developing web scripts, leave the implementation of response status code templates until the end as they are not 
+essential to their execution. You can test without custom response status code templates, as the Web Script Framework 
+will always eventually find the default template `status.ftl` in the root package.
+
+As with all other response templates, adding and removing a response status code template requires you to re-register 
+the web script.
+
 ### Debugging a controller script
+
+The Alfresco Content Services server provides a built-in JavaScript Debugger that can be applied to web scripts. It is 
+a useful tool for diagnosing the cause of issues and for stepping through the controller scripts of others to learn how 
+they have implemented capabilities and used services.
+
+When developing a web script, you might encounter an issue for which the solution is not obvious. In this case, it is 
+useful to step through the controller script code line by line to pinpoint the cause of the issue.
+
+>CAUTION: If you are running Alfresco Content Services on Microsoft Windows as a Service then the debugger might not display. A work around is to start Alfresco Content Services from the command line for debugging purposes.
+
+1.  Log in:
+
+    1.  In your browser, enter: `http://localhost:8080/alfresco/service/index`
+    2.  If prompted, log in with the user name `admin` and password `admin`.
+
+2.  Enable the JavaScript Debugger:
+
+    1.  Click **Refresh Web Scripts** on the Web Scripts Home page to ensure the Web Script Framework has cleared its caches.
+    2.  Click **List Web Scripts.**
+    3.  Click **JavaScript Debugger**.
+    4.  Click **Enable** to launch the **JavaScript Debugger**in a separate window.
+
+3.  Invoke your web script:
+
+    1.  In your browser, enter: `http://localhost:8080/alfresco/service/dir/Company%20Home`
+    2.  Log in if required using user name `admin` and password `admin`.
+    3.  If you see your web script's controller script inside the JavaScript Debugger window, you are ready to debug.
+
+4.  Debug the controller script:
+
+    1.  Click **Step Over** in the JavaScript Debugger to execute the currently highlighted line.
+    2.  Interrogate the value of the verbose variable by typing `verbose` in the Expression window of the JavaScript Debugger.
+    3.  Interrogate the value of the `{folderpath}` token by typing `url.templateArgs.folderpath` in the Expression window of the JavaScript Debugger.
+
+5.  Continue web script execution:
+
+    1.  Click **Go** in the JavaScript Debugger.
+    2.  If you see the output of your web script in the web browser, you have successfully used the JavaScript Debugger.
+
 ## Creating a Folder Listing Java-backed web script
+
+
 ### Creating the scripted components of a Folder Listing web script
 ### Developing a controller for a Folder Listing Java-backed web script
 ### Parsing the URI
