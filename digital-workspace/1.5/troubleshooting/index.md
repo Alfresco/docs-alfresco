@@ -6,7 +6,7 @@ Here are the answers to some frequently asked questions.
 
 ### When attempting to login a problem with CORS is reported
 
-Refer to [Cross Origin Resource Sharing (CORS) filters](LINK) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/){:target="_blank"}.
+Refer to [Cross Origin Resource Sharing (CORS) filters]({% link content-services/latest/config/repository.md %}#cors-configuration) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/){:target="_blank"}.
 
 ### Can I customize Alfresco Digital Workspace
 
@@ -41,8 +41,8 @@ Alfresco Digital Workspace supports the following Evergreen browsers:
 
 ### Is Single Sign-On (SSO) supported with Alfresco Digital Workspace
 
-Yes, Digital Workspace supports Single Sign-On with the Identity Service. See [Alfresco SSO Guide LINK](https://docs.alfresco.com/sso/concepts/intro.html) for more details.
+Yes, Digital Workspace supports Single Sign-On with the Identity Service. See [Alfresco SSO Guide]({% link identity-service/latest/tutorial/sso/index.md %}) for more details.
 
 Alfresco Digital Workspace does not support SAML Single Sign-On (SSO) for Alfresco Content Services. Users can login with their credentials using basic authentication, but SAML authentication must not be enforced.
 
-See [SAML Single Sign-On (SSO) for Alfresco Content Services LINK](https://docs.alfresco.com/saml/concepts/saml-overview.html) and [Configuring SAML (SSO) settings for REST API using the Admin Console LINK](http://docs.alfresco.com/saml/tasks/saml-restapi-console.html) for more.
+See [SAML Single Sign-On (SSO) Module for Alfresco Content Services]({% link saml-module/latest/index.md %}) for more information.
