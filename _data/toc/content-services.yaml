@@ -151,6 +151,8 @@
             path: '/content-services/latest/develop/repo-ext-points/admin-console-components/'
         - title: 'Platform extension tutorials'
           pages:
+          - title: 'Creating a Platform Extension Project'
+            path: '/content-services/latest/develop/repo-ext-points/tutorials/creating-sdk-project/'
           - title: 'Content model tutorials'
             path: '/content-services/latest/develop/repo-ext-points/tutorials/content-model-tutorials/'
           - title: 'Web Script tutorials'
@@ -199,6 +201,12 @@
             path: '/content-services/latest/develop/share-ext-points/form-field-validation-handlers/'
           - title: 'Modifying out-of-the-box code'
             path: '/content-services/latest/develop/share-ext-points/modify-ootb-code/'
+        - title: 'Share UI extension tutorials'
+          pages:
+          - title: 'Creating a Share Extension Project'
+            path: '/content-services/latest/develop/share-ext-points/tutorials/creating-sdk-project/'
+          - title: 'Page tutorials'
+            path: '/content-services/latest/develop/share-ext-points/tutorials/page-tutorials/'
         - title: 'Useful Tools'
           pages:
           - title: 'SurfBug'
