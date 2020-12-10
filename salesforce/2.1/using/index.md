@@ -33,6 +33,7 @@ The Alfresco app can be added to any record type that supports layouts (for exam
     File actions include **Download**, **View in Browser**, and **Remove Association** if a file or folder has been linked with the record. See [Linking Alfresco content with a Salesforce record](#linkingrecord) for more information about linking content with records.
 
     >**Note:** You can also delete content that you have created or have permission to delete.
+
     >**Note:** While you are editing a file, associated files are not visible. After you have checked the file in, any file associations are then shown.
 
     ![View of Alfresco in a record]({% link salesforce/images/salesforce-record-files.png %})

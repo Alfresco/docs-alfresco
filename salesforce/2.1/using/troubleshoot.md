@@ -101,12 +101,6 @@ Firefox introduced a new feature called [Tracking Protection](https://support.mo
 
 To resolve this issue, disable the Tracking Protection in the Firefox browser settings. Alternatively, use a different browser, such as Chrome or Internet Explorer.
 
-## Comments made outside a site in Alfresco show @@NULL@@ in My Activities dashlet
-<!--THIS IS OLD!-->
-This is a known issue with Alfresco One 5.0.4 and Alfresco One 5.1.1.
-
-If comments are added to a document outside of a site (including My Files, Shared Files, and Repository) or through the Salesforce Connector, it results in an activity entry that a comment was added, updated, or deleted in a site with the name of `@@NULL@@@`.
-
 ## Using the Canvas App Component directly in the Lightning UI
 
 The Canvas app is not correctly configured if you attempt to either:
@@ -116,10 +110,10 @@ The Canvas app is not correctly configured if you attempt to either:
 
 To resolve this issue, remove the canvas app from the Classic UI page layout and follow the instructions to [Set up the App for use in Lightning]({% link salesforce/2.1/install/index.md %}#addappusinglightningcomponent).
 
-## "Oops, there was an error rendering Canvas application..."
+## Receive error message about rendering Canvas application
 
 ```text
 Oops, there was an error rendering Canvas application [Alfresco_for_Salesforce].Canvas can not locate an installed canvas app with the namespace [] and API name [Alfresco_for_Salesforce].
 ```
 
-To resolve this, The Canvas app is not correctly configured if you attempt to:
+To resolve this, the Canvas app is not correctly configured.

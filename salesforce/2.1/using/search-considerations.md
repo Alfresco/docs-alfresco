@@ -18,8 +18,7 @@ You can search:
 
     If metadata synchronization is enabled, this synchronization happens when a user views a Salesforce record that contains the Alfresco canvas app. The app checks whether a folder for that record exists in Alfresco, and creates a new folder if it does not exist. The app then adds the mapped property values from the Salesforce record to the parent record folder in Alfresco.  If a user searches for that metadata directly in Alfresco (for example, using the Share application), the results are returned successfully.
 
-There is certain content, and associated metadata, that you might want only certain users to see; for example, Human Resources (HR) personnel data. Use a private site for this record type. 
-See [Creating sites](TODO_LINK:https://docs.alfresco.com/6.2/concepts/sites-intro.html) for more information about the different site types.
+There is certain content, and associated metadata, that you might want only certain users to see; for example, Human Resources (HR) personnel data. Use a private site for this record type. See [Creating sites](TODO_LINK:https://docs.alfresco.com/6.2/concepts/sites-intro.html) for more information about the different site types.
 
 You can map an specific object (and therefore all records associated with that object) to a named site in Share.
 See part 4 of [Step 6: Adding the Alfresco app in Salesforce]({% link salesforce/2.1/install/index.md %}#addappusinglightningcomponent)

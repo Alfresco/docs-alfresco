@@ -2,7 +2,7 @@
 title: Install Salesforce Connector
 ---
 
-You now have a choice of selecting your organization's user interface experience: Salesforce Classic UI or the new
+You have a choice of selecting your organization's user interface experience: Salesforce Classic UI or the
 Salesforce Lightning UI.
 
 The Lightning Experience offers a more streamlined user experience by providing tools to create components that are
@@ -63,9 +63,9 @@ See [Prerequisites for using Salesforce Connector](#prerequisites) for more info
 
 5. Restart the Alfresco server.
 
-6. If you are running Alfresco One 5.1 or later, check for any `Aikau * Module Config.xml` files, and delete them.
+6. Check for any `Aikau * Module Config.xml` files, and delete them.
 
-    Use the Node Browser (`http://host:port/alfresco/s/enterprise/admin/admin-nodebrowser` for Alfresco One 5.0 and `http://host:port/alfresco/s/admin/admin-nodebrowser` for Alfresco One 5.1) using this `xpath`:
+    Use the Node Browser (`http://host:port/alfresco/s/enterprise/admin/admin-nodebrowser`) using this `xpath`:
 
     ```text
     /app:company_home/st:sites/cm:surf-config/cm:module-deployments
@@ -296,8 +296,6 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
     ![salesforce_admin_tab]({% link salesforce/images/salesforce_admin_tab.png %})
 
     The **Site to Object Mapping** and **Metadata Mapping** tabs set where Salesforce puts content in Alfresco.
-
-    >**Note:** Metadata mapping is available with Alfresco One 5.1 and later versions only.
 
     It can take a little while for Alfresco to load the first time you log in, or after an Alfresco server restart.
 
@@ -532,8 +530,6 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
     ![salesforce_admin_tab]({% link salesforce/images/salesforce_admin_tab.png %})
 
     The **Site to Object Mapping** and **Metadata Mapping** tabs set where Salesforce puts content in Alfresco.
-
-    >**Note:** Metadata mapping is available with Alfresco One 5.1 and later versions only.
 
     It can take a little while for Alfresco to load the first time you first log in, or after an Alfresco server restart.
 
