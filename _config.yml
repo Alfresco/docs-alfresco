@@ -135,11 +135,16 @@ defaults:
       support: true
       versions:
         - 2.2
+        - 2.1
   - scope:
       path: "salesforce/latest"
     values:
       version: 2.2
       latest: true
+  - scope:
+      path: "salesforce/2.1"
+    values:
+      version: 2.1
 
 # Alfresco Identity Service
   - scope:
