@@ -5,10 +5,7 @@ title: Manage content permissions
 Alfresco Content Services permissions are replicated on the desktop for files and folders that have been synchronized, 
 ensuring that users are not able to edit files offline as well as on the server.
 
-A role, as set in Alfresco, will determine what you can do to the files and folders. 
-Each role in Alfresco has a default set of permissions. 
-See [User roles and permissions](TODO_LINK:https://docs.alfresco.com/6.0/references/permissions_share.html) 
-for more information about roles.
+A role, as set in Alfresco, will determine what you can do to the files and folders. Each role in Alfresco has a default set of permissions. See [User roles and permissions]({% link content-services/latest/using/permissions.md %}) for more information about roles.
 
 The roles are replicated on the desktop as follows:
 
