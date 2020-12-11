@@ -33,6 +33,8 @@
               path: '/process-automation/latest/model/connectors/email/'
             - title: 'REST'
               path: '/process-automation/latest/model/connectors/rest/'
+            - title: 'Database'
+              path: '/process-automation/latest/model/connectors/database/'
             - title: 'Amazon Web Services'
               path: '/process-automation/latest/model/connectors/aws/'
             - title: 'Slack'
