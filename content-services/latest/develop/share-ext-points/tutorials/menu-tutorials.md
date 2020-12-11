@@ -45,7 +45,7 @@ Tutorial implementation steps:
 
 1.  Identify what Aikau widgets that are used to produce the content that should be customized (that is, the Share Header with the Main Menu).
 
-    For this we use the *Developer View* in Share. To enable it select the **Debug Menu | Toggle Developer View** menu item from the top main menu. The Share UI should change so you see red boxes around Aikau widgets:
+    For this we use the *Developer View* in Share. To enable it select the **Debug Menu > Toggle Developer View** menu item from the top main menu. The Share UI should change so you see red boxes around Aikau widgets:
 
     ![dev-extensions-share-tutorials-customize-header-style-developer-view]({% link content-services/images/dev-extensions-share-tutorials-customize-header-style-developer-view.png %})
 

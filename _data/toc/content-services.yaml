@@ -209,6 +209,8 @@
             path: '/content-services/latest/develop/share-ext-points/tutorials/menu-tutorials/'
           - title: 'Page tutorials'
             path: '/content-services/latest/develop/share-ext-points/tutorials/page-tutorials/'
+          - title: 'Document Library tutorials'
+            path: '/content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials/'
         - title: 'Useful Tools'
           pages:
           - title: 'SurfBug'
