@@ -205,6 +205,8 @@
           pages:
           - title: 'Creating a Share Extension Project'
             path: '/content-services/latest/develop/share-ext-points/tutorials/creating-sdk-project/'
+          - title: 'Menu tutorials'
+            path: '/content-services/latest/develop/share-ext-points/tutorials/menu-tutorials/'
           - title: 'Page tutorials'
             path: '/content-services/latest/develop/share-ext-points/tutorials/page-tutorials/'
         - title: 'Useful Tools'
