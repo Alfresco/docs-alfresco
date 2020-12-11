@@ -16,7 +16,7 @@ All database connectors are displayed on the process diagram with their respecti
 
 ## MariaDB
 
-The [MariaDB](https://mariadb.org/){:target=_"_blank"} connector has four actions it can execute: **INSERT**, **UPDATE**, **DELETE** and **SELECT**.
+The [MariaDB](https://mariadb.org/){:target="_blank"} connector has four actions it can execute: **INSERT**, **UPDATE**, **DELETE** and **SELECT**.
 
 ### MariaDB insert
 
@@ -198,7 +198,7 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 
 ## Oracle
 
-The [Oracle](https://www.oracle.com/index.html){:target=_"_blank"} connector has four actions it can execute: **INSERT**, **UPDATE**, **DELETE** and **SELECT**.
+The [Oracle](https://www.oracle.com/index.html){:target="_blank"} connector has four actions it can execute: **INSERT**, **UPDATE**, **DELETE** and **SELECT**.
 
 ### Oracle insert
 
@@ -380,7 +380,7 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 
 ## PostgreSQL
 
-The [PostgreSQL](https://www.postgresql.org/){:target=_"_blank"} connector has four actions it can execute: **INSERT**, **UPDATE**, **DELETE** and **SELECT**.
+The [PostgreSQL](https://www.postgresql.org/){:target="_blank"} connector has four actions it can execute: **INSERT**, **UPDATE**, **DELETE** and **SELECT**.
 
 ### PostgreSQL insert
 
