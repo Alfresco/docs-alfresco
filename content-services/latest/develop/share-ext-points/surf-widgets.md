@@ -219,7 +219,7 @@ hello.world.dashletTitle=Hello World
 hello.world.buttonLabel=Click Me!
 ```
 
-## Customizing Surf Widget instantiation
+## Customizing Surf Widget instantiation {#customizesurfwidgetinit}
 
 Use this information to understand the mechanisms behind customizing widget instantiation. It is possible to customize 
 any part of Share by making changes to the Surf libraries and Share web scripts.

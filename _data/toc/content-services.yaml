@@ -215,6 +215,10 @@
             path: '/content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials/'
           - title: 'Styling the Share UI'
             path: '/content-services/latest/develop/share-ext-points/tutorials/styling-tutorials/'
+          - title: 'Adding AMD packages (Aikau)'
+            path: '/content-services/latest/develop/share-ext-points/tutorials/adding-amd-packages/'
+          - title: 'Client Debug Mode'
+            path: '/content-services/latest/develop/share-ext-points/tutorials/client-debug-mode/'
         - title: 'Useful Tools'
           pages:
           - title: 'SurfBug'
@@ -237,3 +241,5 @@
             path: '/content-services/latest/develop/reference/share-document-library-ref/'
           - title: 'Repository JavaScript root objects'
             path: '/content-services/latest/develop/reference/repo-root-objects-ref/'
+          - title: 'Introduction to Aikau'
+            path: '/content-services/latest/develop/reference/aikau-intro-ref/'
