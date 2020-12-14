@@ -1589,3 +1589,4 @@ Tutorial implementation steps:
 
 10. In Share, navigate to a Document Library within a Site. Changing the Document Filter (for example changing the view) will result in a pop up displaying the "Filter Changed!" message.
 
+ 

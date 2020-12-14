@@ -153,9 +153,9 @@
           pages:
           - title: 'Creating a Platform Extension Project'
             path: '/content-services/latest/develop/repo-ext-points/tutorials/creating-sdk-project/'
-          - title: 'Content model tutorials'
+          - title: 'Creating Content Models'
             path: '/content-services/latest/develop/repo-ext-points/tutorials/content-model-tutorials/'
-          - title: 'Web Script tutorials'
+          - title: 'Creating Web Scripts'
             path: '/content-services/latest/develop/repo-ext-points/tutorials/web-script-tutorials/'
         - title: 'Share UI extension points'
           pages:
@@ -205,12 +205,14 @@
           pages:
           - title: 'Creating a Share Extension Project'
             path: '/content-services/latest/develop/share-ext-points/tutorials/creating-sdk-project/'
-          - title: 'Menu tutorials'
+          - title: 'Changing the Share Header (menu + title)'
             path: '/content-services/latest/develop/share-ext-points/tutorials/menu-tutorials/'
-          - title: 'Page tutorials'
+          - title: 'Creating and changing pages'
             path: '/content-services/latest/develop/share-ext-points/tutorials/page-tutorials/'
-          - title: 'Document Library tutorials'
+          - title: 'Creating DocLib actions and metadata templates'
             path: '/content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials/'
+          - title: 'Conditional Rendering (Evaluators)'
+            path: '/content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials/'
         - title: 'Useful Tools'
           pages:
           - title: 'SurfBug'
