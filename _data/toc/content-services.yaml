@@ -213,6 +213,8 @@
             path: '/content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials/'
           - title: 'Conditional Rendering (Evaluators)'
             path: '/content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials/'
+          - title: 'Styling the Share UI'
+            path: '/content-services/latest/develop/share-ext-points/tutorials/styling-tutorials/'
         - title: 'Useful Tools'
           pages:
           - title: 'SurfBug'
