@@ -1184,8 +1184,317 @@ field name.
 
 ## Upload a file with custom type
 
+Uploading a file with a custom type to the Repository means creating a node with a type other than `cm:content`.
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/createNode](http://localhost:8080/api-explorer/#!/nodes/createNode){:target="_blank"}
+
+**See also:**
+
+* [How to update metadata](#updatemetadatanode) 
+* [How to add aspects](#addaspectnode)
+* [How to manage associations (contains examples of uploading files)](#workingwithrelbetweennodes)
+
+In the last section we saw how to upload a file and set an out-of-the-box content type (i.e. `cm:content`). Another common 
+scenario is to upload a file and set a custom content type. To demonstrate this we need to first apply a custom content 
+model to the Repository.
+
+### The following steps show how to create a custom content model that can be deployed to ACS
+
+1.  Describe the custom content model with XML
+
+    Let’s use the following content model, which defines the custom type `acme:document`:
+    
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <model name="acme:contentModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+       <description>Sample Document Model</description>
+       <author>My Name</author>
+       <version>1.0</version>
+    
+       <imports>
+           <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+           <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+           <import uri="http://www.alfresco.org/model/system/1.0" prefix="sys"/>
+       </imports>
+    
+       <namespaces>
+           <namespace uri="http://www.acme.org/model/content/1.0" prefix="acme"/>
+       </namespaces>
+    
+       <constraints>
+           <constraint name="acme:securityClassificationOptions" type="LIST">
+               <parameter name="allowedValues">
+                   <list>
+                       <value></value>
+                       <value>Public</value>
+                       <value>Client Confidential</value>
+                       <value>Company Confidential</value>
+                       <value>Strictly Confidential</value>
+                   </list>
+               </parameter>
+           </constraint>
+       </constraints>
+    
+       <types>
+           <type name="acme:document">
+               <title>Sample Document Type</title>
+               <parent>cm:content</parent>
+               <properties>
+                   <property name="acme:documentId">
+                       <title>Document Identification Number</title>
+                       <type>d:text</type>
+                   </property>
+               </properties>
+               <mandatory-aspects>
+                   <aspect>acme:securityClassified</aspect>
+               </mandatory-aspects>
+           </type>
+       </types>
+    
+       <aspects>
+           <aspect name="acme:securityClassified">
+               <title>ACME Security Classified</title>
+               <description>Content has been security classified</description>
+               <properties>
+                   <property name="acme:securityClassification">
+                       <type>d:text</type>
+                       <index enabled="true">
+                           <atomic>true</atomic>
+                           <stored>false</stored>
+                           <tokenised>false</tokenised>
+                       </index>
+                       <constraints>
+                           <constraint ref="acme:securityClassificationOptions"/>
+                       </constraints>
+                   </property>
+               </properties>
+           </aspect>
+       </aspects>
+    </model>
+    ```
+    
+    This model also has a custom aspect `acme:securityClassified`, so we can see how aspects can be applied at the same time as we set a custom content type. Store the XML in a file called, for example, `acme-content-model.xml`.
+
+2.  Create a file that bootstraps the content model
+
+    For the custom content model to be applied to the Repository we need to define a bootstrap file that points to the `acme-content-model.xml` file. Create a file called `acme-bootstrap-context.xml` with the following XML:
+    
+    ```xml
+    <?xml version='1.0' encoding='UTF-8'?>
+    <!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+    <beans>
+        <bean id="acme.extension.dictionaryBootstrap" 
+                parent="dictionaryModelBootstrap" 
+                depends-on="dictionaryBootstrap">
+            <property name="models">
+              <list>                
+                <value>alfresco/extension/acme-content-model.xml</value>
+              </list>
+            </property>
+        </bean>
+    </beans>
+    ```
+
+3.  Create a directory somewhere for Repository extension files and copy the files there
+
+    Now, copy both the `acme-content-model.xml` file and the `acme-bootstrap-context.xml` file into this new directory. This directory could also contain the `api-explorer.war` if you have applied it to your ACS installation.
+    
+    There are now two different ways of deploying this content model depending on if you are using an ACS Trial or an Alfresco SDK project.
+    
+    If you are using a trial version of ACS then you follow the first approach described below. If you are using the Alfresco SDK you would want to follow the second approach. The main difference between the two is that the first one will lead to loss of the data that you are working with as the ACS trial Docker Compose file does not use volumes (i.e. it does not store data externally but instead inside the container).
+
+### Installing the custom content model into an ACS Trial environment 
+
+>**IMPORTANT!** you will lose your data/content when you do this
+
+1.  Create a `Dockerfile` for the new custom Repository Docker Image
+
+    As a developer you are most likely running ACS 6.x via a Docker Compose file, either via trial or SDK. The `Dockerfile` will be based on the Repository Image that is used in the `docker-compose.xml` file. Have a look in it and you should see that it starts with defining the Alfresco Repository Docker image:
+    
+    ```text
+    version: "2"
+    
+    services:
+        alfresco:
+            image: alfresco/alfresco-content-repository:6.1.0
+            ...
+    ```
+    
+    With this information we know what Docker Image to base our custom Repo Docker Image on. Create a `Dockerfile` in the same directory as the content model XML files and have it look like this:
+    
+    ```text
+    FROM alfresco/alfresco-content-repository:6.1.0
+      
+    ARG TOMCAT_DIR=/usr/local/tomcat
+    
+    # Make sure we got the ReST API Explorer available
+    COPY api-explorer.war $TOMCAT_DIR/webapps/
+    
+    # Copy in the custom content model for upload file example
+    COPY acme-content-model.xml acme-bootstrap-context.xml $TOMCAT_DIR/shared/classes/alfresco/extension/
+    ```
+    
+    What this `Dockerfile` will do is build a custom Repository Docker image that is based on the out-of-the-box Alfresco Repository Docker image that you are using. It will then copy in the `api-explorer.war` into the `tomcat/webapps` directory followed by a copy of the custom content model files into an extension directory where they can be picked up and bootstrapped.
+
+2.  Build the custom Alfresco Repository Docker image
+
+    When we got the Dockerfile completed we just need to build the custom Docker image as follows, standing in the directory with all the files:
+    
+    ```bash
+    repo mbergljung$ docker build -t alf-repo-custom:1.0 .
+    Sending build context to Docker daemon  954.4kB
+    Step 1/4 : FROM alfresco/alfresco-content-repository:6.1.0
+     ---> 5439a493ee0a
+    Step 2/4 : ARG TOMCAT_DIR=/usr/local/tomcat
+     ---> Using cache
+     ---> cf2a1261adf4
+    Step 3/4 : COPY api-explorer.war $TOMCAT_DIR/webapps/
+     ---> Using cache
+     ---> 52f10e1f00d6
+    Step 4/4 : COPY acme-content-model.xml acme-bootstrap-context.xml $TOMCAT_DIR/shared/classes/alfresco/extension/
+     ---> 1766782c545a
+    Successfully built 1766782c545a
+    Successfully tagged alf-repo-custom:1.0
+    ```
+    
+    Check that you got the custom Docker image:
+    
+    ```bash
+    repo mbergljung$ docker image ls |grep alf-
+    alf-repo-custom                                                  1.0                                          1766782c545a        About a minute ago   1.16GB
+    ```
+
+3.  Update the `docker-compose.xml` file to use the new custom image
+
+    Open up the `docker-compose.xml` file and change it so the Repository service is based on the custom Docker Image we just created. It should now look something like this:
+    
+    ```text
+    version: "2"
+    
+    services:
+        alfresco:
+            image: alf-repo-custom:1.0
+            ...
+    ```
+
+4.  Restart ACS
+
+    We have made changes only to the Repository container, also known as the **alfresco** Docker Compose service, but we need to remove and restart all containers so data is in sync (basically we are starting over with an empty repository). After we have created our own Docker Image for the Alfresco Repository container and configured Docker Compose with it we can restart as follows by doing **Ctrl-C** out of the log, this will stop all containers, we then remove them, followed by starting it up again:
+    
+    ```bash
+    ^CGracefully stopping... (press Ctrl+C again to force)
+    Stopping acs61_alfresco-pdf-renderer_1 ... done
+    ...
+    
+    acs61 mbergljung$ docker-compose rm 
+    Going to remove acs61_alfresco-pdf-renderer_1, acs61_transform-router_1, acs61_libreoffice_1, acs61_tika_1, acs61_imagemagick_1, acs61_proxy_1, acs61_share_1, acs61_postgres_1, acs61_digital-workspace_1, acs61_alfresco_1, acs61_activemq_1, acs61_solr6_1, acs61_shared-file-store_1
+    Are you sure? [yN] y
+    Removing acs61_alfresco-pdf-renderer_1 ... done
+    ...
+    
+    acs61 mbergljung$ docker-compose up 
+    Creating acs61_alfresco-pdf-renderer_1 ... done 
+    ...                     
+    ```
+
+### Installing the custom content model into an Alfresco SDK AIO project
+
+1.  Verify what content model that is currently defined in the SDK project
+
+    When you generate an Alfresco SDK project, such as an All-In-One (AIO) project, it comes with a predefined content model that already includes the `acme:document` type and the `acme:securityClassified` aspect. Look in the `aio/acs-aio-platform/src/main/resources/alfresco/module/acs-aio-platform/model/content-model.xml` file and check what is currently defined. If you see the type and the aspect, then you don't have to copy the files into the SDK project.
+
+2.  (**OPTIONAL**) Copy the content model files into the SDK project
+
+    Copy both the `acme-content-model.xml` file and the `acme-bootstrap-context.xml` file into the `aio/aio-platform-docker/src/main/docker` AIO SDK directory.
+
+3.  (**OPTIONAL**) Open up the platform/repository `Dockerfile` and add the command to copy the content model files into an `alfresco/extension` directory
+
+    The platform (repository) Docker file is located in the `aio/aio-platform-docker/src/main/docker` AIO SDK directory. Add the following COPY command at the end of this file:
+    
+    ```text
+    ...
+    
+    # Copy in the custom content model for upload file example
+    COPY acme-content-model.xml acme-bootstrap-context.xml $TOMCAT_DIR/shared/classes/alfresco/extension/
+    ```
+    
+    What this Dockerfile will do is build a custom Repository Docker image that is based on the out-of-the-box Alfresco Repository Docker image that you are using. After it has copied in all the extensions, config files, license etc it will finish by copying in the `acme-content-model.xml` and `acme-bootstrap-context.xml` files into the `tomcat/shared/classes/alfresco/extension` directory where it will be picked up and deployed.
+
+4.  (**OPTIONAL**) Restart the platform/repository container
+
+    We have changed only the platform/repository, so it is enough to just restart this container:
+    
+    ```bash
+    acs61-aio mbergljung$ ./run.sh reload_acs
+    Killing docker_acs61-aio-acs_1 ... done
+    Going to remove docker_acs61-aio-acs_1
+    Removing docker_acs61-aio-acs_1 ... done
+    ...
+    ```
+    
+    >**Note**. this does not remove any content or metadata.
+
+### Test uploading file and setting custom type
+
+We now got a custom content model applied with a custom content type called `acme:document`. We can use it when uploading 
+a file as follows:
+
+```bash
+$ curl -X POST -F filedata=@test.txt -F "name=somefile.txt" -F "nodeType=acme:document" -F "acme:documentId=DOC001" -F "aspectNames=acme:securityClassified" -F "acme:securityClassification=Public" -F "cm:title=My text" -F "cm:description=My custom text document description" -F "relativePath=My Custom Folder" -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1957  100   804  100  1153    761   1091  0:00:01  0:00:01 --:--:--  1853
+{
+  "entry": {
+    "isFile": true,
+    "createdByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "modifiedAt": "2019-09-09T07:38:55.060+0000",
+    "nodeType": "acme:document",
+    "content": {
+      "mimeType": "text/plain",
+      "mimeTypeName": "Plain Text",
+      "sizeInBytes": 34,
+      "encoding": "ISO-8859-1"
+    },
+    "parentId": "69470c63-ea8f-4a93-a408-673d5668e369",
+    "aspectNames": [
+      "cm:versionable",
+      "cm:titled",
+      "cm:auditable",
+      "acme:securityClassified",
+      "cm:author"
+    ],
+    "createdAt": "2019-09-09T07:38:55.060+0000",
+    "isFolder": false,
+    "modifiedByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "name": "somefile.txt",
+    "id": "d8f561cc-e208-4c63-a316-1ea3d3a4e10e",
+    "properties": {
+      "cm:title": "My text",
+      "acme:securityClassification": "Public",
+      "cm:versionType": "MAJOR",
+      "acme:documentId": "DOC001",
+      "cm:versionLabel": "1.0",
+      "cm:description": "My custom text document description"
+    }
+  }
+}
+```
+
+We can see that the custom content type (i.e. `acme:document`) has been set correctly, including the property it 
+contains (i.e. `acme:documentId`). At the same time we also show how to apply new aspects with the `aspectNames` field 
+(note that some aspects are set automatically when you upload a file, such as `cm:author`, `cm:auditable` etc). 
+So this call is quite powerful.
 
 ## Upload a new version of file
+
+
 ## Get file version history
 ## Download a file
 ## Download multiple files
