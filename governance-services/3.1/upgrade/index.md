@@ -4,8 +4,7 @@ title: Upgrade Governance Services
 
 To upgrade Governance Services you need to make sure you're running the correct version of Alfresco Content Services.
 
-Check the [Supported Platforms](TODO_LINK:http://docs.alfresco.com/6.2/concepts/supported-platforms-ACS.html) and 
-the [Alfresco Content Services upgrade paths](TODO_LINK:http://docs.alfresco.com/6.2/concepts/upgrade-path.html).
+Check the [Supported Platforms](TODO_LINK:http://docs.alfresco.com/6.2/concepts/supported-platforms-ACS.html) and the [Alfresco Content Services upgrade paths](TODO_LINK:http://docs.alfresco.com/6.2/concepts/upgrade-path.html).
 
 >**Note:** If upgrading directly from Alfresco Records Management 2.3.2 ensure you have created an 'rm' site first before upgrading. If you don't do this an error will occur.
 
@@ -36,26 +35,17 @@ When your Alfresco Content Services installation is upgraded, you can apply the 
 Your existing Records Management data is migrated to Alfresco Content Services.
 
 Any existing Records Management data is preserved when you upgrade from a previous version of Records Management  
-(it is 'patched' in the same way as updated data in the server). The {% include tooltip.html word="fileplan" text="File Plan" %} structures will appear as they did 
-in 1.0 and the previous Records Management site is migrated. Therefore, you do not need to create the Records Management site again.
+(it is 'patched' in the same way as updated data in the server). The {% include tooltip.html word="fileplan" text="File Plan" %} structures will appear as they did in 1.0 and the previous Records Management site is migrated. Therefore, you do not need to create the Records Management site again.
 
-From Records Management 2.0 onwards you cannot create a record series; instead you create a record category with 
-no {% include tooltip.html word="retentionschedule" text="retention schedule" %}. The record series is retained as a deprecated model construct to be used when migrating 
-existing record series from a 1.0 installation. This means that any previously created record series will appear and 
-behave as record categories in 2.2, but will be of the deprecated type record series (directly extended from record category). 
-If any custom data was defined for record series in 1.0, this will still appear in the Records Management site, 
-but only for the migrated record series.
+From Records Management 2.0 onwards you cannot create a record series; instead you create a record category with no {% include tooltip.html word="retentionschedule" text="retention schedule" %}. The record series is retained as a deprecated model construct to be used when migrating existing record series from a 1.0 installation. This means that any previously created record series will appear and behave as record categories in 2.2, but will be of the deprecated type record series (directly extended from record category). If any custom data was defined for record series in 1.0, this will still appear in the Records Management site, but only for the migrated record series.
 
 Note also that any pre-configured saved searches from your previous version are not available after an upgrade.
 
 ## Upgrading easy access records from pre-2.3.0.8 versions {#easy_access_upgrade}
 
-If you upgrade from a pre-2.3.0.8 version of Records Management, then an additional web script needs to be run so that 
-easy access records (previously known as in-place records) created in pre-2.3.0.8 sites are shown in the search results 
-of users without Records Management permissions.
+If you upgrade from a pre-2.3.0.8 version of Records Management, then an additional web script needs to be run so that easy access records (previously known as in-place records) created in pre-2.3.0.8 sites are shown in the search results of users without Records Management permissions.
 
-It can be run as a one-off operation to convert all existing records or, for better performance on larger repositories, 
-it can also be run on a user-defined number of records.
+It can be run as a one-off operation to convert all existing records or, for better performance on larger repositories, it can also be run on a user-defined number of records.
 
 >**Note:** Easy access records created on Records Management 2.3.0.8 and later are shown without running the web script.
 
@@ -97,4 +87,3 @@ You need Alfresco Administrator permissions to run the web script.
     2016-09-16 13:46:47,238 INFO  [org.alfresco.repo.web.scripts.roles.DynamicAuthoritiesGet] [http-apr-8080-exec-6] Processing - END
     2016-09-16 13:46:47,238 INFO  [org.alfresco.repo.web.scripts.roles.DynamicAuthoritiesGet] [http-apr-8080-exec-6] Processed first 100 records.
     ```
-

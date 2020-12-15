@@ -8,8 +8,7 @@ Use the information on this page to configure Governance Services.
 
 Use this information to understand the `alfresco-global.properties` properties related to the Governance Services.
 
-Properties for the Governance Services are listed in the `<configRoot>/classes/alfresco/module/org_alfresco_module_rm/alfresco-global.properties` 
-file. 
+Properties for the Governance Services are listed in the `<configRoot>/classes/alfresco/module/org_alfresco_module_rm/alfresco-global.properties` file.
 
 For example:
 
@@ -71,11 +70,11 @@ You can set the end date of the financial year and the end of the financial quar
 
 2. Copy the `alfresco-repository-xxx.jar` to `<temp-dir>/alfresco-repository-xxx.zip` and extract the contents
 
-2. From the extracted ZIP file copy `alfresco/period-type-context.xml` to `<TOMCAT_HOME>/shared/classes/alfresco/extension`.
+3. From the extracted ZIP file copy `alfresco/period-type-context.xml` to `<TOMCAT_HOME>/shared/classes/alfresco/extension`.
 
-3. Rename the file to `custom-period-type-context.xml`.
+4. Rename the file to `custom-period-type-context.xml`.
 
-4. Change all the `value` properties to suit the dates of your financial year.
+5. Change all the `value` properties to suit the dates of your financial year.
 
     For example, the following would customize your system to start the financial year in October.
 
@@ -106,6 +105,6 @@ You can set the end date of the financial year and the end of the financial quar
     </bean>
     ```
 
-5. Restart the server.
+6. Restart the server.
 
-6. (Optional) If you change your financial periods this does not update any previously set calculated schedules and you will need to edit all {% include tooltip.html word="retentionschedule" text="retention schedule" %}s to ensure the new period start date is used. See [Editing a retention schedule]({% link governance-services/community/using/retention-schedules.md %}#editing-a-retention-schedule).  
+7. (Optional) If you change your financial periods this does not update any previously set calculated schedules and you will need to edit all {% include tooltip.html word="retentionschedule" text="retention schedule" %}s to ensure the new period start date is used. See [Editing a retention schedule]({% link governance-services/community/using/retention-schedules.md %}#editing-a-retention-schedule).  

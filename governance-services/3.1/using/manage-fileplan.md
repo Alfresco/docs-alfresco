@@ -160,7 +160,6 @@ A hold allows objects on hold for a particular reason to be tracked as a set. Ho
 
     >**Note:** Records and folders remain on hold until they have been removed from all holds they're added to.
 
-
 The folder remains in its' place in the File Plan. It is also shown in the **Holds** area of the explorer panel.
 
 >**Note:** To remove a record folder from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**.
@@ -193,9 +192,7 @@ When you don't need a record folder any more you can delete it.
 
 There are various options available to help you manage record. These are available to users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %}.
 
-In the File Plan hover over a record to display the available actions. The standard actions available are shown. 
-Additional options are available dependant on the stage a record is at in the {% include tooltip.html word="retentionschedule" text="retention schedule" %}. 
-See the relevant topics for further details.
+In the File Plan hover over a record to display the available actions. The standard actions available are shown. Additional options are available dependant on the stage a record is at in the {% include tooltip.html word="retentionschedule" text="retention schedule" %}. See the relevant topics for further details.
 
 |Action|Select this to...|
 |------|-----------------|
@@ -253,7 +250,6 @@ This gives the effect of "duplicating" the record in another location, though th
     A link is created in the destination folder. All copies of the record display the ![Linked]({% link governance-services/images/ico-rm-linkedrecord.png %}){:height="18px" width="18px"} icon.
 
     >**Note:** Linked records won't move to the next retention step until the period for the current step has been completed in all retention schedules it falls under. So in effect they follow the retention schedule that has the longest period for a step.
-
 
 You can click **More** then **Unlink Record** against the record in the destination folder. This will remove the linked record from the destination folder.
 
@@ -355,12 +351,9 @@ If a record is subject to a record level retention schedule, you can review the 
 
 ### Processing records
 
-Retention steps are generally completed manually, though retain and cut off steps can be completed automatically 
-by a system process that is run daily. You can also set up a rule to complete steps automatically.
+Retention steps are generally completed manually, though retain and cut off steps can be completed automatically by a system process that is run daily. You can also set up a rule to complete steps automatically.
 
-If a retention step is complete (the time period is finished or the required {% include tooltip.html word="events" text="events" %} have been completed), 
-then additional options are available for folders or records, dependant on whether the {% include tooltip.html word="retentionschedule" text="retention schedule" %} 
-is set to folder or record level.
+If a retention step is complete (the time period is finished or the required {% include tooltip.html word="events" text="events" %} have been completed), then additional options are available for folders or records, dependant on whether the {% include tooltip.html word="retentionschedule" text="retention schedule" %} is set to folder or record level.
 
 If you apply an action to a folder then it will also be applied to all records within the folder.
 
@@ -382,21 +375,19 @@ See also video explaining [processing records]({% link governance-services/3.1/t
 
 ### Adding records to a hold {#addrecordstohold}
 
-Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can add records, and 
-record folders to a hold to freeze them. Holds prevent changes to on hold items, which have their retention schedules 
-suspended until the hold is removed.
+Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can add records, and record folders to a hold to freeze them. Holds prevent changes to on hold items, which have their retention schedules suspended until the hold is removed.
 
 >**Note:** When you add a folder to a hold, all records within the folder are also added to the hold. The records can't be removed from the hold individually, they can only be removed from the hold by removing the entire folder.
 
 >**Tip:** You can only put records on hold if holds have been created to add them to.
 
-1.  Hover over a record in the File Plan and click **More** then **Add to Hold**.
+1. Hover over a record in the File Plan and click **More** then **Add to Hold**.
 
     The Add to Hold screen displays.
 
     >**Note:** This option isn't available if no holds have been set up in the Holds area or you don't have permission to put records on the existing holds.
 
-2.  Select one or more holds and click **OK**.
+2. Select one or more holds and click **OK**.
 
     A message displays confirming that the record is on hold, and the record now displays the ![Frozen]({% link governance-services/images/ico-rm-frozen.png %}){:height="18px" width="18px"} icon.
 
@@ -434,23 +425,17 @@ You can create as many different holds as you want, which are represented as fol
 
 >**Tip:** Access the Holds area using the explorer panel to the left of the File Plan.
 
-In the Holds area there's a **New Hold** option which you use to set up your different hold types. Once you have a 
-list of different holds you can put [records](#addrecordstohold) 
-and [record folders](#addrecordfoldertohold) on as many of the different holds as required.
+In the Holds area there's a **New Hold** option which you use to set up your different hold types. Once you have a list of different holds you can put [records](#addrecordstohold) and [record folders](#addrecordfoldertohold) on as many of the different holds as required.
 
 You can also add records to a hold direct from the [Records Search]({% link governance-services/3.1/using/search-records.md %}#addsearchresults2holdRecordsSearch).
 
-When you add a folder to a hold, all records within the folder are also added to the hold. They'll stay on hold until 
-removed from the hold or the hold is deleted.
+When you add a folder to a hold, all records within the folder are also added to the hold. They'll stay on hold until removed from the hold or the hold is deleted.
 
-In the Holds area you can look through your Holds and when you go into a hold you can see the records that are on it. 
-The records aren't removed from the File Plan though. They retain their place in the File Plan with limited actions 
-available, and are identified as being on hold by the ![Frozen]({% link governance-services/images/ico-rm-frozen.png %}){:height="18px" width="18px"} icon.
+In the Holds area you can look through your Holds and when you go into a hold you can see the records that are on it. The records aren't removed from the File Plan though. They retain their place in the File Plan with limited actions available, and are identified as being on hold by the ![Frozen]({% link governance-services/images/ico-rm-frozen.png %}){:height="18px" width="18px"} icon.
 
 >**Note:** Only users with permissions to view a hold will see the ![Frozen]({% link governance-services/images/ico-rm-frozen.png %}){:height="18px" width="18px"} icon next to records in the File Plan that are on that hold. Users without permission to view the hold will see the record but have no indication that it is on a hold. This provides confidentially on record holds.
 
-You can use the **Manage Permissions** option to control which users can view, create, edit, and delete holds. 
-Users who don't have read permission for a specific hold will not receive any indication that records it contains are in that hold.
+You can use the **Manage Permissions** option to control which users can view, create, edit, and delete holds. Users who don't have read permission for a specific hold will not receive any indication that records it contains are in that hold.
 
 >**Tip:** You can hover over a hold and click **Generate Hold Report** to create a report on the hold. The report is filed as an incomplete record in your selected destination.
 

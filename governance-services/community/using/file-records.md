@@ -12,24 +12,19 @@ There are three ways that you can create records:
 
 >**Note:** You can also import folders, {% include tooltip.html word="category" text="categories" %}, and even entire File Plans, and any records that they contain, see [Exporting and importing File Plan content]({% link governance-services/community/using/manage-fileplan.md %}#exporting-and-importing-file-plan-content).
 
-Your Alfresco administrator can also set up your system so that emails to specified addresses are captured and stored 
-as records.
+Your Alfresco administrator can also set up your system so that emails to specified addresses are captured and stored as records.
 
-A record is not considered to be complete until all the required metadata has been added to it. 
-You select **Edit Metadata** to complete required metadata.
+A record is not considered to be complete until all the required metadata has been added to it. You select **Edit Metadata** to complete required metadata.
 
-In {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites you can also select to **Add Record Metadata** and associate 
-the file with a record type, so that when you edit metadata there is type-specific metadata to add.
+In {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites you can also select to **Add Record Metadata** and associate the file with a record type, so that when you edit metadata there is type-specific metadata to add.
 
-Once that's done you can select to **Complete Record** and it will be subject to the retention rules that apply to 
-the folder you've placed it in.
+Once that's done you can select to **Complete Record** and it will be subject to the retention rules that apply to the folder you've placed it in.
 
 >**Note:** When you set up a record category or folder you can specify that it will be used to hold **Vital Records**. A vital record must be reviewed on a periodic basis, as defined on the record category or folder.
 
 ## Filing an electronic record
 
-Electronic records are files that are uploaded to a records folder. Non-{% include tooltip.html word="electronicrecord" text="electronic records" %} might be paper files that 
-can be stored in a physical location.
+Electronic records are files that are uploaded to a records folder. Non-{% include tooltip.html word="electronicrecord" text="electronic records" %} might be paper files that can be stored in a physical location.
 
 1. In the record folder where you want to file a record click **File**.
 
@@ -39,8 +34,7 @@ can be stored in a physical location.
 
     >**Tip:** You can also select multiple items in the standard multi-select way.
 
-    The files are uploaded as record and display in the {% include tooltip.html word="fileplan" text="File Plan" %} as incomplete records. You need to make sure any 
-    required metadata is added before you can set records to {% include tooltip.html word="recordcompleted" text="complete" %}.
+    The files are uploaded as record and display in the {% include tooltip.html word="fileplan" text="File Plan" %} as incomplete records. You need to make sure any required metadata is added before you can set records to {% include tooltip.html word="recordcompleted" text="complete" %}.
 
 See also video explaining [filing an electronic record]({% link governance-services/community/tutorial/governance-services/index.md %}#file-a-record).
 
@@ -62,8 +56,7 @@ Non-electronic records might be paper files that can be stored in a physical loc
 
 ## Filing an unfiled record
 
-When you've declared a record from a non-Records Management site it's added to the **Unfiled Records** area. 
-You now need to add it to a records folder.
+When you've declared a record from a non-Records Management site it's added to the **Unfiled Records** area. You now need to add it to a records folder.
 
 1. Click the **Unfiled Records** area on the explorer panel on the left of the page.
 
@@ -85,8 +78,7 @@ See also video explaining [filing an unfiled record]({% link governance-services
 
 All records in the {% include tooltip.html word="fileplan" text="File Plan" %} have metadata, which you can think of as records properties.
 
-If you associate the record with a specific type by selecting the **Add Record Metadata** option then additional metadata 
-options are required for the record. You need to complete all the required metadata before you can set a record to {% include tooltip.html word="recordcompleted" text="complete" %}.
+If you associate the record with a specific type by selecting the **Add Record Metadata** option then additional metadata options are required for the record. You need to complete all the required metadata before you can set a record to {% include tooltip.html word="recordcompleted" text="complete" %}.
 
 The **Add Record Metadata** option is only available in {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites.
 
@@ -127,7 +119,7 @@ Before you can {% include tooltip.html word="recordcompleted" text="complete" %}
 
     The **Edit Metadata** page displays. The metadata fields you see on this page depend on the file type, and whether or not record types have been associated with the file. The metadata is divided into sections, with additional sections dependant on if a record type has been associated with the item.
 
-2. Enter the record metadata. 
+2. Enter the record metadata.
 
     If your Records Management system is {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant then every file includes the DOD5015 Record section, which is a default set of basic metadata fields. The default record metadata fields are:
 

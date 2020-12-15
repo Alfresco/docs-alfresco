@@ -4,10 +4,7 @@ title: Searching records
 
 You can use the Records Search to quickly search the {% include tooltip.html word="fileplan" text="File Plan" %} to find records, and save your search query to use again.
 
-You can either do a basic search, just searching for a term as you would in a search engine, or you can use the 
-advanced search functionality. There's lots of options available for you to set really specific searches that you 
-can use again and again. See [Advanced search options](#advanced-search-options) for more details on getting the most 
-out of the search tool.
+You can either do a basic search, just searching for a term as you would in a search engine, or you can use the advanced search functionality. There's lots of options available for you to set really specific searches that you can use again and again. See [Advanced search options](#advanced-search-options) for more details on getting the most out of the search tool.
 
 ## Accessing the Records Search
 
@@ -166,8 +163,7 @@ When you've run a search and are looking at the search results, you can select t
 
     The search you save will be available for all site members.
 
-The saved search displays in the **Saved Searches** menu on the Search page. The same list is available 
-in the explorer panel of the File Plan.
+The saved search displays in the **Saved Searches** menu on the Search page. The same list is available in the explorer panel of the File Plan.
 
 >**Note:** The saved search feature saves only the search query and not the results. This means that when you next use the saved search, you might get different results, depending on the activity in the Records Management system.
 
@@ -197,8 +193,7 @@ You can export search results as an Alfresco Content Package (ACP).
 
 ## Deleting a saved search
 
-You can delete any of your own saved searches, and if you have the required user permissions 
-you can also delete the default searches included with the Records Management site.
+You can delete any of your own saved searches, and if you have the required user permissions you can also delete the default searches included with the Records Management site.
 
 1. Click the **Saved Searches** menu on the **Search** page to view the available search queries.
 
@@ -212,18 +207,15 @@ you can also delete the default searches included with the Records Management si
 
 ## Adding search results to a hold {#addsearchresults2holdRecordsSearch}
 
-Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can add records and folders 
-to a hold. A hold allows objects on hold for a particular reason to be tracked as a set. Holds prevent changes to on 
-hold objects, which have their retention schedules suspended until the hold is removed. When you add a folder to a hold, 
-all records within the folder are also added to the hold.
+Users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %} can add records and folders to a hold. A hold allows objects on hold for a particular reason to be tracked as a set. Holds prevent changes to on hold objects, which have their retention schedules suspended until the hold is removed. When you add a folder to a hold, all records within the folder are also added to the hold.
 
-1.  Click the Records Search **Results** tab to view the search results.
+1. Click the Records Search **Results** tab to view the search results.
 
-2.  Select search results then click **Add to Hold**.
+2. Select search results then click **Add to Hold**.
 
     The Add to Hold screen displays.
 
-3.  Select one or more holds and click **OK**.
+3. Select one or more holds and click **OK**.
 
     A message displays confirming that the record or folder is on hold.
 
@@ -295,7 +287,6 @@ Multiple fields can be combined to match additional results. Each field, by defa
 
 3. In the **Results options** section, select the components you want to search.
 
-
 The NOT operator and grouping of terms with brackets "(" and ")" are supported. For example:
 
 ```text
@@ -304,8 +295,7 @@ The NOT operator and grouping of terms with brackets "(" and ")" are supported. 
 
 ### Searching for phrases
 
-To search for phrases, wrap the value string in "double quotes". An example of phrase matching is to match the 
-field `originator` with the phrase “John Smith”.
+To search for phrases, wrap the value string in "double quotes". An example of phrase matching is to match the field `originator` with the phrase “John Smith”.
 
 1. In the **Search Text** box, enter:
 
@@ -313,9 +303,7 @@ field `originator` with the phrase “John Smith”.
 
 2. In the **Results options** section, select the components you want to search.
 
-
-Wildcards are supported within phrase matching. For example, to match records that contain the text "John Smith" or 
-"John Smithe" in the **Originator** metadata field, use the following query text:
+Wildcards are supported within phrase matching. For example, to match records that contain the text "John Smith" or "John Smithe" in the **Originator** metadata field, use the following query text:
 
 ```text
 originator:"John Smith*" 
@@ -325,8 +313,7 @@ You can also escape embedded quotes in a phrase using back slash `\`.
 
 ### Searching for exact term
 
-To search for exact terms, prefix the term with an equals symbol (`=`). An example of exact term matching is to 
-match the word “part”.
+To search for exact terms, prefix the term with an equals symbol (`=`). An example of exact term matching is to match the word “part”.
 
 1. In the **Search Text** box, enter:
 
@@ -352,15 +339,13 @@ To return records that were filed on 10th September 2009:
 
 To search for date values, you can match date fields in a range.
 
-To return date ranges, the syntax requires the From and To dates to be surrounded by square brackets. 
-For example, to return records that were filed on or before the 10th January 2010:
+To return date ranges, the syntax requires the From and To dates to be surrounded by square brackets. For example, to return records that were filed on or before the 10th January 2010:
 
 1. In the **Search by** menu, select **Records** and then **Date Filed**.
 
 2. Add the following search query:
 
     `[MIN TO "2010-01-10"]`
-
 
 You must surround the query with square brackets. Use the `TO` token between dates to represent the range.
 
@@ -444,4 +429,3 @@ For example:
 2. To return all records where the Subject metadata field has been set to any value:
 
     `ISNOTNULL:"cm:title"`
-

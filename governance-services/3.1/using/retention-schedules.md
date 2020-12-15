@@ -2,15 +2,11 @@
 title: Retention schedule
 ---
 
-Retention schedules define how records are managed in the Records Management system until their eventual destruction 
-or transfer to another location. The period between a record being completed and becoming part of the {% include tooltip.html word="fileplan" text="File Plan" %}, 
-and being destroyed/transferred is known as its retention period.
+Retention schedules define how records are managed in the Records Management system until their eventual destruction or transfer to another location. The period between a record being completed and becoming part of the {% include tooltip.html word="fileplan" text="File Plan" %}, and being destroyed/transferred is known as its retention period.
 
-A retention schedule is attached to a record {% include tooltip.html word="category" text="category" %}, and once a file has been completed as a record it's subject to 
-the rules of the retention schedule that's attached to the category it's in.
+A retention schedule is attached to a record {% include tooltip.html word="category" text="category" %}, and once a file has been completed as a record it's subject to the rules of the retention schedule that's attached to the category it's in.
 
-A retention schedule contains one or more steps that define a particular action to be carried out. 
-These actions can be carried out after a period of time, after certain events, or a combination of the two.
+A retention schedule contains one or more steps that define a particular action to be carried out. These actions can be carried out after a period of time, after certain events, or a combination of the two.
 
 The steps that can make up a retention schedule are:
 
@@ -31,11 +27,7 @@ When a retention schedule is created you specify whether its instructions are ap
 
 >**Tip:** When a record folder is cut off, this cuts off all individual records in the folder, regardless of their current state.
 
-Retention steps can be manually completed once they are considered eligible (the time period has passed and/or the events 
-have been completed), though the retain and cut off steps can be completed automatically by a system process that is run daily. 
-All other retention steps must be completed manually, or by setting up a rule to complete them automatically. 
-If a retention step is complete, then additional options are available for folders or records, dependant on whether the 
-retention schedule is set to folder or record level, see [Actioning retention steps]({% link governance-services/3.1/using/manage-fileplan.md %}#processing-records).
+Retention steps can be manually completed once they are considered eligible (the time period has passed and/or the events have been completed), though the retain and cut off steps can be completed automatically by a system process that is run daily. All other retention steps must be completed manually, or by setting up a rule to complete them automatically. If a retention step is complete, then additional options are available for folders or records, dependant on whether the retention schedule is set to folder or record level, see [Actioning retention steps]({% link governance-services/3.1/using/manage-fileplan.md %}#processing-records).
 
 ## Example of a retention schedule
 
@@ -79,8 +71,7 @@ See also video explaining [creating a retention schedule]({% link governance-ser
 
 ## Creating retention schedule steps
 
-When you've set up a retention schedule, you need to add retention steps. The steps give the retention schedule 
-it's control over records and folders.
+When you've set up a retention schedule, you need to add retention steps. The steps give the retention schedule it's control over records and folders.
 
 1. Hover over a record {% include tooltip.html word="category" text="category" %} in the {% include tooltip.html word="fileplan" text="File Plan" %} and click **View Details**.
 
@@ -115,7 +106,7 @@ it's control over records and folders.
 
 5. If you added a Destroy step then there is an additional **Keep record metadata after record destruction** option. If you select this option then destroyed records are still represented in the File Plan rather than being completely deleted. An audit trail and metadata remain but the records can't be accessed.
 
-    >**Note:** The metadata is maintained indefinitely unless it is manually deleted from the File Plan by someone with the ALFRESCO\_ADMINISTRATOR role, or another role that has been given permissions to delete the metadata.
+    >**Note:** The metadata is maintained indefinitely unless it is manually deleted from the File Plan by someone with the ALFRESCO_ADMINISTRATOR role, or another role that has been given permissions to delete the metadata.
 
 6. Enter a **Step Description**.
 
@@ -124,7 +115,6 @@ it's control over records and folders.
     >**Tip:** You can click the ![Edit icon]({% link governance-services/images/ico-configure.png %}){:height="18px" width="18px"} edit icon or ![Delete icon]({% link governance-services/images/ico-delete.png %}){:height="18px" width="18px"} delete icon next to a step to edit or delete it.
 
 8. When you've entered all the required steps click **Done**.
-
 
 You return to the category details page, which displays the retention steps. Click **View Description** to the right of a step to display the description.
 

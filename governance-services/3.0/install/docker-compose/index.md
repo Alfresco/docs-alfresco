@@ -2,18 +2,16 @@
 title: Install using Docker Compose
 ---
 
-Use this information to quickly deploy Governance Services using Docker Compose. 
-Due to the limited capabilities of Docker Compose, this deployment method is 
-recommended for development and test environments only.
+Use this information to quickly deploy Governance Services using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
 ## Prerequisites and supported platforms
 
 * [Docker](https://docs.docker.com/install/)
-    * This allows you to run Docker images and Docker Compose on a single computer.
+  * This allows you to run Docker images and Docker Compose on a single computer.
 * [Docker Compose](https://docs.docker.com/compose/install/)
-    * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
+  * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
 * Access to [Quay](http://www.quay.io)
-    * Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/). These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
+  * Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/). These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
 >**Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file.
 
@@ -25,8 +23,7 @@ recommended for development and test environments only.
 
 3. Edit the file and change the following two services:
 
-    Add a `#` prefix to the Alfresco Content Repository and Alfresco Share Docker image locations so they are commented out, 
-    and add the Alfresco Governance image locations, change 3.0.x to latest 3.0 version:
+    Add a `#` prefix to the Alfresco Content Repository and Alfresco Share Docker image locations so they are commented out, and add the Alfresco Governance image locations, change 3.0.x to latest 3.0 version:
 
     ```text
     services:
@@ -66,7 +63,7 @@ recommended for development and test environments only.
     $ docker-compose up -d
    ```
 
-7. Wait for the logs to complete.
+6. Wait for the logs to complete.
 
     ```text
     ...
@@ -86,10 +83,10 @@ recommended for development and test environments only.
 
     * Try allocating more memory resources, as advised in `docker-compose.yml`. For example, in Docker, change the memory setting in **Preferences** (or **Settings**) > **Advanced** > **Memory**, to at least 6 GB. Make sure you restart Docker and wait for the process to finish before continuing.
     * Go back and retry the deployment.
-    
+
     >**Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
 
-8. Open your browser and check everything starts up correctly:
+7. Open your browser and check everything starts up correctly:
 
     * Share: `http://localhost:8080/share`
 

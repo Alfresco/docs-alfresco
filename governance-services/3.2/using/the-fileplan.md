@@ -2,17 +2,13 @@
 title: The File Plan
 ---
 
-The File Plan is a container for records, folders, {% include tooltip.html word="category" text="categories" %} and retention schedules. It's effectively a virtual filing cabinet 
-for storing records, and is the basic structure of Records Management. This structure lets you classify and group records with similar 
-characteristics.
+The File Plan is a container for records, folders, {% include tooltip.html word="category" text="categories" %} and retention schedules. It's effectively a virtual filing cabinet for storing records, and is the basic structure of Records Management. This structure lets you classify and group records with similar characteristics.
 
-The top level of the File Plan is created when you create a Records Management site. This is like an empty 
-virtual filing cabinet - you then add drawers (categories), folders, and records to it.
+The top level of the File Plan is created when you create a Records Management site. This is like an empty virtual filing cabinet - you then add drawers (categories), folders, and records to it.
 
 ![File Plan]({% link governance-services/images/file-plan.png %}){:height="400px" width="150px"}
 
-Remember that it's far more versatile than a physical filing cabinet, but the following rules are enforced when working 
-with the File Plan structure:
+Remember that it's far more versatile than a physical filing cabinet, but the following rules are enforced when working with the File Plan structure:
 
 * The top level of the File Plan can only contain record categories.
 * A category can contain other categories and folders.
@@ -36,12 +32,11 @@ The structure of the File Plan will generally reflect different parts of your or
 
     A vital record is a record that is considered to be essential to the operation of an organization. A vital record must be reviewed periodically, according to its review period. The review period is attached to the record category or folder.
 
-
 You can create a File Plan structure from scratch or [load the Records Management test data](#loading-test-data) to use as a starting point. This gives you a sample File Plan that you can rework to meet your needs.
 
 You can also automate the File Plan by [applying rules to categories and folders]({% link governance-services/3.2/using/automate-fileplan.md %}). This means that records can be moved automatically through the record lifecycle, without you having to do any of the work.
 
-## Opening the File Plan 
+## Opening the File Plan
 
 You can use the File Plan to manage, view, and work with records.
 
@@ -50,7 +45,6 @@ You can use the File Plan to manage, view, and work with records.
     The records list takes up most of the File Plan main page. You can filter the records list and navigate the File Plan using the explorer panel down the left side of the page.
 
 2. Use the **Options** menu to select how you want to view the library content, and the sorting options to sort records.
-
 
 >**Note:** It's recommended that you use the File Plan for Records Management actions rather than going through the repository.
 
@@ -72,11 +66,9 @@ The explorer panel has the following sections:
 
     A list of the saved searches. You can click these to view all matching records.
 
-
 The location path above the content list shows your current position in the File Plan hierarchy. Each location path item is a link so you can easily return to any part of the current navigation path. Click ![Navigate Up]({% link governance-services/images/navigate-up-icon.png %}){:height="18px" width="18px"} to display the contents of the folder one level higher.
 
 Use the sort menu to change the criteria used to sort the File Plan contents. You can toggle between ascending and descending sort order.
-
 
 ## Building the File Plan
 
@@ -124,7 +116,7 @@ You can create a record {% include tooltip.html word="category" text="category" 
 
     The **New Record Category** dialog box displays.
 
-3. Enter details for the new category. 
+3. Enter details for the new category.
 
     |Metadata field|Description|
     |--------------|-----------|
@@ -132,9 +124,9 @@ You can create a record {% include tooltip.html word="category" text="category" 
     |Title|*Required.* The title for the record category.|
     |Description|A description of the record category.|
     |Record Category ID|*Required.* A unique identifier for the record category is generated automatically. You can change this now, but you can't edit it once the category has been created.|
-    |Vital Record Indicator|Defines whether records in this category have a review process. The Vital Record Indicator is applied to all record folders within that category. You can change this at folder level. <br><br>Users with Records Manager permissions receive a notification email when vital records are due for review.|
-    |Period|The time period for the review cycle. Reviews are recurring based on the period you select. The review period is required when the **Vital Record Indicator** option is selected. The review period is displayed on the details page for folders and records in the category. <br><br>**Note:** The "Quarter" option splits the year into 4 sets of 3 months, beginning with Jan/Feb/March. "Financial Quarter" is the same but based on the start date of your system-configured financial year.|
-    |Expression|Enter a number as the **Expression** to accompany the **Period** type. If you enter “Week” and “3”, this would mean a review cycle of 3 weeks. <br><br>If you select a Period that doesn't require an Expression then this field isn't available.|
+    |Vital Record Indicator|Defines whether records in this category have a review process. The Vital Record Indicator is applied to all record folders within that category. You can change this at folder level.<br><br>Users with Records Manager permissions receive a notification email when vital records are due for review.|
+    |Period|The time period for the review cycle. Reviews are recurring based on the period you select. The review period is required when the **Vital Record Indicator** option is selected. The review period is displayed on the details page for folders and records in the category.<br><br>**Note:** The "Quarter" option splits the year into 4 sets of 3 months, beginning with Jan/Feb/March. "Financial Quarter" is the same but based on the start date of your system-configured financial year.|
+    |Expression|Enter a number as the **Expression** to accompany the **Period** type. If you enter “Week” and “3”, this would mean a review cycle of 3 weeks.<br><br>If you select a Period that doesn't require an Expression then this field isn't available.|
 
 4. Click **Save**.
 
@@ -152,7 +144,7 @@ You can add record folders within a record {% include tooltip.html word="categor
 
     The **New Record Folder** dialog box displays.
 
-3. Enter details for the new category. 
+3. Enter details for the new category.
 
     |Metadata field|Description|
     |------------------|---------------|
@@ -172,4 +164,4 @@ You can add record folders within a record {% include tooltip.html word="categor
 
 The new record folder is marked as ![]({% link governance-services/images/ico-rm-folder-open.png %}){:height="18px" width="18px"} Open, which means that records can be filed in it. The date of opening is the same as the creation date.
 
-See also video explaining [adding a record folder]({% link governance-services/3.2/tutorial/governance-services/index.md %}#create-a-record-folder).  
+See also video explaining [adding a record folder]({% link governance-services/3.2/tutorial/governance-services/index.md %}#create-a-record-folder).

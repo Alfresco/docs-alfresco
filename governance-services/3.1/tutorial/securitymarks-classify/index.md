@@ -45,4 +45,3 @@ Learn how to configure the amount of time the system will use to declassify item
 Learn how to indicate why an item has been declassified.
 
 {% include media.html id="-WVc2EjGr1I" %}
-

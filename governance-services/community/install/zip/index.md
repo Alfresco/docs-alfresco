@@ -10,7 +10,7 @@ The Governance Services distribution zip file contain the following AMP files:
 |alfresco-rm-community-share-3.0.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Share installation.|
 
 >**Note:** Install the AMPs manually using the Module Management Tool (MMT), rather than using the `apply_amps` tool.
-    
+
 1. Stop the Alfresco Community Edition server.
 
 2. Delete the `tomcat\webapps\alfresco` and `tomcat\webapps\share` folders in the Alfresco Community Edition installation directory.
@@ -23,7 +23,7 @@ The Governance Services distribution zip file contain the following AMP files:
 
     * Copy the `alfresco-rm-community-repo-3.0.x.amp` file to the Alfresco `amps` directory.
     * Copy the `alfresco-rm-community-share-3.0.x.amp` file to the Alfresco `amps_share` directory.
-    
+
 4. Change into the root of the Alfresco Community Edition installation directory. Directories specified in the following procedures are relative to this directory.
 
 5. Run the following commands to install the AMP files:

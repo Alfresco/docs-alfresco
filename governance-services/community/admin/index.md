@@ -4,8 +4,7 @@ title: Administration of Governance Services
 
 RM Admin Tools is where you configure the Records Management site.
 
-The user who created the Records Management site is automatically made a member of the Records Management Administrator group. 
-Other users can access different areas of the **RM Admin Tools** depending on the {% include tooltip.html word="capabilities" text="capabilities" %} given to the role that they're in.
+The user who created the Records Management site is automatically made a member of the Records Management Administrator group. Other users can access different areas of the **RM Admin Tools** depending on the {% include tooltip.html word="capabilities" text="capabilities" %} given to the role that they're in.
 
 ## Opening Admin Tools
 
@@ -17,14 +16,12 @@ In a Governance Services site click **Admin Tools** to open the **Audit** page, 
 
 ## Audit
 
-The Audit tool is used for external audits to demonstrate compliance to regulatory requirements, and for internal audits for 
-process improvement.
+The Audit tool is used for external audits to demonstrate compliance to regulatory requirements, and for internal audits for process improvement.
 
-It displays auditing information collected from the system to show whether business rules are being followed, and to ensure 
-that any unauthorized activity can be identified and traced. This tool is especially important for systems that deal with 
-classified information.
+It displays auditing information collected from the system to show whether business rules are being followed, and to ensure that any unauthorized activity can be identified and traced. This tool is especially important for systems that deal with classified information.
 
-The Audit tool maintains a complete trace of all the actions on every record and cannot be altered. 
+The Audit tool maintains a complete trace of all the actions on every record and cannot be altered.
+
 The information that is captured and stored includes:
 
 * Any action on any record, folder, category, or the {% include tooltip.html word="fileplan" text="File Plan" %}
@@ -119,8 +116,7 @@ When you've run an audit, click **Export** in the Audit tool of the RM Admin Too
 
 ### Viewing the full log
 
-You can view the full contents of the log file in a separate window. From there you can save an HTML version of the 
-report on your computer or in the Records Management File Plan.
+You can view the full contents of the log file in a separate window. From there you can save an HTML version of the report on your computer or in the Records Management File Plan.
 
 1. When you've run an audit, click **View Recent Log** in the Audit tool of the RM Admin Tools.
 
@@ -130,7 +126,7 @@ report on your computer or in the Records Management File Plan.
 
     * Click **Export** to save the report to your computer.
     * Click **File as Record** to file the report in the File Plan.
-    
+
     >**Note:** If you select **File as Record** you'll need to add any required metadata before the record can be completed.
 
 3. Close the window.
@@ -151,18 +147,15 @@ Records Management has default sets of metadata for records, record {% include t
 
 You can also add custom metadata that you can associate with each of these different types of records management objects.
 
-You can choose from text fields, date pickers, check boxes, and if you've set up a 
-[list of values](#list-of-values), selection menus.
+You can choose from text fields, date pickers, check boxes, and if you've set up a [list of values](#list-of-values), selection menus.
 
-If required you can choose to make specific custom data mandatory, so that users have to include it when they are 
-completing a record.
+If required you can choose to make specific custom data mandatory, so that users have to include it when they are completing a record.
 
 >**Note:** If you add mandatory metadata to a records management object type that already has existing instances, the newly mandatory metadata won't be applied to existing instances, as this could cause inconsistencies with the File Plan.
 
 ### Creating custom metadata
 
-You can create custom metadata for record categories, record folders, records, and non-electronic documents. 
-When you create custom metadata, you can't delete it.
+You can create custom metadata for record categories, record folders, records, and non-electronic documents. When you create custom metadata, you can't delete it.
 
 1. Click **Custom Metadata** in the RM Admin Tools.
 
@@ -320,19 +313,13 @@ You can delete a role whenever you need to.
 
 One of the many ways that you can file data in the Records Management system is by storing inbound emails as records.
 
-The IMAP protocol allows email applications that support IMAP to connect to and interact with Alfresco repositories 
-directly from the mail application.
+The IMAP protocol allows email applications that support IMAP to connect to and interact with Alfresco repositories directly from the mail application.
 
-Alfresco has multiple maps between email headers and Alfresco metadata properties set up by default. 
-You can view these with the Email Mappings tool.
+Alfresco has multiple maps between email headers and Alfresco metadata properties set up by default. You can view these with the Email Mappings tool.
 
-This means that when an email is saved to Records Management, metadata from the email header is captured and mapped to 
-metadata for the record.
+This means that when an email is saved to Records Management, metadata from the email header is captured and mapped to metadata for the record.
 
-For example, an email `Subject` heading is mapped by default to the Alfresco property `title`. 
-This is displayed as in the Email Mappings tool as `messageSubject` to `cm:title`. 
-The email header field `messageSubject` is on the left and is separated by the word “to”, 
-which indicates that it is mapped to a property `cm:title`.
+For example, an email `Subject` heading is mapped by default to the Alfresco property `title`. This is displayed as in the Email Mappings tool as `messageSubject` to `cm:title`. The email header field `messageSubject` is on the left and is separated by the word “to”, which indicates that it is mapped to a property `cm:title`.
 
 When you're viewing emails within the Records Management system, the `title` property shows the email’s `Subject` heading.
 
@@ -340,8 +327,7 @@ As well as the default mappings, you can also add your own or delete existing on
 
 ### Adding an email map
 
-The pre-defined email mappings cover the most commonly used email headers. You can include additional email header 
-mappings using the Email Mappings tool.
+The pre-defined email mappings cover the most commonly used email headers. You can include additional email header mappings using the Email Mappings tool.
 
 1. Click **Email Mappings** in the RM Admin Tools.
 
@@ -369,11 +355,9 @@ You can delete an email map whenever it's no longer needed.
 
 ## Events
 
-The life cycle of a record is controlled by either time-based or event-based triggers that are set in the retention schedule. 
-You can edit events and create entirely new ones. When you create an event, you can't delete it.
+The life cycle of a record is controlled by either time-based or event-based triggers that are set in the retention schedule. You can edit events and create entirely new ones. When you create an event, you can't delete it.
 
-Events are triggered when actions occur on a record or folder, such as it being versioned, {% include tooltip.html word="cutoff" text="cut off" %}, {% include tooltip.html word="recordfolderclosed" text="closed" %}, superseded, 
-or obsoleted. All events belong to one of the following event types:
+Events are triggered when actions occur on a record or folder, such as it being versioned, {% include tooltip.html word="cutoff" text="cut off" %}, {% include tooltip.html word="recordfolderclosed" text="closed" %}, superseded, or obsoleted. All events belong to one of the following event types:
 
 * *Simple* - a standard Records Management event
 * *Obsoleted* - an item is invalid or out of date and is generally not replaced
@@ -449,20 +433,17 @@ Two predefined lists are provided with Records Management:
 
 >**Note:** These are available for both standard and {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant File Plans.
 
-You need to provide values for these lists so that users can select from them when they edit metadata. 
-The recommended values for Supplemental Markings are Confidential, Restricted, Secret, Top Secret and Unclassified.
+You need to provide values for these lists so that users can select from them when they edit metadata. The recommended values for Supplemental Markings are Confidential, Restricted, Secret, Top Secret and Unclassified.
 
 You can also set up new lists as needed, and you can use these lists when you [create custom metadata](#creating-custom-metadata).
 
-Where the value is a text string, you can also enter the value using a list of values menu. For example, 
-on the Edit Metadata page, you enter the value for the Mimetype field by selecting a value from the menu.
+Where the value is a text string, you can also enter the value using a list of values menu. For example, on the Edit Metadata page, you enter the value for the Mimetype field by selecting a value from the menu.
 
 >**Important:** Administrators can see all security marks and other metadata when browsing the repository (for example, using the Node Browser).
 
 ### Creating a list of values
 
-Creating a list is a two step process. First you create the empty list and then you edit it to add the values. 
-Once you create a list, you cannot delete it.
+Creating a list is a two step process. First you create the empty list and then you edit it to add the values. Once you create a list, you cannot delete it.
 
 1. Click **List of Values** in the RM Admin Tools.
 
@@ -480,8 +461,7 @@ The name of the new list displays on the Lists page.
 
 ### Editing a list of values
 
-Use the Edit feature to add and delete values for a list. You can also control the user and group access to 
-the values in the list.
+Use the Edit feature to add and delete values for a list. You can also control the user and group access to the values in the list.
 
 1. Click **List of Values** in the RM Admin Tools.
 
@@ -550,13 +530,11 @@ There are two types of relationships that can be established between records:
 
 The names given to individual relationships are based on the different types of referencing, and are what makes each one unique.
 
-You can see the default relationship types that are included in Records Management and you can create new and manage 
-existing relationships.
+You can see the default relationship types that are included in Records Management and you can create new and manage existing relationships.
 
 ### Creating a new relationship
 
-The RM Admin Tools has several default relationships. You can add more relationships, but once you create a relationship 
-you can't delete it.
+The RM Admin Tools has several default relationships. You can add more relationships, but once you create a relationship you can't delete it.
 
 1. Click **Relationships** in the RM Admin Tools.
 
@@ -610,18 +588,15 @@ You can access the report by clicking **User Rights Report** in the RM Admin Too
 
 ## Users and groups
 
-Alfresco users and groups are created by the Alfresco administrator using the Alfresco Share Admin Tools. 
-You can then assign these users and groups to Records Management roles using the Users and Groups tool in the RM Admin Tools.
+Alfresco users and groups are created by the Alfresco administrator using the Alfresco Share Admin Tools. You can then assign these users and groups to Records Management roles using the Users and Groups tool in the RM Admin Tools.
 
-Once you've [assigned them to a role](#define-roles) they'll be able to use the level of Records Management 
-functionality that role has been given.
+Once you've [assigned them to a role](#define-roles) they'll be able to use the level of Records Management functionality that role has been given.
 
 >**Note:** There are some system groups that are generated by default, such as `site_swsdp_SiteManager`. These can't be assigned to a role.
 
 ### Adding users and groups to a role
 
-Adding users and groups to a role gives them permission to use the level of Records Management functionality 
-that role has been given.
+Adding users and groups to a role gives them permission to use the level of Records Management functionality that role has been given.
 
 1. Click **Users and Groups** in the RM Admin Tools.
 

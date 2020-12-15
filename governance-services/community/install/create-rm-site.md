@@ -20,7 +20,7 @@ After you've installed the Records Management AMP files, you're ready to go ahea
 
     * **Standard** - The standard set of record metadata is available.
     * **DoD 5015.2-STD** - Record metadata required for {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} is available. Mandatory metadata includes the originator, the originating organization, the File Plan, the destroy action.
-    
+
     >**Note:** If you select **Standard** then users can still customize the metadata available on individual records.
 
 5. Click **Save**.

@@ -15,7 +15,7 @@ The Governance Services distribution zip file contain the following AMP files:
 
     * alfresco-governance-services-enterprise-repo-3.1.x.amp
     * alfresco-governance-services-enterprise-share-3.1.x.amp
-    
+
 2. Stop the Alfresco Content Services server.
 
 3. Delete the `tomcat\webapps\alfresco` and `tomcat\webapps\share` folders in the Alfresco Content Services installation directory.
@@ -28,7 +28,7 @@ The Governance Services distribution zip file contain the following AMP files:
 
     * Copy the `alfresco-governance-services-enterprise-repo-3.1.x.amp` file to the Alfresco `amps` directory.
     * Copy the `alfresco-governance-services-enterprise-share-3.1.x.amp` file to the Alfresco `amps_share` directory.
-    
+
 5. Change into the root of the Alfresco Content Services installation directory. Directories specified in the following procedures are relative to this directory.
 
 6. Run the following commands to install the AMP files:
