@@ -241,6 +241,11 @@
             path: '/content-services/latest/develop/rest-api-guide/auth-with-repo/'
           - title: 'Get Repository Information'
             path: '/content-services/latest/develop/rest-api-guide/get-repo-info/'
+          - title: 'Managing Folders and Files'
+            path: '/content-services/latest/develop/rest-api-guide/folders-files/'
+
+
+
 
 
 

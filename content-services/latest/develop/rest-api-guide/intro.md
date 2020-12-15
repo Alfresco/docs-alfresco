@@ -22,7 +22,7 @@ the `/alfresco` path. You also have the Search, Workflow, Discovery, and Authent
 
 To work with an object in the Repository, such as a folder or file node, you will append to this URL as follows:
 
-![dev-api-by-language-alf-rest-intro-2]({% link content-services/images/dev-api-by-language-alf-rest-intro-2.png %})
+![dev-api-by-language-alf-rest-intro-2]({% link content-services/images/dev-api-by-language-alf-rest-intro-2.png %}){:height="150px" width="500px"}
 
 An object in the Repository is referred to as an Entity. Which specific instance of an *entity* type you are working 
 with is specified as part of the URL path (i.e. `{id}`). There can be Relationships between Entities and Operations 

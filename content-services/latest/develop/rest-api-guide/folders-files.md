@@ -1,0 +1,1207 @@
+---
+title: Managing Folders and Files
+---
+
+This section is all about managing folders and files.
+
+In this section we will cover how to manage folders and files, also referred to as nodes, with the Alfresco ReST API.
+
+After walking through this section you should have a good understanding of how to list contents of a folder, 
+create a folder, upload a file, set metadata for a folder or file, update a file, delete folders and files, and much more.
+
+## List contents of a folder {#listcontentsfolder}
+
+Listing the contents of a folder in the repository is really useful, here we walk through several examples of how to do that.
+
+**API Explorer URL**: [http://localhost:8080/api-explorer/#!/nodes/listNodeChildren](http://localhost:8080/api-explorer/#!/nodes/listNodeChildren){:target="_blank"}
+
+**See also**: [Filter contents of a folder](#filtercontentsfolder)
+
+Listing the folders and files in the top folder of the repository is often something you often need to do to get an idea 
+of what’s stored in the Repository. The top folder of the Repository is called `/Company Home` and referred to as root.
+
+The following URL is used to list children of the root folder and we pass in the authentication token:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?skipCount=0&maxItems=100' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  2764  100  2764    0     0  38388      0 --:--:-- --:--:-- --:--:-- 38388
+{
+  "list": {
+    "pagination": {
+      "count": 7,
+      "hasMoreItems": false,
+      "totalItems": 7,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "createdAt": "2018-07-04T12:57:32.509+0000",
+          "isFolder": true,
+          "isFile": false,
+          "createdByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "modifiedAt": "2018-07-04T12:57:55.796+0000",
+          "modifiedByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "name": "Data Dictionary",
+          "id": "ec5e2242-e2cf-4fca-977c-f980efa289aa",
+          "nodeType": "cm:folder",
+          "parentId": "444be4a6-5693-4d10-af4b-b55448fe4f97"
+        }
+      },
+      {
+        "entry": {
+          "createdAt": "2018-07-04T12:57:32.799+0000",
+          "isFolder": true,
+          "isFile": false,
+          "createdByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "modifiedAt": "2019-01-14T14:59:30.806+0000",
+          "modifiedByUser": {
+            "id": "admin",
+            "displayName": "Administrator"
+          },
+          "name": "Guest Home",
+          "id": "18f06331-a7e2-450b-9951-4d27bc2597f9",
+          "nodeType": "cm:folder",
+          "parentId": "444be4a6-5693-4d10-af4b-b55448fe4f97"
+        }
+      },
+      {
+        "entry": {
+          "createdAt": "2018-07-04T12:57:32.874+0000",
+          "isFolder": true,
+          "isFile": false,
+          "createdByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "modifiedAt": "2018-07-04T12:57:32.874+0000",
+          "modifiedByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "name": "Imap Attachments",
+          "id": "676acc2b-e3aa-4509-a9f1-834459ff3418",
+          "nodeType": "cm:folder",
+          "parentId": "444be4a6-5693-4d10-af4b-b55448fe4f97"
+        }
+      },
+      {
+        "entry": {
+          "createdAt": "2018-07-04T12:57:32.885+0000",
+          "isFolder": true,
+          "isFile": false,
+          "createdByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "modifiedAt": "2018-07-04T12:57:32.885+0000",
+          "modifiedByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "name": "IMAP Home",
+          "id": "d067bfc2-f66f-4447-b636-53fe6ec95377",
+          "nodeType": "cm:folder",
+          "parentId": "444be4a6-5693-4d10-af4b-b55448fe4f97"
+        }
+      },
+      {
+        "entry": {
+          "createdAt": "2018-07-04T12:57:32.845+0000",
+          "isFolder": true,
+          "isFile": false,
+          "createdByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "modifiedAt": "2018-07-04T12:57:32.845+0000",
+          "modifiedByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "name": "Shared",
+          "id": "b6557d7e-a032-4da4-85cc-c26fa2c32b8b",
+          "nodeType": "cm:folder",
+          "parentId": "444be4a6-5693-4d10-af4b-b55448fe4f97"
+        }
+      },
+      {
+        "entry": {
+          "createdAt": "2018-07-04T12:57:35.908+0000",
+          "isFolder": true,
+          "isFile": false,
+          "createdByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "modifiedAt": "2018-07-04T12:57:53.593+0000",
+          "modifiedByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "name": "Sites",
+          "id": "0f972ddd-39e4-489d-a9b6-bc5741738634",
+          "nodeType": "st:sites",
+          "parentId": "444be4a6-5693-4d10-af4b-b55448fe4f97"
+        }
+      },
+      {
+        "entry": {
+          "createdAt": "2018-07-04T12:57:32.835+0000",
+          "isFolder": true,
+          "isFile": false,
+          "createdByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "modifiedAt": "2018-07-04T12:57:32.835+0000",
+          "modifiedByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "name": "User Homes",
+          "id": "f02a301d-db13-4fc2-b9e7-aa0bac9c6b1d",
+          "nodeType": "cm:folder",
+          "parentId": "444be4a6-5693-4d10-af4b-b55448fe4f97"
+        }
+      }
+    ]
+  }
+}
+```
+
+If you are familiar with Alfresco, then you will recognize the folders that are returned in the response 
+(`/Data Dictionary`, `/Guest Home` etc). The response format is standardized and you will see it used for other APIs 
+that return a list of entities. First is a `pagination` object with information about the total number of items 
+available and if any items were skipped. Then follows an array called `entries` with the actual content. Each content 
+item (in this case a folder or file) is contained in an `entry` object.
+
+The new v1 REST APIs are following a "performance first" principle, meaning by default, they only return the data that 
+is the most performant to collect. More data can be requested but the client has to make a conscious decision to request 
+more data and sacrifice a slight performance hit. We will see how to request more data back later in this section.
+
+Let’s have a more detailed look at the URL and explain the different parts:
+
+* `http://localhost:8080/alfresco`: the ACS server we are talking to
+* `/api`: the Alfresco ReST API v1 is accessed
+* `/-default-`: the default tenant is accessed (not usually changed unless you are running a multi tenant installation)
+* `/public`: this is a supported public endpoint in the ReST API (in contrast to an internal or custom API endpoint)
+* `/alfresco`: the Core API is accessed
+* `/versions/1`: version 1 of the API is used
+* `/nodes`: working with the node entity, which represents things like folders and files
+* `/-root-`: specifically working with the top level folder node entity instance
+* `/children`: execute the children operation on the top level folder
+* `?skipCount=0`: return all nodes from beginning, don’t skip any
+* `&maxItems=100`: return max 100 nodes (folders and files)
+
+There's a lot more stuff you can configure when making the `/nodes/{id}/children` call.
+
+You might have noticed in the response that aspects (also known as secondary types) are not returned. To return aspects for each entry you have to use the `include` query parameter as follows:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?include=aspectNames&skipCount=0&maxItems=100' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  3170  100  3170    0     0  11321      0 --:--:-- --:--:-- --:--:-- 11321
+{
+  "list": {
+    "pagination": {
+      "count": 7,
+      "hasMoreItems": false,
+      "totalItems": 7,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "aspectNames": [
+            "cm:titled",
+            "cm:auditable",
+            "app:uifacets"
+          ],
+          "createdAt": "2018-07-04T12:57:32.509+0000",
+          "isFolder": true,
+          "isFile": false,
+          "createdByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "modifiedAt": "2018-07-04T12:57:55.796+0000",
+          "modifiedByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "name": "Data Dictionary",
+          "id": "ec5e2242-e2cf-4fca-977c-f980efa289aa",
+          "nodeType": "cm:folder",
+          "parentId": "444be4a6-5693-4d10-af4b-b55448fe4f97"
+        }
+      },
+...
+```
+
+Now we get an extra array called `aspectNames` for each `entry` with all the aspects that have been applied to the node. 
+However, the properties for these aspects are not returned, such as `cm:title` for the `cm:titled` aspect. For the 
+properties to be returned we need to add the `properties` value to the `include` parameter:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?include=aspectNames,properties&skipCount=0&maxItems=100' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  3947  100  3947    0     0  49337      0 --:--:-- --:--:-- --:--:-- 49337
+{
+  "list": {
+    "pagination": {
+      "count": 7,
+      "hasMoreItems": false,
+      "totalItems": 7,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "aspectNames": [
+            "cm:titled",
+            "cm:auditable",
+            "app:uifacets"
+          ],
+          "createdAt": "2018-07-04T12:57:32.509+0000",
+          "isFolder": true,
+          "isFile": false,
+          "createdByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "modifiedAt": "2018-07-04T12:57:55.796+0000",
+          "modifiedByUser": {
+            "id": "System",
+            "displayName": "System"
+          },
+          "name": "Data Dictionary",
+          "id": "ec5e2242-e2cf-4fca-977c-f980efa289aa",
+          "nodeType": "cm:folder",
+          "properties": {
+            "cm:title": "Data Dictionary",
+            "cm:description": "User managed definitions",
+            "app:icon": "space-icon-default"
+          },
+          "parentId": "444be4a6-5693-4d10-af4b-b55448fe4f97"
+        }
+      },
+...
+```
+
+Now, that’s better. We now got an extra `properties` object with all the extra properties contained in the aspects.
+
+The responses we got so far contain quite a lot of data. What if we are developing a mobile Alfresco client, then we 
+might want to save on the bandwidth and only send back just the data we are going to display. We can achieve that by 
+using another query parameter called fields. Define exactly the `fields` (i.e. content model properties) that you want 
+in the response:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?include=aspectNames,properties&fields=nodeType,name&skipCount=0&maxItems=100' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1680  100  1680    0     0  25074      0 --:--:-- --:--:-- --:--:-- 25454
+{
+  "list": {
+    "pagination": {
+      "count": 7,
+      "hasMoreItems": false,
+      "totalItems": 7,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "aspectNames": [
+            "cm:titled",
+            "cm:auditable",
+            "app:uifacets"
+          ],
+          "name": "Data Dictionary",
+          "nodeType": "cm:folder",
+          "properties": {
+            "cm:title": "Data Dictionary",
+            "cm:description": "User managed definitions",
+            "app:icon": "space-icon-default"
+          }
+        }
+      },
+...
+```
+
+The `include` parameter works independently from the `fields` parameter, so to slim it down even further and not include 
+aspect information you can remove the `include` parameter:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?fields=nodeType,name&skipCount=0&maxItems=100' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   497  100   497    0     0   9940      0 --:--:-- --:--:-- --:--:--  9940
+{
+  "list": {
+    "pagination": {
+      "count": 7,
+      "hasMoreItems": false,
+      "totalItems": 7,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "name": "Data Dictionary",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Guest Home",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Imap Attachments",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "IMAP Home",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Shared",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Sites",
+          "nodeType": "st:sites"
+        }
+      },
+      {
+        "entry": {
+          "name": "User Homes",
+          "nodeType": "cm:folder"
+        }
+      }
+    ]
+  }
+}
+```
+
+Another really useful parameter of the `/children` operation is the `relativePath` parameter. It can be used to navigate 
+to another folder relative to the `/{id}` folder, in this case relative to `-root-`. So if I wanted to list the children 
+of the Data Dictionary folder I wouldn’t have to know the Alfresco Node Identifier (e.g. d8f561cc-e208-4c63-a316-1ea3d3a4e10e) 
+for the `Data Dictionary` folder. I can do a call as follows instead using the `relativePath` parameter:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?relativePath=Data%20Dictionary&fields=nodeType,name&skipCount=0&maxItems=100' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1461  100  1461    0     0  18037      0 --:--:-- --:--:-- --:--:-- 18262
+{
+  "list": {
+    "pagination": {
+      "count": 22,
+      "hasMoreItems": false,
+      "totalItems": 22,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "name": "Email Templates",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Imap Configs",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Messages",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Models",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Node Templates",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Presentation Templates",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Publishing Root",
+          "nodeType": "pub:Environment"
+        }
+      },
+      {
+        "entry": {
+          "name": "Rendering Actions Space",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Replication Actions Space",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "RSS Templates",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Saved Searches",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Scheduled Actions",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Scripts",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Smart Folder Downloads",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Smart Folder Templates",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Solr Facets Space",
+          "nodeType": "srft:facets"
+        }
+      },
+      {
+        "entry": {
+          "name": "Space Templates",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Transfers",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Web Client Extension",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Web Scripts",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Web Scripts Extensions",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Workflow Definitions",
+          "nodeType": "cm:folder"
+        }
+      }
+    ]
+  }
+}
+```
+
+The `relativePath` parameter can be used to navigate down several folders, such as in this example where we list contents 
+of the `/Company Home/Data Dictionary/Email Templates` folder:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?relativePath=Data%20Dictionary/Email%20Templates&fields=nodeType,name&skipCount=0&maxItems=100' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   488  100   488    0     0   6506      0 --:--:-- --:--:-- --:--:--  6506
+{
+  "list": {
+    "pagination": {
+      "count": 6,
+      "hasMoreItems": false,
+      "totalItems": 6,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "name": "activities",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Following Email Templates",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "invite",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Invite Email Templates",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Notify Email Templates",
+          "nodeType": "cm:folder"
+        }
+      },
+      {
+        "entry": {
+          "name": "Workflow Notification",
+          "nodeType": "cm:folder"
+        }
+      }
+    ]
+  }
+}
+```
+
+So far, we've only used `-root-` as the folder id, we can of course also use an explicit node id, for example to retrieve 
+the children of my `/Company Home/Data Dictionary` folder I would use the following URL:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/ec5e2242-e2cf-4fca-977c-f980efa289aa/children`
+
+## Filter contents of a folder {#filtercontentsfolder}
+
+Listing the contents of a folder in the repository is really useful, here we also cover how to filter the contents we are listing.
+
+**API Explorer URL**: [http://localhost:8080/api-explorer/#!/nodes/listNodeChildren](http://localhost:8080/api-explorer/#!/nodes/listNodeChildren){:target="_blank"}
+
+**See also**: [Listing contents of a folder](#listcontentsfolder)
+
+When you know how to list the contents of a folder the next step is usually to filter out content that you are not 
+interested in. Such as filtering out anything that is not of a specific content type.
+
+We use the same URL as when we list the contents of a folder, just with an extra parameter called `where`:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{id}/children?where=(<filter expression>)`
+
+You can think of the where clause in a similar way to how you would think of it in a database query. Firstly, the `isFile` 
+property can be used to just return files that represent content with type `cm:content` or a subtype:
+
+`nodes/{id}/children?where=(isFile=true)`
+
+The same result can be achieved by using the `isFolder` property too:
+
+`nodes/{id}/children?where=(isFolder=false)`
+
+To filter the results by a specific content type `nodeType` can be used in the where clause, for example, to retrieve 
+just the Sites folder use the following URL:
+
+`nodes/{id}/children?where=(nodeType=st:sites)`
+
+This will result in a single result as shown below:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?where=(nodeType=st:sites)' | jq
+{
+  "list": {
+    "pagination": {
+      "count": 1,
+      "hasMoreItems": false,
+      "totalItems": 1,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "createdAt": "2019-10-03T08:37:18.732+0000",
+          "isFolder": true,
+          "isFile": false,
+          "createdByUser": {
+            "id": "admin",
+            "displayName": "Administrator"
+          },
+          "modifiedAt": "2019-10-03T08:37:29.544+0000",
+          "modifiedByUser": {
+            "id": "admin",
+            "displayName": "Administrator"
+          },
+          "name": "Sites",
+          "id": "c1a73d2a-9a5b-422b-8c95-77e694b248a3",
+          "nodeType": "st:sites",
+          "parentId": "695c2c56-3ba0-4539-b301-12bd9bb47712"
+        }
+      }
+    ]
+  }
+}
+```
+
+To retrieve all nodes of a specific type and its subtypes use the `INCLUDESUBTYPES` moniker, for example:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?relativePath=My%20Stuff&where=(nodeType='acme:document INCLUDESUBTYPES')" | jq            
+```
+
+In this example we are listing content in the `/Company Home/My Stuff` folder that has the node type `acme:document` or 
+a subtype of this type.
+
+Finally, the items returned can also be ordered via the `orderBy` query parameter. By default, the `nodes/{id}/children` 
+endpoint uses `orderBy=isFolder DESC,name ASC` as the default sort order, which means folders first alphabetically 
+followed by files. To mix files and folders and order them alphabetically in reverse order use the following URL:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?relativePath=My%20Stuff&orderBy=name%20DESC" | jq 
+```
+
+## Get folder/file metadata
+
+Getting the metadata for a node returns the properties for the node type and applied aspects.
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/getNode](http://localhost:8080/api-explorer/#!/nodes/getNode){:target="_blank"}
+
+Sometimes it is useful to get all metadata (i.e. everything except the content, such as content type, aspects, 
+properties, associations etc) for just one node (e.g. folder, file etc) in the Repository. This can be done with the 
+following HTTP GET call:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{id}`
+
+The `{id}` part can be any of the constants `-root-`, `-my-`, `-shared-` or an Alfresco Node Identifier 
+(e.g. d8f561cc-e208-4c63-a316-1ea3d3a4e10e). The `relativePath` parameter can also be used in combination with the `id`.
+
+To get the metadata, meaning all properties, for the root folder in the Repository (i.e. `/Company Home`) make the following call:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   502  100   502    0     0  38615      0 --:--:-- --:--:-- --:--:-- 38615
+{
+  "entry": {
+    "aspectNames": [
+      "cm:titled",
+      "cm:auditable",
+      "app:uifacets"
+    ],
+    "createdAt": "2018-07-04T12:57:32.431+0000",
+    "isFolder": true,
+    "isFile": false,
+    "createdByUser": {
+      "id": "System",
+      "displayName": "System"
+    },
+    "modifiedAt": "2018-07-04T12:57:37.547+0000",
+    "modifiedByUser": {
+      "id": "System",
+      "displayName": "System"
+    },
+    "name": "Company Home",
+    "id": "444be4a6-5693-4d10-af4b-b55448fe4f97",
+    "nodeType": "cm:folder",
+    "properties": {
+      "cm:title": "Company Home",
+      "cm:description": "The company root space",
+      "app:icon": "space-icon-default"
+    }
+  }
+}
+```
+
+When you request data for a single node the aspects and properties are returned by default, in contrast to when listing 
+children of a node.
+
+We can see the Alfresco Node Identifier in the response above (i.e. `id`). We can use it instead of the `-root-` constant:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/444be4a6-5693-4d10-af4b-b55448fe4f97' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   502  100   502    0     0  11952      0 --:--:-- --:--:-- --:--:-- 11952
+{
+  "entry": {
+    "aspectNames": [
+      "cm:titled",
+      "cm:auditable",
+      "app:uifacets"
+    ],
+    "createdAt": "2018-07-04T12:57:32.431+0000",
+    "isFolder": true,
+    "isFile": false,
+    "createdByUser": {
+      "id": "System",
+      "displayName": "System"
+    },
+    "modifiedAt": "2018-07-04T12:57:37.547+0000",
+    "modifiedByUser": {
+      "id": "System",
+      "displayName": "System"
+    },
+    "name": "Company Home",
+    "id": "444be4a6-5693-4d10-af4b-b55448fe4f97",
+    "nodeType": "cm:folder",
+    "properties": {
+      "cm:title": "Company Home",
+      "cm:description": "The company root space",
+      "app:icon": "space-icon-default"
+    }
+  }
+}
+```
+
+Response should be the same.
+
+When fetching metadata for a node via the `GET /nodes/{id}` call you can add an extra parameter called `include` and use 
+it to request extra data in the response. One of the values the include parameter can have is `association`, which will 
+return the parent association type for the node. In the following example we request the parent association for the 
+`/Company Home/Data Dictionary` node as follows (**note** also the use of the `relativePath` parameter):
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-?relativePath=Data%20Dictionary&include=association' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   631    0   631    0     0   7170      0 --:--:-- --:--:-- --:--:--  7170
+{
+  "entry": {
+    "isFile": false,
+    "createdByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "modifiedAt": "2020-01-13T14:32:38.482+0000",
+    "association": {
+      "isPrimary": true,
+      "assocType": "cm:contains"
+    },
+    "nodeType": "cm:folder",
+    "parentId": "e4cccfba-bb11-4e8a-965a-e7389cc3bc89",
+    "aspectNames": [
+      "cm:titled",
+      "cm:auditable",
+      "app:uifacets"
+    ],
+    "createdAt": "2020-01-13T14:32:02.506+0000",
+    "isFolder": true,
+    "modifiedByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "name": "Data Dictionary",
+    "id": "1bd5508f-8e3c-4539-92fd-bbe0d67d30c6",
+    "properties": {
+      "cm:title": "Data Dictionary",
+      "cm:description": "User managed definitions",
+      "app:icon": "space-icon-default"
+    }
+  }
+}
+```
+
+At first you might get the idea that the `include=association` parameter would give a collection of all child and peer 
+associations for the node. But it will actually just return the primary parent type as in the above example 
+(and note that the `association` value is actually not written in plural):
+
+```json
+...
+    "association": {
+      "isPrimary": true,
+      "assocType": "cm:contains"
+    },
+ ...
+```
+
+If you wanted to get all the peer associations for a node have a look at this [page](#workingwithrelbetweennodes) instead, 
+it explains how you can use `GET /nodes/{id}/sources` and `GET /nodes/{id}/targets` calls for that. And you can of 
+courser get the parent-child associations for a node with the `GET /nodes/{id}/children` call.
+
+There are more data that you can include in the response, such as folder path to the node and permissions set on the node. 
+In the following example we request this extra data by setting `include=association,path,permissions`:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-?relativePath=Data%20Dictionary/Email%20Templates&include=association,path,permissions' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1212    0  1212    0     0  39096      0 --:--:-- --:--:-- --:--:-- 39096
+{
+  "entry": {
+    "isFile": false,
+    "createdByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "modifiedAt": "2020-01-13T14:32:11.005+0000",
+    "association": {
+      "isPrimary": true,
+      "assocType": "cm:contains"
+    },
+    "nodeType": "cm:folder",
+    "parentId": "1bd5508f-8e3c-4539-92fd-bbe0d67d30c6",
+    "aspectNames": [
+      "cm:titled",
+      "cm:auditable",
+      "app:uifacets"
+    ],
+    "createdAt": "2020-01-13T14:32:02.642+0000",
+    "path": {
+      "name": "/Company Home/Data Dictionary",
+      "isComplete": true,
+      "elements": [
+        {
+          "id": "e4cccfba-bb11-4e8a-965a-e7389cc3bc89",
+          "name": "Company Home",
+          "nodeType": "cm:folder",
+          "aspectNames": [
+            "cm:titled",
+            "cm:auditable",
+            "app:uifacets"
+          ]
+        },
+        {
+          "id": "1bd5508f-8e3c-4539-92fd-bbe0d67d30c6",
+          "name": "Data Dictionary",
+          "nodeType": "cm:folder",
+          "aspectNames": [
+            "cm:titled",
+            "cm:auditable",
+            "app:uifacets"
+          ]
+        }
+      ]
+    },
+    "isFolder": true,
+    "permissions": {
+      "inherited": [
+        {
+          "authorityId": "GROUP_EVERYONE",
+          "name": "Consumer",
+          "accessStatus": "ALLOWED"
+        }
+      ],
+      "settable": [
+        "Contributor",
+        "Collaborator",
+        "Coordinator",
+        "Editor",
+        "Consumer"
+      ],
+      "isInheritanceEnabled": true
+    },
+    "modifiedByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "name": "Email Templates",
+    "id": "25ea1b4b-23c0-412e-ae71-e6a9ec56d072",
+    "properties": {
+      "cm:title": "Email Templates",
+      "cm:description": "Email templates",
+      "app:icon": "space-icon-default"
+    }
+  }
+}
+```
+
+Note the new `path` and `permission` properties in the response.
+
+## Create a folder
+
+Creating a folder means creating a node with metadata.
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/createNode](http://localhost:8080/api-explorer/#!/nodes/createNode){:target="_blank"}
+
+**See also:** 
+
+* [How to update metadata](#updatemetadatanode) 
+* [How to add aspects](#addaspectnode)
+* [How to manage associations (contains examples of creating folder)](#workingwithrelbetweennodes)
+
+When we are familiar with how to list the contents of a folder, and fetch metadata for a folder or file, then it makes 
+sense to start looking at creating nodes. Let’s start by looking at how to create a folder. The following HTTP POST call is used:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{id}/children`
+
+So we are basically making a POST call to the children collection for a folder when we are creating a node, such as a 
+folder. The `{id}` part represents the folder under which we want to create a sub-folder. The `id` can be either one of 
+the constants `-root-`, `-shared-`, `-my-` or an Alfresco Node Identifier (e.g. 444be4a6-5693-4d10-af4b-b55448fe4f97). 
+The POST data defines the folder metadata and looks like in this example:
+
+```json
+{
+  "name": "My Folder",
+  "nodeType": "cm:folder",
+  "properties": {
+    "cm:title": "My Folder",
+    "cm:description": "My new folder"
+  }
+}
+```
+
+Here is how to create a folder with the name `My Folder` directly under the `/Company Home` (i.e. `-root-`) folder:
+
+```bash
+$ curl -H "Content-Type: application/json" -d '{"name":"My Folder","nodeType":"cm:folder", "properties": { "cm:title":"My Folder", "cm:description":"My new folder"}}' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   622  100   503  100   119  10702   2531 --:--:-- --:--:-- --:--:-- 13234
+{
+  "entry": {
+    "aspectNames": [
+      "cm:titled",
+      "cm:auditable"
+    ],
+    "createdAt": "2019-09-02T12:24:52.887+0000",
+    "isFolder": true,
+    "isFile": false,
+    "createdByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "modifiedAt": "2019-09-02T12:24:52.887+0000",
+    "modifiedByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "name": "My Folder",
+    "id": "1e8d8df6-7d33-4966-83db-0333a7f6277a",
+    "nodeType": "cm:folder",
+    "properties": {
+      "cm:title": "My Folder",
+      "cm:description": "My new folder"
+    },
+    "parentId": "444be4a6-5693-4d10-af4b-b55448fe4f97"
+  }
+}
+```
+
+When you create a node a JSON object is returned with the data that was created by the system, such as the properties of the `cm:auditable` aspect (i.e. `cm:created`, `cm:creator` etc). The generated Alfresco Node Identifier (i.e. `id`) is also returned.
+
+You may have noticed that slightly more information about the node (`aspectNames` and `properties`) is returned by default even through we are still using a "performance first" principle. In the same way the `include` parameter is used when listing nodes, it can also be used when creating nodes to list extra information or limit what is listed.
+
+## Upload a file
+
+Uploading a file to the Repository means creating a node with metadata and content.
+
+**API Explorer URL**: [http://localhost:8080/api-explorer/#!/nodes/createNode](http://localhost:8080/api-explorer/#!/nodes/createNode){:target="_blank"}
+
+**See also:**
+
+* [How to update metadata](#updatemetadatanode) 
+* [How to add aspects](#addaspectnode)
+* [How to manage associations (contains examples of uploading files)](#workingwithrelbetweennodes)
+
+Creating a file is slightly different from creating a folder as a file also has content. The following HTTP POST call is 
+used (same as when creating other types of nodes, such as folders):
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/{id}/children`
+
+So we are basically making a POST call to the children collection for a folder when we are creating a file. The `{id}` 
+part represents the folder under which we want to create the file. The `id` can be either one of the constants `-root-`, 
+`-shared-`, `-my-` or an Alfresco Node Identifier (e.g. d8f561cc-e208-4c63-a316-1ea3d3a4e10e).
+
+As well as accepting JSON when creating a node with metadata, the same endpoint (i.e. `nodes/{id}/children`) also accepts 
+`multipart/form-data`, allowing us to upload content from a standard HTML form or from the command line using curl.
+
+When we make the POST with curl we have to do it as form data submission, with each form field specified with `-F`. The 
+`filedata` field will point to the contents of the file we are uploading. The `name` field specifies the name we want to 
+give the file when it’s stored in the Repository (i.e. `cm:name`). The `nodeType` field is used to set the content type 
+that the file should have. We can use the `relativePath` field to store the file in a different location relative to the 
+`{id}`. Any other field that we specify will be treated as a property that should be set on the node (e.g. `cm:title`).
+
+Here is how to create a file under a folder called `My Folder`, which is located under the root folder (i.e. `-root-`). 
+If the folder does not exist, then it will be created:
+
+```bash
+$ curl -X POST -F filedata=@test.txt -F "name=somefile.txt" -F "nodeType=cm:content" -F "cm:title=My text" -F "cm:description=My text document description" -F "relativePath=My Folder" -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1483  100   702  100   781   4680   5206 --:--:-- --:--:-- --:--:--  9886
+{
+  "entry": {
+    "isFile": true,
+    "createdByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "modifiedAt": "2019-09-05T08:58:24.463+0000",
+    "nodeType": "cm:content",
+    "content": {
+      "mimeType": "text/plain",
+      "mimeTypeName": "Plain Text",
+      "sizeInBytes": 34,
+      "encoding": "ISO-8859-1"
+    },
+    "parentId": "5a858591-752f-49d0-b686-e2e1a830ea8d",
+    "aspectNames": [
+      "cm:versionable",
+      "cm:titled",
+      "cm:auditable",
+      "cm:author"
+    ],
+    "createdAt": "2019-09-05T08:58:24.463+0000",
+    "isFolder": false,
+    "modifiedByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "name": "somefile.txt",
+    "id": "0305fc9c-fc1d-405a-abf0-af482a9239ec",
+    "properties": {
+      "cm:title": "My text",
+      "cm:versionType": "MAJOR",
+      "cm:versionLabel": "1.0",
+      "cm:description": "My text document description"
+    }
+  }
+}
+```
+
+The call returns an `entry` object with all the information about the new file node. Note that versioning is turned on by default.
+
+When uploading content it's quite common for a file with the same name to exist, this will generate an error by default, 
+to avoid the error the `autoRename` form field can be set to `true`. If a filename clash is detected a suffix will be 
+added to the filename, for example `my-file.txt` will become `my-file-1.txt`.
+
+Let's try and upload the `somefile.txt` again as above but with the `autoRename` parameter set to `true`:
+
+```bash
+$ curl -X POST -F filedata=@test.txt -F "name=somefile.txt" -F "nodeType=cm:content" -F "cm:title=My text" -F "cm:description=My text document description" -F "relativePath=My Folder" -F "autoRename=true" -H 'Authorization: Basic VElDS0VUX2I1YmVjODNkZTQ2ZDI5NDAzMTMzZTk2N2EwYjNjYmE5NjExYmYzOWY=' http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1615    0   704  100   911   3555   4601 --:--:-- --:--:-- --:--:--  8197
+{
+  "entry": {
+    "isFile": true,
+    "createdByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "modifiedAt": "2019-10-07T09:36:10.410+0000",
+    "nodeType": "cm:content",
+    "content": {
+      "mimeType": "text/plain",
+      "mimeTypeName": "Plain Text",
+      "sizeInBytes": 61,
+      "encoding": "ISO-8859-1"
+    },
+    "parentId": "e41886ee-f2f5-49aa-b081-ce13c3536032",
+    "aspectNames": [
+      "cm:versionable",
+      "cm:titled",
+      "cm:auditable",
+      "cm:author"
+    ],
+    "createdAt": "2019-10-07T09:36:10.410+0000",
+    "isFolder": false,
+    "modifiedByUser": {
+      "id": "admin",
+      "displayName": "Administrator"
+    },
+    "name": "somefile-1.txt",
+    "id": "7dc41a62-3cc8-425b-bbfd-bbf383c6168f",
+    "properties": {
+      "cm:title": "My text",
+      "cm:versionType": "MAJOR",
+      "cm:versionLabel": "1.0",
+      "cm:description": "My text document description"
+    }
+  }
+}
+```
+
+We can see that the file was created with the name `somefile-1.txt` as expected.
+
+Another feature of the repository we can control when uploading content is the generation of a rendition. To have the 
+Share thumbnail rendition generated, provide a `renditions` form field with a value of `doclib` as shown here:
+
+```bash
+$ curl -X POST -F filedata=@test.txt -F "name=somefile.txt" -F "nodeType=cm:content" -F "cm:title=My text" -F "cm:description=My text document description" -F "relativePath=My Folder" -F "autoRename=true" -F "renditions=doclib" -H 'Authorization: Basic VElDS0VUX2I1YmVjODNkZTQ2ZDI5NDAzMTMzZTk2N2EwYjNjYmE5NjExYmYzOWY=' http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children | jq
+```
+
+Currently only one rendition can be requested, there are plans to allow multiple in the future hence the plural form 
+field name.
+
+## Upload a file with custom type
+
+
+## Upload a new version of file
+## Get file version history
+## Download a file
+## Download multiple files
+## List file renditions
+## Get file rendition content
+## Update metadata for a folder or file {#updatemetadatanode}
+## Add aspects to a folder or file {#addaspectnode}
+## Remove aspects from a folder or file
+## Get and Set permissions for a folder or file
+## Working with relationships between folders/files {#workingwithrelbetweennodes}
+## Manage comments for a folder or file
+## Manage tags for a folder or file
+## Copy folders and files
+## Move folders and files
+## Lock a file for editing
+## Create a link to a file
+## Delete a folder or file
+## List deleted folders and files (Trashcan)
+## Restore deleted folders and files (Trashcan)
