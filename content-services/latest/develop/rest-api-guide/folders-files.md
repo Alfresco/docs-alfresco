@@ -965,7 +965,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 Note the new `path` and `permission` properties in the response.
 
-## Create a folder
+## Create a folder {#createfolder}
 
 Creating a folder means creating a node with metadata.
 

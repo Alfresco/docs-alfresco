@@ -243,7 +243,8 @@
             path: '/content-services/latest/develop/rest-api-guide/get-repo-info/'
           - title: 'Managing Folders and Files'
             path: '/content-services/latest/develop/rest-api-guide/folders-files/'
-
+          - title: 'Managing Sites'
+            path: '/content-services/latest/develop/rest-api-guide/sites/'
           - title: 'Searching for content'
             path: '/content-services/latest/develop/rest-api-guide/searching/'
 
