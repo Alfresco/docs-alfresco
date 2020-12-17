@@ -244,11 +244,8 @@
           - title: 'Managing Folders and Files'
             path: '/content-services/latest/develop/rest-api-guide/folders-files/'
 
-
-
-
-
-
+          - title: 'Searching for content'
+            path: '/content-services/latest/develop/rest-api-guide/searching/'
 
         - title: 'Reference'
           pages:
