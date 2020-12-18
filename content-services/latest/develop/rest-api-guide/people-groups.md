@@ -1131,6 +1131,424 @@ Note that you have to prefix the group id with `GROUP_`.
 
 ## List all people and groups in a group {#listmembersofgroup}
 
+List all members (people and groups) of a group in the repository.
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/listGroupMemberships](http://localhost:8080/api-explorer/#!/groups/listGroupMemberships){:target="_blank"}
+
+**See also:** [How to list all groups a person is a member of](#listpersongroupmembership)
+
+To list all groups and users that are members of a group use the following GET call:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}/members`
+
+The `id` parameter is the group identifier and it must be prefixed with `GROUP_`.
+
+For example, to list all members of a group with identifier "engineering" the following call can be used:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   277    0   277    0     0    893      0 --:--:-- --:--:-- --:--:-* 893
+{
+  "list": {
+    "pagination": {
+      "count": 2,
+      "hasMoreItems": false,
+      "totalItems": 2,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "displayName": "System Architects",
+          "id": "GROUP_system-architects",
+          "memberType": "GROUP"
+        }
+      },
+      {
+        "entry": {
+          "displayName": "test",
+          "id": "test",
+          "memberType": "PERSON"
+        }
+      }
+    ]
+  }
+}
+
+```
+
+You can use the `where` parameter to filter the return groups by `memberType`. To return only the members that are 
+groups use the following call:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members?where=(memberType='GROUP')" | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   210    0   210    0     0    843      0 --:--:-- --:--:-- --:--:-* 843
+{
+  "list": {
+    "pagination": {
+      "count": 1,
+      "hasMoreItems": false,
+      "totalItems": 1,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "displayName": "System Architects",
+          "id": "GROUP_system-architects",
+          "memberType": "GROUP"
+        }
+      }
+    ]
+  }
+}
+```
+
+We can use this call to return all users that are members of a specific Alfresco Share site group. First we need to 
+figure out the group identifier and then prefix it with `GROUP_`. For example, there is a default site in the repository 
+with id `swsdp` and we can figure out the site groups based on the 
+`site_{id}_[SiteCollaborator|SiteConsumer|SiteContributor|SiteManager]` template.
+
+So, to see all users with manager access to the site we can get all members of the `site_swsdp_SiteManager` group, 
+remember to prefix with `GROUP_`:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_site_swsdp_SiteManager/members' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   256    0   256    0     0  16000      0 --:--:-- --:--:-- --:--:-- 16000
+{
+  "list": {
+    "pagination": {
+      "count": 2,
+      "hasMoreItems": false,
+      "totalItems": 2,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "displayName": "admin",
+          "id": "admin",
+          "memberType": "PERSON"
+        }
+      },
+      {
+        "entry": {
+          "displayName": "mjackson",
+          "id": "mjackson",
+          "memberType": "PERSON"
+        }
+      }
+    ]
+  }
+}
+```
+
 ## Adding people and groups to a group {#addtogroup}
+
+Adding members (i.e. people or groups) to a group in the repository.
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/createGroupMembership](http://localhost:8080/api-explorer/#!/groups/createGroupMembership){:target="_blank"}
+
+**See also:** 
+
+* [How to create a group](#creategroup)
+* [How to set permissions for a group](#setpermissionsgroup)
+
+When you have a group, the next step is most likely to add people and other groups to it so they can work on behalf of 
+the group's permissions. It's common to set permissions for groups on folders. Then you just add users to the group and 
+they get the group's permissions on the folder.
+
+To add a user or a group to a group we POST the following data:
+
+```json
+{
+     "id": "group or person identifier",
+     "displayName": "name of the group or person",
+     "memberType": "GROUP or PERSON"
+}
+```
+
+This data is posted to the following URL:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}/members`
+
+The `id` parameter is the identifier of the group that the user or group that specified in the POST data should be added to.
+
+Before we try this out let's add a person and two groups to use in an example.
+
+Create a test user by POSTing the following body (make sure that user id `test` doesn't already exist):
+
+```json
+{
+  "id": "test",
+  "firstName": "Test",
+  "lastName": "User",
+  "password": "test"
+  "email": "test@alfresco.com"
+}
+```
+
+to:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people`
+
+The call looks like this (you must be logged in as a user with admin rights for this to work):
+
+```bash
+$ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "test", "firstName": "Test", "lastName": "User", "password": "test", "email": "test@alfresco.com"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   347    0   241  100   106    607    267 --:--:-- --:--:-- --:--:-* 871
+{
+  "entry": {
+    "firstName": "Test",
+    "lastName": "User",
+    "capabilities": {
+      "isGuest": false,
+      "isAdmin": false,
+      "isMutable": true
+    },
+    "displayName": "Test User",
+    "emailNotificationsEnabled": true,
+    "company": {},
+    "id": "test",
+    "enabled": true,
+    "email": "test@alfresco.com"
+  }
+}
+```
+
+Now create a group by POSTing the following body (make sure that group id `engineering` doesn't already exist):
+
+```json
+{
+   "id": "engineering",
+   "displayName": "Engineering"
+}
+```
+
+to:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups`
+
+The call looks like this (you must be logged in as a user with admin rights for this to work):
+
+```bash
+$ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "engineering", "displayName": "Engineering" }' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   131    0    78  100    53   1098    746 --:--:-- --:--:-- --:--:--  1819
+{
+  "entry": {
+    "isRoot": true,
+    "displayName": "Engineering",
+    "id": "GROUP_engineering"
+  }
+}
+```
+
+The group id always starts with `GROUP_`. If this is omitted, as in this case, it will be added automatically. This 
+format is also returned when listing groups or group memberships. It should be noted that the other group-related 
+operations also expect the id to start with `GROUP_`.
+
+Now add another group called `system-architects` that we will add as a member to the `engineering` group:
+
+```bash
+$ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "system-architects", "displayName": "System Architects" }' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   155    0    90  100    65   1956   1413 --:--:-- --:--:-- --:--:--  3369
+{
+  "entry": {
+    "isRoot": true,
+    "displayName": "System Architects",
+    "id": "GROUP_system-architects"
+  }
+}
+```
+
+We are now ready to add the `test` user and the `system-architects` group as members of the `engineering` group.
+
+Let's start by adding the System Architects group to the Engineering group. This is what we need to POST:
+
+```json
+{
+     "id": "GROUP_system-architects",
+     "displayName": "System Architects",
+     "memberType": "GROUP"
+}
+```
+
+Here is the call:
+
+```bash
+$ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "GROUP_system-architects", "displayName": "System Architects", "memberType": "GROUP"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   190    0    97  100    93   1077   1033 --:--:-- --:--:-- --:--:--  2111
+{
+  "entry": {
+    "displayName": "System Architects",
+    "id": "GROUP_system-architects",
+    "memberType": "GROUP"
+  }
+}
+```
+
+Note how the group identifier in the POST data and in the URL need to be prefixed with `GROUP_`.
+
+Now, let's add the Test User user to the Engineering group, we need to POST this:
+
+```json
+{
+     "id": "test",
+     "displayName": "Test user",
+     "memberType": "PERSON"
+}
+```
+
+Here is the call:
+
+```bash
+$ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{ "id": "test", "displayName": "Test user", "memberType": "PERSON"}' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   133    0    66  100    67   1157   1175 --:--:-- --:--:-- --:--:--  2333
+{
+  "entry": {
+    "displayName": "test",
+    "id": "test",
+    "memberType": "PERSON"
+  }
+}
+```
+
+Let's double check that the user and group really has been added to the Engineering group, we can use the 
+`GET /groups/{group id}/members` call for that:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   277    0   277    0     0    893      0 --:--:-- --:--:-- --:--:-* 893
+{
+  "list": {
+    "pagination": {
+      "count": 2,
+      "hasMoreItems": false,
+      "totalItems": 2,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": [
+      {
+        "entry": {
+          "displayName": "System Architects",
+          "id": "GROUP_system-architects",
+          "memberType": "GROUP"
+        }
+      },
+      {
+        "entry": {
+          "displayName": "test",
+          "id": "test",
+          "memberType": "PERSON"
+        }
+      }
+    ]
+  }
+}
+
+```
+
+When the Engineering group has been populated with users and groups we can start configuring folder and file permissions 
+for it.
+
 ## Delete a person or group from a group
-## Setting permissions for a group
+
+Deleting a person or group from a group in the repository.
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/deleteGroupMembership](http://localhost:8080/api-explorer/#!/groups/deleteGroupMembership){:target="_blank"}
+
+**See also:** [How to add a person or group to a group](#addtogroup)
+
+To delete a group membership you must have admin rights. What this means is that the user that is making the ReST call 
+must be a member of the `ALFRESCO_ADMINISTRATORS` group.
+
+To remove a group or a user from a group the following DELETE call is used:
+
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{groupId}/members/{memberId}`
+
+The group that you want to remove the membership from is identified with the `groupId` parameter. The membership 
+(i.e. user or group) that you want to remove is idenfied with the `memberId`.
+
+To remove a user with id `test` from a group with id `engineering` use the following DELETE call:
+
+```bash
+$ curl -X DELETE -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members/test' | jq
+   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                  Dload  Upload   Total   Spent    Left  Speed
+   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:-*   0
+```
+
+Note that you always have to prefix group identifiers with `GROUP_`.
+
+To remove a group with id `system-architects` from a group with id `engineering` use the following call:
+
+```bash
+$ curl -X DELETE -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members/GROUP_system-architects' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:-*   0
+```
+
+Let's double check that the user and group really has been removed from the Engineering group, we can use the 
+`GET /groups/{group id}/members` call for that:
+
+```bash
+$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering/members' | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   113    0   113    0     0    342      0 --:--:-- --:--:-- --:--:-* 342
+{
+  "list": {
+    "pagination": {
+      "count": 0,
+      "hasMoreItems": false,
+      "totalItems": 0,
+      "skipCount": 0,
+      "maxItems": 100
+    },
+    "entries": []
+  }
+}
+```
+
+The Engineering group is empty as the user and group we removed were the only members.
+
+## Setting permissions for a group {#setpermissionsgroup}
+
+Setting permissions for a group.
+
+**API Call:** [Get and set permissions for a node]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#setpermissionsnode)
+
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/updateNode](http://localhost:8080/api-explorer/#!/nodes/updateNode){:target="_blank"}
+
+**See also:** [How to create a group](dev-api-by-language-alf-rest-manage-people-groups-create-group.md)
+
+After creating a group and populating it with users and groups it is usually time to set permissions for it. What this 
+means is to configure read and write permissions on different folders and files in the repository. So when users that 
+are part of the group access those folders and files they automatically have the permissions that the group have. 
+Setting permissions on groups instead of individual users makes life easier when managing the repository.
+
+This is all done via the `PUT /nodes/{id}` call, for more info see 
+[get and set permissions for a node]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#setpermissionsnode).
