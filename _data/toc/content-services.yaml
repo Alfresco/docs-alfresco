@@ -245,6 +245,10 @@
             path: '/content-services/latest/develop/rest-api-guide/folders-files/'
           - title: 'Managing Sites'
             path: '/content-services/latest/develop/rest-api-guide/sites/'
+          - title: 'Managing People and Groups'
+            path: '/content-services/latest/develop/rest-api-guide/people-groups/'
+
+
           - title: 'Searching for content'
             path: '/content-services/latest/develop/rest-api-guide/searching/'
 

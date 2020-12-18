@@ -6,6 +6,6 @@ title: Searching for content
 
 ## Finding sites by a term
 
-## Finding people by a term
+## Finding people by a term {#findpeoplebyterm}
 
 ## Finding content by a search query {#searchbyquery}
