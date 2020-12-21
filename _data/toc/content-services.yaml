@@ -247,8 +247,8 @@
             path: '/content-services/latest/develop/rest-api-guide/sites/'
           - title: 'Managing People and Groups'
             path: '/content-services/latest/develop/rest-api-guide/people-groups/'
-
-
+          - title: 'Managing Audit Applications and Logs'
+            path: '/content-services/latest/develop/rest-api-guide/audit-apps/'
           - title: 'Searching for content'
             path: '/content-services/latest/develop/rest-api-guide/searching/'
 
