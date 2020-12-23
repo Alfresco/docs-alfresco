@@ -251,7 +251,6 @@
             path: '/content-services/latest/develop/rest-api-guide/audit-apps/'
           - title: 'Searching for content'
             path: '/content-services/latest/develop/rest-api-guide/searching/'
-
         - title: 'Reference'
           pages:
           - title: 'Web Scripts'
