@@ -4,7 +4,7 @@ title: Styling Tutorials
 
 Tutorials that deal with styling of the Share user interface. For example, how to create a custom theme.
 
-## Adding a custom Share Theme
+## Adding a custom Share Theme {#addcustomtheme}
 
 **Extension Point**: [Share Themes]({% link content-services/latest/develop/share-ext-points/share-themes.md %})
 
@@ -179,7 +179,7 @@ Tutorial implementation steps:
 
     ![dev-extensions-share-tutorials-custom-theme-menu-with-header-customization]({% link content-services/images/dev-extensions-share-tutorials-custom-theme-menu-with-header-customization.png %})
 
-## Customizing the Share Header Style (Aikau)
+## Customizing the Share Header Style (Aikau) {#customizeshareheaderstyle}
 
 **Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
 

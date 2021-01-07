@@ -321,12 +321,12 @@ all of the XML that defined it.
 ## More Information
 
 * [Software Architecture - Introduction to Aikau Pages]({% link content-services/latest/develop/software-architecture.md %}#aikauintro) - This page contains a walk-through on how to create an Aikau page, and it also has links to a page that shows how to create the same page with old-school Surf.
-* [Introduction to Aikau](TODO:aikau-intro.md)
+* [Introduction to Aikau]({% link content-services/latest/develop/reference/aikau-intro-ref.md %})
 * [Aikau Widget Reference](http://dev.alfresco.com/resource/docs/aikau-jsdoc/){:target="_blank"} - this is the place to look for widgets that you can use in your pages.
 
 ## Tutorials
 
-* [Adding new AMD packages for Aikau Widgets](TODO:../tasks/dev-extensions-share-tutorials-amd-packages-via-extension.md)
+* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/develop/share-ext-points/tutorials/adding-amd-packages.md %})
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs

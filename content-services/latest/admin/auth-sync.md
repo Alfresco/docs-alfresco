@@ -335,7 +335,7 @@ Here are two scenarios where external authentication is configured with Content 
 an HTTP or HTTPS request is sent to an authentication proxy. If authentication is OK, the proxy passes the request to 
 Share using the AJP protocol.
 
-In the first scenario, the Share [endpoint-url](TODO:surf-connectors-endpoints.md) (http://localhost:8080/alfresco/wcs) 
+In the first scenario, the Share endpoint-url (`http://localhost:8080/alfresco/wcs`) 
 sends the request directly to Content Services using HTTP and a User Header. No certificate is used and the 
 `external.authentication.proxyUserName` is blank:
 
@@ -349,7 +349,7 @@ using firewall rules to the proxy.
 
 ![external-direct]({% link content-services/images/external-direct.png %})
 
-In the second scenario, the Share [endpoint-url](TODO:surf-connectors-endpoints.md) (http://your.server.com/alfresco/wcs) 
+In the second scenario, the Share endpoint-url (`http://your.server.com/alfresco/wcs`) 
 sends the request back to Apache, using HTTP and a User Header (defined by `external.authentication.proxyHeader`), and 
 a certificate. `external.authentication.proxyUserName` is set:
 
@@ -597,7 +597,7 @@ You have configured Share to use an external SSO.
 
 Use this information to set up SSO with client certificates.
 
-1.  Setup Apache as proxy server in front of Content Services and configure it to use SSL as described in [Configuring SSL for a production environment](TODO:configure-ssl-prod.md).
+1.  Setup Apache as proxy server in front of Content Services and configure it to use SSL as described in [Configuring SSL for a production environment](TODO_LATER:configure-ssl-prod.md).
 
 2.  Activate external authentication as described in [Configuring external authentication](#configextauthrepoconsole).
 
@@ -639,7 +639,7 @@ authentication subsystems. For example, Kerberos against Active Directory, and p
 
 The user registry export function assumes that groups are stored in LDAP as an object that has a repeating attribute, 
 which defines the distinguished names of other groups, or users. This is supported in the standard LDAP schema using 
-the `groupOfNames` type. See the example LDIF file in [OpenLDAP tips](TODO:auth-ldap-openldaptips.md).
+the `groupOfNames` type. See the example LDIF file in [OpenLDAP tips]({% link content-services/latest/admin/troubleshoot.md %}#openldaptips).
 
 #### LDAP configuration properties {#ldapconfprops}
 

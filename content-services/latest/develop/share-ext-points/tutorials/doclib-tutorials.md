@@ -4,7 +4,7 @@ title: Document Library Tutorials
 
 These are tutorials for the Document Library in an Alfresco Share site.
 
-## Adding new actions
+## Adding new actions {#adddoclibaction}
 
 **Extension Point**: [Document Library]({% link content-services/latest/develop/share-ext-points/doclib.md %})
 
@@ -46,7 +46,7 @@ very simple as we will see with our DocLib action example that navigates to the 
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it 
-[here](TODO:library-access.md) before starting this tutorial. Also, familiar yourself with how 
+[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself with how 
 [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}) work as we will be creating one of those.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-action-doclib-share){:target="_blank"}
@@ -1011,7 +1011,7 @@ Adding a new Metadata Template to the Document Library involves the following st
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it 
-[here](TODO:library-access.md) before starting this tutorial. Also, familiar yourself with how 
+[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself with how 
 [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}) work as we will be creating one of those.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-metadata-template-doclib-share){:target="_blank"}
@@ -1226,7 +1226,7 @@ Tutorial implementation steps:
 
     ![dev-extensions-share-tutorials-custom-metadata-template-doclib-customrendering]({% link content-services/images/dev-extensions-share-tutorials-custom-metadata-template-doclib-customrendering.png %})
 
-## Adding a menu item to the "Create..." menu
+## Adding a menu item to the "Create..." menu {#addmenuitem2createmenu}
 
 **Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
 
@@ -1251,7 +1251,8 @@ Adding a new content create item in the Document Library usually involves the fo
 
 **Related Information**:
 
-This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it [here](TODO:../concepts/share-repodoclib.md) 
+This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it 
+[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) 
 before starting this tutorial. Also, familiar yourself with how you can create a text document via the 
 **Create... > Plain Text...** menu item as it is similar to what we are going to do in this tutorial.
 
@@ -1450,7 +1451,7 @@ Tutorial implementation steps:
 
     >**Note:** A Surf Extension module like this can be deployed and undeployed during runtime. And this means that an Administrator can control when different customizations should be visible or hidden. This is managed via the Module deployment page that can be found at: `http://localhost:8080/share/service/modules/deploy`.
 
-## Customizing a Surf JavaScript Widget
+## Customizing a Surf JavaScript Widget {#customizesurfwidget}
 
 **Extension Points**: [Surf Widgets]({% link content-services/latest/develop/share-ext-points/surf-widgets.md %}) and [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
 
@@ -1499,7 +1500,7 @@ Customizing the Documentlist Widget in the Document Library involves the followi
 **Related Information**:
 
 This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it, 
-see [Share Document Library](TODO:../concepts/share-repodoclib.md) before starting this tutorial. Also, familiar yourself 
+see [Share Document Library]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself 
 with how you can switch between different filters in the Document Library (that is, the navigation menu to the left in 
 the DocLib).
 

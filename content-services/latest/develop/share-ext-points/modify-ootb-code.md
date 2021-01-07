@@ -114,12 +114,12 @@ widgets this way. The Extension Modules section has all the details.
 
 ## More Information
 
-* [Introduction to Aikau](TODO: aikau-intro.md)
+* [Introduction to Aikau]({% link content-services/latest/develop/reference/aikau-intro-ref.md %})
 * [Aikau Widget Reference](https://dev.alfresco.com/resource/docs/aikau-jsdoc/){:target="_blank"} - this is the place to look for widgets that you can use in your dashlets.
 
 ## Tutorials
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
-* [Adding new AMD packages for Aikau Widgets](TODO:../tasks/dev-extensions-share-tutorials-amd-packages-via-extension.md)
+* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/develop/share-ext-points/tutorials/adding-amd-packages.md %})
 
 ## Developer Blogs
 

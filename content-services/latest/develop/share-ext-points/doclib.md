@@ -70,7 +70,7 @@ In this case a workflow was started, and there is a little icon indicating that 
 * [Evaluators Extension Point]({% link content-services/latest/develop/share-ext-points/evaluators.md %})
 * [Configure Document Library]({% link content-services/latest/develop/share-ext-points/share-config.md %}#doclibconfig)
 * [See the Rating Extension Point for example DocLib action, form, and evaluator]({% link content-services/latest/develop/repo-ext-points/ratings.md %})
-* [The Site Document Library](TODO:../tasks/library-access.md)
+* [The Site Document Library](TODO_LATER:../tasks/library-access.md)
 
 ## Sample Code
 
@@ -78,11 +78,10 @@ In this case a workflow was started, and there is a little icon indicating that 
 
 ## Tutorials
 
-* [Adding a new Document Library action](TODO:../tasks/dev-extensions-share-tutorials-add-action-doclib.md)
-* [Adding a menu item to the "Create..." menu in DocLib](TODO:../tasks/dev-extensions-share-tutorials-add-menuitem-create-menu.md)
-* [Override and extension examples](TODO:doclib-override-extension-examples.md)
-* [Customizing document library views](TODO:share-customizing-document-library-views.md)
-* [Configure aspect visibility](TODO:../tasks/share-repodoclib-aspects.md)
+* [Adding a new Document Library action]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#adddoclibaction)
+* [Adding a menu item to the "Create..." menu in DocLib]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#addmenuitem2createmenu)
+* [Customizing document library views]({% link content-services/latest/develop/share-ext-points/share-config.md %}#customizedoclibviews)
+* [Configure aspect visibility]({% link content-services/latest/develop/share-ext-points/share-config.md %}#configaspects)
 * [Jeff Potts Alfresco Developer Series: Adding Repo and DocLib actions](http://ecmarchitect.com/alfresco-developer-series-tutorials/actions/tutorial/tutorial.html){:target="_blank"} - a very thorough walk-through of how to develop Repository Actions and Document Library actions, a must read.
 
 ## Developer Blogs

@@ -470,16 +470,12 @@ transformer.complex.JodConverter.PdfBox.count=1000000
 
 ## More Information
 
-* [Invoking transformations from Java](TODO:dev-services-content.md)
-* [Invoking transformations from JavaScript](TODO:API-JS-Transformation.md)
-* [Invoking thumbnail transformations from JavaScript](TODO:API-JS-ThumbnailService.md)
-* [Invoking renditions from Java](TODO:dev-services-rendition.md)
-* [Invoking renditions from JavaScript](TODO:API-JS-RenditionService.md)
+* [Invoking transformations from Java](TODO_LATER:dev-services-content.md)
+* [Invoking transformations from JavaScript](TODO_LATER:API-JS-Transformation.md)
+* [Invoking thumbnail transformations from JavaScript](TODO_LATER:API-JS-ThumbnailService.md)
+* [Invoking renditions from Java](TODO_LATER:dev-services-rendition.md)
+* [Invoking renditions from JavaScript](TODO_LATER:API-JS-RenditionService.md)
 
 ## Sample Code
 
 * [Content Transformer Sample Code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-content-transformer-repo){:target="_blank"}
-
-## Tutorials
-
-* [Extending the RuntimeExecutableContentTransformer](TODO:../tasks/serv-runtimetransformer-extend.md) (note: this tutorial sets the `explicitTransformations` property, this is not necessary)

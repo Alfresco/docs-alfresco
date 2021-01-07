@@ -291,4 +291,4 @@ part need to be included. The query will then for example look like this for the
 
 * [Audit API Hints and Tricks](https://www.youtube.com/watch?v=_aP_JYTwZ6Y){:target="_blank"} - Alfresco DevCon presentation by Mehdi Belmekki.
 * [Audit and Reporting with Alfresco and NoSQL](http://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture){:target="_blank"} - Alfresco Summit presentation by Zaizi
-* [Audit tutorials](TODO:../concepts/audit-tutorials.md)
+* [Audit tutorials]({% link content-services/latest/admin/audit.md %}#audittutorials)

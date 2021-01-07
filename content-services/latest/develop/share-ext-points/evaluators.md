@@ -106,14 +106,14 @@ Use a Share JAR SDK project instead.
 
 * [See the Rating Extension Point for example evaluator]({% link content-services/latest/develop/repo-ext-points/ratings.md %})
 * [Predefined evaluators for Document Library]({% link content-services/latest/develop/reference/share-document-library-ref.md %}#predefinedevaluatorsref)
-* [Extension Module Deployment and Evaluators](TODO:dev-extensions-share-module-deployment.md)
+* [Extension Module Deployment and Evaluators]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}#moduledeployandevaluators)
 
 ## Tutorials
 
-* [Creating a Custom Evaluator](TODO:../tasks/dev-extensions-share-tutorials-custom-evaluator.md)
-* [Selecting an Evaluator for an Extension Module](TODO:../tasks/dev-extensions-share-tutorials-select-evaluator.md)
-* [Sub-Component Evalution](TODO:../tasks/dev-extensions-share-tutorials-subcomponent-evals.md)
-* [Improving Sub-Component Evalution](TODO:../tasks/dev-extensions-share-tutorials-subcomponent-evals-improving.md)
+* [Creating a Custom Evaluator]({% link content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials.md %}#createcustomevaluator)
+* [Selecting an Evaluator for an Extension Module]({% link content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials.md %}#selectingevaluator)
+* [Sub-Component Evalution]({% link content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials.md %}#subcomponentevaluation)
+* [Improving Sub-Component Evalution]({% link content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials.md %}#improvesubcomponenteval)
 
 ## Alfresco Developer Blogs
 

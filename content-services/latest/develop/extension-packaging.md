@@ -223,11 +223,16 @@ The module package format is a compressed zip file. The AMP file has the followi
 |/web/images|Any images that relate to your module should be placed here. The contents are mapped into the `/images` directory in the WAR file.|
 |/web/scripts|JavaScript files that are used by the user interface should be placed here. The contents are mapped into the `/scripts` directory in the WAR file.<br><br>Any folder structures found in any of these directories are mapped, as they are found, into the destination folders in the WAR.<br><br>If a file already exists it is overridden in the WAR. When this happens a recoverable backup is saved by the Module Management Tool (MMT).|
 
-#### AMP to WAR mapping
+#### AMP to WAR mapping {#defaultamp2warmap}
 
-When an AMP file is to be deployed it is applied to the target WAR file using the Module Management Tool. This is a convenient way of applying a number of files to a variety of directories within the target WAR's exploded directory structure. When the AMP is applied, the default mappings can be applied to map from the module directory structure to the exploded WAR directory structure. Custom mappings can also be applied.
+When an AMP file is to be deployed it is applied to the target WAR file using the Module Management Tool. This is a 
+convenient way of applying a number of files to a variety of directories within the target WAR's exploded directory 
+structure. When the AMP is applied, the default mappings can be applied to map from the module directory structure to 
+the exploded WAR directory structure. Custom mappings can also be applied.
 
-By default the module directories, and their sub-directories, are mapped into the target WAR file using the Module Management Tool (MMT), as indicated in the following table. Any of the specified directories can be empty or missing if not required by the module.
+By default the module directories, and their sub-directories, are mapped into the target WAR file using the 
+Module Management Tool (MMT), as indicated in the following table. Any of the specified directories can be empty or 
+missing if not required by the module.
 
 |Directory|Description|AMP to WAR file mapping|
 |---------|-----------|-----------------------|
@@ -249,7 +254,7 @@ A custom mapping from the AMP directory structure to the WAR file is sometimes u
 non-standard module directory structure, or if you wish to map files into non-default locations in the target WAR. 
 This custom mapping is achieved through use of the `file-mapping.properties` file.
 
-The [default mappings](TODO:dev-extensions-modules-amp-mapping.md) are applied if the `file-mapping.properties` file 
+The [default mappings](#defaultamp2warmap) are applied if the `file-mapping.properties` file 
 is not provided.
 
 This file has the same format as a standard Java properties file. The **key** is the directory (with a leading `/`) in 

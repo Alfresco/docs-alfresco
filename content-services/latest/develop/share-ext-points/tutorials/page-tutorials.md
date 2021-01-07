@@ -112,7 +112,7 @@ Tutorial implementation steps:
 
     >**Note:** A Surf Extension module like this can be deployed and undeployed during runtime. And this means that an Administrator can control when different customizations should be visible or hidden. This is managed via the Module deployment page that can be found at: `http://localhost:8080/share/service/modules/deploy`.
 
-## Removing content from a Surf page
+## Removing content from a Surf page {#removecontent}
 
 **Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
 
@@ -316,7 +316,7 @@ Tutorial implementation steps:
     >**Note:** A Surf Extension module like this can be deployed and undeployed during runtime. And this means that an Administrator can control when different customizations should be visible or hidden. This is managed via the Module deployment page that can be found at: `http://localhost:8080/share/service/modules/deploy`.
 
 
-## Customizing (web script controller) the WebView dashlet on the Dashboard page
+## Customizing (web script controller) the WebView dashlet on the Dashboard page {#customizewscontroller}
 
 **Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
 

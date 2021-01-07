@@ -322,7 +322,7 @@ using a type and property.
 You have created and deployed a custom model with a custom property and constraint. You have applied a custom property 
 and seen how to search for content with a particular property value.
 
-## Share configuration for custom types and properties
+## Share configuration for custom types and properties {#shareconfigtypesprops}
 
 Alfresco Share needs to be configured to display custom types. It is also possible to configure Share to display 
 properties in a customized way (the default is to display all properties).
@@ -488,7 +488,7 @@ Complete the previous tutorials in this series before attempting this one.
 
 The association has been created and deployed.
 
-## Adding an aspect with Share configurations
+## Adding an aspect with Share configurations {#addaspect}
 
 In this tutorial you add an aspect to your model. An aspect provides an additional way to classify content.
 

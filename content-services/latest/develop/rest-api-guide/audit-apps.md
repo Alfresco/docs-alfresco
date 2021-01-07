@@ -158,7 +158,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-## Enable/Disable an audit application
+## Enable/Disable an audit application {#enabledisableapp}
 
 Enabling and disabling an audit application in the repository.
 

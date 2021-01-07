@@ -101,7 +101,7 @@ When we know the Surf component information it is easy to define an extension mo
 ```
 
 For more information about this module configuration see 
-[controlling rendering of components](TODO:../tasks/dev-extensions-share-tutorials-hide-content.md).
+[controlling rendering of components]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %}#removecontent).
 
 Besides manipulating the components of a Web Page you can also do the following with Surf Extension Modules:
 
@@ -168,7 +168,7 @@ The following table compares `share-config-custom.xml` with Surf Extension modul
 |Group configuration into named packages|NO|YES|
 |Keep different versions of a configuration package|NO|YES|
 
-## Module deployment and evaluators
+## Module deployment and evaluators {#moduledeployandevaluators}
 
 You can deploy Surf Extension Modules and change their behavior using evaluators.
 
@@ -420,13 +420,8 @@ In this case the second `<adobe-flash-enabled>` element would be ignored as only
 
 ## Tutorials
 
-* [Adding content to a Surf page](TODO:../tasks/dev-extensions-share-tutorials-add-content.md)
-* [Removing/hiding content from a Surf page](TODO:../tasks/dev-extensions-share-tutorials-hide-content.md)
-* [Conditionally controlling rendering of content on Surf page](TODO:../tasks/dev-extensions-share-tutorials-subcomponent-evals.md)
-* [Customizing (Web Script Properties) the footer text for a Surf page](TODO:../tasks/dev-extensions-share-tutorials-i18n-customize.md)
-* [Customizing (Web Script Controller) the WebView dashlet on the Dashboard page](TODO:../tasks/dev-extensions-share-tutorials-js-customize.md)
-* [Customizing (Web Script Template) the footer text for a Surf page](TODO:../tasks/dev-extensions-share-tutorials-fm-temp-customize.md)
-* [Extend an out-of-the-box Surf Widget (YUI)](TODO:../tasks/dev-extensions-share-tutorials-customizing-widget-instantiation.md)
-* [Add a new menu item to "Create..." menu in DocLib](TODO:../tasks/dev-extensions-share-tutorials-add-menuitem-create-menu.md)
-* [Customizing the Share Header Style (Aikau)](TODO:../tasks/dev-extensions-share-tutorials-customize-header-style.md)
-* [Adding JS packages (Aikau)](TODO:../tasks/dev-extensions-share-tutorials-amd-packages-via-extension.md)
+* [Surf page tutorials]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %})
+* [Extend an out-of-the-box Surf Widget (YUI)]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#customizesurfwidget)
+* [Add a new menu item to "Create..." menu in DocLib]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#addmenuitem2createmenu)
+* [Customizing the Share Header Style (Aikau)]({% link content-services/latest/develop/share-ext-points/tutorials/styling-tutorials.md %}#customizeshareheaderstyle)
+* [Adding JS packages (Aikau)]({% link content-services/latest/develop/share-ext-points/tutorials/adding-amd-packages.md %})

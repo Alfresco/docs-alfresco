@@ -125,7 +125,7 @@ Tutorial implementation steps:
 
 2.  Decide if you want to customize an existing theme or use a custom theme.
 
-    Customizing the style of the header can be done either by overriding an existing theme, such as the Green Theme, or by creating a new custom theme. In this exercise we will customize the out-of-the-box Green Theme. If we are just customization LESS variables, and we don't need to change anything else in the Green Theme, then it is enough to just create a Green Theme XML file and override the LESS variables. There is no need to copy over the complete theme directory like when [creating a custom theme](TODO:dev-extensions-share-tutorials-add-theme.md).
+    Customizing the style of the header can be done either by overriding an existing theme, such as the Green Theme, or by creating a new custom theme. In this exercise we will customize the out-of-the-box Green Theme. If we are just customization LESS variables, and we don't need to change anything else in the Green Theme, then it is enough to just create a Green Theme XML file and override the LESS variables. There is no need to copy over the complete theme directory like when [creating a custom theme]({% link content-services/latest/develop/share-ext-points/tutorials/styling-tutorials.md %}#addcustomtheme).
 
 3.  Create a new themes directory under the `aio/aio-share-jar/src/main/resources/alfresco/web-extension/site-data` directory.
 

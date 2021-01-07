@@ -61,7 +61,7 @@ Use a Share JAR project instead.
 
 ## Tutorials
 
-* [Adding a custom Share Theme](TODO:../tasks/dev-extensions-share-tutorials-add-theme.md)
+* [Adding a custom Share Theme]({% link content-services/latest/develop/share-ext-points/tutorials/styling-tutorials.md %}#addcustomtheme)
 
 ## Developer Blogs
 

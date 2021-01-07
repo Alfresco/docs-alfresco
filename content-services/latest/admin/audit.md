@@ -179,18 +179,18 @@ Map:
 ### Audit Service
 
 The Audit Service provides a public Java API for interacting with the Audit Component. The Audit Service is described 
-in more detail in the [Public Java API Services documentation](TODO:../references/dev-services-audit.md). 
+in more detail in the Public Java API Services documentation. 
 The JavaDoc (generated from the Java source code) for the AuditService API can be found 
-[here](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/audit/AuditService.html).
+[here](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/audit/AuditService.html){:target="_blank"}.
 
-The AuditService is also exposed via a REST API. This is documented in more detail in the 
+The `AuditService` is also exposed via a REST API. This is documented in more detail in the 
 [Using the auditing REST API documentation](#usingauditrestapi).
 
 ### Audit Filters
 
 Audit Filters filter the raw audit data so that only the required data proceeds further in the pipeline. While some 
 audit filters are [provided by default](#auditconfigdefaults), you can override these default filters and 
-create new audit filters by editing alfresco-global.properties. Audit Filters are described in more detail in the 
+create new audit filters by editing `alfresco-global.properties`. Audit Filters are described in more detail in the 
 [Audit Filter documentation](#auditfilters).
 
 ### Data Extractor {#dataextractor}
@@ -598,16 +598,16 @@ such as **Curl**.
 You can check the status of auditing conveniently from the command line by using a tool such as `curl` to access the 
 Audit Applications ReST endpoint.
 
-For more information about `curl` and where to find it see this [page](TODO:dev-api-by-language-alf-rest-install-http-call-tool.md).
+For more information about `curl` and where to find it see this [page]({% link content-services/latest/develop/rest-api-guide/install-http-calls-tool.md %}).
 
 To check the global status of auditing, such as what audit applications that are enabled, see this 
-[page](TODO:dev-api-by-language-alf-rest-manage-audit-apps-list-apps.md).
+[page]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditapps).
 
 While this does return the global status of the auditing framework, audit data will only be generated if the 
 `audit.alfresco-access.enabled` property is `true`.
 
 Auditing can also be globally enabled or disabled for Audit applications, see this 
-[page](TODO:dev-api-by-language-alf-rest-manage-audit-apps-enable-disable-app.md) for more info.
+[page]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#enabledisableapp) for more info.
 
 ## Using JMX to control auditing
 
@@ -628,7 +628,7 @@ In order to use a sample file, remove the `.sample` extension. It is also assume
 You will also need to restart the server so the examples are loaded.
 
 Once the sample files are enabled you can check that the new example audit applications are enabled via the ReST API, 
-see this [page](TODO:dev-api-by-language-alf-rest-manage-audit-apps-list-apps.md) for more information.
+see this [page]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditapps) for more information.
 
 You should see that the *AuditExampleExtractors* and *AuditExample Login* applications have been enabled.
 
@@ -638,7 +638,7 @@ You can use the ReST API to control auditing and also run queries against the au
 It is also possible to clear auditing data using the API.
 
 The Audit ReST API covers most of the audit functionality, check it out here in the 
-[user guide](TODO:dev-api-by-language-alf-rest-manage-audit-apps-intro.md).
+[user guide]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}).
 
 ## Default auditing global properties {#auditconfigdefaults}
 
@@ -1162,11 +1162,11 @@ This audit application will record full name for only successful logins.
 </Audit>   
 ```
 
-## Auditing Tutorials
+## Auditing Tutorials {#audittutorials}
 
 The Audit ReST API User Guide contains a lot of example tutorials.
 
-The Audit ReST API User Guide can be found [user guide](TODO:dev-api-by-language-alf-rest-manage-audit-apps-intro.md).
+The Audit ReST API User Guide can be found [user guide]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}).
 
 ### Understanding PathMappings
 

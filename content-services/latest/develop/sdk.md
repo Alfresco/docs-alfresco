@@ -60,7 +60,7 @@ That incredibly eases the management of the versions of the different Alfresco p
 
 ### Alfresco Maven Plugin no longer needed
 
-Alfresco SDK 4.0 manages the lifecycle of the generated projects making use of proper [utility scripts](TODO:working-with-generated-projects/README.md#run-script) 
+Alfresco SDK 4.0 manages the lifecycle of the generated projects making use of proper [utility scripts](#workingwithrunscript) 
 (`run.sh` / `run.bat`). That avoids the need of using the Alfresco Maven Plugin and eases the process to modify the lifecycle of the customisation projects.
 
 If a development team has straightforward requirements and doesn't want to worry about the complexity of working with containers, it can use the utility scripts

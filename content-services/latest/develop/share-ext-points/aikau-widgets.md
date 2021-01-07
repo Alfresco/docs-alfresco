@@ -144,12 +144,12 @@ Best practice is to put the file in a directory that explains what the file is f
 
 ## More Information
 
-* [Introduction to Aikau](TODO:aikau-intro.md)
+* [Introduction to Aikau]({% link content-services/latest/develop/reference/aikau-intro-ref.md %})
 * [Aikau Widget Reference](http://dev.alfresco.com/resource/docs/aikau-jsdoc/){:target="_blank"} - Look here before you start creating widgets, one might exist that does what you want.
 
 ## Tutorials
 
-* [Adding new AMD packages for Aikau Widgets](TODO:../tasks/dev-extensions-share-tutorials-amd-packages-via-extension.md)
+* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/develop/share-ext-points/tutorials/adding-amd-packages.md %})
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs

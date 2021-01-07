@@ -474,7 +474,7 @@ with endpoints. This pattern abstracts away any of the manual management of conn
 need to perform. Using authenticators, connectors manage user identity and session state to the endpoint. This is 
 automatically managed for the duration of the user session in the Surf application itself.
 
-### Connectors and endpoints
+### Connectors and endpoints {#connectorsendpoints}
 
 Connectors and endpoints are both defined through simple configuration as part of Surf's remote configuration block.
 

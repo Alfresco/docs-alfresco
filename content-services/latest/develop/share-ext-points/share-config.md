@@ -370,7 +370,7 @@ This implementation enables the External Users panel in the Share user interface
 
 >**Note:** External users are a way for users without Administrator permissions to add a user to Alfresco Content Services. When they accept the invite they will have the same access as a standard user, and will be counted against licensing.
 
-## Share Document Library
+## Share Document Library {#sharedoclib}
 
 The Share document library is a feature that gives full access to the Alfresco Content Services repository.
 
@@ -433,7 +433,7 @@ link is always visible to Administrators.
 
 4.  Restart the Alfresco Content Services server.
 
-### Configuring aspects
+### Configuring aspects {#configaspects}
 
 Aspects can be configured in the file `./tomcat/webapps/share/WEB-INF/classes/alfresco/share-documentlibrary-config.xml`.
 
@@ -907,7 +907,7 @@ label to be used for folders.
 </config>        
 ```
 
-##### Custom client extensions
+##### Custom client extensions 
 
 The `DocLibCustom` config section is where dependencies on custom client-side assets can be defined. These are defined 
 in exactly the same way as for custom Forms dependencies.
@@ -994,7 +994,7 @@ YAHOO.Bubbling.fire("**registerAction**",
 });
 ```
 
-#### Customizing document library views
+#### Customizing document library views {#customizedoclibviews}
 
 Within the document library it is possible to select from a number of views. It is also possible to add custom views to 
 the document library through configuration in the `share-documentlibrary-config.xml` file.
@@ -1145,7 +1145,7 @@ The following themes are available:
 The default theme, which comprises the CSS and image assets used across all pages, displays in a new installation.
 
 You can also create your own themes. Take a look at the [Share Theme Extension Point]({% link content-services/latest/develop/share-ext-points/share-themes.md %}) 
-and the [Adding a custom Share Theme](TODO:../tasks/dev-extensions-share-tutorials-add-theme.md) tutorial.
+and the [Adding a custom Share Theme]({% link content-services/latest/develop/share-ext-points/tutorials/styling-tutorials.md %}#addcustomtheme) tutorial.
 
 ### Selecting Share themes
 
@@ -1982,7 +1982,6 @@ Store the custom templates in the `site-webscripts` directory, which is usually 
 
 ## Adding Custom MIME types
 
-
 You can add custom MIME types to Share.
 
 When you edit the properties of a document, it is possible to select a MIME types from a drop-down list. You can add 
@@ -2023,7 +2022,7 @@ You can add custom MIME types as required to this file, or create your own confi
 
 ## Tutorials
 
-* [Making custom types visible](TODO:../tasks/dev-extensions-content-models-tutorials-share-config.md)
-* [Making custom aspects visible](TODO:../tasks/dev-extensions-content-models-tutorials-add-aspect.md)
-* [Controlling search results](TODO:https://docs.alfresco.com/6.0/tasks/controlling_search_results.html)
+* [Making custom types visible]({% link content-services/latest/develop/repo-ext-points/tutorials/content-model-tutorials.md %}#shareconfigtypesprops)
+* [Making custom aspects visible]({% link content-services/latest/develop/repo-ext-points/tutorials/content-model-tutorials.md %}#addaspect)
+* [Controlling search results](TODO_LATER:https://docs.alfresco.com/6.0/tasks/controlling_search_results.html)
 

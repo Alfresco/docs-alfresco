@@ -387,7 +387,7 @@ Auto-Proxy detection. Command completion therefore will take longer due to the w
 
 For more information and a work around see [Slow response working with WebDAV resources on Windows Vista or Windows 7](https://support.microsoft.com/en-us/help/2445570/slow-response-working-with-webdav-resources-on-windows-vista-or-window){:target="_blank"}.
 
-## OpenLDAP tips
+## OpenLDAP tips {#openldaptips}
 
 Use these tips when working with OpenLDAP.
 

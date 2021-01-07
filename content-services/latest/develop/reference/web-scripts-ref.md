@@ -94,7 +94,7 @@ own web script to expose a RESTful interface onto a custom content repository ex
 
 ![wsf-design]({% link content-services/images/wsf-design.png %})
 
-### Web script components
+### Web script components {#wscomponents}
 
 The Web Script Framework lets you create a web script using familiar technologies, such as scripting and template languages.
 
@@ -122,7 +122,7 @@ For example, the web script is given a short name and description, along with au
 URI bindings are described as URI templates.
 
 A detailed reference of elements in the web script description document can be found in the 
-[Web Script Description Language Reference](TODO:../references/api-wsdl-webscript-descriptor-language-reference.md).
+[Web Script Description Language Reference](TODO_LATER:../references/api-wsdl-webscript-descriptor-language-reference.md).
 
 An example of a web script description document follows:
 
@@ -610,7 +610,7 @@ actually perform any caching. Instead, Alfresco Content Services relies on one o
 such as Squid (www.squid-cache.org), an HTTP caching proxy. Therefore, you must either embed an HTTP cache in your client 
 or deploy an HTTP-cache proxy in front of the Alfresco Content Services server to enable caching.
 
-### Runtime cache controls
+### Runtime cache controls {#cachecontrols}
 
 Some cache controls can be set only during the execution of a web script, such as setting when the content of the 
 response was last modified. To support this, the Web Script Framework provides a special root object named `cache` 

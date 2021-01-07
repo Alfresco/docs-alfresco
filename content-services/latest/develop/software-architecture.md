@@ -28,19 +28,16 @@ sync users and groups with Content Services. And most installations also integra
 Platform can send emails, such as site invitations.
 
 For more information about the internals of the Platform, and specifically the content repository, see the 
-[concepts](TODO:dev-repository-concepts.md) section.
+[concepts](TODO_LATER:dev-repository-concepts.md) section.
 
-The Platform also contains numerous [APIs](TODO:dev-api-intro.md), [Services](TODO:dev-services.md), and [Protocols](TODO:dev-protocols.md).
+The Platform also contains numerous APIs, such as
 
 Alfresco provides a number of extension points to allow you to customize Content Services. 
 These extensions points have various formats, but include:
 
-* [Platform extension points and detailed architecture](TODO:dev-platform-arch.md)
-* [Share extension points and detailed architecture](TODO:dev-extensions-share-architecture-extension-points.md)
-* [Platform integration points and detailed architecture](TODO:dev-platform-integration-arch.md)
-* [APIs](TODO:dev-api-intro.md)
-* [Protocols](TODO:dev-protocols.md)
-* [Services](TODO:dev-services.md)
+* [Platform extension points and detailed architecture](#platformarch)
+* [Share extension points and detailed architecture](#sharearchitecture)
+* [ReST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}).
 
 ## Guiding design principles
 
@@ -169,16 +166,17 @@ The server side repository with its services is also referred to as the platform
 The platform architecture consists of the repository and related services. The platform contains the key extension points 
 for building your own extensions.
 
-The following diagram illustrates the platform architecture and [extension points](TODO:dev-platform-extension-points.md). 
+The following diagram illustrates the platform architecture and [extension points]({% link content-services/latest/develop/repo-ext-points/overview.md %}).
 Note that this does not represent a complete list of extension points:
 
 ![acs-platform-architecture-detail]({% link content-services/images/acs-platform-architecture-detail.png %})
 
-The platform consists of the repository and all services, developer [extension points](TODO:dev-platform-extension-points.md), 
-and [APIs](TODO:dev-api-intro.md). The repository provides storage for documents and other content. The content metadata 
+The platform consists of the repository and all services, developer extension points,
+and APIs, such as the [ReST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}).
+The repository provides storage for documents and other content. The content metadata
 is stored in a relational database, while the content itself is stored directly on the file system. The relationships 
 between content items, and their various properties (metadata) are defined in one or more 
-[content models](TODO:../references/dev-extension-points-content-model.md).
+[content models]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 Content models can be thought of as describing types of content and the relationships between pieces of content. 
 For example, there is a relationship between a content that has a container functionality (that is, folder), and the 
@@ -195,9 +193,9 @@ Typically these services are implemented in Java, and expose an API described by
 [Public Java API](http://dev.alfresco.com/resource/docs/java/){:target="_blank"}.
 
 The platform is highly extensible. You can write extensions in Java, JavaScript, and FreeMarker, and you can write 
-client applications in any language using the [ReST API](TODO:../pra/1/topics/pra-welcome.md). You can create new 
-[content models](TODO:../references/dev-extension-points-content-model.md) that define new content types, metadata, 
-and relationships. You can define [custom actions](TODO:../references/dev-extension-points-actions.md) that the repository 
+client applications in any language using the [ReST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}). You can create new
+[content models]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) that define new content types, metadata,
+and relationships. You can define [custom actions]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}) that the repository
 will carry out when certain events happen (such as when new content is added to the repository). You can even create 
 entirely new services, if required.
 
@@ -209,9 +207,7 @@ When you need to create custom business workflow you should use the
 Content modeling is a fundamental building block of the repository that provides a foundation for structuring and 
 working with content.
 
->**Note:** For more information about working with custom metadata models (aspects, types and forms), flexible content organization and actions in the Model Manager App, see [Content modeling](TODO:admintools-cmm-intro.md).
-
-Content modeling specifies how nodes stored in the repository are constrained, imposing a formal structure on nodes 
+Content modeling specifies how nodes stored in the repository are constrained, imposing a formal structure on nodes
 that an application can understand and enforce. Nodes can represent anything stored in the repository, such as folders, 
 documents, XML fragments, renditions, collaboration sites, and people. Each node has a unique ID and is a container for 
 any number of named properties, where property values can be of any data type, single or multi-valued.
@@ -249,7 +245,7 @@ Models also define kinds of relationships, property data types, and value constr
 allows a property to hold arbitrary length binary data. Content Services comes prepackaged with several content models. 
 You can define new models for specific use cases from scratch or by inheriting definitions from existing models.
 
-For more information see [content model introduction](TODO:../references/dev-extension-points-content-model.md).
+For more information see [content model introduction]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 ### Access protocols
 
@@ -265,18 +261,17 @@ extension points and APIs built into Alfresco.
 When any of these protocols are used to access or upload content to the repository, access control is always enforced 
 based on configured permissions, regardless of what protocol that is used.
 
-The following table list some of the main protocols supported by Content Services and links to more detailed 
-documentation:
+The following table list some of the main protocols supported by Content Services:
 
 |Protocol|Description|Support Status|
 |--------|-----------|--------------|
 |HTTP|The main protocol used to access the repository via for example the ReST APIs.|Standard in Content Services and Community Edition.|
-|[WebDAV](TODO:troubleshoot-webdav.md)|Web-based Distributed Authoring and Versioning is a set of HTTP extensions that lets you manage files collaboratively on web servers. It has strong support for authoring scenarios such as locking, metadata, and versioning. Many content production tools, such as the Microsoft Office suite, support WebDAV. Additionally, there are tools for mounting a WebDAV server as a network drive.|Standard in Content Servicesand Community Edition.|
-|[FTP](TODO:fileserv-ftp-intro.md)|File Transfer Protocol - standard network protocol for file upload, download and manipulation. Useful for bulk uploads and downloads.|Standard in Content Services and Community.|
-|[Alfresco Office Services](TODO_LINK:https://docs.alfresco.com/aos/concepts/aos-intro.html)|Alfresco Office Services (AOS) allow you to access Content Services directly from all your Microsoft Office applications.|Standard in Content Services and Community Edition.|
-|[CMIS](TODO:../pra/1/topics/cmis-welcome.md)|Alfresco fully implements both the [CMIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cmis){:target="_blank"}. 1.0 and 1.1 standards to allow your application to manage content and metadata in an on-premise repository.|Standard in Content Services and Community Edition.|
-|[IMAP](TODO:imap-intro.md)|Internet Message Access Protocol - allows access to email on a remote server. Content Services can present itself as an email server, allowing clients such as Microsoft Outlook, Thunderbird, Apple Mail and other email clients to access the content repository, and manipulate folders and files contained there. IMAP supports three modes of operation:<br><br>1. `Archive`: allows email storage in the repository by using drag/drop and copy/paste from the IMAP client.<br><br>2. `Virtual`: folders and files held in the repository are exposed as emails within the IMAP client with the ability to view metadata and trigger actions using links embedded in the email body.<br><br>3. `Mixed`: a combination of both archive and virtual.|Standard in Content Services and Community Edition.|
-|[SMTP](TODO:email-intro.md)|It is possible to email content into the repository (InboundSMTP). A folder can be dedicated as an email target.|Standard in Content Services and Community Edition.|
+|WebDAV|Web-based Distributed Authoring and Versioning is a set of HTTP extensions that lets you manage files collaboratively on web servers. It has strong support for authoring scenarios such as locking, metadata, and versioning. Many content production tools, such as the Microsoft Office suite, support WebDAV. Additionally, there are tools for mounting a WebDAV server as a network drive.|Standard in Content Servicesand Community Edition.|
+|FTP|File Transfer Protocol - standard network protocol for file upload, download and manipulation. Useful for bulk uploads and downloads.|Standard in Content Services and Community.|
+|Alfresco Office Services|Alfresco Office Services (AOS) allow you to access Content Services directly from all your Microsoft Office applications.|Standard in Content Services and Community Edition.|
+|CMIS|Alfresco fully implements both the [CMIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cmis){:target="_blank"}. 1.0 and 1.1 standards to allow your application to manage content and metadata in an on-premise repository.|Standard in Content Services and Community Edition.|
+|IMAP|Internet Message Access Protocol - allows access to email on a remote server. Content Services can present itself as an email server, allowing clients such as Microsoft Outlook, Thunderbird, Apple Mail and other email clients to access the content repository, and manipulate folders and files contained there. IMAP supports three modes of operation:<br><br>1. `Archive`: allows email storage in the repository by using drag/drop and copy/paste from the IMAP client.<br><br>2. `Virtual`: folders and files held in the repository are exposed as emails within the IMAP client with the ability to view metadata and trigger actions using links embedded in the email body.<br><br>3. `Mixed`: a combination of both archive and virtual.|Standard in Content Services and Community Edition.|
+|SMTP|It is possible to email content into the repository (InboundSMTP). A folder can be dedicated as an email target.|Standard in Content Services and Community Edition.|
 
 All the protocol bindings expose folders and documents held in the repository. This means a client tool accessing the 
 repository using the protocol can navigate through folders, examine properties, and read content. Most protocols also 
@@ -479,7 +474,7 @@ top of the Spring Web MVC technology, which in turn uses the Spring Framework.
 
 Developers can also add completely new pages and dashlets to the Share UI when content should be viewed or handled in a 
 specific way. Sometimes it is also required to modify existing pages. To customize the Share UI developers use so called 
-*[Extension Points](TODO:dev-extensions-share-extension-points-introduction.md)*, which are supported ways of injecting new 
+*[Extension Points]({% link content-services/latest/develop/share-ext-points/overview.md %})*, which are supported ways of injecting new
 custom code that should alter the functionality of the Share web application.
 
 The following picture gives an overview of the Alfresco Share application architecture, note that not all available 
@@ -535,7 +530,7 @@ development framework. It looks like this:
 ![dev-extensions-share-surf-page-model]({% link content-services/images/dev-extensions-share-surf-page-model.png %})
 
 The model is referred to as the `siteData` and has more stuff than just pages and templates 
-([siteData Reference](TODO:../references/surf-object-xml-reference.md)). You will however mostly be dealing with component, 
+([Surf Reference]({% link content-services/latest/develop/reference/surf-framework-ref.md %})). You will however mostly be dealing with component,
 page, and template-instance files, which are simple XML files:
 
 ```text
@@ -572,8 +567,8 @@ page, and template-instance files, which are simple XML files:
     /themes
 ```
 
-The Site Data model defines the [page in XML](TODO:../references/surf-object-xml-reference-page.md), like in the following 
-example for Search (alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco/site-data/pages/search.xml):
+The Site Data model defines the page in XML, like in the following
+example for Search (`alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco/site-data/pages/search.xml`):
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -602,10 +597,10 @@ example for Search (alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco/site-
 </page>
 ```
 
-Here we can see that some [components](TODO:../references/surf-object-xml-reference-component.md) have been defined inline 
+Here we can see that some components have been defined inline
 in the search page definition, instead of in the `/components` directory as separate files. The name of the page 
 definition file is implicitly setting the page id to `search`. A corresponding 
-[template instance](TODO:../references/surf-object-xml-reference-template-instance.md) file is expected to be present in 
+template instance file is expected to be present in
 the `template-instances` directory. In our case it will be a file called `search.xml`:
 
 ```xml
@@ -740,7 +735,7 @@ The following steps are needed to add a Surf Page:
 * Add a properties file (.properties) - Optional but good practice
 * Add Web Script(s) that fetches content to display (if you have `page` scoped regions and use an existing template)
 
-The full tutorial, and introduction to Surf Pages, can be found ([here](TODO:dev-extensions-share-architecture-extension-points-intro-surf-pages.md)).
+The full tutorial, and introduction to Surf Pages, can be found ([here]({% link content-services/latest/develop/share-ext-points/surf-pages.md %})).
 
 Next, have a look at how to implement the same Hello World page with Aikau.
 
@@ -754,7 +749,7 @@ To implement the Hello World page in Aikau we have to go through the following s
 * Add Widget to display content
 * Choose what Surf Page you want to use as a basis (dp, hdp, rdp etc)
 
-For a full tutorial and introduction to Aikau Pages, see ([Introduction to Aikau Pages](TODO:dev-extensions-share-architecture-extension-points-intro-aikau-pages.md)).
+For a full tutorial and introduction to Aikau Pages, see ([Introduction to Aikau Pages]({% link content-services/latest/develop/software-architecture.md %}#aikauintro)).
 
 #### Surf Pages introduction 
 
@@ -1154,18 +1149,16 @@ and the embedded APIs.
 
 ### Remote APIs
 
-The main remote Application Programmaing Interface (API) is the [Alfresco ReST API](TODO:../pra/1/topics/pra-welcome.md), 
+The main remote Application Programming Interface (API) is the [Alfresco ReST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}),
 which should be the first place you go to when you want to interact with the Alfresco Repository remotely. 
-If portability is very important, than have a look at the [CMIS ReST API](TODO:../pra/1/topics/cmis-welcome.md), 
+If portability is very important, than have a look at the CMIS ReST API,
 which is a standard implemented by many ECM vendors.
 
 ### Embedded APIs
 
 The embedded APIs have traditionally been used a lot to build customizations that run inside the same JVM as the 
-Alfresco Repository. There are both a [Public Java API](TODO:java-public-api-list.md) and a [Repository JavaScript API](TODO:API-JS-intro.md). 
+Alfresco Repository. There are both a Public Java API and a Repository JavaScript API.
 Before using the embedded APIs a thorough investigation should be done to rule out the possibility of building the extension 
-with a remote a remote API. It is not recommended to build embedded extensions unless it is absoutely necessary. 
+with a remote a remote API. It is not recommended to build embedded extensions unless it is absolutely necessary.
 They make it difficult during upgrades and can quite easily have unintended side effects on core repository functionality, 
 such as file upload.
-
-For an overview of all APIs navigate to this [page](TODO:dev-api-intro.md).
