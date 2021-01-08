@@ -1,0 +1,9 @@
+# Alfresco Collaboration Connector for Microsoft 365 1.0
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-365/latest/'
+    - title: 'Install'
+      path: '/microsoft-365/latest/install/'
+    - title: 'Using'
+      path: '/microsoft-365/latest/using/'

@@ -306,6 +306,23 @@ defaults:
       version: 3.1
       latest: true
 
+# Alfresco Collaboration Connector for Microsoft 365
+  - scope:
+      path: "microsoft-365"
+    values:
+      layout: "docs"
+      product: "Alfresco Collaboration Connector for Microsoft 365"
+      location: "microsoft-365"
+      toc: "microsoft-365"
+      support: true
+      versions:
+        - 1.0
+  - scope:
+      path: "microsoft-365/latest"
+    values:
+      version: 1.0
+      latest: true
+
 # Alfresco Office Services
   - scope:
       path: "microsoft-office"
