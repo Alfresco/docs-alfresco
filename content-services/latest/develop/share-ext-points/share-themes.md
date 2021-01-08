@@ -40,7 +40,7 @@ When a custom theme has been created based on an existing theme it is time to co
 This involves two steps as the Share UI contains both Aikau components and YUI components, and they are styled in 
 different ways. See the tutorials section for more information on this.
 
->**Important:** If you are upgrading to a newer Alfresco Content Services version, and you are using a custom theme, then it is important to make sure that whatever out-of-the-box theme your custom theme is based on (such as Green Theme) has not changed between versions. For example, upgrading from version 5.0 to 5.1 will mean that all the out-of-the-box themes will have an extra `images/logo-enterprise.png` file. So if you upgrade to a newer version you will also have to upgrade your custom theme to match.
+>**Important:** If you are upgrading to a newer Content Services version, and you are using a custom theme, then it is important to make sure that whatever out-of-the-box theme your custom theme is based on (such as Green Theme) has not changed between versions. For example, upgrading from version 5.0 to 5.1 will mean that all the out-of-the-box themes will have an extra `images/logo-enterprise.png` file. So if you upgrade to a newer version you will also have to upgrade your custom theme to match.
 
 ## Deployment - App Server
 

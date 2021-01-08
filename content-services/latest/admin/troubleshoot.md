@@ -97,7 +97,7 @@ java.net.PlainSocketImpl.socketBind(Native Method)
 Check to see if you have any services running against port 8080 for the Content Services server or port 21 
 for the FTP integration.
 
-## Using the Node Browser
+## Using the Node Browser {#usingnodebrowser}
 
 Use Node Browser in the Repo Admin Console or in Share Admin Tools as a debugging aid to browse the raw repository 
 structure. This feature is intended for developers responsible for customizing the application.
@@ -652,7 +652,7 @@ This error message is related to the IP address or hostname that has been provid
 
     >**Note:** You should not use localhost as the `imap.server.host` - update this value with the IP address (or corresponding DNS address) of your external IP interface. A value of 0.0.0.0 in Unix will make it listen on the specified port on all IP interfaces.
 
-## Troubleshooting database scheme problems
+## Troubleshooting database scheme problems {#troubleshootschemaproblems}
 
 The **Schema Difference Tool** provides a way of identifying and troubleshooting problems in database schemas.
 

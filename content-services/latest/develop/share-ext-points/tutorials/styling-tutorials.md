@@ -26,7 +26,7 @@ The following steps are usually needed to customize the Share UI using a custom 
 6. Customize the look and feel of YUI components by updating presentation.css and skin.css
 7. Customize the look and feel of Aikau components by overriding LESS variables in `<new theme name>.xml`
 
->**Important:** If you are upgrading to a newer Alfresco Content Services version, and you are using a custom theme, then it is important to make sure that whatever out-of-the-box theme your custom theme is base on (such as Green Theme) has not changed between Alfresco Content Services versions. For example, upgrading from version 5.0 to 5.1 will mean that all the out-of-the-box themes will have an extra `images/logo-entreprise.png` file. So if you upgrade to a newer version you will also have to upgrade your custom theme to match.
+>**Important:** If you are upgrading to a newer Content Services version, and you are using a custom theme, then it is important to make sure that whatever out-of-the-box theme your custom theme is base on (such as Green Theme) has not changed between Content Services versions. For example, upgrading from version 5.0 to 5.1 will mean that all the out-of-the-box themes will have an extra `images/logo-entreprise.png` file. So if you upgrade to a newer version you will also have to upgrade your custom theme to match.
 
 **Related Information**:
 
@@ -43,7 +43,7 @@ Tutorial implementation steps:
 
 2.  Copy an existing theme, such as the Green Theme, from `alfresco/tomcat/webapps/share/themes/greenTheme` into the new `aio/aio-share-jar/src/main/resources/META-INF/themes` directory.
 
-    As you might have guessed, this requires you to actually download and install Alfresco Content Services. To avoid having to do that you can also run the all-in-one project once and you will have the required theme resources in `all-in-one/share/target/share/themes`
+    As you might have guessed, this requires you to actually download and install Content Services. To avoid having to do that you can also run the all-in-one project once and you will have the required theme resources in `all-in-one/share/target/share/themes`
 
 3.  Rename the theme directory to a custom theme name.
 

@@ -89,7 +89,7 @@ a Web Script is defined in FreeMarker and looks something like this:
 
 Web Script template file names follow a naming convention: `<web script id>.<http method>.<format>.ftl`, the above 
 template should be stored in a file called `londonweather.get.html.ftl` to link it to the descriptor. The London weather 
-web script does not need any authentication with Alfresco Content Services so it could actually be called directly from 
+web script does not need any authentication with Content Services so it could actually be called directly from 
 the browser with the `http://localhost:8080/share/service/tutorial/london-weather` URL, and we should see a response 
 similar to:
 
@@ -120,10 +120,10 @@ For this controller to successfully pass on authentication information when maki
 need to be called in context of a [Surf Page]({% link content-services/latest/develop/share-ext-points/surf-pages.md %}) or a 
 [Surf Dashlet]({% link content-services/latest/develop/share-ext-points/surf-dashlets.md %}). Note the use of the `alfresco` 
 [connector]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#connectorsandcreds) when communicating 
-with a repository, This connector assumes that you will call the older **deprecated** [v0 REST API](TODO:http://docs.alfresco.com/5.0/references/RESTful-Repository.html) 
+with a repository, This connector assumes that you will call the older **deprecated** [v0 REST API](TODO_LATER:http://docs.alfresco.com/5.0/references/RESTful-Repository.html) 
 (`http://localhost:8080/alfresco/service`). We use it here as the feature of searching for people is not yet available in the v1 REST API.
 
-We should use the [v1 REST API](TODO:../pra/1/topics/pra-welcome-aara.md) as much as possible, which requires a 
+We should use the [v1 REST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}) as much as possible, which requires a 
 different connector called `alfresco-api`. Here is an example controller that uses the v1 API to get all the sites in the Repository:
 
 ```javascript
@@ -154,7 +154,7 @@ Can then be displayed via the following template example:
 
 The v1 REST API is actually split up into two different APIs depending on what we want to do. If we want to manage 
 files and folders then we will have to use the CMIS API. And when we want to access Alfresco specific content, 
-such as sites, then we need to use the Alfresco Content Services REST API. Both of these are accessible via the 
+such as sites, then we need to use the Content Services REST API. Both of these are accessible via the 
 `alfresco-api` connector. As we saw above, the Alfresco v1 REST API is accessible via the `/-default-/public/alfresco/versions/1` 
 URL. The CMIS API is accessible via the `/-default-/public/cmis/versions/1.1` URL. The following is an example of a 
 Surf Web Script controller that uses the CMIS API to access the top folders and files in the repository:
@@ -252,7 +252,4 @@ core repository concepts, such as nodes, are not directly available to web scrip
 
 ## Tutorials
 
-* [XML Configuration](TODO:../tasks/ws-config.md) - Additional XML configuration for Web Script (from repository web script section but still applicable)
-* [Cache Control](TODO:../tasks/ws-cache-using.md) - Additional Cache control configuration for Web Script (from repository web script section but still applicable)
-* [POST data processing](TODO:../tasks/ws-request-process.md) - Additional Cache control configuration for Web Script (from repository web script section but still applicable)
-* [Exploring the Root Objects](TODO:../tasks/surf-tutorials-exploring-root-objects.md)
+* [Web Script tutorials]({% link content-services/latest/develop/repo-ext-points/tutorials/web-script-tutorials.md %}) 

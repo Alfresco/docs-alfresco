@@ -2,7 +2,7 @@
 title: Web Scripts Extension Point
 ---
 
-Repository Web Scripts are the fundamental building blocks used for extending the ReST API in Alfresco Content Services 
+Repository Web Scripts are the fundamental building blocks used for extending the ReST API in Content Services 
 to support domain specific content types.
 
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
@@ -23,7 +23,7 @@ available out-of-the-box. Many operations that you might want to perform may be 
  Most Web Scripts also include a *controller* that is used to dynamically assemble a map of data that is then processed 
  by the template to produce the final output. The data that the controller produces could come from anywhere as the 
  controller can be implemented in both JavaScript and Java. Any content from the repository that should be included in 
- the response can be fetched via Alfresco Content Services-specific JavaScript root objects, such as `companyhome`, or 
+ the response can be fetched via Content Services-specific JavaScript root objects, such as `companyhome`, or 
  services, such as the Node Service, if the controller is implemented in Java.
 
  The following picture illustrates how a Repository Web Script request is processed:
@@ -64,7 +64,7 @@ descriptor in a file called `helloworld.get.desc.xml` then the unique identifier
 the HTTP method also plays a part in the identification of a Web Script, in this case it is set to `get`, which means it 
 is intended to be invoked with a HTTP GET Request.
 
->**Important:** The Web Script URL needs to be unique throughout the Alfresco Content Services installation. And if two or more web scripts have the same identifier, then they need to be stored in different directory locations. For example, if you have two extensions deploying a Web Script with the same file name, in the same location (i.e. directory), then the last one to be deployed will overwrite the other one, even if the URL is different between the two.
+>**Important:** The Web Script URL needs to be unique throughout the Content Services installation. And if two or more web scripts have the same identifier, then they need to be stored in different directory locations. For example, if you have two extensions deploying a Web Script with the same file name, in the same location (i.e. directory), then the last one to be deployed will overwrite the other one, even if the URL is different between the two.
 
 To complete the Hello World Web Script implementation we just need a **template** to go along with the descriptor, it is 
 defined in a FreeMarker file and looks like this:
@@ -79,15 +79,15 @@ file as it has the same identifier and HTTP method. We are also indicating that 
 Web Script implementation is now complete.
 
 To try out the Hello World Web Script we first need to deploy it by copying the files to the correct directory in the 
-Alfresco Content Services installation, see below for locations. Then refresh the web scripts from the 
-`http://{host}:{port}/alfresco/service/index` page so Alfresco Content Services knows about it. And then invoke it using 
+Content Services installation, see below for locations. Then refresh the web scripts from the 
+`http://{host}:{port}/alfresco/service/index` page so Content Services knows about it. And then invoke it using 
 the URL in a browser as follows:
 
 ![dev-extensions-repo-web-scripts-invoke-helloworld]({% link content-services/images/dev-extensions-repo-web-scripts-invoke-helloworld.png %})
 
 Most of the time the content that is returned is provided indirectly via a **controller**. The controller sets up the 
 `model` containing the data that should be passed over to the template. Controllers can be implemented in both 
-JavaScript (this is server side JavaScript, Alfresco Content Services provides this by embedding the Rhino JavaScript engine) 
+JavaScript (this is server side JavaScript, Content Services provides this by embedding the Rhino JavaScript engine) 
 and Java. Let's add a JavaScript controller for the Hello World Web Script. It will put a property called `message` in 
 the `model`. This new property will contain a slightly improved Hello World message that includes the name of the logged 
 in user. Here is the controller implementation:
@@ -96,7 +96,7 @@ in user. Here is the controller implementation:
 model.message = "Hello World " + person.properties.firstName + ' ' + person.properties.lastName + "!";
 ```
 
-Here we use an Alfresco Content Services-specific JavaScript root object called `person` to get first and last name of 
+Here we use an Content Services-specific JavaScript root object called `person` to get first and last name of 
 the logged in user. The `model` variable is automatically available to us in the controller and we can put whatever data 
 we want in it for later use in the template.
 
@@ -417,7 +417,7 @@ main();
 ```
 
 Here we first check if we got a search keyword passed in, if we don't we will exclude the FTS from the query. We then 
-do the Lucene search on the ACME Document type and keyword using the Alfresco Content Services-specific `search` 
+do the Lucene search on the ACME Document type and keyword using the Content Services-specific `search` 
 root object. If we get any nodes back we create an array of information objects that we add to the `model` to be sent 
 to the template. If the query did not match any nodes we use the special `status` root object to send back a HTTP 404 
 not found message.
@@ -532,7 +532,7 @@ if (acmeTextDocFile == null) {
 
 The controller file should be called `acme-documents.post.json.js` to tell the Web Script container that it will be 
 receiving POSTed JSON. When the controller is expecting JSON like this it provides a convenience root object called 
-`json` that can be used to extract the JSON data. We then use another Alfresco Content Services-specific root object 
+`json` that can be used to extract the JSON data. We then use another Content Services-specific root object 
 called `companyhome` that can be used to search for a folder, such as `/Guest Home` in this case. The `childByNamePath` 
 assumes that you are searching from `/Company Home` so no need to specify it in the path to the node, this method can 
 also be used to search for files. The node reference for the newly created ACME Text document is passed in to the 

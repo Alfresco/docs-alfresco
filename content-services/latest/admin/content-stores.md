@@ -931,7 +931,7 @@ The Trashcan Cleaner is disabled by default. To configure the Trashcan Cleaner, 
 
 |Property|Description|Example|
 |--------|-----------|-------|
-|trashcan-cleaner.cron|Specifies the cron schedule for the Trashcan Cleaner job. See [Scheduled Jobs](TODO:../references/dev-extension-points-scheduled-jobs.md).|`0 30 * * * ?`|
+|trashcan-cleaner.cron|Specifies the cron schedule for the Trashcan Cleaner job. See [Scheduled Jobs]({% link content-services/latest/develop/repo-ext-points/scheduled-jobs.md %}).|`0 30 * * * ?`|
 |trashcan-cleaner.keepPeriod|Specifies the period for which trashcan items are kept (in the `java.time.Duration` format).|`P1D`|
 |trashcan-cleaner.deleteBatchCount|Specifies the number of trashcan items to delete per job run.|`1000`|
 
@@ -950,7 +950,7 @@ To enable debug logging, set the `log4j.logger.org.alfresco.trashcan` property i
 log4j.logger.org.alfresco.trashcan=debug
 ```
 
-The trashcan cleaner is a [Simple Module](TODO:dev-extensions-packaging-techniques-jar-files.md) which appears in the 
+The trashcan cleaner is a [Simple Module]({% link content-services/latest/develop/extension-packaging.md %}#simplemodule) which appears in the 
 Admin Console under the Module Packages section.
 
 ```http

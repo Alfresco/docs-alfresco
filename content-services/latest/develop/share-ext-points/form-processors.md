@@ -60,7 +60,7 @@ custom form processor implementations:
 * `AbstractFormProcessor` - **note.** extending this form processor class does not give access to filters
 
 As an example of a custom form processor we will implement one that can handle forms that manage global 
-[key-value attributes](TODO:dev-services-attribute.md). To represent an attribute item in the form processor we will use 
+[key-value attributes](TODO_LATER:dev-services-attribute.md). To represent an attribute item in the form processor we will use 
 the following new class:
 
 ```java
@@ -530,7 +530,7 @@ For a full sample implementation of this `AttributeFormProcessor` see code links
 
 ## Deployment - App Server
 
-A custom form processor is implemented in Java, which is not suitable for manual installation into an Alfresco Content Services 
+A custom form processor is implemented in Java, which is not suitable for manual installation into an Content Services 
 installation. Use a platform/repository JAR project instead.
 
 ## Deployment All-in-One SDK project

@@ -603,7 +603,7 @@ pages displayed include **Site Dashboard**, **Document Library** and **Site Memb
 
 8.  Now log back in to Share and select the **Sites** menu item. Click a site under **Recent Sites**. You will see that there are now additional menu items including **Site Dashboard**, **Document Library**, and **Site Members**. Click on one of these menu items to test it. For example, if you click on the **Site Members** items you will be taken to the **Site Members** page for that site.
 
-### Removing a menu item
+### Removing a menu item {#removemenuitem}
 
 This tutorial shows you how to remove menu items.
 

@@ -124,7 +124,7 @@ be in any number of other formats. Developers work with these feeds and render t
 focuses on view caching and render performance to minimize the number of remote calls needed on each request.
 
 Surf also has native support for the CMIS standard (Content Management Interoperability Services), an industry-adopted 
-API for talking to ECM systems. Alfresco Content Services provides the leading open-source CMIS implementation, as well 
+API for talking to ECM systems. Content Services provides the leading open-source CMIS implementation, as well 
 as an entire suite of tools around CMIS authoring and delivery. Surf is an ideal presentation technology for CMIS 
 content delivery.
 
@@ -376,7 +376,7 @@ Example of the XML for a Page object:
 ```
 
 A Spring project generally maintains these XML files as part of its project resources. They can reside under the 
-WEB-INF directory or inside the classpath. Users can also manage these files inside the Alfresco Content Services server, 
+WEB-INF directory or inside the classpath. Users can also manage these files inside the Content Services server, 
 where XML files can be individually managed, authorized, and approved as part of a lifecycle process. Once approved, 
 these files are available to the Surf application.
 
@@ -542,7 +542,7 @@ Surf's default credential vault is runtime-only; it is populated and used at run
 credentials are lost and the user must provide their credentials again the next time the connector is used. Surf lets 
 you override the credential vault implementation. It provides a number of additional credential vaults out of the box 
 you can use or base your implementations on. These include a filesystem– persistent credential vault and a credential 
-vault (where your credentials are stored in an Alfresco Content Services-managed file).
+vault (where your credentials are stored in an Content Services-managed file).
 
 To use the credential vault, you inform the endpoint that its identity is driven from the current user. You can make 
 this change to your endpoint definition:
@@ -575,9 +575,9 @@ For example, MediaWiki provides a REST-based means for authenticating. You pass 
 back an HTTP cookie. This cookie must be applied to every subsequent request, as MediaWiki looks to it to inform the 
 application of who is making the request.
 
-Alfresco Content Services has a similar REST-based means for authenticating. It is slightly different in that the 
-RESTful parameters are not the same as those of MediaWiki. Also, Alfresco Content Services hands back a ticket in an 
-XML return payload. This ticket must be applied to the HTTP headers of every subsequent call so that Alfresco Content Services 
+Content Services has a similar REST-based means for authenticating. It is slightly different in that the 
+RESTful parameters are not the same as those of MediaWiki. Also, Content Services hands back a ticket in an 
+XML return payload. This ticket must be applied to the HTTP headers of every subsequent call so that Content Services 
 knows who is making the request. Every application has a slightly different way of handling its authentication. For this 
 reason, Surf makes it easy to write your own authenticators and plug them into your connectors entirely through configuration.
 
@@ -605,8 +605,8 @@ You can then bind them to connectors using configuration, or you can write your 
 ```
 
 The `alfresco-ticket` authenticator and the `alfresco` connector are both available to Surf developers out of the box 
-to connect to an Alfresco Content Services instance. All you need to do is define an endpoint that points to an 
-Alfresco Content Services instance and uses the `alfresco` connector. Alfresco Content Services connectors use an 
+to connect to an Content Services instance. All you need to do is define an endpoint that points to an 
+Content Services instance and uses the `alfresco` connector. Content Services connectors use an 
 authenticator to perform a handshake ahead of any actual interaction. The handshake establishes who the user is and 
 then sets up the connector session so that subsequent requests contain the appropriate connection information 
 (cookies, request headers, and so forth). The endpoint definition looks like this:
@@ -624,7 +624,7 @@ then sets up the connector session so that subsequent requests contain the appro
 
 This endpoint is named `alfresco`. It uses an `alfresco` connector and will draw credentials from the user’s 
 credential vault. This is all defined in configuration. You could use the `alfresco` endpoint to talk to an 
-Alfresco Content Services instance and access its remote API. For example, you can interact with the CMIS API on the 
+Content Services instance and access its remote API. For example, you can interact with the CMIS API on the 
 repository. Here is an example of retrieving XML from the CMIS API:
 
 ```javascript
@@ -1076,7 +1076,7 @@ In the following sections you will see that two file locations are specified:
 * `classpath:/alfresco/web-extension/site-data`
 
 It's important to note that the `alfresco/web-extension/site-data` directory will be processed after the 
-`alfresco/site-data` directory. Usually core Alfresco Content Services objects would be located in `alfresco/site-data` 
+`alfresco/site-data` directory. Usually core Content Services objects would be located in `alfresco/site-data` 
 directory, and third-party overrides/extensions would be located in `alfresco/web-extension/site-data`.
 
 ### Component {#surfcomponentxml}
@@ -1464,9 +1464,9 @@ Specific information:
 
 ### Surf Checksums {#surfchecksums}
 
-Checksums can be applied to JavaScript and CSS resources to facilitate efficient upgrading of Alfresco Content Services.
+Checksums can be applied to JavaScript and CSS resources to facilitate efficient upgrading of Content Services.
 
-One of the problems that has affected upgrades of Alfresco Content Services in the past is that the end-user's browser 
+One of the problems that has affected upgrades of Content Services in the past is that the end-user's browser 
 can end up using cached copies of JavaScript and CSS files that have been updated during the upgrade. Surf has a service 
 called the `DependencyHandler` which solves this specific problem.
 
@@ -1664,7 +1664,7 @@ same group. The same is true for any custom directive that outputs JavaScript, f
 #### Configuring Surf to Aggregate Dependencies
 
 To enable the use of aggregate dependencies you will need to make a Surf configuration change. By default the capability 
-is disabled in Surf and is unlikely to ever enabled by default in future releases of Alfresco Content Services.
+is disabled in Surf and is unlikely to ever enabled by default in future releases of Content Services.
 
 To enable it you set the following line within the Surf configuration file, `webapps/share/WEB-INF/surf.xml`:
 

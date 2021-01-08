@@ -86,7 +86,7 @@ The following table lists root objects that expose additional APIs:
 |`paging`|`org.alfresco.repo.web.util.paging.Paging`|Paging API. web scripts only.|
 |`people`|`org.alfresco.repo.jscript.People`|Root object providing access to and manipulation of person objects and groups|
 |`presence`|`org.alfresco.repo.jscript.Presence`|Root object providing access to methods for detecting online presence of users|
-|`search`|`org.alfresco.repo.jscript.Search`|Root object providing access to the various Alfresco Content Services search interfaces such as FTS-Alfresco, Lucene, XPath, and Saved Search results|
+|`search`|`org.alfresco.repo.jscript.Search`|Root object providing access to the various Content Services search interfaces such as FTS-Alfresco, Lucene, XPath, and Saved Search results|
 |`session`|`org.alfresco.repo.jscript.Session`|Session-related information such as the current authentication ticket|
 |`slingshotDocLib`|`org.alfresco.repo.jscript.SlingshotDocLibCustomResponse`|Slingshot|
 |`stringUtils`|`org.springframework.extensions.webscripts.ScriptableUtils`|String utilities|

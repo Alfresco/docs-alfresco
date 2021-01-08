@@ -2,14 +2,14 @@
 title: Ratings Extension Point
 ---
 
-Alfresco Content Services supports rating of content according to different schemes, such as likes or five-star. 
+Content Services supports rating of content according to different schemes, such as likes or five-star. 
 It is also possible to implement custom rating schemes.
 
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
-Alfresco Content Services provides an implementation of a Rating Service, which is intended to support application 
+Content Services provides an implementation of a Rating Service, which is intended to support application 
 developers and third parties who wish to define Rating Schemes for their content. A rating scheme is a defined system 
 of ratings for content which is identified by a unique name and which provides a minimum and maximum allowed rating.
 
@@ -398,7 +398,7 @@ instead of `fiveStarRatingScheme`).
 
 This sample has shown you how easy it is to start building a rating solution with the out-of-the-box rating schemes. 
 Now, what would you have to do to use a custom rating scheme, such as a TV rating scheme that could be used to rate 
-videos uploaded to Alfresco Content Services.
+videos uploaded to Content Services.
 
 Let's say you wanted to implement the US TV rating system as follows:
 

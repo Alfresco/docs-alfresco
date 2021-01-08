@@ -2,7 +2,7 @@
 title: Metadata Extractors Extension Point
 ---
 
-Alfresco Content Services performs metadata extraction on content automatically, however, you may wish to create 
+Content Services performs metadata extraction on content automatically, however, you may wish to create 
 custom metadata extractors to handle custom file properties and custom content models.
 
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
@@ -14,8 +14,8 @@ related Metadata Extractor is invoked on the file. It will extract common proper
 and set the corresponding content model property accordingly. Each Metadata Extractor has a mapping between the 
 properties it can extract and the content model properties. Metadata extraction is primarily based on the 
 [Apache Tika](https://tika.apache.org/){:target="_blank"} library. This means that whatever [file formats](https://tika.apache.org/1.11/formats.html){:target="_blank"} 
-Tika can extract metadata from, Alfresco Content Services can also handle. To give you an idea of what file formats 
-Alfresco Content Services can extract metadata from, here is a list of the most common formats: 
+Tika can extract metadata from, Content Services can also handle. To give you an idea of what file formats 
+Content Services can extract metadata from, here is a list of the most common formats: 
 
 * PDF
 * MS Office
@@ -43,7 +43,7 @@ some example of extracted property name and what content model property it maps 
 * *If it is an email file* -> `cm:emailed` (from, to, subject, sent date)
 
 One thing to note though, even if an extractor can extract any of the system controlled properties, such as created date, 
-it will not be used. Created date, creator, modified date, and modifier is always controlled by the Alfresco Content Services 
+it will not be used. Created date, creator, modified date, and modifier is always controlled by the Content Services 
 system, unless you are using the Bulk Import tool, in which case last modified date can be preserved.
 
 A common requirement is to be able to change the mapping of out-of-the-box properties, such as having the `subject` 
@@ -301,7 +301,7 @@ Metadata extraction limits allows configurations on `AbstractMappingMetadataExtr
 The default values for each of these properties are `MAX` value specified in the java code. These limits are configured 
 per extractor and mimetype.
 
-The limits configured for Alfresco Content Services are:
+The limits configured for Content Services are:
 
 ```text
 Time out configured for all extractor and all mimetypes
@@ -355,4 +355,4 @@ content.metadataExtracter.pdf.overwritePolicy=EAGER
 
 ## Tutorials
 
-* [Configure Metadata Extraction](TODO:../tasks/metadata-config.md)
+* [Configure Metadata Extraction](TODO_LATER:../tasks/metadata-config.md)

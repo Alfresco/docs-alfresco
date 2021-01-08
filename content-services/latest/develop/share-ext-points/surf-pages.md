@@ -108,7 +108,7 @@ which can get the content from either the Alfresco Repository or from some other
 
 There are a number of additional FreeMarker template directives.
 
-In the [widget instantiation customization tutorial](TODO:../tasks/dev-extensions-share-tutorials-customizing-widget-instantiation.md) 
+In the [widget instantiation customization tutorial]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#customizesurfwidget) 
 the `documentlist.get.html.ftl` and `documentlist.get.js` files were modified to instantiate a custom JavaScript widget 
 that extends the default `Alfresco.DocumentList`. This is a fragment from the `webview.get.html.ftl` file:
 
@@ -185,12 +185,8 @@ For component web script file locations see: [Web Script]({% link content-servic
 
 ## More Information
 
-* [Introduction to Surf Pages](dev-extensions-share-architecture-extension-points-intro-surf-pages.md)) - This page contains a walk-through on how to create a Surf page, and it also has links to a page that shows how to create the same page with Aikau.
-* [Spring Surf Framework Guide](surf-fwork-intro.md) - Deep dive into the Surf framework
-* [Site Date Model Reference](../references/surf-object-xml-reference.md) - Details around all the model objects such as page, component, and template-instance.
-* [Surf root objects](../references/APISurf-rootscoped.md)
-* [Component rendering root objects](../references/APISurf-components.md)
-* [Template rendering root objects](../references/APISurf-templates.md)
+* [Introduction to Surf Pages]({% link content-services/latest/develop/software-architecture.md %}#surfpageintro) - This page contains a walk-through on how to create a Surf page, and it also has links to a page that shows how to create the same page with Aikau.
+* [Spring Surf Framework Guide]({% link content-services/latest/develop/reference/surf-framework-ref.md %}) - Deep dive into the Surf framework
 
 ## Sample Code
 
@@ -198,12 +194,7 @@ For component web script file locations see: [Web Script]({% link content-servic
 
 ## Tutorials
 
-* [Adding a new Surf page.](TODO:../tasks/dev-extensions-share-tutorials-add-page.md)
-* [Making a new Surf page the default page.](TODO:../tasks/dev-extensions-share-tutorials-make-default.md)
-* [Adding content to a Surf page](TODO:../tasks/dev-extensions-share-tutorials-add-content.md)
-* [Removing/hiding content from a Surf page](TODO:../tasks/dev-extensions-share-tutorials-hide-content.md)
-* [Conditionally controlling rendering of content on Surf page](TODO:../tasks/dev-extensions-share-tutorials-subcomponent-evals.md)
-* [Exploring root objects that can be used in a template.](TODO:../tasks/surf-tutorials-exploring-root-objects.md)
+* [Page tutorials]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %})
 
 ## Developer Blogs
 

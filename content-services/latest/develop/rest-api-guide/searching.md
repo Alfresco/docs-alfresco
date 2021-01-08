@@ -4,7 +4,7 @@ title: Searching for content
 
 This section provides information on how to search for content and metadata in the Repository.
 
-Searching the content in the Repository is one of the major benefits of using Alfresco Content Services. It is possible 
+Searching the content in the Repository is one of the major benefits of using Content Services. It is possible 
 to search both in the text content of files and in the metadata for folders and files.
 
 You can search the Repository in two different ways. The first approach is easy and requires only a GET call with the 

@@ -2,7 +2,7 @@
 title: Extension packaging (modules)
 ---
 
-Extensions can be packaged as loadable modules. These modules are registered with Alfresco Content Services and can be 
+Extensions can be packaged as loadable modules. These modules are registered with Content Services and can be 
 viewed from the Admin Console or the Share Admin Tools.
 
 There are two main types of extension that can be packaged as modules: Platform and Share extensions. For modules, 
@@ -130,7 +130,7 @@ custom content models and client configuration specified and data loaded or patc
 
 In a complex module the configuration can be split up into smaller Spring configurations which are included by `module-context.xml`.
 
->**Note:** The property `executeOnceOnly`, the default value of which is true, tells the system how many times to execute your module. If you want your module to run every time Alfresco Content Services is started, set `executeOnceOnly` to false.
+>**Note:** The property `executeOnceOnly`, the default value of which is true, tells the system how many times to execute your module. If you want your module to run every time Content Services is started, set `executeOnceOnly` to false.
 
 ## Module package formats
 
@@ -146,18 +146,18 @@ where those extensions depend on third-party libraries, as such depedencies are 
 Simple JAR modules are generally the preferred type of packaging for extensions where dependencies on third-party libraries do not exist.
 
 AMPs can be used to package custom templates, custom models, web scripts, UI customizations, and can be used to implement 
-extensive additions to the Alfresco Content Services functionality. Records Management is an an example of an application 
-that provides a significant enhancement to the capabilities ot Alfresco Content Services and is distributed via AMP files.
+extensive additions to the Content Services functionality. Records Management is an an example of an application 
+that provides a significant enhancement to the capabilities ot Content Services and is distributed via AMP files.
 
 AMPs are Zip files that follow a specific layout and can be merged with the other WAR files such as `alfresco.war` or `share.war` 
 using the Alfresco Module Management Tool (MMT), which is available as `alfresco-mmt.jar` in the `bin` directory of your installation.
 
-AMPs can be thought of as installable extensions to Alfresco Content Services. Once packaged into an AMP file format, 
-an extension can be applied to Alfresco Content Services using the Module Management Tool (MMT). There are two directories 
+AMPs can be thought of as installable extensions to Content Services. Once packaged into an AMP file format, 
+an extension can be applied to Content Services using the Module Management Tool (MMT). There are two directories 
 that contain AMP files, the `amps` directory and the `amps_share` directory. Modules that extend the platform (repository) tier are 
 located in the `amps` directory. Modules that extend the Share tier are located in the `amps_share` directory.
 
-When a module is installed using the MMT it is applied to the relevant WAR file. Alfresco Content Services typically 
+When a module is installed using the MMT it is applied to the relevant WAR file. Content Services typically 
 consists of at least two WAR files: `alfresco.war` for the content server and `share.war` for the Share web client. 
 The module AMP file is applied to the appropriate WAR using the MMT.
 
@@ -212,8 +212,8 @@ The module package format is a compressed zip file. The AMP file has the followi
 |File or Dir|Description|
 |-----------|-----------|
 |module| The module directory contains a directory using the module's ID. This ID provides a module namespace and should be unique. The convention is to use a reverse domain name (with underscore as the separator).|
-|module.properties|*Required*. This file stores module related properties such as the module's ID, version, title and description. Module dependencies and required Alfresco Content Services version can also be set in this file. This file is located in the root of the AMP structure.
-|module-context.xml|*Required*. This is a Spring bean configuration file. All beans specified within this file will get initialized when Alfresco Content Services starts and loads the module. Beans that import content or initialize the module would be referenced here. Other required context files would be imported from this file too. This file is located in the directory `config/alfresco/module/<module_id>/`.
+|module.properties|*Required*. This file stores module related properties such as the module's ID, version, title and description. Module dependencies and required Content Services version can also be set in this file. This file is located in the root of the AMP structure.
+|module-context.xml|*Required*. This is a Spring bean configuration file. All beans specified within this file will get initialized when Content Services starts and loads the module. Beans that import content or initialize the module would be referenced here. Other required context files would be imported from this file too. This file is located in the directory `config/alfresco/module/<module_id>/`.
 |file-mapping.properties|This file is used when your module does not conform to the standard directory structure. The mapping file maps a directory in the module to a directory in the exploded web application directory. the property `include.default` (which is true by default) specifies whether the default mappings should be applied. You can apply the defaults and then apply your own specific mappings. If you set `include.default` to false, you will need to provide all the necessary mappings for your module. This file is located in the root of the module directory structure.|
 |config|This directory will be mapped into the `/WEB-INF/classes` directory in the WAR file. Generally your Spring and UI config will reside in the standard package structure within this directory.<br><br>Resources that are used by your extension, such as XML import files or ACPs can also reside in here, as it can often be convenient to place such things on the classpath for loading from Spring.<br><br>As a module developer, you will be required to provide a `module-context.xml` (and optionally a `module-disable-context.xml` and `module-uninstall-context.xml`) in the `alfresco.module.<moduleId>` package. These will reside in the `/config` directory.<br><br>You should place server-side webscripts here. AMP to war file mappings are:<br><br>`config/alfresco/templates/webscripts` to `$CATALINA_HOME/webapps/alfresco/WEB-INF/classes/alfresco/templates/webscripts`<br><br>`config/alfresco/extension/templates/webscripts` to `$CATALINA_HOME/webapps/alfresco/WEB-INF/classes/alfresco/extension/templates/webscripts`<br><br>To be more specific `/config/alfresco` locates to `$CATALINA_HOME/webapps/alfresco/WEB-INF/classes/alfresco/`|
 |lib|This directory will be mapped into `/WEB-INF/lib`. It should contain any JAR files that relate to your module.|
@@ -328,13 +328,13 @@ When developing your module you will need to organize your source code. It is re
 
 |Directory|Description|
 |---------|-----------|
-|source/java|This contains the Java source for your Alfresco Content Services module. The package structure can be anything suitable. Many of the Alfresco Content Services written modules have the package structure `org_alfresco_module_<module_id>`, where `module_id` is the ID of the module.<br><br>This code will need to be built into a JAR and placed in the final AMP file.|
+|source/java|This contains the Java source for your Content Services module. The package structure can be anything suitable. Many of the Content Services written modules have the package structure `org_alfresco_module_<module_id>`, where `module_id` is the ID of the module.<br><br>This code will need to be built into a JAR and placed in the final AMP file.|
 |source/web|This contains any web UI resources split into the various folders outlined previously, including JSP pages, images, CSS, and scripts.|
 |build|The class files that implement the module are built into this directory, with any resulting JARs and the AMP file itself being built to the build/dist folder.|
 
 >**Note:** If you are using the Alfresco SDK, then the correct directory structure will be created automatically for you.
 
-#### log4j.properties file
+#### log4j.properties file {#log4jpropsfile}
 
 Each module can have its own Apache Log4j properties file.
 
@@ -407,7 +407,7 @@ A `dev-log4j.properties` file should never be used in an ongoing during producti
 
 ##### Advanced log4j.properties Configuration
 
-In the unlikely event that you need to configure the set directories Alfresco Content Services uses to find 
+In the unlikely event that you need to configure the set directories Content Services uses to find 
 module-specific `log4j.properties` files, look at `WEB-INF/classes/alfresco/core-services-context.xml` and find a 
 bean definition fragment that looks something like:
 
@@ -519,7 +519,7 @@ to an existing state is required.
 
 >**Note:** Note that some application servers, such as Tomcat, are sometimes ineffective at cleaning up their temporary working files, and this can interfere with successful installation of an AMP file. To remedy this situation, it is recommended to clean out these directories while Tomcat is shut down, using the `clean_tomcat.sh` script in bin.
 
-### Simple Module (JAR)
+### Simple Module (JAR) {#simplemodule}
 
 Platform and Share extensions are most suitably packaged in the Simple Module format. This module type uses the standard 
 JAR file format. A Simple Module contains, in addition to the files that comprise the extension, at least a `module.properties` 
@@ -530,10 +530,10 @@ file to identify the extension as a module.
 The main advantage of this format over the AMP format is that it does not require the modification of the standard WAR 
 files, and so makes troubleshooting and support much easier.
 
-Simple Modules are located in the modules/platform or modules/share folder of your Alfresco Content Services installation, 
+Simple Modules are located in the modules/platform or modules/share folder of your Content Services installation, 
 depending on whether they are an extension for Platform or Share respectively.
 
-When Alfresco Content Services starts up it will check the directories modules/platform and modules/share in the root of 
+When Content Services starts up it will check the directories modules/platform and modules/share in the root of 
 the installation directory for any modules it may find. Modules found will be loaded, their dependencies on Platform and 
 Share versions checked as required, and dependent module versions also checked. If everything is not as required then 
 Platform or Share will fail to start.
@@ -566,7 +566,7 @@ There are some important points to know when using Simple Modules:
 
 1.  When creating Share extensions you should specify the new `module.share.version.min` and `module.share.version.max` properties (in the `module.properties` file for the module). These specify the minimum and maximum versions of Share required by the module. If these properties are not satisfied, Share will fail to start. Legacy extensions that instead specify `module.repo.version.min` and `module.repo.version.max` would have those values compared with the Share version. Note that from version 5.1 and above it is possible for the Platform and Share to have different version numbers, so Share extensions should ideally use the specific `module.share.version.min` and `module.share.version.max` properties.
 2.  The `module.properties` file can contain `module.depends.(id_of_module)` to specify the presence and version of a required module. Note that for Share extensions only the presence of a module can be checked for, so version information (if supplied) will be ignored. This is a small limitation for Share modules that will be removed in the future.
-3.  Note that when MMT applies AMPs to WARS it is essentially an "install time" check. If the operation fails at that time this can be remedied and the AMP reapplied. With Simple Modules however, checks are made at run (load) time, that is, as Alfresco Content Services starts up. This means that if any version checks or module presence checks fail, Platform or Share will fail to start.
+3.  Note that when MMT applies AMPs to WARS it is essentially an "install time" check. If the operation fails at that time this can be remedied and the AMP reapplied. With Simple Modules however, checks are made at run (load) time, that is, as Content Services starts up. This means that if any version checks or module presence checks fail, Platform or Share will fail to start.
 
 ##### Simple JAR modules vs AMPs
 

@@ -76,7 +76,7 @@ What you do here is let the Admin Console system know what MBean properties you 
 In this case it is the "Subject", "LicenseModel", "Issued", and "RemainingDays" properties.
 
 These properties are available in the MBean called "License", you can see it by running **JConsole** and connecting to 
-Alfresco Content Services:
+Content Services:
 
 ![dev-extensions-repo-admin-console-mbeans]({% link content-services/images/dev-extensions-repo-admin-console-mbeans.png %})
 

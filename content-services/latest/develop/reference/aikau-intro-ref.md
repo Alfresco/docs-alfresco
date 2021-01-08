@@ -3,7 +3,7 @@ title: Introduction to Aikau
 ---
 
 There are a number of updated UI framework features that were introduced in Alfresco One 4.2 and further expanded in 
-Alfresco Content Services 6.2. The updated UI framework goes by the name of Aikau.
+Content Services 6.2. The updated UI framework goes by the name of Aikau.
 
 ## Goals
 

@@ -11,7 +11,7 @@ and [Docker](https://www.docker.com/){:target="_blank"} and is compatible with m
 and Test Driven Development (TDD).
 
 Alfresco SDK 4.1 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
-and supports Alfresco Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, 
+and supports Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, 
 please check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
 for the version you're using. If your version is in Limited or Full Support and you need help, contact our [Support team](http://support.alfresco.com/){:target="_blank"}.
 
@@ -25,7 +25,7 @@ from our archetypes and move your code into place.
 
 ## What's new?
 
-Alfresco SDK 4.0 brings some changes oriented to assist the way the customizations are built, packaged, run and tested for Alfresco Content Services 6 and 
+Alfresco SDK 4.0 brings some changes oriented to assist the way the customizations are built, packaged, run and tested for Content Services 6 and 
 Alfresco Share 6.
 
 This is a mayor release oriented to support Alfresco 6, so it is not compatible with previous versions of the SDK.
@@ -330,10 +330,10 @@ Please note that the numbering is not sequential and some numbers may be skipped
 
 ### org.alfresco.maven.archetype:alfresco-allinone-archetype
 
-This archetype allows a developer to implement the All-In-One project on Alfresco Content Services. The All-In-One project (also called AIO) is provided in 
+This archetype allows a developer to implement the All-In-One project on Content Services. The All-In-One project (also called AIO) is provided in 
 this and previous versions of Alfresco SDK, but in SDK 4.1 it has been reshaped to leverage on Docker.
 
-The All-In-One archetype allows a developer to create a multi-module project on Alfresco Content Services. The All-In-One project mainly includes a module for 
+The All-In-One archetype allows a developer to create a multi-module project on Content Services. The All-In-One project mainly includes a module for 
 the core repository in ACS and a module for the Share client. This includes:
 
 * ACS Repository JAR
@@ -344,21 +344,21 @@ the core repository in ACS and a module for the Share client. This includes:
 * Docker containers (ACS, Share, Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker compose
 * (Optional) AMP deployment configuration (JAR is the recommended artifact type and the default)
 
-The project created using the All-In-One Maven archetype includes some sample code (by default) to show you how to develop with the Alfresco Content Services 
+The project created using the All-In-One Maven archetype includes some sample code (by default) to show you how to develop with the Content Services 
 Repository and the Alfresco Share client. The samples included in the project are basic and straightforward, and can help you to take the first steps into 
 Alfresco development.
 
-The All-In-One project is recommended to be used if you have to develop a customization of the Alfresco Content Services Repository together with 
-customizations on Alfresco Share client. If your plan to develop a project on the Alfresco Content Services Repository only, use the Platform JAR Maven 
+The All-In-One project is recommended to be used if you have to develop a customization of the Content Services Repository together with 
+customizations on Alfresco Share client. If your plan to develop a project on the Content Services Repository only, use the Platform JAR Maven 
 archetype. If you plan to develop a project on the Alfresco Share client only, use the Share JAR Maven archetype.
 
 For more information about the All-In-One project, see [All-In-One project structure](#structureaio).
 
 ### org.alfresco.maven.archetype:alfresco-platform-jar-archetype
 
-This archetype allows a developer to implement the Platform JAR project on Alfresco Content Services. It has been reshaped in SDK 4.1 to leverage on Docker.
+This archetype allows a developer to implement the Platform JAR project on Content Services. It has been reshaped in SDK 4.1 to leverage on Docker.
 
-The Platform JAR Maven archetype allows a developer to create a module on Alfresco Content Services, in particular on the Repository side, and includes:
+The Platform JAR Maven archetype allows a developer to create a module on Content Services, in particular on the Repository side, and includes:
 
 * ACS Repository JAR
 * ACS Repository Docker image configuration
@@ -368,7 +368,7 @@ The Platform JAR Maven archetype allows a developer to create a module on Alfres
 The project created using the Platform JAR Maven archetype includes some sample code (by default) to show you how to develop with the Alfresco Content 
 Services Repository. The samples included in the project are basic and straightforward, and can help you to take the first steps into Alfresco development.
 
-The Platform JAR project is recommended to be used if you have to develop a customization of the Alfresco Content Services Repository. If you also plan to 
+The Platform JAR project is recommended to be used if you have to develop a customization of the Content Services Repository. If you also plan to 
 develop a customization of the Alfresco Share client, use the All-In-One Maven archetype instead.
 
 For more information about the Platform JAR project, see [Platform JAR project structure](#structureplatform).
@@ -388,7 +388,7 @@ The project created using the Share JAR Maven archetype includes some sample cod
 The samples included in the project are basic and straightforward, and can help you to take the first steps into Alfresco development.
 
 The Share JAR project is recommended to be used if you have to develop a customization of the Alfresco Share client. If you also plan to develop a 
-customization of the Alfresco Content Services Repository, use the All-In-One Maven archetype instead.
+customization of the Content Services Repository, use the All-In-One Maven archetype instead.
 
 For more information about the Share JAR project, see [Share JAR project structure](#structureshare).
 
@@ -470,7 +470,7 @@ the AIO project was generated with the name `my-all-in-one-project`.
 
 #### Introduction
 
-An AIO SDK project is used to build extensions for both [Alfresco Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/overview.md %}) 
+An AIO SDK project is used to build extensions for both [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/overview.md %}) 
 and [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/overview.md %}). The runtime environment
 for ACS is Docker so not only is this project building the source code for your extensions but also the 
 custom Docker images for the Alfresco Repository and Alfresco Share. The custom Docker images includes the 
@@ -717,7 +717,7 @@ the Platform project was generated with the name `my-platform-project`.
 
 #### Introduction
 
-A Platform project is used to build extensions for the [Alfresco Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/overview.md %}). 
+A Platform project is used to build extensions for the [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/overview.md %}). 
 The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the 
 custom Docker image for the Alfresco Repository. The custom Docker images includes the JARs, or AMPs, with your extension code. 
 
@@ -1352,8 +1352,8 @@ From a high level standpoint, we can describe the content of the project as foll
 * `my-all-in-one-project` (the root of the project) contains the whole project. It can easily be pushed into a version control repository and/or an internet hosting service like GitHub, SVN, CVS, etc.
 * The files stored into the root of the project are mainly related to actions and commands (running, debugging, etc.), technical configuration (`pom.xml`), and documentation (`README.md`).
 * `my-all-in-one-project-integration-tests` (typically named `<artefactId-integration-tests>`) contains a sub-project entirely dedicated to integration tests.
-* `my-all-in-one-project-platform-docker` (typically named `<artefactId-platform-docker>`) contains a sub-project dedicated to the configuration of a custom Docker image with the Alfresco Content Services Repository and the customization module `my-all-in-one-project-platform` installed.
-* `my-all-in-one-project-platform` (typically named `<artefactId-platform>`) contains a sub-project entirely dedicated to the customization of the Alfresco Content Services Repository.
+* `my-all-in-one-project-platform-docker` (typically named `<artefactId-platform-docker>`) contains a sub-project dedicated to the configuration of a custom Docker image with the Content Services Repository and the customization module `my-all-in-one-project-platform` installed.
+* `my-all-in-one-project-platform` (typically named `<artefactId-platform>`) contains a sub-project entirely dedicated to the customization of the Content Services Repository.
 * `my-all-in-one-project-share-docker` (typically named `<artefactId-share-docker>`) contains a sub-project dedicated to the configuration of a custom Docker image with the Alfresco Share client and the customization module `my-all-in-one-project-share` installed.
 * `my-all-in-one-project-share` (typically named `<artefactId-share>`) contains a sub-project entirely dedicated to the customization of the Alfresco Share client.
 
@@ -1372,7 +1372,7 @@ Below is a description of the files in the root of the project (in this case, `m
 #### my-all-in-one-project-platform
 
 Below is a description of the content in the `my-all-in-one-project-platform` (typically named `<artefactId-platform>`) sub-project. This sub-project 
-contains the source code entirely dedicated to the customizing the Alfresco Content Services Repository.
+contains the source code entirely dedicated to the customizing the Content Services Repository.
 
 |Content | Description|
 |--- | ---|
@@ -1387,7 +1387,7 @@ contains the source code entirely dedicated to the customizing the Alfresco Cont
 #### my-all-in-one-project-platform-docker
 
 Below is a description of the content in the `my-all-in-one-project-platform-docker` (typically named `<artefactId-platform-docker>`) sub-project. This 
-sub-project contains the resources required to define a custom Docker image with the Alfresco Content Services Repository and the customization module 
+sub-project contains the resources required to define a custom Docker image with the Content Services Repository and the customization module 
 `my-all-in-one-project-platform` installed.
 
 Content | Description
@@ -1520,7 +1520,7 @@ From a high level standpoint, we can describe the content of the project as foll
 
 * `my-platform-jar-project` (the root of the project) contains the whole project. It can easily be pushed into a version control repository and/or an internet hosting service like GitHub, SVN, CVS, etc.
 * The files stored into the root of the project are mainly related to actions and commands (running, debugging, etc.), technical configuration (`pom.xml`), and documentation (`README.md`).
-* `src` contains the source code, tests, configurations, settings and resources that are entirely dedicated to the customization of the Alfresco Content Services Repository.
+* `src` contains the source code, tests, configurations, settings and resources that are entirely dedicated to the customization of the Content Services Repository.
 
 After this brief introduction of the Platform JAR project, let’s focus on the content of the folders.
 
@@ -1537,7 +1537,7 @@ File | Description
 #### `src` folder
 
 Below is a description of the content in the `src` folder. This folder contains the source code, tests, configuration, settings, and resources entirely 
-dedicated to the customization of the Alfresco Content Services Repository.
+dedicated to the customization of the Content Services Repository.
 
 Content | Description
 --- | ---
@@ -1739,16 +1739,16 @@ If you want more detail about how to work with the project, please visit [Workin
 This information provides more advanced topics that you might come in contact with when you have been working with an SDK project for a while. We will have a 
 look at how you can work with AMPs, remote debugging, hot reloading, enable transformations and more.
 
-### Switching Alfresco Content Services and Share versions
+### Switching Content Services and Share versions
 
-The latest version of the Alfresco SDK supports different versions for Alfresco Content Services and Alfresco Share. Since each product is no longer 
+The latest version of the Alfresco SDK supports different versions for Content Services and Alfresco Share. Since each product is no longer 
 released under one common version number, ACS (i.e. alfresco.war) and the Share UI (share.war) are now released with individual version numbers.
 
 By default, SDK 4 is configured to generate projects using the most recent version of ACS and Share. You can easily change one (or both) versions by 
 simply updating the `pom.xml` file in your project. The compatibility of these versions is up to you, however you should check in advance the right versions 
 to use.
 
-When editing `pom.xml` you will see a number of properties that define the Alfresco Content Services platform version and the Alfresco Share version, such as:
+When editing `pom.xml` you will see a number of properties that define the Content Services platform version and the Alfresco Share version, such as:
 
 ```xml
 <alfresco.platform.version>6.1.2-ga</alfresco.platform.version>
@@ -1776,7 +1776,7 @@ Starting from a newly created Alfresco SDK 4.1 project (All-In-One, Platform JAR
     ```
 
     In this example we have shown the switch to version 6.0.7-ga. Feel free to use the correct version for your project, paying attention to the compatible versions 
-    of Alfresco Content Services and Alfresco Share.
+    of Content Services and Alfresco Share.
 
 3. After changing the versions, delete all the previous data of your development Docker environment:
 
@@ -1808,7 +1808,7 @@ Starting from a newly created Alfresco SDK 4.1 project (All-In-One, Platform JAR
     ```
     
     In this example we have shown the switch to version 6.1.2-ga. Feel free to use the correct version for your project, paying attention to the compatible versions 
-    of Alfresco Content Services and Alfresco Share.
+    of Content Services and Alfresco Share.
 
 3. After changing the versions, delete all the previous data of your development Docker environment:
 
@@ -1923,7 +1923,7 @@ At this point you have configured Maven to have access to the Alfresco Private R
                                                          
 #### How to configure private Alfresco Docker registry {#enterprisedockerregistry}
 
-In order to download the Docker images needed to work with Alfresco Content Services Enterprise Edition it is required to configure the Alfresco private Docker registry 
+In order to download the Docker images needed to work with Content Services Enterprise Edition it is required to configure the Alfresco private Docker registry 
 hosted at [Quay.io](https://quay.io/){:target="_blank"}. 
 
 The first matter to consider is to ensure that you have credentials for the Alfresco private Docker registry, where the Alfresco images are stored. Customers and partners can 
@@ -2570,7 +2570,7 @@ Docker-oriented environment.
 
 Here are the basics to understanding and using integration testing in the context of projects created with the SDK, from a technical perspective:
 
-* SDK 4.1 develops integration tests for the platform only. Currently, the integration tests that the SDK is able to manage by default is related to Alfresco Content Services (ACS) only.
+* SDK 4.1 develops integration tests for the platform only. Currently, the integration tests that the SDK is able to manage by default is related to Content Services (ACS) only.
 * Integration tests require an ACS instance to be up and running. You will see that all the scripts and commands are designed to easily manage this requirement, but the prerequisite for the SDK is that an ACS instance is available.
 * If you're running a project created with a Platform JAR archetype, integration tests are not provided by default. However, you can copy them from your All-In-One project.
 
@@ -2693,7 +2693,7 @@ The All-In-One archetype includes some basic integration tests that demonstrate 
 
 ###### `CustomContentModelIT`: Checking the correct existence and setup of a custom model
 
-This integration test verifies the existence of the `{http://www.acme.org/model/content/1.0}contentModel` in the Alfresco Content Services instance. It also 
+This integration test verifies the existence of the `{http://www.acme.org/model/content/1.0}contentModel` in the Content Services instance. It also 
 creates a new node in the repository with the following features:
 
 * The node is named `AcmeFile.txt`.
@@ -2704,18 +2704,18 @@ creates a new node in the repository with the following features:
 Once created, some Java assertions are raised to check the correct definition of the node. As a last task, the node is deleted from the repository to clean 
 the environment.
 
-###### `DemoComponentIT`: Checking the Alfresco Content Services DemoComponent component
+###### `DemoComponentIT`: Checking the Content Services DemoComponent component
 
-This integration test verifies the existence of the `DemoComponent` component deployed in the Alfresco Content Services instance. You can find the definition 
+This integration test verifies the existence of the `DemoComponent` component deployed in the Content Services instance. You can find the definition 
 of the `DemoComponent` as a custom component of a project created with the All-In-One archetype. For more details, see the class definition in
 `PROJECT_ARTEFACTID-platform/src/main/java/com/example/platformsample/DemoComponent.java`.
 
-The integration test retrieves the `DemoComponent` bean from the Alfresco Content Services instance (see `testGetCompanyHome()`), and requests the Company 
+The integration test retrieves the `DemoComponent` bean from the Content Services instance (see `testGetCompanyHome()`), and requests the Company 
 Home component. In addition, some Java assertions check if Company Home is identified correctly and has seven children stored in it.
 
-###### `HelloWorldWebScriptIT`: Checking the Alfresco Content Services helloworld webscript
+###### `HelloWorldWebScriptIT`: Checking the Content Services helloworld webscript
 
-This integration test is the simplest one, and verifies the existence and the response of the `helloworld` web script in the Alfresco Content Services instance. 
+This integration test is the simplest one, and verifies the existence and the response of the `helloworld` web script in the Content Services instance. 
 The test invokes the web script at the URL `http://localhost:8080/alfresco/service/sample/helloworld` and checks the response using some Java assertions.
 
 #### How to run SDK's integration tests
@@ -2798,7 +2798,7 @@ Once the tests have completed (typically, after a few seconds), the results are 
 
 When using an IDE, the source code related to the integration tests is the one deployed directly on the platform side. This means that an update in the code 
 for the Java classes will be included when you run the integration tests _if and only if_ they are deployed in the platform. To avoid stopping/starting 
-Alfresco Content Services with every change, use **hot reloading** as the only way to deploy the new version of the Java classes. For more details, see 
+Content Services with every change, use **hot reloading** as the only way to deploy the new version of the Java classes. For more details, see 
 [JRebel](#hotreloadingjrebel) / [HotSwapAgent](#hotreloadinghotswapagent) Hot reloading.
 
 ##### IntelliJ IDEA IDE
@@ -2820,13 +2820,13 @@ Once the tests have completed (typically, after a few seconds), the results are 
 
 When using an IDE, the source code related to the integration tests is the one deployed directly on the platform side. This means that an update in the code 
 for the Java classes will be included when you run the integration tests _if and only if_ they are deployed in the platform. To avoid stopping/starting 
-Alfresco Content Services with every change, use **hot reloading** as the only way to deploy the new version of the Java classes. For more details, see 
+Content Services with every change, use **hot reloading** as the only way to deploy the new version of the Java classes. For more details, see 
 [JRebel](#hotreloadingjrebel) / [HotSwapAgent](#hotreloadinghotswapagent) Hot reloading.
 
 ### Hot reloading
 
 Hot reloading in a Java project is the ability to avoid the infamous _change > restart and wait > check_ development lifecycle. This allows you to modify 
-your application's code, and view the changes without having to restart Alfresco Content Services / Alfresco Share. You can potentially gain significant 
+your application's code, and view the changes without having to restart Content Services / Alfresco Share. You can potentially gain significant 
 savings in development time that would otherwise be wasted rebuilding the Docker images and restarting the Docker containers.
 
 Hot reloading is a well known behaviour in several other languages (C# for example), and the most practical and fast lifecycle like Save&Reload should be 
@@ -3009,7 +3009,7 @@ steps:
 
     ![sdk-hellofromme]({% link content-services/images/sdk-hellofromme.png %})
 
-By changing the code and compiling it again, the changes have been dynamically received from Alfresco Content Services.
+By changing the code and compiling it again, the changes have been dynamically received from Content Services.
 
 #### How to configure and use Hotswap Agent {#hotreloadinghotswapagent}
 
@@ -3282,9 +3282,9 @@ For more information about HotSwapAgent configuration for Java 11, please check 
 
     ![sdk-hellofromme]({% link content-services/images/sdk-hellofromme.png %})
 
-By changing the code and compiling it again, the changes have been dynamically received from Alfresco Content Services.
+By changing the code and compiling it again, the changes have been dynamically received from Content Services.
 
-### Switching Alfresco Content Services database
+### Switching Content Services database
 
 By default, the projects generated making use of the archetypes provided by the Alfresco SDK 4 are pre-configured to work with a specific database, which is 
 PostgreSQL. 

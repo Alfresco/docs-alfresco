@@ -6,7 +6,7 @@ Client Debug Mode allows you to debug JavaScript and CSS served to the client.
 
 Enabling the Client Debug Mode can be done through editing `tomcat/webapps/share/WEB-INF/classes/alfresco/share-config.xml` 
 or through editing `tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml`. Editing this latter file is 
-more convenient for your custom configurations, as it will survive re-explosions of the Alfresco Content Services WAR 
+more convenient for your custom configurations, as it will survive re-explosions of the Content Services WAR 
 (`alfresco.war`) file. You simply need to set the `client-debug` element to true, `<client-debug>true</client-debug>`.
 
 Once this is set and the Tomcat server restarted you will see three changes:

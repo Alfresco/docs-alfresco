@@ -2,27 +2,27 @@
 title: Authentication Extension Point
 ---
 
-Alfresco Content Services provides a number of authentication systems out-of-the-box, such as LDAP. It is also possible 
+Content Services provides a number of authentication systems out-of-the-box, such as LDAP. It is also possible 
 to implement and configure custom authentication systems.
 
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
-Alfresco Content Services includes multiple authentication systems, including Database, Active Directory, LDAP, Kerberos, 
+Content Services includes multiple authentication systems, including Database, Active Directory, LDAP, Kerberos, 
 External, and can be set up to authenticate with one of them or a combination of them. Normally these authentication 
 systems cover most of the authentication combinations and mechanisms needed. Make sure to read through the 
 [authentication section]({% link content-services/latest/admin/auth-sync.md %}) before proceeding so you are sure that there is not 
 already an out-of-the-box authentication solutions that will work for you. 
 
-In special circumstances when there is a proprietary authentication system that Alfresco Content Services needs to 
+In special circumstances when there is a proprietary authentication system that Content Services needs to 
 authenticate with, a custom authentication mechanism can be implemented and deployed. These are usually authentication 
 systems or authentication databases that provides no standard authentication protocol, such as LDAP, and that does not 
-provide a user interface where the user can login and be redirected to Alfresco Content Services (this is called proxy 
+provide a user interface where the user can login and be redirected to Content Services (this is called proxy 
 authentication and the External authentication method can be used out-of-the-box, see 
 [this information]({% link content-services/latest/admin/auth-sync.md %}#extauthconfig)).
 
-Each authentication system that Alfresco Content Services supports is implemented as a 
+Each authentication system that Content Services supports is implemented as a 
 [subsystem]({% link content-services/latest/develop/repo-ext-points/subsystems.md %}) that can be enabled and configured independently.
 
 To demonstrate how to implement a custom/proprietary authentication mechanism we will implement an authentication 
@@ -90,7 +90,7 @@ authentication mechanism is implemented, and it uses the properties that we defi
 the box base class called `org.alfresco.repo.security.authentication.AbstractAuthenticationComponent` that contains some 
 basic implementation details. This class also needs access to a number of services that we inject.
 
-For information about how a typical authentication component class implementation looks like for your Alfresco Content Services 
+For information about how a typical authentication component class implementation looks like for your Content Services 
 version, and its Spring bean definition, open up the source code and search for `AuthenticationComponent` classes and then 
 look for Spring context files (i.e. xml files) that contains "`<bean id="authenticationComponent`".
 
@@ -217,7 +217,7 @@ authentication.chain=alfinst:alfrescoNtlm,custauth1:customauthenticator
 In this case we have just added our new `customauthenticator` at the end of the default authentication chain with an 
 instance name of `custauth1`.
 
-After restarting Alfresco Content Services we should be able to login with the user-name `john` using any password.
+After restarting Content Services we should be able to login with the user-name `john` using any password.
 
 ## Deployment - App Server
 

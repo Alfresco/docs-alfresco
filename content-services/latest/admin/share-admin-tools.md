@@ -24,11 +24,11 @@ the `ALFRESCO_ADMINISTRATORS` group. Use the links to see more information about
 
     * **Application**: [Share theme and logo](#themeandlogo)
     * **Category Manager**: [Managing categories](#catmanager)
-    * **Module Browser**: [Viewing module packages](TODO:admintools-modules.md)
-    * **Node Browser**: [Using the Node Browser in Share Admin Tools](TODO:adminconsole-nodebrowser.md#)
+    * **Module Browser**: [Viewing module packages]({% link content-services/latest/install/zip/amp.md %}#viewmodulepackages)
+    * **Node Browser**: [Using the Node Browser in Share Admin Tools]({% link content-services/latest/admin/troubleshoot.md %}#usingnodebrowser)
     * **Search Manager**: [Manage search filters](#searchmanager)    
     * **Tag Manager**: [Managing tags](#tagmanager)
-    * **Model Manager**: [Content modeling with Model Manager](TODO:../concepts/admintools-cmm-intro.md)
+    * **Model Manager**: [Content modeling with Model Manager](TODO_LINK:../concepts/admintools-cmm-intro.md)
     * **Sites Manager**: [Sites Manager](#sitesmanager)
 
     The remaining tools are grouped into the following categories:

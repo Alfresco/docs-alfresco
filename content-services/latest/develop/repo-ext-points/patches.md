@@ -2,15 +2,15 @@
 title: Patches Extension Point
 ---
 
-A patch is a piece of Java code that executes once when Alfresco Content Services starts. Custom patches can be implemented.
+A patch is a piece of Java code that executes once when Content Services starts. Custom patches can be implemented.
 
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
-A patch executes a piece of Java code when Alfresco Content Services starts up, and logs the result in the 
-`ALF_APPLIED_PATCHES` database table. A patch is only executed once and can be targeted at a certain Alfresco Content Services 
-version range. Patches are used a lot by Alfresco Content Services internally to do things like database schema updates 
+A patch executes a piece of Java code when Content Services starts up, and logs the result in the 
+`ALF_APPLIED_PATCHES` database table. A patch is only executed once and can be targeted at a certain Content Services 
+version range. Patches are used a lot by Content Services internally to do things like database schema updates 
 and content bootstrapping.
 
 Developing a patch involves a number of steps of which the first one is to implement the Java class that does the actual 
@@ -110,7 +110,7 @@ private void createFolder(NodeRef rootRef) {
 ```
 
 When the patch class is completed a Spring bean needs to be defined for it. The bean needs to indicate to the server the 
-version of Alfresco Content Services for which it should be run. In the `bootstrap-context.xml` file define a bean as follows:
+version of Content Services for which it should be run. In the `bootstrap-context.xml` file define a bean as follows:
 
 ```xml
 <bean id="patch.contentCreationPatch" class="org.alfresco.tutorial.patch.ContentCreationPatch" parent="basePatch">
@@ -137,7 +137,7 @@ version of Alfresco Content Services for which it should be run. In the `bootstr
 
 The bean needs to extend the `basePatch` bean so the patch gets automatically registered with the server. Patches will 
 be applied to the store only once. This patch should always be run once for every new installation, regardless of 
-Alfresco Content Services version, so setting the `fixesToSchema` value to `${version.schema}`. Note that patches are 
+Content Services version, so setting the `fixesToSchema` value to `${version.schema}`. Note that patches are 
 sorted according to `targetSchema`, and lowest will be executed first.
 
 The last thing to do is define the i18n properties for the patch, this is done as follows in a property file:
@@ -162,7 +162,7 @@ Created a folder under Company Home
 ```
 
 When working with patches there will be times when you will want to re-run a patch after an update to its implementation. 
-Restarting Alfresco Content Services will not re-run the patch as it only runs once. You can check the status of a patch 
+Restarting Content Services will not re-run the patch as it only runs once. You can check the status of a patch 
 with the following SQL query:
 
 ```text
@@ -170,14 +170,14 @@ select * from alf_applied_patch where id='org.alfresco.tutorial.patch.contentCre
 ```
 
 This will return information about if the patch was successfully applied, when it was run, to what 
-Alfresco Content Services version it was applied. If the patch failed then an error message is available. 
+Content Services version it was applied. If the patch failed then an error message is available. 
 To reset this database record issue the following update:
 
 ```text
 update alf_applied_patch set was_executed = 0, succeeded = 0 where id='org.alfresco.tutorial.patch.contentCreationPatch'
 ```
 
-The patch will now be executed again if Alfresco Content Services is restarted. However, note that you would have to 
+The patch will now be executed again if Content Services is restarted. However, note that you would have to 
 delete any content this patch has created before doing this update, otherwise the patch will fail as the content 
 already exists.
 

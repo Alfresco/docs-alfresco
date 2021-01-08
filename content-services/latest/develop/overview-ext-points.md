@@ -2,7 +2,7 @@
 title: Overview of Extension Points
 ---
 
-The Alfresco Content Services product has always been very easy to extend and customize so it can manage content from 
+The Content Services product has always been very easy to extend and customize so it can manage content from 
 different types of domains, such as healthcare, finance, government, insurance, and manufacturing. This is supported by 
 so called *Extension Points*. An extension point is a supported interface that can be used to customize the product.
 

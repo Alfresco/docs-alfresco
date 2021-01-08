@@ -2,7 +2,7 @@
 title: Content Transformers (Renditions) Extension Point
 ---
 
-Alfresco Content Services provides many different types of content transformations out-of-the-box. Custom transformations 
+Content Services provides many different types of content transformations out-of-the-box. Custom transformations 
 can also be implemented and configured.
 
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
@@ -30,7 +30,7 @@ These are just a few of the supported transformations and they can also be combi
 pipelines when it is not possible to go directly from source mimetype to target mimetype. Renditions are related to 
 Transformations and they will be covered at the end of this article.
 
-To find out what transformers are currently registered and active within an Alfresco Content Services installation, 
+To find out what transformers are currently registered and active within an Content Services installation, 
 you can use an admin Web Script. This is available at 
 [http://localhost:8080/alfresco/service/mimetypes](http://localhost:8080/alfresco/service/mimetypes){:target="_blank"}. 
 This will list all the currently registered mimetypes, and provide a details link for each one. Selecting the details 
@@ -39,8 +39,8 @@ If a transformer becomes unavailable (for example, if the JOD/LibreOffice connec
 will show the updated transformations.
 
 When working with transformations and renditions it is important to make sure that the involved mimetypes are known to 
-Alfresco Content Services. So when accessing the "mimetypes" Web Script make sure the mimetypes that will be used in 
-transformations and renditions are included there, if not you would have to register them with Alfresco Content Services, 
+Content Services. So when accessing the "mimetypes" Web Script make sure the mimetypes that will be used in 
+transformations and renditions are included there, if not you would have to register them with Content Services, 
 see the [Mimetypes extension point]({% link content-services/latest/develop/repo-ext-points/mimetypes.md %}) for more information about that.
 
 The Spring bean definitions for the transformer implementations can be found in the `content-services-context.xml` file. 
@@ -95,7 +95,7 @@ highest priority fails for some reason. If multiple transformations are needed t
 `pipeline` transformation can be set up. It is also possible to control exactly which transformers are used in case of 
 a failure by using the `failover` property.
 
-If you are running an Enterprise edition these properties may be changed via JMX while Alfresco Content Services is 
+If you are running an Enterprise edition these properties may be changed via JMX while Content Services is 
 running (note, any changes via JMX and database takes precedence over any property file settings).
 
 You can create custom content transformers to transform one type of content into another, where that transformation 
@@ -247,7 +247,7 @@ When the transformation worker bean is defined you can refer to it from the tran
 ```
 
 The transformer bean needs to specify `baseContentTransformer` as the parent, as it handles registering this new 
-transformer with the Alfresco Content Services system. The transformer implementation class that you use in this case 
+transformer with the Content Services system. The transformer implementation class that you use in this case 
 is called `ProxyContentTransformer` and it is delegating the actual transformation to the worker. The last thing you 
 need to do for this transformer to be active is to add some properties to `alfresco-global.properties`:
 
@@ -357,7 +357,7 @@ content.transformer.json2pdf.extensions.json.pdf.priority=30
 content.transformer.json2pdf.extensions.json.pdf.supported=true
 ```
 
-Alfresco Content Services supports PDF previewing so as long as you can transform your content into a PDF it will be 
+Content Services supports PDF previewing so as long as you can transform your content into a PDF it will be 
 available for preview in the Document Details page.
 
 When implementing a transformer, it is possible to associate it with an Edition, such as in the following example:
@@ -366,7 +366,7 @@ When implementing a transformer, it is possible to associate it with an Edition,
 content.transformer.complex.JodConverter.PdfBox.edition=Enterprise
 ```
 
-This sets the `transformer.complex.JodConverter` to be available only for Alfresco Content Services installations. 
+This sets the `transformer.complex.JodConverter` to be available only for Content Services installations. 
 It is also possible to associate a transformer with a specific AMP:
 
 ```text
@@ -420,7 +420,7 @@ cm:pdf               cm:thumbnail workspace://SpacesStore/8b3ec283-cd2a-4378-af2
 If the solution being implemented is very transformation intensive a remote, then use the 
 [Document Transformation Engine]({% link content-services/latest/admin/transformations.md %}#doctransformengine). It 
 would be totally dedicated to performing transformations, and can be scaled out separately from the rest of the 
-Alfresco Content Services system, depending on transformation load.
+Content Services system, depending on transformation load.
 
 It is possible for an AMP (or a properties file) to set higher (numerically lower) priorities for new transformers than 
 the standard transformers, so that they are used rather than the standard ones.

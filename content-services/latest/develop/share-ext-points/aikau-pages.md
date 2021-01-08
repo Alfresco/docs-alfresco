@@ -74,7 +74,7 @@ which can get the content from either the repository or from some other remote W
 are actually using a Surf Page when we are invoking an Aikau page, in the Hello World example we are used the hybrid 
 dynamic page (hdp) to get the Share header and footer included.
 
-## Creating Aikau Pages with Menus
+## Creating Aikau Pages with Menus {#createpagewithmenu}
 
 You can add a page to Share using the new Aikau UI framework.
 
@@ -297,7 +297,7 @@ cascaded menus and icons.
 
 There is also the availability of the "hybrid" view of the page. By changing the URL to: 
 `http://<server>:<port>/share/page/hdp/ws/my-new-page` (note the additional "h") you will get the page content 
-rendered between the standard Alfresco Content Services header and footer.
+rendered between the standard Content Services header and footer.
 
 ### Summary and next steps
 

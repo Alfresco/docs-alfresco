@@ -2,7 +2,7 @@
 title: Subsystems Extension Point
 ---
 
-Subsystems are configurable modules responsible for a piece of functionality in Alfresco Content Services. It is 
+Subsystems are configurable modules responsible for a piece of functionality in Content Services. It is 
 possible to implement an extension as a custom subsystem.
 
 
@@ -12,18 +12,18 @@ Architecture Information: [Platform Architecture]({% link content-services/lates
 
 Description
 
-Subsystems are configurable modules responsible for a piece of functionality in Alfresco Content Services. The 
+Subsystems are configurable modules responsible for a piece of functionality in Content Services. The 
 functionality is often optional such as the IMAP server or can have several different implementations, such as 
 authentication.
 
-A subsystem can be thought of as a mini-server that runs embedded within the main Alfresco Content Services server. 
+A subsystem can be thought of as a mini-server that runs embedded within the main Content Services server. 
 A subsystem has the following characteristics:
 
-* It can be started, stopped, and configured independently of the Alfresco Content Services server during runtime
+* It can be started, stopped, and configured independently of the Content Services server during runtime
 * It has its own isolated Spring application context and configuration
 
 Subsystems are independent processes that can be brought up and down. This design lets an administrator of the system 
-change a single configuration without having to bring down the entire Alfresco Content Services system. The advantages 
+change a single configuration without having to bring down the entire Content Services system. The advantages 
 are reliability and availability.
 
 Examples of subsystems include:
@@ -134,7 +134,7 @@ the bean definition looks like this:
 ```
 
 We inject the properties that are needed to connect to the remote Cloud service and we inject the Service Registry 
-so we can get to the Alfresco Content Services public API. This service would now be available to any other bean in 
+so we can get to the Content Services public API. This service would now be available to any other bean in 
 the Spring context. However, when we turn this extension into being deployed as a subsystem the `namedEntitiesService` 
 bean will no longer be available outside of the subsystem Spring context. This is important, and we need to provide 
 another way of accessing the service that the subsystem provides, such as via a web script.
@@ -254,7 +254,7 @@ Spring context file. We are basically moving our beans out of the general Spring
 where they can access the Spring context (such as `serviceRegistry`) but not the other way around.
 
 Now, to kick off the Spring context for the subsystem category and type add the following Spring bean to the `service-context.xml` 
-Spring context file (note that we add this bean to the Spring context known to the Alfresco Content Services server, so 
+Spring context file (note that we add this bean to the Spring context known to the Content Services server, so 
 it can start the subsystem):
 
 ```xml
@@ -284,7 +284,7 @@ There are three different kinds of subsystem Spring context factories, including
 * `SwitchableApplicationContextFactory` - allows swapping of subsystem type implementations (that is, Lucene vs Solr)
 * `DefaultChildApplicationContextManager` - Chain or pick subsystem type (that is, Authentication chain)
 
-Start Alfresco Content Services with this subsystem implementation, and you should see the following in the log when it is mounted:
+Start Content Services with this subsystem implementation, and you should see the following in the log when it is mounted:
 
 ```text
 2016-02-15 15:45:56,901 INFO [management.subsystems.ChildApplicationContextFactory] [localhost-startStop-1] Starting 'Semantic' subsystem, ID: [Semantic, namedEntities] 
@@ -304,7 +304,7 @@ subsystem context with the controller bean definition. So when the web script is
 controller.
 
 The way we can fix this is to move the web script controller Spring bean definition back into the `service-context.xml` 
-file so it is known to Alfresco Content Services and the web script container. But then we got the problem that the 
+file so it is known to Content Services and the web script container. But then we got the problem that the 
 controller Spring bean will not load as it knows nothing about the subsystem `namedEntitiesService` bean. So, is there a 
 way to expose a Spring bean in a subsystem context so it can be used in the main parent Spring context? Yes there is, we 
 can use a proxy approach, define the following bean in the `service-context.xml` file:
@@ -370,7 +370,7 @@ call any method in the `NamedEntitiesService` interface.
 
 ## More Information
 
-* [Configuring Alfresco Subsystems](TODO:../concepts/subsystem-intro.md)
+* [Configuring Alfresco Subsystems](TODO_LATER:../concepts/subsystem-intro.md)
 
 ## Sample Code
 

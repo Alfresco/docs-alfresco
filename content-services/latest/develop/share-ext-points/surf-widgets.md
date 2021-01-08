@@ -426,7 +426,7 @@ into the FreeMarker template.
 
 ## Tutorials
 
-* [Customizing Surf Widget Instantiation](TODO:../tasks/dev-extensions-share-tutorials-customizing-widget-instantiation.md)
+* [Customizing Surf Widget Instantiation]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#customizesurfwidget)
 
 ## Alfresco Developer Blogs
 

@@ -12,7 +12,7 @@ These are tutorials for the Document Library in an Alfresco Share site.
 
 In many extension projects you want to customize the Document Library in Alfresco Share. And quite often this involves 
 adding new actions that can be applied to the content in the library. These actions are referred to as "DocLib" actions, 
-and unlike a lot of other functionality in Alfresco Content Services, they do not use web scripts to implement their 
+and unlike a lot of other functionality in Content Services, they do not use web scripts to implement their 
 business logic, at least not directly, instead they hook into custom, or out-of-the-box, client-side JavaScript code.
 
 Each action has a 16x16 icon, one or more text labels, and configuration to hook them into the Share application. Most 
@@ -186,7 +186,7 @@ Tutorial implementation steps:
     |Name|Description|
     |----|-----------|
     |`id`|The global identifier for this action. It's used when you refer to this action in other parts of the configuration, such as when defining where it should be visible.|
-    |`icon`|Share looks for an icon that starts with this name and ends with `-16.png`. So it will look for `email-16.png` in our case. Alfresco Content Services expects the image file to be located in the `/components/documentlibrary/actions` directory. If not set, the `id` is used.|
+    |`icon`|Share looks for an icon that starts with this name and ends with `-16.png`. So it will look for `email-16.png` in our case. Content Services expects the image file to be located in the `/components/documentlibrary/actions` directory. If not set, the `id` is used.|
     |`type`|Sets the type of action; this can be either `javascript` (as in our example) if you want the action to execute some Java Script code, `link` if you want to invoke some external URL, or `pagelink` if you want to invoke a URL within the Share web application. More details around the different types:<br><br>`link` - accepts a `href` parameter that will be passed a `nodeRef` token for substitution, used for external links.<br><br>`pagelink` - accepts a `page` parameter that will be passed a `nodeRef` token for substitution, used for Share links.<br><br>`javascript` - accepts a `function` parameter with a JavaScript function that will get the current folder item as first argument.|
     |`label`|Points to a property name in a resource file. The value of this property will be displayed in the UI as the action’s label. In our case the resource file is `aio/aio-share-jar/src/main/resources/alfresco/web-extension/messages/aio-share-jar.properties`|
     |`param`|There can be one or more parameters set for an action. In case of a `javascript` action they will be passed into the Java Script code, there is one special parameter with the name `function` that sets the Java Script function that should be called when the action is executed. In case of a `link` action the parameters would typically be used to specify `href` and `target`. In case of a `pagelink` action a `page` parameter is used to specify a relative URL within the Share web application.|
@@ -263,13 +263,13 @@ Tutorial implementation steps:
     |`folder-link-browse`|Action is visible for links to folders on the Browse page|
     |`folder-link-details`|Action is visible for link to folder on the Folder Details page|
 
-    The `index` argument is specifying the order of this action in the list of actions. The higher the number the lower it will be displayed in the action list. By having a look in the `share-documentlibrary-config.xml` configuration file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Alfresco Content Services 6.2 installation, you can find out that the highest index for `document-browse` actions is 360 and for `document-details` actions 390. So if we set our `index` for the Send-As-Email action to 400 it should end up last in both of these action lists.
+    The `index` argument is specifying the order of this action in the list of actions. The higher the number the lower it will be displayed in the action list. By having a look in the `share-documentlibrary-config.xml` configuration file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services 6.2 installation, you can find out that the highest index for `document-browse` actions is 360 and for `document-details` actions 390. So if we set our `index` for the Send-As-Email action to 400 it should end up last in both of these action lists.
 
     If you want more examples of how Document Library actions can be defined and configured, have a look in the `share-documentlibrary-config.xml` file and the `DocLibActions` section.
 
 4.  Add a custom icon for the Send-As-Email action.
 
-    The icons for all the Document Library actions are stored in the `tomcat/webapps/share/components/documentlibrary/actions` directory in your Alfresco Content Services installation. The system will try and load any custom Document Library action icons from this directory. Icons are loaded via the resource Servlet and action icons related to the Document Library are loaded with the `http://localhost:8080/share/res/components/documentlibrary/actions/<icon>-16-png` URL. This article is not about how to create a 16x16 icon in PNG format so copy one from the SDK sample source. In fact, copy all the icons that we need for all actions in this tutorial from this [folder](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-action-doclib-share/src/main/resources/META-INF/resources/add-action-doclib-share/components/documentlibrary/actions){:target="_blank"} and put them in the `aio/aio-share-jar/src/main/resources/META-INF/resources/aio-share-jar/components/documentlibrary/actions` directory of your project (you might have to create this directory path).
+    The icons for all the Document Library actions are stored in the `tomcat/webapps/share/components/documentlibrary/actions` directory in your Content Services installation. The system will try and load any custom Document Library action icons from this directory. Icons are loaded via the resource Servlet and action icons related to the Document Library are loaded with the `http://localhost:8080/share/res/components/documentlibrary/actions/<icon>-16-png` URL. This article is not about how to create a 16x16 icon in PNG format so copy one from the SDK sample source. In fact, copy all the icons that we need for all actions in this tutorial from this [folder](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-action-doclib-share/src/main/resources/META-INF/resources/add-action-doclib-share/components/documentlibrary/actions){:target="_blank"} and put them in the `aio/aio-share-jar/src/main/resources/META-INF/resources/aio-share-jar/components/documentlibrary/actions` directory of your project (you might have to create this directory path).
 
 5.  Add an Evaluator for the Send-As-Email action.
 
@@ -339,7 +339,7 @@ Tutorial implementation steps:
     * Is Browser (type)
     * Is Portlet mode
     
-    See the `slingshot-documentlibrary-context.xml` file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Alfresco Content Services 6.2 installation for more information about out-of-the-box evaluators.
+    See the `slingshot-documentlibrary-context.xml` file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services 6.2 installation for more information about out-of-the-box evaluators.
 
 6.  Add a Status Indicator for the Send-As-Email action.
 
@@ -388,7 +388,7 @@ Tutorial implementation steps:
     |Name|Description|
     |----|-----------|
     |`id`|The global identifier for this indicator.|
-    |`icon`|The name of the icon to display as the status indicator. Alfresco Content Services expects the image file to be located in the `/components/documentlibrary/indicators` directory. If not specified, “id” is used. Note. In this case Alfresco Content Services does not assume `*-16.png` format but you have to specify the complete file name.|
+    |`icon`|The name of the icon to display as the status indicator. Content Services expects the image file to be located in the `/components/documentlibrary/indicators` directory. If not specified, “id” is used. Note. In this case Content Services does not assume `*-16.png` format but you have to specify the complete file name.|
     |`index`|Is used to order the indicator in the UI when there are several indicators displayed for a document. If we look in the `share-documentlibrary-config.xml` (in the `tomcat/webapps/share/WEB-INF/classes/alfresco` directory) configuration file we can see that the largest index for out-of-the-box indicators is 90, so by using 100 the emailed indicator will always be displayed last in the list.|
     |`label`|Points to a property name in a resource file. The value of this property will be displayed in the UI as the indicators tool-tip. In our case the resource file is `aio/aio-share-jar/src/main/resources/alfresco/web-extension/messages/aio-share-jar.properties`|
     |`evaluator`|Spring Bean id for an evaluator that is called by the system to find out if the indicator should be visible or not in the UI. An evaluator extends the `org.alfresco.web.evaluator.BaseEvaluator` class. You can negate the result of calling the evaluator by setting the `negate` attribute to `true`. In our case we do want to show the indicator if the Send-As-Email action has been invoked on a content file, so we don't negate.|
@@ -631,7 +631,7 @@ Tutorial implementation steps:
 
     The way we plug-in custom JavaScript action handlers is to call the `YAHOO.Bubbling.fire(“registerAction”…)` method. This will tell the system about the new action JavaScript code, and it will be plugged in after the out- of-the-box code to allow for customization and extensions.
 
-    In the `org_alfresco_training_onActionCallWebScript` function we use the `this.modules.actions.genericAction` function to call a specific custom web script (or an out-of-the-box web script if we wanted to). The `genericAction` function is defined in the `doclib-actions.js` file located in the `alfresco/tomcat/webapps/share/modules/documentlibrary` directory of an Alfresco Content Services installation. This function sets up the web script call based on the passed in parameters (that is, `success.callback.fn`, `failure.message`, `webscript.name`, and so on). There are a lot more parameters that we can use if we wanted to more stuff when calling the web script, such as firing an event after successful invocation.
+    In the `org_alfresco_training_onActionCallWebScript` function we use the `this.modules.actions.genericAction` function to call a specific custom web script (or an out-of-the-box web script if we wanted to). The `genericAction` function is defined in the `doclib-actions.js` file located in the `alfresco/tomcat/webapps/share/modules/documentlibrary` directory of an Content Services installation. This function sets up the web script call based on the passed in parameters (that is, `success.callback.fn`, `failure.message`, `webscript.name`, and so on). There are a lot more parameters that we can use if we wanted to more stuff when calling the web script, such as firing an event after successful invocation.
 
     Here is a list from the documentation:
 
@@ -1121,7 +1121,7 @@ Tutorial implementation steps:
     * Is Browser (type)
     * Is Portlet mode
     
-    See the `slingshot-documentlibrary-context.xml` file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Alfresco Content Services installation for more information about out-of-the-box evaluators.
+    See the `slingshot-documentlibrary-context.xml` file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services installation for more information about out-of-the-box evaluators.
 
 4.  The implementation of the custom Metadata Template is now complete. However, before we start the server up we need to make sure we have the Share JAR installed that provides the [Create Acme Document](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-create-menuitem-doclib-share){:target="_blank"} feature. This will make it easy to create a new text document with the specific `acme:document` type so we can test our new Metadata Template. Download the source and include the JAR in your AIO project.
 
@@ -1458,7 +1458,7 @@ Tutorial implementation steps:
 **Description**:
 
 This tutorial demonstrates how to customize an existing Surf JavaScript Widget by extending the out-of-the-box 
-Documentlist widget so it shows a message every time a filter is changed. In previous versions of Alfresco Content Services 
+Documentlist widget so it shows a message every time a filter is changed. In previous versions of Content Services 
 it was only possible to customize JavaScript widgets by copying existing code, modifying it, and then copying it onto 
 the web extensions path. This was not efficient as it created a maintenance burden as the code needed to be managed 
 through changes to the original widget.

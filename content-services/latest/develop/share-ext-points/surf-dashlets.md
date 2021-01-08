@@ -48,7 +48,7 @@ which is used to connect to a remote service, such as the repository, and get da
 (that is, a Data web script), which in its controller uses the public API to fetch person information matching passed 
 in Search Filter (that is, `filter`).
 
-The repository web script uses a root object called `people` to search for person info. This root object is Alfresco Content Services 
+The repository web script uses a root object called `people` to search for person info. This root object is Content Services 
 specific and is only available in repository web scripts.
 
 Now, to create a dashlet web script you also need a descriptor, which is defined in XML and looks something like this:

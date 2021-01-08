@@ -126,7 +126,7 @@ Note that the Docker files for Alfresco Share, Alfresco Search Services, and oth
 
 * Alfresco Share: [https://github.com/Alfresco/share/tree/support/HF/6.2.2](https://github.com/Alfresco/share/tree/support/HF/6.2.2){:target="_blank"}
 * Alfresco Search Services: [https://github.com/Alfresco/SearchServices](https://github.com/Alfresco/SearchServices){:target="_blank"}
-* Alfresco Content Services Nginx Proxy: [https://github.com/Alfresco/acs-ingress](https://github.com/Alfresco/acs-ingress){:target="_blank"}
+* Content Services Nginx Proxy: [https://github.com/Alfresco/acs-ingress](https://github.com/Alfresco/acs-ingress){:target="_blank"}
 
 ## Prerequisites
 
@@ -134,7 +134,7 @@ There are a number of software requirements for installing (or deploying) Conten
 
 Note that the [VERSIONS.md](https://github.com/Alfresco/acs-packaging/blob/master/distribution/src/main/resources/VERSIONS.md){:target="_blank"} file in GitHub lists the supported versions.
 
-> **Note:** The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services Download Trial by following the steps in [Deploy using Docker Compose]({% link content-services/latest/install/containers/docker-compose.md %}).
+> **Note:** The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Content Services Download Trial by following the steps in [Deploy using Docker Compose]({% link content-services/latest/install/containers/docker-compose.md %}).
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 

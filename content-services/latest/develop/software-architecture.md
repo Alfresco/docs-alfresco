@@ -751,7 +751,7 @@ To implement the Hello World page in Aikau we have to go through the following s
 
 For a full tutorial and introduction to Aikau Pages, see ([Introduction to Aikau Pages]({% link content-services/latest/develop/software-architecture.md %}#aikauintro)).
 
-#### Surf Pages introduction 
+#### Surf Pages introduction {#surfpageintro}
 
 Use this information for a brief introduction to Spring Surf Pages.
 

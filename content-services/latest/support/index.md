@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services.
+Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Content Services.
 
 Last modified: **November 12 2020**
 
@@ -76,8 +76,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Services 2.0 | |
 | Alfresco Search Services 1.4 | |
 | Alfresco Federation Services 1.0 | |
-| Identity Service 1.3 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| SAML Module for Alfresco Content Services 1.2.1 | |
+| Identity Service 1.3 | Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
+| SAML Module for Content Services 1.2.1 | |
 | Alfresco Intelligence Services 1.2 | |
 | Alfresco Content Connector for AWS S3 3.1 | Only compatible with Alfresco Media Management 1.4.2 or above. |
 | Alfresco Content Connector for AWS S3 3.0 | |
@@ -95,13 +95,13 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Enterprise Viewer 3.3 | |
 | Alfresco Enterprise Viewer 3.2 | |
 | Alfresco Content Accelerator 3.4 | |
-| Alfresco Content Services SDK 4 | |
+| Content Services SDK 4 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 1.6 | |
 | Alfresco Digital Workspace 1.5 | |
-| Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Content Services release. |
+| Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Content Services release. |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
@@ -178,10 +178,10 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Search Services 2.0 | |
 | Alfresco Search Services 1.4 | |
 | Alfresco Federation Services 1.0 | |
-| Identity Service 1.3 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| Identity Service 1.2 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| Identity Service 1.1 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| SAML Module for Alfresco Content Services 1.2.0 | |
+| Identity Service 1.3 | Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
+| Identity Service 1.2 | Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
+| Identity Service 1.1 | Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
+| SAML Module for Content Services 1.2.0 | |
 | Alfresco Intelligence Services 1.1 | |
 | Alfresco Content Connector for AWS S3 3.1 | Only compatible with Alfresco Media Management 1.4.2 or above. |
 | Alfresco Content Connector for AWS S3 3.0 | |
@@ -201,7 +201,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Enterprise Viewer 3.3 | |
 | Alfresco Enterprise Viewer 3.2 | |
 | Alfresco Content Accelerator 3.4 | |
-| Alfresco Content Services SDK 4 | |
+| Content Services SDK 4 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 1.6 | |
@@ -209,8 +209,8 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Digital Workspace 1.4 | |
 | Alfresco Digital Workspace 1.3 | |
 | Alfresco Digital Workspace 1.2 | |
-| Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Content Services release. |
+| Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Content Services release. |
 | | |
 | **Components** | |
 | ImageMagick v7.0.7 | |
@@ -285,9 +285,9 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Search and Insight Engine 1.4 | Search and Insight Engine 1.4 is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 1.4 | |
 | Alfresco Federation Services 1.0 | |
-| Identity Service 1.2 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| Identity Service 1.1 | Alfresco Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| SAML Module for Alfresco Content Services 1.2.0 | |
+| Identity Service 1.2 | Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
+| Identity Service 1.1 | Content Services 6.2 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
+| SAML Module for Content Services 1.2.0 | |
 | Alfresco Intelligence Services 1.1 | |
 | Alfresco Content Connector for AWS S3 3.1 | Only compatible with Alfresco Media Management 1.4.2 or above. |
 | Alfresco Content Connector for AWS S3 3.0 | |
@@ -304,7 +304,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Enterprise Viewer 3.3 | |
 | Alfresco Enterprise Viewer 3.2 | |
 | Alfresco Content Accelerator 3.4 | |
-| Alfresco Content Services SDK 4 | |
+| Content Services SDK 4 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 1.6 | |
@@ -312,8 +312,8 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Digital Workspace 1.4 | |
 | Alfresco Digital Workspace 1.3 | |
 | Alfresco Digital Workspace 1.2 | |
-| Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
+| Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Content Services release. |
+| Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Content Services release. |
 | | |
 | **Components** | |
 | ImageMagick v7.0.7 | |

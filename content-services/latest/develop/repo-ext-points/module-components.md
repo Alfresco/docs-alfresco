@@ -9,11 +9,11 @@ Architecture Information: [Platform Architecture]({% link content-services/lates
 
 ## Description
 
-An Alfresco Content Services module, such as an AMP or a JAR, can have tightly coupled components (that is, Java classes) 
+An Content Services module, such as an AMP or a JAR, can have tightly coupled components (that is, Java classes) 
 that are part of its implementation. When a module is loaded it will also execute the code for each one of its registered 
 components. One component can depend on another component, so it is possible to set up the required execution order. 
-A component can also be associated with an Alfresco Content Services version range for which it is valid, which means 
-that it will only be invoked if current Alfresco Content Services version is in this version range. By default each one 
+A component can also be associated with an Content Services version range for which it is valid, which means 
+that it will only be invoked if current Content Services version is in this version range. By default each one 
 of the components will be executed only once when the module is deployed for the first time. To implement a module 
 component you first need a [Repository AMP](https://github.com/Alfresco/alfresco-sdk/blob/master/docs/working-with-generated-projects/working-with-platform.md){:target="_blank"} 
 project or a repository JAR project. Then start by implementing the component class as in the following example:
@@ -63,7 +63,7 @@ The component Spring bean should extend (have as `parent`) the `module.baseCompo
 `ServiceRegistry` property defined and the `init-method` defined so it will be automatically registered with the module. 
 The module that the component will be registered with is determined by the `moduleId` property, which should be set to 
 the module id for the repository AMP or repository JAR. The `sinceVersion` and `appliesFromVersion` properties can be 
-used to indicate for what Alfresco Content Services versions this component should be activated.
+used to indicate for what Content Services versions this component should be activated.
 
 If you want a component to be executed after another component use the `dependsOn` property as follows:
 

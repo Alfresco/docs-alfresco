@@ -182,7 +182,7 @@ You can also enable logging for the transaction handler to identify any transact
 log4j.logger.org.alfresco.repo.transaction.RetryingTransactionHelper=info
 ```
 
-For more information about log4j, see [log4j.properties file](TODO:dev-extensions-modules-module-log4j.md).
+For more information about log4j, see [log4j.properties file]({% link content-services/latest/develop/extension-packaging.md %}#log4jpropsfile).
 
 #### Bulk importing using the user interface {#bulkimportwithui}
 

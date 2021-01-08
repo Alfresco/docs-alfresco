@@ -2,7 +2,7 @@
 title: Install using Helm
 ---
 
-Alfresco Content Services (ACS) is an Enterprise Content Management (ECM) system that's used for document and case management, project collaboration, web content publishing, and compliant records management.  The flexible compute, storage, and database services that Kubernetes offers make it an ideal platform for Content Services. This Helm chart presents an enterprise-grade Content Services configuration that you can adapt to virtually any scenario with the ability to scale up, down or out, depending on your use case.
+Content Services (ACS) is an Enterprise Content Management (ECM) system that's used for document and case management, project collaboration, web content publishing, and compliant records management.  The flexible compute, storage, and database services that Kubernetes offers make it an ideal platform for Content Services. This Helm chart presents an enterprise-grade Content Services configuration that you can adapt to virtually any scenario with the ability to scale up, down or out, depending on your use case.
 
 The Helm chart in this repository supports deploying the Enterprise or Community Edition of Content Services.
 

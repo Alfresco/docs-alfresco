@@ -22,9 +22,9 @@ This section covers the following:
 
 Surf extension modules are the preferred way of customizing many of the Alfresco Share user interface features.
 
-If you look in the `tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Alfresco Content Services installation, 
+If you look in the `tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services installation, 
 then you’ll notice a number of files ending with `-config.xml`, such as for example `share-config.xml`. These files contain 
-configuration that is loaded into a Spring bean when Alfresco Content Services starts and is accessed by Share code to 
+configuration that is loaded into a Spring bean when Content Services starts and is accessed by Share code to 
 dictate many different aspects of its behavior.
 
 To customize this configuration you would **not** normally change these files directly, but instead make your changes 

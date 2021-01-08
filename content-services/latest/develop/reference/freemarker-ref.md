@@ -32,7 +32,7 @@ For example, to output the names of the arguments passed to a template:
 </#list>
 ```
 
-|`sessionticket`|Session related information providing a single value `sessionticket.ticket` for the current authentication ticket; useful when generating some Alfresco Content Services URLs for accessing outside the web client.|
+|`sessionticket`|Session related information providing a single value `sessionticket.ticket` for the current authentication ticket; useful when generating some Content Services URLs for accessing outside the web client.|
 |`classification`|Read access to classifications and root categories.|
 |`url`|Provides a single property `url.context` that can be used to retrieve the container context path, such as `/alfresco`; useful when generating URL links to objects. This is not available when using the template as a custom view on a space.|
 |`workflow`|Read access to information on `workflow` objects and the currently executing workflows for a user.|
@@ -86,8 +86,8 @@ The `<@region>` directive was used extensively in previous versions of Alfresco 
 Components are bound. This implementation has been updated to work with the extensibility model. The `<@markup>` 
 directive is new and is used to demarcate sections of HTML in a template.
 
-The [add content](TODO:../tasks/dev-extensions-share-tutorials-add-content.md) and 
-[removing content](TODO:../tasks/dev-extensions-share-tutorials-hide-content.md) tutorials relies on there being a 
+The [add content]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %}#addcontent) and 
+[removing content]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %}#removecontent) tutorials relies on there being a 
 Component available that will be bound to a Region in the template.
 
 Using this alternative mechanism makes it possible to add new regions and also completely remove regions to prevent 

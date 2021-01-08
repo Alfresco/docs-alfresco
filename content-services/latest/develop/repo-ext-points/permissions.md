@@ -10,7 +10,7 @@ Architecture Information: [Platform Architecture]({% link content-services/lates
 
 ## Description
 
-Alfresco Content Services provides a handful of out-of-the-box roles with different levels of permissions in the repository: 
+Content Services provides a handful of out-of-the-box roles with different levels of permissions in the repository: 
 
 * **Consumer** - can read content
 * **Contributor** - can create and upload content
@@ -55,7 +55,7 @@ So we can see that each permission has a `name` and an `expose` attribute. By co
 will always start with an underscore (`_`). The full name includes the type `uri` from the outer `permissionSet`, such as 
 for example `sys:base._ReadProperties`.
 
-The `expose` attribute tells Alfresco Content Services if this permission should be visible in the user interface. 
+The `expose` attribute tells Content Services if this permission should be visible in the user interface. 
 Note that a permission does not map one-to-one with a menu item or UI action. For example, there is no permission for 
 downloading content. Instead the permissions are focused on what operation you are allowed to execute on a content item 
 (node) in the Repository. To download content you will need the `_ReadContent` permission.
@@ -64,7 +64,7 @@ When defining permissions we also specify what permission group they should be p
 
 Every permission that we define needs to be associated with a type or an aspect from the content model that it applies to. 
 This is managed by grouping the permission definitions in a so called `permissionSet`, which specifies the type or aspect 
-via the `type` attribute, in this case the `type` is set to `sys:base`, which is the base type in Alfresco Content Services 
+via the `type` attribute, in this case the `type` is set to `sys:base`, which is the base type in Content Services 
 out-of-the-box content model, so these low level permissions are applicable to all content nodes.
 
 Examples of low level **permissionGroup**s from the out-of-the-box ones:
@@ -385,7 +385,7 @@ That is all that is needed to add new custom permissions.
 
 ## More Information
 
-* [Some more info around defining permissions](TODO:../concepts/secur-permissions.md)
+* [Some more info around defining permissions]({% link content-services/latest/admin/security.md %}#definingpermissions)
 
 ## Sample Code
 

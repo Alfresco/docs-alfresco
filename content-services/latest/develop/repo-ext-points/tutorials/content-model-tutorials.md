@@ -299,7 +299,7 @@ using a type and property.
 
 3.  To build and restart the project see [working with an AIO project]({% link content-services/latest/develop/sdk.md %}#workingaio).
 
-4.  Check that Alfresco Content Services has restarted without errors (either through checking the logs or logging into Share).
+4.  Check that Content Services has restarted without errors (either through checking the logs or logging into Share).
 
 5.  If you check a piece of content you created previously in Share, you can see that the custom property is automatically displayed. In the next tutorial you customize this information.
 

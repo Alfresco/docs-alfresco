@@ -15,7 +15,7 @@ In Alfresco Share you can enable or disable SurfBug through the `SurfBugStatus` 
 
 * To enable SurfBug and make the tool visible, click **Enable SurfBug** on the `http://domain:port/share/page/surfBugStatus` page.
 * You can also check or change the SurfBug status in this page.
-* If you are running the Alfresco Content Services server locally, and are using the default port for Tomcat servers, then the URL would be `http://localhost:8080/share/page/surfBugStatus`.
+* If you are running the Content Services server locally, and are using the default port for Tomcat servers, then the URL would be `http://localhost:8080/share/page/surfBugStatus`.
 
 ![SurfBug-Toggle]({% link content-services/images/SurfBug-Toggle.png %})
 

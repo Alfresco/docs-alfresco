@@ -11,7 +11,7 @@ Architecture Information: [Platform Architecture]({% link content-services/lates
 ## Description
 
 It is possible to create and add custom script APIs implemented in Java and accessible as root objects in JavaScript. 
-This provides an integration point for Alfresco Content Services extensions to provide custom JavaScript APIs where appropriate.
+This provides an integration point for Content Services extensions to provide custom JavaScript APIs where appropriate.
 
 In order to implement a custom JavaScript API it is recommended that you develop a POJO (Plain Old Java Object) that 
 extends the base class `org.alfresco.repo.processor.BaseProcessorExtension`. The `public` methods of your class will be 

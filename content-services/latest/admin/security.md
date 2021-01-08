@@ -566,7 +566,7 @@ authentication-related zone.
 * `AUTH.ALF` is for authorities defined within Content Services and not synchronized from an external source. This is the default zone for authentication.
 * `AUTH.EXT.<ID>` is for authorities defined externally, such as in LDAP.
 
-## Defining permissions
+## Defining permissions {#definingpermissions}
 
 Permissions and their groupings are defined in an XML configuration file.
 

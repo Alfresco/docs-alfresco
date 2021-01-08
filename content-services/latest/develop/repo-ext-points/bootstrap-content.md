@@ -85,7 +85,7 @@ first name, last name, email etc. This is done with an XML file looking like thi
 In this case we are bootstrapping profile information for two users, `alftest1` and `alftest2`. We can store this XML 
 file as part of the Repository JAR module extension project in a file name such as `import-user-profiles.xml`.
 
-For each user profile we bootstrap, Alfresco Content Services also needs some internal account information set up, 
+For each user profile we bootstrap, Content Services also needs some internal account information set up, 
 such as password, account expire information etc. This is also done in an XML file as follows:
 
 ```xml
@@ -258,7 +258,7 @@ This is also done via XML files:
 
 Here we are bootstrapping two groups, one called Knowledge Base Consumers and one called Knowledge Base Coordinators. 
 The last bit of the group bootstrapping adds the groups to different Zones. The `AUTH.ALF` zone is for authorities 
-defined within Alfresco Content Services and not synchronized from an external source, such as LDAP. The `APP.DEFAULT` 
+defined within Content Services and not synchronized from an external source, such as LDAP. The `APP.DEFAULT` 
 zone is for person and group nodes to be found by a normal search. We can store this XML file as part of the Repository 
 JAR module extension project in a file name such as `import-groups.xml`.
 
@@ -538,6 +538,242 @@ we get when exporting a site. So to bootstrap a file it will look like this:
 Besides using patches to bootstrap content there is also the `ImporterModuleComponent` that can be used to bootstrap/import 
 content into the Repository, for more information about this see [Module Components]({% link content-services/latest/develop/repo-ext-points/module-components.md %}).
 
+### More info on bootstrapping folders and files
+
+It is possible to bootstrap files and spaces (i.e. folders) by using XML files.
+
+An alternative to the ACP import is to explicitly reference files through XML.
+
+```xml
+<bean id="customSpacesBootstrap" parent="spacesStoreImporter" singleton="true" >
+  <property name="useExistingStore">
+    <value>${yourmodule.bootstrap.data}</value>
+  </property>
+  <property name="bootstrapViews">
+    <list>
+      <props>
+        <prop key="path">/${spaces.company_home.childname}/${spaces.dictionary.childname}/${spaces.templates.email.childname}</prop>
+        <prop key="location">alfresco/module/yourmodule/bootstrap/config_email_templates.xml</prop>
+      </props>
+    </list>
+  </property>
+</bean>
+```
+
+In the code sample, `config_email_templates.xml` contains the actual file references, as well as all file and folder 
+properties. All predetermined files and folders will be placed in the **Company Home/Data Dictionary/Email Templates** space.
+
+**Property values**
+
+|useExistingStore|If false the content will not be imported if the store exists|
+|bootstrapViews|What you want to import and where it comes from|
+
+It is convenient to use a global property value for the property `useExistingStore` in order to control bootstrapping 
+on Content Services startup. If the store does not yet exist (the very first time a new Content Services 
+installation starts up), the data will aways be bootstrapped, no matter the value, but from that moment on the store exists, 
+and setting this to false means the next time Content Services reboots these files will not be overridden with 
+those on the classpath. Set it to true again and on the next reboot the classpath files are loaded.
+
+XML imports can only replace/update/delete files that have their UUID set.
+
+Examples of how to bootstrap data to other stores or to see all the available options, can be found in the file 
+`import-export-context.xml`.
+
+Another example is shown here:
+
+```xml
+<view:view xmlns:view="http://www.alfresco.org/view/repository/1.0"
+  xmlns:cm="http://www.alfresco.org/model/content/1.0" xmlns:app="http://www.alfresco.org/model/application/1.0"
+  xmlns:emailserver="http://www.alfresco.org/model/emailserver/1.0">
+  
+  <cm:folder view:childName="cm:My First Folder">
+    <app:uifacets />
+    <cm:name>My First Folder</cm:name>
+    <app:icon>space-icon-default</app:icon>
+    <cm:title>My First Folder</cm:title>
+    <cm:description></cm:description>
+    <cm:contains>
+      <cm:content view:childName="cm:custom_email_template.ftl">
+        <view:aspects>
+          <cm:titled />
+          <cm:author />
+          <app:inlineeditable />
+        </view:aspects>
+        <view:properties>
+          <app:editInline>true</app:editInline>
+          <cm:description>This is a custom email template.</cm:description>
+          <cm:content>contentUrl=classpath:alfresco/module/yourmodule/bootstrap/custom_email_template.ftl|mimetype=text/plain|size=|encoding=UTF-8|locale=en_US_</cm:content>
+          <cm:title>My first email template</cm:title>
+          <cm:author>Me</cm:author>
+          <cm:name>custom_email_template.ftl</cm:name>
+        </view:properties>
+        <view:associations></view:associations>
+      </cm:content>
+    </cm:contains>
+  </cm:folder>
+</view:view>
+```
+
+In the code sample, you see a folder is being added, containing a single Freemarker template file. You can add multiple 
+files and folders on the top level, or in sub-folders this way. Aspects can also be set on the new folder. 
+Another example can be found in the file `config/alfresco/bootstrap/spaces.xml`. The bootstrap directory also contains 
+many other examples.
+
+### Bootstrapping categories
+
+Categories can be bootstrapped by using an XML file.
+
+Your categories bootstrap XML file must contain only `cm:generalclassifiable` categories. An example of the XML file 
+is provided as follows:
+
+```xml
+<view:view xmlns:view="http://www.alfresco.org/view/repository/1.0"
+  xmlns:sys="http://www.alfresco.org/model/system/1.0"
+  xmlns:cm="http://www.alfresco.org/model/content/1.0">
+  
+  <cm:category>
+    <cm:name>Your Root Category</cm:name>
+    <cm:subcategories>
+      <cm:category>
+        <cm:name>Your Parent Category</cm:name>
+        <cm:subcategories>
+          <cm:category>
+            <cm:name>Your Child Category</cm:name>
+          </cm:category>
+        </cm:subcategories>
+      </cm:category>
+    </cm:subcategories>
+  </cm:category>
+</view:view>
+```
+
+### Bootstrap/Import Module Data
+
+As part of your content model and module, you can import some data that the module uses. These can be, for example, 
+Categories, FTL scripts in the data dictionary, project template hierarchies, ACP files.
+
+For many content models, it is useful to have some data populated when the model is loaded. This is done by bootstrapping 
+some data. One good example is in the Records Management module.
+
+You can import the data by using an XML file or an ACP file as part of your module's initialization.
+
+First place your ACP or XML file somewhere in your module's classpath. Often this will be within the 
+`aio/aio-platform-jar/src/main/resources/alfresco/module/aio-platform-jar/bootstrap` folder structure. Next add the 
+following configuration to your `aio/aio-platform-jar/src/main/resources/alfresco/module/aio-platform-jar/context/bootstrap-context.xml` 
+file, specifying either the XML or ACP file by its location on the classpath.
+
+```xml
+<bean id="myModule.bootstrap" 
+  class="org.alfresco.repo.module.ImporterModuleComponent" 
+  parent="module.baseComponent">
+  
+  <!-- Module Details -->
+  <property name="moduleId" value="myModule" />
+  <property name="name" value="myModuleBootstrap" />
+  <property name="description" value="My Modules initial data requirements" />
+  <property name="sinceVersion" value="1.0" />
+  <property name="appliesFromVersion" value="1.0" />
+  
+  <!-- Data properties -->
+  <property name="importer" ref="spacesBootstrap"/>
+  <property name="bootstrapViews">
+    <list>
+      <props>
+        <prop key="path">/${spaces.company_home.childname}</prop>
+        <prop key="location">alfresco/module/myModule-123/myACP.acp</prop>
+      </props>
+    </list>
+  </property>
+  
+</bean>
+```
+
+Key property values are shown in the following table:
+
+|Property Name|Description|
+|-------------|-----------|
+|moduleId|The ID of the module that this import component relates to.|
+|name|The name of the import component.|
+|description|A description of the import component.|
+|sinceVersion|The version of the module this import component was introduced.|
+|appliesFromVersion|The version of the module from which this import component applies from.|
+|importer|The importer to use when importing the data|
+|bootstrapViews|A list of the ACP or XML files to be imported and the location in the destination repository where the data should be imported.|
+
+### Import strategy
+
+There are several import strategies that can be used to import module data.
+
+If you know the UUID(s) of the spaces/files you are importing, you can choose from a number of import strategies.
+
+If you are using XML, you will have to manually add a `sys:node-uuid` tag to that node. (Generated ACP files automatically 
+contain the UUIDs.)
+
+Example:
+
+```xml
+    <view:properties>
+        <sys:node-uuid>b7c6b88a-e5fd-4ccf-b134-69a2460c3b89</sys:node-uuid>
+        ...
+    </view:properties>
+</cm:content>
+</cm:contains>
+</cm:folder>
+</view:view>
+```
+
+You can add the following: `CREATE_NEW`, `CREATE_NEW_WITH_UUID`, `REMOVE_EXISTING`, `REPLACE_EXISTING`, `UPDATE_EXISTING`, 
+`THROW_ON_COLLISION` (`org.alfresco.service.cmr.view.ImporterBinding.UUID_BINDING`). This can be added globally for entire bean, 
+or per bootstrap view.
+
+**Global for the entire bean:**
+
+```xml
+<bean id="myModule.bootstrap" 
+  class="org.alfresco.repo.module.ImporterModuleComponent" 
+  parent="module.baseComponent">
+  <property name="uuidBinding">
+    <value>REPLACE_EXISTING</value>
+  </property>
+  ...
+```
+
+**Per BootstrapView:**
+
+```xml
+  <property name="bootstrapViews">
+    <list>
+      <props>
+        <prop key="uuidBinding">UPDATE_EXISTING</prop>
+        <prop key="path">/${spaces.company_home.childname}/${spaces.dictionary.childname}</prop>
+        <prop key="location">alfresco/module/yourmodule/bootstrap/myimport.acp</prop>
+      </props>
+      ...
+    </list>
+  </property>
+</bean>
+```
+
+**Space Names Reference**
+
+The following are the substitution tokens that can be used for bootstrapping purposes. These tokens can be redefined in 
+the configuration files if needed.
+
+|spaces.store|workspace://SpacesStore|
+|spaces.company_home.childname|Company Home|
+|spaces.guest_home.childname|Guest Home|
+|spaces.dictionary.childname|Data Dictionary|
+|spaces.templates.childname|Space Templates|
+|spaces.templates.content.childname|Content Templates|
+|spaces.templates.email.childname|Email Templates|
+|spaces.templates.rss.childname|RSS Templates|
+|spaces.savedsearches.childname|Saved Searches|
+|spaces.scripts.childname|Scripts|
+|spaces.wcm.childname|WCM|
+|spaces.wcm_content_forms.childname|Web Forms|
+|spaces.content_forms.childname|Web Forms|
+|spaces.user_homes.childname|User Homes|
+
 ## Deployment - App Server
 
 * XML, ACP, and content files: `tomcat/shared/classes/alfresco/extension/...` (File name can be anything you like as long as you refer to it in the Spring context file)
@@ -552,9 +788,6 @@ These file locations are untouched by re-deployments and upgrades.
 
 ## More Information
 
-* [Bootstrapping Categories](TODO:../concepts/dev-extensions-modules-bootstrapping-categories-xml.md)
-* [Bootstrap folders and files with Importer component instead of Generic Patch](TODO:../concepts/dev-extensions-modules-bootstrapping-files-spaces-xml.md)
-* [Bootstrap ACP with Importer component](TODO:../concepts/dev-extensions-modules-importing-module-data.md). See also: [Import strategy](TODO:../concepts/dev-extensions-modules-import-strategy.md)
 * [Bcrypt password encryption support]({% link content-services/latest/admin/security.md %}#bcryptoverview)
 
 ## Sample Code

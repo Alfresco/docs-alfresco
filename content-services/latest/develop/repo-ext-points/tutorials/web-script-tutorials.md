@@ -4,7 +4,7 @@ title: Repository Web Scripts Tutorials
 
 Use these hands-on tutorials to help get you up and running with repository web scripts as quickly as possible.
 
-These tutorials assume you have Alfresco Content Services installed locally at `http://localhost:8080`. If this is not 
+These tutorials assume you have Content Services installed locally at `http://localhost:8080`. If this is not 
 the case you will need to amend the URLs used in the tutorials accordingly.
 
 See also [Repo Web Script]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %}) extension point.
@@ -14,7 +14,7 @@ See also [Repo Web Script]({% link content-services/latest/develop/repo-ext-poin
 There are many pre-built web scripts provided out-of-the-box available for reuse. Before developing a new web script, 
 always check to see if one already exists that supports your requirements or is near enough to save you time.
 
-The Web Script Framework keeps an index of all web scripts registered in the Alfresco Content Services application server, 
+The Web Script Framework keeps an index of all web scripts registered in the Content Services application server, 
 which makes it easy to establish what is already available. It is not unusual for hundreds of web scripts to be registered. 
 To ease navigation the index organizes web scripts by:
 
@@ -112,7 +112,7 @@ created by using Alfresco Share.
 
     4.  Click **Create**.
 
-4.  Register the Hello World web script with Alfresco Content Services.
+4.  Register the Hello World web script with Content Services.
 
     1.  Open a new browser tab.
 
@@ -217,7 +217,7 @@ requires authenticated access and responds with a personalized greeting.
 
     5.  Again, navigate back to the Web Scripts Extensions folder by clicking on it in the breadcrumb trail.
 
-4.  Register the Hello User web script with Alfresco Content Services.
+4.  Register the Hello User web script with Content Services.
 
     1.  Open a new browser tab.
 
@@ -271,7 +271,7 @@ Add another response format to the Hello User web script that returns the greeti
 
     5.  Navigate back to the Web Scripts Extensions folder by clicking on it in the bread crumb trail.
 
-3.  Re-register the Hello User web script with Alfresco Content Services.
+3.  Re-register the Hello User web script with Content Services.
 
     1.  Open a new browser tab.
 
@@ -364,11 +364,11 @@ to the Web Script Framework that prior to invoking the web script, a user has to
 
 By default, the Web Script Framework initiates the login process through HTTP Basic authentication, which informs the 
 web browser to display a login box for the user to enter their user name and password. Upon successful authentication, 
-which is performed by Alfresco Content Services, the web script is invoked. Otherwise, the process stops and the 
+which is performed by Content Services, the web script is invoked. Otherwise, the process stops and the 
 invocation of the web script fails.
 
 Having found the `hellouser.get.html.ftl` response template, the Web Script Framework renders its result back to the 
-web browser. The template, which is now running as an authenticated user, has access to special Alfresco Content Services 
+web browser. The template, which is now running as an authenticated user, has access to special Content Services 
 objects. In this case, the template renders the name of the authenticated user through the object `${person.properties.userName}`.
 
 >**Note:** HTTP Basic authentication is a method designed to allow a web browser or other client program to provide credentials in the form of a user name and password when making an HTTP request.
@@ -379,7 +379,7 @@ There are several options for specifying the user with which to invoke a web scr
 or as a Guest.
 
 HTTP Basic authentication allows you to specify your user name and password within an HTTP request. A request to a 
-web script can include the user name and password of the Alfresco Content Services user to authenticate as, meaning the 
+web script can include the user name and password of the Content Services user to authenticate as, meaning the 
 client does not have to ask for them. The cURL client supports this feature.
 
 You can specify a ticket instead of an explicit user name and password. A ticket represents a pre-authenticated user 
@@ -616,7 +616,7 @@ its response formats.
 
     4.  Click **Create**.
 
-9.  Register the web script with Alfresco Content Services.
+9.  Register the web script with Content Services.
 
     1.  Open a new tab in the web browser.
     2.  In the new tab, enter the URL: `http://localhost:8080/alfresco/service/index`
@@ -740,7 +740,7 @@ This task demonstrates how to create a web script whose response is driven by a 
     4.  Click **Create**.
     5.  Navigate back to the `org/example` folder using the breadcrumb trail.
 
-8.  Register the web script with Alfresco Content Services.
+8.  Register the web script with Content Services.
 
     1.  In a web browser, create a new tab.
     2.  In the newly created tab, enter the URL: `http://localhost:8080/alfresco/service/index`
@@ -784,7 +784,7 @@ the same name in a web script location that comes earlier in the Web Script Fram
 ## Creating a web script using cache controls
 
 Caching is an important aspect of web scripts and is often required to support high-load applications such as websites 
-backed by Alfresco Content Services. You should consider caching when developing web scripts.
+backed by Content Services. You should consider caching when developing web scripts.
 
 This task demonstrates cache controls by creating a sample web script that sets the last modified date.
 
@@ -830,7 +830,7 @@ This task demonstrates cache controls by creating a sample web script that sets 
     4.  Click **Create**.
     5.  Navigate back to the org/example folder using the breadcrumb trail.
 
-5.  Register the web script with Alfresco Content Services.
+5.  Register the web script with Content Services.
 
     1.  Create a new browser tab.
     2.  In the browser tab, enter the URL: `http://localhost:8080/alfresco/service/index`
@@ -1150,7 +1150,7 @@ This task demonstrates request processing by creating a web script, which simply
     4.  Click **Create**.
     5.  Navigate back to the `org/example` folder using the breadcrumb trail.
 
-6.  Register the web scripts with Alfresco Content Services.
+6.  Register the web scripts with Content Services.
 
     1.  In a new web browser tab, enter the URL: `http://localhost:8080/alfresco/service/index`
     2.  If prompted, log in with the user name `admin` and password `admin`.
@@ -1199,7 +1199,7 @@ This task demonstrates how to extend the request processing web script.
 
     4.  Click **Create**.
 
-4.  Re-register the web script with Alfresco Content Services.
+4.  Re-register the web script with Content Services.
 
     1.  In a web browser tab, enter the URL: `http://localhost:8080/alfresco/service/index`
     2.  If prompted, log in with the user name `admin` and password `admin`.
@@ -1332,7 +1332,7 @@ This tutorial takes you through the creation of a simple web script to search a 
 
     This FreeMarker template displays some EXIF information for each photo.
 
-4.  Restart Alfresco Content Services to ensure that the newly created `templates/webscripts` directory is added to the Tomcat classpath.
+4.  Restart Content Services to ensure that the newly created `templates/webscripts` directory is added to the Tomcat classpath.
 
 5.  In Share, create a sample site such as `sample-site`.
 
@@ -1482,7 +1482,7 @@ The resulting value of `verbose` is true and the value of `folderpath` is `Compa
 
 ### Calling services
 
-Controller scripts have access to services provided by Alfresco Content Services. This allows a web script to query or 
+Controller scripts have access to services provided by Content Services. This allows a web script to query or 
 perform operations against content residing in the repository. Services are exposed as root objects and each service 
 provides its own API to program against.
 
@@ -1609,7 +1609,7 @@ determines if extra detail should be output.
 
 #### Accessing services
 
-As well as model root objects, response templates have access to services provided by the Alfresco Content Services 
+As well as model root objects, response templates have access to services provided by the Content Services 
 server, allowing a response template to directly query or navigate parts of the repository or access the context within 
 which the web script is executing, such as the currently authenticated user.
 
@@ -1633,14 +1633,14 @@ The web script index provides some administration of web scripts, in particular,
 
 With a complete Folder Listing web script implementation, you can register and test your web script.
 
-1.  Register the web script with Alfresco Content Services:
+1.  Register the web script with Content Services:
 
     1.  In your browser, enter: `http://localhost:8080/alfresco/service/index`
     2.  If prompted, log in with the user name `admin` and password `admin`.
 
 2.  Click **Refresh Web Scripts** on the Web Scripts Home page.
 
-    The Web Script Framework find all web scripts and registers them with Alfresco Content Services. When there is a problem registering a web script, the index provides a list of web scripts that failed registration along with the reason for the failure.
+    The Web Script Framework find all web scripts and registers them with Content Services. When there is a problem registering a web script, the index provides a list of web scripts that failed registration along with the reason for the failure.
 
 3.  Perform your first test:
 
@@ -1817,14 +1817,14 @@ the web script.
 
 ### Debugging a controller script
 
-The Alfresco Content Services server provides a built-in JavaScript Debugger that can be applied to web scripts. It is 
+The Content Services server provides a built-in JavaScript Debugger that can be applied to web scripts. It is 
 a useful tool for diagnosing the cause of issues and for stepping through the controller scripts of others to learn how 
 they have implemented capabilities and used services.
 
 When developing a web script, you might encounter an issue for which the solution is not obvious. In this case, it is 
 useful to step through the controller script code line by line to pinpoint the cause of the issue.
 
->CAUTION: If you are running Alfresco Content Services on Microsoft Windows as a Service then the debugger might not display. A work around is to start Alfresco Content Services from the command line for debugging purposes.
+>CAUTION: If you are running Content Services on Microsoft Windows as a Service then the debugger might not display. A work around is to start Content Services from the command line for debugging purposes.
 
 1.  Log in:
 
@@ -2048,9 +2048,9 @@ This develops a controller in Java.
         </beans>
         ```
 
-    3.  Place the Spring Framework configuration file into the extension classpath of the Alfresco Content Services server, in this case `<install_dir>/tomcat/shared/classes/alfresco/extension/javadir-context.xml`.
+    3.  Place the Spring Framework configuration file into the extension classpath of the Content Services server, in this case `<install_dir>/tomcat/shared/classes/alfresco/extension/javadir-context.xml`.
 
-        >**Important:** When deploying a Java-backed web script to the Alfresco Content Services server, you must restart the server to fully register the web script.
+        >**Important:** When deploying a Java-backed web script to the Content Services server, you must restart the server to fully register the web script.
 
 3.  In Share, create a folder test under the Repository root.
 
@@ -2108,13 +2108,13 @@ The resulting value of `verbose` is true and the value of `folderpath` is `Compa
 
 ### Calling services
 
-As a Java-backed web script, all services provided by the Alfresco Content Services server are available for use. Any 
+As a Java-backed web script, all services provided by the Content Services server are available for use. Any 
 Java API within the server process, subject to security controls, is accessible.
 
 Access to services is provided through Dependency Injection (DI); instead of the Java-backed web script locating its 
 dependent services, the dependent services are handed to the web script.
 
-Alfresco Content Services uses the Spring Framework for its Dependency Injection capabilities. This means that 
+Content Services uses the Spring Framework for its Dependency Injection capabilities. This means that 
 dependencies are specified in a separate XML configuration file as part of the Java-backed web script registration. 
 For each dependency, the Java-backed web script provides a setter method for accepting a reference to the dependent 
 service. The Spring Framework invokes each of the setter methods with the appropriate configured dependency during the 
@@ -2287,7 +2287,7 @@ The Folder Listing web script declares a single dependency on the `Repository` s
 
 Each dependency is represented by a `<property>` element whose `name` attribute identifies the setter method to call 
 and whose `ref` attribute identifies the service to depend on. The `ref` value is actually an ID of another bean. 
-All Alfresco Content Services services are declared as beans, so can be injected in this way. In the example, repository 
+All Content Services services are declared as beans, so can be injected in this way. In the example, repository 
 maps to the `setRepository()` method and `repositoryHelper` maps to the bean representing the `Repository` service.
 
 ```java
@@ -2370,7 +2370,7 @@ web script description for the model to automatically populate with the associat
         ```
 
     5.  Compile the Java class.
-    6.  Place the compiled Java class into the folder `org/example` within the web application classpath of the Alfresco Content Services server. For example, you can use ./tomcat/webapps/alfresco/WEB-INF/classes/org/example.
+    6.  Place the compiled Java class into the folder `org/example` within the web application classpath of the Content Services server. For example, you can use ./tomcat/webapps/alfresco/WEB-INF/classes/org/example.
 
 2.  Create a Java class for extracting the node path configuration for your new kind of web script:
 
@@ -2419,7 +2419,7 @@ web script description for the model to automatically populate with the associat
         ```
 
     3.  Compile the Java class.
-    4.  Place the compiled Java class into the folder `org/example` within the web application classpath of the Alfresco Content Services server. For example, you can use ./tomcat/webapps/alfresco/WEB-INF/classes/org/example.
+    4.  Place the compiled Java class into the folder `org/example` within the web application classpath of the Content Services server. For example, you can use ./tomcat/webapps/alfresco/WEB-INF/classes/org/example.
 
 3.  Create the Spring Framework configuration file for registering your new web script.
 
@@ -2443,9 +2443,9 @@ web script description for the model to automatically populate with the associat
         </beans>
         ```
 
-    3.  Place the Spring Framework configuration into the extension classpath of the Alfresco Content Services server. For example, you can use `./tomcat/shared/classes/alfresco/extension`.
+    3.  Place the Spring Framework configuration into the extension classpath of the Content Services server. For example, you can use `./tomcat/shared/classes/alfresco/extension`.
 
-4.  Restart Alfresco Content Services to fully register the Java-backed web script.
+4.  Restart Content Services to fully register the Java-backed web script.
 
 Your example Java class extends `DeclarativeWebScript` just like other Java-backed web scripts. Its primary purpose is 
 to locate a node in the repository given a node path, which it does using the `Repository` service. The `NodeRef` 
@@ -2499,7 +2499,7 @@ the `Data Dictionary` folder in the repository.
     4.  Click **Create**.
     5.  Navigate back to the `org/example` folder using the breadcrumbs trail.
 
-5.  Register the Data Dictionary Information web script with Alfresco Content Services:
+5.  Register the Data Dictionary Information web script with Content Services:
 
     1.  Type the following in your web browser, and log in with the user name `admin` and password `admin` if requested:`http://localhost:8080/alfresco/service/index`
     2.  Click **Refresh Web Scripts**. A message displays indicating there is one additional web script.

@@ -4,7 +4,7 @@ title: Page Tutorials
 
 The following are tutorials related to pages in the Share Web Application (`share.war`).
 
-## Adding content to a Surf page
+## Adding content to a Surf page {#addcontent}
 
 **Extension Point**: [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
 
@@ -237,7 +237,7 @@ i18n properties files for a web script. The approach looks something like this:
 
 1. Find the page component that corresponds to the content that should be changed.
 2. Identify the web script that is used to deliver the content.
-3. Identify what part of the web script need changing to achieve the customization, in this case the properties file, which contains the existing footer text for Alfresco Content Services and Alfresco Community Edition.
+3. Identify what part of the web script need changing to achieve the customization, in this case the properties file, which contains the existing footer text for Content Services and Alfresco Community Edition.
 4. Create your customized version of the `{web script id}.get_{lang}.properties` file.
 5. Use a Surf Extension module to define the web script override.
 
@@ -299,7 +299,7 @@ Tutorial implementation steps:
     </extension>
     ```
 
-    This extension module identifies the package with the web script that we want to override by setting the `targetPackageRoot` property. When we have set what web script to override we use the `sourcePackageRoot` property to tell Alfresco Content Services where to pick up the customized web script files.
+    This extension module identifies the package with the web script that we want to override by setting the `targetPackageRoot` property. When we have set what web script to override we use the `sourcePackageRoot` property to tell Content Services where to pick up the customized web script files.
 
     This module will be deployed automatically when the application server is started as we have the `auto-deploy` property set to `true`.
 
@@ -643,7 +643,7 @@ Tutorial implementation steps:
     * To *replace* the content of the footer with the new content:`<@region id= "additional-content" target="html" action="replace" scope="global"/>`
     * To *remove* the footer region completely:`<@region id="additional-content" target="html" action="remove"/>`
 
-## Adding a new Surf page to Share
+## Adding a new Surf page to Share 
 
 This tutorial demonstrates how to add a new page to Alfresco Share.
 
@@ -717,7 +717,7 @@ Adding a new page requires a minimum of three files:
 
     Note that the FreeMarker template for the new page can contain any HTML/JavaScript/CSS code necessary. You are not restricted to using YUI2 code as is used in the implementation of Share. It is possible to implement the new page in JQuery, Dojo, pure HTML, or any other valid code.
 
-    As well as being able to re-use the standard Share authentication mechanism you are also able to access all the web scripts available on both the Web and Repository tiers. This means you can build your own UI around existing Alfresco Content Services functionality.
+    As well as being able to re-use the standard Share authentication mechanism you are also able to access all the web scripts available on both the Web and Repository tiers. This means you can build your own UI around existing Content Services functionality.
 
     >**Note:** When using resources such as images, JavaScript and CSS files, it is important to remember that they should be located under the META-INF folder in your JAR file. Also, it is necessary to use the `/res` prefix on subsequent requests to the resources. For example, to request the file META-INF/tutorials/example.css, the URL /share/res/tutorials/example.css would be used.
 
@@ -876,7 +876,7 @@ then `Alfresco.messages.scope['Alfresco.DocumentList']` can be used to access it
 ### Changes for the updated UI framework
 
 The updated development approach in 4.2 and above is consistent with the pattern found in previous versions of 
-Alfresco Content Services, and have intentionally not followed the standard Dojo pattern. The latest approach uses the 
+Content Services, and have intentionally not followed the standard Dojo pattern. The latest approach uses the 
 same `Alfresco.messages` object (although this can be reconfigured if you want to use a different root variable) and 
 still sets the `global` and `scope` attributes.
 
@@ -934,5 +934,5 @@ reference a web script's properties file in the `i18nRequirements` attribute of 
 ### Summary
 
 You have learned how i18n properties are handled in the updated UI framework approach to page and widget construction. 
-It follows the Alfresco Content Services approach rather than having adopted the standard Dojo approach. This has been 
-done to achieve consistency with previous versions of Alfresco Content Services.
+It follows the Content Services approach rather than having adopted the standard Dojo approach. This has been 
+done to achieve consistency with previous versions of Content Services.

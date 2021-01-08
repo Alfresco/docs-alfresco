@@ -12,7 +12,7 @@ Many of these mechanisms are provided by the underlying Surf framework, therefor
 for anyone wishing to implement substantial customizations.
 
 A lot of the customizations that you might want to do to the Share user interface does not require coding. They can be 
-handled by XML configuration and a simple restart of Alfresco Content Services.
+handled by XML configuration and a simple restart of Content Services.
 
 Architecture Information: [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture)
 
@@ -44,15 +44,15 @@ Share can be configured through a number of configuration files.
 
 The main Share configuration file is `share-config.xml`. This can be found at `tomcat/webapps/share/WEB-INF/classes/alfresco/share-config.xml`. 
 While it is possible to change configuration through direct changes to this file this is not recommended as any 
-customizations will be lost if the Share WAR is re-exploded, or you install a new version of Alfresco Content Services.
+customizations will be lost if the Share WAR is re-exploded, or you install a new version of Content Services.
 
 To get around this issue it is advisable to make configuration changes to a file outside of the Share WAR. This can be 
 done through the file `share-config-custom.xml`, which can be found at `tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml`
 in the default Alfresco installation. Any changes made here will be applied once the changes have been saved, and 
-Alfresco Content Services restarted. Further, your configuration changes can be saved between reinstalls and if the 
+Content Services restarted. Further, your configuration changes can be saved between reinstalls and if the 
 Share WAR re-explodes at any point your configuration file will be unaffected.
 
->**Note:** If you are overriding a configuration section, you must apply the `replace="true"` attribute to replace the existing Alfresco Content Services configuration.
+>**Note:** If you are overriding a configuration section, you must apply the `replace="true"` attribute to replace the existing Content Services configuration.
 
 It should also be noted that it is possible to package a `share-config-custom.xml` file in a JAR or AMP. In this way you 
 can have multiple `share-config-custom.xml` files packaged in JARs or AMPs if necessary. JARs will be loaded from the 
@@ -128,7 +128,7 @@ The following table summarizes the main Share configuration files:
 |share-documentlibrary-config.xml|Default configuration for the document library, my files, shared files and repository pages.|`classpath:alfresco`|
 |share-workflow-config.xml|Default configuration file for the Alfresco Process Services Workflow forms.|`classpath:alfresco`|
 
->**Note:** Usually, once you have changed a configuration file, you will need to restart Alfresco Content Services for the changes to take effect.
+>**Note:** Usually, once you have changed a configuration file, you will need to restart Content Services for the changes to take effect.
 
 ## Setting minimum length for username and password 
 
@@ -320,7 +320,7 @@ Follow these instructions if you do not want this user name stored.
 
 ## Enable actions when using Smart Folders
 
-Share actions are disabled by default when using Smart Folders in Alfresco Content Services.
+Share actions are disabled by default when using Smart Folders in Content Services.
 
 If you need to enable Share actions, these must be explicitly set in the following files:
 
@@ -368,11 +368,11 @@ The External Users panel is disabled by default in Alfresco Share. Use this info
 
 This implementation enables the External Users panel in the Share user interface.
 
->**Note:** External users are a way for users without Administrator permissions to add a user to Alfresco Content Services. When they accept the invite they will have the same access as a standard user, and will be counted against licensing.
+>**Note:** External users are a way for users without Administrator permissions to add a user to Content Services. When they accept the invite they will have the same access as a standard user, and will be counted against licensing.
 
 ## Share Document Library {#sharedoclib}
 
-The Share document library is a feature that gives full access to the Alfresco Content Services repository.
+The Share document library is a feature that gives full access to the Content Services repository.
 
 The default content structure for Share is based on sites, and this does not give full visibility of the content in the 
 repository. By enabling the document library configuration setting, you have access to multiple navigation options, for 
@@ -431,7 +431,7 @@ link is always visible to Administrators.
 
     Set to `true` to have the Repository link available to all users.
 
-4.  Restart the Alfresco Content Services server.
+4.  Restart the Content Services server.
 
 ### Configuring aspects {#configaspects}
 
@@ -1150,7 +1150,7 @@ and the [Adding a custom Share Theme]({% link content-services/latest/develop/sh
 ### Selecting Share themes
 
 Only an Administrator user can select the Share theme. Any change to the theme will affect all users of the 
-Alfresco Content Services instance from the next time that they log in or from a browser refresh.
+Content Services instance from the next time that they log in or from a browser refresh.
 
 The available themes are installed in the `<configRootShare>/classes/alfresco/site-data/themes` directory.
 
@@ -1287,7 +1287,7 @@ change the presentation.css file and, if required, replace or add images to the 
 Alfresco Share presents data view and entry forms throughout its user interface, which are built on the Surf framework. 
 This framework provides a convention for implementing forms.
 
-Alfresco Content Services uses only one configuration syntax and one set of UI controls for forms throughout.
+Content Services uses only one configuration syntax and one set of UI controls for forms throughout.
 
 ### Use of forms in Share
 
@@ -1466,7 +1466,7 @@ being implemented. By default, these will be the parameters of the constraint de
 The handler is responsible for taking the value from the field and uses the `args` parameter to calculate whether the 
 current value is valid or not, returning `true` if it is valid and `false` if it is not.
 
-### Displaying type metadata
+### Displaying type metadata {#displaytypemetadata}
 
 You can configure the type metadata in the `share-config-custom.xml` file in `<web-extension>`. It is also possible to 
 deploy custom configurations via JARs or AMPs.
@@ -1551,7 +1551,7 @@ association definition before returning anything.
 
 4.  Save your file.
 
-### Displaying aspect metadata
+### Displaying aspect metadata {#displayaspectmetadata}
 
 Add the properties and associations defined on aspects by adding them to the list of fields to show for a type. 
 The aspects that appear can be defined on a type by type basis, and you can control the ordering of the fields.
@@ -1669,7 +1669,7 @@ Most of the built in controls have parameters that allow some basic customizatio
 
 4.  Save the file.
 
-### Grouping fields
+### Grouping fields {#displayfieldsingroups}
 
 For longer forms, you can group fields together in logical grouped or nested sections.
 
@@ -1990,7 +1990,7 @@ custom MIME types to this list.
 Custom MIME types are added to a configuration file. An example file is provided: 
 `./tomcat/shared/classes/alfresco/extension/mimetype/mimetypes-extension-map.xml.sample`. You can rename this file to 
 `./tomcat/shared/classes/alfresco/extension/mimetype/mimetypes-extension-map.xml`. It will be processed when 
-Alfresco Content Services is restarted.
+Content Services is restarted.
 
 The content of the example file is as follows:
 

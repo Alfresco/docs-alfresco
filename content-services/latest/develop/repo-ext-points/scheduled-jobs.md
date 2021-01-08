@@ -2,14 +2,14 @@
 title: Scheduled Jobs Extension Point
 ---
 
-Alfresco Content Services automatically runs a number of scheduled jobs, for example the content store cleaner job and 
+Content Services automatically runs a number of scheduled jobs, for example the content store cleaner job and 
 temporary file cleaner job. It is possible to configure new scheduled jobs.
 
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
 
 ## Description
 
-A scheduled job in Alfresco Content Services can be compared to a Unix [cron job](https://en.wikipedia.org/wiki/Cron){:target="_blank"}. 
+A scheduled job in Content Services can be compared to a Unix [cron job](https://en.wikipedia.org/wiki/Cron){:target="_blank"}. 
 It is kicked off based on a [cron expression](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html){:target="_blank"} 
 and can then execute a piece of Java code or JavaScript code. The repository embeds the [Quartz](http://www.quartz-scheduler.org){:target="_blank"} 
 job scheduler, which is part of the Spring Framework. It works with triggers, jobs, and job details to enable definition 
@@ -134,7 +134,7 @@ org.alfresco.tutorial.scheduledjob.enabled=true
 ```
 
 In this case the scheduled job is set up to be run every second minute. And there will be a start delay of 4 minutes for 
-the job. The start delay is important as this makes it possible to delay all scheduled jobs until the Alfresco Content Services 
+the job. The start delay is important as this makes it possible to delay all scheduled jobs until the Content Services 
 server has started up properly, otherwise search might not work properly for example.
 
 The last thing needed to get this scheduled job going is to pass in the job trigger to the scheduler, this can be done as follows:

@@ -24,12 +24,12 @@ be used to classify content in the repository. These properties are usually orga
 it can have multiple aspects applied.
 
 Nodes are not isolated within the repository. They are related to one another in different ways. How the nodes are related 
-to each other is defined using *Associations*. A typical association that comes out-of-the-box with Alfresco Content Services 
+to each other is defined using *Associations*. A typical association that comes out-of-the-box with Content Services 
 is the one between a folder node and its child nodes, this type of association is a `child-association`. So when you start 
-using Alfresco Content Services you can immediately organize folders and files into a hierarchy, like with a file system.
+using Content Services you can immediately organize folders and files into a hierarchy, like with a file system.
 
 The Types, Aspects, Properties, and Associations are in turn organized into models that we call *Content Models*. 
-Alfresco Content Services comes with a number of Content Models out of the box for different things like general folder 
+Content Services comes with a number of Content Models out of the box for different things like general folder 
 and file content, workflow-related content, records content, web content, and so on.
 
 It is also useful to be able to create content models related to specific domains such as Finance or Marketing. As the 
@@ -37,7 +37,7 @@ type of content that may be stored in the repository can vary, generic standard 
 a basis on which to build custom content models for domain-specific purposes.
 
 New types and aspects are defined forming new custom content models. But how do you know how to specify a type and a 
-property with, for example, a data type integer? Alfresco Content Services also comes with a *Meta Model*. The Meta model 
+property with, for example, a data type integer? Content Services also comes with a *Meta Model*. The Meta model 
 defines what syntax you can use when defining your content models. It will, for example, define the syntax for how a type 
 or an integer property should be defined. The following diagram gives a simplified overview of the relationship between 
 meta model, content models, and custom content models:
@@ -48,7 +48,7 @@ In the image, you can see two nodes in the repository: one folder node and one `
 type extends the `ACME Generic Document` type, or base type if you like, which in turn extends the generic `Content` type. 
 The Contract document node also has versioning turned on by having the `Versionable` aspect applied.
 
-Both the custom content model and the Alfresco Content Services content model is defined by the Data Dictionary Schema, 
+Both the custom content model and the Content Services content model is defined by the Data Dictionary Schema, 
 which is the same as the Meta Model.
 
 Content models, types, aspects, and properties are similar to object-oriented concepts in programming. If you are 
@@ -69,10 +69,10 @@ labels for the content model items can also be part of the deployment.
 
 Now when you have read the [Content Model Introduction](#introduction) it is time to define and deploy a content model. 
 If you have already done this and are looking for information about how to configure the Share UI for a content model, 
-then have a look at this [section](TODO:dev-extension-points-content-model-configure-ui.md).
+then have a look at this [section](#uiconfig).
 
 To define a new content model means to add an XML file to the repository. This can be done via a 
-[bootstrapping procedure](TODO:../tasks/deploy-bootstrap.md) or [dynamically](TODO:../tasks/deploy-dynamic.md) via the 
+bootstrapping procedure, shown below, or [dynamically](#deploymodel) via the 
 user interface. If you are running an Enterprise edition it is also possible to manage content models from the 
 [Admin Console]({% link content-services/latest/admin/admin-console.md %}). At the end of this article you will find information about where 
 this XML file should be located in an SDK project and where it should be located in a standard installation.
@@ -426,10 +426,10 @@ The following table describes all the parameters that can be used when defining 
 |`description`|element (string)|`[0..1]`|The description of the property, useful for documentation purposes.|
 |`type`|element (string)|[`1..1`]|Mandatory data type reference. This references a `data-type` definition in the `dictionaryModel.xml` content model. Here are some of the most commonly used data types: `d:text`, `d:int`, `d:long`, `d:float`, `d:double`, `d:date`, `d:datetime`, `d:boolean`, `d:encrypted`, `d:noderef`|
 |`protected`|element (boolean)|`[0..1`]|`true` = this property cannot be edited after the value has been set. And it cannot be edited at all from the user interface (that is Alfresco Share). This is usually used for system properties such as `cm:created`, `cm:creator`. They are set by the system and can then not be touched. It is sometimes also used in custom content models to make a property read-only after it has been initially set via an API call.<br><br>`false` = the property can be updated as many times as you like. This is the default if this element is not specified.|
-|`mandatory`|element (boolean)|`[0..1`]|`true` = when a property is set as mandatory it tells Alfresco Content Services that the property is required. By default, this is not enforced. Instead, Alfresco Content Services marks content items with empty mandatory properties with the aspect `sys:incomplete`. This is done so that you can create items that have mandatory properties even if the value of the property is not known at the time of content creation, while still indicating that the property is required (eventually). Mandatory properties will have a `*` next to them in the UI.<br><br>`false` = it is optional and this is the default if this element is not specified.<br><br>The `mandatory` element can also have a `boolean` attribute called `enforced`. If this is set to `true` then you cannot create a node without this property having a value.|<br><br>
+|`mandatory`|element (boolean)|`[0..1`]|`true` = when a property is set as mandatory it tells Content Services that the property is required. By default, this is not enforced. Instead, Content Services marks content items with empty mandatory properties with the aspect `sys:incomplete`. This is done so that you can create items that have mandatory properties even if the value of the property is not known at the time of content creation, while still indicating that the property is required (eventually). Mandatory properties will have a `*` next to them in the UI.<br><br>`false` = it is optional and this is the default if this element is not specified.<br><br>The `mandatory` element can also have a `boolean` attribute called `enforced`. If this is set to `true` then you cannot create a node without this property having a value.|<br><br>
 |`multiple`|element (boolean)|`[0..1]`|`true` = this property can have a list of values.<br><br>`false` = only one value can be entered and this is the default if this element is not specified.|
 |`default`|element (any)|`[0..1`]|Default value for this property if the user does not specify any value. The UI input field will be pre-populated with this value.|
-|`index`|element|`[0..1]`|Solr/Lucene index configuration. The indexing behaviour for each property can be configured. If we don't configure any indexing behaviour, then the default configuration is:<br><br>`<index enabled="true">`<br><br>&nbsp;&nbsp;`<atomic>true</atomic>`<br><br>&nbsp;&nbsp;`<stored>false</stored>`<br><br>&nbsp;&nbsp;`<tokenised>true</tokenised>`<br><br>`</index>`<br><br>Explanation of default index configuration:<br><br>`enabled="true"`: index the value of the property. Setting this to `false` means that the property is not indexed at all and is not part of the index.<br><br> `<atomic>true</atomic>`: atomic is not used when Alfresco Content Services uses Solr for search. The default value is there to allow the continued use of the built in Lucene indexing engine when customers don't want to, or cannot, switch to Solr. With Solr the index is eventually up-to-date with the database (properties/metadata are stored in the database).<br><br>`<stored>false</stored>`: the property value is not stored in the index. This property is not used with Solr either, all fields are store in the new cached content store on the Solr side.<br><br>`<tokenized>true</tokenized>`: the property value is tokenized when it's indexed, so if the value is "Company Confidential" it will be tokenized into two strings that will be indexed separately, which might not always be what you want. You can also use `false`, which will just tokenize the value as one item. Further on, it also possible to set it to `both`, which means that "Company Confidential", "Company", and "Confidential" will be in the index. The tokenizer is determined by the property type in the data dictionary. This is locale sensitive as supported by the data dictionary, so you could switch to tokenize all your content in for example German. You cannot mix for example German and English tokenization.<br><br>There is also another sub-element that can be specified for the `index` element. It is called `facetable` and controls the faceting behaviour in Solr as follows:<br><br>`<facetable>true</facetable>`: property is set up properly in Solr for faceting and is really fast, ordered, and sorted.<br><br>`<facetable>false</facetable>`: property is not facetable, that is, you cannot create a facet from this property. In some cases it makes no sense to make a property facetable, for example if it is a unique property. Note that setting facetable to false will not save resources.<br><br>**Unspecified as above (default):** faceting works but not as fast and efficient as when this element is explicitly specified and set to `true`.|
+|`index`|element|`[0..1]`|Solr/Lucene index configuration. The indexing behaviour for each property can be configured. If we don't configure any indexing behaviour, then the default configuration is:<br><br>`<index enabled="true">`<br><br>&nbsp;&nbsp;`<atomic>true</atomic>`<br><br>&nbsp;&nbsp;`<stored>false</stored>`<br><br>&nbsp;&nbsp;`<tokenised>true</tokenised>`<br><br>`</index>`<br><br>Explanation of default index configuration:<br><br>`enabled="true"`: index the value of the property. Setting this to `false` means that the property is not indexed at all and is not part of the index.<br><br> `<atomic>true</atomic>`: atomic is not used when Content Services uses Solr for search. The default value is there to allow the continued use of the built in Lucene indexing engine when customers don't want to, or cannot, switch to Solr. With Solr the index is eventually up-to-date with the database (properties/metadata are stored in the database).<br><br>`<stored>false</stored>`: the property value is not stored in the index. This property is not used with Solr either, all fields are store in the new cached content store on the Solr side.<br><br>`<tokenized>true</tokenized>`: the property value is tokenized when it's indexed, so if the value is "Company Confidential" it will be tokenized into two strings that will be indexed separately, which might not always be what you want. You can also use `false`, which will just tokenize the value as one item. Further on, it also possible to set it to `both`, which means that "Company Confidential", "Company", and "Confidential" will be in the index. The tokenizer is determined by the property type in the data dictionary. This is locale sensitive as supported by the data dictionary, so you could switch to tokenize all your content in for example German. You cannot mix for example German and English tokenization.<br><br>There is also another sub-element that can be specified for the `index` element. It is called `facetable` and controls the faceting behaviour in Solr as follows:<br><br>`<facetable>true</facetable>`: property is set up properly in Solr for faceting and is really fast, ordered, and sorted.<br><br>`<facetable>false</facetable>`: property is not facetable, that is, you cannot create a facet from this property. In some cases it makes no sense to make a property facetable, for example if it is a unique property. Note that setting facetable to false will not save resources.<br><br>**Unspecified as above (default):** faceting works but not as fast and efficient as when this element is explicitly specified and set to `true`.|
 |`constraints`|element|`[0..1]`|Container for property constraints.|
 
 The last thing that is defined in the model are the `aspects`. The definition of an aspect does not differ much from a 
@@ -455,7 +455,7 @@ Another implementation difference between types and aspects is that an aspect us
 it is more common for them to be stand alone. Aspects are used to implement cross-cutting concerns independently of 
 the type of node. Note that there are a number of aspects already available out of the box, for example the aspects 
 mentioned above, `emailed` and `versionable` are already available out-of-the-box. The following is a list of some of 
-the aspects that comes with Alfresco Content Services out-of-the-box:
+the aspects that comes with Content Services out-of-the-box:
 
 * `cm:titled` - an extra title and description property - usually applied automatically by the system.
 * `cm:auditable` - creator, created, modifier, modified, last access - this aspect is applied automatically by the system.
@@ -594,7 +594,7 @@ in the `models` property.
 >**Important:** A model cannot be contained in multiple XML files. The whole model needs to be deployed in one go, otherwise the next deployment overwrites the previous one. If your content model is very large then consider splitting it into multiple namespaces, such as document content model (`acme:contentModel`) and workflow content model (`acmew:workflowModel`) and deploy with multiple XML files.
 
 So we now have a content model defined in XML and registered with the repository. It is now possible to use one of the 
-Alfresco Content Services APIs to create a node with a type from this content model, and one or more aspects applied 
+Content Services APIs to create a node with a type from this content model, and one or more aspects applied 
 from the model. Doing this via the Java API would look something like this:
 
 ```java
@@ -650,7 +650,7 @@ deployed a content model, it is time to configure the Share UI for it. For more 
 deploy a content model, have a look at this [section](#definedeploy).
 
 Here we assume that we are working with the ACME content model that was defined and deployed in this 
-[section](dev-extension-points-content-model-define-and-deploy.md). What was left out then was configuration of the 
+[section](definedeploy). What was left out then was configuration of the 
 Share UI so it can display information related to the custom ACME content model. The Contract document that was created 
 with a piece of Java code would for example not be displayed in the Share UI as anything else then a standard generic 
 document. We would not be able to see that it is actually an ACME Contract document. Also, there would not be any way 
@@ -1090,9 +1090,9 @@ You can locate the latest content metamodel XSD schema
 
 ## Content models and CMIS
 
-CMIS defines a data model, which encapsulates the core concepts found in most repositories. Alfresco Content Services 
+CMIS defines a data model, which encapsulates the core concepts found in most repositories. Content Services 
 provides an implementation of the CMIS bindings and maps the content metamodel to the CMIS domain model. This allows 
-content models defined in Alfresco Content Services to be exposed and manipulated by using CMIS.
+content models defined in Content Services to be exposed and manipulated by using CMIS.
 
 The following summarizes the CMIS data model:
 
@@ -1106,7 +1106,7 @@ include its data type, whether a value is required, and a default value if one i
 Because these features are familiar, you can map between the CMIS data model and the content metamodel with little loss 
 of information.
 
-The Alfresco Content Services content metamodel is mapped to the CMIS data model as follows:
+The Content Services content metamodel is mapped to the CMIS data model as follows:
 
 * **Type**: Maps to CMIS Object Type
 * **Property**: Maps to CMIS Property Definition
@@ -1116,10 +1116,9 @@ The Alfresco Content Services content metamodel is mapped to the CMIS data model
 
 CMIS has built-in support for hierarchies through CMIS Folder and CMIS Document.
 
-Alfresco Content Services maps its out-of-the-box types `cm:folder` and `cm:content` (as defined in the domain model) to CMIS Folder and CMIS Document, respectively. A folder can contain a mixture of documents and folders, allowing for a hierarchy of documents to be built. Through this, CMIS supports an implicit notion of parent to child, to which is used by Alfresco Content Services to map its child association. Subtypes of `cm:folder` and `cm:content` are exposed as subtypes of CMIS Folder and Document, respectively.
+Content Services maps its out-of-the-box types `cm:folder` and `cm:content` (as defined in the domain model) to CMIS Folder and CMIS Document, respectively. A folder can contain a mixture of documents and folders, allowing for a hierarchy of documents to be built. Through this, CMIS supports an implicit notion of parent to child, to which is used by Content Services to map its child association. Subtypes of `cm:folder` and `cm:content` are exposed as subtypes of CMIS Folder and Document, respectively.
 
-
-## Deploying a content model
+## Deploying a content model {#deploymodel}
 
 A content model is defined in its entirety as a single XML document that must comply with the content metamodel XSD schema 
 provided by the repository. Each model contains a set of related and coherent definitions and is deployed as a unit.
@@ -1238,11 +1237,11 @@ These file locations are untouched by re-deployments and upgrades.
 
 ## More Information
 
-* [Defining and Deploying a custom Content Model for Data Lists](TODO:dev-extension-points-data-lists.md)
-* [Displaying types](TODO:../tasks/forms-type-display.md) - more information about how to display type properties
-* [Displaying aspects](TODO:../tasks/forms-aspect-display.md) - more information about how to display aspect properties
-* [Grouping fields in forms](TODO:../tasks/forms-grouping-fields.md)
-* [Model Manager in Share Admin Tools](TODO:../concepts/admintools-cmm-intro.md)
+* [Defining and Deploying a custom Content Model for Data Lists]({% link content-services/latest/develop/repo-ext-points/data-lists.md %})
+* [Displaying types]({% link content-services/latest/develop/share-ext-points/share-config.md %}#displaytypemetadata) - more information about how to display type properties
+* [Displaying aspects]({% link content-services/latest/develop/share-ext-points/share-config.md %}#displayaspectmetadata) - more information about how to display aspect properties
+* [Grouping fields in forms]({% link content-services/latest/develop/share-ext-points/share-config.md %}#displayfieldsingroups)
+* [Model Manager in Share Admin Tools](TODO_LATER:../concepts/admintools-cmm-intro.md)
 
 ## Sample Code
 
@@ -1254,9 +1253,7 @@ These file locations are untouched by re-deployments and upgrades.
 ## Tutorials
 
 * [Jeff Potts Alfresco Developer Series: Working With Custom Content Types in Alfresco](http://ecmarchitect.com/alfresco-developer-series-tutorials/content/tutorial/tutorial.html){:target="_blank"} - a very thorough walk-through of how to develop custom Content Models, a must read.
-* [Defining and Deploying a custom Content Model](TODO:../tasks/dev-extensions-content-models-tutorials-deploy-model.md) (Short introduction excluding localization)
-* [Adding a property with LIST constraint to a Content Model](TODO:../tasks/dev-extensions-content-models-tutorials-add-custom-property.md)
-* [Using JavaScript to create content with custom type](TODO:../tasks/dev-extensions-content-models-tutorials-create-custom-content.md)
+* [Defining and Deploying a custom Content Model]({% link content-services/latest/develop/repo-ext-points/tutorials/content-model-tutorials.md %}) (Short introduction excluding localization)
 
 ## Developer Blogs
 

@@ -10,7 +10,7 @@ Architecture Information: [Platform Architecture]({% link content-services/lates
 ## Description
 
 Data Lists are useful when we have content that is not necessary associated with a file, such as a to-do list. 
-This data is more like a database record than a content file with associated metadata. Out-of-the box Alfresco Content Services 
+This data is more like a database record than a content file with associated metadata. Out-of-the box Content Services 
 comes with a number of data lists that are ready to be used:
 
 * **Contact List** - Contacts list including first name, last name, full name, email, job title, phone (office), phone (mobile).
@@ -439,7 +439,7 @@ To implement and deploy a data list model with full UI support you need both a r
 
 ## More Information
 
-* [How to use the Data Lists from a site in Alfresco Share](TODO:../concepts/datalists-intro.md)
+* [How to use the Data Lists from a site in Alfresco Share](TODO_LATER:../concepts/datalists-intro.md)
 * [Content Models]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) - data lists are a type of content model, read all about content models here
 
 ## Sample Code

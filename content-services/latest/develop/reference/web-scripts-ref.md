@@ -2,16 +2,16 @@
 title: Web Scripts Reference
 ---
 
-Web scripts provide a unique way to programmatically interact with the Alfresco Content Services server. Unlike other 
-interfaces exposed by Alfresco Content Services, web scripts offer a RESTful API for the content residing in the repository. 
+Web scripts provide a unique way to programmatically interact with the Content Services server. Unlike other 
+interfaces exposed by Content Services, web scripts offer a RESTful API for the content residing in the repository. 
 The REST (Representational State Transfer) web architecture is based on HTTP requests and responses, URIs 
 (Uniform Resource Identifiers), and document types.
 
 Web scripts let you implement your own RESTful API without tooling or Java knowledge, requiring only a text editor. 
-This approach to developing an Alfresco Content Services API means that web scripts offer many advantages over existing 
+This approach to developing an Content Services API means that web scripts offer many advantages over existing 
 technologies, including ease and speed of development, and flexibility in API design. By focusing on the RESTful 
 architectural style, web scripts let you build custom URI-identified and HTTP accessible content management web services 
-backed by the Alfresco Content Services server.
+backed by the Content Services server.
 
 Web scripts provide RESTful access to content held within your repository. You can place controls on your content to 
 manage it and provide uniform access for a wide variety of client applications and services, such as a browser, portal, 
@@ -21,12 +21,12 @@ web technologies such as caching, authentication, proxies, and negotiation to yo
 
 You can build your own RESTful interface using lightweight scripting technologies (such as JavaScript and FreeMarker), 
 allowing you to arbitrarily map any content in the repository to resources on the web, or you can use out-of-the-box 
-web scripts that already encapsulate many of the mappings. The Alfresco Content Services CMIS (Content Management Interoperability Services) 
+web scripts that already encapsulate many of the mappings. The Content Services CMIS (Content Management Interoperability Services) 
 AtomPub binding is implemented as a series of web scripts.
 
 You can use web scripts for various solutions, such as:
 
-* Integrating Alfresco Content Services with third party systems
+* Integrating Content Services with third party systems
 * Providing feeds
 * Developing data services
 * Developing UI services such as portlets
@@ -38,19 +38,19 @@ You can use web scripts for various solutions, such as:
 
 ## Understanding web scripts
 
-Web scripts let you programmatically interact with the Alfresco Content Services server. Unlike other interfaces exposed 
-by Alfresco Content Services, web scripts offer a RESTful API for content in the repository.
+Web scripts let you programmatically interact with the Content Services server. Unlike other interfaces exposed 
+by Content Services, web scripts offer a RESTful API for content in the repository.
 
 REST (Representational State Transfer) is an architectural style of which the web architecture is the most prominent 
 example, one based on HTTP requests and responses, URIs (Uniform Resource Identifiers), and document types.
 
 Web scripts let you implement your own RESTful API without tooling or Java knowledge. You simply need your favorite 
 text editor. No compilation, generators, server restarts, or complex installs are required. This approach to developing 
-an Alfresco Content Services API means that web scripts offer many advantages over existing technologies, including ease 
+an Content Services API means that web scripts offer many advantages over existing technologies, including ease 
 and speed of development, and flexibility in API design.
 
 By focusing on the RESTful architectural style and ease of development, web scripts let you build your own custom 
-URI-identified and HTTP accessible content management web services backed by the Alfresco Content Services server. 
+URI-identified and HTTP accessible content management web services backed by the Content Services server. 
 This is like having an HTTP server with a built-in content repository allowing clients to easily access, manage, and 
 cross-link content via a tailored RESTful interface designed specifically for the application requirements.
 
@@ -68,7 +68,7 @@ There are two kinds of web scripts that use the same underlying code:
 ### Repository web scripts
 
 Repository web scripts encapsulate access and modification of content/data held in the content repository; therefore, 
-they are provided and exposed only by the Alfresco Content Services server.
+they are provided and exposed only by the Content Services server.
 
 Data web scripts provide a server interface for client applications to query, retrieve, update, and perform processes, 
 typically using request and response formats such as XML and JSON.
@@ -78,7 +78,7 @@ typically using request and response formats such as XML and JSON.
 Presentation web scripts let you customize and extend the web UI. They typically render HTML and can include 
 browser-hosted JavaScript.
 
-Unlike data web scripts, presentation web scripts can be hosted in the Alfresco Content Services server or in a 
+Unlike data web scripts, presentation web scripts can be hosted in the Content Services server or in a 
 separate presentation server. When hosted separately, presentation web scripts in the presentation server interact 
 with data web scripts in the Alfresco content application server by using the Repository REST API.
 
@@ -297,18 +297,18 @@ The Web Script Framework searches for web scripts in the following order:
 * In the classpath under the folder `/alfresco/templates/webscripts`
 
 Placing web scripts in the classpath lets you package and deploy them with other extensions that comprise your solution. 
-You can install them using standard Alfresco Content Services tools without having to upload them into the repository. 
+You can install them using standard Content Services tools without having to upload them into the repository. 
 However, it might not be as convenient to edit them while developing them as if they were located in the Alfresco 
 content repository where you can easily edit them using Alfresco Share. You can also export and import web scripts in 
 the content repository using the ACP (Alfresco Content Package) mechanism.
 
->**Note:** For a default installation of Alfresco Content Services, the classpath is located at `<installLocation>/tomcat/shared/classes/alfresco/extension`
+>**Note:** For a default installation of Content Services, the classpath is located at `<installLocation>/tomcat/shared/classes/alfresco/extension`
 
-A single Alfresco Content Services server can contain hundreds of web scripts, each implemented with multiple files. 
+A single Content Services server can contain hundreds of web scripts, each implemented with multiple files. 
 To help manage all these web scripts, the Web Script Framework lets you organize web script component files into a 
 hierarchical folder or package structure, similar to a Java package construct. Typically, the package name follows the 
 reverse domain name pattern. For example, web scripts are all located in a folder named `org/alfresco`, which is 
-reserved by Alfresco Content Services.
+reserved by Content Services.
 
 ### URI anatomy
 
@@ -318,10 +318,10 @@ For example:
 
 `http[s]://<host>:<port>/[<contextPath>/]/<servicePath>[/<scriptPath>] [?<scriptArgs>]`
 
-The `host`, `port`, and `contextPath` are all predefined by where the Alfresco Content Services server is installed. 
+The `host`, `port`, and `contextPath` are all predefined by where the Content Services server is installed. 
 By default, the `contextPath` is `alfresco`.
 
-The Web Script Framework is mapped to `servicePath`. All Alfresco Content Services server URL requests that start with 
+The Web Script Framework is mapped to `servicePath`. All Content Services server URL requests that start with 
 `/<contextPath>/<servicePath>` trigger the Web Script Framework into action by assuming that a web script is to be invoked. 
 By default, there are two variations of `servicePath` that are acceptable: `/service` and an abbreviated version `/s`.
 
@@ -331,7 +331,7 @@ Both of the following URIs will invoke a web script, in this case an admin call:
 * `curl -uadmin:admin "http://localhost:8080/alfresco/s/api/admin/usage"`
 
 The `scriptPath` identifies the web script to invoke and is defined by the web script itself. It must be unique within 
-an Alfresco Content Services server. Duplicate URIs result in a web script registration failure and one of the URIs will 
+an Content Services server. Duplicate URIs result in a web script registration failure and one of the URIs will 
 have to be adjusted before successful registration. A `scriptPath` can be as simple or as complex as required and can 
 comprise many path segments. For example, the CMIS web script URI to retrieve children of a folder residing in the 
 repository contains the folder path. The following command line retrieves the children of the Data Dictionary folder 
@@ -486,7 +486,7 @@ For example, helpers are provided that allow the following clients to naturally 
 * **JSF page** allows the invocation of a web script as if it were a tag library
 
 A carefully developed web script can be used from multiple environments without the need to change its implementation. 
-For example, a web script for displaying your Alfresco Content Services checked-out documents can be used standalone 
+For example, a web script for displaying your Content Services checked-out documents can be used standalone 
 directly in a web browser, as a portlet in a JSR-168 portal, or as a dashlet in Alfresco Share.
 
 ## Working with client limitations
@@ -576,7 +576,7 @@ As a web script executes it will perform operations such as creating a new docum
 logical to handle possible exceptions, such as failure to create a document (possibly due to permissions, or the 
 existence of a document with the same name in the same folder), this should be avoided at the web script level. Such 
 exceptions will be handled appropriately by the repository. In practice you should only carry out exception handling 
-for exceptions that you know are not handled at a lower layer of Alfresco Content Services.
+for exceptions that you know are not handled at a lower layer of Content Services.
 
 ## Caching
 
@@ -595,7 +595,7 @@ response.
 
 It is often necessary to cache the retrieval of content streams of documents residing in the repository as these can be 
 large in size. A typical setup to support this scenario (as shown in the following figure) is to place an HTTP cache proxy 
-between the client (for example, a web browser) and the Alfresco Content Services server.
+between the client (for example, a web browser) and the Content Services server.
 
 ![caching-setup]({% link content-services/images/caching-setup.png %})
 
@@ -606,9 +606,9 @@ This setup will also cache all other responses from web scripts that indicate ho
 
 When developing a web script, you can specify its caching requirements, such as how long to keep the response in the 
 cache or how to calculate the hash for the response. It is important to note that the Web Script Framework does not 
-actually perform any caching. Instead, Alfresco Content Services relies on one of the many HTTP caches already available, 
+actually perform any caching. Instead, Content Services relies on one of the many HTTP caches already available, 
 such as Squid (www.squid-cache.org), an HTTP caching proxy. Therefore, you must either embed an HTTP cache in your client 
-or deploy an HTTP-cache proxy in front of the Alfresco Content Services server to enable caching.
+or deploy an HTTP-cache proxy in front of the Content Services server to enable caching.
 
 ### Runtime cache controls {#cachecontrols}
 
@@ -655,18 +655,18 @@ as the response requires authentication, and that the cache must revalidate to e
 ## Authenticating web scripts
 
 You can invoke a web script without first authenticating, that is, without specifying a user name and password as 
-identification. This is rare when interacting with the Alfresco Content Services server as access to or management of 
+identification. This is rare when interacting with the Content Services server as access to or management of 
 content in the repository is usually restricted to particular people or groups of people.
 
 To support restricted access, a web script can specify its authentication requirements. There are four levels of 
 required authentication:
 
 * **None**: The web script does not require any authentication to be invoked.
-* **Guest**: The web script can be invoked by a guest user of the Alfresco Content Services server.
-* **User**: The web script must be invoked by a named user known to the Alfresco Content Services server.
-* **Admin**: The web script must be invoked by a named user who is an administrator of the Alfresco Content Services server.
+* **Guest**: The web script can be invoked by a guest user of the Content Services server.
+* **User**: The web script must be invoked by a named user known to the Content Services server.
+* **Admin**: The web script must be invoked by a named user who is an administrator of the Content Services server.
 
-An authenticated web script has access to all the services of the Alfresco Content Services server and thus can perform 
+An authenticated web script has access to all the services of the Content Services server and thus can perform 
 any operation, although it still adheres to the permissions of the authenticated user.
 
 ### JSR-168 Authenticator
@@ -777,7 +777,7 @@ This task creates a simple web script that renders an HTML message.
 
     5.  Navigate back to org/example using the breadcrumb trail.
 
-6.  Register the i18n web script with Alfresco Content Services.
+6.  Register the i18n web script with Content Services.
 
     1.  In a web browser tab, enter the URL: `http://localhost:8080/alfresco/service/index`
 
@@ -839,7 +839,7 @@ This task adds another resource bundle for the German language.
 
     5.  Navigate back to the org/example folder using the breadcrumb trail.
 
-5.  Re-register the i18n web script with Alfresco Content Services.
+5.  Re-register the i18n web script with Content Services.
 
     1.  In a web browser, enter the URL: `http://localhost:8080/alfresco/service/index`
 
@@ -905,17 +905,17 @@ Java-backed web scripts are web scripts whose controller implementation is writt
 
 Java-backed web scripts are useful when you want to:
 
-* Access Alfresco Content Services not available by using the JavaScript API
+* Access Content Services not available by using the JavaScript API
 * Interact with systems whose only API is exposed by using Java
 * Override how responses are rendered, such as to stream large content
 * Ensure that performance is absolutely critical
 
 Unlike scripted web scripts, Java-backed web scripts require more tooling for their development as you must compile 
-the Java source code, package, and deploy to the Alfresco Content Services server.
+the Java source code, package, and deploy to the Content Services server.
 
 A Java-backed web script is constructed like a scripted web script, except that a Java class replaces the controller 
 script. It still has the same intent of encapsulating the behavior of the web script and producing a model for subsequent 
-rendering by a response template. Alfresco Content Services is aware of the Java class through Spring Framework 
+rendering by a response template. Content Services is aware of the Java class through Spring Framework 
 configuration, which identifies the Java class as being the behavior for the web script. All other components are 
 exactly the same as those for scripted web scripts.
 

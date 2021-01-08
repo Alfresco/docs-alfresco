@@ -155,7 +155,7 @@ in the UI. Here is how you can register the "Send-As-Email" action:
 
 The important part of the Spring bean definition is the `id`, which will be the identifier this action will be known by. 
 Then the bean needs to have the `action-executer` bean as parent. Note here the use of `ServiceRegistry`, which is the 
-best practice approach to get to the Alfresco Content Services public services, such as the `NodeService`.
+best practice approach to get to the Content Services public services, such as the `NodeService`.
 
 You can now invoke this action from, for example, a snippet of JavaScript code like this (useful if the action should 
 be invoked from a Rule):
@@ -169,7 +169,7 @@ sendAsEmailAction.parameters["body_text"] = "A copy of the " + document.name + "
 sendAsEmailAction.execute(document);
 ```
 
-In Alfresco Content Services JavaScript the special root object `actions` are used to invoke an action.
+In Content Services JavaScript the special root object `actions` are used to invoke an action.
 
 We can also invoke actions from custom Java code:
 
@@ -205,7 +205,7 @@ So you can see that Repository Actions are useful in many different situations, 
 ## Deployment - App Server
 
 A Repository Action is usually implemented in Java, which is not suitable for manual installation into an 
-Alfresco Content Services installation. Use a Repo AMP project instead.
+Content Services installation. Use a Repo AMP project instead.
 
 ## Deployment All-in-One SDK project
 

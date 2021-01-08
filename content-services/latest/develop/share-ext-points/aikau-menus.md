@@ -71,14 +71,14 @@ widget. Once we have it, we simply push a widget into it.
 
 ## More Information
 
-* [Creating an Aikau page with Menus](TODO: dev-extensions-share-page-creation.md)
+* [Creating an Aikau page with Menus]({% link content-services/latest/develop/share-ext-points/aikau-pages.md %}#createpagewithmenu)
 * [Aikau Widget Reference](http://dev.alfresco.com/resource/docs/aikau-jsdoc/){:target="_blank"} - this is the place to look for menu widgets that you can use.
 
 ## Tutorials
 
-* [Customizing the Admin Tools Menu](TODO:../tasks/dev-extensions-share-tutorials-custom-header-admin-menu.md)
-* [Customizing the Sites Menu](TODO:../tasks/dev-extensions-share-tutorials-custom-header-sites-menu.md)
-* [Removing Menu Items](TODO:../tasks/dev-extensions-share-tutorials-custom-header-menu-item-removal.md)
+* [Customizing the Admin Tools Menu]({% link content-services/latest/develop/share-ext-points/tutorials/menu-tutorials.md %}#customizeadmintoolsmenu)
+* [Customizing the Sites Menu]({% link content-services/latest/develop/share-ext-points/tutorials/menu-tutorials.md %}#customsitesmenu)
+* [Removing Menu Items]({% link content-services/latest/develop/share-ext-points/tutorials/menu-tutorials.md %}#removemenuitem)
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs

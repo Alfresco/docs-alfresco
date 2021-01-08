@@ -28,7 +28,7 @@ click on the dojo.js file name):
 
 ![dev-extensions-share-tools-firebug-scripts]({% link content-services/images/dev-extensions-share-tools-firebug-scripts.png %})
 
-Here you will notice that all the Alfresco Content Services-related JavaScript files have big numbers in their file names. 
+Here you will notice that all the Content Services-related JavaScript files have big numbers in their file names. 
 For example, the `my-sites.js` file is not just called that but instead something like `my-sites_0500545812b99c1ed156728185c19b24.js`. 
 This is because the Spring Surf framework includes a checksum in the file name so it is more stable during upgrades of the software. 
 
