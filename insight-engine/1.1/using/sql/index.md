@@ -291,7 +291,7 @@ It’s not supported when the text field is either freetext or none.
 
 The `HAVING` clause is supported for aggregation functions only. Boolean logic and nested `HAVING` clauses are supported. The following comparison operations are supported in the `HAVING` clause: `=`, `>=`, `<=`, `!=`.
 
-> **Note:** Support is limited for the `HAVING` clause in Search and Insight Engine 1.4.
+> **Note:** Support is limited for the `HAVING` clause in Search and Insight Engine 1.1.
 
 #### Limit (GROUP BY)
 

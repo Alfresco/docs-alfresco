@@ -486,6 +486,7 @@ defaults:
       versions:
         - 2.0
         - 1.4
+        - 1.1
   - scope:
       path: "insight-engine/latest"
     values:
@@ -496,7 +497,11 @@ defaults:
     values:
       version: 1.4
       latest: 
-
+  - scope:
+      path: "insight-engine/1.1"
+    values:
+      version: 1.1
+      latest: 
 # Alfresco Search Service
   - scope:
       path: "search-services"
