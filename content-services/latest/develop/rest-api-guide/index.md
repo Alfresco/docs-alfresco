@@ -1,10 +1,49 @@
 ---
-title: Things to know before you start
+title: ReST API Guide
 ---
+
+The Alfresco ReST API version 1.0 is a complete application interface that gives you access to all the features of the 
+Alfresco Repository. When building remote extensions the Alfresco ReST API is the preferred interface.
+
+The endpoint to access the API has the following format:
+
+![dev-api-by-language-alf-rest-intro-1]({% link content-services/images/dev-api-by-language-alf-rest-intro-1.png %})
+
+If you are accessing a local Repository the endpoint URL will most likely look like follows for a standard Repository 
+installation: `https://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/...`
+
+The tenant part will always be `-default-`, unless you are running a multi-tenant Alfresco solution where you would 
+specify what tenant you want to operate against.
+
+The scope is important and it denotes the accessibility of the API, `public` means it is allowed to use and `private` 
+means that the API is for internal Alfresco use only (can change at any time). You can add your own scope, such as 
+`extension`, for your own APIs. The Alfresco ReST API actually contains a number of APIs and the Core API is denoted by 
+the `/alfresco` path. You also have the Search, Workflow, Discovery, and Authentication APIs.
+
+To work with an object in the Repository, such as a folder or file node, you will append to this URL as follows:
+
+![dev-api-by-language-alf-rest-intro-2]({% link content-services/images/dev-api-by-language-alf-rest-intro-2.png %}){:height="150px" width="500px"}
+
+An object in the Repository is referred to as an Entity. Which specific instance of an *entity* type you are working 
+with is specified as part of the URL path (i.e. `{id}`). There can be Relationships between Entities and Operations 
+applied to Entities, which are also specified as part of the URL (i.e. `children`, `copy`).
+
+This section provides information about Alfresco ReST API version 1.0 and how to use it.
+
+To get started with the API follow these steps:
+
+1. [Read things to know before you start]({% link content-services/latest/develop/rest-api-guide/things-to-know.md %})
+2. [Install the ReST API Explorer]({% link content-services/latest/develop/rest-api-guide/install-rest-api-explorer.md %})
+3. [Install a tool for making API calls]({% link content-services/latest/develop/rest-api-guide/install-http-calls-tool.md %})
+4. [Install a tool to format JSON responses]({% link content-services/latest/develop/rest-api-guide/install-json-format-tool.md %})
+5. [Authenticate with the Repository to get a token]({% link content-services/latest/develop/rest-api-guide/auth-with-repo.md %})
+6. [Get Repository Info to see what is supported]({% link content-services/latest/develop/rest-api-guide/get-repo-info.md %}) - which uses and tests the auth token
+
+## Things to know before you start
 
 Things that you should know before you start using the ReST API.
 
-## Introduction
+### Introduction
 
 The Alfresco ReST API endpoints share many features, such as the format for collection responses, how to sort and order 
 responses, how to limit results, how to request optional information, etc.
@@ -12,7 +51,7 @@ responses, how to limit results, how to request optional information, etc.
 So it makes sense to know about these features before you start using the API, as sometimes documentation might not cover 
 all these common features, and you would then have to resort to the API Explorer reference.
 
-## The API Explorer is your source of truth
+### The API Explorer is your source of truth
 
 The reference documentation for the Alfresco ReST API is available in what is referred to as the API Explorer application. 
 This application is available for each version of ACS.
@@ -28,7 +67,7 @@ If you want to know what the API Explorer looks like right now, then have a look
 [https://api-explorer.alfresco.com/api-explorer](https://api-explorer.alfresco.com/api-explorer){:target="_blank} 
 (note that this API Explorer always shows the API for the latest version of ACS).
 
-## Finding out if an API endpoint is supported in a specific ACS version
+### Finding out if an API endpoint is supported in a specific ACS version
 
 The majority of the API endpoints have information in the Open API specification (i.e. Swagger docs) about what 
 version of ACS that is required (i.e. in the API Explorer).
@@ -44,7 +83,7 @@ Note that an API endpoint can be supported from a specific patch version of ACS,
 If you are running an earlier version of ACS, which doesn't support the API endpoint, then you would need to upgrade 
 your ACS installation before starting to use this endpoint.
 
-## Tickets
+### Tickets
 
 It's common to use HTTP basic authentication when trying out the ReST API.
 
@@ -82,7 +121,7 @@ the base64 encoded ticket.
 How to get a ticket and how to use it is explained [here]({% link content-services/latest/develop/rest-api-guide/auth-with-repo.md %}) 
 in the ReST API user guide.
 
-## Limiting result items
+### Limiting result items
 
 By default the API will return a maximum of 100 result items in any one request, this can be controlled via the 
 `maxItems` query parameter.
@@ -92,7 +131,7 @@ shows how you can limit the number of result items to five.
 
 This query parameter is supported across all collection endpoints.
 
-## Skipping result items
+### Skipping result items
 
 By default the API will return result items starting from the beginning, it's possible to skip any number of result 
 items using the `skipCount` query parameter. This is typically used for implementing paging or infinite scrolling in clients.
@@ -102,7 +141,7 @@ shows how you can skip the first two result items.
 
 This query parameter is supported across all collection endpoints.
 
-## Ordering result items
+### Ordering result items
 
 All collection endpoints (those returning a list of result items) will have a default sort order. It's possible to 
 change the sort order on some endpoints via the `orderBy` query parameter.
@@ -115,7 +154,7 @@ The direction of the sorting can be controlled by the `DESC` (descending) and `A
 As previously mentioned, not all endpoints allow ordering to be controlled so you'll need to consult the API Explorer to 
 see whether the `orderBy` parameter is supported and what properties within the response that can be used.
 
-## Filtering result items
+### Filtering result items
 
 Sometimes only a subset of the response items are required, several endpoints support this via the `where` query parameter.
 
@@ -126,7 +165,7 @@ request shows how you can limit the nodes in your home folder to just the files.
 The `where` parameter is specific to each endpoint so you'll need to consult the API Explorer to see firstly, whether 
 the `where` parameter is supported and secondly, what expressions and clauses can be used.
 
-## Requesting optional item information
+### Requesting optional item information
 
 We have taken what we're calling a "performance first" approach with the API. This means that each endpoint, by default, 
 only returns the item information that is efficient to retrieve.
@@ -140,7 +179,7 @@ request shows how you can also include the properties and aspects for each node 
 As with the `orderBy` and `where` parameters, the `include` parameter is specific to the endpoint so you'll need to 
 consult the API Explorer to see what extra item information is available.
 
-## Limiting the item information
+### Limiting the item information
 
 Sometimes bandwidth is a major consideration, such as when building a mobile client.
 
@@ -190,7 +229,7 @@ in the `fields` parameter.
 
 The `fields` parameter is supported universally across all endpoints.
 
-## Person id alias
+### Person id alias
 
 There are several endpoints across the API that expect a person id as part of the URL, this is OK if the client knows 
 the person id, but there are some scenarios where it might not be known, for example when using tickets.
@@ -200,7 +239,7 @@ For this scenario the API supports the `-me-` alias which can be substituted in 
 The `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/people/-me-` request shows how this can be 
 used to retrieve the profile information of the currently authenticated user.
 
-## Well known node id aliases
+### Well known node id aliases
 
 There are several endpoints across the API that expect a node id as part of the URL, this is OK if the client knows the 
 node id, but there are some scenarios where it might not be known, for example when starting to navigate the folder hierarchy.
@@ -214,7 +253,7 @@ For this scenario the API supports the following node id aliases:
 The `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children` request shows how 
 you can list the contents (children) of the `/Company Home` folder without knowing its node id.
 
-## Creating multiple entities (items)
+### Creating multiple entities (items)
 
 Supporting batch operations, such as updating the metadata for multiple items simultaneously, is something we plan to 
 support in the future. However it's a little known fact that the API already has some basic batch capabilities when it 
@@ -305,7 +344,7 @@ The API returns a standard listing response providing the details on each entity
 
 If the endpoint does not support creating multiple entities an error is returned.
 
-## Including the source entity for a collection
+### Including the source entity for a collection
 
 When returning a relationship collection for an entity, for example the children of a node or the members of a site, 
 details of the entity are not included by default, to include them you can use the `includeSource` query parameter.
@@ -354,8 +393,7 @@ request shows how you'd include details of the user's home folder when listing i
     }
   }
 }
-```
-‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍
+```‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍
 Another example is returning details of a site when listing it's members, to do that you'd use the 
 `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/sites/swsdp/members?includeSource=true` URL.
 

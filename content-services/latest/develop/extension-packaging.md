@@ -142,7 +142,7 @@ Alfresco Module Packages, known as AMPs, are Zip files containing the extension.
 layout and include important files that describe the module.
 
 Alfresco Module Packages, known as AMPs, are the recommended way of packaging customizations and extensions for deployment, 
-where those extensions depend on third-party libraries, as such depedencies are not yet supported by Simple JAR Modules. 
+where those extensions depend on third-party libraries, as such dependencies are not yet supported by Simple JAR Modules. 
 Simple JAR modules are generally the preferred type of packaging for extensions where dependencies on third-party libraries do not exist.
 
 AMPs can be used to package custom templates, custom models, web scripts, UI customizations, and can be used to implement 
