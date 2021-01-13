@@ -6,7 +6,7 @@ By default, communication between the repository and Solr is protected by SSL wi
 
 > **Note:** For security reasons, you must generate a new set of keys to secure the Solr communication and access to the Solr Admin Console.
 
-For more information, see [Configuring using the Admin Console]({% link insight-engine/1.4/config/index.md %}#configuring-using-the-admin-console) and [Secure Keys]({% link insight-engine/1.4/config/keys.md %}).
+For more information, see [Configuring using the Admin Console]({% link search-services/1.4/config/index.md %}#configuring-using-the-admin-console) and [Secure Keys]({% link search-services/1.4/config/keys.md %}).
 
 ## Repository SSL keystores
 
@@ -28,7 +28,7 @@ The keys and certificates required for mutual TLS on the repository side are set
     />
     ```
 
-2. Copy the keystore and truststore files you created in [Generating secure keys for ssl communication]({% link insight-engine/1.4/config/keys.md %}#generating-secure-keys-for-ssl-communication) to the machine that's running the repository.
+2. Copy the keystore and truststore files you created in [Generating secure keys for ssl communication]({% link search-services/1.4/config/keys.md %}#generating-secure-keys-for-ssl-communication) to the machine that's running the repository.
 
 3. Set the parameters in the connector, replacing the `xxxxxxx` and `yyyyy` values.
 
@@ -79,7 +79,7 @@ The Solr web interface makes it easy for administrators to view the Solr configu
 
 The main Solr Admin dashboard is divided into two parts: the left and center panels.
 
-![]({% link insight-engine/images/solr-admin.png %})
+![]({% link search-services/images/solr-admin.png %})
 
 ## Solr Admin UI left panel
 
@@ -95,7 +95,7 @@ The **Logging** page shows messages from Solr's log files.
 
 Under **Logging**, when you select **Level**, you see the hierarchy of classpaths and classnames for your Level instance. A row highlighted in yellow indicates that the class has logging capabilities. Click on a highlighted row, and a menu will appear to allow you to change the log level for that class. Characters in bold indicate that the class will not be affected by level changes to root.
 
-![]({% link insight-engine/images/logging.png %})
+![]({% link search-services/images/logging.png %})
 
 ### Core Admin
 
@@ -105,13 +105,13 @@ The buttons at the top of the screen enable you to add a new core, unload the co
 
 The main display and available actions provide another way of working with your cores.
 
-![]({% link insight-engine/images/coreadmin.png %})
+![]({% link search-services/images/coreadmin.png %})
 
 ### Java Properties
 
 The **Java Properties** screen displays all the properties of the JVM running Solr, including the classpaths, file encodings, JVM memory settings, operating system, and more.
 
-![]({% link insight-engine/images/javaproperties.png %})
+![]({% link search-services/images/javaproperties.png %})
 
 ### Thread Dump
 
@@ -121,7 +121,7 @@ Each thread is listed and access to the stacktraces is available where applicabl
 
 On the right of the thread name, click the down-arrow to see the stacktrace for that thread.
 
-![]({% link insight-engine/images/threaddump.png %})
+![]({% link search-services/images/threaddump.png %})
 
 ### Core-specific tools
 

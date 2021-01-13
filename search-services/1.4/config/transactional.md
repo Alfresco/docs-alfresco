@@ -170,7 +170,7 @@ Transactional Metadata Query and the Solr index queries are intended to support 
 
 Use this information to understand the queries supported by the database.
 
-The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `contains()` predicate function. The CMIS specification supports a subset of Alfresco FTS. For more information on search syntax, see [Alfresco Full Text Search Reference]({% link insight-engine/1.4/using/sql/syntax.md %}).
+The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `contains()` predicate function. The CMIS specification supports a subset of Alfresco FTS. For more information on search syntax, see [Alfresco Full Text Search Reference]({% link search-services/1.4/using/sql/syntax.md %}).
 
 **CMIS QL**
 
@@ -382,4 +382,4 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
         You have now refreshed the web scripts and set a limit to the number of items a search in Share returns.
 
 > **Note:** Custom searches and searches from the node browser use the `solr.query.maximumResultsFromUnlimitedQuery` property to control search results. For more information, see [Solr core configuration properties
-]({% link insight-engine/1.4/config/index.md %}#solr-core-configuration-properties).
+]({% link search-services/1.4/config/index.md %}#solr-core-configuration-properties).

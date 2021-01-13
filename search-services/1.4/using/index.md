@@ -138,7 +138,7 @@ Also, if the domain name of the Alfresco Content Services repository does not ma
 
 You can deploy Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.0 and above and Search and Insight Engine.
 
-For details about deployment using the Docker Compose file, see [Installation options]({% link insight-engine/1.4/install/options.md %}#install-with-docker-compose).
+For details about deployment using the Docker Compose file, see [Installation options]({% link search-services/1.4/install/options.md %}#install-with-docker-compose).
 
 1. Open your `docker-compose.yml` file, and insert the following container information:
 
@@ -187,7 +187,7 @@ This is a list of pre-configured reports:
 
 The following image shows an example dashboard created using the pre-configured reports.
 
-![]({% link insight-engine/images/exampledashboard1.png %})
+![]({% link search-services/images/exampledashboard1.png %})
 
 ### Export/Import Insight Zeppelin notes
 

@@ -10,7 +10,7 @@ All trackers must be enabled on master nodes, while only model tracker and metad
 
 The figure below shows a Solr configuration using index replication. The master server's index is replicated on the slaves.
 
-![]({% link insight-engine/images/solr-replication.png %})
+![]({% link search-services/images/solr-replication.png %})
 
 The master-slave replication requires non-SSL communication between the master server and the slave server.
 
@@ -49,7 +49,7 @@ The Solr replication feature is implemented as a `RequestHandler`. The simplest 
 
 The Solr master is configured to track the Alfresco Content Services instance while the Solr slave is configured to track the Solr master. The Alfresco Content Services instance is configured to send all the queries to the SOLR slave.
 
-![]({% link insight-engine/images/solr-replication-conf.png %})
+![]({% link search-services/images/solr-replication-conf.png %})
 
 ## Configuring the Alfresco Content Services instance
 
@@ -57,9 +57,9 @@ As usual, no SSL queries configured go to the slave.
 
 ### Configuring Solr master
 
-The configuration affecting replication is controlled by a single file, `alresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml`. To configure the master server, follow the steps below:
+The configuration affecting replication is controlled by a single file, `alresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml`. To configure the master server, follow the steps below:
 
-1. Edit the `alresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml` file on the master server to change the default replication handler configuration. Remember to uncomment the `master` section.
+1. Edit the `alresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml` file on the master server to change the default replication handler configuration. Remember to uncomment the `master` section.
 
     ```bash
     <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
@@ -183,10 +183,10 @@ To promote a slave, follow the steps below:
         The Replication screen shows the current replication status for the core, and lets you enable/disable replication. It also displays the version of the master and slave servers.
 
     4. Identify the slave whose index is closest to the master server or pick a slave that has the highest version.
-    ![]({% link insight-engine/images/slave-version.png %})
+    ![]({% link search-services/images/slave-version.png %})
 
 2. Stop the Solr server on the new master.
-3. In the alresco-insight-engine/solrhome/templates/re-rank/conf/solrconfig.xml file, replace the Solr configuration in the replication handler that defines the slave with the one that defines the master.
+3. In the alresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml file, replace the Solr configuration in the replication handler that defines the slave with the one that defines the master.
 
     ```bash
     <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler"> 
@@ -227,7 +227,7 @@ Use this information for setting up a master-master replication.
 
 1. Set up two separate Solr instances where neither of them know about each other.
 
-    See [Configuring Search and Insight Engine]({% link insight-engine/1.4/config/index.md %}).
+    See [Configuring Search and Insight Engine]({% link search-services/1.4/config/index.md %}).
 
 2. If you have a clustered environment, both the Solr installations can be done on their own Alfresco nodes in the cluster. If you don't have a clustered environment, both the Solr nodes can talk to their respective Alfresco node directly.
 

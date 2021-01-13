@@ -49,7 +49,7 @@ The `solrcore.properties` configuration file is the property configuration file 
 |alfresco.transactionDocsBatchSize|This property is used for batch fetching updates during tracking, for example `100`.|
 |alfresco.version|This property specifies the Alfresco Content Services version installed, for example `6.2`.|
 |alfresco.workQueueSize|This property specifies the maximum number of queued work instances to keep before blocking against further adds, for example `-1`.|
-|data.dir.root|This property specifies the top level directory path for the indexes managed by Solr, for example `/alfresco-insight-engine/solrhome`|
+|data.dir.root|This property specifies the top level directory path for the indexes managed by Solr, for example `/alfresco-search-services/solrhome`|
 |data.dir.store|This property specifies the directory relative to data.dir.root where the data for this core is stored, for example `workspace/SpacesStore`|
 |enable.alfresco.tracking|This property instructs Solr if it should index Alfresco Content Services content in the associated repository store or not, for example `true`.|
 |max.field.length|This property specifies the maximum number of tokens to include for each field. By default, all tokens are added, for example `2147483647`.|

@@ -21,11 +21,11 @@ You can only see the Admin Console if you're an administrator.
 
     You see the Search Service page.
 
-3. Scroll down to the **Backup Settings** section. ![]({% link insight-engine/images/solr6-backupsie.png %})
+3. Scroll down to the **Backup Settings** section. ![]({% link search-services/images/solr6-backupsie.png %})
 
     Here, you can specify the backup location and edit backup properties for each core of the Solr index: **Main Store** and **Archive Store**.
 
-    * **Backup Location**: Specifies the full-path location for the backup to be stored. This location must be on the machine on which Search and Insight Engine is installed or it must be a location which is accessible from the Solr host. For example, `/opt/alfresco-insight-engine/backups/alfresco`.
+    * **Backup Location**: Specifies the full-path location for the backup to be stored. This location must be on the machine on which Search and Insight Engine is installed or it must be a location which is accessible from the Solr host. For example, `/opt/alfresco-search-services/backups/alfresco`.
     * **Backup Cron Expression**: Specifies a Quartz cron expression that defines when backups occur. Solr creates a timestamped sub-directory for each index back up you make.
     * **Backups To Keep**: Specifies the maximum number of index backups that Solr should store.
 4. Click **Save**.
@@ -58,7 +58,7 @@ If you have installed the Oracle Java SE Development Kit (JDK), you can use the 
 * You can set the backup of Solr indexes using the JMX client, such as JConsole on the **JMX MBeans > Alfresco > Schedule > DEFAULT > MonitoredCronTrigger > search.alfrescoCoreBackupTrigger > Operations > executeNow** tab. The default view is the Solr core summary. Alternatively, navigate to **MBeans > Alfresco > SolrIndexes > coreName > Operations > backUpIndex** tab. Type the directory name in the **remoteLocation** text box and click **backUpIndex**.
 * Solr backup properties can be edited using the JMX client on the **JMX MBeans > Alfresco > Configuration > Search > managed > solr6 > Attributes** tab. The default view is the Solr core summary.
 
-    ![]({% link insight-engine/images/solr6jmx.png %})
+    ![]({% link search-services/images/solr6jmx.png %})
 
 * To use JMX client to setup Solr backup directory, navigate to **MBeans tab > Alfresco > Configuration > Search > managed > solr > Attributes** and change the values for `solr.backup.alfresco.remoteBackupLocation` and `solr.backup.archive.remoteBackupLocation properties`.
 * You may also trigger a backup with an HTTP command which instructs the /replication handler to backup Solr, for example:
@@ -131,13 +131,13 @@ Document similarity covers duplicate detection, near duplicate detection, and fi
 
 The Jaccard similarity coefficient is a commonly used indicator of the similarity between two sets. For sets *A* and *B* it is defined to be the ratio of the amount of common content to the total content of two documents, as defined here:
 
-![]({% link insight-engine/images/union.png %})
+![]({% link search-services/images/union.png %})
 
 This distance can be used to compare the similarity of any two documents with any other pair of documents.
 
 Containment is a related concept but is more about inclusion. For example, many email threads include parts or all of previous messages. Containment is not symmetrical like the measure of similarity above, and is defined as:
 
-![]({% link insight-engine/images/containment.png %})
+![]({% link search-services/images/containment.png %})
 
 It represents how much of the content of a given document is common to another document. This distance can be used to compare a single document (A) to any other document.
 
@@ -168,12 +168,12 @@ Set A = new Set(["The quick brown fox jumps", "quick brown fox jumps over", "bro
 
 These sets of shingles can then be compared for similarity using the Jaccard Coefficient.
 
-![]({% link insight-engine/images/minhash.png %})
+![]({% link search-services/images/minhash.png %})
 
 ***Example 2***
 
 Here are two summaries of the 1.0 and 1.1 CMIS specification. It demonstrates, amongst other things, how sensitive the measure is to small changes. Adding a single word affects 5 shingles.
 
-![]({% link insight-engine/images/minhash-example.png %})
+![]({% link search-services/images/minhash-example.png %})
 
 The content overlap of the full 1.0 CMIS specification found in the 1.1 CMIS specification, C(1.0, 1.1) is approximately 52%.

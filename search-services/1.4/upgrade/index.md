@@ -12,15 +12,15 @@ Use this information to upgrade from Search and Insight Engine 1.x to Search and
     ./solr/bin/solr stop
     ```
 
-2. Backup or move the existing `alfresco-insight-engine folder` to a preferred location. For example, `alfresco-insight-engine-1.x`.
+2. Backup or move the existing `alfresco-search-services folder` to a preferred location. For example, `alfresco-search-services-1.x`.
 
 3. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
 4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
 
-    `alfresco-insight-engine-1.4.x.zip`
+    `alfresco-search-services-1.4.x.zip`
 
-    By default, the contents are decompressed in a folder at `./alfresco-insight-engine`. The folder extracts into the same location as the zip file.
+    By default, the contents are decompressed in a folder at `./alfresco-search-services`. The folder extracts into the same location as the zip file.
 
 5. You can now start Search and Insight Engine by pointing to the content store and indexes from  Search and Insight Engine 1.x using the following commands.
 
@@ -30,25 +30,25 @@ Use this information to upgrade from Search and Insight Engine 1.x to Search and
 
     ```bash
     ./solr/bin/solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.content.dir=/alfresco-insight-engine-1.1/contentstore
-    -Dsolr.model.dir=/alfresco-insight-engine-1.1/solrhome/alfrescoModels
-    -Ddata.dir.root=/alfresco-insight-engine-1.1/solrhome/
+    -Dsolr.content.dir=/alfresco-search-services-1.1/contentstore
+    -Dsolr.model.dir=/alfresco-search-services-1.1/solrhome/alfrescoModels
+    -Ddata.dir.root=/alfresco-search-services-1.1/solrhome/
     ```
 
     Microsoft Windows
 
     ```bash
     solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.content.dir="alfresco-insight-engine-1.1\contentstore"
-    -Dsolr.model.dir="alfresco-insight-engine-1.1\solrhome\alfrescoModels"
-    -Ddata.dir.root="alfresco-insight-engine-1.1\solrhome\"
+    -Dsolr.content.dir="alfresco-search-services-1.1\contentstore"
+    -Dsolr.model.dir="alfresco-search-services-1.1\solrhome\alfrescoModels"
+    -Ddata.dir.root="alfresco-search-services-1.1\solrhome\"
     ```
 
     > **Note:** At this stage you have upgraded. If you want to upgrade using an external location, continue with the following steps.
 
-6. Copy the `contentstore` from the backup `alfresco-insight-engine-1.x` to a preferred location, for example `alf_data`.
+6. Copy the `contentstore` from the backup `alfresco-search-services-1.x` to a preferred location, for example `alf_data`.
 
-7. Copy the cores: alfresco, archive and the models: alfrescoModels from `alfresco-insight-engine-1.0/solrhome`.
+7. Copy the cores: alfresco, archive and the models: alfrescoModels from `alfresco-search-services-1.0/solrhome`.
 
 8. Your directory structure will look like the following:
 
@@ -60,7 +60,7 @@ Use this information to upgrade from Search and Insight Engine 1.x to Search and
     alf_data/solrhome/alfrescoModels
     ```
 
-9. (Optional) If you have changed the alfresco-insight-engine/solr.in.sh or alfresco-insight-engine/solr.in.cmd file, you must restore it from your backup.
+9. (Optional) If you have changed the alfresco-search-services/solr.in.sh or alfresco-search-services/solr.in.cmd file, you must restore it from your backup.
 
 10. Start Search and Insight Engine 1.4.
 

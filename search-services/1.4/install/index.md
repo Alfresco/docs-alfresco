@@ -20,7 +20,7 @@ The supported platforms are the combinations of operating systems, databases, an
 
 Before you install Search and Insight Engine you must install Alfresco Content Services 6.0 or later. You can install Search and Insight Engine using the distribution zip and Docker Compose, but the Docker Compose method of installation is only for development and test environments.
 
-See [Supported platforms]({% link insight-engine/1.4/support/index.md %}) for information about prerequisites and requirements.
+See [Supported platforms]({% link search-services/1.4/support/index.md %}) for information about prerequisites and requirements.
 
 ## Solr overview
 
@@ -35,11 +35,11 @@ There are two cores or indexes in Solr:
 * **alfresco**: used for searching all live content stored at `<SOLR_HOME>/solrhome/alfresco` within the Solr search server.
 * **archive**: used for searching content that has been marked as deleted at `<SOLR_HOME>/solrhome/archive` within the Solr search server.
 
-![Solr overview]({% link insight-engine/images/solr.png %})
+![Solr overview]({% link search-services/images/solr.png %})
 
 > **Important:** For security reasons, it is advised that you generate a new set of keys to secure your Solr communication and access to the Solr Admin Console.
 
-For more information, see [Configuring using the Admin Console]({% link insight-engine/1.4/config/index.md %}#configure-using-the-admin-console) and [Secure keys]({% link insight-engine/1.4/config/keys.md %}).
+For more information, see [Configuring using the Admin Console]({% link search-services/1.4/config/index.md %}#configure-using-the-admin-console) and [Secure keys]({% link search-services/1.4/config/keys.md %}).
 
 ## Eventual consistency
 

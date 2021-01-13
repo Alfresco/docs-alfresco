@@ -30,10 +30,10 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Se
 4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
 
     ```bash
-    alfresco-insight-engine-1.4.x.zip
+    alfresco-search-services-1.4.x.zip
     ```
 
-    By default, the contents are decompressed in a folder at `./alfresco-insight-engine`. The folder extracts into the same location as the zip file.
+    By default, the contents are decompressed in a folder at `./alfresco-search-services`. The folder extracts into the same location as the zip file.
 
 5. Your indexes for Solr are in another location, use the following commands to point Solr to the right location:
 
@@ -84,7 +84,7 @@ Use this information to migrate from Search Services to Search and Insight Engin
     ```yaml
         solr6:
             #image: alfresco/alfresco-search-services:1.4.x (or 1.3)
-            image: quay.io/alfresco/insight-engine:1.4.x
+            image: quay.io/alfresco/search-services:1.4.x
             mem_limit: 2500m
             environment:
                 #Solr needs to know how to register itself with Alfresco
@@ -118,7 +118,7 @@ Use this information to migrate from Search and Insight Engine 1.4 To Search Ser
     ./solr/bin/solr stop
     ```
 
-2. Backup or move the existing alfresco-insight-engine folder to a preferred location. For example, alfresco-insight-engine-1.4.
+2. Backup or move the existing alfresco-search-services folder to a preferred location. For example, alfresco-search-services-1.4.
 
 3. Browse to the Support Portal:  [Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
@@ -138,25 +138,25 @@ Use this information to migrate from Search and Insight Engine 1.4 To Search Ser
 
     ```bash
     ./solr/bin/solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port> 
-    -Dsolr.content.dir=/alfresco-insight-engine-1.4/contentstore
-    -Dsolr.model.dir=/alfresco-insight-engine-1.4/solrhome/alfrescoModels
-    -Ddata.dir.root=/alfresco-insight-engine-1.4/solrhome/
+    -Dsolr.content.dir=/alfresco-search-services-1.4/contentstore
+    -Dsolr.model.dir=/alfresco-search-services-1.4/solrhome/alfrescoModels
+    -Ddata.dir.root=/alfresco-search-services-1.4/solrhome/
     ```
 
     Microsoft Windows
 
     ```bash
     solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.content.dir="alfresco-insight-engine-1.4\contentstore"
-    -Dsolr.model.dir="alfresco-insight-engine-1.4\solrhome\alfrescoModels"
-    -Ddata.dir.root="alfresco-insight-engine-1.4\solrhome\"
+    -Dsolr.content.dir="alfresco-search-services-1.4\contentstore"
+    -Dsolr.model.dir="alfresco-search-services-1.4\solrhome\alfrescoModels"
+    -Ddata.dir.root="alfresco-search-services-1.4\solrhome\"
     ```
 
     > **Note:** At this stage you have migrated. If you want to migrate using an external location, continue with the following steps.
 
-6. Copy the contentstore from the backup alfresco-insight-engine-1.4 to a preferred location, for example alf\_data.
+6. Copy the contentstore from the backup alfresco-search-services-1.4 to a preferred location, for example alf\_data.
 
-7. Copy the cores: alfresco, archive and the models: alfrescoModels from alfresco-insight-engine-1.4/solrhome
+7. Copy the cores: alfresco, archive and the models: alfrescoModels from alfresco-search-services-1.4/solrhome
 
 8. Your directory structure will look like the following:
 
