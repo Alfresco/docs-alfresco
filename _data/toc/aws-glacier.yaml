@@ -1,0 +1,12 @@
+# Alfresco Content Connector for AWS Glacier
+- version: 2.1
+  pages:
+    - title: 'Introduction'
+      path: '/aws-glacier/latest/'
+    - title: "Install"
+      path: '/aws-glacier/latest/install/'
+    - title: "Configure"
+      path: '/aws-glacier/latest/config/'
+    - title: 'Using'
+      path: '/aws-glacier/latest/using/'
+

@@ -1,0 +1,9 @@
+# Alfresco Content Services for Mobile
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/content-mobile/latest/'
+    - title: 'Configure'
+      path: '/content-mobile/latest/config/'
+    - title: 'Using'
+      path: '/content-mobile/latest/using/'

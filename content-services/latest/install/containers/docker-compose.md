@@ -59,7 +59,7 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
 
     ```bash
     ...
-    alfresco_1 | 2020-07-06 11:50:46,808  WARN ... The Content Services license will expire in 2 days.
+    alfresco_1 | 2020-07-06 11:50:46,808  WARN ... The Alfresco Content Services license will expire in 2 days.
     ...
     alfresco_1 | 2020-07-06 11:50:50,938  INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
     alfresco_1 | 2020-07-06 11:50:50,371  INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete

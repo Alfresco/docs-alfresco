@@ -38,6 +38,20 @@ window.onload = () => {
   // tooltips
   document.addEventListener("touchstart", (e) => dismissAllTooltips(e));
 
+  // tables wrapper
+
+  ((container) => {
+    if (!container) return;
+
+    const tables = container.querySelectorAll("table:not(.no-wrap)");
+
+    tables.forEach((t) => {
+      const wrapper = document.createElement('div');
+      wrap(t, wrapper);
+      wrapper.classList.add("content-table-wrapper");
+    })
+  })(document.querySelector(".column-content"));
+
   // code copy button
 
   (() => {
@@ -183,6 +197,7 @@ window.onload = () => {
 
         h.removeAttribute("id");
         anchor.id = h.dataset.originalid;
+        anchor.dataset.header = h.tagName;
         h.prepend(anchor);
         anchor.classList.add("is-hidden");
 
@@ -192,6 +207,7 @@ window.onload = () => {
         h.append(btn);
 
         anchor.initialRequest = () => h;
+        anchor.changeRequest = anchor.initialRequest;
       });
     };
 
@@ -199,6 +215,29 @@ window.onload = () => {
 
     headersAnchoring(headers);
   })(document.querySelector(".content"));
+
+  // toc spy
+  const tocSpy = ((selector, container, tocspy) => {
+    if (!container || !tocspy) return;
+    const headers = Array.from(container.querySelectorAll(selector));
+    if (!headers.length) {
+      tocspy.remove();
+      return;
+    }
+
+    const spy = TocSpy(headers, container, tocspy);
+    headers.forEach((h) => {
+      const a = document.getElementById(h.dataset.originalid);
+      a.initialRequest = () => spy.getSectionTopFromHeader(h);
+      a.changeRequest = a.initialRequest;
+    });
+
+    return spy;
+  })(
+    "h2:not(.no-collect)",
+    document.querySelector(".content"),
+    document.getElementById("tocspy")
+  );
 
   // initial scrolling
 
@@ -222,63 +261,135 @@ window.onload = () => {
       return { obj, sub: hash.sub };
     };
 
-    if (location.hash) {
-      // setTimeout(() => {
-      const { obj, sub } = scrollToHash(location.hash);
-      if (obj.initialRequest) {
-        const doScroll = obj.initialRequest(sub);
-        if (doScroll) {
-          doScrolling(
-            Math.max(
-              getElementY(typeof doScroll === "object" ? doScroll : obj) - 20,
-              0
-            ),
-            1000
-          );
-        }
+    const _scrollWindowTo = (obj, initiator) => {
+      let scrollTarget = null;
+      switch (typeof obj) {
+        case "object":
+          scrollTarget = getElementY(obj) - 20;
+          break;
+        case "number":
+          scrollTarget = obj;
+          break;
+        case "boolean":
+          if (obj) scrollTarget = getElementY(initiator) - 20;
+          break;
       }
-      // }, 300);
+      if (scrollTarget !== null) doScrolling(Math.max(scrollTarget, 0), 1000);
+    };
+
+    if (location.hash) {
+      const { obj, sub } = scrollToHash(location.hash);
+      if (obj && obj.initialRequest) {
+        const scrollTo = obj.initialRequest(sub);
+        _scrollWindowTo(scrollTo, obj);
+      }
     }
-
-    // left side menu
-    ((leftmenu) => {
-      if (!leftmenu) return;
-
-      const treeSelect = (li, ...classes) => {
-        const parent = li.closest("#leftside-menu li");
-        if (!parent) return;
-
-        parent.classList.add(...classes);
-        treeSelect(li.parentElement, ...classes);
-      };
-
-      const selected = leftmenu.querySelector("li.is-selected");
-
-      if (selected) treeSelect(selected, "is-expanded");
-
-      Array.from(leftmenu.querySelectorAll(".expand-button")).forEach((p) => {
-        const li = p.closest("li");
-        const ul = li.querySelector("ul");
-        const height = ul.getBoundingClientRect().height;
-        ul.style.setProperty("--max-height", height + "px");
-        p.addEventListener("click", (e) => {
-          li.classList.toggle("is-expanded");
-        });
-      });
-      leftmenu.style.setProperty("--min-height", "0px");
-      leftmenu.classList.add("is-ready-fade");
-    })(document.getElementById("leftside-menu"));
 
     window.addEventListener(
       "hashchange",
-      () => {
+      (e) => {
+        // if content is hidden, then we need to remove toc
+        const contentContainer = document.querySelector('.column-content');
+        if (contentContainer) {
+          const containerDisplay = window.getComputedStyle(contentContainer).getPropertyValue('display');
+          if (containerDisplay === 'none') tocToggler();  
+        }
+            
         const { obj, sub } = scrollToHash(location.hash);
 
-        if (obj.changeRequest) obj.changeRequest(sub);
+        if (obj) {
+          let scrollTo = null;
+          if (obj.changeRequest) {
+            scrollTo = obj.changeRequest(sub);
+            _scrollWindowTo(scrollTo, obj);
+          }
+        }
+        return true;
       },
       false
     );
   })();
+
+  showLeftMenu(document.getElementById("leftside-menu"));
 };
 
+function showLeftMenu(leftmenu, expandAll = false) {
+  if (!leftmenu || leftmenu.dataset.inited) return;
+  const container = leftmenu.closest('.content-menu-column');
+  const containerDisplay = window.getComputedStyle(container).getPropertyValue('display');
 
+  // temporary show the element to compute heights 
+  container.style.display = "block";
+
+  const treeSelect = (li, ...classes) => {
+    const parent = li.closest("#leftside-menu li");
+    if (!parent) return;
+
+    parent.classList.add(...classes);
+    treeSelect(li.parentElement, ...classes);
+  };
+
+  const selected = leftmenu.querySelector("li.is-selected");
+
+  if (selected) {
+    treeSelect(selected, "is-expanded");
+  }
+
+  Array.from(leftmenu.querySelectorAll(".expand-button")).forEach((p) => {
+    const li = p.closest("li");
+    const ul = li.querySelector("ul");
+    // 13px - margin for inner list
+    const height = ul.getBoundingClientRect().height + 13;
+    ul.style.setProperty("--max-height", height + "px");
+    const title = li.querySelector(".menuitem-title");
+    const click = (e) => {
+      e.stopPropagation();
+      li.classList.toggle("is-expanded");
+    };
+    p.addEventListener("click", click);
+    if (title) title.addEventListener("click", click);
+    if (expandAll) li.classList.toggle("is-expanded", true);
+  });
+  leftmenu.style.setProperty("--min-height", "0px");
+  leftmenu.classList.add("is-ready-fade");
+  leftmenu.dataset.inited = "true";
+  container.style.display = ""; 
+}
+
+function tocToggler() {
+  const body = document.querySelector("body");
+  body.classList.toggle("toc-body");
+  showLeftMenu(document.getElementById("leftside-menu"), body.classList.contains("toc-body"));
+
+}
+
+function wrap(el, wrapper) {
+  el.parentNode.insertBefore(wrapper, el);
+  wrapper.appendChild(el);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});

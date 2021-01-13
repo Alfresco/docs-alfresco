@@ -41,6 +41,28 @@ defaults:
     values:
       version: "Community"
 
+# Alfresco Digital Workspace
+  - scope:
+      path: "digital-workspace"
+    values:
+      layout: "docs"
+      product: "Alfresco Digital Workspace"
+      location: "digital-workspace"
+      toc: "digital-workspace"
+      support: true
+      versions:
+        - 1.6
+        - 1.5
+  - scope:
+      path: "digital-workspace/latest"
+    values:
+      version: 1.6
+      latest: true
+  - scope:
+      path: "digital-workspace/1.5"
+    values:
+      version: 1.5
+
 # Alfresco Google Drive
   - scope:
       path: "google-drive"
@@ -62,6 +84,23 @@ defaults:
       path: "google-drive/3.1"
     values:
       version: 3.1
+
+# Alfresco Content Connector for AWS Glacier
+  - scope:
+      path: "aws-glacier"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for AWS Glacier"
+      location: "aws-glacier"
+      toc: "aws-glacier"
+      support: true
+      versions:
+        - 2.1
+  - scope:
+      path: "aws-glacier/latest"
+    values:
+      version: 2.1
+      latest: true
 
 # Alfresco Content Connector for Azure
   - scope:
@@ -85,6 +124,28 @@ defaults:
     values:
       version: 1.0
 
+# Alfresco Content Connector for Salesforce
+  - scope:
+      path: "salesforce"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for Salesforce"
+      location: "salesforce"
+      toc: "salesforce"
+      support: true
+      versions:
+        - 2.2
+        - 2.1
+  - scope:
+      path: "salesforce/latest"
+    values:
+      version: 2.2
+      latest: true
+  - scope:
+      path: "salesforce/2.1"
+    values:
+      version: 2.1
+
 # Alfresco Identity Service
   - scope:
       path: "identity-service"
@@ -94,6 +155,7 @@ defaults:
       location: "identity-service"
       toc: "identity-service"
       support: true
+      tutorial: true
       versions:
         - 1.3
         - 1.2
@@ -105,17 +167,30 @@ defaults:
       version: 1.3
       latest: true
   - scope:
+      path: "identity-service/latest/tutorial"
+    values:
+      toc: "identity-service-tutorial"
+  - scope:
       path: "identity-service/1.2"
     values:
       version: 1.2
+  - scope:
+      path: "identity-service/1.2/tutorial"
+    values:
+      toc: "identity-service-tutorial"
   - scope:
       path: "identity-service/1.1"
     values:
       version: 1.1
   - scope:
+      path: "identity-service/1.1/tutorial"
+    values:
+      toc: "identity-service-tutorial"
+  - scope:
       path: "identity-service/1.0"
     values:
       version: 1.0
+      tutorial: false
 
 # Alfresco Desktop Sync
   - scope:
@@ -139,6 +214,64 @@ defaults:
     values:
       version: 1.5
 
+# Alfresco Governance Services
+  - scope:
+      path: "governance-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Governance Services"
+      location: "governance-services"
+      toc: "governance-services"
+      tutorial: true
+      support: true
+      versions:
+        - 3.4
+        - 3.3
+  - scope:
+      path: "governance-services/latest"
+    values:
+      version: 3.4
+      latest: true
+  - scope:
+      path: "governance-services/latest/tutorial"
+    values:
+      toc: "governance-services-tutorial"
+  - scope:
+      path: "governance-services/3.3"
+    values:
+      version: 3.3
+  - scope:
+      path: "governance-services/3.3/tutorial"
+    values:
+      toc: "governance-services-tutorial"
+
+# Alfresco Process Services (APS)
+  - scope:
+      path: "process-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Process Services"
+      location: "process-services"
+      toc: "process-services"
+      support: true
+      versions:
+        - 1.11
+        - "1.10"
+        - 1.9
+  - scope:
+      path: "process-services/latest"
+    values:
+      version: 1.11
+      latest: true
+  - scope:
+      path: "process-services/1.10"
+    values:
+      version: "1.10"
+  - scope:
+      path: "process-services/1.9"
+    values:
+      version: 1.9
+
 # Alfresco Document Transformation Engine
   - scope:
       path: "transformation-engine"
@@ -156,29 +289,143 @@ defaults:
       version: 2.2
       latest: true
 
-# SAML Single Sign On (SSO) for Alfresco Content Services
+# Alfresco Content Connector for AWS S3
   - scope:
-      path: "saml-sso"
+      path: "aws-s3"
     values:
       layout: "docs"
-      product: "SAML Single Sign On (SSO) for Alfresco Content Services"
-      location: "saml-sso"
-      toc: "saml-sso"
+      product: "Alfresco Content Connector for AWS S3"
+      location: "aws-s3"
+      toc: "aws-s3"
+      support: true
+      versions:
+        - 3.1
+  - scope:
+      path: "aws-s3/latest"
+    values:
+      version: 3.1
+      latest: true
+
+# Alfresco Office Services
+  - scope:
+      path: "microsoft-office"
+    values:
+      layout: "docs"
+      product: "Alfresco Office Services"
+      location: "microsoft-office"
+      toc: "microsoft-office"
+      support: true
+      versions:
+        - 1.3
+        - 1.2
+        - 1.1
+  - scope:
+      path: "microsoft-office/latest"
+    values:
+      version: 1.3
+      latest: true
+  - scope:
+      path: "microsoft-office/1.2"
+    values:
+      version: 1.2
+  - scope:
+      path: "microsoft-office/1.1"
+    values:
+      version: 1.1
+
+# Alfresco Transform Service
+  - scope:
+      path: "transform-service"
+    values:
+      layout: "docs"
+      product: "Alfresco Transform Service"
+      location: "transform-service"
+      toc: "transform-service"
+      support: true
+      versions:
+        - 1.3
+        - 1.2
+  - scope:
+      path: "transform-service/latest"
+    values:
+      version: 1.3
+      latest: true
+  - scope:
+      path: "transform-service/1.2"
+    values:
+      version: 1.2
+
+# Alfresco Media Management
+  - scope:
+      path: "media-management"
+    values:
+      layout: "docs"
+      product: "Alfresco Media Management"
+      location: "media-management"
+      toc: "media-management"
+      support: true
+      tutorial: true
+      versions:
+        - 1.4
+        - 1.3
+  - scope:
+      path: "media-management/latest"
+    values:
+      version: 1.4
+      latest: true
+  - scope:
+      path: "media-management/latest/tutorial"
+    values:
+      toc: "media-management-tutorial"
+  - scope:
+      path: "media-management/1.3"
+    values:
+      version: 1.3
+  - scope:
+      path: "media-management/1.3/tutorial"
+    values:
+      toc: "media-management-tutorial"
+
+# SAML Module for Alfresco Content Services
+  - scope:
+      path: "saml-module"
+    values:
+      layout: "docs"
+      product: "SAML Module for Alfresco Content Services"
+      location: "saml-module"
+      toc: "saml-module"
       support: true
       versions:
         - 1.2
         - 1.1
   - scope:
-      path: "saml-sso/latest"
+      path: "saml-module/latest"
     values:
       version: 1.2
       latest: true
   - scope:
-      path: "saml-sso/1.1"
+      path: "saml-module/1.1"
     values:
       version: 1.1
 
-# Alfresco ECM Centera 
+# Alfresco Content Connector for SAP Applications
+  - scope:
+      path: "sap"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for SAP Applications"
+      location: "sap"
+      toc: "sap"
+      support: true
+      versions:
+        - 5.0
+  - scope:
+      path: "sap/latest"
+    values:
+      version: 5.0
+      latest: true
+
+# Alfresco ECM Centera
   - scope:
       path: "centera"
     values:
@@ -195,7 +442,22 @@ defaults:
       version: 2.2
       latest: true
 
-# Alfresco Federation Services 
+# Alfresco Process Automation
+  - scope:
+      path: "process-automation"
+    values:
+      layout: "docs"
+      product: "Alfresco Process Automation"
+      location: "process-automation"
+      toc: "process-automation"
+  - scope:
+      path: "process-automation/latest"
+    values:
+      version: 1.0
+      latest: true
+
+
+# Alfresco Federation Services
   - scope:
       path: "federation-services"
     values:
@@ -210,6 +472,46 @@ defaults:
       path: "federation-services/latest"
     values:
       version: 1.0
+      latest: true
+
+# Alfresco Search and Insight Engine
+  - scope:
+      path: "insight-engine"
+    values:
+      layout: "docs"
+      product: "Alfresco Search and Insight Engine"
+      location: "insight-engine"
+      toc: "insight-engine"
+      support: true
+      versions:
+        - 2.0
+        - 1.4
+  - scope:
+      path: "insight-engine/latest"
+    values:
+      version: 2.0
+      latest: true
+  - scope:
+      path: "insight-engine/1.4"
+    values:
+      version: 1.4
+      latest: 
+
+# Alfresco Search Service
+  - scope:
+      path: "search-services"
+    values:
+      layout: "docs"
+      product: "Alfresco Search Services"
+      location: "search-services"
+      toc: "search-services"
+      support: true
+      versions:
+        - 2.0
+  - scope:
+      path: "search-services/latest"
+    values:
+      version: 2.0
       latest: true
 
 # Alfresco Sync Service
@@ -244,39 +546,78 @@ defaults:
     values:
       version: 3.0
 
-# Alfresco Activiti Enterprise
+# Alfresco Intelligence Services
   - scope:
-      path: "activiti"
+      path: "intelligence-services"
     values:
       layout: "docs"
-      product: "Alfresco Activiti Enterprise"
-      toc: "activiti"
+      product: "Alfresco Intelligence Services"
+      location: "intelligence-services"
+      toc: "intelligence-services"
+      support: true
       versions:
-        - 7.1.0-M8
-        - 7.1.0-M7
-        - 7.1.0-M6
-        - 7.1.0-M5
-      audiences:
-        - "admin"
-        - "developer"
-        - "user"
+        - 1.2
+        - 1.1
+        - 1.0
   - scope:
-      path: "activiti/latest"
+      path: "intelligence-services/latest"
     values:
-      version: 7.1.0-M8
+      version: 1.2
       latest: true
   - scope:
-      path: "activiti/latest/admin"
+      path: "intelligence-services/1.1"
     values:
-      audience: "admin"
+      version: 1.1
   - scope:
-      path: "activiti/latest/user"
+      path: "intelligence-services/1.0"
     values:
-      audience: "user"
+      version: 1.0
+
+# Alfresco Support Handbook
   - scope:
-      path: "activiti/latest/developer"
+      path: "support"
     values:
-      audience: "developer"
+      layout: "docs"
+      product: "Alfresco Support Handbook"
+      location: "support"
+      toc: "support"
+  - scope:
+      path: "support/latest"
+    values:
+      version: 1.0
+      latest: true
+
+# Alfresco Outlook Integration
+  - scope:
+      path: "microsoft-outlook"
+    values:
+      layout: "docs"
+      product: "Alfresco Outlook Integration"
+      location: "microsoft-outlook"
+      toc: "microsoft-outlook"
+      support: true
+      versions:
+        - 2.7
+  - scope:
+      path: "microsoft-outlook/latest"
+    values:
+      version: 2.7
+      latest: true
+
+# Alfresco Content Services for Mobile
+  - scope:
+      path: "content-mobile"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Services for Mobile"
+      location: "content-mobile"
+      toc: "content-mobile"
+  - scope:
+      path: "content-mobile/latest"
+    values:
+      version: 1.0
+      latest: true
+
 
 sass:
   sass_dir: assets/include/scss
@@ -308,6 +649,7 @@ plugins:
 
 highlighter: none
 
+# Elasticsearch/Searchyll settings
 elasticsearch:
   url: https://search-docs-dev-kcq7soqflyxmts7m3a3prekrzi.us-east-1.es.amazonaws.com
   index_name: sandbox
@@ -321,8 +663,12 @@ elasticsearch:
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - redirects/
   - .github/
   - README.md
+  - README.markdown
+  - Dockerfile
+  - docker-compose.yml
   - .gitignore
   # - .sass-cache/
   - .jekyll-cache/

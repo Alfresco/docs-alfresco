@@ -117,7 +117,7 @@ The Content Services distribution file is a zip containing the required WAR file
     web-server
     ```
 
-    > **Important:** If you don't apply the Share Services AMP to the repository, Alfresco Share will not work correctly, and when you start up Share, you will see the message: "*Content Services is running without Share Services. See your System Administrator for more details.*"
+    > **Important:** If you don't apply the Share Services AMP to the repository, Alfresco Share will not work correctly, and when you start up Share, you will see the message: "*Alfresco Content Services is running without Share Services. See your System Administrator for more details.*"
 
 4. Move the WAR files from `/web-server/webapps` to the appropriate location for your application server.
 

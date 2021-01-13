@@ -1,19 +1,20 @@
   <section class="section section-submenu">
       <div class="container is-vertical-center">
-        <div class="content-title">{{page.product}}</div>
-        <div class="content-version">
-        {% unless page.versions == nil %}
-          <div class="dropdown is-clickable" id="version-selector">
-            <div class="dropdown-trigger">
-              <button class="button is-rounded is-small" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span class="arrow">{{page.version}}</span>
-              </button>
-            </div>
+        <div class="content-title-version">
+          <div class="content-title">{{page.product}}</div>
+          <div class="content-version">
+          {% unless page.versions == nil %}
+            <div class="dropdown is-clickable" id="version-selector">
+              <div class="dropdown-trigger">
+                <button class="button is-rounded is-small" aria-haspopup="true" aria-controls="dropdown-menu">
+                  <span class="arrow">{{page.version}}</span>
+                </button>
+              </div>
 
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-              <div class="dropdown-content">
+              <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
 
-                {% assign versions = page.versions | compact | sort | reverse %}
+                {% assign versions = page.versions | compact %}
                 {% for v in versions %}
                 
                 {%if v == page.version%}
@@ -22,59 +23,59 @@
                 {%assign current = "" %}
                 {%endif%}
 
-                {%if page.latest == true%}
-                {%assign replace_version = "latest"%}
-                {%else%}
-                {%assign replace_version = page.version%}
-                {%endif%}                
+                  {%if page.latest == true%}
+                  {%assign replace_version = "latest"%}
+                  {%else%}
+                  {%assign replace_version = page.version%}
+                  {%endif%}                
 
-                {% if forloop.first == true %}
+                  {% if forloop.first == true %}
 
-                <a href="{{page.url | replace: replace_version, "latest"}}" class="dropdown-item{{current}}">
-                  <span>{{v}}</span><span class="tag is-success">Latest</span>
-                </a>
+                  <a href="{{page.url | replace: replace_version, "latest"}}" class="dropdown-item{{current}}">
+                    <span>{{v}}</span><span class="tag is-success">Latest</span>
+                  </a>
 
-                {% else %}
+                  {% else %}
 
-                <a href="{{page.url | replace: replace_version, v}}" class="dropdown-item{{current}}">
-                  <span>{{v}}</span>
-                </a>
+                  <a href="{{page.url | replace: replace_version, v}}" class="dropdown-item{{current}}">
+                    <span>{{v}}</span>
+                  </a>
 
-                {% endif %}
-                
-                {% endfor %}
+                  {% endif %}
+                  
+                  {% endfor %}
 
-                {% if page.product == "Alfresco Content Services" and page.version != "community" %}
-                <hr class="dropdown-divider">
+                  {% if page.product == "Alfresco Content Services" and page.version != "community" %}
+                  <hr class="dropdown-divider">
 
-                {% if page.latest == true %}
+                  {% if page.latest == true %}
 
-                <a href="{{page.url | replace: "latest", "community"}}" class="dropdown-item" >Community</a>
+                  <a href="{{page.url | replace: "latest", "community"}}" class="dropdown-item" >Community</a>
 
-                {% else %}
+                  {% else %}
 
-                <a href="{{page.url | replace: page.version, "community"}}" class="dropdown-item">Community</a>
+                  <a href="{{page.url | replace: page.version, "community"}}" class="dropdown-item">Community</a>
 
-                {% endif %}
-                {% endif %}
+                  {% endif %}
+                  {% endif %}
+                </div>
               </div>
+
+
             </div>
 
+          {% endunless %}
 
           </div>
-
-        {% endunless %}
-
         </div>
-        <div class="tabs is-right">
+{% unless page.tutorial == nil and page.api == nil and page.support == nil and page.release == nil %}
+        <div class="tabs">
           <ul>
 {%capture pagebase%}/{{page.location}}/{% if page.latest == true %}latest{%else%}{{page.version}}{%endif%}/{%endcapture%}
 
-{% unless page.tutorial == nil and page.api == nil and page.support == nil and page.release == nil %}
 <li class="{%if pagebase == page.url %}is-active{%endif%}">
     <a href="{{pagebase}}">Reference</a>
 </li>
-{% endunless %}
 
 {% if page.tutorial == true %}
 {% capture href %}{{pagebase}}tutorial/{%endcapture%}
@@ -106,5 +107,7 @@
 
           </ul>
         </div>
+{% endunless %}
+
       </div>
     </section>

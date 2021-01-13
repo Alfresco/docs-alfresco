@@ -1,0 +1,38 @@
+# Transform Service 1.3
+- version: 1.3
+  pages:
+    - title: 'Introduction'
+      path: '/transform-service/latest/'
+    - title: 'Install'
+      path: '/transform-service/latest/install/'    
+    - title: 'Configure'
+      pages: 
+        - title: 'Configure Transform Service'
+          path: '/transform-service/latest/config/'
+        - title: 'Extend Transform Service'
+          path: '/transform-service/latest/config/extend/'
+        - title: 'Configure Transformers'
+          path: '/transform-service/latest/config/transformers/'
+        - title: 'Create a custom T-Engine'
+          path: '/transform-service/latest/config/engine/'  
+    - title: 'Administer'
+      path: '/transform-service/latest/admin/'
+# Transform Service 1.2
+- version: 1.2
+  pages:
+    - title: 'Introduction'
+      path: '/transform-service/1.2/'
+    - title: 'Install'
+      path: '/transform-service/1.2/install/'    
+    - title: 'Configure'
+      pages: 
+        - title: 'Configure Transform Service'
+          path: '/transform-service/1.2/config/'
+        - title: 'Extend Transform Service'
+          path: '/transform-service/1.2/config/extend/'
+        - title: 'Configure routes in T-Router'
+          path: '/transform-service/1.2/config/routes/'
+        - title: 'Create a custom T-Engine'
+          path: '/transform-service/1.2/config/engine/'  
+    - title: 'Administer'
+      path: '/transform-service/1.2/admin/'

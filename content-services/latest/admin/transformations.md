@@ -1,24 +1,18 @@
 ---
-title: Managing transformations
+title: Manage transformations
 ---
 
-When you are working with transformations, it is important to understand how file types map to one another and the 
-transformation formats that each file type supports.
+When you're working with transformations, it is important to understand how file types map to one another and the transformation formats that each file type supports.
 
-Transformations can cause `OutOfMemory` errors under certain conditions; for example, if you are using Excel (.xlsx) files 
-that contain shapes or drawings (.xml content).
+Transformations can cause `OutOfMemory` errors under certain conditions; for example, if you're using Excel (`.xlsx`) files that contain shapes or drawings (.xml content).
 
-## Standard transform options {#standardtransformoptions}
+## Standard transform options {#standard}
 
-There are many file types (also known as MIME types) available in Content Services and it's not always possible 
-to transform one file type to another.
+There are many file types (also known as MIME types) available in Content Services and it's not always possible to transform one file type to another.
 
-Most images can be transformed to most other image types, but you can never transform audio or video files. The tables 
-give details of registered file types with information about their available transform options.
+Most images can be transformed to most other image types, but you can never transform audio or video files. The tables give details of registered file types with information about their available transform options.
 
-If you have installed a transform tool, such as Alfresco Outlook Integration, or Document Transformation Engine, or 
-Alfresco Media Management, there are additional transform options, which are listed in 
-[Additional transform options](#additionaltransformoptions).
+If you've installed a transform tool, such as Alfresco Outlook Integration, or Document Transformation Engine, or Alfresco Media Management, there are additional transform options, which are listed in [Additional transform options](#additional).
 
 You can also view more information about file types and the proxies used to transform them by using the browser command:
 
@@ -28,18 +22,17 @@ http://localhost:8080/alfresco/service/mimetypes?mimetype=*
 
 where `localhost:8080` is the host and port number of your active Content Services instance.
 
-The transformers must validate the content stream mimetype. To configure this, set the following properties in the 
-`alfresco-global.properties` file.
+The transformers must validate the content stream mimetype. To configure this, set the following properties in the `alfresco-global.properties` file.
 
 |Property name|Description|
 |-------------|-----------|
 |content.transformer.retryOn.different.mimetype|Enables retrying of a failed transaction if the Apache Tika derived mimetype for the content is not the same as the declared mimetype. It is set to `true` by default.|
 |content.transformer.strict.mimetype.check|Enables or disables a check of the mimetype before the transformation takes place. If `true`, the `content.transformer.retryOn.different.mimetype` property is ignored. It is set to `true` by default.|
-|transformer.strict.mimetype.check.whitelist.mimetypes|Specifies the pair of detected and declared mimetypes (separated by semicolons) that are allowed. For example:`transformer.strict.mimetype.check.whitelist.mimetypes=application/eps;application/postscript;application/illustrator;application/pdf;application/x-tar;application/x-gtar;application/acp;application/zip;application/vnd.stardivision.math;application/x-tika-msoffice`|
+|transformer.strict.mimetype.check.whitelist.mimetypes|Specifies the pair of detected and declared mimetypes (separated by semicolons) that are allowed. For example: `transformer.strict.mimetype.check.whitelist.mimetypes=application/eps; application/postscript; application/illustrator; application/pdf;application/x-tar; application/x-gtar; application/acp; application/zip; application/vnd.stardivision.math; application/x-tika-msoffice`.<br><br>**Note:** These should be written without spaces in-between the pairs.|
 
 **application/acp and application/dita+xml - acp, dita**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
 **application/eps - eps**
 
@@ -129,11 +122,11 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/framemaker - fm**
 
-This format cannot be transformed into, or generated from, any other format.
+This format can't be transformed into, or generated from, any other format.
 
 **application/illustrator - ai**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -174,11 +167,11 @@ This format cannot be transformed into, or generated from, any other format.
 
 **application/java, application/json and application/mac-binhex40 - class, json, hqx**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
 **application/java-archive - jar**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -244,11 +237,11 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/octet-stream and application/oda - bin, oda**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
 **application/ogg - ogx**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -259,7 +252,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/pagemaker - pmd**
 
-This format cannot be transformed into, or generated from, any other format.
+This format can't be transformed into, or generated from, any other format.
 
 **application/pdf - pdf**
 
@@ -346,11 +339,11 @@ This format cannot be transformed into, or generated from, any other format.
 
 **application/postscript and application/remote-printing - ps, prn**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
 **application/rss+xml - rss**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -416,11 +409,11 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/sgml, application/vnd.adobe.aftereffects.project, application/vnd.adobe.aftereffects.template, application/vnd.adobe.air-application-installer-package+zip, application/vnd.adobe.xdp+xml and application/vnd.android.package-archive - gml, aep, aet, air, xdp, apk**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
 **application/vnd.apple.keynote, application/vnd.apple.numbers and application/vnd.apple.pages - key, numbers, pages**
 
->**Note:** These formats cannot be generated from any other format.
+> **Note:** These formats can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -520,7 +513,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.ms-excel.addin.macroenabled.12 - xlam**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -565,7 +558,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.ms-excel.sheet.binary.macroenabled.12, application/vnd.ms-excel.sheet.macroenabled.12, application/vnd.ms-excel.template.macroenabled.12 and application/vnd.openxmlformats-officedocument.spreadsheetml.template - xlsb, xlsm, xltm, xltx**
 
->**Note:** These formats cannot be generated from any other format.
+> **Note:** These formats can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -616,7 +609,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.ms-outlook - msg**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -725,7 +718,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.ms-powerpoint.addin.macroenabled.12, application/vnd.ms-powerpoint.presentation.macroenabled.12 and application/vnd.ms-powerpoint.template.macroenabled.12 - ppam, pptm, potm**
 
->**Note:** These formats cannot be generated from any other format.
+> **Note:** These formats can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -778,7 +771,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.ms-powerpoint.slide.macroenabled.12 - sldm**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -830,7 +823,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.ms-powerpoint.slideshow.macroenabled.12 - ppsm**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -875,7 +868,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.ms-project - mpp**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -886,7 +879,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.ms-word.document.macroenabled.12, application/vnd.ms-word.template.macroenabled.12, application/vnd.openxmlformats-officedocument.wordprocessingml.document and application/vnd.openxmlformats-officedocument.wordprocessingml.template - docm, dotm, docx, dotx**
 
->**Note:** These formats cannot be generated from any other format.
+> **Note:** These formats can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -938,7 +931,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.oasis.opendocument.chart, application/vnd.oasis.opendocument.image, application/vnd.oasis.opendocument.text-master and application/vnd.oasis.opendocument.text-web - odc, odi, odm, oth**
 
->**Note:** These formats cannot be generated from any other format.
+> **Note:** These formats can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -949,7 +942,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.oasis.opendocument.database, application/vnd.oasis.opendocument.formula and application/vnd.oasis.opendocument.graphics-template - odb, odf, otg**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
 **application/vnd.oasis.opendocument.graphics - odg**
 
@@ -1340,7 +1333,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.openxmlformats-officedocument.presentationml.presentation - pptx**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -1393,7 +1386,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.openxmlformats-officedocument.presentationml.slide - sldx**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -1445,7 +1438,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.openxmlformats-officedocument.presentationml.slideshow - ppsx**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -1490,7 +1483,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.openxmlformats-officedocument.presentationml.template - potx**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -1543,7 +1536,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.openxmlformats-officedocument.spreadsheetml.sheet - xlsx**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -1595,7 +1588,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.stardivision.calc, application/vnd.stardivision.chart, application/vnd.stardivision.draw, application/vnd.stardivision.impress, application/vnd.stardivision.impress-packed, application/vnd.stardivision.math, application/vnd.stardivision.writer, application/vnd.stardivision.writer-global - sdc, sds, sda, sdd, sdp, smf, sdw, sgl**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
 **application/vnd.sun.xml.calc - sxc**
 
@@ -1705,7 +1698,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/vnd.sun.xml.draw - sxd**
 
-This format cannot be transformed into, or generated from, any other format.
+This format can't be transformed into, or generated from, any other format.
 
 **application/vnd.sun.xml.impress - sxi**
 
@@ -1990,7 +1983,7 @@ This format cannot be transformed into, or generated from, any other format.
 
 **application/wordperfect - wpd**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -2042,11 +2035,11 @@ This format cannot be transformed into, or generated from, any other format.
 
 **application/x-bcpio, application/x-compress, application/x-csh, application/x-dosexec, application/x-dvi, application/x-fla, application/x-gtar, application/x-indesign, application/x-latex, application/x-mif, application/x-rar-compressed, application/x-sh, application/x-shar, application/x-shockwave-flash, application/x-sv4cpio, application/x-sv4crc, application/x-tcl, application/x-tex, application/x-texinfo, application/x-troff, application/x-troff-man, application/x-troff-me, application/x-troff-mes, application/x-ustar, application/x-wais-source, application/x-x509-ca-cert and application/x-zip - bcpio, z, csh, exe, dvi, fla, gtar, indd, latex, mif, rar, sh, shar, swf, sv4cpio, sv4crc, tcl, tex, texinfo, tr, man, me, ms, ustar, src, cer, fxp**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
 **application/x-cpio, application/x-gzip, application/x-hdf, application/x-netcdf, application/x-tar, application/zip and text/x-java-source - cpio, gzip, hdf, cdf, tar, zip, java**
 
->**Note:** These formats cannot be generated from any other format.
+> **Note:** These formats can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -2057,7 +2050,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **application/x-javascript - js**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -2131,7 +2124,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **audio/basic, audio/mp4, audio/mpeg, audio/ogg, audio/vnd.adobe.soundbooth, audio/vorbis, audio/x-aiff, audio/x-flac, audio/x-ms-wma, audio/x-wav - au, m4a, mp3, oga, asnd, ogg, aiff, flac, wma, wav**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
 **image/tiff - tiff**
 
@@ -2221,7 +2214,7 @@ These formats cannot be transformed into, or generated from, any other format.
 
 **image/bmp, image/cgm, image/gif, image/ief, image/jp2, image/jpeg, image/png, image/tiff, image/vnd.adobe.photoshop, image/vnd.adobe.premiere, image/x-cmu-raster, image/x-dwt, image/x-portable-anymap, image/x-portable-bitmap, image/x-portable-graymap and image/x-portable-pixmap - bmp, cgm, gif, ief, jp2, jpg, png, tiff, psd, ppj, ras, dwt, pnm, pbm, pgm, ppm**
 
-All image types are transformable into and from the following formats, excepting themselves (i.e. image/bmp is not transformable into image/bmp, or from image/bmp).
+All image types are transformable into and from the following formats, excepting themselves (i.e. `image/bmp` is not transformable into `image/bmp`, or from `image/bmp`).
 
 |Format|Transformable to:|Transformable from:|
 |------|-----------------|-------------------|
@@ -2310,11 +2303,11 @@ All image types are transformable into and from the following formats, excepting
 
 **image/svg+xml, image/vnd.dwg, image/x-rgb - svg, dwg, rgb**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
 **image/x-raw-adobe, image/x-raw-canon, image/x-raw-fuji, image/x-raw-hasselblad, image/x-raw-kodak, image/x-raw-leica, image/x-raw-minolta, image/x-raw-nikon, image/x-raw-olympus, image/x-raw-panasonic, image/x-raw-pentax, image/x-raw-red, image/x-raw-sigma, image/x-raw-sony, image/x-xbitmap, image/x-xpixmap and image/x-xwindowdump - dng, cr2, raf, 3fr, k25, rwl, mrw, nef, orf, rw2, pef, r3d, x3f, arw, xbm, xpm, xwd**
 
-All image types are transformable into and from the following formats, excepting themselves (i.e. image/x-raw-adobe is not transformable into image/x-raw-adobe).
+All image types are transformable into and from the following formats, excepting themselves (i.e. `image/x-raw-adobe` is not transformable into `image/x-raw-adobe`).
 
 |Format|Transformable to:|Transformable from:|
 |------|-----------------|-------------------|
@@ -2403,7 +2396,7 @@ All image types are transformable into and from the following formats, excepting
 
 **message/rfc822, text/calendar, text/css, text/richtext, text/sgml, text/tab-separated-values, text/x-markdown, text/x-setext and text/x-jsp - eml, ics, css, rtx, sgml, tsv, md, etx, jsp**
 
->**Note:** These formats cannot be generated from any other format.
+> **Note:** These formats can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -2555,7 +2548,7 @@ All image types are transformable into and from the following formats, excepting
 
 **text/mediawiki - mw**
 
->**Note:** This format cannot be generated from any other format.
+> **Note:** This format can't be generated from any other format.
 
 |Format|Transformable to:|
 |------|-----------------|
@@ -2774,15 +2767,13 @@ All image types are transformable into and from the following formats, excepting
 
 **video/3gpp, video/3gpp2, video/mp2t, video/mp4, video/mpeg, video/mpeg2, video/ogg, video/quicktime, video/webm, video/x-flv, video/x-m4v, video/x-ms-asf, video/x-ms-wmv, video/x-msvideo, video/x-rad-screenplay, video/x-sgi-movie, x-world/x-vrml - 3gp, 3g2, ts, mp4, mpg, mpeg2, ogv, mov, webm, flv, m4v, asf, wmv, avi, avx, movie, wrl**
 
-These formats cannot be transformed into, or generated from, any other format.
+These formats can't be transformed into, or generated from, any other format.
 
-## Additional transform options {#additionaltransformoptions}
+## Additional transform options {#additional}
 
-If you have installed a transformation tool, such as Alfresco Outlook Integration or Document Transformation Engine, 
-there are additional transform options available to you.
+If you've installed a transformation tool, such as Alfresco Outlook Integration or Document Transformation Engine, there are additional transform options available to you.
 
-The tables give details of registered file types with information about their available transform options. 
-See [Standard transform options](#standardtransformoptions) for all standard transform options.
+The tables give details of registered file types with information about their available transform options. See [Standard transform options](#standard) for all standard transform options.
 
 You can also view more information about file types and the proxies used to transform them by using the browser command:
 
@@ -2794,9 +2785,7 @@ where `localhost:8080` is the host and port number of your active Content Servic
 
 ### Alfresco Outlook Integration
 
-Alfresco Outlook Integration provides two transformers (`com.westernacher.wps.alfresco.transformers.mail.aspose.EML_MSG2PdfTransformer` 
-and `com.westernacher.wps.alfresco.transformers.mail.aspose.EML_MSG2PngTransformer`) to manipulate PDF, image and Outlook email messages. 
-The formats listed are in addition to the standard formats as specified in [Standard transform options](#standardtransformoptions).
+Alfresco Outlook Integration provides two transformers (`com.westernacher.wps.alfresco.transformers.mail.aspose.EML_MSG2PdfTransformer` and `com.westernacher.wps.alfresco.transformers.mail.aspose.EML_MSG2PngTransformer`) to manipulate PDF, image and Outlook email messages. The formats listed are in addition to the standard formats as specified in [Standard transform options](#standard).
 
 **application/eps - eps, application/pdf - pdf, image/bmp - bmp, image/cgm - cgm, image/gif - gif, image/ief - ief, image/jp2 - jp2, image/jpeg - jpg, image/png - png, image/tiff - tiff, image/vnd.adobe.photoshop - psd, image/vnd.adobe.premiere - ppj, image/x-cmu-raster - ras, image/x-dwt - dwt, image/x-portable-anymap - pnm, image/x-portable-bitmap - pbm, image/x-portable-graymap - pgm, image/x-portable-pixmap - ppm, image/x-raw-adobe - dng, image/x-raw-canon - cr2, image/x-raw-fuji - raf, image/x-raw-hasselblad - 3fr, image/x-raw-kodak - k25, image/x-raw-leica - rwl, image/x-raw-minolta - mrw, image/x-raw-nikon - nef, image/x-raw-olympus - orf, image/x-raw-panasonic - rw2, image/x-raw-pentax - pef, image/x-raw-red - r3d, image/x-raw-sigma - x3f, image/x-raw-sony - arw, image/x-xbitmap - xbm, image/x-xpixmap - xpm, image/x-xwindowdump - xwd**
 
@@ -2845,11 +2834,9 @@ The formats listed are in addition to the standard formats as specified in [Stan
 |image/x-xpixmap|Yes|
 |image/x-xwindowdump|Yes|
 
-### Document Transformation Engine {#doctransformengine}
+### Document Transformation Engine
 
-Transformation Engine gives an alternative method of remote transformation for a range of applications including pdf, 
-Word, Excel, PowerPoint and openxmlformats. It also supports a range of image transformations. The formats listed are 
-in addition to the standard formats as specified in [Standard transform options](#standardtransformoptions).
+Transformation Engine gives an alternative method of remote transformation for a range of applications including pdf, Word, Excel, PowerPoint and openxmlformats. It also supports a range of image transformations. The formats listed are in addition to the standard formats as specified in [Standard transform options](#standard).
 
 **application/pdf - pdf**
 
@@ -2867,15 +2854,13 @@ in addition to the standard formats as specified in [Standard transform options]
 
 ### Alfresco Media Management
 
-Alfresco Media Management provides additional options for audio, video and image transformations. The formats are listed 
-in [Alfresco Media Management transform options](TODO_LINK:http://docs.alfresco.com/mm/references/mm-additional-transformations.html).
+Alfresco Media Management provides additional options for audio, video and image transformations. The formats are listed in [Alfresco Media Management transform options](TODO_LINK:http://docs.alfresco.com/mm/references/mm-additional-transformations.html).
 
 ## File types that support preview and thumbnail generation
 
 Some file type extensions (MIME types) allow thumbnail or preview generation instead of standard icons.
 
-The following table shows the file types that support these capabilities. See [Standard transform options](#standardtransformoptions) 
-for a full listing of formats.
+The following table shows the file types that support these capabilities. See [Standard transform options](#standard) for a full listing of formats.
 
 ### Formats that support preview and thumbnail generation
 
@@ -2965,4 +2950,3 @@ for a full listing of formats.
 |text/html|html|Yes|Yes|
 |text/plain|txt|Yes|Yes|
 |text/xml|xml|Yes|Yes|
-

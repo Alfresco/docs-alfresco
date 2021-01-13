@@ -2,6 +2,7 @@ services:
   - title: "Content"
     text: "Alfresco Content Services offers full-featured ECM for organizations that require enterprise-grade scalability, performance, and 24x7 support for business-critical content and compliance."
     image: /assets/img/ic_content_80px.svg
+    url: /content-services/latest/
     sub:
       - title: "Read documentation"
         url: /content-services/latest/
@@ -11,12 +12,12 @@ services:
     image: /assets/img/ic_process_80px.svg
     sub:
       - title: "On premise"
-        url:
-      - title: "Process on Alfresco Cloud"
-        url:
+        url: /process-services/latest/
+      - title: "Process Automation on Alfresco Cloud"
+        url: /process-automation/latest/
   - title: "Governance"
     text: "Alfresco Governance Services controls important information that needs to be retained over time. It's used in highly regulated environments, for managing governmental information or personnel records, or where information might be audited."
-    url:
+    url: /governance-services/latest/
     image: /assets/img/ic_governance_80px.svg
     sub:
       - title: "Read documentation"
@@ -36,46 +37,48 @@ integrations:
         url: /desktop-sync/latest/
   - title: "Transform"
     text: "Create secure, scalable, reliable, and extensible transforms for converting files from their current format into other formats using the all-in-one Transform Core Engine (T-Engine) that performs all the core transforms."
-    url:
+    url: 
     image: /assets/img/ic_transform_80px.svg
     sub:
       - title: "Transform Service"
         text: "Alfresco Transform Service provides a secure, scalable, reliable, and extensible mechanism for converting files from their current format into other formats."
-        url:
+        url: /transform-service/latest/
       - title: "Document Transformation Engine"
         text: "Alfresco Document Transformation Engine is a stable, fast, and scalable solution for high-quality transformations of Microsoft Office documents."
         url: /transformation-engine/latest/
+
       - title: "Media Management"
         text: "Alfresco Media Management provides the capability to transform and add metadata and relationships to your digital media."
-        url:
+        url: /media-management/latest/
   - title: "Search"
     text: "Gain insight into content, metadata, and governance with developer and user-friendly contextual analytics, without the need for specialized business intelligence (BI) teams. Multi-server index clustering (including Solr sharding) provides maximum search performance."
     url:
     image: /assets/img/ic_search_80px.svg
     sub:
-      - title: "Search and Insight"
+      - title: "Search and Insight Engine"
         text: "Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services."
-        url:
+        url: /insight-engine/latest/
       - title: "Search Services"
         text: "Alfresco Search Services provides the default search service index for Alfresco Content Services and Alfresco Community Edition."
-        url:
-      - title: "Federation"
-        text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
-        url: /federation-services/latest/
+        url: /search-services/latest/
+  - title: "Federation"
+    text: "Alfresco Federation Service provides a powerful and easy way to search and manage content federated from leading business systems and content management applications."
+    url: /federation-services/latest/
+    image: /assets/img/ic_federation_80px.svg
   - title: "Identity"
     text: "Enable Single Sign On capabilities by configuring user authentication between Identity Service and a supported SAML identity provider."
     url:
     image: /assets/img/ic_identity_80px.svg
     sub:
       - title: "Identity Service"
-        text: "Identity Service is responsible for supporting user authentication of other Alfresco software."
+        text: "The Identity Service is responsible for supporting user authentication of other Alfresco software and single sign on (SSO) capabilities."
         url: /identity-service/latest/
-      - title: "SAML SSO"
-        text: "SAML Single Sign-On for Alfresco Content Services provides support for Single Sign-On (SSO) across an organization."
-        url: /saml-sso/latest/
+      - title: "SAML Module"
+        text: "The SAML Module for Alfresco Content Services provides support for SAML authentication in Content Services."
+        url: /saml-module/latest/
   - title: "Intelligence"
     text: "Add AI capabilities to Alfresco Content Services using a number of Amazon AI Services (Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine."
-    url:
+    url: /intelligence-services/latest/
     image: /assets/img/ic_intelligence_80px.svg
   - title: "Content Stores"
     text: "Content stores can be used to control how and where files are physically stored. Files and content items can be stored across a range of locations and can be encrypted/decrypted. Additional content storage options can be wired up together for efficient storage and access."
@@ -84,33 +87,33 @@ integrations:
     sub:
       - title: "Amazon S3"
         text: "Alfresco Content Connector for AWS S3 uses Amazon's Simple Storage Service (S3) as the storage mechanism for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
-        url:
+        url: /aws-s3/latest
       - title: "Microsoft Azure"
         text: "Alfresco Content Connector for Azure uses Microsoft's Azure Blob Storage as an alternative content store for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
         url: /microsoft-azure/latest/
       - title: "Amazon Glacier"
         text: "Alfresco Content Connector for AWS Glacier enables access to Amazon S3 Glacier as a storage service optimized for infrequently used data, and suits the long term storage of archive and backup data."
-        url:
+        url: /aws-glacier/latest/
       - title: "EMC Centera"
         text: "Alfresco Content Connector for EMC Centera uses EMC Centera as an alternative content store for Alfresco Content Services."
         url: /centera/latest/
-  - title: "Business Connector"
-    text: "Connectors are used to handle interactions between external systems and a process. For example, interacting with an installation of Slack to post messages, calling a custom REST API, and passing the response back to a process."
+  - title: "Business Connectors"
+    text: "Business connectors are used to handle interactions between external systems and a process. For example, interacting with an installation of Slack to post messages, calling a custom REST API, and passing the response back to a process."
     url:
     image: /assets/img/ic_business_connectors_80px.svg
     sub:
       - title: "Salesforce"
         text: "Alfresco Content Connector for Salesforce allows you to store documents in Alfresco Content Services, but access them directly from Salesforce."
-        url:
+        url: /salesforce/latest/
       - title: "SAP"
         text: "Alfresco Content Connector for SAP applications offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
-        url:
+        url: /sap/latest/
       - title: "Microsoft Outlook"
         text: "Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook."
-        url:
+        url: /microsoft-outlook/latest/
       - title: "Microsoft Office"
         text: "Alfresco Office Services allows you to access Alfresco Content Services directly from your Microsoft Office applications."
-        url:
+        url: /microsoft-office/latest/
       - title: "Google Docs"
         text: "Alfresco Google Docs Integration allows you to use Google Docs to edit document content stored in Alfresco Content Services, as an alternative to the online and offline editing capabilities in Alfresco Share."
         url: /google-drive/latest/
@@ -118,28 +121,23 @@ integrations:
 applications:
   - title: "Digital Workspace"
     text: "Alfresco Digital Workspace is a content management application built with the Alfresco Application Development Framework (ADF)."
-    url:
+    url: /digital-workspace/latest
     image: /assets/img/logo_dw_72px.svg
   - title: "Application Development Framework"
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
-    url:
+    url: 'https://www.alfresco.com/abn/adf/docs/'
     image: /assets/img/logo_adf_72px.svg
   - title: "Content Mobile"
     text: "Alfresco Content Services for mobile allows you to view, edit, and share information in and out of the office via the mobile app."
-    url:
+    url: /content-mobile/latest/
     image: /assets/img/logo_cm_72px.svg
-    sub:
-      - title: "iOS"
-        url:
-      - title: "Android"
-        url:
-  - title: "Process for iOS"
-    text: "Alfresco Process Services for mobile allows you to start new processes and interact with related content via the mobile app."
-    url:
-    image: /assets/img/logo_pm_72px.svg
-    sub:
-      - title: "iOS"
-        url:
-      - title: "Android"
-        url:
+#  - title: "Process for iOS"
+#    text: "Alfresco Process Services for mobile allows you to start new processes and interact with related content #via the mobile app."
+#    url:
+#    image: /assets/img/logo_pm_72px.svg
+#    sub:
+#      - title: "iOS"
+#        url:
+#      - title: "Android"
+#        url:
         

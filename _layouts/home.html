@@ -7,15 +7,17 @@
 
     {%include mainmenu.html showsearch=false %}
     <!-- landing title section-->
-    <section class="section">
+    <section class="section section-mainsearch">
       <div class="container">
         <div class="columns is-vcentered">
+          <div class="column">
+            <div class="landing-mainimage is-vertical-center"></div>
+          </div>
           <div class="column">
             <div class="langing-section-header">
               <h1>Documentation</h1>
               <p >
-                Examples, tutorials, and API references to help you start
-                building with Alfresco
+                What can we help you find?
               </p>
 {% capture specialoptions %}
           <a class="dropdown-item special" data-placeholder="Start type to search..." data-value="global" data-url="/search#query//" href="#">
@@ -26,9 +28,6 @@
               {% include search.html special=specialoptions %}
             </div>
           </div>
-          <div class="column">
-            <div class="landing-mainimage is-vertical-center"></div>
-          </div>
         </div>
       </div>
     </section>
@@ -38,28 +37,28 @@
     <section class="section section-landing has-background-light section-services">
       <div class="container">
         <h1>Services</h1>
-        <div class="columns">
           {% for s in site.data.home.services limit: 3 %}
+        <div class="section-row">
+        <div class="columns section-landing-element">
           <div class="column">
-            <div class="container section-landing-element">
+            <div class="container">
               <img height="72" src="{{s.image}}" width="72"/>
               <h1>{{s.title}}</h1>
-              <p>{{s.text}}</p>
             </div>
           </div>
-          {% endfor %}
-        </div>
-        <div class="columns">
-          {% for s in site.data.home.services limit: 3 %}
           <div class="column">
+            <p>{{s.text}}</p>
             <ul>
               {% for ss in s.sub %}
               <li>
                 <a href="{{ss.url}}">{{ss.title}}</a>
               </li>
               {% endfor %}
-            </ul>
+            </ul>  
           </div>
+
+        </div>
+        </div>
           {% endfor %}
         </div>
       </div>
