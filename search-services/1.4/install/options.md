@@ -2,9 +2,7 @@
 title: Installation options
 ---
 
-There are several options for installing Search Services:
-
-* Using the distribution zip (with or without mutual TLS)
+You can install Search Services using the distribution zip (with or without mutual TLS).
 
 ## Install with mutual TLS (zip)
 
@@ -25,11 +23,11 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-search-services-1.4.x.zip`.
+1. Download `alfresco-search-services-1.4.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search Services distribution.
 
-    By default, the contents of `alfresco-search-services-1.4.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/1.4/config/index.md %}#search-and-search-services-directory-structure) for more details.
+    By default, the contents of `alfresco-search-services-1.4.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/1.4/config/index.md %}#search-services-directory-structure) for more details.
 
 3. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this update the `alfresco-search-services/solrhome/conf/shared.properties` file:
 
@@ -96,7 +94,7 @@ This task assumes you have:
         SOLR_PORT=8983
         ```
 
-6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/1.4/config/index.md %}#search-and-search-services-externalized-configuration).
+6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/1.4/config/index.md %}#search-services-externalized-configuration).
 
     (Windows) update the `alfresco-search-services/solr.in.cmd` file:
 
@@ -172,6 +170,8 @@ This task assumes you have:
 
     Allow a few minutes for Search Services to start indexing.
 
+    > **Note:** The Admin Console is only available when you are using Alfresco Content Services Enterprise.
+
 ## Install without mutual TLS (zip)
 
 Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS.
@@ -191,11 +191,11 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-search-services-distribution-1.4.x.zip`.
+1. Download `alfresco-search-services-1.4.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search Services distribution.
 
-    By default, the contents of `alfresco-search-services-1.4.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/1.4/config/index.md %}#search-and-search-services-directory-structure) for more details.
+    By default, the contents of `alfresco-search-services-1.4.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/1.4/config/index.md %}#search-services-directory-structure) for more details.
 
 3. Configure HTTP.
 
@@ -234,7 +234,7 @@ This task assumes you have:
 
     > **Note:** The spell check functionality works with Search Services when suggestion is enabled.
 
-6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/1.4/config/index.md %}#search-and-search-services-externalized-configuration).
+6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/1.4/config/index.md %}#search-services-externalized-configuration).
 
     (Windows) update the `alfresco-search-services`/`solr.in.cmd` file:
 

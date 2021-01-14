@@ -21,7 +21,7 @@ You can download the Search Services installation file from the [Alfresco Suppor
 
 The supported platforms are the combinations of operating systems, databases, and application servers that are tested and certified for Alfresco Content Services.
 
-Before you install Search Services you must install Alfresco Content Services 6.0 or later. You can install Search Services using the distribution zip and Docker Compose, but the Docker Compose method of installation is only for development and test environments.
+Before you install Search Services you must install Alfresco Content Services 6.0 or later. You can install Search Services using the distribution zip.
 
 See [Supported platforms]({% link search-services/1.4/support/index.md %}) for information about prerequisites and requirements.
 

@@ -1,193 +1,88 @@
 ---
-title: Migrate Search Services 
+title: Migrate Solr 4 to Solr 6 
 ---
 
-Use this information to migrate from Search Services to Search Services using the distribution zip or docker compose, including how to migrate Search Services to Search Services.
+Use this information to migrate from Alfresco One 5.1 with the Solr 4 search index server to Alfresco Content Services 6.2 with the Solr 6 search index server.
 
-> **Note:** You can only migrate to Search Services using the distribution zip.
+To determine the current search server, navigate to the Search Manager page at **Alfresco Share Admin Console > Repository Services > Search Service**. Select the search subsystem from the **Search Service In Use** list.
 
-## Migrate with zip
+> **Note:** The Admin Console is only available for users who are using Alfresco Content Services Enterprise.
 
-You can migrate from Alfresco Content Services 6.0 or above with Search Services 1.3 or above to Alfresco Content Services with Search Services 1.4. You can also migrate from Alfresco Content Services 5.x with Search Services 1.3 or below to Alfresco Content Services 6.0 or above with Search Services 1.4.
+Follow the steps to migrate from Alfresco One 5.x with Solr 4 search service to Alfresco Content Services 6.2 with Solr 6 search service.
 
-* [Migrate Content Services 6.0 with Search Services 1.3 or above](#migrate-content-services-60-with-search-services-13-or-above)
-* [Migrate Content Services 5.x with Search Services 1.3 or below](#migrate-content-services-5x-with-search-services-13-or-below)  
+1. Upgrades from Alfresco One 5.0 or 5.1 need to first stop at 5.2 to upgrade search to Alfresco Search Services, and then upgrade to 6.0.
 
-### Migrate Content Services 6.0 with Search Services 1.3 or above
+2. Upgrades from Alfresco Content Services 5.2 must first upgrade to Search Services from Solr 4, and then upgrade to 6.0
 
-Use this information to migrate from Alfresco Search Services 1.3 or above to Search Services 1.4 using a distribution zip.
+3. Make sure you upgrade to Alfresco Search Services 2.0 before upgrading the repository to 6.2.
 
-1. Stop Search Services.
+4. Install and configure Solr 6 to track the repository. For more information, see [Installation options]({% link search-services/1.4/install/options.md %}).
 
-    ```bash
-    ./solr/bin/solr stop
-    ```
+5. While Solr 6 builds its indexes, you can monitor progress using the `SUMMARY` report.
 
-2. Backup or move the existing `alfresco-search-services` folder to a preferred location. For example, `alfresco-search-services-1.x`.
+```http
+http://localhost:8080/solr/admin/cores?action=SUMMARY&wt=xml 
+```
 
-3. Browse to the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
+For details, see the [Monitor and troubleshoot]({% link search-services/1.4/admin/monitor.md %}#unindexed-transactions) topic.
 
-4. Download and unzip the Search Services distribution zip file to a preferred location:
+6. Optionally, you can use the Solr Admin Web interface to view Solr configuration details, run queries, and analyze document fields.
 
-    ```bash
-    alfresco-search-services-1.4.x.zip
-    ```
+    1. Open the FireFox **Certificate Manager** by selecting **Firefox > Preferences > Advanced > Certificates > View Certificates > Your Certificates**.
 
-    By default, the contents are decompressed in a folder at `./alfresco-search-services`. The folder extracts into the same location as the zip file.
+    2. Import the browser keystore `browser.p12` that is located in your `<ALFRESCO_HOME>/alf_data/keystore directory`.
 
-5. Your indexes for Solr are in another location, use the following commands to point Solr to the right location:
+    3. Enter the password `alfresco`.
 
-    Unix like systems
+        A window displays showing that the keystore has been imported successfully. The **Certificate Manager** now contains the imported keystore with the Alfresco repository certificate under the **Your Certificates** tab.
 
-    ```bash
-    ./solr/bin/solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.model.dir=/your-preferred-location/solrhome/alfrescoModels
-    -Ddata.dir.root=/your-preferred-location/solrhome/
-    ```
+    4. Close the **Certificate Manager** by clicking **OK**.
 
-    Microsoft Windows
+    5. In the browser, navigate to a Solr URL.
 
-    ```bash
-    solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.model.dir="your-preferred-locationsolrhomealfrescoModels"
-    -Ddata.dir.root="your-preferred-locationsolrhome"
-    ```
+        For example, use `http://localhost:8080/solr`.
 
-6. (Optional) If you have changed the `alfresco-search-services/solr.in.sh` or `alfresco-search-services/solr.in.cmd` file, you must restore it from your backup.
+        The browser displays an error message window to indicate that the connection is untrusted. This is due to the Alfresco certificate not being tied to the server IP address. In this case, view the certificate and confirm that it is signed by the Alfresco Certificate Authority.
 
-7. Start Search Services.
+    6. Expand **I understand the risks**.
 
-    > **Note:** To check what version of Search Services or Search Services you have installed go to `http://localhost:8983/solr/`.
+    7. Select **Add Exception**.
 
-### Migrate Content Services 5.x with Search Services 1.3 or below
+    8. Click **View**.
 
-There are two steps to migrating your installation from Alfresco Content Services 5.x with Alfresco Search Services to Alfresco Content Services 6.0 with Search Services. First you need to upgrade to Alfresco Content Services 6.0 with Search Services, and then migrate Search Services to Search Services.
+        This displays the certificate.
 
-> **Note:** You can't upgrade Alfresco Content Services 5.x using Docker Compose.
+    9. Confirm that the certificate was issued by Alfresco Certificate Authority, and then confirm the **Security Exception**.
 
-1. Upgrade from Alfresco Content Services 5.x to Alfresco Content Services 6.0, for more see [Upgrading from Solr 4 to Solr 6 search LINK](https://docs.alfresco.com/search-enterprise/tasks/solr4-solr6-migration.html).
+    Access to Solr 6 is granted. The Solr Admin page is displayed. It is divided into two parts.
 
-    > **Note:** You can't do this using Docker Compose.
+    The left-side of the screen is a menu under the Solr logo that provides navigation through various screens. The first set of links are for system-level information and configuration and provide access to Logging, Core Admin and Java Properties. At the end of this information is a list of Solr cores configured for this instance of Alfresco.
 
-2. Migrate from Search Services to Search Services see [Migrating Content Services 6.0 with Search Services 1.3 or above](#migrating-content-services-60-with-search-services-13-or-above).
+    The center of the screen shows the detail of the Solr core selected, such as statistics, summary report, and so on.
 
-## Migrate using Docker Compose
+    ![]({% link search-services/images/solr-webapp.png %})
 
-If you already have Alfresco Content Services 6.0 or above with Search Services 1.3 or 1.4 installed, you can migrate to Search Services 1.4. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
+7. When the index is updated as reported by the `SUMMARY` report, you can use the `REPORT` option and check the following:
 
-> **Note:** A reindex is not required when you migrate from Search Services to Search Services 1.4.
+* In the `REPORT` option, node count should match the number of live nodes in the repository (assuming nothing is changing and the index is updated). The index contains a document for failed nodes, so failures need to be considered separately.
+* Any missing transactions; if there are issues, use the `FIX` option.
 
-Use this information to migrate from Search Services to Search Services using Docker Compose.
+```http
+http://localhost:8080/solr/admin/cores?action=FIX
+```
 
-1. Insert the following container information into your `docker-compose.yml` file and save it.
+For more information, see the [Monitor and troubleshoot]({% link search-services/1.4/admin/monitor.md %} topic.
 
-    ```yaml
-        solr6:
-            #image: alfresco/alfresco-search-services:1.4.x (or 1.3)
-            image: quay.io/alfresco/search-services:1.4.x
-            mem_limit: 2500m
-            environment:
-                #Solr needs to know how to register itself with Alfresco
-                    - SOLR_ALFRESCO_HOST=alfresco
-                    - SOLR_ALFRESCO_PORT=8080
-                #Alfresco needs to know how to call solr
-                    - SOLR_SOLR_HOST=solr6
-                    - SOLR_SOLR_PORT=8983
-                #Create the default alfresco and archive cores
-                    - SOLR_CREATE_ALFRESCO_DEFAULTS=alfresco,archive
-                    - "SOLR_JAVA_MEM=-Xms2g -Xmx2g"
-            ports:
-                - 8083:8983 #Browser port
-    ```
+Find errors with specific nodes using `DOC_TYPE:ErrorNode` option.
 
-2. Use the following command to run the file and upgrade your Alfresco Content Services 6.0 installation:
+```http
+https://localhost:8446/solr/alfresco/afts?q=DOC_TYPE:ErrorNode 
+```
 
-    ```dockerfile
-    docker-compose up
-    ```
+If there are any issues, use the `REINDEX` option with the relevant node id.
 
-## Migrate to Search Services
+```http
+http://localhost:8080/solr/admin/cores?action=REINDEX&txid=1&acltxid=2&nodeid=3&aclid=4
+```
 
-Use this information to migrate from Search Services 1.4 To Search Services 1.4 using a distribution zip.
-
-> **Note:** A reindex is not required when you migrate from Search Services to Search Services.
-
-1. Stop Alfresco Search Services.
-
-    ```bash
-    ./solr/bin/solr stop
-    ```
-
-2. Backup or move the existing alfresco-search-services folder to a preferred location. For example, alfresco-search-services-1.4.
-
-3. Browse to the Support Portal:  [Support Portal](https://support.alfresco.com/){:target="_blank"}.
-
-4. Download and unzip the Alfresco Search Services zip file to a preferred location:
-
-    ```bash
-    alfresco-search-services-distribution-1.4.x.zip
-    ```
-
-    By default, the Alfresco Search Services contents are decompressed in a folder at ./alfresco-search-services. The folder extracts into the same location as the zip file.
-
-5. You can now start Alfresco Search Services by pointing to the content store and indexes from Alfresco Search Services using the following commands.
-
-    > **Note:** If the content store and indexes for Solr are in another location, change the directory location to point to the correct one.
-
-    Unix like systems
-
-    ```bash
-    ./solr/bin/solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port> 
-    -Dsolr.content.dir=/alfresco-search-services-1.4/contentstore
-    -Dsolr.model.dir=/alfresco-search-services-1.4/solrhome/alfrescoModels
-    -Ddata.dir.root=/alfresco-search-services-1.4/solrhome/
-    ```
-
-    Microsoft Windows
-
-    ```bash
-    solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.content.dir="alfresco-search-services-1.4\contentstore"
-    -Dsolr.model.dir="alfresco-search-services-1.4\solrhome\alfrescoModels"
-    -Ddata.dir.root="alfresco-search-services-1.4\solrhome\"
-    ```
-
-    > **Note:** At this stage you have migrated. If you want to migrate using an external location, continue with the following steps.
-
-6. Copy the contentstore from the backup alfresco-search-services-1.4 to a preferred location, for example alf\_data.
-
-7. Copy the cores: alfresco, archive and the models: alfrescoModels from alfresco-search-services-1.4/solrhome
-
-8. Your directory structure will look like the following:
-
-    ```bash
-    alf_data/contentstore
-    alf_data/solrhome
-    alf_data/solrhome/alfresco
-    alf_data/solrhome/archive 
-    alf_data/solrhome/alfrescoModels
-    ```
-
-9. (Optional) If you have changed the `alfresco-search-services/solr.in.sh` or `alfresco-search-services/solr.in.cmd` file, you must restore it from your backup.
-
-10. Start Search Services.
-
-    If the content store and indexes for Solr are in another location, use the following commands to point Solr to the right location:
-
-    Unix like systems
-
-    ```bash
-    ./solr/bin/solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.content.dir=/your-preferred-location/contentstore
-    -Dsolr.model.dir=/your-preferred-location/solrhome/alfrescoModels
-    -Ddata.dir.root=/your-preferred-location/solrhome/
-    ```
-
-    Microsoft Windows
-
-    ```bash
-    solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.content.dir="your-preferred-location\contentstore"
-    -Dsolr.model.dir="your-preferred-location\solrhome\alfrescoModels"
-    -Ddata.dir.root="your-preferred-location\solrhome\"
-    ```
+For more information, see the [Monitor and troubleshoot]({% link search-services/1.4/admin/monitor.md %} topic.

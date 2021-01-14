@@ -1,216 +1,560 @@
 ---
-title: Building reports and dashboards
+title: Full text search reference
 ---
 
-Search Services comes with a number of out-of-the box reports and a dashboard builder with pre-configured reports based on Insight Zeppelin. Insight Zeppelin is a web-based notebook that enables data-driven, interactive data analytics, data visualization, and collaborative documents using SQL.
+The following sections describe the Alfresco Full Text Search (FTS) syntax.
 
-To use the reports and dashboard builder, you need to install Insight Zeppelin.
+The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `contains()` predicate function. The CMIS specification supports a subset of FTS. The full power of FTS can not be used and, at the same time, maintain portability between CMIS repositories.
 
-> **Note:** For this version of Search Services, cluster mode is not supported.
+FTS is exposed directly by the interface, which adds its own template, and is also used as its default field. The default template is:
 
-Use `http://localhost:9090/zeppelin` to access Insight Zeppelin user interface.
-
-For information on Insight Zeppelin user Interface see [Explore Apache Zeppelin UI](https://zeppelin.apache.org/docs/0.8.1/quickstart/explore_ui.html){:target="_blank"}.
-
-## Installation options
-
-There are several options for installing Insight Zeppelin:
-
-* [Install with a distribution zip](#install-with-a-distribution-zip).
-* [Install with Docker Compose](#install-with-docker-compose).
-
-> **Note** You do not need to install Insight Zeppelin in order to use Search Services.
-
-## Install with a distribution zip
-
-Use this information to manually install Insight Zeppelin using a distribution zip.
-
-1. Download the `alfresco-insight-zeppelin-1.4.3.zip` file from the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
-
-2. Unzip the file.
-
-3. Run the following script:
-
-    On Unix-like systems: `ZEPPELIN_HOME/bin/substituter.sh`
-
-    On Microsoft Windows: `ZEPPELIN_HOME/bin/substituter.cmd`
-
-    This script reads the `zeppelin.properties` file in ZEPPELIN_HOME. Use the `zeppelin.properties` file to change the Alfresco Content Services repository connection details.
-
-    Alternatively, you can pass `REPO_PROTOCOL`, `REPO_HOST`, and `REPO_PORT` to the script from the command line. For example, `REPO_PROTOCOL=https REPO_HOST=myhost REPO_PORT=8443./substituter.sh`. You don't have to pass all the variables just the ones you want to override. The default values are: `REPO_PROTOCOL=http, REPO_HOST=localhost, and REPO_PORT=8080`. The port number, context path or other properties can be changed in `ZEPPELIN_HOME/conf/zeppelin-env.sh` on Unix like systems (or `ZEPPELIN_HOMEconfzeppelin-env.cmd` for Microsoft Windows). See [Apache Zeppelin Configuration](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html){:target="_blank"} for a full list of properties.
-
-4. To start the Insight Zeppelin Server, run:
-
-    On Unix like systems: `ZEPPELIN_HOME/bin/zeppelin-daemon.sh`
-
-    On Microsoft Windows: `ZEPPELIN_HOMEbinzeppelin.cmd`
-
-5. Open the user interface using:
-
-    `http://localhost:9090/zeppelin`
-
-6. Log in with your Alfresco Content Services credentials.
-
-7. Create a new notebook or use the one provided.
-
-8. To stop Insight Zeppelin, run:
-
-    On Unix-like systems: `ZEPPELIN_HOME/bin/zeppelin-daemon.sh`
-
-    On Microsoft Windows: Ctrl + C
-
-By default Insight Zeppelin uses Alfresco Content Services to authenticate users, which means every user in Alfresco Content Services will be able to access Zeppelin. To limit the number of users, comment out all the `alfrescoRealm` related configuration settings in `ZEPPELIN_HOME/conf/shiro.ini`. You can configure your LDAP or AD to allow specific users access to Insight Zeppelin.
-
-See the following configuration example showing that only users in the `ZeppelinUsers` group have access to the application.
-
-```bash
-ldapRealm = org.apache.zeppelin.realm.LdapRealm
-ldapRealm.contextFactory.systemUsername = <principal>
-ldapRealm.contextFactory.systemPassword = <password>
-ldapRealm.searchBase = OU=Users,DC=test,DC=com
-ldapRealm.userSearchFilter = (&(objectclass=person)(sAMAccountName={0})(memberOf:=CN=ZeppelinUsers,OU=Users,DC=test,DC=com))
-ldapRealm.userSearchScope = subtree
-ldapRealm.authorizationEnabled = true
-ldapRealm.contextFactory.url = <ldap-url>
-ldapRealm.userSearchAttributeName = sAMAccountName
-ldapRealm.contextFactory.authenticationMechanism = simple
-ldapRealm.userObjectClass = person
-ldapRealm.groupObjectClass = group
-ldapRealm.memberAttribute = member
-securityManager.realms=$ldapRealm
+```sql
+%(cm:name cm:title cm:description ia:whatEvent ia:descriptionEvent lnk:title lnk:description TEXT)
 ```
 
-### SSL encryption
+When FTS is embedded in CMIS-SQL, only the CMIS-SQL-style property identifiers (`cmis:name`) and aliases, CMIS-SQL column aliases, and the special fields listed can be used to identify fields. The SQL query defines tables and table aliases after `from` and `join` clauses. If the SQL query references more than one table, the `contains()` function must specify a single table to use by its alias. All properties in the embedded FTS query are added to this table and all column aliases used in the FTS query must refer to the same table. For a single table, the table alias is not required as part of the `contains()` function.
 
-Ideally Insight Zeppelin is deployed on a separate server. If Insight Zeppelin is using SSL to communicate with Alfresco Content Services you must add the following settings to each Interpreter configured with Insight Zeppelin:
+When FTS is used standalone, fields can also be identified using `prefix:local-name` and `{uri}local-name` styles.
+
+Query time boosts allow matches on certain parts of the query to influence the score more than others.
+
+All query elements can be boosted: terms, phrases, exact terms, expanded terms, proximity (only in filed groups), ranges, and groups.
 
 ```bash
-alfresco.enable.ssl=true
-alfresco.ssl.checkPeerName=false (If using Self Signed certificates)
-javax.net.ssl.keyStoreType=JCEKS
-javax.net.ssl.keyStore=../keystore/ssl.repo.client.keystore
-javax.net.ssl.keyStorePassword=kT9X6oe68t
-javax.net.ssl.trustStoreType=JCEKS
-javax.net.ssl.trustStore=../keystore/ssl.repo.client.truststore
-javax.net.ssl.trustStorePassword=kT9X6oe68t
+term^2.4
+"phrase"^3
+term~0.8^4
+=term^3
+~term^4
+cm:name:(big * yellow)^4
+1..2^2
+[1 TO 2]^2
+yellow AND (car OR bus)^3
 ```
 
-Alternatively you can add the settings directly to the following JSON file: `ZEPPELIN_HOME/conf/interpreter.json`:
+## Search using date math
 
-```json
-"alfresco.enable.ssl": {
-  "value": "true",
-  "type": "string"
-},
-"solr.ssl.checkPeerName": {
-  "value": "false",
-  "type": "string"
-},
-"javax.net.ssl.keyStore": {
-  "value": "/zeppelin/keystore/ssl.repo.client.keystore",
-  "type": "string"
-},
-"javax.net.ssl.keyStorePassword": {
-  "value": "kT9X6oe68t",
-  "type": "string"
-},
-"javax.net.ssl.keyStoreType": {
-  "value": "JCEKS",
-  "type": "string"
-},
-"javax.net.ssl.trustStore": {
-  "value": "/zeppelin/keystore/ssl.repo.client.truststore",
-  "type": "string"
-},
-"javax.net.ssl.trustStorePassword": {
-  "value": "kT9X6oe68t",
-  "type": "string"
-},
-"javax.net.ssl.trustStoreType": {
-  "value": "JCEKS",
-  "type": "string"
+The date field types in Solr support the date math expressions.
+
+The date math expression makes it easy to create times relative to fixed moments in time and includes the current time which can be represented using the special value of `NOW`.
+
+### Date math syntax
+
+The date math expressions consist either adding some quantity of time in a specified unit, or rounding the current time by a specified unit. Expressions can be chained and are evaluated left to right.
+
+For example, to represents a point in time two months from now, use:
+
+```text
+NOW+2MONTHS
+```
+
+To represents a point in time one day ago, use:
+
+```text
+NOW-1DAY
+```
+
+A slash is used to indicate rounding. To represents the beginning of the current hour, use:
+
+```text
+NOW/HOUR
+```
+
+To represent a point in time six months and three days into the future and then rounds that time to the beginning of that day, use:
+
+```text
+NOW+6MONTHS+3DAYS/DAY
+```
+
+While date math is most commonly used relative to `NOW`, it can be applied to any fixed moment in time as well:
+
+```text
+1972-05-20T17:33:18.772Z+6MONTHS+3DAYS/DAY
+```
+
+> **Note:** Solr 6 date math supports `TODAY`.
+
+## Search for disjunctions
+
+Single terms, phrases, and so on can be combined using `OR` in upper, lower, or mixed case.
+
+The `OR` operator is interpreted as "at least one is required, more than one or all can be returned".
+
+If not otherwise specified, by default search fragments will be `ORed` together.
+
+```text
+big yellow banana
+big OR yellow OR banana
+TEXT:big TEXT:yellow TEXT:banana
+TEXT:big OR TEXT:yellow OR TEXT:banana
+```
+
+These queries search for nodes that contain at least one of the terms `big`, `yellow`, or `banana` in any content.
+
+## Escaping characters
+
+Any character can be escaped using the backslash "" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
+
+For example:
+
+```sql
+cm:my content:my name
+```
+
+## Search for an exact term
+
+To search for an exact term you must prefix it with "=". The supported syntax:
+
+* `=term`
+* `=term1 =term2`
+* `=“multi term phrase”`
+
+    > **Note:** `=“multi term phrase”` returns documents only with the exact phrase and terms in the exact order.
+
+* `=field:term`
+* `=field:term1 =field:term2`
+* `=field:“multi term phrase”`
+
+If you don’t specify a field the search runs against name, description, title, and content. If the field specified is `TOKENIZED=false`, only the full field is matched. If the field you specified is `TOKENIZED=TRUE` or `TOKENIZED=BOTH` then the search is run on the cross locale tokenized version of the field.
+
+> **Note:** If cross locale is not configured for the field then an exception occurs.
+
+The list of the default supported types as declared in the `<alfresco_home>/solr4/conf/shared.properties` file:
+
+`alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
+
+`alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
+
+`alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
+
+## Search in fields
+
+Search specific fields rather than the default. Terms, phrases, etc. can all be preceded by a field. If not the default field TEXT is used.
+
+```bash
+field:term
+field:"phrase"
+=field:exact
+~field:expand
+```
+
+Fields fall into three types: property fields, special fields, and fields for data types.
+
+Property fields evaluate the search term against a particular property, special fields are described in the following table, and data type fields evaluate the search term against all properties of the given type.
+
+|Type|Description|
+|-----------|----|
+|Property|Fully qualified property, for example `{http://www.alfresco.org/model/content/1.0}name:apple`|
+|Poroperty|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`|
+|Property|CMIS style property, for example `cm_name:apple`.|
+|Property|Prefix style property, for example `cm:name:apple`.|
+|Property|Prefix style property, for example `@cm:name:apple`.|
+|Property|TEXT, for example `TEXT:apple`.|
+|Special|ID, for example `ID:"NodeRef"`|
+|Special|ISROOT, for example `ISROOT:T`|
+|Special|TX, for example `TX:"TX"`|
+|Special|PARENT, for example `PARENT:"NodeRef"`|
+|Special|PRIMARYPARENT, for example `PRIMARYPARENT:"NodeRef"`.|
+|Special|QNAME, for example `QNAME:"app:company_home"`.|
+|Special|CLASS, for example `CLASS:"qname"`.|
+|Special|EXACTCLASS, for example `EXACTCLASS:"qname"`.
+|Special|TYPE, for example `TYPE:"qname"`.
+|Special|EXACTTYPE, for example `EXACTTYPE:"qname"`.
+|Special|ASPECT for example `ASPECT:"qname"`.|
+|Special|EXACTASPECT, for example `EXACTASPECT:"qname"`.|
+|Special|ISUNSET for example `ISUNSET:"property-qname"`|
+|Special|ISNULL, for example `ISNULL:"property-qname"`.|
+|Special|ISNOTNULL, for example `ISNOTNULL:"property-qname"`.|
+|Special|EXISTS for example `EXISTS:"name of the property"`.|
+|Special|SITE for example `SITE:"shortname of the site"`.|
+|Special|TAG. TAG: "name of the tag" **Note:** `TAG` must be in upper case.|
+|Fully qualified data type|Data Type, `http://www.alfresco.org/model/dictionary/1.0}content:apple`|
+|prefixed data type|Data Type, d:content:apple|
+
+## Mixed FTS ID behavior
+
+This relates to the priority defined on properties in the data dictionary, which can be both tokenized or untokenized.
+
+Explicit priority is set by prefixing the query with "=" for identifier pattern matches.
+
+The tilde (`~`) can be used to force tokenization.
+
+## Search for fuzzy matching
+
+Alfresco supports fuzzy searches based on the Lucene default Levenshtein Distance.
+
+To do a fuzzy search use the tilde (`~`) symbol at the end of a single word term with a parameter between 0 and 1 to specify the required similarity. Use a value closer to 1 for higher similarity.
+
+For example, to search for a term similar in spelling to *roam* use the fuzzy search:
+
+```bash
+roam~0.9
+```
+
+This search will find terms like *foam*, *roaming*, and *roams*.
+
+## Search for grouping
+
+Use parentheses to encapsulate `OR` statements for the search engine to execute them properly.
+
+The `OR` operator is executed as "I would like at least one of these terms".
+
+Groupings of terms are made using `( and )`. Groupings of all query elements are supported in general. Groupings are also supported after a field - field group.
+
+The query elements in field groups all apply to the same field and cannot include a field.
+
+```sql
+(big OR large) AND banana  
+title:((big OR large) AND banana)
+```
+
+## Search query literals
+
+When you search, entries are generally a term or a phrase. The string representation you type in will be transformed to the appropriate type for each property when executing the query. For convenience, there are numeric literals but string literals can also be used.
+
+### Date formatting
+
+You can specify either a particular date or a date literal. A date literal is a fixed expression that represents a relative range of time, for example last month, this week, or next year.
+
+`dateTime` field values are stored as Coordinated Universal Time (UTC). The date fields represent a point in time with millisecond precision. For date field formatting, Solr uses [DateTimeFormatter.ISO_INSTANT](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_INSTANT){:target="_blank"}. The ISO instant formatter formats an instant in Coordinated Universal Time (UTC), for example:
+
+```bash
+YYYY-MM-DDThh:mm:ssZ
+```
+
+where,
+
+* `YYYY` is the year.
+* `MM` is the month.
+* `DD` is the day of the month.
+* `hh` is the hour of the day as on a 24-hour clock.
+* `mm` is minutes.
+* `ss` is seconds.
+* `Z` is a literal `Z` character indicating that this string representation of the date is in UTC.
+
+> **Note:** No time zone can be specified. The string representation of dates is always expressed in UTC, for example:
+
+```bash
+1972-05-20T17:33:18Z
+```
+
+### String literals
+
+String literals for phrases can be enclosed in double quotes or single quotes. Java single character and `uXXXX`-based escaping are supported within these literals.
+
+Integer and decimal literals conform to the Java definitions.
+
+Dates as any other literal can be expressed as a term or phrase. Dates are in the format `......` Any or all of the time can be truncated.
+
+In range queries, strings, term, and phrases that do not parse to valid type instance for the property are treated as open ended.
+
+```bash
+test:integer[ 0 TO MAX] matches anything positive
+```
+
+## Search for negation
+
+You can narrow your search results by excluding words with the `NOT` syntax.
+
+Single terms, phrases, and so on can be combined using "`NOT`" in upper, lower, or mixed case, or prefixed with "`!`" or "`-`".
+
+These queries search for nodes that contain the terms `yellow` in any content.
+
+```sql
+yellow NOT banana
+yellow !banana
+yellow -banana
+NOT yellow banana
+-yellow banana
+!yellow banana
+```
+
+The `NOT` operator can only be used for string keywords; it doesn't work for numerals or dates.
+
+Prefixing any search qualifier with a `-` excludes all results that are matched by that qualifier.
+
+## Search for optional, mandatory, and excluded elements of a query
+
+Sometimes AND and OR are not enough. If you want to find documents that must contain the term "car", score those with the term "red" higher, but do not match those just containing "red".
+
+|Operator|Description|
+|--------|-----------|
+|","|The field, phrase, group is optional; a match increases the score.|
+|"+"|The field, phrase, group is mandatory (Note: this differs from Google - see "=")|
+|"-", "!"|The field, phrase, group must not match.|
+
+The following example finds documents that contain the term "car", score those with the term "red" higher, but does not match those just containing "red":
+
+```sql
++car |red
+```
+
+> **Note:** At least one element of a query must match (or not match) for there to be any results.
+
+All `AND` and `OR` constructs can be expressed with these operators.
+
+## Search for a phrase
+
+Phrases are enclosed in double quotes. Any embedded quotes can be escaped using ``. If no field is specified then the default TEXT field will be used, as with searches for a single term.
+
+The whole phrase will be tokenized before the search according to the appropriate data dictionary definition(s).
+
+```sql
+"big yellow banana"
+```
+
+## Search for operator precedence
+
+Operator precedence is SQL-like (not Java-like). When there is more than one logical operator in a statement, and they are not explicitly grouped using parentheses, `NOT` is evaluated first, then `AND`, and finally `OR`.
+
+The following shows the operator precedence from highest to lowest:
+
+```sql
+"
+[, ], <, >
+()
+~ (prefix and postfix), =
+^
++, |, -
+NOT,
+AND
+OR
+```
+
+`AND` and `OR` can be combined with `+`, `|`, `-` with the following meanings:
+
+|AND (no prefix is the same as +)|Description|
+|----------------------------------|-----------|
+|big AND dog|big and dog must occur|
+|+big AND +dog|big and dog must occur|
+|big AND +dog|big and dog must occur|
+|+big AND dog|big and dog must occur|
+|big AND dog|big must occur and dog should occur|
+|big AND dog|big should occur and dog must occur|
+|big AND dog|both big and dog should occur, and at least one must match|
+|big AND -dog|big must occur and dog must not occur|
+|-big AND dog|big must not occur and dog must occur|
+|-big AND -dog|both big and dog must not occur|
+|big AND -dog|big should occur and dog must not occur|
+
+|OR (no prefix is the same as +)|Description|
+|---------------------------------|-----------|
+|dog OR wolf|dog and wolf should occur, and at least one must match|
+|+dog OR +wolf|dog and wolf should occur, and at least one must match|
+|dog OR +wolf|dog and wolf should occur, and at least one must match|
+|+dog OR wolf|dog and wolf should occur, and at least one must match|
+|dog OR wolf|dog and wolf should occur, and at least one must match|
+|dog OR wolf|dog and wolf should occur, and at least one must match|
+|dog OR wolf|dog and wolf should occur, and at least one must match|
+|dog OR -wolf|dog should occur and wolf should not occur, one of the clauses must be valid for any result|
+|-dog OR wolf|dog should not occur and wolf should occur, one of the clauses must be valid for any result|
+|-dog OR -wolf|dog and wolf should not occur, one of the clauses must be valid for any result|
+
+## Embed queries in CMIS
+
+These examples show how to embed queries in CMIS.
+
+## Embedded in CMIS contains()
+
+```sql
+- strict queries
+SELECT * FROM Document WHERE CONTAINS("zebra")
+SELECT * FROM Document WHERE CONTAINS("quick")
+
+- Alfresco extensions
+SELECT * FROM Document D WHERE CONTAINS(D, 'cmis:name:'Tutorial")
+SELECT cmis:name as BOO FROM Document D WHERE CONTAINS('BOO:'Tutorial")
+```
+
+## Search Service
+
+```java
+ResultSet results = searchService.query(storeRef, SearchService.LANGUAGE_FTS_ALFRESCO, "quick");
+```
+
+```bash
+SearchService.LANGUAGE_FTS_ALFRESCO = "fts-alfresco"
+```
+
+## Node Browser
+
+FTS is supported in the node browser.
+
+## JavaScript
+
+```javascript
+search
+{
+   query: string,          mandatory, in appropriate format and encoded for the given language
+   store: string,          optional, defaults to 'workspace://SpacesStore'
+   language: string,       optional, one of: lucene, xpath, jcr-xpath, fts-alfresco - defaults to 'lucene'
+   templates: [],          optional, Array of query language template objects (see below) - if supported by the language 
+   sort: [],               optional, Array of sort column objects (see below) - if supported by the language
+   page: object,           optional, paging information object (see below) - if supported by the language
+   namespace: string,      optional, the default namespace for properties
+   defaultField: string,   optional, the default field for query elements when not explicit in the query
+   onerror: string         optional, result on error - one of: exception, no-results - defaults to 'exception'
+}
+
+sort
+{
+   column: string,         mandatory, sort column in appropriate format for the language
+   ascending: boolean      optional, defaults to false
+}
+
+page
+{
+   maxItems: int,          optional, max number of items to return in result set
+   skipCount: int          optional, number of items to skip over before returning results
+}
+
+template
+{
+   field: string,          mandatory, custom field name for the template
+   template: string        mandatory, query template replacement for the template
 }
 ```
 
-Also, if the domain name of the Alfresco Content Services repository does not match the common name (CN) of the repository's SSL certificate, set the `solr.ssl.checkPeerName` property to `false`.
+For example:
 
-## Install with Docker Compose
+```javascript
+ var def =
+  {
+     query: "cm:name:test*",
+     language: "fts-alfresco"
+  };
+  var results = search.query(def); 
+```
 
-You can deploy Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.0 and above and Search Services.
+## Templates
 
-For details about deployment using the Docker Compose file, see [Installation options]({% link search-services/1.4/install/options.md %}#install-with-docker-compose).
+FTS is not supported in FreeMarker.
 
-1. Open your `docker-compose.yml` file, and insert the following container information:
+## Search for proximity
 
-    ```YAML
-    zeppelin:
-        image: quay.io/alfresco/insight-zeppelin:1.4.3
-        environment:
-                - REPO_HOST=alfresco
-                - REPO_PORT=8080
-        ports:
-        - “9090:9090”
-    ```
+Google-style proximity is supported.
 
-2. Save the file.
+To specify proximity for fields, use grouping.
 
-3. Run Insight Zeppelin using `http://localhost:9090/zeppelin`.
+```sql
+big * apple
+TEXT:(big * apple)
+big *(3) apple
+TEXT:(big *(3) apple)
+```
 
-## Create reports and dashboards
+## Search query templates
 
-Insight Zeppelin lets you create reports using SQL. The reports can be put together to make a dashboard. You can also use other business intelligence tools.
+The FTS query language supports query templates. These are intended to help when building application specific searches.
 
-### Insight Zeppelin
+A template is a query but with additional support to specify template substitution.
 
-> **Note:** Before upgrading Insight Zeppelin ensure you backup your notes first. Then once the upgrade is complete you can re-import them. See [Export/Import Insight Zeppelin Notes](#export/import-insight-zeppelin-notes)
+* **%field**
 
-This is a list of pre-configured reports:
+    Insert the parse tree for the current `ftstest` and replace all references to fields in the current parse tree with the supplied field.
 
-* Repository reports
-  * Total storage used in bytes
-  * Total number of documents
-  * Total folders
-  * Count of documents by MIMEtype
+* **%(field1, field2)%(field1 field2)**
 
-* Site reports
-  * Total documents by site
-  * Total documents by site and MIMEtype
-  * Total volume by site in bytes
-  * Activity reports
+    (The comma is optional.) Create a disjunction, and for each field, add the parse tree for the current `ftstest` to the disjunction, and then replace all references to fields in the current parse tree with the current field from the list.
 
-* Count of content created per day in the last 60 days
-  * Count of content modified per day in the last 60 days
-  * New documents by user and site
-  * Modified documents by user and site
-  * Count of locked content by user
-  * Top largest documents
+|Name|Template|Example Query|Expanded Query|
+|----|--------|-------------|--------------|
+|t1|%cm:name|t1:n1|cm:name:n1|
+|t1|%cm:name|t1:"n1"|cm:name:"n1"|
+|t1|%cm:name|~t1:n1^4|~cm:name:n1^4|
+|t2|%(cm:name, cm:title)|t2:"woof"|(cm:name:"woof" OR cm:title:"woof")|
+|t2|%(cm:name, cm:title)|~t2:woof^4|(~cm:name:woof OR ~cm:title:woof)^4|
+|t3|%cm:name AND my:boolean:true|t3:banana|(cm:name:banana AND my:boolean:true)|
 
-The following image shows an example dashboard created using the pre-configured reports.
+Templates can refer to other templates.
 
-![]({% link search-services/images/exampledashboard1.png %})
+```sql
+nameAndTitle -> %(cm:name, cm:title)
+nameAndTitleAndDesciption -> %(nameAndTitle, cm:description)
+```
 
-### Export/Import Insight Zeppelin notes
+## Search for ranges
 
-Before upgrading Search Services ensure you export each individual Insight Zeppelin note so you can reimport them after the upgrade. If you don't do this your notes will be lost as they do not carry over during the upgrade.
+Inclusive ranges can be specified in Google-style. There is an extended syntax for more complex ranges. Unbounded ranges can be defined using MIN and MAX for numeric and date types and "u0000" and "FFFF" for text (anything that is invalid).
 
-> **Note:** When importing an Insight Zeppelin note you may need to set its note permissions again.
+|Lucene|Google|Description|Example|
+|------|------|-----------|-------|
+|`[#1 TO #2]`|`#1..#2`|The range #1 to #2 inclusive ``#1 <= x <= #2``|`0..5``[0 TO 5]`|
+|`<#1 TO #2]`| |The range #1 to #2 including #2 but not #1.`#1 < x <= #2`|`<0 TO 5]`|
+|`[#1 TO #2>`| |The range #1 to #2 including #1 but not #2.`#1 <= x < #2`|`[0 TO 5>`|
+|`<#1 TO #2>`| |The range #1 to #2 exclusive.`#1 < x < #2`|`<0 TO 5>`|
 
-Use these steps to export and import your Insight Zeppelin notes.
+```sql
+TEXT:apple..banana
+my:int:[0 TO 10]
+my:float:2.5..3.5
+my:float:0..MAX
+mt:text:[l TO "uFFFF"]
+```
 
-1. Go to Insight Zeppelin.
+## Search for a single term
 
-2. On the Welcome to Zeppelin home page access a note.
+Single terms are tokenized before the search according to the appropriate data dictionary definition(s).
 
-3. Click the **Export this note** button.
+If you do not specify a field, it will search in the content and properties. This is a shortcut for searching all properties of type content. Terms can not contain a whitespace.
 
-4. Return to the Welcome to Zeppelin home page and repeat the procedure for all your notes.
+```sql
+banana
+TEXT:banana
+```
 
-5. Once the upgrade is complete return to the Welcome to Zeppelin home page.
+Both of these queries will find any nodes with the word "banana" in any property of type `d:content`.
 
-6. Click **Import note**.
+If the appropriate data dictionary definition(s) for the field supports both FTS and untokenized search, then FTS search will be used. FTS will include synonyms if the analyzer generates them. Terms cannot contain whitespace.
 
-7. Click **Select JSON file** and select the note you want to reimport.
+## Search for spans and positions
 
-    If you want to reimport the note with a different name you can enter it into the **Import as** field.
+Spans and positions are not implemented. Positions will depend on tokenization.
 
-8. Repeat the procedure for all your notes.
+Anything more detailed than one *(2) two are arbitrarily dependent on the tokenization. An identifier and pattern matching, or dual FTS and ID tokenization, might be the answer in these cases.
+
+```sql
+term[^] - start
+term[$] - end
+term[position]
+```
+
+These are of possible use but excluded for now. Lucene surround extensions:
+
+```sql
+and(terms etc)
+99w(terms etc)
+97n(terms etc)
+```
+
+## Search for term expansion
+
+To force tokenization and term expansion, prefix the term with `~`.
+
+For a property with both ID and FTS indexes, where the ID index is the default, force the use of the FTS index.
+
+```sql
+~running
+```
+
+## Search for wildcards
+
+Wildcards are supported in terms, phrases, and exact phrases using `*` to match zero, one, or more characters and `?` to match a single character.
+
+The `*` wildcard character can appear on its own and implies Google-style. The "anywhere after" wildcard pattern can be combined with the `=` prefix for identifier based pattern matching. Search will return and highlight any word that begins with the root of the word truncated by the `*` wildcard character.
+
+The following will all find the term apple.
+
+```sql
+TEXT:app?e
+TEXT:app*
+TEXT:*pple
+appl?
+*ple
+=*ple
+"ap*le"
+"***le"
+"?????"
+```
+
+When performing a search that includes a wildcard character, it is best to wrap your search term in double quotation marks. This ensures all metadata and content are searched.

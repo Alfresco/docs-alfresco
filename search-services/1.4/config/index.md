@@ -10,6 +10,8 @@ There is a search subsystem and it can be used to connect to Search Services (wh
 
 Just like all previous versions of Solr, the activation and configuration of the Search Services subsystem can be done by using either the `alfresco-global.properties` file or the Admin Console (see [Configuring using the Admin Console](#configure-using-the-admin-console)).
 
+> **Note:** This feature is only available when you are using Alfresco Content Services Enterprise.
+
 If you haven't set the following Solr-related properties in the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file, add these:
 
 ```bash
@@ -25,7 +27,8 @@ These configuration properties are used by Alfresco Content Services to talk to 
 
 ## Configure using the Admin Console
 
-The topic describes the properties for configuring the Solr 6 search service.
+The topic describes the properties for configuring the Solr 6 search service. 
+> **Note:** This feature is only available when you are using Alfresco Content Services Enterprise.
 
 1. Open the Admin Console. For more information, see [Launching the Admin Console LINK LINK](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
 
@@ -67,7 +70,7 @@ If you do not want to save the changes, click **Cancel**.
 
 After you've installed Search Services, several directories and configuration files related to Solr will be available in the Search Services home directory.
 
-The Search Services distribution (`alfresco-search-services-distribution-1.4.x.zip`) contains the following artifacts:
+The Search Services distribution (`alfresco-search-services-1.4.x.zip`) contains the following artifacts:
 
 ### solrhome directory
 
@@ -76,7 +79,7 @@ This is the Solr configuration directory that is specific to Alfresco. It contai
 |Folder/File|Description|
 |-----------|-----------|
 |alfrescoModels|When you install Search Services, it creates an empty `alfrescoModels` directory. When Solr first talks to Alfresco, it pulls the model definitions into this directory.|
-|conf|This directory contains the `shared.properties` file. See [Search Services externalized configuration](#search-and-search-services-externalized-configuration).|
+|conf|This directory contains the `shared.properties` file. See [Search Services externalized configuration](#search-services-externalized-configuration).|
 |templates|This directory contains the core templates that define the base configuration for a new Solr core with some configuration properties. This directory also contains the `/rerank/conf/solrcore.properties` file which you can use to customize the Solr cores.|
 |solr.xml|This file defines the Solr web application context. For more information see [Format of solr.xml](https://lucene.apache.org/solr/guide/6_6/format-of-solr-xml.html){:target="_blank"}|
 |data|This folder is generated when a Solr core is created and is where Solr indexes are stored. The default location of the folder is `/opt/alfresco-search-services/data`.|
@@ -90,7 +93,7 @@ This directory contains the Solr-specific logging configuration file.
 |log4j.properties|This is the configuration file for Solr-specific logging. The Solr log file can be found at `<SOLR_HOME>/logs/solr.log`.|
 
 * `solr directory`: This directory contains the Solr binaries and runtime Java library files.
-* `contentstore` directory: This directory does not appear in the `alfresco-search-services-distribution-1.4.x.zip` file. It is automatically created after your Solr cores are created and they start indexing. It stores the cache of all the content.
+* `contentstore` directory: This directory does not appear in the `alfresco-search-services-1.4.x.zip` file. It is automatically created after your Solr cores are created and they start indexing. It stores the cache of all the content.
 * `solr.in.cmd`: Use this file to specify additional Solr configuration options for Windows.
 * `solr.in.sh`: Use this file to specify additional Solr configuration options for non-Windows platforms, such as Linux and Mac OS X.
 * `README.MD`: This file provides version information for Alfresco Content Services, Search Services, and Solr.

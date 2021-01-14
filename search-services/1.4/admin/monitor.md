@@ -179,6 +179,8 @@ Use the following setting to specify an option core for the report. If it is abs
 
 You can also fix index issues, check the index cache and backup individual indexes by using JMX. The status of the index can be checked using the JMX client on the **JMX MBeans > Alfresco > solrIndexes > `<store>`** tabs. The default view is the Solr core summary. The operations run the same consistency checks that are available by URL.
 
+> **Note:** This feature is only available when you are using Alfresco Content Services Enterprise.
+
 ## Solr troubleshooting for SSL configurations
 
 When you have an Alfresco Content Services installation that requires an SSL configuration, you might encounter connection issues.

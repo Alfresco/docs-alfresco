@@ -5,6 +5,7 @@ title: Solr security
 By default, communication between the repository and Solr is protected by SSL with mutual authentication. Both the repository and Solr have their own standard public/private key pair. To secure the two-way communication between the repository and Solr, you must generate your own keys.
 
 > **Note:** For security reasons, you must generate a new set of keys to secure the Solr communication and access to the Solr Admin Console.
+> **Note:** This feature is only available when you are using Alfresco Content Services Enterprise.
 
 For more information, see [Configuring using the Admin Console]({% link search-services/1.4/config/index.md %}#configuring-using-the-admin-console) and [Secure Keys]({% link search-services/1.4/config/keys.md %}).
 
@@ -32,7 +33,7 @@ The keys and certificates required for mutual TLS on the repository side are set
 
 3. Set the parameters in the connector, replacing the `xxxxxxx` and `yyyyy` values.
 
-4. Make sure that the following property is added to the TOMCAT_HOME>/shared/classes/alfresco-global.properties file:
+4. Make sure that the following property is added to the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```bash
     solr.secureComms=https

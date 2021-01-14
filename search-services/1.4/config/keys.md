@@ -100,16 +100,12 @@ keystores
 ├── client
 │   └── browser.p12
 └── solr
-│   ├── ssl-keystore-passwords.properties
-│   ├── ssl-truststore-passwords.properties
-│   ├── ssl-repo-client.keystore
-│   └── ssl-repo-client.truststore
-└── zeppelin
+    ├── ssl-keystore-passwords.properties
+    ├── ssl-truststore-passwords.properties
     ├── ssl-repo-client.keystore
     └── ssl-repo-client.truststore
-```
 
-> **Note:** The `zeppelin` folder is only required if you're an Enterprise customer using Search Services.
+```
 
 |File name|Description|
 |---------|-----------|
