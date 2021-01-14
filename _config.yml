@@ -497,7 +497,7 @@ defaults:
       version: 1.4
       latest: 
 
-# Alfresco Search Service
+# Alfresco Search Services
   - scope:
       path: "search-services"
     values:
@@ -508,6 +508,7 @@ defaults:
       support: true
       versions:
         - 2.0
+        - 1.4
   - scope:
       path: "search-services/latest"
     values:
