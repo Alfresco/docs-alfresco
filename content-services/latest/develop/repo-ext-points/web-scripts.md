@@ -15,7 +15,7 @@ defined in XML, JavaScript, and FreeMarker files and stored under alfresco/exten
 Repository Web Scripts are referred to as *Data Web Scripts* as they usually return JSON or XML. Before embarking on 
 implementing a Repository web scripts it is recommended that you establish if the required functionality is already 
 available out-of-the-box. Many operations that you might want to perform may be available, see 
-[Alfresco REST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}).
+[Alfresco REST API]({% link content-services/latest/develop/rest-api-guide/index.md %}).
 
  The simplest Web Script you can write consists of a *descriptor* and a *template*. The descriptor will tell you what 
  URL that should be used to invoke the Web Script. The template is used to assemble the output returned from the 

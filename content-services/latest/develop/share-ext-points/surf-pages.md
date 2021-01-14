@@ -108,7 +108,7 @@ which can get the content from either the Alfresco Repository or from some other
 
 There are a number of additional FreeMarker template directives.
 
-In the [widget instantiation customization tutorial]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#customizesurfwidget) 
+In the [widget instantiation customization tutorial]({% link content-services/latest/tutorial/share/doclib.md %}#customizesurfwidget) 
 the `documentlist.get.html.ftl` and `documentlist.get.js` files were modified to instantiate a custom JavaScript widget 
 that extends the default `Alfresco.DocumentList`. This is a fragment from the `webview.get.html.ftl` file:
 
@@ -171,7 +171,7 @@ widget instantiation metadata, and the reason for the "pre" and "post" `<@markup
 * `tomcat/shared/classes/alfresco/web-extension/site-data/components` - Components fetching content and rendering presentation for a specific region in the physical template
 * `tomcat/shared/classes/alfresco/web-extension/templates` - FreeMarker template location
 
-These paths are untouched by re-depolyments and upgrades) For component Web Script file locations see: 
+These paths are untouched by re-deployments and upgrades) For component Web Script file locations see: 
 [Web Script]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}) section.
 
 ## Deployment All-in-One SDK project
@@ -194,7 +194,7 @@ For component web script file locations see: [Web Script]({% link content-servic
 
 ## Tutorials
 
-* [Page tutorials]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %})
+* [Page tutorials]({% link content-services/latest/tutorial/share/pages.md %})
 
 ## Developer Blogs
 

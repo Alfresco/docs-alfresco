@@ -51,7 +51,7 @@ In this case a workflow was started, and there is a little icon indicating that 
 
 ## Deployment - App Server
 
-* `tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml` (Untouched by re-depolyments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml` (Untouched by re-deployments and upgrades)
 * The following locations are inside the exploded Share WAR, so **not** recommended, use a [Share JAR Module]({% link content-services/latest/develop/sdk.md %}#workingshare)) SDK project instead:
 * `tomcat/webapps/share/components/documentlibrary/actions` - DocLib Action JavaScript implementation and icon go here
 * `tomcat/webapps/share/components/documentlibrary/indicators` - status indicators icons go here
@@ -78,8 +78,8 @@ In this case a workflow was started, and there is a little icon indicating that 
 
 ## Tutorials
 
-* [Adding a new Document Library action]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#adddoclibaction)
-* [Adding a menu item to the "Create..." menu in DocLib]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#addmenuitem2createmenu)
+* [Adding a new Document Library action]({% link content-services/latest/tutorial/share/doclib.md %}#adddoclibaction)
+* [Adding a menu item to the "Create..." menu in DocLib]({% link content-services/latest/tutorial/share/doclib.md %}#addmenuitem2createmenu)
 * [Customizing document library views]({% link content-services/latest/develop/share-ext-points/share-config.md %}#customizedoclibviews)
 * [Configure aspect visibility]({% link content-services/latest/develop/share-ext-points/share-config.md %}#configaspects)
 * [Jeff Potts Alfresco Developer Series: Adding Repo and DocLib actions](http://ecmarchitect.com/alfresco-developer-series-tutorials/actions/tutorial/tutorial.html){:target="_blank"} - a very thorough walk-through of how to develop Repository Actions and Document Library actions, a must read.

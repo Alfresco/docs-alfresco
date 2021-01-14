@@ -37,7 +37,7 @@ These extensions points have various formats, but include:
 
 * [Platform extension points and detailed architecture](#platformarch)
 * [Share extension points and detailed architecture](#sharearchitecture)
-* [ReST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}).
+* [ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}).
 
 ## Guiding design principles
 
@@ -166,13 +166,13 @@ The server side repository with its services is also referred to as the platform
 The platform architecture consists of the repository and related services. The platform contains the key extension points 
 for building your own extensions.
 
-The following diagram illustrates the platform architecture and [extension points]({% link content-services/latest/develop/repo-ext-points/overview.md %}).
+The following diagram illustrates the platform architecture and [extension points]({% link content-services/latest/develop/repo-ext-points/index.md %}).
 Note that this does not represent a complete list of extension points:
 
 ![acs-platform-architecture-detail]({% link content-services/images/acs-platform-architecture-detail.png %})
 
 The platform consists of the repository and all services, developer extension points,
-and APIs, such as the [ReST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}).
+and APIs, such as the [ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}).
 The repository provides storage for documents and other content. The content metadata
 is stored in a relational database, while the content itself is stored directly on the file system. The relationships 
 between content items, and their various properties (metadata) are defined in one or more 
@@ -193,7 +193,7 @@ Typically these services are implemented in Java, and expose an API described by
 [Public Java API](http://dev.alfresco.com/resource/docs/java/){:target="_blank"}.
 
 The platform is highly extensible. You can write extensions in Java, JavaScript, and FreeMarker, and you can write 
-client applications in any language using the [ReST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}). You can create new
+client applications in any language using the [ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}). You can create new
 [content models]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) that define new content types, metadata,
 and relationships. You can define [custom actions]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}) that the repository
 will carry out when certain events happen (such as when new content is added to the repository). You can even create 
@@ -474,7 +474,7 @@ top of the Spring Web MVC technology, which in turn uses the Spring Framework.
 
 Developers can also add completely new pages and dashlets to the Share UI when content should be viewed or handled in a 
 specific way. Sometimes it is also required to modify existing pages. To customize the Share UI developers use so called 
-*[Extension Points]({% link content-services/latest/develop/share-ext-points/overview.md %})*, which are supported ways of injecting new
+*[Extension Points]({% link content-services/latest/develop/share-ext-points/index.md %})*, which are supported ways of injecting new
 custom code that should alter the functionality of the Share web application.
 
 The following picture gives an overview of the Alfresco Share application architecture, note that not all available 
@@ -1149,7 +1149,7 @@ and the embedded APIs.
 
 ### Remote APIs
 
-The main remote Application Programming Interface (API) is the [Alfresco ReST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}),
+The main remote Application Programming Interface (API) is the [Alfresco ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}),
 which should be the first place you go to when you want to interact with the Alfresco Repository remotely. 
 If portability is very important, than have a look at the CMIS ReST API,
 which is a standard implemented by many ECM vendors.

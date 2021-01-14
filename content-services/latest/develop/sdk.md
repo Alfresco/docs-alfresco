@@ -470,8 +470,8 @@ the AIO project was generated with the name `my-all-in-one-project`.
 
 #### Introduction
 
-An AIO SDK project is used to build extensions for both [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/overview.md %}) 
-and [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/overview.md %}). The runtime environment
+An AIO SDK project is used to build extensions for both [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}) 
+and [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment
 for ACS is Docker so not only is this project building the source code for your extensions but also the 
 custom Docker images for the Alfresco Repository and Alfresco Share. The custom Docker images includes the 
 JARs, or AMPs, with your extension code. 
@@ -717,7 +717,7 @@ the Platform project was generated with the name `my-platform-project`.
 
 #### Introduction
 
-A Platform project is used to build extensions for the [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/overview.md %}). 
+A Platform project is used to build extensions for the [Content Services (ACS) Repository]({% link content-services/latest/develop/repo-ext-points/index.md %}). 
 The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the 
 custom Docker image for the Alfresco Repository. The custom Docker images includes the JARs, or AMPs, with your extension code. 
 
@@ -949,7 +949,8 @@ Maven archetype when generating the project. The following information assumes t
 the Share project was generated with the name `my-share-project`.
 
 ## Introduction
-An Alfresco Sharte project is used to build extensions for [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/overview.md %}). 
+
+An Alfresco Sharte project is used to build extensions for [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). 
 The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the 
 custom Docker image for Alfresco Share. The custom Docker images includes the 
 JARs, or AMPs, with your extension code. 

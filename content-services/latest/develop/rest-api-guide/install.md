@@ -2,7 +2,7 @@
 title: Install and authenticate
 ---
 
-Information about Alfresco ReST API Explorer and how to install it and getting going with it.
+This page provides information about the Alfresco ReST API Explorer, how to install it and use it.
 
 The Alfresco ReST API v1 is described in the OpenAPI specification format (formerly Swagger specification). This is 
 good as lots of different tools can read this format, and you can also use the specification to generate ReST API clients 
@@ -182,7 +182,7 @@ and the response headers:
 
 Note this call returns a list of site `entries`. All lists returned by the Alfresco ReST API are of this format.
 
-## Install a tool to make HTTP calls
+## Install a tool to make HTTP calls {#http}
 
 Information about the `cURL` command line tool that can be used to make HTTP calls.
 
@@ -201,7 +201,7 @@ curl: try 'curl --help' or 'curl --manual' for more information
 
 If you don’t have curl installed you can find it here: [https://curl.haxx.se/](https://curl.haxx.se/){:target="_blank"}
 
-## Install a tool to format JSON responses
+## Install a tool to format JSON responses {#json}
 
 Information about the `jq` command line tool that can be used to format JSON responses.
 
@@ -212,7 +212,7 @@ So it would be good to feed it into some utility that could format the JSON. For
 It can be found here: [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/){:target="_blank"}. Install it and 
 you should be ready to go with the rest of this section.
 
-## Authenticate with the repository
+## Authenticate with the repository {#auth}
 
 Before you can call any of the API endpoints, except a few that don't require authentication, you need to 
 authenticate with the repository so your operations are executed on behalf of a specific user. When you authenticate 

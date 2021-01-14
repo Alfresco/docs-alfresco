@@ -2,12 +2,10 @@
 title: Adding AMD packages (Aikau)
 ---
 
-It is possible to add new AMD packages via Extension Modules, rather than having to edit `surf.xml`.
+In this tutorial you will learn how to add AMD packages via Extension Modules, rather than having to edit `surf.xml`.
 
-This tutorial assumes you have completed the [Customizing Share Header]({% link content-services/latest/develop/share-ext-points/tutorials/menu-tutorials.md %}) tutorials.
-
-In this tutorial you will learn how to add AMD packages via Extension Modules. In a 
-[previous tutorial]({% link content-services/latest/develop/share-ext-points/tutorials/menu-tutorials.md %}#customsitesmenu) 
+This tutorial assumes you have completed the [Customizing Share Header]({% link content-services/latest/tutorial/share/header.md %}) tutorials. In this 
+[section]({% link content-services/latest/tutorial/share/header.md %}#customsitesmenu) 
 you had to add the `tutorials` package by editing `surf.xml`. As this is a system file it can only be done by administrators, 
 and is therefore somewhat inconvenient for the deployment of third-party extensions. To get around this issue it is now 
 possible (from 4.2.2 onwards) to add new packages via an extension module.

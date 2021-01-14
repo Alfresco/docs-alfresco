@@ -86,8 +86,8 @@ The `<@region>` directive was used extensively in previous versions of Alfresco 
 Components are bound. This implementation has been updated to work with the extensibility model. The `<@markup>` 
 directive is new and is used to demarcate sections of HTML in a template.
 
-The [add content]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %}#addcontent) and 
-[removing content]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %}#removecontent) tutorials relies on there being a 
+The [add content]({% link content-services/latest/tutorial/share/pages.md %}#addcontent) and 
+[removing content]({% link content-services/latest/tutorial/share/pages.md %}#removecontent) tutorials relies on there being a 
 Component available that will be bound to a Region in the template.
 
 Using this alternative mechanism makes it possible to add new regions and also completely remove regions to prevent 

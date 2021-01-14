@@ -1,5 +1,5 @@
 ---
-title: Overview of Platform Extension Points
+title: Overview of platform extension points
 ---
 
 Platform Extensions are extensions to the Platform or Content Services, and can be implemented through a variety 

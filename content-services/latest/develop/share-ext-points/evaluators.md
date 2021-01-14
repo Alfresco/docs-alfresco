@@ -110,10 +110,10 @@ Use a Share JAR SDK project instead.
 
 ## Tutorials
 
-* [Creating a Custom Evaluator]({% link content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials.md %}#createcustomevaluator)
-* [Selecting an Evaluator for an Extension Module]({% link content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials.md %}#selectingevaluator)
-* [Sub-Component Evalution]({% link content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials.md %}#subcomponentevaluation)
-* [Improving Sub-Component Evalution]({% link content-services/latest/develop/share-ext-points/tutorials/conditional-rendering-tutorials.md %}#improvesubcomponenteval)
+* [Creating a Custom Evaluator]({% link content-services/latest/tutorial/share/rendering.md %}#createcustomevaluator)
+* [Selecting an Evaluator for an Extension Module]({% link content-services/latest/tutorial/share/rendering.md %}#selectingevaluator)
+* [Sub-Component Evalution]({% link content-services/latest/tutorial/share/rendering.md %}#subcomponentevaluation)
+* [Improving Sub-Component Evalution]({% link content-services/latest/tutorial/share/rendering.md %}#improvesubcomponenteval)
 
 ## Alfresco Developer Blogs
 

@@ -162,7 +162,7 @@
         - title: 'Platform extension points'
           pages:
           - title: 'Overview'
-            path: '/content-services/latest/develop/repo-ext-points/overview/'
+            path: '/content-services/latest/develop/repo-ext-points/'
           - title: 'Content model'
             path: '/content-services/latest/develop/repo-ext-points/content-model/'
           - title: 'Actions'
@@ -206,7 +206,7 @@
         - title: 'Share UI extension points'
           pages:
           - title: 'Overview'
-            path: '/content-services/latest/develop/share-ext-points/overview/'
+            path: '/content-services/latest/develop/share-ext-points/'
           - title: 'Share configuration'
             path: '/content-services/latest/develop/share-ext-points/share-config/'
           - title: 'Document Library'

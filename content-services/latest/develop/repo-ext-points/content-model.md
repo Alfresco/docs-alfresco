@@ -1253,7 +1253,7 @@ These file locations are untouched by re-deployments and upgrades.
 ## Tutorials
 
 * [Jeff Potts Alfresco Developer Series: Working With Custom Content Types in Alfresco](http://ecmarchitect.com/alfresco-developer-series-tutorials/content/tutorial/tutorial.html){:target="_blank"} - a very thorough walk-through of how to develop custom Content Models, a must read.
-* [Defining and Deploying a custom Content Model]({% link content-services/latest/develop/repo-ext-points/tutorials/content-model-tutorials.md %}) (Short introduction excluding localization)
+* [Defining and Deploying a custom Content Model]({% link content-services/latest/tutorial/platform/content-model.md %}) (Short introduction excluding localization)
 
 ## Developer Blogs
 

@@ -123,7 +123,7 @@ need to be called in context of a [Surf Page]({% link content-services/latest/de
 with a repository, This connector assumes that you will call the older **deprecated** [v0 REST API](TODO_LATER:http://docs.alfresco.com/5.0/references/RESTful-Repository.html) 
 (`http://localhost:8080/alfresco/service`). We use it here as the feature of searching for people is not yet available in the v1 REST API.
 
-We should use the [v1 REST API]({% link content-services/latest/develop/rest-api-guide/intro.md %}) as much as possible, which requires a 
+We should use the [v1 REST API]({% link content-services/latest/develop/rest-api-guide/index.md %}) as much as possible, which requires a 
 different connector called `alfresco-api`. Here is an example controller that uses the v1 API to get all the sites in the Repository:
 
 ```javascript
@@ -233,7 +233,7 @@ core repository concepts, such as nodes, are not directly available to web scrip
 
 ## Deployment - App Server
 
-* `tomcat/shared/classes/alfresco/web-extension/site-webscripts/` (Untouched by re-depolyments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/site-webscripts/` (Untouched by re-deployments and upgrades)
 * `tomcat/webapps/share/components/` (when web resources are included you need to put them directly into the exploded webapp, this is **NOT** recommended. Use a Share JAR Module project instead)
 
 ## Deployment All-in-One SDK project
@@ -252,4 +252,4 @@ core repository concepts, such as nodes, are not directly available to web scrip
 
 ## Tutorials
 
-* [Web Script tutorials]({% link content-services/latest/develop/repo-ext-points/tutorials/web-script-tutorials.md %}) 
+* [Web Script tutorials]({% link content-services/latest/tutorial/platform/web-scripts.md %}) 

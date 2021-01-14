@@ -105,7 +105,7 @@ widgets this way. The Extension Modules section has all the details.
 
 ## Deployment - App Server
 
-* tomcat/shared/classes/alfresco/web-extension/site-data/extensions/ (Untouched by re-depolyments and upgrades)
+* tomcat/shared/classes/alfresco/web-extension/site-data/extensions/ (Untouched by re-deployments and upgrades)
 
 ## Deployment All-in-One SDK project
 
@@ -119,7 +119,7 @@ widgets this way. The Extension Modules section has all the details.
 
 ## Tutorials
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
-* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/develop/share-ext-points/tutorials/adding-amd-packages.md %})
+* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/tutorial/share/amd.md %})
 
 ## Developer Blogs
 

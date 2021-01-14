@@ -1145,7 +1145,7 @@ The following themes are available:
 The default theme, which comprises the CSS and image assets used across all pages, displays in a new installation.
 
 You can also create your own themes. Take a look at the [Share Theme Extension Point]({% link content-services/latest/develop/share-ext-points/share-themes.md %}) 
-and the [Adding a custom Share Theme]({% link content-services/latest/develop/share-ext-points/tutorials/styling-tutorials.md %}#addcustomtheme) tutorial.
+and the [Adding a custom Share Theme]({% link content-services/latest/tutorial/share/style.md %}#addcustomtheme) tutorial.
 
 ### Selecting Share themes
 
@@ -2014,7 +2014,7 @@ You can add custom MIME types as required to this file, or create your own confi
 
 ## Deployment - App Server
 
-* `tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml` (Untouched by re-depolyments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml` (Untouched by re-deployments and upgrades)
 
 ## Deployment All-in-One SDK project
 
@@ -2022,7 +2022,7 @@ You can add custom MIME types as required to this file, or create your own confi
 
 ## Tutorials
 
-* [Making custom types visible]({% link content-services/latest/develop/repo-ext-points/tutorials/content-model-tutorials.md %}#shareconfigtypesprops)
-* [Making custom aspects visible]({% link content-services/latest/develop/repo-ext-points/tutorials/content-model-tutorials.md %}#addaspect)
+* [Making custom types visible]({% link content-services/latest/tutorial/platform/content-model.md %}#shareconfigtypesprops)
+* [Making custom aspects visible]({% link content-services/latest/tutorial/platform/content-model.md %}#addaspect)
 * [Controlling search results](TODO_LATER:https://docs.alfresco.com/6.0/tasks/controlling_search_results.html)
 

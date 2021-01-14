@@ -115,7 +115,7 @@ In this case we have added a custom page called `helloworld` to the site, and th
 
 ## Deployment - App Server
 
-* `tomcat/shared/classes/alfresco/web-extension/site-data/presets/presets.xml` (Untouched by re-depolyments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/site-data/presets/presets.xml` (Untouched by re-deployments and upgrades)
 
 ## Deployment All-in-One SDK project
 
@@ -123,7 +123,7 @@ In this case we have added a custom page called `helloworld` to the site, and th
 
 ## Tutorials
 
-* [Adding a new Preset]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %}#customizewscontroller) - this tutorial is not really about site presets, but it starts off by setting up a new user preset.
+* [Adding a new Preset]({% link content-services/latest/tutorial/share/pages.md %}#customizewscontroller) - this tutorial is not really about site presets, but it starts off by setting up a new user preset.
 
 ## Alfresco Developer Blogs
 

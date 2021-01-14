@@ -412,7 +412,7 @@ into the FreeMarker template.
 
 ## Deployment - App Server
 
-* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-depolyments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-deployments and upgrades)
 * `tomcat/webapps/share/components` (when web resources are included you need to put them directly into the exploded webapp, this is **NOT** recommended.)
 
 ## Deployment All-in-One SDK project
@@ -426,7 +426,7 @@ into the FreeMarker template.
 
 ## Tutorials
 
-* [Customizing Surf Widget Instantiation]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#customizesurfwidget)
+* [Customizing Surf Widget Instantiation]({% link content-services/latest/tutorial/share/doclib.md %}#customizesurfwidget)
 
 ## Alfresco Developer Blogs
 

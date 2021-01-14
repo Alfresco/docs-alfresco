@@ -131,7 +131,7 @@ done via a Surf Extension Module as follows:
 ```
 ## Deployment - App Server
 
-* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-depolyments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-deployments and upgrades)
 
 Best practice is to put the file in a directory that explains what the file is for, such as for example:
 
@@ -149,7 +149,7 @@ Best practice is to put the file in a directory that explains what the file is f
 
 ## Tutorials
 
-* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/develop/share-ext-points/tutorials/adding-amd-packages.md %})
+* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/tutorial/share/amd.md %})
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs

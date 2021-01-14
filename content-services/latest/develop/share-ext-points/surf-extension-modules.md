@@ -61,7 +61,7 @@ the External User Invite functionality in a site. The following picture illustra
 
 To hide this component, find out the `region-id`, `source-id`, and `scope` so it can be used when defining the 
 extension module. You can find this information by using a tool called SurfBug 
-([more info on how to enable this tool]({% link content-services/latest/develop/useful-tools/surfbug.md %})). When this 
+([more info on how to enable this tool]({% link content-services/latest/develop/tools.md %})#surfbug). When this 
 tool is enabled, after refreshing the page, red lines will show up and mark the different components on the page:
 
 ![dev-extensions-share-module-sample-hide-external-user-invite-surfbug]({% link content-services/images/dev-extensions-share-module-sample-hide-external-user-invite-surfbug.png %})
@@ -101,7 +101,7 @@ When we know the Surf component information it is easy to define an extension mo
 ```
 
 For more information about this module configuration see 
-[controlling rendering of components]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %}#removecontent).
+[controlling rendering of components]({% link content-services/latest/tutorial/share/pages.md %}#removecontent).
 
 Besides manipulating the components of a Web Page you can also do the following with Surf Extension Modules:
 
@@ -412,7 +412,7 @@ In this case the second `<adobe-flash-enabled>` element would be ignored as only
 
 ## Deployment - App Server
 
-* `tomcat/shared/classes/alfresco/web-extension/site-data/extensions` (Untouched by re-depolyments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/site-data/extensions` (Untouched by re-deployments and upgrades)
 
 ## Deployment All-in-One SDK project
 
@@ -420,8 +420,8 @@ In this case the second `<adobe-flash-enabled>` element would be ignored as only
 
 ## Tutorials
 
-* [Surf page tutorials]({% link content-services/latest/develop/share-ext-points/tutorials/page-tutorials.md %})
-* [Extend an out-of-the-box Surf Widget (YUI)]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#customizesurfwidget)
-* [Add a new menu item to "Create..." menu in DocLib]({% link content-services/latest/develop/share-ext-points/tutorials/doclib-tutorials.md %}#addmenuitem2createmenu)
-* [Customizing the Share Header Style (Aikau)]({% link content-services/latest/develop/share-ext-points/tutorials/styling-tutorials.md %}#customizeshareheaderstyle)
-* [Adding JS packages (Aikau)]({% link content-services/latest/develop/share-ext-points/tutorials/adding-amd-packages.md %})
+* [Surf page tutorials]({% link content-services/latest/tutorial/share/pages.md %})
+* [Extend an out-of-the-box Surf Widget (YUI)]({% link content-services/latest/tutorial/share/doclib.md %}#customizesurfwidget)
+* [Add a new menu item to "Create..." menu in DocLib]({% link content-services/latest/tutorial/share/doclib.md %}#addmenuitem2createmenu)
+* [Customizing the Share Header Style (Aikau)]({% link content-services/latest/tutorial/share/style.md %}#customizeshareheaderstyle)
+* [Adding JS packages (Aikau)]({% link content-services/latest/tutorial/share/amd.md %})

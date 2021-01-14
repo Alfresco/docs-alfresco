@@ -2,6 +2,8 @@
 title: Useful tools
 ---
 
+There are a few tools that are useful to know about when developing customizations for the Share web application.
+
 ## FireBug
 
 Firebug is a debugging tool/plug-in for the Firefox web browser.

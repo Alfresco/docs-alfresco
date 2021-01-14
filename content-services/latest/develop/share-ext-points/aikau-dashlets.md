@@ -247,8 +247,8 @@ This widget will be loaded by the Dojo AMD loader as we defined the package for 
 
 ## Deployment - App Server
 
-* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-depolyments and upgrades)
-* `tomcat/shared/classes/alfresco/web-extension/site-data/extensions` (Untouched by re-depolyments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-deployments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/site-data/extensions` (Untouched by re-deployments and upgrades)
 * `tomcat/webapps/share/js` (when web resources are included, such as Aikau Widgets, you need to put them directly into the exploded webapp, this is **NOT** recommended.)
 
 ## Deployment All-in-One SDK project
@@ -268,7 +268,7 @@ This widget will be loaded by the Dojo AMD loader as we defined the package for 
 
 ## Tutorials
 
-* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/develop/share-ext-points/tutorials/adding-amd-packages.md %})
+* [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/tutorial/share/amd.md %})
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
 
 ## Alfresco Developer Blogs

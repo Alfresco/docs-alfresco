@@ -135,7 +135,7 @@ member.directory.searchResult=Search Result
 
 ## Deployment - App Server
 
-* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-depolyments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-deployments and upgrades)
 * `tomcat/webapps/share/components/dashlets` (when web resources are included you need to put them directly into the exploded webapp, this is NOT recommended.)
 
 Best practice is to put the files in a directory that explains what they are for, such as for example:

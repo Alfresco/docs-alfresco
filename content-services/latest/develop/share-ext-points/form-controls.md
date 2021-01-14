@@ -126,7 +126,7 @@ use the new form control.
 
 ## Deployment - App Server
 
-* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-depolyments and upgrades)
+* `tomcat/shared/classes/alfresco/web-extension/site-webscripts` (Untouched by re-deployments and upgrades)
 
 Best practice is to put the file in a directory that explains what the file is for, such as for example:
 

@@ -1,8 +1,6 @@
 ---
-title: Overview of Share UI Extension Points
+title: Overview of Share extension points
 ---
-
-Introduction to the supported extension points in the Alfresco Share web application.
 
 An extension point is an interface that a developer can use to customize the Share web application in a supported way. 
 There are a number of extension points that can be used to do things like adding custom pages, hiding content on 
@@ -44,5 +42,3 @@ The following table lists all the extension points that are available to you whe
 |[Aikau Dashlets]({% link content-services/latest/develop/share-ext-points/aikau-dashlets.md %})|The Share web application has a special page called Dashboard, which contains windows of content called dashlets. Currently most of these dashlets are Spring Surf dashlets, but they will eventually be converted to Aikau dashlets.|Declarative and Programmatic|Full Support|
 |[Aikau Widgets]({% link content-services/latest/develop/share-ext-points/aikau-widgets.md %})|Aikau pages are built up of widgets. There are two types of widgets, presentation widgets and service widgets. These JavaScript widgets are Dojo classes. A widget can have its own CSS, HTML, and Properties.|Programmatic|Full Support|
 |[Modifying OOTB Code]({% link content-services/latest/develop/share-ext-points/modify-ootb-code.md %})|Most of the Share UI functionality can be traced back to a web script in one place or another. Sometimes it is useful to be able to override the controller or template of one of these out-of-the-box web scripts. Same things goes for other out-of-the-box code for things like pages and dashlets.|Override|Full Support via [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})|
-
-

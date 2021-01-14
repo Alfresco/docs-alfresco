@@ -1,5 +1,5 @@
 ---
-title: Menu Tutorials
+title: Header Tutorials
 ---
 
 Tutorials associated with the Share Header, which contains the menu and title.
@@ -125,7 +125,7 @@ Tutorial implementation steps:
 
 2.  Decide if you want to customize an existing theme or use a custom theme.
 
-    Customizing the style of the header can be done either by overriding an existing theme, such as the Green Theme, or by creating a new custom theme. In this exercise we will customize the out-of-the-box Green Theme. If we are just customization LESS variables, and we don't need to change anything else in the Green Theme, then it is enough to just create a Green Theme XML file and override the LESS variables. There is no need to copy over the complete theme directory like when [creating a custom theme]({% link content-services/latest/develop/share-ext-points/tutorials/styling-tutorials.md %}#addcustomtheme).
+    Customizing the style of the header can be done either by overriding an existing theme, such as the Green Theme, or by creating a new custom theme. In this exercise we will customize the out-of-the-box Green Theme. If we are just customization LESS variables, and we don't need to change anything else in the Green Theme, then it is enough to just create a Green Theme XML file and override the LESS variables. There is no need to copy over the complete theme directory like when [creating a custom theme]({% link content-services/latest/tutorial/share/style.md %}#addcustomtheme).
 
 3.  Create a new themes directory under the `aio/aio-share-jar/src/main/resources/alfresco/web-extension/site-data` directory.
 
@@ -176,7 +176,7 @@ The Share header menu can be readily customized. For example, you can add or rem
 
 In this tutorial you use the [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project. 
 The tutorial assumes you are using an IDE to edit the Maven project files. You should also be familiar with 
-the [Introducing SurfBug]({% link content-services/latest/develop/useful-tools/surfbug.md %}) topic.
+the [Introducing SurfBug]({% link content-services/latest/develop/tools.md %}#surfbug) topic.
 
 You are going to add several customizations to the Share header menu. The tutorial is split into several parts.
 

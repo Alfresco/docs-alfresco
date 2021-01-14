@@ -62,7 +62,7 @@ widget. Once we have it, we simply push a widget into it.
 * `tomcat/shared/classes/alfresco/web-extension/site-webscripts` - put the files that are overriding here  
 * `tomcat/shared/classes/alfresco/web-extension/site-data/extensions` - put the Extension Module here.
 
-(Untouched by re-depolyments and upgrades)
+(Untouched by re-deployments and upgrades)
 
 ## Deployment All-in-One SDK project
 
@@ -76,9 +76,9 @@ widget. Once we have it, we simply push a widget into it.
 
 ## Tutorials
 
-* [Customizing the Admin Tools Menu]({% link content-services/latest/develop/share-ext-points/tutorials/menu-tutorials.md %}#customizeadmintoolsmenu)
-* [Customizing the Sites Menu]({% link content-services/latest/develop/share-ext-points/tutorials/menu-tutorials.md %}#customsitesmenu)
-* [Removing Menu Items]({% link content-services/latest/develop/share-ext-points/tutorials/menu-tutorials.md %}#removemenuitem)
+* [Customizing the Admin Tools Menu]({% link content-services/latest/tutorial/share/header.md %}#customizeadmintoolsmenu)
+* [Customizing the Sites Menu]({% link content-services/latest/tutorial/share/header.md %}#customsitesmenu)
+* [Removing Menu Items]({% link content-services/latest/tutorial/share/header.md %}#removemenuitem)
 * [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs
