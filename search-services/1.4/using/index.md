@@ -2,11 +2,11 @@
 title: Building reports and dashboards
 ---
 
-Search and Insight Engine comes with a number of out-of-the box reports and a dashboard builder with pre-configured reports based on Insight Zeppelin. Insight Zeppelin is a web-based notebook that enables data-driven, interactive data analytics, data visualization, and collaborative documents using SQL.
+Search Services comes with a number of out-of-the box reports and a dashboard builder with pre-configured reports based on Insight Zeppelin. Insight Zeppelin is a web-based notebook that enables data-driven, interactive data analytics, data visualization, and collaborative documents using SQL.
 
 To use the reports and dashboard builder, you need to install Insight Zeppelin.
 
-> **Note:** For this version of Search and Insight Engine, cluster mode is not supported.
+> **Note:** For this version of Search Services, cluster mode is not supported.
 
 Use `http://localhost:9090/zeppelin` to access Insight Zeppelin user interface.
 
@@ -19,7 +19,7 @@ There are several options for installing Insight Zeppelin:
 * [Install with a distribution zip](#install-with-a-distribution-zip).
 * [Install with Docker Compose](#install-with-docker-compose).
 
-> **Note** You do not need to install Insight Zeppelin in order to use Search and Insight Engine.
+> **Note** You do not need to install Insight Zeppelin in order to use Search Services.
 
 ## Install with a distribution zip
 
@@ -136,7 +136,7 @@ Also, if the domain name of the Alfresco Content Services repository does not ma
 
 ## Install with Docker Compose
 
-You can deploy Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.0 and above and Search and Insight Engine.
+You can deploy Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.0 and above and Search Services.
 
 For details about deployment using the Docker Compose file, see [Installation options]({% link search-services/1.4/install/options.md %}#install-with-docker-compose).
 
@@ -191,7 +191,7 @@ The following image shows an example dashboard created using the pre-configured 
 
 ### Export/Import Insight Zeppelin notes
 
-Before upgrading Search and Insight Engine ensure you export each individual Insight Zeppelin note so you can reimport them after the upgrade. If you don't do this your notes will be lost as they do not carry over during the upgrade.
+Before upgrading Search Services ensure you export each individual Insight Zeppelin note so you can reimport them after the upgrade. If you don't do this your notes will be lost as they do not carry over during the upgrade.
 
 > **Note:** When importing an Insight Zeppelin note you may need to set its note permissions again.
 

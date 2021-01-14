@@ -10,7 +10,7 @@ You can create the keystores, truststores and certificates required to configure
 
 ## Generate secure keys for SSL communication
 
-Use this information to generate certificates for SSL/mutual TLS authentication between the repository and Search and Insight Engine, using secure keys specific to your installation.
+Use this information to generate certificates for SSL/mutual TLS authentication between the repository and Search Services, using secure keys specific to your installation.
 
 A certificates generator script, `run.sh` (for Linux) and `run.cmd` (for Windows) is provided in a GitHub project. The script consists of two parts - the first part is based on OpenSSL (to generate the certificates), and the second part is based on the Java `keytool` (to build the keystores and truststores). Here, we'll focus on running the script for a standalone Linux or Windows operating system.
 
@@ -109,7 +109,7 @@ keystores
     └── ssl-repo-client.truststore
 ```
 
-> **Note:** The `zeppelin` folder is only required if you're an Enterprise customer using Search and Insight Engine.
+> **Note:** The `zeppelin` folder is only required if you're an Enterprise customer using Search Services.
 
 |File name|Description|
 |---------|-----------|
@@ -188,7 +188,7 @@ Before continuing, make sure that you've already completed the steps in [Generat
 
 5. Change the SSL properties in `<SOLR_HOME>/solrhome/templates/rerank/conf/solrcore.properties`.
 
-    The `rerank` template is used to generate the `alfresco` and `archive` Solr cores when you first run Search and Insight Engine Services.
+    The `rerank` template is used to generate the `alfresco` and `archive` Solr cores when you first run Search Services Services.
 
     ```bash
    # encryption

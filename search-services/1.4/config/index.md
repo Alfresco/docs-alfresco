@@ -2,13 +2,13 @@
 title: Overview
 ---
 
-Use the following information to configure Search and Insight Engine.
+Use the following information to configure Search Services.
 
-## Search and Insight Engine subsystem
+## Search Services subsystem
 
-There is a search subsystem and it can be used to connect to Search and Insight Engine (which is based on Solr 6).
+There is a search subsystem and it can be used to connect to Search Services (which is based on Solr 6).
 
-Just like all previous versions of Solr, the activation and configuration of the Search and Insight Engine subsystem can be done by using either the `alfresco-global.properties` file or the Admin Console (see [Configuring using the Admin Console](#configure-using-the-admin-console)).
+Just like all previous versions of Solr, the activation and configuration of the Search Services subsystem can be done by using either the `alfresco-global.properties` file or the Admin Console (see [Configuring using the Admin Console](#configure-using-the-admin-console)).
 
 If you haven't set the following Solr-related properties in the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file, add these:
 
@@ -21,7 +21,7 @@ solr.host=<hostname> [The host name where the Solr instance is located]
 solr.baseUrl=/solr
 ```
 
-These configuration properties are used by Alfresco Content Services to talk to Search and Insight Engine.
+These configuration properties are used by Alfresco Content Services to talk to Search Services.
 
 ## Configure using the Admin Console
 
@@ -33,7 +33,7 @@ The topic describes the properties for configuring the Solr 6 search service.
 
 3. In the **Search Service** section, select **Solr 6** from the **Search Service In Use** list.
 
-4. Set the Search and Insight Engine properties:
+4. Set the Search Services properties:
 
     |Solr search property|Description|
     |--------------------|-----------|
@@ -63,11 +63,11 @@ The topic describes the properties for configuring the Solr 6 search service.
 
 If you do not want to save the changes, click **Cancel**.
 
-## Search and Insight Engine directory structure
+## Search Services directory structure
 
-After you've installed Search and Insight Engine, several directories and configuration files related to Solr will be available in the Search and Insight Engine home directory.
+After you've installed Search Services, several directories and configuration files related to Solr will be available in the Search Services home directory.
 
-The Search and Insight Engine distribution (`alfresco-search-services-distribution-1.4.x.zip`) contains the following artifacts:
+The Search Services distribution (`alfresco-search-services-distribution-1.4.x.zip`) contains the following artifacts:
 
 ### solrhome directory
 
@@ -75,8 +75,8 @@ This is the Solr configuration directory that is specific to Alfresco. It contai
 
 |Folder/File|Description|
 |-----------|-----------|
-|alfrescoModels|When you install Search and Insight Engine, it creates an empty `alfrescoModels` directory. When Solr first talks to Alfresco, it pulls the model definitions into this directory.|
-|conf|This directory contains the `shared.properties` file. See [Search and Insight Engine externalized configuration](#search-and-search-services-externalized-configuration).|
+|alfrescoModels|When you install Search Services, it creates an empty `alfrescoModels` directory. When Solr first talks to Alfresco, it pulls the model definitions into this directory.|
+|conf|This directory contains the `shared.properties` file. See [Search Services externalized configuration](#search-and-search-services-externalized-configuration).|
 |templates|This directory contains the core templates that define the base configuration for a new Solr core with some configuration properties. This directory also contains the `/rerank/conf/solrcore.properties` file which you can use to customize the Solr cores.|
 |solr.xml|This file defines the Solr web application context. For more information see [Format of solr.xml](https://lucene.apache.org/solr/guide/6_6/format-of-solr-xml.html){:target="_blank"}|
 |data|This folder is generated when a Solr core is created and is where Solr indexes are stored. The default location of the folder is `/opt/alfresco-search-services/data`.|
@@ -93,11 +93,11 @@ This directory contains the Solr-specific logging configuration file.
 * `contentstore` directory: This directory does not appear in the `alfresco-search-services-distribution-1.4.x.zip` file. It is automatically created after your Solr cores are created and they start indexing. It stores the cache of all the content.
 * `solr.in.cmd`: Use this file to specify additional Solr configuration options for Windows.
 * `solr.in.sh`: Use this file to specify additional Solr configuration options for non-Windows platforms, such as Linux and Mac OS X.
-* `README.MD`: This file provides version information for Alfresco Content Services, Search and Insight Engine, and Solr.
+* `README.MD`: This file provides version information for Alfresco Content Services, Search Services, and Solr.
 
-### Search and Insight Engine externalized configuration
+### Search Services externalized configuration
 
-As a best practice, use the `alfresco-search-services/solr.in.sh` file (Linux-based platform) or `alfresco-search-services/solr.in.cmd` file (Windows-based platform) to set the external configuration that applies to all the Search and Insight Engine cores.
+As a best practice, use the `alfresco-search-services/solr.in.sh` file (Linux-based platform) or `alfresco-search-services/solr.in.cmd` file (Windows-based platform) to set the external configuration that applies to all the Search Services cores.
 
 > **Note:** For any property, only the environment variables should be specified in the solr.in.sh/ solr.in.cmd file. For example, `SOLR_SOLR_HOST`, `SOLR_SOLR_PORT`, or `SOLR_ALFRESCO_PORT`.
 
@@ -198,7 +198,7 @@ Note that:
 
 ### Additional external configuration when using SSL
 
-You need to set these properties only if you are configuring Search and Insight Engine with SSL. These properties can also be set in the `solrcore.properties` file.
+You need to set these properties only if you are configuring Search Services with SSL. These properties can also be set in the `solrcore.properties` file.
 
 #### `alfresco.secureComms`
 
@@ -268,9 +268,9 @@ You need to set these properties only if you are configuring Search and Insight 
 
 ## Solr configuration files
 
-When you install Search and Insight Engine, several Solr configuration files are made available to you. This section lists the Solr configuration files, their location in the directory structure, and their description.
+When you install Search Services, several Solr configuration files are made available to you. This section lists the Solr configuration files, their location in the directory structure, and their description.
 
-> **Note:** Some of these files are only available once Search and Insight Engine has been started for the first time.
+> **Note:** Some of these files are only available once Search Services has been started for the first time.
 
 |Configuration File|Location|Description|
 |------------------|--------|-----------|
@@ -285,34 +285,3 @@ When you install Search and Insight Engine, several Solr configuration files are
 |ssl-truststore-passwords.properties|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This file contains the password information for `ssl.repo.client.truststore`.|
 
 > **Note:** The `solrcore.properties` configuration file is the property configuration file for a Solr core. There is one `solrcore.properties` file in each core's configuration directory. See [Solr core configuration properties]({% link search-services/1.4/config/properties.md %}) for more.
-
-## Alfresco Index Engine
-
-You can host a separate instance of Alfresco Content Services 6.0 or above with Solr 6 for high scalability and for maximizing the throughput of your Alfresco services. This setup is termed Alfresco Index Engine.
-
-This setup shows a single repository database and content store. There are four nodes with Alfresco/Share and two nodes with Solr, all accessing the content simultaneously. This set up provides a higher level of availability, reliability, and scalability, thereby maximizing the throughput of various Alfresco services. Nodes in a cluster are positioned behind a load balancer that delegates requests to cluster members based on any one member’s ability/availability to handle the load.
-
-Each Alfresco/Share instance is deployed into its own Tomcat servlet container. Alfresco services and CPU runtime footprint are optimized for high throughput under heavy concurrency with such a deployment. The load balancer fronts the cluster, and directs traffic to the member of the cluster most able to handle the current request.
-
-> **Note:** All the servers in a cluster should have static IP addresses assigned to them.
-
-![]({% link search-services/images/cluster-throughput.png %})
-
-In this deployment scenario the following flows are present:
-
-* Client flow:
-  * Client sends the request to the main load balancer to reach Share application.
-  * Main load balancer analyses the load and redirects the client to one of Share hosts.
-  * Main load balancer uses the JSESSIONID cookie to stick the client to one of Share nodes.
-  * Share sends the web scripts requests to the local repository instance, renders the page, and returns it to the user via the main load balancer.
-
-* Alfresco internal flow:
-  * Repositories intercommunication is done via Hazelcast to replicate caches.
-  * Repositories share the same contentstore available via NFS/SAMBA share.
-  * Repositories share the same database schema.
-
-* Alfresco Solr flow:
-  * Tracking tier: Two Solr instances periodically query repositories to detect new transactions, fetch new content, and build local indexes. Tracking is done through the Solr load balancer, which analyses the load and distributes it across the repositories.
-  * Search tier: Four repository instances query two Solr instances on demand through the Solr load balancer.
-
-To implement this setup, see [Clustering for high throughput LINK LINK](https://docs.alfresco.com/6.1/tasks/install-config-alf.html).

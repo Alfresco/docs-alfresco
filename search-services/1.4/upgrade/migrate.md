@@ -2,20 +2,20 @@
 title: Migrate Search Services 
 ---
 
-Use this information to migrate from Search Services to Search and Insight Engine using the distribution zip or docker compose, including how to migrate Search and Insight Engine to Search Services.
+Use this information to migrate from Search Services to Search Services using the distribution zip or docker compose, including how to migrate Search Services to Search Services.
 
 > **Note:** You can only migrate to Search Services using the distribution zip.
 
 ## Migrate with zip
 
-You can migrate from Alfresco Content Services 6.0 or above with Search Services 1.3 or above to Alfresco Content Services with Search and Insight Engine 1.4. You can also migrate from Alfresco Content Services 5.x with Search Services 1.3 or below to Alfresco Content Services 6.0 or above with Search and Insight Engine 1.4.
+You can migrate from Alfresco Content Services 6.0 or above with Search Services 1.3 or above to Alfresco Content Services with Search Services 1.4. You can also migrate from Alfresco Content Services 5.x with Search Services 1.3 or below to Alfresco Content Services 6.0 or above with Search Services 1.4.
 
 * [Migrate Content Services 6.0 with Search Services 1.3 or above](#migrate-content-services-60-with-search-services-13-or-above)
 * [Migrate Content Services 5.x with Search Services 1.3 or below](#migrate-content-services-5x-with-search-services-13-or-below)  
 
 ### Migrate Content Services 6.0 with Search Services 1.3 or above
 
-Use this information to migrate from Alfresco Search Services 1.3 or above to Search and Insight Engine 1.4 using a distribution zip.
+Use this information to migrate from Alfresco Search Services 1.3 or above to Search Services 1.4 using a distribution zip.
 
 1. Stop Search Services.
 
@@ -27,7 +27,7 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Se
 
 3. Browse to the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
-4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
+4. Download and unzip the Search Services distribution zip file to a preferred location:
 
     ```bash
     alfresco-search-services-1.4.x.zip
@@ -55,13 +55,13 @@ Use this information to migrate from Alfresco Search Services 1.3 or above to Se
 
 6. (Optional) If you have changed the `alfresco-search-services/solr.in.sh` or `alfresco-search-services/solr.in.cmd` file, you must restore it from your backup.
 
-7. Start Search and Insight Engine.
+7. Start Search Services.
 
-    > **Note:** To check what version of Search Services or Search and Insight Engine you have installed go to `http://localhost:8983/solr/`.
+    > **Note:** To check what version of Search Services or Search Services you have installed go to `http://localhost:8983/solr/`.
 
 ### Migrate Content Services 5.x with Search Services 1.3 or below
 
-There are two steps to migrating your installation from Alfresco Content Services 5.x with Alfresco Search Services to Alfresco Content Services 6.0 with Search and Insight Engine. First you need to upgrade to Alfresco Content Services 6.0 with Search Services, and then migrate Search Services to Search and Insight Engine.
+There are two steps to migrating your installation from Alfresco Content Services 5.x with Alfresco Search Services to Alfresco Content Services 6.0 with Search Services. First you need to upgrade to Alfresco Content Services 6.0 with Search Services, and then migrate Search Services to Search Services.
 
 > **Note:** You can't upgrade Alfresco Content Services 5.x using Docker Compose.
 
@@ -69,15 +69,15 @@ There are two steps to migrating your installation from Alfresco Content Service
 
     > **Note:** You can't do this using Docker Compose.
 
-2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.0 with Search Services 1.3 or above](#migrating-content-services-60-with-search-services-13-or-above).
+2. Migrate from Search Services to Search Services see [Migrating Content Services 6.0 with Search Services 1.3 or above](#migrating-content-services-60-with-search-services-13-or-above).
 
 ## Migrate using Docker Compose
 
-If you already have Alfresco Content Services 6.0 or above with Search Services 1.3 or 1.4 installed, you can migrate to Search and Insight Engine 1.4. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
+If you already have Alfresco Content Services 6.0 or above with Search Services 1.3 or 1.4 installed, you can migrate to Search Services 1.4. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
-> **Note:** A reindex is not required when you migrate from Search Services to Search and Insight Engine 1.4.
+> **Note:** A reindex is not required when you migrate from Search Services to Search Services 1.4.
 
-Use this information to migrate from Search Services to Search and Insight Engine using Docker Compose.
+Use this information to migrate from Search Services to Search Services using Docker Compose.
 
 1. Insert the following container information into your `docker-compose.yml` file and save it.
 
@@ -108,11 +108,11 @@ Use this information to migrate from Search Services to Search and Insight Engin
 
 ## Migrate to Search Services
 
-Use this information to migrate from Search and Insight Engine 1.4 To Search Services 1.4 using a distribution zip.
+Use this information to migrate from Search Services 1.4 To Search Services 1.4 using a distribution zip.
 
-> **Note:** A reindex is not required when you migrate from Search and Insight Engine to Search Services.
+> **Note:** A reindex is not required when you migrate from Search Services to Search Services.
 
-1. Stop Alfresco Search and Insight Engine.
+1. Stop Alfresco Search Services.
 
     ```bash
     ./solr/bin/solr stop
@@ -130,7 +130,7 @@ Use this information to migrate from Search and Insight Engine 1.4 To Search Ser
 
     By default, the Alfresco Search Services contents are decompressed in a folder at ./alfresco-search-services. The folder extracts into the same location as the zip file.
 
-5. You can now start Alfresco Search Services by pointing to the content store and indexes from Alfresco Search and Insight Engine using the following commands.
+5. You can now start Alfresco Search Services by pointing to the content store and indexes from Alfresco Search Services using the following commands.
 
     > **Note:** If the content store and indexes for Solr are in another location, change the directory location to point to the correct one.
 

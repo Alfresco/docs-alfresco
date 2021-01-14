@@ -2,23 +2,26 @@
 title: Overview
 ---
 
-Installing Search and Insight Engine introduces additional features, including new sharding methods and sharding with SSL. Mutual TLS is not just used to encrypt data in transit, it is also used as an authentication mechanism between the repository and Search and Insight Engine.
+## Search Services
 
-It is possible to deploy Alfresco Content Services without mutual TLS between the repository and Search and Insight Engine, however this will expose internal APIs that give full access to the repository without authentication. In such a setup, it is critical to properly protect these APIs.
+Search Services can be installed with Mutual TLS which is not just used to encrypt data in transit, it is also used as an authentication mechanism between the repository and Search Services.
 
-You may choose to secure Search and Insight Engine with SSL.
+It is possible to deploy Alfresco Content Services without mutual TLS between the repository and Search Services, however this will expose internal APIs that give full access to the repository without authentication. In such a setup, it is critical to properly protect these APIs.
 
-> **Note:** When choosing to secure Search and Insight Engine with SSL, be aware that there is a known issue when using Solr 6 where the SSL truststore and keystore passwords are visible as text in the Solr 6 process arguments. Alfresco recommends that you ensure the server running Solr 6 is security hardened and access is restricted to admin users only. For more information, see [Apache](https://issues.apache.org/jira/browse/SOLR-8897){:target="_blank"}.
+> **Note:** This documentation is for Search Services when using Alfresco Content Services Enterprise or Alfresco Content Services Community. There are some minor differences in the capabilities of these two installation types but that is made clear within the documentation.
 
-> **Important:** Alfresco strongly recommends that you use firewalls and other infrastructure means to ensure that the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
+You may choose to secure Search Services with SSL.
 
-You can download the Search and Insight Engine installation file from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. Click **Downloads**, and then select the version of the product you require.
+> **Note:** When choosing to secure Search Services with SSL, be aware that there is a known issue when using Solr 6 where the SSL truststore and keystore passwords are visible as text in the Solr 6 process arguments. Alfresco recommends that you ensure the server running Solr 6 is security hardened and access is restricted to admin users only. For more information, see [Apache](https://issues.apache.org/jira/browse/SOLR-8897){:target="_blank"}.
+> **Important:** Alfresco strongly recommends that you use firewalls and other infrastructure means to ensure that the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.
+
+You can download the Search Services installation file from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. Click **Downloads**, and then select the version of the product you require.
 
 ## Prerequisites
 
 The supported platforms are the combinations of operating systems, databases, and application servers that are tested and certified for Alfresco Content Services.
 
-Before you install Search and Insight Engine you must install Alfresco Content Services 6.0 or later. You can install Search and Insight Engine using the distribution zip and Docker Compose, but the Docker Compose method of installation is only for development and test environments.
+Before you install Search Services you must install Alfresco Content Services 6.0 or later. You can install Search Services using the distribution zip and Docker Compose, but the Docker Compose method of installation is only for development and test environments.
 
 See [Supported platforms]({% link search-services/1.4/support/index.md %}) for information about prerequisites and requirements.
 
@@ -28,7 +31,7 @@ Alfresco Content Services supports use of the Solr search platform for searching
 
 Solr is an open source enterprise search platform that uses lucene as indexing and search engine. Solr is written in Java and runs as a standalone search server. Alfresco Content Services sends HTTP and XML input to Solr and searches for content. Solr updates the cores or indexes and returns the result of the query in XML or JSON format.
 
-In all previous Alfresco Content Services versions, `Solr.war` was bundled with the repository. Starting from Alfresco Content Services 5.2.3, you no longer deploy a `Solr.war` to your application server. Alfresco Content Services 5.2 uses Solr 4 as the default search service index. Solr 6 is an independently executable standalone application powered by a Jetty server.  For improved and efficient search functionality, you can upgrade to Alfresco Content Services with Alfresco Search and Insight Engine (Solr 6).
+In all previous Alfresco Content Services versions, `Solr.war` was bundled with the repository. Starting from Alfresco Content Services 5.2.3, you no longer deploy a `Solr.war` to your application server. Alfresco Content Services 5.2 uses Solr 4 as the default search service index. Solr 6 is an independently executable standalone application powered by a Jetty server.  For improved and efficient search functionality, you can upgrade to Alfresco Content Services with Alfresco Search Services (Solr 6).
 
 There are two cores or indexes in Solr:
 
@@ -133,6 +136,6 @@ If your query goes to the Index Server and it is not up to date, it could be any
 
 Using the Index Engine based on Solr 6 gives better consistency for metadata updates. Some update operations that infrequently require many nodes to be updated are now done in the background. These are mostly `move` and `rename` operations that affect structure. So, a node is now renamed quickly. Any structural information that is consequently changed on all of its children is done afterwards.
 
-Search and Insight Engine 1.0 also includes improved commit coordination and concurrency improvements. This reduces the time for the changes to be reflected in the index. Some of the delay also comes from the work that Solr does before an index goes live. This can be reduced by tuning. The cost is usually a query performance hit later.
+Search Services 1.0 also includes improved commit coordination and concurrency improvements. This reduces the time for the changes to be reflected in the index. Some of the delay also comes from the work that Solr does before an index goes live. This can be reduced by tuning. The cost is usually a query performance hit later.
 
 For most use cases, eventual consistency is perfectly fine. For transactional use cases, TMDQ is the only solution unless the index and repository are in sync.

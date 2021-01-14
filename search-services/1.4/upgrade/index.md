@@ -1,12 +1,12 @@
 ---
-title: Upgrade Search and Insight Engine
+title: Upgrade Search Services
 ---
 
-Use this information to upgrade from Search and Insight Engine 1.x to Search and Insight Engine 1.4.
+Use this information to upgrade from Search Services 1.x to Search Services 1.4.
 
-> **Note:** A reindex is not required when you upgrade from Search and Insight Engine 1.1 to Search and Insight Engine 1.4.
+> **Note:** A reindex is not required when you upgrade from Search Services 1.1 to Search Services 1.4.
 
-1. Stop Search and Insight Engine.
+1. Stop Search Services.
 
     ```bash
     ./solr/bin/solr stop
@@ -16,13 +16,13 @@ Use this information to upgrade from Search and Insight Engine 1.x to Search and
 
 3. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
-4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
+4. Download and unzip the Search Services distribution zip file to a preferred location:
 
     `alfresco-search-services-1.4.x.zip`
 
     By default, the contents are decompressed in a folder at `./alfresco-search-services`. The folder extracts into the same location as the zip file.
 
-5. You can now start Search and Insight Engine by pointing to the content store and indexes from  Search and Insight Engine 1.x using the following commands.
+5. You can now start Search Services by pointing to the content store and indexes from  Search Services 1.x using the following commands.
 
     If the content store and indexes for Solr are in another location, change the directory location to point to the correct one.
 
@@ -62,7 +62,7 @@ Use this information to upgrade from Search and Insight Engine 1.x to Search and
 
 9. (Optional) If you have changed the alfresco-search-services/solr.in.sh or alfresco-search-services/solr.in.cmd file, you must restore it from your backup.
 
-10. Start Search and Insight Engine 1.4.
+10. Start Search Services 1.4.
 
     If the content store and indexes for Solr are in another location, use the following commands to point Solr to the right location:
 

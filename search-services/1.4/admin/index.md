@@ -4,7 +4,7 @@ title: Overview
 
 ## Back up
 
-There are a number of ways to back up Search and Insight Engine. You can set the Solr indexes backup properties either by:
+There are a number of ways to back up Search Services. You can set the Solr indexes backup properties either by:
 
 * Using the Admin Console
 * Editing the `alfresco-global.properties` file
@@ -25,7 +25,7 @@ You can only see the Admin Console if you're an administrator.
 
     Here, you can specify the backup location and edit backup properties for each core of the Solr index: **Main Store** and **Archive Store**.
 
-    * **Backup Location**: Specifies the full-path location for the backup to be stored. This location must be on the machine on which Search and Insight Engine is installed or it must be a location which is accessible from the Solr host. For example, `/opt/alfresco-search-services/backups/alfresco`.
+    * **Backup Location**: Specifies the full-path location for the backup to be stored. This location must be on the machine on which Search Services is installed or it must be a location which is accessible from the Solr host. For example, `/opt/alfresco-search-services/backups/alfresco`.
     * **Backup Cron Expression**: Specifies a Quartz cron expression that defines when backups occur. Solr creates a timestamped sub-directory for each index back up you make.
     * **Backups To Keep**: Specifies the maximum number of index backups that Solr should store.
 4. Click **Save**.
@@ -127,7 +127,7 @@ To support fingerprint queries, additional information is added to the Solr 6 in
 
 ### Similarity and containment
 
-Document similarity covers duplicate detection, near duplicate detection, and finding different renditions of the same content. This is important to find and reduce redundant information. Fingerprints can provide a distance measure to other documents, often based on Jaccard distance/ similarity coefficient, to support *more like this* and clustering. The distance can also be used as a basis for graph traversal.
+Document similarity covers duplicate detection, near duplicate detection, and finding different renditions of the same content. This is important to find and reduce redundant information. Fingerprints can provide a distance measure to other documents, often based on Jaccard distance/ similarity coefficient, to support *more like this*. The distance can also be used as a basis for graph traversal.
 
 The Jaccard similarity coefficient is a commonly used indicator of the similarity between two sets. For sets *A* and *B* it is defined to be the ratio of the amount of common content to the total content of two documents, as defined here:
 
