@@ -154,7 +154,7 @@ Tutorial implementation steps:
     <extension>
         <modules>
             <module>
-                <id>Add Document Libarary Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
+                <id>Add Document Library Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
                 <version>1.0</version>
                 <auto-deploy>true</auto-deploy>
                 <configurations>
@@ -226,7 +226,7 @@ Tutorial implementation steps:
     <extension>
         <modules>
             <module>
-                <id>Add Document Libarary Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
+                <id>Add Document Library Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
                 <version>1.0</version>
                 <auto-deploy>true</auto-deploy>
                 <configurations>
@@ -358,7 +358,7 @@ Tutorial implementation steps:
     <extension>
         <modules>
             <module>
-                <id>Add Document Libarary Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
+                <id>Add Document Library Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
                 <version>1.0</version>
                 <auto-deploy>true</auto-deploy>
                 <configurations>
@@ -411,7 +411,7 @@ Tutorial implementation steps:
     <extension>
         <modules>
             <module>
-                <id>Add Document Libarary Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
+                <id>Add Document Library Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
                 <version>1.0</version>
                 <auto-deploy>true</auto-deploy>
                 <configurations>
@@ -497,7 +497,7 @@ Tutorial implementation steps:
     <extension>
         <modules>
             <module>
-                <id>Add Document Libarary Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
+                <id>Add Document Library Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
                 <version>1.0</version>
                 <auto-deploy>true</auto-deploy>
                 <configurations>
@@ -540,7 +540,7 @@ Tutorial implementation steps:
     <extension>
         <modules>
             <module>
-                <id>Add Document Libarary Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
+                <id>Add Document Library Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
                 <version>1.0</version>
                 <auto-deploy>true</auto-deploy>
                 <configurations>
@@ -753,7 +753,7 @@ Tutorial implementation steps:
     <extension>
         <modules>
             <module>
-                <id>Add Document Libarary Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
+                <id>Add Document Library Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
                 <version>1.0</version>
                 <auto-deploy>true</auto-deploy>
                 <configurations>
@@ -793,7 +793,7 @@ Tutorial implementation steps:
     <extension>
         <modules>
             <module>
-                <id>Add Document Libarary Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
+                <id>Add Document Library Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
                 <version>1.0</version>
                 <auto-deploy>true</auto-deploy>
                 <configurations>
@@ -877,7 +877,7 @@ Tutorial implementation steps:
     <extension>
         <modules>
             <module>
-                <id>Add Document Libarary Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
+                <id>Add Document Library Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
                 <version>1.0</version>
                 <auto-deploy>true</auto-deploy>
                 <configurations>
@@ -917,7 +917,7 @@ Tutorial implementation steps:
     <extension>
         <modules>
             <module>
-                <id>Add Document Libarary Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
+                <id>Add Document Library Actions (Send-as-Email, Call WS, Show Msg, Go to Google)</id>
                 <version>1.0</version>
                 <auto-deploy>true</auto-deploy>
                 <configurations>

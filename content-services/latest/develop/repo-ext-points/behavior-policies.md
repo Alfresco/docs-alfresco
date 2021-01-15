@@ -160,7 +160,7 @@ It is possible to do even more fine-tuning of where in the transaction event han
 compared to just before or after an operation). There are three different stages (Content Services calls it 
 notification frequencies) where the custom handler could be configured to be invoked:
 
-* `EVERY_EVENT`: This is the default if the notification frequency is not specified. The event handler is then just executed wherever it is being invoked in the code. The name of this notification frequency implies that the event handler will be called multiple times, which is true. The `EVERY_EVENT` notification frequency can be called numerous times within a single transaction (a lot more than you might expect), so unless your behaviour logic is fast+in-repository-only (no RPCs, no external data access, etc.) or asynchronous, it’s easy to seriously impact Alfresco’s performance. It's recommended to implement “early check and bail out” when this notification frequency is used, e.g. checking the affected store and actual change (if a property value has actually been modified or the correct aspect been applied). If this is done, then there is very limited chance of a noticable performance penalty.
+* `EVERY_EVENT`: This is the default if the notification frequency is not specified. The event handler is then just executed wherever it is being invoked in the code. The name of this notification frequency implies that the event handler will be called multiple times, which is true. The `EVERY_EVENT` notification frequency can be called numerous times within a single transaction (a lot more than you might expect), so unless your behavior logic is fast+in-repository-only (no RPCs, no external data access, etc.) or asynchronous, it’s easy to seriously impact Alfresco’s performance. It's recommended to implement “early check and bail out” when this notification frequency is used, e.g. checking the affected store and actual change (if a property value has actually been modified or the correct aspect been applied). If this is done, then there is very limited chance of a noticeable performance penalty.
 * `TRANSACTION_COMMIT`: The event handler is queued and invoked at the end of the transaction, just before it has been committed. A proxy around the event handler manages the queuing.
 * `FIRST_EVENT`: The event handler is invoked just after the transaction is started. A proxy around the event handler manages this.
 
@@ -173,7 +173,7 @@ notification frequencies) where the custom handler could be configured to be inv
 
 ## Deployment All-in-One SDK project
 
-* `aio/platform-jar/src/main/java/{domain specific directory path}` - implementation of Policy behaviour class
+* `aio/platform-jar/src/main/java/{domain specific directory path}` - implementation of Policy behavior class
 * `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml` - Policy Spring Bean registration
 
 ## Tutorials

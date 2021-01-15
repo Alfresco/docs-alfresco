@@ -435,11 +435,11 @@ These file locations are untouched by re-deployments and upgrades.
 * Data List Model Labels: `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/messages/datalist-model.properties`
 * Share UI configuration: `aio/share-jar/src/main/resources/META-INF/share-config-custom.xml`
 
-To implement and deploy a data list model with full UI support you need both a respository JAR and a Share JAR project.
+To implement and deploy a data list model with full UI support you need both a repository JAR and a Share JAR project.
 
 ## More Information
 
-* [How to use the Data Lists from a site in Alfresco Share](TODO_LATER:../concepts/datalists-intro.md)
+* [How to use the Data Lists from a site in Alfresco Share]({% link content-services/latest/using/sites/features.md %}#data-list)
 * [Content Models]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) - data lists are a type of content model, read all about content models here
 
 ## Sample Code

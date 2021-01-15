@@ -661,7 +661,7 @@ the `alfresco/header/AlfSitesMenu` widget.
     |showSiteFinder|Controls whether the **Site Finder** menu item is displayed.|
     |showUsefulGroup|Controls whether the **Useful** menu group is displayed. Will override `showCreateSite`, `showSiteFinder` and `showFavourites`.|
     |showRecentSites|Controls whether the **Recent Sites** menu group is displayed.|
-    |showFavourites|Controls whether the **Facvourites** menu item and favourite controls (such as add/remove) are displayed.|
+    |showFavourites|Controls whether the **Favourites** menu item and favourite controls (such as add/remove) are displayed.|
 
     For example, to hide the **Site Finder**, you would include the following code in `share-header.get.js`:
 

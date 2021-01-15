@@ -104,7 +104,7 @@ public class SiteNameDataExtractor extends AbstractDataExtractor {
     }
 
    /**
-     * Extact the site name / id
+     * Extract the site name / id
      * 
      * @param in a string containing the site id
      * @return the site id

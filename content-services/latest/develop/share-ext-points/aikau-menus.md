@@ -36,7 +36,7 @@ It will look something like this:
 ```
 
 So we are targeting the `/share/WEB-INF/classes/alfresco/site-webscripts/org/alfresco/share/header/share-header.get.js` 
-web wcript controller file, which implements the menu JSON model. Now, if we want to for example add a menu item we need 
+web script controller file, which implements the menu JSON model. Now, if we want to for example add a menu item we need 
 to create a file with the same name and put it in `alfresco/web-extension/site-webscripts/com/example/header`. 
 The file will look like this:
 

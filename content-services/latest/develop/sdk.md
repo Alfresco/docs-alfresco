@@ -13,7 +13,7 @@ and Test Driven Development (TDD).
 Alfresco SDK 4.1 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
 and supports Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, 
 please check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
-for the version you're using. If your version is in Limited or Full Support and you need help, contact our [Support team](http://support.alfresco.com/){:target="_blank"}.
+for the version you're using. If your version is in Limited or Full Support and you need help, contact our [Support team](https://support.alfresco.com/){:target="_blank"}.
 
 Alfresco SDK 4.1 is a minor update to the SDK and provides support for Alfresco 6.2.x.
 
@@ -37,7 +37,7 @@ on [Docker](https://www.docker.com/){:target="_blank"} and [Docker compose](http
 to offer a solution aligned with the architectural decisions made in Alfresco for version 6: moving towards microservices-oriented 
 solutions.
 
-Working with Docker images gives the developers the opportunity to easily customise the deployment of the local environment to adapt it to their requirements.
+Working with Docker images gives the developers the opportunity to easily customize the deployment of the local environment to adapt it to their requirements.
 Adding, removing and configuring services in the environment is as easy as modifying the Docker compose descriptor file.
 
 ### Support for Java 11
@@ -45,7 +45,7 @@ Adding, removing and configuring services in the environment is as easy as modif
 [Java 11](https://openjdk.java.net/projects/jdk/11/){:target="_blank"} is the next Long Term Support (LTS) version that provides support for 3 years. Alfresco 6.1 already offers
 support for this version of the Java platform.
 
-Alfresco SDK 4.0 has been modified to add support for Java 11 as well. This way, if you're working as a developer in customisations for Alfresco 6.1 you must
+Alfresco SDK 4.0 has been modified to add support for Java 11 as well. This way, if you're working as a developer in customizations for Alfresco 6.1 you must
 now use SDK 4.0 + JDK 11 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 11.
 
 ### Easy dependency configuration
@@ -56,18 +56,18 @@ The inclusion of the BOM dependency in the `dependencyManagement` section of the
 artifacts in the selected Alfresco platform version. It is still needed to define dependencies in the POM files, but the version can be omitted as it's 
 enforced by this `dependencyManagement`. 
 
-That incredibly eases the management of the versions of the different Alfresco platform's dependencies required in a customisation project.
+That incredibly eases the management of the versions of the different Alfresco platform's dependencies required in a customization project.
 
 ### Alfresco Maven Plugin no longer needed
 
 Alfresco SDK 4.0 manages the lifecycle of the generated projects making use of proper [utility scripts](#workingwithrunscript) 
-(`run.sh` / `run.bat`). That avoids the need of using the Alfresco Maven Plugin and eases the process to modify the lifecycle of the customisation projects.
+(`run.sh` / `run.bat`). That avoids the need of using the Alfresco Maven Plugin and eases the process to modify the lifecycle of the customization projects.
 
 If a development team has straightforward requirements and doesn't want to worry about the complexity of working with containers, it can use the utility scripts
-as they are. But, if any development team has a requirement or a development process that requires a customisation in the project development lifecycle, it is 
+as they are. But, if any development team has a requirement or a development process that requires a customization in the project development lifecycle, it is 
 easy to modify the utility scripts, the Docker files or the Docker compose descriptor to adapt the SDK projects to their needs.
 
-The Alfresco Maven Plugin is only required in those cases in which it is required to package the customisation project as an AMP. For more information about 
+The Alfresco Maven Plugin is only required in those cases in which it is required to package the customization project as an AMP. For more information about 
 how to work with AMPs, please visit [Working with AMPs](#workingwithamps).
 
 ### Integration testing
@@ -411,12 +411,12 @@ still listed.
 
 After generating a project using one of the Alfresco SDK 4.1 Maven archetypes, it is important to know how to build / run / test these projects.
 
-The Alfresco Platform 6 deployment architecture is highly based on container technologies, specifically in [Docker](http://docs.alfresco.com/6.0/concepts/master-deploy.html){:target="_blank"}. 
+The Alfresco Platform 6 [deployment]({% link content-services/latest/install/containers/index.md %}){:target="_blank"} architecture is highly based on container technologies, specifically in Docker. 
 Due to that, the projects generated using the Alfresco SDK 4.1 archetypes set up their local environment making an intensive use of Docker and Docker compose 
 technologies.
 
 If you're not familiar with these technologies, it is highly recommended visiting the [Docker documentation website](https://docs.docker.com){:target="_blank"}. This site offers
-a great quantity of training resources about [Docker](https://docs.docker.com/get-started/){:target="_blank"} and [Docker compose](https://docs.docker.com/compose/gettingstarted/){:target="_blank"}.
+a great quantity of training resources about [Docker](https://docs.docker.com/get-started/){:target="_blank"} and [Docker Compose](https://docs.docker.com/compose/gettingstarted/){:target="_blank"}.
 
 Before continuing, make sure that you have read and completed the tasks in the [Getting started](#gettingstarted) tutorial.
 
@@ -490,7 +490,7 @@ that are available in a Maven repository somewhere.
 
 #### Configuration properties
 
-There are a number of properties that we can customise when we run the Alfresco SDK project.
+There are a number of properties that we can customize when we run the Alfresco SDK project.
 These configuration properties are defined in the `my-all-in-one-project/pom.xml` project file.
 
 The following table explains some of these properties:
@@ -728,7 +728,7 @@ build the custom ACS Repository Docker image: `my-platform-project/src/main/dock
 
 #### Configuration properties
 
-There are a number of properties that we can customise when we run the Alfresco SDK project.
+There are a number of properties that we can customize when we run the Alfresco SDK project.
 These configuration properties are defined in the `my-platform-project/pom.xml` project file.
 
 The following table explains some of these properties:
@@ -948,9 +948,9 @@ which means selecting the `org.alfresco.maven.archetype:alfresco-share-jar-arche
 Maven archetype when generating the project. The following information assumes that 
 the Share project was generated with the name `my-share-project`.
 
-## Introduction
+#### Introduction
 
-An Alfresco Sharte project is used to build extensions for [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). 
+An Alfresco Share project is used to build extensions for [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). 
 The runtime environment for ACS is Docker so not only is this project building the source code for your extensions but also the 
 custom Docker image for Alfresco Share. The custom Docker images includes the 
 JARs, or AMPs, with your extension code. 
@@ -962,7 +962,7 @@ build the custom Alfresco Share Docker image: `my-share-project/src/main/docker`
 
 #### Configuration properties
 
-There are a number of properties that we can customise when we run the Alfresco SDK project.
+There are a number of properties that we can customize when we run the Alfresco SDK project.
 These configuration properties are defined in the `my-share-project/pom.xml` project file.
 
 The following table explains some of these properties:
@@ -1840,7 +1840,7 @@ The very first task to complete is about installing an enterprise license, other
 only if you used the All-In-One archetype or the Platform JAR archetype to generate your project. If you used the Share JAR archetype to generate your project, 
 feel free to ignore this task and move on the next one.
 
-If you are an Alfresco Partner or Customer, you can request an enterprise license by you opening a ticket on the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"}. 
+If you are an Alfresco Partner or Customer, you can request an enterprise license by you opening a ticket on the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. 
 The Enterprise license is nothing more and nothing less than a file with `lic` extension. The Enterprise license file goes into `src/main/docker/license` 
 folder (this folder will be located under the platform JAR submodule if you're using the All-In-One archetype). The license will be copied into the ACS Docker 
 container before it is started. The license file name doesn't matter, but make sure that you keep it simple and maintain the `lic` extension.
@@ -1897,8 +1897,8 @@ If you're using Windows, you'll need to use the `run.bat` script instead of `run
 #### How to configure private Alfresco Nexus repository {#enterprisemvnrepo}.
 
 The first matter to consider is to ensure that you have credentials for the Alfresco Private Repository 
-([artifacts.alfresco.com](artifacts.alfresco.com){:target="_blank"}), where the Alfresco artifacts are stored. Enterprise customers and partners can 
-request these credentials opening a ticket on the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"}. 
+([artifacts.alfresco.com](https://artifacts.alfresco.com/nexus/#welcome){:target="_blank"}), where the Alfresco artifacts are stored. Enterprise customers and partners can 
+request these credentials opening a ticket on the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. 
 
 Once you have suitable credentials, you need to add support for Alfresco private Maven repository to your configuration. This would typically be done by 
 adding your access credentials to the `settings.xml` contained in your `~/.m2` directory (for Linux and OS X). On Windows this resolves to 
@@ -1928,7 +1928,7 @@ In order to download the Docker images needed to work with Content Services Ente
 hosted at [Quay.io](https://quay.io/){:target="_blank"}. 
 
 The first matter to consider is to ensure that you have credentials for the Alfresco private Docker registry, where the Alfresco images are stored. Customers and partners can 
-request these credentials opening a ticket on the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"}. 
+request these credentials opening a ticket on the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. 
 
 Once you have suitable credentials, you only need to login your docker installation to the Quay.io Docker registry:
 
@@ -2442,7 +2442,7 @@ For more details on how to import an Alfresco project into your Eclipse IDE, see
     ![sdk-debug-eclipse-launch]({% link content-services/images/sdk-debug-eclipse-launch.png %})
 
     The IDE connects the source code to the deployed one at the docker container. Once the code is linked, you can open a browser and start using your 
-    application. In our case, we are going to test the behaviour of debugging by running the sample webscript.
+    application. In our case, we are going to test the behavior of debugging by running the sample webscript.
 
 8. Open your browser and type `http://localhost:8080/alfresco/s/sample/helloworld`.
 
@@ -2534,7 +2534,7 @@ For more details on how to import an Alfresco project into your IntelliJ IDEA ID
     ![sdk-debug-intellij-launch]({% link content-services/images/sdk-debug-intellij-launch.png %})
 
     The IDE connects the source code with the deployed one at the docker container. Once the code is linked, you can open a browser and start using your 
-    application. In our case, we are going to test the behaviour of debugging by running the sample webscript.
+    application. In our case, we are going to test the behavior of debugging by running the sample webscript.
 
 7. Open your browser and type `http://localhost:8080/alfresco/s/sample/helloworld`.
 
@@ -2595,7 +2595,7 @@ that conforms the Alfresco RAD module are:
     * A default value. If none of the previous mechanisms returned a value, then the default value `http://localhost:8080/alfresco` is used.
     
 In summary, if you want to execute your integration tests inside an existing ACS instance, you'll need to annotate them with the JUnit `RunWith` annotation 
-and set the value to `AlfrescoTestRunner.class`. If you want to customise the default ACS endpoint location, you can either annotate your tests with `Remote` 
+and set the value to `AlfrescoTestRunner.class`. If you want to customize the default ACS endpoint location, you can either annotate your tests with `Remote` 
 or set the Java system property `acs.endpoint.path`.
 
 ##### Integration tests configuration in the All-In-One project
@@ -2830,7 +2830,7 @@ Hot reloading in a Java project is the ability to avoid the infamous _change > r
 your application's code, and view the changes without having to restart Content Services / Alfresco Share. You can potentially gain significant 
 savings in development time that would otherwise be wasted rebuilding the Docker images and restarting the Docker containers.
 
-Hot reloading is a well known behaviour in several other languages (C# for example), and the most practical and fast lifecycle like Save&Reload should be 
+Hot reloading is a well known behavior in several other languages (C# for example), and the most practical and fast lifecycle like Save&Reload should be 
 possible. Hot reloading is the key to enabling [Rapid Application Development (RAD)](https://en.wikipedia.org/wiki/Rapid_application_development){:target="_blank"} and 
 [Test Driven Development (TDD)](https://en.wikipedia.org/wiki/Test-driven_development){:target="_blank"}.
 

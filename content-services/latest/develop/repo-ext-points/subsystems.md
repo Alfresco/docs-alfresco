@@ -370,7 +370,7 @@ call any method in the `NamedEntitiesService` interface.
 
 ## More Information
 
-* [Configuring Alfresco Subsystems](TODO_LATER:../concepts/subsystem-intro.md)
+* [Configure subsystems]({% link content-services/latest/config/subsystems.md %})
 
 ## Sample Code
 

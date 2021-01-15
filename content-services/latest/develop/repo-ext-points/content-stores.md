@@ -82,7 +82,7 @@ If you need to read and write content files from many different types of stores,
 
 ## File Storage Buckets
 
-The default behaviour of the `FileContentStore` is to store content files in a content URL with the following URL format:
+The default behavior of the `FileContentStore` is to store content files in a content URL with the following URL format:
 
 ```text
 store://<Year>/<Month>/<Day>/<Hour>/<Minute>/<UUID>.bin
@@ -104,7 +104,7 @@ public String createNewFileStoreUrl()
 This method must return a URL beginning with the scheme `store`, for example, `store://<any unique path>`. 
 The resulting `FileContentUrlProvider` may then be wired up to any `FileContentStore` instance.
 
-To customize the behaviour of `fileContentStore`, set the following properties in the `alfresco-global.properties` file:
+To customize the behavior of `fileContentStore`, set the following properties in the `alfresco-global.properties` file:
 
 * `system.content.maximumFileSizeLimit`: Specifies the value for the maximum permitted size (in bytes) of all content. By default, no limit is specified.
 * `dir.contentstore.bucketsPerMinute`: Splits the data into a maximum number of buckets within the minute. The default value is zero, which means all the content created within the same minute will live in the same folder in the content store. If a value is specified, the content will be distributed into sub folders based on the second in which it was created. For example, `dir.contentstore.bucketsPerMinute=6`.

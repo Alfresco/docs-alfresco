@@ -1230,7 +1230,7 @@ To delete an audit entry (log) from an audit app the following DELETE call is us
 `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entries/{auditEntryId}`
 
 The audit application that you want to delete the audit entry from is identified with the `id` parameter. The audit 
-entry that you want to delete is idenfied with the `auditEntryId`.
+entry that you want to delete is identified with the `auditEntryId`.
 
 To demonstrate deleting a single audit entry we will fetch a few audit entries for a file node and then delete one of them.
 

@@ -37,8 +37,8 @@ Semantic content represents the domain specific content that should be displayed
 example project information,document information, customer information, discussion thread, wiki page data, workflow 
 task information. This content is typically authored, approved, and published.
 
-Semantic content describes what should be rendered. It contains the approved message but it does not contain any f
-ormatting information. It is represented in a structured data format, such as JSON or XML. The following code is an 
+Semantic content describes what should be rendered. It contains the approved message but it does not contain any 
+formatting information. It is represented in a structured data format, such as JSON or XML. The following code is an 
 example of JSON text for a biography:
 
 ```json
@@ -1126,7 +1126,7 @@ This component binds the web script with the URL `/sample/content` to the paged-
 page `home`. It therefore has the ID `page.content.home`.
 
 ```xml
-classpath:/alfresco/web-extension/site-data/compnents/page.content.home.xml
+classpath:/alfresco/web-extension/site-data/components/page.content.home.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <component>
@@ -1144,7 +1144,7 @@ This example binds the web script with the URL `/sample/header` to the template-
 `home` template. It therefore has the ID `template.header.home`.
 
 ```xml
-classpath:/alfresco/web-extension/site-data/compnents/template.header.home.xml
+classpath:/alfresco/web-extension/site-data/components/template.header.home.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <component>
@@ -1162,7 +1162,7 @@ This example binds the web script with the URL `/sample/footer` to the global-sc
 therefore has the ID `global.footer`.
 
 ```xml
-classpath:/alfresco/web-extension/site-data/compnents/global.footer.xml
+classpath:/alfresco/web-extension/site-data/components/global.footer.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <component>
@@ -1181,7 +1181,7 @@ page `home`. It informs Surf to wrap the Component with a custom component Chrom
 few custom properties that the web script can use while it executes.
 
 ```xml
-classpath:/alfresco/web-extension/site-data/compnents/page.content.home.xml
+classpath:/alfresco/web-extension/site-data/components/page.content.home.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <component>
@@ -1540,7 +1540,7 @@ context in case you want to add, remove or re-order the default entries.
 The current limitation of this solution is that it only works with static requests from the page and not dynamic 
 requests made from a script. However, many JavaScript libraries provide their own solution to this problem (for example TinyMCE).
 
-### Surf CSS data image support
+### Surf CSS data image support {#css}
 
 Surf provides support for CSS data URIs. Data URIs are a way of embedding image data into a CSS page. The advantage of 
 using this approach is that no additional HTTP Requests are required to fetch and return images. This increases the 
@@ -1563,7 +1563,7 @@ While it might seem that embedding image data into a CSS file has the potential 
 data is typically Base64 encoded and gzipped to make it far more compact.
 
 With regards Share, while the CSS Sprite could be applied to Share pages, it has the potential to break existing Share 
-customizations, so this appraoch is not used in Share. The approach taken instead is to use the Data URI approach to 
+customizations, so this approach is not used in Share. The approach taken instead is to use the Data URI approach to 
 embed images in CSS stylesheets.
 
 #### Configuration in Share
@@ -1588,7 +1588,7 @@ multiple times.
 
 >**Important:** CSS data image files are not supported by Internet Explorer versions 6 and 7. If these browsers are detected then the CSS data image will not be generated.
 
-### Surf dependency aggregation
+### Surf dependency aggregation {#aggregate}
 
 There are additional FreeMarker template directives related to aggregate dependencies.
 
@@ -1680,7 +1680,7 @@ To enable it you set the following line within the Surf configuration file, `web
 
 #### Aggregated Dependency Output
 
-If you do enable dependency aggregation then you can expect the following behaviour to occur. If the file `A.js` contains:
+If you do enable dependency aggregation then you can expect the following behavior to occur. If the file `A.js` contains:
 
 ```javascript
 var a = 1;

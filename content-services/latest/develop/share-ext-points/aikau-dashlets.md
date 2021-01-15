@@ -18,9 +18,9 @@ Let's say we wanted to implement a simple Hello World dashlet in Aikau that look
 
 ![dev-extension-points-aikau-dashlet-hello-world-dashlet]({% link content-services/images/dev-extension-points-aikau-dashlet-hello-world-dashlet.png %})
 
-This dashlet contains the following [Aikau Widgets](dev-extensions-share-aikau-widgets.md): the dashlet itself, 
+This dashlet contains the following [Aikau Widgets]({% link content-services/latest/develop/share-ext-points/aikau-widgets.md %}): the dashlet itself, 
 two toolbar widgets, a vertical layout widget, a logo widget, and a Hello widget. To implement it start with the 
-[Surf Web Script](dev-extensions-share-surf-web-scripts.md).
+[Surf Web Script]({% link content-services/latest/develop/share-ext-points/web-scripts.md %}).
 
 The web script controller is where we specify what Aikau Widget that is implementing the dashlet, it is called 
 `acmedashlet/HelloDashlet` in this case. The controller will look something like this for the above Hello World dashlet:

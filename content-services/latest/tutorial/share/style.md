@@ -26,7 +26,7 @@ The following steps are usually needed to customize the Share UI using a custom 
 6. Customize the look and feel of YUI components by updating presentation.css and skin.css
 7. Customize the look and feel of Aikau components by overriding LESS variables in `<new theme name>.xml`
 
->**Important:** If you are upgrading to a newer Content Services version, and you are using a custom theme, then it is important to make sure that whatever out-of-the-box theme your custom theme is base on (such as Green Theme) has not changed between Content Services versions. For example, upgrading from version 5.0 to 5.1 will mean that all the out-of-the-box themes will have an extra `images/logo-entreprise.png` file. So if you upgrade to a newer version you will also have to upgrade your custom theme to match.
+>**Important:** If you are upgrading to a newer Content Services version, and you are using a custom theme, then it is important to make sure that whatever out-of-the-box theme your custom theme is base on (such as Green Theme) has not changed between Content Services versions. For example, upgrading from version 5.0 to 5.1 will mean that all the out-of-the-box themes will have an extra `images/logo-enterprise.png` file. So if you upgrade to a newer version you will also have to upgrade your custom theme to match.
 
 **Related Information**:
 
@@ -175,7 +175,7 @@ Tutorial implementation steps:
 
     ![dev-extensions-share-tutorials-custom-theme-dashboard]({% link content-services/images/dev-extensions-share-tutorials-custom-theme-dashboard.png %})
 
-    You should also see a custom logo on each page. If you are also running with the [Share header customization](dev-extensions-share-tutorials-customize-header-style.md) installed, then you will see that it overrides the theme customization:
+    You should also see a custom logo on each page. If you are also running with the [Share header customization]({% link content-services/latest/tutorial/share/header.md %}) installed, then you will see that it overrides the theme customization:
 
     ![dev-extensions-share-tutorials-custom-theme-menu-with-header-customization]({% link content-services/images/dev-extensions-share-tutorials-custom-theme-menu-with-header-customization.png %})
 

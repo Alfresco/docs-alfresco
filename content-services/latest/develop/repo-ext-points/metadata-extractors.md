@@ -355,4 +355,4 @@ content.metadataExtracter.pdf.overwritePolicy=EAGER
 
 ## Tutorials
 
-* [Configure Metadata Extraction](TODO_LATER:../tasks/metadata-config.md)
+* [Configure Metadata Extraction]({% link content-services/latest/config/repository.md %}#configure-metadata-extraction)

@@ -398,7 +398,7 @@ the site with a special site load patch class as follows:
     <property name="usersBootstrap" ref="siteLoadBootstrap-Users"/>
     <property name="siteService" ref="siteService"/>
     <property name="authorityService" ref="authorityService"/>
-    <property name="behaviourFilter" ref="policyBehaviourFilter"/>
+    <property name="behaviorFilter" ref="policyBehaviourFilter"/>
     <property name="siteName">
         <value>alfresco-kb</value>
     </property>
@@ -614,7 +614,7 @@ Another example is shown here:
 </view:view>
 ```
 
-In the code sample, you see a folder is being added, containing a single Freemarker template file. You can add multiple 
+In the code sample, you see a folder is being added, containing a single FreeMarker template file. You can add multiple 
 files and folders on the top level, or in sub-folders this way. Aspects can also be set on the new folder. 
 Another example can be found in the file `config/alfresco/bootstrap/spaces.xml`. The bootstrap directory also contains 
 many other examples.

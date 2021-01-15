@@ -6,7 +6,7 @@ This gives an introduction to the Content Services architecture from a developer
 a repository that provides a store for content, and a wide range of services that can be used by content applications 
 to manipulate the content.
 
-The following diagram illustrates the three main components that the Content Services consits of. The **Platform**, 
+The following diagram illustrates the three main components that the Content Services consists of. The **Platform**, 
 the User Interface (**UI**), and the **Search** engine. These components are implemented as separate web applications:
 
 ![acs_60_architecture_overview]({% link content-services/images/acs_60_architecture_overview.png %})
@@ -369,7 +369,7 @@ There are also a number of generic components that are used with both ACS and AP
 
 * **Breadcrumbs** - indicates the current position within a navigation hierarchy
 * **Toolbar** - an extension to the Angular Material toolbar with a title and color
-* **Accordion** - creates a collapsable accordion menu
+* **Accordion** - creates a collapsible accordion menu
 * **Card View** - displays properties in a nice layout
 * **Data Table** - generic data table implementation that is used by, for example, Document List
 * **Drag-and-Drop** - Drag and drop files into for example a folder
@@ -436,7 +436,7 @@ Select the 'Alfresco Adf App' generator and follow instructions.
 
 This page gives an introduction to the Alfresco JavaScript API, which can be used from any third party JavaScript library.
 
-The Alfresco JavaScript API is not normally used directly. Instead the Alfresco Application Developement Framework (ADF) 
+The Alfresco JavaScript API is not normally used directly. Instead the Alfresco Application Development Framework (ADF) 
 is used, which uses the JavaScript API indirectly. But there are situations when it might be necessary to use the 
 JavaScript API directly, such as when ADF cannot be used. ADF is based on Angular and if another JavaScript library 
 such as React has been adopted, then it is beneficial to use the Alfresco JavaScript API directly from React.

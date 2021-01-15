@@ -347,7 +347,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 ```
 
 Custom content model properties are not returned by default, use the `include` parameter to have them returned and set 
-it to `include=propertiers` parameter.
+it to `include=properties` parameter.
 
 To get the configured preferences for a person (user) use the following GET call:
 
@@ -1543,7 +1543,7 @@ Setting permissions for a group.
 
 **API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/updateNode](http://localhost:8080/api-explorer/#!/nodes/updateNode){:target="_blank"}
 
-**See also:** [How to create a group](dev-api-by-language-alf-rest-manage-people-groups-create-group.md)
+**See also:** [How to create a group](#creategroup)
 
 After creating a group and populating it with users and groups it is usually time to set permissions for it. What this 
 means is to configure read and write permissions on different folders and files in the repository. So when users that 

@@ -25,7 +25,7 @@ The descriptor is as follows:
 
 ```xml
 <webscript>
-   <shortname>Cutomized Admin Console - Tutorial</shortname>
+   <shortname>Customized Admin Console - Tutorial</shortname>
    <description>Admin Console WebScript that displays a simple page.></description>
    <url>/enterprise/admin/admin-tutorial</url>
    <family>AdminConsole</family>

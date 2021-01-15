@@ -2132,7 +2132,7 @@ In the examples above we've used a file, everything can obviously also be done f
 
 ## Add aspects to a folder or file {#addaspectnode}
 
-Addning aspects to a folder or file is a bit more complicated than just updating properties. Here is how to do it.
+Adding aspects to a folder or file is a bit more complicated than just updating properties. Here is how to do it.
 
 **API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/updateNode](http://localhost:8080/api-explorer/#!/nodes/updateNode){:target="_blank"}
 

@@ -263,7 +263,7 @@ of each mapped path will be recursively copied into the target WAR when the MMT 
 
 It is possible to control whether the default mappings are applied or not using the `include.default` property. 
 The property is set to `true` by default. If it is set to `false` then the default mappings will not be applied. 
-As custom mappings always take precendence over the default mappings it is possible to load the defaults and then 
+As custom mappings always take precedence over the default mappings it is possible to load the defaults and then 
 override them on an individual basis.
 
 If the source directory does not exist in the AMP file, then the mapping will be ignored; however, the destination 
@@ -538,8 +538,8 @@ the installation directory for any modules it may find. Modules found will be lo
 Share versions checked as required, and dependent module versions also checked. If everything is not as required then 
 Platform or Share will fail to start.
 
-As a minimum the Simple Module will contain a [module.properties](dev-extensions-modules-module-properties.md) file, 
-but may also contain a [module-context.xml](dev-extensions-modules-module-context.md) file, if the extension has Spring beans.
+As a minimum the Simple Module will contain a [module.properties](#module-properties-file) file, 
+but may also contain a [module-context.xml](#module-context-file) file, if the extension has Spring beans.
 
 In the Simple Module the module.properties file and `module-context.xml` file should be located in the directory 
 `extension_root/alfresco/module/module_name`. Where extension_root is the root directory of the extension, and `module_name` 
@@ -585,4 +585,3 @@ Working with JARs would have the following benefits for developers:
 * When controlling the project template we can also promote best practices for how to structure JAR Module extensions.
 * Customizations (JARs) can depend on other customizations (JARs)
 * Build is faster than with AMPs
-

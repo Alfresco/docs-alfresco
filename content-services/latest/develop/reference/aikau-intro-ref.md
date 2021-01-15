@@ -29,9 +29,9 @@ Between versions 4.0 to 4.2 there were significant enhancements to the Surf fram
 from the FreeMarker template into the JavaScript controller of the Share web scripts. Improvements to page load 
 performance were achieved by reducing HTTP requests through the following methods:
 
-* Using [MD5 checksums](dev-extensions-share-surf-checksums.md){:target="_blank"} to allow browsers to safely cache resources indefinitely
-* [Dynamically aggregating](dev-extensions-share-aggregate-dependencies.md){:target="_blank"} JavaScript and CSS dependencies into fewer resources
-* [Encoding images](dev-extensions-share-css-data-image-support.md){:target="_blank"} directly into CSS files.
+* Using [MD5 checksums]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#surf-checksums) to allow browsers to safely cache resources indefinitely
+* [Dynamically aggregating]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#aggregate) JavaScript and CSS dependencies into fewer resources
+* [Encoding images]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#css) directly into CSS files.
 
 All of these features are leveraged in the improvements and this makes it easier to produce faster, more reliable pages, 
 in less time for Alfresco Share web applications.

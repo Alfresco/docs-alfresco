@@ -90,4 +90,4 @@ Out of the box it will use the following transformer:
 
 ## Tutorials
 
-* [Adding a custom MIME type](TODO_LATER:../tasks/mimetype-add.md)
+* [Adding a custom MIME type]({% link content-services/latest/config/repository.md %}#add-a-mime-type)

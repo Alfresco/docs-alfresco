@@ -252,4 +252,4 @@ core repository concepts, such as nodes, are not directly available to web scrip
 
 ## Tutorials
 
-* [Web Script tutorials]({% link content-services/latest/tutorial/platform/web-scripts.md %}) 
+* [Web Script tutorials]({% link content-services/latest/tutorial/platform/web-scripts.md %})

@@ -112,8 +112,8 @@ Use a Share JAR SDK project instead.
 
 * [Creating a Custom Evaluator]({% link content-services/latest/tutorial/share/rendering.md %}#createcustomevaluator)
 * [Selecting an Evaluator for an Extension Module]({% link content-services/latest/tutorial/share/rendering.md %}#selectingevaluator)
-* [Sub-Component Evalution]({% link content-services/latest/tutorial/share/rendering.md %}#subcomponentevaluation)
-* [Improving Sub-Component Evalution]({% link content-services/latest/tutorial/share/rendering.md %}#improvesubcomponenteval)
+* [Sub-Component Evaluation]({% link content-services/latest/tutorial/share/rendering.md %}#subcomponentevaluation)
+* [Improving Sub-Component Evaluation]({% link content-services/latest/tutorial/share/rendering.md %}#improvesubcomponenteval)
 
 ## Alfresco Developer Blogs
 

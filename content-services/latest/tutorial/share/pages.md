@@ -207,19 +207,19 @@ Tutorial implementation steps:
 
     **Extending existing sub-components:** When the dashboard pages were first created, the concept of sub-components in Surf did not exist. Consequently, if you search through the existing dashboard configuration files you will not find sub-components specified. Surf automatically converts these “legacy” components into the new extensible components containing a single sub-component with the ID “default”.
 
-    This allows you to add new content to these legacy components through sub-components, or customize the original content without affecting any new content. In the previous configuration XML, you can change the behaviour of the components through modification of the default sub-component.
+    This allows you to add new content to these legacy components through sub-components, or customize the original content without affecting any new content. In the previous configuration XML, you can change the behavior of the components through modification of the default sub-component.
 
     Note that multiple modules can extend the same component, which is why the deployment order of modules is important.
 
     **Sub-component evaluations:** Every sub-component can optionally have zero or more evaluations. Each evaluation acts like an AND gate to a series of evaluators where an evaluation is considered successful if no evaluators fail. If an evaluation contains no evaluators, it is still considered to have evaluated successfully because nothing has failed.
 
-    The purpose of an evaluation is to change the behaviour of a sub-component in one of three ways:
+    The purpose of an evaluation is to change the behavior of a sub-component in one of three ways:
 
     * Change the Web Script that renders the content by specifying a new URL.
     * Change the default properties (and/or provide new properties) that are passed to the Web Script.
     * Control whether or not the sub-component is actually rendered.
     
-    In this example, you are simply overriding the default behaviour of the sub-component to prevent it from rendering by setting the `<render>` element to have a value of `false` (this defaults to `true`) if not defined.
+    In this example, you are simply overriding the default behavior of the sub-component to prevent it from rendering by setting the `<render>` element to have a value of `false` (this defaults to `true`) if not defined.
 
 ## Customizing (web script properties) the footer text for a Surf page
 

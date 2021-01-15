@@ -70,7 +70,7 @@ In this case a workflow was started, and there is a little icon indicating that 
 * [Evaluators Extension Point]({% link content-services/latest/develop/share-ext-points/evaluators.md %})
 * [Configure Document Library]({% link content-services/latest/develop/share-ext-points/share-config.md %}#doclibconfig)
 * [See the Rating Extension Point for example DocLib action, form, and evaluator]({% link content-services/latest/develop/repo-ext-points/ratings.md %})
-* [The Site Document Library](TODO_LATER:../tasks/library-access.md)
+* [The Site Document Library]({% link content-services/latest/using/content/index.md %}#document-library)
 
 ## Sample Code
 

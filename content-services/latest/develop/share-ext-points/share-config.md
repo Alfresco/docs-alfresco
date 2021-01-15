@@ -1335,11 +1335,11 @@ When a request is made to a page containing the form component, the following se
 5.  The form processor executes any registered filters before and after the main processing.
 6.  The REST API takes the result from the form processor/form service and constructs the form definition JSON response.
 7.  The form component receives the result from the form service and combines it with the form configuration to produce the form UI model.
-8.  The form component Freemarker template iterates around the fields and includes the relevant controls.
-9.  The form component Freemarker template instantiates the FormUI JavaScript component.
+8.  The form component FreeMarker template iterates around the fields and includes the relevant controls.
+9.  The form component FreeMarker template instantiates the FormUI JavaScript component.
 10. The FormUI JavaScript instantiates the forms runtime and registers all validation handlers.
 
-For a description of the available form controls, refer to [Forms reference]({% link content-services/latest/develop/reference/share-document-library-ref.md %}}#formref).
+For a description of the available form controls, refer to [Forms reference]({% link content-services/latest/develop/reference/share-document-library-ref.md %}#formref).
 
 At this point, the form is ready for the user to interact. When the user interacts with the form, the forms runtime constantly checks the validation rules enabling and disabling the **Submit** button appropriately. When the user submits the form, the following sequence of events occurs.
 
@@ -1427,7 +1427,7 @@ The form mode can be retrieved from the `form.mode` property. A pattern used by 
 ```
 
 The final rule for controls is that they must supply the field current value in a DOM element that has a `value` 
-property and the `id` property set to the value of `fieldHtmlId` Freemarker variable.
+property and the `id` property set to the value of `fieldHtmlId` FreeMarker variable.
 
 For advanced controls, that is, association, date, period, and so on, this usually requires a hidden `form` field.
 
@@ -1895,7 +1895,7 @@ Store the custom templates in the `site-webscripts` directory, which is usually 
 
     The example template `2-column-edit-form.ftl` is available in the distribution in the samples folder.
 
-    The following example shows the contents of the `2-column-edit-form.ftl` file. It uses some of the Freemarker macros available in `form.lib.ftl` but supplies its own `renderSetWithColumns` macro to render the HTML required to create the grid using the YUI grid CSS capabilities.
+    The following example shows the contents of the `2-column-edit-form.ftl` file. It uses some of the FreeMarker macros available in `form.lib.ftl` but supplies its own `renderSetWithColumns` macro to render the HTML required to create the grid using the YUI grid CSS capabilities.
 
     ```xml
     <#import "/org/alfresco/components/form/form.lib.ftl" as formLib />
@@ -2024,5 +2024,4 @@ You can add custom MIME types as required to this file, or create your own confi
 
 * [Making custom types visible]({% link content-services/latest/tutorial/platform/content-model.md %}#shareconfigtypesprops)
 * [Making custom aspects visible]({% link content-services/latest/tutorial/platform/content-model.md %}#addaspect)
-* [Controlling search results](TODO_LATER:https://docs.alfresco.com/6.0/tasks/controlling_search_results.html)
-
+* [Controlling search results]({% link search-services/latest/config/transactional.md %}#controlling-search-results)
