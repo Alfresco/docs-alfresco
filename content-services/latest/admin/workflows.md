@@ -143,6 +143,7 @@ Use the Workflow Console in the Repo Admin Console to manage Activiti workflows,
         * `<varName>` is the variable name
         * `[*]` defines a collection (if specified)
         * `<varValue>` is the variable value (comma-separated list of values)
+
         ```javascript
         var bpm:assignee*=admin,fred
         var wf:notifyMe=true
@@ -155,6 +156,7 @@ Use the Workflow Console in the Repo Admin Console to manage Activiti workflows,
         * `<varName>` is the variable name
         * `[*]` defines a collection (if specified)
         * `<varValue>` is the variable value (comma-separated list of values)
+
         ```javascript
         var bpm:assignee* person admin,fred
         ```
@@ -166,6 +168,7 @@ Use the Workflow Console in the Repo Admin Console to manage Activiti workflows,
         * `<varName>` is the variable name
         * `[*]` defines a collection (if specified)
         * `<varValue>` is the variable value (comma-separated list of values)
+
         ```javascript
         var bpm:groupAssignee group GROUP_Engineering
         ```
@@ -371,8 +374,7 @@ A parallel gateway, models a fork into multiple paths of execution, or a join of
 
 A parallel gateway can have both fork and join behavior, if there are multiple incoming and outgoing sequence flows for the same parallel gateway. In this case, the gateway will first join all the incoming sequence flows, before splitting into multiple concurrent paths of execution.
 
-A parallel gateway does not evaluate conditions. If conditions are defined on the sequence flow connected with the 
-parallel gateway, they're ignored.
+A parallel gateway does not evaluate conditions. If conditions are defined on the sequence flow connected with the parallel gateway, they're ignored.
 
 The following diagram shows a definition with two parallel gateways.
 

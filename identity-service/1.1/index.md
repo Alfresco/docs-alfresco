@@ -17,4 +17,3 @@ More information is available about the Identity Service covering:
 * How to [configure]({% link identity-service/1.1/configure/index.md %}) identity providers.
 
 > **Note:** See the [supported platforms]({% link identity-service/1.1/support/index.md %}) page for compatibility between Alfresco Content Services or Alfresco Process Services and Identity Service.
-

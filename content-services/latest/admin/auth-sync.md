@@ -274,9 +274,9 @@ Use this information to understand what we mean by External Authentication and h
 
 ##### What is external authentication?
 
-External authentication uses the Central Authentication Service (CAS), which enables Single Sign-On (SSO), and allows a user to authenticate with a CAS, instead of directly with Content Services. For example, this might be using the `mod_cas` Apache module. For more information about `mod_cas`, see [CAS Apache Module](http://mod-cas.sourceforge.net/).
+External authentication uses the Central Authentication Service (CAS), which enables Single Sign-On (SSO), and allows a user to authenticate with a CAS, instead of directly with Content Services. For example, this might be using the `mod_cas` Apache module. For more information about `mod_cas`, see [CAS Apache Module](http://mod-cas.sourceforge.net/){:target="_blank"}.
 
-CAS is usually used with a proxy, for example, the [Apache mod_proxy](https://httpd.apache.org/docs/current/mod/mod_proxy.html) module.
+CAS is usually used with a proxy, for example, the [Apache mod_proxy](https://httpd.apache.org/docs/current/mod/mod_proxy.html){:target="_blank"} module.
 
 External authentication is set with the `authentication.chain` parameter in your `alfresco-global.properties` file to use the `external` authentication subsystem.
 
@@ -396,7 +396,7 @@ This task assumes that you've already set up external authentication, as specifi
           <!--
                 Overriding endpoints to reference an Alfresco server with external SSO
                 enabled
-                NOTE: If utiliing a load balancer between web-tier and repository
+                NOTE: If utilizing a load balancer between web-tier and repository
                 cluster,the "sticky sessions" feature of your load balancer must be used.
 
                 NOTE: If alfresco server location is not localhost:8080 then also combine
@@ -466,7 +466,7 @@ This task assumes that you've already set up external authentication, as specifi
         <!--
                 Overriding endpoints to reference an Alfresco server with external SSO
                 enabled
-                NOTE: If utilising a load balancer between web-tier and repository
+                NOTE: If utilzing a load balancer between web-tier and repository
                 cluster,the "sticky sessions" feature of your load balancer must be used.
 
                 NOTE: If alfresco server location is not localhost:8080 then also combine

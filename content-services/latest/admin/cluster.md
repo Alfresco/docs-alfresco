@@ -593,6 +593,7 @@ Use this information to track clustering issues.
     ```
 
 * The underlying clustering technology, Hazelcast, is configured to use `log4j` for logging. Therefore, you can configure logging for the whole Hazelcast top-level package, as shown:
+
     ```text
     log4j.logger.com.hazelcast=info
     ```
@@ -619,9 +620,9 @@ Use this information to track clustering issues.
     --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED
     ```
 
-    See the [Hazelcast documentation](https://docs.hazelcast.org/docs/3.11/manual/html-single/index.html#running-in-modular-java) for more details.
+    See the [Hazelcast documentation](https://docs.hazelcast.org/docs/3.11/manual/html-single/index.html#running-in-modular-java){:target="_blank"} for more details.
 
-    For more details about the danger of using those parameters, see [https://openjdk.java.net/jeps/261](https://openjdk.java.net/jeps/261). Note the warning on that page:
+    For more details about the danger of using those parameters, see [https://openjdk.java.net/jeps/261](https://openjdk.java.net/jeps/261){:target="_blank"}. Note the warning on that page:
 
     > **Note:** The `--add-exports` and `--add-opens` options must be used with great care. You can use them to gain access to an internal API of a library module, or even of the JDK itself, but you do so at your own risk: If that internal API is changed or removed, then your library or application will fail.
 
