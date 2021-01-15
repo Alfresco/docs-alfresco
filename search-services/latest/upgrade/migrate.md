@@ -2,7 +2,7 @@
 title: Migrate Solr 4 to Solr 6 
 ---
 
-Use this information to migrate from Alfresco One 5.1 with the Solr 4 search index server to Alfresco Content Services 6.2 with the Solr 6 search index server.
+Use this information to migrate from Alfresco One 5.1 with the Solr 4 search index server to Alfresco Content Services 6.1 with the Solr 6 search index server.
 
 To determine the current search server, navigate to the Search Manager page at **Alfresco Share Admin Console > Repository Services > Search Service**. Select the search subsystem from the **Search Service In Use** list.
 
@@ -14,7 +14,7 @@ Follow the steps to migrate from Alfresco One 5.x with Solr 4 search service to 
 
 2. Upgrades from Alfresco Content Services 5.2 must first upgrade to Search Services from Solr 4, and then upgrade to 6.0
 
-3. Make sure you upgrade to Alfresco Search Services 2.0 before upgrading the repository to 6.2.
+3. Make sure you upgrade to Alfresco Search Services 1.3 before upgrading the repository to 6.1.
 
 4. Install and configure Solr 6 to track the repository. For more information, see [Install without mutual TLS (zip)]({% link search-services/latest/install/options.md %}
 

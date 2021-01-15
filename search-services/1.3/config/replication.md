@@ -4,9 +4,9 @@ title: Solr replication
 
 Solr replication uses the master-slave model to distribute complete copies of a master index to one or more slave servers.
 
-The master server receives all updates and all changes are made against a single master server. Changes made on the master are distributed to all the slave servers which service all query requests from the clients. This enables Solr to remain responsive even with high query traffic.
-
-All trackers must be enabled on master nodes, while only model tracker and metadata tracker should be enabled on slaves.
+The master server receives all updates and all changes (such as inserts, updates, or deletes) that are made against a single master server. Changes made on the master are distributed to all the
+slave servers which service all query requests from the clients. This division of labor enables Solr to scale to provide adequate responsiveness to queries against large search volumes.
+The master server tracks the models, metadata, permissions, and content where as the slave server only tracks the models.
 
 The figure below shows a Solr configuration using index replication. The master server's index is replicated on the slaves.
 
@@ -189,7 +189,7 @@ To promote a slave, follow the steps below:
 3. In the alresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml file, replace the Solr configuration in the replication handler that defines the slave with the one that defines the master.
 
     ```bash
-    <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler"> 
+    <requestHandler name="/replication" class="solr.ReplicationHandler"> 
         <!--
            To enable simple master/slave replication, uncomment one of the 
            sections below, depending on whether this solr instance should be

@@ -46,7 +46,7 @@ The `solrcore.properties` configuration file is the property configuration file 
 |alfresco.threadPriority|This property specifies the priority that all threads must have on the scale of 1 to 10, where 1 has the lowest priority and 10 has the highest priority, for example `5`.|
 |alfresco.topTermSpanRewriteLimit|Term expansion is used to convert wildcard \* matches into a finite disjunction - e.g. "cat*" -> "cat OR category OR catalogue OR ... caterpillar". This property controls the number of terms in this disjunction, which are chosen from the index with preference given to more popular terms. If you increase the value too much you may not have good performance and if you decrease the value too much you may not receive any results. How you are affected by variations in the limit will depend on your installation, for example `1000`.|
 |alfresco.transactionDocsBatchSize|This property is used for batch fetching updates during tracking, for example `100`.|
-|alfresco.version|This property specifies the Alfresco Content Services version installed, for example `6.2`.|
+|alfresco.version|This property specifies the Alfresco Content Services version installed, for example `6.1`.|
 |alfresco.workQueueSize|This property specifies the maximum number of queued work instances to keep before blocking against further adds, for example `-1`.|
 |data.dir.root|This property specifies the top level directory path for the indexes managed by Solr, for example `/alfresco-search-services/solrhome`|
 |data.dir.store|This property specifies the directory relative to data.dir.root where the data for this core is stored, for example `workspace/SpacesStore`|
@@ -107,7 +107,7 @@ If you wish to change the default value of a property, add the relevant property
 
 ### Data dictionary options
 
-The indexing behavior for each property can be set in the content model. By default the index is eventually consistent with the created content and properties are tokenized when indexed. For more information on how to configure indexing for properties in the content model see this [LINK LINK](https://docs.alfresco.com/6.0/references/dev-extension-points-content-model-define-and-deploy.html).
+The indexing behavior for each property can be set in the content model. By default the index is eventually consistent with the created content and properties are tokenized when indexed. For more information on how to configure indexing for properties in the content model see this [LINK LINK](https://docs.alfresco.com/6.1/references/dev-extension-points-content-model-define-and-deploy.html).
 
 ### Indexing options
 

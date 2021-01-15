@@ -97,7 +97,7 @@ Primary and secondary types are supported and require inner joins to link them t
 
 For multi-valued properties, CMIS QL supports `ANY` semantics from SQL 92. A query against a multi-lingual property, such as title or description, is treated as multi-valued and may match in any language. In the results, you will see the best value for your locale, which may not match the query. Also, ordering will consider any value.
 
-### *UPPER() and LOWER()
+### UPPER() and LOWER()
 
 `UPPER()` and `LOWER()` functions were in early drafts for the CMIS 1.0 specification, but were subsequently dropped. These are not part of the CMIS 1.0 or 1.1 specifications. They are not supported in TMDQ.
 

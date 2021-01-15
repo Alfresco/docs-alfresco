@@ -40,7 +40,7 @@ The topic describes the properties for configuring the Solr 6 search service.
 
     |Solr search property|Description|
     |--------------------|-----------|
-    |Content Tracking Enabled|This setting can be used to disable Solr 6 tracking by separate Solr instance(s) configured to track this server, for example `Yes`|
+    |Content Tracking Enabled|This specifies that Solr 6 can still track with the No Index search enabled. This setting can be used to disable Solr 6 tracking by separate Solr instance(s)              configured to track this server. , for example `Yes`|
     |Solr Port (Non-SSL)|This specifies the application server's http port (non-secure) on which Solr 6 is running. This is only used if Solr 6 is configured to run without secure communications, for example `8080`|
     |Solr base URL|This specifies the base URL for the Solr 6 web application. Adjusting the URL does not change where Solr is hosted, it changes where Alfresco Content Services looks for Solr, for example `/solr6`.|
     |Solr Hostname|his specifies the hostname on which the Solr 6 server is running. Use localhost if running on the same machine, for example `localhost`.|
