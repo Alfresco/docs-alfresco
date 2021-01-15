@@ -40,14 +40,13 @@ You need one of each of the following components:
 
 You can use one of the following operating systems:
 
-* Microsoft Windows 10 with latest updates
+* Microsoft Windows 10 with latest updates (only in combination with Microsoft Outlook 2016)
 * Microsoft Windows 8.1 with latest updates
 
 ### Software requirements
 
 You can use one of the following Outlook releases:
 
-* Microsoft Outlook for Office 365 (x86/x64) with latest updates
 * Microsoft Outlook 2019 (x86/x64)
 * Microsoft Outlook 2016 (x86/x64)
 * Microsoft Office 2013 (x86/x64)
@@ -56,7 +55,7 @@ You can use one of the following Outlook releases:
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.0 or later. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
+* Alfresco Content Services 6.0 or later. See [Supported Platforms]({% link microsoft-outlook/2.6/support/index.md %}) for more information.
 
 If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites for using SAML SSO with Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-prereqs.html).
 
@@ -70,17 +69,17 @@ Make sure you are running the correct versions of operating system and software 
 
 2. Browse to the [Support Portal](https://support.alfresco.com){:target="_blank"} and download and unzip the the Outlook Integration zip package:
 
-    `alfresco-outlook-integration-2.7.x.zip`
+    `alfresco-outlook-integration-2.6.x.zip`
 
 3. Copy the provided AMP files to the Alfresco `amps` and `amps_share` directories.
 
     Copy this file to the `amps` directory:
 
-    `alfresco-outlook-repository-2.7.x.amp`
+    `alfresco-outlook-repository-2.6.x.amp`
 
     and this file to the `amps_share` directory:
 
-    `alfresco-outlook-share-2.7.x.amp`
+    `alfresco-outlook-share-2.6.x.amp`
 
 4. To install the AMP files, run the `apply_amps.bat` file from the Alfresco `bin` directory.
 
@@ -132,7 +131,7 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
 
 >**Note:** If you are distributing Alfresco Outlook Client across an organization, see [Install the Alfresco Outlook Client in unattended mode](#installunattendedmode) for guidance on installing in unattended mode.
 
-1. Extract the contents of the `alfresco-outlook-client-2.7.x.zip` file using a standard unzip tool.
+1. Extract the contents of the `alfresco-outlook-client-2.6.x.zip` file using a standard unzip tool.
 
 2. Navigate to the directory containing the unzipped content and double click the `install.bat` file.
 
@@ -166,26 +165,26 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
 
 >**Note:** If you plan to use SAML Module for Alfresco Content Services authentication, ensure you have already installed and configured the Alfresco SAML module. See [Installing SAML SSO in Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-config-overview.html) and [Configuring SAML SSO](TODO_LINK:https://docs.alfresco.com/saml/tasks/saml-config.html) for more information.
 
-1. Extract the contents of the `alfresco-outlook-client-2.7.x.zip` file using a standard unzip tool.
+1. Extract the contents of the `alfresco-outlook-client-2.6.x.zip` file using a standard unzip tool.
 
-2. Locate `x64/AlfrescoOutlookClient_x64_2.7.x.msi` or `x86/AlfrescoOutlookClient_x86_2.7.x.msi`, depending on whether you are running a 64-bit or 32-bit version of Windows.
+2. Locate `x64/AlfrescoOutlookClient_x64_2.6.x.msi` or `x86/AlfrescoOutlookClient_x86_2.6.x.msi`, depending on whether you are running a 64-bit or 32-bit version of Windows.
 
 3. From a command line, navigate to the `x64` or `x86` directory, and run the `msiexec` command. For example:
 
     ```bash
-    msiexec /i AlfrescoOutlookClient_x86_2.7.x.msi HOST=127.0.0.1:8080 AUTH=basic
+    msiexec /i AlfrescoOutlookClient_x86_2.6.x.msi HOST=127.0.0.1:8080 AUTH=basic
     ```
 
     for an interactive installation:
 
     ```bash
-    msiexec /i AlfrescoOutlookClient_x86_2.7.x.msi HOST=127.0.0.1:8080 AUTH=basic /quiet
+    msiexec /i AlfrescoOutlookClient_x86_2.6.x.msi HOST=127.0.0.1:8080 AUTH=basic /quiet
     ```
 
     for an installation with no interaction, or:
 
     ```bash
-    msiexec /i AlfrescoOutlookClient_x86_2.7.x.msi HOST=127.0.0.1:8080 AUTH=saml /quiet
+    msiexec /i AlfrescoOutlookClient_x86_2.6.x.msi HOST=127.0.0.1:8080 AUTH=saml /quiet
     ```
 
     for a non-interactive installation with SAML authentication enabled.
@@ -199,7 +198,7 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
     |`HOST`|Format: `<http|https>://<hostname>:<port>`|Sets the Alfresco server URL. Port is optional.|
     |`SHARE`|Default: `share`|Sets context to Alfresco Share.|
     |`ALFRESCO`|Default: `alfresco`|Sets context to the Alfresco repository.|
-    |`CULTURE`|`en|de|es|it|fr|ja|ru|zh-cn|pt-br|nl|nb-no|cs|da|fi|pl|sv` Default: `en`|Sets language for Alfresco Outlook Client.|
+    |`CULTURE`|`en|de|es|it|fr|ja|ru|zh-cn|pt-br|nl|nb-no` Default: `en`|Sets language for Alfresco Outlook Client.|
     |`SHAREALT`|No default|Sets alternative URL for Alfresco Share.|
     |`AUTH`|`basic|windows|saml`|Sets authentication type.|
     |`APPTITLE`|Default: Alfresco Outlook Plugin|Sets a custom title for Alfresco Outlook Client. Format: `"My Custom Title"`|

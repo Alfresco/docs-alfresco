@@ -12,13 +12,13 @@ These instructions show you how to upgrade your instance of Outlook Integration.
 
 3. Uninstall the Outlook Integration AMP files, using MMT (Module Management Tool).
 
-    See [Uninstall Outlook Integration]({% link microsoft-outlook/latest/install/index.md %}#uninstall) for instructions on how to uninstall the AMP files.
+    See [Uninstall Outlook Integration]({% link microsoft-outlook/2.4/install/index.md %}#uninstall) for instructions on how to uninstall the AMP files.
 
     Delete the `tomcat/webapps/alfresco` and `tomcat/webapps/share` folders before restarting Alfresco in step 6 to ensure that the new war files are exploded.
 
 4. Download, extract and install the new Outlook Integration files.
 
-    You do not need to uninstall a previous version of Alfresco Outlook Client. You can install the new client and all settings are transferred to the new version. See [Install Outlook Integration]({% link microsoft-outlook/latest/install/index.md %}) for instructions on how to do this.
+    You do not need to uninstall a previous version of Alfresco Outlook Client. You can install the new client and all settings are transferred to the new version. See [Install Outlook Integration]({% link microsoft-outlook/2.4/install/index.md %}) for instructions on how to do this.
 
 5. Restart the Alfresco server and open Microsoft Outlook.
 

@@ -3,15 +3,55 @@
   pages:
     - title: 'Introduction'
       path: '/microsoft-outlook/latest/'
-    - title: "Install"
+    - title: 'Install'
       path: '/microsoft-outlook/latest/install/'
     - title: 'Upgrade'
       path: '/microsoft-outlook/latest/upgrade/'
-    - title: "Configure"
+    - title: 'Configure'
       path: '/microsoft-outlook/latest/config/'
-    - title: "Administer"
+    - title: 'Administer'
       path: '/microsoft-outlook/latest/admin/'
     - title: 'Using'
       path: '/microsoft-outlook/latest/using/'
-
-
+- version: 2.6
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-outlook/2.6/'
+    - title: 'Install'
+      path: '/microsoft-outlook/2.6/install/'
+    - title: 'Upgrade'
+      path: '/microsoft-outlook/2.6/upgrade/'
+    - title: 'Configure'
+      path: '/microsoft-outlook/2.6/config/'
+    - title: 'Administer'
+      path: '/microsoft-outlook/2.6/admin/'
+    - title: 'Using'
+      path: '/microsoft-outlook/2.6/using/'
+- version: 2.5
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-outlook/2.5/'
+    - title: 'Install'
+      path: '/microsoft-outlook/2.5/install/'
+    - title: 'Upgrade'
+      path: '/microsoft-outlook/2.5/upgrade/'
+    - title: 'Configure'
+      path: '/microsoft-outlook/2.5/config/'
+    - title: 'Administer'
+      path: '/microsoft-outlook/2.5/admin/'
+    - title: 'Using'
+      path: '/microsoft-outlook/2.5/using/'
+- version: 2.4
+  pages:
+    - title: 'Introduction'
+      path: '/microsoft-outlook/2.4/'
+    - title: 'Install'
+      path: '/microsoft-outlook/2.4/install/'
+    - title: 'Upgrade'
+      path: '/microsoft-outlook/2.4/upgrade/'
+    - title: 'Configure'
+      path: '/microsoft-outlook/2.4/config/'
+    - title: 'Administer'
+      path: '/microsoft-outlook/2.4/admin/'
+    - title: 'Using'
+      path: '/microsoft-outlook/2.4/using/'
