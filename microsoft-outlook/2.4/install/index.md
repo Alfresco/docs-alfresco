@@ -40,15 +40,13 @@ You need one of each of the following components:
 
 You can use one of the following operating systems:
 
-* Microsoft Windows 10 with latest updates
+* Microsoft Windows 10 with latest updates (only in combination with Microsoft Outlook 2016)
 * Microsoft Windows 8.1 with latest updates
 
 ### Software requirements
 
 You can use one of the following Outlook releases:
 
-* Microsoft Outlook for Office 365 (x86/x64) with latest updates
-* Microsoft Outlook 2019 (x86/x64)
 * Microsoft Outlook 2016 (x86/x64)
 * Microsoft Office 2013 (x86/x64)
 * [Visual Studio Tools for Office 4.0 Runtime](https://msdn.microsoft.com/en-us/library/ms178739.aspx){:target="_blank"}
@@ -56,7 +54,11 @@ You can use one of the following Outlook releases:
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.0 or later. See [Supported Platforms]({% link microsoft-outlook/2.4/support/index.md %}) for more information.
+* Alfresco Content Services 5.2.x
+* Alfresco One 5.1.3 or later
+* Alfresco One 5.0.4 or later
+
+See [Supported Platforms]({% link microsoft-outlook/2.4/support/index.md %}) for more information.
 
 If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites for using SAML SSO with Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-prereqs.html).
 

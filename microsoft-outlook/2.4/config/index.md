@@ -785,7 +785,7 @@ Configure Microsoft Outlook to find and connect to the correct Alfresco server.
 
     If you select standard authentication, enter your Alfresco user name and password. If you select Windows authentication, the `passthru` authentication is used. For more information about authentication subsystem types, see [Authentication subsystem types](TODO_LINK:http://docs.alfresco.com/5.1/concepts/auth-subsystem-types.html).
 
-    >**Note:** By default, SAML authentication is enabled. Use the Client Settings XML file to disable SAML authentication, and remove the SAML authentication radio button in this panel. See [Setting SAML in AlfrescoClientSettings](TODO:Outlook-config-xml.md#saml) for more information.
+    >**Note:** By default, SAML authentication is enabled. Use the Client Settings XML file to disable SAML authentication, and remove the SAML authentication radio button in this panel. See [Setting SAML in AlfrescoClientSettings]({% link microsoft-outlook/2.4/config/index.md %}#configure-connection-settings) for more information.
 
 6. Click **Check connection** to test the connection to the Alfresco server.
 
@@ -1006,8 +1006,6 @@ Use this file to set up attributes and metadata settings.
     |`messageIcon`|Controls the appearance of the Alfresco icon for archived mail|`true`: Alfresco icon appears on archived emails. This is the default setting.<br><br>`false`: Alfresco icon appears on archived emails.<br><br>**Note:** There is no visual icon to indicate that the email is archived.|
     |`useFilenameOnUploadMsg`|Controls if Alfresco should use the file name of email files uploaded from the desktop or the subject line to name the document in the repository. This option applies to email files uploaded from the desktop only.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`true`: Alfresco uses the file name to name the document in the repository.<br><br>`false`: Alfresco uses the subject line of the email to name the document in the repository.|
     |`useFilenameOnRenderMsg`|Controls if Alfresco should use the `cm:name` or `subjectline` attribute to display in the list/tree view. This option applies to email documents only.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`true`: Alfresco uses the `cm:name` instead of the `subjectline` attribute to show the email document in the list/tree view.<br><br>`false`: Alfresco uses the `subjectline` attribute to show the email document in the list/tree view.|
-    |`enableWFTab`|Controls the visibility of the Workflow tab in high resolution mode.<br><br>Added in Outlook Integration 2.6.|`true`: Workflow tab is visible.<br><br>`false`: Workflow tab is collapsed. This is the default setting.|
-    |`enableWPF`|Enables/disables the use of a high resolution front-end for the Alfresco Outlook Client.<br><br>Added in Outlook Integration 2.6.|`true`: High resolution front-end is enabled. This is the default setting.<br><br>`false`: High resolution front-end is disabled.|
 
 6. Configure the attributes that you need for the `<logging>` element:
 

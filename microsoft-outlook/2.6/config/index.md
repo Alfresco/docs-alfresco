@@ -785,7 +785,7 @@ Configure Microsoft Outlook to find and connect to the correct Alfresco server.
 
     If you select standard authentication, enter your Alfresco user name and password. If you select Windows authentication, the `passthru` authentication is used. For more information about authentication subsystem types, see [Authentication subsystem types](TODO_LINK:http://docs.alfresco.com/5.1/concepts/auth-subsystem-types.html).
 
-    >**Note:** By default, SAML authentication is enabled. Use the Client Settings XML file to disable SAML authentication, and remove the SAML authentication radio button in this panel. See [Setting SAML in AlfrescoClientSettings](TODO:Outlook-config-xml.md#saml) for more information.
+    >**Note:** By default, SAML authentication is enabled. Use the Client Settings XML file to disable SAML authentication, and remove the SAML authentication radio button in this panel. See [Setting SAML in AlfrescoClientSettings]({% link microsoft-outlook/2.6/config/index.md %}#configure-connection-settings) for more information.
 
 6. Click **Check connection** to test the connection to the Alfresco server.
 

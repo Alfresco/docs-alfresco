@@ -365,7 +365,7 @@ The Alfresco Outlook Client no longer permits direct write access to a Records M
 
 In the Alfresco Outlook Client, you might see a message stating that you can't declare a record from within the client. This action is no longer supported. However, you can declare content in a collaboration site as a record (i.e. create an inline record).
 
-### Drag and drop as a PDF link doesn't work with SAML authentication
+### Drag and drop as a PDF link doesn't work with SAML authentication
 
 There's a known issue when using drag and drop from Alfresco to convert an Office file to PDF format, and adding it to an email as a link, where there's an option to automatically link to a PDF version of that document. This feature doesn't currently work with SAML authentication. However, there's a workaround to achieve the same functionality:
 
