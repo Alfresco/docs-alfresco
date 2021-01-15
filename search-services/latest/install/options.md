@@ -136,6 +136,8 @@ This task assumes you have:
         * `alfresco-search-services/solrhome/archive/conf/solrcore.properties`
 8. For running a single instance of Search Services use the following commands:
 
+    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
+
     ```bash
     cd alfresco-search-services
     ./solr/bin/solr start -a
@@ -153,11 +155,7 @@ This task assumes you have:
     -Dssl-truststore.ssl-repo-client.password=truststore" -f
     ```
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services.
-
-    > **Note:** To ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
-
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services. In addition, to ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     The default port used is 8983.
 

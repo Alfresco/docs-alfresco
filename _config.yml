@@ -495,7 +495,6 @@ defaults:
       path: "insight-engine/1.4"
     values:
       version: 1.4
-      latest: 
 
 # Alfresco Search Services
   - scope:
@@ -518,7 +517,6 @@ defaults:
       path: "search-services/1.4"
     values:
       version: 1.4
-      latest: 
 
 # Alfresco Sync Service
   - scope:
