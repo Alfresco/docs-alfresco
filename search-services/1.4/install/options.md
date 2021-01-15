@@ -12,22 +12,22 @@ Mutual TLS is used for authentication between the Repository and Search Services
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 6.2 or above, see [Supported platforms]({% link search-services/latest/support/index.md %}).
+* Installed Alfresco Content Services 6.0 or above
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
     index.subsystem.name=solr6
-    solr.secureComms=https
+    solr.secureComms=none
     solr.port=8983
     ```
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.
 
-1. Download `alfresco-search-services-2.0.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
+1. Download `alfresco-search-services-1.4.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search Services distribution.
 
-    By default, the contents of `alfresco-search-services-2.0.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/latest/config/index.md %}#search-services-directory-structure) for more details.
+    By default, the contents of `alfresco-search-services-1.4.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/1.4/config/index.md %}#search-services-directory-structure) for more details.
 
 3. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this update the `alfresco-search-services/solrhome/conf/shared.properties` file:
 
@@ -50,7 +50,7 @@ This task assumes you have:
 
 5. To secure access to Search Services, you must create a new set of keystores and keys.
 
-    1. Generate secure keys specific to your Alfresco installation. For more information, see [Secure keys]({% link search-services/latest/config/keys.md %}#generate-secure-keys-for-ssl-communication).
+    1. Generate secure keys specific to your Alfresco installation. For more information, see [Secure keys]({% link search-services/1.4/config/keys.md %}#generate-secure-keys-for-ssl-communication).
 
     2. Create a new keystore directory at `alfresco-search-services/solrhome`.
 
@@ -61,12 +61,10 @@ This task assumes you have:
         (Windows) update the `alfresco-search-services/solr.in.cmd` file:
 
         ```bash
-        set SOLR_SSL_KEY_STORE=<SOLR_HOME>/keystore/ssl-repo-client.keystore
-        set SOLR_SSL_KEY_STORE_PASSWORD=keystore
-        set SOLR_SSL_KEY_STORE_TYPE=JCEKS
-        set SOLR_SSL_TRUST_STORE=<SOLR_HOME>/keystore/ssl-repo-client.truststore
-        set SOLR_SSL_TRUST_STORE_PASSWORD=truststore
-        set SOLR_SSL_TRUST_STORE_TYPE=JCEKS
+        set SOLR_SSL_KEY_STORE=<SOLR_HOME>\keystore\ssl.repo.client.keystore
+        set SOLR_SSL_KEY_STORE_PASSWORD=password
+        set SOLR_SSL_TRUST_STORE=<SOLR_HOME>\keystore\ssl.repo.client.truststore
+        set SOLR_SSL_TRUST_STORE_PASSWORD=password
         set SOLR_SSL_NEED_CLIENT_AUTH=true
         set SOLR_SSL_WANT_CLIENT_AUTH=false
         ```
@@ -74,15 +72,13 @@ This task assumes you have:
         (Linux) update the `alfresco-search-services/solr.in.sh` file:
 
         ```bash
-        SOLR_SSL_KEY_STORE=<SOLR_HOME>/keystore/ssl-repo-client.keystore
-        SOLR_SSL_KEY_STORE_PASSWORD=keystore
-        SOLR_SSL_KEY_STORE_TYPE=JCEKS
-        SOLR_SSL_TRUST_STORE=<SOLR_HOME>/keystore/ssl-repo-client.truststore
-        SOLR_SSL_TRUST_STORE_PASSWORD=truststore
-        SOLR_SSL_TRUST_STORE_TYPE=JCEKS
-        SOLR_SSL_NEED_CLIENT_AUTH=true
-        SOLR_SSL_WANT_CLIENT_AUTH=false
-        ```
+       SOLR_SSL_KEY_STORE=<SOLR_HOME>/keystore/ssl.repo.client.keystore
+       SOLR_SSL_KEY_STORE_PASSWORD=password
+       SOLR_SSL_TRUST_STORE=<SOLR_HOME>/keystore/ssl.repo.client.truststore
+       SOLR_SSL_TRUST_STORE_PASSWORD=password 
+       SOLR_SSL_NEED_CLIENT_AUTH=true 
+       SOLR_SSL_WANT_CLIENT_AUTH=false
+       ```
 
     5. Set the `SOLR_PORT` environment variable:
 
@@ -98,7 +94,7 @@ This task assumes you have:
         SOLR_PORT=8983
         ```
 
-6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/latest/config/index.md %}#search-services-externalized-configuration).
+6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/1.4/config/index.md %}#search-services-externalized-configuration).
 
     (Windows) update the `alfresco-search-services/solr.in.cmd` file:
 
@@ -129,30 +125,20 @@ This task assumes you have:
             ```bash
             ssl-repo-client.keystore
             ssl-repo-client.truststore
+            ssl-keystore-passwords.properties
+            ssl-truststore-passwords.properties
             ```
 
     * If the alfresco and archive cores already exist, ensure that `alfresco.secureComms` is set to `https` for both the cores. For example:
         * `alfresco-search-services/solrhome/alfresco/conf/solrcore.properties`
         * `alfresco-search-services/solrhome/archive/conf/solrcore.properties`
-8. For running a single instance of Search Services use the following commands:
+8. For running a single instance of Search Services (i.e. not sharded), use the following commands:
 
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
+   > **Note:** You should run the application as a dedicated user. For example, you can create a Solr user.
 
     ```bash
     cd alfresco-search-services
-    ./solr/bin/solr start -a
-    "-Dcreate.alfresco.defaults=alfresco,archive
-    -Dsolr.ssl.checkPeerName=false
-    -Dsolr.allow.unsafe.resourceloading=true
-    -Dssl-keystore.password=keystore
-    -Dssl-keystore.aliases=ssl-alfresco-ca,ssl-repo-client
-    -Dssl-keystore.ssl-alfresco-ca.password=keystore
-    -Dssl-keystore.ssl-repo-client.password=keystore
-    -Dssl-truststore.password=truststore
-    -Dssl-truststore.aliases=ssl-alfresco-ca,ssl-repo,ssl-repo-client
-    -Dssl-truststore.ssl-alfresco-ca.password=truststore
-    -Dssl-truststore.ssl-repo.password=truststore
-    -Dssl-truststore.ssl-repo-client.password=truststore" -f
+    ./solr/bin/solr start -a "-Djavax.net.ssl.keyStoreType=JCEKS -Djavax.net.ssl.trustStoreType=JCEKS -Dsolr.ssl.checkPeerName=false -Dcreate.alfresco.defaults=alfresco,archive"
     ```
 
     > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services. In addition, to ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
@@ -176,9 +162,7 @@ This task assumes you have:
 
     The logs are stored in the `alfresco-search-services/logs/solr.log` file, by default. This can be configured in `solr.in.sh` (for Linux) or `solr.in.cmd` (for Windows) using `SOLR_LOGS_DIR`.
 
-    You have successfully created an `alfresco` core and an `archive` core. To verify, in a browser, navigate to the Solr URL, [https://localhost:8983/solr](https://localhost:8983/solr).
-
-    > **Note:** You need to install the browser.p12 certificate in your browser before accessing this URL.
+    You have successfully created an `alfresco` core and an `archive` core. To verify, in a browser, navigate to the Solr URL, [https://localhost:8983/solr](https://localhost:8983/solr). 
 
     In the Solr Admin UI, select the core selector drop-down list and verify that both the `alfresco` and `archive` cores are present.
 
@@ -190,11 +174,11 @@ This task assumes you have:
 
 Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS.
 
-Mutual TLS is used for authentication between the Repository and Search Services. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy LINK LINK](https://docs.alfresco.com/6.1/concepts/reverse-proxy.html) for more.
+Mutual TLS is used for authentication between the Repository and Search Services. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy LINK LINK](https://docs.alfresco.com/6.0/concepts/reverse-proxy.html) for more.
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 6.2 or above, see [Supported platforms]({% link search-services/latest/support/index.md %}).
+* Installed Alfresco Content Services 6.0 or above
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
@@ -205,11 +189,11 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.
 
-1. Download `alfresco-search-services-2.0.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
+1. Download `alfresco-search-services-1.4.x.zip` from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search Services distribution.
 
-    By default, the contents of `alfresco-search-services-2.0.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/latest/config/index.md %}#search-and-search-services-directory-structure) for more details.
+    By default, the contents of `alfresco-search-services-1.4.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/1.4/config/index.md %}#search-services-directory-structure) for more details.
 
 3. Configure HTTP.
 
@@ -248,7 +232,7 @@ This task assumes you have:
 
     > **Note:** The spell check functionality works with Search Services when suggestion is enabled.
 
-6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/latest/config/index.md %}#search-services-externalized-configuration).
+6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/1.4/config/index.md %}#search-services-externalized-configuration).
 
     (Windows) update the `alfresco-search-services`/`solr.in.cmd` file:
 

@@ -20,6 +20,8 @@ In general, TMDQ does not support:
 * Faceting.
 * Any aggregation: This includes counting the total number of matches for the query.
 
+Fingerprint support is only on the Index Server.
+
 AFTS and CMIS queries are parsed to an abstract form. This is then sent to an execution engine. There are two execution engines: the database and the Solr index. The default is to try the database first and fall back to the Solr index, if the query is not supported against the database. This is configurable for a search subsystem and per query using the Java API.
 
 To support TMDQ:
@@ -122,7 +124,7 @@ Some differences between the database and TMDQ:
 
 TMDQ can support exact match on all properties (subject to database collation) regardless of the property index configuration in the data model. All text properties can support pattern matching. The database index supports a fixed number of leading characters. The database store a maximum string size before it overflows to another form. Only short form strings can be used in database queries.
 
-Solr supports exact match on all non-text properties. Text properties only support exact and pattern matches if set to tokenised `both` or `false` in the data model. Solr provides supports values up to approximately 32,700 UTF-8 bytes.
+Solr supports exact match on all non-text properties. Text properties only support exact and pattern matches if set to tokenised `both` or `false` in the data model. Solr provides support for values up to approximately 32,700 UTF-8 bytes.
 
 The following specific CMIS QL fields are supported:
 
@@ -168,7 +170,7 @@ Transactional Metadata Query and the Solr index queries are intended to support 
 
 Use this information to understand the queries supported by the database.
 
-The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `contains()` predicate function. The CMIS specification supports a subset of Alfresco FTS. For more information on search syntax, see [Alfresco Full Text Search Reference]({% link search-services/latest/using/index.md %}).
+The Alfresco Full Text Search (FTS) query text can be used standalone or it can be embedded in CMIS-SQL using the `contains()` predicate function. The CMIS specification supports a subset of Alfresco FTS. For more information on search syntax, see [Alfresco Full Text Search Reference]({% link search-services/1.4/using/index.md %}).
 
 **CMIS QL**
 
@@ -380,4 +382,4 @@ By default, the Share search feature returns a maximum of 250 search results. Yo
         You have now refreshed the web scripts and set a limit to the number of items a search in Share returns.
 
 > **Note:** Custom searches and searches from the node browser use the `solr.query.maximumResultsFromUnlimitedQuery` property to control search results. For more information, see [Solr core configuration properties
-]({% link search-services/latest/config/index.md %}#solr-core-configuration-properties).
+]({% link search-services/1.4/config/index.md %}#solr-core-configuration-properties).
