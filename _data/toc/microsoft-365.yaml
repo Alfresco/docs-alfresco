@@ -6,4 +6,9 @@
     - title: 'Install'
       path: '/microsoft-365/latest/install/'
     - title: 'Using'
-      path: '/microsoft-365/latest/using/'
+      pages:
+        - title: 'Overview'
+          path: '/microsoft-365/latest/using/'
+        - title: 'FAQ'
+          path: '/microsoft-365/latest/using/faq/'
+

@@ -71,7 +71,7 @@ The Microsoft 365 connector zip file includes all the files required to install 
 
     Where the `base-url` is the base URL of the Content Services installation in the format `<protocol><domain><port>`. For example, `https://mydomain.com/`
 
-3. Log into Alfresco Share as an administrator and place the `alfresco-ooi-content-model.xml` into the `Data Dictionary/Models` folder. Click to **Edit Properties** of the file and check the **Model Active** box.
+3. Log into Alfresco Share as an administrator and place the `alfresco-ooi-content-model.xml` into the `Data Dictionary/Models` folder. Click **Edit Properties** on the file and check the **Model Active** box.
 
 4. Expose the Microsoft 365 connector service to your proxy, for example using NGINX:
 
@@ -89,8 +89,8 @@ The Microsoft 365 connector zip file includes all the files required to install 
     | -------- | ----------- |
     | microsoftOnline | *Required.* Enable the Microsoft 365 connector plugin by setting the value to `true`. |
     | msonline.msHost | *Required.* The full URL of the Microsoft 365 Connector service, for example `https://<app-server-name>/ooi-service/api/-default-/private/office-integration/versions/1/edit-sessions/`, where `<app-server-name>` is the external web address. |
-    | msonline.msClientId | *Required.* The **Application (client) ID** produced when [registering a single-page application](#register-a-single-page-application-SPA) in your organization's Microsoft Azure Active Directory. |
-    | msonline.msAuthority | *Required.* The **Directory (tenant) ID** produced when [registering a single-page application](#register-a-single-page-application-SPA) in your organization's Microsoft Azure Active Directory appended to the Microsoft Online portal address, for example `https://login.microsoftonline.com/ca8490603-2g01-4l8j-8522-fyh4234579f6`. |
+    | msonline.msClientId | *Required.* The **Application (client) ID** produced when [registering a single-page application](#register-a-single-page-application-spa) in your organization's Microsoft Azure Active Directory. |
+    | msonline.msAuthority | *Required.* The **Directory (tenant) ID** produced when [registering a single-page application](#register-a-single-page-application-spa) in your organization's Microsoft Azure Active Directory appended to the Microsoft Online portal address, for example `https://login.microsoftonline.com/ca8490603-2g01-4l8j-8522-fyh4234579f6`. |
     | msonline.msRedirectUri | *Required.* The URL of the Digital Workspace to redirect to. |
 
     An example of the `app.config.json` is:
@@ -147,8 +147,8 @@ Installations using Docker Compose should only be used for development and test 
     | -------- | ----------- |
     | APP_CONFIG_PLUGIN_MICROSOFT_ONLINE | *Required.* Enable the Microsoft 365 connector plugin by setting the value to `'true'`. |
     | APP_CONFIG_MICROSOFT_ONLINE_OOI_URL | *Required.* The full URL of the Microsoft 365 Connector service, for example `https://<app-server-name>/ooi-service/api/-default-/private/office-integration/versions/1/edit-sessions/`, where `<app-server-name>` is the external web address. |
-    | APP_CONFIG_MICROSOFT_ONLINE_CLIENTID | *Required.* The **Application (client) ID** produced when [registering a single-page application](#register-a-single-page-application-SPA) in your organization's Microsoft Azure Active Directory. |
-    | APP_CONFIG_MICROSOFT_ONLINE_AUTHORITY | *Required.* The **Directory (tenant) ID** produced when [registering a single-page application](#register-a-single-page-application-SPA) in your organization's Microsoft Azure Active Directory appended to the Microsoft Online portal address, for example `https://login.microsoftonline.com/ca8490603-2g01-4l8j-8522-fyh4234579f6`. |
+    | APP_CONFIG_MICROSOFT_ONLINE_CLIENTID | *Required.* The **Application (client) ID** produced when [registering a single-page application](#register-a-single-page-application-spa) in your organization's Microsoft Azure Active Directory. |
+    | APP_CONFIG_MICROSOFT_ONLINE_AUTHORITY | *Required.* The **Directory (tenant) ID** produced when [registering a single-page application](#register-a-single-page-application-spa) in your organization's Microsoft Azure Active Directory appended to the Microsoft Online portal address, for example `https://login.microsoftonline.com/ca8490603-2g01-4l8j-8522-fyh4234579f6`. |
     | APP_CONFIG_MICROSOFT_ONLINE_REDIRECT | *Required.* The URL of the Digital Workspace to redirect to. |
 
 3. Expose the Microsoft 365 Connector service to override the default NGINX proxy configuration in the `docker-compose.yml` file:

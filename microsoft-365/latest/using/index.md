@@ -42,7 +42,7 @@ Files such as Word, Excel and PowerPoint documents that are stored in Alfresco c
 
 5. Click **People in `<your-organization>` with the link can edit** and select the **Allow editing** checkbox followed by **Apply**.
 
-6. Enter the name or email address of who you want to share the document with. and click **Send**.
+6. Enter the name or email address of who you want to share the document with and click **Send**.
 
     The collaborator will receive an email that contains a link to the document. Once the collaborator clicks the **Open** button in the email they then login using their Microsoft Online credentials. The collaborator will then have the document opened in Office Online.
 
