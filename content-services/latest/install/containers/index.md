@@ -98,8 +98,8 @@ When you deploy Content Services, a number of containers are started.
   * Alfresco Google Docs Integration Share AMP
 * Alfresco Search Services (Solr 6)
 * A PostgreSQL database
-* [Alfresco Transform Service](https://docs.alfresco.com/transform/concepts/transformservice-overview.html)(#LINK)
-* [Alfresco Digital Workspace](https://docs.alfresco.com/adw/concepts/welcome-adw.html)(#LINK)
+* [Alfresco Transform Service]({% link transform-service/latest/index.md %})
+* [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %})
 * [Alfresco Sync Service]({% link sync-service/latest/index.md %})
 
 ### GitHub projects

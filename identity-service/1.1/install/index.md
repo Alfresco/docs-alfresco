@@ -9,5 +9,3 @@ It is recommended that you familiarize yourself with the concepts of containeriz
 Prerequisites and details steps for a default deployment of the Identity Service into a cluster are within the [Alfresco/alfresco-identity-service](https://github.com/Alfresco/alfresco-identity-service/tree/1.1.0) GitHub project documentation. There are also details of [customizations](https://github.com/Alfresco/alfresco-identity-service/tree/1.1.0) available during deployment.
 
 >**Note:** The Identity Service can also be deployed using Docker for Desktop (Mac) for trial and development purposes.
-
-

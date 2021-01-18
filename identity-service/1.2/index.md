@@ -14,6 +14,6 @@ More information is available about the Identity Service covering:
 
 * An overview of the Identity Service architecture is within the [Alfresco/alfresco-identity-service](https://github.com/Alfresco/alfresco-identity-service/tree/1.1.0) GitHub project documentation.
 * How to [install the Identity Service]({% link identity-service/1.2/install/index.md %}).
-* How to [configure]({% link identity-service/1.2/configure/index.md %}) realm and theme customizations.
+* How to [configure]({% link identity-service/1.2/config/index.md %}) realm and theme customizations.
 
 > **Note:** See the [supported platforms]({% link identity-service/1.2/support/index.md %}) page for compatibility between Alfresco Content Services or Alfresco Process Services and Identity Service.

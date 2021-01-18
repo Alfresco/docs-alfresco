@@ -23,7 +23,7 @@ Amazon RDS makes it easy to set up, operate, and scale a relational database in 
 * PostgreSQL
 * Microsoft SQL Server
 
-As good practice, when using an Amazon's Elastic Compute Cloud (EC2) environment, you may want to use Amazon's Simple Storage Service (S3) where an S3 bucket is used as a content store. See [Alfresco Content Connector for AWS S3](https://docs.alfresco.com/s3connector/concepts/s3-contentstore-overview.html)(#LINK) for more information.
+As good practice, when using an Amazon's Elastic Compute Cloud (EC2) environment, you may want to use Amazon's Simple Storage Service (S3) where an S3 bucket is used as a content store. See [Alfresco Content Connector for AWS S3]({% link aws-s3/latest/index.md %}) for more information.
 
 Read the following sections to configure a database for Amazon RDS.
 
@@ -46,7 +46,7 @@ To configure the database:
 
 2. Execute `sudo su` to change to root.
 
-3. [Install Content Services](https://docs.alfresco.com/6.2/concepts/master-deploy.html)(#LINK) on your Amazon EC2 instance.
+3. [Install Content Services]({% link content-services/latest/install/containers/index.md %})on your Amazon EC2 instance.
 
 4. Install the Aurora database connector.
 
@@ -110,7 +110,7 @@ You can configure a MySQL database on Amazon RDS for use with Content Services, 
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html)(#LINK) provided.
+3. Install Content Services using one of the [options]({% link content-services/latest/install/containers/index.md %}) provided.
 
 4. Install the MySQL database connector.
 
@@ -175,7 +175,7 @@ The Oracle database is case sensitive, so any configuration setting that you add
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html)(#LINK) provided.
+3. Install Content Services using one of the [options]({% link content-services/latest/install/containers/index.md %}) provided.
 
 4. Install the Oracle database connector to allow the database to talk to the server.
 
@@ -253,7 +253,7 @@ To configure the database:
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html)(#LINK) provided.
+3. Install Content Services using one of the [options]({% link content-services/latest/install/containers/index.md %}) provided.
 
 4. Install the PostgreSQL database connector to allow the database to talk to the server.
 
@@ -324,7 +324,7 @@ To configure the database:
 
 2. Execute `sudo su` to change to root.
 
-3. Install Content Services using one of the [options](https://docs.alfresco.com/6.2/concepts/master-deploy.html)(#LINK) provided.
+3. Install Content Services using one of the [options]({% link content-services/latest/install/containers/index.md %}) provided.
 
 4. Install the Microsoft SQL Server database connector to allow the database to talk to the server.
 

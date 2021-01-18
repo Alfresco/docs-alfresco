@@ -152,7 +152,7 @@ helm install acs alfresco-incubator/alfresco-content-services \
 
 ## Deploy with Alfresco Intelligence Services {#with-ai}
 
-By default, the [Alfresco Intelligence Services](https://docs.alfresco.com/intelligence/concepts/ai-welcome.html)(#LINK) feature is disabled. This example describes how to deploy Content Services onto [EKS](https://aws.amazon.com/eks/){:target="_blank"} with Intelligence Services enabled.
+By default, the [Alfresco Intelligence Services]({% link intelligence-services/latest/index.md %}) feature is disabled. This example describes how to deploy Content Services onto [EKS](https://aws.amazon.com/eks/){:target="_blank"} with Intelligence Services enabled.
 
 The diagram below shows the deployment produced by this example:
 
@@ -164,7 +164,7 @@ Follow the [AWS Services](#deploy-with-aws-services-_s3_-rds-and-mq){:target="_b
 
 ### Set up S3 bucket
 
-Follow the steps to [set up an IAM user and an S3 bucket](https://docs.alfresco.com/intelligence/concepts/aws-setup.html)(#LINK) for use by Alfresco Intelligence Services.
+Follow the steps to [set up an IAM user and an S3 bucket]({% link intelligence-services/latest/install/index.md %}) for use by Alfresco Intelligence Services.
 
 ### Deploy (Intelligence)
 
@@ -365,12 +365,12 @@ alert-fly-alfresco-cs-email   LoadBalancer   100.XX.33.188   a1dXXXXXab11eaac670
 
 For more information, see:
 
-* [Configure email](https://docs.alfresco.com/6.2/concepts/email.html)(#LINK)
+* [Configure email]({% link content-services/latest/config/email.md %})
 * [Kubernetes ingress-nginx: Exposing TCP and UDP services](https://github.com/kubernetes/ingress-nginx/blob/master/docs/user-guide/exposing-tcp-udp-services.md#exposing-tcp-and-udp-services){:target="_blank"}
 
 ## Using a custom metadata keystore {#custom-metadata-keystore}
 
-The Alfresco content repository Docker image comes with a pre-created default keystore that contains a secret key. For more information, see [Managing Alfresco keystores](https://docs.alfresco.com/6.2/concepts/alf-keystores.html)(#LINK) and [Dockerfile](https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile#L81-L85){:target="_blank"}.
+The Alfresco content repository Docker image comes with a pre-created default keystore that contains a secret key. For more information, see [Managing Alfresco keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) and [Dockerfile](https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile#L81-L85){:target="_blank"}.
 
 It is recommended to generate a new keystore in production systems. You can mount it to the `content-repository` docker image to location `/usr/local/tomcat/shared/classes/alfresco/keystore/`. If the standard names of the keystore and the key are used, you only need to change the password values in [values.yaml](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/values.yaml){:target="_blank"}:
 
@@ -380,4 +380,4 @@ metadataKeystore:
   keyPassword: ""
 ```
 
-Otherwise, refer to the full list of configuration options in [Keystore configuration](https://docs.alfresco.com/6.2/concepts/keystore-config.html)(#LINK).
+Otherwise, refer to the full list of configuration options in [Keystore configuration]({% link content-services/latest/admin/security.md %}#keystore-configuration).

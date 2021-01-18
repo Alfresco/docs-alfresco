@@ -2,8 +2,6 @@
 title: Configure Identity Service
 ---
 
-# Configuring
-
 There are two things that can be configured in the Identity Service:
 
 - [Custom realm](#configure-a-custom-realm)  
@@ -13,8 +11,7 @@ Deploying the Identity Service will deploy an Alfresco login theme, it can be cu
 
 ## Configure a custom realm
 
-The Identity Service is installed or deployed with a default realm applied called `Alfresco`. 
-The realm can be customized manually or by using a `JSON` file.
+The Identity Service is installed or deployed with a default realm applied called `Alfresco`. The realm can be customized manually or by using a `JSON` file.
 
 > **Important:** The default realm provided is not production ready and should be used as a reference only.
 
@@ -29,9 +26,7 @@ Customizing a realm manually uses the administrator console of the Identity Serv
 
 ### Customize a realm using a JSON file
 
-Customizing a realm using a `JSON` file configures a realm outside of the Identity Service and imports it 
-into the configuration using the administrator console or during deployment if 
-[installing to Kubernetes cluster using Helm charts]({% link identity-service/latest/install/k8s/index.md %}).
+Customizing a realm using a `JSON` file configures a realm outside of the Identity Service and imports it into the configuration using the administrator console or during deployment if [installing to Kubernetes cluster using Helm charts]({% link identity-service/latest/install/k8s/index.md %}).
 
 To import the configuration in the administrator console:
 
@@ -43,7 +38,7 @@ To set the realm file during deployment:
 
 1. Create a Kubernetes secret in the cluster called `realm-secret`:
 
-    ```
+    ```bash
     kubectl create secret generic realm-secret \
         --from-file=./realm.json \
         --namespace=$DESIREDNAMESPACE
@@ -53,7 +48,7 @@ To set the realm file during deployment:
 
 2. Deploy the Helm chart with the additional argument to use the custom realm file:
 
-    ```
+    ```bash
     helm install alfresco-stable/alfresco-infrastructure \
         --set alfresco-infrastructure.activemq.enabled=false \
         --set alfresco-infrastructure.nginx-ingress.enabled=true \
@@ -90,7 +85,7 @@ There are a number of options for importing a theme into a Kubernetes deployment
 
     The following is an example of configuring this in the `values.yaml`:
 
-    ```
+    ```yaml
     keycloak:
         extraInitContainers: |
             - name: custom-theme
@@ -116,8 +111,7 @@ There are a number of options for importing a theme into a Kubernetes deployment
               emptyDir: {}
     ```
 
-However a new theme is imported, the new theme will need to be applied by signing into the administrator console and 
-selecting the new themes for each component in the **Themes** tab under **Realm Settings**.
+However a new theme is imported, the new theme will need to be applied by signing into the administrator console and selecting the new themes for each component in the **Themes** tab under **Realm Settings**.
 
 ### Importing a theme for a standalone installation
 

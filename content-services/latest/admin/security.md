@@ -71,7 +71,7 @@ You can also configure a backup keystore. This is useful in case the keys need t
 
 If both the main and backup keystores are configured, the repository encryption works in the *fallback* mode. In this mode, the node properties are decrypted with the main keystore's metadata key first. If that fails, the backup keystore's metadata key is tried. This allows the keystores to be changed on the disk and reloaded without affecting the running of the repository.
 
-Keystores are used also to protect repository/Solr communications using encryption and mutual authentication. In this case, the keystores store RSA keys and certificates. For more information, see [Solr security](TODO_LINK:https://docs.alfresco.com/search-enterprise/concepts/solrsecurity-intro.html).
+Keystores are used also to protect repository/Solr communications using encryption and mutual authentication. In this case, the keystores store RSA keys and certificates. For more information, see [Solr security]({% link search-services/latest/config/security.md %}).
 
 ### Keystore configuration
 
@@ -1437,7 +1437,7 @@ You can configure the repository in Content Services with a filter to prevent CS
 
 > **Note:** The CSRF filter will work correctly only if the Content Services server is configured to use HTTPS.
 
-The CSRF filter can be configured in the [web-client-security-config.xml](https://github.com/Alfresco/acs-packaging/blob/master/war/src/main/resources/alfresco/web-client-security-config.xml#L61) file, which is located in the `alfresco.war` file. In most cases the only thing that needs to be modified is a regular expression that checks the [Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin) and [Referer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) headers. This regular expression can be configured using the `alfresco-global.properties` file. The property configuration then overrides the values in `web-client-security-config.xml`. The following is an example configuration where Content Services runs on the `mydomain.com` host and port `80`:
+The CSRF filter can be configured in the `web-client-security-config.xml` file, which is located in the `alfresco.war` file. In most cases the only thing that needs to be modified is a regular expression that checks the [Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin) and [Referer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) headers. This regular expression can be configured using the `alfresco-global.properties` file. The property configuration then overrides the values in `web-client-security-config.xml`. The following is an example configuration where Content Services runs on the `mydomain.com` host and port `80`:
 
 ```text
 # CSRF filter overrides

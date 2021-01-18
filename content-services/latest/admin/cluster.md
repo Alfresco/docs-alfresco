@@ -293,7 +293,7 @@ Use this information to install and configure nodes in a cluster based on the sc
 
 1. Install the Content Services nodes.
 
-    See [Installing using distribution zip](TODO_LINK:../concepts/ch-install.md) for more information.
+    See [Installing using distribution zip]({% link content-services/latest/install/zip/index.md %}) for more information.
 
 2. Set up multiple Content Services instances in a clustered environment.
 
@@ -305,7 +305,7 @@ This topic describes the instructions for installing and configuring Solr nodes 
 
 1. Configure Solr nodes.
 
-    See [Installing and configuring Alfresco Search Services](TODO_LINK:https://docs.alfresco.com/search-enterprise/concepts/solr-install-config.html) for more information.
+    See [Installing Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information.
 
 2. Edit the `<SOLR_HOME>/solrhome/templates/rerank/conf/solrcore.properties` file.
 

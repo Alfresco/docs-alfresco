@@ -579,7 +579,7 @@ Delete content to remove it from a site library.
 
 The content is moved to your trashcan. From there you can recover it or delete it permanently.
 
->**Note:** If the file has been [declared as a record](TODO_LINK:http://docs.alfresco.com/rm/tasks/rm-create-record.html) then the record is still available in the [Records Management site](TODO_LINK:http://docs.alfresco.com/rm/concepts/rm-intro.html).
+>**Note:** If the file has been [declared as a record]({% link governance-services/latest/using/easy-access-records.md %}#declaring-a-file-as-a-record) then the record is still available in the [Records Management site]({% link governance-services/latest/using/overview.md %}).
 
 ### Recovering deleted content
 

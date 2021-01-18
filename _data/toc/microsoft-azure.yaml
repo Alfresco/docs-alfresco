@@ -6,7 +6,7 @@
     - title: 'Install'
       path: '/microsoft-azure/latest/install/'
     - title: 'Configure'
-      path: '/microsoft-azure/latest/configure/'
+      path: '/microsoft-azure/latest/config/'
     - title: 'Administer'
       path: '/microsoft-azure/latest/admin/'
 # Microsoft Azure 1.0
@@ -17,6 +17,6 @@
     - title: 'Install'
       path: '/microsoft-azure/1.0/install/'
     - title: 'Configure'
-      path: '/microsoft-azure/1.0/configure/'
+      path: '/microsoft-azure/1.0/config/'
     - title: 'Administer'
       path: '/microsoft-azure/1.0/admin/'

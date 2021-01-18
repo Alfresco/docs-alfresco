@@ -2,9 +2,9 @@
 title: Configure a Process Services action
 ---
 
-Use this information to install and configure an [AMP](LINK) for linking Content Services to Alfresco Process Services (APS).
+Use this information to install and configure an AMP for linking Content Services to Alfresco Process Services (APS).
 
-When Content Services and Process Services are linked, a [folder rule action](LINK) can be configured that starts a Process Services process when a document is added into the folder. This is called an APS action.
+When Content Services and Process Services are linked, a [folder rule action]({% link content-services/latest/using/content/rules.md %}#ruleactions) can be configured that starts a Process Services process when a document is added into the folder. This is called an APS action.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ To configure an APS action there are several prerequisites that must be met:
 * Process Services installed.
 * Content Services and Process Services using a common LDAP database to sync users from.
 
-> **Note:** If Content Services and Process Services do not sync their uses against a single LDAP database then an APS action will never work. See [configure LDAP for Content Services](LINK) and [configure LDAP for Process Services](LINK) for information on configuring LDAP.
+> **Note:** If Content Services and Process Services do not sync their uses against a single LDAP database then an APS action will never work. See [configure LDAP for Content Services]({% link content-services/latest/admin/auth-sync.md %}#configure-ldap) and [configure LDAP for Process Services]({% link process-services/latest/config/authenticate.md %}#ldap-and-active-directory) for information on configuring LDAP.
 
 ## Install the AMP
 
@@ -36,7 +36,7 @@ To configure the repository in Process Services:
 
 1. Sign into Process Services as an administrator.
 
-2. Open up the [Identity Management](LINK) section and select **Tenants** > **Alfresco Repositories**.
+2. Open up the [Identity Management]({% link process-services/latest/using/process/index.md %}#identity-management) section and select **Tenants** > **Alfresco Repositories**.
 
 3. Create a repository connection:
 

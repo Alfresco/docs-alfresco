@@ -20,7 +20,7 @@ The upgrade path recommendations are:
 
 * Direct upgrades to Content Services 6.2 are supported from only 5.1.x and later, with the latest Service Pack applied.
 * Content Services 6.2 introduces changes that require new releases of all modules. To upgrade to 6.2, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
-* You must upgrade to Alfresco Search Services 1.4 before upgrading the repository to 6.2. See [Upgrade Search Services](https://docs.alfresco.com/search-enterprise/concepts/search-upgrade.html)(#LINK) for more information.
+* You must upgrade to Alfresco Search Services 1.4 before upgrading the repository to 6.2. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
   * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services, and then upgrade to 6.2.
   * Upgrades from Alfresco 5.1 need to first stop at 5.2 to upgrade search to Alfresco Search Services, and then upgrade to 6.2.
 
@@ -61,7 +61,7 @@ These steps assume that you've got an existing Content Services installation (`a
 
     1. Shut down your existing instance.
 
-    2. [Back up your existing repository](#LINK-concepts/backup-intro.md) (`alfresco-v.1`) and the database.
+    2. [Back up your existing repository]({% link content-services/latest/admin/backup-restore.md %}) (`alfresco-v.1`) and the database.
 
         > **Note:** Back up any configuration overrides from the `<extension>` directory.
 
@@ -94,7 +94,7 @@ These steps assume that you've got an existing Content Services installation (`a
 
     2. [Remove]({% link content-services/latest/install/zip/tomcat.md %}#tailor-your-installation) any unwanted applications.
 
-    3. [Modify](#LINK-config-concepts/modify-alf-apps) applications.
+    3. [Modify]({% link content-services/latest/config/index.md %}#customize-applications) applications.
 
     4. Install the required AMP files. See [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
@@ -226,7 +226,7 @@ Here are some of the tips to help you test your customizations.
 * Check if the users or groups created previously still exist.
 * Check if all the dashboards created previously still exist.
 * Check if the folders in the document library that were created prior to the upgrade still exist.
-* Check if clustering is working properly by running the [cluster validation tool](#LINK-tasks/adminconsole-reposerverclustering) in the Admin Console.
+* Check if clustering is working properly by running the [cluster validation tool]({% link content-services/latest/admin/cluster.md %}#managecluster) in the Admin Console.
 
 ## Restore production data
 

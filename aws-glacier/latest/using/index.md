@@ -14,4 +14,4 @@ The **Archive** or **Restore** rule isn't available on a folder when creating a 
 
 When a file is 'Declared version as record' the record created has the same internal content url as the file. If the original file has been archived, the declared as version node has not been marked as archived in Alfresco Content Services. For the Record version file you won't receive the message stating the content has been archived.
 
-> **Note:** See additional information in the [S3 Connector FAQs](https://docs.alfresco.com/s3connector/references/s3-contentstore-faq.html)(#LINK).
+> **Note:** See additional information in the [S3 Connector FAQs]({% link aws-s3/latest/using/faq.md %}).

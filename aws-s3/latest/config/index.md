@@ -81,7 +81,7 @@ If you need to override them for your environment, check the available settings 
 
 8.  Set where the cached content is stored, and how much cache size you need.
 
-    The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`. See [CachingContentStore properties](TODO_LINK:https://docs.alfresco.com/6.2/concepts/ccs-props.html) for more information on the caching content store.
+    The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`. See [CachingContentStore properties]({% link content-services/latest/admin/content-stores.md %}#caching-content-store-ccs) for more information on the caching content store.
 
     >**Note:** The size of the local caching content store can be configured as necessary to limit its use to a maximum overall size or by files with a maximum file size. For example:
 
@@ -173,7 +173,7 @@ with S3 Connector 1.x and behavior.
     s3.flatRoot=true
     ```
 
-    >**Note:** For a multi-tenant system you can also set `s3.useTenantDomainInPath=false`, however content from different tenants is co-mingled. For more details, see [Setting up multi-tenancy](TODO_LINK:https://docs.alfresco.com/6.2/concepts/mt-intro.html).
+    >**Note:** For a multi-tenant system you can also set `s3.useTenantDomainInPath=false`, however content from different tenants is co-mingled. For more details, see [Setting up multi-tenancy]({% link content-services/latest/admin/multi-tenancy.md %}).
 
     You can apply S3 Connector 2.0 to an existing installation where S3 Connector 1.x was previously used without affect to the running of the system. This means that existing paths remain as they are, and new paths are generated based on your configuration.
 
@@ -221,7 +221,7 @@ configuration steps in [Configuring the S3 Connector]({% link aws-s3/latest/conf
 dir.contentstore=${dir.root}/contentstore
 ```
 
-As an existing customer using the default [Encrypted content store](TODO_LINK:https://docs.alfresco.com/6.2/concepts/encrypted-cs-home.html) configuration, the environment uses:
+As an existing customer using the default [Encrypted content store]({% link content-services/latest/admin/content-stores.md %}#encrypted-content-store) configuration, the environment uses:
 
 * AES256 encryption for new content
 * Content decryption on reads from the existing on-premises files
@@ -452,7 +452,7 @@ You can configure AWS KMS by adding the relevant properties to the global proper
 Alfresco supports server-side encryption for content stored in AWS S3. There are several encryption types that you can 
 configure to use with S3 Connector. These include AWS Managed Encryption, and AWS Key Management Service (KMS) Encryption.
 
->**Note:** S3 doesn't work with the [Alfresco Content Encryption](TODO_LINK:http://docs.alfresco.com/5.2/concepts/encrypted-overview.html) module. When using the S3 Connector we recommend using AWS KMS.
+>**Note:** S3 doesn't work with the [Alfresco Content Encryption]({% link content-services/latest/admin/content-stores.md %}#encrypted-content-store) module. When using the S3 Connector we recommend using AWS KMS.
 
 **AWS Key Management Service (KMS) Encryption**
 
@@ -520,14 +520,11 @@ See [AWS Multipart Upload Overview](http://docs.aws.amazon.com/AmazonS3/latest/d
 
 ## Content store subsystems
 
-Starting from version 3.1, the S3 Connector provides out-of-the-box content store repository *subsystems*. Older versions of the 
-S3 Connector hard-wired the Amazon Simple Storage Service (S3) content store directly into Alfresco Content Services.
+Starting from version 3.1, the S3 Connector provides out-of-the-box content store repository *subsystems*. Older versions of the S3 Connector hard-wired the Amazon Simple Storage Service (S3) content store directly into Alfresco Content Services.
 
-The repository subsystem approach allows a more flexible use of the S3 content store, even in conjunction with existing content stores. 
-A subsystem can be started, stopped, and configured independently, and it has its own isolated Spring application context 
-and configuration. The S3 subsystems belong to the `ContentStore` category, and have types `S3` or `S3OnPrem`.
+The repository subsystem approach allows a more flexible use of the S3 content store, even in conjunction with existing content stores. A subsystem can be started, stopped, and configured independently, and it has its own isolated Spring application context and configuration. The S3 subsystems belong to the `ContentStore` category, and have types `S3` or `S3OnPrem`.
 
-See the Alfresco Content Services documentation on [Subsystems](TODO_LINK:https://docs.alfresco.com/6.2/references/dev-extension-points-custom-subsystem.html) for more.
+See the Alfresco Content Services documentation on [Subsystems]({% link content-services/latest/config/subsystems.md %}) for more.
 
 **S3OnPrem content store subsystem**
 
@@ -819,7 +816,7 @@ init-method="init">
 This provides the subsystem properties where the `S3MultipleBuckets` subsystem declares default values for all the 
 properties it requires.
 
-See the Alfresco Content Services documentation on [Subsystem properties](TODO_LINK:https://docs.alfresco.com/6.2/concepts/subsystem-props.html) for more info.
+See the Alfresco Content Services documentation on [Subsystem properties]({% link content-services/latest/config/subsystems.md %}#subsystem-properties) for more info.
 
 **Deleted content store support provided by the repository vs. managed by S3 capabilities**
 

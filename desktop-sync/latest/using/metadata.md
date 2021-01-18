@@ -2,14 +2,13 @@
 title: Manage the properties for content
 ---
 
-{% capture windows %}
+The following sections describe how to manage properties for your content on Windows and Mac.
 
-## Manage the properties for content on Windows
+{% capture windows %}
 
 You can view, edit, and update file and folder properties (i.e. metadata) from the Windows Explorer menu actions.
 
-By default, you can view and edit general properties, such as Title, Name, Description, and Author 
-(if you have the correct permissions).
+By default, you can view and edit general properties, such as Title, Name, Description, and Author (if you have the correct permissions).
 
 1. In your **Alfresco** synced folder, find the file or folder that you want to update.
 
@@ -33,7 +32,7 @@ By default, you can view and edit general properties, such as Title, Name, Descr
 
     * Click **Edit** to start editing the content.
 
-        >**Note:** If a custom type has already been applied to a synced file that's synced from the repository, and it has no sub-types (i.e. children), then you won't be able to change the type.
+        > **Note:** If a custom type has already been applied to a synced file that's synced from the repository, and it has no sub-types (i.e. children), then you won't be able to change the type.
 
 5. Click **Save** to update the content.
 
@@ -56,17 +55,14 @@ You can also edit properties (i.e. metadata) in multiple files simultaneously. T
 2. You can now view and edit those common properties.
 
    For example, if you edit the `Title` field, that title will be updated in all of the selected files.
-   
+
 {% endcapture %}
-   
-{% capture mac %}   
-    
-## Manage the properties for content on Mac
+
+{% capture mac %}
 
 You can view, edit, and update file and folder properties from the Mac Finder menu actions.
 
-By default, you can view and edit general properties, such as Title, Name, Description, and Author 
-(if you have the correct permissions). If enabled by your IT team, you may be able to view and edit additional properties.
+By default, you can view and edit general properties, such as Title, Name, Description, and Author (if you have the correct permissions). If enabled by your IT team, you may be able to view and edit additional properties.
 
 1. In your **Alfresco** synced folder, find the file or folder that you want to update.
 
@@ -84,7 +80,7 @@ By default, you can view and edit general properties, such as Title, Name, Descr
 
     ![]({% link desktop-sync/images/ds-properties-edit-mac.png %}){:height="378px" width="690px"}
 
-    >**Note:** This example shows a different file with an additional aspect (i.e. Webable) and related properties (i.e. Description and Title).
+    > **Note:** This example shows a different file with an additional aspect (i.e. Webable) and related properties (i.e. Description and Title).
 
 4. In the **General Properties** tab, you may see a **Custom Type** field. When custom types have been defined in the Desktop Sync configuration file by your IT team, you'll see them listed in this field.
 
@@ -94,7 +90,7 @@ By default, you can view and edit general properties, such as Title, Name, Descr
 
     2. Click **Edit** to start editing the content.
 
-        >**Note:** If a custom type has already been applied to a synced file that's synced from the repository, and it has no sub-types (i.e. children), then you won't be able to change the type.
+        > **Note:** If a custom type has already been applied to a synced file that's synced from the repository, and it has no sub-types (i.e. children), then you won't be able to change the type.
 
 5. Click **Save** to update the content.
 
@@ -117,7 +113,7 @@ You can also edit properties in multiple files simultaneously. The steps are sim
 2. You can now view and edit those common properties.
 
    For example, if you edit the `Title` field, that title will be updated in all of the selected files.
-   
+
 {% endcapture %}
 
 {% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
