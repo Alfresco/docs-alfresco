@@ -59,7 +59,7 @@ Follow these steps if you want to deploy to a context path that's not `/alfresco
 
 2. Update `alfresco-global.properties` with the name of the context path: `alfresco.context=new-context-path`.
 
-3. Update `share-config-custom.xml` as described in [Configuring the Share default port](#LINK-share-change-port.md).
+3. Update `share-config-custom.xml` as described in [Configuring the Share default port]({% link content-services/latest/develop/share-ext-points/share-config.md %}#setting-default-port).
 
 4. Update the context path setting in the `_vti_bin` application:
 
@@ -981,7 +981,7 @@ The auto-version capability can be disabled on a content-by-content basis in the
 
 > **Note:** Any properties that you set on a file are saved with the current version of a file, and written to the Version History after a major update; for example, when a new file is uploaded. This means that if you save properties in version 1.0, they're saved in the Version History of version 1.1.
 
-To change this behavior, you can set `cm:autoVersionOnUpdateProps` to `true`. See [VersionHistoryNode API](#LINK-references/API-FreeMarker-VersionHistoryNode.md) for more information.
+To change this behavior, you can set `cm:autoVersionOnUpdateProps` to `true`.
 
 ### Making all content versionable
 

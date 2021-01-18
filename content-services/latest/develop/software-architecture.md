@@ -27,9 +27,6 @@ own Jetty web application server. The Platform is usually also integrated with a
 sync users and groups with Content Services. And most installations also integrates with an SMTP server so the 
 Platform can send emails, such as site invitations.
 
-For more information about the internals of the Platform, and specifically the content repository, see the 
-[concepts](TODO_LATER:dev-repository-concepts.md) section.
-
 The Platform also contains numerous APIs, such as
 
 Alfresco provides a number of extension points to allow you to customize Content Services. 
@@ -200,7 +197,7 @@ will carry out when certain events happen (such as when new content is added to 
 entirely new services, if required.
 
 When you need to create custom business workflow you should use the 
-[Alfresco Process Services (APS)](TODO_LINK:https://docs.alfresco.com/process-services1.10/topics/developmentGuide.html) product.
+[Alfresco Process Services (APS)]({% link process-servicces/latest/develop/dev-ext.md %}) product.
 
 ### Content modeling
 

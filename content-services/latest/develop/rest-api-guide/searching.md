@@ -245,7 +245,7 @@ Use a search query to be able to do a more specific search, such as where to sea
 
 **See also:** [Simple search](#findpeoplebyterm)
 
-**Search Reference:** [Alfresco Full Text Search Reference (afts)](TODO_LINK:https://docs.alfresco.com/search-enterprise/concepts/searchsyntax-intro.html)
+**Search Reference:** [Alfresco Full Text Search Reference (afts)]({% link search-services/latest/using/index.md %})
 
 ### Introduction
 

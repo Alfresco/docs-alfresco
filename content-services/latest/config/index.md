@@ -477,7 +477,7 @@ You can make basic configuration updates to customize Content Services, or modif
 
   You can configure Content Services for your specific environment either by using the Admin Console, editing the `alfresco-global.properties` file, or using a JMX client (as described at the start of this page).
 
-* [Configuring Alfresco Share](#LINK-share-configuring-intro.md)
+* [Configuring Alfresco Share]({% link content-services/latest/develop/share-ext-points/index.md %})
 
   A number of options are available to customize Share. To configure Share, use the configuration file, `share-config-custom.xml` .
 

@@ -468,14 +468,6 @@ transformer.complex.JodConverter.PdfBox.count=1000000
 * `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml` - Transformation bean definitions
 * `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/alfresco-global.properties` - all the properties configuration goes here
 
-## More Information
-
-* [Invoking transformations from Java](TODO_LATER:dev-services-content.md)
-* [Invoking transformations from JavaScript](TODO_LATER:API-JS-Transformation.md)
-* [Invoking thumbnail transformations from JavaScript](TODO_LATER:API-JS-ThumbnailService.md)
-* [Invoking renditions from Java](TODO_LATER:dev-services-rendition.md)
-* [Invoking renditions from JavaScript](TODO_LATER:API-JS-RenditionService.md)
-
 ## Sample Code
 
 * [Content Transformer Sample Code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-content-transformer-repo){:target="_blank"}

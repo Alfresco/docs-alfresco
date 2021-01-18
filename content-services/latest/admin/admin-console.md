@@ -15,7 +15,7 @@ The Admin Console is a tool comprising separate pages that identify a particular
 * System Summary: [Viewing the System Summary](#systemsummary)
 * Consoles:
   * GoogleDocs: [Configuring Google Docs using Admin Tools]({% link google-drive/latest/config/index.md %}#configure-using-the-admin-console)
-  * Model and Messages: [Managing models using the Admin Console](TODO_LINK:content-services/latest/develop/repo-ext-points/content-model.md)
+  * Model and Messages: [Managing models using the Admin Console]({% link content-services/latest/develop/repo-ext-points/content-model.md %})
   * Tenant: [Managing tenants]({% link content-services/latest/admin/multi-tenancy.md %}#managetenants)
   * Workflow: [The Workflow Console]({% link content-services/latest/admin/workflows.md %}#workflowconsole)
 * Email Services:
@@ -178,7 +178,7 @@ The files that you use for working with the example Admin Console page are:
 * [admin-example.get.desc.xml](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.desc.xml){:target="_blank"}
 * [admin-example.get.properties](http://dev.alfresco.com/resource/AlfrescoOne/5.1/configuration/alfresco/enterprise/webscripts/org/alfresco/enterprise/repository/admin/admin-example.get.properties){:target="_blank"}
 
-See the [Web script components](TODO_LINK:content-services/latest/develop/reference/web-scripts-ref.md#wscomponents) section for more information on these files.
+See the [Web script components]({% link content-services/latest/develop/reference/web-scripts-ref.md %}#wscomponents) section for more information on these files.
 
 There are also additional properties files that contain the associated strings for localized content in the supported languages.
 

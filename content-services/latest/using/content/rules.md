@@ -110,7 +110,7 @@ Actions don't apply to files in subfolders, unless the **Rule applies to subfold
 |**Increment Counter**|Automatically increments the value of a number (integer) property. This will generally only be used by Alfresco administrators.|
 |**Set property value**|Select a property and then enter a default value. Files with that property will have it changed to the entered value.|
 |**Embed properties as metadata in content**|Embeds file properties directly into the binary file as metadata. The information contained in those files can help in searching and workflows.|
-|**Start Process**|You can use this action to create a folder rule in Share that triggers an Alfresco Process Services process. See [Configuring the APS Action](TODO:../topics/prod-setup.md) and [Start Process action details](#startprocessactiondetails) for more information.|
+|**Start Process**|You can use this action to create a folder rule in Share that triggers an Alfresco Process Services process. See [Configuring the APS Action]({% link content-services/latest/config/action.md %}) and [Start Process action details](#startprocessactiondetails) for more information.|
 
 ### Linking to an existing rule set
 
@@ -242,7 +242,7 @@ A check mark to the left of the rule means it's active.
 
 Selecting an individual rule in this list displays its details on the right side of the page.
 
-See [Troubleshooting rules and actions](TODO:https://docs.alfresco.com/6.2/concepts/troubleshooting-type.html) for information about resolving problems with rules.
+See [Troubleshooting rules and actions]({% link content-services/latest/admin/troubleshoot.md %}#troubleshoot-rules-and-actions) for information about resolving problems with rules.
 
 ### Adding to a set of rules {#addtosetofrules}
 

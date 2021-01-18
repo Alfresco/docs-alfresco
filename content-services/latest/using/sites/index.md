@@ -380,7 +380,7 @@ Site managers can quickly add users to a site.
 
 You can add any user, either internal to your organization or an external user.
 
-> **Note:** External users can only be added if your Alfresco administrator has [enabled the external users panel](TODO:share-enable-external-user.md).
+> **Note:** External users can only be added if your Alfresco administrator has [enabled the external users panel]({% link content-services/latest/develop/share-ext-points/share-config.md %}#enabling-external-users-panel).
 
 1. Click ![Invite to Site]({% link content-services/images/invite-to-site-icon.png %}) in the site you want to add users to, or click **Add Users** in the Site Members dashlet.
 
@@ -392,7 +392,7 @@ You can add any user, either internal to your organization or an external user.
 
     You need to enter at least one character. The search is not case sensitive.
 
-    > **Note:** If you don't see any users then try a different search term and check that your Alfresco administrator has [created users](TODO:../concepts/admintools-users-intro.md).
+    > **Note:** If you don't see any users then try a different search term and check that your Alfresco administrator has [created users]({% link content-services/latest/admin/users-groups.md %}).
 
 3. Click **Select** for each user you want to add.
 
@@ -406,7 +406,7 @@ You can add any user, either internal to your organization or an external user.
 
     A message displays showing the number of users you've added. All these users receive an email notification and can now use the site. You can continue to add more users as required.
 
-    > **Note:** This feature is disabled if your installation doesn't support inviting new users. Talk to your system administrator about enabling this feature with the `notification.email.siteinvite` property. See [Outbound SMTP configuration properties](TODO:../concepts/email-outboundsmtp-props.md) for more information.
+    > **Note:** This feature is disabled if your installation doesn't support inviting new users. Talk to your system administrator about enabling this feature with the `notification.email.siteinvite` property. See [Outbound SMTP configuration properties]({% link content-services/latest/config/email.md %}) for more information.
 
 ### Approving users to join a moderated site
 
