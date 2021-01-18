@@ -406,7 +406,7 @@ You can add any user, either internal to your organization or an external user.
 
     A message displays showing the number of users you've added. All these users receive an email notification and can now use the site. You can continue to add more users as required.
 
-    > **Note:** This feature is disabled if your installation doesn't support inviting new users. Talk to your system administrator about enabling this feature with the `notification.email.siteinvite` property. See [Outbound SMTP configuration properties]({% link content-services/latest/config/email.md %}) for more information.
+    > **Note:** This feature is disabled if your installation doesn't support inviting new users. Talk to your system administrator about enabling this feature with the `notification.email.siteinvite` property. See [Outbound SMTP configuration properties]({% link content-services/latest/config/email.md %}#outbound-smtp-configuration-properties) for more information.
 
 ### Approving users to join a moderated site
 
