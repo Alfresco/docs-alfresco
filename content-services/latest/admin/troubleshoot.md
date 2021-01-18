@@ -133,7 +133,7 @@ This is a read-only feature with basic search capability.
 
     The default search type is set to **fts-alfresco**. For most administrative tasks, you can use the default search type.
 
-    See [Alfresco Full Text Search reference](% link search-services/latest/using/index.md %}) for more detail.
+    See [Alfresco Full Text Search reference]({% link search-services/latest/using/index.md %}) for more detail.
 
 2. Enter your search criteria in the Note Browser field.
 

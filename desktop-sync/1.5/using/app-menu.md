@@ -1,21 +1,16 @@
 ---
-title: Application Menu in Taskbar
+title: Application menu in taskbar
 ---
+
+The following sections describe the Desktop Sync application menu on Windows and Mac.
 
 {% capture windows %}
 
-## Application Menu in Windows Taskbar 
-
-You can access Desktop Sync from the Windows system tray.
-
-### Accessing the application menu
-
-The Desktop Sync icon appears in the Windows taskbar's system tray and looks like this:
+You can access Desktop Sync from the Windows system tray where the application icon appears:
 
 ![]({% link desktop-sync/images/ds-system-tray.png %}){:height="32px" width="192px"}
 
-Hover your cursor over the Desktop Sync icon to display sync status information, such as date and time of last sync, 
-sync issues (conflicts), and any pending updates.
+Hover your cursor over the Desktop Sync icon to display sync status information, such as date and time of last sync, sync issues (conflicts), and any pending updates.
 
 ![]({% link desktop-sync/images/ds-system-msg.png %}){:height="76px" width="184px"}
 
@@ -27,7 +22,7 @@ Right-click on the Desktop Sync icon ![]({% link desktop-sync/images/ds-icon.png
 
 The following section goes through each one of the Desktop Sync menu items.
 
-#### Open menu item
+#### Open
 
 Displays information about checked out files, any pending syncs, and conflicts.
 
@@ -52,22 +47,21 @@ If several files are **Checked Out**, you have the following options:
 * Select files individually using the check boxes to the left hand side, or use the select all files check box at the top.
 * When you select more than one check box, you can pick bulk actions at the top of the tab, **Check In** and **Cancel Check Out**. If you choose **Check In**, you can select if the new version is a major or minor change, and optionally input a comment. Select **Check In** again to save your changes. This applies the same version change and comment (if added) to all the selected files.
 
-#### Go to Alfresco Folder menu item
+#### Go to Alfresco Folder
 
 Opens the `Alfresco` sync folder for Desktop Sync.
 
-#### Sync Now menu item
+#### Sync Now
 
 By default local content is synced to Alfresco immediately and Alfresco content is synced locally every five minutes. Click this if you want content synced immediately.
 
-#### Pause Sync menu item
+#### Pause Sync
 
 Pauses Sync if you don't wish to synchronize files from the server, for example when you have a low bandwidth connection.
 
-#### Manage Your Account menu item
+#### Manage Your Account
 
-You can manage which folders and sites get synced on your desktop and other account details 
-using **Manage Your Account**. The available options are:
+You can manage which folders and sites get synced on your desktop and other account details using **Manage Your Account**. The available options are:
 
 * **Manage Folders...**: Opens Choose folders and sites to sync screen. See [select content to sync]({% link desktop-sync/1.5/using/select-to-sync.md %}#selecting-content-to-sync-on-windows).
 
@@ -80,28 +74,26 @@ using **Manage Your Account**. The available options are:
 
 * **Consistency Check**: Performs a consistency check on Desktop Sync. This is typically used in collaboration with your IT team when you need support.
 
-#### About menu item
+#### About
 
 Tells you which version of Desktop Sync you're using.
 
-#### Help menu item
+#### Help
 
 View online help.
 
-#### Quit menu item
+#### Quit
 
 Closes Desktop Sync.
 
-You will no longer be able to sync during this time. Syncing will resume when you restart Desktop Sync. 
-Any content updated while Desktop Sync was closed will be synced when the application is restarted.
+You will no longer be able to sync during this time. Syncing will resume when you restart Desktop Sync. Any content updated while Desktop Sync was closed will be synced when the application is restarted.
 
 It's recommended that you always have Desktop Sync up and running so that your local content and Alfresco are in sync.
 
 ### Windows Explorer context menu
 
 The folder and file context menu can be accessed via the Windows Explorer.
- 
-#### Accessing and using the context menu 
+#### Accessing and using the context menu
 
 To view the Desktop Sync context menu, follow the steps below:
 
@@ -131,16 +123,10 @@ You can also work with multiple files by using the Explorer right click menu act
 * If any of the files you selected are in conflict, you'll have to resolve these individually, as the conflict resolution options are not displayed.
 
 {% endcapture %}
-   
-{% capture mac %} 
 
-## Application Menu in Mac Taskbar
+{% capture mac %}
 
-You can access Desktop Sync from the Mac OS X menu bar.
-
-### Accessing the application menu
-
-The Desktop Sync icon appears in the Mac menu bar and looks like this:
+You can access Desktop Sync from the Mac OS X menu bar where the application icon appears:
 
 ![]({% link desktop-sync/images/ds-icon-tray.png %})
 
@@ -176,7 +162,7 @@ Performs a consistency check on Desktop Sync. This is typically used in collabor
 
 Selecting **Manage Sync Folder** opens the Select sites and folders to sync dialog. This allows you to select more content to sync, or deselect content to stop syncing. See [Selecting content to sync]({% link desktop-sync/1.5/using/select-to-sync.md %}#faq/mac) for more.
 
-If you deselect a previously synced folder and click **Sync**, then the synced content from your desktop is removed. In case you have any unsynced or conflicted files, they will be orphaned in '/<userHome>/Alfresco/orphaned'.
+If you deselect a previously synced folder and click **Sync**, then the synced content from your desktop is removed. In case you have any unsynced or conflicted files, they will be orphaned in `/<userHome>/Alfresco/orphaned`.
 
 #### Remove Account
 
@@ -212,10 +198,10 @@ Displays information about checked out files, any pending syncs, and conflicts.
 
     To resolve a conflict, select the conflict and either click:
 
-    * **Discard my Changes**: Replaces the local file with the Alfresco copy.
-    * **Keep my Changes**: Copies updates made to content locally over to Alfresco.
+      * **Discard my Changes**: Replaces the local file with the Alfresco copy.
+      * **Keep my Changes**: Copies updates made to content locally over to Alfresco.
 
->**Note:** There may be times when you can't resolve a conflict for a file because the parent folder also has a conflict. In this case, your only choice is to resolve the conflict on the folder by either selecting **Keep my Changes** or **Discard my Changes**. Your choice is then applied to all files within that folder.
+> **Note:** There may be times when you can't resolve a conflict for a file because the parent folder also has a conflict. In this case, your only choice is to resolve the conflict on the folder by either selecting **Keep my Changes** or **Discard my Changes**. Your choice is then applied to all files within that folder.
 
 ### Working with multiple Checked Out files {#working-with-multiple-checkedout-files-mac}
 
@@ -226,12 +212,12 @@ If several files are **Checked Out**, you have the following options:
 
 ### Update password
 
-Desktop Sync doesn't allow you to change your password directly. However, if your [password changes]({% link content-services/latest/using/dashboard.md %}changing-your-password) in Alfresco Share, you will see a notification in Desktop Sync asking you to update your password. Click **Update Password** to continue.
+Desktop Sync doesn't allow you to change your password directly. However, if your [password changes]({% link content-services/latest/using/dashboard.md %}#changing-your-password) in Alfresco Share, you will see a notification in Desktop Sync asking you to update your password. Click **Update Password** to continue.
 
 ### Mac Finder context menu
 
 The folder and file context menu can be accessed via the Mac Finder.
- 
+
 #### Accessing and using the context menu 
 
 To view the Finder menu actions, follow the steps below:

@@ -48,13 +48,13 @@ The supplied subsystem categories are:
 | Subsystem name | Functional area |
 | -------------- | --------------- |
 | [ActivitiesFeed](#configure-activities-feed) | Activities notifications |
-| [Audit](({% link content-services/latest/admin/audit.md %})) | Audit related functions |
+| [Audit]({% link content-services/latest/admin/audit.md %}) | Audit related functions |
 | [Authentication]({% link content-services/latest/admin/auth-sync.md %}) | Authentication related functions |
 | [ContentStore]({% link content-services/latest/admin/content-stores.md %}) | Properties for the encrypted and non-encrypted Content Stores |
 | [email]({% link content-services/latest/config/email.md %}) | Outbound and inbound SMTP property settings |
 | [fileServers]({% link content-services/latest/config/file-servers.md %}) | Properties for the FTP servers |
 | [googledocs]({% link google-drive/latest/index.md %}) | Properties for Google Docs integration |
-| [imap](({% link content-services/latest/config/email.md %}#configure-imap)) | Properties for the IMAP service |
+| [imap]({% link content-services/latest/config/email.md %}#configure-imap) | Properties for the IMAP service |
 | [OOoDirect]({% link content-services/latest/config/libreoffice.md %}#configure-openoffice) | OpenOffice transformations settings (use LibreOffice where possible) |
 | [OOoJodconverter]({% link content-services/latest/config/libreoffice.md %}) | Default settings for LibreOffice transformations |
 | [Replication]({% link content-services/latest/admin/replication.md %}) | Settings for the replication jobs tool |

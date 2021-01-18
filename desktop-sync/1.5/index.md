@@ -10,4 +10,6 @@ Once the folders and sites are selected, they are automatically downloaded and v
 
 Changes are automatically synced from Alfresco Content Services to the desktop, so the latest content is always available. This allows you to work in places where you don't have internet access, secure in the knowledge that your changes will show up in Alfresco Content Services once you're back online.
 
+> **Note:** Desktop Sync replicates content on local desktops for users with the appropriate access. If replication outside the repository isn't allowed by your content policy, you shouldn't deploy Desktop Sync. This version of Desktop Sync doesn't support Smart Folders.
+
 For information about installing and configuring the Desktop Sync service server side AMP, see [Installing Sync Service]({% link sync-service/latest/install/index.md %}).

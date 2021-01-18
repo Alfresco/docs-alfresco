@@ -2,24 +2,19 @@
 title: Resolve and manage sync conflicts 
 ---
 
-{% capture windows %}
-
-## Resolve and manage sync conflicts on Windows
-
-Whilst Desktop Sync ensures that content is kept up to date silently, 
-under normal operation there may be circumstances where Desktop Sync can't resolve 
-differences between a file stored on your desktop and the corresponding file in Alfresco. 
-
-When the sync changes can't be updated automatically you are asked to resolve the conflict manually. 
-This happens when a file has changed in both locations since its last sync, making it difficult to determine which changes to save.
-
-For example, a conflict occurs when you update a file in your Alfresco sync folder and an update to the same file 
-has happened on the server since the last sync. Desktop Sync will give you a choice of resolving the sync conflict by 
-either choosing to keep your changes, or discarding your changes in favor of the latest copy from Alfresco.
-
 Use the following information to resolve and manage Desktop Sync conflicts.
 
+Whilst Desktop Sync ensures that content is kept up to date silently, under normal operation there may be circumstances where Desktop Sync can't resolve differences between a file stored on your desktop and the corresponding file in Alfresco.
+
+When the sync changes can't be updated automatically you are asked to resolve the conflict manually. This happens when a file has changed in both locations since its last sync, making it difficult to determine which changes to save.
+
+For example, a conflict occurs when you update a file in your `Alfresco` sync folder and an update to the same file has happened on the server since the last sync. Desktop Sync will give you a choice of resolving the sync conflict by either choosing to keep your changes, or discarding your changes in favor of the latest copy from Alfresco.
+
+{% capture windows %}
+
 A conflict may either be resolved automatically by Desktop Sync or may require you to do something.
+
+![]({% link desktop-sync/images/conflict-resolution.png %}){:height="500px" width="351px"}
 
 ### User action needed
 
@@ -66,27 +61,12 @@ where ![]({% link desktop-sync/images/cross.png %}) indicates a conflict.
 where ![]({% link desktop-sync/images/tick.png %}) indicates no conflict.
 
 {% endcapture %}
-   
-{% capture mac %} 
 
-## Resolve sync conflicts on Mac
-
-Whilst Desktop Sync ensures that content is kept up to date silently, 
-under normal operation there may be circumstances where Desktop Sync can't resolve 
-differences between a file stored on your desktop and the corresponding file in Alfresco. 
-
-When the sync changes can't be updated automatically you are asked to resolve the conflict manually. 
-This happens when a file has changed in both locations since its last sync, making it difficult to determine which changes to save.
-
-For example, a conflict occurs when you update a file in your Alfresco sync folder and an update to the same file 
-has happened on the server since the last sync. Desktop Sync will give you a choice of resolving the sync conflict by 
-either choosing to keep your changes, or discarding your changes in favor of the latest copy from Alfresco.
-
-![]({% link desktop-sync/images/conflict-resolution-mac.png %}){:height="414px" width="300px"}
-
-Use the following information to resolve and manage Desktop Sync conflicts.
+{% capture mac %}
 
 A conflict may either be resolved automatically by Desktop Sync or may require you to do something.
+
+![]({% link desktop-sync/images/conflict-resolution-mac.png %}){:height="414px" width="300px"}
 
 ### User action needed
 

@@ -19,7 +19,7 @@ The Smart Folder structure is created by associating a Smart Folder Template wit
 
 The folder structure can be personalised by user, for example, if you create a folder called My Files, you can populate it with files relevant to each user.
 
-Take a look at the videos to learn more: [Smart Folders videos](% link content-services/latest/tutorial/video/content.md %}#smart-folder-overview)
+Take a look at the videos to learn more: [Smart Folders videos]({% link content-services/latest/tutorial/video/content.md %}#smart-folder-overview)
 
 ## What's a Smart Folder? {#sf-whatis}
 

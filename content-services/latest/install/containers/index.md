@@ -99,7 +99,7 @@ When you deploy Content Services, a number of containers are started.
 * Alfresco Search Services (Solr 6)
 * A PostgreSQL database
 * [Alfresco Transform Service]({% link transform-service/latest/index.md %})
-* [Alfresco Digital Workspace](% link digital-workspace/latest/index.md %)
+* [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %})
 * [Alfresco Sync Service]({% link sync-service/latest/index.md %})
 
 ### GitHub projects

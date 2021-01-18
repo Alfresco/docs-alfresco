@@ -15,8 +15,8 @@ The roles are replicated on the desktop as follows:
 |Contributor|Full rights to content that they own, but cannot edit or delete content created by other users|Contributors will be able to create new files/folders, edit, move, rename, and delete their own files/folders, but not files/folders created by someone else. Contributors won't be able to check-out/declare as record files created by other users. They will be able to check-out/declare records for their own files.|
 |Consumer|View-only rights; cannot create content|Files and folders with the Consumer role will be set to read-only on the desktop.|
 
->**Important:** (*) Mac OS X and Windows don't have the same permissions granularity that Alfresco Content Services provides, so users will experience limitations on their desktops. 
->The most notable differences are: 
+>**Important:** (*) Mac OS X and Windows don't have the same permissions granularity that Alfresco Content Services provides, so users will experience limitations on their desktops.
+>The most notable differences are:
 >* Specific permissions applied to a file that override the inherited permission from the folder. For example, a Consumer that's given Manager permissions on a file won't be able to rename, move, or delete the file.
 >* Collaborators are only able to edit content that other users have created. Other actions, like rename or move are not permitted.
 

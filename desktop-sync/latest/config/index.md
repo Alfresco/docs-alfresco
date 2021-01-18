@@ -2,11 +2,7 @@
 title: Configure Desktop Sync
 ---
 
-If you're an IT administrator, you can configure Desktop Sync for central installation purposes.
-
-## Desktop Sync configuration file
-
-You can configure Desktop Sync using the `AlfrescoSync.conf` file located at:
+If you're an IT administrator, you can configure Desktop Sync for central installation purposes using the `AlfrescoSync.conf` file located at:
 
 * (Windows): `<userHome>\AppData\Local\Alfresco`
 * (For Mac): `~/Library/Application Support/Alfresco`
@@ -438,4 +434,3 @@ central location in Alfresco Content Services. This allows you to update the con
 Desktop Sync clients without any manual intervention.
 
 See [Managing automatic configuration updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-configuration-updates) for more.
-

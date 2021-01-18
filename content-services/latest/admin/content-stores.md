@@ -536,7 +536,7 @@ The [Alfresco Content Connector for Azure]({% link microsoft-azure/latest/index.
 
 ### Alfresco Content Connector for SAP applications
 
-[Alfresco Content Connector for SAP]({% link sap/latest/index.md %}) applications is an add-on module that offers seamless integration between Content Services and SAP (R/3, S/4HANA). It connects the structured data in SAP with the unstructured data in Content Services.
+[Alfresco Content Connector for SAP applications]({% link sap/latest/index.md %}) is an add-on module that offers seamless integration between Content Services and SAP (R/3, S/4HANA). It connects the structured data in SAP with the unstructured data in Content Services.
 
 ### Alfresco Content Connector for EMC Centera
 
