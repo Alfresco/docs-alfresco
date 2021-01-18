@@ -132,7 +132,7 @@ Installations using Docker Compose should only be used for development and test 
             - 9095:9095
 
     digital-workspace:
-        image: quay.io/alfresco/alfresco-digital-workspace:2.0.0
+        image: quay.io/alfresco/alfresco-digital-workspace:2.0.0-adw
         mem_limit: 128m
         environment:
             BASE_PATH: ./
@@ -162,9 +162,9 @@ Installations using Docker Compose should only be used for development and test 
         depends_on:
           - alfresco
           - digital-workspace
-       ports:
+        ports:
           - 8080:8080
-       links:
+        links:
           - digital-workspace
           - alfresco
           - share
@@ -173,7 +173,7 @@ Installations using Docker Compose should only be used for development and test 
     with:
 
     ```yaml
-      proxy:
+    proxy:
         image: nginx:stable-alpine
         mem_limit: 256m
         depends_on:
@@ -209,4 +209,4 @@ Installations using Docker Compose should only be used for development and test 
 
 8. Browse to the [Alfresco Support Portal](http://support.alfresco.com/){:target="_blank"}, download `alfresco-onedrive-integration-1.x.x.zip` and extract the contents.
 
-9. Log into Alfresco Share as an administrator and place the `alfresco-ooi-content-model.xml` into the `Data Dictionary/Models` folder. Click to **Edit Properties** of the file and check the **Model Active** box.
+9. Log into the Digital Workspace as an administrator and place the `alfresco-ooi-content-model.xml` into the `Data Dictionary/Models` folder. View the details of the file, select the **Edit** option and check the **Model Active** box.
