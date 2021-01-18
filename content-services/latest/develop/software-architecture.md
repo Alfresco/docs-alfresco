@@ -197,7 +197,7 @@ will carry out when certain events happen (such as when new content is added to 
 entirely new services, if required.
 
 When you need to create custom business workflow you should use the 
-[Alfresco Process Services (APS)]({% link process-servicces/latest/develop/dev-ext.md %}) product.
+[Alfresco Process Services (APS)]({% link process-services/latest/develop/dev-ext.md %}) product.
 
 ### Content modeling
 
