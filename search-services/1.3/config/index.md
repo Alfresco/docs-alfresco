@@ -273,8 +273,6 @@ You need to set these properties only if you are configuring Search Services wit
 
 When you install Search Services, several Solr configuration files are made available to you. This section lists the Solr configuration files, their location in the directory structure, and their description.
 
-> **Note:** Some of these files are only available once Search Services has been started for the first time.
-
 |Configuration File|Location|Description|
 |------------------|--------|-----------|
 |schema.xml|`<SOLR_HOME>/solrhome/<core>/conf`. For example `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This file defines the schema for the index including field type definitions with associated analyzers. It contains details about the fields that you can include in your document and also describes how those fields can be used when adding documents to the index or when querying those fields. The properties of this file are managed by an expert user.|

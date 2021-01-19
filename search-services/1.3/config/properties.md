@@ -65,7 +65,6 @@ The `solrcore.properties` configuration file is the property configuration file 
 |solr.filterCache.autowarmCount|This property configures the number of entries to pre-populate from the old cache, for example `128`.|
 |solr.filterCache.initialSize|This property specifies the initial capacity (number of entries) of the Solr filter cache. You may want to increase the value if you have many users, groups, and tenants, for example `64`.|
 |solr.filterCache.size|This property specifies the maximum number of entries in the Solr filter cache. You may want to increase the value if you have many users, groups, and tenants, for example `64`.|
-|solr.initial.transaction.range|When checking the consistency of the repository and index, the first transaction is compared in both the repository and index repositories. In order to receive that initial transaction from the database a range of between 0-2000 for transaction id should be used. This parameter can be used when the initial transaction id is greater than 2000, for example `0-2000`.|
 |solr.maxBooleanClauses|This property specifies the number of Boolean clauses in a query. It can affect range or wildcard queries that expand to big Boolean queries, for example `10000`.|
 |solr.nodeBatchSize|This property configures the batch fetch, for example `10`.|
 |solr.ownerCache.autowarmCount|This property configures the Solr result cache, for example `0`.|
@@ -82,7 +81,6 @@ The `solrcore.properties` configuration file is the property configuration file 
 |solr.readerCache.autowarmCount|This property configures the Solr result cache, for example `0`.|
 |solr.readerCache.initialSize|This property configures the Solr result cache, for example `1024`.|
 |solr.readerCache.size|This property configures the Solr result cache, for example `4096`.|
-|solr.request.content.compress|This property when set to `true` will compress the content that is sent back from the repository during system communication, for example `false`.|
 
 ## Full text search configuration properties
 

@@ -62,7 +62,7 @@ The configuration affecting replication is controlled by a single file, `alresc
 1. Edit the `alresco-search-services/solrhome/templates/re-rank/conf/solrconfig.xml` file on the master server to change the default replication handler configuration. Remember to uncomment the `master` section.
 
     ```bash
-    <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
+    <requestHandler name="/replication" class="solr.ReplicationHandler" > 
         <!--
            To enable simple master/slave replication, uncomment one of the 
            sections below, depending on whether this solr instance should be
@@ -105,7 +105,7 @@ Here again, the solrconfig.xml file controls the configuration affecting replica
 1. Uncomment the `slave` section.
 
     ```bash
-    <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
+    <requestHandler name="/replication" class="solr.ReplicationHandler" > 
         <!--
            To enable simple master/slave replication, uncomment one of the 
            sections below, depending on whether this solr instance should be
