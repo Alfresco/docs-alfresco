@@ -4,10 +4,7 @@ title: Alfresco Outlook Integration
 
 Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook.
 
-Features of Outlook Integration include the ability to archive content (i.e. emails, meetings, appointments, and files) 
-into Alfresco, full metadata support, full search, tagging and workflow capabilities, and the ability to attach files and 
-view archived emails in your inbox. In addition, you can create new versions of existing documents, 
-review the version history of a versioned document, and revert back to previous versions.
+Features of Outlook Integration include the ability to archive content (i.e. emails, meetings, appointments, and files) into Alfresco, full metadata support, full search, tagging and workflow capabilities, and the ability to attach files and view archived emails in your inbox. In addition, you can create new versions of existing documents, review the version history of a versioned document, and revert back to previous versions.
 
 >**Note:** In this documentation, the term 'email' is used to refer to emails, meetings, and appointments for the sake of readability.
 

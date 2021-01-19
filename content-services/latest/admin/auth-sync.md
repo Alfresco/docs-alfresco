@@ -274,9 +274,9 @@ Use this information to understand what we mean by External Authentication and h
 
 ##### What is external authentication?
 
-External authentication uses the Central Authentication Service (CAS), which enables Single Sign-On (SSO), and allows a user to authenticate with a CAS, instead of directly with Content Services. For example, this might be using the `mod_cas` Apache module. For more information about `mod_cas`, see [CAS Apache Module](http://mod-cas.sourceforge.net/).
+External authentication uses the Central Authentication Service (CAS), which enables Single Sign-On (SSO), and allows a user to authenticate with a CAS, instead of directly with Content Services. For example, this might be using the `mod_cas` Apache module. For more information about `mod_cas`, see [CAS Apache Module](http://mod-cas.sourceforge.net/){:target="_blank"}.
 
-CAS is usually used with a proxy, for example, the [Apache mod_proxy](https://httpd.apache.org/docs/current/mod/mod_proxy.html) module.
+CAS is usually used with a proxy, for example, the [Apache mod_proxy](https://httpd.apache.org/docs/current/mod/mod_proxy.html){:target="_blank"} module.
 
 External authentication is set with the `authentication.chain` parameter in your `alfresco-global.properties` file to use the `external` authentication subsystem.
 
@@ -294,7 +294,7 @@ For example, if external authentication is the only authentication system in the
 
 Here are two scenarios where external authentication is configured with Content Services and Share. In both scenarios, an HTTP or HTTPS request is sent to an authentication proxy. If authentication is OK, the proxy passes the request to Share using the AJP protocol.
 
-In the first scenario, the Share [endpoint-url](TODO_LINK:surf-connectors-endpoints.md) (http://localhost:8080/alfresco/wcs) sends the request directly to Content Services using HTTP and a User Header. No certificate is used and the `external.authentication.proxyUserName` is blank:
+In the first scenario, the Share [endpoint-url](TODO_LINK:content-services/latest/develop/reference/surf-framework-ref.md#connectors-and-endpoints-connectorsendpoints) (`http://localhost:8080/alfresco/wcs`) sends the request directly to Content Services using HTTP and a User Header. No certificate is used and the `external.authentication.proxyUserName` is blank:
 
     ```bash
     external.authentication.proxyUserName=
@@ -304,7 +304,7 @@ Content Services trusts the header (defined by `external.authentication.proxyHea
 
 ![external-direct]({% link content-services/images/external-direct.png %})
 
-In the second scenario, the Share [endpoint-url](TODO_LINK:surf-connectors-endpoints.md) (http://your.server.com/alfresco/wcs) sends the request back to Apache, using HTTP and a User Header (defined by `external.authentication.proxyHeader`), and a certificate. `external.authentication.proxyUserName` is set:
+In the second scenario, the Share [endpoint-url](TODO_LINK:content-services/latest/develop/reference/surf-framework-ref.md#connectors-and-endpoints-connectorsendpoints) (`http://your.server.com/alfresco/wcs`) sends the request back to Apache, using HTTP and a User Header (defined by `external.authentication.proxyHeader`), and a certificate. `external.authentication.proxyUserName` is set:
 
     ```bash
     external.authentication.proxyUserName=alfresco-system
@@ -350,7 +350,7 @@ MS Office supports the following authentication mechanisms:
 NTLM and Kerberos can be used in an SSO environment.
 
 For more information about Alfresco Office Services limitations, see
-[Considerations when using Alfresco Office Services](TODO_LINK:https://docs.alfresco.com/aos/concepts/aos-issues.html).
+[Considerations when using Alfresco Office Services]({% link microsoft-office/latest/index.md %}).
 
 #### External configuration properties {#extauthprops}
 
@@ -396,7 +396,7 @@ This task assumes that you've already set up external authentication, as specifi
           <!--
                 Overriding endpoints to reference an Alfresco server with external SSO
                 enabled
-                NOTE: If utiliing a load balancer between web-tier and repository
+                NOTE: If utilizing a load balancer between web-tier and repository
                 cluster,the "sticky sessions" feature of your load balancer must be used.
 
                 NOTE: If alfresco server location is not localhost:8080 then also combine
@@ -466,7 +466,7 @@ This task assumes that you've already set up external authentication, as specifi
         <!--
                 Overriding endpoints to reference an Alfresco server with external SSO
                 enabled
-                NOTE: If utilising a load balancer between web-tier and repository
+                NOTE: If utilzing a load balancer between web-tier and repository
                 cluster,the "sticky sessions" feature of your load balancer must be used.
 
                 NOTE: If alfresco server location is not localhost:8080 then also combine
@@ -541,7 +541,7 @@ You have configured Share to use an external SSO.
 
 Use this information to set up SSO with client certificates.
 
-1. Setup Apache as proxy server in front of Content Services and configure it to use SSL as described in [Configuring SSL for a production environment](TODO_LINK:configure-ssl-prod.md).
+1. Setup Apache as proxy server in front of Content Services and configure it to use SSL as described in [Configuring SSL for a production environment]({% link content-services/latest/config/repository.md %}#ssl-repo).
 
 2. Activate external authentication as described in [Configuring external authentication](#configextauthrepoconsole).
 
@@ -577,7 +577,7 @@ An LDAP subsystem supports two main functions:
 
 Either of these functions can be used in isolation or in combination. When LDAP authentication is used without user registry export, default Content Services person objects are created automatically for all those users who successfully login. However, they won't be populated with attributes without user registry export enabled. LDAP user registry export is most likely to be used without LDAP authentication when chained with other authentication subsystems. For example, Kerberos against Active Directory, and possibly Samba on top of OpenLDAP.
 
-The user registry export function assumes that groups are stored in LDAP as an object that has a repeating attribute, which defines the distinguished names of other groups, or users. This is supported in the standard LDAP schema using the `groupOfNames` type. See the example LDIF file in [OpenLDAP tips](TODO_LINK:auth-ldap-openldaptips.md).
+The user registry export function assumes that groups are stored in LDAP as an object that has a repeating attribute, which defines the distinguished names of other groups, or users. This is supported in the standard LDAP schema using the `groupOfNames` type. See the example LDIF file in [OpenLDAP tips]({% link content-services/latest/admin/troubleshoot.md %}#openldap-tips).
 
 #### LDAP configuration properties {#ldapconfprops}
 
@@ -1431,9 +1431,9 @@ The following is a sample login output:
 
 Content Services can be configured to authenticate using the Identity Service by configuring the authentication chain and `alfresco-global.properties` file.
 
-The [Identity Service](TODO_LINK:https://docs.alfresco.com/identity/concepts/identity-overview.html) allows you to configure user authentication between a supported LDAP provider or SAML identity provider and the Identity Service for Single Sign On (SSO) capabilities.
+The [Identity Service]({% link identity-service/latest/index.md %}) allows you to configure user authentication between a supported LDAP provider or SAML identity provider and the Identity Service for Single Sign On (SSO) capabilities.
 
-The Identity Service needs to be [deployed](TODO_LINK:https://docs.alfresco.com/identity1.0/concepts/identity-deploy.html) and [configured](TODO_LINK:https://docs.alfresco.com/identity1.0/concepts/identity-configure.html) with an identity provider before being set up with other Alfresco products.
+The Identity Service needs to be [deployed]({% link identity-service/latest/install/index.md %}) and [configured]({% link identity-service/latest/config/index.md %}) with an identity provider before being set up with other Alfresco products.
 
 Once the Identity Service has been deployed, there are two steps to configure Content Services to authenticate with it:
 
@@ -1563,7 +1563,7 @@ Use these instructions to add and configure the authentication chain.
     * **Enables**: Specifies if authentication is enabled or not.
     * **Synchronized**: Specifies if the authentication chain is synchronized or not.
     * **Actions**: Enables you to perform specific actions on the selected authentication chain, such as:
-        * **Edit**: Enables you to configure the authentication directories. See [Managing authentication directories](../concepts/adminconsole-directorymgt-cp.md) for more information.
+        * **Edit**: Enables you to configure the authentication directories. See [Managing authentication directories](#manageauthadmin) for more information.
         * **Test**: Enables you to run an authentication test. To process the test request, you need a valid user name and password.
         * **Reset**: Enables you to reset the directory to its initial settings or default values. You will lose all changes you've made to this directory since it was created.
         * **Remove**: Removes the directory from the authentication chain list.
@@ -1581,7 +1581,7 @@ Use these instructions to add and configure the authentication chain.
 
     If you do not want to save the changes, click **Cancel**.
 
-#### Manage authentication directories using Admin Console
+#### Manage authentication directories using Admin Console {#manageauthadmin}
 
 The authentication subsystem support certain properties that can be configured to integrate the subsystem with
 Content Services. You can manage the various subsystems using their configuration properties.
@@ -1611,12 +1611,12 @@ Use these instructions to configure OpenLDAP or Oracle Directory Server using th
     |Authentication Enabled|Yes|This specifies that the directory will be used to authenticate users. |
     |User Name Format|-|This specifies how to map the user identifier entered by the user to that passed through to LDAP. |
     |LDAP Server URL|ldap://ldap.domain.com:389|This specifies the URL of your LDAP server, containing its name and port. The standard ports for LDAP are 389 (and 636 for SSL)|
-    |Security|simple|This specifies the mechanism used authenticate with the LDAP server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](../concepts/auth-ldap-props.md) for more information. |
+    |Security|simple|This specifies the mechanism used authenticate with the LDAP server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](#ldapconfprops) for more information. |
     |Default Administrator User Names|-|This specifies a comma separated list of user names to be considered administrators by default. If you're using LDAP for all your users, this maps an LDAP user to be an administrator user. |
     |Authenticate FTP|Yes|This enables authentication for FTP access. |
     |Synchronization Enabled|Yes|This enables user and group synchronization. It might be that this connection should only be used for authentication, in which case this flag should be set to false. |
     |Security Principal Name|cn=Manager,dc=company,dc=com|This specifies the LDAP user to connect for the export operation, if one is required by the `ldap.synchronization.java.naming.security.authentication` authentication mechanism. This should be in the same format as `ldap.authentication.userNameFormat` but with a real user ID instead of `%s`. |
-    |Security|simple|This specifies the mechanism to use to authenticate with the LDAP Synchronization server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](../concepts/auth-ldap-props.md) for more information. |
+    |Security|simple|This specifies the mechanism to use to authenticate with the LDAP Synchronization server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](#ldapconfprops) for more information. |
     |Group query|(objectclass=groupOfNames)|This specifies the query to select all objects that represent the groups to export. This query is used in full synchronization mode, which by default is scheduled every 24 hours. The default is `(objectclass=groupOfNames)`. |
     |Security Principal Credentials|secret|This specifies the password for the default principal (only used for LDAP sync). Click **Show Password** to reveal the password. Click **Hide Password** to hide the password. |
     |User Search Base|ou=People,dc=company,dc=com|This specifies the DN below which to run the user queries. |
@@ -1653,12 +1653,12 @@ Use these instructions to configure LDAP-AD using the configuration properties i
     |Authentication Enabled|Yes|This specifies that the directory will be used to authenticate users. |
     |User Name Format|%s@domain|This specifies how to map the user identifier entered by the user to that passed through to LDAP. |
     |LDAP Server URL|ldap://$LDAP_HOST:$LDAP_HOST_PORT|This specifies the URL of your LDAP server, containing its name and port. The standard ports for LDAP are 389 (and 636 for SSL)|
-    |Security|simple|This specifies the mechanism used authenticate with the LDAP server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](../concepts/auth-ldap-props.md) for more information. |
+    |Security|simple|This specifies the mechanism used authenticate with the LDAP server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](#ldapconfprops) for more information. |
     |Default Administrator User Names|Administrator|This specifies a comma separated list of user names to be considered administrators by default. If you're using LDAP for all your users, this maps an LDAP user to be an administrator user. |
     |Authenticate FTP|Yes|This enables authentication for FTP access. |
     |Synchronization Enabled|Yes|This enables user and group synchronization. It might be that this connection should only be used for authentication, in which case this flag should be set to false. |
     |Security Principal Name|cn=Manager,dc=company,dc=com|This specifies the LDAP user to connect for the export operation, if one is required by the `ldap.synchronization.java.naming.security.authentication` authentication mechanism. This should be in the same format as `ldap.authentication.userNameFormat` but with a real user ID instead of `%s`. |
-    |Security|simple|This specifies the mechanism to use to authenticate with the LDAP Synchronization server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](../concepts/auth-ldap-props.md) for more information. |
+    |Security|simple|This specifies the mechanism to use to authenticate with the LDAP Synchronization server. It should be one of the standard values provided here or one of the values supported by the LDAP provider. See [LDAP configuration properties](#ldapconfprops) for more information. |
     |Group query|(objectclass=group)|This specifies the query to select all objects that represent the groups to export. This query is used in full synchronization mode, which by default is scheduled every 24 hours. The default is `(objectclass=groupOfNames)`. |
     |Security Principal Credentials|secret|This specifies the password for the default principal (only used for LDAP sync). Click **Show Password** to reveal the password. Click **Hide Password** to hide the password. |
     |User Search Base|ou=People,dc=company,dc=com|This specifies the DN below which to run the user queries. |

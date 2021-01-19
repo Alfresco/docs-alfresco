@@ -2,13 +2,9 @@
 title: Using Outlook Integration
 ---
 
-The Alfresco Outlook Client is part of the Outlook Integration and allows you to use email and repository management 
-without having to leave Microsoft Outlook.
+The Alfresco Outlook Client is part of the Outlook Integration and allows you to use email and repository management without having to leave Microsoft Outlook.
 
-Features of Outlook Integration include the ability to archive content (i.e. emails, meetings, appointments, and files) 
-into Alfresco, full metadata support, full search, tagging and workflow capabilities, and the ability to attach files 
-and view archived emails in your inbox. In addition, you can create new versions of existing documents, 
-review the version history of a versioned document, and revert back to previous versions.
+Features of Outlook Integration include the ability to archive content (i.e. emails, meetings, appointments, and files) into Alfresco, full metadata support, full search, tagging and workflow capabilities, and the ability to attach files and view archived emails in your inbox. In addition, you can create new versions of existing documents, review the version history of a versioned document, and revert back to previous versions.
 
 >**Important:** In this documentation, the term 'email' is used to refer to emails, meetings, and appointments for the sake of readability.
 
@@ -22,9 +18,9 @@ When you drag and drop the email with a subject that already exists in a specifi
 
 >**Note:** If you drag and drop to a folder, you're not prompted for a location for the email.
 
-1.  Archive an email manually by dragging and dropping it into a folder in your chosen site.
+1. Archive an email manually by dragging and dropping it into a folder in your chosen site.
 
-2.  You might see a **Metadata** dialog, if this has been configured by your IT team. Enter the information needed for archiving the email.
+2. You might see a **Metadata** dialog, if this has been configured by your IT team. Enter the information needed for archiving the email.
 
     For example, you may be able to select different metadata settings, if configured by your IT team. Select the **Numeric Metadata** content type to see the fields you can apply to the uploaded content. If you're filing a number of emails, you can check **Remember metadata for next object** to retain your settings for the next time you archive an email.
 
@@ -56,11 +52,11 @@ When you drag and drop the email with a subject that already exists in a specifi
 
     Here is a summary of how the combined version detection and email duplication detection works:
 
-    1.  The Alfresco Outlook Client checks if the email to be uploaded already exists in the upload location.
-    2.  If it does exist, the version detection dialog is shown, and offers you an alternative name.
-    3.  Next, there's a check to see if the email exists in another folder, either at site-level or repository-level (depending what your IT team has configured). See [Configuring Outlook email settings in Alfresco Share]({% link microsoft-outlook/latest/config/index.md %}#configoutlookemailsettings) for guidance on customizing **Integration Settings**.
-    4.  If a match is found, the Alfresco Outlook Client shows the duplication dialog, presenting a reference to the duplicate email in the other folder.
-    
+    1. The Alfresco Outlook Client checks if the email to be uploaded already exists in the upload location.
+    2. If it does exist, the version detection dialog is shown, and offers you an alternative name.
+    3. Next, there's a check to see if the email exists in another folder, either at site-level or repository-level (depending what your IT team has configured). See [Configuring Outlook email settings in Alfresco Share]({% link microsoft-outlook/latest/config/index.md %}#configoutlookemailsettings) for guidance on customizing **Integration Settings**.
+    4. If a match is found, the Alfresco Outlook Client shows the duplication dialog, presenting a reference to the duplicate email in the other folder.
+
     When an email is archived, it is usually identified with an Alfresco icon in the Outlook inbox: ![Alfresco archive icon in Outlook]({% link microsoft-outlook/images/Outlook_alf_icon.png %}){:height="18px" width="18px"}
 
     An email that is archived as an attachment can be opened directly by double-clicking the email in Outlook. The email opens in a new window and can be read normally. An email that is archived as a link can be loaded into Outlook by clicking the link in the email.
@@ -73,15 +69,15 @@ You can create folders in the Alfresco Outlook Client and assign metadata to the
 
 You can create different types of folders within a particular location and assign different sets of metadata depending on the type of content the folder contains. You may be able to select different metadata settings, if configured by your IT team. This allows you to select the best metadata fields from a list in the metadata dialog.
 
-1.  Click the **Explore** tab from the Alfresco sidebar, or navigate through the list view.
+1. Click the **Explore** tab from the Alfresco sidebar, or navigate through the list view.
 
     If there is no **Explore** tab displayed, continue to the next step.
 
-2.  Select a site and folder from the directory tree, right-click the context menu then select **Create folder**.
+2. Select a site and folder from the directory tree, right-click the context menu then select **Create folder**.
 
     The system displays a folder metadata dialog. The default folder metadata scheme and associated properties are shown.
 
-3.  In the **New Folder** dialog, enter the information needed to create the folder.
+3. In the **New Folder** dialog, enter the information needed to create the folder.
 
     For example, you may be able to select different folder metadata settings, if configured by your IT team. Select **Payload Target** in the **Folder type** list to see the fields you can apply to the new folder.
 
@@ -92,7 +88,7 @@ You can create different types of folders within a particular location and assig
     * In the **Folder name** field, enter a name for the new folder.
     * If your IT team has configured multiple folder metadata options for a specific upload location, the **Folder type** field shows a list of options and you can pick the most appropriate metadata depending on the content you're archiving. Note that some fields may be read-only, such as the **Boolean property** field, and you can't change them.
     * Select **Save** to create the new folder with defined folder type and properties.
-    
+
     The system updates the navigation panel and shows the new folder.
 
    See [Outlook metadata settings]({% link microsoft-outlook/latest/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
@@ -101,13 +97,13 @@ You can create different types of folders within a particular location and assig
 
 In Outlook, use the sidebar to browse and work with your connected repository.
 
-1.  In the **Alfresco Client** tab on the Outlook toolbar and click **Show Sidebar**.
+1. In the **Alfresco Client** tab on the Outlook toolbar and click **Show Sidebar**.
 
     This option displays a new window on the right side of the screen, called **Alfresco Outlook Client**.
 
     >**Note:** If the sidebar is already displayed, clicking **Show Sidebar** hides the sidebar.
 
-2.  There are two tabs available: **Explore** and **Workflow**.
+2. There are two tabs available: **Explore** and **Workflow**.
 
     These tabs are shown at the bottom of the sidebar and allow you to switch from one view to another.
 
@@ -115,39 +111,39 @@ In Outlook, use the sidebar to browse and work with your connected repository.
 
     >**Note:** In Alfresco Outlook Integration 2.7, the **Explore** tab is only available if the **Workflow** tab is also enabled to save space for more content. The **Workflow** tab is hidden by default.
 
-3.  Use the following tasks to learn about these tabs.
+3. Use the following tasks to learn about these tabs.
 
 ### Explore options in the Alfresco sidebar
 
 Work with your files and folders using the Alfresco sidebar.
 
-1.  Click the **Explore** tab from the **Alfresco Outlook Client** sidebar, or navigate through the list view.
+1. Click the **Explore** tab from the **Alfresco Outlook Client** sidebar, or navigate through the list view.
 
     ![]({% link microsoft-outlook/images/outlook-sidebar-annotated.png %})
 
     >**Note:** In Alfresco Outlook Integration 2.7, the **Explore** tab is only available if the **Workflow** tab is also enabled to save space for more content. The **Workflow** tab is hidden by default.
 
-2.  Repo location selector: choose which sites and content you wish to see. You can see the full repository in this view, or limit the view to certain sites only (**All Sites**, **My Sites** or **Favorite Sites**).
+2. Repo location selector: choose which sites and content you wish to see. You can see the full repository in this view, or limit the view to certain sites only (**All Sites**, **My Sites** or **Favorite Sites**).
 
-3.  Content filter: choose to view all content, or only your favourite files or folders.
+3. Content filter: choose to view all content, or only your favourite files or folders.
 
-4.  View selector: choose whether to see your content in a tree view or a list view.
+4. View selector: choose whether to see your content in a tree view or a list view.
 
-5.  Search selector: choose between a simple or complex search (if this is configured).
+5. Search selector: choose between a simple or complex search (if this is configured).
 
-    1.  Search mode selector: choose whether to search text and metadata, or just metadata, or search at a site level.
+    1. Search mode selector: choose whether to search text and metadata, or just metadata, or search at a site level.
 
-    2.  Enter your search criteria.
+    2. Enter your search criteria.
 
         Type directly in the search box, where it says **Enter your search**.
 
         You can choose favorite folders or sites to filter the search.
 
-    3.  The content that matches your criteria is displayed below the search box.
+    3. The content that matches your criteria is displayed below the search box.
 
         Once you select a folder in the search results, use **Back to search results** to return to the search results in the original search location. You can clear the search results by clicking X next to the search box starting a new search.
 
-    4.  Context menu: there are a number of actions to apply for each search result. These include:
+    4. Context menu: there are a number of actions to apply for each search result. These include:
 
         * ![Outlook Client email attachment icon]({% link microsoft-outlook/images/outlook-search-attach-email.png %}){:height="18px" width="18px"} Send an email, with this result attached (applicable to files only)
         * ![Outlook Client email link icon]({% link microsoft-outlook/images/outlook-search-email-link.png %}){:height="18px" width="18px"} Send an email, with this result embedded as a link
@@ -155,8 +151,8 @@ Work with your files and folders using the Alfresco sidebar.
         * ![Outlook Client metadata icon]({% link microsoft-outlook/images/outlook-metadata.png %}){:height="18px" width="18px"} Add metadata for the file or folder. This opens the metadata dialog that was displayed when the file was filed in Share.
         * View the version history of a document. See [Working with file versions](#working-with-file-versions) for more.
         * Check out a document for editing offline.
-        
-6.  Drag and drop files into the repository. A number of options are available, depending on your configuration settings.
+
+6. Drag and drop files into the repository. A number of options are available, depending on your configuration settings.
 
     The options available to you are shown in the right-click context menu. For example, if you have selected a Microsoft Office file, you can edit this online in addition to other standard options. See [Configuring extended settings in Outlook]({% link microsoft-outlook/latest/config/index.md %}#configure-extended-settings) for more information on configuration settings.
 
@@ -171,10 +167,10 @@ Work with your files and folders using the Alfresco sidebar.
     * **Cancel:** Keeps the original email.
       * If a single email is selected, this cancels the process and closes the dialog.
       * If multiple emails are selected, this cancels the processing of the current email, and starts to process for the next email.
-        
-7.  Open folders and view files from the **Explore** tab. Depending on your configuration settings and the number of files in your repository, you have the option to see additional files by clicking ![More icon]({% link microsoft-outlook/images/outlook_more_v2.png %})
 
-8.  Use **Configure > Extended** from the **Alfresco Client** toolbar to dynamically change the way that the files and folders are displayed.
+7. Open folders and view files from the **Explore** tab. Depending on your configuration settings and the number of files in your repository, you have the option to see additional files by clicking ![More icon]({% link microsoft-outlook/images/outlook_more_v2.png %})
+
+8. Use **Configure > Extended** from the **Alfresco Client** toolbar to dynamically change the way that the files and folders are displayed.
 
     For example, this format is displayed when **Folder sort order** is set to date modified (ascending), with **Date sort display options** set to date/time and subject:
 
@@ -186,13 +182,13 @@ Work with your files and folders using the Alfresco sidebar.
 
 Start workflows using the Alfresco sidebar.
 
-1.  Go to the **Alfresco Client** tab on the Outlook toolbar and click **Show Sidebar**.
+1. Go to the **Alfresco Client** tab on the Outlook toolbar and click **Show Sidebar**.
 
     This option displays a new window on the right side of the screen, called **Alfresco Outlook Client**.
 
-2.  Click the **Workflow** tab:
+2. Click the **Workflow** tab:
 
-    1.  Use the option list to filter by **My initiated workflows** or **My tasks**.
+    1. Use the option list to filter by **My initiated workflows** or **My tasks**.
 
         You can start and view workflows from the Alfresco sidebar, following rules that are set in Alfresco Share.
 
@@ -204,8 +200,7 @@ Start workflows using the Alfresco sidebar.
 
 ## Managing file versions in Outlook
 
-You can create new versions of files that already exist in Alfresco Outlook Client. 
-There are two ways to trigger versioning for one or more files: implicit and explicit versioning.
+You can create new versions of files that already exist in Alfresco Outlook Client. There are two ways to trigger versioning for one or more files: implicit and explicit versioning.
 
 * **Implicit versioning**
 
@@ -221,12 +216,11 @@ In both cases, the Alfresco Outlook Client lets you decide if you'd like to crea
 
 ### Working with file versions
 
-Create new versions of files by dragging & dropping them into the Alfresco sidebar. 
-You can also review the version history of a versioned file, and revert to a previous version.
+Create new versions of files by dragging & dropping them into the Alfresco sidebar. You can also review the version history of a versioned file, and revert to a previous version.
 
-1.  Click the **Explore** tab from the **Alfresco Outlook Client** sidebar.
+1. Click the **Explore** tab from the **Alfresco Outlook Client** sidebar.
 
-2.  For implicit versioning: drag and drop one or more files into a site or folder in the Alfresco sidebar. You will see the **Versioning** dialog.
+2. For implicit versioning: drag and drop one or more files into a site or folder in the Alfresco sidebar. You will see the **Versioning** dialog.
 
     If one or more files with the same name as the dropped file(s) already exist in that location, only those with the same name and extension are versioned.
 
@@ -238,14 +232,14 @@ You can also review the version history of a versioned file, and revert to a pre
     * If you have more than one file, the **Apply to all items** option is enabled and you can apply the information you enter to all items related to that file.
     * Select **Save** to save your changes and begin the upload.
     * If you copy a single file to a folder in Alfresco Share, and then choose the **Cancel** option to stop the transfer, the file will still transfer into Share. The **Cancel** action works best when transferring multiple files. The last transferred file remains in Share, however the other files are not transferred.
-    
-    1.  Select **New version** to create a new version of a file.
+
+    1. Select **New version** to create a new version of a file.
 
         Choose to save either a **Major** or **Minor** version.
 
         Add a **Version comment** (optional).
 
-    2.  Select **New document** to create a new file.
+    2. Select **New document** to create a new file.
 
         ![Outlook version detection - new document]({% link microsoft-outlook/images/Outlook-version-new-doc.png %})
 
@@ -253,7 +247,7 @@ You can also review the version history of a versioned file, and revert to a pre
 
         For example, if the original file is `1.pptx`, the suggested file name for versioning is given as `1-0001.pptx`.
 
-    3.  Select **Skip** to prevent the file from being uploaded to Share.
+    3. Select **Skip** to prevent the file from being uploaded to Share.
 
     Select an action for each file listed in the Versioning dialog.
 
@@ -261,11 +255,11 @@ You can also review the version history of a versioned file, and revert to a pre
 
     See [Outlook metadata settings]({% link microsoft-outlook/latest/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
 
-3.  For explicit versioning: drag and drop a single file onto an existing file in the Alfresco sidebar. You will see the **Versioning** dialog.
+3. For explicit versioning: drag and drop a single file onto an existing file in the Alfresco sidebar. You will see the **Versioning** dialog.
 
     >**Note:** Both files must have the same extension.
 
-    1.  Hover your mouse over the file that you'd like to version for a few seconds.
+    1. Hover your mouse over the file that you'd like to version for a few seconds.
 
         ![Outlook versioning - explicit]({% link microsoft-outlook/images/Outlook-version-explicit.png %})
 
@@ -273,11 +267,11 @@ You can also review the version history of a versioned file, and revert to a pre
 
         >**Note:** You can only version one file at a time using explicit versioning. Use implicit versioning to version multiple files.
 
-    2.  In the **Versioning** dialog, follow the same steps as described earlier for implicit versioning.
+    2. In the **Versioning** dialog, follow the same steps as described earlier for implicit versioning.
 
     You can review the version history of a versioned file by using the context menu.
 
-4.  Right click on a versioned file and select **Version history**.
+4. Right click on a versioned file and select **Version history**.
 
     ![Open version history]({% link microsoft-outlook/images/Outlook-version-history.png %})
 
@@ -293,29 +287,29 @@ You can also review the version history of a versioned file, and revert to a pre
 
     To revert a file to a previous version, follow these steps.
 
-    1.  Click **Revert...**.
+    1. Click **Revert...**.
 
         A Revert Version dialog opens.
 
         ![Revert version dialog]({% link microsoft-outlook/images/Outlook-version-revert.png %})
 
-    2.  Click **Major** or **Minor** to revert your file to a previous major or minor version.
+    2. Click **Major** or **Minor** to revert your file to a previous major or minor version.
 
-    3.  Enter a **Version comment** or keep the pre-filled content.
+    3. Enter a **Version comment** or keep the pre-filled content.
 
-    4.  Click **Revert**.
+    4. Click **Revert**.
 
         This replaces the content and metadata from the current version with the previous version.
 
     You can also check out a file by using the context menu.
 
-5.  Right click on a file and select **Checkout**.
+5. Right click on a file and select **Checkout**.
 
     A working copy of your file is created that you can download and work offline. The original file is locked, so you can work on the content, while other users can't edit it until you check it back in. When you've finished working on the file and saved the changes, check in the file to create a new version. Alternatively, you can cancel the check out to abandon any changes to the file, and restore the original.
 
     If you add an email with a subject that already exists in a specific location, you'll be asked to rename it.
 
-6.  Drag and drop an email into a site or folder in the Alfresco sidebar.
+6. Drag and drop an email into a site or folder in the Alfresco sidebar.
 
     The **Versioning** dialog is displayed if an email with the same name already exists in the upload location.
 
@@ -323,24 +317,21 @@ You can also review the version history of a versioned file, and revert to a pre
 
     ![Email uploaded as new document]({% link microsoft-outlook/images/Outlook-email-upload.png %})
 
-    1.  In the **New document** tab, an index number is automatically added to the email subject (or name) to avoid naming conflicts, but you can change this before saving.
+    1. In the **New document** tab, an index number is automatically added to the email subject (or name) to avoid naming conflicts, but you can change this before saving.
 
-    2.  Select **Save** to save your changes and begin the upload.
+    2. Select **Save** to save your changes and begin the upload.
 
         Select **Skip** or **Cancel** to prevent the email upload.
 
     The original email remains in the selected location.
-    
+
 ## Managing archived files in Alfresco Share
 
-View your archived emails in Alfresco Share, just like any other files in Alfresco. 
-Email filters allow you to search for the archived emails in a site or across Alfresco Repository.
+View your archived emails in Alfresco Share, just like any other files in Alfresco. Email filters allow you to search for the archived emails in a site or across Alfresco Repository.
 
-In the simple Alfresco view, view the properties of each archived email. 
-In the detailed Alfresco view, HTML and rich text emails, and attachments are displayed as a color preview.
+In the simple Alfresco view, view the properties of each archived email. In the detailed Alfresco view, HTML and rich text emails, and attachments are displayed as a color preview.
 
-In Document Actions, send a link to the email in Alfresco by selecting the **Email as link** option. 
-Also, if a MSG file is saved, open it using the **MSG file** button in the preview. All other options remain available.
+In Document Actions, send a link to the email in Alfresco by selecting the **Email as link** option. Also, if a MSG file is saved, open it using the **MSG file** button in the preview. All other options remain available.
 
 Use the advanced Alfresco search to find archived emails by using the option **Look for: Emails** from the Advanced Search toolbar.
 
@@ -348,11 +339,9 @@ Use the advanced Alfresco search to find archived emails by using the option **L
 
 Use this information to help troubleshoot Alfresco Outlook.
 
-**Error when using a hybrid workflow in Alfresco Outlook**
+### Error when using a hybrid workflow in Alfresco Outlook
 
-There's a known issue when using hybrid workflows in Alfresco Outlook (`hybridworkflow.enabled=true`). 
-This function is currently not available in Alfresco Outlook Integration, and you will receive an error message 
-when you attempt to start a new workflow in the Outlook Client:
+There's a known issue when using hybrid workflows in Alfresco Outlook (`hybridworkflow.enabled=true`). This function is currently not available in Alfresco Outlook Integration, and you will receive an error message when you attempt to start a new workflow in the Outlook Client:
 
 ```text
 An error has occurred in this dialog.
@@ -360,42 +349,29 @@ Message: 66
 Unspecified error.
 ```
 
-**File transfer is not cancelled when instructed**
+### File transfer is not cancelled when instructed
 
-In the Alfresco Outlook Client, if you copy a single file to a folder in Alfresco Share, and then decide to cancel the 
-transfer, the file will still transfer into Share. This is because unless the client-server connection is very slow or 
-the file is very big, the file transfers too quickly to be cancelled. The Cancel action works best when transferring 
-multiple files - the last transferred file will remain in Share, however the other files will not be transferred.
+In the Alfresco Outlook Client, if you copy a single file to a folder in Alfresco Share, and then decide to cancel the transfer, the file will still transfer into Share. This is because unless the client-server connection is very slow or the file is very big, the file transfers too quickly to be cancelled. The Cancel action works best when transferring multiple files - the last transferred file will remain in Share, however the other files will not be transferred.
 
-**Unable to connect to Alfresco Share message**
+### Unable to connect to Alfresco Share message
 
-In the Alfresco Outlook Client, you might see a message indicating that you can't connect to Share. 
-This is either because your repository is not running, or you have issues with your setup. From the toolbar, 
-check that your sign in details are correct in **Configure > Connection** and click **Check connection**. 
-You can also enable debugging in **Configure > Extended** to get more information on the issue. 
-You will need to provide this log if you need Alfresco Support to resolve your issue.
+In the Alfresco Outlook Client, you might see a message indicating that you can't connect to Share. This is either because your repository is not running, or you have issues with your setup. From the toolbar, check that your sign in details are correct in **Configure > Connection** and click **Check connection**. You can also enable debugging in **Configure > Extended** to get more information on the issue. You will need to provide this log if you need Alfresco Support to resolve your issue.
 
-**Error on write access from Alfresco Outlook Client to Records Management site**
+### Error on write access from Alfresco Outlook Client to Records Management site
 
-The Alfresco Outlook Client no longer permits direct write access to a Records Management site. 
-All create and edit related actions in the context menu aren't visible for content in this site. 
-However, the Alfresco Outlook Client still supports read access in the following cases:
+The Alfresco Outlook Client no longer permits direct write access to a Records Management site. All create and edit related actions in the context menu aren't visible for content in this site. However, the Alfresco Outlook Client still supports read access in the following cases:
 
 * Search content in the Records Management site from the Alfresco Outlook Client
 * Attach links or binaries from the Records Management site to email
 * Download content from the Records Management site
 
-**Error when declaring a record from within Alfresco Outlook Client**
+### Error when declaring a record from within Alfresco Outlook Client
 
-In the Alfresco Outlook Client, you might see a message stating that you can't declare a record from within the client. 
-This action is no longer supported. However, you can declare content in a collaboration site as a record 
-(i.e. create an inline record).
+In the Alfresco Outlook Client, you might see a message stating that you can't declare a record from within the client. This action is no longer supported. However, you can declare content in a collaboration site as a record (i.e. create an inline record).
 
-**Drag and drop as a PDF link doesn't work with SAML authentication**
+### Drag and drop as a PDF link doesn't work with SAML authentication
 
-There's a known issue when using drag and drop from Alfresco to convert an Office file to PDF format, 
-and adding it to an email as a link, where there's an option to automatically link to a PDF version of that document. 
-This feature doesn't currently work with SAML authentication. However, there's a workaround to achieve the same functionality:
+There's a known issue when using drag and drop from Alfresco to convert an Office file to PDF format, and adding it to an email as a link, where there's an option to automatically link to a PDF version of that document. This feature doesn't currently work with SAML authentication. However, there's a workaround to achieve the same functionality:
 
 * Convert the document you want to link to as a PDF first, using the available context menu action
 * Drag and drop the PDF version as a link to the email
