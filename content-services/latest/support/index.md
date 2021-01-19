@@ -4,7 +4,7 @@ title: Supported platforms
 
 Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services.
 
-Last modified: **November 12 2020**
+Last modified: **December 10 2020**
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact [Support](https://support.alfresco.com){:target="_blank"}.
 
@@ -61,6 +61,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | MS Office 2013 | |
 | | |
 | **Services** | |
+| Alfresco Governance Services 3.4.1 | |
 | Alfresco Governance Services 3.4.0 | |
 | Alfresco Governance Services 3.3.1 | |
 | | |
@@ -81,13 +82,16 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Intelligence Services 1.2 | |
 | Alfresco Content Connector for AWS S3 3.1 | Only compatible with Alfresco Media Management 1.4.2 or above. |
 | Alfresco Content Connector for AWS S3 3.0 | |
-Alfresco Content Connector for Azure 1.1 | |
+| Alfresco Content Connector for Azure 1.2 | |
+| Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
 | Alfresco Content Connector for AWS Glacier 2.0 | Only compatible with Alfresco Content Connector for AWS S3 3.0 and below. |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.2 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
+| Alfresco Collaboration Connector for Microsoft 365 1.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Office Services 1.3.2 | |
 | Alfresco Office Services 1.3 | |
@@ -98,6 +102,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Services SDK 4 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 2.0 | |
 | Alfresco Digital Workspace 1.6 | |
 | Alfresco Digital Workspace 1.5 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
@@ -161,6 +166,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | MS Office 2013 | |
 | | |
 | **Services** | |
+| Alfresco Governance Services 3.4.1 | |
 | Alfresco Governance Services 3.3.1 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
@@ -192,6 +198,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.2 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Outlook Integration 2.6.1 | |
@@ -296,6 +303,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for AWS Glacier 2.0 | Only compatible with Alfresco Content Connector for AWS S3 3.0 and below. |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Outlook Integration 2.6.1 | |
