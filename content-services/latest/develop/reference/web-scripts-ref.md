@@ -121,9 +121,6 @@ A web script description document is an XML file that describes the URI and HTTP
 For example, the web script is given a short name and description, along with authentication and transactional needs. 
 URI bindings are described as URI templates.
 
-A detailed reference of elements in the web script description document can be found in the 
-[Web Script Description Language Reference](TODO_LATER:../references/api-wsdl-webscript-descriptor-language-reference.md).
-
 An example of a web script description document follows:
 
 ```xml

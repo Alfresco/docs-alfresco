@@ -120,7 +120,7 @@ For this controller to successfully pass on authentication information when maki
 need to be called in context of a [Surf Page]({% link content-services/latest/develop/share-ext-points/surf-pages.md %}) or a 
 [Surf Dashlet]({% link content-services/latest/develop/share-ext-points/surf-dashlets.md %}). Note the use of the `alfresco` 
 [connector]({% link content-services/latest/develop/reference/surf-framework-ref.md %}#connectorsandcreds) when communicating 
-with a repository, This connector assumes that you will call the older **deprecated** [v0 REST API](TODO_LATER:http://docs.alfresco.com/5.0/references/RESTful-Repository.html) 
+with a repository, This connector assumes that you will call the older **deprecated** v0 REST API
 (`http://localhost:8080/alfresco/service`). We use it here as the feature of searching for people is not yet available in the v1 REST API.
 
 We should use the [v1 REST API]({% link content-services/latest/develop/rest-api-guide/index.md %}) as much as possible, which requires a 

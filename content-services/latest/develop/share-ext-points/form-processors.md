@@ -59,9 +59,7 @@ custom form processor implementations:
 * `FilteredFormProcessor` - extends `AbstractFormProcessor`
 * `AbstractFormProcessor` - **note.** extending this form processor class does not give access to filters
 
-As an example of a custom form processor we will implement one that can handle forms that manage global 
-[key-value attributes](TODO_LATER:dev-services-attribute.md). To represent an attribute item in the form processor we will use 
-the following new class:
+As an example of a custom form processor we will implement one that can handle forms that manage global key-value attributes. To represent an attribute item in the form processor we will use the following new class:
 
 ```java
 public class AttributeItem {

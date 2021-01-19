@@ -153,7 +153,7 @@ You can see details of memory usage, CPU usage, and the number of threads runnin
 
 Use this tool to view all the currently scheduled jobs on your system.
 
-You have the option to click **Run** to manually run individual scheduled jobs to ensure they're functioning correctly. See [Scheduled Jobs](TODO_LINK:content-services/latest/develop/repo-ext-points/scheduled-jobs.md) for more details.
+You have the option to click **Run** to manually run individual scheduled jobs to ensure they're functioning correctly. See [Scheduled Jobs]({% link content-services/latest/develop/repo-ext-points/scheduled-jobs.md %}) for more details.
 
 > **Note:** Be careful when running a job manually. Triggering a Lucene backup for example may cause a system outage for a few minutes.
 

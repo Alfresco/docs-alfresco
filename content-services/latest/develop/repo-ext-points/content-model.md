@@ -638,7 +638,7 @@ private void createContractFile() {
 
 In this case you are creating an ACME Contract document file. You set the properties for the security classification aspect when you create the Contract node as it is a mandatory aspect on the Contract type. If you want to add other aspects you can do that as shown for the `webPublished` aspect.
 
->**Important:** It is possible to create custom content models from the Alfresco Share UI without the need to use XML. These models can then be exported as XML and included in a build project. See the [Model Manager in Share Admin Tools documentation](http://docs.alfresco.com/5.2/concepts/admintools-cmm-intro.html) for further information.
+>**Important:** It is possible to create custom content models from the Alfresco Share UI without the need to use XML. These models can then be exported as XML and included in a build project. See the [Model Manager in Share Admin Tools documentation]({% link content-services/latest/config/models.md %}) for further information.
 
 ## Configuring the User Interface {#uiconfig}
 
