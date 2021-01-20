@@ -10,8 +10,8 @@ Use this information to migrate from Search Services to Search and Insight Engin
 
 You can migrate from Alfresco Content Services 6.2 or above with Search Services 1.3 or above to Alfresco Content Services with Search and Insight Engine 2.0. You can also migrate from Alfresco Content Services 5.x with Search Services 1.3 or below to Alfresco Content Services 6.2 or above with Search and Insight Engine 2.0.
 
-* [Migrating Content Services 6.2 with Search Services 1.3 or above](#migrating-content-services-62-with-search-services-13-or-above)
-* [Migrating Content Services 5.x with Search Services 1.3 or below](#migrating-content-services-5x-with-search-services-13-or-below)  
+* [Migrate Content Services 6.2 with Search Services 1.3 or above](#migrate-content-services-62-with-search-services-13-or-above)
+* [Migrate Content Services 5.x with Search Services 1.3 or below](#migrate-content-services-5x-with-search-services-13-or-below)  
 
 ### Migrate Content Services 6.2 with Search Services 1.3 or above
 
@@ -71,7 +71,7 @@ There are two steps to migrating your installation from Alfresco Content Service
 
     > **Note:** You can't do this using Docker Compose.
 
-2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.2 with Search Services 1.3 or above](#migrating-content-services-62-with-search-services-13-or-above).
+2. Migrate from Search Services to Search and Insight Engine see [Migrate Content Services 6.2 with Search Services 1.3 or above](#migrate-content-services-62-with-search-services-13-or-above).
 
 ## Migrate using Docker Compose
 
