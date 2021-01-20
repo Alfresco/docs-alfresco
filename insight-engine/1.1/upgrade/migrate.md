@@ -15,7 +15,7 @@ You can migrate from Alfresco Content Services 6.1 with Search Services 1.3 to A
 
 ### Migrate Content Services 6.1 with Search Services 1.3
 
-Use this information to migrate from Alfresco Search Services 1.3 to Search and Insight Engine 1.1 using a distribution zip.
+Use this information to migrate from Search Services 1.3 to Search and Insight Engine 1.1 using a distribution zip.
 
 > **Note:** A reindex is not required when you migrate from Search Services 1.3 to Search and Insight Engine 1.1.
 
@@ -98,7 +98,7 @@ Use this information to migrate from Alfresco Search Services 1.3 to Search and 
 
 ### Migrate Content Services 5.x with Search Services 1.3 or below
 
-There are two steps to migrating your installation from Alfresco Content Services 5.x with Alfresco Search Services to Alfresco Content Services 6.1 with Search and Insight Engine. First you need to upgrade to Alfresco Content Services 6.1 with Search Services, and then migrate Search Services to Search and Insight Engine.
+There are two steps to migrating your installation from Alfresco Content Services 5.x with Search Services to Alfresco Content Services 6.1 with Search and Insight Engine. First you need to upgrade to Alfresco Content Services 6.1 with Search Services, and then migrate Search Services to Search and Insight Engine.
 
 > **Note:** You can't upgrade Alfresco Content Services 5.x using Docker Compose.
 
