@@ -15,7 +15,7 @@ Mutual TLS is used for authentication between the Repository and Search and Insi
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 6.1.0 or below, with clustering enabled
+* Installed Alfresco Content Services 6.1 or below, with clustering enabled
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
@@ -26,11 +26,11 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-distribution-1.1.0.zip`.
+1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-distribution-1.1.x.zip`.
 
 2. Extract the Search and Insight Engine distribution.
 
-    By default, the contents of `alfresco-insight-engine-distribution-1.1.0.zip` are decompressed in a root folder as `/alfresco-insight-engine`.
+    By default, the contents of `alfresco-insight-engine-distribution-1.1.x.zip` are decompressed in a root folder as `/alfresco-insight-engine`.
 
 3. If you use several languages across your organization, you **must** enable cross-language search support in all fields. To do this update the `alfresco-insight-engine/solrhome/conf/shared.properties` file:
 
@@ -137,16 +137,14 @@ This task assumes you have:
         * `alfresco-insight-engine/solrhome/archive/conf/solrcore.properties`
 8. For running a single instance of Search and Insight Engine (i.e. not sharded), use the following commands:
 
+    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
+
     ```bash
     cd alfresco-insight-engine
     ./solr/bin/solr start -a "-Djavax.net.ssl.keyStoreType=JCEKS -Djavax.net.ssl.trustStoreType=JCEKS -Dsolr.ssl.checkPeerName=false -Dcreate.alfresco.defaults=alfresco,archive"
     ```
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine.
-
-    > **Note:** To ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
-
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine. In addition, to ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     The default port used is 8983.
 
@@ -183,11 +181,11 @@ If you are not using sharded Search and Insight Engine:
 
 Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS.
 
-Mutual TLS is used for authentication between the Repository and Search and Insight Engine. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy LINK LINK](https://docs.alfresco.com/6.0/concepts/reverse-proxy.html) for more.
+Mutual TLS is used for authentication between the Repository and Search and Insight Engine. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy LINK LINK](https://docs.alfresco.com/6.1/concepts/reverse-proxy.html) for more.
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 6.0 or above
+* Installed Alfresco Content Services 6.1 or above
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
@@ -267,15 +265,15 @@ This task assumes you have:
 
 7. To start Search and Insight Engine with all the default settings, use the following command:
 
+    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
+
     ```bash
     ./solr/bin/solr start -a "-Dcreate.alfresco.defaults=alfresco,archive"
     ```
 
     The command line parameter, `-a` passes additional JVM parameters, for example, system properties using `-D`.
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine.
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
-    > **Note:** To ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine. In addition, to ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     Once Search and Insight Engine is up and running, you should see a message similar to the following:
 
@@ -327,8 +325,8 @@ Use this information to start up Alfresco Content Services 6.1 or below and Sear
 
     ```yaml
         solr6:
-            #image: alfresco/alfresco-search-services:1.3.0.1
-            image: quay.io/alfresco/insight-engine:1.1.0.1
+            #image: alfresco/alfresco-search-services:1.3.x
+            image: quay.io/alfresco/insight-engine:1.1.x
             mem_limit: 2500m
             environment:
                 #Solr needs to know how to register itself with Alfresco

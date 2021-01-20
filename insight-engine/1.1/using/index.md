@@ -25,7 +25,7 @@ There are several options for installing Insight Zeppelin:
 
 Use this information to manually install Insight Zeppelin using a distribution zip.
 
-1. Download the `alfresco-insight-zeppelin-1.1.0.zip` file from the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
+1. Download the `alfresco-insight-zeppelin-1.1.x.zip` file from the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
 2. Unzip the file.
 
@@ -136,7 +136,7 @@ Also, if the domain name of the Alfresco Content Services repository does not ma
 
 ## Install with Docker Compose
 
-You can deploy Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.0 and above and Search and Insight Engine.
+You can deploy Insight Zeppelin by inserting the container details into the same Docker Compose file that you use for deploying Alfresco Content Services 6.1 and above and Search and Insight Engine.
 
 For details about deployment using the Docker Compose file, see [Installation options]({% link insight-engine/1.1/install/options.md %}#install-with-docker-compose).
 
@@ -144,7 +144,7 @@ For details about deployment using the Docker Compose file, see [Installation op
 
     ```YAML
     zeppelin:
-        image: quay.io/alfresco/insight-zeppelin:1.1.0.1
+        image: quay.io/alfresco/insight-zeppelin:1.1.x
         environment:
                 - REPO_HOST=alfresco
                 - REPO_PORT=8080

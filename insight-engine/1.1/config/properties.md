@@ -109,7 +109,7 @@ If you wish to change the default value of a property, add the relevant property
 
 ### Data dictionary options
 
-The indexing behavior for each property can be set in the content model. By default the index is eventually consistent with the created content and properties are tokenized when indexed. For more information on how to configure indexing for properties in the content model see this [LINK LINK](https://docs.alfresco.com/6.0/references/dev-extension-points-content-model-define-and-deploy.html).
+The indexing behavior for each property can be set in the content model. By default the index is eventually consistent with the created content and properties are tokenized when indexed. For more information on how to configure indexing for properties in the content model see this [LINK LINK](https://docs.alfresco.com/6.1/references/dev-extension-points-content-model-define-and-deploy.html).
 
 ### Indexing options
 

@@ -18,7 +18,7 @@ Use this information to upgrade from Search and Insight Engine 1.0 to Search and
 
 4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
 
-    `alfresco-insight-engine-distribution-1.1.0.zip`
+    `alfresco-insight-engine-distribution-1.1.x.zip`
 
     By default, the contents are decompressed in a folder at `./alfresco-insight-engine`. The folder extracts into the same location as the zip file.
 

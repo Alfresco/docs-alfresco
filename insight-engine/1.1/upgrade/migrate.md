@@ -32,7 +32,7 @@ Use this information to migrate from Alfresco Search Services 1.3 to Search and 
 4. Download and unzip the Search and Insight Engine distribution zip file to a preferred location:
 
     ```bash
-    alfresco-insight-engine-distribution-1.1.0.zip
+    alfresco-insight-engine-distribution-1.1.x.zip
     ```
 
     By default, the contents are decompressed in a folder at `./alfresco-insight-engine`. The folder extracts into the same location as the zip file.
@@ -98,7 +98,7 @@ Use this information to migrate from Alfresco Search Services 1.3 to Search and 
 
 ### Migrate Content Services 5.x with Search Services 1.3 or below
 
-There are two steps to migrating your installation from Alfresco Content Services 5.x with Alfresco Search Services to Alfresco Content Services 6.0 with Search and Insight Engine. First you need to upgrade to Alfresco Content Services 6.0 with Search Services, and then migrate Search Services to Search and Insight Engine.
+There are two steps to migrating your installation from Alfresco Content Services 5.x with Alfresco Search Services to Alfresco Content Services 6.1 with Search and Insight Engine. First you need to upgrade to Alfresco Content Services 6.1 with Search Services, and then migrate Search Services to Search and Insight Engine.
 
 > **Note:** You can't upgrade Alfresco Content Services 5.x using Docker Compose.
 
@@ -106,11 +106,11 @@ There are two steps to migrating your installation from Alfresco Content Service
 
     > **Note:** You can't do this using Docker Compose.
 
-2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.0 with Search Services 1.3 or below](#migrating-content-services-61-with-search-services-13-or-below).
+2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.1 with Search Services 1.3 or below](#migrating-content-services-61-with-search-services-13-or-below).
 
 ## Migrate using Docker Compose
 
-If you already have Alfresco Content Services 6.1 with Search Services 1.3 or below installed, you can migrate to Search and Insight Engine 1.1. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
+If you already have Alfresco Content Services 6.1 with Search Services 1.3 or below installed, you can migrate to Search and Insight Engine 1.1. Due to the limited capabilities of Docker Compose, this migration method is recommended for development and test environments only.
 
 > **Note:** A reindex is not required when you migrate from Search Services to Search and Insight Engine 1.1.
 

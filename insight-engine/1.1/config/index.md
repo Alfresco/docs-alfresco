@@ -67,7 +67,7 @@ If you do not want to save the changes, click **Cancel**.
 
 After you've installed Search and Insight Engine, several directories and configuration files related to Solr will be available in the Search and Insight Engine home directory.
 
-The Search and Insight Engine distribution (`alfresco-insight-engine-distribution-1.4.x.zip`) contains the following artifacts:
+The Search and Insight Engine distribution (`alfresco-insight-engine-distribution-1.1.x.zip`) contains the following artifacts:
 
 ### solrhome directory
 
@@ -90,7 +90,7 @@ This directory contains the Solr-specific logging configuration file.
 |log4j.properties|This is the configuration file for Solr-specific logging. The Solr log file can be found at `<SOLR_HOME>/logs/solr.log`.|
 
 * `solr directory`: This directory contains the Solr binaries and runtime Java library files.
-* `contentstore` directory: This directory does not appear in the `alfresco-insight-engine-distribution-1.4.x.zip` file. It is automatically created after your Solr cores are created and they start indexing. It stores the cache of all the content.
+* `contentstore` directory: This directory does not appear in the `alfresco-insight-engine-distribution-1.1.x.zip` file. It is automatically created after your Solr cores are created and they start indexing. It stores the cache of all the content.
 * `solr.in.cmd`: Use this file to specify additional Solr configuration options for Windows.
 * `solr.in.sh`: Use this file to specify additional Solr configuration options for non-Windows platforms, such as Linux and Mac OS X.
 * `README.MD`: This file provides version information for Alfresco Content Services, Search and Insight Engine, and Solr.
@@ -277,18 +277,18 @@ When you install Search and Insight Engine, several Solr configuration files are
 |schema.xml|`<SOLR_HOME>/solrhome/<core>/conf`. For example `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This file defines the schema for the index including field type definitions with associated analyzers. It contains details about the fields that you can include in your document and also describes how those fields can be used when adding documents to the index or when querying those fields. The properties of this file are managed by an expert user.|
 |core.properties|`<SOLR_HOME>/solrhome/alfresco/core.properties` or `<SOLR_HOME>/solrhome/archive/core.properties`|This file specifies the cores to be used by Solr.|
 |solrconfig.xml|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This file specifies the parameters for configuring Solr. Also, the Solr search components are added to this file. The properties of this file are managed by an expert Administrator user.|
-|solrcore.properties| `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one `solrcore.properties` file in each core's configuration directory. For details, see [Solr core configuration properties]({% link insight-engine/1.4/config/properties.md %}). The properties of this file are managed by an Administrator user.|
+|solrcore.properties| `<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This is the property configuration file for a core. Solr supports system property substitution, so properties that need substitution can be put in to this file. There is one `solrcore.properties` file in each core's configuration directory. For details, see [Solr core configuration properties]({% link insight-engine/1.1/config/properties.md %}). The properties of this file are managed by an Administrator user.|
 |context.xml|`<SOLR_HOME>`|This file specifies the Solr web application context template to use when installing Solr in separate tomcat server.|
 |ssl.repo.client.keystore|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This keystore contains the Solr public/private RSA key pair.|
 |ssl-keystore-passwords.properties|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This file contains the password information for `ssl.repo.client.keystore`.|
 |ssl.repo.client.truststore|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This keystore contains the trusted Alfresco Certificate Authority certificate (which has been used to sign both the repository and Solr certificates)|
 |ssl-truststore-passwords.properties|`<SOLR_HOME>/solrhome/alfresco/conf` or `<SOLR_HOME>/solrhome/archive/conf`|This file contains the password information for `ssl.repo.client.truststore`.|
 
-> **Note:** The `solrcore.properties` configuration file is the property configuration file for a Solr core. There is one `solrcore.properties` file in each core's configuration directory. See [Solr core configuration properties]({% link insight-engine/1.4/config/properties.md %}) for more.
+> **Note:** The `solrcore.properties` configuration file is the property configuration file for a Solr core. There is one `solrcore.properties` file in each core's configuration directory. See [Solr core configuration properties]({% link insight-engine/1.1/config/properties.md %}) for more.
 
 ## Alfresco Index Engine
 
-You can host a separate instance of Alfresco Content Services 6.0 or above with Solr 6 for high scalability and for maximizing the throughput of your Alfresco services. This setup is termed Alfresco Index Engine.
+You can host a separate instance of Alfresco Content Services 6.1 or above with Solr 6 for high scalability and for maximizing the throughput of your Alfresco services. This setup is termed Alfresco Index Engine.
 
 This setup shows a single repository database and content store. There are four nodes with Alfresco/Share and two nodes with Solr, all accessing the content simultaneously. This set up provides a higher level of availability, reliability, and scalability, thereby maximizing the throughput of various Alfresco services. Nodes in a cluster are positioned behind a load balancer that delegates requests to cluster members based on any one member’s ability/availability to handle the load.
 
