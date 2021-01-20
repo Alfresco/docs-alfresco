@@ -2,11 +2,9 @@
 title: Desktop Sync FAQ
 ---
 
+Here's a list of common questions about Desktop Sync for Windows and Mac.
+
 {% capture windows %}
-
-## Desktop Sync FAQ Windows
-
-Here's a list of common questions about Desktop Sync for Windows.
 
 ### So, what gets synced?
 
@@ -30,13 +28,13 @@ Sync needs a connection to the server. Syncing will resume when the connection i
 
 ### Where can I find my synced files?
 
-The content is synced to `C:\Users\<username>\Alfresco`, by default, or whatever location you chose after the initial setup. The Alfresco folder can also be found in File Explorer under **Favourites**.
+The content is synced to `C:\Users\<username>\Alfresco`, by default, or whatever location you chose after the initial setup. The `Alfresco` folder can also be found in File Explorer under **Favourites**.
 
 ### How many folder levels can I sync?
 
 You can sync as many folder levels but the maximum length for a path should not be more than 260 characters. This is a limitation of the Windows File System.
 
-For more information see [Maximum Path Length Limitation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx#maxpath).
+For more information see [Maximum Path Length Limitation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx#maxpath){:target="_blank"}.
 
 ### Can I cancel initial sync?
 
@@ -150,7 +148,7 @@ You can find the log file in the following locations, but be aware that it's a h
 
 Additionally, you can use applications, such as DebugView to monitor debug output on your computer. To use DebugView, follow the steps below:
 
-1. Download and install [DebugView](https://technet.microsoft.com/en-us/sysinternals/debugview.aspx).
+1. Download and install [DebugView](https://technet.microsoft.com/en-us/sysinternals/debugview.aspx){:target="_blank"}.
 
     DebugView will immediately start capturing debug output.
 
@@ -238,10 +236,6 @@ To avoid problems with conflicts on device registration, and content going out o
 
 {% capture mac %}
 
-## Desktop Sync FAQ Mac
-
-Here's a list of common questions about Desktop Sync for Mac.
-
 ### So, what gets synced?
 
 Desktop Sync shows you all your Alfresco sites and folders which you have access to, plus your My Files and Shared Files content. You can select any (or all) of these and click **Sync** to create a local copy of the content on your computer.
@@ -252,7 +246,7 @@ Whenever you update any of this local content (which includes adding, moving, an
 
 Whenever you or anyone else make changes in Alfresco to sites or folders that you've synced with, then these changes will be replicated in your local content.
 
->**Note:** Some temporary files don't get synced. These include, but aren't limited to `*.tmp`, `*.temp`, `desktop.ini`, `*.~`, and `Thumbs.db` files. You can configure the file types you don't want to be synced in `AlfrescoSync.config`. For more information, see [Configuring Desktop Sync]({% link desktop-sync/latest/config/index.md %}).
+> **Note:** Some temporary files don't get synced. These include, but aren't limited to `*.tmp`, `*.temp`, `desktop.ini`, `*.~`, and `Thumbs.db` files. You can configure the file types you don't want to be synced in `AlfrescoSync.config`. For more information, see [Configuring Desktop Sync]({% link desktop-sync/latest/config/index.md %}).
 
 ### Can I use Desktop Sync during initial sync?
 
@@ -264,7 +258,7 @@ Sync needs a connection to the server. Syncing will resume when the connection i
 
 ### Where can I find my synced files?
 
-The content is synced to `<userHome>/Alfresco`, by default, or whatever location you chose after the initial setup. The Alfresco folder can also be found in File Explorer under **Favourites**.
+The content is synced to `<userHome>/Alfresco`, by default, or whatever location you chose after the initial setup. The `Alfresco` folder can also be found in File Explorer under **Favourites**.
 
 ### How many folder levels can I sync?
 
@@ -334,23 +328,19 @@ The moved file or folder is deleted in Alfresco.
 
 ### Why can't I see content icons on my files and folders?
 
-If, for some reason, your content icons are hidden in Finder, you can make them visible by checking 
-your **System Preferences**. 
+If, for some reason, your content icons are hidden in Finder, you can make them visible by checking your **System Preferences**.
 
-See [application icons]({% link desktop-sync/latest/using/app-icons.md %}#faq/mac) 
-for more details.
+See [application icons]({% link desktop-sync/latest/using/app-icons.md %}#faq/mac) for more details.
 
 Additionally, check if you have accidentally quit Desktop Sync. Upon restart, the icons should be restored.
 
 ### What happens if two Alfresco sites have the same name?
 
-If the site name is duplicated, one of the site names will be displayed as SiteName_01, for example, 
-Test Site_01.
+If the site name is duplicated, one of the site names will be displayed as `SiteName_01`, for example, `Test Site_01`.
 
 ### What happens if the site name is invalid or contains unsupported characters?
 
-A file name can't contain the following characters: `\ / : * ? " < >`. Desktop Sync replaces these 
-characters with underscores, for example, Test\>test is replaced by Test_test on your desktop.
+A file name can't contain the following characters: `\ / : * ? " < >`. Desktop Sync replaces these characters with underscores, for example, `Test>test` is replaced by `Test_test` on your desktop.
 
 ### How do I uninstall Desktop Sync?
 
@@ -366,26 +356,21 @@ This is due to folder paths in some virtual machines being non-standard Windows 
 
 ### I'm running Windows in a Virtual Machine. Why is the automatic update not installing correctly?
 
-The download folder path in some virtual machines is a non-standard Windows path, and the installer 
-isn't able to start.
+The download folder path in some virtual machines is a non-standard Windows path, and the installer isn't able to start.
 
 ### Upon unselecting not all files are getting removed. What's wrong?
 
-When a file or folder is locked by Finder, applications, like Desktop Sync, can't remove that 
-file and folder. In that case, when unsubscribing content or removing the application, some files and 
-folders maybe left behind. They should be removed manually.
+When a file or folder is locked by Finder, applications, like Desktop Sync, can't remove that file and folder. In that case, when unsubscribing content or removing the application, some files and folders maybe left behind. They should be removed manually.
 
 ### What is the Icon? file in the Alfresco Content Services sync folder?
 
-`Icon?` is a hidden file that's used by Mac OS X to put the Alfresco Content Services logo on the 
-Alfresco Content Services sync folder in Finder. 
+`Icon?` is a hidden file that's used by Mac OS X to put the Alfresco Content Services logo on the `Alfresco`sync folder in Finder.
 
 ### Where do I find the Desktop Sync log file?
 
 If you're having any issues with Desktop Sync, then your IT team might ask you to provide the log file.
 
-You can find the log file in the following location, but be aware that it's a hidden file. 
-If you don't know how to view hidden files, then your IT team can help you.
+You can find the log file in the following location, but be aware that it's a hidden file. If you don't know how to view hidden files, then your IT team can help you.
 
 * `~/Library/Application Support/Alfresco/AlfrescoSync.log`
 
@@ -465,9 +450,9 @@ When a file is renamed in Alfresco Content Services to either an unknown extensi
 
 ### What files should be backed up/restored on the client?
 
-You'll find the synced data in the `<userHome>/Alfresco` folder. The sync client settings/database/logs are in the ~/Library/Application Support/Alfresco folder.
+You'll find the synced data in the `<userHome>/Alfresco` folder. The sync client settings/database/logs are in the `~/Library/Application Support/Alfresco` folder.
 
-When the sync client starts up, it uses the modification time stamp from the `AlfrescoSync.time` file in the /Application Support/Alfresco folder to check if any files/folders were changed while Desktop Sync wasn't running. If you delete and recreate the `AlfrescoSync.time` file after restoring the Desktop Sync data and settings, it'll do a full scan of the local and remote folders.
+When the sync client starts up, it uses the modification time stamp from the `AlfrescoSync.time` file in the `/Application Support/Alfresco` folder to check if any files/folders were changed while Desktop Sync wasn't running. If you delete and recreate the `AlfrescoSync.time` file after restoring the Desktop Sync data and settings, it'll do a full scan of the local and remote folders.
 
 ### I have a new computer, is it possible to migrate my Alfresco sync folder to the new computer?
 

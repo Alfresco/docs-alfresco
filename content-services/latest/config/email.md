@@ -241,7 +241,7 @@ A metadata extractor for IMAP emails (RFC822 messages) can extract values from t
 
 > **Note:** Be careful when deciding what mount points you provide. When an IMAP client mounts a mount point, it issues a `LSUB "" *` command. This retrieves the entire tree of folders below the mount point.
 
-For information about working with Content Services and Microsoft Outlook, see [Install and configure Alfresco Outlook Integration](https://docs.alfresco.com/outlook/concepts/Outlook-install-intro.html)(#LINK).
+For information about working with Content Services and Microsoft Outlook, see [Alfresco Outlook Integration]({% link microsoft-outlook/latest/index.md %}).
 
 ### Enable IMAP protocol using alfresco-global.properties
 

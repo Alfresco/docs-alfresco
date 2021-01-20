@@ -1666,4 +1666,4 @@ Not all attributes for `log4j:logger=*` are editable; only those that are editab
 
 Priority is a special attribute that specifies the minimum log4j logging level of messages from this logger to include in the logs. For example, a value of ERROR would mean that messages logged at lower levels such as WARN and INFO would not be included.
 
-You can change the priority of any log4j attribute by selecting the required MBean and **Attributes > priority**. The new value does not prevail after a shutdown. For a list of possible priority values, see [Log4j priority settings](http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Priority.html).
+You can change the priority of any log4j attribute by selecting the required MBean and **Attributes > priority**. The new value does not prevail after a shutdown. For a list of possible priority values, see [Log4j priority settings](http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Priority.html){:target="_blank"}.

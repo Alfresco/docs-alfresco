@@ -24,7 +24,7 @@ deployments only.
      tomcat/webapps/alfresco.war
     ```
 
-    For more information, see [Using the Module Management Tool (MMT)](TODO_LINK:https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html) and [Uninstalling an Alfresco Module Package](TODO_LINK:https://docs.alfresco.com/6.2/tasks/uninstall-amp.html).
+    For more information, see [Using the Module Management Tool (MMT)](TODO_LINK:https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html) and [Uninstalling an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}#uninstall-an-amp-file).
 
 5.  Navigate to the `amps` directory.
 
@@ -34,7 +34,7 @@ deployments only.
 
 8.  Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
-    For more information, see [Using the Module Management Tool (MMT)](TODO_LINK:https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html) and [Installing an Alfresco Module Package](TODO_LINK:https://docs.alfresco.com/6.2/tasks/amp-install.html).
+    For more information, see [Using the Module Management Tool (MMT)](TODO_LINK:https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
 9.  Check that the [configuration]({% link aws-s3/latest/config/index.md %}) is set up correctly for your environment.
 

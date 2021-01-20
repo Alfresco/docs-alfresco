@@ -524,31 +524,23 @@ The Encrypted content store subsystem does not support automatic expiry of the m
 
 ### Alfresco Content Connector for AWS S3
 
-The Alfresco Content Connector for AWS S3 is an add-on module that provides an alternative content store. It uses Amazon's Simple Storage Service (S3) as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
-
-For more information on the S3 Connector, see [Installing and configuring S3 Connector](TODO_LINK:https://docs.alfresco.com/s3connector/concepts/s3-contentstore-install-intro.html).
+The [Alfresco Content Connector for AWS S3]({% link aws-s3/latest/index.md %}) is an add-on module that provides an alternative content store. It uses Amazon's Simple Storage Service (S3) as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
 
 ### Alfresco Content Connector for AWS Glacier
 
-The Alfresco Content Connector for AWS Glacier is an add-on module that provides an alternative content store that's optimized for infrequently used data, and suits the long term storage of archive and backup data. It works in conjunction with Alfresco Content Connector for AWS S3 and enables access to Amazon S3 Glacier.
-
-For more information on the Glacier Connector, see [Installing and configuring Glacier Connector](TODO_LINK:https://docs.alfresco.com/glacier/concepts/glacier-install-intro.html).
+The [Alfresco Content Connector for AWS Glacier]({% link aws-glacier/latest/index.md %}) is an add-on module that provides an alternative content store that's optimized for infrequently used data, and suits the long term storage of archive and backup data. It works in conjunction with Alfresco Content Connector for AWS S3 and enables access to Amazon S3 Glacier.
 
 ### Alfresco Content Connector for Azure
 
-The Alfresco Content Connector for Azure is an add-on module that provides an alternative content store. It uses Microsoft's Azure Blob Storage as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
-
-For more information on the Azure Connector, see [Installing and configuring Azure Connector](TODO_LINK:https://docs.alfresco.com/azure/concepts/azure-install-intro.html).
+The [Alfresco Content Connector for Azure]({% link microsoft-azure/latest/index.md %}) is an add-on module that provides an alternative content store. It uses Microsoft's Azure Blob Storage as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
 
 ### Alfresco Content Connector for SAP applications
 
-Alfresco Content Connector for SAP applications is an add-on module that offers seamless integration between Content Services and SAP (R/3, S/4HANA). It connects the structured data in SAP with the unstructured data in Content Services.
-
-For more information on the SAP Connector, see [Installing and configuring SAP Connector](TODO_LINK:https://docs.alfresco.com/sap/concepts/sap-connector-install.html).
+[Alfresco Content Connector for SAP applications]({% link sap/latest/index.md %}) is an add-on module that offers seamless integration between Content Services and SAP (R/3, S/4HANA). It connects the structured data in SAP with the unstructured data in Content Services.
 
 ### Alfresco Content Connector for EMC Centera
 
-The Alfresco Content Connector for EMC Centera module provides integration between Content Services and Content Addressable Storage (CAS) systems.
+The [Alfresco Content Connector for EMC Centera]({% link centera/latest/index.md %}) module provides integration between Content Services and Content Addressable Storage (CAS) systems.
 
 CAS systems store and locate files using addresses based on the file's content, rather than a physical location address. CAS systems are typically used for long-term storage of content that does not require frequent access or where it is stored for regulatory purposes.
 
@@ -561,8 +553,6 @@ The benefits of using CAS systems are:
 * Content can be located easily even in large volumes of data
 * Content integrity: if stored content has been altered then there is a mismatch between the hash passed as the address and hash computed on the fly
 * Avoids redundancy by recognizing that the hash is already present and so does not store it again
-
-For more information on installing and configuring the Centera Connector, and setting up `CenteraContentStore` as your main content store, see [Installing and configuring the Alfresco Content Connector for EMC Centera](TODO_LINK:https://docs.alfresco.com/emc/concepts/centera-intro.html).
 
 ## Content store selector {#cs-selector}
 
@@ -853,7 +843,7 @@ The Trashcan Cleaner is disabled by default. To configure the Trashcan Cleaner, 
 
 | Property | Description |
 | -------- | ----------- |
-| trashcan-cleaner.cron | Specifies the cron schedule for the Trashcan Cleaner job. See [Scheduled Jobs](TODO_LINK:../references/dev-extension-points-scheduled-jobs.md). For example, `0 30 * * * ?`. |
+| trashcan-cleaner.cron | Specifies the cron schedule for the Trashcan Cleaner job. See [Scheduled Jobs]({% link content-services/latest/develop/repo-ext-points/scheduled-jobs.md %}). For example, `0 30 * * * ?`. |
 | trashcan-cleaner.keepPeriod | Specifies the period for which trashcan items are kept (in the `java.time.Duration` format). For example, `P1D`. |
 | trashcan-cleaner.deleteBatchCount | Specifies the number of trashcan items to delete per job run. For example, `1000`. |
 
@@ -871,7 +861,7 @@ To enable debug logging, set the `log4j.logger.org.alfresco.trashcan` property i
 log4j.logger.org.alfresco.trashcan=debug
 ```
 
-The trashcan cleaner is a [Simple Module](TODO_LINK:dev-extensions-packaging-techniques-jar-files.md) which appears in the Admin Console under the Module Packages section.
+The trashcan cleaner is a [Simple Module]({% link content-services/latest/develop/extension-packaging.md %}#simplemodule) which appears in the Admin Console under the Module Packages section.
 
 ```http
 http://localhost:8080/alfresco/s/enterprise/admin/admin-systemsummary

@@ -4,7 +4,7 @@ title: Overview of using Content Services
 
 The using sections covers the basics of using Content Services and the Alfresco Share user interface.
 
-> **Note:** If you prefer to use the Alfresco Digital Workspace instead of Alfresco Share, see the [Digital Workspace documentation](LINK). The Digital Workspace is a content management application built using the [Alfresco Application Development Framework (ADF)](LINK). Digital Workspace offers a simplified experience for working with content and more comprehensive extensibility for developers.
+> **Note:** If you prefer to use the Alfresco Digital Workspace instead of Alfresco Share, see the [Digital Workspace documentation]({% link digital-workspace/latest/index.md %}). The Digital Workspace is a content management application built using the [Alfresco Application Development Framework (ADF)](https://www.alfresco.com/abn/adf/docs/){:target="_blank"}. Digital Workspace offers a simplified experience for working with content and more comprehensive extensibility for developers.
 
 There are also several ways to access and use content without being in Alfresco Share:
 
@@ -21,16 +21,15 @@ This means that you can browse, open, and save Microsoft Office files (Word, Pow
 
 You can also browse content from Windows Explorer, or map a network drive.
 
-For more information about Alfresco Office Services, see [Alfresco Office Services](TODO_LINK:https://docs.alfresco.com/aos/concepts/aos-user.html).
+ See [Alfresco Office Services]({% link microsoft-office/latest/index.md %}) for more information.
 
 ## Using Content Services from Microsoft Outlook
 
 With Alfresco Outlook Integration you can use email and repository management without leaving Microsoft Outlook.
 
-You can directly archive emails into Alfresco Share, use the full metadata support, full search, tagging and workflow 
-capabilities, and attach files and view archived emails in your inbox.
+You can directly archive emails into Alfresco Share, use the full metadata support, full search, tagging and workflow capabilities, and attach files and view archived emails in your inbox.
 
-For more information about Alfresco Outlook Integration, see [Alfresco Outlook Integration](TODO_LINK:https://docs.alfresco.com/outlook/concepts/Outlook-overview.html).
+See [Alfresco Outlook Integration]({% link microsoft-outlook/latest/index.md %}) for more information.
 
 ## Using the Windows Explorer shortcuts
 

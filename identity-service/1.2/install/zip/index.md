@@ -66,5 +66,5 @@ The administrator console for the `Alfresco` realm can be accessed at `http://lo
 
 > **Important:** Reset the administrator password for the `Alfresco` realm when first signing into its administrator console.
 
-The Identity Service can be [configured]({% link identity-service/1.2/configure/index.md %}) further.
+The Identity Service can be [configured]({% link identity-service/1.2/config/index.md %}) further.
 

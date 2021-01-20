@@ -38,6 +38,6 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
-4. Check that the [configuration](../configure/index.md) is set up correctly for your environment.
+4. Check that the [configuration](../config/index.md) is set up correctly for your environment.
 
 5. Start Alfresco Content Services.
