@@ -406,7 +406,7 @@ Test that the Centera Connector module is working correctly with Alfresco Conten
 
 To set up the CenteraContentStore to be the main store, it is recommended that you also configure the primary store as a CachingContentStore.
 
-See [Configuring CachingContentStore](LINK) for more information.
+See [Configuring CachingContentStore]({% link content-services/latest/admin/content-stores.md %}#caching-content-store-ccs) for more information.
 
 This setup relates to new content and cannot be applied retrospectively, unless all content is moved from the file system to Centera.
 

@@ -1,13 +1,10 @@
 ---
-title: Sharing Files
+title: Sharing files
 ---
 
+You can easily share a file from the Explorer or Finder menu actions. Clicking the **Share** action generates a URL that you can send by email. People with access to the URL can view the file.
+
 {% capture windows %}
-
-## Sharing files on Windows
-
-You can easily share a file from the Explorer menu actions. Clicking the **Share** action generates a URL that you can 
-send by email. People with access to the URL can view the file.
 
 Make sure that you've [configured file sharing]({% link desktop-sync/latest/config/index.md %}#sharing-files) before continuing.
 
@@ -21,7 +18,7 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
     ![]({% link desktop-sync/images/ds-share-file.png %}){:height="190px" width="360px"}
 
-    >**Note:** If a file is record, link sharing is not allowed. If a file is read-only, the file can be shared but you can't set an expiry date. However, if a read-only file was previously shared and had an expiry date, the date is displayed but can't be changed (i.e. the field is read-only).
+    > **Note:** If a file is record, link sharing is not allowed. If a file is read-only, the file can be shared but you can't set an expiry date. However, if a read-only file was previously shared and had an expiry date, the date is displayed but can't be changed (i.e. the field is read-only).
 
 3. Click the copy ![Copy]({% link desktop-sync/images/ds-ico-copy.png %}){:height="21px" width="21px"} icon to copy the link.
 
@@ -45,15 +42,11 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
 8. Click **Remove** to complete the action.
 
-    >**Note:** When the file is shared again, a new link is generated.
+    > **Note:** When the file is shared again, a new link is generated.
 
 {% endcapture %}
-   
-{% capture mac %} 
 
-## Sharing files on Mac
-
-You can easily share a file from the Finder menu actions. Clicking the **Share** action generates a URL that you can send by email. People with access to the URL can view the file.
+{% capture mac %}
 
 Make sure that you've [configured file sharing]({% link desktop-sync/latest/config/index.md %}#sharing-files) before continuing.
 
@@ -67,7 +60,7 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
     ![]({% link desktop-sync/images/ds-share-file-mac-workspace.png %}){:height="202px" width="400px"}
 
-    >**Note:** If a file is record, link sharing is not allowed. If a file is read-only, the file can be shared but you can't set an expiry date. However, if a read-only file was previously shared and had an expiry date, the date is displayed but can't be changed (i.e. the field is read-only).
+    > **Note:** If a file is record, link sharing is not allowed. If a file is read-only, the file can be shared but you can't set an expiry date. However, if a read-only file was previously shared and had an expiry date, the date is displayed but can't be changed (i.e. the field is read-only).
 
 3. Click the copy ![Copy]({% link desktop-sync/images/ds-ico-copy.png %}){:height="21px" width="21px"} icon to copy the link.
 
@@ -91,7 +84,7 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
 8. Click **Remove** to complete the action.
 
-    >**Note:** When the file is shared again, a new link is generated.
+    > **Note:** When the file is shared again, a new link is generated.
 
 {% endcapture %}
 

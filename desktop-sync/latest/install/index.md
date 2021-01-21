@@ -2,6 +2,8 @@
 title: Install Desktop Sync
 ---
 
+Your Alfresco Administrator can give you a link or location to download the Desktop Sync installation files for Windows and Mac.
+
 {% capture windows %}
 
 ## Installing Desktop Sync on Windows
@@ -11,14 +13,12 @@ If you want to use Desktop Sync on Windows, you'll need:
 * Windows 10: 64-bit or 32-bit version
 * Windows 7: 64-bit or 32-bit version
 
-Your Alfresco Administrator can give you a link or location to download Desktop Sync for Windows from.
-
 To install Desktop Sync, follow these steps.
 
 1. Download the setup file:
 
-    - Windows 64-bit: `Alfresco-Desktop-Sync-Setup-v1.6.x_64.exe`
-    
+    * Windows 64-bit: `Alfresco-Desktop-Sync-Setup-v1.6.x_64.exe`
+
 2. Double-click the downloaded file to run it.
 
     A wizard will install Alfresco Desktop Sync for you at `C:\Program Files\Alfresco\Alfresco Desktop Sync`.
@@ -37,7 +37,7 @@ The first time you open Desktop Sync you need to enter your login details to con
 
     This is the address of the server - make sure the URL provided is the repository URL.
 
-    This could be, for example, *https://alfresco.mycompany.com/alfresco*.
+    This could be, for example, `https://alfresco.mycompany.com/alfresco`.
 
 3. When prompted, log in using your user name and password.
 
@@ -52,16 +52,14 @@ The **Choose files and folders to sync** screen appears.
 All your favorite Alfresco content, My Files, Shared Files, and your Alfresco sites are displayed.
 
 {% endcapture %}
-   
-{% capture mac %}   
+
+{% capture mac %}
 
 ## Installing Desktop Sync on Mac
 
 If you want to use Desktop Sync on Mac, you'll need:
 
--   Mac OS version 10.11 or later
-
-Your Alfresco Administrator can give you a link or location to download Desktop Sync for Mac from.
+* Mac OS version 10.11 or later
 
 1. Download the Mac installation file: `Alfresco-Desktop-Sync-v1.6.x.dmg`
 
@@ -91,8 +89,7 @@ Now you're ready to log in to Desktop Sync and set up your account.
 
 ### Setting up Desktop Sync on Mac
 
-The first time you open Desktop Sync you need to enter your login details to connect to 
-Alfresco Content Services.
+The first time you open Desktop Sync you need to enter your login details to connect to Alfresco Content Services.
 
 1. Open Desktop Sync from your **Applications**.
 
@@ -102,7 +99,7 @@ Alfresco Content Services.
 
     This is the address of the server - make sure the URL provided is the repository URL.
 
-    This could be, for example, *https://alfresco.mycompany.com/alfresco*.
+    This could be, for example, `https://alfresco.mycompany.com/alfresco`.
 
 3. When prompted, log in using your user name and password.
 
@@ -144,7 +141,7 @@ Before uninstalling Desktop Sync for Mac you should first remove your account th
 
     This removes any remaining synced content, such as orphaned files, i.e. any content that was in conflict when you removed your account.
 
-    >**Note:** You don't need to uninstall the Desktop Sync client before installing a new version. Simply run the new installer to update the application.
+    > **Note:** You don't need to uninstall the Desktop Sync client before installing a new version. Simply run the new installer to update the application.
 
 {% endcapture %}
 

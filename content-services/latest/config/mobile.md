@@ -2,7 +2,7 @@
 title: Configure Content Services for Mobile
 ---
 
-Use this information to configure the [Content Services for Mobile](LINK) app for end users.
+Use this information to configure the [Content Services for Mobile]({% link content-mobile/latest/index.md %}) app for end users.
 
 Items such as views, menus, actions and themes can be customized. For example, a profile can be configured for a sales team, so that when they use the mobile app they can easily find price lists and sales tools without having to search for them. Another profile might give an IT team quick access to any outstanding support tasks.
 

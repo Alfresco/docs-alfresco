@@ -190,7 +190,7 @@ This video shows you how to create content.
 
 As well as creating files from scratch, you can also create files from templates.
 
-> **Note:** Templates are only available if your Alfresco administrator has [set some up for you](TODO:../concepts/templated-nodes-intro.md).
+> **Note:** Templates are only available if your Alfresco administrator has [set some up for you]({% link content-services/latest/admin/templates.md %}).
 
 1. Select the folder where you want to add the content.
 
@@ -414,7 +414,7 @@ This means that you don't need to download a zip file to see its contents. You c
 
     > **Note:** If you have a zip that contains several thousand files, it might take more than 10 seconds to complete. If this is the case, you might see a message saying that the unzip operation could not be completed. This message is issued because Share has not had confirmation that the unzip operation has completed within 10 seconds. Check the folder where you wanted to unzip the files, to see if the unzip operation completed successfully.
 
-    > **Note:** Alfresco administrators can also use the [Bulk Import tool](TODO:../concepts/Bulk-Import-Tool.md) to import multiple files.
+    > **Note:** Alfresco administrators can also use the [Bulk Import tool]({% link content-services/latest/admin/import-transfer.md %}) to import multiple files.
 
 ## Renaming content
 
@@ -579,7 +579,7 @@ Delete content to remove it from a site library.
 
 The content is moved to your trashcan. From there you can recover it or delete it permanently.
 
->**Note:** If the file has been [declared as a record](TODO_LINK:http://docs.alfresco.com/rm/tasks/rm-create-record.html) then the record is still available in the [Records Management site](TODO_LINK:http://docs.alfresco.com/rm/concepts/rm-intro.html).
+>**Note:** If the file has been [declared as a record]({% link governance-services/latest/using/easy-access-records.md %}#declaring-a-file-as-a-record) then the record is still available in the [Records Management site]({% link governance-services/latest/using/overview.md %}).
 
 ### Recovering deleted content
 

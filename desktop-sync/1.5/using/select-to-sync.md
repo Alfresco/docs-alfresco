@@ -2,17 +2,13 @@
 title: Select content to sync
 ---
 
+Once you've set up Desktop Sync, all your Alfresco Content Services folders are displayed from My Files, Shared Files, and My Sites.
+
 {% capture windows %}
 
-## Selecting content to sync on Windows
+Use the *Choose files and folders to sync* screen to select the content to sync between Alfresco Content Services and your desktop. The content is synced at `C:\Users\<username>\Alfresco`.
 
-Once you've set up Desktop Sync, all your Alfresco Content Services folders are displayed from My Files, Shared Files, 
-and My Sites.
-
-Use the *Choose files and folders to sync* screen to select the content to sync between Alfresco Content Services 
-and your desktop. The content is synced at `C:\Users\<username>\Alfresco`.
-
->**Note:** The screen provides an estimate of how much disk space will be occupied, so only select the content you need. The more content you select, the more space will be taken on your local machine and the more time it will take to perform the initial sync.
+> **Note:** The screen provides an estimate of how much disk space will be occupied, so only select the content you need. The more content you select, the more space will be taken on your local machine and the more time it will take to perform the initial sync.
 
 1. Synchronize your content from **My Files** and **Shared Files**.
 
@@ -20,11 +16,11 @@ and your desktop. The content is synced at `C:\Users\<username>\Alfresco`.
 
     1. Select **My Files** to expand the folder list in your **My Files** area of Alfresco Content Services.
 
-        You can navigate through the folder hierarchy and click the check box to select individual folders, or select ![]({% link desktop-sync/images/ico-ds-sync-fav.png %})**My Files** to sync everything. See [My Files](TODO_LINK:http://docs.alfresco.com/5.0/concepts/library-external-myfiles.html) for more.
+        You can navigate through the folder hierarchy and click the check box to select individual folders, or select ![]({% link desktop-sync/images/ico-ds-sync-fav.png %})**My Files** to sync everything. See [My Files]({% link content-services/latest/using/content/index.md %}#my-files) for more.
 
     2. Select **Shared Files** to sync all the files and folders under **Shared Files** in Alfresco.
 
-        You can navigate through the folder hierarchy and click the check box to select individual folders, or select ![]({% link desktop-sync/images/ico-ds-sync-fav.png %})**Shared Files** to sync everything. See [Shared Files](TODO_LINK:http://docs.alfresco.com/5.0/concepts/library-external-shared.html) for more.
+        You can navigate through the folder hierarchy and click the check box to select individual folders, or select ![]({% link desktop-sync/images/ico-ds-sync-fav.png %})**Shared Files** to sync everything. See [Shared Files]({% link content-services/latest/using/content/index.md %}#shared-files) for more.
 
 2. Select ![]({% link desktop-sync/images/ico-ds-sync-fav.png %}) next to **Favorite Sites** to sync all your favorite sites.
 
@@ -48,9 +44,9 @@ and your desktop. The content is synced at `C:\Users\<username>\Alfresco`.
 
 6. Click **Sync** to start initial syncing of the selected Alfresco files and folders to your desktop.
 
-    >**Tip:** You can click **Cancel** to cancel the sync and close the Choose files and folders to sync screen.
+    > **Tip:** You can click **Cancel** to cancel the sync and close the Choose files and folders to sync screen.
 
-    >**Note:** During the initial sync, don't disconnect your computer from the network or put your computer to sleep. Although the sync will resume if interrupted, it will likely need to check the content again and very large initial syncs may take a long time to complete.
+    > **Note:** During the initial sync, don't disconnect your computer from the network or put your computer to sleep. Although the sync will resume if interrupted, it will likely need to check the content again and very large initial syncs may take a long time to complete.
 
 ### About the initial sync
 
@@ -70,22 +66,15 @@ During initial sync:
 
 ### Working with content
 
-To save your work in Alfresco, just work on your files in the `C:\Users\<username>\Alfresco` folder, 
-and everything in the folder will be automatically synced to Alfresco.
+To save your work in Alfresco, just work on your files in the `C:\Users\<username>\Alfresco` folder, and everything in the folder will be automatically synced to Alfresco.
 
 {% endcapture %}
-   
-{% capture mac %}   
 
-## Selecting content to sync on Mac
+{% capture mac %}
 
-Once you've set up Desktop Sync, all your Alfresco Content Services folders will be displayed from My Files, 
-Shared Files, and your Sites.
+Use the *Select sites and folders to sync* dialog to select the content to sync between Alfresco Content Services and your desktop. The content is synced to your `/<userHome>/Alfresco` folder, located in Finder under **Go > Home**.
 
-Use the *Select sites and folders to sync* dialog to select the content to sync between Alfresco Content Services and 
-your desktop. The content is synced to your `/<userHome>/Alfresco` folder, located in Finder under **Go > Home**.
-
->**Note:** The screen provides an estimate of how much disk space will be occupied, so only select the content you need. The more content you select, the more space will be taken on your computer and the more time it'll take to perform the initial sync.
+> **Note:** The screen provides an estimate of how much disk space will be occupied, so only select the content you need. The more content you select, the more space will be taken on your computer and the more time it'll take to perform the initial sync.
 
 1. Synchronize your content from **My Files** and **Shared Files**.
 
@@ -93,11 +82,11 @@ your desktop. The content is synced to your `/<userHome>/Alfresco` folder, locat
 
     1. Select **My Files** to expand the folder list in your **My Files** area of Alfresco Content Services.
 
-        You can navigate through the folder hierarchy and click the check box to select individual folders, or select ![]({% link desktop-sync/images/ico-ds-sync-fav.png %})**My Files** to sync everything. See [My Files](TODO_LINK:http://docs.alfresco.com/5.2/concepts/library-external-myfiles.html) for more.
+        You can navigate through the folder hierarchy and click the check box to select individual folders, or select ![]({% link desktop-sync/images/ico-ds-sync-fav.png %})**My Files** to sync everything. See [My Files]({% link content-services/latest/using/content/index.md %}#my-files) for more.
 
     2. Select **Shared Files** to expand the folder list in your **Shared Files** area of Alfresco Content Services.
 
-        You can navigate through the folder hierarchy and click the check box to select individual folders, or select ![]({% link desktop-sync/images/ico-ds-sync-fav.png %})**Shared Files** to sync everything. See [Shared Files](TODO_LINK:http://docs.alfresco.com/5.2/concepts/library-external-shared.html) for more.
+        You can navigate through the folder hierarchy and click the check box to select individual folders, or select ![]({% link desktop-sync/images/ico-ds-sync-fav.png %})**Shared Files** to sync everything. See [Shared Files]({% link content-services/latest/using/content/index.md %}#shared-files) for more.
 
 2. Select **Sites** to expand the list of sites you are a member of in Alfresco Content Services, sites you have favorited, and sites with content that you have favorited.
 
@@ -105,30 +94,28 @@ your desktop. The content is synced to your `/<userHome>/Alfresco` folder, locat
 
     * ![]({% link desktop-sync/images/site-fav-mac.png %}) indicates a favorite site or folder
     * ![]({% link desktop-sync/images/folder-fav-mac.png %}) indicates a site or folder that contains favorited content
-    
+
     These are listed in alphabetical order, grouped by favorites, then sites with favorited content, and then other sites you're a member of.
 
-    - Select **Sites** to expand the folder list in your **Sites** area of Alfresco Content Services.
-    
+    * Select **Sites** to expand the folder list in your **Sites** area of Alfresco Content Services.
+
        You can navigate through the folder hierarchy and click the check box to select individual folders.
 
-    - Select **Company Home** to expand the folder list in your **Company Home** area of Alfresco Content Services (if set up by your IT team).
-    
+    * Select **Company Home** to expand the folder list in your **Company Home** area of Alfresco Content Services (if set up by your IT team).
+
        You can navigate through the folder hierarchy and click the check box to select individual folders.
-       
+
        >**Note:** It's not possible to select all your **Sites** or all of **Company Home** as it's likely to involve a large sync and may take a long time.
 
 3. Click **Sync** to start initial syncing of the selected files and folders to your desktop.
 
-    >**Tip:** You can click **Cancel** to cancel selecting content and close the Select sites and folders to sync dialog.
+    > **Tip:** You can click **Cancel** to cancel selecting content and close the Select sites and folders to sync dialog.
 
-    >**Note:** During the initial sync, don't disconnect your computer from the network or put your computer to sleep. Although the sync will resume if interrupted, it's likely to need to check the content again, and very large initial syncs may take a long time to complete.
+    > **Note:** During the initial sync, don't disconnect your computer from the network or put your computer to sleep. Although the sync will resume if interrupted, it's likely to need to check the content again, and very large initial syncs may take a long time to complete.
 
 ### About the initial sync
 
-The **Sync** progress dialog shows the status of the initial sync. The Alfresco icon in the menu bar changes to indicate that the 
-sync is in progress ![]({% link desktop-sync/images/ds-syncing-mac.png %}){:height="23px" width="23px"}. Once the sync has completed successfully, the icon changes to 
-![]({% link desktop-sync/images/ds-synced-mac.png %}){:height="23px" width="23px"}.
+The **Sync** progress dialog shows the status of the initial sync. The Alfresco icon in the menu bar changes to indicate that the sync is in progress ![]({% link desktop-sync/images/ds-syncing-mac.png %}){:height="23px" width="23px"}. Once the sync has completed successfully, the icon changes to ![]({% link desktop-sync/images/ds-synced-mac.png %}){:height="23px" width="23px"}.
 
 ![]({% link desktop-sync/images/initialsync-mac.png %}){:height="168px" width="360px"}
 
@@ -145,8 +132,7 @@ During initial sync:
 
 ### Working with content
 
-To save your work in Alfresco, just work on your files in the `/<userHome>/Alfresco` folder, and everything in the folder 
-will be automatically synced to Alfresco.
+To save your work in Alfresco, just work on your files in the `/<userHome>/Alfresco` folder, and everything in the folder will be automatically synced to Alfresco.
 
 {% endcapture %}
 

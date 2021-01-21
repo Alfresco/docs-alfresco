@@ -97,7 +97,7 @@ Smart Folders have a limited set of actions:
 
   These actions aren't supported for files.
 
-The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Apply a Smart Folder Template](#LINK-USING-sf-using-aspects.md).
+The Smart Folder itself can't be edited in Alfresco Content Services, except through the Smart Folder Template. For more information about Smart Folder Templates, see [Apply a Smart Folder Template]({% link content-services/latest/using/smart-folders.md %}).
 
 ## Are Smart Folders supported in a multi-tenant production environment?
 

@@ -71,7 +71,7 @@ You can also configure a backup keystore. This is useful in case the keys need t
 
 If both the main and backup keystores are configured, the repository encryption works in the *fallback* mode. In this mode, the node properties are decrypted with the main keystore's metadata key first. If that fails, the backup keystore's metadata key is tried. This allows the keystores to be changed on the disk and reloaded without affecting the running of the repository.
 
-Keystores are used also to protect repository/Solr communications using encryption and mutual authentication. In this case, the keystores store RSA keys and certificates. For more information, see [Solr security](TODO_LINK:https://docs.alfresco.com/search-enterprise/concepts/solrsecurity-intro.html).
+Keystores are used also to protect repository/Solr communications using encryption and mutual authentication. In this case, the keystores store RSA keys and certificates. For more information, see [Solr security]({% link search-services/latest/config/security.md %}).
 
 ### Keystore configuration
 
@@ -168,21 +168,15 @@ encryption.keyAlgorithm=DESede
 encryption.cipherAlgorithm=DESede/CBC/PKCS5Padding
 ```
 
-Because of these encryption properties, the keystores and metadata files can be easily located. Also, the metadata 
-file uses a clear text password to access the keystore. For this reason, appropriate operating system permissions 
-should be applied so that the files can't be accidentally changed nor read by anyone other than an administrator and 
-the username running the repository.
+Because of these encryption properties, the keystores and metadata files can be easily located. Also, the metadata file uses a clear text password to access the keystore. For this reason, appropriate operating system permissions should be applied so that the files can't be accidentally changed nor read by anyone other than an administrator and the username running the repository.
 
-Each keystore must have a corresponding keystore metadata file. This file contains the passwords, its keys, and other 
-metadata relevant to the keystore. The metadata file must contain three entries:
+Each keystore must have a corresponding keystore metadata file. This file contains the passwords, its keys, and other metadata relevant to the keystore. The metadata file must contain three entries:
 
 * `aliases=<active key aliases in the key store>`
 * `keystore.password=<key store password>`
 * `metadata.password=<metadata key password>`
 
-At bootstrap, the repository checks if the metadata key in the main keystore has been changed (unless running in the 
-fallback mode, in which case the backup keystore is checked instead). This prevents accidental changes to the keystore. 
-If it detects that the metadata key has been changed, an exception will occur and the bootstrap will stop.
+At bootstrap, the repository checks if the metadata key in the main keystore has been changed (unless running in the fallback mode, in which case the backup keystore is checked instead). This prevents accidental changes to the keystore. If it detects that the metadata key has been changed, an exception will occur and the bootstrap will stop.
 
 ### Keystore generation
 
@@ -190,9 +184,7 @@ Keystore generation can be automatic or manual.
 
 **Automatic keystore generation**
 
-During bootstrap, if the repository detects a missing secret key keystore, it'll dynamically create a keystore containing 
-a single metadata secret key. In order to do this, the repository assumes the existence of a keystore metadata file containing 
-information about the metadata key. Specifically, it expects the following properties to be set:
+During bootstrap, if the repository detects a missing secret key keystore, it'll dynamically create a keystore containing a single metadata secret key. In order to do this, the repository assumes the existence of a keystore metadata file containing information about the metadata key. Specifically, it expects the following properties to be set:
 
 |Property|Description|
 |--------|-----------|
@@ -224,24 +216,17 @@ keytool -genseckey -alias metadata -keypass <metadata key password> -storepass <
 
 The keystore keys are registered with the repository to ensure that they're not accidentally changed.
 
-During bootstrap and JMX keystore reload and re-encryption operations, the repository checks if the main keystore's 
-keys and the metadata key have changed. If they have changed, the repository throws an exception.
+During bootstrap and JMX keystore reload and re-encryption operations, the repository checks if the main keystore's keys and the metadata key have changed. If they have changed, the repository throws an exception.
 
 ## Cryptographic password hashing {#bcryptoverview}
 
 Content Services uses cryptographic password hashing technique to securely store passwords.
 
-All versions Content Services 6.2 used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NLTM) 
-to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. 
-You now have the option to configure Content Services to use Bcrypt to store passwords. By default, the system 
-uses MD4 to allow users to use MD4 hashed passwords for alfrescoNTLM authentication.
+All versions Content Services 6.2 used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NLTM) to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. You now have the option to configure Content Services to use Bcrypt to store passwords. By default, the system uses MD4 to allow users to use MD4 hashed passwords for alfrescoNTLM authentication.
 
-Bcrypt is an adaptive hash function based on the Blowfish symmetric block cipher cryptographic algorithm. It is incredibly 
-slow to hash input compared to other functions, but this results in a much better output hash. Content Services 
-is configured to use a strength of `10` to provide a good compromise of speed and strength.
+Bcrypt is an adaptive hash function based on the Blowfish symmetric block cipher cryptographic algorithm. It is incredibly slow to hash input compared to other functions, but this results in a much better output hash. Content Services is configured to use a strength of `10` to provide a good compromise of speed and strength.
 
-With Bcrypt, the hashing algorithm (also called an encoder) can be configured by setting the `system.preferred.password.encoding` 
-property in the `alfresco-global.properties` file. The supported values for this property are:
+With Bcrypt, the hashing algorithm (also called an encoder) can be configured by setting the `system.preferred.password.encoding` property in the `alfresco-global.properties` file. The supported values for this property are:
 
 * `md4`
 * `sha256`
@@ -277,11 +262,9 @@ Out of the box, this background job is enabled but set to a future date. To conf
 system.upgradePasswordHash.jobCronExpression=0 0/10 * * * ?
 ```
 
-Alternatively, the job can be executed immediately via a JMX console. The job makes use of `JobLockService` so it is safe 
-to run in a clustered environment.
+Alternatively, the job can be executed immediately via a JMX console. The job makes use of `JobLockService` so it is safe to run in a clustered environment.
 
-If the password upgrade job is enabled, make sure you enable the `log4j.logger.org.alfresco.repo.security.authentication.UpgradePasswordHashWorker` 
-logging in `log4j.properties`.
+If the password upgrade job is enabled, make sure you enable the `log4j.logger.org.alfresco.repo.security.authentication.UpgradePasswordHashWorker` logging in `log4j.properties`.
 
 You can either set it to `trace` or `debug` as shown below:
 
@@ -480,7 +463,7 @@ Zones are also used to record the primary source of person and group information
 
 Permissions and their groupings are defined in an XML configuration file.
 
-The default file is found in the distribution configuration directory as [permissionDefinitions.xml](https://github.com/Alfresco/alfresco-repository/blob/af2e069b2eabcd5433cee39d83ec06bad6fc69a0/src/main/resources/alfresco/model/permissionDefinitions.xml). This configuration can be replaced or extended.
+The default file is found in the distribution configuration directory as [permissionDefinitions.xml](https://github.com/Alfresco/alfresco-repository/blob/af2e069b2eabcd5433cee39d83ec06bad6fc69a0/src/main/resources/alfresco/model/permissionDefinitions.xml){:target="_blank"}. This configuration can be replaced or extended.
 
 The following example uses the permission definitions related to the `Ownable` aspect.
 
@@ -546,8 +529,7 @@ class="org.alfresco.repo.security.permissions.impl.model.PermissionModel" init-m
 </bean>
 ```
 
-The preceding code example shows how to replace the default permission model with one located in the `alfresco/extension` directory. 
-The following code snippet shows how to extend the existing model.
+The preceding code example shows how to replace the default permission model with one located in the `alfresco/extension` directory. The following code snippet shows how to extend the existing model.
 
 ```xml
 <bean id="extendPermissionModel" parent="permissionModelBootstrap">
@@ -559,8 +541,7 @@ The following code snippet shows how to extend the existing model.
 
 By default, any authenticated user can create sites in Share. The creator of the new site is given the `Site Manager` role and they control who has access to the site and in what role.
 
-The beans that enforce security to the repository services based on the currently authenticated user are defined in 
-the [public-services-security-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/public-services-security-context.xml) file.
+The beans that enforce security to the repository services based on the currently authenticated user are defined in the [public-services-security-context.xml](https://github.com/Alfresco/alfresco-repository/blob/alfresco-repository-6.8/src/main/resources/alfresco/public-services-security-context.xml) file.
 
 1. **Copy** the following code and add it to the `<extension>/custom-model-context.xml` file.
 
@@ -668,8 +649,7 @@ The default configuration is `any deny denies`. This is set by adding the follow
 security.anyDenyDenies=true  
 ```
 
-You can alter the configuration to support `any allow allows`. This is set by adding the following property to the 
-`alfresco-global.properties` file:
+You can alter the configuration to support `any allow allows`. This is set by adding the following property to the `alfresco-global.properties` file:
 
 ```text
 security.anyDenyDenies=false
@@ -714,8 +694,7 @@ ACL C adds `Contributor` and `Editor` permissions for any authority in `GROUP_A`
 
 Anyone in `GROUP_A` can edit existing content or create new content. The owner ACE means that anyone who creates content then has full rights to it. The ACE assignment for owner is not normally required as all rights are given to node owners in the context-free ACL defined in the default permission configuration.
 
-ACL E adds some specific user ACEs in addition to those defined in ACL A. As an example, it allows Bob `Write` but also 
-denies `WriteContent`. `Write` is made up of `WriteContent` and `WriteProperties`. Bob will only be allowed `WriteProperties`.
+ACL E adds some specific user ACEs in addition to those defined in ACL A. As an example, it allows Bob `Write` but also denies `WriteContent`. `Write` is made up of `WriteContent` and `WriteProperties`. Bob will only be allowed `WriteProperties`.
 
 ACL G does not inherit and starts a new ACL tree unaffected by any other ACL tree unless an inheritance link is subsequently made.
 
@@ -815,9 +794,7 @@ Here are some examples of method level security parameters:
 * `ACL_METHOD.ROLE_ADMINISTRATOR`: Executes a method that allows access to users who are members of the administrator group.
 * `ACL_ALLOW`: Executes a method that allows access to all users.
 
-If more than one `ACL_NODE.<#>.<permission>` , `ACL_PARENT.<#>.<permission>`, or `ACL_METHOD.<permission>` entry is present, 
-then all of the `ACL_NODE` and `ACL_PARENT` permissions must be present and any one of the `ACL_METHOD` restrictions, 
-if present, for the method to execute.
+If more than one `ACL_NODE.<#>.<permission>` , `ACL_PARENT.<#>.<permission>`, or `ACL_METHOD.<permission>` entry is present, then all of the `ACL_NODE` and `ACL_PARENT` permissions must be present and any one of the `ACL_METHOD` restrictions, if present, for the method to execute.
 
 Post-conditions take the forms:
 
@@ -1460,7 +1437,7 @@ You can configure the repository in Content Services with a filter to prevent CS
 
 > **Note:** The CSRF filter will work correctly only if the Content Services server is configured to use HTTPS.
 
-The CSRF filter can be configured in the [web-client-security-config.xml](https://github.com/Alfresco/acs-packaging/blob/master/war/src/main/resources/alfresco/web-client-security-config.xml#L61) file, which is located in the `alfresco.war` file. In most cases the only thing that needs to be modified is a regular expression that checks the [Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin) and [Referer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) headers. This regular expression can be configured using the `alfresco-global.properties` file. The property configuration then overrides the values in `web-client-security-config.xml`. The following is an example configuration where Content Services runs on the `mydomain.com` host and port `80`:
+The CSRF filter can be configured in the `web-client-security-config.xml` file, which is located in the `alfresco.war` file. In most cases the only thing that needs to be modified is a regular expression that checks the [Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin) and [Referer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) headers. This regular expression can be configured using the `alfresco-global.properties` file. The property configuration then overrides the values in `web-client-security-config.xml`. The following is an example configuration where Content Services runs on the `mydomain.com` host and port `80`:
 
 ```text
 # CSRF filter overrides

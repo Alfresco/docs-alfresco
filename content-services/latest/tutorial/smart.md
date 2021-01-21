@@ -28,7 +28,7 @@ For background information on Smart Folder Templates, see [What's a Smart Folder
 
 To set up the claims framework, you need to create a custom content model, then create a folder structure for your content.
 
-You need a custom content model to specify the metadata that the claims solution requires. You need to be in the ALFRESCO\_MODEL\_ADMINISTRATORS group to create a content model. For detailed information about Model Manager, see [Content modeling with Model Manager](#LINK-admintools-cmm-intro.md).
+You need a custom content model to specify the metadata that the claims solution requires. You need to be in the ALFRESCO\_MODEL\_ADMINISTRATORS group to create a content model. For detailed information about Model Manager, see [Content modeling with Model Manager]({% link content-services/latest/config/models.md %}).
 
 1. Download the [Smart Folders tutorial files](https://github.com/vhemmert/smartfolders/tree/master/tutorial){:target="_blank"} from the `smartfolders-master/tutorial` directory.
 

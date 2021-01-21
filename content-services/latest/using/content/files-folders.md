@@ -267,7 +267,7 @@ When you don’t want your publicly shared file to be available anymore, you can
 
 You can use aspects to add extra functionality, properties, or options to files. Alfresco Share provides you with a list of default aspects.
 
-For a detailed list of aspects available and what they do, see [About aspects](TODO:../concepts/aspect-about.md).
+For a detailed list of aspects available and what they do, see [About aspects]({% link content-services/latest/config/repository.md %}#about-aspects).
 
 1. Select a file to view it in the file preview screen.
 
