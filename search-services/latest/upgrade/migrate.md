@@ -14,7 +14,7 @@ Follow the steps to migrate from Alfresco One 5.x with Solr 4 search service to 
 
 2. Upgrades from Alfresco Content Services 5.2 must first upgrade to Search Services from Solr 4, and then upgrade to 6.0
 
-3. Make sure you upgrade to Alfresco Search Services 1.3 before upgrading the repository to 6.1.
+3. Make sure you upgrade to Alfresco Search Services 2.0 before upgrading the repository to 6.2.
 
 4. Install and configure Solr 6 to track the repository. For more information, see [Install without mutual TLS (zip)]({% link search-services/latest/install/options.md %}
 
