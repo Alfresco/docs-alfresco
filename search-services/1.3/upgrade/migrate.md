@@ -85,4 +85,4 @@ If there are any issues, use the `REINDEX` option with the relevant node id.
 http://localhost:8080/solr/admin/cores?action=REINDEX&txid=1&acltxid=2&nodeid=3&aclid=4
 ```
 
-For more information, see the [Monitor and troubleshoot]({% link search-services/1.3/admin/monitor.md %} topic.
+For more information, see the [Monitor and troubleshoot]({% link search-services/1.3/admin/monitor.md %}) topic.
