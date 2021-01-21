@@ -71,7 +71,7 @@ For details, see the [Monitor and troubleshoot]({% link search-services/1.3/admi
 http://localhost:8080/solr/admin/cores?action=FIX
 ```
 
-For more information, see the [Monitor and troubleshoot]({% link search-services/1.3/admin/monitor.md %} topic.
+For more information, see the [Monitor and troubleshoot]({% link search-services/1.3/admin/monitor.md %}) topic.
 
 Find errors with specific nodes using `DOC_TYPE:ErrorNode` option.
 
