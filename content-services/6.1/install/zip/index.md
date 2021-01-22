@@ -4,7 +4,7 @@ title: Install with zip
 
 This page describes how to manually install Content Services using the distribution zip.
 
-For a description of the system paths used within this documentation, see [System path conventions]({% link content-services/latest/admin/index.md %}#system-paths-convention).
+For a description of the system paths used within this documentation, see [System path conventions]({% link content-services/6.1/admin/index.md %}#system-paths-convention).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Only the main stages for setting up and configuring Content Services are summari
 
 Before you start, validate that you have access to the prerequisite software so you can install them in the right order. This includes a JRE, a supported database, Tomcat application server, a message broker (i.e. ActiveMQ), Alfresco Search Services, and additional components (such as ImageMagick).
 
-> **Note:** ActiveMQ is required when manually installing Content Services 6.2 onwards. For more information on installing and configuring ActiveMQ, see [Configuring ActiveMQ]({% link content-services/latest/config/activemq.md %}).
+> **Note:** ActiveMQ is required when manually installing Content Services 6.1.1 onwards. For more information on installing and configuring ActiveMQ, see [Configuring ActiveMQ]({% link content-services/6.1/config/activemq.md %}).
 
 To get started, prepare your production server by installing the prerequisite software (JRE, database, and message broker) before continuing.
 
@@ -56,15 +56,15 @@ For new installations or upgrades, use the distribution zip. Use the Alfresco WA
 
 All files are available from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}. Click **Product Downloads**, and then select the version of the product you require.
 
-See the [Supported platforms]({% link content-services/latest/support/index.md %}) for more.
+See the [Supported platforms]({% link content-services/6.1/support/index.md %}) for more.
 
 Here's a list of the files to download and install.
 
 | File | Description |
 | ---- | ----------- |
-| alfresco-content-services-distribution-6.2.x.zip | Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
-|alfresco-search-services-1.4.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information. |
-| alfresco-content-services-file-transfer-receiver-6.2.1.zip | Content Services File Transfer Receiver installation file. The File System Transfer Receiver transfers folders and content from an Content Services core repository (the DM) to configured targets using the Transfer Service, for example, a remote file system.<br><br>See [Configure the File System Transfer Receiver]({% link content-services/latest/admin/import-transfer.md %}#configure-file-system-transfer-receiver) for more information. |
+| alfresco-content-services-distribution-6.1.x.zip | Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
+|alfresco-search-services-1.3.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/1.4/install/index.md %}) for more information. |
+| alfresco-content-services-file-transfer-receiver-6.1.1.zip | Content Services File Transfer Receiver installation file. The File System Transfer Receiver transfers folders and content from an Content Services core repository (the DM) to configured targets using the Transfer Service, for example, a remote file system.<br><br>See [Configure the File System Transfer Receiver]({% link content-services/6.1/admin/import-transfer.md %}#configure-file-system-transfer-receiver) for more information. |
 
 ## Preparing the filesystem and database
 
