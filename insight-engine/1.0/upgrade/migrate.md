@@ -8,16 +8,16 @@ Use this information to migrate from Search Services to Search and Insight Engin
 
 ## Migrate with zip
 
-You can migrate from Alfresco Content Services 6.0 with Search Services 1.3 to Alfresco Content Services with Search and Insight Engine 1.0. You can also migrate from Alfresco Content Services 5.x with Search Services to Alfresco Content Services 6.0 with Search and Insight Engine 1.0.
+You can migrate from Alfresco Content Services 6.0 with Search Services 1.2 to Alfresco Content Services with Search and Insight Engine 1.0. You can also migrate from Alfresco Content Services 5.x with Search Services to Alfresco Content Services 6.0 with Search and Insight Engine 1.0.
 
-* [Migrate Content Services 6.0 with Search Services 1.3](#migrate-content-services-61-with-search-services-13)
-* [Migrate Content Services 5.x with Search Services 1.3 or below](#migrate-content-services-5x-with-search-services-13-or-below)  
+* [Migrate Content Services 6.0 with Search Services 1.2](#migrate-content-services-60-with-search-services-12)
+* [Migrate Content Services 5.x with Search Services 1.2 or below](#migrate-content-services-5x-with-search-services-12-or-below)  
 
-### Migrate Content Services 6.0 with Search Services 1.3
+### Migrate Content Services 6.0 with Search Services 1.2
 
-Use this information to migrate from Search Services 1.3 to Search and Insight Engine 1.0 using a distribution zip.
+Use this information to migrate from Search Services 1.2 to Search and Insight Engine 1.0 using a distribution zip.
 
-> **Note:** A reindex is not required when you migrate from Search Services 1.3 to Search and Insight Engine 1.0.
+> **Note:** A reindex is not required when you migrate from Search Services 1.2 to Search and Insight Engine 1.0.
 
 1. Stop Search Services.
 
@@ -25,7 +25,7 @@ Use this information to migrate from Search Services 1.3 to Search and Insight E
     ./solr/bin/solr stop
     ```
 
-2. Backup or move the existing `alfresco-search-services` folder to a preferred location. For example, `alfresco-search-services-1.3`.
+2. Backup or move the existing `alfresco-search-services` folder to a preferred location. For example, `alfresco-search-services-1.2`.
 
 3. Browse to the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
@@ -43,25 +43,25 @@ Use this information to migrate from Search Services 1.3 to Search and Insight E
 
     ```bash
     ./solr/bin/solr start -a -p <port> "-Dcreate.alfresco.defaults=alfresco,archive"
-    -Dsolr.content.dir="/alfresco-search-services-1.3/contentstore"
-    -Dsolr.model.dir="/alfresco-search-services-1.3/solrhome/alfrescoModels"
-    -Ddata.dir.root="/alfresco-search-services-1.3/solrhome/"
+    -Dsolr.content.dir="/alfresco-search-services-1.2/contentstore"
+    -Dsolr.model.dir="/alfresco-search-services-1.2/solrhome/alfrescoModels"
+    -Ddata.dir.root="/alfresco-search-services-1.2/solrhome/"
     ```
 
     Microsoft Windows
 
     ```bash
     solr start -a -p <port> "-Dcreate.alfresco.defaults=alfresco,archive"
-    -Dsolr.content.dir="alfresco-search-services-1.3\contentstore"
-    -Dsolr.model.dir="alfresco-search-services-1.3\solrhome\alfrescoModels"
-    -Ddata.dir.root="alfresco-search-services-1.3\solrhome\"
+    -Dsolr.content.dir="alfresco-search-services-1.2\contentstore"
+    -Dsolr.model.dir="alfresco-search-services-1.2\solrhome\alfrescoModels"
+    -Ddata.dir.root="alfresco-search-services-1.2\solrhome\"
     ```
 
     > **Note:** At this stage you have migrated. If you want to migrate using an external location, continue with the following steps.
 
-6. Copy the `contentstore` from the backup `alfresco-search-services-1.3` to a preferred location, for example `alf_data`.
+6. Copy the `contentstore` from the backup `alfresco-search-services-1.2` to a preferred location, for example `alf_data`.
 
-7. Copy the cores: `alfresco`, `archive` and the models `alfrescoModels` from `alfresco-search-services-1.3/solrhome`.
+7. Copy the cores: `alfresco`, `archive` and the models `alfrescoModels` from `alfresco-search-services-1.2/solrhome`.
 
 8. Your directory structure will look like the following:
 
@@ -96,7 +96,7 @@ Use this information to migrate from Search Services 1.3 to Search and Insight E
 
     > **Note:** To check what version of Search Services or Search and Insight Engine you have installed go to `http://localhost:8983/solr/`.
 
-### Migrate Content Services 5.x with Search Services 1.3 or below
+### Migrate Content Services 5.x with Search Services 1.2
 
 There are two steps to migrating your installation from Alfresco Content Services 5.x with Search Services to Alfresco Content Services 6.0 with Search and Insight Engine. First you need to upgrade to Alfresco Content Services 6.0 with Search Services, and then migrate Search Services to Search and Insight Engine.
 
@@ -106,11 +106,11 @@ There are two steps to migrating your installation from Alfresco Content Service
 
     > **Note:** You can't do this using Docker Compose.
 
-2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.0 with Search Services 1.3 or below](#migrating-content-services-61-with-search-services-13-or-below).
+2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.0 with Search Services 1.2](#migrating-content-services-60-with-search-services-12).
 
 ## Migrate using Docker Compose
 
-If you already have Alfresco Content Services 6.0 with Search Services 1.3 or below installed, you can migrate to Search and Insight Engine 1.0. Due to the limited capabilities of Docker Compose, this migration method is recommended for development and test environments only.
+If you already have Alfresco Content Services 6.0 with Search Services 1.2 installed, you can migrate to Search and Insight Engine 1.0. Due to the limited capabilities of Docker Compose, this migration method is recommended for development and test environments only.
 
 > **Note:** A reindex is not required when you migrate from Search Services to Search and Insight Engine 1.0.
 
@@ -120,7 +120,7 @@ Use this information to migrate from Search Services to Search and Insight Engin
 
     ```yaml
         solr6:
-            #image: alfresco/alfresco-search-services:1.3.x
+            #image: alfresco/alfresco-search-services:1.2.x
             image: quay.io/alfresco/insight-engine:1.0.x
             mem_limit: 2500m
             environment:

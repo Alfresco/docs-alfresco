@@ -68,32 +68,6 @@ The curated set of fields that are returned with select * queries include:
 * `ASPECT`
 * `QNAME`
 
-If you are using a custom model you can specify the extra fields to appear in a select * query. You must add them to `alfresco-insight-engine/solrhome/conf/shared.properties` and they can take the form of either of the following formats:
-
-> **Note:** The field list is case insensitive.
-
-```sql
-#Custom Model
-solr.sql.alfresco.fieldnames=finance:amount, finance:emp,expense:recorded_at
-```
-
-Or
-
-```sql
-#Custom Model
-solr.sql.alfresco.fieldnames=finance_amount, finance_emp,expense_recorded_at
-```
-
-Select * will also return any fields that appear in the predicates for the query, in the following format:
-
-> **Note:** The predicates are case insensitive.
-
-```sql
-select * from alfresco where finance_amount > 0 and expense_recorded_at <= 'NOW/DAY'
-```
-
-This query will also return the fields `finance_amount` and `expense_recorded_at` in addition to the curated set of fields.
-
 #### Field Aliases
 
 SQL field aliases are supported in the field list. Field aliases that contain special characters or reserved words need to be escaped with the back tick.

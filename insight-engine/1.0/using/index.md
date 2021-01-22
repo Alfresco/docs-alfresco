@@ -10,7 +10,7 @@ To use the reports and dashboard builder, you need to install Insight Zeppelin.
 
 Use `http://localhost:9090/zeppelin` to access the Insight Zeppelin user interface.
 
-For information on Insight Zeppelin user Interface see [Explore Apache Zeppelin UI](https://zeppelin.apache.org/docs/0.8.1/quickstart/explore_ui.html){:target="_blank"}.
+For information on Insight Zeppelin user Interface see [Explore Apache Zeppelin UI](https://zeppelin.apache.org/docs/0.8.0/quickstart/explore_ui.html){:target="_blank"}.
 
 ## Installation options
 
