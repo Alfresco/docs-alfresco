@@ -7,11 +7,11 @@ You can deploy Alfresco Digital Workspace into a different web server than where
 
 2. Go to the **Downloads** area and select Alfresco Digital Workspace.
 
-3. Download `alfresco-digital-workspace-x.x.x.zip` for the required version.
+3. Download `alfresco-digital-workspace-adw-x.x.x.zip` for the required version.
 
-   `alfresco-digital-workspace-x.x.x.zip` is the file name followed by the version of Alfresco Digital Workspace, for example `alfresco-digital-workspace-1.5.0.zip`.
+   `alfresco-digital-workspace-adw-x.x.x.zip` is the file name followed by the version of the Digital Workspace, for example `alfresco-digital-workspace-adw-2.0.0.zip`.
 
-4. On the server where you want to host Alfresco Digital Workspace extract the files to `<webserver-location>/html`.
+4. On the server where you want to host the Digital Workspace extract the files to `<webserver-location>/html`.
 
    > **Note:** This is the public html folder.
 
@@ -21,9 +21,9 @@ You can deploy Alfresco Digital Workspace into a different web server than where
 
     `http://<acsservername>:port`
 
-7. Also in the `app.config.json` file, change the `baseShareUrl` property to be the server name of Alfresco Digital Workspace. For example:
+7. Also in the `app.config.json` file, change the `baseShareUrl` property to be the server name of the Digital Workspace. For example:
 
-      `http://<appservername>:port/alfresco-digital-workspace-x.x.x` (`alfresco-digital-workspace-x.x.x` being the name of the zip file)
+      `http://<appservername>:port/alfresco-digital-workspace-adw-x.x.x` (`alfresco-digital-workspace-adw-x.x.x` being the name of the zip file)
 
    > **Note:** If Quickshare is disabled in Alfresco Content Services ignore this step.
 
@@ -31,8 +31,8 @@ You can deploy Alfresco Digital Workspace into a different web server than where
 
 8. Save the file.
 
-9. Open your browser and access Alfresco Digital Workspace:
+9. Open your browser and access the Digital Workspace:
 
-    `http://<appservername>:8080/alfresco-digital-workspace-x.x.x`
+    `http://<appservername>:8080/alfresco-digital-workspace-adw-x.x.x`
 
 > **Note:** When deploying Alfresco Digital Workspace to a different web server, it is recommended you setup Cross-Origin Resource Sharing (CORS). For more information, see [Cross Origin Resource Sharing (CORS) filters]({% link content-services/latest/config/repository.md %}#cors-configuration) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/){:target="_blank"}.
