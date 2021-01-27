@@ -6,7 +6,7 @@ The Alfresco Content Connector for AWS Glacier (Glacier Connector) works in conj
 
 Amazon S3 Glacier is a storage service optimized for infrequently used data, and it suits the long term storage of archive and backup data. Amazon S3 Glacier gives you a number of retrieval options, offering different levels of retrieval speed. See [Amazon S3 Glacier retrieval tiers](#retrieval-tiers) for more information on retrieval types.
 
-Amazon S3 Glacier is supported with Alfresco Content Services and Alfresco Governance Services. See [Glacier Connector FAQs]({% link aws-glacier/latest/using/index.md %}) for more information.
+Amazon S3 Glacier is supported with Alfresco Content Services and Alfresco Governance Services. See [Glacier Connector FAQs]({% link aws-glacier/1.0/using/index.md %}) for more information.
 
 > **Note:** The Glacier Connector is not available for the Alfresco Community Edition versions of the products.
 
