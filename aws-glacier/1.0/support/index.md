@@ -11,4 +11,4 @@ The following are the supported platforms for the Content Connector for AWS Glac
 | Alfresco Content Services 6.0.1 | Yes | Yes | Yes |
 | Alfresco Content Services 6.0.0 | Yes | Yes | Yes |
 
-> **Note:** Alfresco Content Services is only compatible with Alfresco Content Connector for AWS S3 2.3 or above
+> **Note:** Alfresco Content Services is only compatible with Alfresco Content Connector for AWS S3 2.3.
