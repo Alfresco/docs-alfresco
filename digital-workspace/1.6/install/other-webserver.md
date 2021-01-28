@@ -1,7 +1,7 @@
 ---
 title: Install into other webserver
 ---
-You can deploy Alfresco Digital Workspace into a different web server than where Alfresco Content Services is running. You can use another instance of Tomcat, a lightweight web server such as NGINX, or you can use a web server of your choice. First you need to install Alfresco Content Services 6.2 or above using the distribution zip. See [Installing using distribution zip](LINK ) for more information.
+You can deploy Alfresco Digital Workspace into a different web server than where Alfresco Content Services is running. You can use another instance of Tomcat, a lightweight web server such as NGINX, or you can use a web server of your choice. First you need to install Alfresco Content Services 6.2 or above using the distribution zip. See [Installing using distribution zip]({% link content-services/latest/install/zip/index.md %}) for more information.
 
 1. Log in to the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
@@ -27,7 +27,7 @@ You can deploy Alfresco Digital Workspace into a different web server than where
 
    > **Note:** If Quickshare is disabled in Alfresco Content Services ignore this step.
 
-    To disable Quickshare, set `system.quickshare.enabled=false` in the \tomcat\shared\classes\alfresco-global.properties file. For more information, see [Using the alfresco-global.properties file]( link #using-alfresco-globalproperties).
+    To disable Quickshare, set `system.quickshare.enabled=false` in the `\tomcat\shared\classes\alfresco-global.properties` file. For more information, see [Using the alfresco-global.properties file]({% link content-services/latest/config/index.md %} #using-alfresco-globalproperties).
 
 8. Save the file.
 
@@ -35,4 +35,4 @@ You can deploy Alfresco Digital Workspace into a different web server than where
 
     `http://<appservername>:8080/alfresco-digital-workspace-x.x.x`
 
-> **Note:** When deploying Alfresco Digital Workspace to a different web server, it is recommended you setup Cross-Origin Resource Sharing (CORS). For more information, see [Cross Origin Resource Sharing (CORS) filters]({link #cors-configuration) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/){:target="_blank"}.
+> **Note:** When deploying Alfresco Digital Workspace to a different web server, it is recommended you setup Cross-Origin Resource Sharing (CORS). For more information, see [Cross Origin Resource Sharing (CORS) filters]({% link content-services/latest/config/repository.md %}#cors-configuration) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/){:target="_blank"}.

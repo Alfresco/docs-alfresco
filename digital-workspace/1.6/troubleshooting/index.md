@@ -5,11 +5,11 @@ Here are the answers to some frequently asked questions.
 
 ### When attempting to login a problem with CORS is reported
 
-Refer to [Cross Origin Resource Sharing (CORS) filters]( link}#cors-configuration}) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/){:target="_blank"}.
+Refer to [Cross Origin Resource Sharing (CORS) filters]({% link content-services/latest/config/repository.md %}#cors-configuration}) and [Cross-Origin Resource Sharing (CORS)](https://enable-cors.org/){:target="_blank"}.
 
 ### Can I customize Alfresco Digital Workspace
 
-Yes, there are a number of customizations available that can be configured in ../digital-workspace/app.config.json. See [Configure Digital Workspace]({% link digital-workspace/1.6/config/index.md %}) for more details. The application can also be extended using the ADF Extension framework. See [Extending](https://alfresco-content-app.netlify.com/#/extending/).
+Yes, there are a number of customizations available that can be configured in ../digital-workspace/app.config.json. See [Configure Digital Workspace]({% link digital-workspace/1.6/config/index.md %}) for more details. The application can also be extended using the ADF Extension framework. See [Extending](https://alfresco-content-app.netlify.com/#/extending/){:target="_blank"}.
 
 ### I have installed an extension and Alfresco Digital Workspace does not work
 
@@ -25,7 +25,7 @@ Smart Folder access is supported but Smart Folders cannot be created in this app
 
 ### How do I setup SSL
 
-SSL configurations differ from one installation to the next. Here is one approach to the setup of NGINX using SSL, see [https://nginx.org/en/docs/http/configuring\_https\_servers.html](https://nginx.org/en/docs/http/configuring_https_servers.html){:target="_blank"}.
+SSL configurations differ from one installation to the next. Here is one approach to the [setup of NGINX using SSL](https://nginx.org/en/docs/http/configuring_https_servers.html){:target="_blank"}.
 
 For information on generating self-trusted certificates for local testing and development purposes, see [https://letsencrypt.org/docs/certificates-for-localhost/](https://letsencrypt.org/docs/certificates-for-localhost/){:target="_blank"}.
 
@@ -40,8 +40,8 @@ Alfresco Digital Workspace supports the following Evergreen browsers:
 
 ### Is Single Sign-On (SSO) supported with Alfresco Digital Workspace
 
-Yes, Digital Workspace supports Single Sign-On with the Identity Service. See [Alfresco SSO Guide](link) for more details.
+Yes, Digital Workspace supports Single Sign-On with the Identity Service. See [Alfresco SSO Guide]({% link identity-service/latest/index.md %}) for more details.
 
 Alfresco Digital Workspace does not support SAML Single Sign-On (SSO) for Alfresco Content Services. Users can login with their credentials using basic authentication, but SAML authentication must not be enforced.
 
-See [SAML Single Sign-On (SSO) Module for Alfresco Content Services]( Link) for more information.
+See [SAML Module for Alfresco Content Services]({% link saml-module/latest/index.md %}) for more information.

@@ -7,7 +7,7 @@ Alfresco Governance Services functionality for end users is available, including
 
 The Alfresco Digital Workspace simplifies content management and provides comprehensive extensibility features for developers, using ADF, and allows them to easily and quickly create custom solutions for specific use cases.
 
-The Alfresco Digital Workspace is automatically deployed as part of Alfresco Content Services using Helm charts or a Docker Compose file. You can also manually install Alfresco Content Services using standard war files and then configure the installation to include Alfresco Digital Workspace.
+The Alfresco Digital Workspace is automatically deployed as part of Alfresco Content Services using Helm charts or a Docker Compose file. You can also manually install Alfresco Content Services using standard WAR files and then configure the installation to include Alfresco Digital Workspace.
 
 See the following video for a quick introduction.
 
