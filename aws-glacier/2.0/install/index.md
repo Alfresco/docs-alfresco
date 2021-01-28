@@ -34,7 +34,7 @@ When you purchase the Glacier Connector, a support case is created with the AMP 
 
 2. Use the Module Management Tool (MMT) to install the `alfresco-glacier-connector-repo-2.0.x.amp` file into the repository WAR (`alfresco.war`).
 
-    See the Alfresco Content Services documentation for [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html)(#LINK) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
+    See the Alfresco Content Services documentation for [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
 3. Restart Alfresco Content Services.
 
