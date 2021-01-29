@@ -5,8 +5,6 @@ Alfresco Digital Workspace is a new content management application built with th
 
 Alfresco Governance Services functionality for end users is available, including record declaration and archival of files into long term storage. Alfresco Process Services processes and tasks can also be accessed and completed from Alfresco Digital Workspace.
 
-You can edit and collaborate with colleagues on existing Microsoft Word, Excel, and PowerPoint files you have stored in Alfresco Content Services (originating from Microsoft Office Online) if you use [Alfresco Collaboration Connector for Microsoft 365](#LINK microsoft-online/latest/index.md).
-
 The Alfresco Digital Workspace simplifies content management and provides comprehensive extensibility features for developers, using ADF, and allows them to easily and quickly create custom solutions for specific use cases.
 
 The Alfresco Digital Workspace is automatically deployed as part of Alfresco Content Services using Helm charts or a Docker Compose file. You can also manually install Alfresco Content Services using standard WAR files and then configure the installation to include Alfresco Digital Workspace.
