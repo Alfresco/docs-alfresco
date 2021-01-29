@@ -97,6 +97,7 @@ defaults:
       versions:
         - 2.1
         - 2.0
+        - 1.0
   - scope:
       path: "aws-glacier/latest"
     values:
@@ -106,8 +107,11 @@ defaults:
       path: "aws-glacier/2.0"
     values:
       version: 2.0
-
-
+  - scope:    
+      path: "aws-glacier/1.0"
+    values:
+      version: 1.0
+      
 # Alfresco Content Connector for Azure
   - scope:
       path: "microsoft-azure"

@@ -19,4 +19,13 @@
       path: '/aws-glacier/2.0/config/'
     - title: 'Using'
       path: '/aws-glacier/2.0/using/'
-
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/aws-glacier/1.0/'
+    - title: 'Install'
+      path: '/aws-glacier/1.0/install/'
+    - title: 'Configure'
+      path: '/aws-glacier/1.0/config/'
+    - title: 'Using'
+      path: '/aws-glacier/1.0/using/'
