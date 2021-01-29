@@ -61,7 +61,7 @@ If you need to override them for your environment, check the available settings 
     s3.bucketLocation=eu-central-1
     ```
 
-    >**Note:** If you use a region other than the US East (N. Virginia) endpoint (previously named US Standard) to create a bucket, `connector.s3.bucketRegion` is a mandatory field. Use the [AWS service endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for guidance on the correct value.
+    >**Note:** If you use a region other than the US East (N. Virginia) endpoint (previously named US Standard) to create a bucket, `s3.bucketLocation` is a mandatory field. Use the [AWS service endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for guidance on the correct value.
 
     **Optional configuration properties**
 
@@ -104,8 +104,7 @@ If you need to override them for your environment, check the available settings 
 
 ## Properties for backwards compatibility
 
-You may need to configure a number of optional properties for the S3 Connector 3.1 to ensure backwards compatibility 
-with S3 Connector 1.x and behavior.
+You may need to configure a number of optional properties for the S3 Connector 3.0 to ensure backwards compatibility with S3 Connector 1.x and behavior.
 
 * `dir.contentstore`
 
@@ -367,7 +366,7 @@ place for S3 access, a new policy must be created.
 
     Note that one single role can be applied to an EC2 instance.
 
-6.  Edit `alfresco-global.properties` to remove the `connector.s3.accessKey` and `connector.s3.secretKey` properties.
+6.  Edit `alfresco-global.properties` to remove the `s3.accessKey` and `s3.secretKey` properties.
 
     By removing these properties, the IAM role that's attached to the EC2 instance takes over the responsibility of accessing the S3 bucket.
 
@@ -415,7 +414,7 @@ You can configure AWS KMS by adding the relevant properties to the global proper
 3.  Edit `alfresco-global.properties` and set the value of `s3.awsKmsKeyId` property to the key alias (see example) or the Amazon Resource Name (ARN) of the KMS key created.
 
     ```text
-    connector.s3.awsKmsKeyId=alias/kmsKeyAlias
+    s3.awsKmsKeyId=alias/kmsKeyAlias
     ```
 
     You can leave the property empty in order to use the default master key attached to your account.
