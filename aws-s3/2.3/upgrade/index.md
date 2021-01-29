@@ -2,7 +2,7 @@
 title: Upgrade Content Connector for AWS S3
 ---
 
-Use this information to upgrade the S3 Connector from a previous version (such as 1.3.x) to 3.x for Tomcat-based 
+Use this information to upgrade the S3 Connector from a previous version (such as 1.3.x) to 2.x for Tomcat-based 
 deployments only.
 
 1.  Stop the Alfresco Content Services server.
@@ -24,18 +24,18 @@ deployments only.
      tomcat/webapps/alfresco.war
     ```
 
-    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Uninstalling an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}#uninstall-an-amp-file).
+    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/6.1/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Uninstalling an Alfresco Module Package]({% link content-services/6.1/install/zip/amp.md %}#uninstall-an-amp-file).
 
 5.  Navigate to the `amps` directory.
 
 6.  Delete any previously installed S3 Connector AMP.
 
-7.  Copy the AMP file you downloaded during [installation]({% link aws-s3/latest/install/index.md %}#installing) to the `amps` directory.
+7.  Copy the AMP file you downloaded during [installation]({% link aws-s3/2.3/install/index.md %}#installing) to the `amps` directory.
 
 8.  Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
-    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
+    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/6.1/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/6.1/install/zip/amp.md %}).
 
-9.  Check that the [configuration]({% link aws-s3/latest/config/index.md %}) is set up correctly for your environment.
+9.  Check that the [configuration]({% link aws-s3/2.3/config/index.md %}) is set up correctly for your environment.
 
 10. Start the server.

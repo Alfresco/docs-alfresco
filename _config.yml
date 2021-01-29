@@ -315,12 +315,17 @@ defaults:
       support: true
       versions:
         - 3.1
+        - 2.3
   - scope:
       path: "aws-s3/latest"
     values:
       version: 3.1
       latest: true
-
+  - scope:
+      path: "aws-s3/2.3"
+    values:
+      version: 2.3
+    
 # Alfresco Office Services
   - scope:
       path: "microsoft-office"

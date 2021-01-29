@@ -19,15 +19,15 @@ s3.useTenantDomainInPath=false
 s3.autoLowerCaseBucketName=false
 ```
 
-If you need to override them for your environment, check the available settings in the configuration guides or [properties reference]({% link aws-s3/latest/config/index.md %}#properties-reference).
+If you need to override them for your environment, check the available settings in the configuration guides or [properties reference]({% link aws-s3/2.3/config/index.md %}#properties-reference).
 
 **Basic configuration properties**
 
 1.  Open the `<classpathRoot>/alfresco-global.properties` file.
 
-    If you plan to use IAM roles instead of AWS access and secret keys, ensure you have [configured AWS Identity and Access Management]({% link aws-s3/latest/config/index.md %}#configiam) correctly before continuing from step [4]({% link aws-s3/latest/config/index.md %}#bucketName).
+    If you plan to use IAM roles instead of AWS access and secret keys, ensure you have [configured AWS Identity and Access Management]({% link aws-s3/2.3/config/index.md %}#configiam) correctly before continuing from step [4]({% link aws-s3/2.3/config/index.md %}#bucketName).
 
-    If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises) and you'd like to transition to using AWS S3 as the only content store, ensure you include the property described in [Configuring S3 Connector on-premises]({% link aws-s3/latest/config/index.md %}#onpremconfig) before continuing.
+    If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises) and you'd like to transition to using AWS S3 as the only content store, ensure you include the property described in [Configuring S3 Connector on-premises]({% link aws-s3/2.3/config/index.md %}#onpremconfig) before continuing.
 
 2.  Add the `s3.accessKey` property, for example:
 
@@ -67,11 +67,11 @@ If you need to override them for your environment, check the available settings 
 
 6.  If you plan to use the AWS KMS service to manage encryption, you'll need to change the default `s3.encryption` setting.
 
-    See [Configuring AWS Key Management Service]({% link aws-s3/3.0/config/index.md %}#configkeymgmt) for more encryption options.
+    See [Configuring AWS Key Management Service]({% link aws-s3/2.3/config/index.md %}#configkeymgmt) for more encryption options.
 
 7.  Set where the cached content is stored, and how much cache size you need.
 
-    The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`. See [CachingContentStore properties]({% link content-services/latest/admin/content-stores.md %}#caching-content-store-ccs) for more information on the caching content store.
+    The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`. See [CachingContentStore properties]({% link content-services/6.1/admin/content-stores.md %}#caching-content-store-ccs) for more information on the caching content store.
 
     >**Note:** The size of the local caching content store can be configured as necessary to limit its use to a maximum overall size or by files with a maximum file size. For example:
 
@@ -88,12 +88,6 @@ If you need to override them for your environment, check the available settings 
 
     ```text
     s3.abortIncompleteMultipartUploadDays=1
-    ```
-
-    >**Note:** If lifecycle configuration on the bucket is not required, then set the value to `0`:
-
-    ```text
-    s3.abortIncompleteMultipartUploadDays=0
     ```
 
     See [Multipart upload overview](#multipart-upload-overview) for more details.
@@ -154,7 +148,7 @@ You may need to configure a number of optional properties for the S3 Connector 3
     s3.flatRoot=true
     ```
 
-    >**Note:** For a multi-tenant system you can also set `s3.useTenantDomainInPath=false`, however content from different tenants is co-mingled. For more details, see [Setting up multi-tenancy]({% link content-services/latest/admin/multi-tenancy.md %}).
+    >**Note:** For a multi-tenant system you can also set `s3.useTenantDomainInPath=false`, however content from different tenants is co-mingled. For more details, see [Setting up multi-tenancy]({% link content-services/6.1/admin/multi-tenancy.md %}).
 
     You can apply S3 Connector 2.0 to an existing installation where S3 Connector 1.x was previously used without affect to the running of the system. This means that existing paths remain as they are, and new paths are generated based on your configuration.
 
@@ -193,8 +187,8 @@ using the S3 Connector can interact with AWS S3.
 **Installation and configuration**
 
 You can install and configure Alfresco Content Services and the S3 Connector on-premises using the default configuration. 
-Follow the steps in [Installing the S3 Connector]({% link aws-s3/latest/install/index.md %}), and the basic 
-configuration steps in [Configuring the S3 Connector]({% link aws-s3/latest/config/index.md %}).
+Follow the steps in [Installing the S3 Connector]({% link aws-s3/2.3/install/index.md %}), and the basic 
+configuration steps in [Configuring the S3 Connector]({% link aws-s3/2.3/config/index.md %}).
 
 >**Note:** If you have existing content in a local content store, and you'd like to take advantage of the features provided by the S3 Connector, add the following property to `alfresco-global.properties`:
 
@@ -202,7 +196,7 @@ configuration steps in [Configuring the S3 Connector]({% link aws-s3/latest/conf
 dir.contentstore=${dir.root}/contentstore
 ```
 
-As an existing customer using the default [Encrypted content store]({% link content-services/latest/admin/content-stores.md %}#encrypted-content-store) configuration, the environment uses:
+As an existing customer using the default [Encrypted content store]({% link content-services/6.1/admin/content-stores.md %}#encrypted-content-store) configuration, the environment uses:
 
 * AES256 encryption for new content
 * Content decryption on reads from the existing on-premises files
@@ -259,8 +253,6 @@ Before transitioning objects to Standard-IA, consider the following limitations:
 
 >**Note:** When using the S3 Connector, new versions of a document are stored using the Standard storage class by default.
 
->**Important:** The S3 Connector doesn't support transitioning to the Glacier storage class.
-
 Here are some example scenarios to help you consider if using storage classes is right for your environment:
 
 1.  Collaboration: On an S3 bucket with frequently used content as part of any current work.
@@ -285,72 +277,7 @@ used by the IAM role. Policies are used to grant permissions to groups. If there
 place for S3 access, a new policy must be created.
 
 1.  Create a new policy.
-
-    You'll need to add the following IAM policy for the S3 Connector to work properly.
-
-    1.  Go to the **AWS Console** and open the **IAM** console.
-
-    2.  Select **Policies** from the menu and click **Create policy**.
-
-    3.  Switch to the **JSON** tab to create the policy using JSON syntax.
-
-    4.  Copy the following content, and replace the bucket name with your bucket name:
-
-        1.  If an S3 bucket already exists, add:
-
-            ```json
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:PutObject",
-                    "s3:GetObject",
-                    "s3:DeleteObject"
-                ],
-                "Resource": "arn:aws:s3:::YourBucket/*"
-            }
-            ```
-
-        2.  If no S3 bucket exists, then add the following action:
-
-            ```text
-            "s3:CreateBucket"
-            "s3:PutLifecycleConfiguration"
-            "s3:GetLifecycleConfiguration"
-            ```
-
-        3.  If lifecycle configuration on the bucket is not required, then see step (8) in [Configuring the S3 Connector]({% link aws-s3/latest/config/index.md %}).
-    
-    Follow the steps from the AWS site to [Create a New Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) for additional guidance.
-
-2.  Here are additional configuration options that you can apply to the bucket. These IAM policies grant additional permissions to the IAM user.
-
-    To configure and view the encryption of a bucket:
-
-    ```text
-    "s3:PutEncryptionConfiguration",
-    "s3:GetInventoryConfiguration"
-    ```
-
-    To access information from various metrics:
-
-    ```text
-    "s3:PutMetricsConfiguration"
-    "s3:GetMetricsConfiguration"
-    ```
-
-    To access to the bucket lifecycle policy:
-
-    ```text
-    "s3:PutLifecycleConfiguration"
-    ```
-
-    This allows the user to set an Infrequent Access (IA) storage class lifecycle rule on the bucket.
-
-    See the AWS site for more documentation on IAM roles:
-
-    * [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
-    * [Create a New Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html).
-    * [Getting Started: Security Best Practices](https://aws.amazon.com/blogs/security/getting-started-follow-security-best-practices-as-you-configure-your-aws-resources/)
+    Follow the steps from the AWS site to [Create a New Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html).
 
 3.  Use the policy simulator to test the new IAM policy.
 
@@ -426,7 +353,7 @@ You can configure AWS KMS by adding the relevant properties to the global proper
 Alfresco supports server-side encryption for content stored in AWS S3. There are several encryption types that you can 
 configure to use with S3 Connector. These include AWS Managed Encryption, and AWS Key Management Service (KMS) Encryption.
 
->**Note:** S3 doesn't work with the [Alfresco Content Encryption]({% link content-services/latest/admin/content-stores.md %}#encrypted-content-store) module. When using the S3 Connector we recommend using AWS KMS.
+>**Note:** S3 doesn't work with the [Alfresco Content Encryption]({% link content-services/6.1/admin/content-stores.md %}#encrypted-content-store) module. When using the S3 Connector we recommend using AWS KMS.
 
 **AWS Key Management Service (KMS) Encryption**
 
