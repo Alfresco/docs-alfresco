@@ -986,21 +986,212 @@ the stores.
 
 The S3 Connector provides a number of properties on installation and for customizing your configuration.
 
-|Property|Description|
+|New property|Defaults to old property|
 |------------|------------------------|
-|`dir.contentstore`|Directory name used within the S3 bucket for the contentstore and deleted contentstore. The default is `contentstore`.|
-|`dir.contentstore.deleted`|Directory name used within the S3 bucket for the deleted contentstore. The default is `contentstore.deleted`|
-|`s3.bucketName`|The bucket name must be unique among all AWS users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. If the bucket has an error, it will be reported in the `alfresco.log` file.|
-|`s3.bucketLocation`|The location where the new S3 bucket should be created if it doesn't exist. Supported values are US and EU. The default is EU.|
-|`s3.endpoint`|Can be used to add a custom endpoint, for example `s3.endpoint=s3.us-gov-west-1.amazonaws.com`.|
-|`s3.flatRoot`|Defines whether all content items should be stored in the same single directory in the bucket, otherwise the standard date-based hierarchy is used. The default is true.|
-|`s3.useTenantDomainInPath`|Defines whether the tenant name is used in the S3 path. The default is `false`.|
-|`s3.maxErrorRetries`|The maximum number of attempts to retry reads or writes to the S3 bucket in case of failed transfers. The default is 3. This configuration uses throttling retries. See Retry https://aws.amazon.com/blogs/developer/introducing-retry-throttling LINK Throttling for more details.|
-|`s3.maxMultipartUploadRetries`|The maximum number of upload retry attempts for failed requests. The default is 2.|
-|`s3.abortIncompleteMultipartUploadDays`|The minimum number of days that AWS S3 should keep the incomplete multipart upload parts before marking them for deletion. If the value is 0 then the abort is disabled. The default is 1.
-If the bucket (identified by the value of `s3.bucketName`) doesn't already exist, then we create the bucket and a global lifecycle rule to enforce the abort and deletion of incomplete uploads after the specified number of days. When an object reaches the end of its lifetime, Amazon S3 queues it for removal and removes it asynchronously. **Note:** There may be a delay between the expiration date and the date on which AWS S3 removes an object.|
-|`s3.encryption`| Encryption to be applied for content stored in AWS S3. Two options are supported for managing encryption keys: AES256 and KMS. The default value on installation is AES256.|
-|`s3.awsKmsKeyId`| Indicates the key alias or ARN to be used for KMS encryption. LINK LINK For more details see create a key using KMS key material origin or by importing key material in AWS Key Management Service.
-If no value is provided, the default master key attached to your account is used. See Protecting Data Using Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS).|
-|`s3.accessKey`| Required to identify the AWS account and can be obtained from the AWS Management Console. See AWS Credentials for access details. This property is not required if you plan to use IAM roles.|
-|`s3.secretKey`| Required to identify the AWS account and can be obtained from the AWS Management Console. See AWS Credentials for access details. This property is not required if you plan to use IAM roles. LINK LINK|
+|connector.s3.maxErrorRetries|${s3.maxErrorRetries}|
+|connector.s3.httpRequestTimeout|${s3.httpRequestTimeout}|
+|connector.s3.abortIncompleteMultipartUploadDays|${s3.abortIncompleteMultipartUploadDays}|
+|connector.s3.bucketName|${s3.bucketName}|
+|connector.s3.bucketRegion|${s3.bucketLocation}|
+|connector.s3.endpoint|${s3.endpoint}|
+|connector.s3.accessKey|${s3.accessKey}|
+|connector.s3.secretKey|${s3.secretKey}|
+|connector.s3.encryption|${s3.encryption}|
+|connector.s3.awsKmsKeyId|${s3.awsKmsKeyId}|
+
+>**Note:** The new configuration properties default to the equivalent older properties (i.e. properties without the "`connector.*`" prefix). This ensures that upgrades of the S3 Connector will not require configuration updates. **However, it is recommended that you use the newer properties.**
+
+Until now, the S3 Connector would override and use `dir.contentstore` and `dir.contentstore.deleted` properties defined in the `repository.properties` file in Alfresco Content Services (for `fileContentStore` and `deletedContentStore`).
+
+Starting from version 3.1, the S3 Connector provides out-of-the-box content store subsystems. The subsystem approach allows a more flexible use of the S3 content store, even in conjunction with existing content stores.
+
+>**Important:** In this case, we should not override the properties mentioned in the deprecated and superseded sections with S3 specific values. Instead, new properties have been introduced to be used only by the S3 Connector:
+
+* `dir.s3.contentstore` - defaults to `contentstore`
+
+* `dir.s3.contentstore.deleted` - defaults to `contentstore.deleted`
+
+* `dir.s3.contentstore`
+
+    Directory name used within the S3 bucket for the contentstore. The default is `contentstore`.
+
+* `dir.s3.contentstore.deleted`
+
+    Directory name used within the S3 bucket for the deleted contentstore. The default is `contentstore.deleted`.
+
+* `connector.s3.bucketName`
+
+    The bucket name must be unique among all AWS users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. If the bucket has an error, it will be reported in the `alfresco.log` file.
+
+* `connector.s3.bucketRegion`
+
+    The location where the new S3 bucket should be created if it doesn't exist.
+
+    For a list of available AWS Regions, see Regions and Endpoints in the AWS General Reference. The default region is US East (N. Virginia) - i.e. `us-east-1`.
+
+* `connector.s3.endpoint`
+
+    This is blank by default, but it can be used to add a custom endpoint, for example `connector.s3.endpoint=s3.us-gov-west-1.amazonaws.com`.
+
+* `connector.s3.maxErrorRetries`
+
+    The maximum number of attempts to retry reads or writes to the S3 bucket in case of failed transfers. The default is `3`.
+
+    This configuration uses throttling retries. See [Retry Throttling](https://aws.amazon.com/blogs/developer/introducing-retry-throttling/) for more details.
+
+* `connector.s3.abortIncompleteMultipartUploadDays`
+
+    The minimum number of days that AWS S3 should keep the incomplete multipart upload parts before marking them for deletion. If the value is `0` then the abort is disabled. The default is `1`.
+
+    If the bucket (identified by the value of `connector.s3.bucketName`) doesn't already exist, then we create the bucket and a global lifecycle rule to enforce the abort and deletion of incomplete uploads after the specified number of days. When an object reaches the end of its lifetime, Amazon S3 queues it for removal and removes it asynchronously.
+
+    >**Note:** There may be a delay between the expiration date and the date on which AWS S3 removes an object.
+
+* `connector.s3.encryption`
+
+    Encryption to be applied for content stored in AWS S3. Two options are supported for managing encryption keys: AES256 and KMS. The default value on installation is `AES256`.
+
+* `connector.s3.awsKmsKeyId`
+
+    Indicates the key alias or ARN to be used for KMS encryption.
+
+    For more details see [create a key using KMS key material origin](http://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) or by [importing key material in AWS Key Management Service](http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html).
+
+    If no value is provided, the default master key attached to your account is used. See [Protecting Data Using Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html).
+
+* `connector.s3.accessKey`
+
+    Required to identify the AWS account and can be obtained from the AWS Management Console. See [AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) for access details. This property is not required if you plan to use [IAM roles](#configiam).
+
+* `connector.s3.secretKey`
+
+    Required to identify the AWS account and can be obtained from the AWS Management Console. See [AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) for access details. This property is not required if you plan to use [IAM roles](#configiam).
+
+### Properties deprecated in S3 Connector 3.1
+
+The following properties are deprecated in S3 Connector 3.1, and should no longer be used as they'll be removed 
+in a future release.
+
+* `s3.useContentRootInPath`
+
+    The default is `false`. When set to `true`, Alfresco Content Services won't start, and you'll see an error:
+
+    ```text
+    The V1 storage protocol s3:// has been deprecated since version 2.0 of this connector 
+    and has been removed. This version no longer supports  s3.useContentRootInPath
+    parameter being set to true. If you need to partition the objects in your bucket, we 
+    recommend either using tags or the new connector.s3.objectNamePrefix option.
+    ```
+
+    Check [Replicating `s3.useContentRootInPath` behavior](#S3ContentStore) for details of how to replicate the old behavior of the `s3.useContentRootInPath` option through new configuration properties.
+
+* `s3.useTenantDomainInPath`
+
+    Defines whether the tenant name is used in the S3 path. The default is `false`. When set to either `true` or `false`, you'll see a warning specifying that multi-tenancy is no longer supported:
+
+    ```text
+    Multi-tenancy is no longer supported
+    ```
+
+    In spite of the warning, the behavior of the S3 Connector hasn't changed in relation to this property. However, only *content store* beans of type `org.alfresco.integrations.connector.TenantS3ContentStore` actually contain logic that can interpret this property. (In the S3 Connector default Spring configuration, there's currently only one such bean: `tenantS3ContentStore`).
+
+* `s3.autoLowerCaseBucketName`
+
+    The default is `false`. When set to either `true` or `false`, you'll see a warning:
+
+    ```text
+    The property s3.autoLowerCaseBucketName is no longer supported
+    ```
+
+    In spite of the warning, the S3 Connector behavior hasn't changed yet.
+
+* `s3.flatRoot`
+
+    Defines whether all content items should be stored in the same single directory in the bucket, otherwise the standard date-based hierarchy is used. The default is `true`. When set to `false`, you'll see a warning:
+
+    ```text
+    The property flatRoot is no longer supported, is highly discouraged, and will be 
+    removed with the next release.
+    ```
+
+    In spite of the warning, the configuration is still evaluated and followed (i.e. no behavior changes yet).
+
+## Properties behavior changes
+
+The newly added configuration options and code changes in S3 Connector 3.1 are backwards compatible with older 
+content created or uploaded by older versions of the S3 Connector. Regardless of the old `contentURL` and S3 object path, 
+the existing content should still be readable by the new S3 Connector.
+
+### S3ContentStore
+
+**Deprecated properties and old behavior**
+
+|s3.useContentRootInPath|dir.contentstore|Alfresco ContentURL (DB)|S3 path|
+|-----------------------|----------------|--------------------------|-------|
+|false|contentstore|s3v2://{uuid}.bin|{uuid}.bin|
+|true|contentstore|s3://{uuid}.bin|contentstore/{uuid}.bin|
+
+**New properties and behavior**
+
+|connector.s3.objectNamePrefix|connector.s3.objectNameSuffix|connector.s3.storeProtocol|Alfresco ContentURL (DB)|S3 path|
+|-----------------------------|-----------------------------|--------------------------|--------------------------|-------|
+|"" (i.e. blank)|"" (i.e. blank)|s3v2|s3v2://{uuid}.bin|{uuid}.bin|
+|"" (i.e. blank)|.bar|s3v2|s3v2://{uuid}.bin|{uuid}.bin.bar|
+|foo/|.bar|s3v2|s3v2://{uuid}.bin|foo/{uuid}.bin.bar|
+|foo/|.bar|s3blue|s3blue://{uuid}.bin|foo/{uuid}.bin.bar|
+
+**Replicating s3.useContentRootInPath behavior**
+
+The default configuration in the new S3 Connector has the `connector.s3.objectNamePrefix` as *blank*. This is compatible 
+with old deployments that had `s3.useContentRootInPath` as `false`, resulting in no contentroot/prefix directory in the S3 path.
+
+For compatibility with old deployments (where `s3.useContentRootInPath` was `true`), the `connector.s3.objectNamePrefix` 
+property should be configured with the `${dir.s3.contentstore}` value. This inherits the value from the `dir.s3.contentstore` 
+property, and ensures that:
+
+1.  Old content is still readable, as it currently is, without moving/renaming it in S3.
+2.  New content is created in the same old `dir.s3.contentstore` directory as before the S3 upgrade.
+
+### DeletedS3ContentStore
+
+**Deprecated properties and old behavior**
+
+|dir.contentstore.deleted|Alfresco ContentURL (DB|S3 path|
+|------------------------|------------------------|-------|
+|contentstore.deleted|s3://{uuid}.bin|contentstore.deleted/{uuid}.bin|
+
+**New properties and behavior**
+
+|connector.s3.deleted.objectNamePrefix|connector.s3.deleted.objectNameSuffix|connector.s3.storeProtocol|Alfresco ContentURL (DB)|S3 path|
+|-------------------------------------|-------------------------------------|--------------------------|--------------------------|-------|
+|"" (i.e. blank)|"" (i.e. blank)|s3v2|s3v2://{uuid}.bin|{uuid}.bin|
+|foo/|.bar|s3v2|s3v2://{uuid}.bin|foo/{uuid}.bin.bar|
+|foo/|.bar|s3red|s3red://{uuid}.bin|foo/{uuid}.bin.bar|
+|contentstore.deleted|.bar|s3v2|s3v2://{uuid}.bin|contentstore.deleted/{uuid}.bin.bar|
+
+To ensure backwards compatibility for the `DeletedS3ContentStore`, the default configuration sets the `connector.s3.deleted.objectNamePrefix` property value to inherit the `${dir.s3.contentstore.deleted}` property value. This matches the default Spring Configuration, which assumes that the content root should always be used in the S3 path for the `DeletedS3ContentStore`. It also ensures that content created by older S3 Connector versions is still compatible with the current implementation.
+
+### Other properties that affect the Content URLs
+
+Currently, the two other properties that can still affect the Alfresco Content URLs and the S3 paths are `s3.useTenantDomainInPath` and `s3.flatRoot`.
+
+Assuming:
+
+* `connector.s3.objectNamePrefix=foo/`
+* `connector.s3.objectNameSuffix=.bar`
+* `connector.s3.storeProtocol=s3v2`
+
+we have the following situations:
+
+|s3.useTenantDomainInPath|s3.flatRoot|Alfresco ContentURL (DB)|S3 path|
+|------------------------|-----------|--------------------------|-------|
+|false|true|s3v2://{uuid}.bin|foo/{uuid}.bin.bar|
+|true|true|s3v2://{tenant}/{uuid}.bin|foo/{tenant}/{uuid}.bin.bar|
+|false|false|s3v2://{year}/{month}/{day}/{hour}/{minute}/{uuid}.bin|foo/{year}/{month}/{day}/{hour}/{minute}/{uuid}.bin.bar|
+|true|false|s3v2://{tenant}/{year}/{month}/{day}/{hour}/{minute}/{uuid}.bin|foo/{tenant}/{year}/{month}/{day}/{hour}/{minute}/{uuid}.bin.bar|
+
+The `s3.flatRoot` property is currently evaluated by all types of S3 Content Stores (including the `DeletedS3ContentStore`).
+
+The `s3.useTenantDomainInPath` is only evaluated by instances/beans of type `TenantS3ContentStore` (`S3ContentStore` subclass). 
+The `S3ContentStore` configured in the default S3 Connector Spring configuration is of type `TenantS3ContentStore`, 
+and supports this property (although the property itself is configured as `false` by default).

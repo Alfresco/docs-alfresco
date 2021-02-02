@@ -38,13 +38,13 @@ In order to use the S3 Connector, you will need an AWS account so that you can c
 
 If you want to use the functionality introduced in S3 Connector 2.0, you can configure the following:
 
-* For IAM roles integration, see [Configuring AWS Identity and Access Management]({% link aws-s3/latest/config/index.md %}#configiam).
-* For KMS integration, see [Configuring AWS Key Management Service]({% link aws-s3/latest/config/index.md %}#configkeymgmt).
+* For IAM roles integration, see [Configuring AWS Identity and Access Management]({% link aws-s3/3.0/config/index.md %}#configiam).
+* For KMS integration, see [Configuring AWS Key Management Service]({% link aws-s3/3.0/config/index.md %}#configkeymgmt).
 
 If you want to use the functionality introduced in S3 Connector 2.1, you can configure the following:
 
-* For S3 Connector on-premises configuration, see [Configuring S3 Connector on-premises]({% link aws-s3/latest/config/index.md %}#onpremconfig).
-* For AWS Storage Classes configuration, see [Configuring AWS Storage Classes]({% link aws-s3/latest/config/index.md %}#configstorageclass).
+* For S3 Connector on-premises configuration, see [Configuring S3 Connector on-premises]({% link aws-s3/3.0/config/index.md %}#onpremconfig).
+* For AWS Storage Classes configuration, see [Configuring AWS Storage Classes]({% link aws-s3/3.0/config/index.md %}#configstorageclass).
 
 ## Installing
 
@@ -62,6 +62,6 @@ The S3 Connector is packaged as an Alfresco Module Package (AMP) file.
 
     For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
-4. Check that the [configuration]({% link aws-s3/latest/config/index.md %}) is set up correctly for your environment.
+4. Check that the [configuration]({% link aws-s3/3.0/config/index.md %}) is set up correctly for your environment.
 
 5. Start Alfresco Content Services.

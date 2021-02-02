@@ -19,15 +19,15 @@ s3.useTenantDomainInPath=false
 s3.autoLowerCaseBucketName=false
 ```
 
-If you need to override them for your environment, check the available settings in the configuration guides or [properties reference]({% link aws-s3/latest/config/index.md %}#properties-reference).
+If you need to override them for your environment, check the available settings in the configuration guides or [properties reference]({% link aws-s3/3.0/config/index.md %}#properties-reference).
 
 **Basic configuration properties**
 
 1.  Open the `<classpathRoot>/alfresco-global.properties` file.
 
-    If you plan to use IAM roles instead of AWS access and secret keys, ensure you have [configured AWS Identity and Access Management]({% link aws-s3/latest/config/index.md %}#configiam) correctly before continuing from step [4]({% link aws-s3/latest/config/index.md %}#bucketName).
+    If you plan to use IAM roles instead of AWS access and secret keys, ensure you have [configured AWS Identity and Access Management]({% link aws-s3/3.0/config/index.md %}#configiam) correctly before continuing from step [4]({% link aws-s3/3.0/config/index.md %}#bucketName).
 
-    If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises) and you'd like to transition to using AWS S3 as the only content store, ensure you include the property described in [Configuring S3 Connector on-premises]({% link aws-s3/latest/config/index.md %}#onpremconfig) before continuing.
+    If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises) and you'd like to transition to using AWS S3 as the only content store, ensure you include the property described in [Configuring S3 Connector on-premises]({% link aws-s3/3.0/config/index.md %}#onpremconfig) before continuing.
 
 2.  Add the `s3.accessKey` property, for example:
 
@@ -193,8 +193,8 @@ using the S3 Connector can interact with AWS S3.
 **Installation and configuration**
 
 You can install and configure Alfresco Content Services and the S3 Connector on-premises using the default configuration. 
-Follow the steps in [Installing the S3 Connector]({% link aws-s3/latest/install/index.md %}), and the basic 
-configuration steps in [Configuring the S3 Connector]({% link aws-s3/latest/config/index.md %}).
+Follow the steps in [Installing the S3 Connector]({% link aws-s3/3.0/install/index.md %}), and the basic 
+configuration steps in [Configuring the S3 Connector]({% link aws-s3/3.0/config/index.md %}).
 
 >**Note:** If you have existing content in a local content store, and you'd like to take advantage of the features provided by the S3 Connector, add the following property to `alfresco-global.properties`:
 
@@ -318,7 +318,7 @@ place for S3 access, a new policy must be created.
             "s3:GetLifecycleConfiguration"
             ```
 
-        3.  If lifecycle configuration on the bucket is not required, then see step (8) in [Configuring the S3 Connector]({% link aws-s3/latest/config/index.md %}).
+        3.  If lifecycle configuration on the bucket is not required, then see step (8) in [Configuring the S3 Connector]({% link aws-s3/3.0/config/index.md %}).
     
     Follow the steps from the AWS site to [Create a New Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) for additional guidance.
 
@@ -489,3 +489,26 @@ When a file reaches the end of its lifetime, S3 queues it for removal and remove
 There may be a delay between the expiration date and the date when S3 removes a file.
 
 See [AWS Multipart Upload Overview](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html) for more details.
+
+## Properties reference
+
+The S3 Connector provides a number of properties on installation and for customizing your configuration.
+
+|Property|Description|
+|------------|------------------------|
+|dir.contentstore| Directory name used within the S3 bucket for the contentstore and deleted contentstore. The default is `contentstore`.|
+|dir.contentstore.deleted| Directory name used within the S3 bucket for the deleted contentstore. The default is `contentstore.deleted`|
+|s3.bucketName|The bucket name must be unique among all AWS users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. If the bucket has an error, it will be reported in the `alfresco.log` file.|
+|s3.bucketLocation|The location where the new S3 bucket should be created if it doesn't exist. Supported values are US and EU. The default is EU.|
+|s3.endpoint|Can be used to add a custom endpoint, for example `s3.endpoint=s3.us-gov-west-1.amazonaws.com`.|
+|s3.flatRoot|Defines whether all content items should be stored in the same single directory in the bucket, otherwise the standard date-based hierarchy is used. The default is true.|
+|s3.useTenantDomainInPath|Defines whether the tenant name is used in the S3 path. The default is `false`.|
+|s3.maxErrorRetries|The maximum number of attempts to retry reads or writes to the S3 bucket in case of failed transfers. The default is 3. This configuration uses throttling retries. For more see [Introducing Retry Throttling](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transformer-base){:target="_blank"}.|
+|s3.maxMultipartUploadRetries|The maximum number of upload retry attempts for failed requests. The default is 2.|
+|s3.abortIncompleteMultipartUploadDays|The minimum number of days that AWS S3 should keep the incomplete multipart upload parts before marking them for deletion. If the value is 0 then the abort is disabled. The default is 1.
+If the bucket (identified by the value of `s3.bucketName`) doesn't already exist, then we create the bucket and a global lifecycle rule to enforce the abort and deletion of incomplete uploads after the specified number of days. When an object reaches the end of its lifetime, Amazon S3 queues it for removal and removes it asynchronously. **Note:** There may be a delay between the expiration date and the date on which AWS S3 removes an object.|
+|s3.encryption| Encryption to be applied for content stored in AWS S3. Two options are supported for managing encryption keys: AES256 and KMS. The default value on installation is AES256.|
+|s3.awsKmsKeyId| Indicates the key alias or ARN to be used for KMS encryption. For more see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html){:target="_blank"} or by [Importing key material in AWS Key Management Service (AWS KMS)](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html){:target="_blank"}.
+If no value is provided, the default master key attached to your account is used. For more see [Protecting data with server-side encryption using AWS KMS CMKs (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html){:target="_blank"}.|
+|s3.accessKey| Required to identify the AWS account and can be obtained from the AWS Management Console. See [Programmatic access](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys){:target="_blank"} for access details. This property is not required if you plan to use [Configuring AWS Identity and Access Management]({% link aws-s3/3.0/config/index.md %}#configiam).|
+|s3.secretKey | Required to identify the AWS account and can be obtained from the AWS Management Console. See [Programmatic access](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys){:target="_blank"} for access details. This property is not required if you plan to use [Configuring AWS Identity and Access Management]({% link aws-s3/3.0/config/index.md %}#configiam).|

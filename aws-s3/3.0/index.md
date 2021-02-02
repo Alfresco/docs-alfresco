@@ -20,7 +20,7 @@ The AWS SDK provides better support, stability, and extensibility for developers
 
 >**Important:** The S3 Connector 3.0 module can be applied to Alfresco Content Services 6.2 or later.
 
->**Important:** To leverage the full capabilities, it's recommended to run your Alfresco Content Services instance on Amazon's Elastic Compute Cloud (EC2), connected to Amazon's Simple Storage Service (S3). From S3 Connector 2.1 you can also use the S3 Connector with an Alfresco Content Services instance running on-premises, with [some limitations]({% link aws-s3/latest/config/index.md %}#onpremconfig). Other devices or services that advertise as being S3 compatible have not been tested and aren't supported.
+>**Important:** To leverage the full capabilities, it's recommended to run your Alfresco Content Services instance on Amazon's Elastic Compute Cloud (EC2), connected to Amazon's Simple Storage Service (S3). From S3 Connector 2.1 you can also use the S3 Connector with an Alfresco Content Services instance running on-premises, with [some limitations]({% link aws-s3/3.0/config/index.md %}#onpremconfig). Other devices or services that advertise as being S3 compatible have not been tested and aren't supported.
 
 The following diagram shows a simple representation of how Alfresco Content Services and the S3 Connector interact with AWS S3.
 
