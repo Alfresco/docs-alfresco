@@ -98,7 +98,7 @@ If you need to override them for your environment, check the available settings 
 
 ## Properties for backwards compatibility
 
-You may need to configure a number of optional properties for the S3 Connector 3.0 to ensure backwards compatibility with S3 Connector 1.x and behavior.
+You may need to configure a number of optional properties for the S3 Connector 2.x to ensure backwards compatibility with S3 Connector 1.x and behavior.
 
 * `dir.contentstore`
 
@@ -416,3 +416,24 @@ When a file reaches the end of its lifetime, S3 queues it for removal and remove
 There may be a delay between the expiration date and the date when S3 removes a file.
 
 See [AWS Multipart Upload Overview](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html) for more details.
+
+## Properties reference
+
+The S3 Connector provides a number of properties on installation and for customizing your configuration.
+
+|Property|Description|
+|------------|-------|
+|dir.contentstore| Directory name used within the S3 bucket for the contentstore and deleted contentstore. The default is `contentstore`.|
+|dir.contentstore.deleted| Directory name used within the S3 bucket for the deleted contentstore. The default is `contentstore.deleted`|
+|s3.bucketName|The bucket name must be unique among all AWS users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. If the bucket has an error, it will be reported in the `alfresco.log` file.|
+|s3.bucketLocation|The location where the new S3 bucket should be created if it doesn't exist. Supported values are US and EU. The default is EU.|
+|s3.endpoint|Can be used to add a custom endpoint, for example `s3.endpoint=s3.us-gov-west-1.amazonaws.com`.|
+|s3.flatRoot|Defines whether all content items should be stored in the same single directory in the bucket, otherwise the standard date-based hierarchy is used. The default is true.|
+|s3.useTenantDomainInPath|Defines whether the tenant name is used in the S3 path. The default is `false`.|
+|s3.maxErrorRetries|The maximum number of attempts to retry reads or writes to the S3 bucket in case of failed transfers. The default is 3. This configuration uses throttling retries. For more see [Introducing Retry Throttling](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transformer-base){:target="_blank"}.|
+|s3.maxMultipartUploadRetries|The maximum number of upload retry attempts for failed requests. The default is 2.|
+|s3.abortIncompleteMultipartUploadDays|The minimum number of days that AWS S3 should keep the incomplete multipart upload parts before marking them for deletion. If the value is 0 then the abort is disabled. The default is 1. If the bucket (identified by the value of `s3.bucketName`) doesn't already exist, then we create the bucket and a global lifecycle rule to enforce the abort and deletion of incomplete uploads after the specified number of days. When an object reaches the end of its lifetime, Amazon S3 queues it for removal and removes it asynchronously. **Note:** There may be a delay between the expiration date and the date on which AWS S3 removes an object.|
+|s3.encryption| Encryption to be applied for content stored in AWS S3. Two options are supported for managing encryption keys: AES256 and KMS. The default value on installation is AES256.|
+|s3.awsKmsKeyId| Indicates the key alias or ARN to be used for KMS encryption. For more see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html){:target="_blank"} or by [Importing key material in AWS Key Management Service (AWS KMS)](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html){:target="_blank"}.If no value is provided, the default master key attached to your account is used. For more see [Protecting data with server-side encryption using AWS KMS CMKs (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html){:target="_blank"}.|
+|s3.accessKey| Required to identify the AWS account and can be obtained from the AWS Management Console. See [Programmatic access](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys){:target="_blank"} for access details. This property is not required if you plan to use [Configuring AWS Identity and Access Management]({% link aws-s3/3.0/config/index.md %}#configiam).|
+|s3.secretKey | Required to identify the AWS account and can be obtained from the AWS Management Console. See [Programmatic access](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys){:target="_blank"} for access details. This property is not required if you plan to use [Configuring AWS Identity and Access Management]({% link aws-s3/3.0/config/index.md %}#configiam).|
