@@ -30,12 +30,12 @@ deployments only.
 
 6.  Delete any previously installed S3 Connector AMP.
 
-7.  Copy the AMP file you downloaded during [installation]({% link aws-s3/2.3/install/index.md %}#installing) to the `amps` directory.
+7.  Copy the AMP file you downloaded during [installation]({% link aws-s3/2.2/install/index.md %}#installing) to the `amps` directory.
 
 8.  Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
     For more information, see [Using the Module Management Tool (MMT)](#LINK content-services/6.1/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package](#LINK content-services/6.1/install/zip/amp.md).
 
-9.  Check that the [configuration]({% link aws-s3/2.3/config/index.md %}) is set up correctly for your environment.
+9.  Check that the [configuration]({% link aws-s3/2.2/config/index.md %}) is set up correctly for your environment.
 
 10. Start the server.

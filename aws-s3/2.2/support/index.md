@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Content Connector for AWS S3 version 2.3:
+The following are the supported platforms for the Content Connector for AWS S3 version 2.2:
 
 | Version | Notes |
 | ------- | ----- |

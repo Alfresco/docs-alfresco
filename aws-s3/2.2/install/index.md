@@ -20,7 +20,7 @@ for the S3 content store subsystem.
 
 ## Prerequisites
 
-There are a number of software requirements for installing Content Connector for AWS S3 version 2.3.
+There are a number of software requirements for installing Content Connector for AWS S3 version 2.2.
 
 **Alfresco requirements**
 
@@ -38,13 +38,13 @@ In order to use the S3 Connector, you will need an AWS account so that you can c
 
 If you want to use the functionality introduced in S3 Connector 2.0, you can configure the following:
 
-* For IAM roles integration, see [Configuring AWS Identity and Access Management]({% link aws-s3/2.3/config/index.md %}#configiam).
-* For KMS integration, see [Configuring AWS Key Management Service]({% link aws-s3/2.3/config/index.md %}#configkeymgmt).
+* For IAM roles integration, see [Configuring AWS Identity and Access Management]({% link aws-s3/2.2/config/index.md %}#configiam).
+* For KMS integration, see [Configuring AWS Key Management Service]({% link aws-s3/2.2/config/index.md %}#configkeymgmt).
 
 If you want to use the functionality introduced in S3 Connector 2.1, you can configure the following:
 
-* For S3 Connector on-premises configuration, see [Configuring S3 Connector on-premises]({% link aws-s3/2.3/config/index.md %}#onpremconfig).
-* For AWS Storage Classes configuration, see [Configuring AWS Storage Classes]({% link aws-s3/2.3/config/index.md %}#configstorageclass).
+* For S3 Connector on-premises configuration, see [Configuring S3 Connector on-premises]({% link aws-s3/2.2/config/index.md %}#onpremconfig).
+* For AWS Storage Classes configuration, see [Configuring AWS Storage Classes]({% link aws-s3/2.2/config/index.md %}#configstorageclass).
 
 ## Installing
 
@@ -56,12 +56,12 @@ The S3 Connector is packaged as an Alfresco Module Package (AMP) file.
 
 1. Go to the [Alfresco Support Portal](https://support.alfresco.com).
 
-2. Download the `alfresco-s3-connector-2.3.x.amp` file.
+2. Download the `alfresco-s3-connector-2.2.x.amp` file.
 
 3. se the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
     For more information, see [Using the Module Management Tool (MMT)](#LINK content-services/6.1/develop/extension-packaging.md #using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package](#LINK content-services/6.1/install/zip/amp.md).
 
-4. Check that the [configuration]({% link aws-s3/2.3/config/index.md %}) is set up correctly for your environment.
+4. Check that the [configuration]({% link aws-s3/2.2/config/index.md %}) is set up correctly for your environment.
 
 5. Start Alfresco Content Services.
