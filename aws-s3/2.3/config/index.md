@@ -71,7 +71,7 @@ If you need to override them for your environment, check the available settings 
 
 7.  Set where the cached content is stored, and how much cache size you need.
 
-    The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`. See [CachingContentStore properties]({% link content-services/6.1/admin/content-stores.md %}#caching-content-store-ccs) for more information on the caching content store.
+    The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`. See [CachingContentStore properties](#LINK content-services/6.1/admin/content-stores.md caching-content-store-ccs) for more information on the caching content store.
 
     >**Note:** The size of the local caching content store can be configured as necessary to limit its use to a maximum overall size or by files with a maximum file size. For example:
 
@@ -148,7 +148,7 @@ You may need to configure a number of optional properties for the S3 Connector 2
     s3.flatRoot=true
     ```
 
-    >**Note:** For a multi-tenant system you can also set `s3.useTenantDomainInPath=false`, however content from different tenants is co-mingled. For more details, see [Setting up multi-tenancy]({% link content-services/6.1/admin/multi-tenancy.md %}).
+    >**Note:** For a multi-tenant system you can also set `s3.useTenantDomainInPath=false`, however content from different tenants is co-mingled. For more details, see [Setting up multi-tenancy](#LINK content-services/6.1/admin/multi-tenancy.md ).
 
     You can apply S3 Connector 2.0 to an existing installation where S3 Connector 1.x was previously used without affect to the running of the system. This means that existing paths remain as they are, and new paths are generated based on your configuration.
 
@@ -196,7 +196,7 @@ configuration steps in [Configuring the S3 Connector]({% link aws-s3/2.3/config/
 dir.contentstore=${dir.root}/contentstore
 ```
 
-As an existing customer using the default [Encrypted content store]({% link content-services/6.1/admin/content-stores.md %}#encrypted-content-store) configuration, the environment uses:
+As an existing customer using the default [Encrypted content store](#LINK content-services/6.1/admin/content-stores.md }#encrypted-content-store) configuration, the environment uses:
 
 * AES256 encryption for new content
 * Content decryption on reads from the existing on-premises files
@@ -353,7 +353,7 @@ You can configure AWS KMS by adding the relevant properties to the global proper
 Alfresco supports server-side encryption for content stored in AWS S3. There are several encryption types that you can 
 configure to use with S3 Connector. These include AWS Managed Encryption, and AWS Key Management Service (KMS) Encryption.
 
->**Note:** S3 doesn't work with the [Alfresco Content Encryption]({% link content-services/6.1/admin/content-stores.md %}#encrypted-content-store) module. When using the S3 Connector we recommend using AWS KMS.
+>**Note:** S3 doesn't work with the [Alfresco Content Encryption](#LINK content-services/6.1/admin/content-stores.md #encrypted-content-store) module. When using the S3 Connector we recommend using AWS KMS.
 
 **AWS Key Management Service (KMS) Encryption**
 
@@ -435,5 +435,5 @@ The S3 Connector provides a number of properties on installation and for customi
 |s3.abortIncompleteMultipartUploadDays|The minimum number of days that AWS S3 should keep the incomplete multipart upload parts before marking them for deletion. If the value is 0 then the abort is disabled. The default is 1. If the bucket (identified by the value of `s3.bucketName`) doesn't already exist, then we create the bucket and a global lifecycle rule to enforce the abort and deletion of incomplete uploads after the specified number of days. When an object reaches the end of its lifetime, Amazon S3 queues it for removal and removes it asynchronously. **Note:** There may be a delay between the expiration date and the date on which AWS S3 removes an object.|
 |s3.encryption| Encryption to be applied for content stored in AWS S3. Two options are supported for managing encryption keys: AES256 and KMS. The default value on installation is AES256.|
 |s3.awsKmsKeyId| Indicates the key alias or ARN to be used for KMS encryption. For more see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html){:target="_blank"} or by [Importing key material in AWS Key Management Service (AWS KMS)](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html){:target="_blank"}.If no value is provided, the default master key attached to your account is used. For more see [Protecting data with server-side encryption using AWS KMS CMKs (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html){:target="_blank"}.|
-|s3.accessKey| Required to identify the AWS account and can be obtained from the AWS Management Console. See [Programmatic access](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys){:target="_blank"} for access details. This property is not required if you plan to use [Configuring AWS Identity and Access Management]({% link aws-s3/3.0/config/index.md %}#configiam).|
-|s3.secretKey | Required to identify the AWS account and can be obtained from the AWS Management Console. See [Programmatic access](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys){:target="_blank"} for access details. This property is not required if you plan to use [Configuring AWS Identity and Access Management]({% link aws-s3/3.0/config/index.md %}#configiam).|
+|s3.accessKey| Required to identify the AWS account and can be obtained from the AWS Management Console. See [Programmatic access](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys){:target="_blank"} for access details. This property is not required if you plan to use [Configuring AWS Identity and Access Management]({% link aws-s3/2.3/config/index.md %}#configiam).|
+|s3.secretKey | Required to identify the AWS account and can be obtained from the AWS Management Console. See [Programmatic access](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys){:target="_blank"} for access details. This property is not required if you plan to use [Configuring AWS Identity and Access Management]({% link aws-s3/2.3/config/index.md %}#configiam).|
