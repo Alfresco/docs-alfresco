@@ -33,7 +33,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
         shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar
         ```
 
-3. Copy the JDBC drivers for the database you are using to the lib directory.
+3. Copy the JDBC drivers for the database you are using to the `lib` directory.
 
 4. (Optional) If you plan to use Kerberos authentication.
 
@@ -183,7 +183,7 @@ You're now ready to [install any additional software]({% link content-services/l
 
 > **Note:** If you deployed previous versions of Content Services, you must remove any temporary files created by your application server. Use the `clean_tomcat.bat` or `clean_tomcat.sh` command.
 
-> **Note:** If you're include Alfresco Content Connector for AWS S3 as part of your installation, don't start Content Services before applying the S3 AMP file.
+> **Note:** If you're including Alfresco Content Connector for AWS S3 as part of your installation, don't start Content Services before applying the S3 AMP file.
 
 > **Important:** After installation, you must generate and install your own certificates to secure the installation. For more information, see [Generate secure keys]({% link search-services/latest/config/keys.md %}).
 

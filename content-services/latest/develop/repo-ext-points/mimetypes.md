@@ -14,7 +14,7 @@ However, if you have custom file types it is possible to add support for these b
 You will typically also need to provide custom [content transformations]({% link content-services/latest/develop/repo-ext-points/content-transformers-renditions.md %}) 
 and [metadata extraction]({% link content-services/latest/develop/repo-ext-points/metadata-extractors.md %}) to fully support the content type. To find 
 out what MIME types that are currently registered and active within an Content Services installation, you can 
-use an admin Web Script. This is available at [http://localhost:8080/alfresco/service/mimetypes](http://localhost:8080/alfresco/service/mimetypes). 
+use an admin Web Script. This is available at `http://localhost:8080/alfresco/service/mimetypes`.
 This will list all the currently registered MIME types, and provide a details link for each one. Selecting the details 
 link will then show metadata extractors, and which transformations are currently supported both to and from that MIME type, 
 and by what transformer.
@@ -52,7 +52,7 @@ for this. To do this create an XML file with the following content:
 </alfresco-config>
 ```
 
-Call the file` custom-mimetype-map.xml` and put it in `tomcat/shared/classes/alfresco/extension/mimetype`. If we access 
+Call the file `custom-mimetype-map.xml` and put it in `tomcat/shared/classes/alfresco/extension/mimetype`. If we access 
 the mimetype Web Script we should see the following for the newly registered MIME type:
 
 ```text
