@@ -40,14 +40,9 @@ Use this information to upgrade the Azure Connector from a previous version for 
 
 9. Check that the [configuration](../config/index.md) is set up correctly for your environment.
 
- > **Note:** When upgrading from Azure Connector version 1.0, make sure you define the Azure authentication mode and a supported value in your `alfresco-global.properties` file.
-
-> **Note:** To upgrade a system that's never used the file system (i.e. on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See <xref
-href="../concepts/azure-contentstore-subsystems.dita" format="dita"/> for more details.
+    > **Note:** When upgrading from Azure Connector version 1.0, make sure you define the Azure authentication mode and a supported value in your `alfresco-global.properties` file.
 
 10. Start the server.
-
-> **Note:** > **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see Azure Connector deleted content store.
 
 ## Known issues
 

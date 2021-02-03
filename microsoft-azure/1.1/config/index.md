@@ -134,8 +134,6 @@ For a complete list of all configuration properties, see the [Properties referen
 
     The Azure Connector supports multipart uploads where files larger than 20MB are split. The file upload is attempted and retried, in case there are issues, up to a specific limit.
 
-     > **Note:** > **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see Azure Connector deleted content store.
-
 7. Save the `alfresco-global.properties` file.
 
     You are now ready to start Alfresco Content Services.

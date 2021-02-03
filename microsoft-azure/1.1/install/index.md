@@ -6,15 +6,6 @@ Use this information to install the Azure Connector as an alternative content st
 
 Using an Alfresco Module Package (AMP), the connector allows an additional content store option for the file system underlying Alfresco Content Services.
 
-Starting from version 1.2, the Azure Connector module provides out of the box content store subsystems, which can easily be set up based on the most suitable configuration. The subsystem approach allows a more flexible use of the Azure content store, even in conjunction with existing content stores.
-
-You have two options for installing the Azure Connector:
-
-[Installing the Azure Connector](../tasks/azure-amp-install.md)
-[Installing the Azure Connector with AzMultipleStorageContainers subsystem](../tasks/azure-mc-amp-install.md)
-
-The steps for both options are very similar, but the second allows you to add `AzMultipleStorageContainers` as a third alternative for the Azure content store subsystem.
-
 ## Prerequisites for using Azure Connector
 
 There are a number of software requirements for installing Azure Connector.
@@ -48,7 +39,5 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
 4. Check that the [configuration](../config/index.md) is set up correctly for your environment.
-
-> **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see <xref href="../concepts/azure-contentstore-delete.dita".
 
 5. Start Alfresco Content Services.
