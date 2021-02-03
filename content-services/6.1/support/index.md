@@ -82,13 +82,14 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Identity Service 1.2 | Content Services 6.1.1 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.1 | Content Services 6.1.1 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.0 | Content Services 6.1.1 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| SAML Module for Alfresco Content Services 1.2.1 | |
+| SAML Module for Alfresco Content Services 1.1.1 | |
 | Alfresco Intelligence Services 1.0 | |
 | Alfresco Content Connector for AWS S3 2.3 | |
 | Alfresco Content Connector for AWS S3 2.2.1 | |
 | Alfresco Content Connector for AWS Glacier 1.0 | |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Outlook Integration 2.6 | |
@@ -180,13 +181,14 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Federation Services 1.0 | |
 | Identity Service 1.1 | Content Services 6.1.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.0 | Content Services 6.1.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| SAML Module for Alfresco Content Services 1.2.0 | |
+| SAML Module for Alfresco Content Services 1.1.1 | |
 | Alfresco Intelligence Services 1.0 | |
 | Alfresco Content Connector for AWS S3 2.3 | |
 | Alfresco Content Connector for AWS S3 2.2.1 | |
 | Alfresco Content Connector for AWS Glacier 1.0 | |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Outlook Integration 2.6 | |

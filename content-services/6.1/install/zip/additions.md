@@ -219,7 +219,7 @@ Here are some tips to familiarize yourself.
 > **Note:** We recommend that you create a test site for testing purpose and put all your test data in that site.
 
 * Can you login using your user name and password. See [Logging in]({% link content-services/6.1/using/share.md %}#signing-in).
-* Can you create a site. See [Creating a new site](% link content-services/6.1/using/sites/index.md %}#creating-a-site).
+* Can you create a site. See [Creating a new site]({% link content-services/6.1/using/sites/index.md %}#creating-a-site).
 * Can you add new users to the site. See [Adding users to a site]({% link content-services/6.1/using/sites/index.md %}#adding-users-to-a-site).
 * Can you add pages to the site. See [Adding pages to a site]({% link content-services/6.1/using/sites/index.md %}#customizesite).
 * Can you add content to a site library. See [Adding content items]({% link content-services/6.1/using/content/manage.md %}).
@@ -238,7 +238,7 @@ Here are some of the tips to help you test your customizations.
 > **Note:** We recommend that you create a test site for testing purposes, and put all your test data in that site.
 
 * Check that the application server is running.
-* Can you login using your user name and password. See [Signing in](% link content-services/6.1/using/share.md %}#signing-in).
+* Can you login using your user name and password. See [Signing in]({% link content-services/6.1/using/share.md %}#signing-in).
 * Check that various components are communicating with each other.
 * For a clustered installation, check if when one node is down, the request is forwarded to the next available node.
 * Check if clustering is working properly by running the [cluster validation tool]({% link content-services/6.1/admin/cluster.md %}#managecluster) in the Admin Console.

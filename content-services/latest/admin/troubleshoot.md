@@ -170,7 +170,7 @@ Before you start, you must:
 
 * Have a fully installed, configured, and running instance of Content Services. These steps assume you're using Tomcat on Windows, but the steps are similar for other application servers on other systems.
 * Have an IDE installed. These steps describe how to configure Eclipse, which must be installed first ([Eclipse](https://www.eclipse.org/downloads/){:target="_blank"})
-* [Download source code](https://github.com/Alfresco/alfresco-enterprise-repo){:target="_blank"}. This project has more instructions on how to set up a dev env.
+* Download source code from `https://github.com/Alfresco/alfresco-enterprise-repo`. This project has more instructions on how to set up a development environment.
 * Ensure the source code is the same version as the installed server.
 
 1. Verify that the server is not running.
