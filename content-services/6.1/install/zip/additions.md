@@ -8,7 +8,7 @@ You can install the third-party software used by Content Services independently.
 
 In Content Services, you can transform a document from one format to another, for example, a text file to a PDF file. To access these transformation facilities, you must install LibreOffice. This is optional, and can be done any time after Content Services is installed.
 
-1. Browse to the LibreOffice download site: [LibreOffice download site](https://www.libreoffice.org/download/download/){:target="_blank"}
+1. Browse to the [LibreOffice download site](https://www.libreoffice.org/download/download/){:target="_blank"}.
 
 2. Download the latest (stable) version of LibreOffice for your platform.
 
@@ -87,7 +87,7 @@ To enable image manipulation in Content Services, you must install and configure
 
 2. If the ImageMagick software isn't available on your system, download and install the appropriate package for your platform.
 
-    To download ImageMagick, browse to [ImageMagick download website](https://www.imagemagick.org/script/download.php){:target="_blank"}.
+    To download ImageMagick, browse to the [ImageMagick download website](https://www.imagemagick.org/script/download.php){:target="_blank"}.
 
     > **Note:** In next steps, you'll make changes to the Content Services configuration files to enable the manually installed ImageMagick application. These steps can only be performed after Content Services has been installed.
 
@@ -146,7 +146,8 @@ The `alfresco-pdf-renderer` binaries are available in the Content Services distr
 
 Translations in Content Services use language packs. The supported language packs are:
 
-* German (de)English (en)
+* English (en)
+* German (de)
 * Spanish (es)
 * French (fr)
 * Italian (it)
@@ -227,7 +228,7 @@ Here are some tips to familiarize yourself.
 * Can you update content. See [Updating content]({% link content-services/6.1/using/content/manage.md %}#uploading-files).
 * Can you manage permissions for a user or a group for accessing content. See [Managing content permissions]({% link content-services/6.1/using/permissions.md %}).
 * Can you add a new rule to a folder in the site library and check if it works. See [Adding a new rule]({% link content-services/6.1/using/content/rules.md %}#createrule).
-* Can you schedule events, such as meeting, for your team. See [Scheduling events]({% link content-services/6.1/using/sites/features.md %}#calednar).
+* Can you schedule events, such as meeting, for your team. See [Scheduling events]({% link content-services/6.1/using/sites/features.md %}#calendar).
 
 ### Post-installation checks (clustered environment)
 

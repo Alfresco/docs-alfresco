@@ -77,7 +77,7 @@ If you're installing manually, then you can use the `alfresco-global.properties.
     | img.coders= | Specifies the path to the image coders directory. Normally `${img.root}/modules/coders` |
     | img.config= | Specifies the path to the image config directory. Normally `${img.root}` on Windows and `${img.root}/config` on Linux. |
     | img.exe= | Specifies the path to the convert executable. Normally `${img.root}convert.exe` on Windows and /usr/bin/convert on Linux. |
-    | alfresco-pdf-renderer.exe | Specifies the path to the Alfresco PDF renderer executable. Normally this will be `C:\\Alfresco\\alfresco-pdf-rendereralfresco-pdf-renderer.exe` <!--CHECK-->on Windows and `/usr/bin/alfresco-pdf-renderer` on Linux. |
+    | alfresco-pdf-renderer.exe | Specifies the path to the Alfresco PDF renderer executable. Normally this will be `C:\\Alfresco\\alfresco-pdf-renderer` on Windows and `/usr/bin/alfresco-pdf-renderer` on Linux. |
 
 5. Configure your supported database for use. See [Configuring databases]({% link content-services/6.1/config/databases.md %}).
 

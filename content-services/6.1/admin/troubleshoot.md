@@ -323,9 +323,7 @@ Content Services uses two implementations of WebDAV:
 
 Microsoft WebDAV extensions (MS-DAVEXT) are only partially compatible with the WebDAV standard, therefore it is recommended that you use `/alfresco/aos` on Windows clients and `/alfresco/webdav` on Linux-based systems.
 
-(Windows)
-
-### Unable to mount WebDAV share
+### Unable to mount WebDAV share (Windows)
 
 * Check if Content Services has finished loading. Look for a *Server startup* message in the log file
 * Check if the connection works if you use the IP address instead of the host name

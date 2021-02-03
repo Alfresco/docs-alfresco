@@ -1131,7 +1131,7 @@ When you run Share, the look and feel is set by a default theme. Use this inform
 themes available in Share, and also how to create and use your own themes for corporate branding.
 
 Share themes consist of a directory containing a CSS and images files, and they can be located in the theme directory 
-(<`TOMCAT_HOME>/webapps/share/WEB-INF/classes/alfresco/site-data/themes`). The default theme is called default.xml.
+(`<TOMCAT_HOME>/webapps/share/WEB-INF/classes/alfresco/site-data/themes`). The default theme is called `default.xml`.
 
 The following themes are available:
 
