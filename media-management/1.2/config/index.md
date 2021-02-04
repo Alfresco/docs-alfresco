@@ -117,7 +117,7 @@ You can configure Media Management using the alfresco-global.properties file or 
 
    > **Note:** You can use a wildcard (*) in the settings. However, more specific mimetype or extension configurations take precedence over wildcard configurations, regardless of the order specified.
 
-3. Use the log4j.properties.sample file to add loggers to your `tomcat/webapps/alfresco/WEB-INF/classes/alfresco/module/org\_alfresco\_mm\_repo/log4j.properties` file.
+3. Use the `log4j.properties.sample` file to add loggers to your `tomcat/webapps/alfresco/WEB-INF/classes/alfresco/module/org_alfresco_mm_repo/log4j.properties` file.
 
     A `log4j.properties.sample` file is provided in the Media Management installation zip.
 
