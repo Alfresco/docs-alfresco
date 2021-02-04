@@ -232,7 +232,7 @@ content.transformer.RemoteImage.mimetypes.image/*.image/*.supported=false
 
 ```
 
-> **Note:** Video transformation (transcoding) is very resource intensive and can take a long time to complete. Make sure that any rules that you configure using video transcoding run in the background, to prevent the rule from failing due to a Share timeout. For more information about creating rules, see [Creating a rule](LINK).
+> **Note:** Video transformation (transcoding) is very resource intensive and can take a long time to complete. Make sure that any rules that you configure using video transcoding run in the background, to prevent the rule from failing due to a Share timeout. For more information about creating rules, see [Creating a rule](#LINK content-services/6.0/using/content/rules.md #createrule).
 
 ## Configuring the Elastic Transcoder content transformer
 
