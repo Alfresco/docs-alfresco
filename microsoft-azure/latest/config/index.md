@@ -218,8 +218,6 @@ Starting with 1.2, the Azure Connector has the deleted content store disabled by
 
 See [Azure Connector deleted content store](azure-contentstore-delete.md) for more details.
 
-**Parent topic:**[Installing and configuring the Azure Connector](../concepts/azure-install-intro.md)
-
 ## **Configuring** multiple storage containers using Azure Connector
 
 Starting from version 1.2, the Azure Connector contains an Azure content store sample. If enabled, this adds `AzMultipleStorageContainers` as a third alternative for the Azure content store subsystems.
@@ -230,38 +228,33 @@ Review the prerequisites in [Azure Connector content store subsystems](azure-con
 
 The Azure multiple storage containers sample is a new store subsystem that is based on the `storeSelectorContentStore`. The Store selector has two stores \(instances of the Azure content store\):
 
--   `store1.azureBlobContentStore` as the default
--   `store2.azureBlobContentStore` as the second one
+* `store1.azureBlobContentStore` as the default
+* `store2.azureBlobContentStore` as the second one
 
 The sample files can be found in `alfresco-azure-connector-1.2.x.amp`.
 
--   `azure-multiple-storage-containers-context.xml.sample` in `config/alfresco/extension`
--   `azure-mc-contentstore-context.xml.sample` and `azure-mc-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers`
+* `azure-multiple-storage-containers-context.xml.sample` in `config/alfresco/extension`
+* `azure-mc-contentstore-context.xml.sample` and `azure-mc-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers`
 
 **azure-multiple-storage-containers-context.xml.sample**
 
 This provides a new Spring child Application Context based on the `*.xml` files and `*.properties` files found in `alfresco/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers`.
 
-
-
 **azure-mc-contentstore-context.xml.sample**
 
 The subsystem configuration file is split in sections to make it easier to extend:
 
--   Deleted content store
--   Stores
--   Store selector
--   Caching content store
+* Deleted content store
+* Stores
+* Store selector
+* Caching content store
 
+**Deleted content store**
 
-
--   **Deleted content store**
-
-    ```
+    ```bash
     <bean id="azureDeletedServiceAdapter" class="org.alfresco.integrations.connector.AzureBlobServiceAdapter" parent="store1.abstractAzureServiceAdapter" init-method="init">
             <property name="containerName" value="${connector.az.deleted.containerName}" />
     </bean>
-    
     <bean id="deletedContentStore" class="org.alfresco.integrations.connector.AzureBlobContentStore" depends-on="azureDeletedServiceAdapter">
         <property name="serviceAdapter" ref="azureDeletedServiceAdapter" />
         <property name="objNamePrefix" value="${connector.az.deleted.objectNamePrefix}" />
@@ -269,13 +262,11 @@ The subsystem configuration file is split in sections to make it easier to exten
     </bean>
     ```
 
-    **Note:** All deleted files will go to the `connector.az.deleted.containerName` container of the first store if you enable the deleted content store.
+    > **Note:** All deleted files will go to the `connector.az.deleted.containerName` container of the first store if you enable the deleted content store.
 
--   **Stores**
+**Stores**
 
-    ```
-    <!-- [Start] Store 1 -->
-    
+    ```bash    
     <bean id="store1.authConfig" class="org.alfresco.integrations.connector.authentication.AuthConfig" >
         <property name="accountName" value="${connector.az.account.name}" />
         <property name="accountKey" value="${connector.az.account.key}" />
@@ -329,11 +320,9 @@ The subsystem configuration file is split in sections to make it easier to exten
     <!-- [End] Store 1 -->
     ```
 
+**Store selector**
 
-
--   **Store selector**
-
-    ```
+    ```bash
     <!-- [Start] Store Selector -->
     
     <!-- Override the selector to add in the Azure Connector stores -->
@@ -366,13 +355,11 @@ The subsystem configuration file is split in sections to make it easier to exten
     <!-- [End] Store Selector -->
     ```
 
+**Caching content store**
 
+The caching content store is defined over the content store selector so that we have one cache for all stores and makes the sample easier to extend when adding more stores.
 
--   **Caching content store**
-
-    The caching content store is defined over the content store selector so that we have one cache for all stores and makes the sample easier to extend when adding more stores.
-
-    ```
+    ```bash
     <bean id="cachingContentStore"
           class="org.alfresco.repo.content.caching.CachingContentStore"
           init-method="init">
@@ -391,7 +378,6 @@ The subsystem configuration file is split in sections to make it easier to exten
     </bean>
     ```
 
-
 **azure-mc-contentstore.properties.sample**
 
 This provides the subsystem properties where the `AzMultipleStorageContainers` subsystem declares default values for all the properties it requires.
@@ -406,24 +392,9 @@ Starting with version 1.2, Azure Connector has the deleted content store disable
 
 However, you can enable the Alfresco Content Services deleted content store, if required, by uncommenting this part from the `deletedContentStore` bean in the `azure-multiple-storage-containers-context.xml.sample` file.
 
-See [Azure Connector deleted content store](azure-contentstore-delete.md) for more details.
-
-
-
--   **[Installing the Azure Connector with AzMultipleStorageContainers subsystem](../tasks/azure-mc-amp-install.md)**  
-These steps describe how to install the Azure Connector to an instance of Alfresco Content Services, and how to enable the `AzMultipleStorageContainers` subsystem sample.
--   **[Adding new Azure store to AzMultipleStorageContainers subsystem](../tasks/azure-mc-add-store.md)**  
-These steps describe how to add a new Azure store starting from the AzMultipleStorageContainers subsystem sample, and how to move content between content stores.
-
-**Parent topic:**[Installing and configuring the Azure Connector](../concepts/azure-install-intro.md)
-
-
-
 ## Adding new Azure store to AzMultipleStorageContainers subsystem
 
 These steps describe how to add a new Azure store starting from the AzMultipleStorageContainers subsystem sample, and how to move content between content stores.
-
-
 
 1.  Locate the file `azure-mc-contentstore-context.xml` in folder:
 
@@ -485,25 +456,25 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
     </bean>
     ```
 
-3.  Add the new store to the Store Selector Content Store.
+3. Add the new store to the Store Selector Content Store.
 
     For example:
 
-    ```
-    <entry key="azContentStore3">
-        <ref bean="store3.azureBlobContentStore"/>
-    </entry>
-    ```
+ ```
+ <entry key="azContentStore3">
+ <ref bean="store3.azureBlobContentStore"/>
+ </entry>
+ ```
 
-4.  Locate the file `azure-mc-contentstore.properties` in folder:
+4. Locate the file `azure-mc-contentstore.properties` in folder:
 
     ```
     $CATALINA_HOME/shared/classes/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers
     ```
 
-5.  Duplicate the **Store 2** section, and replace `.store2` with `.store3`:
+5. Duplicate the **Store 2** section, and replace `.store2` with `.store3`:
 
-    ```
+    ```text
     connector.az.store2.authentication.mode=${connector.az.authentication.mode}
     connector.az.store2.account.name=${connector.az.account.name}
     connector.az.store2.account.key=${connector.az.account.key}
@@ -512,30 +483,23 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
     connector.az.store2.application.clientSecret=${connector.az.application.clientSecret}
     connector.az.store2.application.tenantId=${connector.az.application.tenantId}
     connector.az.store2.keyVault.name=${connector.az.keyVault.name}
-    connector.az.store2.keyVault.secret.name=${connector.az.keyVault.secret.name}
-    
-    connector.az.store2.containerName=
-    
+    connector.az.store2.keyVault.secret.name=${connector.az.keyVault.secret.name}    
+    connector.az.store2.containerName=    
     connector.az.store2.objectNamePrefix=
-    connector.az.store2.objectNameSuffix=
-    
+    connector.az.store2.objectNameSuffix=    
     connector.az.store2.storeProtocol=azb
     ```
 
-    **Move content between content stores**
+ **Move content between content stores**
 
     If you've configured two content stores \(as in the provided sample\), you can use the `storeSelectorContentStore` to move content between them.
 
-6.  Add the `cm:storeSelector` aspect to the document.
+6. Add the `cm:storeSelector` aspect to the document.
 
     This aspect adds a new property to the document - `cm:storeName`.
 
-7.  Set the property value to match the second content store name \(i.e. `azContentStore2`, as shown in the provided sample\).
+7. Set the property value to match the second content store name (i.e. `azContentStore2`, as shown in the provided sample).
 
     Once the property is set, all the content store properties are added for the node. For example, the content is copied to the second container if you've configured a different name for the second content store.
 
     See the Alfresco Content Services documentation, [Content store selector](https://docs.alfresco.com/6.2/concepts/store-manage-content.html), for more details on how the content store selector works.
-
-
-**Parent topic:**[Configuring multiple storage containers using Azure Connector](../concepts/azure-multiple-storage.md)
-

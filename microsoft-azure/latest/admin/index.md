@@ -2,53 +2,6 @@
 title: Administer the Azure Connector
 ---
 
-## Upgrade
-
-Use this information to upgrade the Azure Connector from a previous version for Tomcat-based deployments only.
-
-1. Stop the Alfresco Content Services server.
-
-2. Navigate to the root directory of your installation.
-
-3. Use the following command to check for the module you wish to delete:
-
-    ```bash
-    java -jar bin/alfresco-mmt.jar list tomcat/webapps/alfresco.war
-    ```
-
-    This displays a list of the installed modules. Make a note of the module ID of the module you wish to uninstall, for example, `org_alfresco_integrations_AzureConnector`.
-
-4. Use the Module Management Tool (MMT) to uninstall the AMP from the repository WAR (`alfresco.war`). For example:
-
-    ```bash
-    java -jar bin/alfresco-mmt.jar uninstall  org_alfresco_integrations_AzureConnector tomcat/webapps/alfresco.war
-    ```
-
-    For more information, see [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html){:target="_blank"}(#LINK) and [Uninstalling an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/uninstall-amp.html){:target="_blank"}(#LINK).
-
-5. Navigate to the `amps` directory.
-
-6. Delete any previously installed Azure Connector AMP.
-
-7. Copy the AMP file you downloaded during [installation](../install/index.md) to the `amps` directory.
-
-8. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
-
-    For more information, see [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html){:target="_blank"}(#LINK) and [Uninstalling an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/uninstall-amp.html){:target="_blank"}(#LINK).
-
-    > **Note:** You must install the Azure Connector AMP using `-force`.
-
-9. Check that the [configuration](../config/index.md) is set up correctly for your environment.
-
- > **Note:** When upgrading from Azure Connector version 1.0, make sure you define the Azure authentication mode and a supported value in your `alfresco-global.properties` file.
-
-> **Note:** To upgrade a system that's never used the file system (i.e. on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See <xref
-href="../concepts/azure-contentstore-subsystems.dita" format="dita"/> for more details.
-
-10. Start the server.
-
-> **Note:** > **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see Azure Connector deleted content store.
-
 ## Known issues
 
 Use this information to identity known issues and limitations while using Azure Connector.
