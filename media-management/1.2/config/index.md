@@ -121,7 +121,7 @@ You can configure Media Management using the alfresco-global.properties file or 
 
     A `log4j.properties.sample` file is provided in the Media Management installation zip.
 
-    See [Runtime administration with a JMX client](LINK) for instructions on how to connect a JMX client to your Alfresco server.
+    See [Runtime administration with a JMX client](#LINK content-services/6.0/config/index.md #using-jmx-client-to-change-settings-dynamically) for instructions on how to connect a JMX client to your Alfresco server.
 
 ## Configuring a shared file content workspace
 
