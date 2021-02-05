@@ -312,6 +312,14 @@ Invoking the JMX Dumper can result in a stack trace in the log file. When you op
 
 To prevent this logging message for appearing, you can configure the data source in the `$CATALINA_BASE/conf/[enginename]/[hostname]/alfresco.xml` file.
 
+## Troubleshoot CIFS
+
+Use this information for diagnosing and resolving any issues when configuring CIFS.
+
+### Password Error
+
+Sometimes, when connecting to an instance of Alfresco Share, the login dialog appears several times until finally taking effect. This problem can be caused by the Share connecting to the Windows file server that is running on native SMB/port 445 rather than trying to connect by using NetBIOS.
+
 ## Troubleshoot WebDAV
 
 Diagnose and resolve issues that might arise when configuring WebDAV.
@@ -343,10 +351,6 @@ Microsoft WebDAV extensions (MS-DAVEXT) are only partially compatible with the W
     > **Note:** Refer to Microsoft for details on setting the Basic Authentication Level key in the Registry Editor.
 
 * If you can connect to the server but can't authenticate your login details, check if you can use the same user name and password to log in to Alfresco Share.
-
-### Move file or folder using WebDAV on an Ubuntu client causes loss of metadata and creates a new node reference
-
-There is a known issue where Ubuntu creates a new `nodeRef` when you move a file or a folder in WebDAV, because it uses PUT and DELETE methods instead of a MOVE method. As a result, the `nodeRef` for the file or folder changes and any associated metadata is lost. This issue applies to all versions of Ubuntu, but does not occur when using a Windows client.
 
 ### Editor role can't edit content using WebDAV and Cyberduck version 4.4+
 

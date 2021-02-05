@@ -8,9 +8,9 @@ The following sections help you to understand what containerized deployment is, 
 
 Content Services deployment introduces a number of concepts.
 
-The way you deploy and run Content Services has changed significantly since version 6.0. Traditionally, you'd download an installer that installed Java, Tomcat, Database, WARs, tools, etc. and everything was configured to work together out-of-the-box. Then you'd use a script to start things off. That's no longer the case and there are no installers available. We'll be working with Docker containers instead.
+The way you deploy and run Content Services has changed significantly in version 6.0. Traditionally, you'd download an installer that installed Java, Tomcat, Database, WARs, tools, etc. and everything was configured to work together out-of-the-box. Then you'd use a script to start things off. That's no longer the case and there are no installers available. We'll be working with Docker containers instead.
 
-You can start Content Services from a number of Docker images. These images are available in the [Docker Hub](https://hub.docker.com){:target="_blank"} and [Quay](https://quay.io/){:target="_blank"} repositories. However, starting individual Docker containers based on these images, and configuring them to work together might not be the most productive way to get up and running. To make things easier, and achieve a single-step deploy and run solution, a Docker Compose file is available to quickly start Content Services when you need to test something or work on a proof-of-concept (PoC).
+You can start Content Services from a number of Docker images. These images are available in the [Docker Hub](https://hub.docker.com){:target="_blank"} repository. However, starting individual Docker containers based on these images, and configuring them to work together might not be the most productive way to get up and running. To make things easier, and achieve a single-step deploy and run solution, a Docker Compose file is available to quickly start Content Services when you need to test something or work on a proof-of-concept (PoC).
 
 There are also **Helm charts** available to deploy Content Services in a Kubernetes cluster, for example, on Amazon Web Services (AWS). These charts are a deployment template which can be used as the basis for your specific deployment needs. The Helm charts are undergoing continual development and improvement and should not be used "as-is" for a production deployment, but should help you save time and effort deploying Content Services for your organization.
 
@@ -63,14 +63,12 @@ The following Docker images relate to Content Services:
 * `alfresco/alfresco-share` - the Share web interface (i.e. `share.war`) running on Apache Tomcat
 * `alfresco/alfresco-search-services` - the Solr 6 based search service running on Jetty
 * `alfresco/alfresco-content-repository` - the repository app (i.e. `alfresco.war`) running on Apache Tomcat
-* `alfresco/alfresco-activemq` - the Alfresco ActiveMQ image
 
 There are also other supporting features available, such as Docker images for image and document transformation:
 
 * `alfresco/alfresco-imagemagick`
 * `alfresco/alfresco-libreoffice`
 * `alfresco/alfresco-pdf-renderer`
-* `alfresco/alfresco-tika`
 
 To build the `alfresco/alfresco-content-repository` image, Alfresco uses the [Alfresco/acs-packaging](https://github.com/Alfresco/acs-packaging){:target="_blank"} GitHub project. This project doesn't include any deployment templates. The [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} GitHub project contains deployment templates and instructions. It includes a Docker Compose script that's used to launch a demo, test, or PoC of Content Services. You can customize this script, if you like, in order to run with different versions than those set by default (which are usually the latest versions).
 

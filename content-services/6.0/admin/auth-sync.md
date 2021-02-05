@@ -15,13 +15,14 @@ Content Services offers multiple implementations of the authentication subsystem
 An authentication subsystem provides the following functions:
 
 * Password-based authentication for web browsing, Microsoft SharePoint protocol, FTP, and WebDAV
+* CIFS file system authentication
 * Web browser, Microsoft SharePoint protocol, and WebDAV Single Sign-On (SSO)
 * User registry export (the automatic population of the user and authority database)
 
 The main benefits of the authentication subsystem are:
 
 * Subsystems for all supported authentication types are pre-wired and there is no need to edit template configuration.
-* There is no danger of compatibility issues between sub-components, as these have all been pre-selected.
+* There is no danger of compatibility issues between sub-components, as these have all been pre-selected. For example, your CIFS authenticator and authentication filter are guaranteed to be compatible with your authentication component.
 * Common parameters are shared and specified in a single place. There is no need to specify the same parameters to different components in multiple configuration files.
 * There is no need to edit the `web.xml` file. The `web.xml` file uses generic filters that call into the authentication subsystem. The `alfresco.war` file is a portable unit of deployment.
 * You can swap from one type of authentication to another by activating a different authentication subsystem.
@@ -36,15 +37,16 @@ A number of alternative authentication subsystem types exist for the most common
 
 The following table shows the authentication subsystem types supplied and the optional features they support.
 
-| Type | Description | Single Sign-On (SSO) support | User registry entry |
-| ---- | ----------- | ---------------------------- | ------------------- |
-| alfrescoNtlm | Native Content Services authentication | No | No |
-| ldap | Authentication and user registry export through the LDAP protocol (for example, OpenLDAP) | No | Yes |
-| ldap-ad | Authentication and user registry export from Active Directory through the LDAP protocol | No | Yes |
-| kerberos | Authentication through a Kerberos realm | Yes, SPNEGO | No |
-| external | Authentication using an external SSO mechanism | Yes | No |
-| identity-service | Authentication using the Identity Service | Yes | No |
-| SAML | Authentication through the SAML open standard | Yes | No |
+| Type | Description | Single Sign-On (SSO) | CIFS | User registry entry |
+| ---- | ----------- | -------------------- | ---- | ------------------- |
+| alfrescoNtlm | Native Content Services authentication | No | Yes | No |
+| ldap | Authentication and user registry export through the LDAP protocol (for example, OpenLDAP) | No | No | Yes |
+| ldap-ad | Authentication and user registry export from Active Directory through the LDAP protocol | No | No | Yes |
+| kerberos | Authentication through a Kerberos realm | Yes, SPNEGO | Yes | No |
+| external | Authentication using an external SSO mechanism | Yes | No | No |
+| SAML | Authentication through the SAML open standard | Yes | No | No |
+
+> **Important:** If you configure a single authentication subsystem of a type that does not support CIFS authentication (for example, LDAP), then the CIFS server will be automatically disabled. If you want CIFS and LDAP, then you must set up an authentication chain.
 
 > **Important:** Support for Microsoft Office depends on the authentication mechanism provided by the `external` subsystem. See [External authentication and SSO](#extauthsso) for more information.
 
@@ -86,7 +88,10 @@ There are a number of main components in an authentication subsystem.
 
 * **file server authenticators**
 
-    Provide authentication functions for the FTP protocol.
+    Provide authentication functions for the following:
+
+        * CIFS protocol (optional)
+        * FTP protocol
 
 ## Authentication chain
 
@@ -98,6 +103,7 @@ An authentication subsystem provides the following functionality:
 
 * Password-based authentication for web browsing, SharePoint, FTP, and WebDAV
 * Web browser and SharePoint Single Sign on (SSO)
+* CIFS file system authentication
 * User register export (the automatic population of the user and authority database)
 
 Several alternative authentication subsystems exist for the most commonly used authentication protocols. These subsystems enable you to tie Content Services to some of the most widely used authentication infrastructures. If you include more than one of these subsystems in the chain, you can create complex authentication scenarios.
@@ -112,8 +118,6 @@ For example, when a user login, Content Services tries to match the user's crede
 * If no chain member accepts, the log in fails
 
 User registry export is also chained. During a synchronize operation, users and groups are exported from each member of the chain supporting user registry export (that is, those of type LDAP) and imported into Content Services. Ordering in the chain is used to resolve conflicts between users and groups existing in the same directory.
-
-> **Note:** If you need to federate against multiple authentication subsystems, it is recommended to use the Identity Service rather than defining multiple subsystems on the authentication chain.
 
 ### Default authentication chain {#defaultauthchain}
 
@@ -344,7 +348,7 @@ The external subsystem supports a number of properties.
 |external.authentication.defaultAdministratorUserNames|A comma separated list of user names who should be considered administrators by default. |
 |external.authentication.proxyUserName|The name of the remote user that should be considered the proxy user. Requests made by this user will be made under the identity of the user named in the HTTP Header indicated by the `external.authentication.proxyHeader` property. If not set, then the HTTP Header indicated by the `external.authentication.proxyHeader` property is always assumed to carry the user name.<br><br>**Note:** The default setting for `external.authentication.proxyUserName` is `alfresco-system`, but this should only be specified if you're using SSL. See [External authentication and SSO](#extauthsso) for more information. |
 |external.authentication.proxyHeader|The name of the HTTP header that carries the name of a proxied user. The default is `X-Alfresco-Remote-User`, as used by Share. |
-|external.authentication.userIdPattern|An optional regular expression to be used to extract a user ID from the HTTP header. The portion of the header matched by the first bracketed group in the regular expression will become the user name. If not set (the default), then the entire header contents are assumed to be the proxied user name.<br><br>For example, use the following setting:<br><br>```external.authentication.userIdPattern=^(.+)@.+$```<br><br>This regular expression will extract everything before the @ sign. For example: `john.doe@alfresco.com => john.doe` or `john@alfresco.com => john`. |
+|external.authentication.userIdPattern|An optional regular expression to be used to extract a user ID from the HTTP header. The portion of the header matched by the first bracketed group in the regular expression will become the user name. If not set (the default), then the entire header contents are assumed to be the proxied user name. |
 
 #### Configure Alfresco Share to use an external SSO
 
@@ -546,6 +550,7 @@ The `alfrescoNtlm` subsystem supports the following properties:
 
 | Property | Description |
 | -------- | ----------- |
+| alfresco.authentication.authenticateCIFS | A Boolean that when true enables internal authentication for the CIFS server. When false and no other members of the authentication chain support CIFS authentication, the CIFS server will be disabled. |
 | alfresco.authentication.allowGuestLogin | Specifies whether to allow guest access. |
 
 > **Note:** If you add extra administrator users in the `authority-services-context.xml` file and are using `alfrescoNtlm`, the extra users (other than the admin user) will no longer have administrator rights until you add them to the `ALFRESCO_ADMINISTRATORS` group.
@@ -724,11 +729,11 @@ There are two choices in this scenario: replace or add to the authentication cha
 
     You could remove `alfinst` from the previous example and instead add an instance of `ldap-ad`. This would hand over all authentication responsibility to Active Directory and would mean that the built-in accounts, such as admin and guest, could not be used.
 
-    In this scenario, it would be important to configure at least one user who exists in Active Directory as an administrator and enable the guest account in Active Directory, if guest access were required.
+    In this scenario, it would be important to configure at least one user who exists in Active Directory as an administrator and enable the guest account in Active Directory, if guest access were required. Furthermore, because ldap-ad cannot support CIFS authentication (as it requires an MD5 password hash exchange), it would rule out use of the CIFS server for all users and the CIFS server would be disabled.
 
 * Add to the authentication chain
 
-    You could instead supplement the existing capabilities of `alfinst` by inserting an `ldap-ad` instance before or after `alfinst` in the chain. This means that you could use the built-in accounts alongside those accounts in the directory server.
+    You could instead supplement the existing capabilities of `alfinst` by inserting an `ldap-ad` instance before or after `alfinst` in the chain. This means that you could use the built-in accounts alongside those accounts in the directory server. Furthermore, the built-in accounts could access Alfresco Content Services through the CIFS server, since alfrescoNtlm is able to drive CIFS authentication.
 
     In this scenario, where you chose to position your ldap-ad instance in the chain determines how overlaps or collisions between user accounts are resolved. If an admin account existed in both Content Services and Active Directory, then admin would be Content Services if `alfinst` came first, or Active Directory if the ldap-ad instance came first.
 
@@ -769,7 +774,7 @@ This example uses an Active Directory server and configures an instance of the `
 
 ##### Apply ldap-ad example
 
-This example demonstrates how you can further delegate authentication responsibility to Active Directory, without the automatic sign-on capabilities that are available to internal users.
+This example demonstrates how you can further delegate authentication responsibility to Active Directory, without the automatic sign-on and CIFS browsing capabilities that are available to internal users.
 
 1. Restart the server.
 
@@ -936,13 +941,53 @@ These instructions also apply to simple non-clustered installations, where a sin
 These instructions use the following naming conventions for the example server, `server1.alfresco.org`:
 
 * `<host>` is the server host name (without domain name suffix). For example, `server1`.
+* `<hostnetbios>` is the resolved value of the `cifs.serverName` property if the server is part of the Active Directory domain (typically the host name with the letter 'A' appended) or the host name otherwise (without domain name suffix). For example, `server1A`.
 * `<domain>` is the DNS domain. For example, `alfresco.org`.
 * `<domainnetbios>` is the Windows domain NetBIOS name. For example, `alfresco`.
 * `<REALM>` is t he DNS domain in upper case. For example, `ALFRESCO.ORG`.
 
 Follow these instructions to configure Kerberos with Microsoft Windows Active Directory:
 
-1. Create accounts for the SSO authentication filters for the server that will run either the repository tier web application (`alfresco.war`) or the Share web application (`share.war`).
+1. On the Windows domain controller, create accounts for the CIFS service for the server that will run the repository tier web application (`alfresco.war`).
+
+    1. In the Active Directory Users and Computers application, navigate to the **Action > New > User** menu, then enter the full name as `CIFS <host>` and the user login name as `cifs<host>`.
+
+    2. Click **Next**.
+
+    3. Enter a password.
+
+    4. Enable **Password never expires** and disable **User must change password at next logon**.
+
+    5. Click **Next**.
+
+    6. Click **Finish**.
+
+    7. Right-click the new user account name, and then select **Properties**.
+
+    8. Select the **Account** tab and enable the **Do not require Kerberos preauthentication** option in the **Account Options** section.
+
+    9. From the command prompt, use the `ktpass` utility to generate key tables for this account as shown:
+
+        ```bash
+        ktpass -princ cifs/<hostnetbios>.<domain>@<REALM> -pass <password> -mapuser 
+        <domainnetbios>\cifs<host> -crypto all -ptype KRB5_NT_PRINCIPAL -out 
+        c:\temp\cifs<host>.keytab -kvno 0
+        ```
+
+    10. Create the Service Principal Names (SPN) for the account using the `setspn` utility.
+
+        ```bash
+        setspn -a cifs/<hostnetbios> cifs<host>
+        setspn -a cifs/<hostnetbios>.<domain> cifs<host>
+        ```
+
+        > **Note:** Remember that `ktpass` might already have added some of these SPNs automatically. You can list the existing SPNs for the account using:
+
+        ```bash
+        setspn -l cifs<host>
+        ```
+
+2. Create accounts for the SSO authentication filters for the server that will run either the repository tier web application (`alfresco.war`) or the Share web application (`share.war`).
 
     1. In the Active Directory Users and Computers application, navigate to the **Action > New > User** menu, then enter the full name as `HTTP <host>` and the user login name as `http<host>`.
 
@@ -987,7 +1032,7 @@ Follow these instructions to configure Kerberos with Microsoft Windows Active Di
 
     13. In the user **Delegation** tab, select the **Trust this user for delegation to any service (Kerberos only)** check box.
 
-2. Copy the key table files created in step 1 to the servers they were named after. Copy the files to a protected area, such as `C:\etc\` or `/etc`.
+3. Copy the key table files created in steps 1 and 2 to the servers they were named after. Copy the files to a protected area, such as `C:\etc\` or `/etc`.
 
 ##### Step 2. Configure Kerberos on Alfresco server {#configkerberos-step2}
 
@@ -996,6 +1041,7 @@ As an Alfresco administrator, you need to configure Kerberos on the Alfresco ser
 These instructions use the following naming conventions for the example server, `server1.alfresco.org`:
 
 * `<host>` is the server host name (without domain name suffix). For example, `server1`.
+* `<hostnetbios>` is the resolved value of the `cifs.serverName` property if the server is part of the Active Directory domain (typically the host name with the letter 'A' appended) or the host name otherwise (without domain name suffix). For example, `server1A`.
 * `<domain>` is the DNS domain. For example, `alfresco.org`.
 * `<REALM>` is t he DNS domain in upper case. For example, `ALFRESCO.ORG`.
 
@@ -1026,11 +1072,19 @@ In this example, our Windows domain controller/ Active Directory/ KDC host name 
 
     For Tomcat, in the Java security folder (for example, `<installLocation>/java/conf/security`), create a file named `java.login.config` with entries as shown in the following example.
 
-    Only include `ShareHTTP` if the server is to run the Share web application (`share.war`). The `AlfrescoHTTP` is always needed.
+    Only include `AlfrescoCIFS` if you want to use Kerberos with CIFS. Only include `ShareHTTP` if the server is to run the Share web application (`share.war`). The `AlfrescoHTTP` is always needed.
 
     ```json
     Alfresco {
        com.sun.security.auth.module.Krb5LoginModule sufficient;
+    };
+    AlfrescoCIFS {
+       com.sun.security.auth.module.Krb5LoginModule required
+       storeKey=true
+       useKeyTab=true
+       doNotPrompt=true
+       keyTab="C:/etc/cifs<host>.keytab"
+       principal="cifs/<hostnetbios>.<domain>";
     };
     AlfrescoHTTP
     {
@@ -1072,9 +1126,9 @@ In this example, our Windows domain controller/ Active Directory/ KDC host name 
 
 5. To complete the Kerberos SSO tasks on the Alfresco server, see [Configuring Alfresco Share Kerberos SSO](#configkerberos-step3).
 
-6. Use **Directory Management** in the **Repo Admin Console** to [enable Kerberos authentication](#manageauthdirsconfigkerberso) and specify the HTTP password.
+6. Use **Directory Management** in the **Repo Admin Console** to [enable Kerberos authentication](#manageauthdirsconfigkerberso) and specify the CIFS and HTTP passwords.
 
-    > **Note:** Do not change the values of **User Config Entry Name** and **Kerberos Authentication Realm**. If you do make a change, the values must match the entries in the Java login configuration file.
+    > **Note:** Do not change the values of **User Config Entry Name**, **CIFS Config Entry Name** and **Kerberos Authentication Realm**. If you do make a change, the values must match the entries in the Java login configuration file.
 
 ##### Step 3. Configure Alfresco Share Kerberos SSO {#configkerberos-step3}
 
@@ -1330,7 +1384,11 @@ ensure that you create a registry entry:
     http://alfvo:8080/alfresco/webdav
     ```
 
-    > **Note:** Use and test Microsoft Office option: Open a document in Alfresco Share, click Edit in MS Office. The expected result is that the document should open.
+**Kerberos client configuration for CIFS**
+
+If the CIFS keytab is correct, you will not be prompted for a password and the drive should map successfully. If it doesn't work, see [debugging Kerberos]({% link content-services/6.0/admin/auth-sync.md %}#debug-kerberos).
+
+> **Note:** Use and test Microsoft Office option: Open a document in Alfresco Share, click Edit in MS Office. The expected result is that the document should open.
 
 #### Kerberos configuration properties
 
@@ -1343,11 +1401,13 @@ The Kerberos subsystem supports the following properties:
 | kerberos.authentication.realm | The Kerberos realm with which to authenticate. The realm should be the domain name in upper case; for example, if the domain is `alfresco.org` then the realm should be `ALFRESCO.ORG`. |
 | kerberos.authentication.sso.enabled | A value of `true` enables SPNEGO/Kerberos based Single Sign On (SSO) functionality in the web client. If the value is `false` and no other members of the authentication chain support SSO, password-based login is used. |
 | kerberos.authentication.sso.fallback.enabled | If SSO fails, a fallback authentication mechanism is used. The default value is `true`. |
+| kerberos.authentication.authenticateCIFS | A value of `true` enables Kerberos authentication in the CIFS server. If the value is `false` and no other members of the authentication chain support CIFS authentication, the CIFS server is disabled. |
 | kerberos.authentication.user.configEntryName | The name of the entry in the JAAS configuration file that is used for password-based authentication. The default value `Alfresco` is recommended. |
+| kerberos.authentication.cifs.configEntryName | The name of the entry in the JAAS configuration file that is used for CIFS authentication. The default value `AlfrescoCIFS` is recommended. |
 | kerberos.authentication.http.configEntryName | The name of the entry in the JAAS configuration file that is used for web-based Single-Sign On (SSO). The default value `AlfrescoHTTP` is recommended. |
 | kerberos.authentication.defaultAdministratorUserNames | A comma separated list of user names that are treated as administrators by default. |
 | kerberos.authentication.browser.ticketLogons | Authentication using a ticket parameter in the request URL. The default value is `true`. Note that WebDAV URLs always accept ticket parameters. |
-| kerberos.authentication.stripUsernameSuffix | A value of `true` strips the `@domain` suffix from Kerberos authenticated user names in SPP, WebDAV and the Web Client. A value of `false` enables a multi-domain customer to use the `@domain` suffix. |
+| kerberos.authentication.stripUsernameSuffix | A value of `true` strips the `@domain` suffix from Kerberos authenticated user names in CIFS, SPP, WebDAV and the Web Client. A value of `false` enables a multi-domain customer to use the `@domain` suffix. |
 
 For Kerberos to work with user names that contain non-ASCII characters, add the following option to `JAVA_OPTS` for the Share JVM:
 
@@ -1408,46 +1468,6 @@ The following is a sample login output:
 18:46:28,063 DEBUG [app.servlet.KerberosAuthenticationFilter] User user1 logged on via Kerberos
 
 ```
-
-### Configure Identity Service
-
-Content Services can be configured to authenticate using the Identity Service by configuring the authentication chain and `alfresco-global.properties` file.
-
-The [Identity Service]({% link identity-service/latest/index.md %}) allows you to configure user authentication between a supported LDAP provider or SAML identity provider and the Identity Service for Single Sign On (SSO) capabilities.
-
-The Identity Service needs to be [deployed]({% link identity-service/latest/install/index.md %}) and [configured]({% link identity-service/latest/config/index.md %}) with an identity provider before being set up with other Alfresco products.
-
-Once the Identity Service has been deployed, there are two steps to configure Content Services to authenticate with it:
-
-* Configure the [authentication chain](#authchain) to the only supported value for the Identity Service: `authentication.chain=identity-service1:identity-service,alfrescoNtlm1:alfrescoNtlm`
-
-    >**Important:** The authentication chain can't contain any other values, such as Kerberos or SAML, when using the Identity Service.
-
-* Configure the [`alfresco-global.properties` file](#isprops)
-
-> **Note:** See the [supported platforms]({% link content-services/6.0/support/index.md %}) page for the compatibility between Content Services and Identity Service.
-
-#### Identity Service configuration properties {#isprops}
-
-Use this information to configure Content Services to authenticate using Identity Service.
-
-Configure the `alfresco-global.properties` file using the below properties:
-
-> **Note:** See the Keycloak documentation for a [full list of possible properties](https://www.keycloak.org/docs/4.8/securing_apps/index.html#_java_adapter_config).
-
-| Property | Description |
-| -------- | ----------- |
-| identity-service.authentication.enabled | Enable or disable authentication via the Identity Service. The default value  is `true`. |
-| identity-service.authentication.validation.failure.silent | Sets whether token validation failure is silent. The default value  is `true`. |
-| identity-service.authentication.defaultAdministratorUserNames | The default administrator user name. The default value  is `admin`. |
-| identity-service.authentication.allowGuestLogin | Sets whether guest logins are allowed. The default value  is `true`. |
-| identity-service.authentication.enable-username-password-authentication | Enable username and login password authentication. The default value  is `true`. |
-| identity-service.enable-basic-auth | Enable or disable basic authentication fallback. If set to `true` then a secret must also be provided. The default value  is `true`. |
-| identity-service.auth-server-url | Base URL of the Identity Service server in the format `https://{server}:{port}/auth`. The default value is `http://localhost:8180/auth`. |
-| identity-service.realm | Name of the realm configured in the Identity Service. The default value  is `alfresco`. |
-| identity-service.ssl-required | Sets whether communication to and from the Identity Service server is over HTTPS. Possible values are `all` for all requests, `external` for external requests or `none`. This property needs to match the equivalent setting for **Require SSL** in your realm within the Identity Service administration console. The default value  is `none`. |
-| identity-service.resource | The **Client ID** for the client created within your realm that points to Content Services. The default value  is `alfresco`. |
-| identity-service.public-client | The adapter won't send credentials for the client to the Identity Service if this is set to `true`. The default value  is `true`. |
 
 ## Configure synchronization
 
@@ -1512,7 +1532,7 @@ Use **Directory Management** in the Repo Admin Console to set up authentication 
 The Directory Management page provides an interface for you to:
 
 * create, configure and manage internal directories, OpenLDAP and Active Directory
-* configure authentication chain options for services, such as browser SSO
+* configure authentication chain options for services, such as CIFS and browser SSO
 * test connections to various services before activating them in the authentication chain
 * manage common user synchronization settings
 * easily set up directory services without using property files
@@ -1676,9 +1696,11 @@ Use these instructions to configure Kerberos using the configuration properties 
     |------------------------|---------------|-----------|
     |User Config Entry Name|Alfresco|This specifies the entry in the JAAS configuration file that should be used for password-based authentication. The recommended default value is Alfresco. |
     |Administrator User Names|-|This specifies a comma separated list of user names to be considered administrators by default. |
+    |CIFS Config Entry Name|AlfrescoCIFS|This specifies an entry in the JAAS configuration file that should be used for CIFS authentication. The recommended default value is `AlfrescoCIFS`.|
     |Kerberos Authentication Realm|ALFRESCO.ORG|This specifies the Kerberos realm used for authentication. The realm should be the domain in upper case. For example, if the domain is `alfresco.org`, then the realm should be `ALFRESCO.ORG`. |
+    |CIFS Password|secret|This specifies the password for the CIFS Kerberos principal. Click **Show Password** to reveal the password. Click **Hide Password** to hide the password.|
     |HTTP Config Entry Name|AlfrescoHTTP|This specifies the entry in the JAAS configuration file used for web-based SSO. The recommended default value is `AlfrescoHTTP`. |
-    |Strip Username Suffix|Yes|This specifies that the @domain suffix is stripped from Kerberos authenticated user names in SPP, WebDAV, and the Web Client. If not selected, multi-domain users can use the @domain suffix. |
+    |Strip Username Suffix|Yes|This specifies that the @domain suffix is stripped from Kerberos authenticated user names in CIFS, SPP, WebDAV, and the Web Client. If not selected, multi-domain users can use the @domain suffix. |
     |HTTP Password|secret|This specifies the password for the HTTP Kerberos principal. Click **Show Password** to reveal the password. Click **Hide Password** to hide the password. |
     |Authenticate FTP|Yes|This enables authentication for FTP access. |
 
@@ -1784,6 +1806,20 @@ The synchronization settings manage the synchronization of Content Services with
 5. Click **Save** to apply the changes you've made to the authentication chain.
 
     If you do not want to save the changes, click **Close**.
+
+### Manage CIFS authentication
+
+You can configure the CIFS authentication.
+
+1. Open the **Admin Console**.
+
+2. In the **Directories** section, click **Directory Management**.
+
+3. In the **CIFS Authentication** section, select a directory from the list to authenticate CIFS. Alternatively, select **Disabled** to disable CIFS authentication.
+
+    > Note: CIFS uses a challenge or response to authenticate. Only a single directory can be used to authenticate.
+
+4. Click **Save** to apply the changes you have made to the authentication chain.
 
 ### Manage browser based automatic login
 

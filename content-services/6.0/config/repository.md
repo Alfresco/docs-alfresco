@@ -138,7 +138,7 @@ The hardware requirements for the repository and Alfresco Share are variable and
 
 > **Important:** This information suggests metrics and estimates, but your system may vary.
 
-> **Note:** In the following sections, the terms concurrent users and casual users are used. Concurrent users are users who are constantly accessing the system with only a small pause between requests (3-10 seconds maximum) with continuous access 24/7. Casual users are users occasionally accessing the system through the Content Service or WebDAV interfaces with a large gap between requests (for example, occasional document access during the working day).
+> **Note:** In the following sections, the terms concurrent users and casual users are used. Concurrent users are users who are constantly accessing the system with only a small pause between requests (3-10 seconds maximum) with continuous access 24/7. Casual users are users occasionally accessing the system through the Content Service or WebDAV/CIFS interfaces with a large gap between requests (for example, occasional document access during the working day).
 
 ### Hardware
 

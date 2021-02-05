@@ -2,7 +2,7 @@
 title: Configure ActiveMQ
 ---
 
-Content Services requires ActiveMQ for message queuing. ActiveMQ is also used by various other products.
+Content Services uses ActiveMQ for message queuing with various products such as Alfresco Media Management.
 
 The standard ActiveMQ installation runs with a basic configuration. You can configure and extend ActiveMQ based on your requirements.
 
@@ -10,7 +10,6 @@ For information about installing ActiveMQ for your specific product, see:
 
 * [Alfresco Media Management]({% link media-management/1.3/install/index.md %})
 * [Alfresco Sync Service]({% link sync-service/3.0/install/options.md %})
-* [Alfresco Transform Service]({% link transform-service/latest/install/index.md %}) (available only as part of Content Services containerized deployment)
 
 For more advanced configuration, such as security, transport connectors, or memory settings, see [Configure advanced settings for ActiveMQ](#advanced).
 

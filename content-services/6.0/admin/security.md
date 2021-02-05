@@ -33,7 +33,7 @@ A check that a user has Read permission for a node is done in two stages. First,
 
 ## Mitigate brute force attack on user passwords
 
-Content Services 6.1.1 provides basic out-of-the-box protection against brute force attacks on password logins.
+Content Services 6.0.1 provides basic out-of-the-box protection against brute force attacks on password logins.
 
 To mitigate brute force attacks on user passwords, after a few failed login attempts for any given user id, the user id is locked out and marked as `protected`. The user id stays in the `protected` mode for a six seconds protection period. During this time, even if the correct login details are specified, the user can't login. After the six seconds protection period is over, the user can login with the correct login details.
 
@@ -149,7 +149,7 @@ During bootstrap and JMX keystore reload and re-encryption operations, the repos
 
 Content Services uses cryptographic password hashing technique to securely store passwords.
 
-Content Services 6.1.1 used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NLTM) to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. You now have the option to configure Content Services to use Bcrypt to store passwords. By default, the system uses MD4 to allow users to use MD4 hashed passwords for alfrescoNTLM authentication.
+Content Services 6.0.1 used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NLTM and CIFS) to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. You now have the option to configure Content Services to use Bcrypt to store passwords. By default, the system uses MD4 to allow users to use MD4 hashed passwords for alfrescoNTLM and CIFS authentication.
 
 Bcrypt is an adaptive hash function based on the Blowfish symmetric block cipher cryptographic algorithm. It is incredibly slow to hash input compared to other functions, but this results in a much better output hash. Content Services is configured to use a strength of `10` to provide a good compromise of speed and strength.
 
@@ -167,7 +167,7 @@ To maintain backwards compatibility with previous versions, the default setting 
 system.preferred.password.encoding=md4
 ```
 
-After upgrading to Content Services 6.1.1, when the user logs in or changes the password, the system rehashes the password using the preferred encoding mechanism and stores the mechanism being used. If the preferred encoding is set to `md4`, the system moves the current hashed passwords for that user.
+After upgrading to Content Services 6.0.1, when the user logs in or changes the password, the system rehashes the password using the preferred encoding mechanism and stores the mechanism being used. If the preferred encoding is set to `md4`, the system moves the current hashed passwords for that user.
 
 > **Note:** If SAML SSO is enabled, cryptographic password rehashing won't work at login.
 
@@ -190,6 +190,8 @@ system.upgradePasswordHash.jobCronExpression=0 0/10 * * * ?
 ```
 
 Alternatively, the job can be executed immediately via a JMX console. The job makes use of `JobLockService` so it is safe to run in a clustered environment.
+
+> **Note:** Also, the CIFS authentication will only work if the Kerberos authentication is enabled.
 
 If the password upgrade job is enabled, make sure you enable the `log4j.logger.org.alfresco.repo.security.authentication.UpgradePasswordHashWorker` logging in `log4j.properties`.
 
@@ -227,7 +229,6 @@ The values for some of the properties that may contain sensitive data (see the l
 
 Here is the list of protected attributes (the value for these will be masked in the JMX console and Admin Console UI):
 
-* `alfresco_user_store.adminpassword`
 * `db.password`
 * `mail.password`
 * `solr.solrPassword`
@@ -656,7 +657,7 @@ By default, the owner of an object can manage any aspect of its ACL. Users with 
 
 ## Public services
 
-Security is enforced around public services. Web services, web scripts, Alfresco Share, WebDAV, FTP, CMIS, and more, all use public services, and therefore include security enforcement.
+Security is enforced around public services. Web services, web scripts, Alfresco Share, CIFS, WebDAV, FTP, CMIS, and more, all use public services, and therefore include security enforcement.
 
 Public services are defined in [public-services-context.xml](https://github.com/Alfresco/alfresco-repository/blob/af2e069b2eabcd5433cee39d83ec06bad6fc69a0/src/main/resources/alfresco/public-services-context.xml).
 

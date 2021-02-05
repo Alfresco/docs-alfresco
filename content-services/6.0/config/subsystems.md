@@ -52,7 +52,7 @@ The supplied subsystem categories are:
 | [Authentication]({% link content-services/6.0/admin/auth-sync.md %}) | Authentication related functions |
 | [ContentStore]({% link content-services/6.0/admin/content-stores.md %}) | Properties for the encrypted and non-encrypted Content Stores |
 | [email]({% link content-services/6.0/config/email.md %}) | Outbound and inbound SMTP property settings |
-| [fileServers]({% link content-services/6.0/config/file-servers.md %}) | Properties for the FTP servers |
+| [fileServers]({% link content-services/6.0/config/file-servers.md %}) | Properties for the CIFS and FTP servers |
 | [googledocs]({% link google-drive/3.1/index.md %}) | Properties for Google Docs integration |
 | [imap]({% link content-services/6.0/config/email.md %}#configure-imap) | Properties for the IMAP service |
 | [OOoDirect]({% link content-services/6.0/config/libreoffice.md %}#configure-openoffice) | OpenOffice transformations settings (use LibreOffice where possible) |

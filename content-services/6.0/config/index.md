@@ -161,6 +161,7 @@ Add the following property settings to the `alfresco-global.properties` file:
 | -------- | ------------|
 | system.usages.enabled=false | Disables quotas or user usages. |
 | audit.enabled=false | Specifies a way to globally enable or disable the auditing framework. |
+| cifs.enabled=false | Specifies whether to enable or disable the CIFS server. |
 | sync.mode=OFF | Use this property to disable synchronization permanently. |
 | audit.alfresco-access.enabled=false | Disables generation of audit data. |
 | home.folder.creation.eager=false | Use this property to create home folders (unless it's disabled using the `home.folder.creation.disabled=true` property) when people are created (true) or created lazily (false).<br><br>Lazy creation (false) means that the home folder will not be created when the user is created. |
@@ -178,7 +179,7 @@ The Java Management Extension (JMX) interface allows you to access Content Servi
 
 * Manage subsystems
 * Change log levels
-* Enable or disable file servers (FTP)
+* Enable or disable file servers (FTP/CIFS)
 * Set server read-only mode
 * Set server single-user mode
 * Set server maximum user limit (including ability to prevent further logins)
@@ -461,7 +462,7 @@ All Content Services properties can be set using the standard `alfresco-global.p
 
 The most common use of the Java command line is in a multiple-machine environment where the basic, common customizations are set using standard properties and the machine-specific values are set using command line options.
 
-For example, an administrator is likely to configure all installs to behave similarly by setting properties in the configuration files, but will use the Java command line to vary settings like the database connection and Content Store locations.
+For example, an administrator is likely to configure all installs to behave similarly by setting properties in the configuration files, but will use the Java command line to vary settings like the database connection, Content Store locations, and CIFS domain name.
 
 You can use the `-D` options for setting properties on the Java command line. Add a `-Dprop=value` to `JAVA_OPTS`, or for anything that is sent to the Java command line, for example:
 

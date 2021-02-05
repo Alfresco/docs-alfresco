@@ -182,7 +182,6 @@ Use this information to review the components or modules that integrate Content 
 | Search and Insight Engine | Paid add-on module |
 | Search Services | |
 | Federation Services | |
-| Identity Service | |
 | SAML Module for Alfresco Content Services | |
 | Intelligence Services |  |
 | Content Connector for AWS S3 | Paid add-on module |

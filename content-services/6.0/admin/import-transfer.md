@@ -177,7 +177,7 @@ The UI web script presents the following simplified HTML form:
 
 ![bulk-upload-streaming]({% link content-services/images/bulk-upload-streaming.png %})
 
-* The **Import directory** field is required and indicates the absolute file system directory to load the content and spaces from, in an OS-specific format. Note that this directory must be locally accessible to the server on which the Content Services instance is running. It must either be a local file system or a locally mounted remote file system (mounted using GFS, or similar).
+* The **Import directory** field is required and indicates the absolute file system directory to load the content and spaces from, in an OS-specific format. Note that this directory must be locally accessible to the server on which the Content Services instance is running. It must either be a local file system or a locally mounted remote file system (mounted using GFS, CIFS or similar).
 * The **Target space (Path)** field is also required and indicates the target space to load the content into, as a path starting with `/Company Home`. The separator character is Unix-style `/`, regardless of the platform Content Services is running on. This field includes an AJAX auto-suggest feature, so you can type any part of the target space name, and an AJAX search is performed to find and display matching items.
 * The **Target space (NodeRef)** field is an alternative to **Target space (Path)** and indicates the target NodeRef to load the content into.
 * The **Disable rules** check box allows you to turn off rule processing during the bulk import.
@@ -194,7 +194,7 @@ The in-place UI web script presents the following simplified HTML form:
 
 ![bulk-upload-in-place]({% link content-services/images/bulk-upload-in-place.png %})
 
-* The **Store-relative import directory path** field is required and indicates the file system path for loading content and spaces, relative to the content store, in an OS-specific format. Note that this directory must be locally accessible to the server the Content Services instance is running on - it must either be a local file system or a locally mounted remote file system (mounted using GFS, or similar). This directory must already be inside an existing content store.
+* The **Store-relative import directory path** field is required and indicates the file system path for loading content and spaces, relative to the content store, in an OS-specific format. Note that this directory must be locally accessible to the server the Content Services instance is running on - it must either be a local file system or a locally mounted remote file system (mounted using GFS, CIFS or similar). This directory must already be inside an existing content store.
 * The **Content Store** field is the name of the store that holds the content, as defined within the storage configuration (content store selector or direct `fileContentStore`). The default store is by default named `default`. An autocomplete menu will assist in selecting the name as the first characters are entered. The **Up** and **Down** keyboards keys can be used to navigate the list, in addition to the mouse.
 * The **Target repository path** field is also required and indicates the target space to load the content into, as a path starting with `/Company Home`. The separator character is Unix-style `/`, regardless of the platform Content Services is running on. This field includes an AJAX auto-suggest feature, so you can type any part of the target space name, and an AJAX search is performed to find and display matching items.
 * The **Disable rules** option allows you to turn off rule processing during the bulk import.
@@ -316,7 +316,7 @@ The File System Transfer Receiver is delivered as a compressed zip file.
 
 1. Download the following file from the Alfresco Support Portal:
 
-    `alfresco-content-services-file-transfer-receiver-6.2.1.zip`
+    `alfresco-content-services-file-transfer-receiver-5.2.3.zip`
 
 2. Extract the zip file into a relevant directory.
 
@@ -360,7 +360,7 @@ Use this information to start the File System Transfer Receiver.
 
 1. Ensure that you've expanded the File System Transfer Receiver zip file:
 
-    `alfresco-content-services-file-transfer-receiver-6.2.1.zip`
+    `alfresco-content-services-file-transfer-receiver-5.2.3.zip`
 
 2. To run the File System Transfer Receiver, enter the following command:
 

@@ -107,6 +107,7 @@ Using multi-tenancy you can configure multiple, independent tenants on a single 
 
 Multi-tenancy is also not supported for the following methods:
 
+* CIFS
 * Any authentication methods other than `alfrescoNtlm`
 * Inbound email
 * IMAP

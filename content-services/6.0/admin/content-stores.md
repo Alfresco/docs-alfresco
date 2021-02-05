@@ -373,10 +373,18 @@ Before you begin, ensure that you have an instance of Content Services installed
 
 3. Generate the RSA master key(s) in a new keystore.
 
-    For example, use the following command to generate the master key:
+    Note that the key generation type differs between Java 8 to Java 11. For example, use one of the following commands to generate the master key:
+
+    If you're using Java 11, you need to explicitly define the store format:
 
     ```bash
     keytool -genkey -alias key1 -storetype jceks -keyalg RSA -keystore <master keystore path> -keysize 2048
+    ```
+
+    If you're using Java 8:
+
+    ```bash
+    keytool -genkey -alias key1 -keyalg RSA -keystore <master keystore path> -keysize 2048
     ```
 
 4. Due to US export regulations and limitations in the Java Cryptographic Extension (JCE), the length of the symmetric key is not greater than 128 bit in the default configuration. If you're eligible to unlimited strength encryption, download the *Unlimited Strength Jurisdiction Policy* files from Oracle and increase the configuration value, `cryptodoc.jce.keygen.defaultSymmetricKeySize`.

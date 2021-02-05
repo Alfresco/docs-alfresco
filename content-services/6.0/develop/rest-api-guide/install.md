@@ -33,7 +33,7 @@ loss of the data that you are working with as the ACS trial Docker Compose file 
 
 1.  Create a directory somewhere for Repository extension files and copy the War file there
 
-    Now, copy the WAR file, for example `api-explorer-6.1.0.war` into this new directory. Then rename the file to `api-explorer.war`.
+    Now, copy the WAR file, for example `api-explorer-6.0.7-ga.war` into this new directory. Then rename the file to `api-explorer.war`.
 
 2.  Create a `Dockerfile` for the new custom Repository Docker Image
 
@@ -46,14 +46,14 @@ loss of the data that you are working with as the ACS trial Docker Compose file 
     
     services:
        alfresco:
-           image: alfresco/alfresco-content-repository:6.1.0
+           image: alfresco/alfresco-content-repository:6.0.1.3
            ...
     ```
     
     With this information we know what Docker Image to base our custom Repo Docker Image on. Create a `Dockerfile` in the same directory as the WAR file and have it look like this:
     
     ```text
-    FROM alfresco/alfresco-content-repository:6.1.0
+    FROM alfresco/alfresco-content-repository:6.0.1.3
       
     ARG TOMCAT_DIR=/usr/local/tomcat
     
@@ -70,7 +70,7 @@ loss of the data that you are working with as the ACS trial Docker Compose file 
     ```bash
     repo mbergljung$ docker build -t alf-repo-custom:1.0 .
     Sending build context to Docker daemon  954.4kB
-    Step 1/3 : FROM alfresco/alfresco-content-repository:6.1.0
+    Step 1/3 : FROM alfresco/alfresco-content-repository:6.0.1.3
      ---> 5439a493ee0a
     Step 2/3 : ARG TOMCAT_DIR=/usr/local/tomcat
      ---> Using cache
@@ -108,17 +108,17 @@ loss of the data that you are working with as the ACS trial Docker Compose file 
     
     ```bash
     ^CGracefully stopping... (press Ctrl+C again to force)
-    Stopping acs61_alfresco-pdf-renderer_1 ... done
+    Stopping acs6_alfresco-pdf-renderer_1 ... done
     ...
     
-    acs61 mbergljung$ docker-compose rm 
-    Going to remove acs61_alfresco-pdf-renderer_1, acs61_transform-router_1, acs61_libreoffice_1, acs61_tika_1, acs61_imagemagick_1, acs61_proxy_1, acs61_share_1, acs61_postgres_1, acs61_digital-workspace_1, acs61_alfresco_1, acs61_activemq_1, acs61_solr6_1, acs61_shared-file-store_1
+    acs60 mbergljung$ docker-compose rm 
+    Going to remove acs60_alfresco-pdf-renderer_1, acs60_transform-router_1, acs60_libreoffice_1, acs60_tika_1, acs60_imagemagick_1, acs60_proxy_1, acs60_share_1, acs60_postgres_1, acs60_digital-workspace_1, acs60_alfresco_1, acs60_activemq_1, acs60_solr6_1, acs60_shared-file-store_1
     Are you sure? [yN] y
-    Removing acs61_alfresco-pdf-renderer_1 ... done
+    Removing acs60_alfresco-pdf-renderer_1 ... done
     ...
     
-    acs61 mbergljung$ docker-compose up 
-    Creating acs61_alfresco-pdf-renderer_1 ... done 
+    acs60 mbergljung$ docker-compose up 
+    Creating acs60_alfresco-pdf-renderer_1 ... done 
     ...           
     ```
 
@@ -126,7 +126,7 @@ loss of the data that you are working with as the ACS trial Docker Compose file 
 
 1.  Copy API Explorer WAR file into the SDK project
 
-    Copy the `api-explorer-6.1.0.war` into the `aio/aio-platform-docker/src/main/docker` AIO SDK directory. Then rename the file to `api-explorer.war`.
+    Copy the `api-explorer-6.0.7-ga.war` into the `aio/aio-platform-docker/src/main/docker` AIO SDK directory. Then rename the file to `api-explorer.war`.
 
 2.  Open up the platform/repository Docker file and add the command to copy the `api-explorer.war` into `tomcat/webapps`
 
@@ -145,10 +145,10 @@ loss of the data that you are working with as the ACS trial Docker Compose file 
     We have changed only the platform/repository, so it is enough to just restart this container:
     
     ```bash
-    acs61-aio mbergljung$ ./run.sh reload_acs
-    Killing docker_acs61-aio-acs_1 ... done
-    Going to remove docker_acs61-aio-acs_1
-    Removing docker_acs61-aio-acs_1 ... done
+    acs60-aio mbergljung$ ./run.sh reload_acs
+    Killing docker_acs60-aio-acs_1 ... done
+    Going to remove docker_acs60-aio-acs_1
+    Removing docker_acs60-aio-acs_1 ... done
     ...
     ```
 

@@ -97,13 +97,13 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
 
 A WAR file is an archive file used to distribute a collection of files (JavaServer Pages, servlets, Java classes, XML files, tag libraries, and static web pages) that together constitute a web application.
 
-Use this method of installing if you've already installed a JRE, a supported database, an application server, a message broker, and the additional components.
+Use this method of installing if you've already installed a JRE, a supported database, an application server and the additional components.
 
 The Content Services distribution file is a zip containing the required WAR files, in addition to the additional commands, and configuration files for a manual installation.
 
 1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
-2. Download the file: `alfresco-content-services-distribution-6.1.x.zip`
+2. Download the file: `alfresco-content-services-distribution-6.0.x.zip`
 
 3. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 

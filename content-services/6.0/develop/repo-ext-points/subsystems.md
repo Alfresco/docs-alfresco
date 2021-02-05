@@ -31,7 +31,7 @@ Examples of subsystems include:
 * **Audit**: Configuration of audit parameters
 * **Authentication**: Contains different authentication subsystems such as LDAP
 * **E-mail**: SMTP support for sending e-mails
-* **File servers**: FTP
+* **File servers**: CIFS, FTP
 * **Google Docs**: Google Docs integration
 * **IMAP**: Internal IMAP server
 * **Open Office transformations**: Helps converting office documents to text

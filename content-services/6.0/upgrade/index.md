@@ -14,15 +14,15 @@ When you upgrade Content Services, it's recommended that you follow a structured
 
 The following diagram shows the upgrade paths for major versions:
 
-![Upgrade paths to 6.1]({% link content-services/images/upgrade-path-6-1.png %})
+![Upgrade paths to 6.1]({% link content-services/images/upgrade-path-6-0.png %})
 
 The upgrade path recommendations are:
 
-* Direct upgrades to Content Services 6.1.1 are supported from only 5.0.x and later, with the latest Service Pack applied.
-* Content Services 6.1.1 introduces changes that require new releases of all modules. To upgrade to 6.1.1, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/6.0/support/index.md %}) for more details on the associated versions.
-* You must upgrade to Alfresco Search Services 1.4 before upgrading the repository to 6.1.1. See [Upgrade Search Services]({% link search-services/1.4/upgrade/index.md %}) for more information.
-  * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services, and then upgrade to 6.1.1.
-  * Upgrades from Alfresco 5.0 or 5.1 need to first stop at 5.2 to upgrade search to Alfresco Search Services, and then upgrade to 6.1.1.
+* Direct upgrades to Content Services 6.0.1 are supported from only 5.0.x and later, with the latest Service Pack applied.
+* Content Services 6.0.1 is a major version change, which introduces some changes that require new releases of all modules. To upgrade to 6.0.1, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/6.0/support/index.md %}) for more details on the associated versions.
+* You must upgrade to Alfresco Search Services 1.4 before upgrading the repository to 6.0.1. See [Upgrade Search Services]({% link search-services/1.4/upgrade/index.md %}) for more information.
+  * Upgrades from Alfresco 5.0 or 5.1 need to first stop at 5.2 to upgrade search to Search Services, and then upgrade to 6.0.
+  * Upgrades from Alfresco 5.2 must first upgrade to Search Services from Solr 4, and then upgrade to 6.0.
 
 > **Note:** If you're upgrading from an earlier release that's not shown on this diagram, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for assistance.
 
@@ -35,7 +35,6 @@ The following table shows the upgrade path for major versions:
 | From Community | To Enterprise |
 | -------------- | ------------- |
 | Community Edition 201806 GA | Content Services 6.0.0 |
-| Community Edition 201901 GA | Content Services 6.1.0 |
 
 Please contact Alfresco Support for upgrade advice that's specific to your environment.
 

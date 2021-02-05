@@ -8,18 +8,18 @@ A cluster represents a collection of nodes. Clustering is implemented to provide
 
 ## Prerequisites for upgrades
 
-There are a number of prerequisites for upgrading from a version of Content Services prior to 4.2 to 6.1.1 in a clustered environment.
+There are a number of prerequisites for upgrading from a version of Content Services prior to 4.2 to 6.0.1 in a clustered environment.
 
-Before upgrading, ensure that all files and configuration are backed up. Any customization(s) that you've made, for example, creation of custom caches, might need to be reapplied using the new Content Services 6.1.1 clustering infrastructure.
+Before upgrading, ensure that all files and configuration are backed up. Any customization(s) that you've made, for example, creation of custom caches, might need to be reapplied using the new Content Services 6.0.1 clustering infrastructure.
 
 The following libraries are no longer used in Content Services 4.2 onwards, so any configuration related to these libraries should be removed before upgrading:
 
 * JGroups
 * EHCache
 
-> **Note:** You do not need to follow these steps if you're upgrading from Content Services 4.2 to Content Services 6.1.1. This information is only relevant if you're upgrading from any version prior to 4.2.
+> **Note:** You do not need to follow these steps if you're upgrading from Content Services 4.2 to Content Services 6.0.1. This information is only relevant if you're upgrading from any version prior to 4.2.
 
-Follow the steps to remove the configuration not supported in version 6.1.1:
+Follow the steps to remove the configuration not supported in version 6.0.1:
 
 1. Browse to the `<classpathRoot>` directory.
 
@@ -58,7 +58,7 @@ Follow the steps to remove the configuration not supported in version 6.1.1:
 
     The `filesystem.cluster.configFile` property mentioned in Step 5 refers to the `hazelcastConfig.xml` file.
 
-8. After you've performed all the specified steps, if you want to initiate clustering, see [Setting up repository server cluster](#setuprepocluster) for the instructions on installing a Content Services 6.1.1 cluster.
+8. After you've performed all the specified steps, if you want to initiate clustering, see [Setting up repository server cluster](#setuprepocluster) for the instructions on installing a Content Services 6.0.1 cluster.
 
 ## Components of a Content Services solution
 
@@ -554,7 +554,7 @@ Use this information to track clustering issues.
     ```
 
     This controls clustering initialization and shutdown. It provides `INFO` level startup and shutdown messages.
-    It also provides `WARN` level messages, if clustering is disabled or an invalid 6.1.1 license is installed.
+    It also provides `WARN` level messages, if clustering is disabled or an invalid 6.0.1 license is installed.
 
     Here is an example output:
 
