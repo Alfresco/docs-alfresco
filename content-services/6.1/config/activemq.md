@@ -48,7 +48,7 @@ ActiveMQ should be clustered to achieve fault tolerance and reliable high perfor
 
 You can secure the repository - ActiveMQ - your module's topic and queue communication using authentication, authorization, and SSL encryption. For more information, see [ActiveMQ - security](https://activemq.apache.org/security.html){:target="_blank"} and [ActiveMQ - using SSL](https://activemq.apache.org/how-do-i-use-ssl.html){:target="_blank"}.
 
-For example, to configure authentication, add the following code snippet under the `broker` element in `sync/activemq/apache-activemq-5.13.1/confactivemq.xml`:
+For example, to configure authentication, add the following code snippet under the `broker` element in `sync/activemq/apache-activemq-5.15.6/confactivemq.xml`:
 
 ```xml
 <broker>

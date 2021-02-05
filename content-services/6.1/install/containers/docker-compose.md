@@ -4,7 +4,7 @@ title: Install using Docker Compose
 
 Use this information to quickly start up Content Services using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
-To deploy Content Services using Docker Compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/6.1/install/containers/index.md %}#prerequisites) before continuing.
+To deploy Content Services using Docker Compose, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/6.1/install/containers/index.md %}#prerequisites) before continuing.
 
 1. Clone the [repository](https://github.com/Alfresco/acs-deployment){:target="_blank"} locally or [download](https://github.com/Alfresco/acs-deployment/tree/master/docker-compose){:target="_blank"} one of the `docker-compose.yml` files (e.g. `6.1.N-docker-compose.yml`), and then change directory to the project folder:
 
@@ -38,20 +38,20 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
     ```text
     ...
     Creating docker-compose_postgres_1              ... done
-    Creating docker-compose_alfresco_1              ... done
-    Creating docker-compose_tika_1                  ... done
-    Creating docker-compose_imagemagick_1           ... done
-    Creating docker-compose_libreoffice_1           ... done
-    Creating docker-compose_digital-workspace_1     ... done
-    Creating docker-compose_solr6_1                 ... done
-    Creating docker-compose_shared-file-store_1     ... done
-    Creating docker-compose_share_1                 ... done
-    Creating docker-compose_activemq_1              ... done
-    Creating docker-compose_alfresco-pdf-renderer_1 ... done
-    Creating docker-compose_proxy_1                 ... done
-    Creating docker-compose_transform-router_1      ... done
+    Creating docker-compose_share_1 ... 
+    Creating docker-compose_digital-workspace_1 ...
+    Creating docker-compose_sync-service_1      ...
+    Creating docker-compose_solr6_1             ...
+    Creating docker-compose_alfresco_1          ...
+    Creating docker-compose_activemq_1          ...
+    Creating docker-compose_shared-file-store_1 ...
+    Creating docker-compose_proxy_1             ...
+    Creating docker-compose_imagemagick_1       ...
+    Creating docker-compose_alfresco-pdf-renderer_1 ...
+    Creating docker-compose_libreoffice_1           ...
+    Creating docker-compose_transform-router_1      ...
+    Creating docker-compose_tika_1                  ...
     Attaching to docker-compose_postgres_1, docker-compose_tika_1, docker-compose_alfresco_1, docker-compose_digital-workspace_1, ...
-
     ```
 
     As an alternative, you can also start the containers in the background by running `docker-compose up -d`.
@@ -108,17 +108,17 @@ Use this information to verify that the system started correctly, and to clean u
         ```text
                 Container                           Repository                            ...       Size
         --------------------------------------------------------------------------------------------------
-        docker-compose_activemq_1                alfresco/alfresco-activemq                    ...   545.9 MB
-        docker-compose_alfresco_1                alfresco/alfresco-content-repository          ...   1.324 GB
-        docker-compose_digital-workspace_1       quay.io/alfresco/alfresco-digital-workspace   ...   34.35 MB
-        docker-compose_postgres_1                postgres                                      ...   312.5 MB
-        docker-compose_proxy_1                   alfresco/alfresco-acs-nginx                   ...   20.42 MB
-        docker-compose_share_1                   alfresco/alfresco-share                       ...   867.6 MB
-        docker-compose_shared-file-store_1       alfresco/alfresco-shared-file-store           ...   777.8 MB
-        docker-compose_solr6_1                   alfresco/alfresco-search-services             ...   1.022 GB
-        docker-compose_sync-service_1            quay.io/alfresco/service-sync                 ...   809.7 MB
-        docker-compose_transform-core-aio_1      alfresco/alfresco-transform-core-aio          ...   1.707 GB
-        docker-compose_transform-router_1        quay.io/alfresco/alfresco-transform-router    ...   729.8 MB
+        docker-compose_activemq_1            alfresco/alfresco-activemq                   ...   545.9 MB
+        docker-compose_alfresco_1            alfresco/alfresco-content-repository         ...   1.52 GB
+        docker-compose_digital-workspace_1   quay.io/alfresco/alfresco-digital-workspace  ...   33.3 MB
+        docker-compose_postgres_1            postgres                                     ...   312.5 MB
+        docker-compose_proxy_1               alfresco/alfresco-acs-nginx                  ...   20.42 MB
+        docker-compose_share_1               alfresco/alfresco-share                      ...   785.5 MB
+        docker-compose_shared-file-store_1   alfresco/alfresco-shared-file-store          ...   651.1 MB
+        docker-compose_solr6_1               alfresco/alfresco-search-services            ...   1.07 GB
+        docker-compose_sync-service_1        quay.io/alfresco/service-sync                ...   773.4 MB
+        docker-compose_transform-router_1    quay.io/alfresco/alfresco-transform-router   ...   600.5 MB
+        ...
         ```
 
     2. List the running containers:
@@ -162,17 +162,20 @@ Use this information to verify that the system started correctly, and to clean u
 
     ```text
     ^CGracefully stopping... (press Ctrl+C again to force)
-    Stopping docker-compose_transform-core-aio_1 ... done
-    Stopping docker-compose_transform-router_1   ... done
-    Stopping docker-compose_proxy_1              ... done
-    Stopping docker-compose_sync-service_1       ... done
-    Stopping docker-compose_shared-file-store_1  ... done
-    Stopping docker-compose_postgres_1           ... done
-    Stopping docker-compose_activemq_1           ... done
-    Stopping docker-compose_share_1              ... done
-    Stopping docker-compose_solr6_1              ... done
-    Stopping docker-compose_alfresco_1           ... done
-    Stopping docker-compose_digital-workspace_1  ... done
+    Stopping docker-compose_transform-router_1        ... done
+    Stopping docker-compose_proxy_1                   ... done
+    Stopping docker-compose_sync-service_1            ... done
+    Stopping docker-compose_activemq_1                ... done
+    Stopping docker-compose_share_1                   ... done
+    Stopping docker-compose_alfresco_1                ... done
+    Stopping docker-compose_digital-workspace_1       ... done
+    Stopping docker-compose_postgres_1                ... done
+    Stopping docker-compose_shared-file-store_1       ... done
+    Stopping docker-compose_solr6_1                   ... done
+    Stopping docker-compose_alfresco-pdf-renderer_1   ... done
+    Stopping docker-compose_libreoffice_1             ... done
+    Stopping docker-compose_tika_1                    ... done
+    Stopping docker-compose_imagemagick_1             ... done
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -184,20 +187,22 @@ Use this information to verify that the system started correctly, and to clean u
     This stops the running services, as shown in the previous example, and removes them from memory:
 
     ```text
-    Stopping docker-compose_transform-core-aio_1 ... done
-    Stopping docker-compose_transform-router_1   ... done
+    Stopping docker-compose_transform-router_1       ... done
     ...
-    Removing docker-compose_transform-core-aio_1 ... done
-    Removing docker-compose_transform-router_1   ... done
-    Removing docker-compose_proxy_1              ... done
-    Removing docker-compose_sync-service_1       ... done
-    Removing docker-compose_shared-file-store_1  ... done
-    Removing docker-compose_postgres_1           ... done
-    Removing docker-compose_activemq_1           ... done
-    Removing docker-compose_share_1              ... done
-    Removing docker-compose_solr6_1              ... done
-    Removing docker-compose_alfresco_1           ... done
-    Removing docker-compose_digital-workspace_1  ... done
+    Removing docker-compose_transform-router_1       ... done
+    Removing docker-compose_proxy_1                  ... done
+    Removing docker-compose_sync-service_1           ... done
+    Removing docker-compose_alfresco-pdf-renderer_1  ... done
+    Removing docker-compose_shared-file-store_1      ... done
+    Removing docker-compose_postgres_1               ... done
+    Removing docker-compose_activemq_1               ... done
+    Removing docker-compose_share_1                  ... done
+    Removing docker-compose_solr6_1                  ... done
+    Removing docker-compose_imagemagick_1            ... done
+    Removing docker-compose_libreoffice_1            ... done
+    Removing docker-compose_tika_1                   ... done
+    Removing docker-compose_alfresco_1               ... done
+    Removing docker-compose_digital-workspace_1      ... done
     Removing network docker-compose_default
     ```
 
@@ -230,9 +235,9 @@ Use this information to verify that the system started correctly, and to clean u
         The `--rmi all` option also removes the images created by `docker-compose up`, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them:
 
         ```text
-        Stopping docker-compose_transform-core-aio_1 ... done
+        Stopping docker-compose_transform-router_1 ... done
         ...
-        Removing docker-compose_transform-core-aio_1 ... done
+        Removing docker-compose_transform-router_1 ... done
         ...
         Removing network docker-compose_default
         Removing image alfresco/alfresco-content-repository:6.1.1
@@ -243,7 +248,7 @@ See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for m
 
 ### Deployment project in GitHub
 
-See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project for more details.
+See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} GitHub project for more details.
 
 * In this project, you'll find several Docker Compose files. The default `docker-compose.yml` file contains the latest work-in-progress deployment scripts, and installs the latest *development* version of Content Services.
 * To deploy a specific released version of Content Services, several *major.minor* Docker Compose files are provided in the `docker-compose` folder of the project.

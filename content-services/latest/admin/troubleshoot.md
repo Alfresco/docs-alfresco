@@ -356,8 +356,6 @@ There is a known issue when using WebDAV with Cyberduck 4.4 and later, where con
 
 There is a known issue where you may experience poor performance when opening a WebDav folder, copying files to or from a WebDav folder, or changing from one folder to another on the WebDav folder. This can be caused because when WebClient issues a WebDAV command it checks for a web proxy server. If you have Auto-Proxy detection enabled and there isn't a proxy server in the environment between the client and WebDAV resource, WebClient waits for the timeout of Auto-Proxy detection. Command completion therefore will take longer due to the wait for the Auto-Proxy detection timeout.
 
-For more information and a work around see [Slow response working with WebDAV resources on Windows Vista or Windows 7](https://support.microsoft.com/en-us/help/2445570/slow-response-working-with-webdav-resources-on-windows-vista-or-window){:target="_blank"}.
-
 ## OpenLDAP tips
 
 Use these tips when working with OpenLDAP.
