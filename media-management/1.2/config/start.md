@@ -10,7 +10,7 @@ For information on how to set up ActiveMQ and the content services node to start
 
 For more information on advanced ActiveMQ settings, see [Configuring advanced settings in ActiveMQ](LINK).
 
-1. Navigate to the activemq/bin directory where activemq is the name of the directory where you installed ActiveMQ. Start ActiveMQ using the command:
+1. Navigate to the `activemq/bin` directory where `activemq` is the name of the directory where you installed ActiveMQ. Start ActiveMQ using the command:
 
     ```bash
     ./activemq start

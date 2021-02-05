@@ -4,7 +4,11 @@ title: Administering Media Management
 
 This information helps you to monitor and administer Alfresco Media Management.
 
+<<<<<<< HEAD
 If you are backing up and restoring Media Management, use the standard Alfresco guidance: For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) [Backing up and restoring](LINK).
+=======
+If you are backing up and restoring Media Management, use the standard Alfresco guidance: [Back up and restore](#LINK content-services/6.0/admin/backup-restore.md).
+>>>>>>> df77b1a5c1b180b63564dbb4ffba842a26268f4e
 
 ## Monitoring Media Management
 
@@ -42,11 +46,11 @@ You can monitor the flow of media events from the Alfresco repository through Ac
         {"FFmpeg":{"healthy":true,"message":"lastRequest: \"6075f46f-de9c-4232-aa78-d3ed1280a371\""},"ImageMagick":{"healthy":true},"deadlocks":{"healthy":true}}
         ```
 
-    * Check the log, which is located in remote-node/logs/content-services-node.log, where remote-node is the name of directory that you unzipped when you installed Media Management.
+    * Check the log, which is located in `remote-node/logs/content-services-node.log`, where `remote-node` is the name of directory that you unzipped when you installed Media Management.
     * You can change the log level of the content services node in the remote-node/config.yml file.
-3. Check alfresco.log, after setting the log level to `debug`, for any errors.
+3. Check `alfresco.log`, after setting the log level to `debug`, for any errors.
 
-4. Use the log4j.properties.sample file to add loggers to your `tomcat/webapps/alfresco/WEB-INF/classes/alfresco/module/org_alfresco_mm_repo/log4j.properties` file.
+4. Use the `log4j.properties.sample` file to add loggers to your `tomcat/webapps/alfresco/WEB-INF/classes/alfresco/module/org_alfresco_mm_repo/log4j.properties` file.
 
     A `log4j.properties.sample` file is provided in the Media Management installation zip. This file contains loggers that you can add to your Alfresco `log4j.properties` file to trace and debug your Media Management workflow.
 
