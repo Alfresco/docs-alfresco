@@ -191,7 +191,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Intelligence Services 1.1 | |
 | Alfresco Content Connector for AWS S3 3.1 | Only compatible with Alfresco Media Management 1.4.2 or above. |
 | Alfresco Content Connector for AWS S3 3.0 | |
-Alfresco Content Connector for Azure 1.1 | |
+| Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for Azure 1.0 | |
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
 | Alfresco Content Connector for AWS Glacier 2.0 | Only compatible with Alfresco Content Connector for AWS S3 3.0 and below. |

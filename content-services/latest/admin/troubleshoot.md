@@ -170,7 +170,7 @@ Before you start, you must:
 
 * Have a fully installed, configured, and running instance of Content Services. These steps assume you're using Tomcat on Windows, but the steps are similar for other application servers on other systems.
 * Have an IDE installed. These steps describe how to configure Eclipse, which must be installed first ([Eclipse](https://www.eclipse.org/downloads/){:target="_blank"})
-* [Download source code](https://github.com/Alfresco/alfresco-enterprise-repo){:target="_blank"}. This project has more instructions on how to set up a dev env.
+* Download source code from `https://github.com/Alfresco/alfresco-enterprise-repo`. This project has more instructions on how to set up a development environment.
 * Ensure the source code is the same version as the installed server.
 
 1. Verify that the server is not running.
@@ -355,8 +355,6 @@ There is a known issue when using WebDAV with Cyberduck 4.4 and later, where con
 ### Slow response when working with WebDav resources on Microsoft Windows Vista or 7
 
 There is a known issue where you may experience poor performance when opening a WebDav folder, copying files to or from a WebDav folder, or changing from one folder to another on the WebDav folder. This can be caused because when WebClient issues a WebDAV command it checks for a web proxy server. If you have Auto-Proxy detection enabled and there isn't a proxy server in the environment between the client and WebDAV resource, WebClient waits for the timeout of Auto-Proxy detection. Command completion therefore will take longer due to the wait for the Auto-Proxy detection timeout.
-
-For more information and a work around see [Slow response working with WebDAV resources on Windows Vista or Windows 7](https://support.microsoft.com/en-us/help/2445570/slow-response-working-with-webdav-resources-on-windows-vista-or-window){:target="_blank"}.
 
 ## OpenLDAP tips
 

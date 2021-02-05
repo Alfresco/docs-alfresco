@@ -29,6 +29,10 @@ defaults:
     values:
       version: 6.1
   - scope:
+      path: "content-services/6.1/tutorial"
+    values:
+      toc: "content-services-tutorial"
+  - scope:
       path: "content-services/6.0"
     values:
       version: 6.0
