@@ -121,7 +121,7 @@ You can configure Media Management using the alfresco-global.properties file or 
 
     A `log4j.properties.sample` file is provided in the Media Management installation zip.
 
-    See [Runtime administration with a JMX client](LINK) for instructions on how to connect a JMX client to your Alfresco server.
+    See For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) [Runtime administration with a JMX client](LINK) for instructions on how to connect a JMX client to your Alfresco server.
 
 ## Configuring a shared file content workspace
 
@@ -232,7 +232,7 @@ content.transformer.RemoteImage.mimetypes.image/*.image/*.supported=false
 
 ```
 
-> **Note:** Video transformation (transcoding) is very resource intensive and can take a long time to complete. Make sure that any rules that you configure using video transcoding run in the background, to prevent the rule from failing due to a Share timeout. For more information about creating rules, see [Creating a rule](LINK).
+> **Note:** Video transformation (transcoding) is very resource intensive and can take a long time to complete. Make sure that any rules that you configure using video transcoding run in the background, to prevent the rule from failing due to a Share timeout. For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}).
 
 ## Configuring the Elastic Transcoder content transformer
 

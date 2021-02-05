@@ -4,7 +4,7 @@ title: Administering Media Management
 
 This information helps you to monitor and administer Alfresco Media Management.
 
-If you are backing up and restoring Media Management, use the standard Alfresco guidance: [Backing up and restoring](LINK).
+If you are backing up and restoring Media Management, use the standard Alfresco guidance: For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) [Backing up and restoring](LINK).
 
 ## Monitoring Media Management
 
@@ -55,6 +55,6 @@ You can monitor the flow of media events from the Alfresco repository through Ac
 Administrators can view information about transformations and add publishing channels in the Admin Tools option of the Share menu bar.
 
 1. Select Admin Tools on the Share toolbar, to see a list of tools on the left of the page.
-2. The **Tools > Application** section lists the themes available. Media Management provides a black background (a dark theme) for Share. See [Using an Alfresco dark site theme](LINK) for more information.
+2. The **Tools > Application** section lists the themes available. Media Management provides a black background (a dark theme) for Share. See For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) [Using an Alfresco dark site theme](LINK) for more information.
 3. The **Content Publishing > Channel Manager** section lists the channels that are configured for users to publish media (for example, CloudFront). Use this guidance to add a new publishing channel: [Configuring a CloudFront publishing channel]({% link media-management/1.2/config/index.md %}#configuring-a-cloudfront-publishing-channel).
 4. The **Transformations** section lists the installed transformers and their status. Select Transformer FFmpeg to see information on whether the transformer is available, and the version of FFmpeg that is installed with the options configured.

@@ -6,9 +6,9 @@ Alfresco Media Management allows you to view and manipulate your digital assets 
 
 Features provided with Media Management include video support and enhanced image manipulation, for example, video thumbnails and proxies, video trim, time-coded comments for video, and image crop and rotate capabilities. A dark site theme is also available.
 
-You can embed metadata into a file using rules, with the Embed properties as metadata in content action, and view metadata in Alfresco and in an image editor. See [Working with metadata](LINK) for more information about extracting and embedding metadata.
+You can embed metadata into a file using rules, with the Embed properties as metadata in content action, and view metadata in Alfresco and in an image editor. See the working with metadata video {% include media.html id="hR3PpZhDFqs" %} for more information about extracting and embedding metadata.
 
-> **Note:** Video transformations are very resource intensive and can take a long time to complete. Make sure that any rules that you create that use video transcoding run in the background, to prevent the rule from failing due to an Alfresco timeout. For more information about creating rules, see [Creating a rule](LINK).
+> **Note:** Video transformations are very resource intensive and can take a long time to complete. Make sure that any rules that you create that use video transcoding run in the background, to prevent the rule from failing due to an Alfresco timeout. For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}).
 
 Media Management is integrated with AWS CloudFront publishing channel for publishing your content.
 
@@ -98,9 +98,9 @@ There are several methods used to request rich media transformations, and the me
 
 Renditions, for example, lower resolution JPEG image and video proxy files, are often requested automatically, when required in Alfresco. For example, they are requested when browsing a site's document library or navigating to the document details page.
 
-You can explicitly request a rendition by clicking the **+** icon in the **Renditions** panel of the document details page. See [Viewing media](LINK) for more information about the Renditions panel.
+You can explicitly request a rendition by clicking the **+** icon in the **Renditions** panel of the document details page. See For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) [Viewing media](LINK) for more information about the Renditions panel.
 
-You can perform an ad hoc format transformation in a number of ways, for example, create a rule with a Transform and Copy Content action. See [Applying rules to folders](LINK) for more information about setting up rules.
+You can perform an ad hoc format transformation in a number of ways, for example, create a rule with a Transform and Copy Content action. See For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) [Applying rules to folders](LINK) for more information about setting up rules.
 
 ## Publishing media
 
@@ -118,7 +118,7 @@ Alfresco Media Management provides publishing options in Alfresco.
 
 Alfresco Media Management provides a black background (dark theme) for Share, that mutes elements until they are required, and makes it easier to work with rich media content. If you're a site administrator you can enable this theme.
 
-For more information about using themes in general, see [Share themes](LINK). Only an administrator can enable a theme.
+For more information about using themes in general, see [Share themes](LINK) For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}). Only an administrator can enable a theme.
 
 1. From the Alfresco Content Services toolbar, select Admin Tools and click Application in the Tools list.
 
