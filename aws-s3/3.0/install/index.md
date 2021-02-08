@@ -10,14 +10,6 @@ however, in order to improve performance a local Caching Content Store is used w
 
 >**Note:** By default the module configures the caching content store to use a maximum of 50 GB of disk, with no limit on individual file sizes.
 
-You have two options for installing the S3 Connector:
-
-* [Installing the S3 Connector](#installing)
-* [Installing the S3 Connector with S3MultipleBuckets subsystem](#installingmultibucket)
-
-The steps for both options are very similar, but the second allows you to add `S3MultipleBuckets` as a third alternative 
-for the S3 content store subsystem.
-
 ## Prerequisites
 
 There are a number of software requirements for installing Content Connector for AWS S3 version 3.0.

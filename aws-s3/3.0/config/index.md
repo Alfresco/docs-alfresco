@@ -25,7 +25,7 @@ If you need to override them for your environment, check the available settings 
 
 1.  Open the `<classpathRoot>/alfresco-global.properties` file.
 
-    If you plan to use IAM roles instead of AWS access and secret keys, ensure you have [configured AWS Identity and Access Management]({% link aws-s3/3.0/config/index.md %}#configiam) correctly before continuing from step [4]({% link aws-s3/3.0/config/index.md %}#bucketName).
+    If you plan to use IAM roles instead of AWS access and secret keys, ensure you have [configured AWS Identity and Access Management]({% link aws-s3/latest/config/index.md %}#configiam) correctly before continuing from step 4.
 
     If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises) and you'd like to transition to using AWS S3 as the only content store, ensure you include the property described in [Configuring S3 Connector on-premises]({% link aws-s3/3.0/config/index.md %}#onpremconfig) before continuing.
 
