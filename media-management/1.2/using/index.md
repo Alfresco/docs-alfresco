@@ -100,7 +100,7 @@ Renditions, for example, lower resolution JPEG image and video proxy files, are 
 
 You can explicitly request a rendition by clicking the **+** icon in the **Renditions** panel of the document details page. See For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) [Viewing media](LINK) for more information about the Renditions panel.
 
-You can perform an ad hoc format transformation in a number of ways, for example, create a rule with a Transform and Copy Content action. See For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) [Applying rules to folders](LINK) for more information about setting up rules.
+You can perform an ad hoc format transformation in a number of ways, for example, create a rule with a Transform and Copy Content action. For more see [Creating a rule](link content-services/latest/using/content/rules.md) [Applying rules to folders](LINK) for more information about setting up rules.
 
 ## Publishing media
 
@@ -118,7 +118,7 @@ Alfresco Media Management provides publishing options in Alfresco.
 
 Alfresco Media Management provides a black background (dark theme) for Share, that mutes elements until they are required, and makes it easier to work with rich media content. If you're a site administrator you can enable this theme.
 
-For more information about using themes in general, see [Share themes](LINK) For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}). Only an administrator can enable a theme.
+For more information about using themes in general, see [Share Themes](#LINK content-services/6.0/develop/share-ext-points/share-themes.md). Only an administrator can enable a theme.
 
 1. From the Alfresco Content Services toolbar, select Admin Tools and click Application in the Tools list.
 
