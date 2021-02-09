@@ -2,8 +2,11 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for the Content Connector for SAP Applications version 5.0:
+The following are the supported platforms for Alfresco Content Connector for SAP applications:
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 5.2.1 -> 6.2.2 |  |
+| Content Services 6.2.x | |
+| Content Services 6.1.x | |
+| Content Services 6.0.x | |
+| Content Services 5.2.1 - 5.2.7 |  |
