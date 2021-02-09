@@ -4,77 +4,61 @@ title: Install using Docker Compose
 
 Use this information to quickly start up Content Services using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
-To deploy Content Services using Docker Compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/6.0/install/containers/index.md %}#prerequisites) before continuing.
+To deploy Content Services using Docker Compose, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/6.0/install/containers/index.md %}#prerequisites) before continuing.
 
-1. Clone the [repository](https://github.com/Alfresco/acs-deployment){:target="_blank"} locally or [download](https://github.com/Alfresco/acs-deployment/tree/master/docker-compose){:target="_blank"} one of the `docker-compose.yml` files (e.g. `6.1.N-docker-compose.yml`), and then change directory to the project folder:
+1. Clone the [repository](https://github.com/Alfresco/acs-deployment){:target="_blank"} locally or [download](https://github.com/Alfresco/acs-deployment/tree/master/docker-compose){:target="_blank"} one of the `docker-compose.yml` files (e.g. `6.0.N-docker-compose.yml`), and then change directory to the project folder:
 
     ```bash
     git clone https://github.com/Alfresco/acs-deployment.git
     cd acs-deployment
     ```
 
-    > **Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8083. These ports are set in the `docker-compose.yml` file - refer to the `host:container` port definitions.
+    > **Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file - refer to the `host:container` port definitions.
 
     See the `Alfresco/acs-deployment` project [README](https://github.com/Alfresco/acs-deployment){:target="_blank"} for more information.
 
 2. Change directory to the location of your `docker-compose.yml` file.
 
-3. Log in to Quay.io using your credentials:
+3. Deploy Content Services, including the repository, Share, Postgres database, Search Services, etc.:
 
     ```bash
-    docker login quay.io
-    ```
-
-    Alfresco customers can request Quay.io credentials by logging a ticket with [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
-
-4. Deploy Content Services, including the repository, Share, Postgres database, Search Services, etc.:
-
-    ```bash
-    docker-compose -f 6.1.N-docker-compose.yml up
+    docker-compose -f 6.0.N-docker-compose.yml up
     ```
 
     This downloads the images, fetches all the dependencies, creates each container, and then starts the system:
 
     ```text
     ...
+    Creating docker-compose_alfresco-pdf-renderer_1 ... done
+    Creating docker-compose_solr6_1                 ... done
     Creating docker-compose_postgres_1              ... done
-    Creating docker-compose_alfresco_1              ... done
-    Creating docker-compose_tika_1                  ... done
     Creating docker-compose_imagemagick_1           ... done
     Creating docker-compose_libreoffice_1           ... done
-    Creating docker-compose_digital-workspace_1     ... done
-    Creating docker-compose_solr6_1                 ... done
-    Creating docker-compose_shared-file-store_1     ... done
     Creating docker-compose_share_1                 ... done
-    Creating docker-compose_activemq_1              ... done
-    Creating docker-compose_alfresco-pdf-renderer_1 ... done
-    Creating docker-compose_proxy_1                 ... done
-    Creating docker-compose_transform-router_1      ... done
-    Attaching to docker-compose_postgres_1, docker-compose_tika_1, docker-compose_alfresco_1, docker-compose_digital-workspace_1, ...
-
+    Creating docker-compose_alfresco_1              ... done
+    Attaching to docker-compose_postgres_1, docker-compose_solr6_1, docker-compose_alfresco-pdf-renderer_1,     docker-compose_imagemagick_1, docker-compose_alfresco_1, docker-compose_libreoffice_1, docker-compose_share_1
+    ...
     ```
 
     As an alternative, you can also start the containers in the background by running `docker-compose up -d`.
 
-5. Wait for the logs to complete, showing messages:
+4. Wait for the logs to complete, showing messages:
 
     ```bash
     ...
-    alfresco_1 | 2019-02-21 11:50:46,000  WARN ... The Alfresco Content Services license will expire in 2 days.
-    alfresco_1 | 2019-02-21 11:50:50,341  INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2019-02-21 11:50:50,600  INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | 2018-08-28 08:40:30,386  INFO  [management.subsystems.ChildApplicationContextFactory]  [http-nio-8080-exec-10] Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | 2018-08-28 08:40:30,661  INFO  [management.subsystems.ChildApplicationContextFactory]  [http-nio-8080-exec-10] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
     See [Troubleshooting](#troubleshooting) if you encounter errors whilst the system is starting up.
 
-6. Open your browser and check everything starts up correctly:
+5. Open your browser and check everything starts up correctly:
 
     | Service | Endpoint |
     | ------- | -------- |
     | Administration and REST APIs | `http://localhost:8080/alfresco` |
     | Share | `http://localhost:8080/share` |
-    | Digital Workspace | `http://localhost:8080/workspace` |
     | Search Services administration | `http://localhost:8083/solr` |
 
     If Docker is running on your local machine, the IP address will be just `localhost`.
@@ -85,7 +69,7 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
     docker-machine ip
     ```
 
-7. Log in as the `admin` user. Enter the default administrator password `admin`.
+6. Log in as the `admin` user. Enter the default administrator password `admin`.
 
 ## Check system start up
 
@@ -108,17 +92,14 @@ Use this information to verify that the system started correctly, and to clean u
         ```text
                 Container                           Repository                            ...       Size
         --------------------------------------------------------------------------------------------------
-        docker-compose_activemq_1                alfresco/alfresco-activemq                    ...   545.9 MB
-        docker-compose_alfresco_1                alfresco/alfresco-content-repository          ...   1.324 GB
-        docker-compose_digital-workspace_1       quay.io/alfresco/alfresco-digital-workspace   ...   34.35 MB
-        docker-compose_postgres_1                postgres                                      ...   312.5 MB
-        docker-compose_proxy_1                   alfresco/alfresco-acs-nginx                   ...   20.42 MB
-        docker-compose_share_1                   alfresco/alfresco-share                       ...   867.6 MB
-        docker-compose_shared-file-store_1       alfresco/alfresco-shared-file-store           ...   777.8 MB
-        docker-compose_solr6_1                   alfresco/alfresco-search-services             ...   1.022 GB
-        docker-compose_sync-service_1            quay.io/alfresco/service-sync                 ...   809.7 MB
-        docker-compose_transform-core-aio_1      alfresco/alfresco-transform-core-aio          ...   1.707 GB
-        docker-compose_transform-router_1        quay.io/alfresco/alfresco-transform-router    ...   729.8 MB
+        docker-compose_alfresco_1                alfresco/alfresco-content-repository     ...   1.52 GB
+        docker-compose_alfresco-pdf-renderer_1   alfresco/alfresco-pdf-renderer           ...   560 MB
+        docker-compose_postgres_1                postgres                                 ...   312.5 MB
+        docker-compose_imagemagick_1             alfresco/alfresco-imagemagick            ...   633 MB
+        docker-compose_share_1                   alfresco/alfresco-share                  ...   785.5 MB
+        docker-compose_libreoffice_1             alfresco/alfresco-libreoffice            ...   1.39 GB
+        docker-compose_solr6_1                   alfresco/alfresco-search-services        ...   1.07 GB
+        ...
         ```
 
     2. List the running containers:
@@ -162,17 +143,13 @@ Use this information to verify that the system started correctly, and to clean u
 
     ```text
     ^CGracefully stopping... (press Ctrl+C again to force)
-    Stopping docker-compose_transform-core-aio_1 ... done
-    Stopping docker-compose_transform-router_1   ... done
-    Stopping docker-compose_proxy_1              ... done
-    Stopping docker-compose_sync-service_1       ... done
-    Stopping docker-compose_shared-file-store_1  ... done
-    Stopping docker-compose_postgres_1           ... done
-    Stopping docker-compose_activemq_1           ... done
-    Stopping docker-compose_share_1              ... done
-    Stopping docker-compose_solr6_1              ... done
-    Stopping docker-compose_alfresco_1           ... done
-    Stopping docker-compose_digital-workspace_1  ... done
+    Stopping docker-compose_share_1                   ... done
+    Stopping docker-compose_alfresco_1                ... done
+    Stopping docker-compose_postgres_1                ... done
+    Stopping docker-compose_solr6_1                   ... done
+    Stopping docker-compose_alfresco-pdf-renderer_1   ... done
+    Stopping docker-compose_libreoffice_1             ... done
+    Stopping docker-compose_imagemagick_1             ... done
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -184,20 +161,15 @@ Use this information to verify that the system started correctly, and to clean u
     This stops the running services, as shown in the previous example, and removes them from memory:
 
     ```text
-    Stopping docker-compose_transform-core-aio_1 ... done
-    Stopping docker-compose_transform-router_1   ... done
+    Stopping docker-compose_imagemagick_1      ... done
     ...
-    Removing docker-compose_transform-core-aio_1 ... done
-    Removing docker-compose_transform-router_1   ... done
-    Removing docker-compose_proxy_1              ... done
-    Removing docker-compose_sync-service_1       ... done
-    Removing docker-compose_shared-file-store_1  ... done
-    Removing docker-compose_postgres_1           ... done
-    Removing docker-compose_activemq_1           ... done
-    Removing docker-compose_share_1              ... done
-    Removing docker-compose_solr6_1              ... done
-    Removing docker-compose_alfresco_1           ... done
-    Removing docker-compose_digital-workspace_1  ... done
+    Removing docker-compose_alfresco-pdf-renderer_1  ... done
+    Removing docker-compose_postgres_1               ... done
+    Removing docker-compose_share_1                  ... done
+    Removing docker-compose_solr6_1                  ... done
+    Removing docker-compose_imagemagick_1            ... done
+    Removing docker-compose_libreoffice_1            ... done
+    Removing docker-compose_alfresco_1               ... done
     Removing network docker-compose_default
     ```
 
@@ -230,12 +202,12 @@ Use this information to verify that the system started correctly, and to clean u
         The `--rmi all` option also removes the images created by `docker-compose up`, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them:
 
         ```text
-        Stopping docker-compose_transform-core-aio_1 ... done
+        Stopping docker-compose_alfresco_1  ... done
         ...
-        Removing docker-compose_transform-core-aio_1 ... done
+        Removing docker-compose_alfresco_1  ... done
         ...
         Removing network docker-compose_default
-        Removing image alfresco/alfresco-content-repository:6.1.1
+        Removing image alfresco/alfresco-content-repository:6.0.1.6
         Removing image ...
         ```
 
@@ -243,7 +215,7 @@ See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for m
 
 ### Deployment project in GitHub
 
-See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project for more details.
+See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} GitHub project for more details.
 
 * In this project, you'll find several Docker Compose files. The default `docker-compose.yml` file contains the latest work-in-progress deployment scripts, and installs the latest *development* version of Content Services.
 * To deploy a specific released version of Content Services, several *major.minor* Docker Compose files are provided in the `docker-compose` folder of the project.
@@ -274,38 +246,6 @@ The Docker Compose file provides some default configuration. This section lists 
 | CSRF_FILTER_REFERER | CSRF Referrer |
 | CSRF_FILTER_ORIGIN | CSRF Origin |
 
-### Alfresco Digital Workspace (digital-workspace)
-
-| Property | Description |
-| -------- | ----------- |
-| BASE_PATH | The default value is `./` |
-| APP_CONFIG_OAUTH2_HOST | The address of the Identity Service including the realm name configured |
-| APP_CONFIG_AUTH_TYPE | The authentication type. To use Single Sign-on mode you must change this property to OAUTH. The default value is `BASIC` |
-| APP_CONFIG_OAUTH2_CLIENTID | The name of the client configured for Digital Workspace |
-| APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI | The address that Digital Workspace uses to refresh authorization tokens |
-| APP_CONFIG_OAUTH2_REDIRECT_LOGIN | The URL to redirect to after a user is successfully authenticated |
-| APP_CONFIG_OAUTH2_REDIRECT_LOGOUT | The URL to redirect to after a user successfully signs out |
-| APP_BASE_SHARE_URL | Base Share URL. For example `{protocol}//{hostname}{:port}/workspace/#/preview/s` |
-| AUTH_TYPE | The authentication type. To use Single Sign-on mode you must change this property to OAUTH. The default value is `BASIC` |
-| PROVIDER | The default value is `ALL` |
-| ENVIRONMENT_SUFFIX | Only for Process Cloud instance. The default value is `_CLOUD` |
-| API_HOST |  |
-| API_CONTENT_HOST |  |
-| API_CONTENT_HOST_LOCAL | The default value is `http://localhost:8080` |
-| API_PROCESS_HOST |  |
-| OAUTH_HOST |  |
-| IDENTITY_HOST | The address of the Identity Service including the realm name configured. |
-| E2E_HOST | The default value is `http://localhost` |
-| E2E_PORT | The default value is `80` |
-| API_HOST_CLOUD |  |
-| API_CONTENT_HOST_CLOUD |  |
-| API_PROCESS_HOST_CLOUD |  |
-| OAUTH_HOST_CLOUD |  |
-| IDENTITY_HOST_CLOUD |  |
-| E2E_HOST_CLOUD | The default value is `http://localhost` |
-| E2E_PORT_CLOUD | The default value is `4200` |
-| APP_CONFIG_APPS_DEPLOYED | The name of the deployed application (e.g. `"[{"name": "<the name of the deployed application>"}]"`) |
-
 ### Alfresco Search Services (solr6)
 
 | Property | Description |
@@ -331,81 +271,6 @@ The Docker Compose file provides some default configuration. This section lists 
 | SOLR_SSL_TRUST_STORE_TYPE | Trust store type. See [Alfresco Search Services Docker Compose](https://github.com/Alfresco/InsightEngine/blob/master/search-services/README.md#use-alfresco-search-services-docker-image-with-docker-compose){:target="_blank"} steps for more details. The default value is `JCEKS` |
 | SOLR_SSL_NEED_CLIENT_AUTH | This variable is used to configure SSL (`true` or `false`). See [Alfresco Search Services Docker Compose](https://github.com/Alfresco/InsightEngine/blob/master/search-services/README.md#use-alfresco-search-services-docker-image-with-docker-compose){:target="_blank"} steps for more details |
 | SOLR_SSL_WANT_CLIENT_AUTH | This variable is used to configure SSL (`true` or `false`). See [Alfresco Search Services Docker Compose](https://github.com/Alfresco/InsightEngine/blob/master/search-services/README.md#use-alfresco-search-services-docker-image-with-docker-compose){:target="_blank"} steps for more details |
-
-### Alfresco Transform Router (transform-router)
-
-| Property | Description |
-| -------- | ----------- |
-| JAVA_OPTS | A set of properties that are picked up by the JVM inside the container |
-| ACTIVEMQ_URL | ActiveMQ URL (in this case, the name of the container is used). The default value is `nio://activemq:61616` |
-| ACTIVEMQ_USER | ActiveMQ user. The default value is `admin` |
-| ACTIVEMQ_PASSWORD | ActiveMQ password. The default value is `admin` |
-| TRANSFORM_REQUEST_QUEUE | The default value is `org.alfresco.transform.t-request.acs` |
-| TRANSFORM_REPLY_QUEUE | The default value is `org.alfresco.transform.t-reply.acs` |
-| TRANSFORM_ENGINE_REPLY_QUEUE | The default value is `org.alfresco.transform.engine.t-reply.acs` |
-| JMS_LISTENER_CONCURRENCY | The default value is `1-10` |
-| IMAGEMAGICK_URL | URL for the ImageMagick T-Engine |
-| PDF_RENDERER_URL | URL for the PDF Renderer T-Engine |
-| LIBREOFFICE_URL | URL for the LibreOffice T-Engine |
-| TIKA_URL | URL for the Tika T-Engine |
-| MISC_URL | URL for the Miscellaneous T-Engine |
-| CORE_AIO_URL | URL for the All-In-One T-Engine |
-| FILE_STORE_URL | URL for the Shared File Store |
-| IMAGEMAGICK_QUEUE | Name of the queue used by the ImageMagick T-Engine. The default value is `org.alfresco.transform.engine.imagemagick.acs` |
-| PDF_RENDERER_QUEUE | Name of the queue used by the PDF Renderer T-Engine. The default value is `org.alfresco.transform.engine.alfresco-pdf-renderer.acs` |
-| LIBREOFFICE_QUEUE | Name of the queue used by the LibreOffice T-Engine. The default value is `org.alfresco.transform.engine.libreoffice.acs` |
-| TIKA_QUEUE | Name of the queue used by the Tika T-Engine. The default value is `org.alfresco.transform.engine.tika.acs` |
-| MISC_QUEUE | Name of the queue used by the Miscellaneous T-Engine. The default value is `org.alfresco.transform.engine.misc.acs` |
-| CORE_AIO_QUEUE | Name of the queue used by the All-In-One Core T-Engine. The default value is `org.alfresco.transform.engine.aio.acs` |
-| TRANSFORMER_ENGINE_PROTOCOL | This value can be one of the following (http, jms). The default value is `jms` |
-| TRANSFORMER_ROUTES_FILE_LOCATION | The default value is `transformer-pipelines.json` |
-| MAX_TRANSFORM_RETRIES | The default value is `3` |
-| INITIAL_RETRY_TIMEOUT | The default value is `10000` |
-| INCREASE_RETRY_TIMEOUT | The default value is `10000` |
-| MAX_IN_MEMORY_SIZE |  Double default limit to 512KiB. The default value is `524288` |
-| HOSTNAME | The default value is `t-router` |
-
-### Alfresco Transform Core AIO (transform-core-aio)
-
-| Property | Description |
-| -------- | ----------- |
-| JAVA_OPTS | A set of properties that are picked up by the JVM inside the container |
-| ACTIVEMQ_URL | ActiveMQ URL (in this case, the name of the container is used) |
-| FILE_STORE_URL | Shared file store URL (in this case, the name of the container is used) |
-| TRANSFORM_ENGINE_REQUEST_QUEUE | Name of the queue. The default value is `org.alfresco.transform.engine.aio.acs` |
-| PDFRENDERER_EXE | Location of the PDF Renderer binary. The default value is `/usr/bin/alfresco-pdf-renderer` |
-| LIBREOFFICE_HOME | Location of the LibreOffice installation. The default value is `/opt/libreoffice5.4` |
-| IMAGEMAGICK_ROOT | Location of the ImageMagick installation. The default value is `/usr/lib64/ImageMagick-7.0.10` |
-| IMAGEMAGICK_DYN | Location of the ImageMagick dynamic libraries. The default value is `/usr/lib64/ImageMagick-7.0.10/lib` |
-| IMAGEMAGICK_EXE | Location of the ImageMagick binary. The default value is `/usr/bin/convert` |
-| IMAGEMAGICK_CODERS | Location of the ImageMagick coders folder |
-| IMAGEMAGICK_CONFIG | Location of the ImageMagick configuration folder |
-
-### Alfresco Shared File Store (shared-file-store)
-
-| Property | Description |
-| -------- | ----------- |
-| JAVA_OPTS | A set of properties that are picked up by the JVM inside the container |
-| fileStorePath | Shared File Store content storing path. The default value is `/tmp/Alfresco` |
-| scheduler.contract.path | Cleanup Scheduler contract path. The default value is `/tmp/scheduler.json` |
-| scheduler.content.age.millis | Content retention period. The default value is `86400000` |
-| scheduler.cleanup.interval | Cleanup Scheduler interval. The default value is `86400000` |
-
-### Alfresco Sync Service (sync-service)
-
-| Property | Description |
-| -------- | ----------- |
-| JAVA_OPTS | A set of properties that are picked up by the JVM inside the container. Any Sync Service property can be passed to the container using the following format `-Dproperty=value` (e.g. `-Dsql.db.username=alfresco`). <br><br>For a complete list of properties that can be passed through `JAVA_OPTS` environment variable, check Alfresco Sync Service [configuration]({% link sync-service/3.0/config/index.md %}) |
-
-### Alfresco Proxy (proxy)
-
-| Property | Description |
-|--------- | ----------- |
-| ADW_URL | Digital Workspace URL inside network. The default value is `http://digital-workspace` |
-| REPO_URL | Repository URL inside network. The default value is `http://alfresco:8080` |
-| SHARE_URL | Share URL inside network. The default value is `http://share:8080` |
-| SYNCSERVICE_URL | Sync service URL inside network. The default value is `http://sync-service:9090` |
-| ACCESS_LOG | Sets the `access_log` value. Set to `off` to switch off logging |
 
 ## Customize
 
@@ -452,10 +317,3 @@ The table below shows the location of the Dockerfile for each container used in 
 | alfresco | [https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile](https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile){:target="_blank"} |
 | share | [https://github.com/Alfresco/share/blob/master/packaging/docker/Dockerfile](https://github.com/Alfresco/share/blob/master/packaging/docker/Dockerfile){:target="_blank"} |
 | solr6 | [https://github.com/Alfresco/InsightEngine/blob/master/search-services/packaging/src/docker/Dockerfile](https://github.com/Alfresco/InsightEngine/blob/master/search-services/packaging/src/docker/Dockerfile){:target="_blank"} |
-| <nobr>digital-workspace</nobr> | https://github.com/Alfresco/alfresco-digital-workspace-app/blob/develop/Dockerfile |
-| activemq | [https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile](https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile){:target="_blank"} |
-| <nobr>sync-service</nobr> | https://github.com/Alfresco/dsync-services/blob/master/service-sync/packaging/docker/Dockerfile |
-| <nobr>transform-router</nobr> | https://github.com/Alfresco/alfresco-transform-service/blob/master/alfresco-transform-router/src/main/docker/Dockerfile |
-| <nobr>transform-core-aio</nobr> | [https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-core-aio/alfresco-transform-core-aio-boot/Dockerfile](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-core-aio/alfresco-transform-core-aio-boot/Dockerfile){:target="_blank"} |
-| <nobr>shared-file-store</nobr> | https://github.com/Alfresco/alfresco-shared-file-store/blob/master/controller/Dockerfile |
-| proxy | [https://github.com/Alfresco/acs-ingress/blob/master/Dockerfile](https://github.com/Alfresco/acs-ingress/blob/master/Dockerfile){:target="_blank"} |

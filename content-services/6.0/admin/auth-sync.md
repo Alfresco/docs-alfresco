@@ -899,7 +899,7 @@ Active Directory is not used for LDAP authentication; it is used for Kerberos au
 
 #### Enable Kerberos authentication
 
-Use this information to enable and configure Kerberos authentication in Content Services 6.1.1.
+Use this information to enable and configure Kerberos authentication in Content Services.
 
 > **Note:** These instructions assume that you want to use SSO Kerberos.
 

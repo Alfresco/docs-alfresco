@@ -13,7 +13,6 @@ To install Content Services using the distribution zip (which also contains the 
 * Java: OpenJDK 11 is recommended
 * Application server: Apache Tomcat
 * Database: PostgreSQL or MySQL
-* Message broker: ActiveMQ
 * LibreOffice
 * ImageMagick
 
@@ -25,9 +24,7 @@ Use this section to get an overview of the main stages for installing Content Se
 
 Only the main stages for setting up and configuring Content Services are summarized. These include preparing your system for installation, installing the application, configuring it based on your requirements, and finally, testing and getting familiar with Content Services.
 
-Before you start, validate that you have access to the prerequisite software so you can install them in the right order. This includes a JRE, a supported database, Tomcat application server, a message broker (i.e. ActiveMQ), Alfresco Search Services, and additional components (such as ImageMagick).
-
-> **Note:** ActiveMQ is required when manually installing Content Services 6.1.1 onwards. For more information on installing and configuring ActiveMQ, see [Configuring ActiveMQ]({% link content-services/6.0/config/activemq.md %}).
+Before you start, validate that you have access to the prerequisite software so you can install them in the right order. This includes a JRE, a supported database, Tomcat application server, Alfresco Search Services, and additional components (such as ImageMagick).
 
 To get started, prepare your production server by installing the prerequisite software (JRE, database, and message broker) before continuing.
 
@@ -37,14 +34,12 @@ To get started, prepare your production server by installing the prerequisite so
 4. Set up Tomcat.
 5. Install and configure Content Services.
 6. Install any Alfresco Module Packages such as Alfresco Share, Google Docs Integration, and Alfresco Office Services.
-7. Set up ActiveMQ.
-8. Install third-party software used by Content Services. This includes LibreOffice, ImageMagick, and Alfresco PDF Renderer.
+7. Install third-party software used by Content Services. This includes LibreOffice, ImageMagick, and Alfresco PDF Renderer.
 
 Review and test your setup to check that all the installation steps are complete:
 
 1. Start and configure your database.
-2. Start and configure ActiveMQ.
-3. Start the repository.
+2. Start the repository.
 
 Follow the remaining links in this guide to see the detailed step-by-step instructions for manually installing Content Services.
 

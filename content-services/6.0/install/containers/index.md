@@ -22,7 +22,7 @@ A Hypervisor is used to run other OS instances on your local host machine. Typic
 
 ### Image
 
-An image is a number of layers that can be used to instantiate a container. This could be, for example, Java and Apache Tomcat. You can find all kinds of Docker images on the public repository [Docker Hub](https://hub.docker.com/){:target="_blank"}. There are also private image repositories (for things like commercial enterprise images), such as the one Alfresco uses called [Quay](https://quay.io/){:target="_blank"}.
+An image is a number of layers that can be used to instantiate a container. This could be, for example, Java and Apache Tomcat. You can find all kinds of Docker images on the public repository [Docker Hub](https://hub.docker.com/){:target="_blank"}.
 
 ### Container
 
@@ -50,7 +50,7 @@ The main difference is that when you run a container, you are not starting a com
 
 ## Alfresco Docker images
 
-The public Alfresco Docker images are available in the Docker Hub registry. There are also private Enterprise-only images in the Quay.io registry.
+The public Alfresco Docker images are available in the Docker Hub registry.
 
 Go to [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"} to see a list of images belonging to the `alfresco` user or, alternatively, [search for alfresco](https://hub.docker.com/search?q=alfresco%2F&type=image){:target="_blank"} from the Docker Hub home page:
 
@@ -85,8 +85,6 @@ When you deploy Content Services, a number of containers are started.
   * Alfresco Google Docs Integration Share AMP
 * Alfresco Search Services (Solr 6)
 * A PostgreSQL database
-* [Alfresco Transform Service]({% link transform-service/latest/index.md %})
-* [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %})
 
 ### GitHub projects
 
@@ -110,7 +108,7 @@ The packaging project is used to build the repository artifacts, such as the Doc
 
 Note that the Docker files for Alfresco Share and Alfresco Search Services are in their own projects:
 
-* Alfresco Share: [https://github.com/Alfresco/share/tree/support/HF/6.1.1](https://github.com/Alfresco/share/tree/support/HF/6.1.1){:target="_blank"}
+* Alfresco Share: [https://github.com/Alfresco/share/tree/support/HF/6.0.1](https://github.com/Alfresco/share/tree/support/HF/6.0.1){:target="_blank"}
 * Alfresco Search Services: [https://github.com/Alfresco/SearchServices](https://github.com/Alfresco/SearchServices){:target="_blank"}
 
 ## Prerequisites
@@ -119,9 +117,7 @@ There are a number of software requirements for installing (or deploying) Conten
 
 Note that the [VERSIONS.md](https://github.com/Alfresco/acs-packaging/blob/master/distribution/src/main/resources/VERSIONS.md){:target="_blank"} file in GitHub lists the supported versions.
 
-> **Note:** The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services Download Trial by following the steps in [Deploy using Docker Compose]({% link content-services/6.0/install/containers/docker-compose.md %}).
-
-> **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
+> **Note:** The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, are for a limited trial of the Enterprise version of Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services Download Trial by following the steps in the Content Services 6.2 documentation [Deploy using Docker Compose]({% link content-services/latest/install/containers/docker-compose.md %}).
 
 You can review the requirements for your chosen deployment method below.
 

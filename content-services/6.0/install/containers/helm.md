@@ -20,18 +20,6 @@ You should use these charts in your environment only as a starting point, and mo
 
 Another typical change is the integration of your company-wide monitoring and logging tools.
 
-## Deployment options
-
-For the best results, we recommend [deploying Content Services to AWS EKS]({% link content-services/6.0/install/containers/helm.md %}).
-
-There are also several [Helm examples]({% link content-services/6.0/install/containers/helm-examples.md %}) that show you how to deploy with various configurations:
-
-* [Deploy with AWS Services (S3, RDS and MQ)]({% link content-services/6.0/install/containers/helm-examples.md %}#with-aws-services)
-* [Deploy with Alfresco Intelligence Services]({% link content-services/6.0/install/containers/helm-examples.md %}#with-ai)
-* [Enable access to Alfresco Search Services]({% link content-services/6.0/install/containers/helm-examples.md %}#search-external-access)
-* [Enable Email Services]({% link content-services/6.0/install/containers/helm-examples.md %}#email-enabled)
-* [Use a custom metadata keystore]({% link content-services/6.0/install/containers/helm-examples.md %}#custom-metadata-keystore)
-
 ## Customize
 
 To customize the Helm deployment, for example applying AMPs, we recommend following the best practice of creating your own custom Docker image(s). The following customization guidelines walk you through this process.
@@ -296,14 +284,6 @@ kubectl create namespace alfresco
 
     > **Note:** The command will wait until the deployment is ready.
 
-#### Docker registry secret
-
-Create a docker registry secret to allow the protected images to be pulled from Quay.io by running the following command (replace `YOUR-USERNAME` and `YOUR-PASSWORD` with your credentials):
-
-```bash
-kubectl create secret docker-registry quay-registry-secret --docker-server=quay.io --docker-username=YOUR-USERNAME --docker-password=YOUR-PASSWORD -n alfresco
-```
-
 #### Choose Content Services version
 
 Decide whether you want to install the latest version of Content Services (Enterprise) or a previous version, and follow the steps in the relevant section below.
@@ -320,7 +300,6 @@ helm install acs alfresco-incubator/alfresco-content-services \
 --set persistence.enabled=true \
 --set persistence.storageClass.enabled=true \
 --set persistence.storageClass.name="nfs-client" \
---set global.alfrescoRegistryPullSecrets=quay-registry-secret \
 --atomic \
 --timeout 10m0s \
 --namespace=alfresco
@@ -343,7 +322,6 @@ helm install acs alfresco-incubator/alfresco-content-services \
     --set persistence.enabled=true \
     --set persistence.storageClass.enabled=true \
     --set persistence.storageClass.name="nfs-client" \
-    --set global.alfrescoRegistryPullSecrets=quay-registry-secret \
     --atomic \
     --timeout 10m0s \
     --namespace=alfresco
@@ -359,12 +337,7 @@ When the deployment is complete, you can access the following URLs. Replace `YOU
 * Alfresco Share: `https://acs.YOUR-DOMAIN-NAME/share`
 * API Explorer: `https://acs.YOUR-DOMAIN-NAME/api-explorer`
 
-Since you deployed Enterprise, you'll also have access to:
-
-* Alfresco Digital Workspace: `https://acs.YOUR-DOMAIN-NAME/workspace/`
-* Alfresco Sync Service: `https://acs.YOUR-DOMAIN-NAME/syncservice/healthcheck`
-
-If you're running Content Services 6.1.1 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
+If you're running Content Services 6.0.1 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
 
 * [https://acs.YOUR-DOMAIN-NAME/alfresco/service/enterprise/admin/admin-license](http://localhost:8080/alfresco/service/enterprise/admin/admin-license){:target="_blank"} (this only applies for the Enterprise Download Trial)
 * Default username and password is `admin`
@@ -372,7 +345,7 @@ If you're running Content Services 6.1.1 (i.e. the latest version) and already h
 
 ### Configuration options
 
-By default, this tutorial installs an out-of-the-box setup, however there are many configuration options shown in the table below. There are also several [examples]({% link content-services/6.0/install/containers/helm-examples.md %}) covering various use cases.
+By default, this tutorial installs an out-of-the-box setup, however there are many configuration options shown in the table below.
 
 The following table lists the configurable parameters of the Content Services chart and their default values.
 

@@ -96,6 +96,6 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-Looking at the response we can see that we are talking to an Enterprise Edition of ACS version 6.1.0. So we are ready to 
+Looking at the response we can see that we are talking to an Enterprise Edition of ACS version 6.0.1. So we are ready to 
 move on and use the full API. Note also that it is easy to see what license that's applied and the number of extension 
 modules (i.e. AMPs) that have been applied to the Repository.

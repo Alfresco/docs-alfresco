@@ -176,14 +176,12 @@ Use this information to review the components or modules that integrate Content 
 | ------------ | ----- |
 | Sync Service | |
 | Desktop Sync | |
-| Transform Service | |
 | Document Transformation Engine | Paid add-on module |
 | Media Management | Paid add-on module and requires additional software |
 | Search and Insight Engine | Paid add-on module |
 | Search Services | |
 | Federation Services | |
 | SAML Module for Alfresco Content Services | |
-| Intelligence Services |  |
 | Content Connector for AWS S3 | Paid add-on module |
 | Content Connector for AWS Glacier | |
 | Content Connector for EMC Centera | Paid add-on module and requires additional software |
@@ -192,12 +190,6 @@ Use this information to review the components or modules that integrate Content 
 | Outlook Integration | Paid add-on module |
 | Office Services | |
 | Google Docs Integration | |
-
-### Applications
-
-| Applications | Notes |
-| ------------ | ----- |
-| Digital Workspace | |
 
 ## Test installation
 

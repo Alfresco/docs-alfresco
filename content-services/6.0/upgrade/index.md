@@ -14,7 +14,7 @@ When you upgrade Content Services, it's recommended that you follow a structured
 
 The following diagram shows the upgrade paths for major versions:
 
-![Upgrade paths to 6.1]({% link content-services/images/upgrade-path-6-0.png %})
+![Upgrade paths to 6.0]({% link content-services/images/upgrade-path-6-0.png %})
 
 The upgrade path recommendations are:
 
@@ -80,13 +80,13 @@ These steps assume that you've got an existing Content Services installation (`a
         data.dir.root:/alfresco-v.2/solr/myindexes
         ```
 
-2. Validate the new 6.1.1 installation to check that it's working correctly.
+2. Validate the new 6.0.1 installation to check that it's working correctly.
 
     1. Configure the new installation with a new repository and database (not the existing one).
 
     2. [Start the server]({% link content-services/6.0/install/zip/additions.md %}#start-server) and [validate](#validate-upgrade) that the system works correctly.
 
-3. Apply all customizations to the new 6.1.1 installation.
+3. Apply all customizations to the new 6.0.1 installation.
 
     1. [Stop]({% link content-services/6.0/install/zip/additions.md %}#stop-server) the server.
 

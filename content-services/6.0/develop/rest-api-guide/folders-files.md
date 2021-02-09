@@ -1316,14 +1316,14 @@ model to the Repository.
     
     services:
         alfresco:
-            image: alfresco/alfresco-content-repository:6.1.0
+            image: alfresco/alfresco-content-repository:6.0.1.6
             ...
     ```
     
     With this information we know what Docker Image to base our custom Repo Docker Image on. Create a `Dockerfile` in the same directory as the content model XML files and have it look like this:
     
     ```text
-    FROM alfresco/alfresco-content-repository:6.1.0
+    FROM alfresco/alfresco-content-repository:6.0.1.6
       
     ARG TOMCAT_DIR=/usr/local/tomcat
     
@@ -1343,7 +1343,7 @@ model to the Repository.
     ```bash
     repo mbergljung$ docker build -t alf-repo-custom:1.0 .
     Sending build context to Docker daemon  954.4kB
-    Step 1/4 : FROM alfresco/alfresco-content-repository:6.1.0
+    Step 1/4 : FROM alfresco/alfresco-content-repository:6.0.1.6
      ---> 5439a493ee0a
     Step 2/4 : ARG TOMCAT_DIR=/usr/local/tomcat
      ---> Using cache

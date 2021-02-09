@@ -263,7 +263,7 @@ Tutorial implementation steps:
     |`folder-link-browse`|Action is visible for links to folders on the Browse page|
     |`folder-link-details`|Action is visible for link to folder on the Folder Details page|
 
-    The `index` argument is specifying the order of this action in the list of actions. The higher the number the lower it will be displayed in the action list. By having a look in the `share-documentlibrary-config.xml` configuration file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services 6.1.1 installation, you can find out that the highest index for `document-browse` actions is 360 and for `document-details` actions 390. So if we set our `index` for the Send-As-Email action to 400 it should end up last in both of these action lists.
+    The `index` argument is specifying the order of this action in the list of actions. The higher the number the lower it will be displayed in the action list. By having a look in the `share-documentlibrary-config.xml` configuration file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services 6.0.1 installation, you can find out that the highest index for `document-browse` actions is 360 and for `document-details` actions 390. So if we set our `index` for the Send-As-Email action to 400 it should end up last in both of these action lists.
 
     If you want more examples of how Document Library actions can be defined and configured, have a look in the `share-documentlibrary-config.xml` file and the `DocLibActions` section.
 
@@ -339,7 +339,7 @@ Tutorial implementation steps:
     * Is Browser (type)
     * Is Portlet mode
     
-    See the `slingshot-documentlibrary-context.xml` file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services 6.1.1 installation for more information about out-of-the-box evaluators.
+    See the `slingshot-documentlibrary-context.xml` file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services 6.0.1 installation for more information about out-of-the-box evaluators.
 
 6.  Add a Status Indicator for the Send-As-Email action.
 

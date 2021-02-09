@@ -591,8 +591,6 @@
               path: '/content-services/6.0/install/containers/docker-compose/'
             - title: 'Install using Helm'
               path: '/content-services/6.0/install/containers/helm/'
-            - title: 'Helm install examples'
-              path: '/content-services/6.0/install/containers/helm-examples/'
             - title: 'Customization'
               path: '/content-services/6.0/install/containers/customize/'
     - title: 'Upgrade'

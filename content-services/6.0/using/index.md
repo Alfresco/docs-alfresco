@@ -4,8 +4,6 @@ title: Overview of using Content Services
 
 The using sections covers the basics of using Content Services and the Alfresco Share user interface.
 
-> **Note:** If you prefer to use the Alfresco Digital Workspace instead of Alfresco Share, see the [Digital Workspace documentation]({% link digital-workspace/latest/index.md %}). The Digital Workspace is a content management application built using the [Alfresco Application Development Framework (ADF)](https://www.alfresco.com/abn/adf/docs/){:target="_blank"}. Digital Workspace offers a simplified experience for working with content and more comprehensive extensibility for developers.
-
 There are also several ways to access and use content without being in Alfresco Share:
 
 * **Microsoft Office**: You can open, edit, and save files directly from Microsoft Office apps such as Word and Excel. This same functionality also lets you open files from Windows Explorer, as well as the option to map a network drive to Content Services.
