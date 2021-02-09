@@ -10,7 +10,7 @@ Background information on the content store and content binary life cycle.
 
 A content store (`ContentStore`) or combinations of content stores can be used to control how and where the binary files are physically stored. Binary streams can be stored across a range of locations and can be encrypted/decrypted, as necessary. Also, fast versus slow storage options can be wired up together for efficient storage and access.
 
-Content Services supports seven different content stores. These are the File content store (default content store), Content store selector, S3 content store, Caching content store, Aggregating content store, Encrypted content store, and Centera content store. For more information on each content store, see [Content store types](#cstypes).
+Content Services supports a number of different content stores. These include the File content store (default content store), Content store selector, S3 content store, Caching content store, Aggregating content store, Encrypted content store, and Centera content store. For more information on each content store, see [Content store types](#cstypes).
 
 Common behavior of different content stores:
 

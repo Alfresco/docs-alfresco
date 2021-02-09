@@ -220,7 +220,7 @@ Here are some tips to familiarize yourself.
 > **Note:** We recommend that you create a test site for testing purpose and put all your test data in that site.
 
 * Can you login using your user name and password. See [Logging in]({% link content-services/latest/using/share.md %}#signing-in).
-* Can you create a site. See [Creating a new site](% link content-services/latest/using/sites/index.md %}#creating-a-site).
+* Can you create a site. See [Creating a new site]({% link content-services/latest/using/sites/index.md %}#creating-a-site).
 * Can you add new users to the site. See [Adding users to a site]({% link content-services/latest/using/sites/index.md %}#adding-users-to-a-site).
 * Can you add pages to the site. See [Adding pages to a site]({% link content-services/latest/using/sites/index.md %}#customizesite).
 * Can you add content to a site library. See [Adding content items]({% link content-services/latest/using/content/manage.md %}).
@@ -228,7 +228,7 @@ Here are some tips to familiarize yourself.
 * Can you update content. See [Updating content]({% link content-services/latest/using/content/manage.md %}#uploading-files).
 * Can you manage permissions for a user or a group for accessing content. See [Managing content permissions]({% link content-services/latest/using/permissions.md %}).
 * Can you add a new rule to a folder in the site library and check if it works. See [Adding a new rule]({% link content-services/latest/using/content/rules.md %}#createrule).
-* Can you schedule events, such as meeting, for your team. See [Scheduling events]({% link content-services/latest/using/sites/features.md %}#calednar).
+* Can you schedule events, such as meeting, for your team. See [Scheduling events]({% link content-services/latest/using/sites/features.md %}#calendar).
 
 ### Post-installation checks (clustered environment)
 

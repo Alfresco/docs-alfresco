@@ -660,7 +660,7 @@ For security reasons, configure your proxy to forward only requests to the resou
 
 If you're configuring SSL in a development or test environment, you can edit some configuration files to enable SSL.
 
-**Note:** These instructions should only be used for configuring a test environment. If you're configuring a production environment, you should use a proxy server to handle all SSL communication. See [Configuring SSL for a production environment](#ssl-repo) for more information.
+> **Note:** These instructions should only be used for configuring a test environment. If you're configuring a production environment, you should use a proxy server to handle all SSL communication. See [Configuring SSL for a production environment](#ssl-repo) for more information.
 
 Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your development or test system. At this point, we assume that:
 
