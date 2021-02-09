@@ -407,7 +407,7 @@ s3.abortIncompleteMultipartUploadDays=1
 When a file reaches the end of its lifetime, S3 queues it for removal and removes it asynchronously. 
 There may be a delay between the expiration date and the date when S3 removes a file.
 
-See [AWS Multipart Upload Overview](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html) for more details.
+See [AWS Multipart Upload Overview](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html){:target="_blank"} for more details.
 
 ## Properties reference
 
