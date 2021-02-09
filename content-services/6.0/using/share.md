@@ -59,7 +59,7 @@ The dashlets on this page give you a simple and up-to-date overview of what's be
 
 > **Note:** If you've [set your home page]({% link content-services/6.0/using/dashboard.md %}#sethomepage) then when you click **Home** that page will open.
 
-You can customize your dashboard to display the information that interests you. Each dashlet you select is displayed on the dashboard. 
+You can customize your dashboard to display the information that interests you. Each dashlet you select is displayed on the dashboard.
 
 The available dashlets are:
 
@@ -81,7 +81,7 @@ The available dashlets are:
 
 You can resize most dashlets.
 
-To resize a dashlet click and drag on the bottom edge of the dashlet until it's the height you want. This is saved 
+To resize a dashlet click and drag on the bottom edge of the dashlet until it's the height you want. This is saved
 between sessions.
 
 > **Note:** If you hover over a dashlet header then a ![Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. This stays open until you close it or navigate away from the dashboard.
@@ -243,3 +243,4 @@ An RSS Feed button or icon shows you where the feeds are available.
 3. Select where you want to store the feed, then subscribe to it.
 
     > **Note:** RSS feeds credentials are stored by the browser you're using and not Share. As such it's recommended that you close your browser after logging out of Share and / or lock your computer while you're away from it.
+    

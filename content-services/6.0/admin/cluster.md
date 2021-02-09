@@ -101,7 +101,7 @@ For a better understanding of initiating clustering for high availability and hi
 
 ## Recommendations for split architecture
 
-There are a number of recommendations for splitting the Content Services architecture in a distributed orclustered environment.
+There are a number of recommendations for splitting the Content Services architecture in a distributed or clustered environment.
 
 Generally, there are two complementary purposes for distributing or clustering your installation.
 

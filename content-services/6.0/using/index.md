@@ -39,7 +39,7 @@ Your administrator can map the repository so that you can access your content us
 * `__ShowDetails.exe`
 * `__Share.url`
 
-> **Note:** The Share.url is only available within site folders, rather than everywhere in the repository.
+> **Note:** The `Share.url` is only available within site folders, rather than everywhere in the repository.
 
 You can use these files to add content to the repository, check documents in and out, view document details, and open Alfresco Share in a browser window.
 
@@ -103,7 +103,7 @@ The `Share.url` is a shortcut to Share. It's available in a Windows environment 
 
     > **Note:** The `Share.url` is only available within site folders, rather than everywhere in the repository.
 
-2. Double-click the Share.url.
+2. Double-click the `Share.url`.
 
     > **Note:** There is a copy of the `Share.url` at each level of the repository.
 

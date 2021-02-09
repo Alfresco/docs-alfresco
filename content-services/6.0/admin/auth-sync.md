@@ -574,7 +574,7 @@ Both the `ldap` and `ldap-ad` subsystem types support the following configurable
 
 **LDAP authentication properties**
 
-> **Note:** The `create.missing.people` property in the Alfresco global properties file is set to true by default in Alfresco. This can have the affect of creating users unexpectedly. To avoid this you can override the default setting by changing the property to be `create.missing.people property=false`. You can also deselect **Auto Create People on Login** in the Alfresco Admin Console. To do this navigate to Synchronization Settings > Auto Create People on Login.
+> **Note:** The `create.missing.people` property in the Alfresco global properties file is set to true by default in Alfresco. This can have the affect of creating users unexpectedly. To avoid this you can override the default setting by changing the property to `create.missing.people property=false`. You can also deselect **Auto Create People on Login** in the Alfresco Admin Console. To do this navigate to **Synchronization Settings** > **Auto Create People on Login**.
 
 | Property | Description |
 | -------- | ----------- |

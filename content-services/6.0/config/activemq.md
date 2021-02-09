@@ -19,7 +19,7 @@ Set up Apache ActiveMQ to enable message queuing. If you already have an ActiveM
 
 If you don't already have an ActiveMQ instance, [install ActiveMQ](https://activemq.apache.org/installation.html){:target="_blank"} and follow the steps below.
 
-See [supported platforms]({% link sync-service/3.0/support/index.md %}) for supported versions.
+See [supported platforms]({% link content-services/6.0/support/index.md %}) for supported versions.
 
 1. Stop the server.
 
