@@ -51,9 +51,9 @@ If you need to override them for your environment, check the available settings 
     s3.bucketName=myawsbucket
     ```
 
-    The bucket name must be unique among all AWS users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. If the bucket has an error, it will be reported in the `alfresco.log` file. See [S3 bucket restrictions](http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) for more information on bucket naming.
+    The bucket name must be unique among all AWS users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. If the bucket has an error, it will be reported in the `alfresco.log` file. See [S3 bucket restrictions](http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html){:target="_blank"} for more information on bucket naming.
 
-5.  Add the `s3.bucketLocation` property as specified in the [AWS service endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) page.
+5.  Add the `s3.bucketLocation` property as specified in the [AWS service endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region){:target="_blank"} page.
 
     The value is taken from the *Code* column. For example, for *Region Name* Europe (Frankfurt):
 
@@ -61,7 +61,7 @@ If you need to override them for your environment, check the available settings 
     s3.bucketLocation=eu-central-1
     ```
 
-    >**Note:** If you use a region other than the US East (N. Virginia) endpoint (previously named US Standard) to create a bucket, `s3.bucketLocation` is a mandatory field. Use the [AWS service endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for guidance on the correct value.
+    >**Note:** If you use a region other than the US East (N. Virginia) endpoint (previously named US Standard) to create a bucket, `s3.bucketLocation` is a mandatory field. Use the [AWS service endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region){:target="_blank"} for guidance on the correct value.
 
     **Optional configuration properties**
 
@@ -234,15 +234,11 @@ Standard and Standard - Infrequent Access (Standard-IA).
 
 * **Standard-IA**
 
-    Content should be changed to Standard-IA, or S3 IA, when it's less frequently used. For example, this may be useful for archiving or storing old data that is less likely to be accessed, as this may reduce storage costs. See [Amazon S3 Storage Classes](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) for more.
+    Content should be changed to Standard-IA, or S3 IA, when it's less frequently used. For example, this may be useful for archiving or storing old data that is less likely to be accessed, as this may reduce storage costs. See [Amazon S3 Storage Classes](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html){:target="_blank"} and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/){:target="_blank"} for more.
 
-The transition of content from S3 to S3 IA is configured through the AWS console. You can change an object's 
-storage class either manually or by adding a lifecycle policy for an S3 bucket. 
-See [Creating a Lifecycle Policy](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) for more.
+The transition of content from S3 to S3 IA is configured through the AWS console. You can change an object's storage class either manually or by adding a lifecycle policy for an S3 bucket. See [Creating a Lifecycle Policy](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html){:target="_blank"} for more.
 
-You can use S3 storage class analysis to fine tune the lifecycle rules according to your storage access patterns, 
-so that the right data is transitioned to Standard-IA storage class. 
-See [Amazon S3 Storage Class Analysis](http://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) for more.
+You can use S3 storage class analysis to fine tune the lifecycle rules according to your storage access patterns, so that the right data is transitioned to Standard-IA storage class. See [Amazon S3 Storage Class Analysis](http://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html){:target="_blank"} for more.
 
 **Conditions for changing storage class to Standard-IA**
 
@@ -277,17 +273,17 @@ used by the IAM role. Policies are used to grant permissions to groups. If there
 place for S3 access, a new policy must be created.
 
 1.  Create a new policy.
-    Follow the steps from the AWS site to [Create a New Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html).
+    Follow the steps from the AWS site to [Create a New Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html){:target="_blank"}.
 
 3.  Use the policy simulator to test the new IAM policy.
 
-    Follow the steps from the AWS site to [Test IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html).
+    Follow the steps from the AWS site to [Test IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html){:target="_blank"}.
 
 4.  Create a new role. You can attach up to 10 policies to each role.
 
-    Follow the steps from the AWS site to [Create IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html).
+    Follow the steps from the AWS site to [Create IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html){:target="_blank"}.
 
-    If an Amazon EC2 configuration is already in place, the new policy that you created is attached to the existing role used on the EC2 instance. Follow the steps from the AWS site to [Manage IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html).
+    If an Amazon EC2 configuration is already in place, the new policy that you created is attached to the existing role used on the EC2 instance. Follow the steps from the AWS site to [Manage IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html){:target="_blank"}.
 
 5.  Attach the role to the EC2 instance where Alfresco Content Services is running.
 
@@ -308,11 +304,10 @@ The primary resources in AWS KMS are customer master keys (CMKs). These are eith
 You can use either type of CMK to protect data encryption keys (or data keys) which are then used to encrypt or 
 decrypt content stored by Alfresco Content Services in AWS S3. CMKs never leave AWS KMS unencrypted, but data keys can.
 
-For more details, see [AWS KMS Concepts](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) 
-and [How Envelope Encryption Works with Supported AWS Services](http://docs.aws.amazon.com/kms/latest/developerguide/workflow.html).
+For more details, see [AWS KMS Concepts](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html){:target="_blank"} and [How Envelope Encryption Works with Supported AWS Services](http://docs.aws.amazon.com/kms/latest/developerguide/workflow.html){:target="_blank"}.
 
 To learn more about how AWS KMS uses cryptography and secures master keys, see the 
-[AWS Key Management Service Cryptographic Details whitepaper](https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf).
+[AWS Key Management Service Cryptographic Details whitepaper](https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf){:target="_blank"}.
 
 The S3 Connector provides the following encryption options:
 
@@ -336,7 +331,7 @@ You can configure AWS KMS by adding the relevant properties to the global proper
 
     If you plan to use the AWS-managed default master key then continue from step 4.
 
-2.  To use a customer master key, either [create a new KMS key](http://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) using the AWS steps, or use a CMK by [importing your existing key material](http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html).
+2.  To use a customer master key, either [create a new KMS key](http://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html){:target="_blank"} using the AWS steps, or use a CMK by [importing your existing key material](http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html){:target="_blank"}.
 
 3.  Edit `alfresco-global.properties` and set the value of `s3.awsKmsKeyId` property to the key alias (see example) or the Amazon Resource Name (ARN) of the KMS key created.
 
@@ -365,7 +360,7 @@ that provides added protection against unauthorized access to your content in S3
 trail of when your key was used and by whom. You also have the option to create and manage encryption keys yourself, 
 or use a default key that is unique to you, the service you're using, and the region you're working in.
 
-For more information, see [Protecting Data Using Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html).
+For more information, see [Protecting Data Using Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html){:target="_blank"}.
 
 **Customer-Provided Key Encryption**
 
@@ -374,7 +369,7 @@ data at rest, setting your own encryption keys.
 
 This option isn't supported by the S3 Connector.
 
-For more information, see [Protecting Data Using Server-Side Encryption with Customer-Provided Encryption Keys (SSE-C)](http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html).
+For more information, see [Protecting Data Using Server-Side Encryption with Customer-Provided Encryption Keys (SSE-C)](http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html){:target="_blank"}.
 
 **AWS Managed Encryption**
 
@@ -384,7 +379,7 @@ Amazon S3 encrypts each object with a unique key. As an additional safeguard, it
 key that it regularly rotates. Amazon S3 server-side encryption uses one of the strongest block ciphers available, 
 256-bit Advanced Encryption Standard (AES-256), to encrypt data.
 
-For more information, see [Protecting Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html).
+For more information, see [Protecting Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html){:target="_blank"}.
 
 **Unencrypted**
 
@@ -404,7 +399,7 @@ you would any other file in your bucket.
 
 If you don't send the complete multipart upload request successfully, AWS S3 will not assemble the parts and will 
 not create any file. So the parts remain in S3. As best practice, we recommend you configure a lifecycle rule. 
-See [Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) for more details.
+See [Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config){:target="_blank"} for more details.
 
 We create the bucket and a global lifecycle rule to enforce the abort and deletion of incomplete uploads automatically only if the bucket name configured in the global properties file doesn't exist in S3. In this case, you can configure the number of days that S3 should keep the files before marking it for deletion. The default setting is 1 day:
 
@@ -412,10 +407,9 @@ We create the bucket and a global lifecycle rule to enforce the abort and deleti
 s3.abortIncompleteMultipartUploadDays=1
 ```
 
-When a file reaches the end of its lifetime, S3 queues it for removal and removes it asynchronously. 
-There may be a delay between the expiration date and the date when S3 removes a file.
+When a file reaches the end of its lifetime, S3 queues it for removal and removes it asynchronously. There may be a delay between the expiration date and the date when S3 removes a file.
 
-See [AWS Multipart Upload Overview](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html) for more details.
+See [AWS Multipart Upload Overview](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html){:target="_blank"} for more details.
 
 ## Properties reference
 
