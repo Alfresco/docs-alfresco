@@ -55,6 +55,6 @@ You can monitor the flow of media events from the Alfresco repository through Ac
 Administrators can view information about transformations and add publishing channels in the Admin Tools option of the Share menu bar.
 
 1. Select **Admin Tools** on the Share toolbar, to see a list of tools on the left of the page.
-2. The **Tools > Application** section lists the themes available. Media Management provides a black background (a dark theme) for Share. For more see [Using an Alfresco dark site theme]({% link media-management/1.2/using/config.md %}#using-an-alfresco-dark-theme) for more information.
+2. The **Tools > Application** section lists the themes available. Media Management provides a black background (a dark theme) for Share. For more see [Using an Alfresco dark site theme]({% link media-management/1.2/using/index.md %}#using-an-alfresco-dark-theme) for more information.
 3. The **Content Publishing > Channel Manager** section lists the channels that are configured for users to publish media (for example, CloudFront). Use this guidance to add a new publishing channel: [Configuring a CloudFront publishing channel]({% link media-management/1.2/config/index.md %}#configuring-a-cloudfront-publishing-channel).
 4. The **Transformations** section lists the installed transformers and their status. Select Transformer FFmpeg to see information on whether the transformer is available, and the version of FFmpeg that is installed with the options configured.
