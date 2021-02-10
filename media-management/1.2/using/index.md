@@ -8,7 +8,7 @@ Features provided with Media Management include video support and enhanced image
 
 You can embed metadata into a file using rules, with the Embed properties as metadata in content action, and view metadata in Alfresco and in an image editor. See the working with metadata video {% include media.html id="hR3PpZhDFqs" %} for more information about extracting and embedding metadata.
 
-> **Note:** Video transformations are very resource intensive and can take a long time to complete. Make sure that any rules that you create that use video transcoding run in the background, to prevent the rule from failing due to an Alfresco timeout. For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}).
+> **Note:** Video transformations are very resource intensive and can take a long time to complete. Make sure that any rules that you create that use video transcoding run in the background, to prevent the rule from failing due to an Alfresco timeout. For more see [Creating a rule](#LINK content-services/6.0/using/content/rules.md).
 
 Media Management is integrated with AWS CloudFront publishing channel for publishing your content.
 
@@ -98,9 +98,9 @@ There are several methods used to request rich media transformations, and the me
 
 Renditions, for example, lower resolution JPEG image and video proxy files, are often requested automatically, when required in Alfresco. For example, they are requested when browsing a site's document library or navigating to the document details page.
 
-You can explicitly request a rendition by clicking the **+** icon in the **Renditions** panel of the document details page. See For more see [Creating a rule]({% link content-services/latest/using/content/rules.md %}) [Viewing media](LINK) for more information about the Renditions panel.
+You can explicitly request a rendition by clicking the **+** icon in the **Renditions** panel of the document details page. For more information about the Renditions panel see [Viewing media](viewing-media).
 
-You can perform an ad hoc format transformation in a number of ways, for example, create a rule with a Transform and Copy Content action. For more see [Creating a rule](link content-services/latest/using/content/rules.md) [Applying rules to folders](LINK) for more information about setting up rules.
+You can perform an ad hoc format transformation in a number of ways, for example, create a rule with a Transform and Copy Content action. For more see [Creating a rule](#LINK content-services/6.0/using/content/rules.md)
 
 ## Publishing media
 
