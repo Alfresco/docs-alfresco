@@ -63,7 +63,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 2. Download the `alfresco-azure-connector-1.2.x.amp` file.
 
-3. Use the Module Management Tool (MMT) to install the AMP into the repository WAR \(alfresco.war\).
+3. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (alfresco.war).
 
     For more information, see [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html) and [Installing an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/amp-install.html).
 
@@ -105,7 +105,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 6. Check that the configuration is set up correctly for your environment.
 
-    1. Check the Azure Connector properties for store 1 \(for example, `connector.az.*`\)
+    1. Check the Azure Connector properties for store 1 (for example, `connector.az.*`)
 
         See `azure-mc-contentstore.properties` for the complete list.
 
@@ -223,4 +223,4 @@ href="../concepts/azure-contentstore-subsystems.dita" format="dita"/> for more d
 
 10. Start the server.
 
-> **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, for more [Azure Connector deleted content store](azure-contentstore-delete.md).
+> **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it see [Azure Connector deleted content store](azure-contentstore-delete.md).
