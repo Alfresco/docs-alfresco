@@ -55,7 +55,7 @@ The following sub-sections explains each area shown in the screenshot above in m
 
 * **SAP Java Connector Settings**
 
-    Display important information used for the connection from Content Services to SAP as well as related information for the [Opening associated Business Object in SAP]({% link sap/latest/config/index.md %}#openassocbusinessobjinsap) feature.
+    Display important information used for the connection from Content Services to SAP as well as related information for the [Opening associated Business Object in SAP]({% link sap/latest/config/advanced.md %}#openassocbusinessobjinsap) feature.
 
     > **Note:** The password for the SAP system user used to connect to SAP is never transmitted, hence it is not displayed in the Administration Console.
 
@@ -81,7 +81,7 @@ The following sub-sections explains each area shown in the screenshot above in m
 
 * **Feature: Open corresponding SAP Business Object**
 
-    This section only appears if the [Opening associated Business Object in SAP]({% link sap/latest/config/index.md %}#openassocbusinessobjinsap) feature is used and the default settings was overridden. See [Advanced configuration]({% link sap/latest/config/index.md %}#OpenBusinessObjectSAPAdvancedConfig) for more. It shows the content of related `webClient-config.properties` for the current SAP System Configuration.
+    This section only appears if the [Opening associated Business Object in SAP]({% link sap/latest/config/advanced.md %}#openassocbusinessobjinsap) feature is used and the default settings was overridden. See [Advanced configuration]({% link sap/latest/config/advanced.md %}#OpenBusinessObjectSAPAdvancedConfig) for more. It shows the content of related `webClient-config.properties` for the current SAP System Configuration.
 
     ![sap_inst_002_adminconsole_004_openinsap]({% link sap/images/sap_inst_002_adminconsole_004_openinsap.png %})
 
@@ -152,3 +152,21 @@ If you receive an error during the connection test in OAC0 for the SAP Content R
 ### Payment required (HTTP Response code 402)
 
 If the SAP Connector license becomes invalid or is missing, the SAP user will get a popup which states "Payment required", along with a 402 HTTP response code once they try to store a document in Content Services. In this case, check the SAP Connector license. See [Installing the license]({% link sap/latest/install/index.md %}#installing-the-license) for more.
+
+### Content Services fails to start
+
+Before applying the provided SAP Connector AMP files, the native SAP Java Connector libraries must be merged into the delivered SAP Connector repository AMP file. If you don't do this, then Content Services fails to start.
+
+In this case, the related error message in the log file looks similar to:
+
+```java
+**java.lang.UnsatisfiedLinkError: no sapjco3 in java.library.path: \[/usr/local/tomcat/native-jni-lib, /usr/java/packages/lib, /usr/lib64, /lib64, /lib, /usr/lib\]**
+        at java.base/java.lang.ClassLoader.loadLibrary(ClassLoader.java:2660)
+        at java.base/java.lang.Runtime.loadLibrary0(Runtime.java:829)
+        at java.base/java.lang.System.loadLibrary(System.java:1867)
+        at com.sap.conn.jco.rt.DefaultJCoRuntime.loadJCoLibrary(DefaultJCoRuntime.java:898)
+```
+
+> **Note:** The same message also appears if the wrong native files (related to the Content Services target system) of the SAP Java Connector have been applied.
+
+To solve this issue, follow the steps in [Installing SAP Connector]({% link sap/latest/install/index.md %}).

@@ -228,13 +228,13 @@ Change any additional configurations, such as for the *Open associated Business 
 
 ### Modify Open associated Business Object in SAP feature
 
-If there's an advanced configuration for [Opening associated Business Object in SAP]({% link sap/latest/config/index.md %}#openassocbusinessobjinsap), this must also be merged into the new SAP Connector structure in the **Data Dictionary**. In order to do so, follow these step-by-step instructions:
+If there's an advanced configuration for [Opening associated Business Object in SAP]({% link sap/latest/config/advanced.md %}#openassocbusinessobjinsap), this must also be merged into the new SAP Connector structure in the **Data Dictionary**. In order to do so, follow these step-by-step instructions:
 
 1. In Alfresco Share navigate to folder **Data Dictionary > connexas > Configuration**.
 
     > **Note:** If the **Configuration** folder does not exist, you don't have any additional configuration. You can skip these steps.
 
-2. Identify all necessary files used to enhance the feature (see [Advanced configuration]({% link sap/latest/config/index.md %}#OpenBusinessObjectSAPAdvancedConfig) for more info).
+2. Identify all necessary files used to enhance the feature (see [Advanced configuration]({% link sap/latest/config/advanced.md %}#OpenBusinessObjectSAPAdvancedConfig) for more info).
 3. Create a new **Configuration** folder under **Data Dictionary > SAP Content Connector** .
 4. Copy (or move) all files from **Data Dictionary > connexas > Configuration** to **Data Dictionary > SAP Content Connector > Configuration**.
 

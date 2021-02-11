@@ -12,10 +12,11 @@ You can download the Alfresco Content Connector for SAP applications software fr
 
 Below are the environment/software prerequisites for installing and using the SAP Connector.
 
-## General requirements
+### General requirements
 
-* A valid license for SAP Connector is required.
+* A valid license for SAP Connector.
 * Both systems, Content Services and SAP, must be available in the same network, or connected through a VPN.
+* Access to the [SAP Support Portal](https://support.sap.com/){:target="_blank"} to download the native libraries of the SAP Java Connector for your current system architecture.
 
 ### SAP requirements
 
@@ -23,50 +24,132 @@ Below are the environment/software prerequisites for installing and using the SA
 * SAP S/4HANA (build 1809 or up to latest) with at least SAP GUI 7.50
 * SAP dialog user who is able to:
   * Create new SAP Content Repositories (transaction `OAC0`)
-  * Create related ArchiveLink customizing in SAP Implementation Guide (transaction `IMG`)
+  * Create related ArchiveLink customization as described in the SAP Implementation Guide (available via transaction `SPRO`)
   * Test the ArchiveLink interface in any related module (for example transaction `FB03` for Finance)
 * SAP system user who is able to:
   * Invoke BAPIs ({% include tooltip.html word="SAP_ABAP" text="ABAP" %} function modules via RFC connection)
-* SAP Java Connector (JCo): JCo 3.0.x must be installed
+* SAP Java Connector (JCo): JCo 3.1.x must be installed
 
-## Alfresco requirements
+### Alfresco requirements
 
-* Content Services 5.2.1 and later
-* Alfresco server system architecture must be one of the following:
+* Content Services 5.2.1 or later
+* Alfresco server system architecture must be one of the following (for these architectures, SAP offers native Java Connector versions):
   * Linux 64bit x86
   * Windows 64bit x86
-  * Contact Alfresco Support if running Alfresco on these platforms:
-    * Windows 64bit Itanium
-    * Linux 64bit Itanium
-    * Linux IBM eServer z Series 64bit
-    * Linux IBM PowerPC processors 64bit BE and LE
-    * HP-UX 64bit PA-RISC
-    * HP-UX 64bit Itanium
-    * IBM AIX 64bit
-    * IBM z/OS 64bit
-    * IBM i 64bit
-    * Sun OS 64bit SPARC
-    * Sun OS 64bit x86
-    * Mac OS X (for Intel) 64bit x86
+  * Windows 64bit Itanium
+  * Linux 64bit Itanium
+  * Linux IBM eServer z Series 64bit
+  * Linux IBM PowerPC processors 64bit BE and LE
+  * HP-UX 64bit PA-RISC
+  * HP-UX 64bit Itanium
+  * IBM AIX 64bit
+  * IBM z/OS 64bit
+  * IBM i 64bit
+  * Sun OS 64bit SPARC
+  * Sun OS 64bit x86
+  * Mac OS X (for Intel) 64bit x86
 * Firewall does not block HTTP traffic on port 80 / 8080 / 8082.
 * Access to the Content Services server with administrator privileges to:
   * Apply the SAP Connector {% include tooltip.html word="AMP" text="AMP" %} files
-  * Edit `alfresco-gobal.properties` file
+  * Edit `alfresco-global.properties` file
   * Stop/start the application server
 * Alfresco user with administrator permissions.
+
+## Install overview
+
+The SAP Connector is packaged as Alfresco Module Package (AMP) files. There are several stages to installing the SAP Connector: re-package the repository AMP, and then install the AMP files.
+
+> **Note:** The SAP Connector uses the advantages of the SAP Java Connector for the communication between Content Services and the SAP system. According to the SAP terms & conditions, the redistribution of the native Java Connector libraries is no longer allowed. Hence, these libraries aren't included in the SAP Connector delivery package, and must be downloaded manually from the SAP Support Portal (requires an S-ID to log in). Once done, these libraries must be merged with the repository AMP file for the SAP Connector before starting the installation.
+
+## Download files
+
+Use the following steps to download the files required to install the SAP Connector.
+
+1. Go to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}, click **Product Downloads**, and then download the SAP Connector distribution zip, which contains the following files:
+
+    * `sap-content-connector-repo-5.1.x.amp` for Content Services.
+    * `sap-content-connector-share-5.1.x.amp` for Alfresco Share.
+    * `sap-content-connector-jco-packer-1.x.jar` - the **SAP JCo Packer tool** for merging the native SAP Java Connector libraries into the repository AMP file.
+    * `sap-content-connector-encryptor-1.0.jar` to [encrypt plain-text passwords]({% link sap/latest/admin/reference.md %}#encryptpwd) for all SAP Connector related properties in the `alfresco-global.properties` file.
+    * `alfresco-global.properties_append` contains all required property keys to be added in the `alfresco-global.properties` for an SAP connection.
+
+2. Log in to the [SAP Support Portal](https://support.sap.com/){:target="_blank"} with your SAP Universal ID:
+
+    1. [Download](https://support.sap.com/en/product/connectors/jco.html){:target="_blank"} the native libraries for the SAP Java Connector based on your current system architecture.
+
+        > **Important:** Ensure you download the correct SAP Java Connector version, which is related to the current system architecture of your Content Services server.
+
+        ![]({% link sap/images/sap_packer_001.png %})
+
+    2. Once all the required files have been downloaded, the next step is to copy the required SAP Java Connector libraries into the SAP Connector repository AMP file before starting the installation.
+
+## Re-package the repository AMP
+
+Use the SAP JCo Packer tool provided in the distribution zip to merge the native SAP Java Connector libraries into the SAP Connector repository AMP.
+
+Before continuing, make sure you've [downloaded all the required files](#download-files).
+
+The re-packaging is done by using the SAP JCo Packer tool (`sap-content-connector-jco-packer-1.x.jar`), which helps to create a merged AMP file that's used as the foundation for the installation.
+
+> **Important**: You must have at least **Java Version 8** installed in order to run the distributed SAP JCo Packer tool.
+
+1. Prepare the files for merge:
+
+    1. Create a new temporary directory and copy the following files into it:
+
+        * `sap-content-connector-jco-packer-1.x.jar`
+        * `sap-content-connector-repo-5.1.x.amp`
+        * `sapjco31P_3-20009381.zip` (example file name for native Java Connector libraries, downloaded from the SAP Support Portal)
+
+            > **Note:** The ZIP name could be different, depending on your chosen system architecture.
+
+        ![]({% link sap/images/sap_packer_002.png %})
+
+    2. Verify the `sap-content-connector-repo-5.1.x.amp` file size. It should be less than 1 MB.
+
+2. Run the merge tool:
+
+    Starting from your temporary folder, run the SAP JCo Packer tool:
+
+    ```java
+    java -jar .\sap-content-connector-jco-packer-1.x.jar
+    ```
+
+    ![]({% link sap/images/sap_packer_003.png %})
+
+    You'll see a few log statements to show what's happening, and the tool should finally return: **Processing finished...**
+
+3. Verify the merge:
+
+    Verify that the merge is successful and double-check the file size of the `sap-content-connector-repo-5.1.x.amp` again. This should now be much larger than before.
+
+    > **Note:** Depending on the chosen system architecture of the SAP Java Connector, the repository AMP file may be up to 7 MB. This indicates that the required native SAP libraries are now available inside the AMP file.
+
+    ![](../images/sap_packer_004.png)
+
+4. Copy and save the re-packaged AMP file:
+
+    The re-packaged `sap-content-connector-repo-5.1.x.amp` file should now be saved for the future. This is the final file that's needed to [install](#installsapconnamps) the SAP Connector.
+
+    > **Note:** You only need to merge the native SAP Java Connector libraries once for a specific release of the SAP Connector.
+
+5. Cleanup:
+
+    Once the re-packaged AMP file is saved and stored outside the current temporary folder, you can safely delete the temporary folder.
 
 ## Install the SAP Connector {#installsapconnamps}
 
 These steps describe how to install the SAP Connector to an instance of Content Services.
 
-The SAP Connector is packaged as Alfresco Module Package (AMP) files.
+> **Note**: Ensure that you've followed the instructions to [repackage the repository AMP](#re-package-the-repository-amp) before installing the SAP Connector AMPs.
 
-> **Note:** Ensure that you don't start Content Services before installing the SAP Connector AMPs.
+1. You need the following files to apply the SAP Connector:
 
-1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, click **Product Downloads**, and then download the SAP Connector distribution zip, which contains the following files:
+    * `sap-content-connector-repo-5.1.x.amp` for Content Services
 
-    * `sap-content-connector-repo-5.x.amp` for Content Services
-    * `sap-content-connector-share-5.x.amp` for Alfresco Share
+        > **Note**: This must be the re-packed file which includes the native SAP Java Connector libraries. Don't use the original file from the delivery package without the required changes.
+
+    * `sap-content-connector-share-5.1.x.amp` for Alfresco Share
 
 2. Use the Module Management Tool (MMT) to install the {% include tooltip.html word="AMP" text="AMP" %} files into the Repository WAR (`alfresco.war`) and the Share WAR (`share.war`).
 
@@ -127,25 +210,23 @@ These are the minimum required properties that must be appended to the `alfresco
 
 ## Install the license
 
-The access and use of the SAP Connector is managed by a license. Any limitations are set when you purchase the license. To increase the limitations, contact Alfresco to obtain a new license. If you don't have a license yet, you can request a trial license.
+The access and use of the SAP Connector is managed by a license. Any limitations are set when you purchased the license. To increase the limitations, contact Alfresco to obtain a new license. If you don't have a license yet, you can request a trial license.
 
-> **Note:** Make sure you have a valid license file available. The name of the license file is `sapContentConnector.l4j`.
+> **Note:** Make sure you have a valid license file available before continuing. The name of the license file is `sapContentConnector.l4j`.
 
 ### Apply the license via the Alfresco Share user interface
 
-1. Open the SAP Connector Administration Console.
-2. Navigate to **Admin Tools** and click menu **SAP Integration**.
-
-    You'll need to have administrator permissions.
+1. Log in to Alfresco Share as an administrator.
+2. Navigate to **Admin Tools** and click menu **SAP Integration**. This displays the SAP Connector Administration Console.
 
 3. In the **License Information** section click **Choose Files**.
 4. Select file `sapContentConnector.l4j` , and then click **Upload**.
 
-    > **Note:** The new license is applied immediately. No restart of Content Services required.
+    > **Note:** The new license is applied immediately- no restart of Content Services is required.
 
     ![sap_inst_001_license]({% link sap/images/sap_inst_001_license.png %})
 
-An existing license file is backed up, renamed with the current time stamp, and remain on the file system (for example: `sapContentConnectorYYYY-mm-dd_hh:mm:ss.l4j`).
+An existing license file is backed up, renamed with the current time stamp, and remains on the file system (for example: `sapContentConnectorYYYY-mm-dd_hh:mm:ss.l4j`).
 
 ### Apply the license via the file system
 
@@ -159,6 +240,9 @@ An existing license file is backed up, renamed with the current time stamp, and 
 To set up the SAP Connector in clustered landscapes for high availability:
 
 1. Install the `sap-content-connector-repo-5.x.amp` for Content Services on each node in the cluster.
+
+    >  **Important:** Make sure you only use the merged SAP Connector repository AMP file, which includes the native SAP libraries, as described in [Installing overview]({% link sap/latest/install/index.md %}).
+
 2. Install the `sap-content-connector-share-5.x.amp` for Alfresco Share on each node in the cluster.
-3. The `alfresco-global.properties` on each node must be updated with the SAP related properties.
-4. On the SAP side, for each SAP Content Repository (transaction `OAC0`) the HTTP-Server must point to the load balancer instead of a dedicated application server instance. See the Content Services documentation for [high availability]({% link content-services/latest/admin/cluster.md %}#scenariohighthrucluster).
+3. Update the `alfresco-global.properties` with the SAP related properties.
+4. On the SAP side, for each SAP Content Repository (transaction `OAC0`), the HTTP-Server must point to the load balancer instead of a dedicated application server instance. See the Content Services documentation for [high availability]({% link content-services/latest/admin/cluster.md %}#scenariohighthrucluster).
