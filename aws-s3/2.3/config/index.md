@@ -35,7 +35,7 @@ If you need to override them for your environment, check the available settings 
     s3.accessKey=AKIAIOSFODNN7EXAMPLE
     ```
 
-    The access key is required to identify the AWS account and can be obtained from the AWS Management Console. See [AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) for access details.
+    The access key is required to identify the AWS account and can be obtained from the AWS Management Console. See [AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys){:target="_blank"} for access details.
 
 3.  Add the `s3.secretKey` property, for example:
 
@@ -43,7 +43,7 @@ If you need to override them for your environment, check the available settings 
     s3.secretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
     ```
 
-    The secret key is required to identify the AWS account and can be obtained from the AWS Management Console. See [AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) for access details.
+    The secret key is required to identify the AWS account and can be obtained from the AWS Management Console. See [AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys){:target="_blank"} for access details.
 
 4.  Add the `s3.bucketName` property, for example:
 
