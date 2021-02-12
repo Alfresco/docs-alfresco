@@ -319,6 +319,7 @@ defaults:
       support: true
       versions:
         - 3.1
+        - 2.3
         - 2.2
   - scope:
       path: "aws-s3/latest"
@@ -326,6 +327,9 @@ defaults:
       version: 3.1
       latest: true
   - scope:
+      path: "aws-s3/2.3"
+    values:
+      version: 2.3
       path: "aws-s3/2.2"
     values:
       version: 2.2

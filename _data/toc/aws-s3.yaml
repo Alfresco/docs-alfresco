@@ -13,6 +13,20 @@
       pages:
         - title: 'FAQ'
           path: '/aws-s3/latest/using/faq/'
+- version: 2.3
+  pages:
+    - title: 'Introduction'
+      path: '/aws-s3/2.3/'
+    - title: 'Install'
+      path: '/aws-s3/2.3/install/'
+    - title: 'Upgrade'
+      path: '/aws-s3/2.3/upgrade/'
+    - title: 'Configure'
+      path: '/aws-s3/2.3/config/'
+    - title: 'Using'
+      pages:
+        - title: 'FAQ'
+          path: '/aws-s3/2.3/using/faq/'
 - version: 2.2
   pages:
     - title: 'Introduction'
@@ -27,3 +41,4 @@
       pages:
         - title: 'FAQ'
           path: '/aws-s3/2.2/using/faq/'
+
