@@ -31,13 +31,10 @@ The SAP Connector release includes the following third-party software. These are
 | ------------ | ----------- |
 | jcabi-manifests | Manager of MANIFEST.MF files |
 | jcabi-logs | Wrapper for Simple Logging Facade for Java (SLF4J) and a few supplementary logging classes |
-| license4j-runtime-library | License4J runtime library |
-| jcommander | Library to handle command line arguments for the password encryption |
-| commons-io | Library of utilities to assist with developing IO functionality required for the SAP JCo Packer tool only |
-| commons-compress | Library to compress the modified SAP Connector repository AMP with the included SAP JCo libraries. Required for SAP JCo Packer tool only |
-| zip4j | Library to extract the ZIP file from the SAP Java Connector, downloaded from SAP. Required for SAP JCo Packer tool only |
-| slf4j-api | Logging framework used for the SAP-Packer. Required for SAP JCo Packer tool only |
-| slf4j-simple |Java binding for the logging framework. Required for SAP JCo Packer tool only |
+| license4j-runtime-library | License4J |
+| com.sap.conn.jco.sapjco3 | Java Connector for SAP |
+| libsapjco3.so | Native dependency for Jco for Linux |
+| sapjco3.dll | Native dependency for Jco for Windows |
 
 ## Additional repository settings {#additionalrepoconfig}
 
@@ -203,7 +200,7 @@ integrations.sap.system.2.jobs.sapContentConnectorDirReplicate.cronExpression=0 
 
 This is the reference for all supported `SAP Object Types` that are available by default in Alfresco Share to open the associated SAP Business Object along with their related transaction within the SAP Web-GUI.
 
-See the [Opening associated Business Object in SAP]({% link sap/latest/config/advanced.md %}#openassocbusinessobjinsap) feature to learn how to enable and how to customize it.
+See the [Opening associated Business Object in SAP]({% link sap/5.0/config/advanced.md %}#openassocbusinessobjinsap) feature to learn how to enable and how to customize it.
 
 > **Note:** Because the SAP Object Types `BKPF` and `BUS2081` requires a split of the replicated `SAP Object Id` into at least 2 separate parameters, the URL of both SAP Object Types should never be changed (not even the order).
 
@@ -228,7 +225,7 @@ See the [Opening associated Business Object in SAP]({% link sap/latest/config/ad
 
 This reference lists the additional properties (such using Logon Groups) for the SAP JavaConnector that are supported for each available SAP System Configuration.
 
-See [Configure repository properties]({% link sap/latest/install/index.md %}#configrepo) and the [example configurations](#examplesapsysconfigs). The properties in the table below use [SAP system configuration with Archivelink only](#examplesapsysconfig1) as an example.
+See [Configure repository properties]({% link sap/5.0/install/index.md %}#configrepo) and the [example configurations](#examplesapsysconfigs). The properties in the table below use [SAP system configuration with Archivelink only](#examplesapsysconfig1) as an example.
 
 > **Note:** See the SAP JavaConnector documentation to learn more about the available properties and their behaviors in detail.
 

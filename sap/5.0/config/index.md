@@ -16,7 +16,7 @@ To configure the SAP Connector properly on the SAP side, an **SAP dialog user** 
 
 ## Basic configuration
 
-In this section, you'll create and configure a new SAP Content Repository where the "Content Server" is Content Services. In addition, the connection between the SAP Content Repository and Content Services is secured by a certificate and tested.
+In this section, you'll create and configure a new SAP Content Repository where the (Content Server) is Content Services. In addition, the connection between the SAP Content Repository and Content Services is secured by a certificate and tested.
 
 ### 1. Create SAP Content Repository {#basic-createsapcontentrepo}
 
@@ -48,7 +48,7 @@ The maintenance screen for creating new SAP Content Repositories can be accessed
     | Version no. | Number of the current SAP content server version. For content server version 4.7 enter 0047. <br>Value: _0047_ |
     | HTTP Server | The IP address of the Content Services server - or the Load Balancer. <br>Value: _85.112.116.117_ |
     | Port Number | The port number where the Content Services is listening - usually 8080. <br>Value: _8080_ |
-    | SSL Port Number | The port number for secure layer. Only required for [Communication via HTTPS]({% link sap/latest/admin/reference.md %}#securecomms). <br>Value: For now, leave empty. |
+    | SSL Port Number | The port number for secure layer. Only required for [Communication via HTTPS]({% link sap/5.0/admin/reference.md %}#securecomms). <br>Value: For now, leave empty. |
     | HTTP Script | The Web Script location in Content Services where all requests from SAP are processed. <br>Value: **alfresco/service/com/alfresco/sap/http** |
     | Transfer drctry | For some ArchiveLink scenarios, files have to be created in a transfer directory (on SAP side) before sending it to the content server. Maintain it, if the default value does not match your company standard. |
 
@@ -96,11 +96,11 @@ By default, all HTTP(S)-requests coming from the SAP Content Repository and arri
 
     ![sap_conf_008_create_repo_cs_admin_certificate]({% link sap/images/sap_conf_008_create_repo_cs_admin_certificate.png %})
 
-5. The certificate is sent to Content Services. It appears in the table **Certificates Properties** but it's not yet active (since the checkbox in the **Active** column isn't selected).
+5. The certificate was sent to Content Services. Therefore, it appears in the table **Certificates Properties** - but it is not yet activated. Checkbox in column **Active** is not selected.
 
     ![sap_conf_009_create_repo_cs_admin_certificate_created]({% link sap/images/sap_conf_009_create_repo_cs_admin_certificate_created.png %})
 
-    > **Note:** From the SAP HTTP-Content Server protocol specification, the certificate can only be activated from the content repository side. This is an additional security step. Therefore, no additional action is required in SAP. Switch to Content Services and proceed with the activation in the next step.
+    > **Note:** From the SAP HTTP-Content Server protocol specification, the certificate can only be activated from the content repository side. This is an additional security step. Therefore, no additional action is necessary on the SAP side. Switch to Content Services and proceed with the activation in the next step.
 
 ### 3. Enable security by activating the certificate
 
@@ -110,7 +110,7 @@ There are two options for activating the recently sent certificate. Either activ
 
 1. **Activation via SAP Connector - Administration Console:**
 
-    1. Log in to Alfresco Share and navigate to the SAP Connector - Administration Console (via menu *Admin Tools* > *SAP Integration*).
+    1. Login to Alfresco Share and navigate to the SAP Connector - Administration Console (via menu *Admin Tools* > *SAP Integration*).
 
     2. Scroll down to the related SAP System Configuration where the recently created SAP Content Repository belongs to.
 
@@ -124,13 +124,13 @@ There are two options for activating the recently sent certificate. Either activ
 
 2. **Activation by manually editing the certificate properties:**
 
-    1. Log in to Alfresco Share and navigate to the following (new) folder structure in the Alfresco repository to find the recently created certificate document: **Repository > Data Dictionary > SAP Content Connector > SAP Repositories > XX**.
+    1. Login to Alfresco Share and navigate to the following (new) folder structure in the Alfresco repository to find the recently created certificate document: **Repository > Data Dictionary > SAP Content Connector > SAP Repositories > XX**.
 
     2. Within the **XX** folder two files are available. The repository file (with name `XX Repository`) and the certificate document (contains the common name of the SAP system in the document name).
 
         ![sap_conf_011_share_certificate_in_repo]({% link sap/images/sap_conf_011_share_certificate_in_repo.png %})
 
-    3. Edit the properties of the certificate document, and select checkbox **Certificate Active** and **save** the document.
+    3. Edit the properties of the certificate document and select checkbox **Certificate Active** and **save** the document.
 
         ![sap_conf_012_share_certificate_properties]({% link sap/images/sap_conf_012_share_certificate_properties.png %})
 
@@ -138,9 +138,9 @@ There are two options for activating the recently sent certificate. Either activ
 
 ### 4. Check certificate in SAP
 
-Use this information to confirm that the certificate activation in Content Services reflects in the SAP system for the SAP Content Repository.
+Control step to confirm that the certificate activation in Content Services reflects in the SAP system for the SAP Content Repository.
 
-To prove that the activation of the certificate from the previous step reflects immediately for the SAP Content Repository, check the certificate section of the SAP Content Repository.
+To proof that the activation of the certificate from the previous step reflects immediately for the SAP Content Repository, check the certificate section of the SAP Content Repository.
 
 1. In the SAP system, open the created SAP Content Repository in transaction `OAC0` again.
 
@@ -154,17 +154,17 @@ To prove that the activation of the certificate from the previous step reflects 
 
 ### 5. Functional test
 
-This page describes how the SAP Connector, and therefore the ArchiveLink interface, can be tested. The testing requires some additional SAP fundamentals, and is based on the same procedure used by SAP to certify the SAP Connector content ArchiveLink interface.
+This page describes how the SAP Connector and therefore the ArchiveLink interface can be tested. The testing requires some additional SAP fundamentals, and is based on the same procedure used by SAP to certify the SAP Connector content ArchiveLink interface.
 
-> **Note:** In order to successfully complete these tests, all the mandatory steps described in the Basic configuration section should have been completed.
+> **Note:** In order to successfully complete these tests, all mandatory steps described in the Basic configuration section should have been completed.
 
 1. In SAP, open the **ABAP** editor with transaction `SE38`.
 
-2. Enter `RSCMST` as report name in the **Program** field and execute it. You can click **Execute** in the toolbar or press **F8** to execute it.
+2. Enter `RSCMST` as report name in the **Program** field and execute it (click **Execute** in the toolbar or press **F8**).
 
     ![sap_conf_014_sap_rscmst_1]({% link sap/images/sap_conf_014_sap_rscmst_1.png %})
 
-3. In the **Repository** field, enter the name of the recently created SAP Content Repository and click **Execute** in the toolbar (or press **F8**).
+3. In the **Repository** field enter the name of the recently created SAP Content Repository and click **Execute** in the toolbar or press **F8**.
 
     ![sap_conf_014_sap_rscmst_2]({% link sap/images/sap_conf_014_sap_rscmst_2.png %})
 
@@ -174,17 +174,17 @@ This page describes how the SAP Connector, and therefore the ArchiveLink interfa
 
 5. The most important report is `RSCMSTH0`. This will test the basic communication like `create`, `info`, `search`, `update` or even `delete` commands via HTTP against the repository. Click the **Execute** icon for the report.
 
-6. The report returns successfully if the SAP Content Repository is properly configured, and hence the SAP Connector is working.
+6. The report return with success if the SAP Content Repository was properly configured and hence, the SAP Connector is working.
 
     ![sap_conf_014_sap_rscmst_4]({% link sap/images/sap_conf_014_sap_rscmst_4.png %})
 
-7. (Optional) If you’re interested in more technical details of the test, then click the **Details** icon near the green result.
+7. (Option 1): If you’re interested in more technical details of the test, then click the **Details** icon near the green result.
 
-    In this screen, each function call with its parameter is logged that was sent to Alfresco. Scroll down to the end of the detail page and find a summary of the functions which was tested including times.
+    In this screen, each function call with its parameter is logged that was sent [to Alfresco]. Scroll down to the end of the detail page and find a summary of the functions which was tested including times.
 
     ![sap_conf_014_sap_rscmst_6]({% link sap/images/sap_conf_014_sap_rscmst_6.png %})
 
-8. (Optional) You can execute some further test reports against the repository.
+8. (Option 2): You can execute some further test reports against the repository.
 
     This will test additional functionality of the HTTP interface. The additional available test reports are: `RSCMSTH1`, `RSCMSTH2` and `RSCMSTH3`.
 
