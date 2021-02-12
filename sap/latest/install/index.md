@@ -125,7 +125,7 @@ The re-packaging is done by using the SAP JCo Packer tool (`sap-content-connecto
 
     > **Note:** Depending on the chosen system architecture of the SAP Java Connector, the repository AMP file may be up to 7 MB. This indicates that the required native SAP libraries are now available inside the AMP file.
 
-    ![](../images/sap_packer_004.png)
+    ![]({% link sap/images/sap_packer_004.png %})
 
 4. Copy and save the re-packaged AMP file:
 
