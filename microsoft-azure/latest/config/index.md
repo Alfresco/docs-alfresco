@@ -382,7 +382,7 @@ The caching content store is defined over the content store selector so that we 
 
 This provides the subsystem properties where the `AzMultipleStorageContainers` subsystem declares default values for all the properties it requires.
 
-See the Alfresco Content Services documentation on [Subsystem properties](https://docs.alfresco.com/6.2/concepts/subsystem-props.html) for more details.
+See the Alfresco Content Services documentation on [Subsystem properties]({% link content-services/latest/config/subsystems.md %}#subsystem-properties) for more details.
 
 **Deleted content store support provided by the repository vs. managed by Azure capabilities**
 

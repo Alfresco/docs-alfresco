@@ -41,11 +41,11 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 3. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (alfresco.war).
 
-    For more information, see [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html){:target="_blank"}(#LINK) and [Installing an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/amp-install.html){:target="_blank"}(#LINK).
+    For more information [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
-4. Check that the [configuration](../config/index.md) is set up correctly for your environment.
+4. Check that the [Configuration]({% link microsoft-azure/latest/config/index.md %} is set up correctly for your environment..
 
 > **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see [Azure Connector deleted content store](#azure-connector-deleted-content-store).
 
@@ -65,7 +65,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 3. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (alfresco.war).
 
-    For more information, see [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html) and [Installing an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/amp-install.html).
+    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
     **Note:** You must install the Azure AMP using `-force`.
 
@@ -200,7 +200,7 @@ Use this information to upgrade the Azure Connector from a previous version for 
     java -jar bin/alfresco-mmt.jar uninstall  org_alfresco_integrations_AzureConnector tomcat/webapps/alfresco.war
     ```
 
-    For more information, see [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html){:target="_blank"}(#LINK) and [Uninstalling an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/uninstall-amp.html){:target="_blank"}(#LINK).
+    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Uninstall an AMP file]({% link content-services/latest/install/zip/amp.md %}#uninstall-an-amp-file).
 
 5. Navigate to the `amps` directory.
 
@@ -210,11 +210,11 @@ Use this information to upgrade the Azure Connector from a previous version for 
 
 8. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
-    For more information, see [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html){:target="_blank"}(#LINK) and [Uninstalling an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/uninstall-amp.html){:target="_blank"}(#LINK).
+    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Uninstall an AMP file]({% link content-services/latest/install/zip/amp.md %}#uninstall-an-amp-file).
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
-9. Check that the [configuration](../config/index.md) is set up correctly for your environment.
+9. Check that the [Configuration]({% link microsoft-azure/latest/config/index.md %} is set up correctly for your environmen.
 
  > **Note:** When upgrading from Azure Connector version 1.0, make sure you define the Azure authentication mode and a supported value in your `alfresco-global.properties` file.
 
