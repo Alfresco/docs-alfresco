@@ -43,7 +43,12 @@ defaults:
   - scope:
       path: "content-services/community"
     values:
-      version: "Community"
+      version: "community"
+      support: false
+  - scope:
+      path: "content-services/community/tutorial"
+    values:
+      toc: "content-services-tutorial"
 
 # Alfresco Digital Workspace
   - scope:

@@ -17,7 +17,7 @@ To install Content Services using the distribution zip (which also contains the 
 * LibreOffice
 * ImageMagick
 
-For a list of supported components and versions, refer to the `VERSIONS.md` file in the distribution zip.
+For a list of other supported components and versions, refer to the `VERSIONS.md` file in the distribution zip.
 
 ## Install overview
 
@@ -64,7 +64,7 @@ Here's a list of the files to download and install.
 | ---- | ----------- |
 | alfresco-content-services-distribution-6.2.x.zip | Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
 |alfresco-search-services-1.4.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information. |
-| alfresco-content-services-file-transfer-receiver-6.2.1.zip | Content Services File Transfer Receiver installation file. The File System Transfer Receiver transfers folders and content from an Content Services core repository (the DM) to configured targets using the Transfer Service, for example, a remote file system.<br><br>See [Configure the File System Transfer Receiver]({% link content-services/latest/admin/import-transfer.md %}#configure-file-system-transfer-receiver) for more information. |
+| alfresco-file-transfer-receiver-6.2.1.zip | Content Services File Transfer Receiver installation file. The File System Transfer Receiver transfers folders and content from an Content Services core repository (the DM) to configured targets using the Transfer Service, for example, a remote file system.<br><br>See [Configure the File System Transfer Receiver]({% link content-services/latest/admin/import-transfer.md %}#configure-file-system-transfer-receiver) for more information. |
 
 ## Preparing the filesystem and database
 

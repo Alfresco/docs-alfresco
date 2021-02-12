@@ -11,6 +11,7 @@ The MMT is available as a JAR file from the distribution zip (`alfresco-content-
 
     * (Windows) `C:\Alfresco\bin`
     * (Linux) `/opt/alfresco/bin`
+
 2. Run the `apply_amps` application to apply all AMP files that are in the `amps` and `amps_share` directories:
 
     * For Windows, navigate to the bin directory and double click `apply_amps`.
@@ -70,7 +71,7 @@ When the repository is next started, the installed module configuration will be 
 
 We don't recommended that you overwrite an existing file in an AMP, however it's sometimes necessary. The MMT makes a backup copy of the updated file and stores it in the WAR. When a module is updated, and the old files are removed, this backup is restored prior to the installation of the new files. Problems can occur if multiple installed modules modify the same existing file. In these cases, a manual restore might be necessary, if recovery to an existing state is required.
 
-Some application servers (notably Tomcat) don't always fully clean up their temporary working files, and this can interfere with successful installation of an AMP file. To remedy this situation, it's recommended that you delete (or move) the Tomcat work and temp directories while Tomcat is shut down.
+Some application servers (notably Tomcat) don't always fully clean up their temporary working files, and this can interfere with successful installation of an AMP file. To remedy this situation, it's recommended that you delete (or move) the Tomcat `work` and `temp` directories while Tomcat is shut down.
 
 ### Viewing module packages
 
@@ -81,7 +82,7 @@ AMPs are used to package customizations and extensions for deployment. Use the *
 
     The Module Browser page shows a list of all the module packages that are either pre-configured in an out-of-the-box installation or applied by the user, along with the description and version number.
 
-    ![Module Browser page in Admin Console]({% link content-services/images/amp.png %})
+    ![Module Browser page in Admin Tools]({% link content-services/images/amp.png %})
 
 ## Uninstall an AMP file
 
