@@ -103,7 +103,7 @@ For a complete list of all configuration properties, see the [Properties referen
     connector.az.containerName=myazurecontainer
     ```
 
-    Within a given storage account, every container must have a unique name. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two storage accounts can have containers with the same name. For more details on what a content store is, see [Managing content stores](https://docs.alfresco.com/6.2/concepts/cs-manage.html){:target="_blank"}(#LINK).
+    Within a given storage account, every container must have a unique name. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two storage accounts can have containers with the same name. For more details on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
 
     See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata){:target="_blank"} for more.
 
@@ -113,13 +113,13 @@ For a complete list of all configuration properties, see the [Properties referen
     connector.az.deleted.containerName=myazuredeletedcontainer
     ```
 
-    This is the container that stores content once it has been deleted. For more details on what a content store is, see [Managing content stores](https://docs.alfresco.com/6.2/concepts/cs-manage.html){:target="_blank"}(#LINK).
+    This is the container that stores content once it has been deleted. For more details on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
 
 6. Set where the cached content is stored, and how much cache size you need.
 
     The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`.
 
-    See [CachingContentStore properties](https://docs.alfresco.com/6.2/concepts/ccs-props.html){:target="_blank"}(#LINK) for more information on the caching content store.
+    See [CachingContentStore properies]({% link content-services/latest/admin/content-stores.md %}#cachingcontentstore-properties) for more information on the caching content store.
 
     > **Note:** The size of the local caching content store can be configured as necessary to limit its use to a maximum overall size or by files with a maximum file size.
 
@@ -134,7 +134,7 @@ For a complete list of all configuration properties, see the [Properties referen
 
     The Azure Connector supports multipart uploads where files larger than 20MB are split. The file upload is attempted and retried, in case there are issues, up to a specific limit.
 
-     > **Note:** > **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see Azure Connector deleted content store.
+     > **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see [Azure Connector deleted content store](#azure-connector-deleted-content-store).
 
 7. Save the `alfresco-global.properties` file.
 
@@ -156,8 +156,8 @@ The Azure Connector provides a number of properties on installation and for cust
 | connector.az.keyVault.name | Defines a unique vault name to be used for Azure Key Vault authentication. Added in Azure Connector 1.1.
 | connector.az.keyVault.secret.name | Defines a secret to the vault to be used for Azure Key Vault authentication. Added in Azure Connector 1.1.
 | connector.az.storeProtocol | Defines the store protocol name. Choosing your own store protocol name allows you to run multi-cloud deployments and have a consistent content URL regardless of where the content is added. The default value is `azb`, to represent the Azure Blob connector as the default protocol. Added in Azure Connector 1.1.
-| connector.az.containerName | Within a given storage account, every container must have a unique name. Every Blob within a given container must also have a unique name within that container. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two accounts can have containers with the same name, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata){:target="_blank"} for more details. For more information on what a content store is, see [Managing content stores](https://docs.alfresco.com/6.2/concepts/cs-manage.html){:target="_blank"}.
-| connector.az.deleted.containerName | Content is copied here once it has been deleted. This includes after content is removed from the recycle bin and after a 14 day grace period. In order for the content to be removed entirely it must be deleted manually by an Administrator. For more information on what a content store is, see [Managing content stores](https://docs.alfresco.com/6.2/concepts/cs-manage.html){:target="_blank"}.
+| connector.az.containerName | Within a given storage account, every container must have a unique name. Every Blob within a given container must also have a unique name within that container. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two accounts can have containers with the same name, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata){:target="_blank"} for more details. For more information on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
+| connector.az.deleted.containerName | Content is copied here once it has been deleted. This includes after content is removed from the recycle bin and after a 14 day grace period. In order for the content to be removed entirely it must be deleted manually by an Administrator. For more information on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
 | connector.az.maxErrorRetries | The maximum number of attempts to retry reads or writes to the Blob container in case of failed transfers. The default is `3`. This configuration uses exponential retries. See [Exponential back-off retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#azure-storage){:target="_blank"} for more details.
 | connector.az.tryTimeout | Indicates the maximum time (in seconds) allowed for any single try of an HTTP request. When transferring large amounts of data, the default tryTimeout will probably not be sufficient. To overcome this, we compute the upload try timeout using: {::nomarkdown}<pre>uploadTryTimeout = tryTimeout * anticipatedPayloadSizeInMb</pre>{:/} |
 | connector.az.objectNamePrefix | You can attach a prefix or suffix when you build the Blob ObjectName from the GUID. This prefix or suffix is not stored in the database, which means correct configuration is needed when using this property. **Note:** The use of this property is strongly discouraged. If you need to separate Blobs from different connectors or systems, then you should use different containers. |
@@ -165,19 +165,19 @@ The Azure Connector provides a number of properties on installation and for cust
 | connector.az.deleted.objectNamePrefix | You can attach a prefix or suffix when you build the Blob ObjectName from the GUID. This prefix or suffix is not stored in the database, which means correct configuration is needed when using this property. **Note:** The use of this property is strongly discouraged. If you need to separate Blobs from different connectors or systems, then you should use different containers. |
 | connector.az.deleted.objectNameSuffix | You can attach a prefix or suffix when you build the Blob ObjectName from the GUID. This prefix or suffix is not stored in the database, which means correct configuration is needed when using this property. **Note:** The use of this property is strongly discouraged. If you need to separate Blobs from different connectors or systems, then you should use different containers. |
 
-# Azure Connector content store subsystems
+## Azure Connector content store subsystems
 
 Starting from version 1.2, the Azure Connector provides out-of-the-box content store subsystems. Older versions of the Azure Connector hard-wired the Microsoft Azure content store directly into Alfresco Content Services.
 
 The subsystem approach allows a more flexible use of the Azure content store, even in conjunction with existing content stores. A subsystem can be started, stopped, and configured independently, and it has its own isolated Spring application context and configuration. The Azure subsystems belong to the `ContentStore` category, and have types `Azure` or `AzureOnPrem`.
 
-See the Alfresco Content Services documentation on [Subsystems](https://docs.alfresco.com/6.2/references/dev-extension-points-custom-subsystem.html) for more.
+See the Alfresco Content Services documentation on [Subsystems Extension Point]({% link content-services/latest/develop/repo-ext-points/subsystems.md %}) for more.
 
 **`AzureOnPrem` content store subsystem**
 
 This defines an aggregating content store with Azure as the primary content store and the file system as the secondary one.
 
-This configuration is similar to what's used in previous Azure Connector versions \(i.e. 1.0, 1.1\) and is set as the default content store.
+This configuration is similar to what's used in previous Azure Connector versions (i.e. 1.0, 1.1) and is set as the default content store.
 
 **`Azure` content store subsystem**
 
@@ -191,7 +191,7 @@ The default subsystem that's enabled on installation is **AzureOnPrem**. This en
 
 You can change the subsystem used by overwriting the global variable `filecontentstore.subsystem.name`, for example:
 
-```
+```bash
 filecontentstore.subsystem.name=Azure
 ```
 
@@ -201,7 +201,7 @@ filecontentstore.subsystem.name=Azure
 
 You can manage subsystems by using a JMX client under `MBeans > Alfresco > Configuration > ContentStore > managed`. Here, you can change all the properties defined for the subsystem, and restart the subsystem. Another way to extend a subsystem is to add a `*-context.xml` and a properties file, in the extension path for that subsystem:
 
-```
+```text
 alfresco/extension/subsystems/ContentStore/Azure/Azure/*-context.xml
 alfresco/extension/subsystems/ContentStore/Azure/Azure/*.properties
 ```
@@ -216,7 +216,7 @@ Previous versions of the Azure Connector support the deleted content store provi
 
 Starting with 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. However, you can enable the Alfresco Content Services deleted content store, if required.
 
-See [Azure Connector deleted content store](azure-contentstore-delete.md) for more details.
+See [Azure Connector deleted content store]({% link microsoft-azure/latest/install/index.md %}#azure-connector-deleted-content-store) for more details.
 
 ## **Configuring** multiple storage containers using Azure Connector
 
@@ -398,13 +398,13 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
 
 1.  Locate the file `azure-mc-contentstore-context.xml` in folder:
 
-    ```
+    ```text
     $CATALINA_HOME/shared/classes/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers
     ```
 
 2.  Duplicate the **Store 2** section, and replace `store2.` with `store3.`
 
-    ```
+    ```bash
     <bean id="store2.authConfig" class="org.alfresco.integrations.connector.authentication.AuthConfig" >
         <property name="accountName" value="${connector.az.store2.account.name}" />
         <property name="accountKey" value="${connector.az.store2.account.key}" />
@@ -460,7 +460,7 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
 
     For example:
 
- ```
+ ```bash
  <entry key="azContentStore3">
  <ref bean="store3.azureBlobContentStore"/>
  </entry>
@@ -468,7 +468,7 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
 
 4. Locate the file `azure-mc-contentstore.properties` in folder:
 
-    ```
+    ```text
     $CATALINA_HOME/shared/classes/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers
     ```
 
@@ -492,7 +492,7 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
 
  **Move content between content stores**
 
-    If you've configured two content stores \(as in the provided sample\), you can use the `storeSelectorContentStore` to move content between them.
+    If you've configured two content stores (as in the provided sample), you can use the `storeSelectorContentStore` to move content between them.
 
 6. Add the `cm:storeSelector` aspect to the document.
 
@@ -502,4 +502,4 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
 
     Once the property is set, all the content store properties are added for the node. For example, the content is copied to the second container if you've configured a different name for the second content store.
 
-    See the Alfresco Content Services documentation, [Content store selector](https://docs.alfresco.com/6.2/concepts/store-manage-content.html), for more details on how the content store selector works.
+    See the Alfresco Content Services documentation, [Content store selector]({% link content-services/latest/admin/content-stores.md %}#content-store-selector) for more details on how the content store selector works.
