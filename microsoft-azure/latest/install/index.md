@@ -22,16 +22,18 @@ There are a number of software requirements for installing Azure Connector.
 
 In order to use the Azure Connector, you need an Azure storage account so that you can configure the Azure Connector successfully.
 
-## Install the Azure Connector
+## Installing the Azure Connector
 
 There are several options for installing the Azure Connector:
 
-* Installing the Azure Connector
-* Installing the Azure Connector with AzMultipleStorageContainers subsystem
+* Install the Azure Connector
+* Install the Azure Connector with AzMultipleStorageContainers subsystem
 
 These steps describe how to install the Alfresco Content Connector for Azure to an instance of Alfresco Content Services.
 
 The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
+
+## Install the Azure Connector
 
 > **Note:** Ensure that you don't start Alfresco Content Services before installing the Azure Connector AMP.
 
@@ -41,7 +43,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 3. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (alfresco.war).
 
-    For more information [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
+    For more information see [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
