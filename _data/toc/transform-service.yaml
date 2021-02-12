@@ -36,3 +36,23 @@
           path: '/transform-service/1.2/config/engine/'  
     - title: 'Administer'
       path: '/transform-service/1.2/admin/'
+# Transform Service 1.1
+- version: 1.1
+  pages:
+    - title: 'Introduction'
+      path: '/transform-service/1.1/'
+    - title: 'Install'
+      path: '/transform-service/1.1/install/'    
+    - title: 'Configure'
+      pages: 
+        - title: 'Configure Transform Service'
+          path: '/transform-service/1.1/config/'
+        - title: 'Extend Transform Service'
+          path: '/transform-service/1.1/config/extend/'
+        - title: 'Configure routes in T-Router'
+          path: '/transform-service/1.1/config/routes/'
+        - title: 'Create a custom T-Engine'
+          path: '/transform-service/1.1/config/engine/'  
+    - title: 'Administer'
+      path: '/transform-service/1.1/admin/'
+    
