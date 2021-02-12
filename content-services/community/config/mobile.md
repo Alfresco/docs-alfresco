@@ -1,8 +1,8 @@
 ---
-title: Configure Community Edition for Mobile
+title: Configure Content Services for Mobile
 ---
 
-Use this information to configure the [Community Edition for Mobile]({% link content-mobile/latest/index.md %}) app for end users.
+Use this information to configure the [Content Services for Mobile]({% link content-mobile/latest/index.md %}) app for end users.
 
 Items such as views, menus, actions and themes can be customized. For example, a profile can be configured for a sales team, so that when they use the mobile app they can easily find price lists and sales tools without having to search for them. Another profile might give an IT team quick access to any outstanding support tasks.
 
@@ -10,7 +10,7 @@ You can create multiple different configurations and assign each one to a profil
 
 All customization uses a JSON file and does not require any code modifications. The configuration file is stored in Community Edition.
 
-> **Note:** Community Edition for Mobile retrieves details from the file using its configuration service. The service typically retrieves the configuration from the server the app is currently attached to. It can also accept configuration from other sources, for example, a client application may provide user configuration options that allow individual users to customize their app.
+> **Note:** Content Services for Mobile retrieves details from the file using its configuration service. The service typically retrieves the configuration from the server the app is currently attached to. It can also accept configuration from other sources, for example, a client application may provide user configuration options that allow individual users to customize their app.
 
 ## Configuration file
 
@@ -151,7 +151,7 @@ Add the schema version into the object:
 }
 ```
 
-> **Note:** If using Community Edition for Mobile on Android, versions 1.5 and earlier only support version `0.1`.
+> **Note:** If using Content Services for Mobile on Android, versions 1.5 and earlier only support version `0.1`.
 
 ## Repository
 
@@ -464,7 +464,7 @@ An example of a menu item showing all favorite files is:
       "label-id": "<Favorite Files>",
       "type": "org.alfresco.client.view.favorites",
       "params": {
-          "filters": {  
+          "filters": {
              "mode": "files"
    }
 }
