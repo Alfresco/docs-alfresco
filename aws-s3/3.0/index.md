@@ -9,10 +9,10 @@ allowing for virtually unlimited and inexpensive storage.
 Other features introduced in previous versions include:
 
 * Support for AWS S3 for on-premises installation of Alfresco Content Services
-* [AWS S3 Standard - Infrequent Access (S3 IA) storage class](https://aws.amazon.com/s3/storage-classes/) support
+* [AWS S3 Standard - Infrequent Access (S3 IA) storage class](https://aws.amazon.com/s3/storage-classes/){:target="_blank"} support
 * Refactored to use AWS SDK instead of old JetS3t libraries as it's less error prone
-* [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/) support
-* [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/) support
+* [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/){:target="_blank"} support
+* [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/){:target="_blank"} support
 * Storage path approach optimized for high-throughput reads and writes
 * Handling incomplete multipart uploads abort
 
