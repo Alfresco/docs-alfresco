@@ -160,7 +160,6 @@ A hold allows objects on hold for a particular reason to be tracked as a set. Ho
 
     >**Note:** Records and folders remain on hold until they have been removed from all holds they're added to.
 
-
 The folder remains in its' place in the File Plan. It is also shown in the **Holds** area of the explorer panel.
 
 >**Note:** To remove a record folder from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**.
@@ -193,9 +192,7 @@ When you don't need a record folder any more you can delete it.
 
 There are various options available to help you manage record. These are available to users with the appropriate {% include tooltip.html word="capabilities" text="capabilities" %}.
 
-In the File Plan hover over a record to display the available actions. The standard actions available are shown. 
-Additional options are available dependant on the stage a record is at in the {% include tooltip.html word="retentionschedule" text="retention schedule" %}. 
-See the relevant topics for further details.
+In the File Plan hover over a record to display the available actions. The standard actions available are shown. Additional options are available dependant on the stage a record is at in the {% include tooltip.html word="retentionschedule" text="retention schedule" %}. See the relevant topics for further details.
 
 |Action|Select this to...|
 |------|-----------------|
@@ -253,7 +250,6 @@ This gives the effect of "duplicating" the record in another location, though th
     A link is created in the destination folder. All copies of the record display the ![Linked]({% link governance-services/images/ico-rm-linkedrecord.png %}){:height="18px" width="18px"} icon.
 
     >**Note:** Linked records won't move to the next retention step until the period for the current step has been completed in all retention schedules it falls under. So in effect they follow the retention schedule that has the longest period for a step.
-
 
 You can click **More** then **Unlink Record** against the record in the destination folder. This will remove the linked record from the destination folder.
 
@@ -355,12 +351,9 @@ If a record is subject to a record level retention schedule, you can review the 
 
 ### Processing records
 
-Retention steps are generally completed manually, though retain and cut off steps can be completed automatically 
-by a system process that is run daily. You can also set up a rule to complete steps automatically.
+Retention steps are generally completed manually, though retain and cut off steps can be completed automatically by a system process that is run daily. You can also set up a rule to complete steps automatically.
 
-If a retention step is complete (the time period is finished or the required {% include tooltip.html word="events" text="events" %} have been completed), 
-then additional options are available for folders or records, dependant on whether the {% include tooltip.html word="retentionschedule" text="retention schedule" %} 
-is set to folder or record level.
+If a retention step is complete (the time period is finished or the required {% include tooltip.html word="events" text="events" %} have been completed), then additional options are available for folders or records, dependant on whether the {% include tooltip.html word="retentionschedule" text="retention schedule" %} is set to folder or record level.
 
 If you apply an action to a folder then it will also be applied to all records within the folder.
 
@@ -404,7 +397,6 @@ A hold allows objects on hold for a particular reason to be tracked as a set.
 
     >**Note:** Records and folders remain on hold until they have been removed from all the holds they're added to.
 
-
 The record remains in its place in the File Plan. It is also shown in the **Holds** area of the explorer panel.
 
 >**Note:** To remove a record from a hold hover over it in the File Plan or the Holds area and select **Remove from Hold**. See [Removing items from hold]({% link governance-services/3.3/using/search-records.md %}#removing-items-from-hold).
@@ -430,7 +422,6 @@ A hold allows items on hold for a particular reason to be tracked as a set.
     A message displays confirming the content is on hold, and the content now displays the ![Frozen]({% link governance-services/images/ico-rm-frozen.png %}){:height="18px" width="18px"} icon.
 
     >**Note:** Content remains on hold until it has been removed from all the holds they're added to.
-
 
 The content remains in its place in the Document Library. It is also shown in the **Holds** area of the File Plan explorer panel.
 

@@ -21,7 +21,7 @@ services:
     image: /assets/img/ic_governance_80px.svg
     sub:
       - title: "Read documentation"
-        url:
+        url: /governance-services/latest/
 
 integrations:
   - title: "Synchronize"

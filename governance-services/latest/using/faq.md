@@ -8,7 +8,7 @@ Here are the answers to some frequently asked questions about Records Management
 
 When you create a Records Management site you can choose to create a DoD 5015.2 site or a standard site. 
 If your organization is required to meet DoD 5015.2 compliance, then select **{% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %}**. 
-Records on a DoD 5015.2 site have additional madatory metadata the must be completed. 
+Records on a DoD 5015.2 site have additional mandatory metadata the must be completed. 
 Mandatory metadata includes the originator, the originating organization, the {% include tooltip.html word="fileplan" text="File Plan" %}, the destroy action.
 
 ## How does classification interact with standard Records Management permissions?
