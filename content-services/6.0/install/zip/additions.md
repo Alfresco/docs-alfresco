@@ -187,7 +187,7 @@ Use this information to review the components or modules that integrate Content 
 | Content Connector for AWS Glacier | |
 | Content Connector for EMC Centera | Paid add-on module and requires additional software |
 | Content Connector for Salesforce | |
-| Content Connector for SAP | Paid add-on module |
+| Content Connector for SAP applications | Paid add-on module |
 | Outlook Integration | Paid add-on module |
 | Office Services | |
 | Google Docs Integration | |
@@ -210,7 +210,7 @@ Here are some tips to familiarize yourself.
 
 > **Note:** We recommend that you create a test site for testing purpose and put all your test data in that site.
 
-* Can you login using your user name and password. See [Logging in]({% link content-services/6.0/using/share.md %}#signing-in).
+* Can you login using your user name and password. See [Signing in]({% link content-services/6.0/using/share.md %}#signing-in).
 * Can you create a site. See [Creating a new site]({% link content-services/6.0/using/sites/index.md %}#creating-a-site).
 * Can you add new users to the site. See [Adding users to a site]({% link content-services/6.0/using/sites/index.md %}#adding-users-to-a-site).
 * Can you add pages to the site. See [Adding pages to a site]({% link content-services/6.0/using/sites/index.md %}#customizesite).

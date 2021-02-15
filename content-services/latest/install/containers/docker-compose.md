@@ -422,7 +422,7 @@ docker-compose down
 
 ## Troubleshooting
 
-1. If you have issues running ```docker-compose up``` after deleting a previous Docker Compose cluster, try replacing step 4 in the initial Docker Compose instructions with:
+1. If you have issues running ```docker-compose up``` after deleting a previous Docker Compose cluster, try replacing step 5 in the initial Docker Compose instructions with:
 
     ```bash
     docker-compose down && docker-compose build --no-cache && docker-compose up

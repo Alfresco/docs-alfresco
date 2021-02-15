@@ -250,8 +250,8 @@ In-place example:
    bulkImportParameters.setReplaceExisting(true);
    bulkImportParameters.setBatchSize(150);
    bulkImportParameters.setNumThreads(4);
-   bulkImporter.bulkImport(bulkImportParameters, nodeImporter);  
-  
+   bulkImporter.bulkImport(bulkImportParameters, nodeImporter);
+
    txn.commit();
 ```
 
@@ -326,7 +326,6 @@ The File System Transfer Receiver is delivered as a compressed zip file.
     classes
     lib
     webapps
-    version.properties
     file-transfer-receiver.jar
     ```
 

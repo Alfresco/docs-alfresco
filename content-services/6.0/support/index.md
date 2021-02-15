@@ -22,7 +22,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 |  |  |
 | **Databases** | |
 | MySQL 5.7.23 | `mysql-connector-java-5.1.40-bin.jar` |
-| MS SQL Server 2017 | Microsoft JDBC Driver 7.0 or 7.1 for SQL Server. |
+| MS SQL Server 2017 | Microsoft JDBC Driver 7.0 for SQL Server. |
 | Oracle 12c | `OJDBC8.jar – 12.2.0.1` or `OJDBC7.jar – 12.1.0.2`  |
 | PostgreSQL 10.1 | `Postgresql-42.2.1.jar` |
 | MariaDB 10.2.18 | `mariadb-java-client-2.2.5.jar` |
@@ -116,7 +116,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 |  |  |
 | **Databases** | |
 | MySQL 5.7.23 | `mysql-connector-java-5.1.40-bin.jar` |
-| MS SQL Server 2017 | Microsoft JDBC Driver 7.0 or 7.1 for SQL Server. |
+| MS SQL Server 2017 | Microsoft JDBC Driver 7.0 for SQL Server. |
 | Oracle 12c | `OJDBC8.jar – 12.2.0.1` or `OJDBC7.jar – 12.1.0.2`  |
 | PostgreSQL 10.1 | `Postgresql-42.2.1.jar` |
 | MariaDB 10.2.18 | `mariadb-java-client-2.2.5.jar` |

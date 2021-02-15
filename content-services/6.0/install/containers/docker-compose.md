@@ -286,7 +286,7 @@ docker-compose down
 
 ## Troubleshooting
 
-1. If you have issues running ```docker-compose up``` after deleting a previous Docker Compose cluster, try replacing step 4 in the initial Docker Compose instructions with:
+1. If you have issues running ```docker-compose up``` after deleting a previous Docker Compose cluster, try replacing step 3 in the initial Docker Compose instructions with:
 
     ```bash
     docker-compose down && docker-compose build --no-cache && docker-compose up
@@ -304,7 +304,7 @@ docker-compose down
 
     For example, in Docker, change the memory setting in **Preferences** (or **Settings**) **Resources** > **Advanced** > **Memory** to at least 8GB. Make sure you restart Docker and wait for the process to finish before continuing.
 
-    Go back to step 5 in the initial Docker Compose instructions to start the deployment again.
+    Go back to step 3 in the initial Docker Compose instructions to start the deployment again.
 
 > **Note:** You'll need a machine with at least 13GB of memory to distribute among the Docker containers.
 
