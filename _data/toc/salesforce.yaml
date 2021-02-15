@@ -15,4 +15,18 @@
           path: '/salesforce/latest/using/recommend/'
         - title: 'Troubleshoot'
           path: '/salesforce/latest/using/troubleshoot/'
+- version: 2.1
+  pages:
+    - title: 'Introduction'
+      path: '/salesforce/2.1/'
+    - title: "Install"
+      path: '/salesforce/2.1/install/'
+    - title: 'Using'
+      pages:
+        - title: 'Overview'
+          path: '/salesforce/2.1/using/'
+        - title: 'Search considerations'
+          path: '/salesforce/2.1/using/search-considerations/'
+        - title: 'Troubleshoot'
+          path: '/salesforce/2.1/using/troubleshoot/'
 

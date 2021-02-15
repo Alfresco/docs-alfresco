@@ -22,7 +22,7 @@ Another typical change is the integration of your company-wide monitoring and lo
 
 ## Deployment options
 
-For the best results, we recommend [deploying Content Services to AWS EKS]({% link content-services/latest/install/containers/helm.md %}).
+For the best results, we recommend deploying Content Services to AWS EKS.
 
 There are also several [Helm examples]({% link content-services/latest/install/containers/helm-examples.md %}) that show you how to deploy with various configurations:
 
@@ -368,7 +368,7 @@ If you're running Content Services 6.2 (i.e. the latest version) and already hav
 
 * [https://acs.YOUR-DOMAIN-NAME/alfresco/service/enterprise/admin/admin-license](http://localhost:8080/alfresco/service/enterprise/admin/admin-license){:target="_blank"} (this only applies for the Enterprise Download Trial)
 * Default username and password is `admin`
-* See [Uploading a new license](https://docs.alfresco.com/6.2/tasks/at-adminconsole-license.html)(#LINK) for more details
+* See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details
 
 ### Configuration options
 
@@ -394,44 +394,44 @@ The following table lists the configurable parameters of the Content Services ch
 | alfresco-search.ingress.whitelist_ips | If `alfresco-search.ingress.enabled` is `true`, you can restrict `/solr` to a list of IP addresses of CIDR notation. The default value is `0.0.0.0/0` |
 | persistence.repository.enabled | Enable Volume Persistence on repository. The default value is `true` |
 | s3connector.enabled | Switch this to `true` if you have access to the S3 Connector AMP. The default value is `false` |
-| s3connector.config | S3 configuration - see [S3 Connector properties reference](https://docs.alfresco.com/s3connector/references/s3-contentstore-ref-config-props.html)(#LINK). Example: `s3connector.config.bucketName: myS3Bucket`. The default value is `{}` |
-| s3connector.secrets | S3 secrets configuration - see [S3 Connector properties reference](https://docs.alfresco.com/s3connector/references/s3-contentstore-ref-config-props.html)(#LINK). Example: `s3connector.secrets.accessKey: AJJJJJJJJ`. The default value is `{}` |
-| email.server.enabled | Enables the email server - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `false` |
-| email.server.port | Specifies the port number for the email server - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `1125` |
-| email.server.domain | Specifies the name or the IP address of the network to bind the email server to - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
-| email.server.enableTLS  | STARTTLS  is an extension to plain text communication protocols - see [Inbound SMTP Email Server Configuration](https://hub.alfresco.com/t5/alfresco-content-services-hub/inbound-smtp-email-server-configuration/ba-p/289370){:target="_blank"}. The default value is `true` |
-| email.server.hideTLS | STARTTLS  is an extension to plain text communication protocols - see [Inbound SMTP Email Server Configuration](https://hub.alfresco.com/t5/alfresco-content-services-hub/inbound-smtp-email-server-configuration/ba-p/289370){:target="_blank"}. The default value is `false` |
-| email.server.requireTLS | STARTTLS  is an extension to plain text communication protocols - see [Inbound SMTP Email Server Configuration](https://hub.alfresco.com/t5/alfresco-content-services-hub/inbound-smtp-email-server-configuration/ba-p/289370){:target="_blank"}. The default value is `false` |
-| email.server.auth.enabled | Authentication is turned on by setting the following property - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `true` |
-| email.server.connections.max  | The maximum number of connections allowed.  Increase this number to favour the email subsystem at the expense of the rest of alfresco - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `3` |
-| email.server.allowed.senders  | Provides a comma-separated list of email REGEX patterns of allowed senders - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
-| email.server.blocked.senders  | Provides a comma-separated list of email REGEX patterns of blocked senders - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
-| email.inbound.enabled | Enable/Disable the inbound email service - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `false` |
-| email.inbound.unknownUser | The username to authenticate with when the sender address is not recognized in alfresco - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `anonymous` |
-| email.inbound.emailContributorsAuthority  | Allow the email contributors to belong to an authority  - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK) |
-| email.handler.folder.overwriteDuplicates  | Should duplicate messages to a folder overwrite each other or be named with a (number) - see [Inbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-inboundsmtp-props.html)(#LINK). The default value is `true` |
-| mail.encoding | Specifies UTF-8 encoding for email - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `UTF-8` |
-| mail.host | Specifies the host name of the SMTP host, that is, the host name or IP address of the server to which email should be sent - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
-| mail.port | Specifies the port number on which the SMTP service runs (the default is 25) - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `25` |
-| mail.protocol | Specifies which protocol to use for sending email - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `smtps` |
-| mail.username | Specifies the user name of the account that connects to the smtp server - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
-| mail.password | Specifies the password for the user name used in mail.username - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
-| mail.from.default | Specifies the email address from which email notifications are sent - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
-| mail.from.enabled | If this property is set to false, then the value set in mail.from.default is always used - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK) |
-| mail.smtp.auth | Specifies if authentication is required or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
-| mail.smtp.debug | Specifies if debugging SMTP is required or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `false` |
-| mail.smtp.starttls.enable | Specifies if the transport layer security (TLS) needs to be enabled or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
-| mail.smtp.timeout | Specifies the timeout in milliseconds for SMTP - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `20000` |
-| mail.smtps.auth | Specifies if authentication for SMTPS is required or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
-| mail.smtps.starttls.enable  | Specifies if the transport layer security for smtps needs to be enabled or not - see [Outbound SMTP configuration properties](https://docs.alfresco.com/6.2/concepts/email-outboundsmtp-props.html)(#LINK). The default value is `true` |
-| imap.server.enabled | Enables or disables the IMAP subsystem - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `false` |
-| imap.server.port | IMAP has a reserved port number of 143 - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `1143` |
-| imap.server.host | Replace this value with the IP address (or corresponding DNS name) of your external IP interface - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `0.0.0.0` |
-| imap.server.imap.enabled | Enables or disables the IMAP subsystem - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `true` |
-| imap.server.imaps.enabled | Enables or disables the IMAP subsystem - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `true` |
-| imap.server.imaps.port | IMAP has a reserved port number of 143 - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK). The default value is `1144` |
-| imap.mail.from.default | Configuring the email client with IMAP - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK) |
-| imap.mail.to.default | Configuring the email client with IMAP - see [Configuring the email client with IMAP](https://docs.alfresco.com/6.2/tasks/imap-enable.html)(#LINK) |
+| s3connector.config | S3 configuration. Example: `s3connector.config.bucketName: myS3Bucket`. The default value is `{}` |
+| s3connector.secrets | S3 secrets configuration. Example: `s3connector.secrets.accessKey: AJJJJJJJJ`. The default value is `{}` |
+| email.server.enabled | Enables the email server. The default value is `false` |
+| email.server.port | Specifies the port number for the email server. The default value is `1125` |
+| email.server.domain | Specifies the name or the IP address of the network to bind the email server to. |
+| email.server.enableTLS  | STARTTLS  is an extension to plain text communication protocols. The default value is `true` |
+| email.server.hideTLS | STARTTLS  is an extension to plain text communication protocols. The default value is `false` |
+| email.server.requireTLS | STARTTLS  is an extension to plain text communication protocols. The default value is `false` |
+| email.server.auth.enabled | Authentication is turned on by setting the following property. The default value is `true` |
+| email.server.connections.max  | The maximum number of connections allowed.  Increase this number to favour the email subsystem at the expense of the rest of alfresco. The default value is `3` |
+| email.server.allowed.senders  | Provides a comma-separated list of email REGEX patterns of allowed senders. |
+| email.server.blocked.senders  | Provides a comma-separated list of email REGEX patterns of blocked senders. |
+| email.inbound.enabled | Enable/Disable the inbound email service. The default value is `false` |
+| email.inbound.unknownUser | The username to authenticate with when the sender address is not recognized in alfresco. The default value is `anonymous` |
+| email.inbound.emailContributorsAuthority  | Allow the email contributors to belong to an authority. |
+| email.handler.folder.overwriteDuplicates  | Should duplicate messages to a folder overwrite each other or be named with a (number). The default value is `true` |
+| mail.encoding | Specifies UTF-8 encoding for email. The default value is `UTF-8` |
+| mail.host | Specifies the host name of the SMTP host, that is, the host name or IP address of the server to which email should be sent. |
+| mail.port | Specifies the port number on which the SMTP service runs (the default is 25). The default value is `25` |
+| mail.protocol | Specifies which protocol to use for sending email. The default value is `smtps` |
+| mail.username | Specifies the user name of the account that connects to the smtp server. |
+| mail.password | Specifies the password for the user name used in mail.username. |
+| mail.from.default | Specifies the email address from which email notifications are sent. |
+| mail.from.enabled | If this property is set to false, then the value set in mail.from.default is always used. |
+| mail.smtp.auth | Specifies if authentication is required or not. The default value is `true` |
+| mail.smtp.debug | Specifies if debugging SMTP is required or not. The default value is `false` |
+| mail.smtp.starttls.enable | Specifies if the transport layer security (TLS) needs to be enabled or not. The default value is `true` |
+| mail.smtp.timeout | Specifies the timeout in milliseconds for SMTP. The default value is `20000` |
+| mail.smtps.auth | Specifies if authentication for SMTPS is required or not. The default value is `true` |
+| mail.smtps.starttls.enable  | Specifies if the transport layer security for smtps needs to be enabled or not. The default value is `true` |
+| imap.server.enabled | Enables or disables the IMAP subsystem. The default value is `false` |
+| imap.server.port | IMAP has a reserved port number of 143. The default value is `1143` |
+| imap.server.host | Replace this value with the IP address (or corresponding DNS name) of your external IP interface. The default value is `0.0.0.0` |
+| imap.server.imap.enabled | Enables or disables the IMAP subsystem. The default value is `true` |
+| imap.server.imaps.enabled | Enables or disables the IMAP subsystem. The default value is `true` |
+| imap.server.imaps.port | IMAP has a reserved port number of 143. The default value is `1144` |
+| imap.mail.from.default | Configuring the email from field default for the client with IMAP. |
+| imap.mail.to.default | Configuring the email to field default for the client with IMAP. |
 
 This deployment is also not fully secured by default. To learn about and apply further restrictions including pod security, network policies etc., see the [EKS Best Practices for Security](https://aws.github.io/aws-eks-best-practices/){:target="_blank"}.
 

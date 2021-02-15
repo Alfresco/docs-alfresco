@@ -162,7 +162,7 @@ You can also enable logging for the transaction handler to identify any transact
 log4j.logger.org.alfresco.repo.transaction.RetryingTransactionHelper=info
 ```
 
-For more information about log4j, see [log4j.properties file](TODO_LINK:dev-extensions-modules-module-log4j.md).
+For more information about log4j, see [log4j.properties file]({% link content-services/latest/develop/extension-packaging.md %}#log4jpropsfile).
 
 #### Bulk import using the user interface {#bulkimportwithui}
 
@@ -250,8 +250,8 @@ In-place example:
    bulkImportParameters.setReplaceExisting(true);
    bulkImportParameters.setBatchSize(150);
    bulkImportParameters.setNumThreads(4);
-   bulkImporter.bulkImport(bulkImportParameters, nodeImporter);  
-  
+   bulkImporter.bulkImport(bulkImportParameters, nodeImporter);
+
    txn.commit();
 ```
 
@@ -316,7 +316,7 @@ The File System Transfer Receiver is delivered as a compressed zip file.
 
 1. Download the following file from the Alfresco Support Portal:
 
-    `alfresco-content-services-file-transfer-receiver-6.2.1.zip`
+    `alfresco-file-transfer-receiver-6.2.1.zip`
 
 2. Extract the zip file into a relevant directory.
 
@@ -326,7 +326,6 @@ The File System Transfer Receiver is delivered as a compressed zip file.
     classes
     lib
     webapps
-    version.properties
     file-transfer-receiver.jar
     ```
 
@@ -360,7 +359,7 @@ Use this information to start the File System Transfer Receiver.
 
 1. Ensure that you've expanded the File System Transfer Receiver zip file:
 
-    `alfresco-content-services-file-transfer-receiver-6.2.1.zip`
+    `alfresco-file-transfer-receiver-6.2.1.zip`
 
 2. To run the File System Transfer Receiver, enter the following command:
 

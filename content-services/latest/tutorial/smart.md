@@ -28,7 +28,7 @@ For background information on Smart Folder Templates, see [What's a Smart Folder
 
 To set up the claims framework, you need to create a custom content model, then create a folder structure for your content.
 
-You need a custom content model to specify the metadata that the claims solution requires. You need to be in the ALFRESCO\_MODEL\_ADMINISTRATORS group to create a content model. For detailed information about Model Manager, see [Content modeling with Model Manager](#LINK-admintools-cmm-intro.md).
+You need a custom content model to specify the metadata that the claims solution requires. You need to be in the ALFRESCO\_MODEL\_ADMINISTRATORS group to create a content model. For detailed information about Model Manager, see [Content modeling with Model Manager]({% link content-services/latest/config/models.md %}).
 
 1. Download the [Smart Folders tutorial files](https://github.com/vhemmert/smartfolders/tree/master/tutorial){:target="_blank"} from the `smartfolders-master/tutorial` directory.
 
@@ -62,7 +62,7 @@ To configure the claims framework, add the sample template to the Data Dictionar
 
 The example data model that you imported in the previous task contains the `clex:claimFolder` aspect. This aspect defines the metadata for a claim, and also marks a folder as being used to contain claim information. Make sure that you've downloaded the [Smart Folders tutorial files](https://github.com/vhemmert/smartfolders/tree/master/tutorial){:target="_blank"} before proceeding with this task.
 
-1. Stop Alfresco Content Services, and edit your alfresco-global.properties file to specify the following settings:
+1. Stop Alfresco Content Services, and edit your `alfresco-global.properties` file to specify the following settings:
 
     ```bash
     smart.folders.enabled=true
@@ -71,7 +71,7 @@ The example data model that you imported in the previous task contains the `clex
 
     The `smart.folders.config.type.templates.qname.filter` property specifies the custom type or aspect of the contents of the Smart Folder Template.
 
-2. Restart Alfresco Content Services.
+2. Restart Content Services.
 
 3. Browse to smartfolders-master/tutorials in your Downloads directory, and locate the `clex_claimFolder.json` file.
 

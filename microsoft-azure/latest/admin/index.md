@@ -38,7 +38,7 @@ Use this information to upgrade the Azure Connector from a previous version for 
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
-9. Check that the [configuration](../configure/index.md) is set up correctly for your environment.
+9. Check that the [configuration](../config/index.md) is set up correctly for your environment.
 
     > **Note:** When upgrading from Azure Connector version 1.0, make sure you define the Azure authentication mode and a supported value in your `alfresco-global.properties` file.
 

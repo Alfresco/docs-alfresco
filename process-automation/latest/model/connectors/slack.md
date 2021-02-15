@@ -111,21 +111,21 @@ The Slack connector requires a Slack application and a Slack bot in order to fun
 
     The required [scope and permissions](https://api.slack.com/scopes){:target="_blank"} are:
 
-    * bot
+    * app_mentions:read
     * channels:read
-    * channels:write
+    * channels:manage
     * groups:read
     * groups:write
     * mpim:read
     * mpim:write
     * users:read
     * users:read.email
-    * chat:write:bot
-    * chat:write:user
+    * chat:write
+    * chat:write.public
     * im:read
     * im:write
 
-4. Use the following URL to obtain the Slack bot user and admin tokens: `https://api.slack.com/apps/<app_id>/oauth`.
+4. Use the following URL to obtain the Slack bot token and signing secret: `https://api.slack.com/apps/<app_id>/oauth`.
 
 ### Configuration parameters
 
@@ -133,8 +133,28 @@ The configuration parameters for the Slack connector are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| SLACK_XOXB | *Required.* The Slack bot user token obtained from configuring Slack, beginning `xoxb-`. |
-| SLACK_XOXP | *Required.* The Slack bot admin user token obtained from configuring Slack, beginning `xoxp-`. |
+| SLACK_BOT_TOKEN | *Required.* The Slack bot user token obtained from configuring Slack, beginning `xoxb-`. |
+| SLACK_SIGNING_SECRET | *Required.* The Slack signing secret obtained from the **Basic Information** page in Slack. |
+
+### Event subscription
+
+To use Slack as a [trigger]({% link process-automation/latest/model/triggers.md %}) the Slack bot needs to subscribe to events.
+
+1. Use the following URL to configure the events: `https://api.slack.com/apps/<app_id>/event-subscriptions`.
+
+2. Set the **Request URL** for Slack to post HTTP requests to as: `https://<cluster-name>/<application-name>/connector/<connector-name>/slack/events`. Where:
+
+    * `cluster-name` is the name of the cluster running Process Automation.
+    * `application-name` is the name of the application the trigger is configured for.
+    * `connector-name` is the name of the Slack connector instance in the application.
+
+3. Subscribe the Slack bot user to the following events:
+
+    * app_mention
+    * message.channels
+    * message.groups
+    * message.im
+    * message.npim
 
 ## Errors
 

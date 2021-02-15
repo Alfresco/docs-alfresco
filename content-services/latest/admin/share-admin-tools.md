@@ -20,11 +20,11 @@ You can see the **Admin Tools** option on the menu bar if you're an administrato
 
     * Application: [Share theme and logo](#theme-logo)
     * Category Manager: [Managing categories](#cat-manager)
-    * Module Browser: [Viewing module packages](TODO_LINK:admintools-modules.md)
-    * Node Browser: [Using the Node Browser in Share Admin Tools](TODO_LINK:adminconsole-nodebrowser.md#)
+    * Module Browser: [Viewing module packages]({% link content-services/latest/install/zip/amp.md %}#viewing-module-packages)
+    * Node Browser: [Using the Node Browser in Share Admin Tools]({% link content-services/latest/admin/troubleshoot.md %}#using-the-node-browser)
     * Search Manager: [Manage search filters](#search-manager)
     * Tag Manager: [Managing tags](#tag-manager)
-    * Model Manager: [Content modeling with Model Manager](TODO_LINK:../concepts/admintools-cmm-intro.md)
+    * Model Manager: [Content modeling with Model Manager]({% link content-services/latest/config/models.md %})
     * Sites Manager: [Sites Manager](#sites-manager)
 
     The remaining tools are grouped into the following categories:

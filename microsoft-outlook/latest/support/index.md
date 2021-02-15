@@ -6,4 +6,6 @@ The following are the supported platforms for the Outlook Integration version 2.
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 6.0.x, 6.1.x, 6.2.x | |
+| Alfresco Content Services 6.2.x | |
+| Alfresco Content Services 6.1.x | |
+| Alfresco Content Services 6.0.x | |
