@@ -14,7 +14,7 @@ There are a number of software requirements for installing the Glacier Connector
 
 * Alfresco Content Connector for AWS S3 3.1 or later - [installed and configured](https://docs.alfresco.com/s3connector/concepts/s3-contentstore-overview.html)(#LINK)
 
-* Alfresco Governance Services 3.2 or later - [installed using the distribution zip](https://docs.alfresco.com/ags/tasks/rm-amp-install.html)(#LINK)
+* Alfresco Governance Services 3.2 or later - [installed using the distribution zip]({% link governance-services/3.2/install/zip.md %})
 
 See [Supported Platforms]({% link aws-glacier/latest/support/index.md %}) for more information.
 
