@@ -24,7 +24,7 @@ When your Alfresco Content Services installation is upgraded, you can apply the 
 
 5. Apply the Governance Services to the upgraded Alfresco Content Services installation.
 
-    Follow the instructions in [Install using the distribution ZIP]({% link governance-services/3.1/install/zip/index.md %}).
+    Follow the instructions in [Install using the distribution ZIP]({% link governance-services/3.1/install/zip.md %}).
 
     >**Note:** If you have {% include tooltip.html word="easyaccessrecords" text="easy access records" %} (previously know as in-place records) that are pre-2.3.0.8 versions of Records Management, then you also need to [run a webscript](#easy_access_upgrade) so that easy access records created in pre-2.3.0.8 sites are shown in the search results of users without Records Management permissions.
 

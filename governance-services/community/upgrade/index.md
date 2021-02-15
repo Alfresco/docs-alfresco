@@ -16,7 +16,7 @@ To upgrade Alfresco Governance Services you need to make sure you're running the
 
 4. Apply the Alfresco Governance Services to the upgraded Alfresco Community Edition installation.
 
-    Follow the instructions in [Install using the distribution ZIP]({% link governance-services/community/install/zip/index.md %}).
+    Follow the instructions in [Install using the distribution ZIP]({% link governance-services/community/install/zip.md %}).
 
 5. Restart the Alfresco Community Edition server, if it is already running.
 

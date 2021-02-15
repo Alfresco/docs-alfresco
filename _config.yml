@@ -270,6 +270,7 @@ defaults:
       path: "governance-services/community"
     values:
       version: "community"
+      support: false
   - scope:
       path: "governance-services/community/tutorial"
     values:

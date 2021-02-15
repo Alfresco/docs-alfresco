@@ -1,4 +1,4 @@
-# Alfresco Governance Services Tutorials
+# Alfresco Governance Services 3.4
 - version: 3.4
   pages:
     - title: 'Tutorials'
@@ -7,6 +7,8 @@
       path: '/governance-services/latest/tutorial/governance-services/'
     - title: 'Security marks and classification'
       path: '/governance-services/latest/tutorial/securitymarks-classify/'
+
+# Alfresco Governance Services 3.3
 - version: 3.3
   pages:
     - title: 'Tutorials'
@@ -15,6 +17,8 @@
       path: '/governance-services/3.3/tutorial/governance-services/'
     - title: 'Security marks and classification'
       path: '/governance-services/3.3/tutorial/securitymarks-classify/'
+
+# Alfresco Governance Services 3.2
 - version: 3.2
   pages:
     - title: 'Tutorials'
@@ -23,6 +27,8 @@
       path: '/governance-services/3.2/tutorial/governance-services/'
     - title: 'Security marks and classification'
       path: '/governance-services/3.2/tutorial/securitymarks-classify/'
+
+# Alfresco Governance Services 3.1
 - version: 3.1
   pages:
     - title: 'Tutorials'
@@ -31,6 +37,8 @@
       path: '/governance-services/3.1/tutorial/governance-services/'
     - title: 'Security marks and classification'
       path: '/governance-services/3.1/tutorial/securitymarks-classify/'
+
+# Alfresco Governance Services 3.0
 - version: 3.0
   pages:
     - title: 'Tutorials'
@@ -39,6 +47,8 @@
       path: '/governance-services/3.0/tutorial/governance-services/'
     - title: 'Security marks and classification'
       path: '/governance-services/3.0/tutorial/securitymarks-classify/'
+
+# Alfresco Governance Services Community
 - version: "community"
   pages:
     - title: 'Tutorials'
