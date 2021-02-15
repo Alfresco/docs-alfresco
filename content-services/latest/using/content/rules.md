@@ -98,8 +98,8 @@ Actions don't apply to files in subfolders, unless the **Rule applies to subfold
 |**Check in**|Files that are currently checked out will be checked in. For example, they will be checked in before being moved to another folder. Select **Options** to choose whether they will be checked in as minor or major versions.|
 |**Check out**|Checks out files automatically, with a working copy created in the location of your choice.|
 |**Link to category**|Links files or folders to a category of your choice, such as a region or classification. See [Tagging and categorizing content]({% link content-services/latest/using/content/manage.md %}#tagcategorizecontent) for more information.|
-|**Add aspect**|Adds a property aspect to files, to give it additional behaviors or properties. See [About Aspects](TODO_LINK:../concepts/aspect-about.md) for more information.|
-|**Remove aspect**|Removes a property aspect from files, to remove functionality or properties. See [About Aspects](TODO_LINK:../concepts/aspect-about.md) for more information.|
+|**Add aspect**|Adds a property aspect to files, to give it additional behaviors or properties. See [About Aspects]({% link content-services/latest/config/repository.md %}#about-aspects) for more information.|
+|**Remove aspect**|Removes a property aspect from files, to remove functionality or properties. See [About Aspects]({% link content-services/latest/config/repository.md %}#about-aspects) for more information.|
 |**Add simple workflow**|Adds files to a workflow. By default there is an approval task. You can also click to add a reject task. You can click on **Approve** and **Reject** to rename the steps and to select a location to copy and move approved/rejected files to. See [Tasks and workflows](#createsimpleworkflow) for more information.|
 |**Send email**|When files and subfolders are added you can select to send notifications by email. Click **Message** to select recipients and add the message of your choice.|
 |**Transform and copy content**|When applicable, add copies of files, in the format of your choice, to another location. For example you can generate a copy of a Word document in PDF format in a different folder.|
@@ -110,7 +110,7 @@ Actions don't apply to files in subfolders, unless the **Rule applies to subfold
 |**Increment Counter**|Automatically increments the value of a number (integer) property. This will generally only be used by Alfresco administrators.|
 |**Set property value**|Select a property and then enter a default value. Files with that property will have it changed to the entered value.|
 |**Embed properties as metadata in content**|Embeds file properties directly into the binary file as metadata. The information contained in those files can help in searching and workflows.|
-|**Start Process**|You can use this action to create a folder rule in Share that triggers an Alfresco Process Services process. See [Configuring the APS Action](TODO:../topics/prod-setup.md) and [Start Process action details](#startprocessactiondetails) for more information.|
+|**Start Process**|You can use this action to create a folder rule in Share that triggers an Alfresco Process Services process. See [Configuring the APS Action]({% link content-services/latest/config/action.md %}) and [Start Process action details](#startprocessactiondetails) for more information.|
 
 ### Linking to an existing rule set
 
@@ -242,7 +242,7 @@ A check mark to the left of the rule means it's active.
 
 Selecting an individual rule in this list displays its details on the right side of the page.
 
-See [Troubleshooting rules and actions](TODO:https://docs.alfresco.com/6.2/concepts/troubleshooting-type.html) for information about resolving problems with rules.
+See [Troubleshooting rules and actions]({% link content-services/latest/admin/troubleshoot.md %}#troubleshoot-rules-and-actions) for information about resolving problems with rules.
 
 ### Adding to a set of rules {#addtosetofrules}
 

@@ -139,8 +139,8 @@ To uninstall Media Management, you need to use the Module Management Tool (MMT) 
 
 1. Stop the Alfresco Content Services server.
 
-2. Use the topic, [Uninstall an AMP file](LINK), to uninstall the module.
+2. Use the topic, [Uninstall an AMP file](#LINK content-services/6.1/install/zip/amp.md), to uninstall the module.
 
-3. If you have used a Media Management content model like IPTC or PBCore, you must clean out your database before restarting Alfresco. See [Step 8 of Deleting a content model](LINK) for more information.
+3. If you have used a Media Management content model like IPTC or PBCore, you must clean out your database before restarting Alfresco. See [Dynamic deployment approach](#LINK content-services/6.2/develop/repo-ext-points/content-model.md %}#dynamic-deployment-approach) for more information.
 
 4. Restart the Alfresco server.

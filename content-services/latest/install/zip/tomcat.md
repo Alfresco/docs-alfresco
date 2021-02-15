@@ -33,7 +33,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
         shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar
         ```
 
-3. Copy the JDBC drivers for the database you are using to the lib directory.
+3. Copy the JDBC drivers for the database you are using to the `lib` directory.
 
 4. (Optional) If you plan to use Kerberos authentication.
 
@@ -121,7 +121,7 @@ The Content Services distribution file is a zip containing the required WAR file
 
 4. Move the WAR files from `/web-server/webapps` to the appropriate location for your application server.
 
-    For example, for Tomcat, move the WAR files to the `<TOMCAT_HOME>/webapps` directory. If you already have a web application that's running in the server root, see [Installing into an existing web application](https://docs.alfresco.com/aos/tasks/install-server-root.html)(#LINK) for instructions on how to merge the files into your application.
+    For example, for Tomcat, move the WAR files to the `<TOMCAT_HOME>/webapps` directory. If you already have a web application that's running in the server root, see [Installing into an existing web application]({% link microsoft-office/latest/install/index.md %}#installing-into-an-existing-web-application) for instructions on how to merge the files into your application.
 
 5. Move the contents from `/conf`, and `/lib` under `/web-server` to the appropriate location for your application server.
 
@@ -177,15 +177,15 @@ The Content Services distribution file is a zip containing the required WAR file
 
 9. Install Alfresco Search Services.
 
-    See [Install and configure Alfresco Search Services](https://docs.alfresco.com/search-enterprise/concepts/solr-install-config.html)(#LINK) for more information.
+    See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information.
 
 You're now ready to [install any additional software]({% link content-services/latest/install/zip/additions.md %}) that you require, and [install integrations]({% link content-services/latest/install/zip/additions.md %}#install-integrations).
 
 > **Note:** If you deployed previous versions of Content Services, you must remove any temporary files created by your application server. Use the `clean_tomcat.bat` or `clean_tomcat.sh` command.
 
-> **Note:** If you're include Alfresco Content Connector for AWS S3 as part of your installation, don't start Content Services before applying the S3 AMP file.
+> **Note:** If you're including Alfresco Content Connector for AWS S3 as part of your installation, don't start Content Services before applying the S3 AMP file.
 
-> **Important:** After installation, you must generate and install your own certificates to secure the installation. For more information, see [Generate secure keys](https://docs.alfresco.com/search-enterprise/concepts/generate-keys-overview.html)(#LINK).
+> **Important:** After installation, you must generate and install your own certificates to secure the installation. For more information, see [Generate secure keys]({% link search-services/latest/config/keys.md %}).
 
 ### Directory structure
 
@@ -214,7 +214,7 @@ After you've extracted the Content Services distribution zip, several directorie
 | | `/shared/classes/alfresco-encrypted.properties.sample` | A sample encrypted properties overlay file |
 | | `/webapps/alfresco.war` | Alfresco WAR file |
 | | `/webapps/share.war` | Alfresco Share WAR file |
-| | `/webapps/ROOT.war` | Application for the server root. The `ROOT.war` application is required to enable Alfresco Office Services (AOS). See [Install Alfresco Office Services manually into an existing web application](https://docs.alfresco.com/aos/tasks/install-server-root.html)(#LINK) |
+| | `/webapps/ROOT.war` | Application for the server root. The `ROOT.war` application is required to enable Alfresco Office Services (AOS). See [Install Alfresco Office Services manually into an existing web application]({% link microsoft-office/latest/install/index.md %}#installing-into-an-existing-web-application) |
 | | | |
 | root | `README.txt` | Version information for Content Services and Alfresco Share |
 | | `VERSIONS.md` | List of recommended components for the latest Content Services release |
@@ -249,7 +249,7 @@ If you want a Content Services-only tier in your application, you'll need to del
 
 You've successfully removed the `share.war` file from your application server.
 
-Next, you can [customize applications](#LINK-concepts/modify-alf-apps.md) such as the configuration for Content Services, Alfresco Share, and Alfresco Search Services.
+Next, you can [customize applications]({% link content-services/latest/config/index.md %}#customize-applications) such as the configuration for Content Services, Alfresco Share, and Alfresco Search Services.
 
 ### Adding a reverse proxy in front of Content Services
 

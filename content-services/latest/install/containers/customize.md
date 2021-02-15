@@ -33,7 +33,7 @@ You now need to install the AMP files into the Alfresco Content Repository image
 
 1. The `docker-compose` folder contains a file for each main code line of Content Services. Examine the relevant Docker Compose file for the version you want to apply the AMPs to.
 
-    For example, to apply AMPs to the latest version of 6.2, take a look at the `6.2.N-docker-compose file`.
+    For example, to apply AMPs to the latest version of 6.2, take a look at the `6.2.N-docker-compose` file.
 
 2. Take note of the image and tag used for the **alfresco** service in the Docker Compose file you chose.
 
@@ -62,7 +62,7 @@ You now need to install the AMP files into the Alfresco Content Repository image
     USER alfresco
     ```
 
-    > **Note:** In the example RUN Docker command, the Alfresco MMT JAR is run with `-directory`, `-nobackup` and `-verbose` options. Make sure these options are suitable for your requirements. See the [Alfresco MMT documentation](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html)(#LINK) for more.
+    > **Note:** In the example RUN Docker command, the Alfresco MMT JAR is run with `-directory`, `-nobackup` and `-verbose` options. Make sure these options are suitable for your requirements. See the [Alfresco MMT documentation]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) for more.
 
 4. Build the image, making sure you give the image an appropriate name and tag, so you can easily identify it later.
 
@@ -111,7 +111,7 @@ Let's repeat the process for the Alfresco Share image.
         ${TOMCAT_DIR}/amps_share ${TOMCAT_DIR}/webapps/share -directory -nobackup -verbose
     ```
 
-    > **Note:** In the example RUN docker command, `alfresco-mmt jar` is run with `-directory`, `-nobackup` and `-verbose` options. Make sure these options are suitable for your requirements. See the [Alfresco MMT documentation](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html)(#LINK).
+    > **Note:** In the example RUN docker command, `alfresco-mmt jar` is run with `-directory`, `-nobackup` and `-verbose` options. Make sure these options are suitable for your requirements. See the [Alfresco MMT documentation]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt).
 
 3. Build the image, making sure you give the image an appropriate name and tag, so you can easily identify it later.
 

@@ -2,7 +2,7 @@
 title: Configure Content Services for Mobile
 ---
 
-When you first install and access Content Services for Mobile, you can connect to any existing Content Services account as long as it has been [configured for mobile access](LINK).
+When you first install and access Content Services for Mobile, you can connect to any existing Content Services account as long as it has been [configured for mobile access]({% link content-services/latest/config/mobile.md %}).
 
 The mobile application can then be configured for the correct accounts and settings.
 
@@ -230,7 +230,7 @@ Administrators can set up customized profiles so that different users have diffe
 
 Users can then be assigned a profile or given the option to switch between profiles.
 
-Configuration of profiles is done in [Content Services](LINK).
+Configuration of profiles is done in [Content Services]({% link content-services/latest/config/mobile.md %}).
 
 ## Mobile Device Management (MDM)
 
@@ -254,7 +254,7 @@ Provision Content Services inside your MDM, and configure it using the following
 | AlfrescoUserName | *Optional.* User name of each user. |
 | AlfrescoDisplayName | *Optional.* The display label for Content Services, for example, `Company Intranet`. |
 | AlfrescoShareURL | *Optional.* The Alfresco Share server URL to connect to, using the format `<http | https>://<host-name>:<port>/<share-context>`. |
-| AlfrescoUserProfile | *Optional.* Use a profile-id defined in the configuration file to enforce a specific profile. Configuration files are done in [Content Services](LINK). |
+| AlfrescoUserProfile | *Optional.* Use a profile-id defined in the configuration file to enforce a specific profile. Configuration files are done in [Content Services]({% link content-services/latest/config/mobile.md %}). |
 
 Your MDM solution may display this information automatically. Users can then install and use the Content Services for Mobile app.
 

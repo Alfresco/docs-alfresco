@@ -8,7 +8,7 @@ You can install the third-party software used by Content Services independently.
 
 In Content Services, you can transform a document from one format to another, for example, a text file to a PDF file. To access these transformation facilities, you must install LibreOffice. This is optional, and can be done any time after Content Services is installed.
 
-1. Browse to the LibreOffice download site: [LibreOffice download site](https://www.libreoffice.org/download/download/){:target="_blank"}
+1. Browse to the [LibreOffice download site](https://www.libreoffice.org/download/download/){:target="_blank"}.
 
 2. Download the latest (stable) version of LibreOffice for your platform.
 
@@ -23,7 +23,7 @@ In Content Services, you can transform a document from one format to another, fo
 
     If you're installing LibreOffice on Linux, you also need a number of libraries to be installed. See [Install Linux libraries](#install-linux-libraries) for more.
 
-6. Modify the `jodconverter.officeHome` property in the `<classpathRoot>/alfresco-global.properties` file to point to the LibreOffice install location. See [System paths](#LINK-reuse/conv-syspaths.md) for more.
+6. Modify the `jodconverter.officeHome` property in the `<classpathRoot>/alfresco-global.properties` file to point to the LibreOffice install location.
 
     > **Note:** For Windows, set the path using the `\\` separator, or use the forward slash `/` Unix path separator. For example: `c:\\Alfresco\\LibreOffice` or `c:/Alfresco/LibreOffice`.
 
@@ -87,11 +87,11 @@ To enable image manipulation in Content Services, you must install and configure
 
 2. If the ImageMagick software isn't available on your system, download and install the appropriate package for your platform.
 
-    To download ImageMagick, browse to [ImageMagick download website](https://www.imagemagick.org/script/download.php){:target="_blank"}.
+    To download ImageMagick, browse to the [ImageMagick download website](https://www.imagemagick.org/script/download.php){:target="_blank"}.
 
     > **Note:** In next steps, you'll make changes to the Content Services configuration files to enable the manually installed ImageMagick application. These steps can only be performed after Content Services has been installed.
 
-3. Browse to the `<classpathRoot>` directory. See [System paths](#LINK-reuse/conv-syspaths.md) for more.
+3. Browse to the `<classpathRoot>` directory.
 
 4. Open the `alfresco-global.properties` file.
 
@@ -146,7 +146,8 @@ The `alfresco-pdf-renderer` binaries are available in the Content Services distr
 
 Translations in Content Services use language packs. The supported language packs are:
 
-* German (de)English (en)
+* English (en)
+* German (de)
 * Spanish (es)
 * French (fr)
 * Italian (it)
@@ -158,6 +159,20 @@ Translations in Content Services use language packs. The supported language pack
 * Simplified Chinese (zh_CN)
 
 The language used switches according to the browser locale. Ensure that your browser is set up to view the relevant locale, which ensures that the special characters display correctly in your installed instance.
+
+The source-localized files are encoded in ASCII, and the special and accented characters are displayed using escape sequences. The source files have been renamed using the corresponding locale for each language. For example, `site-welcome.properties` is called `sitewelcome_ fr.properties` for the French version.
+
+If you wish to use a translation that is not supplied with Alfresco Community Edition, then you must add the appropriate TinyMCE language pack for the translation to work correctly.
+
+1. Browse to the [TinyMCE website](http://tinymce.moxiecode.com/download_i18n.php){:target="_blank"}.
+
+2. Download the required TinyMCE language pack.
+
+    > **Note:** The next step makes configuration changes to the Alfresco Share application to configure the additional language packs for TinyMCE. This step can only be performed after Community Edition has been installed.
+
+3. Unpack the language file to `<TOMCAT_HOME>/webapps/share/modules/editors/tiny_mce/langs`.
+
+4. Ensure that the browser cache is cleared or refresh the page.
 
 ## Install integrations
 
@@ -190,7 +205,7 @@ Use this information to review the components or modules that integrate Content 
 | Content Connector for AWS Glacier | |
 | Content Connector for EMC Centera | Paid add-on module and requires additional software |
 | Content Connector for Salesforce | |
-| Content Connector for SAP | Paid add-on module |
+| Content Connector for SAP applications | Paid add-on module |
 | Outlook Integration | Paid add-on module |
 | Office Services | |
 | Google Docs Integration | |
@@ -219,17 +234,16 @@ Here are some tips to familiarize yourself.
 
 > **Note:** We recommend that you create a test site for testing purpose and put all your test data in that site.
 
-* Can you login using your user name and password. See [Logging in](#LINK-tasks/gs-login.md).
-* Can you create a site. See [Creating a new site](#LINK-tasks/gs-site-create.md).
-* Can you add new users to the site. See [Adding users to a site](#LINK-tasks/members-invite.md).
-* Can you add pages to the site. See [Adding pages to a site](#LINK-tasks/gs-customize-site.md).
-* Can you add content to a site library. See [Adding content items](#LINK-tasks/gs-content-add.md).
-* Can you copy or move content from its current location to another folder or any other site. See [Copying content](#LINK-tasks/library-item-copy.md) and [Moving content](#LINK-tasks/library-item-move.md).
-* Can you update content. See [Updating content](#LINK-tasks/library-item-upload.md).
-* Can you manage permissions for a user or a group for accessing content. See [Managing content permissions](#LINK-tasks/library-item-permissions.md).
-* Can you add a new rule to a folder in the site library and check if it works. See [Adding a new rule](#LINK-tasks/library-folder-rules-new.md).
-* Can you edit the new rule. See [Editing a rule](#LINK-tasks/library-folder-rules-edit.md).
-* Can you schedule events, such as meeting, for your team. See [Scheduling events](#LINK-tasks/gs-webinar-schedule.md).
+* Can you login using your user name and password. See [Signing in]({% link content-services/latest/using/share.md %}#signing-in).
+* Can you create a site. See [Creating a new site]({% link content-services/latest/using/sites/index.md %}#creating-a-site).
+* Can you add new users to the site. See [Adding users to a site]({% link content-services/latest/using/sites/index.md %}#adding-users-to-a-site).
+* Can you add pages to the site. See [Adding pages to a site]({% link content-services/latest/using/sites/index.md %}#customizesite).
+* Can you add content to a site library. See [Adding content items]({% link content-services/latest/using/content/manage.md %}).
+* Can you copy or move content from its current location to another folder or any other site. See [Copying content]({% link content-services/latest/using/content/manage.md %}#copying-content) and [Moving content]({% link content-services/latest/using/content/manage.md %}#moving-content).
+* Can you update content. See [Updating content]({% link content-services/latest/using/content/manage.md %}#uploading-files).
+* Can you manage permissions for a user or a group for accessing content. See [Managing content permissions]({% link content-services/latest/using/permissions.md %}).
+* Can you add a new rule to a folder in the site library and check if it works. See [Adding a new rule]({% link content-services/latest/using/content/rules.md %}#createrule).
+* Can you schedule events, such as meeting, for your team. See [Scheduling events]({% link content-services/latest/using/sites/features.md %}#calendar).
 
 ### Post-installation checks (clustered environment)
 
@@ -240,10 +254,10 @@ Here are some of the tips to help you test your customizations.
 > **Note:** We recommend that you create a test site for testing purposes, and put all your test data in that site.
 
 * Check that the application server is running.
-* Can you login using your user name and password. See [Signing in](#LINK-tasks/gs-login.md).
+* Can you login using your user name and password. See [Signing in]({% link content-services/latest/using/share.md %}#signing-in).
 * Check that various components are communicating with each other.
 * For a clustered installation, check if when one node is down, the request is forwarded to the next available node.
-* Check if clustering is working properly by running the [cluster validation tool](#LINK-tasks/adminconsole-reposerverclustering.md) in the Admin Console.
+* Check if clustering is working properly by running the [cluster validation tool]({% link content-services/latest/admin/cluster.md %}#managecluster) in the Admin Console.
 * Check if you are using a clustering-enabled license.
 * Change the cluster-related properties in the `alfresco-global.properties` file, and check if all the nodes are up and running.
 

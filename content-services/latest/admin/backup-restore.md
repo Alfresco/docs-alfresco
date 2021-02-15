@@ -10,7 +10,7 @@ Your backup strategy must be tested end-to-end, including restoration of backups
 
 Backing up a repository involves backing up the directory pointed to by the `dir.root` setting, the database that Content Services is configured to use, and the Solr indexes.
 
-For backing up the Solr indexes using the Alfresco Share Admin Console or the `alfresco-global.properties` file, or JConsole, see [Backing up Search Services](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/solr-backup.html).
+For backing up the Solr indexes using the Alfresco Share Admin Console or the `alfresco-global.properties` file, or JConsole, see [Backing up Search Services]({% link search-services/latest/admin/index.md %}).
 
 To restore the backup successfully, the `contentstore` directory and database must be backed up as a set. When you restore an Alfresco backup, you must restore both the Alfresco database and the `dir.root` directory (`contentstore` directory) from the same backup set. Otherwise, the repository may be corrupted.
 
@@ -74,7 +74,7 @@ It is critical to perform hot backups in the following order:
 
 Content Services includes a background job responsible for backing up the Solr 6 indexes that (by default) is configured to run at 3am each night. The hot backup process must not run concurrently with this background job, so you should either ensure that the hot backup completes by 3am, or wait until the index backup job has completed before initiating a hot backup.
 
-For more information on backing up Solr 6 indexes, see [Backing up Search Services](TODO_LINK:https://docs.alfresco.com/search-enterprise/tasks/solr-backup.html).
+For more information on backing up Solr 6 indexes, see [Backing up Search Services]({% link search-services/latest/admin/index.md %}).
 
 #### Back up database
 

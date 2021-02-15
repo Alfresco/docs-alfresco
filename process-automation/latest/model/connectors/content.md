@@ -565,11 +565,43 @@ The output parameters from setting the type of a file or folder are:
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call selecting the metadata of the file or folder. |
 
+## Governance actions
+
+The governance actions are used to declare content as records in the repository.
+
+> **Note:** Governance actions require [Alfresco Governance Services]({% link governance-services/latest/index.md %}) to be installed in Alfresco Cloud.
+
+The governance actions are:
+
+* [Declare a record](#declare-record)
+
+### Declare record
+
+The **DECLARE_RECORD** action is used to declare a file as a record.
+
+The input parameters to declare a record are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| file | File | *Requires one.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to declare as a record. |
+| fileId | String | *Requires one.* The nodeId of the file to declare as a record. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
+| filePath | String | *Requires one.* The location path or relative path of the file to declare as a record. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
+| hideRecord | Boolean | *Optional.* Set whether the record is hidden from its current parent folder, for example `true`. |
+| targetFolder | Folder | *Optional.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type folder to store the record in. |
+| targetFolderId | String | *Optional.* The nodeId of the folder to store the record in. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
+| targetFolderPath | String | *Optional.* The location path or relative path of the folder to store the record in. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
+
+The output parameters from declaring a record are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| response | JSON | *Optional.* The response from the call declaring the record. |
+
 ## Delete actions
 
 The delete actions are used to delete files and folders from the repository.
 
-The delete action are:
+The delete actions are:
 
 * [Delete a file](#delete-file)
 * [Delete a folder](#delete-folder)

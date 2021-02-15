@@ -38,8 +38,6 @@ The status of process instances are:
 
 Select the **Diagram** option to view which stage the process is currently at and the path that the process instance has taken to get there. The currently active task or activity is highlighted in bold red. The process flow taken is highlighted in red.
 
-> **Note**: The **Diagram** option is not available to process instances with a status of `COMPLETED`.
-
 ### Variables
 
 Select the **Variables** option to view and edit the [process variables]({% link process-automation/latest/model/processes/index.md %}#process-variables) values for a process instance.
@@ -63,13 +61,13 @@ Activating a process instance will change the status to `RUNNING`.
 
 > **Note**: The **Suspend** option is only available to process instances with a status of `RUNNING` and the **Activate** option is only available to process instances with a status of `SUSPENDED`.
 
-### Delete
+### Cancel
 
-Select the **Delete** option to cancel a process instance. This will stop any action from completing in the process instance. Cancelled process instances cannot be restarted or worked on again.
+Select the **Cancel** option to cancel a process instance. This will stop any action from completing in the process instance. Cancelled process instances cannot be restarted or worked on again.
 
-Deleting a process instance will change the status to `CANCELLED`.
+Cancelling a process instance will change the status to `CANCELLED`.
 
-> **Note**: The **Delete** option is not available to process instances with a status of `COMPLETED`.
+> **Note**: The **Cancel** option is not available to process instances with a status of `COMPLETED`.
 
 ### Audit {#process-instance-audit}
 
