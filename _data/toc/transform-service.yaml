@@ -36,3 +36,11 @@
           path: '/transform-service/1.2/config/engine/'  
     - title: 'Administer'
       path: '/transform-service/1.2/admin/'
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/transform-service/1.0/'
+    - title: 'Install'
+      path: '/transform-service/1.0/install/'    
+    - title: 'Administer'
+      path: '/transform-service/1.0/admin/'
