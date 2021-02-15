@@ -6,7 +6,7 @@ The Azure Connector is configured using properties set in the global properties 
 
 ## Settings
 
-For a complete list of all configuration properties, see the [Properties reference](#Properties-reference).
+For a complete list of all configuration properties, see the [Properties reference](#properties-reference).
 
 ## Basic configuration properties
 
@@ -171,23 +171,23 @@ Starting from version 1.2, the Azure Connector provides out-of-the-box content s
 
 The subsystem approach allows a more flexible use of the Azure content store, even in conjunction with existing content stores. A subsystem can be started, stopped, and configured independently, and it has its own isolated Spring application context and configuration. The Azure subsystems belong to the `ContentStore` category, and have types `Azure` or `AzureOnPrem`.
 
-See the Alfresco Content Services documentation on [Subsystems Extension Point]({% link content-services/latest/develop/repo-ext-points/subsystems.md %}) for more.
+See the Alfresco Content Services documentation on [Subsystems Extension Point]({% link content-services/latest/develop/repo-ext-points/subsystems.md %}) for more information.
 
-**`AzureOnPrem` content store subsystem**
+### 'AzureOnPrem' content store subsystem
 
 This defines an aggregating content store with Azure as the primary content store and the file system as the secondary one.
 
 This configuration is similar to what's used in previous Azure Connector versions (i.e. 1.0, 1.1) and is set as the default content store.
 
-**`Azure` content store subsystem**
+### 'Azure' content store subsystem
 
 This defines a pure Azure content store, which uses Microsoft's Azure Storage as the only storage mechanism for Alfresco Content Services.
 
 This content store is recommended for a clean Alfresco Content Services and Azure Connector installation, or an upgrade of an installation that's never used the file system.
 
-**Using an Azure content store subsystem**
+### Using an Azure content store subsystem
 
-The default subsystem that's enabled on installation is **AzureOnPrem**. This ensures that the new AMP version is compatible with a previous installation.
+The default subsystem that's enabled on installation is `AzureOnPrem`. This ensures that the new AMP version is compatible with a previous installation.
 
 You can change the subsystem used by overwriting the global variable `filecontentstore.subsystem.name`, for example:
 
@@ -195,9 +195,9 @@ You can change the subsystem used by overwriting the global variable `fileconten
 filecontentstore.subsystem.name=Azure
 ```
 
-**Important:** We don't recommend switching to a pure `Azure` content store from `AzureOnPrem`, if binaries have already been saved on the file system.
+**Important:** Do not switch to a pure `Azure` content store from `AzureOnPrem` if binaries have already been saved on the file system.
 
-**Customizing the subsystem properties**
+### Customizing the subsystem properties
 
 You can manage subsystems by using a JMX client under `MBeans > Alfresco > Configuration > ContentStore > managed`. Here, you can change all the properties defined for the subsystem, and restart the subsystem. Another way to extend a subsystem is to add a `*-context.xml` and a properties file, in the extension path for that subsystem:
 
@@ -206,9 +206,9 @@ alfresco/extension/subsystems/ContentStore/Azure/Azure/*-context.xml
 alfresco/extension/subsystems/ContentStore/Azure/Azure/*.properties
 ```
 
-**Important:** In Alfresco Content Services 6.2 and Azure Connector 1.2, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Alfresco Content Services which only allows switching between the embedded content stores.
+> **Note:** In Alfresco Content Services 6.2 and Azure Connector 1.2, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Alfresco Content Services which only allows switching between the embedded content stores.
 
-**Deleted content store support provided by the repository vs. managed by Azure capabilities**
+### Deleted content store support provided by the repository vs. managed by Azure capabilities
 
 The deleted content store support in Alfresco Content Services moves the deleted content in a dedicated storage container, defined by the `connector.az.deleted.containerName` property. System administrators can schedule a job to delete the binaries from this location.
 
@@ -218,15 +218,13 @@ Starting with 1.2, the Azure Connector has the deleted content store disabled by
 
 See [Azure Connector deleted content store]({% link microsoft-azure/latest/install/index.md %}#azure-connector-deleted-content-store) for more details.
 
-## **Configuring** multiple storage containers using Azure Connector
+## Configuring multiple storage containers using Azure Connector
 
 Starting from version 1.2, the Azure Connector contains an Azure content store sample. If enabled, this adds `AzMultipleStorageContainers` as a third alternative for the Azure content store subsystems.
 
-Review the prerequisites in [Azure Connector content store subsystems](azure-contentstore-subsystems.md) which introduces the Azure content store subsystems added in version 1.2. The out-of-the-box Azure subsystems have two possible types: Azure and AzureOnPrem.
+Review the prerequisites in [Azure Connector content store subsystems](#azure-connector-content-store-subsystems) which introduces the Azure content store subsystems added in version 1.2. The out-of-the-box Azure subsystems have two possible types: Azure and AzureOnPrem.
 
-**Overview**
-
-The Azure multiple storage containers sample is a new store subsystem that is based on the `storeSelectorContentStore`. The Store selector has two stores \(instances of the Azure content store\):
+The Azure multiple storage containers sample is a new store subsystem that is based on the `storeSelectorContentStore`. The Store selector has two stores (instances of the Azure content store):
 
 * `store1.azureBlobContentStore` as the default
 * `store2.azureBlobContentStore` as the second one
@@ -396,13 +394,13 @@ However, you can enable the Alfresco Content Services deleted content store, if 
 
 These steps describe how to add a new Azure store starting from the AzMultipleStorageContainers subsystem sample, and how to move content between content stores.
 
-1.  Locate the file `azure-mc-contentstore-context.xml` in folder:
+1. Locate the file `azure-mc-contentstore-context.xml` in folder:
 
     ```text
     $CATALINA_HOME/shared/classes/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers
     ```
 
-2.  Duplicate the **Store 2** section, and replace `store2.` with `store3.`
+2. Duplicate the **Store 2** section, and replace `store2.` with `store3.`
 
     ```bash
     <bean id="store2.authConfig" class="org.alfresco.integrations.connector.authentication.AuthConfig" >
@@ -460,11 +458,11 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
 
     For example:
 
- ```bash
- <entry key="azContentStore3">
- <ref bean="store3.azureBlobContentStore"/>
- </entry>
- ```
+    ```bash
+    <entry key="azContentStore3">
+    <ref bean="store3.azureBlobContentStore"/>
+    </entry>
+    ```
 
 4. Locate the file `azure-mc-contentstore.properties` in folder:
 
@@ -490,15 +488,15 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
     connector.az.store2.storeProtocol=azb
     ```
 
- **Move content between content stores**
+### Move content between content stores
 
-    If you've configured two content stores (as in the provided sample), you can use the `storeSelectorContentStore` to move content between them.
+If you've configured two content stores (as in the provided sample), you can use the `storeSelectorContentStore` to move content between them.
 
-6. Add the `cm:storeSelector` aspect to the document.
+1. Add the `cm:storeSelector` aspect to the document.
 
     This aspect adds a new property to the document - `cm:storeName`.
 
-7. Set the property value to match the second content store name (i.e. `azContentStore2`, as shown in the provided sample).
+2. Set the property value to match the second content store name (i.e. `azContentStore2`, as shown in the provided sample).
 
     Once the property is set, all the content store properties are added for the node. For example, the content is copied to the second container if you've configured a different name for the second content store.
 
