@@ -4,11 +4,11 @@ title: Install Transform Service
 
 The Transform Service is deployed as part of the Alfresco Content Services deployment, using Docker images that are packaged in Helm charts. These charts are a deployment template which can be used as the basis for your specific deployment needs.
 
-> **Note:** Deployment of Transform Service with Content Services on AWS, such as Amazon EKS (Elastic Kubernetes Service), is recommended only for customers with a good knowledge of Content Services, and strong competencies in AWS and containerized deployment.
+> **Important:** The deployment of the Transform Service with Content Services on AWS, such as Amazon EKS (Elastic Kubernetes Service), is only recommended for customers with a good knowledge of Content Services, and strong competencies in AWS and containerized deployment.
 
 The following diagram shows how Content Services and the components of the Transform Service interact when deployed using Docker Compose.
 
-![Docker Compose Deployment Overview]({% link transform-service/images/1-1-docker-compose-components.png %})
+![Docker Compose Deployment Overview]({% link transform-service/images/1-0-docker-compose-components.png %})
 
 The following diagram shows how Content Services and the components of the Transform Service interact when deployed using Helm charts.
 
@@ -22,19 +22,18 @@ The Transform Service is only deployed as part of Content Services for container
 
 ### Containerized deployments
 
-The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"}.
+The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"}.
 
-> **Note:** A [Quay.io](https://quay.io/) account is needed to pull the Docker images that are needed for the Transform Service:
+> **Note:** A [Quay.io](https://quay.io/) account is needed to pull the following Docker images that are needed for the Transform Service.
 >
-> * `alfresco/alfresco-transform-router`
+> * `quay.io/alfresco-transform-router`
+> * `quay.io/alfresco-pdf-renderer`
+> * `quay.io/alfresco-imagemagick`
+> * `quay.io/alfresco-libreoffice`
+> * `quay.io/alfresco-tika`
 
 The other images are available in DockerHub:
 
-* `alfresco/alfresco-pdf-renderer`
-* `alfresco/alfresco-imagemagick`
-* `alfresco/alfresco-libreoffice`
-* `alfresco/alfresco-tika`
-* `alfresco/alfresco-transform-misc`
 * `alfresco/alfresco-shared-file-store`
 
 #### Software requirements (Helm)
@@ -45,12 +44,13 @@ To use the Content Services deployment (including the Transform Service), you ne
 * [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/){:target="_blank"} - the command line tool for Kubernetes.
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
   * There are Helm charts that allow you to deploy Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
+* [Kops](https://github.com/kubernetes/kops#installing){:target="_blank"} - this helps you to manage a Kubernetes cluster.
 
-See [Install with Helm charts]({% link transform-service/1.2/install/index.md %}#install-with-helm-charts) for more details.
+See [Install with Helm charts]({% link transform-service/1.0/install/index.md %}#install-with-helm-charts) for more details.
 
 #### Software requirements (Docker)
 
-This is recommended for evaluations only (i.e. test and development environments).
+> **Note:** (Recommended for evaluations only)
 
 * [Docker](https://docs.docker.com/install/){:target="_blank"} (latest stable version)
   * This allows you to run Docker images and `docker-compose` on a single computer.
@@ -59,7 +59,7 @@ This is recommended for evaluations only (i.e. test and development environments
 
 > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose.
 
-See [Install with Docker Compose]({% link transform-service/1.2/install/index.md %}#install-with-docker-compose) for more details.
+See [Install with Docker Compose]({% link transform-service/1.0/install/index.md %}#install-with-docker-compose) for more details.
 
 ## Install with Helm charts
 
@@ -84,7 +84,7 @@ See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:t
 
 Use this information to quickly start up Content Services (including Transform Service) using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is only recommended for development and test environments.
 
-To check which branch tag corresponds to a specific Content Services release, review the [release versions](https://github.com/Alfresco/acs-deployment/blob/support/SP/3.N/docs/helm-chart-releases.md){:target="_blank"} page in GitHub. Choose a version from the left column that corresponds to the required Content Services version you want to deploy.
+To check which branch tag corresponds to a specific Content Services release, review the [release versions](https://github.com/Alfresco/acs-deployment/blob/support/SP/2.N/docs/helm-chart-releases.md){:target="_blank"} page in GitHub. Choose a version from the left column that corresponds to the required Content Services version you want to deploy.
 
    > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose, using the links provided.
 
@@ -95,7 +95,7 @@ To check which branch tag corresponds to a specific Content Services release, re
     cd acs-deployment/docker-compose
     ```
 
-    > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to deploy. For example, if you want Content Services 6.2.0, then select tag `3.0.3`.
+    > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to deploy. For example, if you want Content Services 6.1, then select tag `2.0.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
@@ -129,10 +129,7 @@ To check which branch tag corresponds to a specific Content Services release, re
     Creating docker-compose_imagemagick_1           ... done
     Creating docker-compose_alfresco-pdf-renderer_1 ... done
     Creating docker-compose_proxy_1                 ... done
-    Creating docker-compose_transform-misc_1        ... done
     Creating docker-compose_transform-router_1      ... done
-    Creating docker-compose_sync-service_1          ... done
-    Attaching to docker-compose_postgres_1, docker-compose_share_1, docker-compose_tika_1, docker-compose_shared-file-store_1
     ```
 
     As an alternative, you can also start the containers in the background by running `docker-compose up -d`.
@@ -140,9 +137,9 @@ To check which branch tag corresponds to a specific Content Services release, re
 4. Wait for the logs to show messages:
 
     ```bash
-    alfresco_1 | 2019-11-21 11:50:46,000  WARN ... The Alfresco Content Services license will expire in 2 days.
-    alfresco_1 | 2019-11-21 11:50:50,341  INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2019-11-21 11:50:50,600  INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | 2019-02-21 11:50:46,000  WARN ... The Alfresco Content Services license will expire in 2 days.
+    alfresco_1 | 2019-02-21 11:50:50,341  INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | 2019-02-21 11:50:50,600  INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ```
 
     If you encounter errors whilst the system is starting up:
@@ -160,18 +157,16 @@ To check which branch tag corresponds to a specific Content Services release, re
     | ------- | -------- |
     | Administration and REST APIs | `http://localhost:8080/alfresco` |
     | Share | `http://localhost:8080/share` |
-    | Digital Workspace | `http://localhost:8080/workspace` |
-    | Search Services administration | `http://localhost:8083/solr` |
-    | Transform Router configuration | `http://localhost:8095/transform/config` |
-    | ActiveMQ Admin Web Console | `http://localhost:8161/admin` |
+    | Alfresco Digital Workspace | `http://localhost:8080/workspace` |
+    | Search administration | `http://localhost:8083/solr` |
 
 6. Log in as the `admin` user. Enter the default administrator password `admin`.
 
 You can use a number of commands to check that the system started correctly, see below.
 
-See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/3.N){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup: [Deploying using Docker Compose](https://github.com/Alfresco/acs-deployment/blob/support/SP/3.N/docs/docker-compose-deployment.md){:target="_blank"}.
+See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/2.N){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup: [Deploying using Docker Compose](https://github.com/Alfresco/acs-deployment/blob/support/SP/2.N/docs/docker-compose-deployment.md){:target="_blank"}.
 
-### Check system start up
+## Check system start up
 
 Use this information to verify that the system started correctly, and to clean up the deployment.
 
@@ -193,19 +188,17 @@ Use this information to verify that the system started correctly, and to clean u
                Container                                 Repository                         ...     Size
         ----------------------------------------------------------------------------------------------------
         docker-compose_activemq_1                alfresco/alfresco-activemq                   ...   447 MB
-        docker-compose_alfresco-pdf-renderer_1   alfresco/alfresco/alfresco-pdf-renderer      ...   625 MB
+        docker-compose_alfresco-pdf-renderer_1   quay.io/alfresco/alfresco-pdf-renderer       ...   625 MB
         docker-compose_alfresco_1                alfresco/alfresco-content-repository         ...   1.02 GB
         docker-compose_digital-workspace_1       quay.io/alfresco/alfresco-digital-workspace  ...   27.1 MB
-        docker-compose_imagemagick_1             alfresco/alfresco/alfresco-imagemagick       ...   698 MB
-        docker-compose_libreoffice_1             alfresco/alfresco/alfresco-libreoffice       ...   1.46 GB
+        docker-compose_imagemagick_1             quay.io/alfresco/alfresco-imagemagick        ...   698 MB
+        docker-compose_libreoffice_1             quay.io/alfresco/alfresco-libreoffice        ...   1.46 GB
         docker-compose_postgres_1                postgres                                     ...   274 MB
-        docker-compose_proxy_1                   alfresco/alfresco/alfresco-acs-nginx         ...   16.9 MB
+        docker-compose_proxy_1                   quay.io/alfresco/alfresco-acs-nginx          ...   16.9 MB
         docker-compose_share_1                   alfresco/alfresco-share                      ...   681 MB
         docker-compose_shared-file-store_1       alfresco/alfresco-shared-file-store          ...   435 MB
-        docker-compose_solr6_1                   alfresco/alfresco-search-services            ...   1.02e+03 MB MB
-        docker-compose_sync-service_1            quay.io/alfresco/service-sync                ...   738 MB
-        docker-compose_tika_1                    alfresco/alfresco/alfresco-tika              ...   743 MB
-        docker-compose_transform-misc_1          alfresco/alfresco/alfresco-transform-misc    ...   712 MB
+        docker-compose_solr6_1                   alfresco/alfresco-search-services            ...   900 MB
+        docker-compose_tika_1                    quay.io/alfresco/alfresco-tika               ...   743 MB
         docker-compose_transform-router_1        quay.io/alfresco/alfresco-transform-router   ...   574 MB
         ```
 
@@ -248,22 +241,19 @@ Use this information to verify that the system started correctly, and to clean u
 4. Stop the session by using `CONTROL+C` in the same window as the running services:
 
     ```bash
-    ^CGracefully stopping... (press Ctrl+C again to force)
-    Stopping docker-compose_proxy_1                 ... done
-    Stopping docker-compose_alfresco-pdf-renderer_1 ... done
-    Stopping docker-compose_tika_1                  ... done
-    Stopping docker-compose_imagemagick_1           ... done
-    Stopping docker-compose_transform-misc_1        ... done
-    Stopping docker-compose_libreoffice_1           ... done
     Stopping docker-compose_transform-router_1      ... done
-    Stopping docker-compose_sync-service_1          ... done
-    Stopping docker-compose_alfresco_1              ... done
-    Stopping docker-compose_solr6_1                 ... done
+    Stopping docker-compose_proxy_1                 ... done
     Stopping docker-compose_activemq_1              ... done
-    Stopping docker-compose_postgres_1              ... done
-    Stopping docker-compose_shared-file-store_1     ... done
+    Stopping docker-compose_alfresco-pdf-renderer_1 ... done
+    Stopping docker-compose_solr6_1                 ... done
+    Stopping docker-compose_alfresco_1              ... done
     Stopping docker-compose_share_1                 ... done
     Stopping docker-compose_digital-workspace_1     ... done
+    Stopping docker-compose_libreoffice_1           ... done
+    Stopping docker-compose_shared-file-store_1     ... done
+    Stopping docker-compose_imagemagick_1           ... done
+    Stopping docker-compose_tika_1                  ... done
+    Stopping docker-compose_postgres_1              ... done
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:

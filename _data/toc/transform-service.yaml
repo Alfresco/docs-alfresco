@@ -57,3 +57,12 @@
               path: '/transform-service/1.1/config/engine/'
     - title: 'Administer'
       path: '/transform-service/1.1/admin/'
+# Transform Service 1.0
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/transform-service/1.0/'
+    - title: 'Install'
+      path: '/transform-service/1.0/install/'    
+    - title: 'Administer'
+      path: '/transform-service/1.0/admin/'

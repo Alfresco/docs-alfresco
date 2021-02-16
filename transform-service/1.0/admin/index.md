@@ -18,7 +18,6 @@ The main components of the Transform Service are:
   * ImageMagick (e.g. resize)
   * Alfresco PDF Renderer (e.g. pdf to png)
   * Tika (e.g. docx to plain text)
-  * Misc. (not included in diagram)
 * **Shared File Store**: This is used as temporary storage for the original source file (stored by the repository), intermediate files for multi-step transforms, and the final transformed target file. The target file is retrieved by the repository after it's been processed by one or more of the Transform Engines.
 
 The following diagram shows a simple representation of the Transform Service components:
@@ -41,18 +40,14 @@ The advantage of using Docker containers is that they provide a consistent envir
 
 Some of the Docker images that are used by the Transform Service are uploaded to a private registry, **Quay.io**. Enterprise customers can contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} to request Quay.io account credentials to pull the private (Enterprise-only) Docker images:
 
-* `alfresco/alfresco-transform-router`
+* `quay.io/alfresco-transform-router`
+* `quay.io/alfresco-pdf-renderer`
+* `quay.io/alfresco-imagemagick`
+* `quay.io/alfresco-libreoffice`
+* `quay.io/alfresco-tika`
+* `alfresco/alfresco-shared-file-store` (from Docker Hub)
 
-The other images are available in DockerHub:
-
-* `alfresco/alfresco-pdf-renderer`
-* `alfresco/alfresco-imagemagick`
-* `alfresco/alfresco-libreoffice`
-* `alfresco/alfresco-tika`
-* `alfresco/alfresco-shared-file-store`
-* `alfresco/alfresco-transform-misc`
-
-For information about deploying and configuring the Transform Service, see [Install Transform Service]({% link transform-service/1.2/install/index.md %}).
+For information about deploying the Transform Service, see [Install Transform Service]({% link transform-service/1.0/install/index.md %}).
 
 ## Troubleshoot Transform Services
 
@@ -67,7 +62,7 @@ There are two options for monitoring each component:
 
 ### What do I do if LibreOffice hangs
 
-If LibreOffice hangs, the health endpoint will fail to respond, and the container/pod will automatically reboot. This applies to all five Docker transformers. The Content Services Helm deployment uses two replicas for each component of the Transform Service by default (except for the shared file store) in order to provide scalability and fault tolerance.
+If LibreOffice hangs, the health endpoint will fail to respond, and the container/pod will automatically reboot. This applies to all four Docker transformers. The Content Services Helm deployment uses two replicas for each component of the Transform Service by default (except for the shared file store) in order to provide scalability and fault tolerance.
 
 ### What debug logging is available for the Transform Service
 
@@ -103,19 +98,4 @@ The Transform Service will attempt to retry the transform a few times (this is c
 
 ### Can you share the Transform Service with multiple repositories
 
-This release will only support a single Content Services repository instance. For example, if you have two or more separate Content Services deployments (whether clustered or not), then each one will need to its own Transform Service instance.
-
-## Error handling in Transform Router
-
-Use this information to review the possible responses from the Transform Router (T-Router) if a problem occurs.
-
-The Transform Service is designed to be easy to set-up and debug. However, when a problem occurs, the T-Router tries to respond with a failed Transform Reply (T-Reply). Here are a few examples:
-
-|T-Reply|Possible T-Reply response|
-|-------|-------------------------|
-|400 BAD REQUEST|T-Request with an `invalid JSON` is received|
-|400 BAD REQUEST|T-Request with `invalid/missing values` is received|
-|400 BAD REQUEST|T-Request with an `unsupported transformation` is received|
-|500 INTERNAL SERVER ERROR|Transformation `fails in the T-Engine`|
-|500 INTERNAL SERVER ERROR|When any other `unexpected exception in the T-Router` is thrown|
-|no reply|When a `Java Error` (*Throwable*, but not *Exception*) occurs in the T-Router, the problem is only logged.|
+This initial release will only support a single Content Services 6.1 repository instance. For example, if you have two or more separate Content 6.1 Services deployments (whether clustered or not), then each one will need to its own Transform Service 1.0 instance.
