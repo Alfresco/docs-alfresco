@@ -173,13 +173,13 @@ The subsystem approach allows a more flexible use of the Azure content store, ev
 
 See the Alfresco Content Services documentation on [Subsystems Extension Point]({% link content-services/latest/develop/repo-ext-points/subsystems.md %}) for more information.
 
-### 'AzureOnPrem' content store subsystem
+### AzureOnPrem content store subsystem
 
 This defines an aggregating content store with Azure as the primary content store and the file system as the secondary one.
 
 This configuration is similar to what's used in previous Azure Connector versions (i.e. 1.0, 1.1) and is set as the default content store.
 
-### 'Azure' content store subsystem
+### Azure content store subsystem
 
 This defines a pure Azure content store, which uses Microsoft's Azure Storage as the only storage mechanism for Alfresco Content Services.
 
@@ -208,7 +208,7 @@ alfresco/extension/subsystems/ContentStore/Azure/Azure/*.properties
 
 > **Note:** In Alfresco Content Services 6.2 and Azure Connector 1.2, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Alfresco Content Services which only allows switching between the embedded content stores.
 
-### Deleted content store support provided by the repository vs. managed by Azure capabilities
+### Deleted content store support in the repository versus Azure
 
 The deleted content store support in Alfresco Content Services moves the deleted content in a dedicated storage container, defined by the `connector.az.deleted.containerName` property. System administrators can schedule a job to delete the binaries from this location.
 
@@ -218,11 +218,11 @@ Starting with 1.2, the Azure Connector has the deleted content store disabled by
 
 See [Azure Connector deleted content store]({% link microsoft-azure/latest/install/index.md %}#azure-connector-deleted-content-store) for more details.
 
-## Configuring multiple storage containers using Azure Connector
+## Configuring multiple storage containers
 
 Starting from version 1.2, the Azure Connector contains an Azure content store sample. If enabled, this adds `AzMultipleStorageContainers` as a third alternative for the Azure content store subsystems.
 
-Review the prerequisites in [Azure Connector content store subsystems](#azure-connector-content-store-subsystems) which introduces the Azure content store subsystems added in version 1.2. The out-of-the-box Azure subsystems have two possible types: Azure and AzureOnPrem.
+Review the prerequisites in [Azure Connector content store subsystems](#azure-connector-content-store-subsystems) which introduces the Azure content store subsystems. The out-of-the-box Azure subsystems have two possible types: Azure and AzureOnPrem.
 
 The Azure multiple storage containers sample is a new store subsystem that is based on the `storeSelectorContentStore`. The Store selector has two stores (instances of the Azure content store):
 
@@ -234,11 +234,11 @@ The sample files can be found in `alfresco-azure-connector-1.2.x.amp`.
 * `azure-multiple-storage-containers-context.xml.sample` in `config/alfresco/extension`
 * `azure-mc-contentstore-context.xml.sample` and `azure-mc-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers`
 
-**azure-multiple-storage-containers-context.xml.sample**
+### azure-multiple-storage-containers-context.xml.sample
 
 This provides a new Spring child Application Context based on the `*.xml` files and `*.properties` files found in `alfresco/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers`.
 
-**azure-mc-contentstore-context.xml.sample**
+### azure-mc-contentstore-context.xml.sample
 
 The subsystem configuration file is split in sections to make it easier to extend:
 
@@ -247,9 +247,9 @@ The subsystem configuration file is split in sections to make it easier to exten
 * Store selector
 * Caching content store
 
-**Deleted content store**
+### Deleted content store
 
-    ```bash
+```bash
     <bean id="azureDeletedServiceAdapter" class="org.alfresco.integrations.connector.AzureBlobServiceAdapter" parent="store1.abstractAzureServiceAdapter" init-method="init">
             <property name="containerName" value="${connector.az.deleted.containerName}" />
     </bean>
@@ -258,13 +258,13 @@ The subsystem configuration file is split in sections to make it easier to exten
         <property name="objNamePrefix" value="${connector.az.deleted.objectNamePrefix}" />
         <property name="objNameSuffix" value="${connector.az.deleted.objectNameSuffix}" />
     </bean>
-    ```
+```
 
-    > **Note:** All deleted files will go to the `connector.az.deleted.containerName` container of the first store if you enable the deleted content store.
+> **Note:** All deleted files will go to the `connector.az.deleted.containerName` container of the first store if you enable the deleted content store.
 
-**Stores**
+### Stores
 
-    ```bash    
+```bash
     <bean id="store1.authConfig" class="org.alfresco.integrations.connector.authentication.AuthConfig" >
         <property name="accountName" value="${connector.az.account.name}" />
         <property name="accountKey" value="${connector.az.account.key}" />
@@ -316,11 +316,11 @@ The subsystem configuration file is split in sections to make it easier to exten
     </bean>
     
     <!-- [End] Store 1 -->
-    ```
+```
 
-**Store selector**
+### Store selector
 
-    ```bash
+```bash
     <!-- [Start] Store Selector -->
     
     <!-- Override the selector to add in the Azure Connector stores -->
@@ -351,13 +351,13 @@ The subsystem configuration file is split in sections to make it easier to exten
     </bean>
     
     <!-- [End] Store Selector -->
-    ```
+```
 
-**Caching content store**
+### Caching content store
 
 The caching content store is defined over the content store selector so that we have one cache for all stores and makes the sample easier to extend when adding more stores.
 
-    ```bash
+```bash
     <bean id="cachingContentStore"
           class="org.alfresco.repo.content.caching.CachingContentStore"
           init-method="init">
@@ -374,21 +374,13 @@ The caching content store is defined over the content store selector so that we 
             </list>
         </constructor-arg>
     </bean>
-    ```
+```
 
-**azure-mc-contentstore.properties.sample**
+### azure-mc-contentstore.properties.sample
 
 This provides the subsystem properties where the `AzMultipleStorageContainers` subsystem declares default values for all the properties it requires.
 
 See the Alfresco Content Services documentation on [Subsystem properties]({% link content-services/latest/config/subsystems.md %}#subsystem-properties) for more details.
-
-**Deleted content store support provided by the repository vs. managed by Azure capabilities**
-
-The deleted content store support in Alfresco Content Services moves the deleted content in a dedicated storage container, defined by the `connector.az.deleted.containerName` property. System administrators can schedule a job to delete the binaries from this location. Previous versions of the Azure Connector support the deleted content store provided by the repository.
-
-Starting with version 1.2, Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services.
-
-However, you can enable the Alfresco Content Services deleted content store, if required, by uncommenting this part from the `deletedContentStore` bean in the `azure-multiple-storage-containers-context.xml.sample` file.
 
 ## Adding new Azure store to AzMultipleStorageContainers subsystem
 
