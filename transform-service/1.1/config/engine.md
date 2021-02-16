@@ -12,7 +12,7 @@ The deployment and development of a T-Engine transformer is simpler than in prev
 * A base Spring Boot application is provided with hook points to extend it with custom transform code.
 * The base also includes the creation of a Docker image for your Spring Boot application. Even if you don't intend to deploy with Docker, this may still be of interest, as the configuration of any tools or libraries used in the transform need only be done once rather than for every development or ad-hoc test environment.
 
-## Develop a new T-Engine
+## Develop new T-Engine
 
 When developing new Local Transformers, it's a good idea to increase the polling frequency of the various locations that contain custom Pipeline, Rendition, Mimetype Definitions, and also of the Transform Service:
 

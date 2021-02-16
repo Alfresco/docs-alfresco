@@ -1,5 +1,5 @@
 ---
-title: Create a custom T-Engine
+title: Create custom T-Engine
 ---
 
 Alfresco Content Services provides a number of content transforms, but also allows you to add custom transforms. This section describes how to create custom transforms.
@@ -12,7 +12,7 @@ The deployment and development of a T-Engine transformer is simpler than in prev
 * A base Spring Boot application is provided with hook points to extend it with custom transform code.
 * The base also includes the creation of a Docker image for your Spring Boot application. Even if you don't intend to deploy with Docker, this may still be of interest, as the configuration of any tools or libraries used in the transform need only be done once rather than for every development or ad-hoc test environment.
 
-## Developing a new T-Engine
+## Develop new T-Engine
 
 When developing new Local Transformers, it's a good idea to increase the polling frequency of the various locations that contain custom Pipeline, Rendition, Mimetype Definitions, and also of the Transform Service:
 
@@ -37,7 +37,7 @@ To demonstrate how to use Renditions, it also takes a transform option that spec
 
 > **Note:** It is assumed that you're familiar with Spring Boot, Maven, and Docker technologies.
 
-## Developing and debugging T-Engines
+## Develop and debug T-Engines
 
 T-Engines are Dockerized Spring Boot applications. They are set up as Maven projects built on top of [alfresco-transformer-base](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transformer-base){:target="_blank"}, which is a sub-project of Alfresco Transform Core. The Alfresco Transformer Base brings in Spring Boot capabilities, as well as base classes, which assist in the creation of new T-Engines.
 
@@ -53,11 +53,11 @@ In order to configure a custom T-Engine as a Spring Boot application in a Docker
 
 ## T-Engine configuration
 
-For the repository configuration, see how to [Configure a T-Engine as a Local Transform](https://github.com/Alfresco/acs-packaging/blob/support/SP/6.2.N/docs/custom-transforms-and-renditions.md#configure-a-t-engine-as-a-local-transform){:target="_blank"}.
+For the repository configuration, see how to [Configure a T-Engine as a Local Transform](https://github.com/Alfresco/acs-packaging/blob/release/6.2.N/docs/custom-transforms-and-renditions.md#configure-a-t-engine-as-a-local-transform){:target="_blank"}.
 
 T-Engines must provide a `/transform/config` end point for clients to determine what is supported. This is simply achieved by editing a JSON file.
 
-The following [engine\_config.json](https://github.com/Alfresco/alfresco-helloworld-transformer/blob/master/alfresco-helloworld-transformer-engine/src/main/resources/engine_config.json){:target="_blank"} is taken from the Hello World example, but there are other examples such as the one used by the [Tika T-Engine](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-docker-tika/src/main/resources/engine_config.json){:target="_blank"}.
+The following [engine_config.json](https://github.com/Alfresco/alfresco-helloworld-transformer/blob/master/alfresco-helloworld-transformer-engine/src/main/resources/engine_config.json){:target="_blank"} is taken from the Hello World example, but there are other examples such as the one used by the [Tika T-Engine](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-docker-tika/src/main/resources/engine_config.json){:target="_blank"}.
 
 ```json
 {
@@ -135,7 +135,7 @@ public ProbeTestTransform getProbeTestTransform()
 
 This method provides a way to define a test transform for [T-Engine Probes](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/Probes.md){:target="_blank"}. For example, a test transform of a small file included in the Docker image.
 
-## Running hello world T-Engine standalone
+## Run hello world T-Engine standalone
 
 Use this information to run the example Hello World transform engine (T-Engine).
 
@@ -179,7 +179,7 @@ docker logs alfresco-helloworld-transformer
 
 See the [Docker documentation](https://docs.docker.com/engine/reference/commandline/logs/){:target="_blank"} for more.
 
-## Configuring a custom T-Engine
+## Configure custom T-Engine
 
 Use this information to configure a custom transform engine (T-Engine).
 
@@ -187,7 +187,7 @@ Use this information to configure a custom transform engine (T-Engine).
 
     For example, you can configure custom T-Engines through environment variables:
 
-    ```bash  
+    ```bash
     export TRANSFORMER_URL_<CUSTOM_ENGINE_NAME>="http://custom-engine-host:8090"
     export TRANSFORMER_QUEUE_<CUSTOM_ENGINE_NAME>="custom-engine-queue"
     ```

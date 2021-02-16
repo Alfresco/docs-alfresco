@@ -52,7 +52,7 @@ The other images are available in DockerHub:
 * `alfresco/alfresco-shared-file-store`
 * `alfresco/alfresco-transform-misc`
 
-For information about deploying and configuring the Transform Service, see [Install Transform Service]({% link transform-service/1.2/install/index.md %}).
+For information about deploying and configuring the Transform Service, see [Install Transform Service]({% link transform-service/1.1/install/index.md %}).
 
 ## Troubleshoot Transform Services
 

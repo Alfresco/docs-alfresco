@@ -4,7 +4,7 @@ title: Configure Transformers
 
 The Transform Router (T-Router) configures engine transformers automatically by retrieving the engine transform configurations from each configured Transform Engine (i.e T-Engine). The engine transform configurations provide the transformer configuration, including the supported transformers and their transform options.
 
-For more information on the format of the transform configuration and instructions on how to create a transform configuration files for a custom engine, see [Creating a T-Engine](https://github.com/Alfresco/acs-packaging/blob/support/SP/6.2.N/docs/creating-a-t-engine.md){:target="_blank"}.
+For more information on the format of the transform configuration and instructions on how to create a transform configuration files for a custom engine, see [Creating a T-Engine](https://github.com/Alfresco/acs-packaging/blob/release/6.2.N/docs/creating-a-t-engine.md){:target="_blank"}.
 
 T-Engines are added to the T-Router by adding the engine's URL and JMS queue name used by each and every engine. See next section for the URL and JMS queue name property format.
 
@@ -22,11 +22,11 @@ Single-step transformers map to a transformer, which in turn maps to an engine. 
 
 Pipeline transforms map to a pipeline transformer, which in turn maps to a series of single-step transformers. These are defined through configuration files in the T-Router. This is described in the later section about pipelines.
 
-## Adding T-Engines to T-Router
+## Add T-Engines to T-Router
 
-The T-Router uses T-Engine names to register new engines via properties. The names must be unique and consistent for each engine, for both of its properties (url and queue). Examples of such name are: `IMAGEMAGICK`, `LIBREOFFICE`, `PDF_RENDERER`, TIKA, `TRANSFORMER1`, `CUSTOM_ENGINE`, `CUSTOM_RED_ENGINE`., etc. The T-Engine names are case-insensitive.
+The T-Router uses T-Engine names to register new engines via properties. The names must be unique and consistent for each engine, for both of its properties (url and queue). Examples of such name are: `IMAGEMAGICK`, `LIBREOFFICE`, `PDF_RENDERER`, `TIKA`, `TRANSFORMER1`, `CUSTOM_ENGINE`, `CUSTOM_RED_ENGINE`, etc.. The T-Engine names are case-insensitive.
 
-Engine configuration is part of the T-Router SpringBoot `application.yaml` config:
+Engine configuration is part of the T-Router SpringBoot `application.yaml` configuration:
 
 ```yaml
 transformer:
@@ -65,7 +65,7 @@ All registered engines are queried via their HTTP URL for transform config on T-
 
 ## T-Router pipeline configuration
 
-This section assumes that you're familiar with transformer concepts used in Alfresco Content Services and now in the Transform Service. A good place to start is the [Alfresco Content Services](https://github.com/Alfresco/acs-packaging/blob/support/SP/6.2.N/docs/custom-transforms-and-renditions.md){:target="_blank"} GitHub documentation, as the concepts and transformer configuration are identical.
+This section assumes that you're familiar with transformer concepts used in Alfresco Content Services and now in the Transform Service. A good place to start is the [Alfresco Content Services](https://github.com/Alfresco/acs-packaging/blob/release/6.2.N/docs/custom-transforms-and-renditions.md){:target="_blank"} GitHub documentation, as the concepts and transformer configuration are identical.
 
 Here's a very brief overview.
 
@@ -79,7 +79,7 @@ The priority is used in resolving conflicts or to deliberately override existing
 
 ## Out of the box pipeline transformer definitions
 
-The T-Router supports pipeline transformers, allowing it to perform transformations in a sequence of requests to various engines. This functionality is identical in definition to Alfresco Content Services pipeline transformers (starting from Alfresco Transform Service 1.3.0). For more information on these pipelines, see the Alfresco Content Services GitHub documentation on [Configuring a custom transform pipeline](https://github.com/Alfresco/acs-packaging/blob/support/SP/6.2.N/docs/custom-transforms-and-renditions.md#configure-a-custom-transform-pipeline){:target="_blank"} as the T-Router pipeline transformers are defined using the same format. Due to this commonality, pipelines defined in Alfresco Content Services can be moved to Transform Service directly. However, it's worth mentioning that most of the pipeline definitions provided out of the box are identical to the pipeline definitions in Alfresco Content Services.
+The T-Router supports pipeline transformers, allowing it to perform transformations in a sequence of requests to various engines. This functionality is identical in definition to Alfresco Content Services pipeline transformers (starting from Alfresco Transform Service 1.3.0). For more information on these pipelines, see the Alfresco Content Services GitHub documentation on [Configuring a custom transform pipeline](https://github.com/Alfresco/acs-packaging/blob/release/6.2.N/docs/custom-transforms-and-renditions.md#configure-a-custom-transform-pipeline){:target="_blank"} as the T-Router pipeline transformers are defined using the same format. Due to this commonality, pipelines defined in Alfresco Content Services can be moved to Transform Service directly. However, it's worth mentioning that most of the pipeline definitions provided out of the box are identical to the pipeline definitions in Alfresco Content Services.
 
 The pipeline configuration file provided is bundled in the standard T-Router artifact/Docker image (the top resource being `transformer-pipelines.json`).
 
@@ -91,21 +91,25 @@ Here's one of the pipeline transformers that provides additional transforms defi
 
 ```json
 {
-  "transformers": [
-    {
-        "transformerName": "pdfToImageViaPng",
-        "transformerPipeline" : [
-          {"transformerName": "pdfrenderer",      "targetMediaType": "image/png"},
-          {"transformerName": "imagemagick"}
-        ],
-        "supportedSourceAndTargetList": [
-        ],
-        "transformOptions": [
-          "pdfRendererOptions",
-          "imageMagickOptions"
-        ]
-    }
-  ]
+    "transformers": [
+        {
+            "transformerName": "pdfToImageViaPng",
+            "transformerPipeline": [
+                {
+                    "transformerName": "pdfrenderer",
+                    "targetMediaType": "image/png"
+                },
+                {
+                    "transformerName": "imagemagick"
+                }
+            ],
+            "supportedSourceAndTargetList": [],
+            "transformOptions": [
+                "pdfRendererOptions",
+                "imageMagickOptions"
+            ]
+        }
+    ]
 }
 ```
 
@@ -113,7 +117,7 @@ The above definition will introduce a new transformer, specifically a pipeline t
 
 > **Note:** Pipeline transformers become available only if all of the involved single-step transformers are available. The application logs will report any missing pipeline transformers on startup and config refresh.
 
-## Adding new pipeline transformer definitions
+## Add new pipeline transformer definitions
 
 Additional transformers can be defined in new JSON or YAML files and specified through environment variables with the `TRANSFORMER_ROUTES_ADDITIONAL_` prefix:
 
@@ -127,21 +131,25 @@ Here's example content of an additional pipeline in JSON format (same as the `tr
 
 ```json
 {
-  "transformers": [
-    {
-        "transformerName": "pdfToImageViaPng",
-        "transformerPipeline" : [
-          {"transformerName": "pdfrenderer",      "targetMediaType": "image/png"},
-          {"transformerName": "imagemagick"}
-        ],
-        "supportedSourceAndTargetList": [
-        ],
-        "transformOptions": [
-          "pdfRendererOptions",
-          "imageMagickOptions"
-        ]
-    }
-  ]
+    "transformers": [
+        {
+            "transformerName": "pdfToImageViaPng",
+            "transformerPipeline": [
+                {
+                    "transformerName": "pdfrenderer",
+                    "targetMediaType": "image/png"
+                },
+                {
+                    "transformerName": "imagemagick"
+                }
+            ],
+            "supportedSourceAndTargetList": [],
+            "transformOptions": [
+                "pdfRendererOptions",
+                "imageMagickOptions"
+            ]
+        }
+    ]
 }
 ```
 
