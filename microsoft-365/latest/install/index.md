@@ -190,7 +190,7 @@ Installations using Docker Compose should only be used for development and test 
           - ./nginx.conf:/etc/nginx/nginx.conf
     ```
 
-4. (Optional) If you want to add an additional location, add the following to your local copy of the `nginx.conf`:
+4. If you want to add an additional location, add the following to your local copy of the `nginx.conf`:
 
     ```bash
     location /ooi-service/ {
