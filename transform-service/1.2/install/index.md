@@ -6,15 +6,15 @@ This release provides two main options for deployment: using the distribution zi
 
 The Transform Service zip can be applied when installing Alfresco Content Services using the distribution zip.
 
-The Transform Service is also deployed as part of the Alfresco Content Services containerized deployment using Docker images that are packaged in Helm charts. These charts are a deployment template that can be used as the basis for your specific deployment needs.
+The Transform Service is also deployed as part of the Content Services containerized deployment using Docker images that are packaged in Helm charts. These charts are a deployment template that can be used as the basis for your specific deployment needs.
 
-> **Note:** Deployment of Transform Service with Alfresco Content Services on AWS, such as Amazon EKS (Elastic Kubernetes Service), is recommended only for customers with a good knowledge of Alfresco Content Services, and strong competencies in AWS and containerized deployment.
+> **Note:** Deployment of Transform Service with Content Services on AWS, such as Amazon EKS (Elastic Kubernetes Service), is recommended only for customers with a good knowledge of Content Services, and strong competencies in AWS and containerized deployment.
 
-The following diagram shows how Alfresco Content Services and the components of the Transform Service interact when deployed using Docker Compose.
+The following diagram shows how Content Services and the components of the Transform Service interact when deployed using Docker Compose.
 
 ![Docker Compose Deployment Overview]({% link transform-service/images/docker-compose-components.png %})
 
-The following diagram shows how Alfresco Content Services and the components of the Transform Service interact when deployed using Helm charts.
+The following diagram shows how Content Services and the components of the Transform Service interact when deployed using Helm charts.
 
 ![ACS Helm Deployment Overview]({% link transform-service/images/helm-components.png %})
 
@@ -22,9 +22,9 @@ The following diagram shows how Alfresco Content Services and the components of 
 
 There are a number of software requirements for deploying Transform Service.
 
-The Transform Service is only deployed as part of Alfresco Content Services for containerized deployments.
+The Transform Service is only deployed as part of Content Services for containerized deployments.
 
-However, this is not the case if you're installing Alfresco Content Services using the distribution zip. See [Supported platforms]({% link transform-service/1.2/support/index.md %}) for more details.
+However, this is not the case if you're installing Content Services using the distribution zip. See [Supported platforms]({% link transform-service/1.2/support/index.md %}) for more details.
 
 ### Containerized deployments
 
@@ -41,12 +41,12 @@ The other images are available in DockerHub:
 
 #### Software requirements (Helm)
 
-To use the Alfresco Content Services deployment (including the Transform Service), you need to install the following software:
+To use the Content Services deployment (including the Transform Service), you need to install the following software:
 
 * [AWS CLI](https://github.com/aws/aws-cli#installation){:target="_blank"} - the command line interface for Amazon Web Services.
 * [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/){:target="_blank"} - the command line tool for Kubernetes.
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
-  * There are Helm charts that allow you to deploy Alfresco Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
+  * There are Helm charts that allow you to deploy Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
 
 See [Install with Helm charts]({% link transform-service/1.2/install/index.md %}#install-with-helm-charts) for more details.
 
@@ -81,7 +81,7 @@ See [Install with zip]({% link transform-service/1.2/install/index.md %}#install
 
 ## Install with Helm charts
 
-Use this information to deploy Alfresco Content Services (including the Transform Service) using Helm charts by running a Kubernetes cluster on Amazon Web Services (AWS). These charts are a deployment template which can be used as the basis for your specific deployment needs.
+Use this information to deploy Content Services (including the Transform Service) using Helm charts by running a Kubernetes cluster on Amazon Web Services (AWS). These charts are a deployment template which can be used as the basis for your specific deployment needs.
 
 The Helm charts are provided as a reference that can be used to build deployments in AWS. If you're a System administrator, ensure that data persistence, backups, log storage, and other system-level functions have been configured to meet your needs.
 
@@ -91,9 +91,9 @@ Here is a summary of the steps required:
 
 1. Set up your Kubernetes cluster on AWS.
 2. Install the Kubernetes Dashboard to manage your Kubernetes cluster.
-3. Set up Alfresco Content Services on the Kubernetes cluster, including creating file storage.
+3. Set up Content Services on the Kubernetes cluster, including creating file storage.
 4. To access the images in [Quay.io](https://quay.io/){:target="_blank"}, you'll need to generate a pull secret and apply it to your cluster.
-5. Deploy Alfresco Content Services.
+5. Deploy Content Services.
 
     Before you can use the Transform Service zip, you need to install the following software requirements.
 
@@ -105,9 +105,9 @@ See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tre
 
 ## Install with Docker Compose
 
-Use this information to quickly start up Alfresco Content Services (including Transform Service) using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is only recommended for development and test environments.
+Use this information to quickly start up Content Services (including Transform Service) using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is only recommended for development and test environments.
 
-To check which branch tag corresponds to a specific Alfresco Content Services release, review the [release versions](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-chart-releases.md){:target="_blank"} page in GitHub. Choose a version from the left column that corresponds to the required Alfresco Content Services version you want to deploy.
+To check which branch tag corresponds to a specific Content Services release, review the [release versions](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-chart-releases.md){:target="_blank"} page in GitHub. Choose a version from the left column that corresponds to the required Content Services version you want to deploy.
 
    > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose, using the links provided.
 
@@ -118,7 +118,7 @@ To check which branch tag corresponds to a specific Alfresco Content Services re
     cd acs-deployment/docker-compose
     ```
 
-    > **Note:** Replace the version number `x.y.z` with the tag that matches the Alfresco Content Services version you want to deploy. For example, if you want Alfresco Content Services 6.2.2, then select tag `4.1.0`.
+    > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to deploy. For example, if you want Content Services 6.2.2, then select tag `4.1.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
@@ -130,7 +130,7 @@ To check which branch tag corresponds to a specific Alfresco Content Services re
 
     You'll need your [Quay.io](https://quay.io){:target="_blank"} account credentials to access the Docker images. If you don't already have these credentials, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
 
-3. Deploy Alfresco Content Services, including the repository, Share, Postgres database, Search Services, and Transform Service:
+3. Deploy Content Services, including the repository, Share, Postgres database, Search Services, and Transform Service:
 
     ```bash
     docker-compose up
@@ -169,6 +169,7 @@ To check which branch tag corresponds to a specific Alfresco Content Services re
     * Remove the container using `--rmi all`. This option also removes the images created by docker-compose up, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them.
     * Try allocating more memory resources, as advised in `docker-compose.yml`. For example, in Docker, change the memory setting in **Preferences** (or **Settings**) > **Advanced** > **Memory**, to at least 6 GB. Make sure you restart Docker and wait for the process to finish before continuing.
     * Go back to step 3 and start the deployment again.
+
     > **Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
 
 5. Open your browser and check everything starts up correctly:
@@ -325,7 +326,7 @@ See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for m
 
 ## Install with zip
 
-Use these instructions to install Transform Service using the distribution zip to an instance of Alfresco Content Services.
+Use these instructions to install Transform Service using the distribution zip to an instance of Content Services.
 
 The Transform Service distribution zip file includes all the files required to provide the Transform Service capabilities. Ensure that you've installed the prerequisites before continuing, for more see [Install Transform Service]({% link transform-service/1.2/install/index.md %}).
 
@@ -354,7 +355,7 @@ The Transform Service distribution zip file includes all the files required to p
 
     Make a note of the TCP URL, with example format `tcp://server:port`, where server is the host name of the server where ActiveMQ is installed. This is used in later steps.
 
-    Alfresco Content Services uses ActiveMQ for message queuing with various products, including the Transform Service.
+    Content Services uses ActiveMQ for message queuing with various products, including the Transform Service.
 
 4. Start the Shared File Store controller:
 
@@ -426,17 +427,17 @@ The Transform Service distribution zip file includes all the files required to p
     transform.misc.url=http://transform-core-aio:8090/
     ```
 
-    This overrides the default properties provided by Alfresco Content Services.
+    This overrides the default properties provided by Content Services.
 
-    > **Note:** Any changes to `alfresco-global.properties` require you to restart Alfresco Content Services to apply the updates. See the Alfresco Content Services documentation [Using alfresco-global.properties]({% link content-services/latest/config/index.md%}#using-alfresco-globalproperties) for more information.
+    > **Note:** Any changes to `alfresco-global.properties` require you to restart Content Services to apply the updates. See the Content Services documentation [Using alfresco-global.properties]({% link content-services/latest/config/index.md%}#using-alfresco-globalproperties) for more information.
 
 8. Check that the [configuration]({% link transform-service/1.2/config/index.md %}) is set up correctly for your environment.
 
-9. Restart Alfresco Content Services.
+9. Restart Content Services.
 
 10. Ensure that the environment is up and running:
 
-    1.Check the logs for Alfresco Content Services startup.
+    1.Check the logs for Content Services startup.
 
     2.Monitor ActiveMQ by accessing the Web Console, e.g. `http://localhost:8161/admin/`.
 

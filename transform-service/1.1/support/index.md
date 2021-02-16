@@ -8,5 +8,5 @@ The following are the supported platforms and software requirements for Alfresco
 
 | Version | Notes |
 | ------- | ----- |
-| Alfresco Content Services 6.2.1 | |
-| Alfresco Content Services 6.2.0 | |
+| Content Services 6.2.1 | |
+| Content Services 6.2.0 | |

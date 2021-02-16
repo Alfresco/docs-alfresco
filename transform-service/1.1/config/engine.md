@@ -4,7 +4,7 @@ title: Create custom T-Engine
 
 Alfresco Content Services provides a number of content transforms, but also allows you to add custom transforms. This section describes how to create custom transforms.
 
-The deployment and development of a T-Engine transformer is simpler than in previous versions of Alfresco Content Services.
+The deployment and development of a T-Engine transformer is simpler than in previous versions of Content Services.
 
 * Transformers no longer need to be applied as AMPs/JARs on top of the repository.
 * New versions may be deployed separately without restarting the repository.

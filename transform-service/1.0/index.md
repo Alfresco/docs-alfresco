@@ -10,8 +10,6 @@ The key capabilities of the Transform Service include the ability to:
 * Make use of the exposed transformation capabilities for all subsystems of the repository.
 * Provide a greater level of reliability and fault tolerance.
 
-**Important:** The Transform Service is deployed as part of the Alfresco Content Services deployment. See [What's deployed in Content Services]({% link content-services/latest/config/subsystems.md %}#whats-deployed-in-content-services) for the list of components.
+**Important:** The Transform Service is deployed as part of the Alfresco Content Services deployment. See [What's deployed in Content Services]({% link content-services/latest/install/containers/index.md %}#whats-deployed-in-content-services) for the list of components.
 
-**Important:** The Transform Service is only available with containerized deployments, and not when Alfresco Content Services is installed using a distribution zip.
-
-The following sections describe the Transform Service components, and also explain the flow of information between the repository and these components during the transformation process.
+**Important:** The Transform Service is only available with containerized deployments, and not when Content Services is installed using a distribution zip.

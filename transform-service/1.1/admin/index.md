@@ -67,7 +67,7 @@ There are two options for monitoring each component:
 
 ### What do I do if LibreOffice hangs
 
-If LibreOffice hangs, the health endpoint will fail to respond, and the container/pod will automatically reboot. This applies to all five Docker transformers. The Alfresco Content Services Helm deployment uses two replicas for each component of the Transform Service by default (except for the shared file store) in order to provide scalability and fault tolerance.
+If LibreOffice hangs, the health endpoint will fail to respond, and the container/pod will automatically reboot. This applies to all five Docker transformers. The Content Services Helm deployment uses two replicas for each component of the Transform Service by default (except for the shared file store) in order to provide scalability and fault tolerance.
 
 ### What debug logging is available for the Transform Service
 
@@ -103,7 +103,7 @@ The Transform Service will attempt to retry the transform a few times (this is c
 
 ### Can you share the Transform Service with multiple repositories
 
-This release will only support a single Alfresco Content Services repository instance. For example, if you have two or more separate Alfresco Content Services deployments (whether clustered or not), then each one will need to its own Transform Service instance.
+This release will only support a single Content Services repository instance. For example, if you have two or more separate Content Services deployments (whether clustered or not), then each one will need to its own Transform Service instance.
 
 ## Error handling in Transform Router
 
