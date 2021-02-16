@@ -22,7 +22,7 @@ Another typical change is the integration of your company-wide monitoring and lo
 
 ## Deployment options
 
-For the best results, we recommend [deploying Content Services to AWS EKS]({% link content-services/latest/install/containers/helm.md %}).
+For the best results, we recommend deploying Content Services to AWS EKS.
 
 There are also several [Helm examples]({% link content-services/latest/install/containers/helm-examples.md %}) that show you how to deploy with various configurations:
 

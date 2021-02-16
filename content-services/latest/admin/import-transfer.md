@@ -250,8 +250,8 @@ In-place example:
    bulkImportParameters.setReplaceExisting(true);
    bulkImportParameters.setBatchSize(150);
    bulkImportParameters.setNumThreads(4);
-   bulkImporter.bulkImport(bulkImportParameters, nodeImporter);  
-  
+   bulkImporter.bulkImport(bulkImportParameters, nodeImporter);
+
    txn.commit();
 ```
 

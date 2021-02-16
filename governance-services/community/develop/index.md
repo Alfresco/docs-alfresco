@@ -1,0 +1,24 @@
+---
+title: Governance Services APIs
+---
+
+Governance Services provides two APIs, the GS Core API and the GS Security Marks API.
+
+>**Note:** The GS Security Marks API isn't available in Governance Services Community Edition.
+
+The APIs are designed for you to create remote clients to manage the {% include tooltip.html word="fileplan" text="File Plan" %}. You can easily explore and test the endpoints using the Governance Services API Explorer.
+
+You can download the API Explorer from:
+
+* [Alfresco Community RM ReST API Explorer](https://download.alfresco.com/cloudfront/release/community/RM/3.0.a/alfresco-rm-community-rest-api-explorer-3.0.a.war)
+
+Deploy it on the same port as Governance Services and test the APIs with your server directly from the API Explorer.
+
+You can read more about working with Alfresco APIs in the [Alfresco API Guide](TODO_LINK:http://docs.alfresco.com/community/concepts/dev-api-intro.html).
+
+The following table provides a brief overview of each API.
+
+|API|Description|
+|---|-----------|
+|GS Core API|This is the main public API for interfacing your client application with Governance Services. The REST API gives you access to core functionality. You can use it to manage the Governance Services site, record categories, record folders, unfiled containers and unfiled record folders, upload new records or declare an existing file as record, file records in the file plan and get information about transfers.|
+|GS Security Marks API|The Security Marks API gives you access to the classification and security controls features of Governance Services. You can use it to manage classification guides, reasons, values, and declassification exemptions, as well as security control settings.|
