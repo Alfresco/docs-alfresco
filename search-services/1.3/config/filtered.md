@@ -6,7 +6,7 @@ Use this information to get an overview of the filtered search capability in Alf
 
 Filtered search is a powerful search feature that allows users to filter and customize their results by applying multiple filters to their search results in a navigational way. Filtered search breaks up search results into multiple categories, typically showing counts for each, and allows the user to drill down or further restrict their search results based on those filters.
 
-You can configure filtered search either by using the Filtered search configuration properties or by using the [Share Search Manager LINK LINK](https://docs.alfresco.com/6.1/concepts/super-search-manager.html).
+You can configure filtered search either by using the Filtered search configuration properties or by using the [Search Manager]({% link content-services/6.1/admin/share-admin-tools.md %}#search-manager).
 
 ## Filtered search configuration properties
 
@@ -99,7 +99,7 @@ default.cm:content.size.isEnabled=true
 
 An example of a filter is `cm:modified`. It specifies the name of the filter field. It is the field on which you want to do a filtered search.
 
-**filterID** - Specifies a unique name to identify the filter. Before adding a new filter, check the existing filters (via [Search Manager LINK](https://docs.alfresco.com/6.1/concepts/super-search-manager.html)) to ensure that the `filterID` does not already exist.
+**filterID** - Specifies a unique name to identify the filter. Before adding a new filter, check the existing filters, for more see [Search Manager]({% link content-services/6.1/admin/share-admin-tools.md %}#search-manager), to ensure that the `filterID` does not already exist.
 
 **displayName** - Specifies the display name of the filter.
 

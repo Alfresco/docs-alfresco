@@ -30,7 +30,7 @@ These configuration properties are used by Alfresco Content Services to talk to 
 The topic describes the properties for configuring the Solr 6 search service. 
 > **Note:** This feature is only available when you are using Alfresco Content Services Enterprise.
 
-1. Open the Admin Console. For more information, see [Launching the Admin Console LINK LINK](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
+1. Open the Admin Console. For more information, see [Launch Admin Console]({% link content-services/6.1/admin/admin-console/#launch-admin-console.
 
 2. In the Repository Services section, click **Search Service** to see the Search Service page.
 

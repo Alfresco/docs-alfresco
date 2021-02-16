@@ -123,7 +123,7 @@ If the Index Engine is up to date, a query against the database or the Index Eng
 
 ## Dealing with eventual consistency
 
-Handling eventual consistency varies from one situation to another. If you need a transactional answer, the default behaviour will give you one, if it can. For some queries, it is not possible to get a transactional answer. If you are using Solr 6, the response from the [Search public LINK API](https://docs.alfresco.com/6.1/concepts/search-api.html) will return some information to help. It will report the index state consistent with the query.
+Handling eventual consistency varies from one situation to another. If you need a transactional answer, the default behaviour will give you one, if it can. For some queries, it is not possible to get a transactional answer. If you are using Solr 6, the response from the Search API will return some information to help. It will report the index state consistent with the query.
 
 ```json
 "context": {
