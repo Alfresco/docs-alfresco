@@ -37,7 +37,7 @@ integrations:
         url: /desktop-sync/latest/
   - title: "Transform"
     text: "Create secure, scalable, reliable, and extensible transforms for converting files from their current format into other formats using the all-in-one Transform Core Engine (T-Engine) that performs all the core transforms."
-    url: 
+    url:
     image: /assets/img/ic_transform_80px.svg
     sub:
       - title: "Transform Service"
@@ -87,7 +87,7 @@ integrations:
     sub:
       - title: "Amazon S3"
         text: "Alfresco Content Connector for AWS S3 uses Amazon's Simple Storage Service (S3) as the storage mechanism for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
-        url: /aws-s3/latest
+        url: /aws-s3/latest/
       - title: "Microsoft Azure"
         text: "Alfresco Content Connector for Azure uses Microsoft's Azure Blob Storage as an alternative content store for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
         url: /microsoft-azure/latest/
@@ -121,7 +121,7 @@ integrations:
 applications:
   - title: "Digital Workspace"
     text: "Alfresco Digital Workspace is a content management application built with the Alfresco Application Development Framework (ADF)."
-    url: /digital-workspace/latest
+    url: /digital-workspace/latest/
     image: /assets/img/logo_dw_72px.svg
   - title: "Application Development Framework"
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
@@ -140,4 +140,4 @@ applications:
 #        url:
 #      - title: "Android"
 #        url:
-        
+

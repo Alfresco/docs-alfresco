@@ -6,32 +6,7 @@ The following are the supported platforms and software requirements for Alfresco
 
 ## Alfresco Content Services
 
-| Version | Supported | Notes |
-| ------- | --------- | ----- |
-| Alfresco Content Services 6.2.1 | Yes | |
-| Alfresco Content Services 6.2.0 | Yes | |
-
-## Software requirements (Docker)
-
-> **Note:** (Recommended for evaluations only)
-
-* [Docker](https://docs.docker.com/install/){:target="_blank"} (latest stable version)
-  * This allows you to run Docker images and `docker-compose` on a single computer.
-* [Docker Compose](https://docs.docker.com/compose/install/){:target="_blank"}
-  * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
-
-> **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose.
-
-See [Install Transform Service]({% link transform-service/1.1/install/index.md %}#install-with-docker-compose) for more information.
-
-## Software requirements (Helm)
-
-To use the Alfresco Content Services deployment (including the Transform Service), you need to install the following software:
-
-* [AWS CLI](https://github.com/aws/aws-cli#installation){:target="_blank"} - the command line interface for Amazon Web Services.
-* [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/){:target="_blank"} - the command line tool for Kubernetes.
-* [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
-  * There are Helm charts that allow you to deploy Alfresco Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
-* [Kops](https://github.com/kubernetes/kops#installing){:target="_blank"} - this helps you to manage a Kubernetes cluster.
-
-See [Install Transform Service]({% link transform-service/1.1/install/index.md %}#install-with-helm-charts) for more information.
+| Version | Notes |
+| ------- | ----- |
+| Alfresco Content Services 6.2.1 | |
+| Alfresco Content Services 6.2.0 | |

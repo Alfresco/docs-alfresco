@@ -8,30 +8,58 @@ The Transform Service is deployed as part of the Alfresco Content Services deplo
 
 The following diagram shows how Alfresco Content Services and the components of the Transform Service interact when deployed using Docker Compose.
 
-![Docker Compose Deployment Overview]({% link transform-service/images/docker-compose-components.png %})
+![Docker Compose Deployment Overview]({% link transform-service/images/1-1-docker-compose-components.png %})
 
 The following diagram shows how Alfresco Content Services and the components of the Transform Service interact when deployed using Helm charts.
 
 ![ACS Helm Deployment Overview]({% link transform-service/images/helm-components.png %})
 
-## Prerequisites for using Transform Service
+## Prerequisites
 
 There are a number of software requirements for deploying Transform Service.
 
 The Transform Service is only deployed as part of Alfresco Content Services for containerized deployments.
 
-However, this is not the case if you're installing Alfresco Content Services using the distribution zip. For more on requirements see [Supported platforms]({% link transform-service/1.1/support/index.md %}).
-
 ### Containerized deployments
 
 The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Alfresco Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"}.
-Use this information to quickly start up Alfresco Content Services (including Transform Service) using Docker Compose.
-The images are downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Alfresco Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"}.
 
-> **Note:** A [Quay.io](https://quay.io/) account is needed to pull the Docker images that are needed for the Transform Service.
+> **Note:** A [Quay.io](https://quay.io/) account is needed to pull the Docker images that are needed for the Transform Service:
+>
+> * `alfresco/alfresco-transform-router`
 
 The other images are available in DockerHub:
-    *`alfresco/alfresco-shared-file-store`
+
+* `alfresco/alfresco-pdf-renderer`
+* `alfresco/alfresco-imagemagick`
+* `alfresco/alfresco-libreoffice`
+* `alfresco/alfresco-tika`
+* `alfresco/alfresco-transform-misc`
+* `alfresco/alfresco-shared-file-store`
+
+#### Software requirements (Helm)
+
+To use the Alfresco Content Services deployment (including the Transform Service), you need to install the following software:
+
+* [AWS CLI](https://github.com/aws/aws-cli#installation){:target="_blank"} - the command line interface for Amazon Web Services.
+* [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/){:target="_blank"} - the command line tool for Kubernetes.
+* [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
+  * There are Helm charts that allow you to deploy Alfresco Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
+
+See [Install with Helm charts]({% link transform-service/1.2/install/index.md %}#install-with-helm-charts) for more details.
+
+#### Software requirements (Docker)
+
+This is recommended for evaluations only (i.e. test and development environments).
+
+* [Docker](https://docs.docker.com/install/){:target="_blank"} (latest stable version)
+  * This allows you to run Docker images and `docker-compose` on a single computer.
+* [Docker Compose](https://docs.docker.com/compose/install/){:target="_blank"}
+  * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
+
+> **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose.
+
+See [Install with Docker Compose]({% link transform-service/1.2/install/index.md %}#install-with-docker-compose) for more details.
 
 ## Install with Helm charts
 
@@ -61,13 +89,14 @@ To check which branch tag corresponds to a specific Alfresco Content Services re
    > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose, using the links provided.
 
 1. Clone the project locally, and then change directory to the project folder:
-  
+
    ```bash
     git clone --branch x.y.z https://github.com/Alfresco/acs-deployment.git
     cd acs-deployment/docker-compose
     ```
 
-    > **Note:** Replace the version number `x.y.z` with the tag that matches the Alfresco Content Services version you want to deploy. For example, if you want Alfresco Content Services 6.2.0, then select tag `3.0.1`.
+    > **Note:** Replace the version number `x.y.z` with the tag that matches the Alfresco Content Services version you want to deploy. For example, if you want Alfresco Content Services 6.2.0, then select tag `3.0.3`.
+
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
 2. Log in to Quay.io using your credentials:
@@ -121,27 +150,27 @@ To check which branch tag corresponds to a specific Alfresco Content Services re
     * Stop the session (by using `CONTROL+C`).
     * Remove the container using `--rmi all`. This option also removes the images created by docker-compose up, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them.
     * Try allocating more memory resources, as advised in `docker-compose.yml`. For example, in Docker, change the memory setting in **Preferences** (or **Settings**) > **Advanced** > **Memory**, to at least 6 GB. Make sure you restart Docker and wait for the process to finish before continuing.
-    * Go back to step [3] and start the deployment again.
+    * Go back to step 3 and start the deployment again.
     > **Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
 
 5. Open your browser and check everything starts up correctly:
 
-    |Service|Endpoint|
-    |-------|--------|
-    |Administration and REST APIs|`http://localhost:8080/alfresco`|
-    |Share|`http://localhost:8080/share`|
-    |Digital Workspace|`http://localhost:8080/workspace`|
-    |Search Services administration|`http://localhost:8083/solr`|
-    |Transform Router configuration|`http://localhost:8095/transform/config`|
-    |ActiveMQ Admin Web Console|`http://localhost:8161/admin`|
+    | Service | Endpoint |
+    | ------- | -------- |
+    | Administration and REST APIs | `http://localhost:8080/alfresco` |
+    | Share | `http://localhost:8080/share` |
+    | Digital Workspace | `http://localhost:8080/workspace` |
+    | Search Services administration | `http://localhost:8083/solr` |
+    | Transform Router configuration | `http://localhost:8095/transform/config` |
+    | ActiveMQ Admin Web Console | `http://localhost:8161/admin` |
 
 6. Log in as the `admin` user. Enter the default administrator password `admin`.
 
 You can use a number of commands to check that the system started correctly, see below.
 
-See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup: [Deploying using Docker Compose](https://github.com/Alfresco/acs-deployment/blob/support/SP/3.N/docs/docker-compose-deployment.md){:target="_blank"}.
+See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/3.N){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup: [Deploying using Docker Compose](https://github.com/Alfresco/acs-deployment/blob/support/SP/3.N/docs/docker-compose-deployment.md){:target="_blank"}.
 
-## Checking system start up
+### Check system start up
 
 Use this information to verify that the system started correctly, and to clean up the deployment.
 
@@ -162,20 +191,20 @@ Use this information to verify that the system started correctly, and to clean u
         ```bash
                Container                                 Repository                         ...     Size
         ----------------------------------------------------------------------------------------------------
-        docker-compose_activemq_1                alfresco/alfresco-activemq                   ...   447 MB 
-        docker-compose_alfresco-pdf-renderer_1   alfresco/alfresco/alfresco-pdf-renderer      ...   625 MB 
+        docker-compose_activemq_1                alfresco/alfresco-activemq                   ...   447 MB
+        docker-compose_alfresco-pdf-renderer_1   alfresco/alfresco/alfresco-pdf-renderer      ...   625 MB
         docker-compose_alfresco_1                alfresco/alfresco-content-repository         ...   1.02 GB
-        docker-compose_digital-workspace_1       quay.io/alfresco/alfresco-digital-workspace  ...   27.1 MB 
-        docker-compose_imagemagick_1             alfresco/alfresco/alfresco-imagemagick       ...   698 MB 
+        docker-compose_digital-workspace_1       quay.io/alfresco/alfresco-digital-workspace  ...   27.1 MB
+        docker-compose_imagemagick_1             alfresco/alfresco/alfresco-imagemagick       ...   698 MB
         docker-compose_libreoffice_1             alfresco/alfresco/alfresco-libreoffice       ...   1.46 GB
-        docker-compose_postgres_1                postgres                                     ...   274 MB 
+        docker-compose_postgres_1                postgres                                     ...   274 MB
         docker-compose_proxy_1                   alfresco/alfresco/alfresco-acs-nginx         ...   16.9 MB
-        docker-compose_share_1                   alfresco/alfresco-share                      ...   681 MB 
-        docker-compose_shared-file-store_1       alfresco/alfresco-shared-file-store          ...   435 MB 
-        docker-compose_solr6_1                   alfresco/alfresco-search-services            ...   1.02e+03 MB MB 
+        docker-compose_share_1                   alfresco/alfresco-share                      ...   681 MB
+        docker-compose_shared-file-store_1       alfresco/alfresco-shared-file-store          ...   435 MB
+        docker-compose_solr6_1                   alfresco/alfresco-search-services            ...   1.02e+03 MB MB
         docker-compose_sync-service_1            quay.io/alfresco/service-sync                ...   738 MB
         docker-compose_tika_1                    alfresco/alfresco/alfresco-tika              ...   743 MB
-        docker-compose_transform-misc_1          alfresco/alfresco/alfresco-transform-misc    ...   712 MB 
+        docker-compose_transform-misc_1          alfresco/alfresco/alfresco-transform-misc    ...   712 MB
         docker-compose_transform-router_1        quay.io/alfresco/alfresco-transform-router   ...   574 MB
         ```
 
