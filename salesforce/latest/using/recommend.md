@@ -103,7 +103,7 @@ List content matching specific metadata custom property / properties (example 2)
 ]}
 ```
 
->**Note:** For more details related to the syntax of the Alfresco Search Query Language see [Alfresco Full Text Search Reference](https://docs.alfresco.com/search-enterprise/concepts/searchsyntax-intro.html) and [Search in fields](https://docs.alfresco.com/search-enterprise/concepts/searchsyntax-fields.html).
+>**Note:** For more details related to the syntax of the Alfresco Search Query Language see [Alfresco Full Text Search Reference]({% link search-services/latest/using/index.md %}).
 
 ### Advanced examples of Alfresco search queries (informed by Salesforce field values)
 
@@ -445,6 +445,6 @@ You can search:
 
     If metadata synchronization is enabled, this synchronization happens when a user views a Salesforce record that contains the Alfresco canvas app. The app checks whether a folder for that record exists in Alfresco, and creates a new folder if it does not exist. The app then adds the mapped property values from the Salesforce record to the parent record folder in Alfresco.  If a user searches for that metadata directly in Alfresco (for example, using the Share application), the results are returned successfully.
 
-There is certain content, and associated metadata, that you might want only certain users to see; for example, Human Resources (HR) personnel data. Use a private site for this record type. See [Creating sites](TODO_LINK:https://docs.alfresco.com/6.2/concepts/sites-intro.html) for more information about the different site types.
+There is certain content, and associated metadata, that you might want only certain users to see; for example, Human Resources (HR) personnel data. Use a private site for this record type. See [Creating sites]({% link content-services/latest/using/sites/index.md %}#creating-a-site) for more information about the different site types.
 
 You can map an specific object (and therefore all records associated with that object) to a named site in Share. See part 4 of [Step 6: Add the Alfresco app using a Salesforce Lightning Component]({% link salesforce/latest/install/index.md %}#addappusinglightningcomponent) for instructions on how to do this.

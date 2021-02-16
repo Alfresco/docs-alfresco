@@ -26,7 +26,7 @@ To archive files to Amazon S3 Glacier, you need to create a rule for your archiv
 
 6. Define your rule and select **Archive to AWS Glacier** from the **Perform Action** list.
 
-     For more information see the Alfresco Content Services documentation, [Creating a rule](#LINK content-services/6.1/using/content/rules.md ).
+     For more information see the Alfresco Content Services documentation, [Creating a rule]({% link content-services/6.1/using/content/rules.md %}).
 
 7. Select **Run rule in background**.
 
@@ -52,7 +52,7 @@ To restore files from Amazon S3 Glacier, you need to create a rule for your rest
 
 6. Define your rule and select **Restore from AWS Glacier** from the **Perform Action** list.
 
-    For more information see the Alfresco Content Services documentation, [Creating a rule](#LINK content-services/6.1/using/content/rules.md ).
+    For more information see the Alfresco Content Services documentation, [Creating a rule]({% link content-services/6.1/using/content/rules.md %}).
 
 7. Select **More** for the new folder and then click **Manage Rules**.
 
