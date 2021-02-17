@@ -9,10 +9,10 @@ This section contains information related to administration of the Outlook Integ
 
 Use this information to set up SAML Single Sign-On (SSO) for Alfresco Content Services authentication with the Outlook Integration.
 
-* Check the requirements in [Prerequisites]({% link saml-module/latest/install/index.md %}#Prerequisites)
-* Install the Alfresco SAML module - [Install with Zip]({% link saml-module/latest/install/index.md %})
-* Configure the Alfresco SAML module - [Configure SAML SSO]({% link saml-module/latest/config/index.md %})
-  * On the server-side, you'll need to enforce SAML authentication for REST API, using one of the methods described in [Configure SAML SSO]({% link saml-module/latest/config/alfresco.md %}). For example, you can set `saml.sp.isEnforced=true` in the `alfresco-global.properties` file.
+* Check the requirements in [Prerequisites]({% link saml-module/1.1/install/index.md %}#prerequisites)
+* Install the Alfresco SAML module - [Install with Zip]({% link saml-module/1.1/install/index.md %})
+* Configure the Alfresco SAML module - [Configure SAML SSO]({% link saml-module/1.1/config/index.md %})
+  * On the server-side, you'll need to enforce SAML authentication for REST API, using one of the methods described in [Configure SAML SSO]({% link saml-module/1.1/config/alfresco.md %}). For example, you can set `saml.sp.isEnforced=true` in the `alfresco-global.properties` file.
   * Enable SAML in Outlook clients using one of the following options: [using the client configuration XML]({% link microsoft-outlook/2.4/config/index.md %}#advanced-configuration) or [using the command line]({% link microsoft-outlook/2.4/install/index.md %}#installunattendedmode).
 
 >**Note:** If you install the Outlook client manually without specifying the SAML authentication type, you won't be able to see or select the SAML option.
