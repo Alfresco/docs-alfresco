@@ -226,7 +226,7 @@ This information provides uninstall directions for Alfresco Content Services.
 
 1. Stop the Alfresco server.
 
-2. Use the information in [Uninstall an Amp file]({% link content-services/6.2/install/zip/amp.md %}#Uninstall an AMP file) to uninstall each AMP file.
+2. Use the information in [Uninstall an Amp file]({% link content-services/latest/install/zip/amp.md %}#Uninstall an AMP file) to uninstall each AMP file.
 
     For example, from the Alfresco root directory, you need two commands:
 
