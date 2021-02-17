@@ -96,7 +96,7 @@ Make sure you are running the correct versions of operating system and software 
 
     where `localhost:8080` is your Alfresco server and port number.
 
-If you plan to use SAML SSO, you need to install and configure the Alfresco SAML module. See [Install with Zip]({% link saml-module/latest/install/index.md %}) and [Configure SAML]({% link saml-module/latest/config/index.md %}) for more information.
+If you plan to use SAML SSO, you need to install and configure the Alfresco SAML module. See [Install with Zip]({% link saml-module/1.1/install/index.md %}) and [Configure SAML]({% link saml-module/1.1/config/index.md %}) for more information.
 
 ### Install server and client licenses in Alfresco Share {#installserverclientlicenses}
 
