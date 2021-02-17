@@ -60,7 +60,7 @@ You can use one of the following Outlook releases:
 
 See [Supported Platforms]({% link microsoft-outlook/2.4/support/index.md %}) for more information.
 
-If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites]({% link saml-module/latest/install/index.md %}#Prerequisites).
+If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites]({% link saml-module/1.1/install/index.md %}#prerequisites).
 
 ## Install AMPs {#install_amps}
 
