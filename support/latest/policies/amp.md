@@ -15,15 +15,15 @@ Extensions and integrations can be classified based on their provenience:
 
 ## Alfresco Supported Extensions and Integrations
 
-An AMP/JAR will only be supported if it is documented in the [Official Documentation Online](https://docs.alfresco.com){:target="_blank"}, since this will mean that it:
+An AMP/JAR will only be supported if it is documented in the [Official Documentation Online](https://docs.alfresco.com), since this will mean that it:
 
 * Has been through a full QA cycle
 * Support have the infrastructure to test and reproduce issues
-* **Support status** is Full Support or Limited Support for the Module / Extension in the [Product Support Status](https://www.alfresco.com/alfresco-product-support-status){:target="_blank"}
+* **Support status** is Full Support or Limited Support for the Module / Extension in the [Product Support Status](https://www.alfresco.com/services/subscription/technical-support/product-support-status){:target="_blank"}
 
 ## Alfresco Certified Technologies
 
-A Partner developed technology listed in the [Alfresco Integrations page](https://www.alfresco.com/products/integrations){:target="_blank"}, and it's supported by Alfresco and its Partner, since this will mean:
+A Partner developed technology listed in the [Alfresco Integrations page](https://www.alfresco.com/ecm-software/integrating-extending-alfresco){:target="_blank"}, and it's supported by Alfresco and its Partner, since this will mean:
 
 * Is validated and certified by Alfresco to work against the specific target Alfresco product version
 * It implements Alfresco development best practices
@@ -34,7 +34,7 @@ An AMP/JAR developed by the Alfresco Community and therefore unsupported. The ma
 
 ## Alfresco Unsupported Extensions and integrations
 
-An AMP/JAR developed by Alfresco is considered to be unsupported if it is not documented in the [Official Documentation](https://docs.alfresco.com){:target="_blank"}. In addition, the following will also be true:
+An AMP/JAR developed by Alfresco is considered to be unsupported if it is not documented in the [Official Documentation](https://docs.alfresco.com). In addition, the following will also be true:
 
 * The module.title will include the term unsupported (Alfresco One 3.1 onwards)
 * The AMP is only available for download from the Labs sites (Alfresco One 3.1 onwards)
@@ -44,11 +44,11 @@ An AMP/JAR developed by Alfresco is considered to be unsupported if it is not do
 
 As of Alfresco One 3.4, the following AMPs fall into this category:
 
-|AMP Name|File|
-|--------|----|
-|Facebook DocLib|`alfresco-fb-doclib-unsupported.amp`|
-|Native PHP and MediaWiki Integration|`alfresco-php-integration-2.1.0-unsupported.amp`; `alfresco-php-library-2.1.0-unsupported.zip`|
-|Java PHP Integration|`phpIntegration-unsupported.amp`|
-|MediaWiki Integration (based on Java PHP)|`org.alfresco.module.mediawikiintegration-unsupported.amp`|
-|Records Management|`alfresco-recordsmanagement-unsupported.amp`|
-|Google Gadgets|`Aggadget-unsupported.zip`|
+| AMP Name | File |
+| -------- | ---- |
+| Facebook DocLib | `alfresco-fb-doclib-unsupported.amp` |
+| Native PHP and MediaWiki Integration | `alfresco-php-integration-2.1.0-unsupported.amp`; `alfresco-php-library-2.1.0-unsupported.zip` |
+| Java PHP Integration | `phpIntegration-unsupported.amp` |
+| MediaWiki Integration (based on Java PHP) | `org.alfresco.module.mediawikiintegration-unsupported.amp` |
+| Records Management | `alfresco-recordsmanagement-unsupported.amp` |
+| Google Gadgets | `Aggadget-unsupported.zip` |

@@ -9,13 +9,13 @@
       path: '/support/latest/roles/'
     - title: 'Contact Alfresco Support'
       path: '/support/latest/contact/'
-      pages: 
+      pages:
         - title: 'Support Issue Resources and Case Logging'
           path: '/support/latest/contact/log-issue/'
         - title: 'Support Case Life Cycle'
           path: '/support/latest/contact/case-lifecycle/'
         - title: 'Escalate an Issue'
-          path: '/support/latest/contact/escalate-issue/'   
+          path: '/support/latest/contact/escalate-issue/'
     - title: 'Support Hours'
       path: '/support/latest/hours/'
     - title: 'Service Level Targets (SLT)'
@@ -26,7 +26,7 @@
       path: '/support/latest/holidays/'
     - title: 'Support Policies'
       path: '/support/latest/policies/'
-      pages: 
+      pages:
         - title: 'Containerization Support Policy'
           path: '/support/latest/policies/containerization/'
         - title: 'Alfresco Content Services - API Support Policy'
@@ -44,10 +44,10 @@
         - title: 'Extensions and Integrations Support'
           path: '/support/latest/policies/amp/'
         - title: 'Premier Support Policy'
-          path: '/support/latest/policies/premier/' 
+          path: '/support/latest/policies/premier/'
     - title: 'Resources'
       path: '/support/latest/resources/'
-      pages: 
+      pages:
         - title: 'Case Status Definitions'
           path: '/support/latest/resources/issue-status/'
         - title: 'Supported Stacks'
@@ -55,7 +55,7 @@
         - title: 'Heartbeat Message'
           path: '/support/latest/resources/heartbeat/'
         - title: 'License Keys'
-          path: '/support/latest/resources/key/'
+          path: '/support/latest/resources/keys/'
         - title: 'Alfresco Product Access'
           path: '/support/latest/resources/access/'
         - title: 'Upgrade Advice'

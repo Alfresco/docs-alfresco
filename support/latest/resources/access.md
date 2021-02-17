@@ -20,7 +20,7 @@ Enterprise-only Docker images are available via a Docker pull from [quay.io](htt
 
 ## Building Alfresco products using SDKs
 
-Several Alfresco products can be built using SDKs. To see a list of available SDKs, refer to the [Alfresco Documentation](https://docs.alfresco.com/){:target=_"blank"}.
+Several Alfresco products can be built using SDKs. To see a list of available SDKs, refer to the [Alfresco Documentation](https://docs.alfresco.com/).
 
 Most SDKs require Maven and access to the Alfresco Nexus repository. Please contact Alfresco Support for credentials to the Nexus repository.
 

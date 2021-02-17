@@ -14,7 +14,7 @@ The self-service tools are as follows:
 
 * Alfresco Documentation
 
-    The officially supported [Alfresco Documentation](https://docs.alfresco.com/){:target="_blank"} has all the current information on installing, configuring, using, administering, customizing, extending, and troubleshooting for your major version of Alfresco products.
+    The officially supported [Alfresco Documentation](https://docs.alfresco.com/) has all the current information on installing, configuring, using, administering, customizing, extending, and troubleshooting for your major version of Alfresco products.
 
 Should you not find your answer using the self-service tools, please log a support case using one of the following methods:
 
@@ -36,7 +36,7 @@ Please help us to help you by including the following details when you log a cal
 
 * Version of Alfresco Content Services (ECM) or Alfresco Process Services (BPM- Activiti)
 * For Alfresco Content Services, please include the start of the alfresco.log file that shows the schema version
-* Operating system, database, application server, and browser version (see [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms/){:target="_blank"} for supported versions)
+* Operating system, database, application server, and browser version (see [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms){:target="_blank"} for supported versions)
 * Explain the issue with as much detail as possible about the circumstances in which it happens
 * Attach a JMX Dump, if possible
 * When the issue started
