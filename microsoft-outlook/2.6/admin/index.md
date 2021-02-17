@@ -9,7 +9,7 @@ This section contains information related to administration of the Outlook Integ
 
 Use this information to set up SAML Single Sign-On (SSO) for Alfresco Content Services authentication with the Outlook Integration.
 
-* Check the requirements in [Prerequisites]({% link saml-module/latest/install/index.md %}#Prerequisites)
+* Check the requirements in [Prerequisites]({% link saml-module/latest/install/index.md %}#prerequisites)
 * Install the Alfresco SAML module - [Install with Zip]({% link saml-module/latest/install/index.md %})
 * Configure the Alfresco SAML module - [Configure SAML SSO]({% link saml-module/latest/config/index.md %})
   * On the server-side, you'll need to enforce SAML authentication for REST API, using one of the methods described in [Configure SAML SSO]({% link saml-module/latest/config/alfresco.md %}). For example, you can set `saml.sp.isEnforced=true` in the `alfresco-global.properties` file.
