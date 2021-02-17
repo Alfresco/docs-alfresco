@@ -66,7 +66,7 @@ If you plan to use SAML Module for Alfresco Content Services authentication, che
 
 There are three steps to installing the Outlook Integration: install the Alfresco AMP files (the Alfresco Outlook Server software), apply the licenses and then install the Microsoft Outlook zip file (the Alfresco Outlook Client software).
 
-Make sure you are running the correct versions of operating system and software before you install the AMP files. If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites]({% link saml-module/latest/install/index.md %}#Prerequisites) for more information.
+Make sure you are running the correct versions of operating system and software before you install the AMP files. If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites]({% link saml-module/1.1/install/index.md %}#prerequisites) for more information.
 
 1. Stop the Alfresco server.
 
