@@ -12,7 +12,7 @@ The `solrcore.properties` configuration file is the property configuration file 
 |-------------|-----------|
 |alfresco.aclBatchSize|This property is used for batch fetching updates during tracking, for example `10`.|
 |alfresco.acl.tracker.maxParallelism|Defines the number of threads that are used when indexing documents using the ACL Tracker, for example `32`.|
-|alfresco.baseUrl|This property configures the base URL to Alfresco Content Services web project, for example `/alfresco`. If you need to change the `baseUrl` value, see [Deploy with a different context path]({% link content-services/6.0/config/repository.md %}#deploy-with-a-different-context-path).|
+|alfresco.baseUrl|This property configures the base URL to Alfresco Content Services web project, for example `/alfresco`. If you need to change the `baseUrl` value, see [Deploy with a different context path]({% link content-services/latest/config/repository.md %}#deploy-with-a-different-context-path).|
 |alfresco.batch.count|This property indicates the number of updates that should be made to this core before a commit is executed, for example  `1000`.|
 |alfresco.cascade.tracker.maxParallelism|Defines the number of threads that are used when indexing documents using the Cascade Tracker, for example `32`.|
 |alfresco.changeSetAclsBatchSize|This property is used for batch fetching updates during tracking, for example `100`.|
