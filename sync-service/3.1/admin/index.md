@@ -73,13 +73,13 @@ The main stages for this configuration are: create a custom model with an associ
 
 1. Create a custom model from the **Model Manager** in Alfresco Share **Admin Tools**.
 
-    Follow the steps in [Creating a new model](https://docs.alfresco.com/6.1/tasks/admintools-custom-model-create.html)(#LINK).
+    Follow the steps in [Creating a new model]({% link content-services/6.1/config/models.md %}#create-a-content-mode).
 
     Note that you don't need to create a property for the custom model.
 
 2. Click the model name to start creating an associated aspect.
 
-    Follow the steps for [Creating new aspects](https://docs.alfresco.com/6.1/tasks/admintools-custom-type-create.html)(#LINK).
+    Follow the steps for [Creating new aspects]({% link content-services/6.1/config/models.md %}#custom-types-aspects-and-properties).
 
     Add a **Display Label** for the aspect so you can identify it in Alfresco Share later.
 
@@ -97,11 +97,11 @@ The main stages for this configuration are: create a custom model with an associ
 
 5. Create a folder rule that applies the aspect to newly created and updated content.
 
-    Follow the steps in [Creating a rule](https://docs.alfresco.com/6.1/tasks/library-folder-rules-define-create.html)(#LINK).
+    Follow the steps in [Defining rules for a folder]({% link content-services/6.1/using/content/rules.md %}#defining-rules-for-a-folder).
 
     Make sure you select the **Rule applies to subfolders** check box, so that the new aspect is automatically applied to new content added to the current folder and subfolders.
 
-    See [Applying rules to folders](https://docs.alfresco.com/6.1/concepts/library-folder-rules.html)(#LINK) for more details.
+    See [Folder rules]({% link content-services/6.1/using/content/rules.md %}) for more details.
 
 6. Update the following property in `alfresco-global.properties` to include your custom model and aspect:
 
@@ -116,7 +116,7 @@ The main stages for this configuration are: create a custom model with an associ
 
 7. Restart Alfresco Content Services.
 
-> **Note:** Apply the new aspect to all existing content in the folder, and subfolders. Adding an aspect manually to existing folders doesn't cascade the extra functionality down the hierarchy. See [Applying aspects](https://docs.alfresco.com/6.1/tasks/library-item-manage-aspects.html)(#LINK) for more details.
+> **Note:** Apply the new aspect to all existing content in the folder, and subfolders. Adding an aspect manually to existing folders doesn't cascade the extra functionality down the hierarchy. See [Applying aspects]({% link content-services/6.1/using/content/files-folders.md %}#applyaspects) for more details.
 
 > **Important:** Applying this property after users have synchronized folders and files won't automatically remove their existing synced content.
 
@@ -126,7 +126,7 @@ The approach to backup and restore is to ensure that the repository is backed up
 
 1. To perform a backup of your Sync Service database, follow these steps:
 
-    1. Backup your repository database. See [Backing up and restoring](https://docs.alfresco.com/5.2/concepts/ch-backup-restore.html)(#LINK).
+    1. Backup your repository database. See [Back up and restore]({% link content-services/6.1/admin/backup-restore.md %}).
 
     2. After you have successfully backed up the repository, wait for a couple of minutes to ensure that the synchronization server has correctly tracked the repository after the repository backup.
 
@@ -145,7 +145,7 @@ The approach to backup and restore is to ensure that the repository is backed up
 
         Note that the Virtual Topic and associated queue will be recreated automatically.
 
-    2. Restore the repository database. See [Backing up and restoring the repository](https://docs.alfresco.com/5.2/concepts/backup-intro.html)(#LINK).
+    2. Restore the repository database. See [Back up and restore the repository]({% link content-services/6.1/admin/backup-restore.md %}).
 
     3. Restore the Sync Service database using your database vendor's backup/restore tools.
 

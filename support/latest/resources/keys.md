@@ -18,4 +18,4 @@ To install an ACS license key, use the following the steps.
 
 3. Restart your Alfresco Content Services server.
 
-In addition, there is information regarding the license keys in [Working with licenses](LINK /concepts/license-process.html).
+In addition, there is information regarding the license keys in [Working with licenses]({% link content-services/latest/admin/license.md %}).

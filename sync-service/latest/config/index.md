@@ -85,7 +85,7 @@ The following prerequisites are required:
 
 Alfresco Sync Service 3.3 supplies the default configuration set in the `alfresco.global.properties` file directly to the Desktop Sync clients as users start the initial login.
 
-See [Setting up Desktop Sync (Windows)](https://docs.alfresco.com/desktopsync/tasks/ds-setup.html){:target="_blank"}(#LINK) and [Setting up Desktop Sync (Mac)](https://docs.alfresco.com/desktopsync/tasks/ds-setup-mac.html){:target="_blank"}(#LINK) for further details.
+See [Setting up Desktop Sync (Windows)]({% link desktop-sync/latest/install/index.md %}#faq/windows/setting-up-desktop-sync-on-windows) and [Setting up Desktop Sync (Mac)]({% link desktop-sync/latest/install/index.md %}#faq/windows/setting-up-desktop-sync-on-mac) for further details.
 
 The Identity Service may be configured with multiple applications. If an application is created for Alfresco Desktop Sync, then specific configuration properties must be included in the `sync/service-sync/config.yml` file.
 

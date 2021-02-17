@@ -9,7 +9,7 @@ There are several options for installing the Sync Service:
 
 > **Note:** It is recommended that you familiarize yourself with the concepts of containerized deployment before working with Docker, Kubernetes, and Helm.
 
-## Install with Zip
+## Install with zip
 
 Use these instructions to install the Sync Service repository modules and services on Alfresco Content Services.
 
@@ -39,9 +39,9 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.2.x.zip`, includes
 
 3. Stop the Alfresco repository.
 
-4. Use the Module Management Tool (MMT) to install the `alfresco-device-sync-repo-3.2.x.amp` AMP into the repository WAR. 
+4. Use the Module Management Tool (MMT) to install the `alfresco-device-sync-repo-3.2.x.amp` AMP into the repository WAR.
 
-    For more information, see instructions in [Install the AMP file](https://docs.alfresco.com/5.0/tasks/dev-extensions-tutorials-simple-module-install-amp.html)(#LINK).
+    For more information, see instructions in [Install the AMP file]({% link content-services/latest/install/zip/amp.md %}).
 
     For example, to apply the `alfresco-device-sync-repo-3.2.x.amp`, use the following command:
 
@@ -102,7 +102,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.2.x.zip`, includes
 
     If ActiveMQ is down, the repository transactions will fail and rollback. In production environments, it's advisable that you run an ActiveMQ cluster in failover mode to avoid this situation. See [ActiveMQ master/slave configurations](https://activemq.apache.org/masterslave.html){:target="_blank"}.
 
-    For more information, see [Setting up ActiveMQ](https://docs.alfresco.com/6.0/tasks/activemq-install.html)(#LINK).
+    For more information, see [Setting up ActiveMQ]({% link content-services/latest/config/activemq.md %}).
 
 9. Start the repository.
 
@@ -183,8 +183,8 @@ It is recommended that these deployment references are used as an accelerator by
 
 Follow these links to find out how to deploy Alfresco Content Services including the Sync Service using Helm charts or Docker Compose:
 
-* [Deploying Alfresco Content Services with Helm charts on AWS](https://docs.alfresco.com/6.2/tasks/deploy-helm-aws.html)(#LINK)
-* [Deploying using Docker Compose](https://docs.alfresco.com/6.2/tasks/deploy-docker-compose.html)(#LINK)
+* [Install with Helm charts]({% link content-services/latest/install/containers/helm.md %})
+* [Install with Docker Compose]({% link content-services/latest/install/containers/docker-compose.md %})
 
 Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
 
@@ -202,7 +202,7 @@ These instructions apply to both Alfresco Content Services and Alfresco One.
     java -jar bin/alfresco-mmt.jar uninstall alfresco-device-sync-repo-3.2.x.amp tomcat/webapps/alfresco.war
     ```
 
-    [Uninstall an AMP file](https://docs.alfresco.com/5.0/tasks/uninstall-amp.html)(#LINK) provides information on how to uninstall the AMP file, and remove the AMP content from the WAR files.
+    [Uninstall an AMP file]({% link content-services/latest/install/zip/amp.md %}#uninstall-an-amp-file) provides information on how to uninstall the AMP file, and remove the AMP content from the WAR files.
 
 3. Delete the Tomcat webapp directory.
 

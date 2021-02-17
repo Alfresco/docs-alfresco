@@ -10,13 +10,18 @@ Alfresco Content Services is an open source, open standard and open architecture
 
 Alfresco provides the following **supported APIs**:
 
-* On the Alfresco Content Services platform side, [Platform Public Java API](LINK java-public-api-list.html), [Javascript API](LINK API-JS-intro.html) and [Freemarker API](LINK API-FreeMarker-intro.html) [Platform Extension Points](LINK dev-platform-extension-points.html) to build powerful Alfresco Content Services **extensions**
-* On the Alfresco Share side, [Share Extension Points](LINK dev-extensions-share-extension-points-introduction.html) to extend the Share UI functionality
-* On the Alfresco repository side,[REST/CMIS APIs](LINK pra-welcome.html) to integrate and build powerful content centric applications and integrations
+* On the Alfresco Content Services platform side, build powerful Alfresco Content Services **extensions**:
+  * Platform Public Java API
+  * Javascript API
+  * [FreeMarker API
+  * [Platform Extension Points]({% link content-services/latest/develop/repo-ext-points/index.md %})
+* On the Alfresco Share side, [Share Extension Points]({% link content-services/latest/develop/share-ext-points/index.md %}) to extend the Share UI functionality
+* On the Alfresco repository side, integrate and build powerful content centric applications and integrations:
+  * [REST/CMIS APIs]({% link content-services/latest/develop/rest-api-guide/index.md %})
 
-These APIs are part of the Alfresco developer platform and should be used to extend Alfresco Content Services. The **API Support Status** is defined at API-set level and maintained in the [Product Support Status](https://www.alfresco.com/alfresco-product-support-status){:target="_blank"} page.
+These APIs are part of the Alfresco developer platform and should be used to extend Alfresco Content Services. The **API Support Status** is defined at API-set level and maintained in the [Product Support Status](https://www.alfresco.com/services/subscription/technical-support/product-support-status){:target="_blank"} page.
 
-> **NOTE:** Customizations and Integrations not using these supported APIs **cannot be supported by Alfresco Software**.
+> **Note:** Customizations and Integrations not using these supported APIs **cannot be supported by Alfresco Software**.
 
 ## Supported Extension Points
 
@@ -24,12 +29,12 @@ In addition to its APIs, Alfresco provides several way to extend the Alfresco Co
 
 Alfresco provides the following **Supported Extension Points**:
 
-* [Platform Extension Points](LINK dev-platform-extension-points.html) to extend out of the box Alfresco Content Services Platform functionality
-* [Share Extension Points](LINK dev-extensions-share-extension-points-introduction.html) to extend out of the box the Alfresco Share functionality
+* [Platform Extension Points]({% link content-services/latest/develop/repo-ext-points/index.md %}) to extend out of the box Alfresco Content Services Platform functionality
+* [Share Extension Points]({% link content-services/latest/develop/share-ext-points/index.md %}) to extend out of the box the Alfresco Share functionality
 
-These Extension points are part of the Alfresco Developer platform and should be used to extend Alfresco Content Services. The **Extension Points Support Status** is defined per each Extension Point for [Platform](LINK dev-platform-extension-points.html) and [Share](LINK dev-extensions-share-extension-points-introduction.html).
+These Extension points are part of the Alfresco Developer platform and should be used to extend Alfresco Content Services. The **Extension Points Support Status** is defined per each Extension Point for [Platform]({% link content-services/latest/develop/repo-ext-points/index.md %}) and [Share]({% link content-services/latest/develop/share-ext-points/index.md %}).
 
-> **NOTE:** Customizations and Integrations not using these supported Extension Points **cannot be supported by Alfresco Software**.
+> **Note:** Customizations and Integrations not using these supported Extension Points **cannot be supported by Alfresco Software**.
 
 ## Versioning and Backward compatibility
 

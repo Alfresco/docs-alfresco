@@ -15,9 +15,9 @@ See [Supported platforms]({% link sync-service/3.0/support/index.md %}) for mo
 ### General requirements
 
 * Messaging broker
-  * See [Setting up ActiveMQ](https://docs.alfresco.com/6.0/tasks/activemq-install.html)(#LINK) for more information about installing ActiveMQ.
+  * See [Setting up ActiveMQ]({% link content-services/6.0/config/activemq.md %}) for more information about installing ActiveMQ.
 
-* Make sure that search indexing is [enabled](https://docs.alfresco.com/6.0/concepts/search-home.html)(#LINK).
+* Make sure that search indexing is [enabled]({% link search-services/1.4/index.md %}).
 
 ## Installation options
 

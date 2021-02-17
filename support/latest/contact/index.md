@@ -30,7 +30,7 @@ Alfresco consultants work on a per day basis and their services must be purchase
 
 ## Partner Enablement Team
 
-The Partner Enablement Team helps Partners with their specific environment, general and pre-sales related questions. You can find more at [Partner Central](https://partners.alfresco.com){:target="_blank"} or by contacting [partner-feedback@alfresco.com](mailto:partner-feedback@alfresco.com).
+The Partner Enablement Team helps Partners with their specific environment, general and pre-sales related questions. You can find more at [Partner Central](https://partners.alfresco.com/English/){:target="_blank"} or by contacting [partner-feedback@alfresco.com](mailto:partner-feedback@alfresco.com).
 
 ## Support contacts
 
