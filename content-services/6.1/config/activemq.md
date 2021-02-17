@@ -10,7 +10,7 @@ For information about installing ActiveMQ for your specific product, see:
 
 * [Alfresco Media Management]({% link media-management/1.3/install/index.md %})
 * [Alfresco Sync Service]({% link sync-service/3.1/install/options.md %})
-* [Alfresco Transform Service]({% link transform-service/latest/install/index.md %}) (available only as part of Content Services containerized deployment)
+* [Alfresco Transform Service]({% link transform-service/1.0/install/index.md %}) (available only as part of Content Services containerized deployment)
 
 For more advanced configuration, such as security, transport connectors, or memory settings, see [Configure advanced settings for ActiveMQ](#advanced).
 
