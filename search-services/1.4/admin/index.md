@@ -16,7 +16,7 @@ There are a number of ways to back up Search Services. You can set the Solr inde
 
 You can only see the Admin Console if you're an administrator.
 
-1. Launch the Admin Console. For information, see [Launching the Admin Console](#LINK-tasks/adminconsole-open.html).
+1. Launch the Admin Console. For information, see [Launch Admin Console]({% link content-services/latest/admin/admin-console.md %}#launch-admin-console).
 2. In the **Repository Services** section, click **Search Service**.
 
     You see the Search Service page.

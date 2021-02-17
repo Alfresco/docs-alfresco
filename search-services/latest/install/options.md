@@ -190,7 +190,8 @@ This task assumes you have:
 
 Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS.
 
-Mutual TLS is used for authentication between the Repository and Search Services. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy LINK LINK](https://docs.alfresco.com/6.1/concepts/reverse-proxy.html) for more.
+Mutual TLS is used for authentication between the Repository and Search Services. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy in front of Content Services]({% link content-services/latest/install/zip/tomcat.md %}#adding-a-reverse-proxy-in-front-of-content-services)
+ for more.
 
 This task assumes you have:
 
