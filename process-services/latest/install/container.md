@@ -7,7 +7,7 @@ There are two options for installing Process Services using containers:
 * For trials, testing and development it's recommended to deploy with Docker for Desktop.
 * For production environments, there's a reference Helm chart available for installation into a Kubernetes cluster.
 
-> **Note**: See the [containerization support policy](TODO_LINK:https://docs.alfresco.com/support/concepts/su-containerization-policy.html) for information regarding the supportability of Docker images and Helm charts.
+> **Note**: See the [containerization support policy]({% link support/latest/policies/containerization.md %}) for information regarding the supportability of Docker images and Helm charts.
 
 ## Install with Docker
 
@@ -152,7 +152,7 @@ There are several prerequisites for deploying on Amazon EKS using Helm charts:
 * A Kubernetes namespace configured for Process Services.
 * Helm and Tiller configured in the Kubernetes cluster. See [Helm's quickstart guide](https://docs.helm.sh/using_helm/#quickstart-guide){:target="_blank"} for reference.
 
-Use the following steps to deploy Process Services, Process Services Administrator, Process Workspace, a Postgres database and optionally the [Identity Service](TODO_LINK:https://docs.alfresco.com/identity/concepts/identity-overview.html):
+Use the following steps to deploy Process Services, Process Services Administrator, Process Workspace, a Postgres database and optionally the [Identity Service]({% link identity-service/1.2/index.md %}):
 
 1. Create a Kubernetes secret to access images in Quay.
 
