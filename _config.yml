@@ -371,9 +371,11 @@ defaults:
       path: "aws-s3/3.0"
     values:
       version: 3.0
+  - scope:
       path: "aws-s3/2.3"
     values:
       version: 2.3
+  - scope:
       path: "aws-s3/2.2"
     values:
       version: 2.2

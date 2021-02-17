@@ -10,7 +10,7 @@ Here, you'll use the Identity Service with Salesforce and Alfresco Content Servi
 
 Before you begin ensure you've installed:
 
-* [Alfresco Content Services](https://docs.alfresco.com/6.2/concepts/master-deploy.html)(#LINK) 6.2.1 or above
+* [Alfresco Content Services]({% link content-services/latest/install/index.md %}) 6.2.1 or above
 * [Alfresco Content Connector for Salesforce]({% link salesforce/latest/install/index.md %}) 2.2 or above
 * [Identity Service]({% link identity-service/latest/install/index.md %}) 1.3 or above
 

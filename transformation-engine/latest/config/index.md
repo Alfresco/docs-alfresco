@@ -18,9 +18,9 @@ Use this information to configure the standalone Document Transformation Engine.
 
 3. Enter a new password, and then click **Change** to save the password.
 
-4. To set up SSL with the Document Transformation Engine, update or replace the keystore in the default location: `C:\\Program Files (x86)\\TransformationServer\\tomcat\\conf\\.keystore` using the method described in [Configuring SSL for a test environment](LINK).
+4. To set up SSL with the Document Transformation Engine, update or replace the keystore in the default location: `C:\\Program Files (x86)\\TransformationServer\\tomcat\\conf\\.keystore` using the method described in [Configuring SSL for a test environment]({% link content-services/latest/admin/security.md %}#managealfkeystores).
 
-    See [Managing Alfresco keystores](LINK) for more information about keystores.
+    See [Managing Alfresco keystores]({% link content-services/latest/config/repository.md %}#configure-ssl-for-a-test-environment) for more information about keystores.
 
 ## Configure the Alfresco Transformation client
 
@@ -81,7 +81,7 @@ In a normal setup, you will always overwrite the `transformserver.password` and 
 
 The Alfresco Transformation client configuration parameters are exposed as JMX MBeans, which means that you can view and set the parameters using a JMX client.
 
-See [Using a JMX client to change settings dynamically](LINK) for instructions on how to connect a JMX client to your server.
+See [Using a JMX client to change settings dynamically]({% link content-services/latest/config/index.md %}#using-jmx-client-to-change-settings-dynamically) for instructions on how to connect a JMX client to your server.
 
 ### Configuration using the default configuration properties file
 

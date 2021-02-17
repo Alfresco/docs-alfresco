@@ -71,7 +71,7 @@ If you need to override them for your environment, check the available settings 
 
 7.  Set where the cached content is stored, and how much cache size you need.
 
-    The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`. See [CachingContentStore properties](#LINK content-services/6.1/admin/content-stores.md caching-content-store-ccs) for more information on the caching content store.
+    The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`. See [CachingContentStore properties]({% link content-services/6.1/admin/content-stores.md %}#caching-content-store-ccs) for more information on the caching content store.
 
     >**Note:** The size of the local caching content store can be configured as necessary to limit its use to a maximum overall size or by files with a maximum file size. For example:
 
@@ -148,7 +148,7 @@ You may need to configure a number of optional properties for the S3 Connector 2
     s3.flatRoot=true
     ```
 
-    >**Note:** For a multi-tenant system you can also set `s3.useTenantDomainInPath=false`, however content from different tenants is co-mingled. For more details, see [Setting up multi-tenancy](#LINK content-services/6.1/admin/multi-tenancy.md ).
+    >**Note:** For a multi-tenant system you can also set `s3.useTenantDomainInPath=false`, however content from different tenants is co-mingled. For more details, see [Setting up multi-tenancy]({% link content-services/6.1/admin/multi-tenancy.md %}).
 
     You can apply S3 Connector 2.0 to an existing installation where S3 Connector 1.x was previously used without affect to the running of the system. This means that existing paths remain as they are, and new paths are generated based on your configuration.
 
@@ -196,7 +196,7 @@ configuration steps in [Configuring the S3 Connector]({% link aws-s3/2.2/config/
 dir.contentstore=${dir.root}/contentstore
 ```
 
-As an existing customer using the default [Encrypted content store](#LINK content-services/6.1/admin/content-stores.md }#encrypted-content-store) configuration, the environment uses:
+As an existing customer using the default [Encrypted content store]({% link content-services/6.1/admin/content-stores.md %}#encrypted-content-store) configuration, the environment uses:
 
 * AES256 encryption for new content
 * Content decryption on reads from the existing on-premises files
@@ -350,7 +350,7 @@ You can configure AWS KMS by adding the relevant properties to the global proper
 
 Alfresco supports server-side encryption for content stored in AWS S3. There are several encryption types that you can configure to use with S3 Connector. These include AWS Managed Encryption, and AWS Key Management Service (KMS) Encryption.
 
->**Note:** S3 doesn't work with the [Alfresco Content Encryption](#LINK content-services/6.1/admin/content-stores.md #encrypted-content-store) module. When using the S3 Connector we recommend using AWS KMS.
+>**Note:** S3 doesn't work with the [Alfresco Content Encryption]({% link content-services/6.1/admin/content-stores.md %}#encrypted-content-store) module. When using the S3 Connector we recommend using AWS KMS.
 
 **AWS Key Management Service (KMS) Encryption**
 

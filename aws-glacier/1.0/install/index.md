@@ -10,9 +10,9 @@ There are a number of software requirements for installing the Glacier Connector
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.0 or 6.1 - [installed using the distribution zip](#LINK content-services/6.1/install/zip/index.md)
+* Alfresco Content Services 6.0 or 6.1 - [installed using the distribution zip]({% link content-services/6.1/install/zip/index.md %})
 
-* Alfresco Content Connector for AWS S3 2.3 - [installed and configured](#LINK aws-s3/2.3/index.md )
+* Alfresco Content Connector for AWS S3 2.3 - [installed and configured]({% link aws-s3/2.3/index.md %})
 
 * Alfresco Governance Services 3.0 or later - [installed using the distribution zip]({% link governance-services/3.0/install/zip.md %})
 
@@ -36,7 +36,7 @@ When you purchase the Glacier Connector, a support case is created with the AMP 
 
 2. Use the Module Management Tool (MMT) to install the `alfresco-glacier-connector-repo-2.1.x.amp` file into the repository WAR (`alfresco.war`).
 
-    See the Alfresco Content Services documentation for [Using the Module Management Tool (MMT)](#LINK content-services/6.1/develop/extension-packaging/#using-the-module-management-tool-md) and [Installing an Alfresco Module Package](#LINK content-services/6.1/install/zip/amp.md ).
+    See the Alfresco Content Services documentation for [Using the Module Management Tool (MMT)]({% link content-services/6.1/develop/extension-packaging.md %}#using-the-module-management-tool-md) and [Installing an Alfresco Module Package]({% link content-services/6.1/install/zip/amp.md %}).
 
 3. Restart Alfresco Content Services.
 

@@ -101,7 +101,7 @@ See [Prerequisites for using Salesforce Connector](#prerequisites) for more info
     http://localhost:8080/share
     ```
 
-    where `localhost` is your Alfresco host name, and `8080` is your port number. Follow these instructions: [Creating sites](https://docs.alfresco.com/6.2/tasks/sites-create.html)(#LINK). You can use this as your default site for Salesforce.
+    where `localhost` is your Alfresco host name, and `8080` is your port number. Follow these instructions: [Creating sites]({% link content-services/6.0/using/sites/index.md %}#creating-a-site). You can use this as your default site for Salesforce.
 
 ## Step 2: Install the Salesforce connector app {#installapp}
 
@@ -322,7 +322,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
     * `Enabled`: metadata is synchronized with the Alfresco object model.
     * `Disabled`: metadata can't be synchronized with the Alfresco object model.
 
-    >**Note:** Models are inactive when they are added to Salesforce, and can be deleted while they're inactive. A model can be explicitly activated and deactivated. A model can be deleted only if it's deactivated and has not been used. If the model has been used and a user attempts to delete it, an error message is issued explaining that it can't be removed. See [Content modeling with Model Manager](https://docs.alfresco.com/6.2/concepts/admintools-cmm-intro.html)(#LINK) for more.
+    >**Note:** Models are inactive when they are added to Salesforce, and can be deleted while they're inactive. A model can be explicitly activated and deactivated. A model can be deleted only if it's deactivated and has not been used. If the model has been used and a user attempts to delete it, an error message is issued explaining that it can't be removed. See [Content modeling with Model Manager]({% link content-services/6.0/config/models.md %}) for more.
     >**Note:** Do not edit the prefix of a Salesforce model, as this can make your model unusable. Also, do not update the model in the Model Manager in Share.
 
     Here is an example of a completed Alfresco Setup tab:
@@ -550,7 +550,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
     * `Enabled`: metadata is synchronized with the Alfresco object model.
     * `Disabled`: metadata can't be synchronized with the Alfresco object model.
 
-    >**Note:** Models are inactive when they are added to Salesforce, and can be deleted while they are inactive. A model can be explicitly activated and deactivated. A model can be deleted only if it is deactivated and has not been used. If the model has been used and a user attempts to delete it, an error message is issued explaining that it can't removed. See [Content modeling with Model Manager](https://docs.alfresco.com/6.2/concepts/admintools-cmm-intro.html)(#LINK) for more.
+    >**Note:** Models are inactive when they are added to Salesforce, and can be deleted while they are inactive. A model can be explicitly activated and deactivated. A model can be deleted only if it is deactivated and has not been used. If the model has been used and a user attempts to delete it, an error message is issued explaining that it can't removed. See [Content modeling with Model Manager]({% link content-services/6.0/config/models.md %}) for more.
     >**Note:** Do not edit the prefix of a Salesforce model, as this can make your model unusable.
 
     Here is an example of a completed Alfresco Setup tab:
@@ -607,6 +607,6 @@ Remove the Alfresco package in Salesforce and then use the Module Management Too
 
 3. Stop the server.
 
-4. Use the information in [Uninstalling an AMP file](https://docs.alfresco.com/6.2/tasks/uninstall-amp.html)(#LINK) to uninstall the AMP files for Salesforce.
+4. Use the information in [Uninstalling an AMP file]({% link content-services/6.0/install/zip/amp.md %}#uninstall-an-amp-file) to uninstall the AMP files for Salesforce.
 
 5. Restart the server.
