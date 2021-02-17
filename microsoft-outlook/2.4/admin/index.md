@@ -23,7 +23,7 @@ Once you've installed the Outlook client and completed the configuration, you sh
 
 ### Additional steps needed when using AD FS with SAML SSO and Outlook
 
->**Note:** The following steps assume you've already [Configured Active Directory]({% link saml-module/latest/config/adfs.md %}) (AD FS) identity provider (IdP)
+>**Note:** The following steps assume you've already [Configured Active Directory]({% link saml-module/1.1/config/adfs.md %}) (AD FS) identity provider (IdP)
 
 When AD FS is used to authenticate the Outlook Integration, you'll need to check the following settings in the IDP server:
 
