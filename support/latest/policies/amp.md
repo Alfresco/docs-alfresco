@@ -15,7 +15,7 @@ Extensions and integrations can be classified based on their provenience:
 
 ## Alfresco Supported Extensions and Integrations
 
-An AMP/JAR will only be supported if it is documented in the [Official Documentation Online](https://docs.alfresco.com), since this will mean that it:
+An AMP/JAR will only be supported if it is documented in the [Official Documentation Online](/), since this will mean that it:
 
 * Has been through a full QA cycle
 * Support have the infrastructure to test and reproduce issues
@@ -34,7 +34,7 @@ An AMP/JAR developed by the Alfresco Community and therefore unsupported. The ma
 
 ## Alfresco Unsupported Extensions and integrations
 
-An AMP/JAR developed by Alfresco is considered to be unsupported if it is not documented in the [Official Documentation](https://docs.alfresco.com). In addition, the following will also be true:
+An AMP/JAR developed by Alfresco is considered to be unsupported if it is not documented in the [Official Documentation](/). In addition, the following will also be true:
 
 * The module.title will include the term unsupported (Alfresco One 3.1 onwards)
 * The AMP is only available for download from the Labs sites (Alfresco One 3.1 onwards)

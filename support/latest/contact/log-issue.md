@@ -14,7 +14,7 @@ The self-service tools are as follows:
 
 * Alfresco Documentation
 
-    The officially supported [Alfresco Documentation](https://docs.alfresco.com/) has all the current information on installing, configuring, using, administering, customizing, extending, and troubleshooting for your major version of Alfresco products.
+    The officially supported [Alfresco Documentation](/) has all the current information on installing, configuring, using, administering, customizing, extending, and troubleshooting for your major version of Alfresco products.
 
 Should you not find your answer using the self-service tools, please log a support case using one of the following methods:
 
