@@ -4,7 +4,7 @@ title: Upgrade Governance Services
 
 To upgrade Governance Services you need to make sure you're running the correct version of Alfresco Content Services.
 
-Check the [Supported Platforms](TODO_LINK:http://docs.alfresco.com/6.2/concepts/supported-platforms-ACS.html) and the [Alfresco Content Services upgrade paths](TODO_LINK:http://docs.alfresco.com/6.2/concepts/upgrade-path.html).
+Check the [Supported Platforms]({% link content-services/latest/support/index.md %}) and the [Alfresco Content Services upgrade paths]({% link content-services/latest/upgrade/index.md %}).
 
 When your Alfresco Content Services installation is upgraded, you can apply the new AMP files for Governance Services.
 
@@ -16,7 +16,7 @@ When your Alfresco Content Services installation is upgraded, you can apply the 
 
 4. Upgrade to Alfresco Content Services.
 
-    For more information about upgrading Alfresco Content Services, see [Upgrading Alfresco](TODO_LINK:https://docs.alfresco.com/6.2/concepts/ch-upgrade.html).
+    For more information about upgrading Alfresco Content Services, see [Upgrading Alfresco]({% link content-services/latest/upgrade/index.md %}).
 
     You can start the server at this point to verify that the upgrade was successful.
 

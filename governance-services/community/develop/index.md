@@ -14,8 +14,6 @@ You can download the API Explorer from:
 
 Deploy it on the same port as Governance Services and test the APIs with your server directly from the API Explorer.
 
-You can read more about working with Alfresco APIs in the [Alfresco API Guide](TODO_LINK:http://docs.alfresco.com/community/concepts/dev-api-intro.html).
-
 The following table provides a brief overview of each API.
 
 |API|Description|
