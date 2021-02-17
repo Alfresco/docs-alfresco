@@ -72,7 +72,7 @@ You can disable these settings by deselecting **Enable SAML (SSO) Authentication
 
 Administrators can enable and configure SAML authentication for Share using the `alfresco-global.properties` file and a combination of subsystem properties files.
 
-The SAML module uses subsystems to control, configure, and extend the service providers that are supported, therefore it is recommended to use this approach when configuring the subsystems. The SAML subsystems can be configured like any other Alfresco subsystem. For more information, see [Extension classpath](LINK).
+The SAML module uses subsystems to control, configure, and extend the service providers that are supported, therefore it is recommended to use this approach when configuring the subsystems. The SAML subsystems can be configured like any other Alfresco subsystem. For more information, see [Extension classpath]({% link content-services/6.1/config/subsystems.md %}#extension-classpath).
 
 > **Note:** Properties set in the `alfresco-global.properties file` apply to the entire SAML module, including all the SAML subsystem instances, such as Alfresco Share, REST API, and Alfresco Office Services.
 
@@ -230,7 +230,7 @@ The following is the attribute available for `Alfresco:Type=Configuration, Categ
 |--------------|-------------|
 |chain|`share:share,rest-api:repository,aos:repository`|
 
-A [complete list of of Alfresco MBeans](LINK) is also available.
+A [complete list of of Alfresco MBeans]({% link content-services/6.1/admin/jmx-reference.md %}) is also available.
 
 {% endcapture %}
 
@@ -499,7 +499,7 @@ The following is the attribute available for `Alfresco:Type=Configuration, Categ
 |--------------|-------------|
 |chain|`share:share,rest-api:repository,aos:repository`|
 
-A [complete list of of Alfresco MBeans](LINK) is also available.
+A [complete list of of Alfresco MBeans]({% link content-services/6.1/admin/jmx-reference.md %}) is also available.
 
 {% endcapture %}
 
@@ -788,7 +788,7 @@ The following is the attribute available for `Alfresco:Type=Configuration, Categ
 |--------------|-------------|
 |chain|`share:share,rest-api:repository,aos:repository`|
 
-A [complete list of of Alfresco MBeans](LINK) is also available.
+A [complete list of of Alfresco MBeans]({% link content-services/6.1/admin/jmx-reference.md %}) is also available.
 
 {% endcapture %}
 

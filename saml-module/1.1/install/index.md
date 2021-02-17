@@ -4,7 +4,7 @@ title: Install with Zip
 
 The SAML Module is installed as a module of Alfresco Content Services. These modules are referred to as Alfresco Module Packages (AMP) and use the `.amp` file format.
 
-AMPs can be installed in the `amps` directory of your Alfresco Content Services installation or by using the [Module Management Tool](LINK).
+AMPs can be installed in the `amps` directory of your Alfresco Content Services installation or by using the [Module Management Tool]({% link content-services/6.1/develop/extension-packaging.md %}#using-the-module-management-tool-mmt).
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ If you have not enforced SAML for a specific service provider, you can use the o
 
     Check the output from the script to ensure that the AMP files have installed successfully.
 
-5. If you are not using Tomcat, use the [Module Management Tool](LINK) to apply the AMP files.
+5. If you are not using Tomcat, use the [Module Management Tool]({% link content-services/6.1/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) to apply the AMP files.
 
 6. The SAML module does not supply a service provider certificate that is used to sign messages sent to the IdP. You must generate your own certificate, as shown in the following example:
 
@@ -116,11 +116,11 @@ If you have not enforced SAML for a specific service provider, you can use the o
 
 ## Uninstall steps
 
-Use the [Module Management Tool](LINK) to uninstall the SAML Module from Alfresco Content Services.
+Use the [Module Management Tool]({% link content-services/6.1/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) to uninstall the SAML Module from Alfresco Content Services.
 
 1. Stop the Alfresco server.
 
-2. Use the information in [Uninstalling an AMP file](LINK) to uninstall each AMP file.
+2. Use the information in [Uninstalling an AMP file]({% link content-services/6.1/install/zip/amp.md %}#uninstall-an-amp-file) to uninstall each AMP file.
 
     For example, from the Alfresco root directory, you need two commands:
 

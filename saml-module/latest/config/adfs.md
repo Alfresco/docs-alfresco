@@ -15,7 +15,7 @@ The following steps are example instructions for configuring Active Directory Fe
 
 1. Run a full LDAP sync. This can be done by restarting Alfresco Content Services.
 
-    > **Note**: If a user exists in LDAP, but not in Alfresco, they will not be able to log in to Alfresco when SAML is enabled. See [Configuring LDAP (Active Directory)](LINK) for more information.
+    > **Note**: If a user exists in LDAP, but not in Alfresco, they will not be able to log in to Alfresco when SAML is enabled. See [Configuring LDAP (Active Directory)]({% link content-services/latest/admin/auth-sync.md %}#configure-ldap) for more information.
 
 2. Install ADFS. For example purposes we will use a domain name of `example.com` and a Federation Service name of `adfs.example.com`.
 
