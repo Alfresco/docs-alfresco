@@ -108,6 +108,9 @@ integrations:
       - title: "SAP"
         text: "Alfresco Content Connector for SAP applications offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
         url: /sap/latest/
+      - title: "Microsoft 365"
+        text: "Alfresco Collaboration Connector for Microsoft 365 allows you to integrate with Microsoft Office Online applications from the Alfresco Digital Workspace."
+        url: /microsoft-365/latest/
       - title: "Microsoft Outlook"
         text: "Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook."
         url: /microsoft-outlook/latest/
