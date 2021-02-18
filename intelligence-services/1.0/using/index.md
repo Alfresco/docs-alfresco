@@ -48,7 +48,7 @@ You can use the Intelligence Services components by setting up a folder rule and
 
     ![Example of a completed rule]({% link intelligence-services/images/completed-rule.png %})
 
-    See the Alfresco Content Services documentation, [Applying rules to folders](https://docs.alfresco.com/6.1/concepts/library-folder-rules.html)(#LINK) to find out more about folder rules.
+    See the Content Services documentation, [Folder rules]({% link content-services/6.1/using/content/rules.md %}) to find out more about applying folder rules.
 
 10. Next, upload content to your test folder.
 

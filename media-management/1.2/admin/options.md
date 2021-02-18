@@ -14,7 +14,7 @@ localhost:8080/alfresco/service/mimetypes?mimetype=*
 
 where `localhost:8080` is the host and port number of your active Alfresco Content Services instance.
 
-Audio and video files are transformable using FFmpeg. Image files are transformable using ImageMagick. The formats listed are in addition to the standard formats as specified in [Standard Transform Options](#LINK content-services/6.0/admin/transformations.md)#standard-transform-options).
+Audio and video files are transformable using FFmpeg. Image files are transformable using ImageMagick. The formats listed are in addition to the standard formats as specified in [Standard Transform Options]({% link content-services/6.0/admin/transformations.md %}#standard-transform-options).
 
 ```text
 application/eps - eps, image/bmp - bmp, image/cgm - cgm, image/gif - gif, image/ief - ief, image/jp2 - jp2, image/jpeg - jpg, image/png - png, image/tiff - tiff, image/vnd.adobe.photoshop - psd, image/vnd.adobe.premiere - ppj, image/x-dwg - dwg, image/x-dwt - dwt, image/x-portable-anymap - pnm, image/x-portable-bitmap - pbm, image/x-portable-graymap - pgm, image/x-portable-pixmap - ppm, image/x-raw-adobe - dng, image/x-raw-canon - cr2, image/x-raw-fuji - raf, image/x-raw-hasselblad - 3fr, image/x-raw-kodak - k25, image/x-raw-leica - rwl, image/x-raw-minolta - mrw, image/x-raw-nikon - nef, image/x-raw-olympus - orf, image/x-raw-panasonic - rw2, image/x-raw-pentax - pef, image/x-raw-red - r3d, image/x-raw-sigma - x3f, image/x-raw-sony - arw, image/x-rgb - rgb, image/x-xpixmap - xpm and image/x-xwindowdump - xwd

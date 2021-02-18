@@ -8,4 +8,4 @@ The following are the supported platforms for Alfresco Media Management:
 
 | Version | Supported | Notes |
 | ------- | --------- | ----- |
-| Alfresco Content Services 6.0 | |
+| Content Services 6.0 | |

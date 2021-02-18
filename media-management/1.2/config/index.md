@@ -121,7 +121,7 @@ You can configure Media Management using the alfresco-global.properties file or 
 
     A `log4j.properties.sample` file is provided in the Media Management installation zip.
 
-    See [Runtime administration with a JMX client](#LINK content-services/6.0/config/index.md #using-jmx-client-to-change-settings-dynamically) for instructions on how to connect a JMX client to your Alfresco server.
+    See [Runtime administration with a JMX client]({% link content-services/6.0/config/index.md %}#using-jmx-client-to-change-settings-dynamically) for instructions on how to connect a JMX client to your Alfresco server.
 
 ## Configuring a shared file content workspace
 
@@ -165,7 +165,7 @@ Ensure that you have installed the required external and internal software. See 
 
     For more information about the content services framework, see [Content services node architecture]({% link media-management/1.2/index.md %}).
 
-4. Start your Alfresco Content Services server to apply the changes.
+4. Start your Content Services server to apply the changes.
 
 ## Configuring an Amazon S3 shared content workspace
 
@@ -217,7 +217,7 @@ Ensure that you have installed the required external and internal software. See 
 
     For more information about the content services framework, see [Content services node architecture]({% link media-management/1.2/index.md %}).
 
-4. Start your Alfresco Content Services server to apply the changes.
+4. Start your Content Services server to apply the changes.
 
 ## Configuring transformation services
 
@@ -232,7 +232,7 @@ content.transformer.RemoteImage.mimetypes.image/*.image/*.supported=false
 
 ```
 
-> **Note:** Video transformation (transcoding) is very resource intensive and can take a long time to complete. Make sure that any rules that you configure using video transcoding run in the background, to prevent the rule from failing due to a Share timeout. For more information about creating rules, see [Creating a rule](#LINK content-services/6.0/using/content/rules.md #createrule).
+> **Note:** Video transformation (transcoding) is very resource intensive and can take a long time to complete. Make sure that any rules that you configure using video transcoding run in the background, to prevent the rule from failing due to a Share timeout. For more information about creating rules, see [Creating a rule]({% link content-services/6.0/using/content/rules.md %}#createrule).
 
 ## Configuring the Elastic Transcoder content transformer
 
@@ -254,7 +254,7 @@ Ensure that you have installed the required external and internal software befor
     content.transformer.AwsElasticTranscoder.transcoder.secretKey=**MY-TRANSCODE-SECRET-KEY**
     content.transformer.AwsElasticTranscoder.transcoder.pipelineId=**MY-PIPELINE-ID**
     content.transformer.AwsElasticTranscoder.transcoder.region=EU_WEST_1
-    content.transformer.AwsElasticTranscoder.transcoder.defaultPreset.video/mp4=1351620000001-000010 
+    content.transformer.AwsElasticTranscoder.transcoder.defaultPreset.video/mp4=1351620000001-000010
     ```
 
     A sample `alfresco-global.properties` file is shipped in the root folder of the Media Management distribution zip, which defines custom properties.
@@ -272,7 +272,7 @@ Ensure that you have installed the required external and internal software befor
 
 ## Configuring a CloudFront publishing channel
 
-You can configure Alfresco Content Services to use the AWS CloudFront publishing channel to make content available outside your organization.
+You can configure Content Services to use the AWS CloudFront publishing channel to make content available outside your organization.
 
 Configure a publishing channel to allow you upload and manipulate content in the Amazon CloudFront Content Delivery Network (CDN).
 

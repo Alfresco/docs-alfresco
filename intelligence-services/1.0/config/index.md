@@ -91,4 +91,4 @@ A number of environment variables allow you to specify the configuration options
 
     For more details on extending the features of Digital Workspace, see the Alfresco Content Application documentation: [Extending](https://alfresco-content-app.netlify.com/#/extending/){:target="_blank"}.
 
-You're now ready to start Alfresco Content Services.
+You're now ready to start Content Services.

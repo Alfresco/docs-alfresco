@@ -10,9 +10,9 @@ It is important to note the URL required to access Alfresco from a Microsoft Off
 
 ![Office Services architecture]({% link microsoft-office/images/architecture.png %})
 
-Communication is over HTTP with either the Alfresco repository (through Alfresco Share) or directly from a Microsoft Office application.
+Communication is over HTTP with either the repository (through Alfresco Share) or directly from a Microsoft Office application.
 
-If you are using a proxy server to handle SSL communication, the proxy handles the communication with Share and Microsoft Office through an AJP port (if you are using Tomcat). For more information about setting up a proxy server, see [Configuring SSL](LINK /6.0/concepts/configure-ssl-intro.html). The architecture is as follows:
+If you are using a proxy server to handle SSL communication, the proxy handles the communication with Share and Microsoft Office through an AJP port (if you are using Tomcat). For more information about setting up a proxy server, see [Configuring SSL]({% link content-services/latest/config/repository.md %}#ssl-repo). The architecture is as follows:
 
 ![Office Services proxy architecture]({% link microsoft-office/images/architecture-proxy.png %})
 
@@ -22,22 +22,22 @@ AOS replaces and enhances the Microsoft SharePoint Protocol Support that was ava
 
 There are some dependencies that you might encounter when using Alfresco Office Services (AOS).
 
-* AOS relies on SSL to allow communication with the Alfresco repository:
-  * You must activate SSL when using Alfresco Office Services 1.3. For more information, see [Configuring SSL](LINK /6.0/concepts/configure-ssl-intro.html).
-     If you are using a proxy server to handle SSL, make sure that the proxy is not filtering requests to Alfresco. For more information on proxy SSL configurations, see [Configuring SSL in a production environment](LINK 6.0/tasks/configure-ssl-prod.html).
+* AOS relies on SSL to allow communication with the repository:
+  * You must activate SSL when using Alfresco Office Services 1.3. For more information, see [Configuring SSL]({% link content-services/latest/config/repository.md %}).
+     If you are using a proxy server to handle SSL, make sure that the proxy is not filtering requests to Alfresco. For more information on proxy SSL configurations, see [Configuring SSL in a production environment]({% link content-services/latest/config/repository.md %}#ssl-prod).
   * There are some limitations when using the Alfresco `external` authentication subsystem. External authentication can work well when using a web browser client, but not when using the MS Office client. This is because no authentication information is sent with the file URL, and MS Office does not store authentication information, so starts a new authentication process. An example of this is when using CAS. CAS authenticates using an HTML form and a web browser that follows an HTTP redirect. The web authentication works correctly, but MS Office authentication will not work because it does not permit completion of the form. This problem is caused by the limited set of authentication protocols that MS Office supports.
 
     MS Office supports the following authentication mechanisms:
 
         * HTTP Basic
         * HTTP Digest (NTLM, Kerberos)
-        
+
         NTLM and Kerberos can be used in an SSO environment.
 
   * There is limited support for AOS with Microsoft Office for Mac. It is a known problem that there is no property mapping function in Microsoft Office for Mac.
 * AOS is installed by default during the standard Alfresco installation:
-  * If you are installing the Alfresco repository manually, you'll need to install the Alfresco Office Services AMP file. See the guidance in [Installing an Alfresco Module Package](LINK 6.0/tasks/amp-install.html) for installing an AMP file.
-  * If you have a custom application that is running at the server root directory, it is important that you merge the `_vti_inf.html` and `index.jsp` files into this application to enable AOS. For more information, see [Installing Alfresco into an existing web application](LINK 6.0/tasks/install-server-root.html).
+  * If you are installing the repository manually, you'll need to install the Alfresco Office Services AMP file. See the guidance in [Install an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}) for more information.
+  * If you have a custom application that is running at the server root directory, it is important that you merge the `_vti_inf.html` and `index.jsp` files into this application to enable AOS. For more information, see [Install into an existing web application]({% link microsoft-office/latest/install/index.md %}#installing-into-an-existing-web-application).
 * AOS interacts very closely with Microsoft Office, and there are some implications as a result:
   * Alfresco simulates a SharePoint Site in the `/alfresco/aos` directory and uses the child folder to represent the SharePoint document library. As a result, Office does not check out documents in the repository root; that is, if your document is located in `/alfresco/aos`. Make sure that you add a child folder in the `/alfresco/aos` directory and place documents there. For example:
 

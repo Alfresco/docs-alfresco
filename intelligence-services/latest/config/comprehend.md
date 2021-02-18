@@ -4,9 +4,9 @@ title: Custom configuration - Comprehend
 
 Use this information to configure and deploy a custom AI recognizer and a custom AI classifier using Amazon Comprehend.
 
-This guide takes you through the journey of configuring your Alfresco Content Services instance to enrich the content with custom metadata detected with powerful state of the art AI algorithms.
+This guide takes you through the journey of configuring your Content Services instance to enrich the content with custom metadata detected with powerful state of the art AI algorithms.
 
-Multiple custom entity recognizers and classifiers can be configured and used in Alfresco Content Services simultaneously, on either the same or different folders, using a flexible configuration.
+Multiple custom entity recognizers and classifiers can be configured and used in Content Services simultaneously, on either the same or different folders, using a flexible configuration.
 
 ## Configuration flow
 
@@ -238,7 +238,7 @@ The rendition configuration for entity recognition and classification is slightl
 * `targetMediaType` - can be one of two options:
   * `application/vnd.alfresco.ai.features.v1+json` for entity recognizers
   * `application/vnd.alfresco.ai.classifiers.v1+json` for classifiers
-* `maxResults` - the maximum number of results (entities/categories) that should be used in Alfresco Content Services. It makes sense to use a large value when searching for entities in a document, and a very small value when trying to identify a category for an entire document
+* `maxResults` - the maximum number of results (entities/categories) that should be used in Content Services. It makes sense to use a large value when searching for entities in a document, and a very small value when trying to identify a category for an entire document
 * `minConfidence` - the minimum confidence for a result (between 0 and 1). A lower value can be used when the maximum number of values is small (i.e. for classification).
 
 ### Custom AI property mapping
@@ -289,7 +289,7 @@ Content:
 In the above JSON snippet:
 
 * The rendition name (e.g. `aiBusiness`, `aiSport`, `aiClassification`) is used as a key (for both custom entity recognizers and custom classifiers).
-* The aspect/property names must match the Alfresco Content Services content model.
+* The aspect/property names must match the Content Services content model.
 * For custom entity recognizers, the entity type (e.g. `BUSINESS`, `SPORT`) must match what's returned in the raw results.
 
 ### Alfresco Docker service definition (deployment)
@@ -346,7 +346,7 @@ alfresco:
       - ./customAIPropertyMapping.json:/usr/local/tomcat/customAIPropertyMapping.json
       - ./customAIContentModel.xml:/usr/local/tomcat/shared/classes/alfresco/extension/customAIContentModel.xml
       # DOC: file needs to end in -context.xml and to be in this location.
-      # Details on (Deployment - App Server) -> https://docs.alfresco.com/6.2/references/dev-extension-points-content-model-define-and-deploy.html(#LINK)
+      # Details on (Deployment - App Server) -> https://docs.alfresco.com/content-services/latest/develop/repo-ext-points/content-model/#definedeploy)
       - ./custom-ai-content-model-context.xml:/usr/local/tomcat/shared/classes/alfresco/extension/custom-ai-content-model-context.xml
       - ./custom-ai-renditions-definitions.json:/usr/local/tomcat/shared/classes/alfresco/extension/transform/renditions/custom-ai-renditions-definitions.json
 ```
@@ -459,7 +459,7 @@ share:
         -Dalfresco.protocol=http
         "
     volumes:
-      # DOC: configuring Share -> https://docs.alfresco.com/6.2/concepts/dev-extensions-share-configuration.html(#LINK)
+      # DOC: configuring Share -> https://docs.alfresco.com/content-services/latest/develop/share-ext-points/share-config/)
       - ./share-config-custom.xml:/usr/local/tomcat/shared/classes/alfresco/web-extension/share-config-custom-dev.xml
       - ./bootstrap-custom-labels.properties:/usr/local/tomcat/shared/classes/alfresco/web-extension/messages/bootstrap-custom-labels.properties
       - ./share-custom-slingshot-application-context.xml:/usr/local/tomcat/shared/classes/alfresco/web-extension/custom-slingshot-application-context.xml
@@ -530,4 +530,4 @@ digital-workspace:
       - ./app.extensions.json:/usr/share/nginx/html/assets/app.extensions.json
 ```
 
-In the above `docker-compose` snippet, the modified `app.extensions.json` configuration file must be mounted in the Digital Workspace container instead of the standard one (from Alfresco Content Services deployment).
+In the above `docker-compose` snippet, the modified `app.extensions.json` configuration file must be mounted in the Digital Workspace container instead of the standard one (from Content Services deployment).

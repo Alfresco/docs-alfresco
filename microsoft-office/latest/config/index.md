@@ -6,7 +6,7 @@ You can configure AOS for your environment with a global path to access Alfresco
 
 ## Setting up a global filepath to access Alfresco
 
-In Windows Explorer, you can set up a Group Policy to manage Favorites on client machines, or share a .lnk file in your Links folder. This can be useful if you want to preconfigure the folder that users will need to access the Alfresco repository from Microsoft Office (`http://servername:port/alfresco/aos`).
+In Windows Explorer, you can set up a Group Policy to manage Favorites on client machines, or share a .lnk file in your Links folder. This can be useful if you want to preconfigure the folder that users will need to access the repository from Microsoft Office (`http://servername:port/alfresco/aos`).
 
 On a Windows 7 machine, the contents of Favorites in Windows Explorer is assembled from the .lnk files in `C:\Users\username\Links`. You can create a `.lnk` file in your `Links` folder and distribute this to the `Links` folder of other users, or preferably, you can use a Group Policy to manage Favorites on user machines.
 
@@ -22,13 +22,13 @@ To use a Group Policy:
 
     Alternatively, you can specify `@port` instead of `@SSL`, but not both. The default port is `443`.
 
-    For more information, see [Configure a Shortcut Item](https://technet.microsoft.com/en-gb/library/cc753580.aspx){:target="_blank"}.
+    For more information, see [Configure a Shortcut Item](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753580(v=ws.11)?redirectedfrom=MSDN){:target="_blank"}.
 
 ## Configuring mapping properties in Alfresco Office Services
 
 Property mapping in AOS allows you to inject custom properties and metadata into Office documents. Property mapping is deactivated by default. Follow these instructions to activate property mapping.
 
-Property mapping is different from the standard metadata extraction mechanism and should be carefully configured to ensure that different properties are set up. Properties stored in the Alfresco repository are injected into Office documents when these files are read through AOS, and equally properties are extracted from Office files written through AOS and then updated in the Alfresco repository.
+Property mapping is different from the standard metadata extraction mechanism and should be carefully configured to ensure that different properties are set up. Properties stored in the repository are injected into Office documents when these files are read through AOS, and equally properties are extracted from Office files written through AOS and then updated in the repository.
 
 > **Note:** Injected properties form part of the document. If the document is removed from the organization, for example, anyone outside the organization reading the document can view all the properties that have been mapped into the document.
 

@@ -4,7 +4,7 @@ title: Administering Media Management
 
 This information helps you to monitor and administer Alfresco Media Management.
 
-If you are backing up and restoring Media Management, use the standard Alfresco guidance: [Backing up and restoring](LINK).
+If you are backing up and restoring Media Management, use the standard Alfresco guidance: [Back up and restore]({% link content-services/6.1/admin/backup-restore.md %}).
 
 ## Monitoring Media Management
 
@@ -44,9 +44,9 @@ You can monitor the flow of media events from the Alfresco repository through Ac
 
     * Check the log, which is located in remote-node/logs/content-services-node.log, where remote-node is the name of directory that you unzipped when you installed Media Management.
     * You can change the log level of the content services node in the remote-node/config.yml file.
-3. Check alfresco.log, after setting the log level to `debug`, for any errors.
+3. Check `alfresco.log`, after setting the log level to `debug`, for any errors.
 
-4. Use the log4j.properties.sample file to add loggers to your `tomcat/webapps/alfresco/WEB-INF/classes/alfresco/module/org_alfresco_mm_repo/log4j.properties` file.
+4. Use the `log4j.properties.sample` file to add loggers to your `tomcat/webapps/alfresco/WEB-INF/classes/alfresco/module/org_alfresco_mm_repo/log4j.properties` file.
 
     A `log4j.properties.sample` file is provided in the Media Management installation zip. This file contains loggers that you can add to your Alfresco `log4j.properties` file to trace and debug your Media Management workflow.
 
@@ -54,7 +54,7 @@ You can monitor the flow of media events from the Alfresco repository through Ac
 
 Administrators can view information about transformations and add publishing channels in the Admin Tools option of the Share menu bar.
 
-1. Select Admin Tools on the Share toolbar, to see a list of tools on the left of the page.
-2. The **Tools > Application** section lists the themes available. Media Management provides a black background (a dark theme) for Share. See [Using an Alfresco dark site theme](LINK) for more information.
+1. Select **Admin Tools** on the Share toolbar, to see a list of tools on the left of the page.
+2. The **Tools > Application** section lists the themes available. Media Management provides a black background (a dark theme) for Share. See [Using an Alfresco dark site theme]({% link media-management/1.3/using/index.md %}#using-an-alfresco-dark-site-theme) for more information.
 3. The **Content Publishing > Channel Manager** section lists the channels that are configured for users to publish media (for example, CloudFront). Use this guidance to add a new publishing channel: [Configuring a CloudFront publishing channel]({% link media-management/1.3/config/index.md %}#configuring-a-cloudfront-publishing-channel).
 4. The **Transformations** section lists the installed transformers and their status. Select Transformer FFmpeg to see information on whether the transformer is available, and the version of FFmpeg that is installed with the options configured.

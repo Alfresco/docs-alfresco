@@ -13,6 +13,6 @@ Here's a summary of the key capabilities introduced in 1.0:
 * Content labeling and classification
 * Easier access to insights from unstructured content
 
-> **Important:** The Intelligence Services module can be applied to Alfresco Content Services 6.1 or later. See [Supported platforms]({% link intelligence-services/1.0/support/index.md %}) for more.
+> **Important:** The Intelligence Services module can be applied to Content Services 6.1 or later. See [Supported platforms]({% link intelligence-services/1.0/support/index.md %}) for more.
 
 See [Intelligence Services architecture]({% link intelligence-services/1.0/admin/index.md %}) for a general overview.
