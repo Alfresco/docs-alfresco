@@ -8,7 +8,7 @@ The Alfresco Product Support Lifecycle and the how Alfresco products, versions a
 
 The **Support Status** of Alfresco Products can change over time according to the **Alfresco Product Support Lifecycle**. This can happen for a number of reasons, including customer demand, product strategy changes and innovation.
 
-To help customers plan around the **End of Maintenance** of our products, Alfresco publishes a list of all products with their current support status, first release date, deprecation date, and end of maintenance. This list is available on the [Alfresco Product Support Status](https://www.alfresco.com/alfresco-product-support-status){:target="_blank"} page.
+To help customers plan around the **End of Maintenance** of our products, Alfresco publishes a list of all products with their current support status, first release date, deprecation date, and end of maintenance. This list is available on the [Alfresco Product Support Status](https://www.alfresco.com/services/subscription/technical-support/product-support-status){:target="_blank"} page.
 
 For general policies on Support of different Alfresco Product versions please refer to the [Alfresco Product Support Policy]({% link support/latest/policies/index.md %}) page.
 

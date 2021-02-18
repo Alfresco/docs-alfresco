@@ -20,7 +20,7 @@ To configure an APS action there are several prerequisites that must be met:
 
 To install the APS action AMP:
 
-1. Visit the [support portal](http://support.alfresco.com){:target="_blank"} and download the APS action zip bundle.
+1. Visit the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download the APS action zip bundle.
 
 2. Unzip the bundle and place the `aps-action-share-6.2.1.amp` to the Content Services `amps_share` directory.
 
@@ -54,7 +54,7 @@ To configure the repository in Process Services:
 
 5. Inspect the connection in the list. If the `ID` is `1` and the default values do not need to be updated then this step is complete. If the `ID` is not set to `1` then stop Content Services and Process Services and update the following two files with the `ID` showing in the repository list:
 
-    * In `tomcat/shared/classes/alfresco-global.properties` in Content Services add a line for `activiti.alfrescoRepositoryName=alfresco-<ID>` where `<ID>` was the ID displayed in Process Services, for example `alfresco-1002`. 
+    * In `tomcat/shared/classes/alfresco-global.properties` in Content Services add a line for `activiti.alfrescoRepositoryName=alfresco-<ID>` where `<ID>` was the ID displayed in Process Services, for example `alfresco-1002`.
     * In `tomcat/lib/activiti-app.properties` in Process Services update the property `integration.login.alfresco-1.secret` where `1` is replaced with the ID displayed in Process Services, for example `integration.login.alfresco-1002.secret`.
 
 ### Enable review process app

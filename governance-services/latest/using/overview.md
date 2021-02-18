@@ -41,7 +41,7 @@ until it is eventually transferred elsewhere, or destroyed, according to its ret
 
 ## Further information
 
-If you're new to Alfresco then take a look at [Using Alfresco](TODO_LINK:http://docs.alfresco.com/6.0/topics/sh-uh-welcome.html) to help you get started.
+If you're new to Alfresco then take a look at [Using Alfresco]({% link content-services/latest/using/index.md %}) to help you get started.
 
 For more details on setting up and administering Governance Services see [Administering Records Management]({% link governance-services/latest/admin/index.md %}).
 
