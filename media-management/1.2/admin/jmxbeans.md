@@ -52,4 +52,4 @@ The default values given are the defaults for an installer-installed instance of
 |transformer.strict.mimetype.check.whitelist.mimetypes|`application/eps;application/postscript;application/illustrator;application/pdf;application/x-tar;application/x-gtar;application/acp;application/zip;application/vnd.stardivision.math;application/x-tika-msoffice;image/x-raw-adobe;image/tiff`|
 |content.transformer.Zencoder.mimetypes.video/*.video/*.priority|`100`|
 
-For the complete list of Alfresco MBeans, see [JMX bean categories](link content-services/6.0/admin/jmx-reference.md).
+For the complete list of Alfresco MBeans, see [JMX bean categories]({%link content-services/6.0/admin/jmx-reference.md %}).

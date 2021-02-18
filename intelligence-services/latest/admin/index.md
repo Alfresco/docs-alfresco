@@ -62,15 +62,15 @@ It develops insights by recognizing common elements in your content into a numbe
 
 > **Note:** This release of Alfresco Intelligence Services supports English only.
 
-#### Prerequisites
+#### Prerequisites (Comprehend)
 
 The general prerequisites for using Amazon Comprehend are documented in [Getting Started with Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/getting-started.html){:target="_blank"}. Since the Transform Engine has to use asynchronous jobs for large text files, some additional setup is required to get the service working correctly. This is covered in the later configuration section.
 
-#### Supported regions
+#### Supported regions (Comprehend)
 
 See the list of supported AWS regions where Amazon Comprehend is [available](https://docs.aws.amazon.com/general/latest/gr/rande.html){:target="_blank"}.
 
-#### Limits
+#### Limits (Comprehend)
 
 Synchronous operations have a limit of 5KB (5000 bytes). The encoding of the content must be UTF-8. Note that Amazon Comprehend may store the analyzed content in order to continuously improve the quality of its analysis models.
 
@@ -80,7 +80,7 @@ To process documents larger than 125KB, we use asynchronous operations that go v
 
 See the AWS site for more details: [Guidelines and Quotas](https://docs.aws.amazon.com/comprehend/latest/dg/guidelines-and-limits.html){:target="_blank"}, [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_amazon_comprehend){:target="_blank"}.
 
-#### Configuration
+#### Configuration (Comprehend)
 
 You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
 
@@ -96,15 +96,15 @@ This service can identify the following in images:
 * events (e.g. a wedding, graduation, or birthday party)
 * concepts (e.g. a landscape, evening, and nature)
 
-#### Prerequisites
+#### Prerequisites (Rekognition)
 
 The general prerequisites to use Amazon Rekognition are documented in [Getting Started with Amazon Rekognition](https://docs.aws.amazon.com/rekognition/latest/dg/getting-started.html){:target="_blank"}. The configuration is simpler that Amazon Comprehend as you don't need to use asynchronous operations.
 
-#### Supported regions
+#### Supported regions (Rekognition)
 
 See the list of supported AWS regions where Amazon Rekognition is [available](https://docs.aws.amazon.com/general/latest/gr/rande.html){:target="_blank"}.
 
-#### Limits
+#### Limits (Rekognition)
 
 There are a number of limits that relate to Amazon Rekognition:
 
@@ -114,7 +114,7 @@ There are a number of limits that relate to Amazon Rekognition:
 
 See the AWS site for more details: [Limits in Amazon Rekognition](https://docs.aws.amazon.com/rekognition/latest/dg/limits.html){:target="_blank"}, [Amazon Rekognition service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_rekognition){:target="_blank"}.
 
-#### Configuration
+#### Configuration (Rekognition)
 
 You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
 
@@ -129,15 +129,15 @@ This service can detect text in a variety of documents (such as financial report
 * Forms with their fields and values
 * Tables with their cells
 
-#### Prerequisites
+#### Prerequisites (Textract)
 
 The general prerequisites to use Amazon Textract are documented in [Getting Started with Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/getting-started.html){:target="_blank"}.
 
-#### Supported regions
+#### Supported regions (Textract)
 
 See the list of supported AWS regions where Amazon Textract is [available](https://docs.aws.amazon.com/general/latest/gr/rande.html){:target="_blank"}.
 
-#### Limits
+#### Limits (Textract)
 
 There are a number of limits that relate to Amazon Textract:
 
@@ -148,7 +148,7 @@ There are a number of limits that relate to Amazon Textract:
 
 See the AWS site for more details on service limits: [Limits in Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/limits.html){:target="_blank"}.
 
-#### Configuration
+#### Configuration (Textract)
 
 You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
 

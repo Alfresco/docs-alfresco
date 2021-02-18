@@ -1,6 +1,6 @@
 ---
 title: Feature dependency mapping to component
-source: 
+source:
 ---
 
 You need a number of components to use all the Media Management capabilities. This information maps each feature with its dependencies.
@@ -15,7 +15,7 @@ You need a number of components to use all the Media Management capabilities. Th
 |Local video transcoding|[FFmpeg](https://www.ffmpeg.org/){:target="_blank"}|No|
 |Remote video transcoding|[FFmpeg](https://www.ffmpeg.org/){:target="_blank"},[Zencoder](https://github.com/bitzeche/zencoder-java){:target="_blank"} and AWS (SDK through content services node)|Yes|
 |Video trim (transformation)|[FFmpeg](https://www.ffmpeg.org/){:target="_blank"}|No|
-|Image crop and rotate (transformation)|[ImageMagick](http://www.imagemagick.org/){:target="_blank"}|No|
+|Image crop and rotate (transformation)|[ImageMagick](https://imagemagick.org/index.php){:target="_blank"}|No|
 |Back end components|[Content services node](https://github.com/Alfresco/gytheio){:target="_blank"}|Yes|
 |HTML5 video player|[video.js](https://github.com/videojs/video.js){:target="_blank"}|Yes|
 |Video timeline comments|[videojs-markers](https://github.com/spchuang/videojs-markers){:target="_blank"}|Yes|

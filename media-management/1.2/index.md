@@ -27,7 +27,7 @@ For more information on IPTC, see [http://www.iptc.org/site/Home/](http://www.ip
 
 For more information about FFmpeg, see [http://ffmpeg.org](http://ffmpeg.org){:target="_blank"}.
 
-For more information about ImageMagick, see [http://www.imagemagick.org/](http://www.imagemagick.org/){:target="_blank"}.
+For more information about ImageMagick, see [https://imagemagick.org/index.php](http://www.imagemagick.org/){:target="_blank"}.
 
 For more information about installing Media Management, see [Installing Media Management]({% link media-management/1.2/install/index.md %}).
 
@@ -37,7 +37,7 @@ Media Management provides a framework for transforming and sharing content, idea
 
 A video transformer is provided when you install Media Management to locally transform your content, however using this instance can be resource intensive and slow down your repository. You can create one or more content services nodes to offload work, or you can use remote transformation services, like Amazon Elastic Transcoder to transform your content. The configuration file for the content services node, config.yml, contains the location of ActiveMQ and the shared content workspace. The shared content workspace is a temporary workspace, used by the content services node to read source files and write to target files. See [Content services node architecture](#content-services-node-architecture) for information about the content services nodes and [Configuring transformation services]({% link media-management/1.2/config/index.md %}#configuring-transformation-services)for information about transformation services.
 
-> **Note:** Ensure that your remote server and your Alfresco Content Services server are using Network Time Protocol (NTP). If your servers are not synchronized, work is not sent to the remote content services nodes, and jobs are processed on the local Alfresco Content Services server.
+> **Note:** Ensure that your remote server and your Content Services server are using Network Time Protocol (NTP). If your servers are not synchronized, work is not sent to the remote content services nodes, and jobs are processed on the local Content Services server.
 
 If you are using a remote content services node, Media Management components should be started in the following order:
 
@@ -96,4 +96,4 @@ The four main architectural areas are:
 
 For more information on launching a content services node, see [Start Media Management]({% link media-management/1.2/config/start.md %}).
 
-For more information on advanced ActiveMQ settings, see [Configuring advanced settings in ActiveMQ](#LINK content-services/6.0/config/activemq.md #advanced).
+For more information on advanced ActiveMQ settings, see [Configuring advanced settings in ActiveMQ]({% link content-services/6.0/config/activemq.md %}#advanced).

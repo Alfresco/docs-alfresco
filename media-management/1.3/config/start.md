@@ -1,5 +1,5 @@
 ---
-title: Start Media Management 
+title: Start Media Management
 ---
 
 You need to start up ActiveMQ, your content services node, the repository and Alfresco Share.
@@ -8,9 +8,9 @@ Ensure that you have installed the required external and internal software befor
 
 For information on how to set up ActiveMQ and the content services node to start automatically, see [Running Media Management automatically](#running-media-management-automatically).
 
-For more information on advanced ActiveMQ settings, see [Configuring advanced settings in ActiveMQ](LINK).
+For more information on advanced ActiveMQ settings, see [Configuring advanced settings in ActiveMQ]({% link content-services/6.1/config/activemq.md %}#advanced).
 
-1. Navigate to the activemq/bin directory where activemq is the name of the directory where you installed ActiveMQ. Start ActiveMQ using the command:
+1. Navigate to the `activemq/bin` directory where `activemq` is the name of the directory where you installed ActiveMQ. Start ActiveMQ using the command:
 
     ```bash
     ./activemq start
@@ -38,11 +38,11 @@ For more information on advanced ActiveMQ settings, see [Configuring advanced se
 
 You can configure the Media Management components (Apache ActiveMQ and content services nodes) to suit your specific requirements.
 
-These topics explain how to configure Media Management to run automatically in a production environment. You must successfully install Media Management and the prerequisite software before using these topics. See [Prerequisites for using Media Management]({% link media-management/1.3/install/index.md %}) for more information.
+These topics explain how to configure Media Management to run automatically in a production environment.
 
-These instructions are for a Unix environment only.
+> **Note:** These instructions are for a Unix environment only.
 
-These topics use `init.d` scripts. For more information on using these scripts, see [Init scripts](http://www.linux.com/learn/tutorials/442412-managing-linux-daemons-with-init-scripts){:target="_blank"}.
+These topics use `init.d` scripts. For more information on using these scripts, see [Init scripts](https://www.linux.com/training-tutorials/managing-linux-daemons-init-scripts/){:target="_blank"}.
 
 Make sure you have set the correct permissions before configuring Media Management to run automatically.
 
@@ -76,13 +76,11 @@ ActiveMQ can be configured to start and run automatically.
 
 A content services node in Media Management can be configured to start and run automatically.
 
-Ensure that you have installed the required external software before installing Alfresco Media Management. See [Prerequisites for using Media Management]({% link media-management/1.3/install/index.md %}) for information on what you require before you start the Media Management installation.
-
 Review the recommended [architecture]({% link media-management/1.3/index.md %}) for guidance on setup of your Alfresco server and remote server.
 
-These instructions are for a Unix environment only and use an `init.d` script. For more information on using these scripts, see [Init scripts](https://www.linux.com/learn/tutorials/442412-managing-linux-daemons-with-init-scripts){:target="_blank"}.
+These instructions are for a Unix environment only and use an `init.d` script. For more information on using these scripts, see [Init scripts](https://www.linux.com/training-tutorials/managing-linux-daemons-init-scripts/){:target="_blank"}.
 
-1. Create a new directory, /opt/contentservices, and move the files from the remote-node installation directory to the new directory.
+1. Create a new directory, `/opt/contentservices`, and move the files from the `remote-node` installation directory to the new directory.
 
     See [Installing Media Management]({% link media-management/1.3/install/index.md %}) for more information on the shipped Media Management installation files.
 
@@ -106,42 +104,42 @@ These instructions are for a Unix environment only and use an `init.d` script. F
     # Description: Start the program
     ### END INIT INFO
 
-    ### Fill in these bits:  
+    ### Fill in these bits:
     USER="contentservices"
     JAR_LOCATION=/opt/contentservices
     PID_FILE="/var/run/contentservices/contentservices.pid"
     JAR_VERSION=0.3-SNAPSHOT
-    JAR_FILE=content-services-node-$JAR_VERSION.jar  
+    JAR_FILE=content-services-node-$JAR_VERSION.jar
     START_CMD="\"cd $JAR_LOCATION;java -jar $JAR_FILE server config.yml > /dev/null 2>&1 &\""
     NAME="alfresco-contentservices"
-    PGREP_STRING="$JAR_FILE"  
+    PGREP_STRING="$JAR_FILE"
 
     ### No Changes required below this point
 
-    CUR_USER=`whoami`  
+    CUR_USER=`whoami`
 
     killproc() {
       pkill -u $USER -f $PGREP_STRING
-    }  
+    }
 
     start_daemon() {
       eval "$*"
-    }  
+    }
 
     log_success_msg() {
       echo "$*"
       logger "$_"
-    }  
+    }
 
     log_failure_msg() {
       echo "$*"
       logger "$_"
-    }  
+    }
 
     check_proc() {
       pgrep -u $USER -f $PGREP_STRING
           >/dev/null
-    }  
+    }
 
     start_script() {
       if [ "${CUR_USER}" != "root" ] ; then

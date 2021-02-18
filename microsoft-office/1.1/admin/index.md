@@ -4,9 +4,9 @@ title: Troubleshoot Alfresco Office Services
 
 Use this information to troubleshoot common Alfresco Office Services issues.
 
-## Issue with Online Editing
+## Issue with Online Editing
 
-There is a known issue where Online Editing is not available using the 64-bit version of Internet Explorer. See [Plan browser support (SharePoint Server 2010)](http://technet.microsoft.com/en-us/library/cc263526(v=office.14)){:target="_blank"} for more information.
+There is a known issue where Online Editing is not available using the 64-bit version of Internet Explorer. See [Plan browser support (SharePoint Server 2010)](https://docs.microsoft.com/en-us/previous-versions/office/sharepoint-server-2010/cc263526(v=office.14)?redirectedfrom=MSDN){:target="_blank"} for more information.
 
 ## Error message: "The address is not valid" when connecting to `http://server:port/alfresco/aos`
 
@@ -30,7 +30,7 @@ Access to this web server is disabled by default because it is controlled by bas
 
 If you are running an old version of Office, you might see nothing after entering the URL in the Office file dialog.
 
-To rectify this problem, we strongly recommend that you activate SSL when using Alfresco Office Services. For more information, see [Configuring SSL](LINK 5.1/concepts/configure-ssl-intro.html). Alternatively, if you need to use a non-SSL connection, you must edit the Mac or Windows registry for every client machine as specified in [Setting up Alfresco Office Services using a non-SSL connection](LINK tasks/aos-config-nonSSL.md).
+To rectify this problem, we strongly recommend that you activate SSL when using Alfresco Office Services. For more information, see [Configuring SSL]({% link content-services/6.0/config/repository.md %}#ssl-repo).
 
 ## Missing version history and check in/ check out options in Office
 
@@ -46,11 +46,11 @@ If you type: `http://server:port/_vti_bin/`, you will see a message Welcome to A
 
 If these files and messages are not available from the browser, then AOS has not been deployed properly.
 
-See [Installing Alfresco](LINK) for information on where the deployed ROOT and `_vti_bin` WAR files need to be located. If `_vti_bin.war` does not exist, you'll need to reinstall the Alfresco Office Services AMP.
+See [Install Alfresco WARs]({% link content-services/6.0/install/zip/tomcat.md %}#install-alfresco-wars) for information on where the deployed `ROOT` and `_vti_bin` WAR files need to be located. If `_vti_bin.war` does not exist, you'll need to reinstall the Alfresco Office Services AMP.
 
 ## Extra files created when mounting AOS using WebDAV and Mac Finder
 
-Do not mount the AOS repository root (alfresco/aos or any sub folder) as a WebDAV folder with Mac Finder. Otherwise you might see extraneous files in Alfresco Share; for example, files prefixed with the characters `._`
+Do not mount the AOS repository root (`alfresco/aos` or any sub folder) as a WebDAV folder with Mac Finder. Otherwise you might see extraneous files in Alfresco Share; for example, files prefixed with the characters `._`.
 
 ## Microsoft path length limitation
 
@@ -82,9 +82,9 @@ The problem is caused when some mandatory fields are not filled out, but are dec
 
 If you are using Office 2013 and are working with an OLE file (for example, `.doc`, `.xls`, or `.ppt` files), and the Protected View is activated for the document, then property mapping can fail even after switching into Editing Mode.
 
-To resolve this problem, you need to prevent the Protected View in Office by adding the Alfresco repository server to the list of trusted sites.
+To resolve this problem, you need to prevent the Protected View in Office by adding the repository server to the list of trusted sites.
 
-## Values of date fields in OLE documents not stored
+## Values of date fields in OLE documents not stored
 
 Values of `Date` and `DateTime` fields are not set in OLE documents (for example, `.doc`, `.xls`, or `.ppt` files) if the time zone of the client machine is greater than UTC+1. If these `Date` or `DateTime` fields are declared as mandatory, then you will not be able to save document changes.
 

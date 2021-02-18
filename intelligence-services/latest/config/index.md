@@ -2,7 +2,7 @@
 title: Configure Intelligence Services
 ---
 
-Starting from version 1.1, Intelligence Services allows you to configure custom machine-learning (custom ML) models to enrich the content stored in Alfresco Content Services. A custom ML model maps each model to metadata in your business documents. This provides a number of benefits:
+Starting from version 1.1, Intelligence Services allows you to configure custom machine-learning (custom ML) models to enrich the content stored in Content Services. A custom ML model maps each model to metadata in your business documents. This provides a number of benefits:
 
 * Content has metadata automatically applied, and can be categorized or classified based on its business context.
 * Unstructured content can be searched and indexed by business context and easily discovered.
@@ -121,4 +121,4 @@ A number of environment variables allow you to specify the configuration options
 
     For more details on extending the features of Digital Workspace, see the Alfresco Content Application documentation: [Extending](https://alfresco-content-app.netlify.com/#/extending/){:target="_blank"}.
 
-You're now ready to start Alfresco Content Services.
+You're now ready to start Content Services.

@@ -8,13 +8,13 @@ Features provided with Media Management include video support and enhanced image
 
 You can embed metadata into a file using rules, with the Embed properties as metadata in content action, and view metadata in Alfresco and in an image editor. See the working with metadata video {% include media.html id="hR3PpZhDFqs" %} for more information about extracting and embedding metadata.
 
-> **Note:** Video transformations are very resource intensive and can take a long time to complete. Make sure that any rules that you create that use video transcoding run in the background, to prevent the rule from failing due to an Alfresco timeout. For more see [Creating a rule](#LINK content-services/6.0/using/content/rules.md).
+> **Note:** Video transformations are very resource intensive and can take a long time to complete. Make sure that any rules that you create that use video transcoding run in the background, to prevent the rule from failing due to an Alfresco timeout. For more see [Creating a rule]({% link content-services/6.0/using/content/rules.md %}).
 
 Media Management is integrated with AWS CloudFront publishing channel for publishing your content.
 
 ## Uploading media
 
-Media Management provides information and features about media files that you upload in Alfresco Content Services.
+Media Management provides information and features about media files that you upload in Content Services.
 
 1. Select the folder in the Document Library where you want to add your content.
 
@@ -52,7 +52,7 @@ Alfresco Media Management provides additional information and features in Alfres
 
 ## Manipulating video
 
-Alfresco Media Management provides features to allow you to edit video files in Alfresco Content Services.
+Alfresco Media Management provides features to allow you to edit video files in Content Services.
 
 1. Select a video file from the Document Library, as you would normally in Alfresco, by clicking the thumbnail or name, to view it in the file preview screen.
 
@@ -98,9 +98,9 @@ There are several methods used to request rich media transformations, and the me
 
 Renditions, for example, lower resolution JPEG image and video proxy files, are often requested automatically, when required in Alfresco. For example, they are requested when browsing a site's document library or navigating to the document details page.
 
-You can explicitly request a rendition by clicking the **+** icon in the **Renditions** panel of the document details page. For more information about the Renditions panel see [Viewing media](viewing-media).
+You can explicitly request a rendition by clicking the **+** icon in the **Renditions** panel of the document details page. For more information about the Renditions panel see [Viewing media]({% link media-management/1.2/using/index.md %}#viewing-media).
 
-You can perform an ad hoc format transformation in a number of ways, for example, create a rule with a Transform and Copy Content action. For more see [Creating a rule](#LINK content-services/6.0/using/content/rules.md)
+You can perform an ad hoc format transformation in a number of ways, for example, create a rule with a Transform and Copy Content action. For more see [Creating a rule]({% link content-services/6.0/using/content/rules.md %})
 
 ## Publishing media
 
@@ -118,9 +118,9 @@ Alfresco Media Management provides publishing options in Alfresco.
 
 Alfresco Media Management provides a black background (dark theme) for Share, that mutes elements until they are required, and makes it easier to work with rich media content. If you're a site administrator you can enable this theme.
 
-For more information about using themes in general, see [Share Themes](#LINK content-services/6.0/develop/share-ext-points/share-themes.md). Only an administrator can enable a theme.
+For more information about using themes in general, see [Share Themes]({% link content-services/6.0/develop/share-ext-points/share-themes.md %}). Only an administrator can enable a theme.
 
-1. From the Alfresco Content Services toolbar, select Admin Tools and click Application in the Tools list.
+1. From the Content Services toolbar, select Admin Tools and click Application in the Tools list.
 
     The Options page appears.
 
