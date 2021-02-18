@@ -392,18 +392,6 @@ The optional URL parameters that can be added:
 
     The name of the core to be fixed.
 
-* **`dryRun`**
-
-    This optional parameter when set to true generates a health report but reindex work is not scheduled. When set to false reindex work is scheduled. The default value is `true`.
-
-* **`fromTxCommitTime`**
-
-    This optional parameter indicates the lower bound (the minimum transaction commit time) of the target transactions that you want to check or fix.
-
-* **`toTxCommitTime`**
-
-    This optional parameter indicates the upper bound (the maximum transaction commit time) of the target transactions that you want to check or fix.
-
 Sample `scheduled` response
 
 ```json
@@ -441,9 +429,7 @@ Sample `scheduled` response
     },
     "archive": {
       ...
-    },
-    "dryRun": false,
-    "maxScheduledTransactions": 10000
+    }
   }
 }
 ```
