@@ -612,9 +612,11 @@ defaults:
       path: "insight-engine/1.4"
     values:
       version: 1.4
+  - scope:
       path: "insight-engine/1.1"
     values:
       version: 1.1
+  - scope:    
       path: "insight-engine/1.0"
     values:
       version: 1.0 

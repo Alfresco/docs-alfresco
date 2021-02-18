@@ -179,7 +179,7 @@
           path: '/insight-engine/1.1/using/sql/zeppelin-sql/'
         - title: 'JDBC driver'
           path: '/insight-engine/1.1/using/sql/jdbc/'  
- - version: 1.0
+- version: 1.0
   pages:
     - title: 'Introduction'
       path: '/insight-engine/1.0/'
