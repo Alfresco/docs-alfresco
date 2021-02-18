@@ -429,7 +429,7 @@ Sample `scheduled` response
     },
     "archive": {
       ...
-    },
+    }
   }
 }
 ```
