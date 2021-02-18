@@ -4,7 +4,7 @@ title: Troubleshoot Intelligence Services
 
 Use this information to help troubleshoot Intelligence Services.
 
-Make sure that Alfresco Transform Service is working before testing Alfresco Intelligence Services. See [Troubleshoot Transform Service]({% link transform-service/latest/admin/index.md %}#troubleshoot-transform-services) for more.
+Make sure that Alfresco Transform Service is working before testing Alfresco Intelligence Services. See [Troubleshoot Transform Service]({% link transform-service/1.0/admin/index.md %}#troubleshoot-transform-services) for more.
 
 ## Why don't I see any extracted metadata (AI properties)?
 

@@ -15,7 +15,7 @@ You require one of each of the following components.
 |Requirement|Description|
 |-----------|-----------|
 |Software|{::nomarkdown}<ul><li>FFmpeg 2.5.4 from the command line for video transformations.  Make sure that your FFmpeg installation has support for H.264 and AAC codecs. If FFmpeg is not available locally, Media Management functionality is reduced.</li><li>ExifTool 9.76 from the command line for full IPTC metadata extraction.</li><li>Apache ActiveMQ 5.15 or later.</li><li>ImageMagick 6.8.6-6 for image manipulation.</li></ul>{:/}**Note:** If you are using RAW image formats, you must install an ImageMagick delegate, for example, UFRaw, to manipulate the images. See [UFRaw](http://ufraw.sourceforge.net/){:target="_blank"} for more information. To preview RAW image formats, you need to set additional configuration properties. See [step 8](#install-the-media-management-amp-files).**Note:** [FFmpeg](http://ffmpeg.org){:target="_blank"} and [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/){:target="_blank"} are required to view media in Share. See [step 8](#install-the-media-management-amp-files) for information on how to set these in the `alfresco-global.properties` file. See [Configure ActiveMQ]({% link content-services/latest/config/activemq.md %}) for more information about installing ActiveMQ. See [Install ImageMagick]({% link content-services/latest/install/zip/additions.md %}#install-imagemagick) for more information about installing ImageMagick.|
-|Alfresco Content Services|Content Services 6.2. See [Supported Platforms]({% link media-management/latest/support/index.md %}) for more information.|
+|Alfresco Content Services|Content Services 6.2. See [Supported Platforms]({% link content-services/latest/support/index.md %}) for more information.|
 |Java requirements|OpenJDK 11 or later.|
 |Remote transformation services (optional)|AWS Elastic Transcoder. See [AWS](http://aws.amazon.com/elastictranscoder/){:target="_blank"} and [Configuring the Elastic Transcoder content transformer]({% link media-management/latest/config/index.md %}) for more information.|
 
@@ -141,6 +141,6 @@ To uninstall Media Management, you need to use the Module Management Tool (MMT) 
 
 2. Use the topic, [Uninstall an AMP file]({% link content-services/latest/install/zip/amp.md %}), to uninstall the module.
 
-3. If you have used a Media Management content model like IPTC or PBCore, you must clean out your database before restarting Alfresco. See [Dynamic deployment approach]({% link  content-services/latest/develop/repo-ext-points/content-model.md %}#dynamic-deployment-approach) for more information.
+3. If you have used a Media Management content model like IPTC or PBCore, you must clean out your database before restarting Alfresco. See [Dynamic deployment approach]({% link content-services/latest/develop/repo-ext-points/content-model.md %}#dynamic-deployment-approach) for more information.
 
 4. Restart the Alfresco server.
