@@ -579,7 +579,7 @@ Delete content to remove it from a site library.
 
 The content is moved to your trashcan. From there you can recover it or delete it permanently.
 
->**Note:** If the file has been [declared as a record]({% link governance-services/latest/using/easy-access-records.md %}#declaring-a-file-as-a-record) then the record is still available in the [Records Management site]({% link governance-services/latest/using/overview.md %}).
+>**Note:** If the file has been [declared as a record]({% link governance-services/3.2/using/easy-access-records.md %}#declaring-a-file-as-a-record) then the record is still available in the [Records Management site]({% link governance-services/3.2/using/overview.md %}).
 
 ### Recovering deleted content
 

@@ -39,7 +39,7 @@ If you create rules for a category, depending on the rule settings, they can app
 
 You can create rules for a category or folder, in much the same way that you might apply rules to your emails.
 
->**Note:** If a category/folder already has rules applied to it (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) you can add new rules to it by [adding to a set of rules](TODO_LINK:http://docs.alfresco.com/6.1/tasks/library-folder-rules-new.html).
+>**Note:** If a category/folder already has rules applied to it (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) you can add new rules to it by [adding to a set of rules]({% link content-services/community/using/content/rules.md %}).
 
 1. Click **Manage Rules** when you're in the folder or category you want to set rules for in the File Plan.
 

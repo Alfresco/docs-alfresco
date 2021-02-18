@@ -23,7 +23,7 @@ Amazon RDS makes it easy to set up, operate, and scale a relational database in 
 * PostgreSQL
 * Microsoft SQL Server
 
-As good practice, when using an Amazon's Elastic Compute Cloud (EC2) environment, you may want to use Amazon's Simple Storage Service (S3) where an S3 bucket is used as a content store. See [Alfresco Content Connector for AWS S3]({% link aws-s3/latest/index.md %}) for more information.
+As good practice, when using an Amazon's Elastic Compute Cloud (EC2) environment, you may want to use Amazon's Simple Storage Service (S3) where an S3 bucket is used as a content store. See [Alfresco Content Connector for AWS S3]({% link aws-s3/2.3/index.md %}) for more information.
 
 Read the following sections to configure a database for Amazon RDS.
 

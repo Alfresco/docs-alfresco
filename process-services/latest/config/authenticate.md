@@ -11,11 +11,11 @@ The authentication methods that can be configured for Process Services are:
 
 ## Identity Service
 
-Process Services can be configured to authenticate using the [Identity Service](TODO_LINK:https://docs.alfresco.com/identity/concepts/identity-overview.html).
+Process Services can be configured to authenticate using the [Identity Service]({% link identity-service/1.2/index.md %}).
 
 The Identity Service allows you to configure user authentication between a supported LDAP provider or SAML identity provider and the Identity Service for Single Sign On (SSO) capabilities.
 
-The Identity Service needs to be [deployed](TODO_LINK:https://docs.alfresco.com/identity/concepts/identity-deploy.html) and [configured](TODO_LINK:https://docs.alfresco.com/identity/concepts/identity-configure.html) with an identity provider before being set up with other Alfresco products.
+The Identity Service needs to be [deployed]({% link identity-service/1.2/install/index.md %}) and [configured]({% link identity-service/1.2/config/index.md %}) with an identity provider before being set up with other Alfresco products.
 
 Once the Identity Service has been deployed, you will need to [configure Process Services](#properties) to authenticate with it.
 

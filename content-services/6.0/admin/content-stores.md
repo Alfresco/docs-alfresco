@@ -532,11 +532,11 @@ The Encrypted content store subsystem does not support automatic expiry of the m
 
 ### Alfresco Content Connector for AWS S3
 
-The [Alfresco Content Connector for AWS S3]({% link aws-s3/latest/index.md %}) is an add-on module that provides an alternative content store. It uses Amazon's Simple Storage Service (S3) as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
+The [Alfresco Content Connector for AWS S3]({% link aws-s3/2.3/index.md %}) is an add-on module that provides an alternative content store. It uses Amazon's Simple Storage Service (S3) as the storage mechanism for Content Services, allowing for virtually unlimited and inexpensive storage.
 
 ### Alfresco Content Connector for AWS Glacier
 
-The [Alfresco Content Connector for AWS Glacier]({% link aws-glacier/latest/index.md %}) is an add-on module that provides an alternative content store that's optimized for infrequently used data, and suits the long term storage of archive and backup data. It works in conjunction with Alfresco Content Connector for AWS S3 and enables access to Amazon S3 Glacier.
+The [Alfresco Content Connector for AWS Glacier]({% link aws-glacier/1.0/index.md %}) is an add-on module that provides an alternative content store that's optimized for infrequently used data, and suits the long term storage of archive and backup data. It works in conjunction with Alfresco Content Connector for AWS S3 and enables access to Amazon S3 Glacier.
 
 ### Alfresco Content Connector for SAP applications
 

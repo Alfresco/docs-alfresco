@@ -8,7 +8,7 @@ The standard ActiveMQ installation runs with a basic configuration. You can conf
 
 For information about installing ActiveMQ for your specific product, see:
 
-* [Alfresco Media Management]({% link media-management/1.3/install/index.md %})
+* [Alfresco Media Management]({% link media-management/1.2/install/index.md %})
 * [Alfresco Sync Service]({% link sync-service/3.0/install/options.md %})
 
 For more advanced configuration, such as security, transport connectors, or memory settings, see [Configure advanced settings for ActiveMQ](#advanced).

@@ -34,7 +34,7 @@ If you have the required security clearance and file permissions can classify an
 
    ![Set security clearance]({% link governance-services/images/rm-classification-clearance.png %})
 
-3. You are given the file permissions needed to edit [files](TODO_LINK:https://docs.alfresco.com/6.0/references/permissions_share.html)/[records]({% link governance-services/3.1/admin/index.md %}#adding-users-and-groups-to-a-role).
+3. You are given the file permissions needed to edit [files]({% link content-services/6.1/using/permissions.md %})/[records]({% link governance-services/3.1/admin/index.md %}#adding-users-and-groups-to-a-role).
 
    ![Set site role]({% link governance-services/images/rm-classification-role.png %})
 
@@ -62,7 +62,7 @@ In both cases you can apply security marks to both records, folders, and categor
 
 When you {% include tooltip.html word="classify" text="classify" %} a file or record using their **Classify** option, the Classify Content screen is split into two sections. The top part is for setting classification and the bottom part for applying additional security marks. You can apply both classification and additional security marks to files (or records) at the same time.
 
->**Note:** Standard [Alfresco permissions](TODO_LINK:http://docs.alfresco.com/6.0/references/permissions_share.html) and [Records Management permissions]({% link governance-services/3.1/using/manage-permissions.md %}) continue to apply as well as any additional classifications.
+>**Note:** Standard [Alfresco permissions]({% link content-services/6.1/using/permissions.md %}) and [Records Management permissions]({% link governance-services/3.1/using/manage-permissions.md %}) continue to apply as well as any additional classifications.
 
 ### Classification security group
 
@@ -125,7 +125,7 @@ Security clearance is the assignment of security marks to users.
 
 Once marks are applied to content then users can only see that content if they have the required security clearance.
 
->**Note:** Standard [Alfresco permissions](TODO_LINK:http://docs.alfresco.com/5.1/references/permissions_share.html) and [Records Management permissions]({% link governance-services/3.1/using/manage-permissions.md %}) continue to apply as well as any security clearance.
+>**Note:** Standard [Alfresco permissions]({% link content-services/6.1/using/permissions.md %}) and [Records Management permissions]({% link governance-services/3.1/using/manage-permissions.md %}) continue to apply as well as any security clearance.
 
 When security groups are created there are three different Group Types available, and each one controls how the user sees content, see [How security controls work](#how-security-controls-work).
 
@@ -423,7 +423,7 @@ When you classify content there are a few rules that help you maintain secure cl
 If a user doesn't have the required security clearance, then they won't be able to see record, folders, or categories 
 that have been classified. For example, if a record has been classified as Top Secret, then:
 
-* User 1 (Top Secret clearance) - can see and work with the record, following the usual [Alfresco permission rules](TODO_LINK:http://docs.alfresco.com/5.2/references/permissions_share.html).
+* User 1 (Top Secret clearance) - can see and work with the record, following the usual [Alfresco permission rules]({% link content-services/6.1/using/permissions.md %}).
 * User 2 (Confidential clearance) - doesn't see the record.
 
 To classify records, folders, or categories:

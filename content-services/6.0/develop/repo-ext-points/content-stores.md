@@ -14,7 +14,7 @@ information about where to store files from configuration in the `alfresco-globa
 It is also possible to store content files in other places, and there are other content store implementations available 
 out-of-the- box to support that:
 
-* **Amazon S3 content store** - store the files in an S3 bucket using the [Alfresco Content Connector for AWS S3]({% link aws-s3/latest/index.md %}).
+* **Amazon S3 content store** - store the files in an S3 bucket using the [Alfresco Content Connector for AWS S3]({% link aws-s3/2.3/index.md %}).
 * **Centera content store** - store the files in an EMC Centera storage via XAM object storage access protocol.
 
 Besides these content store implementations there are also others that adds features to a content store solution:

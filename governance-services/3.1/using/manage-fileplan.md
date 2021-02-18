@@ -4,7 +4,7 @@ title: Managing the File Plan
 
 The record {% include tooltip.html word="category" text="categories" %}, record folders, and records in the File Plan structure each have an appropriate set of actions. You can access the actions by hovering over an item in the File Plan or by clicking on an item name. Use these actions to manage the File Plan.
 
->**Note:** The standard Alfresco **Copy to**, **Move to** and renaming options are available for record categories, record folders, and records. See [Keeping your library organized](TODO_LINK:http://docs.alfresco.com/5.2/concepts/library-organize.html) for further details.
+>**Note:** The standard Alfresco **Copy to**, **Move to** and renaming options are available for record categories, record folders, and records. See [Keeping your library organized]({% link content-services/6.1/using/content/manage.md %}#organizing-content) for further details.
 
 ## Managing record categories
 

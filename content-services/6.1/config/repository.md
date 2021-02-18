@@ -956,9 +956,9 @@ Aspects can have properties that, when added, can enhance the content types. You
 | Aspects | Description | Changes in behavior/Share interface |
 | ------- | ----------- | ----------------------------------- |
 | Classifiable | Enables categories to be assigned to a content item. For example, content items can be categorized under Languages, Region, Software Document Classification, and so on. | Adding the Classifiable aspect displays an additional **Categories** property in the document properties. |
-| Complianceable | This aspect is no longer valid. For compliance-related behavior, use [Alfresco Governance Services]({% link governance-services/latest/index.md %}). |
+| Complianceable | This aspect is no longer valid. For compliance-related behavior, use [Alfresco Governance Services]({% link governance-services/3.2/index.md %}). |
 | Dublin Core | Enables metadata (such as publisher, contributor, identifier) to be added to a content item. | Adding the Dublin Core aspect displays the following additional metadata properties in the document properties: {::nomarkdown}<ul><li>Publisher</li><li>Contributor</li><li>Type</li><li>Identifier</li><li>Source</li><li>Coverage</li><li>Rights</li><li>Subject</li></ul>{:/} |
-| Effectivity | This aspect is no longer valid. For compliance-related behavior, use [Alfresco Governance Services]({% link governance-services/latest/index.md %}). |
+| Effectivity | This aspect is no longer valid. For compliance-related behavior, use [Alfresco Governance Services]({% link governance-services/3.2/index.md %}). |
 | Summarizable | Enables addition of a brief description about the content item. | Adding the Summarizable aspect displays an additional **Summary** property in the document properties. |
 | Versionable | Enables versioning of a content item each time it's edited (checked out and checked back in or updated). In Alfresco Share, content items are versionable by default. | Adding the Versionable aspect displays the version history of a content item in the **Version History**. |
 | Emailed | Captures email-related information of the content item, if it's received as an email attachment. | Adding the Emailed aspect displays additional properties (such as Originator, Addressee, Addresses, Sent Date and Subject) in the document properties. |

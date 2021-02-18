@@ -2854,7 +2854,7 @@ Transformation Engine gives an alternative method of remote transformation for a
 
 ### Alfresco Media Management
 
-Alfresco Media Management provides additional options for audio, video and image transformations. The formats are listed in [Alfresco Media Management transform options]({% link media-management/1.3/admin/options.md %}).
+Alfresco Media Management provides additional options for audio, video and image transformations. The formats are listed in [Alfresco Media Management transform options]({% link media-management/1.2/admin/options.md %}).
 
 ## File types that support preview and thumbnail generation
 
