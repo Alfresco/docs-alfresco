@@ -7,13 +7,16 @@ services:
       - title: "Read documentation"
         url: /content-services/latest/
   - title: "Process"
-    text: "Alfresco Process Services (powered by Activiti) is an enterprise Business Process Management (BPM) solution targeted at business people and developers."
+    text: "Alfresco Process Services (powered by Activiti) is an enterprise Business Process Management (BPM) solution targeted at business people and developers.
+    <br/>
+    <br/>
+    Alfresco Process Automation can be used on top of Alfresco Cloud (Alfresco Content Services in PaaS) to automate simple and complex content-centric business processes."
     url:
     image: /assets/img/ic_process_80px.svg
     sub:
-      - title: "On premise"
+      - title: "Process Services"
         url: /process-services/latest/
-      - title: "Process Automation on Alfresco Cloud"
+      - title: "Process Automation"
         url: /process-automation/latest/
   - title: "Governance"
     text: "Alfresco Governance Services controls important information that needs to be retained over time. It's used in highly regulated environments, for managing governmental information or personnel records, or where information might be audited."
