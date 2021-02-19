@@ -27,7 +27,7 @@ These configuration properties are used by Alfresco Content Services to talk to 
 
 The topic describes the properties for configuring the Solr 6 search service.
 
-1. Open the Admin Console. For more information, see [Launching the Admin Console LINK LINK](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
+1. Open the Admin Console. For more information, see [Launch Admin Console]({% link content-services/6.1/admin/admin-console.md %}#launch-admin-console).
 
 2. In the Repository Services section, click **Search Service** to see the Search Service page.
 
@@ -315,4 +315,4 @@ In this deployment scenario the following flows are present:
   * Tracking tier: Two Solr instances periodically query repositories to detect new transactions, fetch new content, and build local indexes. Tracking is done through the Solr load balancer, which analyses the load and distributes it across the repositories.
   * Search tier: Four repository instances query two Solr instances on demand through the Solr load balancer.
 
-To implement this setup, see [Clustering for high throughput LINK LINK](https://docs.alfresco.com/6.1/tasks/install-config-alf.html).
+To implement this setup, see [Install and configure Content Services nodes]({% link content-services/6.1/admin/cluster.md %}#install-and-configure-content-services-nodes).
