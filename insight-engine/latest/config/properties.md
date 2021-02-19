@@ -113,7 +113,7 @@ If you wish to change the default value of a property, add the relevant property
 
 ### Data dictionary options
 
-The indexing behavior for each property can be set in the content model. By default the index is eventually consistent with the created content and properties are tokenized when indexed. For more information on how to configure indexing for properties see the Content Model in the Content Services documentation.
+The indexing behavior for each property can be set in the content model. By default the index is eventually consistent with the created content and properties are tokenized when indexed. For more information on how to configure indexing for properties in the content model, view the [Content Services documentation]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 ### Indexing options
 
