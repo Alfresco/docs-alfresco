@@ -16,7 +16,7 @@ There are a number of software requirements for installing Azure Connector.
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.2 or later.
+See [Supported Platforms]({% link microsoft-azure/latest/support/index.md %}).
 
 ### Azure related requirements
 
@@ -31,13 +31,13 @@ To install the Azure Connector, you can chose one of the following options:
 
 ## Install the Azure Connector
 
-These steps describe how to install the Alfresco Content Connector for Azure to an instance of Alfresco Content Services.
+These steps describe how to install the Alfresco Content Connector for Azure to an instance of Content Services.
 
 The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
-> **Note:** Ensure that you don't start Alfresco Content Services before installing the Azure Connector AMP.
+> **Note:** Ensure that you don't start Content Services before installing the Azure Connector AMP.
 
-1. Go to the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"}.
+1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
 
 2. Download the `alfresco-azure-connector-1.2.x.amp` file.
 
@@ -47,19 +47,19 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
-4. Check that the [Configuration]({% link microsoft-azure/latest/config/index.md %} is set up correctly for your environment.
+4. Check that the [configuration]({% link microsoft-azure/latest/config/index.md %}) is set up correctly for your environment.
 
     > **Note:** Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see [Azure Connector deleted content store](#azure-connector-deleted-content-store).
 
-5. Start Alfresco Content Services.
+5. Start Content Services.
 
 ## Install the Azure Connector with AzMultipleStorageContainers subsystem
 
-These steps describe how to install the Azure Connector to an instance of Alfresco Content Services, and how to enable the `AzMultipleStorageContainers` subsystem sample.
+These steps describe how to install the Azure Connector to an instance of Content Services, and how to enable the `AzMultipleStorageContainers` subsystem sample.
 
 The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
-> **Note:** Ensure that you don't start Alfresco Content Services before installing the Azure Connector AMP.
+> **Note:** Ensure that you don't start Content Services before installing the Azure Connector AMP.
 
 1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
 
@@ -103,7 +103,7 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
         -Dconnector.az.deleted.containerName=${AZURE_DELETED_CONTAINER_NAME}
         ```
 
-        See [Configure the Azure Connector](azure-config.md) for the supported authentication modes.
+        See [Configure the Azure Connector]({% link microsoft-azure/latest/config/index.md %}) for the supported authentication modes.
 
     2. Check the Azure Connector properties for store 2 (for example, `connector.az.store2.*`).
 
@@ -123,15 +123,15 @@ The Azure Connector is packaged as an Alfresco Module Package (AMP) file.
 
 7. Check that the [Configuration]({% link microsoft-azure/latest/config/index.md %} is set up correctly for your environment.
 
-8. Start Alfresco Content Services.
+8. Start Content Services.
 
 ## Azure Connector deleted content store
 
-The deleted content store support in Alfresco Content Services moves the deleted content into a dedicated storage container. This is defined by the `connector.az.deleted.containerName` property. System administrators can schedule a job to delete the binaries from this location.
+The deleted content store support in Content Services moves the deleted content into a dedicated storage container. This is defined by the `connector.az.deleted.containerName` property. System administrators can schedule a job to delete the binaries from this location.
 
 The deleted content store support is provided both from the repository and also by the Azure capabilities.
 
-When using Azure Connector 1.2, the deleted content store is disabled by default because this feature is already present in Microsoft's Azure Storage services. However, you can enable the Alfresco Content Services deleted content store, if required.
+When using Azure Connector 1.2, the deleted content store is disabled by default because this feature is already present in Microsoft's Azure Storage services. However, you can enable the Content Services deleted content store, if required.
 
 Add a context file, such as `enable-deleted-content-store-context.xml` in the `extension` directory.
 
@@ -167,7 +167,7 @@ The `sourceApplicationContextFactory` property has to point to the name of the b
 
 Use this information to upgrade the Azure Connector from a previous version for Tomcat-based deployments only.
 
-1. Stop the Alfresco Content Services server.
+1. Stop the Content Services server.
 
 2. Navigate to the root directory of your installation.
 
@@ -202,7 +202,7 @@ Use this information to upgrade the Azure Connector from a previous version for 
 9. Check that the [Configuration]({% link microsoft-azure/latest/config/index.md %}) is set up correctly for your environment.
 
     > **Note:** When upgrading from Azure Connector 1.0, make sure you define the Azure authentication mode and a supported value in your `alfresco-global.properties` file.
- 
+
      > **Note:** To upgrade a system that's never used the file system (for example, an on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See [Azure content store subsystems]({% link microsoft-azure/latest/config/index.md %}#azure-connector-content-store-subsystems) for more details.
 
 10. Start the server.

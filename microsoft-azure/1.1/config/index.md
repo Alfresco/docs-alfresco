@@ -4,15 +4,13 @@ title: Configure the Azure Connector
 
 The Azure Connector is configured using properties set in the global properties file.
 
-## Settings
-
-For a complete list of all configuration properties, see the [Properties reference](#Properties-reference).
+For a complete list of all configuration properties, see the [Properties reference](#properties-reference).
 
 ## Basic configuration properties
 
 1. Open the `<classpathRoot>/alfresco-global.properties` file.
 
-    If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises), it won't be migrated automatically but it'll still be available in the original location. New content will always be written to Azure.
+    If you have existing content in a local contentstore (i.e. where Content Services is deployed on-premises), it won't be migrated automatically but it'll still be available in the original location. New content will always be written to Azure.
 
 2. Add the `connector.az.authentication.mode` property, for example:
 
@@ -136,7 +134,7 @@ For a complete list of all configuration properties, see the [Properties referen
 
 7. Save the `alfresco-global.properties` file.
 
-    You are now ready to start Alfresco Content Services.
+    You are now ready to start Content Services.
 
 ## Properties reference
 
