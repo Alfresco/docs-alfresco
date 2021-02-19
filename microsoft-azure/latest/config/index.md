@@ -4,15 +4,13 @@ title: Configure the Azure Connector
 
 The Azure Connector is configured using properties set in the global properties file.
 
-## Settings
-
 For a complete list of all configuration properties, see the [Properties reference](#properties-reference).
 
 ## Basic configuration properties
 
 1. Open the `<classpathRoot>/alfresco-global.properties` file.
 
-    If you have existing content in a local contentstore (i.e. where Alfresco Content Services is deployed on-premises), it won't be migrated automatically but it'll still be available in the original location. New content will always be written to Azure.
+    If you have existing content in a local contentstore (i.e. where Content Services is deployed on-premises), it won't be migrated automatically but it'll still be available in the original location. New content will always be written to Azure.
 
 2. Add the `connector.az.authentication.mode` property, for example:
 
@@ -138,7 +136,7 @@ For a complete list of all configuration properties, see the [Properties referen
 
 7. Save the `alfresco-global.properties` file.
 
-    You are now ready to start Alfresco Content Services.
+    You are now ready to start Content Services.
 
 ## Properties reference
 
@@ -165,13 +163,13 @@ The Azure Connector provides a number of properties on installation and for cust
 | connector.az.deleted.objectNamePrefix | You can attach a prefix or suffix when you build the Blob ObjectName from the GUID. This prefix or suffix is not stored in the database, which means correct configuration is needed when using this property. **Note:** The use of this property is strongly discouraged. If you need to separate Blobs from different connectors or systems, then you should use different containers. |
 | connector.az.deleted.objectNameSuffix | You can attach a prefix or suffix when you build the Blob ObjectName from the GUID. This prefix or suffix is not stored in the database, which means correct configuration is needed when using this property. **Note:** The use of this property is strongly discouraged. If you need to separate Blobs from different connectors or systems, then you should use different containers. |
 
-## Azure Connector content store subsystems
+## Azure Connector content store subsystems {#azure-subsystems}
 
-Starting from version 1.2, the Azure Connector provides out-of-the-box content store subsystems. Older versions of the Azure Connector hard-wired the Microsoft Azure content store directly into Alfresco Content Services.
+Starting from version 1.2, the Azure Connector provides out-of-the-box content store subsystems. Older versions of the Azure Connector hard-wired the Microsoft Azure content store directly into Content Services.
 
 The subsystem approach allows a more flexible use of the Azure content store, even in conjunction with existing content stores. A subsystem can be started, stopped, and configured independently, and it has its own isolated Spring application context and configuration. The Azure subsystems belong to the `ContentStore` category, and have types `Azure` or `AzureOnPrem`.
 
-See the Alfresco Content Services documentation on [Subsystems Extension Point]({% link content-services/latest/develop/repo-ext-points/subsystems.md %}) for more information.
+See the Content Services documentation on [Subsystems Extension Point]({% link content-services/latest/develop/repo-ext-points/subsystems.md %}) for more information.
 
 ### AzureOnPrem content store subsystem
 
@@ -181,9 +179,9 @@ This configuration is similar to what's used in previous Azure Connector version
 
 ### Azure content store subsystem
 
-This defines a pure Azure content store, which uses Microsoft's Azure Storage as the only storage mechanism for Alfresco Content Services.
+This defines a pure Azure content store, which uses Microsoft's Azure Storage as the only storage mechanism for Content Services.
 
-This content store is recommended for a clean Alfresco Content Services and Azure Connector installation, or an upgrade of an installation that's never used the file system.
+This content store is recommended for a clean Content Services and Azure Connector installation, or an upgrade of an installation that's never used the file system.
 
 ### Using an Azure content store subsystem
 
@@ -206,15 +204,15 @@ alfresco/extension/subsystems/ContentStore/Azure/Azure/*-context.xml
 alfresco/extension/subsystems/ContentStore/Azure/Azure/*.properties
 ```
 
-> **Note:** In Alfresco Content Services 6.2 and Azure Connector 1.2, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Alfresco Content Services which only allows switching between the embedded content stores.
+> **Note:** In Content Services 6.2 and Azure Connector 1.2, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Content Services which only allows switching between the embedded content stores.
 
 ### Deleted content store support in the repository versus Azure
 
-The deleted content store support in Alfresco Content Services moves the deleted content in a dedicated storage container, defined by the `connector.az.deleted.containerName` property. System administrators can schedule a job to delete the binaries from this location.
+The deleted content store support in Content Services moves the deleted content in a dedicated storage container, defined by the `connector.az.deleted.containerName` property. System administrators can schedule a job to delete the binaries from this location.
 
 Previous versions of the Azure Connector support the deleted content store provided by the repository.
 
-Starting with 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. However, you can enable the Alfresco Content Services deleted content store, if required.
+Starting with 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. However, you can enable the Content Services deleted content store, if required.
 
 See [Azure Connector deleted content store]({% link microsoft-azure/latest/install/index.md %}#azure-connector-deleted-content-store) for more details.
 
@@ -275,27 +273,27 @@ The subsystem configuration file is split in sections to make it easier to exten
         <property name="secretKeyName" value="${connector.az.keyVault.secret.name}" />
         <property name="vaultName" value="${connector.az.keyVault.name}" />
     </bean>
-    
+
     <bean id="store1.managedIdentityAD" class="org.alfresco.integrations.connector.authentication.AzureADManagedIdentityAuthentication" >
         <constructor-arg index="0"  ref="store1.authConfig" />
     </bean>
-    
+
     <bean id="store1.applicationAD" class="org.alfresco.integrations.connector.authentication.AzureADApplicationAuthentication" >
         <constructor-arg index="0"  ref="store1.authConfig" />
     </bean>
-    
+
     <bean id="store1.sas" class="org.alfresco.integrations.connector.authentication.AzureSasAuthentication" >
         <constructor-arg index="0"  ref="store1.authConfig" />
     </bean>
-    
+
     <bean id="store1.sharedKey" class="org.alfresco.integrations.connector.authentication.AzureSharedKeyAuthentication" >
         <constructor-arg index="0"  ref="store1.authConfig" />
     </bean>
-    
+
     <bean id="store1.keyVault" class="org.alfresco.integrations.connector.authentication.AzureKeyVaultAuthentication" >
         <constructor-arg index="0"  ref="store1.authConfig" />
     </bean>
-    
+
     <bean id="store1.abstractAzureServiceAdapter" class="org.alfresco.integrations.connector.AzureBlobServiceAdapter" abstract="true">
         <property name="azureAuthentication" ref="store1.${connector.az.authentication.mode}"/>
         <property name="tryTimeout" value="${connector.az.tryTimeout}"/>
@@ -303,18 +301,18 @@ The subsystem configuration file is split in sections to make it easier to exten
         <!-- sets a maximum file size for all content. See content-services-context.xml for defaultContentLimitProvider bean -->
         <property name="contentLimitProvider" ref="defaultContentLimitProvider" />
     </bean>
-    
+
     <bean id="store1.azureServiceAdapter" class="org.alfresco.integrations.connector.AzureBlobServiceAdapter" parent="store1.abstractAzureServiceAdapter" init-method="init">
         <property name="containerName" value="${connector.az.containerName}" />
     </bean>
-    
+
     <bean id="store1.azureBlobContentStore" class="org.alfresco.integrations.connector.AzureBlobContentStore" depends-on="store1.azureServiceAdapter">
         <property name="serviceAdapter" ref="store1.azureServiceAdapter" />
         <property name="objNamePrefix" value="${connector.az.objectNamePrefix}" />
         <property name="objNameSuffix" value="${connector.az.objectNameSuffix}" />
         <property name="storeProtocol" value="${connector.az.storeProtocol}" />
     </bean>
-    
+
     <!-- [End] Store 1 -->
 ```
 
@@ -322,7 +320,7 @@ The subsystem configuration file is split in sections to make it easier to exten
 
 ```bash
     <!-- [Start] Store Selector -->
-    
+
     <!-- Override the selector to add in the Azure Connector stores -->
     <bean id="storeSelectorContentStore" parent="storeSelectorContentStoreBase">
         <property name="defaultStoreName">
@@ -339,7 +337,7 @@ The subsystem configuration file is split in sections to make it easier to exten
             </map>
         </property>
     </bean>
-    
+
     <!-- Overwrite the store constraint with a no op constraint for now-->
     <bean id="storeSelectorContentStore.constraint" class="org.alfresco.repo.dictionary.constraint.NoOpConstraint" init-method="initialize" >
         <property name="shortName">
@@ -349,7 +347,7 @@ The subsystem configuration file is split in sections to make it easier to exten
             <ref bean="cm:constraintRegistry" />
         </property>
     </bean>
-    
+
     <!-- [End] Store Selector -->
 ```
 
@@ -366,7 +364,7 @@ The caching content store is defined over the content store selector so that we 
         <property name="cacheOnInbound" value="true"/>
         <property name="quota" ref="standardQuotaManager"/>
     </bean>
-    
+
     <bean id="az.contentStoresToClean" class="java.util.ArrayList">
         <constructor-arg>
             <list>
@@ -380,9 +378,9 @@ The caching content store is defined over the content store selector so that we 
 
 This provides the subsystem properties where the `AzMultipleStorageContainers` subsystem declares default values for all the properties it requires.
 
-See the Alfresco Content Services documentation on [Subsystem properties]({% link content-services/latest/config/subsystems.md %}#subsystem-properties) for more details.
+See the Content Services documentation on [Subsystem properties]({% link content-services/latest/config/subsystems.md %}#subsystem-properties) for more details.
 
-## Adding new Azure store to AzMultipleStorageContainers subsystem
+### Adding new Azure store to AzMultipleStorageContainers subsystem
 
 These steps describe how to add a new Azure store starting from the AzMultipleStorageContainers subsystem sample, and how to move content between content stores.
 
@@ -405,27 +403,27 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
         <property name="secretKeyName" value="${connector.az.store2.keyVault.secret.name}" />
         <property name="vaultName" value="${connector.az.store2.keyVault.name}" />
     </bean>
-    
+
     <bean id="store2.managedIdentityAD" class="org.alfresco.integrations.connector.authentication.AzureADManagedIdentityAuthentication" >
         <constructor-arg index="0"  ref="store2.authConfig" />
     </bean>
-    
+
     <bean id="store2.applicationAD" class="org.alfresco.integrations.connector.authentication.AzureADApplicationAuthentication" >
         <constructor-arg index="0"  ref="store2.authConfig" />
     </bean>
-    
+
     <bean id="store2.sas" class="org.alfresco.integrations.connector.authentication.AzureSasAuthentication" >
         <constructor-arg index="0"  ref="store2.authConfig" />
     </bean>
-    
+
     <bean id="store2.sharedKey" class="org.alfresco.integrations.connector.authentication.AzureSharedKeyAuthentication" >
         <constructor-arg index="0"  ref="store2.authConfig" />
     </bean>
-    
+
     <bean id="store2.keyVault" class="org.alfresco.integrations.connector.authentication.AzureKeyVaultAuthentication" >
         <constructor-arg index="0"  ref="store2.authConfig" />
     </bean>
-    
+
     <bean id="store2.abstractAzureServiceAdapter" class="org.alfresco.integrations.connector.AzureBlobServiceAdapter" abstract="true">
         <property name="azureAuthentication" ref="store2.${connector.az.store2.authentication.mode}"/>
         <property name="tryTimeout" value="${connector.az.tryTimeout}"/>
@@ -433,11 +431,11 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
         <!-- sets a maximum file size for all content. See content-services-context.xml for defaultContentLimitProvider bean -->
         <property name="contentLimitProvider" ref="defaultContentLimitProvider" />
     </bean>
-    
+
     <bean id="store2.azureServiceAdapter" class="org.alfresco.integrations.connector.AzureBlobServiceAdapter" parent="store2.abstractAzureServiceAdapter" init-method="init">
         <property name="containerName" value="${connector.az.store2.containerName}" />
     </bean>
-    
+
     <bean id="store2.azureBlobContentStore" class="org.alfresco.integrations.connector.AzureBlobContentStore" depends-on="store2.azureServiceAdapter">
         <property name="serviceAdapter" ref="store2.azureServiceAdapter" />
         <property name="objNamePrefix" value="${connector.az.store2.objectNamePrefix}" />
@@ -473,14 +471,14 @@ These steps describe how to add a new Azure store starting from the AzMultipleSt
     connector.az.store2.application.clientSecret=${connector.az.application.clientSecret}
     connector.az.store2.application.tenantId=${connector.az.application.tenantId}
     connector.az.store2.keyVault.name=${connector.az.keyVault.name}
-    connector.az.store2.keyVault.secret.name=${connector.az.keyVault.secret.name}    
-    connector.az.store2.containerName=    
+    connector.az.store2.keyVault.secret.name=${connector.az.keyVault.secret.name}
+    connector.az.store2.containerName=
     connector.az.store2.objectNamePrefix=
-    connector.az.store2.objectNameSuffix=    
+    connector.az.store2.objectNameSuffix=
     connector.az.store2.storeProtocol=azb
     ```
 
-### Move content between content stores
+#### Move content between content stores
 
 If you've configured two content stores (as in the provided sample), you can use the `storeSelectorContentStore` to move content between them.
 
@@ -492,4 +490,4 @@ If you've configured two content stores (as in the provided sample), you can use
 
     Once the property is set, all the content store properties are added for the node. For example, the content is copied to the second container if you've configured a different name for the second content store.
 
-    See the Alfresco Content Services documentation, [Content store selector]({% link content-services/latest/admin/content-stores.md %}#content-store-selector) for more details on how the content store selector works.
+    See the Content Services documentation, [Content store selector]({% link content-services/latest/admin/content-stores.md %}#content-store-selector) for more details on how the content store selector works.
