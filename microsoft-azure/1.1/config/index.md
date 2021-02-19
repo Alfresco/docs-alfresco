@@ -103,7 +103,7 @@ For a complete list of all configuration properties, see the [Properties referen
     connector.az.containerName=myazurecontainer
     ```
 
-    Within a given storage account, every container must have a unique name. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two storage accounts can have containers with the same name. For more details on what a content store is, see [Managing content stores](https://docs.alfresco.com/6.2/concepts/cs-manage.html){:target="_blank"}(#LINK).
+    Within a given storage account, every container must have a unique name. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two storage accounts can have containers with the same name. For more details on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
 
     See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata){:target="_blank"} for more.
 
@@ -113,13 +113,13 @@ For a complete list of all configuration properties, see the [Properties referen
     connector.az.deleted.containerName=myazuredeletedcontainer
     ```
 
-    This is the container that stores content once it has been deleted. For more details on what a content store is, see [Managing content stores](https://docs.alfresco.com/6.2/concepts/cs-manage.html){:target="_blank"}(#LINK).
+    This is the container that stores content once it has been deleted. For more details on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
 
 6. Set where the cached content is stored, and how much cache size you need.
 
     The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`.
 
-    See [CachingContentStore properties](https://docs.alfresco.com/6.2/concepts/ccs-props.html){:target="_blank"}(#LINK) for more information on the caching content store.
+    See [CachingContentStore properties]({% link content-services/latest/admin/content-stores.md %}#cachingcontentstore-properties) for more information on the caching content store.
 
     > **Note:** The size of the local caching content store can be configured as necessary to limit its use to a maximum overall size or by files with a maximum file size.
 
@@ -154,8 +154,8 @@ The Azure Connector provides a number of properties on installation and for cust
 | connector.az.keyVault.name | Defines a unique vault name to be used for Azure Key Vault authentication. Added in Azure Connector 1.1.
 | connector.az.keyVault.secret.name | Defines a secret to the vault to be used for Azure Key Vault authentication. Added in Azure Connector 1.1.
 | connector.az.storeProtocol | Defines the store protocol name. Choosing your own store protocol name allows you to run multi-cloud deployments and have a consistent content URL regardless of where the content is added. The default value is `azb`, to represent the Azure Blob connector as the default protocol. Added in Azure Connector 1.1.
-| connector.az.containerName | Within a given storage account, every container must have a unique name. Every Blob within a given container must also have a unique name within that container. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two accounts can have containers with the same name, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata){:target="_blank"} for more details. For more information on what a content store is, see [Managing content stores](https://docs.alfresco.com/6.2/concepts/cs-manage.html){:target="_blank"}.
-| connector.az.deleted.containerName | Content is copied here once it has been deleted. This includes after content is removed from the recycle bin and after a 14 day grace period. In order for the content to be removed entirely it must be deleted manually by an Administrator. For more information on what a content store is, see [Managing content stores](https://docs.alfresco.com/6.2/concepts/cs-manage.html){:target="_blank"}.
+| connector.az.containerName | Within a given storage account, every container must have a unique name. Every Blob within a given container must also have a unique name within that container. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two accounts can have containers with the same name, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata){:target="_blank"} for more details. For more information on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
+| connector.az.deleted.containerName | Content is copied here once it has been deleted. This includes after content is removed from the recycle bin and after a 14 day grace period. In order for the content to be removed entirely it must be deleted manually by an Administrator. For more information on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
 | connector.az.maxErrorRetries | The maximum number of attempts to retry reads or writes to the Blob container in case of failed transfers. The default is `3`. This configuration uses exponential retries. See [Exponential back-off retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#azure-storage){:target="_blank"} for more details.
 | connector.az.tryTimeout | Indicates the maximum time (in seconds) allowed for any single try of an HTTP request. When transferring large amounts of data, the default tryTimeout will probably not be sufficient. To overcome this, we compute the upload try timeout using: {::nomarkdown}<pre>uploadTryTimeout = tryTimeout * anticipatedPayloadSizeInMb</pre>{:/} |
 | connector.az.objectNamePrefix | You can attach a prefix or suffix when you build the Blob ObjectName from the GUID. This prefix or suffix is not stored in the database, which means correct configuration is needed when using this property. **Note:** The use of this property is strongly discouraged. If you need to separate Blobs from different connectors or systems, then you should use different containers. |

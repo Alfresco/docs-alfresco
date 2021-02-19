@@ -24,7 +24,7 @@ Use this information to upgrade the Azure Connector from a previous version for 
     java -jar bin/alfresco-mmt.jar uninstall  org_alfresco_integrations_AzureConnector tomcat/webapps/alfresco.war
     ```
 
-    For more information, see [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html){:target="_blank"}(#LINK) and [Uninstalling an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/uninstall-amp.html){:target="_blank"}(#LINK).
+    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-(mmt)) and [Uninstall an Amp file]({% link content-services/latest/install/zip/amp.md %}#Uninstall an AMP file).
 
 5. Navigate to the `amps` directory.
 
@@ -34,7 +34,7 @@ Use this information to upgrade the Azure Connector from a previous version for 
 
 8. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
-    For more information, see [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html){:target="_blank"}(#LINK) and [Uninstalling an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/uninstall-amp.html){:target="_blank"}(#LINK).
+    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-(mmt))and [Uninstall an Amp file]({% link content-services/latest/install/zip/amp.md %}#Uninstall an AMP file)).
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
