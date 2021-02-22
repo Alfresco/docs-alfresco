@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/task.dtd" []>
+<task id="rm-amp-install">
+  <title>Applying the Records Management AMP files</title>
+
+  <abstract><shortdesc>Records Management is installed by applying two AMP files to an existing
+      Alfresco installation.</shortdesc></abstract>
+
+  <taskbody>
+    <prereq><note type="attention">In this task and the following sections, if you are using
+        non-Windows systems, such as Mac OS X and Linux, you will need to replace the backslashes by
+        forward slashes in directory paths.</note></prereq>
+    <context>The installation procedure uses the following Records Management AMP files: <simpletable>
+
+        <strow>
+          <stentry><filepath conref="../libraries/library-terms.dita#gen-library/installrmampcore"
+            /></stentry>
+          <stentry>This AMP contains the additional Records Management functionality that is applied
+            to an existing Alfresco installation.</stentry>
+        </strow>
+        <strow>
+          <stentry><filepath conref="../libraries/library-terms.dita#gen-library/installrmampshare"
+            /></stentry>
+          <stentry>This AMP file contains the additional Records Management functionality that is
+            applied to an existing Alfresco Share user interface. </stentry>
+        </strow>
+      </simpletable></context>
+
+    <steps>
+      <step product="Enterprise">
+        <cmd>Browse to the <xref href="http://support.alfresco.com" scope="external" format="html"
+            >Support Portal</xref> and download the following files:</cmd>
+        <info product=""><filepath
+            conref="../libraries/library-terms.dita#gen-library/installrmampcore"/><p><filepath
+              conref="../libraries/library-terms.dita#gen-library/installrmampshare"/></p></info>
+      </step>
+
+      <step>
+        <cmd>Change into the root of the Alfresco installation directory. Directories specified in
+          the following procedures are relative to this directory.</cmd>
+      </step>
+
+      <step>
+        <cmd>Move the <filepath
+            conref="../libraries/library-terms.dita#gen-library/installrmampcore"/> file to the
+            <filepath>amps</filepath> directory.</cmd>
+      </step>
+
+      <step>
+        <cmd>Move the <filepath
+            conref="../libraries/library-terms.dita#gen-library/installrmampshare"/> file to the
+            <filepath>amps_share</filepath> directory.</cmd>
+      </step>
+
+      <step>
+        <cmd>Stop the Alfresco server.</cmd>
+      </step>
+      <step>
+        <cmd>Delete the <filepath>tomcat\webapps\alfresco</filepath> and
+            <filepath>tomcat\webapps\share</filepath> folders in the Alfresco installation
+          directory.</cmd>
+      </step>
+      <step>
+        <cmd>Change into the Alfresco <filepath>.\bin</filepath> directory.</cmd>
+        <info>This is where the Module Management Tool (MMT) is located.</info>
+      </step>
+      <step>
+        <cmd>Run the following command to install the core Records Management component:</cmd>
+        <info>
+          <codeblock>java -jar alfresco-mmt.jar install ..\amps\alfresco-rm-&lt;version>.amp ..\tomcat\webapps\alfresco.war      </codeblock>
+          <note>You will need to replace <filepath>alfresco-rm-&lt;version>.amp</filepath> with the
+            name of the specific AMP file you downloaded.</note>
+        </info>
+      </step>
+      <step>
+        <cmd>Run the following command to install the Records Management Share UI component:</cmd>
+        <info>
+          <codeblock>java -jar alfresco-mmt.jar install ..\amps_share\alfresco-rm-share-&lt;version>.amp ..\tomcat\webapps\share.war</codeblock>
+          <note>You will need to replace <filepath>alfresco-rm-share-&lt;version>.amp</filepath>
+            with the name of the specific AMP file you downloaded.</note>
+        </info>
+      </step>
+
+      <step>
+        <cmd>Start the Alfresco server.</cmd>
+      </step>
+
+      <step>
+        <cmd>Start Alfresco Share by browsing to:</cmd>
+
+        <info><filepath>http://&lt;your-server-name>:8080/share</filepath></info>
+        <stepresult>At this point, the required Records Management module is installed, and your
+          next step is to create a Records Management site. </stepresult>
+      </step>
+    </steps>
+  </taskbody>
+</task>

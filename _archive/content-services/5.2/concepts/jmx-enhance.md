@@ -1,0 +1,38 @@
+---
+author: [Alfresco Documentation, Alfresco Documentation]
+source: 
+audience: 
+category: Administration
+option: monitoring JMX monitoring management extensions
+---
+
+# JMX monitoring and management extensions
+
+This information describes the JMX-based monitoring and management functionality.
+
+The monitoring and management extensions can be subdivided into three categories:
+
+-   **Read-only monitoring beans**
+
+    Expose a variety of real-time metrics for monitoring health and throughput of your server.
+
+-   **Configuration beans**
+
+    Provide an easily navigable view of key system configuration for support and diagnostic purposes.
+
+-   **Management beans**
+
+    Allow control over various subsystems.
+
+
+For more information on these categories of bean, refer to the reference section [JMX bean categories](jmx-reference.md).
+
+You can also manage JMX settings in the [Admin Console JMX Settings](../tasks/adminconsole-exportsystemsettings.md).
+
+-   **[Coexistence with other MBeans](../concepts/jmx-mbeans.md)**  
+If there is an MBean server already running on the Java Virtual Machine \(JVM\) that Alfresco Content Services is running on, Alfresco Content Services will export its MBeans to that server. Otherwise, Alfresco Content Services will start up its own MBean server. This means that, for example, on Tomcat, the Alfresco Content Services beans will complement those provided by the application server and will be navigable in the same context with a suitable JMX client.
+-   **[Activating the Oracle JMX agent and local JMX connectivity](../tasks/jmx-activate.md)**  
+When using Tomcat and a Oracle JVM together for monitoring, you can configure Alfresco Content Services and Tomcat to share the JVM's own platform MBean server. The pre-registered MXBeans give a detailed view of the JVM's health, usage and throughput; in areas including class loading, hot spot compilation, garbage collection, and thread activity.
+
+**Parent topic:**[Using a JMX client to change settings dynamically](../concepts/jmx-intro-config.md)
+

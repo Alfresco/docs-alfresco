@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/task.dtd">
+<task id="rm-audit-export">
+  <title>Exporting the audit log</title>
+
+  <abstract><shortdesc>You can export the audit log which is useful for archiving it regularly so that you can
+      examine or analyze system activity. </shortdesc></abstract>
+
+  <prolog>
+    <author>Alfresco Documentation</author>
+
+    <source/>
+
+    <copyright>
+      <copyryear year="2011"/>
+      <copyrholder>Alfresco Software, Inc.</copyrholder>
+    </copyright>
+
+    <metadata>
+      <audience experiencelevel="novice" job="using" type="user"/>
+
+      <category>User Help</category>
+
+      <keywords>
+        <option>Records Management</option>
+      </keywords>
+
+      <prodinfo>
+        <prodname>ECM</prodname>
+        <vrmlist>
+          <vrm modification="2011/01/21" release="Enterprise Community" version="3.4.0"/>
+        </vrmlist>
+      </prodinfo>
+    </metadata>
+  </prolog>
+
+  <taskbody>
+    <context>When you export the audit log, this doesn't affect the audit log in the system. </context>
+    <steps>
+
+      <step>
+        <cmd>When you've run an audit, click <uicontrol>Export</uicontrol> in the Audit tool of the
+          Records Management Console.</cmd>
+        <stepresult>Depending on your browser you'll be prompted to open or save the file or it will
+          be saved automatically. The exported audit log is an HTML file.</stepresult>
+      </step>
+    </steps>
+  </taskbody>
+</task>

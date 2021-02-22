@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/task.dtd">
+<task id="rm-amp-uninstall">
+  <title>Uninstalling the Records Management AMP files</title>
+
+  <abstract><shortdesc>The Records Management AMP files can be uninstalled using the Module
+      Management Tool (MMT).</shortdesc></abstract>
+
+  <taskbody>
+    <context><p>Records Management (RM) consists of two AMP files, which are applied during
+        installation. One of the AMP files, representing the core RM functionality, is applied to
+        the Alfresco WAR file, and the other, representing the RM Share UI component is applied to
+        the Share WAR file. Both of the AMPs need to be removed in order to uninstall RM. This is
+        achieved using the Module Management Tool (MMT). For uninstalling a module the usage is as
+        follows:</p>
+      <p>
+        <codeblock>usage: uninstall &lt;ModuleId&gt; &lt;WARFileLocation&gt;</codeblock></p></context>
+
+    <steps>
+      <step>
+        <cmd>Change into the root of the Alfresco installation directory.</cmd>
+      </step>
+      <step>
+        <cmd>Change into the <filepath>.\bin</filepath> directory of your Alfresco
+          installation.</cmd>
+        <info>This is where the Module Management Tool (MMT) is located. </info>
+      </step>
+      <step>
+        <cmd>Establish the presence of the core RM AMP file, and make a note of its Module ID, using
+          the following command:</cmd>
+        <info>
+          <codeblock>
+java -jar alfresco-mmt.jar list ..\tomcat\webapps\alfresco.war
+          </codeblock>
+          <p>This shows the core RM component:</p>
+          <codeblock>
+Module 'org_alfresco_module_rm' installed in '..\tomcat\webapps\alfresco.war'
+   -    Title:        Records Management
+   -    Version:      2.1
+   -    Install Date: Mon Sep 02 12:04:49 BST 2013
+   -    Description:   Alfresco Record Management Extension            
+          </codeblock>
+        </info>
+        <stepresult>You need to know the Module ID in order to uninstall the AMP file.</stepresult>
+      </step>
+      <step>
+        <cmd>Establish the presence of the RM Share UI AMP file, and make a note of its Module ID,
+          using the following command:</cmd>
+        <info>
+          <codeblock>
+java -jar alfresco-mmt.jar list ..\tomcat\webapps\share.war
+        </codeblock>
+          <p>This shows the Share UI component:</p>
+          <codeblock>
+Module 'org_alfresco_module_rm_share' installed in '..\tomcat\webapps\share.war'
+ -    Title:        Alfresco Record Management Share Extension
+ -    Version:      2.1
+ -    Install Date: Mon Sep 02 12:05:24 BST 2013
+ -    Description:   Alfresco Record Management Share Extension           
+          </codeblock>
+        </info>
+        <stepresult>You need to know the Module ID in order to uninstall the AMP file.</stepresult>
+      </step>
+      <step>
+        <cmd>To uninstall the RM core AMP file, type the following command:</cmd>
+        <info>
+          <codeblock>
+java -jar alfresco-mmt.jar uninstall org_alfresco_module_rm ..\tomcat\webapps\alfresco.war            
+          </codeblock>
+        </info>
+      </step>
+      <step>
+        <cmd>To uninstall the RM Share AMP file, type the following command:</cmd>
+        <info>
+          <codeblock>
+java -jar alfresco-mmt.jar uninstall org_alfresco_module_rm_share ..\tomcat\webapps\share.war            
+          </codeblock>
+        </info>
+      </step>
+    </steps>
+    <result>Records Management has now been uninstalled.</result>
+  </taskbody>
+</task>

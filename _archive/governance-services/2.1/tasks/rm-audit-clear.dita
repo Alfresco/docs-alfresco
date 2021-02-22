@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/task.dtd">
+<task id="rm-audit-clear">
+  <title>Clearing the audit log</title>
+  <abstract>
+    <shortdesc>If you've run an audit you can quickly clear it to delete all captured actions. </shortdesc>
+  </abstract>
+  <prolog>
+    <author>Alfresco Documentation</author>
+    <source/>
+    <copyright>
+      <copyryear year="2012"/>
+      <copyrholder>Alfresco Software, Inc.</copyrholder>
+    </copyright>
+    <metadata>
+      <audience experiencelevel="novice" job="using" type="user"/>
+      <category>User Help</category>
+      <keywords>
+        <option>Records Management</option>
+      </keywords>
+      <prodinfo>
+        <prodname>ECM</prodname>
+        <vrmlist>
+          <vrm modification="2012/07/26" release="Enterprise Community" version="4.0.2"/>
+        </vrmlist>
+      </prodinfo>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <steps>
+      <step>
+        <cmd>When you've run an audit, click <uicontrol>Clear</uicontrol> in the Audit tool of the
+          Records Management Console.</cmd>
+        <stepresult>A message prompts you to confirm the action.</stepresult>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Yes</uicontrol> to clear the audit log.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>
