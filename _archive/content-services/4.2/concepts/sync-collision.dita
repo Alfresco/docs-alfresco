@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
+<concept audience="" id="sync-collision" product="">
+  <title>Collision resolution</title>
+
+  <abstract><shortdesc>If there are overlaps between the contents of two user
+  registries in the authentication chain (for example, where two user
+  registries both contain a user with the same user name), then the registry
+  that occurs earlier in the authentication chain will be given precedence.
+  This means that exactly the same order of precedence used during
+  authentication will be used during synchronization. </shortdesc></abstract>
+
+  <prolog>
+    <author>Alfresco Documentation</author>
+
+    <source/>
+
+    <copyright>
+      <copyryear year="2011"/>
+      <copyrholder>Alfresco Software, Inc.</copyrholder>
+    </copyright>
+
+    <metadata>
+      <audience experiencelevel="expert" job="administering" type="administrator"/>
+
+      <category>Administration</category>
+
+      <keywords>
+        <option>authentication subsystem synchronization collision
+        resolution</option>
+      </keywords>
+
+      <prodinfo>
+        <prodname>ECM</prodname>
+        <vrmlist>
+          <vrm modification="2011/01/21" release="Enterprise Community" version="3.4.0"/>
+        </vrmlist>
+      </prodinfo>
+    </metadata>
+  </prolog>
+
+  <conbody>
+    <p>For example, if user <codeph>A</codeph> is queried from zone <codeph>Z1</codeph> but already
+      exists in Alfresco in zone <codeph>Z2</codeph>:</p>
+    <ul id="ul_n2y_llc_44">
+      <li><codeph>A</codeph> is ignored if <codeph>Z1</codeph> is later in the authentication chain
+        than <codeph>Z2</codeph></li>
+      <li><codeph>A</codeph> is moved to <codeph>Z1</codeph> if <codeph>Z2</codeph> does not exist
+        in the authentication chain or <codeph>Z1</codeph> is earlier in the authentication chain
+        and the <codeph>synchronization.allowDeletions</codeph> property is
+        <codeph>false</codeph>.</li>
+      <li><codeph>A</codeph> is deleted from <codeph>Z2</codeph> and recreated in
+          <codeph>Z1</codeph>if <codeph>Z1</codeph> is earlier in the authentication chain and the
+          <codeph>synchronization.allowDeletions</codeph> property is <codeph>true</codeph>.</li>
+    </ul>
+  </conbody>
+</concept>
