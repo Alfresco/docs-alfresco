@@ -1,3 +1,5 @@
 elasticsearch:
   url: https://search-docs-production-gjsdgg3cln5hrgcqi7s6ugtyle.us-east-1.es.amazonaws.com
   index_name: prod
+
+analytics: GTM-W4HV22
