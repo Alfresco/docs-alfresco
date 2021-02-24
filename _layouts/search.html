@@ -4,6 +4,11 @@
   {% include head.html %}
 
   <body>
+      
+    {% if site.analytics != nil %}
+    {% include analytics_body.html %}
+    {% endif %}
+        
     <script>
       const path = window.location.hash;
       const scope = path.split("/");

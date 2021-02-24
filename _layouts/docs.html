@@ -8,6 +8,11 @@
   {% assign version = path[2]%}
 
   <body>
+    
+    {% if site.analytics != nil %}
+    {% include analytics_body.html %}
+    {% endif %}
+        
     <script>
       window.searchScope = {
         product: '{{product}}',

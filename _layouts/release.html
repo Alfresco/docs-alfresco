@@ -3,6 +3,10 @@
 
   {% include head.html %}
   <body>
+    {% if site.analytics != nil %}
+    {% include analytics_body.html %}
+    {% endif %}
+
     {% include searchbar.html close=true %}
     {% include mainmenu.html showsearch=true%}
     <!--submenu-->
