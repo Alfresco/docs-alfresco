@@ -1,0 +1,22 @@
+# Administering Desktop Sync
+
+-   [Administering Desktop Sync](../concepts/desktop-sync.md)
+    -   [Desktop Sync overview](../concepts/desktop-sync-overview.md)
+        -   [Desktop Sync process](../concepts/desktop-sync-process.md)
+    -   [Desktop Sync prerequisites](../concepts/desktop-sync-prerequisites.md)
+    -   [Installing and configuring Desktop Sync](../concepts/desktopsync-admin.md)
+        -   [Setting up test instance of Desktop Sync service](../tasks/desktop-sync-install-test.md)
+        -   [Installing Desktop Sync service](../tasks/desktop-sync-install.md)
+            -   [Configuring synchronization service](../concepts/syncservice-configure.md)
+            -   [Installing and configuring PostgreSQL database for Desktop Sync](../tasks/postgres-config.md)
+                -   [Additional PostgreSQL configuration requirements](../concepts/postgres-add-config.md)
+            -   [Connecting to sync service through JMX](../tasks/ds-jmx-access.md)
+        -   [Uninstalling Desktop Sync](../tasks/desktop-sync-uninstall.md)
+    -   [Monitoring Desktop Sync](../concepts/desktop-sync-monitor.md)
+    -   [Backing up and restoring Desktop Sync](../tasks/ds-backup-restore.md)
+    -   [Upgrading Desktop Sync](../tasks/ds-upgrade.md)
+    -   [Troubleshooting Desktop Sync](../concepts/desktop-sync-troubleshooting.md)
+    -   [Administering Desktop Sync FAQs](../references/ds-faqs-admin.md)
+    -   [Copyright](../reuse/copyright.md)
+    -   [Disclaimer](../reuse/disclaimer.md)
+

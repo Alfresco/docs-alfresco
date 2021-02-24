@@ -1,0 +1,23 @@
+---
+author: [Alfresco Documentation, Alfresco Documentation]
+source: Enterprise web scripts
+audience: 
+category: API
+option: RESTful reference
+---
+
+# Get replication definition
+
+Gets the details of a persisted replication definition.
+
+`GET /alfresco/service/api/replication-definition/{replication_definition_name}`
+
+The web script description document specifies the following options:
+
+|`json`|The default response format|
+|`admin`|The authentication access|
+|`required`|The transaction level|
+|`any`|The format style|
+
+**Parent topic:**[Replication](../references/RESTful-Replication.md)
+

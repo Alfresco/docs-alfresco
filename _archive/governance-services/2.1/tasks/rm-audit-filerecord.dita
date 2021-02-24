@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/task.dtd">
+<task id="rm-audit-filerecord">
+  <title>Filing the audit log as a record</title>
+  <shortdesc>When you've run an audit log you then have the option to file it as a
+    record.</shortdesc>
+
+  <prolog>
+    <author>Alfresco Documentation</author>
+
+    <source/>
+
+    <copyright>
+      <copyryear year="2011"/>
+      <copyrholder>Alfresco Software, Inc.</copyrholder>
+    </copyright>
+
+    <metadata>
+      <audience experiencelevel="novice" job="using" type="user"/>
+
+      <category>User Help</category>
+
+      <keywords>
+        <option>Records Management</option>
+      </keywords>
+
+      <prodinfo>
+        <prodname>ECM</prodname>
+        <vrmlist>
+          <vrm modification="2011/01/21" release="Enterprise Community" version="3.4.0"/>
+        </vrmlist>
+      </prodinfo>
+    </metadata>
+  </prolog>
+
+  <taskbody>
+    <steps>
+
+      <step>
+        <cmd>When you've run an audit, click <uicontrol>File as Record</uicontrol> in the Audit tool
+          of the Records Management Console.</cmd>
+      </step>
+
+      <step>
+        <cmd>Choose the destination folder for the audit record.</cmd>
+      </step>
+
+      <step>
+        <cmd>Click <uicontrol>OK</uicontrol>.</cmd>
+        <stepresult>A message confirms that the audit log has been filed as a record in the selected
+          folder in the File Plan.<note>You'll need to add the required metadata before the record
+            can be completed.</note></stepresult>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>OK</uicontrol> to dismiss the message. You can also click
+            <uicontrol>View Record</uicontrol> to display the audit report in the Records Management
+          site.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>
