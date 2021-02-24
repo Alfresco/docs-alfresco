@@ -23,6 +23,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
 
     <link rel="stylesheet" href="/assets/css/main.css" />
-
+    {% if site.analytics != nil %}
     {% include analytics_head.html %}
+    {% endif %}
   </head>
