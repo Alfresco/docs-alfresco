@@ -1,6 +1,5 @@
 ---
 title: Alfresco Collaboration Connector for Microsoft 365
-nav: false
 ---
 
 Alfresco Collaboration Connector for Microsoft 365 allows you to integrate with Microsoft Office Online applications from the Alfresco Digital Workspace.
@@ -12,3 +11,4 @@ The following features are available:
 * Edit Microsoft Office Word, Excel, and PowerPoint documents stored in Alfresco.
 * Share Microsoft Office Word, Excel, and PowerPoint documents with collaborators.
 * Co-author Microsoft Office Word, Excel, and PowerPoint documents with collaborators in real-time.
+* Create Microsoft Office Word, Excel, and PowerPoint documents.
