@@ -45,9 +45,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 |Applications server|5.2.0|5.2.1|5.2.2|5.2.3|5.2.4|5.2.5|5.2.6|5.2.7|Comment|
 |-------------------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|-----|-------|
-|Tomcat 7.0.82
-
-|✓|✓|✓|✓|✓|✓|✓|✓|Do not use v7.0.70 – See MNT-16664|
+|Tomcat 7.0.82|✓|✓|✓|✓|✓|✓|✓|✓|Do not use v7.0.70 – See MNT-16664|
 |JBoss 6.4.0 EAP|✓|✓|✓|✓|✓|✓|✓|✓| |
 |Oracle WebLogic Server 12.2.1.2|✓|✓|✓|✓|✓|✓|✓|✓| |
 |IBM WebSphere 8.5.5.15|✓|✓|✓|✓|✓|✓|✓|✓|“Classic”, not “Liberty”|
@@ -131,15 +129,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 |Alfresco Desktop Sync 1.2 \*| | |✓|✓|✓|✓|✓|✓|See [Alfresco Desktop Sync overview](https://docs.alfresco.com/desktopsync1.2/concepts/ds-overview.html) for supported clients|
 |Alfresco Desktop Sync 1.1 \*| | |✓|✓|✓|✓|✓|✓|See [Alfresco Desktop Sync overview](https://docs.alfresco.com/desktopsync1.1/concepts/ds-overview.html) for supported clients|
 |Alfresco Desktop Sync 1.0 \*|✓|✓|✓|✓|✓|✓|✓|✓|See [Alfresco Desktop Sync overview](https://docs.alfresco.com/desktopsync1.0/concepts/ds-overview.html) for supported clients|
-|Alfresco Media Management 1.1
-
-|✓|✓|✓|✓|✓|✓|✓|✓|If you intend to use Media Management and the S3 Connector on the same Alfresco Content Services 5.2.x install, you must use Media Management 1.1 and S3 Connector 2.1.|
-|Alfresco Media Management 1.0
-
-|✓|✓|✓|✓|✓|✓|✓|✓|If you intend to use Media Management and the S3 Connector on the same Alfresco Content Services 5.2.x install, you must use Media Management 1.0 and S3 Connector 1.3.|
-|Alfresco Document Transformation Engine 2.1|✓|✓|✓|✓|✓|✓|✓|✓|Document Transformation Engine versions earlier than 2.1.6 are not supported on Alfresco Content Services 5.2.6.See [Installing GhostScript and pdf2swf](install-GhostScript.md) for GhostScript supported version and installation instructions.
-
-|
+|Alfresco Media Management 1.1|✓|✓|✓|✓|✓|✓|✓|✓|If you intend to use Media Management and the S3 Connector on the same Alfresco Content Services 5.2.x install, you must use Media Management 1.1 and S3 Connector 2.1.|
+|Alfresco Media Management 1.0|✓|✓|✓|✓|✓|✓|✓|✓|If you intend to use Media Management and the S3 Connector on the same Alfresco Content Services 5.2.x install, you must use Media Management 1.0 and S3 Connector 1.3.|
+|Alfresco Document Transformation Engine 2.1|✓|✓|✓|✓|✓|✓|✓|✓|Document Transformation Engine versions earlier than 2.1.6 are not supported on Alfresco Content Services 5.2.6.See [Installing GhostScript and pdf2swf](install-GhostScript.md) for GhostScript supported version and installation instructions.|
 |Alfresco Document Transformation Server 2.0|✓|✓| | | | | | | |
 |Alfresco Office Services 1.1|✓|✓|✓|✓|✓|✓|✓|✓| |
 |Alfresco Search Services 1.3|✓|✓|✓|✓|✓|✓|✓|✓| |
@@ -150,10 +142,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 |Alfresco Enterprise Viewer 3.3|✓|✓|✓|✓|✓|✓|✓|✓| |
 |Alfresco Enterprise Viewer 3.2|✓|✓|✓|✓|✓|✓|✓|✓| |
 
-\* Alfresco Desktop Sync will replicate content on local desktops for users with the appropriate access. If replication outside the repository is not allowed by your content policy you should not deploy Alfresco Desktop Sync. In addition:
-
--   Alfresco Desktop Sync 1.1 and 1.2 do not support Smart Folders.
--   Alfresco Desktop Sync 1.0 does not support Smart Folders and Alfresco Records Management or Alfresco Governance Services. If Alfresco Governance Services controlled content is synced, note that moving, renaming or hiding of declared records may not be reflected on the desktop client.
+- `*` Alfresco Desktop Sync will replicate content on local desktops for users with the appropriate access. If replication outside the repository is not allowed by your content policy you should not deploy Alfresco Desktop Sync. In addition:
+- Alfresco Desktop Sync 1.1 and 1.2 do not support Smart Folders.
+- Alfresco Desktop Sync 1.0 does not support Smart Folders and Alfresco Records Management or Alfresco Governance Services. If Alfresco Governance Services controlled content is synced, note that moving, renaming or hiding of declared records may not be reflected on the desktop client.
 
 **Related components**
 
