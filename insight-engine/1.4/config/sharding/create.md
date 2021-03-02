@@ -884,7 +884,7 @@ You can selectively reindex a small subset of the index based on a query. This e
 Example 1: To reindex people after changing the first name and last name tokenisation, use the following single-threaded query:
 
 ```http
-http://localhost:8983/solr/admin/cores?action=reindex&query=TYPE:person
+http://localhost:8983/solr/admin/cores?action=reindex&query=TYPE:"cm:person"
 ```
 
 Example 2: To reindex jobs that failed or threw an exception when indexing, use the following query:
