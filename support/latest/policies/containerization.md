@@ -6,7 +6,7 @@ title: Deployment and Containerization Support Policy
 
 The above illustration shows four deployment options. Alfresco creates and supports only the software represented as App1, App2, and App3. Alfresco doesn’t create or support anything else in the diagram - that’s considered to be “infrastructure”. 
 
-There are many different ways to deploy Alfresco software into an infrastructure before it can run. A few options include using custom shell scripts, installers, Ansible, Terraform, Docker Compose, Kubernetes, Docker Enterprise, OpenShift, Heroku, Chef, Puppet, Rancher, AWS CloudFormation, Azure Resource Manager, Google Cloud Deployment Manager, AWS ECS, AWS EKS, and so on.
+There are many different ways to deploy Alfresco software into an infrastructure before it can run. A few options include using custom shell scripts, installers, Ansible, Terraform, Docker Compose, Kubernetes, Docker Enterprise, OpenShift, Heroku, Chef, Puppet, Rancher, AWS CloudFormation, Azure Resource Manager, Google Cloud Deployment Manager, AWS ECS, AWS EKS, and so on. Within this policy these are all considered to be "deployment tools".
 
 Alfresco doesn’t create or support any deployment tool and customers may choose the deployment tool they feel most comfortable with. Often this will be based on a company standard, and Alfresco expects that each customer will have its own unique standard. Each customer is expected to have the skills and knowledge needed to use their chosen deployment tool effectively. Alfresco cannot provide assistance on the chosen deployment tool - there are simply too many for that to be feasible.
 
