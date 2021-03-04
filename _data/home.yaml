@@ -58,6 +58,9 @@ integrations:
     url:
     image: /assets/img/ic_search_80px.svg
     sub:
+      - title: "Search Enterprise"
+        text: "Search Enterprise along with Alfresco Content Services supports use of the Elasticsearch platform. Elasticsearch is an open source enterprise search platform that uses Lucene as indexing and search engine."
+        url: /search-enterprise/latest/
       - title: "Search and Insight Engine"
         text: "Alfresco Search and Insight Engine is our new generation of analytics using Alfresco Search Services."
         url: /insight-engine/latest/

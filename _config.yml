@@ -576,7 +576,6 @@ defaults:
       version: 1.0
       latest: true
 
-
 # Alfresco Federation Services
   - scope:
       path: "federation-services"
@@ -590,6 +589,23 @@ defaults:
         - 1.0
   - scope:
       path: "federation-services/latest"
+    values:
+      version: 1.0
+      latest: true
+
+# Search Enterprise
+  - scope:
+      path: "search-enterprise"
+    values:
+      layout: "docs"
+      product: "Alfresco Search Enterprise"
+      location: "search-enterprise"
+      toc: "search-enterprise"
+      support: true
+      versions:
+        - 1.0      
+  - scope:
+      path: "search-enterprise/latest"
     values:
       version: 1.0
       latest: true
