@@ -22,7 +22,7 @@ One way is to use the following command:
 docker cp custom_queryset.json <alfresco container>:/usr/local/tomcat/shared/classes/alfresco/extension/querysets/
 ```
 
-In a Kubernetes environment, [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+In a Kubernetes environment, [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/){:target="_blank"}
 can be used to add query set definitions. You will need to create
 a ConfigMap from the JSON file and mount the ConfigMap through a volume
 to the ACS repository pods.
