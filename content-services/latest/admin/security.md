@@ -1425,7 +1425,7 @@ Content Services supports adding other headers to the configuration, for example
 </config>
 ```
 
-### Alfresco repository security policies and filters
+### Alfresco repository security policies and filters {#reposecuritypolicyandfilters}
 
 You can configure filters in the repository to mitigate security attacks when the Content Services ReST API is accessed externally.
 

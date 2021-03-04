@@ -77,6 +77,8 @@
               path: '/content-services/latest/admin/import-transfer/'
         - title: 'Manage security'
           pages:
+          - title: 'Securing your installation'
+            path: '/content-services/latest/admin/securing-install/'
           - title: 'Users and groups'
             path: '/content-services/latest/admin/users-groups/'
           - title: 'Authentication and sync'
