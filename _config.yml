@@ -501,7 +501,24 @@ defaults:
     values:
       toc: "media-management-tutorial"
 
-# SAML Module for Alfresco Content Services
+# Query Accelerator
+  - scope:
+      path: "query-accelerator"
+    values:
+      layout: "docs"
+      product: "Query Accelerator"
+      location: "query-accelerator"
+      toc: "query-accelerator"
+      support: true
+      versions:
+        - 1.0       
+  - scope:
+      path: "query-accelerator/latest"
+    values:
+      version: 1.0
+      latest: true
+ 
+ # SAML Module for Alfresco Content Services
   - scope:
       path: "saml-module"
     values:
