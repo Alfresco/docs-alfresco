@@ -10,7 +10,7 @@ Care should be taken when upgrading from any previous releases of Community Edit
 
 * Ensure that you have a functional backup of your Alfresco repository and database, before starting the upgrade process.
 * Download and run the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector/blob/master/README.md){:target="_blank"} <!--DOCS LINK-->to understand which customization or library items need to be reviewed or updated to support the upgrade.
-* Review all new and deprecated features included in the Release Notes. Customers can access these from the [Support Portal](https://support.alfersco.com){:target="_blank"}.
+* Review all new and deprecated features included in the Release Notes. Customers can access these from the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
 * Review and implement the new supported stack options, and update as necessary for the new deployment.
 
 To upgrade from a previous version of Content Services to a later version, see the [upgrade process](#upgrade-process).
