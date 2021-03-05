@@ -6,6 +6,13 @@ Use this information to upgrade from a version of Community Edition to a later v
 
 Before performing an upgrade or applying a Service Pack, make sure you check the recommended upgrade path and the prerequisites checklist. As a part of upgrade, you need to validate and test to ensure that the Alfresco upgrade was successful.
 
+Care should be taken when upgrading from any previous releases of Community Edition. There are some steps that should be reviewed and planned before you upgrade. Familiarize yourself with the guidance below and then plan your upgrade. In particular, ensure that the following steps are completed before you start:
+
+* Ensure that you have a functional backup of your Alfresco repository and database, before starting the upgrade process.
+* Download and run the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector/blob/master/README.md){:target="_blank"}<!--DOCS LINK-->to understand which customization or library items need to be reviewed or updated to support the upgrade.
+* Review all new and deprecated features included in the Release Notes.
+* Review and implement the new supported stack options, and update as necessary for the new deployment.
+
 ## Upgrade process
 
 Use this procedure to upgrade from a previous version of Community Edition using the distribution zip. The process involves a new installation of the Community Edition binaries and configuration, and an in-place upgrade of a copy of the repository.
@@ -16,8 +23,8 @@ These steps assume that you've got an existing Community Edition installation (`
 
 | File Name | Properties |
 | --------- | ---------- |
-| alfresco-global.properties | dir.root=/alfresco-v.1/alf_data db.url=url<v.1\> |
-| solrcore.properties | data.dir.root=/alfresco-v.1/solr/myindexes |
+| alfresco-global.properties | `dir.root=/alfresco-v.1/alf_data`<br><br>`db.url=url<v.1>` |
+| solrcore.properties | `data.dir.root=/alfresco-v.1/solr/myindexes` |
 
 1. Install the new version of Community Edition using the distribution zip.
 

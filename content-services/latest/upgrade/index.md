@@ -6,7 +6,14 @@ Use this information to upgrade from a version of Content Services to a later ve
 
 Before performing an upgrade or applying a Service Pack, make sure you check the recommended upgrade path and the prerequisites checklist. As a part of upgrade, you need to validate and test to ensure that the Alfresco upgrade was successful.
 
-To upgrade from a previous version of Content Services to a later version, see [upgrade process](#upgrade-process).
+Care should be taken when upgrading from any previous releases of Community Edition. There are some steps that should be reviewed and planned before you upgrade. Familiarize yourself with the guidance below and then plan your upgrade. In particular, ensure that the following steps are completed before you start:
+
+* Ensure that you have a functional backup of your Alfresco repository and database, before starting the upgrade process.
+* Download and run the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector/blob/master/README.md){:target="_blank"} <!--DOCS LINK-->to understand which customization or library items need to be reviewed or updated to support the upgrade.
+* Review all new and deprecated features included in the Release Notes. Customers can access these from the [Support Portal](https://support.alfersco.com){:target="_blank"}.
+* Review and implement the new supported stack options, and update as necessary for the new deployment.
+
+To upgrade from a previous version of Content Services to a later version, see the [upgrade process](#upgrade-process).
 
 ## Upgrade paths
 
@@ -14,15 +21,15 @@ When you upgrade Content Services, it's recommended that you follow a structured
 
 The following diagram shows the upgrade paths for major versions:
 
-![Upgrade paths to 6.2]({% link content-services/images/upgrade-path-6-2.png %})
+![Upgrade paths to 7.0]({% link content-services/images/upgrade-path-7-0.png %})
 
 The upgrade path recommendations are:
 
-* Direct upgrades to Content Services 6.2 are supported from only 5.1.x and later, with the latest Service Pack applied.
-* Content Services 6.2 introduces changes that require new releases of all modules. To upgrade to 6.2, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
-* You must upgrade to Alfresco Search Services 1.4 before upgrading the repository to 6.2. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
-  * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services, and then upgrade to 6.2.
-  * Upgrades from Alfresco 5.1 need to first stop at 5.2 to upgrade search to Alfresco Search Services, and then upgrade to 6.2.
+
+* Direct upgrades to Content Services 7.0 are supported from only 5.2.x and later, with the latest Service Pack applied. **(TBC)**
+* Content Services 7.0 introduces changes that require new releases of all modules. To upgrade to 7.0, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
+* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.0. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
+  * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services, followed by an upgrade from 5.2 to 6.2, and then upgrade to 7.0. **(TBC)**
 
 > **Note:** If you're upgrading from an earlier release that's not shown on this diagram, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for assistance.
 
@@ -37,6 +44,7 @@ The following table shows the upgrade path for major versions:
 | Community Edition 201806 GA | Content Services 6.0.0 |
 | Community Edition 201901 GA | Content Services 6.1.0 |
 | Community Edition 201911 GA | Content Services 6.2.0 |
+| Community Edition 7.0 | Content Services 7.0.0 |
 
 Please contact Alfresco Support for upgrade advice that's specific to your environment.
 
@@ -54,8 +62,8 @@ These steps assume that you've got an existing Content Services installation (`a
 
 | File Name | Properties |
 | --------- | ---------- |
-| alfresco-global.properties | dir.root=/alfresco-v.1/alf_data db.url=url<v.1\> |
-| solrcore.properties | data.dir.root=/alfresco-v.1/solr/myindexes |
+| alfresco-global.properties | `dir.root=/alfresco-v.1/alf_data`<br><br>`db.url=url<v.1>` |
+| solrcore.properties | `data.dir.root=/alfresco-v.1/solr/myindexes` |
 
 1. Install the new version of Content Services using the distribution zip.
 
@@ -82,13 +90,13 @@ These steps assume that you've got an existing Content Services installation (`a
         data.dir.root:/alfresco-v.2/solr/myindexes
         ```
 
-2. Validate the new 6.2 installation to check that it's working correctly.
+2. Validate the new 7.0 installation to check that it's working correctly.
 
     1. Configure the new installation with a new repository and database (not the existing one).
 
     2. [Start the server]({% link content-services/latest/install/zip/additions.md %}#start-server) and [validate](#validate-upgrade) that the system works correctly.
 
-3. Apply all customizations to the new 6.2 installation.
+3. Apply all customizations to the new 7.0 installation.
 
     1. [Stop]({% link content-services/latest/install/zip/additions.md %}#stop-server) the server.
 
@@ -141,8 +149,7 @@ These steps assume that you've got an existing Content Services installation (`a
         You need to copy the database once only, as it's upgraded by the first node that's upgraded. The other nodes detect it's been upgraded and skip the database upgrade step.
 
         > **CAUTION:**
-
-        In a clustered environment, when the cloned nodes are restarted with a cluster license, the nodes may try to join the existing production cluster, and point to a cloned database instead of the production cluster database. This can lead to corrupted data.
+        > In a clustered environment, when the cloned nodes are restarted with a cluster license, the nodes may try to join the existing production cluster, and point to a cloned database instead of the production cluster database. This can lead to corrupted data.
 
         > **Cause**: This occurs because the cloned node contains the cluster id from production and tries to join that cluster.
 
