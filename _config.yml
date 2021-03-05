@@ -511,11 +511,11 @@ defaults:
       toc: "query-accelerator"
       support: true
       versions:
-        - 1.0       
+        - 7.0       
   - scope:
       path: "query-accelerator/latest"
     values:
-      version: 1.0
+      version: 7.0
       latest: true
  
  # SAML Module for Alfresco Content Services

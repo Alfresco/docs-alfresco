@@ -165,10 +165,11 @@ Denormalized tables have a status. For example:
 
 | Name | Version | State | Notes |
 | ---- | ------- | ----- | ----- |
-| tableA | 1 | OBSOLETE | About to be removed |
-| tableA | 2 |  LIVE | Currently being used |
-| tableA | 3 |  INPROGRESS | Created but not fully populated yet, so cannot be used |
-| tableA | 4 |  NEW | Seen but population of denormalized data has not started |
+| tableA | 1 | OBSOLETE | Should be removed |
+| tableA | 2 |  RETIRED | Can be removed |
+| tableA | 3 |  LIVE | Currently being used |
+| tableA | 4 |  INPROGRESS | Created but not fully populated yet, so cannot be used |
+| tableA | 5 |  NEW | Seen but population of denormalized data has not started |
 
 The transition from NEW to INPROGRESS will normally happen almost immediately.
 

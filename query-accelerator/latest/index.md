@@ -16,7 +16,7 @@ may be created to support queries with different search properties or aspects.
 This performance comes at the cost of additional space for denormalized databases tables and indexes as well as a minimal increased time on ingestion and update. This will however allow customers to make that decision. Having many properties in a query set or having lots of query sets should be avoided, as the cost will be high and generally indicates that
 there is something wrong with the data model design.
 
-## Operational requirements
+## Operational overview
 
 1. Query sets may be applied to an existing Alfresco repository. For example a query set could be applied to a system
 which has been upgraded to 7.0.0 that already contains hundreds of millions of documents.
