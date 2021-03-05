@@ -31,7 +31,7 @@ The XML configuration for permissions also defines a context-free ACL for ACEs t
 
 A check that a user has Read permission for a node is done in two stages. First, the context-free ACL is checked to see if it allows access. If not, the ACL assigned or inherited by the node is checked. A user might be allowed to perform an operation because of permissions assigned to the context-free ACL, assigned to the node’s ACL, inherited by the node from its parent, or a combination of all three.
 
-## Mitigate brute force attack on user passwords
+## Mitigate brute force attack on user passwords {#mitigatebruteforceattackpwd}
 
 Content Services 6.2 provides basic out-of-the-box protection against brute force attacks on password logins.
 
@@ -286,7 +286,7 @@ To monitor users that have their passwords upgraded when they log in, add the fo
 log4j.logger.org.alfresco.repo.security.authentication.HashPasswordTransactionListener=debug
 ```
 
-## Encrypting properties
+## Encrypting properties {#encryptconfigprops}
 
 The `alfresco-global.properties` file (and other subsystem properties file) holds configuration properties that contain sensitive information or passwords, such as `db.password`. All the properties that can be specified in Content Services under the `alfresco-global.properties` file can be encrypted.
 
@@ -308,7 +308,7 @@ Here is the list of protected attributes (the value for these will be masked in 
 * `cryptodoc.jce.keystore.password`
 * `ldap.synchronization.java.naming.security.credentials`
 
-### Encrypting configuration properties
+### Encrypting configuration properties 
 
 You can encrypt sensitive properties in the `alfresco-global.properties` configuration file.
 
@@ -1008,7 +1008,7 @@ The `OwnableService` is supported by an `Ownable` aspect defined in `<installLoc
 
 There are permissions and permission groups associated with the Ownable aspect in the permission model and related access controls applied to the methods on the public `OwnableService`.
 
-## Admin password in default authentication
+## Admin password in default authentication {#adminpwddefaultauth}
 
 The Admin user password is used by the default authentication system.
 
