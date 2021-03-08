@@ -8,9 +8,9 @@ Before performing an upgrade or applying a Service Pack, make sure you check the
 
 Care should be taken when upgrading from any previous releases of Community Edition. There are some steps that should be reviewed and planned before you upgrade. Familiarize yourself with the guidance below and then plan your upgrade. In particular, ensure that the following steps are completed before you start:
 
-* Ensure that you have a functional backup of your Alfresco repository and database, before starting the upgrade process.
-* Download and run the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector/blob/master/README.md){:target="_blank"}<!--DOCS LINK-->to understand which customization or library items need to be reviewed or updated to support the upgrade.
-* Review all new and deprecated features included in the Release Notes.
+* Ensure that you have a functional [backup of your Alfresco repository and database]({% link content-services/community/admin/backup-restore.md %}), before starting the upgrade process.
+* Download and run the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector/blob/master/README.md){:target="_blank"}<!--DOCS LINK--> to understand which customization or library items need to be reviewed or updated to support the upgrade.
+* Review all new and deprecated features included in the Community Release Notes. **(LINK)**
 * Review and implement the new supported stack options, and update as necessary for the new deployment.
 
 ## Upgrade process

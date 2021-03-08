@@ -6,10 +6,10 @@ Use this information to upgrade from a version of Content Services to a later ve
 
 Before performing an upgrade or applying a Service Pack, make sure you check the recommended upgrade path and the prerequisites checklist. As a part of upgrade, you need to validate and test to ensure that the Alfresco upgrade was successful.
 
-Care should be taken when upgrading from any previous releases of Community Edition. There are some steps that should be reviewed and planned before you upgrade. Familiarize yourself with the guidance below and then plan your upgrade. In particular, ensure that the following steps are completed before you start:
+Care should be taken when upgrading from any previous releases of Content Services or Community Edition. There are some steps that should be reviewed and planned before you upgrade. Familiarize yourself with the guidance below and then plan your upgrade. In particular, ensure that the following steps are completed before you start:
 
-* Ensure that you have a functional backup of your Alfresco repository and database, before starting the upgrade process.
-* Download and run the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector/blob/master/README.md){:target="_blank"} <!--DOCS LINK-->to understand which customization or library items need to be reviewed or updated to support the upgrade.
+* Ensure that you have a functional [backup of your Alfresco repository and database]({% link content-services/latest/admin/backup-restore.md %}), before starting the upgrade process.
+* Download and run the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector/blob/master/README.md){:target="_blank"} <!--DOCS LINK--> to understand which customization or library items need to be reviewed or updated to support the upgrade.
 * Review all new and deprecated features included in the Release Notes. Customers can access these from the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
 * Review and implement the new supported stack options, and update as necessary for the new deployment.
 
@@ -24,7 +24,6 @@ The following diagram shows the upgrade paths for major versions:
 ![Upgrade paths to 7.0]({% link content-services/images/upgrade-path-7-0.png %})
 
 The upgrade path recommendations are:
-
 
 * Direct upgrades to Content Services 7.0 are supported from only 5.2.x and later, with the latest Service Pack applied. **(TBC)**
 * Content Services 7.0 introduces changes that require new releases of all modules. To upgrade to 7.0, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
@@ -150,9 +149,9 @@ These steps assume that you've got an existing Content Services installation (`a
 
         > **CAUTION:**
         > In a clustered environment, when the cloned nodes are restarted with a cluster license, the nodes may try to join the existing production cluster, and point to a cloned database instead of the production cluster database. This can lead to corrupted data.
-
+        >
         > **Cause**: This occurs because the cloned node contains the cluster id from production and tries to join that cluster.
-
+        >
         > **Solution**: To avoid this problem, you should ensure any cloned nodes required for upgrade testing are network isolated from the production nodes.
 
 ## Validate upgrade
