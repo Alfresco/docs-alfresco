@@ -31,9 +31,9 @@ them since they can be the difference between staying protected and compromising
 * [Change the default JMX passwords]({% link content-services/latest/config/index.md %}#connectthrujmx) associated with `controlRole` and `monitorRole` parameters.
 * Check whether the passwords stored in Properties files are [encrypted](#keystoresandencryption) or not.
 
-## Do not run Content Services as root
-If someone does compromise Content Services you want to limit the damage they can do. If Content Services is running as root, 
-they can wreck havoc on your server.
+## Do not run as root
+If someone does compromise Content Services you want to limit the damage they can do. If Content Services is running 
+as root, they can wreck havoc on your server.
 
 ## Adding a Reverse proxy (1) {#addreverseproxy}
 It's good security practice to have a reverse proxy in front of your Content Services infrastructure. This proxy is 
@@ -54,10 +54,32 @@ All communication should be over Secure Socket Layer (SSL).
 
 See [Configure SSL for production environment]({% link content-services/latest/config/repository.md %}#ssl-prod).
 
+Note that besides HTTPS traffic (Digital Workspace, Share, WebDAV, ReST API) you need also consider:
+
+* SharePoint Protocol
+* IMAPS
+* SMTP Inbound TLS
+* SMTP Outbound TLS
+* FTPS
+* LDAPS Connection
+* Consider Hazelcast or JGroups Connection (Clustering)
+
 ## Securing the connection between Repository and Solr (2)
 It is important that the communication between the Content Services Repository and the Alfresco Search Services is secure.
 
 For more information about this see [Search Services security documentation]({% link search-services/latest/config/security.md %}) 
+
+### Re-generate the Solr certificate
+Alfresco and Solr are separate web applications. Regardless of whether or not these webapps are running in the same 
+Tomcat server, different Tomcat servers, or even different machines, they use HTTP to communicate with each other. 
+The communication between Solr and Alfresco is encrypted, by default. The Solr web application is secured using 
+certificate-based client authentication. But, by default, the certificate Solr uses for both encryption and authentication 
+is the one that Alfresco generated and shipped with the product. This means that, by default, if someone can get to your 
+Solr port they can search your entire repository because the public has easy access to that Alfresco-generated, 
+default client certificate.
+
+To fix this, either make sure no one can hit the Solr port (8443, by default) or re-generate the certificate. Or both. 
+For more info on how to re-generate the Solr certificate, see the [docs](TODO).
 
 ## Share Web UI security (3)
 The Alfresco Share Web UI is one of the main user interfaces used by Alfresco users. It needs to be configured 
@@ -76,18 +98,6 @@ by Content Services. You should generate new keystores.
 * [Manage keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) for encrypted properties, communication etc
 * [Encrypt config properties]({% link content-services/latest/admin/security.md %}#encryptconfigprops)
 
-### Re-generate the Solr certificate
-Alfresco and Solr are separate web applications. Regardless of whether or not these web apps are running in the same 
-Tomcat server, different Tomcat servers, or even different machines, they use HTTP to communicate with each other. 
-The communication between Solr and Alfresco is encrypted, by default. The Solr web application is secured using 
-certificate-based client authentication. But, by default, the certificate Solr uses for both encryption and authentication 
-is the one that Alfresco generated and shipped with the product. This means that, by default, if someone can get to your 
-Solr port they can search your entire repository because the public has easy access to that Alfresco-generated, 
-default client certificate.
-
-To fix this, either make sure no one can hit the Solr port (8443, by default) or re-generate the certificate. Or both. 
-For more info on how to re-generate the Solr certificate, see the [docs](TODO).
-
 ## ReST API secure access
 You can also configure filters in Alfresco Repository to mitigate security attacks when the Content Services ReST API is 
 accessed externally.
@@ -95,15 +105,36 @@ accessed externally.
 See [repository security policies and filters]({% link content-services/latest/admin/security.md %}#reposecuritypolicyandfilters)
 
 ## Dedicated user for external system access
-If you are going to integrate Content Services with external systems create a dedicated user for them allowing access to 
-Content Services. Instead of giving them access via admin user.
+If you are going to integrate Content Services with external systems, then [create a dedicated user]({% link content-services/latest/admin/users-groups.md %}) 
+for each external system allowing access to the repository based on what information they need. Instead of giving them 
+access via the admin user that has access to everything. 
 
 ## Disable Guest user
-Read the information on the [Set up authentication and sync]({% link content-services/community/admin/auth-sync.md %}) page
+Read the information on the [Set up authentication and sync]({% link content-services/latest/admin/auth-sync.md %}) page
 and specifically search for Guest user config on this page.
 
 ## Disable unused protocols
 This is about reducing your attack surface. One of the nice things about Content Services is the wide number of options 
 you have for getting content in and out of the repository. That’s great, but if you aren’t using, for example, FTP, then 
-why leave FTP enabled? That’s a potential place an attacker could find a toehold. Purposefully review each of the protocols 
-that Alfresco supports and disable those that are not being used.
+why leave [FTP enabled]({% link content-services/latest/config/file-servers.md %})? That’s a potential place an attacker 
+could find a toehold. Purposefully review each of the protocols that Alfresco supports and disable those that are not 
+being used.
+
+### Summary of ports used in a Content Services installation
+
+The following table shows the protocols and ports used in a Content Services installation together with some useful 
+comments on dos and don'ts.
+
+Inbound firewall ports:
+
+![acs-protocol-overview-inbound]({% link content-services/images/acs-protocol-overview-inbound.png %})
+
+Outbound firewall ports:
+
+![acs-protocol-overview-outbound]({% link content-services/images/acs-protocol-overview-outbound.png %})
+
+## Security checklist
+
+The following is a typical security checklist that you can use to make sure your installation is secure:
+
+![acs-security-checklist]({% link content-services/images/acs-security-checklist.png %})
