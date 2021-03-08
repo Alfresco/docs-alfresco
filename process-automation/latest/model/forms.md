@@ -132,11 +132,22 @@ The advanced properties for an attach file field are:
 | -------- | ----------- |
 | Allow multiple file attachments | Checking this box will allow for more than one file to be uploaded |
 | File source | Sets the location for where files can be uploaded from. `Alfresco Content` is from a Content Services instance, whilst `Alfresco Content and Local` allows uploads from Content Services and a form filler's local machine. |
-| Destination folder path | The location where files uploaded from a local machine should be stored in Alfresco Content Services, composed of an alias and a relative path. For example, `-root-/User Homes/hruser` or `-my-` will both store the files in `/Company Home/User Homes/hruser`. |
+| Destination folder path | The location where files uploaded from a local machine should be stored in Alfresco Content Services, You can set destination folder path in three different ways [Static](#destinationfolderpath), [String Variable](#destinationfolderpath) and [Folder Variable](#destinationfolderpath). |
 | Display show file option | Checking this box will allow the form filler to view uploaded files |
 | Display download file option | Checking this box will allow the form filler to download any uploaded files |
 | Display retrieve metadata option | Checking this box will allow the form filler to view the metadata of uploaded files |
 | Display remove file option | Checking this box will allow the form filler to remove uploaded files from the form |
+
+## DestinationFolderPath
+
+#### Static Path
+Static is composed of an alias and a relative path. For example, `-root-/User Homes/hruser` or `-my-` will both store the files in `/Company Home/User Homes/hruser`
+
+#### Based on string type variable
+Using form variable of string type, map process variable of string type to a form variable of string type. After mapping in form editor you can set mapped form variable of string type as a destination folder path.
+
+#### Based on folder type variable
+Using form variable of folder type, map process variable of folder type to a form variable of folder type. After mapping in form editor you can set mapped form variable of folder type as a destination folder path.
 
 > **Important**: Users filling in a form with an attach file field need to be given explicit access to the upload directory if it is outside of the [default storage location]({% link process-automation/latest/admin/release.md %}#deploy-steps/storage) for the application.
 
