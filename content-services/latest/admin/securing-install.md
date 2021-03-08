@@ -42,7 +42,7 @@ then configured with a whitelist of allowed URLs, and blocks everything else.
 You can find a sample NGINX configuration in our [GitHub project](https://github.com/Alfresco/acs-ingress/blob/master/nginx.conf){:target="_blank"}, 
 and the corresponding image in [Docker Hub](https://hub.docker.com/r/alfresco/alfresco-acs-nginx){:target="_blank"}.
 
-## Secure server traffic with HTTPS
+## Secure server traffic with HTTPS (1)
 If you aren’t going to encrypt the traffic to your server then you should look at the content as public information. 
 If that sounds like a bad idea, then you must encrypt your traffic to prevent passwords from being exposed in clear text.
 
@@ -64,22 +64,18 @@ Note that besides HTTPS traffic (Digital Workspace, Share, WebDAV, ReST API) you
 * LDAPS Connection
 * Consider Hazelcast or JGroups Connection (Clustering)
 
-## Securing the connection between Repository and Solr (2)
-It is important that the communication between the Content Services Repository and the Alfresco Search Services is secure.
-
-For more information about this see [Search Services security documentation]({% link search-services/latest/config/security.md %}) 
-
-### Re-generate the Solr certificate
-Alfresco and Solr are separate web applications. Regardless of whether or not these webapps are running in the same 
+## Secure traffic between Repository and Solr (2)
+The Repository and Solr are separate web applications. Regardless of whether or not these webapps are running in the same 
 Tomcat server, different Tomcat servers, or even different machines, they use HTTP to communicate with each other. 
-The communication between Solr and Alfresco is encrypted, by default. The Solr web application is secured using 
-certificate-based client authentication. But, by default, the certificate Solr uses for both encryption and authentication 
-is the one that Alfresco generated and shipped with the product. This means that, by default, if someone can get to your 
-Solr port they can search your entire repository because the public has easy access to that Alfresco-generated, 
-default client certificate.
+The communication between Solr and the Repository is encrypted, by default. 
+
+The Solr web application is secured using certificate-based client authentication. But, by default, the certificate Solr 
+uses for both encryption and authentication is the one that Alfresco generates and ships with the product. This means 
+that, by default, if someone can get to your Solr port they can search your entire content repository because the public 
+has easy access to that Alfresco-generated, default client certificate.
 
 To fix this, either make sure no one can hit the Solr port (8443, by default) or re-generate the certificate. Or both. 
-For more info on how to re-generate the Solr certificate, see the [docs](TODO).
+For more info on how to re-generate the Solr certificate, see the [Search Services security documentation]({% link search-services/latest/config/security.md %}).
 
 ## Share Web UI security (3)
 The Alfresco Share Web UI is one of the main user interfaces used by Alfresco users. It needs to be configured 
@@ -91,12 +87,12 @@ for secure access, see the following pages:
 
 TODO
 
-## Manage keystores and encryption {#keystoresandencryption}
-The out-of-the-box Content Services installation has a pre-configured main keystore, which contains a secret key generated 
-by Content Services. You should generate new keystores.
+## Encrypting config and metadata {#keystoresandencryption}
+It's possible to encrypt certain sensitive properties in the main `alfresco-global.properties` configuration file. 
+It's also possible to encrypt node (i.e. file or folder) properties (i.e. metadata). 
 
-* [Manage keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) for encrypted properties, communication etc
 * [Encrypt config properties]({% link content-services/latest/admin/security.md %}#encryptconfigprops)
+* [Manage keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) for encrypted properties, communication etc
 
 ## ReST API secure access
 You can also configure filters in Alfresco Repository to mitigate security attacks when the Content Services ReST API is 
