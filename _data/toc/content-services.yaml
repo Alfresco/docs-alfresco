@@ -17,6 +17,8 @@
               path: '/content-services/latest/install/zip/amp/'
             - title: 'Install additional software'
               path: '/content-services/latest/install/zip/additions/'
+        - title: 'Install with Ansible'
+          path: '/content-services/latest/install/ansible/'
         - title: 'Install using containers'
           pages:
             - title: 'Overview'
