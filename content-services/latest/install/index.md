@@ -34,7 +34,7 @@ Ansible playbooks provide an automated way of deploying a complete Alfresco Cont
 
 For basic instructions on deploying with Ansible, see: [Install using Ansible]() 
 
-To explore more technical information on the ACS Playbook, and to access the playbook source, please visit:  
+To explore more technical information on the ACS Playbook, and to access the playbook source, please visit: https://github.com/Alfresco/alfresco-ansible-deployment 
 
 The ACS Ansible playbook is provided as an Open Source reference script, which customers can modify and enhance to suit their own deployment environments. 
 
