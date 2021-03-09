@@ -1954,108 +1954,31 @@ In order to properly configure ATS in a project generated using the Alfresco SDK
 
 ##### Adding the new containers
 
-* Locate the Docker compose file (usually at `PROJECT_ROOT_PATH/docker/docker-compose.yml`) and add the containers that conform ATS (`transform-router`, 
-`alfresco-pdf-renderer`, `imagemagick`, `libreoffice`, `tika`, `transform-misc`, `shared-file-store` and `activemq`):
+* Locate the Docker compose file (usually at `PROJECT_ROOT_PATH/docker/docker-compose.yml`) and add the container that 
+contains AIO transformer:
 
 ```text
 services:
 ...
-  transform-router:
-    image: quay.io/alfresco/alfresco-transform-router:1.1.0-RC3
+  transform-core-aio:
+    image: alfresco/alfresco-transform-core-aio:2.3.8
+    mem_limit: 1536m
     environment:
-      JAVA_OPTS: " -Xms256m -Xmx512m"
-      ACTIVEMQ_URL: "nio://activemq:61616"
-      IMAGEMAGICK_URL: "http://imagemagick:8090"
-      PDF_RENDERER_URL : "http://alfresco-pdf-renderer:8090"
-      LIBREOFFICE_URL : "http://libreoffice:8090"
-      TIKA_URL : "http://tika:8090"
-      TRANSFORM_MISC_URL : "http://transform-misc:8090"
-      FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
     ports:
-      - 8095:8095
-    links:
-      - activemq
-  alfresco-pdf-renderer:
-    image: alfresco/alfresco-pdf-renderer:2.1.0-RC2
-    environment:
-      JAVA_OPTS: " -Xms256m -Xmx512m"
-      ACTIVEMQ_URL: "nio://activemq:61616"
-      FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
-    ports:
-      - 8090:8090
-    links:
-      - activemq
-  imagemagick:
-    image: alfresco/alfresco-imagemagick:2.1.0-RC2
-    environment:
-      JAVA_OPTS: " -Xms256m -Xmx512m"
-      ACTIVEMQ_URL: "nio://activemq:61616"
-      FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
-    ports:
-      - 8091:8090
-    links:
-      - activemq
-  libreoffice:
-    image: alfresco/alfresco-libreoffice:2.1.0-RC2
-    environment:
-      JAVA_OPTS: " -Xms256m -Xmx512m"
-      ACTIVEMQ_URL: "nio://activemq:61616"
-      FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
-    ports:
-      - 8092:8090
-    links:
-      - activemq
-  tika:
-    image: alfresco/alfresco-tika:2.1.0-RC2
-    environment:
-      JAVA_OPTS: " -Xms256m -Xmx512m"
-      ACTIVEMQ_URL: "nio://activemq:61616"
-      FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
-    ports:
-      - 8093:8090
-    links:
-      - activemq
-  transform-misc:
-    image: alfresco/alfresco-transform-misc:2.1.0-RC2
-    environment:
-      JAVA_OPTS: " -Xms256m -Xmx512m"
-      ACTIVEMQ_URL: "nio://activemq:61616"
-      FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
-    ports:
-      - 8094:8090
-    links:
-      - activemq    
-  shared-file-store:
-    image: alfresco/alfresco-shared-file-store:0.5.3
-    environment:
-      JAVA_OPTS: " -Xms256m -Xmx512m"
-      scheduler.content.age.millis: 86400000
-      scheduler.cleanup.interval: 86400000
-    ports:
-      - 8099:8099
-    volumes:
-      - shared-file-store-volume:/tmp/Alfresco/sfs
+        - 8090:8090  
   activemq:
-    image: alfresco/alfresco-activemq:5.15.8
+    image: alfresco/alfresco-activemq:5.16.1
+    mem_limit: 1g
     ports:
-      - 8161:8161 # Web Console
-      - 5672:5672 # AMQP
-      - 61616:61616 # OpenWire
-      - 61613:61613 # STOMP
+        - 8161:8161 # Web Console
+        - 5672:5672 # AMQP
+        - 61616:61616 # OpenWire
+        - 61613:61613 # STOMP
 ...
 ```
 
 * Check that you haven't any port conflict with other services in the Docker compose file.
-* Add the new volume required for the shared file store (`alfresco/alfresco-shared-file-store`) in the Docker compose file:
-
-```text
-volumes:
-  ...
-  shared-file-store-volume:
-    driver_opts:
-      type: tmpfs
-      device: tmpfs
-```
 
 ##### Adding the required configuration
 
@@ -2063,25 +1986,7 @@ volumes:
 and add the ATS configuration properties:
 
 ```text
-# Alfresco Transform Service
-transform.service.enabled=true
-transform.service.url=http://transform-router:8095
-sfs.url=http://shared-file-store:8099/
-
-local.transform.service.enabled=true
-localTransform.pdfrenderer.url=http://alfresco-pdf-renderer:8090/
-localTransform.imagemagick.url=http://imagemagick:8090/
-localTransform.libreoffice.url=http://libreoffice:8090/
-localTransform.tika.url=http://tika:8090/
-localTransform.misc.url=http://transform-misc:8090/
-
-legacy.transform.service.enabled=true
-alfresco-pdf-renderer.url=http://alfresco-pdf-renderer:8090/
-jodconverter.url=http://libreoffice:8090/
-img.url=http://imagemagick:8090/
-tika.url=http://tika:8090/
-transform.misc.url=http://transform-misc:8090/
-
+localTransform.core-aio.url=http://transform-core-aio:8090/
 messaging.broker.url=failover:(nio://activemq:61616)?timeout=3000&jms.useCompression=true
 ```
 
