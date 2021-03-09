@@ -34,9 +34,9 @@ For more details, see: [Install with Zip](https://docs.alfresco.com/content-serv
 
 Ansible playbooks provide an automated way of deploying a complete Alfresco Content Services system on “bare metal” servers, Virtual Machines, or Virtual Private Cloud instances, without the use of containers. The single playbook provided here can be configured to deploy single or multi-machine instances, with a number of supported configuration options. 
 
-For basic instructions on deploying with Ansible, see: [Install using Ansible]() 
+For basic instructions on deploying with Ansible, see: [Install using Ansible](./ansible.md) 
 
-To explore more technical information on the ACS Playbook, and to access the playbook source, please visit: https://github.com/Alfresco/alfresco-ansible-deployment 
+To explore more technical information on the ACS Playbook, and to access the playbook source, please visit: [Ansible on GitHub](https://github.com/Alfresco/alfresco-ansible-deployment) 
 
 The ACS Ansible playbook is provided as an Open Source reference script, which customers can modify and enhance to suit their own deployment environments. 
 
@@ -54,7 +54,7 @@ Alfresco provides docker-compose files, which are best suited for the quick depl
 
 See: [Install using Docker Compose](https://docs.alfresco.com/content-services/latest/install/containers/docker-compose/) for instructions.
 
-For additional technical information on the docker-compose files, see: https://github.com/Alfresco/acs-deployment/blob/master/docs/docker-compose/README.md 
+For additional technical information on the docker-compose files, see: [Docker Compose on GitHub](https://github.com/Alfresco/acs-deployment/blob/master/docs/docker-compose/README.md) 
 
 #### Helm Charts
 
@@ -64,7 +64,7 @@ Helm Charts are the most common way of deploying Content Services in orchestrate
 
 See: [Install using Helm](https://docs.alfresco.com/content-services/latest/install/containers/helm/) for instructions.
 
-For additional technical information on Helm Charts, see: https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/README.md 
+For additional technical information on Helm Charts, see: [Helm charts on GitHub](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/README.md) 
 
 ## Upgrading existing Installations
 
