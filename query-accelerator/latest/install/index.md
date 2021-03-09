@@ -2,11 +2,11 @@
 title: Query Accelerator install properties
 ---
 
-* Enable the Query Accelerator by setting the property queryAccelerator.enabled to true.
-* Define the location of the Query Accelerator config files by setting the property queryAccelerator.config.dir
+* Enable the Query Accelerator by setting the property `queryAccelerator.enabled` to `true`.
+* Define the location of the Query Accelerator config files by setting the property `queryAccelerator.config.dir`.
 * The size of each population batch.
 
-### Properties example
+## Properties example
 
 ```bash
 queryAccelerator.enabled=true

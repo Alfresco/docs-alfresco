@@ -14,14 +14,14 @@ The query set configurations define the denormalized tables that will be created
 | compositeIndexes | A collection of composite indexes to be created for the table. A composite index consists of an attribute where the attribute name is the index name and the attribute value is a collection of names of properties and/or aspects of the query set. |
 
 * The maximum length of the query set name and the version is the maximum table name length of the database system being used,
-  mimus 9. So for Postgres, which has a maximum table name length of 63 bytes, the maximum name and version length in
+  minus 9. So for Postgres, which has a maximum table name length of 63 bytes, the maximum name and version length in
   the query set is 54 bytes.
 * Queries that include negations on aspects should not be accelerated.
-* Properties of type MLTEXT are NOT be supported. If included a WARN message will be logged,
+* Properties of type MLTEXT are NOT supported. If included a WARN message will be logged,
   the properties will be ignored, and the corresponding denormalized table will be created without them.
 * The denormalized table will have an alf_type column, holding the name of the content type.
 * When aspects are used, the denormalized table will contain only the nodes that have at least one of the aspect.
-  it is for this reason that a query checking for the absence of an aspect will not use the query accelerator
+  It is for this reason that a query checking for the absence of an aspect will not use the query accelerator
   and will be performed by the standard engine.
 * Auditable properties (namely: cm:creator, cm:created, cm:modifier, cm:modified and cm:accessed) defined in the configuration
   will be ignored. Data of this nature is always available and there is no need to store it on the corresponding denormalised
