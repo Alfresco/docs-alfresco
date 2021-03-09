@@ -19,7 +19,7 @@ involved.
 
 The following picture gives an overview of the components that needs to be secured:
 
-![secure-install-overview]({% link content-services/images/securing-acs-install-overview.png %})
+![secure-install-overview]({% link content-services/images/acs-security-overview.png %})
 
 ## Check all passwords
 The most important aspect of security are the passwords used to access the system. Your passwords are your 
@@ -37,7 +37,8 @@ as root, they can wreck havoc on your server.
 
 ## Adding a Reverse proxy (1) {#addreverseproxy}
 It's good security practice to have a reverse proxy in front of your Content Services infrastructure. This proxy is 
-then configured with a whitelist of allowed URLs, and blocks everything else.
+then configured with a whitelist of allowed URLs, and blocks everything else. The proxy is also where you [implement 
+SSL](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/){:target="_blank"}.
 
 You can find a sample NGINX configuration in our [GitHub project](https://github.com/Alfresco/acs-ingress/blob/master/nginx.conf){:target="_blank"}, 
 and the corresponding image in [Docker Hub](https://hub.docker.com/r/alfresco/alfresco-acs-nginx){:target="_blank"}.
@@ -79,13 +80,23 @@ For more info on how to re-generate the Solr certificate, see the [Search Servic
 
 ## Share Web UI security (3)
 The Alfresco Share Web UI is one of the main user interfaces used by Alfresco users. It needs to be configured 
-for secure access. See [Share security policies and filters]({% link content-services/latest/admin/security.md %}#alfresco-share-security-policies-and-filters). 
+for secure access. See [Share security policies and filters]({% link content-services/latest/admin/security.md %}#alfresco-share-security-policies-and-filters).
 
-## Digital Workspace Web UI security (ENTERPRISE)
-The Alfresco Digital Workspace Web UI is one of the main user interfaces used by Alfresco users. It needs to be configured 
-for secure access, see the following pages:
+Share is behind the [web proxy](#addreverseproxy) so it is always accessed via HTTPS. 
 
-TODO
+## Digital Workspace Web UI security (4)
+The Alfresco Digital Workspace (ADW) Web UI is one of the main user interfaces used by Alfresco users. ADW is an Angular 
+application so it is beneficial to look at [Angular security documentation](https://angular.io/guide/security){:target="_blank"}.
+
+ADW is behind the [web proxy](#addreverseproxy) so it is always accessed via HTTPS.
+
+## ReST API secure access (5)
+You can also configure filters in Alfresco Repository to mitigate security attacks when the Content Services ReST API is 
+accessed externally.
+
+See [repository security policies and filters]({% link content-services/latest/admin/security.md %}#reposecuritypolicyandfilters)
+
+The ReST API is behind the [web proxy](#addreverseproxy) so it is always accessed via HTTPS.
 
 ## Encrypting config and metadata {#keystoresandencryption}
 It's possible to encrypt certain sensitive properties in the main `alfresco-global.properties` configuration file. 
@@ -93,12 +104,6 @@ It's also possible to encrypt node (i.e. file or folder) properties (i.e. metada
 
 * [Encrypt config properties]({% link content-services/latest/admin/security.md %}#encryptconfigprops)
 * [Manage keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) for encrypted properties, communication etc
-
-## ReST API secure access
-You can also configure filters in Alfresco Repository to mitigate security attacks when the Content Services ReST API is 
-accessed externally.
-
-See [repository security policies and filters]({% link content-services/latest/admin/security.md %}#reposecuritypolicyandfilters)
 
 ## Dedicated user for external system access
 If you are going to integrate Content Services with external systems, then [create a dedicated user]({% link content-services/latest/admin/users-groups.md %}) 
