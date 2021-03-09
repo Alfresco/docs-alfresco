@@ -12,6 +12,8 @@ Alfresco deployment requires a number of infrastructure components to be in plac
 
 The following diagram illustrates the key components of a typical Content Services installation:
 
+<img src="../../images/acs-typical-installation.png" width="750">
+
 Installation can be done manually, but Alfresco also provides a number of installation and deployment scripts for the most commonly used deployment tools, to help customers accelerate the deployment process. 
 
 ## Installation & Deployment Methods
