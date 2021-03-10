@@ -1,76 +1,73 @@
 ---
-title: Installing & Upgrading Content Services
+title: Install overview
 ---
 
-This section helps you to install Content Services, additional software, and modules. 
+This section helps you to install Alfresco Content Services (ACS), additional software, and modules.
 
-## Introduction
+Content Services consists of a number of modules that need to be deployed and configured together, to form the complete services platform. This provides customers with the flexibility to configure their deployment architecture in the way that is consistent with their IT strategy.
 
-Alfresco Content Services consists of a number of modules that need to be deployed and configured together, to form the complete services platform. This provides customers with the flexibility to configure their deployment architecture in the way that is consistent with their IT strategy.
+Alfresco deployment requires a number of infrastructure components to be in place, on which the core platform components are installed, and extended by several optional components which provide additional services.
 
-Alfresco deployment requires a number of infrastructure components to be in place, on which the core platform components are installed, and extended by a number of optional components which provide additional services. 
+The following diagram shows the key components of a typical Content Services installation:
 
-The following diagram illustrates the key components of a typical Content Services installation:
+![Typical Content Services installation]({% link content-services/images/acs-typical-installation.png %}){:width="750px"}
 
-<img src="../../images/acs-typical-installation.png" width="750">
+Installation can be done manually, but Alfresco also provides a number of installation and deployment scripts for the most commonly used deployment tools to help customers accelerate the deployment process.
 
-Installation can be done manually, but Alfresco also provides a number of installation and deployment scripts for the most commonly used deployment tools, to help customers accelerate the deployment process. 
+## Install and deploy methods
 
-## Installation & Deployment Methods
-
-There are four distinct approaches to deploying Alfresco Content Services. Please familiarise yourself with Alfresco’s [Deployment Support Policy](https://docs.alfresco.com/support/latest/policies/containerization/), before selecting one of the options below.
+There are four distinct approaches to deploying Content Services. Familiarize yourself with Alfresco's [Deployment Support Policy]({% link support/latest/policies/containerization.md %}), before selecting one of the options below.
 
 These deployment methods apply to both Enterprise and Community editions.
 
-### Non-Containerised Deployment
+### Non-containerized deployment
 
-#### Manual Installation
+#### Manual installation
 
-This is also referred to as the Zip Distribution deployment, and is the most flexible way of manually deploying all the required components. This method is recommended for customers and partners who require complete control over the installation process. 
+This is also referred to as the zip distribution deployment, and is the most flexible way of manually deploying all the required components. This method is recommended for customers and partners who require complete control over the installation process.
 
-For more details, see: [Install with Zip](./zip/) 
+See [Install with zip]({% link content-services/latest/install/zip/index.md %}) for more details.
 
-#### Ansible Playbooks
+#### Ansible playbooks
 
-Ansible playbooks provide an automated way of deploying a complete Alfresco Content Services system on “bare metal” servers, Virtual Machines, or Virtual Private Cloud instances, without the use of containers. The single playbook provided here can be configured to deploy single or multi-machine instances, with a number of supported configuration options. 
+Ansible playbooks provide an automated way of deploying a complete Content Services system on "bare metal" servers, Virtual Machines, or Virtual Private Cloud instances, without the use of containers. The single playbook provided can be configured to deploy single or multi-machine instances, with a number of supported configuration options.
 
-For basic instructions on deploying with Ansible, see: [Install using Ansible](./ansible.md) 
+See [Install using Ansible](#LINK-content-services/latest/install/ansible.md) for basic instructions on deploying with Ansible.
 
-To explore more technical information on the ACS Playbook, and to access the playbook source, please visit: [Ansible on GitHub](https://github.com/Alfresco/alfresco-ansible-deployment) 
+To explore more technical information on the ACS playbook, and to access the playbook source, see [Ansible on GitHub](#LINK-https://github.com/Alfresco/alfresco-ansible-deployment){:target="_blank"}.
 
-The ACS Ansible playbook is provided as an Open Source reference script, which customers can modify and enhance to suit their own deployment environments. 
+The ACS Ansible playbook is provided as an Open Source reference script, which customers can modify and enhance to suit their own deployment environments.
 
-### Containerised Deployment
+### Containerized deployment
 
-Containers provide an alternative method for deploying Content Services using pre-configured Docker Images for each of the platform’s components. Containerised deployment is best suited for larger implementations, in organisations who have significant experience in the use of deployment tools such as Docker or Kubernetes.
+Containers provide an alternative method for deploying Content Services using pre-configured Docker images for each of the platform's components. Containerized deployment is best suited for larger implementations, in organizations who have significant experience in the use of deployment tools such as Docker or Kubernetes.
 
-Alfresco provides reference scripts - in the form of Docker-Compose files and Helm Charts - which customers can use as examples to construct their own individual deployment scripts. These scripts are not designed to be used “as-is” to deploy production environments.
+Alfresco provides reference scripts, in the form of Docker Compose files and Helm charts, which customers can use as examples to construct their own individual deployment scripts. These scripts are not designed to be used "as-is" to deploy production environments.
 
-For an introduction on the use of Alfresco containers, see: [Containers Overview](./containers/)
+See [Containers overview]({% link content-services/latest/install/containers/index.md %}) for an introduction to using Alfresco containers.
 
-#### Docker-Compose
+#### Docker Compose
 
-Alfresco provides docker-compose files, which are best suited for the quick deployment of development and test instances of Content Services, using Docker. Customers who would like to deploy their production environments using docker-compose files, can extend and adapt the provided script as necessary.
+Alfresco provides Docker Compose files, which are best suited for the quick deployment of development and test instances of Content Services using Docker. Customers who would like to deploy their production environments using `docker-compose` files, can extend and adapt the provided script as necessary.
 
-See: [Install using Docker Compose](./containers/docker-compose/) for instructions.
+See [Install using Docker Compose]({% link content-services/latest/install/containers/docker-compose.md %}) for instructions.
 
-For additional technical information on the docker-compose files, see: [Docker Compose on GitHub](https://github.com/Alfresco/acs-deployment/blob/master/docs/docker-compose/README.md) 
+See [Docker Compose on GitHub](https://github.com/Alfresco/acs-deployment/blob/master/docs/docker-compose/README.md){:target="_blank"} for additional technical information.
 
-#### Helm Charts
+#### Helm charts
 
-> **Important:** Kubernetes clusters are powerful but complex to deploy and manage. Alfresco recommends that only customers with significant experience in cloud environments such as Amazon EKS (Elastic Kubernetes Service), and strong competencies in containerized deployments, should use this deployment method. 
+> **Important:** Kubernetes clusters are powerful but complex to deploy and manage. Alfresco recommends that only customers with significant experience in cloud environments such as Amazon EKS (Elastic Kubernetes Service), and strong competencies in containerized deployments, should use this deployment method.
 
-Helm Charts are the most common way of deploying Content Services in orchestrated Kubernetes environments. Alfresco’s Helm Charts have been developed and tested using AWS EKS and Docker for Desktop (in Kubernetes mode), but do not use specific Amazon services. As such they can easily be adapted to other Kubernetes environments from different cloud providers. 
+Helm charts are the most common way of deploying Content Services in orchestrated Kubernetes environments. The Helm charts from Alfresco have been developed and tested using AWS EKS and Docker for Desktop (in Kubernetes mode), but do not use specific Amazon services. As such they can easily be adapted to other Kubernetes environments from different cloud providers.
 
-See: [Install using Helm](./containers/helm/) for instructions.
+See [Install using Helm]({% link content-services/latest/install/containers/helm.md %}) for instructions.
 
-For additional technical information on Helm Charts, see: [Helm charts on GitHub](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/README.md) 
+See [Helm charts on GitHub](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/README.md){:target="_blank"} for additional technical information.
 
-## Upgrading existing Installations
+## Upgrade existing installations
 
-See [Upgrading Content Services](./upgrade/) for information on how to upgrade existing installations to newer versions of the software. 
+See [Upgrade Content Services]({% link content-services/latest/upgrade/index.md %}) for information on how to upgrade existing installations to newer versions of the software.
 
 ## Security
 
-If you are deploying a production system, please ensure that you review the additional information provided in [Securing your installation](../admin/securing-install.md)
-
+If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation](#LINK-content-services/latest/admin/securing-install.md).
