@@ -70,4 +70,7 @@ For additional technical information on Helm Charts, see: [Helm charts on GitHub
 
 See [Upgrading Content Services](https://docs.alfresco.com/content-services/latest/upgrade/) for information on how to upgrade existing installations to newer versions of the software. 
 
+## Security
+
+If you are deploying a production system, please ensure that you review the additional information provided in [Securing your installation](../admin/securing-install.md)
 
