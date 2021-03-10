@@ -13,12 +13,13 @@ Before continuing we need to introduce some more [Ansible concepts](https://docs
 The machine the playbook is run from is known as the **control node**. An **inventory** file is used to describe where the different Content Services should be deployed to. 
 
 There are two types of connection: 
-* **Local** where all the components will be installed on the control node machine
-* **Remote** (also known as `ssh`) where components can be deployed on one or more remote `hosts`. These hosts can be bare metal machines, Virtual machines or instances running on a public cloud. This is shown in the diagrams below:
+* **Local** where all the components will be installed on the control node machine:
 
-![Local Deployment Type](./resources/deployment-type-local.png)
+![](../../images/deployment-type-local.png)
 
-![SSH Deployment Type](./resources/deployment-type-ssh.png)
+* **Remote** (also known as `ssh`) where components can be deployed on one or more remote `hosts`. These hosts can be bare metal machines, Virtual machines or instances running on a public cloud:
+
+![](../../images/deployment-type-ssh.png)
 
 
 ## Prerequisites
@@ -34,7 +35,7 @@ In the interest of keeping this guide simple we will use an AWS EC2 instance as 
 
 1. Launch an EC2 instance using the Centos 7 or 8 (x86_64) AMI from the Marketplace (instance size/type does not matter)
 
-    ![Centos AMI](./resources/centos-ami.png)
+    ![](../../images/centos-ami.png)
 
 2. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/1.0/alfresco-ansible-deployment-1.0.zip)
 
@@ -79,7 +80,7 @@ To deploy everything on the control node follow the steps in the [Locahost Deplo
 
 The diagram below shows the result of a localhost deployment.
 
-![Localhost Deployment](./resources/acs-localhost.png)
+![Localhost Deployment](../../images/acs-localhost.png)
 
 To deploy ACS 7 Enterprise on the local machine navigate to the folder you extracted the ZIP to and execute the playbook as the current user using the following command (the playbook will escalate privileges when required):
 
@@ -142,7 +143,7 @@ repository:
 
 The diagram below shows the result of a single machine deployment.
 
-![Single Machine Deployment](./resources/acs-single-machine.png)
+![](../../images/acs-single-machine.png)
 
 > **NOTE**: You can optionally use the following [guide](./generate-target-hosts.md#generate-single-target-host) to generate a target host and an inventory file for testing purposes.
 
@@ -199,7 +200,7 @@ Once ACS has initialized access the system using the following URLs with a brows
 
 The diagram below shows the result of a multi machine deployment.
 
-![Multi Machine Deployment](./resources/acs-multi-machine.png)
+![](../../images/acs-multi-machine.png)
 
 > **NOTE**: You can optionally use the following [guide](./generate-target-hosts.md#generate-multiple-target-hosts) to generate target hosts and an inventory file for testing purposes.
 
