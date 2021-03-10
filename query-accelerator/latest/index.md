@@ -26,7 +26,7 @@ be possible to replace a query set with a new version or to remove it completely
 properties or aspects applied to nodes and if necessary (for selected databases) the order of columns
 in compound indexes. Query sets are defined using JSON files.
 
-3. Administrator's perform a query set refresh in the Alfresco Administration Console. The addition of new query sets, 
+3. Administrators perform a query set refresh in the Alfresco Administration Console. The addition of new query sets, 
 the replacement of an existing query set or complete removal does not require a restart, an outage or have a major impact on normal operations. The `alfresco.log` will contain messages to reflect progress. When a new query set is identified, the system will start populating a denormalized 
 table in the background. It will also abandon the table population before it is complete, if a new 
 version of the query set is created. The implementation will also need to identify a query 
