@@ -27,8 +27,8 @@
     - title: 'Support Policies'
       path: '/support/latest/policies/'
       pages:
-        - title: 'Containerization Support Policy'
-          path: '/support/latest/policies/containerization/'
+        - title: 'Deployment and Containerization Support Policy'
+          path: '/support/latest/policies/deployment/'
         - title: 'Alfresco Content Services - API Support Policy'
           path: '/support/latest/policies/api/'
         - title: 'Product Support Lifecycle'
