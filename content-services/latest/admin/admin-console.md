@@ -33,7 +33,6 @@ The Admin Console is a tool comprising separate pages that identify a particular
   * Replication Service: [Enabling the Replication Service]({% link content-services/latest/admin/replication.md %}#enablereplication)
   * Search Service: [Configuring Search Services using Admin Console]({% link search-services/latest/config/index.md %}#configure-using-the-admin-console)
   * Subscription Service: [Enabling the Subscription Service]({% link content-services/latest/config/email.md %}#enable-subscription-service)
-  * Transformation Services: [Changing the OOoJodconverter subsystems]({% link content-services/latest/config/libreoffice.md %}#change-ooojodconverter)
     > **Note:** Use Repository Services to manage individual repository servers. This function can't be accessed through a load balancer.
 * Support Tools:
   * Download JMX Dump: [JMX Settings]({% link content-services/latest/admin/support-tools.md %}#jmxsettings)
@@ -103,10 +102,6 @@ The System Information summary shows the general details of the installation. Th
 ### File Systems
 
 The File Systems summary shows the settings from the File Servers page. See [Enabling File Servers]({% link content-services/latest/config/file-servers.md %}) for more information.
-
-### Transformation Services
-
-The Transformation Services summary shows the settings from the Transformation Services page. See [Changing the OOoJodconverter subsystems]({% link content-services/latest/config/libreoffice.md %}#change-ooojodconverter) for more information.
 
 ### Indexing Subsystem
 

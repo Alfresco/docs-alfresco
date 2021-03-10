@@ -66,24 +66,11 @@ If you're installing manually, then you can use the `alfresco-global.properties.
 
     Additional database properties can be set for further configuration. See [Configuring databases]({% link content-services/latest/config/databases.md %}) for more information.
 
-4. Specify the locations of the following external software:
+4. Configure your supported database for use. See [Configuring databases]({% link content-services/latest/config/databases.md %}).
 
-    | Property | Description |
-    | -------- | ------------|
-    | jodconverter.enabled= | Specifies whether to use the JODConverter. Set the property to `true`. |
-    | jodconverter.officeHome= | Specifies the location of the LibreOffice installation for JODConverter transformations. |
-    | jodconverter.portNumbers= | Specifies the port numbers used by each JODConverter processing thread. The number of process will match the number of ports. |
-    | img.root= | Specifies the location of the ImageMagick installation. |
-    | img.coders= | Specifies the path to the image coders directory. Normally `${img.root}/modules/coders` |
-    | img.config= | Specifies the path to the image config directory. Normally `${img.root}` on Windows and `${img.root}/config` on Linux. |
-    | img.exe= | Specifies the path to the convert executable. Normally `${img.root}convert.exe` on Windows and /usr/bin/convert on Linux. |
-    | alfresco-pdf-renderer.exe | Specifies the path to the Alfresco PDF renderer executable. Normally this will be `C:\\Alfresco\\alfresco-pdf-renderer.exe` on Windows and `/usr/bin/alfresco-pdf-renderer` on Linux. |
+5. Select a JDBC driver used with each connection type.
 
-5. Configure your supported database for use. See [Configuring databases]({% link content-services/latest/config/databases.md %}).
-
-6. Select a JDBC driver used with each connection type.
-
-7. Add your global custom configurations.
+6. Add your global custom configurations.
 
     > **Note:** Ensure that you use single-byte character sets (ISO-8859-1 Latin 1) in your `alfresco-global.properties` settings, particularly the `system.webdav.rootPath` setting. If you require other characters, you can use Unicode equivalents. For example, if your root path in Cyrillic was `фолдер`, which means folder in English, a valid value would be:
 
@@ -91,7 +78,7 @@ If you're installing manually, then you can use the `alfresco-global.properties.
     system.webdav.rootPath=/app:company_home/cm:\u0444\u043E\u043B\u0434\u0435\u0440
     ```
 
-8. Save your file without the `.sample` extension.
+7. Save your file without the `.sample` extension.
 
 You need to restart the server for the configuration changes to take effect.
 
@@ -218,21 +205,25 @@ There are two types of property that you can edit using a JMX interface:
     For example:
 
     ```xml
-    <bean id="jodconverter.shared.instance" class="org.alfresco.repo.content.JodConverterSharedInstance">
-        <property name="officeHome">
-           <value>${jodconverter.officeHome}</value>
+    <bean id="googledocsService"
+          class="org.alfresco.integrations.google.docs.service.GoogleDocsServiceImpl" init-method="init">
+        ...
+        <property name="enabled">
+            <value>${googledocs.enabled}</value>
         </property>
+        ...
+    </bean>
     ```
 
-    The value for the property `officeHome` is replaced with a variable `${jodconverter.officeHome}`.
+    The value for the property `enabled` is replaced with a variable `${googledocs.enabled}`.
 
 When Content Services starts up:
 
 * Type 1 properties are read from the XML file.
 * Type 2 properties get their values read from all the various property files.
-* Then, the database is checked to see if there are any property values set there, and if any property has been changed, this value is used instead.
+* **IMPORTANT!** Then, the database is checked to see if there are any property values set there, and if any property has been changed, this value is used instead.
 
-Some of the type 2 properties can be viewed and changed by the JMX console, but some can't. For example, `jodconverter.officeHome` can be viewed and changed using the JMX client; `index.recovery.mode` can't be viewed or changed using the JMX client.
+Some of the type 2 properties can be viewed and changed by the JMX console, but some can't. For example, `googledocs.enabled` can be viewed and changed using the JMX client; `index.recovery.mode` can't be viewed or changed using the JMX client.
 
 In a new installation, none of these properties are stored in the database. If you set a property using the JMX interface, Content Services stores the value of the property in the database. If you never use JMX to set the value of a property, you can continue using the `alfresco-global.properties` file to set the value of the property. Once you change the property setting using JMX, and it's stored in the database, and you can't use the properties files to change the value of that property.
 

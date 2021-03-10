@@ -45,8 +45,6 @@
           path: '/content-services/latest/config/file-servers/'
         - title: 'Email'
           path: '/content-services/latest/config/email/'
-        - title: 'LibreOffice'
-          path: '/content-services/latest/config/libreoffice/'
         - title: 'ActiveMQ'
           path: '/content-services/latest/config/activemq/'
         - title: 'Smart Folders'
