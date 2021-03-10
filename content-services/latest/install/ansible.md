@@ -4,9 +4,9 @@ title: Install with Ansible
 
 # Alfresco Ansible Installation
 
-This page describes how to install Alfresco Content Services (ACS) using an Ansible playbook. Ansible is an open-source software provisioning, configuration management and application installation tool enabling infrastructure as code. Alfresco provides an [Ansible](https://www.ansible.com) playbook capable of installing Alfresco Content Services (ACS) Enterprise 7.x or 6.2.N.
+This page describes how to install Alfresco Content Services (ACS) using an [Ansible](https://www.ansible.com) playbook. Ansible is an open-source software provisioning, configuration management and application installation tool enabling infrastructure as code. Alfresco provides an Ansible playbook capable of installing Alfresco Content Services (ACS) Enterprise 7.x or 6.2.N.
 
-Before continuing we need to introduce some more [Ansible concepts](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html); [control node](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html#control-node), [connection type](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters) and the [inventory file](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory).
+Before continuing we need to introduce some [Ansible concepts](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html); [control node](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html#control-node), [connection type](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters) and the [inventory file](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory).
 
 The machine the playbook is run from is known as the **control node**. An **inventory** file is used to describe where the different Content Services should be installed on. 
 
@@ -22,7 +22,7 @@ There are two types of installation:
 
 ## Prerequisites
 
-* For Alfresco Content Services Enterprise, credentials to access the necessaru artefacts from [Nexus](https://artifacts.alfresco.com](https://artifacts.alfresco.com). Customers can request these through [Hyland Community](https://community.hyland.com/)
+* For Alfresco Content Services Enterprise, credentials to access the necessary artefacts from [Nexus](https://artifacts.alfresco.com). Customers can request these through [Hyland Community](https://community.hyland.com/)
 
 
 # Setting up Ansible
@@ -110,7 +110,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 Once ACS has initialized access the system using the following URLs with a browser:
 
-* Digital Workspace: `http://<control-node-public-ip>/workspace` (Enterprise Only)
+* Digital Workspace: `http://<control-node-public-ip>/workspace`
 * Share: `http://<control-node-public-ip>/share`
 * Repository: `http://<control-node-public-ip>/alfresco`
 * API Explorer: `http://<control-node-public-ip>/api-explorer`
@@ -142,8 +142,6 @@ repository:
 The diagram below shows the result of a single machine installation.
 
 ![](../../images/acs-single-machine.png)
-
-> **NOTE**: You can optionally use the following [guide](./generate-target-hosts.md#generate-single-target-host) to generate a target host and an inventory file for testing purposes.
 
 Once you have prepared the target host and configured the inventory_ssh.yaml file as described above, you are ready to run the playbook.
 
@@ -183,7 +181,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 Once ACS has initialized access the system using the following URLs with a browser:
 
-* Digital Workspace: `http://<target-host-ip>/workspace` (Enterprise Only)
+* Digital Workspace: `http://<target-host-ip>/workspace`
 * Share: `http://<target-host-ip>/share`
 * Repository: `http://<target-host-ip>/alfresco`
 * API Explorer: `http://<target-host-ip>/api-explorer`
@@ -193,8 +191,6 @@ Once ACS has initialized access the system using the following URLs with a brows
 The diagram below shows the result of a multi machine installation.
 
 ![](../../images/acs-multi-machine.png)
-
-> **NOTE**: You can optionally use the following [guide](./generate-target-hosts.md#generate-multiple-target-hosts) to generate target hosts and an inventory file for testing purposes.
 
 Once you have prepared the target hosts (ensuring the [relevant ports](#tcp-port-configuration) are accessible) and configured the inventory_ssh.yaml file as described above, you are ready to run the playbook.
 
@@ -234,7 +230,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 Once ACS has initialized access the system using the following URLs with a browser:
 
-* Digital Workspace: `http://<nginx-host-ip>/workspace` (Enterprise Only)
+* Digital Workspace: `http://<nginx-host-ip>/workspace`
 * Share: `http://<nginx-host-ip>/share`
 * Repository: `http://<nginx-host-ip>/alfresco`
 * API Explorer: `http://<nginx-host-ip>/api-explorer`
@@ -398,7 +394,6 @@ acs_environment:
 
 * The playbook downloads several large files so you will experience some pauses while they transfer and you'll also see the message "FAILED - RETRYING: Verifying if `<file>` finished downloading (nnn retries left)" appearing many times. Despite the wording this is **not** an error so please ignore and be patient!
 * The playbook is not yet fully idempotent so may cause issues if you make changes and run multiple times
-* alfresco-content.service has the status "exited" because it is defined as a "oneshot" service that calls tomcat.service
 * The `firewalld` service can prevent the playbook from completing successfully if it's blocking the [ports required](#tcp-port-configuration) for communication between the roles
 
 
