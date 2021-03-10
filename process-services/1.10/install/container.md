@@ -7,7 +7,7 @@ There are two options for installing Process Services using containers:
 * For trials, testing and development it's recommended to deploy with Docker for Desktop.
 * For production environments, there's a reference Helm chart available for installation into a Kubernetes cluster.
 
-> **Note**: See the [containerization support policy]({% link support/latest/policies/containerization.md %}) for information regarding the supportability of Docker images and Helm charts.
+> **Note**: See the [Deployment and Containerization Support Policy]({% link support/latest/policies/deployment.md %}) for information regarding the supportability of Docker images and Helm charts.
 
 ## Install with Docker
 
@@ -52,7 +52,7 @@ For example `http://localhost:8095/activiti-admin` if running the Administrator 
 
 >**Note:** Docker for Desktop is not a production environment.
 
-It is possible to override the default environment variables for Process Services and Process Services Administrator, 
+It is possible to override the default environment variables for Process Services and Process Services Administrator,
 see next sections.
 
 ### Configure Process Services variables
@@ -183,7 +183,7 @@ Use the following steps to deploy Process Services, Process Services Administrat
           name: quay-registry-secret
         type: kubernetes.io/dockerconfigjson
         data:
-          .dockerconfigjson: <your-base64-string> 
+          .dockerconfigjson: <your-base64-string>
         ```
 
     4. Upload your `secrets.yaml` file to the namespace you are deploying into using the following command:
