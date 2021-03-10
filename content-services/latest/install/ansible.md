@@ -1,23 +1,21 @@
 ---
-title: Install with Ansible (DRAFT)
+title: Install with Ansible
 ---
 
-# Introduction
+# Alfresco Ansible Installation
 
-# Alfresco Ansible Deployment
-
-This page describes how to deploy Alfresco Content Services (ACS) using an Ansible playbook. Ansible is an open-source software provisioning, configuration management and application-deployment tool enabling infrastructure as code. Alfresco provides an [Ansible](https://www.ansible.com) playbook capable of deploying Alfresco Content Services (ACS) Enterprise 7.x or 6.2.N.
+This page describes how to install Alfresco Content Services (ACS) using an Ansible playbook. Ansible is an open-source software provisioning, configuration management and application installation tool enabling infrastructure as code. Alfresco provides an [Ansible](https://www.ansible.com) playbook capable of installing Alfresco Content Services (ACS) Enterprise 7.x or 6.2.N.
 
 Before continuing we need to introduce some more [Ansible concepts](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html); [control node](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html#control-node), [connection type](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters) and the [inventory file](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory).
 
-The machine the playbook is run from is known as the **control node**. An **inventory** file is used to describe where the different Content Services should be deployed to. 
+The machine the playbook is run from is known as the **control node**. An **inventory** file is used to describe where the different Content Services should be installed on. 
 
-There are two types of connection: 
+There are two types of installation: 
 * **Local** where all the components will be installed on the control node machine:
 
 ![](../../images/deployment-type-local.png)
 
-* **Remote** (also known as `ssh`) where components can be deployed on one or more remote `hosts`. These hosts can be bare metal machines, Virtual machines or instances running on a public cloud:
+* **Remote** (also known as `ssh`) where components can be installed on one or more remote `hosts`. These hosts can be bare metal machines, Virtual machines or instances running on a public cloud:
 
 ![](../../images/deployment-type-ssh.png)
 
@@ -71,24 +69,24 @@ In the interest of keeping this guide simple we will use an AWS EC2 instance as 
     export NEXUS_PASSWORD="<your-password>"
     ```
 
-Without any additional configuration applied, the playbook will deploy the default Alfresco Content Services components. Please review the [configuration](#configure-your-deployment) section below, to adjust some of the configurable deployment options.
+Without any additional configuration applied, the playbook will install the default Alfresco Content Services components. Please review the [configuration](#configure-your-installation) section below, to adjust some of the configurable installation options.
 
-To deploy everything on the control node follow the steps in the [Locahost Deployment](#Local Installation) section or to deploy to one or more other machines follow the steps in the [Remote Installation](#Remote Installation) section.
+To install everything on the control node follow the steps in the [Locahost Installation](#Local-Installation) section or to install to one or more other machines follow the steps in the [Remote Installation](#Remote-Installation) section.
 
 
 # Local Installation
 
-The diagram below shows the result of a localhost deployment.
+The diagram below shows the result of a local installation.
 
-![Localhost Deployment](../../images/acs-localhost.png)
+![](../../images/acs-localhost.png)
 
-To deploy ACS 7 Enterprise on the local machine navigate to the folder you extracted the ZIP to and execute the playbook as the current user using the following command (the playbook will escalate privileges when required):
+To install ACS 7 Enterprise on the local machine navigate to the folder you extracted the ZIP to and execute the playbook as the current user using the following command (the playbook will escalate privileges when required):
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_local.yml
 ```
 
-Alternatively, to deploy an earlier version of ACS Enterprise (e.g. 6.2.2)  system use the following command:
+Alternatively, to install an earlier version of ACS Enterprise (e.g. 6.2.2)  system use the following command:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@6.2.N-extra-vars.yml"
@@ -119,11 +117,11 @@ Once ACS has initialized access the system using the following URLs with a brows
 
 # Remote Installation
 
-To deploy to hosts other than the control node an SSH connection is required. The control node must have network access to all the target hosts and permission to SSH into the machine.
+To install to hosts other than the control node an SSH connection is required. The control node must have network access to all the target hosts and permission to SSH into the machine.
 
-The inventory file (`inventory_ssh.yml`) is used to specify the target IP addresses and the SSH connection details. You can specify one IP address for all the hosts to obtain a single-machine deployment, or different IP addresses for a multi-machine deployment.
+> **Note:** The inventory file (`inventory_ssh.yml`) is used to specify the target IP addresses and the SSH connection details. You can specify one IP address for all the hosts to obtain a single-machine installation, or different IP addresses for a multi-machine installation.
 
-The example snippet below demonstrates how to deploy the repository to a host with an IP address of `50.6.51.7` and SSH key at `/path/to/ssh_key.pem`.
+The example snippet below demonstrates how to install the repository to a host with an IP address of `50.6.51.7` and SSH key at `/path/to/ssh_key.pem`.
 
 ```yaml
 repository:
@@ -139,15 +137,15 @@ repository:
 ```
 
 
-## Single Machine Deployment
+## Single Machine Installation
 
-The diagram below shows the result of a single machine deployment.
+The diagram below shows the result of a single machine installation.
 
 ![](../../images/acs-single-machine.png)
 
 > **NOTE**: You can optionally use the following [guide](./generate-target-hosts.md#generate-single-target-host) to generate a target host and an inventory file for testing purposes.
 
-Once you have prepared the target host and configured the inventory_ssh.yaml file you are ready to run the playbook.
+Once you have prepared the target host and configured the inventory_ssh.yaml file as described above, you are ready to run the playbook.
 
 To check your inventory file is configured correctly and the control node is able to connect to the target host navigate to the folder you extracted the ZIP to and run the following command:
 
@@ -155,22 +153,16 @@ To check your inventory file is configured correctly and the control node is abl
 ansible all -m ping -i inventory_ssh.yml
 ```
 
-To deploy ACS 7 Enterprise on the target host execute the playbook as the current user using the following command:
+To install ACS 7 Enterprise on the target host execute the playbook as the current user using the following command:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml
 ```
 
-Alternatively, to deploy an ACS 6.2.N Enterprise system use the following command:
+Alternatively, to install an ACS 6.2.N Enterprise system use the following command:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"
-```
-
-Or to deploy ACS Community use the following command:
-
-```bash
-ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@community-extra-vars.yml"
 ```
 
 > NOTE: The playbook takes around 30 minutes to complete.
@@ -196,15 +188,15 @@ Once ACS has initialized access the system using the following URLs with a brows
 * Repository: `http://<target-host-ip>/alfresco`
 * API Explorer: `http://<target-host-ip>/api-explorer`
 
-## Multi Machine Deployment
+## Multi Machine Installation
 
-The diagram below shows the result of a multi machine deployment.
+The diagram below shows the result of a multi machine installation.
 
 ![](../../images/acs-multi-machine.png)
 
 > **NOTE**: You can optionally use the following [guide](./generate-target-hosts.md#generate-multiple-target-hosts) to generate target hosts and an inventory file for testing purposes.
 
-Once you have prepared the target hosts (ensuring the [relevant ports](#tcp-port-configuration) are accessible) and configured the inventory_ssh.yaml file you are ready to run the playbook.
+Once you have prepared the target hosts (ensuring the [relevant ports](#tcp-port-configuration) are accessible) and configured the inventory_ssh.yaml file as described above, you are ready to run the playbook.
 
 To check your inventory file is configured correctly and the control node is able to connect to the target hosts run the following command:
 
@@ -212,22 +204,16 @@ To check your inventory file is configured correctly and the control node is abl
 ansible all -m ping -i inventory_ssh.yml
 ```
 
-To deploy ACS 7 Enterprise on the target hosts execute the playbook as the current user using the following command:
+To install ACS 7 Enterprise on the target hosts execute the playbook as the current user using the following command:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml
 ```
 
-Alternatively, to deploy an ACS 6.2.N Enterprise system use the following command:
+Alternatively, to install an ACS 6.2.N Enterprise system use the following command:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"
-```
-
-Or to deploy ACS Community use the following command:
-
-```bash
-ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@community-extra-vars.yml"
 ```
 
 > NOTE: The playbook takes around 30 minutes to complete.
@@ -257,7 +243,7 @@ Once ACS has initialized access the system using the following URLs with a brows
 
 ## Folder Structure
 
-Regardless of role and connection type a consistent folder structure is used, you will find the deployed files in the following locations:
+Regardless of role and connection type a consistent folder structure is used, you will find the installed files in the following locations:
 
 | Path | Purpose |
 | :--- | :--- |
@@ -268,7 +254,7 @@ Regardless of role and connection type a consistent folder structure is used, yo
 
 ## Service Configuration
 
-The following systemd services are deployed and can be used to stop and start Alfresco components:
+The following systemd services are installed and can be used to stop and start Alfresco components:
 
 | Service Name | Purpose |
 | :--- | :--- |
@@ -285,9 +271,9 @@ The following systemd services are deployed and can be used to stop and start Al
 
 ## TCP Port Configuration
 
-Several roles setup services that listen on TCP ports and several roles wait for TCP ports to be listening before continuing execution (indicated by `Yes` in the "Required For Deployment" column). The table below shows the communication paths and port numbers used.
+Several roles setup services that listen on TCP ports and several roles wait for TCP ports to be listening before continuing execution (indicated by `Yes` in the "Required For Installation" column). The table below shows the communication paths and port numbers used.
 
-| Target Host | Target Port | Source Hosts | Required For Deployment |
+| Target Host | Target Port | Source Hosts | Required For Installation |
 | :--- | :--- | :--- | :--- |
 | activemq | 61616 | repository, syncservice, transformers | Yes |
 | database | 5432 | repository, syncservice | Yes |
@@ -301,11 +287,11 @@ Several roles setup services that listen on TCP ports and several roles wait for
 
 > NOTE: The transformers host will also contain the transform router process running on port 8095 and the shared file system process running on 8099 but communication between these components remains local.
 
-# Configure your deployment
+# Configure your installation
 
-By default, without any configuration applied, the playbook will deploy a limited trial of the Enterprise version of Alfresco Content Services 7.x that goes into read-only mode after 2 days. If you'd like to try Alfresco Content Services for a longer period, request the 30-day [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download).
+By default, without any configuration applied, the playbook will install a limited trial of the Enterprise version of Alfresco Content Services 7.x that goes into read-only mode after 2 days. If you'd like to try Alfresco Content Services for a longer period, request the 30-day [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download).
 
-The sections below describe how you can configure your deployment before running the playbook.
+The sections below describe how you can configure your installation before running the playbook.
 
 ## License
 
@@ -346,7 +332,7 @@ Several AMP files are downloaded and applied during playbook execution, these ar
 
 ## JVM Options
 
-Each Java based service deployed by the playbook is configured with some default settings, including memory settings.
+Each Java based service installed by the playbook is configured with some default settings, including memory settings.
 
 The defaults are defined in group_vars/all.yml so they can be overridden using the mechanism described [above](#override-playbook-variables).
 
@@ -361,7 +347,7 @@ The `*_environment` variable is defined as a dictionary, all keys are added to t
 
 ## External Databases
 
-By default the playbook will deploy and configure a Postgres server for you. If you'd prefer to use an external database server you can override the `repo_db_url` variable as described [previously](#override-playbook-variables).
+By default the playbook will install and configure a Postgres server for you. If you'd prefer to use an external database server you can override the `repo_db_url` variable as described [previously](#override-playbook-variables).
 
 An example custom database url is shown below:
 
@@ -378,7 +364,7 @@ Please refer to the [Configuring Databases](https://docs.alfresco.com/6.2/concep
 
 ## Custom Keystore
 
-By default the playbook deploys a default keystore to ease the installation process, however, we recommend you [generate your own keystore](https://docs.alfresco.com/6.2/concepts/keystore-generate.html) following the [instructions here](https://docs.alfresco.com/6.2/concepts/keystore-config.html).
+By default the playbook installs a default keystore to ease the installation process, however, we recommend you [generate your own keystore](https://docs.alfresco.com/6.2/concepts/keystore-generate.html) following the [instructions here](https://docs.alfresco.com/6.2/concepts/keystore-config.html).
 
 There are three steps required to use a custom keystore:
 
@@ -442,7 +428,7 @@ alfresco-content-services-distribution-6.2.2.pom      100%[=====================
 
 ## Removing a previous installation
 
-What needs to be removed from a system will depend on your inventory configuration. The steps below presume a localhost or single machine deployment i.e. where all roles were run on the same machine.
+What needs to be removed from a system will depend on your inventory configuration. The steps below presume a localhost or single machine installation i.e. where all roles were run on the same machine.
 
 1. Stop and remove the following systemd services:
    * alfresco-transform-router.service
@@ -475,7 +461,7 @@ What needs to be removed from a system will depend on your inventory configurati
 
 ## Communication Failures
 
-If you are using a multi-machine deployment and the playbook fails with an error similar to the one shown below you may need to check the firewall configuration on the target hosts.
+If you are using a multi-machine installation and the playbook fails with an error similar to the one shown below you may need to check the firewall configuration on the target hosts.
 
 ```bash
 TASK [../roles/repository : Notify alfresco content service] 
