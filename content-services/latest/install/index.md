@@ -28,7 +28,7 @@ These deployment methods apply to both Enterprise and Community editions.
 
 This is also referred to as the Zip Distribution deployment, and is the most flexible way of manually deploying all the required components. This method is recommended for customers and partners who require complete control over the installation process. 
 
-For more details, see: [Install with Zip](https://docs.alfresco.com/content-services/latest/install/zip/) 
+For more details, see: [Install with Zip](./zip/) 
 
 #### Ansible Playbooks
 
@@ -46,13 +46,13 @@ Containers provide an alternative method for deploying Content Services using pr
 
 Alfresco provides reference scripts - in the form of Docker-Compose files and Helm Charts - which customers can use as examples to construct their own individual deployment scripts. These scripts are not designed to be used “as-is” to deploy production environments.
 
-For an introduction on the use of Alfresco containers, see: [Containers Overview](https://docs.alfresco.com/content-services/latest/install/containers/)
+For an introduction on the use of Alfresco containers, see: [Containers Overview](./containers/)
 
 #### Docker-Compose
 
 Alfresco provides docker-compose files, which are best suited for the quick deployment of development and test instances of Content Services, using Docker. Customers who would like to deploy their production environments using docker-compose files, can extend and adapt the provided script as necessary.
 
-See: [Install using Docker Compose](https://docs.alfresco.com/content-services/latest/install/containers/docker-compose/) for instructions.
+See: [Install using Docker Compose](./containers/docker-compose/) for instructions.
 
 For additional technical information on the docker-compose files, see: [Docker Compose on GitHub](https://github.com/Alfresco/acs-deployment/blob/master/docs/docker-compose/README.md) 
 
@@ -62,13 +62,13 @@ For additional technical information on the docker-compose files, see: [Docker C
 
 Helm Charts are the most common way of deploying Content Services in orchestrated Kubernetes environments. Alfresco’s Helm Charts have been developed and tested using AWS EKS and Docker for Desktop (in Kubernetes mode), but do not use specific Amazon services. As such they can easily be adapted to other Kubernetes environments from different cloud providers. 
 
-See: [Install using Helm](https://docs.alfresco.com/content-services/latest/install/containers/helm/) for instructions.
+See: [Install using Helm](./containers/helm/) for instructions.
 
 For additional technical information on Helm Charts, see: [Helm charts on GitHub](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/README.md) 
 
 ## Upgrading existing Installations
 
-See [Upgrading Content Services](https://docs.alfresco.com/content-services/latest/upgrade/) for information on how to upgrade existing installations to newer versions of the software. 
+See [Upgrading Content Services](./upgrade/) for information on how to upgrade existing installations to newer versions of the software. 
 
 ## Security
 
