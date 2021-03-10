@@ -63,14 +63,14 @@ In the interest of keeping this guide simple we will use an AWS EC2 instance as 
     unzip alfresco-ansible-deployment-<version>.zip
     ```
 
-7. If you intend to deploy an Enterprise system, create environment variables to hold your Nexus credentials as shown below (replacing the values appropriately):
+7. Create environment variables to hold your Nexus credentials as shown below (replacing the values appropriately):
 
     ```bash
     export NEXUS_USERNAME="<your-username>"
     export NEXUS_PASSWORD="<your-password>"
     ```
 
-Now you have the control node setup you can [configure](#configure-your-deployment) your deployment and decide what kind of deployment you would like.
+Without any additional configuration applied, the playbook will deploy the default Alfresco Content Services components. Please review the [configuration](#configure-your-deployment) section below, to adjust some of the configurable deployment options.
 
 To deploy everything on the control node follow the steps in the [Locahost Deployment](#Local Installation) section or to deploy to one or more other machines follow the steps in the [Remote Installation](#Remote Installation) section.
 
@@ -87,16 +87,10 @@ To deploy ACS 7 Enterprise on the local machine navigate to the folder you extra
 ansible-playbook playbooks/acs.yml -i inventory_local.yml
 ```
 
-Alternatively, to deploy an ACS Enterprise 6.2.N system use the following command:
+Alternatively, to deploy an earlier version of ACS Enterprise (e.g. 6.2.2)  system use the following command:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@6.2.N-extra-vars.yml"
-```
-
-Or to deploy ACS Community use the following command:
-
-```bash
-ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@community-extra-vars.yml"
 ```
 
 > NOTE: The playbook takes around 30 minutes to complete.
