@@ -141,13 +141,19 @@ The advanced properties for an attach file field are:
 ## DestinationFolderPath
 
 #### Static Path
-Static is composed of an alias and a relative path. For example, `-root-/User Homes/hruser` or `-my-` will both store the files in `/Company Home/User Homes/hruser`
+Static is composed of an alias and a relative path. For example, `-root-/User Homes/hruser` or `-my-` will both store the files in `/Company Home/User Homes/hruser`.
+
+![Example static path](./../../images/static-destination-path.png)
 
 #### Based on string type variable
 Using form variable of string type, map process variable of string type to a form variable of string type. After mapping in form editor you can set mapped form variable of string type as a destination folder path.
 
+![Example static path](./../../images/string-variable-destination-path.png)
+
 #### Based on folder type variable
 Using form variable of folder type, map process variable of folder type to a form variable of folder type. After mapping in form editor you can set mapped form variable of folder type as a destination folder path.
+
+![Example static path](./../../images/folder-variable-destination-path.png)
 
 > **Important**: Users filling in a form with an attach file field need to be given explicit access to the upload directory if it is outside of the [default storage location]({% link process-automation/latest/admin/release.md %}#deploy-steps/storage) for the application.
 
