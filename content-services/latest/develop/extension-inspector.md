@@ -158,7 +158,7 @@ When you run the Inventory command, the output is a report in json format with t
 
 The `AnalyserApplication` is a Spring Boot application, implemented in the module extension-inspector-analyser. This application analyses custom extensions against war inventories.
 
-To build the project, use `mvn clean package`. This command creates an executable jar called alfresco-extension-inspector-inventory-<version\>.jar.
+To build the project, use `mvn clean package`. This command creates an executable jar called `alfresco-extension-inspector-inventory-<version\>.jar`.
 
 Use the Analyser application command a follows:
 
@@ -264,7 +264,6 @@ found:
 +-----------------------+-----+
 
 (use option --verbose for version details) 
-```
 
 Alfresco extensions might hide conflicts of the following types if they contain Alfresco-specific libraries:
 
