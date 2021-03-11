@@ -10,7 +10,7 @@ The main features of Alfresco Extension Inspector are:
 
 * Parses Alfresco extensions, for example amp or jar files
 * Generates a report on possible overrides
-* Discouraged the use of non-public APIs
+* Discourages the use of non-public APIs
 * Lists Alfresco's third-party libraries
 
 The Extension Inspector has two main modules.
@@ -24,9 +24,7 @@ The Extension Inspector has two main modules.
 
 ## Using the Extension Inspector
 
-Download the [alfresco-extension-inspector-1.0.0](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.0.0/alfresco-extension-inspector-1.0.0.jar) `.jar` file and run it using the following command:
-
-`java -jar alfresco-extension-inspector-1.0.0.jar`
+Download the [alfresco-extension-inspector-1.0.0](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.0.0/alfresco-extension-inspector-1.0.0.jar) `.jar` file.
 
 ## Running the Inventory application
 
