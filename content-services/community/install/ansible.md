@@ -81,6 +81,7 @@ Once the playbook is complete Ansible will display a play recap to let you know 
 
 ```bash
 PLAY RECAP *******************************************************************************************************
+activemq_1                 : ok=24   changed=0    unreachable=0    failed=0    skipped=17   rescued=0    ignored=0
 database_1                 : ok=20   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0
 nginx_1                    : ok=21   changed=8    unreachable=0    failed=0    skipped=8    rescued=0    ignored=0
 repository_1               : ok=92   changed=43   unreachable=0    failed=0    skipped=14   rescued=0    ignored=0
@@ -142,6 +143,7 @@ Once the playbook is complete Ansible will display a play recap to let you know 
 
 ```bash  
 PLAY RECAP *******************************************************************************************************
+activemq_1                 : ok=24   changed=0    unreachable=0    failed=0    skipped=17   rescued=0    ignored=0
 database_1                 : ok=20   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0
 nginx_1                    : ok=21   changed=8    unreachable=0    failed=0    skipped=8    rescued=0    ignored=0
 repository_1               : ok=92   changed=43   unreachable=0    failed=0    skipped=14   rescued=0    ignored=0
@@ -181,6 +183,7 @@ Once the playbook is complete Ansible will display a play recap to let you know 
 
 ```bash  
 PLAY RECAP *******************************************************************************************************
+activemq_1                 : ok=24   changed=0    unreachable=0    failed=0    skipped=17   rescued=0    ignored=0
 database_1                 : ok=20   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0
 nginx_1                    : ok=21   changed=8    unreachable=0    failed=0    skipped=8    rescued=0    ignored=0
 repository_1               : ok=92   changed=43   unreachable=0    failed=0    skipped=14   rescued=0    ignored=0
@@ -380,6 +383,7 @@ What needs to be removed from a system will depend on your inventory configurati
    * alfresco-tengine-aio.service
    * alfresco-search.service
    * alfresco-content.service
+   * activemq.service
    * nginx.service
    * postgres-`version`.service (where `version` 13 for Community Edition)
 2. Remove the following yum packages:
