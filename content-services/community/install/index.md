@@ -18,7 +18,7 @@ Installation can be done manually, but Alfresco also provides a number of instal
 
 ## Installation & Deployment Methods
 
-There are four distinct approaches to deploying Alfresco Content Services. Please familiarise yourself with Alfresco’s [Deployment Support Policy](https://docs.alfresco.com/support/latest/policies/containerization/), before selecting one of the options below.
+There are four distinct approaches to deploying Alfresco Content Services. Please familiarise yourself with Alfresco’s [Deployment Support Policy](https://docs.alfresco.com/support/latest/policies/deployment/), before selecting one of the options below.
 
 These deployment methods apply to both Enterprise and Community editions.
 
