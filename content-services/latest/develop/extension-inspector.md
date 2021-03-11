@@ -13,75 +13,26 @@ The main features of Alfresco Extension Inspector are:
 * Discouraged the use of non-public APIs
 * Lists Alfresco's third-party libraries
 
-The [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector){:target="_blank"} project has three main modules for building the Extension Inspector.
+The Extension Inspector has two main modules.
+
+> **Note:** See the Github respository for more information on the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector){:target="_blank"}
 
 |Modules|Description|
 |-------|-----------|
 |Inventory (`extension-inspector-inventory`)|For parsing an alfresco.war file|
 |Analyser (`extension-inspector-analyser)`|For analysing custom extensions against the inventory|
-|Packaging (`extension-inspector-packaging`)|For packaging the Inventory and the Analyser in one executable tool|
 
-## Packaging the Extension Inspector
+## Using the Extension Inspector
 
-The `Application` is a Spring Boot application, which is implemented in the module extension-inspector-packaging. The application merges the Inventory and Analyser libraries in one tool.
+Download the [alfresco-extension-inspector-1.0.0](https://artifacts.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/extension-inspector/alfresco-extension-inspector/1.0.0/alfresco-extension-inspector-1.0.0.jar) `.jar` file and run it using the following command:
 
-To build the project, use `mvn clean package`. This command creates an executable jar called the `alfresco-extension-inspector-< version\>.jar` tool.
-
-The tool takes an AMP file as input and contains the inventories of multiple alfresco versions produced by the Inventory application.
-
-The tool does the following:
-
-1. Detects if any file in the AMP overwrites files in the alfresco.war.
-2. Detects any conflicts on the classpath.
-3. Checks if beans defined in the alfresco.war file have been overwritten, except for those beans where explicitly allowed.
-4. Checks if any custom Java code is using third-party libraries provided in the war file.
-5. Checks if any custom Java code is using Alfresco-provided Java code, which is not annotated as `@AlfrescoPublicAPI`.
-6. Checks if any beans instantiate classes from Alfresco or third-party libraries provided, which is not meant to be instantiated by custom beans
-
-Use the Alfresco Extension Inspector to analyse a given Alfresco extension:
-
-```java
-java -jar alfresco-extension-inspector.jar <extension-filename> [--targetversion=
-6.1.0[-7.0.0] | --target-inventory=<report_file_path>.json] [--
-verbose=[true | false]]
-```
-
-To generate an inventory report for a given war file:
-
-```java
-java -jar alfresco-extension-inspector.jar --inventory <alfresco-war-filename>
-[--o=<report_file_path>.json]
-```
-
-To list all versions with bundled inventories:
-
-```java
-java -jar alfresco-extension-inspector.jar --list-known-alfresco-versions
-```
-
-The following table lists the full options for the tool. You can get this help list using:
-
-```java
-java -jar alfresco-extension-inspector.jar --help
-```
-
-|Option|Description|
-|------|-----------|
-|`--target-version`|An Alfresco version or a range of Alfresco versions|
-|`--target-inventory`|A file path of an existing WAR inventory|
-|`--verbose`|Verbose output|
-|`--inventory`|Creates an inventory report in json format for the specified war or extension file|
-|`[--o=<report_file_path>.json]`|A file path for the new inventory report|
-|`--help`|Shows the list of help options, as listed in this table|
-|`--list-known-alfresco-versions`|Lists all Alfresco versions with inventory reports included in the tool|
+`java -jar alfresco-extension-inspector-1.0.0.jar`
 
 ## Running the Inventory application
 
-The `InventoryApplication` is a Spring Boot application, implemented in the module extension-inspector-inventory. The application generates a report file for a war file.
+The application generates a report for a `.war` file.
 
-To build the project, use `mvn clean package`. This command creates an executable jar called `alfresco-extension-inspector-inventory-<version\>.jar`.
-
-Use the Inventory command as follows:
+To run the Inventory application use the following command:
 
 ```java
 java -jar alfresco-extension-inspector-<version>.jar --inventory
@@ -156,11 +107,9 @@ When you run the Inventory command, the output is a report in json format with t
 
 ## Running the Analyser application
 
-The `AnalyserApplication` is a Spring Boot application, implemented in the module extension-inspector-analyser. This application analyses custom extensions against war inventories.
+The application analyses custom extensions against war inventories.
 
-To build the project, use `mvn clean package`. This command creates an executable jar called `alfresco-extension-inspector-inventory-<version\>.jar`.
-
-Use the Analyser application command a follows:
+To run the Analyser application use the following command:
 
 ```java
 java -jar alfresco-extension-inspector-<version>.jar <extension-filename> [--
@@ -189,9 +138,8 @@ The following conflict types are detected:
 
 The output is a report with the following example structure:
 
-```text
-Bean naming conflicts
----------------------
+### Bean naming conflicts
+
 The following Spring beans defined in the extension module are in conflict with
 beans defined in the ACS repository:
 extension_bean
@@ -205,19 +153,21 @@ extensions to reduce the cost of upgrades.
 It is possible that these conflicts only exist in specific ACS versions. Run this
 tool with the -verbose option to get a complete list of versions where each of
 these files has conflicts.
-Beans instantiating internal classes
-------------------------------------
+
+### Beans instantiating internal classes
+
 The following Spring beans defined in the extension module instantiate internal
 classes:
 extension_bean (class=org.alfresco.repo.... )
 These classes are considered an internal implementation detail of the ACS
 repository and do not constitute a supported extension point. They might change
 or completely disappear between ACS versions and even in service packs.
-Classpath conflicts
--------------------
+
+### Classpath conflicts
+
 The following files and libraries in the extension module cause conflicts on the
 Java classpath:
-/lib/alfresco-test.jar
+`/lib/alfresco-test.jar`
 Ambiguous resources on the Java classpath render the behaviour of the JVM
 undefined (see Java specification).
 Although it might be possible that the repository can still start-up, you can
@@ -226,10 +176,10 @@ typically very hard to detect and trace back to their root cause.
 It is possible that these conflicts only exist in specific ACS versions. Run this
 tool with the -verbose option to get a complete list of versions where each of
 these files has conflicts.
-Custom code using internal classes
-----------------------------------
-The following classes defined in the extension module are using internal
-repository classes:
+
+### Custom code using internal classes
+
+The following classes defined in the extension module are using internal repository classes:
 org.alfresco.repo...
 Internal repository classes:
 org.alfresco.repo...
@@ -237,8 +187,9 @@ These classes are considered an internal implementation detail of the ACS
 repository and might change or completely disappear between ACS versions and even
 between service packs.
 For a complete usage matrix, use the -verbose option of this tool.
-Custom code using 3rd party libraries managed by the ACS repository
--------------------------------------------------------------------
+
+### Custom code using 3rd party libraries managed by the ACS repository
+
 The code provided by the extension module is using these 3rd party libraries
 brought by the ACS repository:
 `/WEB-INF/lib/test-1.0.0.jar`
@@ -249,21 +200,16 @@ make it really hard for this extension to keep up with these changes.
 REPORT SUMMARY
 Across the provided target versions, the following number of conflicts have been
 found:
-+-----------------------+-----+
-|Type                   |Total|
-+-----------------------+-----+
-|BEAN_OVERWRITE         |1    |
-+-----------------------+-----+
-|BEAN_RESTRICTED_CLASS  |1    |
-+-----------------------+-----+
-|CLASSPATH_CONFLICT     |1    |
-+-----------------------+-----+
-|ALFRESCO_INTERNAL_USAGE|2    |
-+-----------------------+-----+
-|WAR_LIBRARY_USAGE      |1    |
-+-----------------------+-----+
 
-(use option --verbose for version details) 
+|Type|Total|
+|------|-----------|
+|BEAN_OVERWRITE|1|
+|BEAN_RESTRICTED_CLASS|1|
+|CLASSPATH_CONFLICT|1|
+|ALFRESCO_INTERNAL_USAGE|2|
+|WAR_LIBRARY_USAGE|1|
+
+(use option --verbose for version details)
 
 Alfresco extensions might hide conflicts of the following types if they contain Alfresco-specific libraries:
 
