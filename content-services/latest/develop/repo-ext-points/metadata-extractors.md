@@ -1,5 +1,5 @@
 ---
-title: Metadata Extractors Extension Point
+title: Metadata Extractors and Embedders Extension Point
 ---
 
 Content Services performs metadata extraction on content automatically, however, you may wish to create 
@@ -7,15 +7,16 @@ custom metadata extractors to handle custom file properties and custom content m
 
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
 
-## Description
-
+## Introduction
 Every time a file is uploaded to the repository the file's MIME type is automatically detected. Based on the MIME type a 
 related Metadata Extractor is invoked on the file. It will extract common properties from the file, such as author, 
 and set the corresponding content model property accordingly. Each Metadata Extractor has a mapping between the 
-properties it can extract and the content model properties. Metadata extraction is primarily based on the 
-[Apache Tika](https://tika.apache.org/){:target="_blank"} library. This means that whatever [file formats](https://tika.apache.org/1.11/formats.html){:target="_blank"} 
-Tika can extract metadata from, Content Services can also handle. To give you an idea of what file formats 
-Content Services can extract metadata from, here is a list of the most common formats: 
+properties it can extract and the content model properties. 
+
+Metadata extraction is primarily based on the [Apache Tika](https://tika.apache.org/){:target="_blank"} library. This means 
+that whatever [file formats](https://tika.apache.org/1.11/formats.html){:target="_blank"} Tika can extract metadata from, 
+Content Services can also handle. To give you an idea of what file formats Content Services can extract metadata from, 
+here is a list of the most common formats: 
 
 * PDF
 * MS Office
@@ -46,10 +47,330 @@ One thing to note though, even if an extractor can extract any of the system con
 it will not be used. Created date, creator, modified date, and modifier is always controlled by the Content Services 
 system, unless you are using the Bulk Import tool, in which case last modified date can be preserved.
 
+## Metadata extraction and Transform Engines
+The extraction of metadata in the repository is performed in T-Engines (transform engines).
+Prior to Content Services version 7, it was performed inside the repository. T-Engines provide improved scalability,
+stability, security and flexibility. New extractors may be added without the need for
+a new Content Services release or applying an AMP on top of the repository (i.e. `alfresco.war`).
+
+The Content Services version 6 framework for creating metadata extractors that run as part of the repository
+still exists, so existing AMPs that add extractors will still work as long as there is
+not an extractor in a T-Engine that claims to do the same task. The framework is *deprecated* and could
+well be removed in a future release.
+
+This page describes how metadata extraction and embedding works, so that it is possible to add a
+custom T-Engine to do other types. It also lists the various extractors that have been moved to T-Engines.
+
+A framework for embedding metadata into a file was provided as part of the repository prior to Content Services version 7. 
+This too still exists, but has been *deprecated*. Even though the content repository did not
+provide any out of the box implementations, the embedding framework of metadata via T-Engines exists.
+
+In the case of an extract, the T-Engine returns a JSON file that contains name value pairs. The names
+are fully qualified QNames of properties on the source node. The values are the metadata values extracted
+from the content. The transform defines the mapping of metadata values to properties. Once returned to
+the repository, the properties are automatically set.
+
+In the case of an embed, the T-Engine takes name value pairs from the transform options, maps them to
+metadata values which are then updated in the supplied content. The content is then returned to the 
+content repository and the node is updated. 
+
+## Metadata extraction is just another transform
+Metadata extractors and embedders are just a specialist form of transform. The `targetMediaType`
+in the T-Engine `engine-config.json` is set to `"alfresco-metadata-extract"` or `"alfresco-metadata-embed"`
+the following is a snippet from the 
+[tika_engine_config.json](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/resources/tika_engine_config.json){:target="_blank"}
+
+```json
+    {
+      "transformerName": "TikaAudioMetadataExtractor",
+      "supportedSourceAndTargetList": [
+        {"sourceMediaType": "video/x-m4v",     "targetMediaType": "alfresco-metadata-extract"},
+        {"sourceMediaType": "audio/x-oggflac", "targetMediaType": "alfresco-metadata-extract"},
+        {"sourceMediaType": "application/mp4", "targetMediaType": "alfresco-metadata-extract"},
+        {"sourceMediaType": "audio/vorbis",    "targetMediaType": "alfresco-metadata-extract"},
+        {"sourceMediaType": "video/3gpp",      "targetMediaType": "alfresco-metadata-extract"},
+        {"sourceMediaType": "audio/x-flac",    "targetMediaType": "alfresco-metadata-extract"},
+        {"sourceMediaType": "video/3gpp2",     "targetMediaType": "alfresco-metadata-extract"},
+        {"sourceMediaType": "video/quicktime", "targetMediaType": "alfresco-metadata-extract"},
+        {"sourceMediaType": "audio/mp4",       "targetMediaType": "alfresco-metadata-extract"},
+        {"sourceMediaType": "video/mp4",       "targetMediaType": "alfresco-metadata-extract"}
+      ],
+      "transformOptions": [
+        "metadataOptions"
+      ]
+    },
+```
+
+If a T-Engine definition says it supports a metadata extract or embed, it will be used in preference
+to any extractor or embedder using the deprecated frameworks in the content repository.
+
+### Transform interface
+Code that transforms a specific document type in a T-Engine generally implements the 
+[Transformer](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transformer-base/src/main/java/org/alfresco/transformer/executors/Transformer.java){:target="_blank"}
+interface. In addition to the `transform` method, `extractMetadata` and `embedMetadata` methods
+will be called depending on the target media type. The implementing class is called from the
+[transformImpl](creating-a-t-engine.md#transformImpl) method of the controller class.
+
+```java
+default void transform(String transformName, String sourceMimetype, String targetMimetype,
+                       Map<String, String> transformOptions,
+                       File sourceFile, File targetFile) throws Exception {
+}
+
+default void extractMetadata(String transformName, String sourceMimetype, String targetMimetype,
+                             Map<String, String> transformOptions,
+                             File sourceFile, File targetFile) throws Exception {
+}
+
+default void embedMetadata(String transformName, String sourceMimetype, String targetMimetype,
+                           Map<String, String> transformOptions,
+                           File sourceFile, File targetFile) throws Exception {
+}
+```
+
+It is typical for the `extractMetadata` method to call another `extractMetadata` method on a sub class of
+`AbstractMetadataExtractor` as this class provides the bulk of the functionality needed to configure metadata extraction
+or embedding.
+
+```java
+    public void extractMetadata(String transformName, String sourceMimetype, String targetMimetype,
+                                Map<String, String> transformOptions,
+                                File sourceFile, File targetFile) throws Exception
+    {
+        AbstractMetadataExtractor extractor = ...
+        extractor.extractMetadata(sourceMimetype, transformOptions, sourceFile, targetFile);
+    }
+
+    // Similar code for embedMetadata
+```
+
+### AbstractMetadataExtractor base class
+The `AbstractMetadataExtractor` may be extended to perform metadata extract and embed tasks, by overriding two methods
+in the sub classes:
+
+```java
+    public abstract Map<String, Serializable> extractMetadata(String sourceMimetype, Map<String, String> transformOptions,
+                                                              File sourceFile) throws Exception;
+
+    public void embedMetadata(String sourceMimetype, String targetMimetype, Map<String, String> transformOptions,
+                              File sourceFile, File targetFile) throws Exception
+    {
+        // Default nothing, as embedding is not supported in most cases
+    }
+```
+
+Method parameters:
+
+* `sourceMimetype` mimetype of the source
+* `transformOptions` transform options from the client
+* `sourceFile` the source as a file
+
+The `extractMetadata` should extract and return ALL available metadata from the `sourceFile`.
+These values are then mapped into content repository property names and values, depending on what is defined in a 
+`<classname>_metadata_extract.properties` file. Value may be discarded or a single value may even be used for multiple 
+properties. The selected values are sent back to the repository as JSON as a mapping of fully qualified 
+content model property names to values, where the values are applied to the source node.
+
+### Metadata extraction configuration
+The `AbstractMetadataExtractor` class reads the `<classname>_metadata_extract.properties` file, so that it knows how to
+map metadata returned from the sub class `extractMetadata` method onto content model properties. The following is
+an example for an email (file extension `.eml`):
+
+```text
+#
+# RFC822MetadataExtractor - default mapping
+#
+
+# Namespaces
+namespace.prefix.imap=http://www.alfresco.org/model/imap/1.0
+namespace.prefix.cm=http://www.alfresco.org/model/content/1.0
+
+# Mappings
+messageFrom=imap:messageFrom, cm:originator
+messageTo=imap:messageTo, cm:addressee
+messageCc=imap:messageCc, cm:addressees
+messageSubject=imap:messageSubject, cm:title, cm:description, cm:subjectline
+messageSent=imap:dateSent, cm:sentdate
+messageReceived=imap:dateReceived
+Thread-Index=imap:threadIndex
+Message-ID=imap:messageId
+```
+
+As can be seen, the email's metadata for `messageFrom` (if available) will be used to set two properties in the content
+repository (if they exist): `imap:messageFrom`, `cm:originator`. The property names use namespace prefixes specified above.
+
+### Property overwrite policy
+It is possible to specify if properties in the repository will be set if the extracted values are not null or if
+the properties already have a value. By default, `PRAGMATIC` is used. Generally you will not need to change this.
+Other values (`CAUTIOUS`, `EAGER`, `PRUDENT`) are described in 
+[OverwritePolicy](https://github.com/Alfresco/alfresco-community-repo/blob/master/repository/src/main/java/org/alfresco/repo/content/metadata/MetadataExtracter.java#L70-L318){:target="_blank"}.
+To use a different policy add a `sys:overwritePolicy` value to the Map returned from
+the `extractMetadata` method of the class extending `AbstractMetadataExtractor` (described above).
+
+### Aspect property policy
+When a property is extracted, which is part of an aspect, it is possible to remove all other
+properties in the same aspect that do not have an extracted value. In this way only extracted values will be set and
+any previously set aspect properties will be cleared. By default, this does not take place and newly extracted values
+are just added to the node's properties. To clear other aspect properties add `sys:carryAspectProperties`= `false` to
+the Map returned from the `extractMetadata` method.
+
+### Enable tagging
+When an extracted property is taggable, it is possible to automatically extract tags from the value. By default, this is
+disabled, but may be enabled by adding `sys:enableStringTagging`= `true` to the Map returned from the `extractMetadata` method.
+
+Assuming `enableStringTagging` is `true`, it is also possible to change the default separators of the tags in the value.
+The default separators are `,` `;` and `\|`. This is done by adding a `sys:stringTaggingSeparators` value to the Map
+returned from the `extractMetadata` method. Please note that escaping of characters takes place in both Java and json,
+so json response would look like `"sys:stringTaggingSeparators": ";,\",\",\\|"` if the code explicitly sets the default
+separators.
+
+### Overriding metadata extraction request in the repository
+The request from the repository to extract metadata goes through `RenditionService2`, so will use the 
+asynchronous Alfresco Transform Service if available and a synchronous Local transform if not.
+
+Normally the only transform options are `timeout` and `sourceEncoding`, so the extractor code only has the source mimetype
+and content itself to work on. Customisation of the property mapping should really be done in the T-Engine as described above.
+
+However, it is currently possible for code running in the repository (i.e. `alfresco.war`) to override the default mapping 
+of metadata to content model properties, with an `extractMapping` transform option. This approach is *deprecated* and may 
+be removed in a future minor Content Services 7.x release. 
+
+An AMP should supply a class that implements the `MetadataExtractorPropertyMappingOverride` interface and add it to the 
+`metadataExtractorPropertyMappingOverrides` property of the `extractor.Asynchronous` spring bean.
+
+```java
+/**
+ * Overrides the default metadata mappings for PDF documents:
+ *
+ * <pre>
+ * author=cm:author
+ * title=cm:title
+ * subject=cm:description
+ * created=cm:created
+ * </pre>
+ * with:
+ * <pre>
+ * author=cm:author
+ * title=cm:title,cm:description
+ * </pre>
+ */
+public class PdfMetadataExtractorOverride implements MetadataExtractorPropertyMappingOverride {
+    @Override
+    public boolean match(String sourceMimetype) {
+        return MIMETYPE_PDF.equals(sourceMimetype);
+    }
+
+    @Override
+    public Map<String, Set<String>> getExtractMapping(NodeRef nodeRef) {
+        Map<String, Set<String>> mapping = new HashMap<>();
+        mapping.put("author", Collections.singleton("{http://www.alfresco.org/model/content/1.0}author"));
+        mapping.put("title",  Set.of("{http://www.alfresco.org/model/content/1.0}title",
+                                     "{http://www.alfresco.org/model/content/1.0}description"));
+        return mapping;
+    }
+}
+```
+
+Resulting in a request that contains the following transform options:
+
+```json
+{"extractMapping":{
+   "author":["{http://www.alfresco.org/model/content/1.0}author"],
+   "title":["{http://www.alfresco.org/model/content/1.0}title",
+            "{http://www.alfresco.org/model/content/1.0}description"]},
+ "timeout":20000,
+ "sourceEncoding":"UTF-8"}
+```
+
+### Metadata extraction response
+The transformed content that is returned to the repository is JSON and specifies what properties that should be updated 
+on the source node. For example:
+
+```json
+{"{http://www.alfresco.org/model/content/1.0}description":"Making Bread",
+ "{http://www.alfresco.org/model/content/1.0}title":"Making Bread",
+ "{http://www.alfresco.org/model/content/1.0}author":"Fred"}
+```
+
+### Metadata embed request
+An embed request simply contains a transform option called `metadata` that contains a map of property names to
+values, resulting in transform options like the following:
+
+```json
+{"metadata":
+ {"{http://www.alfresco.org/model/content/1.0}author":"Fred",
+  "{http://www.alfresco.org/model/content/1.0}title":"Making Bread"
+  "{http://www.alfresco.org/model/content/1.0}helpers":["Jane","Paul"]},
+ "timeout":20000,
+ "sourceEncoding":"UTF-8"}
+```
+
+Values are either a String, or a Collection of Strings. The mappings of these content repository
+properties to metadata properties is normally the reverse of those defined in the
+`<classname>_metadata_extract.properties` file in the T-Engine.
+
+### Metadata embed response
+This is simply the source content with the metadata embedded. The content repository updates
+the content of the node with what is returned.
+
+## Repository information
+The repository still contains metadata extraction code.
+
+### Framework
+The Content Services version 6 framework for running metadata extractors and embedders still exists. An additional 
+`AsynchronousExtractor` has been added to communicate with the `RenditionService2` from Content Services version 7. 
+The `AsynchronousExtractor` handles the request and response in a generic way allowing all the content type specific 
+code to be moved to a T-Engine.
+
+### XML framework
+The following XML based extractors have NOT been removed from the content repository as custom extensions may be
+using them. There are no out-of-the-box extractors that use them as part of the repository. Ideally any
+custom extensions should be moved to a custom T-Engine using code based on these classes.
+
+* `XmlMetadataExtracter`
+* `XPathMetadataExtracter`
+
+## Metadata extractors that have be moved to T-Engines
+The following extractors exist now in T-Engines rather than in the repository (i.e. `alfresco.war`):
+
+* `OfficeMetadataExtractor`
+* `TikaAutoMetadataExtractor`
+* `DWGMetadataExtractor`
+* `OpenDocumentMetadataExtractor`
+* `PdfBoxMetadataExtractor`
+* `MailMetadataExtractor`
+* `PoiMetadataExtractor`
+* `TikaAudioMetadataExtractor`
+* `MP3MetadataExtractor`
+* `HtmlMetadataExtractor`
+* `RFC822MetadataExtractor`
+
+The `LibreOffice` extractor has also been moved to a T-Engine, even though Tika based extractors are now used for all
+types it supported. This has been the case since ACS 6.0.1. It was moved into a T-Engine to simplify 
+moving any any custom code that may have extended it.
+
+The `Tika` based classes for extractors using configuration files or spring context files have been removed from the
+content repository as the preferred way to create extractors is via a T-Engine and these approaches require in process
+extensions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 A common requirement is to be able to change the mapping of out-of-the-box properties, such as having the `subject` 
 property mapped to `cm:title` instead of `cm:description`. This is quite easy to achieve, just override the out-of-the-box 
 bean and re-configure the mapping. The out-of-the-box Spring bean definitions for Metadata Extractors can be found in the 
-`content-services-context.xml` file, which is located [here](https://github.com/Alfresco/community-edition/tree/master/projects/repository/config/alfresco){:target="_blank"}. 
+`content-services-context.xml` file, which is located [here](https://github.com/Alfresco/alfresco-community-repo/tree/master/projects/repository/config/alfresco){:target="_blank"}. 
 Search for "Content Metadata Extractors" in the file and then you will find an ordered list of extractor definitions.
 
 When overriding a Metadata Extractor configuration you have the option to inherit the default properties mapping or 
@@ -349,10 +670,5 @@ content.metadataExtracter.pdf.overwritePolicy=EAGER
 * `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml` - Metadata Extractor bean definitions and metadata embedder bean definitions
 * `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/metadataextraction` - Properties files with mappings
 
-## Sample Code
 
-* [PDF metadata extraction sample and XML metadata extraction sample](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-metadata-extracter-repo){:target="_blank"}
 
-## Tutorials
-
-* [Configure Metadata Extraction]({% link content-services/latest/config/repository.md %}#configure-metadata-extraction)
