@@ -2,7 +2,9 @@
 title: Install using Docker Compose
 ---
 
-Use this information to quickly start up Community Edition using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
+Use this information to quickly start up Community Edition using Docker Compose.
+
+> **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided here is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 
 To deploy Community Edition using Docker Compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/community/install/containers/index.md %}#prerequisites) before continuing.
 
