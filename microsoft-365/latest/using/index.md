@@ -79,22 +79,3 @@ You can create new Word, Excel, and PowerPoint documents that will be stored in 
 4. You will be prompted to sign into Microsoft Online to open the newly created document in a new browser tab.
 
     > **Note**: The document will be locked in the Digital Workspace. A padlock icon against the document will indicate this.
-
-## Create a new document
-
-You can create new Word, Excel, and PowerPoint documents that will be stored in Alfresco and can be edited either by editing them in Microsoft Office, or editing Offline.
-
-   > **Note:** This feature is available in the Digital Workspace without the 365 Connector being installed.
-
-1. In the Digital Workspace click **New**.
-
-2. Select the type of document you want to create, either **Word**, **Excel** or **PowerPoint**.
-
-3. Enter a name for the document, and optionally a description and then click **Create**.
-
-4. You will be presented with the document in the document viewer.
-
-    > **Note**: The document will be locked in the Digital Workspace. A padlock icon against the document will indicate this.
-
-5. Click the three dots on the top right and decide how you want edit the document.
-
