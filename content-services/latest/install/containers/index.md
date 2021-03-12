@@ -6,7 +6,7 @@ The following sections help you to understand what containerized deployment is, 
 
 ## Deployment concepts
 
-In addition to the standard deployment methods for non-containerised deployment, Alfresco provides Content Services packaged in the form of Docker containers, for companies who choose to use containerised and orchestrated deployment tools. While this is a much more advanced approach to deployment, it is expected that customers who choose this approach, have the necessary skills to manage its complexity. 
+In addition to the standard deployment methods for non-containerized deployment, Alfresco provides Content Services packaged in the form of Docker containers, for companies who choose to use containerized and orchestrated deployment tools. While this is a much more advanced approach to deployment, it is expected that customers who choose this approach have the necessary skills to manage its complexity.
 
 You can start Content Services from a number of Docker images. These images are available in the [Docker Hub](https://hub.docker.com){:target="_blank"} and [Quay](https://quay.io/){:target="_blank"} repositories. However, starting individual Docker containers based on these images, and configuring them to work together can be complicated. To make things easier, a **Docker Compose** file is available to quickly start Content Services when you need to test something or work on a proof-of-concept (PoC).
 
