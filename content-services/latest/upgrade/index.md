@@ -11,7 +11,7 @@ Care should be taken when upgrading from any previous releases of Content Servic
 * Ensure that you have a functional [backup of your Alfresco repository and database]({% link content-services/latest/admin/backup-restore.md %}), before starting the upgrade process.
 * Download and run the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector/blob/master/README.md){:target="_blank"} <!--DOCS LINK--> to understand which customization or library items need to be reviewed or updated to support the upgrade.
 * Review all new and deprecated features included in the Release Notes. Customers can access these from the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
-* Review and implement the new supported stack options, and update as necessary for the new deployment.
+* Review and implement the new [Supported platforms]({% link content-services/latest/support/index.md %}) options, and update as necessary for the new deployment. Also, check the general advice about [Supported Platforms and Languages](https://www.alfresco.com/services/subscription/supported-platforms){:target="_blank"} on our website.
 
 To upgrade from a previous version of Content Services to a later version, see the [upgrade process](#upgrade-process).
 
@@ -25,10 +25,11 @@ The following diagram shows the upgrade paths for major versions:
 
 The upgrade path recommendations are:
 
-* Direct upgrades to Content Services 7.0 are supported from only 5.2.x and later, with the latest Service Pack applied. **(TBC)**
+* Direct upgrades to Content Services 7.0 are supported from only 5.2.x and later.
 * Content Services 7.0 introduces changes that require new releases of all modules. To upgrade to 7.0, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
 * You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.0. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
-  * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services, followed by an upgrade from 5.2 to 6.2, and then upgrade to 7.0. **(TBC)**
+  * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services.
+  * Upgrades from older versions prior to Content Services 5.2 should consult Professional Services.
 
 > **Note:** If you're upgrading from an earlier release that's not shown on this diagram, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} for assistance.
 
@@ -53,7 +54,7 @@ You can then follow the [upgrade path](#upgrade-paths) to Content Services to up
 
 ## Upgrade process
 
-Use this procedure to upgrade from a previous version of Content Services using the distribution zip. The process involves a new installation of the Content Services binaries and configuration, and an in-place upgrade of a copy of the repository.
+Use this procedure to upgrade from a previous version of Content Services using one of the supported [installation methods]({% link content-services/latest/install/index.md %}). The process involves a new installation of the Content Services binaries and configuration, and an in-place upgrade of a copy of the repository.
 
 In-place upgrade of the binaries and configuration isn't recommended. Creating a new installation ensures that if anything goes wrong during the upgrade, the original (not upgraded) system is still intact and available for immediate restart.
 
@@ -64,7 +65,7 @@ These steps assume that you've got an existing Content Services installation (`a
 | alfresco-global.properties | `dir.root=/alfresco-v.1/alf_data`<br><br>`db.url=url<v.1>` |
 | solrcore.properties | `data.dir.root=/alfresco-v.1/solr/myindexes` |
 
-1. Install the new version of Content Services using the distribution zip.
+1. Install the new version of Content Services.
 
     1. Shut down your existing instance.
 
@@ -252,3 +253,23 @@ The `dir.root` directory is defined in the `alfresco-global.properties` file. By
 2. Point the new deployment to the old database using the `db.*` properties in the `alfresco-global.properties` file by providing the JDBC URL, database name, log in credentials, and any other relevant configuration options.
 
     Remember to specify the relevant JDBC driver into your application server's classpath.
+
+## Apply recommended database patch
+
+Alfresco Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to create them might be considerable. They should be run manually after the upgrade process completes.
+
+To apply the patch, an admin should set the following Alfresco global property to `true`:
+
+```text
+system.new-node-transaction-indexes.ignored=false
+```
+
+Like other patches, it will only be run once so there's no need to reset the property afterwards.
+
+Until this step is completed, you will see **Schema Validation** warnings reported in the `alfresco.log` on each startup. The log will also indicate that the patch was not run:
+
+```text
+INFO  [org.alfresco.repo.domain.schema.SchemaBootstrap] [...] Ignoring script patch (post-Hibernate): patch.db-V6.3-add-indexes-node-transaction
+...
+WARN  [org.alfresco.repo.domain.schema.SchemaBootstrap] [...] Schema validation found ... potential problems, results written to ...
+```
