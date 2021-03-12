@@ -219,7 +219,6 @@ The following systemd services are installed and can be used to stop and start A
 | ```activemq.service``` | ActiveMQ Service |
 | ```postgresql-<version>.service``` | Postgresql DB Service (where `<version>` is 11 for ACS 6.2.N and 13 for ACS 7.x) |
 | ```nginx.service``` | Nginx Service |
-| ```tomcat.service``` | Tomcat Service |
 | ```alfresco-content.service``` | Alfresco Content Service |
 | ```alfresco-search.service``` | Alfresco Search Service |
 | ```alfresco-shared-fs.service``` | Alfresco Shared File Store Controller Service |
@@ -350,31 +349,6 @@ acs_environment:
 * The playbook is not yet fully idempotent so may cause issues if you make changes and run multiple times
 * The `firewalld` service can prevent the playbook from completing successfully if it's blocking the [ports required](#tcp-port-configuration) for communication between the roles
 
-
-## Failed Downloads
-
-If you see an error similar to the one below (in particular the mention of `HTTP Error 401: Unauthorized`) you've most likely forgotten to setup your Nexus credentials or mis-configured them.
-
-```bash
-fatal: [search_1]: FAILED! => {"attempts": 3, "changed": false, "dest": "/tmp/ansible_artefacts/alfresco-search-services-2.0.1.zip", "elapsed": 0, "msg": "Request failed", "response": "HTTP Error 401: Unauthorized", "status_code": 401, "url": "https://artifacts.alfresco.com/nexus/service/local/repositories/enterprise-releases/content//org/alfresco/alfresco-search-services/2.0.1/alfresco-search-services-2.0.1.zip"}
-```
-
-You can run the command shown below in the same terminal you're using to run the playbook to quickly test downloading a protected resource from Nexus.
-
-```bash
-wget -qO /dev/null --user=${NEXUS_USERNAME} --password=${NEXUS_PASSWORD} https://artifacts.alfresco.com/nexus/service/local/repositories/enterprise-releases/content/org/alfresco/alfresco-content-services-distribution/6.2.2/alfresco-content-services-distribution-6.2.2.pom
-```
-
-If everything is configured correctly you should see the following at the end of the output:
-
-```bash
-Saving to: ‘alfresco-content-services-distribution-6.2.2.pom’
-
-alfresco-content-services-distribution-6.2.2.pom      100%[=============================================>]   8.53K  --.-KB/s    in 0.003s  
-
-2021-02-18 13:50:44 (2.54 MB/s) - ‘alfresco-content-services-distribution-6.2.2.pom’ saved [8739/8739]
-```
-
 ## Removing a previous installation
 
 What needs to be removed from a system will depend on your inventory configuration. The steps below presume a localhost or single machine installation i.e. where all roles were run on the same machine.
@@ -385,7 +359,7 @@ What needs to be removed from a system will depend on your inventory configurati
    * alfresco-content.service
    * activemq.service
    * nginx.service
-   * postgres-`version`.service (where `version` 13 for Community Edition)
+   * postgres-13.service
 2. Remove the following yum packages:
    * ImageMagick
    * libreoffice
