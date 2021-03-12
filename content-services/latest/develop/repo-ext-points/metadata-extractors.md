@@ -322,189 +322,104 @@ The Content Services version 6 framework for running metadata extractors and emb
 The `AsynchronousExtractor` handles the request and response in a generic way allowing all the content type specific 
 code to be moved to a T-Engine.
 
-### XML framework
+### XML framework {#xmlextractors}
 The following XML based extractors have NOT been removed from the content repository as custom extensions may be
 using them. There are no out-of-the-box extractors that use them as part of the repository. Ideally any
 custom extensions should be moved to a custom T-Engine using code based on these classes.
 
-* `XmlMetadataExtracter`
-* `XPathMetadataExtracter`
+* [XmlMetadataExtracter](https://github.com/Alfresco/alfresco-community-repo/blob/master/repository/src/main/java/org/alfresco/repo/content/metadata/xml/XmlMetadataExtracter.java){:target="_blank"} 
+* [XPathMetadataExtracter](https://github.com/Alfresco/alfresco-community-repo/blob/master/repository/src/main/java/org/alfresco/repo/content/metadata/xml/XPathMetadataExtracter.java){:target="_blank"}
 
-## Metadata extractors that have be moved to T-Engines
-The following extractors exist now in T-Engines rather than in the repository (i.e. `alfresco.war`):
+## Metadata extractors that have be moved to T-Engines {#ootbextractors}
+The following extractors, and their configuration (i.e. property mappings), exist now in T-Engines rather than in the 
+repository (i.e. `alfresco.war`):
 
-* `OfficeMetadataExtractor`
-* `TikaAutoMetadataExtractor`
-* `DWGMetadataExtractor`
-* `OpenDocumentMetadataExtractor`
-* `PdfBoxMetadataExtractor`
-* `MailMetadataExtractor`
-* `PoiMetadataExtractor`
-* `TikaAudioMetadataExtractor`
-* `MP3MetadataExtractor`
-* `HtmlMetadataExtractor`
-* `RFC822MetadataExtractor`
+* [OfficeMetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/java/org/alfresco/transformer/metadataExtractors/OfficeMetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/resources/OfficeMetadataExtractor_metadata_extract.properties){:target="_blank"}
+* [TikaAutoMetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/java/org/alfresco/transformer/metadataExtractors/TikaAutoMetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/resources/TikaAutoMetadataExtractor_metadata_extract.properties){:target="_blank"}
+* [DWGMetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/java/org/alfresco/transformer/metadataExtractors/DWGMetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/resources/DWGMetadataExtractor_metadata_extract.properties){:target="_blank"}
+* [OpenDocumentMetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/java/org/alfresco/transformer/metadataExtractors/OpenDocumentMetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/resources/OpenDocumentMetadataExtractor_metadata_extract.properties){:target="_blank"}
+* [PdfBoxMetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/java/org/alfresco/transformer/metadataExtractors/PdfBoxMetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/resources/PdfBoxMetadataExtractor_metadata_extract.properties){:target="_blank"}
+* [MailMetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/java/org/alfresco/transformer/metadataExtractors/MailMetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/resources/MailMetadataExtractor_metadata_extract.properties){:target="_blank"}
+* [PoiMetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/java/org/alfresco/transformer/metadataExtractors/PoiMetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/resources/PoiMetadataExtractor_metadata_extract.properties){:target="_blank"}
+* [TikaAudioMetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/java/org/alfresco/transformer/metadataExtractors/TikaAudioMetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/resources/TikaAudioMetadataExtractor_metadata_extract.properties){:target="_blank"}
+* [MP3MetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/java/org/alfresco/transformer/metadataExtractors/MP3MetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-tika/alfresco-transform-tika/src/main/resources/MP3MetadataExtractor_metadata_extract.properties){:target="_blank"}
+* [HtmlMetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-misc/alfresco-transform-misc/src/main/java/org/alfresco/transformer/metadataExtractors/HtmlMetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-misc/alfresco-transform-misc/src/main/resources/HtmlMetadataExtractor_metadata_extract.properties){:target="_blank"}
+* [RFC822MetadataExtractor](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-misc/alfresco-transform-misc/src/main/java/org/alfresco/transformer/metadataExtractors/RFC822MetadataExtractor.java){:target="_blank"} with [configuration](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-misc/alfresco-transform-misc/src/main/resources/RFC822MetadataExtractor_metadata_extract.properties){:target="_blank"}
 
 The `LibreOffice` extractor has also been moved to a T-Engine, even though Tika based extractors are now used for all
 types it supported. This has been the case since ACS 6.0.1. It was moved into a T-Engine to simplify 
-moving any any custom code that may have extended it.
+moving any custom code that may have extended it.
 
-The `Tika` based classes for extractors using configuration files or spring context files have been removed from the
-content repository as the preferred way to create extractors is via a T-Engine and these approaches require in process
+The `Tika` based classes for extractors using configuration files or spring context files have been removed from the 
+repository as the preferred way to create extractors is via a T-Engine and these approaches require in process
 extensions.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Changing default property mappings for PDF metadata extraction
 A common requirement is to be able to change the mapping of out-of-the-box properties, such as having the `subject` 
-property mapped to `cm:title` instead of `cm:description`. This is quite easy to achieve, just override the out-of-the-box 
-bean and re-configure the mapping. The out-of-the-box Spring bean definitions for Metadata Extractors can be found in the 
-`content-services-context.xml` file, which is located [here](https://github.com/Alfresco/alfresco-community-repo/tree/master/projects/repository/config/alfresco){:target="_blank"}. 
-Search for "Content Metadata Extractors" in the file and then you will find an ordered list of extractor definitions.
+property mapped to `cm:title` instead of `cm:description` for a PDF file. This is quite easy to achieve, just override 
+the out-of-the-box JSON configuration and re-configure the mapping. The out-of-the-box definitions for Metadata Extractors 
+can be found in the places described in the [above section](#ootbextractors).
 
-When overriding a Metadata Extractor configuration you have the option to inherit the default properties mapping or 
-define a new one from scratch. For example, to change the `subject` property so it is mapped to content model property 
-`cm:title` for PDF files re-define the `extracter.PDFBox` Spring bean as follows:
+To change the `subject` property so it is mapped to content model property `cm:title` for PDF files re-define the 
+`PdfBoxMetadataExtractor_metadata_extract.properties` configuration as follows:
 
-```xml
-<bean id="extracter.PDFBox" class="org.alfresco.repo.content.metadata.PdfBoxMetadataExtracter"        
-    parent="baseMetadataExtracter">
-  <property name="documentSelector" ref="pdfBoxEmbededDocumentSelector" />
-  <property name="inheritDefaultMapping">
-      <value>false</value>
-  </property>
-  <property name="mappingProperties">
-      <props>
-          <prop key="namespace.prefix.cm">http://www.alfresco.org/model/content/1.0</prop>
-          <prop key="author">cm:author</prop>
-          <prop key="subject">cm:title</prop>
-          <prop key="Keywords">cm:description</prop>
-      </props>
-  </property>
-</bean>
+```text
+#
+# PdfBoxMetadataExtracter - custom mapping
+#
+
+# Namespaces
+namespace.prefix.cm=http://www.alfresco.org/model/content/1.0
+
+# Mappings
+author=cm:author
+title=cm:title
+subject=cm:title
 ```
 
-In this case you also map the `author` property. This is because when you set the `inheritDefaultMapping` property to 
-`false` all the default property mappings are not used. Another property called `Keywords` have also been mapped to the 
-`cm:description` property. Note that all the namespaces that the content model properties belong to have to be specified 
+Note that all the namespaces that the content model properties belong to have to be specified 
 as in the above example with `namespace.prefix.cm`. It is also very important to know that the property names are 
-case sensitive. So if the Keyword property had been written with a lower-case `k`, it would not have been picked up. 
-Sometimes it can be useful to know what metadata extractor that is actually used when you upload a document. Turning on 
-Metadata Extraction logging is a good idea to get on top of what is happening. 
+case sensitive. 
+
+## Metadata extraction debug logging
+Sometimes it can be useful to know what metadata extractor that is actually used when you upload a 
+document. Turning on Metadata Extraction logging is a good idea to get on top of what is happening. 
 Set the following property in `log4j.properties`:
 
 ```text
 log4j.logger.org.alfresco.repo.content.metadata=DEBUG
 ```
 
-With logging turned on the following information will be logged when uploading a PDF:
 
-```text
- 2015-12-07 13:56:51,324  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Get extractors for application/pdf
-2015-12-07 13:56:51,324  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Finding extractors for application/pdf
-2015-12-07 13:56:51,326  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find supported:   extracter.TikaAuto
-2015-12-07 13:56:51,326  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find supported:   extracter.PDFBox
-2015-12-07 13:56:51,326  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: extracter.Poi
-2015-12-07 13:56:51,326  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: extracter.Office
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: extracter.Mail
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: extracter.Html
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: extracter.OpenDocument
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: extracter.DWG
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: extracter.RFC822
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: extracter.MP3
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: extracter.Audio
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: extracter.OpenOffice
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find unsupported: org.alfresco.tutorial.metadataextracter.xml.AcmeDocXMLMetadataExtracter
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find returning:   [org.alfresco.repo.content.metadata.TikaAutoMetadataExtracter@763b7315, org.alfresco.repo.content.metadata.PdfBoxMetadataExtracter@6acadc76]
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Get supported:   extracter.TikaAuto
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Get supported:   extracter.PDFBox
-2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Get returning:   extracter.PDFBox
-```
-
-You can clearly see that the PDFBox extractor is invoked so you know you have customized the correct one. What about the 
-properties? It is likely that you will struggle to figure out what properties are extracted and their names. You can 
-have this logged with the following log file configuration:
+What about the properties? It is likely that you will struggle to figure out what properties are extracted and their names. 
+You can have this logged with the following log file configuration:
 
 ```text
 log4j.logger.org.alfresco.repo.content.metadata.AbstractMappingMetadataExtracter=DEBUG
 ```
 
 This log configuration is set to some other log level out-of-the-box so you need to specifically re-configure it to be 
-able to see something. Now when running you will also see the extracted doc properties as in the following example:
+able to see something. Now when running you will also see the extracted doc properties.
 
-```text
-Found: {
-   pdf:PDFVersion=1.4, 
-   xmp:CreatorTool=Writer, 
-   Keywords=SomeKeyword1, SomeKeyword2, 
-   subject=SomeSubject, 
-   dc:creator=Martin Bergljung, 
-   description=SomeSubject, 
-   dcterms:created=2015-12-07T14:22:15Z, 
-   dc:format=application/pdf; version=1.4, 
-   title=SomeTitle, 
-   dc:title=SomeTitle, 
-   pdf:encrypted=false, 
-   cp:subject=SomeSubject, 
-   Content-Type=application/pdf, 
-   creator=Martin Bergljung, 
-   comments=null, 
-   meta:author=Martin Bergljung, 
-   dc:subject=SomeKeyword1, SomeKeyword2, 
-   meta:creation-date=2015-12-07T14:22:15Z, 
-   created=2015-12-07T14:22:15Z, 
-   author=Martin Bergljung, 
-   xmpTPg:NPages=1, 
-   Creation-Date=2015-12-07T14:22:15Z, 
-   meta:keyword=SomeKeyword1, SomeKeyword2, 
-   Author=Martin Bergljung, producer=LibreOffice 4.2
-}
-```
-
-There is also a log entry with information about what properties that were actually successfully mapped:
-
-```text
-Mapped and Accepted: {
-   {http://www.alfresco.org/model/content/1.0}description={en_GB=SomeKeyword1, SomeKeyword2}, 
-   {http://www.alfresco.org/model/content/1.0}title={en_GB=SomeSubject}, 
-   {http://www.alfresco.org/model/content/1.0}author=Martin Bergljung}
-
-```
-
+## Using custom content models in property mappings for PDF metadata extraction
 Next requirement is most likely to map properties to custom content models. There is an ACME content model tutorial 
 where the base document type has an `acme:documentId` property. You might want to add a document identifier to the PDFs 
-you are uploading and have it automatically set in the ACME content model. Start by updating the extractor configuration 
-as follows:
+you are uploading and have it automatically set in the ACME content model. Start by updating the the 
+`PdfBoxMetadataExtractor_metadata_extract.properties` configuration as follows:
+ 
+```text
+#
+# PdfBoxMetadataExtracter - custom mapping
+#
 
-```xml
-<bean id="extracter.PDFBox" class="org.alfresco.repo.content.metadata.PdfBoxMetadataExtracter"
-       parent="baseMetadataExtracter">
-     <property name="documentSelector" ref="pdfBoxEmbededDocumentSelector" />
-     <property name="inheritDefaultMapping">
-         <value>false</value>
-     </property>
-     <property name="mappingProperties">
-         <props>
-             <prop key="namespace.prefix.cm">http://www.alfresco.org/model/content/1.0</prop>
-             <prop key="namespace.prefix.acme">http://www.acme.org/model/content/1.0</prop>
-             <prop key="author">cm:author</prop>
-             <prop key="subject">cm:title</prop>
-             <prop key="Keywords">cm:description</prop>
-             <prop key="DocumentId">acme:documentId</prop>
-         </props>
-     </property>
- </bean>
+# Namespaces
+namespace.prefix.cm=http://www.alfresco.org/model/content/1.0
+namespace.prefix.acme=http://www.acme.org/model/content/1.0
+
+# Mappings
+author=cm:author
+title=cm:title
+DocumentId=acme:documentId
 ```
 
 Here the custom document property `DocumentId` has been added so it is mapped to the ACME content model property 
@@ -512,8 +427,11 @@ Here the custom document property `DocumentId` has been added so it is mapped to
 to have a rule on the folder that applies the `acme:document` type to any PDF document uploaded to the folder. This 
 type has the `acme:docuementId` property.
 
+## Changing default property mappings for XML metadata extraction
 Now, what if you would like to extract metadata from an XML file, how would you go about that? This can be achieved with 
 the `XmlMetadataExtracter`, which in-turn uses the `XPathMetadataExtracter` to navigate the XML and extract metadata. 
+These extractors are still in the repository, see this [section](#xmlextractors).
+
 Let's say we had XML files looking like this:
 
 ```xml
@@ -534,7 +452,7 @@ Let's say we had XML files looking like this:
 
 And whenever we upload one we want to have the `/doc/@id` attribute set as `acme:documentId`, `/doc/project/number` 
 set as `acme:projectNumber`, and `/doc/securityClassification` set as `acme:securityClassification`. This will require 
-configuration like this, note these are new bean definitions, no overrides as in previous examples:
+configuration like this, note these are new bean definitions, no overrides:
 
 ```xml
 <bean id="org.alfresco.tutorial.metadataextracter.xml.AcmeDocXPathMetadataExtracter"
@@ -612,7 +530,6 @@ projectNumber=/doc/project/number
 ```
 
 ## Metadata extractor limits
-
 Metadata extraction limits allows configurations on `AbstractMappingMetadataExtracter` for:
 
 * control of the maximum time allowed for an extraction
@@ -635,40 +552,10 @@ Maximum number of concurrent extractions - configured for PdfBoxMetadataExtracte
 content.metadataExtracter.pdf.maxConcurrentExtractionsCount=5
 ```
 
-## PDF metadata extractor overwrite policy
+## Deployment 
+To change the configuration of the metadata extractors you will have to generate a new Docker image with the 
+new configuration.
 
-There are four types of overwrite policies that can be used when extracting metadata:
-
-* `EAGER`
-* `CAUTIOUS`
-* `PRUDENT`
-* `PRAGMATIC`
-
-The following table shows which conditions must be met for overwriting the value:
-
-![overwrite-policy]({% link content-services/images/overwrite-policy.png %})
-
-The default overwrite policy is `PRAGMATIC`. To change the overwrite policy, set the `overwritePolicy` property. For example:
-
-```xml
-<property name="overwritePolicy"> <value>EAGER</value> </property>
-```
-
-To change the overwrite policy for the PDF metadata extractor, set the `overwritePolicy` property in the 
-`alfresco-global.properties`. For example:
-
-```text
-content.metadataExtracter.pdf.overwritePolicy=EAGER
-```
-
-## Deployment - App Server
-
-* `tomcat/shared/classes/alfresco/extension` - change name of `custom-metadata-extractors-context.xml.sample` to `custom-metadata-extractors-context.xml` and define extractor beans. Change name of `metadata-embedding-context.xml.sample` to `metadata-embedding-context.xml` and make embedder bean definitions.
-
-## Deployment All-in-One SDK project
-
-* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml` - Metadata Extractor bean definitions and metadata embedder bean definitions
-* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/metadataextraction` - Properties files with mappings
-
+TODO:
 
 
