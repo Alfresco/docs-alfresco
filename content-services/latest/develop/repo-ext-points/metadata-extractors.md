@@ -552,9 +552,11 @@ Maximum number of concurrent extractions - configured for PdfBoxMetadataExtracte
 content.metadataExtracter.pdf.maxConcurrentExtractionsCount=5
 ```
 
-## Deployment 
-To change the configuration of the metadata extractors you will have to generate a new Docker image with the 
-new configuration.
+## Deployment
+For XML metadata extraction you will still use the SDK and a JAR project applied to the Repository (i.e. `alfresco.war`).
+ 
+To change the configuration for the majority of the metadata extractors you will have to generate a new 
+Transform Core AIO Docker image with the new configuration.
 
 TODO:
 
