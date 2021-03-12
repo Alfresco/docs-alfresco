@@ -64,9 +64,9 @@ Files such as Word, Excel and PowerPoint documents that are stored in Alfresco c
 
 5. The changes will be visible within the Digital Workspace. To preview the changes click on the document name and refresh the Digital Workspace.
 
-## Create a new document and open it online
+## Create a new document
 
-You can create new Word, Excel, and PowerPoint documents that will be stored in Alfresco and can be edited in real-time with colleagues.
+You can create new Word, Excel, and PowerPoint documents that will open online and be stored in Alfresco which can be edited in real-time with colleagues.
 
 1. In the Digital Workspace click **New**.
 
@@ -74,8 +74,18 @@ You can create new Word, Excel, and PowerPoint documents that will be stored in 
 
 3. Enter a name for the document, and optionally a description and then click **Create and Open Online**.
 
-    > **Note:** If you do not have the 365 Connector installed only the Create option will be visible.
+    > **Note:** If you do not have the 365 Connector installed only the **Create** option will be visible.
 
 4. You will be prompted to sign into Microsoft Online to open the newly created document in a new browser tab.
 
-    > **Note**: The document will be locked in the Digital Workspace. A padlock icon against the document will indicate this.
+    > **Note:** The document will be locked in the Digital Workspace. A padlock icon against the document will indicate this.
+
+5. Once you have finished editing the document, close the browser tab.
+
+    > **Note:** It is recommended to always close the browser tab when you have finished editing a document.
+
+6. Navigate to the Digital Workspace, right click on the document you were editing and select **End Editing**.
+
+7. Set how you would like to handle the changes you made to the document in the **End Editing** window, such as including a comment about the edits that were made. Click **END EDITING** to finish.
+
+8. Your changes will be visible within the Digital Workspace. To preview the changes click on the document name and refresh the Digital Workspace.
