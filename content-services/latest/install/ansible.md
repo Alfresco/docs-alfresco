@@ -257,7 +257,6 @@ The following systemd services are installed and can be used to stop and start A
 | ```activemq.service``` | ActiveMQ Service |
 | ```postgresql-<version>.service``` | Postgresql DB Service (where `<version>` is 11 for ACS 6.2.N and 13 for ACS 7.x) |
 | ```nginx.service``` | Nginx Service |
-| ```tomcat.service``` | Tomcat Service |
 | ```alfresco-content.service``` | Alfresco Content Service |
 | ```alfresco-search.service``` | Alfresco Search Service |
 | ```alfresco-shared-fs.service``` | Alfresco Shared File Store Controller Service |
