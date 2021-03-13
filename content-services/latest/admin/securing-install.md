@@ -26,10 +26,12 @@ The most important aspect of security are the passwords used to access the syste
 first line of defense, so use as strong passwords as possible. Passwords can be strengthen in many ways. Do not ignore 
 them since they can be the difference between staying protected and compromising your security.
 
-* [Admin password in default authentication]({% link content-services/latest/admin/security.md %}#adminpwddefaultauth)
-* [Mitigate brute force attack on user passwords]({% link content-services/latest/admin/security.md %}#mitigatebruteforceattackpwd)
+* User and admin passwords 
+    * [Cryptographic password hashing]({% link content-services/latest/admin/security.md %}#bcryptoverview) for `alfrescoNTLM` authentication (i.e. users stored in database)
+    * [Admin password in default authentication]({% link content-services/latest/admin/security.md %}#adminpwddefaultauth)
+    * [Mitigate brute force attack on passwords]({% link content-services/latest/admin/security.md %}#mitigatebruteforceattackpwd)
 * [Change the default JMX passwords]({% link content-services/latest/config/index.md %}#connectthrujmx) associated with `controlRole` and `monitorRole` parameters.
-* Check whether the passwords stored in Properties files are [encrypted](#keystoresandencryption) or not.
+* Check whether the passwords stored in `alfresco-global.properties` config file, such as database password and admin password, are [encrypted]({% link content-services/latest/admin/security.md %}#encryptconfigprops).
 
 ## Do not run as root
 If someone does compromise Content Services you want to limit the damage they can do. If Content Services is running 
@@ -68,15 +70,21 @@ Note that besides HTTPS traffic (Digital Workspace, Share, WebDAV, ReST API) you
 ## Secure traffic between Repository and Solr (2)
 The Repository and Solr are separate web applications. Regardless of whether or not these webapps are running in the same 
 Tomcat server, different Tomcat servers, or even different machines, they use HTTP to communicate with each other. 
-The communication between Solr and the Repository is encrypted, by default. 
 
-The Solr web application is secured using certificate-based client authentication. But, by default, the certificate Solr 
-uses for both encryption and authentication is the one that Alfresco generates and ships with the product. This means 
-that, by default, if someone can get to your Solr port they can search your entire content repository because the public 
-has easy access to that Alfresco-generated, default client certificate.
+>**Note**. the communication between Solr and the Repository is NOT encrypted by default. 
+See [Docker Compose](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/docker-compose.yml){:target="_blank"} 
+and [Helm](https://github.com/Alfresco/acs-deployment/blob/master/helm/alfresco-content-services/values.yaml){:target="_blank"} configurations. 
 
-To fix this, either make sure no one can hit the Solr port (8443, by default) or re-generate the certificate. Or both. 
-For more info on how to re-generate the Solr certificate, see the [Search Services security documentation]({% link search-services/latest/config/security.md %}).
+When secure communication is turned on between Solr and the Repository the Solr web application uses certificate-based 
+client authentication (i.e. so the Repository knows that it is really Solr talking to it). But, by default, the 
+certificate Solr uses for both encryption and authentication is the one that Alfresco generates and ships with the product. 
+This means that, by default, if someone can get to your Solr port (8443, by default) they can search your entire content 
+repository because the public has easy access to that Alfresco-generated, default client certificate.
+
+To fix this turn on secure communcation between Solr and the Repository and re-generate the certificate. 
+ 
+Follow the [Search Services security documentation]({% link search-services/latest/config/keys.md %}) for information
+on how to set this up on Windows or Linux.
 
 ## Share Web UI security (3)
 The Alfresco Share Web UI is one of the main user interfaces used by Alfresco users. It needs to be configured 
@@ -98,12 +106,12 @@ See [repository security policies and filters]({% link content-services/latest/a
 
 The ReST API is behind the [web proxy](#addreverseproxy) so it is always accessed via HTTPS.
 
-## Encrypting config and metadata {#keystoresandencryption}
-It's possible to encrypt certain sensitive properties in the main `alfresco-global.properties` configuration file. 
-It's also possible to encrypt node (i.e. file or folder) properties (i.e. metadata). 
+## Encrypting metadata 
+It's possible to encrypt node (i.e. file or folder) properties (i.e. metadata). 
 
-* [Encrypt config properties]({% link content-services/latest/admin/security.md %}#encryptconfigprops)
-* [Manage keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) for encrypted properties, communication etc
+See [Manage keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) for encrypted properties, communication etc
+
+TODO:
 
 ## Dedicated user for external system access
 If you are going to integrate Content Services with external systems, then [create a dedicated user]({% link content-services/latest/admin/users-groups.md %}) 
