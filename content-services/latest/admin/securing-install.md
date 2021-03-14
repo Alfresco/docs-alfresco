@@ -78,13 +78,16 @@ and [Helm](https://github.com/Alfresco/acs-deployment/blob/master/helm/alfresco-
 When secure communication is turned on between Solr and the Repository the Solr web application uses certificate-based 
 client authentication (i.e. so the Repository knows that it is really Solr talking to it). But, by default, the 
 certificate Solr uses for both encryption and authentication is the one that Alfresco generates and ships with the product. 
-This means that, by default, if someone can get to your Solr port (8443, by default) they can search your entire content 
+This means that, by default, if someone can get to your Solr port (8983, by default) they can search your entire content 
 repository because the public has easy access to that Alfresco-generated, default client certificate.
 
 To fix this turn on secure communcation between Solr and the Repository and re-generate the certificate. 
  
 Follow the [Search Services security documentation]({% link search-services/latest/config/keys.md %}) for information
 on how to set this up on Windows or Linux.
+
+See also [managing Alfresco keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) for 
+introduction and configuration of the different keystores.  
 
 ## Share Web UI security (3)
 The Alfresco Share Web UI is one of the main user interfaces used by Alfresco users. It needs to be configured 
@@ -107,11 +110,8 @@ See [repository security policies and filters]({% link content-services/latest/a
 The ReST API is behind the [web proxy](#addreverseproxy) so it is always accessed via HTTPS.
 
 ## Encrypting metadata 
-It's possible to encrypt node (i.e. file or folder) properties (i.e. metadata). 
-
-See [Manage keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores) for encrypted properties, communication etc
-
-TODO:
+It's possible to encrypt node (i.e. file or folder) properties (i.e. metadata). For more information about this see 
+[managing Alfresco keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores).
 
 ## Dedicated user for external system access
 If you are going to integrate Content Services with external systems, then [create a dedicated user]({% link content-services/latest/admin/users-groups.md %}) 
