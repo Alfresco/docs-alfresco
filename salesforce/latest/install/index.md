@@ -354,7 +354,7 @@ To create the Lightning Component follow these steps:
     <aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
         <aura:attribute name="canvasParameters" type="string" />
         <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-        <force:canvasApp canvasId="Alfresco" developerName="THE NAME OF YOUR CANVAS APP" height="450px" width="1300px" parameters="{!v.canvasParameters}"/>
+        <force:canvasApp developerName="THE NAME OF YOUR CANVAS APP" height="450px" width="1300px" parameters="{!v.canvasParameters}"/>
     </aura:component>
     ```
 
