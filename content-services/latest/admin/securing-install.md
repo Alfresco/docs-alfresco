@@ -19,7 +19,7 @@ involved.
 
 The following picture gives an overview of the components that needs to be secured:
 
-![secure-install-overview]({% link content-services/images/acs-security-overview.png %})
+![secure-install-overview]({% link content-services/images/acs-security-overview.png %}){:height="300px" width="500px"}
 
 ## Check all passwords
 The most important aspect of security are the passwords used to access the system. Your passwords are your 
@@ -74,6 +74,9 @@ Tomcat server, different Tomcat servers, or even different machines, they use HT
 >**Note**. the communication between Solr and the Repository is NOT encrypted by default. 
 See [Docker Compose](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/docker-compose.yml){:target="_blank"} 
 and [Helm](https://github.com/Alfresco/acs-deployment/blob/master/helm/alfresco-content-services/values.yaml){:target="_blank"} configurations. 
+The reason for this is that providing SSL encryption out-of-the-box is always tricky. For example, providing default certificates 
+make no sense, and generated self signed certs my not fit your policy if you have your own PKI. What we provide in terms of 
+helm charts are building blocks for you to build upon, it's not a production ready configuration.
 
 When secure communication is turned on between Solr and the Repository the Solr web application uses certificate-based 
 client authentication (i.e. so the Repository knows that it is really Solr talking to it). But, by default, the 

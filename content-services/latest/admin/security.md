@@ -149,20 +149,29 @@ When there is secure communication (i.e. HTTPS) between different Alfresco servi
 be satisfied:
 
 * **The Repository is a client of Solr**:
-    * A Repository key must be generated and must be included in the Repository keystore
-    * A Repository public certificate must be included in the Solr truststore
+    * A Repository key must be generated and must be included in the Repository keystore (`ssl.keystore`)
+    * A Repository public certificate must be included in the Solr truststore (`ssl.repo.client.truststore`)
 * **Solr is a client of the Repository and Solr**:
-    * A Solr key must be generated and must be included in the Solr keystore
-    * A Solr public certificate must be included in the Repository and Solr truststore
+    * A Solr key must be generated and must be included in the Solr keystore (`ssl.repo.client.truststore`)
+    * A Solr public certificate must be included in the Repository truststore (`ssl.truststore`) and Solr truststore (`ssl.repo.client.truststore`)
 * **Zeppelin is client of Repository** (Zeppelin is a product only available for Insight Engine Enterprise):
-    * A Zeppelin key must be generated and must be included in the Zeppelin keystore
-    * A Zeppelin public certificate must be included in the Repository truststore
+    * A Zeppelin key must be generated and must be included in the Zeppelin keystore (`ssl.repo.client.keystore`)
+    * A Zeppelin public certificate must be included in the Repository truststore (`ssl.truststore`)
     * Note. the same key certificates is used for both Solr and Zeppelin, as both are clients of the Repository
 * **When accessing Solr from a browser, the browser is client of Solr**:    
     * A Browser key must be installed in the web browser in order to access Solr Web Console
     
+The following picture illustrates:
+
+![secure-comms-repo-solr-keystores]({% link content-services/images/acs-secure-comms-repo-solr-keystores.png %}){:height="500px" width="700px"}
+    
 Additionally, to support Alfresco encryption feature, a metadata cyphering key is generated and included on a keystore 
 to be used by the Repository when encrypting node properties.
+
+These keystore and truststore files can be generated manually but it's easier to use the 
+[https://github.com/Alfresco/alfresco-ssl-generator](https://github.com/Alfresco/alfresco-ssl-generator) GitHub project.
+Follow the [Search Services security documentation]({% link search-services/latest/config/keys.md %}) for information
+on how to set this up on Windows or Linux.
 
 ### Alfresco default keystore and backup keystore
 The out-of-the-box Content Services installation has a pre-configured main keystore, which contains a secret key generated 
