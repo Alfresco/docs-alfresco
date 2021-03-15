@@ -157,6 +157,8 @@
           path: '/content-services/latest/develop/sdk/'
         - title: 'Extension packaging (modules)'
           path: '/content-services/latest/develop/extension-packaging/'
+        - title: 'Extension Inspector'
+          path: '/content-services/latest/develop/extension-inspector/'
         - title: 'Extension points overview'
           path: '/content-services/latest/develop/overview-ext-points/'
         - title: 'Platform extension points'
