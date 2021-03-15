@@ -379,36 +379,7 @@ What needs to be removed from a system will depend on your inventory configurati
 
 > NOTE: An additional "uninstall" playbook may be provided in the future.
 
-## Communication Failures
+## Aditional Troubleshooting
 
-If you are using a multi-machine installation and the playbook fails with an error similar to the one shown below you may need to check the firewall configuration on the target hosts.
+For the latest troubleshooting information, please refer to the (project documentation)[https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/deployment-guide.md#troubleshooting]
 
-```bash
-TASK [../roles/repository : Notify alfresco content service] 
-*******************************************************************************************************
-fatal: [repository_1]: FAILED! => {"changed": false, "elapsed": 300, "msg": "Timeout when waiting for 192.168.0.126:5432"}
-```
-
-Either disable the firewall completely or refer to the [ports configuration](#tcp-port-configuration) section for what ports need to be accessible.
-
-Presuming you are using `firewalld` the following example commands can be used to open a port, replacing `<port-number>` with the approriate number or replacing `<service-name>` with a well know service name e.g. "http".
-
-```bash
-firewall-cmd --permanent --add-port=<port-number>/tcp
-```
-
-or
-
-```bash
-firewall-cmd --permanent --add-service=<service-name>
-```
-
-> After the firewall config has been set up a reload of the `firewalld` service is needed
-
-## Playbook Failures
-
-If the playbook fails for some reason try re-running it with the `-v` option, if that still doesn't provide enough information try re-running with the `-vvv` option.
-
-## Alfresco Failures
-
-If the playbook completes successfully but the system is not functioning the best place to start is the log files, these can be found in the `/var/log/alfresco` folder on the target hosts. Please note the nginx log files are owned by root as the nginx process is running as root so it can listen on port 80.
