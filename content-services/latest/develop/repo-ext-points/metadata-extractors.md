@@ -207,6 +207,10 @@ Other values (`CAUTIOUS`, `EAGER`, `PRUDENT`) are described in
 To use a different policy add a `sys:overwritePolicy` value to the Map returned from
 the `extractMetadata` method of the class extending `AbstractMetadataExtractor` (described above).
 
+The following table shows which conditions must be met for overwriting the value:
+
+![overwrite-policy]({% link content-services/images/overwrite-policy.png %})
+
 ### Aspect property policy
 When a property is extracted, which is part of an aspect, it is possible to remove all other
 properties in the same aspect that do not have an extracted value. In this way only extracted values will be set and
@@ -553,11 +557,13 @@ content.metadataExtracter.pdf.maxConcurrentExtractionsCount=5
 ```
 
 ## Deployment
-For XML metadata extraction you will still use the SDK and a JAR project applied to the Repository (i.e. `alfresco.war`).
+For XML metadata extraction you will still use the [SDK]({% link content-services/latest/develop/sdk.md %}) and a 
+JAR project applied to the Repository (i.e. `alfresco.war`).
  
 To change the configuration for the majority of the metadata extractors you will have to generate a new 
-Transform Core AIO Docker image with the new configuration.
-
-TODO:
+Transform Core AIO Docker image with the new configuration. Another option would be to 
+[create a new separate T-Engine](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md){:target="_blank"} 
+that has a higher priority (lower number) for this metadata extraction. That way you can still use the standard T-Engine 
+and the new one from for this one special case. 
 
 
