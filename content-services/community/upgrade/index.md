@@ -9,13 +9,13 @@ Before performing an upgrade or applying a Service Pack, make sure you check the
 Care should be taken when upgrading from any previous releases of Community Edition. There are some steps that should be reviewed and planned before you upgrade. Familiarize yourself with the guidance below and then plan your upgrade. In particular, ensure that the following steps are completed before you start:
 
 * Ensure that you have a functional [backup of your Alfresco repository and database]({% link content-services/community/admin/backup-restore.md %}), before starting the upgrade process.
-* Download and run the [Alfresco Extension Inspector](https://github.com/Alfresco/alfresco-extension-inspector/blob/master/README.md){:target="_blank"} to understand which customization or library items need to be reviewed or updated to support the upgrade.
+* Download and run the [Alfresco Extension Inspector](#LINK-content-services/community/develop/extension-inspector.md) to understand which customization or library items need to be reviewed or updated to support the upgrade.
 * Review all new and deprecated features included in the Community Release Notes.
 * Review and implement the new supported stack options, and update as necessary for the new deployment.
 
 ## Upgrade process
 
-Use this procedure to upgrade from a previous version of Community Edition using the distribution zip. The process involves a new installation of the Community Edition binaries and configuration, and an in-place upgrade of a copy of the repository.
+Use this procedure to upgrade from a previous version of Community Edition using one of the supported [installation methods]({% link content-services/community/install/index.md %}). The process involves a new installation of the Community Edition binaries and configuration, and an in-place upgrade of a copy of the repository.
 
 In-place upgrade of the binaries and configuration isn't recommended. Creating a new installation ensures that if anything goes wrong during the upgrade, the original (not upgraded) system is still intact and available for immediate restart.
 
@@ -26,7 +26,7 @@ These steps assume that you've got an existing Community Edition installation (`
 | alfresco-global.properties | `dir.root=/alfresco-v.1/alf_data`<br><br>`db.url=url<v.1>` |
 | solrcore.properties | `data.dir.root=/alfresco-v.1/solr/myindexes` |
 
-1. Install the new version of Community Edition using the distribution zip.
+1. Install the new version of Community Edition.
 
     1. Shut down your existing instance.
 
@@ -122,3 +122,23 @@ Once you've upgraded, follow these steps to validate the new installation.
 7. Shut down Community Edition.
 
 8. When you are certain the new installation is thoroughly validated, remove the old installation and repository.
+
+## Apply recommended database patch
+
+Alfresco Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to create them might be considerable. They should be run manually after the upgrade process completes.
+
+To apply the patch, an admin should set the following Alfresco global property to `true`:
+
+```text
+system.new-node-transaction-indexes.ignored=false
+```
+
+Like other patches, it will only be run once so there's no need to reset the property afterwards.
+
+Until this step is completed, you will see **Schema Validation** warnings reported in the `alfresco.log` on each startup. The log will also indicate that the patch was not run:
+
+```text
+INFO  [org.alfresco.repo.domain.schema.SchemaBootstrap] [...] Ignoring script patch (post-Hibernate): patch.db-V6.3-add-indexes-node-transaction
+...
+WARN  [org.alfresco.repo.domain.schema.SchemaBootstrap] [...] Schema validation found ... potential problems, results written to ...
+```
