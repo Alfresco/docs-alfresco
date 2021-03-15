@@ -398,34 +398,6 @@ acs_environment:
 * The `firewalld` service can prevent the playbook from completing successfully if it's blocking the [ports required](#tcp-port-configuration) for communication between the roles
 * * The nginx and adw roles need to be deployed to the same host otherwise the [playbook fails](#nginx-failure)
 
-
-## Failed Downloads
-
-If you see an error similar to the one below (in particular the mention of `HTTP Error 401: Unauthorized` or `HTTP Error 401: basic auth failed`) you've most likely forgotten to setup your Nexus credentials or mis-configured them.
-
-```bash
-fatal: [transformers_1]: FAILED! => {"msg": "An unhandled exception occurred while templating '{u'acs_zip_sha1_checksum': u\"{{ lookup('url', '{{ nexus_repository.enterprise_releases }}org/alfresco/alfresco-content-services-distribution/{{ acs.version }}/alfresco-content-services-distribution-{{ acs.version }}.zip.sha1', username=lookup('env', 'NEXUS_USERNAME'), password=lookup('env', 'NEXUS_PASSWORD')) }}\", u'adw_zip_sha1_checksum': u\"{{ lookup('url', '{{ nexus_repository.enterprise_releases }}/org/alfresco/alfresco-digital-workspace/{{ adw.version }}/alfresco-digital-workspace-{{ adw.version }}.zip.sha1', username=lookup('env', 'NEXUS_USERNAME'), password=lookup('env', 'NEXUS_PASSWORD')) }}\", u'acs_zip_url': u'{{ nexus_repository.enterprise_releases }}org/alfresco/alfresco-content-services-distribution/{{ acs.version }}/alfresco-content-services-distribution-{{ acs.version }}.zip'
-...
-...
-Error was a <class 'ansible.errors.AnsibleError'>, original message: An unhandled exception occurred while running the lookup plugin 'url'. Error was a <class 'ansible.errors.AnsibleError'>, original message: Received HTTP error for https://artifacts.alfresco.com/nexus/service/local/repositories/enterprise-releases/content/org/alfresco/alfresco-content-services-distribution/7.0.0/alfresco-content-services-distribution-7.0.0.zip.sha1 : HTTP Error 401: Unauthorized"}
-```
-
-You can run the command shown below in the same terminal you're using to run the playbook to quickly test downloading a protected resource from Nexus.
-
-```bash
-wget -qO /dev/null --user=${NEXUS_USERNAME} --password=${NEXUS_PASSWORD} https://artifacts.alfresco.com/nexus/service/local/repositories/enterprise-releases/content/org/alfresco/alfresco-content-services-distribution/6.2.2/alfresco-content-services-distribution-6.2.2.pom
-```
-
-If everything is configured correctly you should see the following at the end of the output:
-
-```bash
-Saving to: ‘alfresco-content-services-distribution-6.2.2.pom’
-
-alfresco-content-services-distribution-6.2.2.pom      100%[=============================================>]   8.53K  --.-KB/s    in 0.003s  
-
-2021-02-18 13:50:44 (2.54 MB/s) - ‘alfresco-content-services-distribution-6.2.2.pom’ saved [8739/8739]
-```
-
 ## Removing a previous installation
 
 What needs to be removed from a system will depend on your inventory configuration. The steps below presume a localhost or single machine installation i.e. where all roles were run on the same machine.
@@ -459,45 +431,6 @@ What needs to be removed from a system will depend on your inventory configurati
 
 > NOTE: An additional "uninstall" playbook may be provided in the future.
 
-### Nginx Failure
+## Aditional Troubleshooting
 
-If the playbook fails not being able to start Nginx, make sure both ADW and Nginx point to the same host in the inventory file. Otherwise you'll encounter the error below:
-
-```
-TASK [../roles/adw : Ensure nginx service is running as configured.] **********************************
-fatal: [adw_1]: FAILED! => {"changed": false, "msg": "Unable to start service nginx: Job for nginx.service failed because the control process exited with error code.
-See "systemctl status nginx.service" and "journalctl -xe" for detail
-s.\n"}
-```## Communication Failures
-
-If you are using a multi-machine installation and the playbook fails with an error similar to the one shown below you may need to check the firewall configuration on the target hosts.
-
-```bash
-TASK [../roles/repository : Notify alfresco content service] 
-*******************************************************************************************************
-fatal: [repository_1]: FAILED! => {"changed": false, "elapsed": 300, "msg": "Timeout when waiting for 192.168.0.126:5432"}
-```
-
-Either disable the firewall completely or refer to the [ports configuration](#tcp-port-configuration) section for what ports need to be accessible.
-
-Presuming you are using `firewalld` the following example commands can be used to open a port, replacing `<port-number>` with the approriate number or replacing `<service-name>` with a well know service name e.g. "http".
-
-```bash
-firewall-cmd --permanent --add-port=<port-number>/tcp
-```
-
-or
-
-```bash
-firewall-cmd --permanent --add-service=<service-name>
-```
-
-> After the firewall config has been set up a reload of the `firewalld` service is needed
-
-## Playbook Failures
-
-If the playbook fails for some reason try re-running it with the `-v` option, if that still doesn't provide enough information try re-running with the `-vvv` option.
-
-## Alfresco Failures
-
-If the playbook completes successfully but the system is not functioning the best place to start is the log files, these can be found in the `/var/log/alfresco` folder on the target hosts. Please note the nginx log files are owned by root as the nginx process is running as root so it can listen on port 80.
+For the latest troubleshooting information, please refer to the (project documentation)[https://github.com/Alfresco/alfresco-ansible-deployment/blob/master/docs/deployment-guide.md#troubleshooting]
