@@ -2,7 +2,7 @@
 title: Extension Inspector
 ---
 
-Alfresco Extension Inspector allows you to analyze Alfresco extensions and to compare them against a particular Alfresco Content Services version. For example, it helps you to understand how customizations and extensions are affected with a newer version of Content Services, checking for compliance with our best practices and providing recommendations for upgrade impact and safety. It works with Alfresco Content Services 5.2 or later Enterprise Editions. The tool also works with other Alfresco Content Services and Alfresco Content Services Community Edition `.war` files, as long you can generate an inventory report for them, for more see [Run Inventory application](#run-inventory-application).
+Alfresco Extension Inspector allows you to analyze Alfresco extensions and to compare them against a particular Alfresco Content Services version. For example, it helps you to understand how customizations and extensions are affected with a newer version of Content Services, checking for compliance with our best practices and providing recommendations for upgrade impact and safety. It works with Alfresco Content Services 5.2 or later Enterprise Editions. The tool also works with other Content Services and Community Edition `.war` files, as long as you can [generate an inventory report](#run-inventory-application).
 
 The Extension Inspector scans and validates an Alfresco extension (AMP or JAR) against an `alfresco.war` file.
 
@@ -123,8 +123,8 @@ where:
 
 | Option | Description |
 | ------ | ----------- |
-| <nobr>--target-version</nobr> | *Optional.* A specific Content Services version or range of versions. This option is mutually exclusive to `--target-inventory`.|
-| <nobr>--target-inventory</nobr> | *Optional.* The file path to an existing WAR inventory. This option is mutually exclusive to `--target-version`.|
+| <nobr>--target-version</nobr> | *Optional.* A specific Content Services version or range of versions. This option is mutually exclusive to `--target-inventory`. |
+| <nobr>--target-inventory</nobr> | *Optional.* The file path to an existing WAR inventory. This option is mutually exclusive to `--target-version`. |
 | <nobr>--verbose</nobr> | *Optional.* Verbose output. |
 
 When running the command, `alfresco-extension-inspector` writes the conflicts directly to the console, grouped by type.
