@@ -123,8 +123,8 @@ where:
 
 | Option | Description |
 | ------ | ----------- |
-| <nobr>--target-version</nobr> | *Required.* A specific Content Services version or range of versions. |
-| <nobr>--target-inventory</nobr> | *Required.* The file path to an existing WAR inventory. |
+| <nobr>--target-version</nobr> | *Optional.* A specific Content Services version or range of versions. This option is mutually exclusive to `--target-inventory`.|
+| <nobr>--target-inventory</nobr> | *Optional.* The file path to an existing WAR inventory. This option is mutually exclusive to `--target-version`.|
 | <nobr>--verbose</nobr> | *Optional.* Verbose output. |
 
 When running the command, `alfresco-extension-inspector` writes the conflicts directly to the console, grouped by type.
