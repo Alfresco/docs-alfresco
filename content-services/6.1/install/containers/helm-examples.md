@@ -117,7 +117,7 @@ To use the S3 Connector, RDS, and Amazon MQ, we have to disable the internal def
 When we bring all this together, you can deploy Content Services using the command below (replace all the `YOUR-XZY` properties with the values gathered during the setup of the services):
 
 ```bash
-helm install acs alfresco-incubator/alfresco-content-services \
+helm install acs alfresco/alfresco-content-services \
 --set externalPort="443" \
 --set externalProtocol="https" \
 --set externalHost="acs.YOUR-DOMAIN-NAME" \
@@ -171,7 +171,7 @@ Follow the steps to [set up an IAM user and an S3 bucket]({% link intelligence-s
 When we bring all this together, you can deploy Content Services using the command below (replace all the `YOUR-XZY` properties with the values gathered during the setup of the services):
 
 ```bash
-helm install acs alfresco-incubator/alfresco-content-services \
+helm install acs alfresco/alfresco-content-services \
 --set externalPort="443" \
 --set externalProtocol="https" \
 --set externalHost="acs.YOUR-DOMAIN-NAME" \
@@ -226,7 +226,7 @@ Follow the [EKS deployment]({% link content-services/6.1/install/containers/helm
 Deploy the latest version of Content Services (Enterprise) by running the command below. You'll need to replace `YOUR-DOMAIN-NAME` with the hosted zone you created previously, and replace `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string and list of whitelisted IP addresses you prepared in the previous section.
 
 ```bash
-helm install acs alfresco-incubator/alfresco-content-services \
+helm install acs alfresco/alfresco-content-services \
 --set externalPort="443" \
 --set externalProtocol="https" \
 --set externalHost="acs.YOUR-DOMAIN-NAME" \
@@ -247,7 +247,7 @@ helm install acs alfresco-incubator/alfresco-content-services \
 If you've previously deployed Content Services where external Search access was disabled (the default), you can run the following `helm upgrade` command to enable external access for `/solr` (replace `YOUR-BASIC-AUTH` and `YOUR-IPS` with the encoded basic authentication string, and list of whitelisted IP addresses you [prepared earlier](#prepare-data):
 
 ```bash
-helm upgrade acs alfresco-incubator/alfresco-content-services \
+helm upgrade acs alfresco/alfresco-content-services \
 --set alfresco-search.ingress.enabled=true \
 --set alfresco-search.ingress.basicAuth="YOUR-BASIC-AUTH" \
 --set alfresco-search.ingress.whitelist_ips="YOUR_IPS" \
@@ -303,7 +303,7 @@ kubectl create secret tls your-cert-secret --key privkey.pem --cert fullchain.pe
 Deploy the latest version of Content Services Enterprise by running the command below (replace `YOUR-DOMAIN-NAME` with the hosted zone you created, and replace the email values accordingly). See the table of [configuration options]({% link content-services/6.1/install/containers/helm.md %}#configuration-options) for the full list of available options.
 
 ```bash
-helm install acs alfresco-incubator/alfresco-content-services \
+helm install acs alfresco/alfresco-content-services \
 --set externalPort="443" \
 --set externalProtocol="https" \
 --set externalHost="acs.YOUR-DOMAIN-NAME" \
