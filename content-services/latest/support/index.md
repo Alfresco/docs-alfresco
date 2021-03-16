@@ -15,6 +15,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Operating systems** | |
 | Red Hat Enterprise Linux 8.2 x64 | |
 | Red Hat Enterprise Linux 7.7 x64 | |
+| Red Hat Enterprise Linux 7.6 x64 | |
 | Windows Server 2019 | |
 | Amazon Linux | v1 and v2 |
 | CentOS 8 x64 | |
@@ -25,17 +26,17 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | SUSE 12.0 SP1 x64 |
 |  |  |
 | **Databases** | |
-| MySQL 8 | |
+| MySQL 8 | `mysql-connector-java-8.0.22.jar` |
 | MySQL 5.7.23 | `mysql-connector-java-5.1.40-bin.jar` |
-| MS SQL Server 2017 | `mssql-jdbc-7.2.2.jre11.jar` |
-| Oracle 19c | |
-| Oracle 18c | ? |
-| PostgreSQL 13 | |
-| PostgreSQL 12.4 | |
-| PostgreSQL 11.7 | `Postgresql-42.2.14.jar` |
-| MariaDB 10.5 | |
-| MariaDB 10.4 | |
-| MariaDB 10.2.18 | `mariadb-java-client-2.2.5.jar` |
+| MS SQL Server 2019 | `mssql-jdbc-8.4.1.jre11.jar` |
+| MS SQL Server 2017 | Microsoft JDBC Driver `7.2.2.jre11` for SQL Server. See [JDBC Driver](https://docs.microsoft.com/en-us/sql/connect/jdbc/system-requirements-for-the-jdbc-driver?view=sql-server-ver15){:target="_blank"} for supported versions. |
+| Oracle 19c | `Ojdbc8.jar – 12.2.0.1` |
+| Oracle 12c | `Ojdbc8.jar – 12.2.0.1` |
+| PostgreSQL 13.1 |`Postgresql-42.2.19.jar`|
+| PostgreSQL 12.4 |`Postgresql-42.2.18.jar` |
+| PostgreSQL 11.7 | `Postgresql-42.2.6.jar` |
+| MariaDB 10.5 | `MariaDB Connector/J 2.7.2` |
+| MariaDB 10.4 | `MariaDB Connector/J 2.7.1`|
 | Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 | | |
 | **Message brokers** | |
@@ -60,8 +61,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | OpenJDK 11.0.7 | |
 | | |
 | **Third party integrations** | |
+| Microsoft 365 | |
 | MS Office 2016 | Microsoft Office for Mac does not support Kerberos authentication. |
-| MS Office 2013 | |
 | | |
 | **Services** | |
 | Alfresco Governance Services 3.5 | |
@@ -74,7 +75,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search and Insight Engine 1.4 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0.1 | |
-| Alfresco Search Services 2.0 | |
 | Alfresco Federation Services 1.1 | |
 | Identity Service 1.4 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | SAML Module for Alfresco Content Services 1.2.1 | |
@@ -83,9 +83,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Azure 2.0 | |
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
-| Alfresco Content Connector for Salesforce 2.2 | |
+| Alfresco Content Connector for Salesforce 2.2.1 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
-| Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.1 | |
 | Alfresco Outlook Integration 2.8 | |
