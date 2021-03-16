@@ -35,7 +35,12 @@ Python installation as a control node. Laptops, desktops, and servers can usuall
 In the interest of keeping this guide simple we will use an AWS EC2 instance as the control node, the steps required are 
 shown below:
 
-1. Launch an EC2 instance using the Centos 7 or 8 (x86_64) AMI from the Marketplace (instance size/type does not matter)
+1. Launch an EC2 instance using the Centos 7 or 8 (x86_64) AMI from the Marketplace:
+
+    >**Note**: If you plan on doing the Alfresco installation on this host too, referred to as [Local Installation](#local-installation), 
+    then you need at least a `t2.xlarge` instance with 16GB RAM (*Warning: this instance type is not free*). This might be 
+    the case when you just want to try it out for the first time. If you are just using this node as an Ansible control node, 
+    then a free `t2.micro` should be sufficient.
 
     ![centos-ami]({% link content-services/images/centos-ami.png %})
 
@@ -46,6 +51,18 @@ shown below:
     ```bash
     scp -i <yourpem-file> <local-path>/alfresco-ansible-deployment-<version>.zip centos@<control-node-ip>:/home/centos/
     ssh -i <yourpem-file> centos@<control-node-ip>
+    ```
+    
+    For example:
+
+    ```bash
+    -rw-r--r--@ 1 mbergljung  staff  119559 16 Mar 08:18 alfresco-ansible-deployment-1.0.zip
+    -rw-r--r--@ 1 mbergljung  staff    1700 16 Mar 08:18 ansible-test.pem
+    $ chmod 400 ansible-test.pem 
+    $ scp -i ansible-test.pem alfresco-ansible-deployment-1.0.zip centos@3.86.89.7:/home/centos/
+    alfresco-ansible-deployment-1.0.zip                                                    100%  117KB 308.1KB/s   00:00  
+    $ ssh -i ansible-test.pem centos@3.86.89.7
+    [centos@ip-172-31-83-57 ~]$ 
     ```
 
 4. Install the required dependencies for Ansible (replace the 7 with 8 in the URL if you're using CentOS 8)
@@ -69,9 +86,11 @@ shown below:
 7. Create environment variables to hold your Nexus credentials as shown below (replacing the values appropriately):
 
     ```bash
-    export NEXUS_USERNAME="<your-username>"
-    export NEXUS_PASSWORD="<your-password>"
+    export NEXUS_USERNAME=<your-username>
+    export NEXUS_PASSWORD=<your-password>
     ```
+    >**Note**. If your password contains `!`, then you need to escape it with `\`, as it's a special character to `bash`, 
+    it is used to refer to previous commands. 
 
 Without any additional configuration applied, the playbook will install the default Content Services components. 
 Please review the [configuration](#configure-your-installation) section below, to adjust some of the configurable 
@@ -89,6 +108,7 @@ To install Content Services 7 Enterprise on the local machine navigate to the fo
 execute the playbook as the current user using the following command (the playbook will escalate privileges when required):
 
 ```bash
+cd alfresco-ansible-deployment-<version>
 ansible-playbook playbooks/acs.yml -i inventory_local.yml
 ```
 
@@ -97,6 +117,8 @@ Alternatively, to install an earlier version of Content Services Enterprise (e.g
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_local.yml -e "@6.2.N-extra-vars.yml"
 ```
+
+If you see an error message during installation, then see [possible causes](#errormsg).
 
 >**Note**: The playbook takes around 30 minutes to complete.
 
@@ -115,12 +137,9 @@ syncservice_1              : ok=39   changed=18   unreachable=0    failed=0    s
 transformers_1             : ok=81   changed=10   unreachable=0    failed=0    skipped=44   rescued=0    ignored=0
 ```
 
-Once Content Services has started up completely you can access the system using the following URLs with a browser:
+For information about the webapp URLs, location of logs, configuration etc see [this information](#usefulinfo).
 
-* Digital Workspace: `http://<control-node-public-ip>/workspace`
-* Share: `http://<control-node-public-ip>/share`
-* Repository: `http://<control-node-public-ip>/alfresco`
-* API Explorer: `http://<control-node-public-ip>/api-explorer`
+To secure your installation for production see this [information](TODO_LINK to new securing install page).
 
 ## Remote Installation
 To install to hosts other than the control node an SSH connection is required. The control node must have network access 
@@ -174,6 +193,8 @@ Alternatively, to install an Content Services 6.2.N Enterprise system use the fo
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"
 ```
 
+If you see an error message during installation, then see [possible causes](#errormsg).
+
 >**Note**: The playbook takes around 30 minutes to complete.
 
 Once the playbook is complete Ansible will display a play recap to let you know that everything is done, similar to 
@@ -191,12 +212,9 @@ syncservice_1              : ok=39   changed=18   unreachable=0    failed=0    s
 transformers_1             : ok=81   changed=10   unreachable=0    failed=0    skipped=44   rescued=0    ignored=0
 ```
 
-Once Content Services has started up completely you can access the system using the following URLs with a browser:
+For information about the webapp URLs, location of logs, configuration etc see [this information](#usefulinfo).
 
-* Digital Workspace: `http://<target-host-ip>/workspace`
-* Share: `http://<target-host-ip>/share`
-* Repository: `http://<target-host-ip>/alfresco`
-* API Explorer: `http://<target-host-ip>/api-explorer`
+To secure your installation for production see this [information](TODO_LINK to new securing install page).
 
 ### Multi Machine Installation
 The diagram below shows the result of a multi machine installation.
@@ -229,6 +247,8 @@ Alternatively, to install an Content Services 6.2.N Enterprise system use the fo
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"
 ```
 
+If you see an error message during installation, then see [possible causes](#errormsg).
+
 >**Note.** The playbook takes around 30 minutes to complete.
 
 Once the playbook is complete Ansible will display a play recap to let you know that everything is done, similar to the 
@@ -246,17 +266,54 @@ syncservice_1              : ok=39   changed=18   unreachable=0    failed=0    s
 transformers_1             : ok=81   changed=10   unreachable=0    failed=0    skipped=44   rescued=0    ignored=0
 ```
 
-Once Content Services has started up completely you can access the system using the following URLs with a browser:
+For information about the webapp URLs, location of logs, configuration etc see [this information](#usefulinfo).
+
+To secure your installation for production see this [information](TODO_LINK to new securing install page).
+
+## Useful Information {#usefulinfo}
+The following section contains further information about the Ansible installation approach.
+
+### Check if startup has completed
+Before accessing any of the webapps make sure that Alfresco has started up properly. You can check this in the logs
+as follows:
+
+```bash
+alfresco-ansible-deployment-1.0]$ sudo su
+[root@ip-172-31-31-172 alfresco-ansible-deployment-1.0]# cd /var/log/alfresco/
+[root@ip-172-31-31-172 alfresco]# tail -f alfresco.log 
+2021-03-16 09:44:38,147 INFO  [org.springframework.extensions.webscripts.DeclarativeRegistry] [main] Registered 0 Schema Description Documents (+0 failed) 
+2021-03-16 09:44:38,149 INFO  [org.springframework.extensions.webscripts.AbstractRuntimeContainer] [main] Initialised Public Api Web Script Container (in 1743.6327ms)
+2021-03-16 09:44:38,163 INFO  [org.springframework.extensions.webscripts.DeclarativeRegistry] [asynchronouslyRefreshedCacheThreadPool1] Registered 14 Web Scripts (+0 failed), 103 URLs
+2021-03-16 09:44:38,163 INFO  [org.springframework.extensions.webscripts.DeclarativeRegistry] [asynchronouslyRefreshedCacheThreadPool1] Registered 0 Package Description Documents (+0 failed) 
+2021-03-16 09:44:38,163 INFO  [org.springframework.extensions.webscripts.DeclarativeRegistry] [asynchronouslyRefreshedCacheThreadPool1] Registered 0 Schema Description Documents (+0 failed) 
+2021-03-16 09:44:38,298 WARN  [org.alfresco.web.scripts.servlet.X509ServletFilterBase] [main] clientAuth does not appear to be set for Tomcat. clientAuth must be set to 'want' for X509 Authentication
+2021-03-16 09:44:38,299 WARN  [org.alfresco.web.scripts.servlet.X509ServletFilterBase] [main] Attempting to set clientAuth=want through JMX...
+2021-03-16 09:44:38,330 WARN  [org.alfresco.web.scripts.servlet.X509ServletFilterBase] [main] Unable to set clientAuth=want through JMX.
+2021-03-16 09:45:30,228 INFO  [org.alfresco.repo.management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-10] Starting 'Transformers' subsystem, ID: [Transformers, default]
+2021-03-16 09:45:30,374 INFO  [org.alfresco.repo.management.subsystems.ChildApplicationContextFactory] [http-nio-8080-exec-10] Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+```
+
+### Web application URLs
+After an installation has completed you should be able to find the different user interfaces here:
+
+If you did a [local installation](#local-installation) where Ansible control node and Alfresco runs use:
+
+* Digital Workspace: `http://<control-node-ip>/workspace`
+* Share: `http://<control-node-ip>/share`
+* Repository: `http://<control-node-ip>/alfresco`
+* API Explorer: `http://<control-node-ip>/api-explorer`
+
+If you did a [remote installation](#remote-installation) where Ansible control node and Alfresco are installed on 
+different nodes, then use:
 
 * Digital Workspace: `http://<nginx-host-ip>/workspace`
 * Share: `http://<nginx-host-ip>/share`
 * Repository: `http://<nginx-host-ip>/alfresco`
 * API Explorer: `http://<nginx-host-ip>/api-explorer`
 
-## Useful Information
-The following section contains further information about the Ansible installation approach.
+To login to Digital Workspace and Share you can use username **admin** and password **admin**.
 
-### Folder Structure
+### Folder Structure 
 Regardless of the role and connection type a consistent folder structure is used, you will find the installed files in 
 the following locations:
 
@@ -419,6 +476,27 @@ acs_environment:
 
 ## Troubleshooting
 The following section includes troubleshooting information.
+
+### Error messages {#errormsg}
+Errors that you might encounter during an installation.
+
+#### Incorrect Nexus credentials
+The following error during installation indicates Nexus login issues:
+
+*fatal: [transformers_1]: FAILED! =>
+{
+"msg": "An unhandled exception occurred while templating '
+.....
+Error was a <class 'ansible.errors.AnsibleError'>, original message: An unhandled exception occurred while running the lookup plugin 'url'.
+Error was a <class 'ansible.errors.AnsibleError'>, original message: Received HTTP error for
+https://artifacts.alfresco.com/nexus/service/local/repositories/enterprise-releases/content/org/alfresco/alfresco-content-services-distribution/7.0.0/alfresco-content-services-distribution-7.0.0.zip.sha1 : HTTP Error 401: basic auth failed"
+}*
+
+To fix this specify the Nexus credentials properly (i.e. `NEXUS_USERNAME` an `NEXUS_PASSWORD`).
+
+#### Cannot access any of the web applications
+If running on AWS make sure the security group associated with the EC2 instance has port 80 open in an Inbound rule.
+If running on a bare metal host make sure that the host is not blocked by a firewall.
 
 ### Known Issues
 * The playbook downloads several large files so you will experience some pauses while they transfer and you'll also see 
