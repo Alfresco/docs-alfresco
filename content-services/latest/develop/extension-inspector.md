@@ -2,7 +2,7 @@
 title: Extension Inspector
 ---
 
-Alfresco Extension Inspector allows you to analyze Alfresco extensions and to compare them against a particular Alfresco Content Services version. For example, it helps you to understand how customizations and extensions are affected with a newer version of Content Services, checking for compliance with our best practices and providing recommendations for upgrade impact and safety. It works with Alfresco Community Edition and Alfresco Content Services 5.2.7, 6.2.2, and 7.0 releases.
+Alfresco Extension Inspector allows you to analyze Alfresco extensions and to compare them against a particular Alfresco Content Services version. For example, it helps you to understand how customizations and extensions are affected with a newer version of Content Services, checking for compliance with our best practices and providing recommendations for upgrade impact and safety. It works with Alfresco Content Services 5.2 or later enterprise versions. The tool also works with other Alfresco Content Services and Alfresco Content Services Community Edition `.war` files, as long you can generate an inventory report for it, for more see [Run Inventory application](#run-inventory-application).
 
 The Extension Inspector scans and validates an Alfresco extension (AMP or JAR) against an `alfresco.war` file.
 
