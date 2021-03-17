@@ -40,10 +40,10 @@ The following table shows the upgrade path for major versions:
 
 | From Community | To Enterprise |
 | -------------- | ------------- |
-| Community Edition 201806 GA | Content Services 6.0.0 |
-| Community Edition 201901 GA | Content Services 6.1.0 |
-| Community Edition 201911 GA | Content Services 6.2.0 |
-| Community Edition 7.0 | Content Services 7.0.0 |
+| Community Edition 201806 GA | Content Services 6.0 |
+| Community Edition 201901 GA | Content Services 6.1 |
+| Community Edition 201911 GA | Content Services 6.2 |
+| Community Edition 7.0 | Content Services 7.0 |
 
 Please contact Alfresco Support for upgrade advice that's specific to your environment.
 
