@@ -6,9 +6,9 @@ Use this information to upgrade from a previous version of AOS.
 
 1. [Upgrade Alfresco]({% link content-services/latest/upgrade/index.md %}).
 
-    > **Note:** Make sure that you install the `alfresco-aos-module-1.4.x.amp`, and deploy the `_vti_bin.war` file.
+    > **Note:** Make sure that you install the `alfresco-aos-module-1.3.x.amp`, and deploy the `_vti_bin.war` file.
 
-    See [Install Alfresco Office Services]({% link microsoft-office/latest/install/index.md %}) for more information.
+    See [Install Alfresco Office Services]({% link microsoft-office/1.3/install/index.md %}) for more information.
 
 2. Launch Alfresco Share.
 

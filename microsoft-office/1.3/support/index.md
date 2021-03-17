@@ -8,5 +8,6 @@ The following are the supported platforms for Alfresco Office Services:
 
 | Version | Notes |
 | ------- | ----- |
-| Content Services 7.0 | |
-| Community Edition 7.0 | |
+| Content Services 6.2 | |
+| Content Services 6.1.1 | |
+| Community Edition | |
