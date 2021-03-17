@@ -32,9 +32,9 @@ See [Install with zip]({% link content-services/latest/install/zip/index.md %}) 
 
 Ansible playbooks provide an automated way of deploying a complete Content Services system on "bare metal" servers, Virtual Machines, or Virtual Private Cloud instances, without the use of containers. The single playbook provided can be configured to deploy single or multi-machine instances, with a number of supported configuration options.
 
-See [Install using Ansible](#LINK-content-services/latest/install/ansible.md) for basic instructions on deploying with Ansible.
+See [Install using Ansible]({% link content-services/latest/install/ansible.md %}) for basic instructions on deploying with Ansible.
 
-To explore more technical information on the ACS playbook, and to access the playbook source, see [Ansible on GitHub](#LINK-https://github.com/Alfresco/alfresco-ansible-deployment){:target="_blank"}.
+To explore more technical information on the ACS playbook, and to access the playbook source, see [Ansible on GitHub](https://github.com/Alfresco/alfresco-ansible-deployment){:target="_blank"}.
 
 The ACS Ansible playbook is provided as an Open Source reference script, which customers can modify and enhance to suit their own deployment environments.
 
@@ -70,4 +70,4 @@ See [Upgrade Content Services]({% link content-services/latest/upgrade/index.md 
 
 ## Security
 
-If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation](#LINK-content-services/latest/admin/securing-install.md).
+If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
