@@ -20,9 +20,9 @@ Requests to the Transform Service are placed in a queue and processed asynchrono
 **Local Transforms** run in separate processes to the repository known as Transform Engines (or T-Engines for short).
 
 You can turn on (enable) and off (disable) Local and Transform Service transforms independently of each other 
-by setting Alfresco global properties. In the Content Services deployment, the Transform Service is disabled for the 
+by settings in `alfresco-global.properties`. In the Content Services deployment, the Transform Service is disabled for the 
 zip distribution but enabled for Docker Compose and Helm deployments by default. The repository will try to transform 
-content using the Transform Service if possible, falling back to a Local Transform. 
+content using the Transform Service if possible and if not it will fall back to a Local Transform.
 
 ```bash
 transform.service.enabled=true
