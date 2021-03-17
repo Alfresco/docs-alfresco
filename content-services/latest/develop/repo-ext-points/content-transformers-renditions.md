@@ -1,5 +1,5 @@
 ---
-title: Content Transformers (Renditions) Extension Point
+title: Content Transformers and Renditions Extension Point
 ---
 
 Content Services provides many different types of content transformations out-of-the-box. Custom transformations 
@@ -8,7 +8,6 @@ can also be implemented and configured.
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
 
 ## Description
-
 Content transformers transform one type of content into another, such as a HTML file into a PDF file. They are used to 
 enable indexing, thumbnails, and preview of content. If the target type cannot be achieved with one transformation 
 several transformations can be chained together, such as JSON to HTML to PDF. To implement these transformations, third 
@@ -43,339 +42,6 @@ Content Services. So when accessing the "mimetypes" Web Script make sure the mim
 transformations and renditions are included there, if not you would have to register them with Content Services, 
 see the [Mimetypes extension point]({% link content-services/latest/develop/repo-ext-points/mimetypes.md %}) for more information about that.
 
-The Spring bean definitions for the transformer implementations can be found in the `content-services-context.xml` file. 
-This file is contained in the repository JAR and can be found as follows in an installation:
-
-```bash
-$ find . -name "*.jar" | xargs grep "content-services-context.xml" 
-Binary file ./tomcat/webapps/alfresco/WEB-INF/lib/alfresco-repository-5.1.d-EA.jar matches
-```
-
-Inside this XML file are the bean definitions for the transformer implementations, such as:
-
-```xml
-<bean id="transformer.PdfBox"
-      class="org.alfresco.repo.content.transform.PdfBoxContentTransformer"
-      parent="baseContentTransformer" >
-  <property name="documentSelector" ref="pdfBoxEmbededDocumentSelector" />
-</bean>
-```
-
-The transformer bean definition does not contain the source to target mimetype transformations it supports, rather 
-this is contained in a properties file for easier management by a System Administrator (and these properties can be 
-re-defined in` alfresco-global.properties`). This properties file is also located in the repository JAR 
-(`/alfresco/subsystems/Transformers/default`) and is called `transformers.properties`. The configuration for the 
-`PdfBoxContentTransformer` is as follows:
-
-```text
-content.transformer.PdfBox.priority=110 
-content.transformer.PdfBox.extensions.pdf.txt.priority=50
-content.transformer.PdfBox.extensions.pdf.txt.maxSourceSizeKBytes=25600
-```
-
-The `content.transformer.PdfBox.extensions.pdf.txt.maxSourceSizeKBytes=25600` property setting ensures that PDFBox works 
-only with PDF files up to 25MB. Note also that the `content.transformer.TikaAuto.extensions.pdf.txt.maxSourceSizeKBytes=25600` 
-property setting ensures that TikaAuto works only with PDF text files up to 25MB.
-
-The properties have names that follow a certain convention:
-
-```text
-content.<transformer bean id>.<property name> (Some custom property for the transformer)
-content.<transformer bean id>.priority=<number> (Default priority for this transformer)
-content.<transformer bean id>.extensions.<source mimetype>.<target mimetype>.priority=<number>  (Priority for this transformation) 
-content.<transformer bean id>.extensions.<source mimetype>.<target mimetype>.pipeline=transformer 1 | intermediate mimetype A)| transformer 2   
-content.<transformer bean id>.extensions.<source mimetype>.<target mimetype>.failover=transformer 1 (mimetype A)| transformer 2 (mimetype A)
-content.<transformer bean id>.extensions.<source mimetype>.<target mimetype>.supported=[true|false]
-```
-
-The concept of 'explicit' transformations does not exist but instead the `priority` and `supported` properties are used 
-to determine what transformations that are used. As the default priority is 100, setting the priority to 50 normally 
-results in the transformer being used. Other compatible transformers will be tried in priority order if the one with 
-highest priority fails for some reason. If multiple transformations are needed to get from source to target mimetype a 
-`pipeline` transformation can be set up. It is also possible to control exactly which transformers are used in case of 
-a failure by using the `failover` property.
-
-If you are running an Enterprise edition these properties may be changed via JMX while Content Services is 
-running (note, any changes via JMX and database takes precedence over any property file settings).
-
-You can create custom content transformers to transform one type of content into another, where that transformation 
-is not already supported, such as when you have a custom input content type, or custom output content type. Take the 
-JSON mimetype for example, if you upload a JSON file to the repository it will not have a thumbnail or a preview, and 
-it will not be indexed and searchable.
-
-The following will show up in the logs when debugging is turned on (turn it on via 
-`log4j.logger.org.alfresco.repo.content.transform.TransformerDebug=DEBUG and log4j.logger.org.alfresco.repo.content.transform=DEBUG`):
-
-```text
-2016-01-05 07:50:15,111  DEBUG [content.transform.ContentTransformerRegistry] [http-bio-8443-exec-9] Searched for transformer: 
-   source mimetype: application/json
-   target mimetype: image/jpeg
-   transformers: []
- 2016-01-05 07:50:15,116  DEBUG [content.transform.ContentTransformerRegistry] [http-bio-8443-exec-9] Searched for transformer: 
-   source mimetype: application/json
-   target mimetype: text/plain
-   transformers: []
- 2016-01-05 07:50:15,117  DEBUG [content.transform.TransformerDebug] [http-bio-8443-exec-9] 10  json txt  testnode.json 968 bytes -- index -- SolrIndexer NO transformers
- 2016-01-05 07:50:15,117  DEBUG [content.transform.TransformerDebug] [http-bio-8443-exec-9] 10  workspace://SpacesStore/68b0e43d-d972-406d-b211-52ce647ef41a 
- 2016-01-05 07:50:15,117  DEBUG [content.transform.TransformerLog] [http-bio-8443-exec-9] 10    json txt  INFO testnode.json 968 bytes 7 ms No transformers
- 2016-01-05 07:50:15,117  DEBUG [content.transform.TransformerDebug] [http-bio-8443-exec-9] 10  Finished in 7 ms Transformer NOT called
-```
-
-You can also see that there is no transformations available for the JSON mimetype on the 
-`http://localhost:8080/alfresco/service/mimetypes?mimetype=application/json#application/json` admin page:
-
-```text
-**application/json - json**
-   *No extractors*
-   **Transformable To:** *Cannot be transformed into anything else*
-   **Transformable From:** *Cannot be generated from anything else*
-```
-
-So if you wanted to change that you could implement a JSON to HTML transformation to start with. That would give you a 
-lot of functionality as HTML is already fully supported with thumbnail, preview, indexing and search. To do this you 
-will need a tool that can convert from JSON to HTML. One such tool is [json2html](https://github.com/softvar/json2html){:target="_blank"}, 
-which is written in Python and can easily be invoked from the command line, and also then from a custom transformer. 
-It produces a HTML table with the JSON data. To create this transformer you do not need to do any Java coding, just some 
-Spring bean definitions and Python script coding.
-
-Starting with the Spring beans for the custom transformer you would use the `RuntimeExecutableContentTransformerWorker` 
-class as a bean implementation. It is able to execute any command line transformation that accepts an input and an output 
-file on the command line. Basically, if you have a command line utility or a script that takes an input file, called the 
-source, and an output file, called the target, then you can invoke it via this class. This is a technique used for a lot 
-of custom transformation implementations.
-
-Here is the Spring bean definition for what is referred to as the transformer worker:
-
-```xml
-<beans>
-   <bean id="transformer.worker.json2html" class="org.alfresco.repo.content.transform.RuntimeExecutableContentTransformerWorker" >
-    <property name="mimetypeService">
-      <ref bean="mimetypeService" />
-    </property>
-    <property name="checkCommand">
-      <bean class="org.alfresco.util.exec.RuntimeExec">
-        <property name="commandsAndArguments">
-          <map>
-            <entry key=".*">
-              <list>
-                <value>ls</value>
-                <value>/home/martin/Downloads/temp/transformation/convertJson2html.py</value>
-              </list>
-            </entry>
-          </map>
-        </property>
-      </bean>
-    </property>
-    <property name="transformCommand">
-      <bean class="org.alfresco.util.exec.RuntimeExec">
-        <property name="commandsAndArguments">
-          <map>
-            <entry key=".*">
-              <list>
-                <value>/home/martin/Downloads/temp/transformation/convertJson2html.py</value>
-                <value>${source}</value>
-                <value>${target}</value>
-              </list>
-            </entry>
-          </map>
-        </property>
-        <property name="errorCodes">
-          <value>1,2</value>
-        </property>
-      </bean>
-    </property>
-  </bean>
-```
-
-The transformer worker does the actual job of executing the transformation. It has two important properties that need to 
-be set, the `checkCommand` property, which is used to verify that the command line tool/script that is to be used for 
-the transformation is actually available. The other property is called `transformCommand` and should contain the 
-script/tool path plus the source and target variables, which will resolve to temporary files that will be used during 
-the transformation. If you want to run one script on Linux and another one on Windows you can provide multiple entries 
-in the command line arguments map as in the following example:
-
-```xml
-<property name="transformCommand">
-      <bean class="org.alfresco.util.exec.RuntimeExec">
-        <property name="commandsAndArguments">
-          <map>
-            <entry key="Windows.*">
-              <list>
-                <value>cmd</value>
-                <value>/C</value>
-                <value>${ffmpeg.exe} ${opts} ${infile_opts} -i "${source}" ${outfile_opts} "${target}" 2&gt; NUL</value>
-              </list>
-            </entry>
-            <entry key="Linux">
-              <list>
-                <value>sh</value>
-                <value>-c</value>
-                <value>${ffmpeg.exe} ${opts} ${infile_opts} -i '${source}' ${outfile_opts} '${target}' 2&gt; /dev/null</value>
-              </list>
-            </entry>
-            <entry key="Mac OS X">
-              <list>
-                <value>sh</value>
-                <value>-c</value>
-                <value>${ffmpeg.exe} ${opts} ${infile_opts} -i '${source}' ${outfile_opts} '${target}' 2&gt; /dev/null</value>
-              </list>
-            </entry>
-          </map>
-        </property>
-        <property name="waitForCompletion">
-          <value>true</value>
-        </property>
-        <property name="defaultProperties">
-          <props>
-            <prop key="opts">-y</prop>
-            <prop key="infile_opts"/>
-            <prop key="outfile_opts">-f flv</prop>
-          </props>
-        </property>
-      </bean>
-    </property>
-```
-
-When the transformation worker bean is defined you can refer to it from the transformation bean definition:
-
-```xml
-<bean id="transformer.json2html" class="org.alfresco.repo.content.transform.ProxyContentTransformer" parent="baseContentTransformer">
-    <property name="worker">
-       <ref bean="transformer.worker.json2html" />
-    </property>
-  </bean>
-```
-
-The transformer bean needs to specify `baseContentTransformer` as the parent, as it handles registering this new 
-transformer with the Content Services system. The transformer implementation class that you use in this case 
-is called `ProxyContentTransformer` and it is delegating the actual transformation to the worker. The last thing you 
-need to do for this transformer to be active is to add some properties to `alfresco-global.properties`:
-
-```text
-content.transformer.json2html.priority=30
-content.transformer.json2html.extensions.json.html.supported=true
-content.transformer.json2html.extensions.json.html.priority=30
-```
-
-See above for more information about these properties.
-
-Currently the transformer would halt on the Python script call as that has not yet been implemented. Download the 
-`json2html` python module as follows:
-
-```bash
-$ sudo pip install json2html
-```
-
-Now create a script called `convertJson2html.py`:
-
-```python
-#!/usr/bin/python
-
-import os, sys
-
-lib_path = os.path.abspath(os.path.join('..'))
-sys.path.append(lib_path)
-
-from json2html import *
-
-# Get the source and target file
-print 'Number of arguments:', len(sys.argv), 'arguments.'
-print 'Argument List:', str(sys.argv)
-sourceTempFile = sys.argv[1]
-targetTempFile = sys.argv[2]
-
-# Open and read the JSON source file
-with open(sourceTempFile, 'r') as jsonF:
-   jsondata = jsonF.read()
-print "Read json is : ", jsondata
-
-# Run conversion to HTML
-jsonAsHTML = json2html.convert(json = jsondata)
-
-# Write the resulting HTML representation of the JSON to target file
-with open(targetTempFile, 'w+') as htmlF:
-   htmlF.write(jsonAsHTML)
-```
-
-You can test this script from command line before trying the transformation:
-
-```bash
-$ python convertJson2html.py testnode.json test.html
-```
-
-This assumes that the `testnode.json` file is in the same directory as the script is run from.
-
-You are now ready to test this new JSON to HTML transformer. The only thing you need to do is create a rule that runs 
-a script that does the following:
-
-```text
-document.transformDocument("text/html");
-```
-
-Uploading a JSON file to a folder with this rule will result in a new HTML file being generated as a result of the 
-transformation, you will see something like this:
-
-![dev-extensions-repo-transformations-json2html-result]({% link content-services/images/dev-extensions-repo-transformations-json2html-result.png %})
-
-You can see that the newly generated HTML file has a thumbnail (refresh the page to see it). If you navigate to the 
-details page a preview will also be available, and you can search for the content in the JSON file and you would see 
-the HTML version of it. You could expand the JavaScript file to move the generated HTML file somewhere else in the 
-repository if you needed to.
-
-The next step is to create a pipeline transformation JSON to HTML to TEXT to make the JSON searchable and to avoid 
-having the extra HTML file generated. This can be achieved with some extra properties in the configuration:
-
-```text
-content.transformer.json2text.pipeline=*|html|*
-content.transformer.json2text.extensions.json.txt.priority=30
-content.transformer.json2text.extensions.json.txt.supported=true
-```
-
- This defines a transformation pipeline (also referred to as a complex transformer). With the `*|html|*` expression 
- means convert any supported extension (that is only json to txt) by using any transformer that can convert JSON to 
- first the intermediate format HTML, which is what the transformer we just implemented above does, then use any other 
- transformer to convert HTML to TXT, which is supported out-of-the-box. After this change you will see that any 
- uploaded JSON file is now searchable (remember to disable the rule). Note that there is no Spring bean defined for 
- the `transformer.json2text`.
-
- To get the thumbnail you need to define another pipeline for JSON to PNG:
-
-```text
-content.transformer.json2png.pipeline=*|html|*
-content.transformer.json2png.extensions.json.png.priority=30
-content.transformer.json2png.extensions.json.png.supported=true
-```
-
-Running with this pipeline configuration will first initiate a transform to HTML and then to PNG with any out-of-the-box 
-transformer supporting HTML to PNG.
-
-Finally you can get the preview working with the following JSON to PDF pipeline configuration:
-
-```text
-content.transformer.json2pdf.pipeline=*|html|*
-content.transformer.json2pdf.extensions.json.pdf.priority=30
-content.transformer.json2pdf.extensions.json.pdf.supported=true
-```
-
-Content Services supports PDF previewing so as long as you can transform your content into a PDF it will be 
-available for preview in the Document Details page.
-
-When implementing a transformer, it is possible to associate it with an Edition, such as in the following example:
-
-```text
-content.transformer.complex.JodConverter.PdfBox.edition=Enterprise
-```
-
-This sets the `transformer.complex.JodConverter` to be available only for Content Services installations. 
-It is also possible to associate a transformer with a specific AMP:
-
-```text
-content.transformer.json2html.amp=custom-content-transformer-repo
-```
-
-This would make your custom JSON content transformer available only if an AMP with module id `custom-content-transformer-repo` 
-has been applied.
-
 Related to transformations are **renditions**, and the purpose of them is to provide support for rendering a specific 
 content item into other forms, known as renditions. The rendition items are derived from their source item and as such 
 can be updated automatically when their source item's content (or other properties) are changed.
@@ -393,7 +59,7 @@ By default they are created as primary children of their source item but it is p
 specified explicitly or as templated paths.
 
 The following describes an example with the `reformat` rendering engine and the custom transformation you have previously 
-implemented (that is json to html). You can invoke the rendering engine and create an HTML rendition for a JSON document 
+implemented (that is `.json` to `.html`). You can invoke the rendering engine and create an HTML rendition for a JSON document 
 via JavaScript executed from a folder rule:
 
 ```javascript
@@ -406,7 +72,7 @@ var htmlRendition= renditionService.render(document, renditionDef);
 
 The rendition definition name is a QName that we have to come up with, use a known namespace such as `cm`. 
 The `mime-type` parameter tells the `reformat` rendering engine that the new rendition should be a HTML file. 
-By default this rendition will be store as a hidden child to the uploaded JSON document. If you used the Node Browser 
+By default this rendition will be stored as a hidden child to the uploaded JSON document. If you used the Node Browser 
 to inspect the JSON content node you should see three hidden renditions as follows:
 
 ```text
@@ -417,57 +83,461 @@ cm:doclib            cm:thumbnail workspace://SpacesStore/f7f354a7-010f-4462-82a
 cm:pdf               cm:thumbnail workspace://SpacesStore/8b3ec283-cd2a-4378-af2d-e72e30127210  true     rn:rendition       2
 ```
 
-If the solution being implemented is very transformation intensive a remote, then use the 
-[Document Transformation Engine]({% link content-services/latest/admin/transformations.md %}#doctransformengine). It 
-would be totally dedicated to performing transformations, and can be scaled out separately from the rest of the 
-Content Services system, depending on transformation load.
+## Transformation changes from Content Services 6.2
+From Content Services version 6.2 it is possible to create custom transforms that run in separate processes known as 
+T-Engines (short for Transformer Engines). The same engines may be used in Community and Enterprise Editions. They may be 
+directly connected to the Repository as Local Transforms, but in the Enterprise edition there is the option to include 
+them as part of Alfresco Transform Service (ATS), which provides a more balanced throughput.
 
-It is possible for an AMP (or a properties file) to set higher (numerically lower) priorities for new transformers than 
-the standard transformers, so that they are used rather than the standard ones.
+A T-Engine is intended to be run as a Docker image, but may also be run as a standalone process.
 
-The default transformer priority is 100. Priorities may be specified at the level of one mimetype to another and if a 
-new transformer returns false from its `isTransformable` method transformations will still fall back to the and JOD 
-transformer. The following are the priority properties for transformers that use the JOD transformer.
+Prior to Content Services 6.0 Legacy transformers ran within the same JVM as the Repository. They and their supporting 
+classes were deprecated in Content Services 6.0 and have now been removed. Content Services 6.2 still uses them if a 
+rendition cannot be created by the Transform Service or Local Transforms. The process of migrating custom legacy 
+transformers is described at the end of this page.
+
+One of the advantages of Custom Transforms and Renditions in Content Services 6.2 and above is that there is no longer any need for custom 
+Java code, Spring bean definitions, or alfresco properties to be applied to the Repository. Generally custom transforms 
+and renditions can now be added to Docker deployments without having to create or apply an AMP/JAR, or even restarting
+the repository.
+
+## Configure a T-Engine as a Local Transform
+For the repository to talk to a T-Engine, it must know the engine's URL. The URL can be added as an Alfresco global property,
+or more simply as a Java system property. `JAVA_OPTS` may be used to set this if starting the repository with Docker.
 
 ```text
-transformer.OpenOffice=3600000
-transformer.complex.OpenOffice.Image.time=3600000
-transformer.complex.OpenOffice.Pdf2swf.time=3600000
-transformer.complex.OpenOffice.PdfBox.time=3600000
-
-transformer.JodConverter.time=3600000
-transformer.complex.JodConverter.Image.time=3600000
-transformer.complex.JodConverter.Pdf2swf.time=3600000
-transformer.complex.JodConverter.PdfBox.time=3600000
+localTransform.<engineName>.url=
 ```
 
-If an initial 'XXX.time' global property is supplied for a transformer, the number of transformations performed may 
-also be supplied with a '.count' value. The default being 10,000. This avoids the average time reducing too fast if 
-transformations are requested (because the new transformer is not available). A higher number ensures it reduces at a 
-slower rate. For example, 1,000,000:
+The `<engineName>` is a unique name of the T-Engine. For example, `localTransform.helloworld.url`. Typically a T-Engine
+contains a single transform or an associated group of transforms. Having set the URL to a T-Engine, the repository will 
+update its configuration by requesting the [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"} 
+on a periodical basis. It is requested more frequent on start up or if a communication or configuration problem has 
+occurred, and a less frequently otherwise.
 
-```
-transformer.OpenOffice.count=1000000
-transformer.complex.OpenOffice.Image.count=1000000
-transformer.complex.OpenOffice.Pdf2swf.count=1000000
-transformer.complex.OpenOffice.PdfBox.count=1000000
-
-transformer.JodConverter.count=1000000
-transformer.complex.JodConverter.Image.count=1000000
-transformer.complex.JodConverter.Pdf2swf.count=1000000
-transformer.complex.JodConverter.PdfBox.count=1000000
+```text
+local.transform.service.cronExpression=4 30 0/1 * * ?
+local.transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
 ```
 
-## Deployment - App Server
+### Transformer selection strategy
+The repository will use the [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"} 
+to choose which T-Engine will perform a transform. A transformer definition contains a supported list of source and target 
+Media Types. This is used for the most basic selection. This is further refined by checking that the definition also 
+supports transform options (parameters) that have been supplied in a transform request or a Rendition Definition used
+in a rendition request. See [Configure a Custom Rendition](#configure-a-custom-rendition).
 
-* `tomcat/shared/classes/alfresco/extension/subsystems/Transformers/default/default` - add a Spring context file with transformer bean definitions, file should have name that ends in -context.xml, such as `custom-transformers-context.xml`.
-* `tomcat/shared/classes/alfresco-global.properties` - all the properties configuration goes here
+```text
+Transformer 1 defines options: Op1, Op2
+Transformer 2 defines options: Op1, Op2, Op3, Op4
+```
+```
+Rendition provides values for options: Op2, Op3
+```
+If we assume both transformers support the required source and target Media Types, Transformer 2 will be selected because 
+it knows about all the supplied options. The definition may also specify that some options are required or grouped.
 
-## Deployment All-in-One SDK project
+### Enabling and disabling Local or Transform Service transforms
+Local or Transform Service transforms can be enabled or disabled independently of each other. The repository will try to 
+transform content using the Transform Service if possible and falling back to a Local Transform. If you are using Share, 
+Local Transforms are required, as they support both synchronous and asynchronous requests. Share makes use of both, so
+functionality such as preview will be unavailable if Local transforms are disabled. The Transform service only supports 
+asynchronous requests.
 
-* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml` - Transformation bean definitions
-* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/alfresco-global.properties` - all the properties configuration goes here
+The following sections will show how to create a Local transform pipeline, a Local transform failover or a Local transform 
+override, but remember that they will not be used if the Transform Service (ATS) is able to do the transform and 
+is enabled.
 
-## Sample Code
+```text
+transform.service.enabled=true
+local.transform.service.enabled=true
+```
 
-* [Content Transformer Sample Code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-content-transformer-repo){:target="_blank"}
+Setting the enabled state to **false** will disable all of the transforms performed by that particular service. It is 
+possible to disable individual Local Transforms by setting the corresponding T-Engine URL property `localTransform.<engineName>.url` 
+value to an empty string.
+
+```text
+localTransform.helloworld.url=
+```
+
+### Configure a custom Local transform pipeline
+Local Transforms may be combined together in a pipeline to form a new transform, where the output from one becomes the 
+input to the next and so on. A pipeline definition (JSON) defines the sequence of transforms and intermediate Media Types. 
+Like any other transformer, it specifies a list of supported source and target Media Types. If you don't supply any,
+all possible combinations are assumed to be available. The definition may reuse the `transformOptions` of transformers in the
+pipeline, but typically will define its own subset of these.  
+
+The following example begins with the `helloWorld` Transformer described in [Creating a T-Engine](#creating-a-t-engine), 
+which takes a text file containing a name and produces an HTML file with a Hello &lt;name> message in the body. This is 
+then transformed back into a text file. This example contains just one pipeline transformer, but many may be defined in 
+the same file.
+
+```json
+{
+  "transformers": [
+    {
+      "transformerName": "helloWorldText",
+      "transformerPipeline" : [
+        {"transformerName": "helloWorld", "targetMediaType": "text/html"},
+        {"transformerName": "html"}
+      ],
+      "supportedSourceAndTargetList": [
+        {"sourceMediaType": "text/plain", "priority": 45,  "targetMediaType": "text/plain" }
+      ],
+      "transformOptions": [
+        "helloWorldOptions"
+      ]
+    }
+  ]
+}
+```
+
+* `transformerName` - Try to create a unique name for the transform.
+* `transformerPipeline` - A list of transformers in the pipeline. The `targetMediaType` specifies the intermediate 
+Media Types between transformers. There is no final `targetMediaType` as this comes from the `supportedSourceAndTargetList`.
+* `supportedSourceAndTargetList` - The supported source and target Media Types, which refer to the Media Types this 
+pipeline transformer can transform from and to, additionally you can set the priority and the
+maxSourceSizeBytes see [Supported Source and Target List](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/engine_config.md#supported-source-and-target-list).
+If blank, this indicates that all possible combinations are supported. This is the cartesian product of all source types to the first
+intermediate type and all target types from the last intermediate type. Any combinations supported by the first transformer are excluded. They
+will also have the priority from the first transform.
+* `transformOptions` - A list of references to options required by the pipeline transformer.
+
+Custom Pipeline definitions need to be placed in a directory of the Repository. The default location (below) may be 
+changed by resetting the following Alfresco global property.
+
+```text
+local.transform.pipeline.config.dir=shared/classes/alfresco/extension/transform/pipelines
+```
+On startup this location is checked every 10 seconds, but then switches to once an hour if successful. After a problem, 
+it tries every 10 seconds again. These are the same properties use to decide when to read T-Engine configurations, 
+because pipelines combine transformers in the T-Engines.
+
+```text
+local.transform.service.cronExpression=4 30 0/1 * * ?
+local.transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
+```
+
+If you are using Docker Compose in development, you will need to copy
+your pipeline definition into your running Repository container.
+One way is to use the following command, and it will be picked up the
+next time the location is read, which is dependent on the cron values.
+
+```bash
+docker cp custom_pipelines.json <alfresco container>:/usr/local/tomcat/shared/classes/alfresco/extension/transform/pipelines/
+```
+
+In a Kubernetes environment, [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+can be used to add pipeline definitions. You will need to create
+a ConfigMap from the JSON file and mount the ConfigMap through a volume
+to the Repository pods.
+
+```bash
+kubectl create configmap custom-pipeline-config --from-file=name_of_a_file.json
+```
+
+The necessary volumes are already provided out of the box and the files
+in ConfigMap `custom-pipeline-config` will be mounted to
+`/usr/local/tomcat/shared/classes/alfresco/extension/transform/pipelines/`.
+Again, the files will be picked up the next time the location is read,
+or when the repository pods are restarted.
+
+> From Kubernetes documentation: Caution: If there are some files in the mountPath location, they will be deleted.
+
+### Configure custom Local failover transforms
+A failover transform, simply provides a list of transforms to be
+attempted one after another until one succeeds. For example, you may have a fast transform that is able to handle a
+limited set of transforms and another that is slower but handles all cases.
+
+```json
+{
+  "transformers": [
+    {
+      "transformerName": "imgExtractOrImgCreate",
+      "transformerFailover" : [ "imgExtract", "imgCreate" ],
+      "supportedSourceAndTargetList": [
+        {"sourceMediaType": "application/vnd.oasis.opendocument.graphics", "priority": 150, "targetMediaType": "image/png" },
+        ...
+        {"sourceMediaType": "application/vnd.sun.xml.calc.template",       "priority": 150, "targetMediaType": "image/png" }
+      ]
+    }
+  ]
+}
+```
+* `transformerName` - Try to create a unique name for the transform.
+* `transformerFaillover` - A list of transformers to try.
+* `supportedSourceAndTargetList` - The supported source and target
+Media Types, which refer to the Media Types this failover transformer
+can transform from and to, additionally you can set the priority and the
+maxSourceSizeBytes see [Supported Source and Target List](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/engine_config.md#supported-source-and-target-list).
+Unlike pipelines, it must not be blank.
+* `transformOptions` - A list of references to options required by
+the pipeline transformer.
+
+### Overriding a Local transform
+In the same way as it is possible to combine Local transforms into pipelines, it is also possible to override a
+previously defined transform in a file in the _local.transform.pipeline.config.dir_ directory. The last definition read
+wins. The configuration from T-Engines or the Transform Service is initially read followed by files in this directory.
+Files are read in alphanumeric order. So _0100-basePipelines.json_ is read before _0200-a-cutdown-libreoffice.json_. The
+following example removes most of the supported source to target media types form the standard _"libreoffice"_
+transform. This is not something you would normally want to do. It also changes the max size and priority of others.
+
+```json
+{
+  "transformers": [
+    {
+      "transformerName": "libreoffice",
+      "supportedSourceAndTargetList": [
+        {"sourceMediaType": "text/csv", "maxSourceSizeBytes": 1000, "targetMediaType": "text/html" },
+        {"sourceMediaType": "text/csv", "targetMediaType": "application/vnd.oasis.opendocument.spreadsheet" },
+        {"sourceMediaType": "text/csv", "targetMediaType": "application/vnd.oasis.opendocument.spreadsheet-template" },
+        {"sourceMediaType": "text/csv", "targetMediaType": "text/tab-separated-values" },
+        {"sourceMediaType": "text/csv", "priority": 45, "targetMediaType": "application/vnd.ms-excel" },
+        {"sourceMediaType": "text/csv", "priority": 155, "targetMediaType": "application/pdf" }
+      ]
+    }
+  ]
+}
+```
+
+### Configure a custom rendition {#configure-a-custom-rendition}
+Renditions are a representation of source content in another form. A
+Rendition Definition (JSON) defines the transform option (parameter)
+values that will be passed to a transformer and the target Media Type.
+
+```json
+{
+  "renditions": [
+    {
+      "renditionName": "helloWorld",
+      "targetMediaType": "text/html",
+      "options": [
+        {"name": "language", "value": "German"}
+      ]
+    }
+  ]
+}
+```
+* `renditionName` - A unique rendition name.
+* `targetMediaType` - The target Media Type for the rendition.
+* `options` - The list of transform option names and values
+corresponding to the transform options defined in
+[T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"}.
+If you specify `sourceNodeRef` without a value,
+the system will automatically add the values at run time. 
+
+Just like Pipeline Definitions, custom Rendition Definitions need to be placed
+in a directory of the Repository. There are similar properties that
+control where and when these definitions are read and the same approach
+may be taken to get them into Docker Compose and Kubernetes environments.
+
+```text
+rendition.config.dir=shared/classes/alfresco/extension/transform/renditions/
+```
+```text
+rendition.config.cronExpression=2 30 0/1 * * ?
+rendition.config.initialAndOnError.cronExpression=0/10 * * * * ?
+```
+
+In a Kubernetes environment:
+
+```bash
+kubectl create configmap custom-rendition-config --from-file=name_of_a_file.json
+```
+
+The necessary volumes are already provided out of the box and the files
+in ConfigMap `custom-rendition-config` will be mounted to
+`/usr/local/tomcat/shared/classes/alfresco/extension/transform/renditions/`.
+Again, the files will be picked up the next time the location is read,
+or when the repository pods are restarted.
+
+#### Disabling an existing rendition
+Just like transforms, it is possible to override renditions. The following example effectively
+disables the `doclib` rendition, used to create the thumbnail images in Share's Document Library
+page and other client applications. A good name for this file might be
+`0200-disableDoclib.json`.
+
+```json
+{
+  "renditions": [
+    {
+      "renditionName": "doclib",
+      "targetMediaType": "image/png",
+      "options": [
+        {"name": "unsupported", "value": 123}
+      ]
+    }
+  ]
+}
+```
+
+Because there is not a transformer with an transform option called `unsupported`, the rendition
+can never be performed. Having turned on `TransformerDebug` logging you normally you would see a
+transform taking place for `-- doclib --` when you upload a file in Share. With this override the
+doclib transform does not appear.
+
+#### Overriding an existing rendition
+It is possible to change a rendition by overriding it. The following `0300-biggerThumbnails.json`
+file changes the size of the `doclib` image from `100x100` to be `123x123` and introduces another
+rendition called `biggerThumbnail` that is `200x200`.
+
+```json
+{
+  "renditions": [
+    {
+      "renditionName": "doclib",
+      "targetMediaType": "image/png",
+      "options": [
+        {"name": "resizeWidth", "value": 123},
+        {"name": "resizeHeight", "value": 123},
+        {"name": "allowEnlargement", "value": false},
+        {"name": "maintainAspectRatio", "value": true},
+        {"name": "autoOrient", "value": true},
+        {"name": "thumbnail", "value": true}
+      ]
+    },
+    {
+      "renditionName": "biggerThumbnail",
+      "targetMediaType": "image/png",
+      "options": [
+        {"name": "resizeWidth", "value": 200},
+        {"name": "resizeHeight", "value": 200},
+        {"name": "allowEnlargement", "value": false},
+        {"name": "maintainAspectRatio", "value": true},
+        {"name": "autoOrient", "value": true},
+        {"name": "thumbnail", "value": true}
+      ]
+    }
+  ]
+}
+```
+
+### Configure a custom MIME type
+Quite often the reason a custom transform is created is to convert to or
+from a MIME type (or Media type) that is not known to Content Services by default.
+Another reason is to introduce an application specific MIME type that
+indicates a specific use of a more general format such as XML or JSON. 
+From Content Services 6.2, it is possible add custom MIME types in a similar way to
+custom Pipelines and Renditions. The JSON format and properties are as
+follows:
+
+```json
+{
+  "mediaTypes": [
+    {
+      "name": "MPEG4 Audio",
+      "mediaType": "audio/mp4",
+      "extensions": [
+        {"extension": "m4a"}
+      ]
+    },
+    {
+      "name": "Plain Text",
+      "mediaType": "text/plain",
+      "text": true,
+      "extensions": [
+        {"extension": "txt", "default": true},
+        {"extension": "sql", "name": "SQL"},
+        {"extension": "properties", "name": "Java Properties"},
+        {"extension": "log", "name": "Log File"}
+      ]
+    }
+  ]
+}
+```
+
+* `name` Display name of the mimetype or file extension. Optional for extensions.
+* `mediaType` used to identify the content.
+* `text` optional value indicating if the mimetype is text based.
+* `extensions` a list of possible extensions.
+* `extension` the file extension.
+* `default` indicates the extension is the default one if there is more than one.
+
+```text
+mimetype.config.dir=shared/classes/alfresco/extension/mimetypes
+```
+```text
+mimetype.config.cronExpression=0 30 0/1 * * ?
+mimetype.config.initialAndOnError.cronExpression=0/10 * * * * ?
+```
+
+In a Kubernetes environment:
+
+```bash
+kubectl create configmap custom-mimetype-config --from-file=name_of_a_file.json
+```
+
+The necessary volumes are already provided out of the box and the files
+in ConfigMap `custom-mimetype-config` will be mounted to
+`/usr/local/tomcat/shared/classes/alfresco/extension/mimetypes`.
+Again, the files will be picked up the next time the location is read,
+or when the repository pods are restarted.
+
+### Configure the repository to use the Transform Service
+By default the Transform service is disabled by default, but Docker
+Compose and Kubernetes Helm Charts may enable it again by setting
+`transform.service.enabled`. The Transform Service handles
+communication with all its own T-Engines and builds up its own combined
+configuration JSON which is requested by the repository
+periodically.
+
+```text
+transform.service.cronExpression=4 30 0/1 * * ?
+transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
+```
+
+## ATS Configuration
+Alfresco Transform Service configuration information.
+
+### Configure a T-Engine as a Remote Transform
+Please follow the steps described in [Alfresco Transform Service Docs](https://github.com/Alfresco/alfresco-transform-service/blob/master/docs/custom-t-engine.md).
+
+## Creating a T-Engine {#creating-a-t-engine}
+The deployment and development of a T-Engine transformer is simpler
+than before.
+
+* Transformers no longer needs to be applied as AMPs/JARs on top of a repository.
+* New versions may be deployed separately without restarting the repository.
+* As a standalone Spring Boot application develop and test
+  cycles are reduced.
+* A base Spring Boot application is provided with hook points to extend
+  with custom transform code.
+* The base also includes the creation of a Docker image for your
+  Spring Boot application. Even if you don't intend to deploy with Docker,
+  this may still be of interest, as the configuration of any tools or
+  libraries used in the transform need only be done once rather than for
+  every development or ad-hoc test environment.
+
+### Developing a new T-Engine
+The process of developing a new T-Engine is described on the
+[Creating a T-Engine](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md){:target="_blank"} page. It walks
+through the steps involved in creating a simple Hello World transformer
+and includes commands to help test.
+
+When developing new Local Transformers it is generally a good idea to
+increase the frequency of the polling of the various locations that
+contain custom Pipeline, Rendition, Mimetype Definitions and also of
+the Transform Service.
+
+```text
+mimetype.config.cronExpression=0 0/1 * * * ?
+rendition.config.cronExpression=2 0/1 * * * ?
+local.transform.service.cronExpression=4 0/1 * * * ?
+transform.service.cronExpression=6 0/1 * * * ?
+```
+
+### Migrating a Legacy Transformer
+Content Services 6.2 is useful if you already have custom transformers based on the
+legacy approach, because it will allow you to gradually migrate them.
+Initially you will probably want to create new T-Engines but run them as
+Local Transformers attached directly to an repository. All of the
+transforms provided with the base Content Services are available as Local
+Transformers, so may be combined with your own Local
+Transformers in Local Pipelines. Once happy you have every thing working
+it then probably makes sense to add your new T-Engines to the Transform
+Service. The [Migrating a Legacy Transformer](https://github.com/Alfresco/acs-packaging/blob/master/docs/migrating-a-legacy-transformer.md){:target="_blank"} page
+helps by showing which areas of legacy code are no longer needed and
+which sections can be simply copied and pasted into the new code. Some of
+the concepts have changed sightly to simplify what the custom transform
+developer needs to do and understand.
