@@ -59,7 +59,7 @@ By default they are created as primary children of their source item but it is p
 specified explicitly or as templated paths.
 
 The following describes an example with the `reformat` rendering engine and the custom transformation you have previously 
-implemented (that is json to html). You can invoke the rendering engine and create an HTML rendition for a JSON document 
+implemented (that is `.json` to `.html`). You can invoke the rendering engine and create an HTML rendition for a JSON document 
 via JavaScript executed from a folder rule:
 
 ```javascript
@@ -72,7 +72,7 @@ var htmlRendition= renditionService.render(document, renditionDef);
 
 The rendition definition name is a QName that we have to come up with, use a known namespace such as `cm`. 
 The `mime-type` parameter tells the `reformat` rendering engine that the new rendition should be a HTML file. 
-By default this rendition will be store as a hidden child to the uploaded JSON document. If you used the Node Browser 
+By default this rendition will be stored as a hidden child to the uploaded JSON document. If you used the Node Browser 
 to inspect the JSON content node you should see three hidden renditions as follows:
 
 ```text
@@ -87,16 +87,16 @@ cm:pdf               cm:thumbnail workspace://SpacesStore/8b3ec283-cd2a-4378-af2
 From Content Services version 6.2 it is possible to create custom transforms that run in separate processes known as 
 T-Engines (short for Transformer Engines). The same engines may be used in Community and Enterprise Editions. They may be 
 directly connected to the Repository as Local Transforms, but in the Enterprise edition there is the option to include 
-them as part of the Alfresco Transform Service (ATS) which provides more balanced throughput.
+them as part of Alfresco Transform Service (ATS), which provides a more balanced throughput.
 
 A T-Engine is intended to be run as a Docker image, but may also be run as a standalone process.
 
-Prior to Content Services 6.0 Legacy transformers ran within the same JVM as the Repository. They and their supporting classes were 
-deprecated and in Content Services 6, but have now been removed. Content Services 6.2 still uses them if a rendition cannot be created by the 
-Transform Service or Local Transforms. The process of migrating custom legacy transformers is described at the end
-of this page.
+Prior to Content Services 6.0 Legacy transformers ran within the same JVM as the Repository. They and their supporting 
+classes were deprecated in Content Services 6.0 and have now been removed. Content Services 6.2 still uses them if a 
+rendition cannot be created by the Transform Service or Local Transforms. The process of migrating custom legacy 
+transformers is described at the end of this page.
 
-One of the advantages of Custom Transforms and Renditions in Content Services 6.2 is that there is no longer any need for custom 
+One of the advantages of Custom Transforms and Renditions in Content Services 6.2 and above is that there is no longer any need for custom 
 Java code, Spring bean definitions, or alfresco properties to be applied to the Repository. Generally custom transforms 
 and renditions can now be added to Docker deployments without having to create or apply an AMP/JAR, or even restarting
 the repository.
@@ -112,7 +112,7 @@ localTransform.<engineName>.url=
 The `<engineName>` is a unique name of the T-Engine. For example, `localTransform.helloworld.url`. Typically a T-Engine
 contains a single transform or an associated group of transforms. Having set the URL to a T-Engine, the repository will 
 update its configuration by requesting the [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"} 
-on a periodic basis. It is requested more frequent on start up or if a communication or configuration problem has 
+on a periodical basis. It is requested more frequent on start up or if a communication or configuration problem has 
 occurred, and a less frequently otherwise.
 
 ```text
@@ -145,7 +145,7 @@ functionality such as preview will be unavailable if Local transforms are disabl
 asynchronous requests.
 
 The following sections will show how to create a Local transform pipeline, a Local transform failover or a Local transform 
-override, but remember that they will not be used if the Transform Service (ATS) if it is able to do the transform and 
+override, but remember that they will not be used if the Transform Service (ATS) is able to do the transform and 
 is enabled.
 
 ```text
@@ -165,7 +165,7 @@ localTransform.helloworld.url=
 Local Transforms may be combined together in a pipeline to form a new transform, where the output from one becomes the 
 input to the next and so on. A pipeline definition (JSON) defines the sequence of transforms and intermediate Media Types. 
 Like any other transformer, it specifies a list of supported source and target Media Types. If you don't supply any,
-all possible combinations are assumed to be available. The definition may reuse the transformOptions of transformers in the
+all possible combinations are assumed to be available. The definition may reuse the `transformOptions` of transformers in the
 pipeline, but typically will define its own subset of these.  
 
 The following example begins with the `helloWorld` Transformer described in [Creating a T-Engine](#creating-a-t-engine), 
@@ -210,7 +210,7 @@ changed by resetting the following Alfresco global property.
 ```text
 local.transform.pipeline.config.dir=shared/classes/alfresco/extension/transform/pipelines
 ```
-On startup this location is checked every 10 seconds, but then switches to once an hour if successfully. After a problem, 
+On startup this location is checked every 10 seconds, but then switches to once an hour if successful. After a problem, 
 it tries every 10 seconds again. These are the same properties use to decide when to read T-Engine configurations, 
 because pipelines combine transformers in the T-Engines.
 
@@ -276,7 +276,7 @@ Unlike pipelines, it must not be blank.
 the pipeline transformer.
 
 ### Overriding a Local transform
-In the same way as it is possible combine Local transforms into pipelines, it is also possible to override a
+In the same way as it is possible to combine Local transforms into pipelines, it is also possible to override a
 previously defined transform in a file in the _local.transform.pipeline.config.dir_ directory. The last definition read
 wins. The configuration from T-Engines or the Transform Service is initially read followed by files in this directory.
 Files are read in alphanumeric order. So _0100-basePipelines.json_ is read before _0200-a-cutdown-libreoffice.json_. The
