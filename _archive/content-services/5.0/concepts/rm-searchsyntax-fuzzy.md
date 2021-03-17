@@ -1,0 +1,20 @@
+---
+author: [Alfresco Documentation, Alfresco Documentation]
+source: 
+audience: 
+category: Getting Started
+option: Search syntax
+---
+
+# Search for fuzzy matching
+
+Fuzzy matching is not implemented. The default Lucene implementation is Levenshtein Distance, which is expensive to evaluate.
+
+Postfix terms with "~float"
+
+```
+apple~0.8
+```
+
+**Parent topic:**[Alfresco Full Text Search Reference](../concepts/rm-searchsyntax-intro.md)
+

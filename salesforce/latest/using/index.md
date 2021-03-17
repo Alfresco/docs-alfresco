@@ -18,7 +18,7 @@ You can work with your Alfresco files directly from a Salesforce record.
 The Alfresco app can be added to any record type that supports layouts (for example; Accounts, Cases, and Opportunities), if it's been added by your Salesforce administrator. You'll see a section containing Alfresco content if the app has been added to the record type. The name of this section depends on what your Salesforce administrator has called it. In this task, we'll call it the Alfresco section.
 
 1. In Salesforce, click the record that you want to work with. For example, this might be a specific account from the **Accounts** tab in Salesforce.
-2. In the **Alfresco** section, enter your Alfresco login details. Contact your system administrator if you don't know what your login details are for Alfresco. See [Logging in to Alfresco](https://docs.alfresco.com/6.2/tasks/gs-login.html)(#LINK) for more information.
+2. In the **Alfresco** section, enter your Alfresco login details. Contact your system administrator if you don't know what your login details are for Alfresco. See [Logging in to Alfresco]({% link content-services/latest/using/share.md %}) for more information.
 3. In the **Alfresco** section you can:
 
     * **Search** for content using the search box.
@@ -45,7 +45,7 @@ You can use the **Alfresco Repository** tab to link a file or folder with a reco
 
 2. Click the **Alfresco Repository** tab.
 
-    Log in to Alfresco. Contact your system administrator if you don't know what your login details are for Alfresco. See [Logging in to Alfresco](https://docs.alfresco.com/6.2/tasks/gs-login.html)(#LINK) for more information.
+    Log in to Alfresco. Contact your system administrator if you don't know what your login details are for Alfresco. See [Logging in to Alfresco]({% link content-services/latest/using/share.md %}) for more information.
 
     An Alfresco view is displayed, with tabs for **Personal Files**, **Repository**, **Sites**, and **Search**.
 
@@ -89,7 +89,7 @@ When you are working with a Salesforce record, there might be marketing, custome
 
 2. Click the **Alfresco Repository** tab.
 
-3. Enter your Alfresco login details. Contact your system administrator if you don't know what your login details are for Alfresco. See [Logging in to Alfresco](https://docs.alfresco.com/6.2/tasks/gs-login.html)(#LINK) for more information.
+3. Enter your Alfresco login details. Contact your system administrator if you don't know what your login details are for Alfresco. See [Logging in to Alfresco]({% link content-services/latest/using/share.md %}) for more information.
 
     An Alfresco view is displayed, with tabs for **Personal Files**, **Repository**, **Sites**, and **Search**.
 

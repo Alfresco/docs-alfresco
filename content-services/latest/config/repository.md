@@ -419,7 +419,7 @@ The following properties specify the parameters that control how Content Service
 | share.port | Specifies the externally resolvable port number of the Alfresco Share web application URL. The default is `8080`. |
 | share.protocol | Specifies the protocol to use. The default is `http`. |
 
-## Control JVM system properties
+## Control JVM system properties {#jvm-sysprops}
 
 Use these techniques to control JVM system properties.
 
@@ -656,11 +656,32 @@ For security reasons, configure your proxy to forward only requests to the resou
 
     In this example, Apache is configured to accept strong encryption only. Adapt SSLCipherSuite if this causes you problems.
 
+9. (Optional) Only required if configuring Alfresco Share. 
+
+    Add and set the following properties in the `JAVA_OPTS` environmental variable referenced by the Share application, as they're required at Share start up:
+
+    ```bash
+    -Dhttp.secured.session=true
+    -Dcookies.sameSite=none
+    ```
+
+    When using Share with Chromium-based browsers (such as Google Chrome or the latest releases of Microsoft Edge) with either Alfresco Content Connector for Salesforce or the SAML Module, the share web must be secured using an HTTPS (SSL/TLS) certificate. 
+
+10. (Optional) Only required if configuring Alfresco Share. 
+
+    Add and set the property in the `JAVA_OPTS` environmental variable corresponding to the JVM of the Tomcat instance when deploying Share:
+
+    ```bash
+    -Dhttp.secured.session=true
+    ```
+
+    This property secures the `JESSIONID` cookie. It's not enabled by default because it would break HTTP-only (non-secure) environments. See [Control JVM system properties](#jvm-sysprops) for more information on how to set `JAVA_OPTS` for Tomcat deployments.
+
 ### Configure SSL for a test environment
 
 If you're configuring SSL in a development or test environment, you can edit some configuration files to enable SSL.
 
-**Note:** These instructions should only be used for configuring a test environment. If you're configuring a production environment, you should use a proxy server to handle all SSL communication. See [Configuring SSL for a production environment](#ssl-repo) for more information.
+> **Note:** These instructions should only be used for configuring a test environment. If you're configuring a production environment, you should use a proxy server to handle all SSL communication. See [Configuring SSL for a production environment](#ssl-repo) for more information.
 
 Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your development or test system. At this point, we assume that:
 
@@ -754,7 +775,28 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
     aos.baseUrlOverwrite=https://localhost:7070/alfresco/aos
     ```
 
-7. Restart your Tomcat server.
+7. (Optional) Only required if configuring Alfresco Share to use HTTPS. 
+
+    Add and set the following properties in the `JAVA_OPTS` environmental variable referenced by the Share application, as they're required at Share start up:
+
+    ```bash
+    -Dhttp.secured.session=true
+    -Dcookies.sameSite=none
+    ```
+
+    When using Share with Chromium-based browsers (such as Google Chrome or the latest releases of Microsoft Edge), the Share communication must be secured using an HTTPS (SSL/TLS) certificate.
+
+8. (Optional) Only required if configuring Alfresco Share to use HTTPS. 
+
+    Add and set the property in the `JAVA_OPTS` environmental variable corresponding to the JVM of the Tomcat instance when deploying Share:
+
+    ```bash
+    -Dhttp.secured.session=true
+    ```
+
+    This property secures the `JESSIONID` cookie. It's not enabled by default because it would break HTTP-only (non-secure) environments. See [Control JVM system properties](#jvm-sysprops) for more information on how to set `JAVA_OPTS` for Tomcat deployments.
+
+9. Restart your Tomcat server.
 
     Access Content Service and Alfresco Share using HTTPS:
 
@@ -927,25 +969,10 @@ The MIME type is available in the repository.
 
 ## Configure metadata extraction
 
-Metadata extraction automatically extracts metadata information from inbound and/or updated content and updates the corresponding nodes properties with the metadata values.
+Metadata extraction automatically extracts metadata information from inbound and/or updated content and updates the 
+corresponding nodes properties with the metadata values.
 
-Metadata extractors offer server-side extraction of values from added or updated content.
-
-1. Download the [content-services-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/content-services-context.xml){:target=""} file.
-
-2. Copy the file to `<extension>` and save it with the name `custom-repository-context.xml`.
-
-    This file contains definitions of the default set of extractors.
-
-3. Declare a new extractor in the `<extension>/custom-repository-context.xml` file.
-
-    The following example shows a new extractor written in class `com.company.MyExtracter`:
-
-    ```bash
-    <bean id="com.company.MyExtracter" class="com.company.MyExtracter" parent="baseMetadataExtracter" />
-    ```
-
-4. Save the file and then restart the Content Service server.
+For more information see [metadata extraction extension point]({% link content-services/latest/develop/repo-ext-points/metadata-extractors.md %}). 
 
 ## About aspects
 

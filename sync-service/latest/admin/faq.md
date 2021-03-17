@@ -23,15 +23,15 @@ The sequence in which different Sync Service components should be started is:
 
 ## In the event of a conflict, how do I resolve it?
 
-The [conflict resolution matrix](https://docs.alfresco.com/desktopsync/concepts/ds-conflicts.html) (#LINK) describes how Desktop Sync handles sync conflicts.
+The [conflict resolution matrix]({% link desktop-sync/latest/using/sync-conflict-guide.md %}) describes how Desktop Sync handles sync conflicts.
 
 ## What authentication do Desktop Sync and Sync Service support?
 
-Alfresco Desktop Sync supports SAML authentication with the Identity Service. See [Alfresco SSO Guide](https://docs.alfresco.com/sso/concepts/intro.html)(#LINK) for more details.
+Alfresco Desktop Sync supports SAML authentication with the Identity Service. See the [Single Sign On Guide]({% link identity-service/latest/tutorial/sso/index.md %}) for more details.
 
 Alfresco Desktop Sync also supports basic authentication with Alfresco Content Services where Identity Service is not being used.
 
-> **Important:** Alfresco Desktop Sync does not support [SAML Module for Alfresco Content Services](https://docs.alfresco.com/saml/concepts/saml-overview.html)(#LINK). Users can log in with their credentials using basic authentication, but SAML authentication must not be enforced.
+> **Important:** Alfresco Desktop Sync does not support [SAML Module for Alfresco Content Services]({% link saml-module/latest/index.md %}). Users can log in with their credentials using basic authentication, but SAML authentication must not be enforced.
 
 ## How can I monitor ActiveMQ?
 

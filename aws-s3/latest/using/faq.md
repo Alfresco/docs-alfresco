@@ -14,7 +14,7 @@ The use of IAMs is recommended best practice from AWS. Should you prefer not to 
 
 ## What is the default delete behaviour when using the S3 Connector with S3 versioning enabled?
 
-AWS versioning-enabled buckets are completely transparent to Alfresco, so the standard delete activity should take place as defined in the node lifecycle. For more information, see the main stores section in [Repository concepts](TODO_LINK:https://docs.alfresco.com/6.2/concepts/dev-repository-concepts.html). In summary this means:
+AWS versioning-enabled buckets are completely transparent to Alfresco, so the standard delete activity should take place as defined in the node lifecycle. In summary this means:
 
 * when a user deletes content, the store changes to the Archive Store - nothing happens to the content
 * when a user deletes content from the Trashcan (or archive store), `alf_node.deleted=1` and `alf_content_url.orphantime` is set

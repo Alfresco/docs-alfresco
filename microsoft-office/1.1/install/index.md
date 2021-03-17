@@ -16,7 +16,7 @@ Alfresco Office Services is part of the standard Alfresco installation, and soft
 
 > **Note:** Microsoft Office 2016 is supported with AOS 1.1.2 and Alfresco 5.1 or later. If you use Office 2016, you must upgrade to Alfresco 5.1 or later.
 
-> **Note:** You must activate SSL when using Alfresco Office Services. For more information, see [Configuring SSL](LINK 5.1/concepts/configure-ssl-intro.html).
+> **Note:** You must activate SSL when using Alfresco Office Services. For more information, see [Configuring SSL]({% link content-services/6.0/config/repository.md %}#ssl-repo).
 
 ## Installing manually using the AMP file
 
@@ -24,13 +24,13 @@ If you install Alfresco using the setup wizard, AOS is installed as a component 
 
 A fully-compatible SharePoint repository is also installed, that allows Microsoft Office Suite applications (for example, Word, PowerPoint, and Excel) to interact with Alfresco as if it was SharePoint. This feature allows you to edit Office documents in Alfresco Share and to modify Office files without checking them in and out. Alfresco locks the file while it is being modified and releases the lock when the file is saved and closed.
 
-1. If you are installing using the setup wizard, choose the installation wizard that you require (for your platform) and follow the instructions in [Installing Alfresco using setup wizards](LINK 5.1/concepts/installs-eval-intro.html).
+1. If you are installing using the setup wizard, choose the installation wizard that you require (for your platform) and follow the instructions for installing Alfresco using setup wizards.
 
     If you use the **Easy** install option, Alfresco Office Services is installed by default. If you use the Advanced option, ensure that in the Select Components window, you check the Alfresco Office Services box.
 
-2. If you are installing the Alfresco repository manually, or are installing into an existing Alfresco instance:
+2. If you are installing the repository manually, or are installing into an existing Alfresco instance:
 
-    1. Install the AMP file, `alfresco-aos-module-1.1.x.amp`. See [Installing an AMP](LINK /5.1/tasks/amp-install.html) for information about installing an AMP file.
+    1. Install the AMP file, `alfresco-aos-module-1.1.x.amp`. See [Installing an AMP]({% link content-services/6.0/install/zip/amp.md %}) for more information.
 
     2. Deploy the `_vti_bin.war` file.
 
@@ -38,7 +38,7 @@ A fully-compatible SharePoint repository is also installed, that allows Microsof
 
     > **Note:** If the `_vti_bin` folder already exists under `tomcat/webapps` (for example, in the case of an upgrade), then remove the folder first, otherwise the new WAR file won't be deployed.
 
-## Installing into an existing web application
+## Install into an existing web application
 
 If you install Alfresco manually, you must deploy the `ROOT.war` application to the server root. If you already have an application running in the server root, you can merge the Alfresco function into your existing web application.
 
@@ -53,7 +53,7 @@ The following diagram shows the information flow between Microsoft Office and Al
 
 ![How it works]({% link microsoft-office/images/howitworks.png %})
 
-1. Extract the `_vti_inf.html` file from the <TOMCAT\_HOME\>webapps/ROOT.war archive file and add it to your web application.
+1. Extract the `_vti_inf.html` file from the `<TOMCAT_HOME>webapps/ROOT.war` archive file and add it to your web application.
 
 2. In your web application, modify the service that responds to requests to the server root, so that it sends `PROPFIND` and `OPTIONS` requests to the /alfresco application.
 

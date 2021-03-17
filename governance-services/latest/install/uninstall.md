@@ -10,7 +10,7 @@ representing the Governance Services UI component is applied to the Alfresco Sha
 
 Both of the AMP files need to be removed in order to uninstall Governance Services. 
 Use the Module Management Tool (MMT) to do this. For more information on the tool, 
-see [Module Management Tool (MMT)](TODO_LINK:http://docs.alfresco.com/5.2/concepts/dev-extensions-modules-management-tool.html)
+see [Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt)
 
 The MMT is a command line tool. The syntax for uninstalling an AMP file using MMT is:
 

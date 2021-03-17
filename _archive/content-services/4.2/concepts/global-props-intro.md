@@ -1,0 +1,20 @@
+---
+author: [Alfresco Documentation, Alfresco Documentation]
+audience: 
+---
+
+# About the alfresco-global.properties file
+
+The global properties alfresco-global.properties file contains the customizations for extending Alfresco.
+
+If you install Alfresco using one of the installation wizards, the alfresco-global.properties file is modified with the settings that you chose during installation. If you install Alfresco manually using the WAR file, you can modify properties in the alfresco-global.properties file.
+
+A sample global properties file is supplied with the Alfresco installation. By default, the file contains sample settings for running Alfresco, for example, the location of the content and index data, the database connection properties, the location of third-party software, and database driver properties.
+
+-   **[Modifying the global properties file](../tasks/global-props-config.md)**  
+This section describes the steps for modifying the alfresco-global.properties file.
+-   **[Setting composite properties in the global properties file](../tasks/global-props-composite.md)**  
+This section uses the `imap.server.mountPoints` property as an example.
+
+**Parent topic:**[Configuration overview](../concepts/configuration-overview.md)
+

@@ -7,13 +7,16 @@ services:
       - title: "Read documentation"
         url: /content-services/latest/
   - title: "Process"
-    text: "Alfresco Process Services (powered by Activiti) is an enterprise Business Process Management (BPM) solution targeted at business people and developers."
+    text: "Alfresco Process Services (powered by Activiti) is an enterprise Business Process Management (BPM) solution targeted at business people and developers.
+    <br/>
+    <br/>
+    Alfresco Process Automation can be used on top of Alfresco Cloud (Alfresco Content Services on PaaS) to automate simple and complex content-centric business processes."
     url:
     image: /assets/img/ic_process_80px.svg
     sub:
-      - title: "On premise"
+      - title: "Process Services"
         url: /process-services/latest/
-      - title: "Process Automation on Alfresco Cloud"
+      - title: "Process Automation"
         url: /process-automation/latest/
   - title: "Governance"
     text: "Alfresco Governance Services controls important information that needs to be retained over time. It's used in highly regulated environments, for managing governmental information or personnel records, or where information might be audited."
@@ -21,7 +24,7 @@ services:
     image: /assets/img/ic_governance_80px.svg
     sub:
       - title: "Read documentation"
-        url:
+        url: /governance-services/latest/
 
 integrations:
   - title: "Synchronize"
@@ -37,7 +40,7 @@ integrations:
         url: /desktop-sync/latest/
   - title: "Transform"
     text: "Create secure, scalable, reliable, and extensible transforms for converting files from their current format into other formats using the all-in-one Transform Core Engine (T-Engine) that performs all the core transforms."
-    url: 
+    url:
     image: /assets/img/ic_transform_80px.svg
     sub:
       - title: "Transform Service"
@@ -87,7 +90,7 @@ integrations:
     sub:
       - title: "Amazon S3"
         text: "Alfresco Content Connector for AWS S3 uses Amazon's Simple Storage Service (S3) as the storage mechanism for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
-        url: /aws-s3/latest
+        url: /aws-s3/latest/
       - title: "Microsoft Azure"
         text: "Alfresco Content Connector for Azure uses Microsoft's Azure Blob Storage as an alternative content store for Alfresco Content Services, allowing for virtually unlimited and inexpensive storage."
         url: /microsoft-azure/latest/
@@ -108,6 +111,9 @@ integrations:
       - title: "SAP"
         text: "Alfresco Content Connector for SAP applications offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
         url: /sap/latest/
+      - title: "Microsoft 365"
+        text: "Alfresco Collaboration Connector for Microsoft 365 allows you to integrate with Microsoft Office Online applications from the Alfresco Digital Workspace."
+        url: /microsoft-365/latest/
       - title: "Microsoft Outlook"
         text: "Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook."
         url: /microsoft-outlook/latest/
@@ -121,7 +127,7 @@ integrations:
 applications:
   - title: "Digital Workspace"
     text: "Alfresco Digital Workspace is a content management application built with the Alfresco Application Development Framework (ADF)."
-    url: /digital-workspace/latest
+    url: /digital-workspace/latest/
     image: /assets/img/logo_dw_72px.svg
   - title: "Application Development Framework"
     text: "Alfresco Application Development Framework makes it easy to build custom web applications to manage and view content in the repository."
@@ -140,4 +146,4 @@ applications:
 #        url:
 #      - title: "Android"
 #        url:
-        
+

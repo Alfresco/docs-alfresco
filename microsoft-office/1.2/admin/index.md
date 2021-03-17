@@ -16,7 +16,7 @@ There is a known issue in Office 2016 for Mac, if you edit a file immediately af
 
 ## Issue with Online Editing
 
-There is a known issue where Online Editing is not available using the 64-bit version of Internet Explorer. See [Plan browser support (SharePoint Server 2010)](http://technet.microsoft.com/en-us/library/cc263526(v=office.14)){:target="_blank"} for more information.
+There is a known issue where Online Editing is not available using the 64-bit version of Internet Explorer. See [Plan browser support (SharePoint Server 2010)](https://docs.microsoft.com/en-us/previous-versions/office/sharepoint-server-2010/cc263526(v=office.14)?redirectedfrom=MSDN){:target="_blank"} for more information.
 
 ## Error message: "The address is not valid" when connecting to `http://server:port/alfresco/aos`
 
@@ -46,11 +46,11 @@ If you type: `http://server:port/_vti_bin/`, you will see a message Welcome to A
 
 If these files and messages are not available from the browser, then AOS has not been deployed properly.
 
-See [Installing Alfresco](LINK) for information on where the deployed ROOT and `_vti_bin` WAR files need to be located. If `_vti_bin.war` does not exist, you'll need to reinstall the Alfresco Office Services AMP.
+See [Install Alfresco WARs]({% link content-services/6.1/install/zip/tomcat.md %}#install-alfresco-wars) for information on where the deployed `ROOT` and `_vti_bin` WAR files need to be located. If `_vti_bin.war` does not exist, you'll need to reinstall the Alfresco Office Services AMP.
 
-## Extra files created when mounting AOS using WebDAV and Mac Finder
+## Extra files created when mounting AOS using WebDAV and Mac Finder
 
-Do not mount the AOS repository root (alfresco/aos or any sub folder) as a WebDAV folder with Mac Finder. Otherwise you might see extraneous files in Alfresco Share; for example, files prefixed with the characters `._`
+Do not mount the AOS repository root (`alfresco/aos` or any sub folder) as a WebDAV folder with Mac Finder. Otherwise you might see extraneous files in Alfresco Share; for example, files prefixed with the characters `._`.
 
 ## Microsoft path length limitation
 
@@ -82,7 +82,7 @@ The problem is caused when some mandatory fields are not filled out, but are dec
 
 If you are using Office 2013 and are working with an OLE file (for example, `.doc`, `.xls`, or `.ppt` files), and the Protected View is activated for the document, then property mapping can fail even after switching into Editing Mode.
 
-To resolve this problem, you need to prevent the Protected View in Office by adding the Alfresco repository server to the list of trusted sites.
+To resolve this problem, you need to prevent the Protected View in Office by adding the repository server to the list of trusted sites.
 
 ## Values of date fields in OLE documents not stored
 

@@ -80,7 +80,7 @@ security.encryption.secret=wTy53pl09aN4iOkL
 
 You must set up LDAP in Alfresco Content Services.
 
-Detailed instructions are available in [http://docs.alfresco.com/5.2/concepts/auth-ldap-intro.html](TODO_LINK:http://docs.alfresco.com/5.2/concepts/auth-ldap-intro.html)
+Detailed instructions are available in [configure LDAP]({% link content-services/latest/admin/auth-sync.md %}#configure-ldap).
 
 For a working example of an LDAP subsystem, check the LDAP demo provided in the `activiti-share-connector.zip`. The demo amp file contains sample LDAP configuration files for getting Alfresco Content Services setup up with an LDAP (it contains no Share Connector files) configuration.
 
@@ -166,7 +166,7 @@ The secret token appears in clear text, therefore, to avoid saving it like that:
 1. Override the value (and all other properties) using Alfresco Content Services subsystems and JMX.
 2. To connect to an Alfresco Content Services server using JMX, see:
 
-    [http://docs.alfresco.com/5.2/concepts/jmx-intro-config.html](TODO_LINK:http://docs.alfresco.com/5.2/concepts/jmx-intro-config.html)
+    [Using a JMX client to change settings dynamically]({% link content-services/latest/config/index.md %}#using-jmx-client-to-change-settings-dynamically).
 
 3. Once connected, navigate to `/Alfresco/Configuration/Activiti/default/Attributes` and modify the value for `activiti.secret`.
 
@@ -474,8 +474,8 @@ You have run a process definition as a workflow in Share. My tasks, My workflows
 
 You can create rules to manage folders in a process. There are two ways to create rules in the Share Connector:
 
-* **[Create your own rules](TODO_LINK:http://docs.alfresco.com/5.2/tasks/library-folder-rules-define-create.html)** for creating new set of rules for a folder
-* **[Link to an existing rules set](TODO_LINK:http://docs.alfresco.com/5.2/tasks/library-folder-rules-define-link.html)** to reuse the existing set of rules defined for another folder
+* **[Create your own rules]({% link content-services/latest/using/content/rules.md %})** for creating new set of rules for a folder
+* **[Link to an existing rules set]({% link content-services/latest/using/content/rules.md %}#linking-to-an-existing-rule-set)** to reuse the existing set of rules defined for another folder
 
 The options are listed under **Perform Actions**. Follow the steps until you reach the Process Services specific actions (under More Actions), and then continue as follows.
 

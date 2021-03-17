@@ -1,0 +1,33 @@
+---
+author: Alfresco Documentation
+source: 
+audience: [, ]
+category: User Help
+option: Records Management
+---
+
+# Searching for special types
+
+To search for special types, you can match the special type names using ASPECT.
+
+**Note:** These options are only available in DoD 5015.2-STD compliant Records Management sites.
+
+For example, to search for all digital photograph records:
+
+1.  In the **Search Text**box, type:
+
+    `ASPECT:"dod:digitalPhotographRecord"`
+
+2.  In the **Results options** section, select the check box for **Records**.
+
+
+You can also search on the following special fields:
+
+|Special fields|Description|
+|--------------|-----------|
+|dod:scannedRecord|Search for all scanned records.|
+|dod:pdfRecord|Search for all PDF records.|
+|dod:webRecord|Search for all web page records.|
+
+**Parent topic:**[Advanced search options](../concepts/rm-search-syntax.md)
+

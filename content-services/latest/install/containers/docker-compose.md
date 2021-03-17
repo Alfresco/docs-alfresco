@@ -2,7 +2,9 @@
 title: Install using Docker Compose
 ---
 
-Use this information to quickly start up Content Services using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
+Use this information to quickly start up Content Services using Docker Compose.
+
+> **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 
 To deploy Content Services using Docker Compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/latest/install/containers/index.md %}#prerequisites) before continuing.
 
@@ -422,7 +424,7 @@ docker-compose down
 
 ## Troubleshooting
 
-1. If you have issues running ```docker-compose up``` after deleting a previous Docker Compose cluster, try replacing step 4 in the initial Docker Compose instructions with:
+1. If you have issues running ```docker-compose up``` after deleting a previous Docker Compose cluster, try replacing step 5 in the initial Docker Compose instructions with:
 
     ```bash
     docker-compose down && docker-compose build --no-cache && docker-compose up
@@ -452,7 +454,7 @@ The table below shows the location of the Dockerfile for each container used in 
 | --------- | --------------------|
 | alfresco | [https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile](https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile){:target="_blank"} |
 | share | [https://github.com/Alfresco/share/blob/master/packaging/docker/Dockerfile](https://github.com/Alfresco/share/blob/master/packaging/docker/Dockerfile){:target="_blank"} |
-| solr6 | [https://github.com/Alfresco/InsightEngine/blob/master/search-services/packaging/src/docker/Dockerfile](https://github.com/Alfresco/InsightEngine/blob/master/search-services/packaging/src/docker/Dockerfile){:target="_blank"} |
+| solr6 | https://github.com/Alfresco/InsightEngine/blob/master/search-services/packaging/src/docker/Dockerfile |
 | <nobr>digital-workspace</nobr> | https://github.com/Alfresco/alfresco-digital-workspace-app/blob/develop/Dockerfile |
 | activemq | [https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile](https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile){:target="_blank"} |
 | <nobr>sync-service</nobr> | https://github.com/Alfresco/dsync-services/blob/master/service-sync/packaging/docker/Dockerfile |

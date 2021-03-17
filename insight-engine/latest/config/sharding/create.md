@@ -577,9 +577,9 @@ Prerequisites for viewing the Search Server Sharding page:
 
 * Check you have installed Alfresco Content Services 6.2 or above and have a valid license.
 
-* Support for shard groups requires a clustered license. Make sure that you enable clustering on your Alfresco Content Services license. For more information, see [Repository server clustering LINK](https://docs.alfresco.com/6.1/tasks/adminconsole-reposerverclustering.html) and [Uploading a new license LINK](https://docs.alfresco.com/6.1/tasks/at-adminconsole-license.html).
+* Support for shard groups requires a clustered license. Make sure that you enable clustering on your Alfresco Content Services license. For more information, see [Install and configure Content Services nodes]({% link content-services/latest/admin/cluster.md %}#install-and-configure-content-services-nodes) and [Uploading a new license]({% link content-services/latest/admin/license.md %}#uploadlicense).
 
-1. Open the Admin Console. For more information, see [Launching the Admin Console LINK](https://docs.alfresco.com/6.1/tasks/adminconsole-open.html).
+1. Open the Admin Console. For more information, see [Launch Admin Console]({% link content-services/latest/admin/admin-console.md %}#launch-admin-console).
 2. In Repository Services, click **Search Server Sharding**.
 
     You see the Search Server Sharding page. It displays information about dynamic shard index registration, shard groups, and shard instances.
@@ -883,7 +883,7 @@ You can selectively reindex a small subset of the index based on a query. This e
 Example 1: To reindex people after changing the first name and last name tokenisation, use the following single-threaded query:
 
 ```http
-http://localhost:8983/solr/admin/cores?action=reindex&query=TYPE:person
+http://localhost:8983/solr/admin/cores?action=reindex&query=TYPE:"cm:person"
 ```
 
 Example 2: To reindex jobs that failed or threw an exception when indexing, use the following query:

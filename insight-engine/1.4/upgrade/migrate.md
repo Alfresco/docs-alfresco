@@ -65,11 +65,11 @@ There are two steps to migrating your installation from Alfresco Content Service
 
 > **Note:** You can't upgrade Alfresco Content Services 5.x using Docker Compose.
 
-1. Upgrade from Alfresco Content Services 5.x to Alfresco Content Services 6.0, for more see [Upgrading from Solr 4 to Solr 6 search LINK](https://docs.alfresco.com/search-enterprise/tasks/solr4-solr6-migration.html).
+1. Upgrade from Alfresco Content Services 5.x to Alfresco Content Services 6.0, for more see [Migrate Solr 4 to Solr 6]{% link search-services/latest/upgrade/migrate.md %}).
 
     > **Note:** You can't do this using Docker Compose.
 
-2. Migrate from Search Services to Search and Insight Engine see [Migrating Content Services 6.0 with Search Services 1.3 or above](#migrating-content-services-60-with-search-services-13-or-above).
+2. Migrate from Search Services to Search and Insight Engine see [Migrate Content Services 6.0 with Search Services 1.3 or above](#migrate-content-services-60-with-search-services-13-or-above).
 
 ## Migrate using Docker Compose
 

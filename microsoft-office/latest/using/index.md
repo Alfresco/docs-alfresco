@@ -102,7 +102,7 @@ Alternatively, for earlier versions of Office, Microsoft Document Connection can
 
 > **Note:** Microsoft Office for Mac does not support Kerberos protocol as a method of authentication. Document Connection is not shipped with Microsoft Office 2016, so can only be used with earlier versions of Microsoft Office.
 
-If you are using Microsoft Office 2016, and do not have OneDrive, see [Microsoft OneDrive](https://support.office.com/en-us/article/Get-started-with-the-OneDrive-for-Business-Next-Generation-Sync-Client-on-Mac-OS-X-d11b9f29-00bb-4172-be39-997da46f913f){:target="_blank"} for information about how to enable this.
+If you are using Microsoft Office 2016, and do not have OneDrive, see [Microsoft OneDrive](https://support.microsoft.com/en-us/office/sync-files-with-onedrive-on-mac-os-x-d11b9f29-00bb-4172-be39-997da46f913f?ui=en-us&rs=en-us&ad=us){:target="_blank"} for information about how to enable this.
 
 If you are using earlier versions of Office, you can set up Microsoft Document Connection.
 

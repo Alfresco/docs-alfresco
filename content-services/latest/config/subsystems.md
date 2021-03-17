@@ -55,14 +55,12 @@ The supplied subsystem categories are:
 | [fileServers]({% link content-services/latest/config/file-servers.md %}) | Properties for the FTP servers |
 | [googledocs]({% link google-drive/latest/index.md %}) | Properties for Google Docs integration |
 | [imap]({% link content-services/latest/config/email.md %}#configure-imap) | Properties for the IMAP service |
-| [OOoDirect]({% link content-services/latest/config/libreoffice.md %}#configure-openoffice) | OpenOffice transformations settings (use LibreOffice where possible) |
-| [OOoJodconverter]({% link content-services/latest/config/libreoffice.md %}) | Default settings for LibreOffice transformations |
 | [Replication]({% link content-services/latest/admin/replication.md %}) | Settings for the replication jobs tool |
 | [Search]({% link search-services/latest/index.md %}) | Search mechanism |
 | [Subscriptions]({% link content-services/latest/config/email.md %}#enable-subscription-service) | Settings for the activities feeds |
 | [Synchronization]({% link content-services/latest/admin/auth-sync.md %}#configuring-synchronization) | Synchronization of local user and group information with the user registry exporters (usually LDAP directories) in the authentication chain |
 | [sysAdmin]({% link content-services/latest/config/repository.md %}#sysadmin) | Properties for server administration |
-| [thirdparty]({% link content-services/latest/config/libreoffice.md %}#change-ooojodconverter) | Properties for third-party software, for example, ImageMagick |
+| thirdparty | Properties for third-party software |
 | [Transformers]({% link content-services/latest/admin/transformations.md %}) | Properties for the transformation server |
 | [wcm_deployment_receiver]({% link content-services/latest/admin/workflows.md %}#workflowconsole) | Properties for WCM Deployment Receiver |
 

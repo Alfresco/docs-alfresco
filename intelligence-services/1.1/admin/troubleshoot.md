@@ -4,7 +4,7 @@ title: Troubleshoot Intelligence Services
 
 Use this information to help troubleshoot Intelligence Services.
 
-Make sure that Alfresco Transform Service is working before testing Alfresco Intelligence Services. See [Troubleshoot Transform Service](https://docs.alfresco.com/transform/concepts/transform-troubleshoot.html)(#LINK) for more.
+Make sure that Alfresco Transform Service is working before testing Alfresco Intelligence Services. See [Troubleshoot Transform Service]({% link transform-service/latest/admin/index.md %}#troubleshoot-transform-services) for more.
 
 ## Why don't I see any extracted metadata (AI properties)?
 
@@ -15,7 +15,7 @@ Check that your configured rule adds the desired AI aspects to extract and **Req
 
 ## I've added AI aspects and requested AI renditions but I'm still not seeing any extracted AI data. Which logs can I refer to see if anything is failing?
 
-First, check the Alfresco Transform Service is running for a document transform (e.g. docx to pdf). See [Troubleshoot Transform Service](https://docs.alfresco.com/transform/concepts/transform-troubleshoot.html)(#LINK) for more.
+First, check the Alfresco Transform Service is running for a document transform (e.g. docx to pdf). See [Troubleshoot Transform Service]({% link transform-service/latest/admin/index.md %}#troubleshoot-transform-services) for more.
 
 Next, check the logs for each microservice (container) including the Transform Router and AI Transform Engine. You can also check ActiveMQ queues to see the Transform Requests / Replies.
 
@@ -154,7 +154,7 @@ You may see one of the following errors:
 ```
 
 ```bash
-* The request signature we calculated does not match the signature you provided. 
+* The request signature we calculated does not match the signature you provided.
 Check your AWS Secret Access Key and signing method
 ```
 
@@ -179,7 +179,7 @@ For very small files, the AWS synchronous APIs are called. However, for many fil
 
 We recommend the following setup:
 
-* Use a different bucket than the one used by Alfresco Content Services (when using Alfresco Content Connector for AWS S3).
+* Use a different bucket than the one used by Content Services (when using Alfresco Content Connector for AWS S3).
 * Create an S3 bucket in the same region as the Amazon AI services.
 * For Comprehend, you also need to enable Comprehend to have write access to your S3 bucket for returning the results. This can be done by setting up an IAM role.
 
@@ -187,7 +187,7 @@ See [Set up services in AWS]({% link intelligence-services/1.1/install/index.md 
 
 ## When is Amazon Elastic File System (EFS) used?
 
-From the architecture diagram in the [Intelligence Services overview]({% link intelligence-services/1.1/admin/index.md %}), the Shared File Store (SFS) provides a mechanism for Alfresco Content Services to send source files to the Transform Engines and receive target files from the Transform Engines. This includes the new AI Transform Engine that's used to call the Amazon AI services. In order to scale SFS for performance and reliability, it must be able to access a shared volume storage, such as managed EFS or self-managed NFS.
+From the architecture diagram in the [Intelligence Services overview]({% link intelligence-services/1.1/admin/index.md %}), the Shared File Store (SFS) provides a mechanism for Content Services to send source files to the Transform Engines and receive target files from the Transform Engines. This includes the new AI Transform Engine that's used to call the Amazon AI services. In order to scale SFS for performance and reliability, it must be able to access a shared volume storage, such as managed EFS or self-managed NFS.
 
 ## I'm concerned about data privacy of the content that's processed by AWS. Do I have any control around this?
 
@@ -221,4 +221,4 @@ Starting from version 1.1, Intelligence Services allows you to explicitly config
 
 The Amazon S3 service is mandatory and required to use the complete functionality of Intelligence Services.
 
-Alfresco Content Connector for AWS S3 is not specifically required for Intelligence Services. However, it can be purchased to use as an alternative content store when deploying Alfresco Content Services.
+Alfresco Content Connector for AWS S3 is not specifically required for Intelligence Services. However, it can be purchased to use as an alternative content store when deploying Content Services.

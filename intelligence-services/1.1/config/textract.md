@@ -4,9 +4,9 @@ title: Custom configuration - Textract
 
 Use this information to configure and deploy a custom AI model using Amazon Textract.
 
-This guide takes you through the journey of configuring your Alfresco Content Services instance to enrich the content with custom metadata detected with powerful state of the art AI algorithms.
+This guide takes you through the journey of configuring your Content Services instance to enrich the content with custom metadata detected with powerful state of the art AI algorithms.
 
-Multiple custom entity model can be configured and used in Alfresco Content Services simultaneously, on either the same or different folders, using a flexible configuration.
+Multiple custom entity model can be configured and used in Content Services simultaneously, on either the same or different folders, using a flexible configuration.
 
 Follow the remaining sections to start setting up your custom Textract models.
 
@@ -19,7 +19,7 @@ There are two parts to creating a Custom Metadata Extraction model:
 
 ### Custom mapping
 
-As a developer or administrator, you can define a custom AI content model to enable mapping of extracted text values into Alfresco Content Services content model properties (or metadata). You can define one or more aspects, each with one or more properties, where each aspect can extend a new "out-of-the-box" parent aspect (`ai:textract`). Note that this is similar to the Comprehend parent aspect, `ai:features`.
+As a developer or administrator, you can define a custom AI content model to enable mapping of extracted text values into Content Services content model properties (or metadata). You can define one or more aspects, each with one or more properties, where each aspect can extend a new "out-of-the-box" parent aspect (`ai:textract`). Note that this is similar to the Comprehend parent aspect, `ai:features`.
 
 * The properties may be single-valued or multi-valued.
 * Typically, extracted text values map to properties of data type `d:text`.
@@ -27,7 +27,7 @@ As a developer or administrator, you can define a custom AI content model to ena
 
 However, in theory, the property may be of any data type to which the extracted value can be mapped without a constraint violation.
 
-You'll need to define the custom Textract metadata configuration in JSON format. This should allow one or more specific key-value pairs to map to the Alfresco Content Services content model properties. Different aspects may be configured for different document types. The configuration can be statically bootstrapped by the repository on startup.
+You'll need to define the custom Textract metadata configuration in JSON format. This should allow one or more specific key-value pairs to map to the Content Services content model properties. Different aspects may be configured for different document types. The configuration can be statically bootstrapped by the repository on startup.
 
 > **Note:** Textract tables and cells are currently out-of-scope.
 
@@ -45,7 +45,7 @@ Multiple types of key matching are supported:
   * ignores case
   * ignores non-alphanumeric prefixes and suffixes
   * ignores whitespace
-  
+
   > **Note:** The default matching would have to process not just the keys received in the Textract JSON response, but also the keys defined in the property mapping configuration files.
 
 * exact matching

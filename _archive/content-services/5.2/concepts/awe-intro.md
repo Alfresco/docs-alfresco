@@ -1,0 +1,22 @@
+---
+author: [Alfresco Documentation, Alfresco Documentation]
+audience: 
+---
+
+# Alfresco Web Editor
+
+The Alfresco Web Editor is a Surf-based web application that provides in-context editing capabilities for repository content. The editor provides a mechanism for non-technical users to make edits to content directly within a web page.
+
+The Alfresco Web Editor uses the Forms Service default template.
+
+The Web Editor is packaged as a stand-alone WAR file so that it can be deployed to web applications that are in the sample instance, or remote, to the server. When it's deployed, an banner displays in your deployed web pages showing the Web Editor tab and it identifies the editable content. By default, it assumes that you have JavaScript enabled but it can also run without JavaScript.
+
+-   **[Web Editor deployment](../concepts/awe-deploy-overview.md)**  
+The simplest way to deploy the Web Editor \(AWE\) is to use the pre-built WAR \(awe.war\) file and to deploy it in the same application server instance of your web application.
+-   **[Configuring the Web Editor](../concepts/awe-config.md)**  
+The following Web Editor components must be configured:
+-   **[Sample web application using Web Editor](../concepts/awe-sample-unsupported.md)**  
+A sample customer WAR file is available in the Web Editor distribution. It demonstrates how a customer might use the Web Editor in a very simple JSP-based web application. This sample must not be used in a production environment and is not supported.
+
+**Parent topic:**[Installing and configuring Alfresco Web Quick Start](../concepts/WCM-intro.md)
+

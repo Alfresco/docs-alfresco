@@ -23,7 +23,7 @@ The sequence in which different Sync Service components should be started is:
 
 ## In the event of a conflict, how do I resolve it?
 
-The [conflict resolution matrix](https://docs.alfresco.com/desktopsync/concepts/ds-conflicts.html) (#LINK) describes how Desktop Sync handles sync conflicts.
+The [conflict resolution matrix]({% link desktop-sync/latest/using/sync-conflict-guide.md %}) describes how Desktop Sync handles sync conflicts.
 
 ## What authentication does Sync Service support?
 

@@ -291,7 +291,7 @@ For production environments, see the guidance in the [PingFederate documentation
 
 1. Run a full LDAP sync. This can be done by restarting Alfresco Content Services.
 
-    If a user exists in LDAP and PingFederate, but not in Alfresco, they will not be able to log in to Alfresco when SAML is enabled. See [Configuring LDAP (Active Directory)](LINK) for more information.
+    If a user exists in LDAP and PingFederate, but not in Alfresco, they will not be able to log in to Alfresco when SAML is enabled. See [Configuring LDAP (Active Directory)]({% link content-services/latest/admin/auth-sync.md %}#configure-ldap) for more information.
 
 2. Stop the PingFederate server.
 

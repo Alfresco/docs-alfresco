@@ -14,8 +14,8 @@ You require one of each of the following components.
 
 |Requirement|Description|
 |-----------|-----------|
-|Software|{::nomarkdown}<ul><li>FFmpeg 2.5.4 from the command line for video transformations.  Make sure that your FFmpeg installation has support for H.264 and AAC codecs. If FFmpeg is not available locally, Media Management functionality is reduced.</li><li>ExifTool 9.76 from the command line for full IPTC metadata extraction.</li><li>Apache ActiveMQ 5.15 or later.</li><li>ImageMagick 6.8.6-6 for image manipulation.</li></ul>{:/}**Note:** If you are using RAW image formats, you must install an ImageMagick delegate, for example, UFRaw, to manipulate the images. See [UFRaw](http://ufraw.sourceforge.net/){:target="_blank"} for more information. To preview RAW image formats, you need to set additional configuration properties. See [step 8](#install-the-media-management-amp-files).**Note:** [FFmpeg](http://ffmpeg.org){:target="_blank"} and [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/){:target="_blank"} are required to view media in Share. See [step 8](#install-the-media-management-amp-files) for information on how to set these in the `alfresco-global.properties` file. See [Configuring ActiveMQ](LINK) for more information about installing ActiveMQ. See [Installing ImageMagick](LINK) for more information about installing ImageMagick.|
-|Alfresco Content Services|Alfresco Content Services 6.1. See [Supported Platforms]({% link media-management/1.3/support/index.md %})for more information.|
+|Software|{::nomarkdown}<ul><li>FFmpeg 2.5.4 from the command line for video transformations.  Make sure that your FFmpeg installation has support for H.264 and AAC codecs. If FFmpeg is not available locally, Media Management functionality is reduced.</li><li>ExifTool 9.76 from the command line for full IPTC metadata extraction.</li><li>Apache ActiveMQ 5.15 or later.</li><li>ImageMagick 6.8.6-6 for image manipulation.</li></ul>{:/}**Note:** If you are using RAW image formats, you must install an ImageMagick delegate, for example, UFRaw, to manipulate the images. See [UFRaw](http://ufraw.sourceforge.net/){:target="_blank"} for more information. To preview RAW image formats, you need to set additional configuration properties. See [step 8](#install-the-media-management-amp-files).**Note:** [FFmpeg](http://ffmpeg.org){:target="_blank"} and [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/){:target="_blank"} are required to view media in Share. See [step 8](#install-the-media-management-amp-files) for information on how to set these in the `alfresco-global.properties` file. See [Configure ActiveMQ]({% link content-services/6.1/config/activemq.md %}) for more information about installing ActiveMQ. See [Install ImageMagick]({% link content-services/6.1/install/zip/additions.md %}#install-imagemagick) for more information about installing ImageMagick.|
+|Alfresco Content Services|Content Services 6.1. See [Supported Platforms]({% link content-services/6.1/support/index.md %})for more information.|
 |Java requirements|OpenJDK 11 or later.|
 |Remote transformation services (optional)|AWS Elastic Transcoder. See [AWS](http://aws.amazon.com/elastictranscoder/){:target="_blank"} and [Configuring the Elastic Transcoder content transformer]({% link media-management/1.3/config/index.md %}) for more information.|
 
@@ -23,7 +23,7 @@ You require one of each of the following components.
 
 Download and install the Media Management AMP files, and add Media Management properties to your `alfresco-global.properties` file. Ensure that you have installed the required external software before installing Alfresco Media Management. See [Prerequisites for using Media Management](#prerequisites-for-media-management) for information on what you require before you start the installation.
 
-1. Stop the Alfresco Content Services server.
+1. Stop the Content Services server.
 
 2. Unzip the Alfresco Media Management package into a new system directory, for example, `opt/media-management`:
 
@@ -32,10 +32,10 @@ Download and install the Media Management AMP files, and add Media Management pr
     The ZIP file contains the following folders:
 
     * `activemq`: contains ActiveMQ software
-    * `amps-repository`: contains one AMP file to be applied to the Alfresco Content Services repository
+    * `amps-repository`: contains one AMP file to be applied to the Content Services repository
     * `amps-share`: contains one AMP file to be applied to Alfresco Share
     * `remote-node`: contains content services node software and configuration file
-    If you are using the recommended [Media Management architecture]({% link media-management/1.3/index.md %}#media-management-architecture), the `activemq`, `amps-repository` and `amps-share` folders reside on the Alfresco Content Services server, and you must move the `remote-node` folder to your remote server.
+    If you are using the recommended [Media Management architecture]({% link media-management/1.3/index.md %}#media-management-architecture), the `activemq`, `amps-repository` and `amps-share` folders reside on the Content Services server, and you must move the `remote-node` folder to your remote server.
 
 3. Install the repository AMP file. Navigate to the `amps-repository` directory and copy the following file to the `amps` folder.
 
@@ -45,11 +45,11 @@ Download and install the Media Management AMP files, and add Media Management pr
 
     `alfresco-mm-share-1.3.x.amp`
 
-5. Delete the `tomcat\webapps\alfresco` and `tomcat\webapps\share` folders in the Alfresco Content Services installation directory.
+5. Delete the `tomcat\webapps\alfresco` and `tomcat\webapps\share` folders in the Content Services installation directory.
 
 6. Navigate to the `bin` directory and run the Module Management Tool (MMT) file to install the repository AMP files:
 
-    1. For the Alfresco Content Services repository:
+    1. For the Content Services repository:
 
         ```bash
         java -jar alfresco-mmt.jar install ../amps/alfresco-mm-<version>.amp ../tomcat/webapps/alfresco.war
@@ -90,7 +90,7 @@ Download and install the Media Management AMP files, and add Media Management pr
 
         where `broker` is each ActiveMQ instance that you have configured.
 
-        You need to set this property only if your ActiveMQ instance is not on the same server as Alfresco Content Services.
+        You need to set this property only if your ActiveMQ instance is not on the same server as Content Services.
 
     2. Configure FFmpeg and ExifTool if they are not already available on the command line executable path:
 
@@ -137,10 +137,10 @@ Download and install the Media Management AMP files, and add Media Management pr
 
 To uninstall Media Management, you need to use the Module Management Tool (MMT) and reinstate certain files.
 
-1. Stop the Alfresco Content Services server.
+1. Stop the Content Services server.
 
-2. Use the topic, [Uninstall an AMP file](LINK), to uninstall the module.
+2. Use the topic, [Uninstall an AMP file]({% link content-services/6.1/install/zip/amp.md %}) to uninstall the module.
 
-3. If you have used a Media Management content model like IPTC or PBCore, you must clean out your database before restarting Alfresco. See [Step 8 of Deleting a content model](LINK) for more information.
+3. If you have used a Media Management content model like IPTC or PBCore, you must clean out your database before restarting Alfresco. See [Dynamic deployment approach]({% link content-services/6.1/develop/repo-ext-points/content-model.md %}#dynamic-deployment-approach) for more information.
 
 4. Restart the Alfresco server.

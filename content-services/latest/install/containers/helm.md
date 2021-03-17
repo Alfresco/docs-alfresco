@@ -25,7 +25,7 @@ Another typical change is the integration of your company-wide monitoring and lo
 
 ## Deployment options
 
-For the best results, we recommend [deploying Content Services to AWS EKS]({% link content-services/latest/install/containers/helm.md %}).
+For the best results, we recommend deploying Content Services to AWS EKS.
 
 There are also several [Helm examples]({% link content-services/latest/install/containers/helm-examples.md %}) that show you how to deploy with various configurations:
 
@@ -52,7 +52,7 @@ The [Docker Compose customization guidelines]({% link content-services/latest/in
 Once you've created your custom image, you can either change the default values in the appropriate values file in the [helm/alfresco-content-services folder](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services){:target="_blank"}, or you can override the values via the `--set` command-line option during the install:
 
 ```bash
-helm install alfresco-incubator/alfresco-content-services --set repository.image.repository="yourRegistry" --set repository.image.tag="yourTag" --set share.image.repository="yourRegistry" --set share.image.tag="yourTag"
+helm install alfresco/alfresco-content-services --set repository.image.repository="yourRegistry" --set repository.image.tag="yourTag" --set share.image.repository="yourRegistry" --set share.image.tag="yourTag"
 ```
 
 ## Helm deployment with AWS EKS
@@ -77,12 +77,11 @@ Follow the [AWS EKS Getting Started Guide](https://docs.aws.amazon.com/eks/lates
 
 As we'll be using Helm to deploy the Content Services chart, follow the [Using Helm with EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html){:target="_blank"} instructions to set up Helm on your local machine.
 
-Helm also needs to know where to find charts. Run the following commands to add the standard Helm repository and the Alfresco incubator and stable repositories to your machine:
+Helm also needs to know where to find charts. Run the following commands to add the Nginx ingress and Alfresco repositories to your machine:
 
 ```bash
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo add alfresco-stable https://kubernetes-charts.alfresco.com/stable
-helm repo add alfresco-incubator https://kubernetes-charts.alfresco.com/incubator
+helm repo add alfresco https://kubernetes-charts.alfresco.com/stable
 ```
 
 Optionally, follow the tutorial to [deploy the Kubernetes Dashboard](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html){:target="_blank"}  to your cluster. This can be really useful for troubleshooting issues that you may occur.
@@ -316,7 +315,7 @@ Decide whether you want to install the latest version of Content Services (Enter
 Deploy the latest version of Content Services by running the following command (replace `YOUR-DOMAIN-NAME` with the hosted zone you created earlier):
 
 ```bash
-helm install acs alfresco-incubator/alfresco-content-services \
+helm install acs alfresco/alfresco-content-services \
 --set externalPort="443" \
 --set externalProtocol="https" \
 --set externalHost="acs.YOUR-DOMAIN-NAME" \
@@ -338,7 +337,7 @@ helm install acs alfresco-incubator/alfresco-content-services \
 2. Deploy the specific version of Content Services by running the following command (replace `YOUR-DOMAIN-NAME` with the hosted zone you created earlier, and `MAJOR` & `MINOR` with the appropriate values):
 
     ```bash
-    helm install acs alfresco-incubator/alfresco-content-services \
+    helm install acs alfresco/alfresco-content-services \
     --values=MAJOR.MINOR.N_values.yaml \
     --set externalPort="443" \
     --set externalProtocol="https" \

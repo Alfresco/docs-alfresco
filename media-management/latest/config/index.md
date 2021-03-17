@@ -117,11 +117,11 @@ You can configure Media Management using the alfresco-global.properties file or 
 
    > **Note:** You can use a wildcard (*) in the settings. However, more specific mimetype or extension configurations take precedence over wildcard configurations, regardless of the order specified.
 
-3. Use the log4j.properties.sample file to add loggers to your `tomcat/webapps/alfresco/WEB-INF/classes/alfresco/module/org\_alfresco\_mm\_repo/log4j.properties` file.
+3. Use the `log4j.properties.sample` file to add loggers to your `tomcat/webapps/alfresco/WEB-INF/classes/alfresco/module/org_alfresco_mm_repo/log4j.properties` file.
 
     A `log4j.properties.sample` file is provided in the Media Management installation zip.
 
-    See [Runtime administration with a JMX client](LINK) for instructions on how to connect a JMX client to your Alfresco server.
+    See [Runtime administration with a JMX client]({% link content-services/latest/config/index.md %}#using-jmx-client-to-change-settings-dynamically) for instructions on how to connect a JMX client to your Alfresco server.
 
 ## Configuring a shared file content workspace
 
@@ -159,13 +159,13 @@ Ensure that you have installed the required external and internal software. See 
                     path: /tmp/AlfrescoContentServices
     ```
 
-    You can use the same mounted network volume directory (for example, NFS) for both the Alfresco Content Services repository (configured using `content.remote.default.contentRefHandler.* properties`) and the remote node.
+    You can use the same mounted network volume directory (for example, NFS) for both the Content Services repository (configured using `content.remote.default.contentRefHandler.* properties`) and the remote node.
 
     The content services node uses ImageMagick and FFmpeg and requires that the executable directories are available on the system PATH variable or are specified in `alfresco-global.properties`.
 
     For more information about the content services framework, see [Content services node architecture]({% link media-management/latest/index.md %}).
 
-4. Start your Alfresco Content Services server to apply the changes.
+4. Start your Content Services server to apply the changes.
 
 ## Configuring an Amazon S3 shared content workspace
 
@@ -217,7 +217,7 @@ Ensure that you have installed the required external and internal software. See 
 
     For more information about the content services framework, see [Content services node architecture]({% link media-management/latest/index.md %}).
 
-4. Start your Alfresco Content Services server to apply the changes.
+4. Start your Content Services server to apply the changes.
 
 ## Configuring transformation services
 
@@ -232,7 +232,7 @@ content.transformer.RemoteImage.mimetypes.image/*.image/*.supported=false
 
 ```
 
-> **Note:** Video transformation (transcoding) is very resource intensive and can take a long time to complete. Make sure that any rules that you configure using video transcoding run in the background, to prevent the rule from failing due to a Share timeout. For more information about creating rules, see [Creating a rule](LINK).
+> **Note:** Video transformation (transcoding) is very resource intensive and can take a long time to complete. Make sure that any rules that you configure using video transcoding run in the background, to prevent the rule from failing due to a Share timeout. For more information about creating rules, see [Creating a rule]({% link content-services/latest/using/content/rules.md %}).
 
 ## Configuring the Elastic Transcoder content transformer
 
@@ -254,7 +254,7 @@ Ensure that you have installed the required external and internal software befor
     content.transformer.AwsElasticTranscoder.transcoder.secretKey=**MY-TRANSCODE-SECRET-KEY**
     content.transformer.AwsElasticTranscoder.transcoder.pipelineId=**MY-PIPELINE-ID**
     content.transformer.AwsElasticTranscoder.transcoder.region=EU_WEST_1
-    content.transformer.AwsElasticTranscoder.transcoder.defaultPreset.video/mp4=1351620000001-000010 
+    content.transformer.AwsElasticTranscoder.transcoder.defaultPreset.video/mp4=1351620000001-000010
     ```
 
     A sample `alfresco-global.properties` file is shipped in the root folder of the Media Management distribution zip, which defines custom properties.
@@ -272,7 +272,7 @@ Ensure that you have installed the required external and internal software befor
 
 ## Configuring a CloudFront publishing channel
 
-You can configure Alfresco Content Services to use the AWS CloudFront publishing channel to make content available outside your organization.
+You can configure Content Services to use the AWS CloudFront publishing channel to make content available outside your organization.
 
 Configure a publishing channel to allow you upload and manipulate content in the Amazon CloudFront Content Delivery Network (CDN).
 

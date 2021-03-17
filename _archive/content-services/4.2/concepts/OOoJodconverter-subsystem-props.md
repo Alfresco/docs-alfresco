@@ -1,0 +1,43 @@
+---
+author: [Alfresco Documentation, Alfresco Documentation]
+source: 
+audience: 
+---
+
+# OOoJodconverter subsystem configuration properties
+
+The following properties can be configured for the OOoJodconverter subsystem.
+
+-   **jodconverter.connectTimeout**
+
+    Specifies the maximum number of milliseconds before a connection times out. The default is 10000 milliseconds \(10 seconds\).
+
+-   **jodconverter.enabled**
+
+    Enables or disables the Jodconverter process\(es\).
+
+-   **jodconverter.maxTasksPerProcess**
+
+    Specifies the number of transforms before the process restarts. The default is 200.
+
+-   **jodconverter.officeHome**
+
+    Specifies the name of the OpenOffice install directory. The following are examples of install directory paths:
+
+    -   Mac OS X: `jodconverter.officeHome=/usr/lib/openoffice`
+    -   Windows: `jodconverter.officeHome=c:/Alfresco/OpenOffice.org`
+-   **jodconverter.portNumbers**
+
+    Specifies the port numbers used by each processing thread. The number of process will match the number of ports. The default numbers are 2022, 2023, and 2024.
+
+-   **jodconverter.taskExecutionTimeout**
+
+    Specifies the maximum number of milliseconds that an operation is allowed to run before it is aborted. It is used to recover from operations that have hung. The default is 120000 milliseconds \(2 minutes\).
+
+-   **jodconverter.taskQueueTimeout**
+
+    Specifies the maximum number of milliseconds a task waits in the transformation queue before the process restarts. It is used to recover hung OpenOffice processes. The default is 30000 milliseconds \(30 seconds\).
+
+
+**Parent topic:**[Configuring OpenOffice subsystem](../concepts/OOo-subsystems-intro.md)
+

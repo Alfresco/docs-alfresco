@@ -1012,7 +1012,6 @@ Here is a list of properties that have been added in S3 Connector 3.1.
     When no value is set (i.e. the default) files are uploaded directly into the root of the S3 bucket. This is a more generic replacement of the `dir.s3.contentstore` and `s3.useContentRootInPath` configuration properties.
 
     >**Note:** The value of this property is not saved in the database with the `contentUrl`. It's appended dynamically when S3 content is accessed. Therefore, the value of this property shouldn't be changed without first moving/renaming the existing content to the new location.
-
 * `connector.s3.objectNameSuffix`
 
     Blank by default
@@ -1028,7 +1027,6 @@ Here is a list of properties that have been added in S3 Connector 3.1.
     ```
 
     >**Note:** The value of this property is not saved in the database with the `contentUrl`. It's appended dynamically when S3 content is accessed. Therefore, the value of this property shouldn't be changed without renaming the existing content with the new suffix pattern.
-
 * `connector.s3.deleted.objectNamePrefix`
 
     Default value: `${dir.s3.contentstore.deleted}/`
@@ -1042,7 +1040,6 @@ Here is a list of properties that have been added in S3 Connector 3.1.
     Unlike the property for the regular content store (blank by default), it defaults to the `dir.s3.contentstore.deleted` property, which is equivalent to `dir.contentstore.deleted`, used by the `DeletedContentStore` prior to v3.1.0.
 
     >**Note:** It is recommended that the value is never be left blank, as that would result in the deleted files always residing in the same bucket directory as the actual active Alfresco Content Services content. This could lead to complications when configuring the AWS S3 cleanup job for removed Alfresco Content Services content (with the worst case scenario being it would delete content that's not yet removed from Alfresco Content Services).
-
 * `connector.s3.deleted.objectNameSuffix`
 
     Blank by default
@@ -1056,7 +1053,6 @@ Here is a list of properties that have been added in S3 Connector 3.1.
     Allows custom protocol values in the Alfresco Content Services content URL (the file references stored in the database). This property should help with custom configurations of Alfresco Content Services with multiple instances of the S3 content stores.
 
     >**Note:** The old "`s3`" store protocol is no longer used for new content, nor can it be configured through this new configuration property, as that's a forbidden value. However, old content that has already been created with the "`s3`" store protocol is still readable by the S3 Connector.
-
 * `filecontentstore.subsystem.name`
 
     Default value: `S3OnPrem`
@@ -1072,7 +1068,6 @@ Here is a list of properties that have been added in S3 Connector 3.1.
     Defines a tag to apply to the content when it's written into the S3 bucket. If used, it also requires the `tagValue` property to be populated. This allows you to define your own custom lifecycle policies based on tags.
 
     >**Note:** Use the AWS documentation [Object key and metadata](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html) for naming guidelines, as the properties must respect the same restrictions as if they were added via the AWS Management Console.
-
 * `connector.s3.tagValue`
 
     Blank by default

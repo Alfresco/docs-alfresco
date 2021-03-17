@@ -1,0 +1,31 @@
+---
+author: Alfresco Documentation
+---
+
+# Modifying Out-of-the-box Surf Dashlets
+
+The Share web application has a special page called Dashboard, which contains windows of content called Dashlets. Currently most of these Dashlets are Spring Surf Dashlets, and it is possible to modify the contents on them.
+
+|Extension Point|Modifying Out-of-the-box Surf Dashlets|
+|---------------|--------------------------------------|
+|Support Status|[Full Support](http://docs.alfresco.com/support/concepts/su-product-lifecycle.html) via [Surf Extension Modules](dev-extensions-share-surf-extension-modules.md)|
+|Architecture Information|[Share Architecture](dev-extensions-share-architecture-extension-points.md).|
+|Description|The preferred way of modifying Surf dashlets is by using [Surf Extension Modules](dev-extensions-share-surf-extension-modules.md) to target the component that should be replaced or hidden. It is also possible to add components to a dashlet this way. The Extension Modules section has all the details.
+
+|
+|Deployment - App Server|-   tomcat/shared/classes/alfresco/web-extension/site-data/extensions/ \(Untouched by re-depolyments and upgrades\)
+
+|
+|[Deployment - SDK Project](../tasks/alfresco-sdk-tutorials-share-amp-archetype.md)|-   share-amp/src/main/amp/config/alfresco/web-extension/site-data/extensions/ - Store extension modules here
+
+|
+|More Information|-   [Surf Dashlets](dev-extensions-share-surf-dashlets.md)
+
+|
+|Tutorials|-   See [Surf Extension Modules](dev-extensions-share-surf-extension-modules.md)
+
+|
+|Alfresco Developer Blogs||
+
+**Parent topic:**[Share Extension Points](../concepts/dev-extensions-share-extension-points-introduction.md)
+

@@ -1,12 +1,11 @@
 ---
-title: Administer the Azure Connector
+title: Administer Azure Connector
+nav: false
 ---
 
-## Known issues
+Use this information to identity known issues and limitations while using the Azure Connector.
 
-Use this information to identity known issues and limitations while using Azure Connector.
-
-### ReactiveX framework that AzureSDK is based on is not working with Security Manager enabled in Tomcat**
+## ReactiveX framework that AzureSDK is based on is not working with Security Manager enabled in Tomcat
 
 This usually results in the following exception:
 

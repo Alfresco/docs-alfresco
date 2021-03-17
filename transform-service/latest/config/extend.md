@@ -19,45 +19,53 @@ Examples of such names are: `IMAGEMAGICK`, `LIBREOFFICE`, `PDF_RENDERER`, `TIKA`
 
 > **Note:** The T-Engine names are case-insensitive.
 
-To configure a custom T-Engine, you'll have to provide its URL and queue name. Custom T-Engines can be configured through environment variables:
+To configure a custom T-Engine:
+
+* Provide its URL and queue name. Custom T-Engines can be configured through environment variables:
 
 ```bash
-        export TRANSFORMER_URL_<CUSTOM_ENGINE_NAME>="http://custom-engine-host:8090"
-        export TRANSFORMER_QUEUE_<CUSTOM_ENGINE_NAME>="custom-engine-queue"
+export TRANSFORMER_URL_<CUSTOM_ENGINE_NAME>="http://custom-engine-host:8090"
+export TRANSFORMER_QUEUE_<CUSTOM_ENGINE_NAME>="custom-engine-queue"
 ```
 
-(Optional) To define pipeline (multi-step) transformers, if the mounting location of the pipeline definition file is:
+* (Optional) Define pipeline (multi-step) transformers.
 
-  ```bash
-    /local/path/to/custom-pipeline-file.json:/mounting/location/of/custom-pipeline-file.json
-  ```
+    1. If the mounting location of the pipeline definition file is:
 
-1. Specify the location through an environment variable:
+        ```bash
+        /local/path/to/custom-pipeline-file.json:/mounting/location/of/custom-pipeline-file.json
+        ```
 
-```bash
+    2. Specify the location through an environment variable:
+
+        ```bash
         export TRANSFORMER_ROUTES_ADDITIONAL_<name>="/mounting/location/of/custom-pipeline-file.json"
-```
+        ```
 
-> **Note:** The `<name>` suffix doesn't need to match any labels - it just differentiates multiple additional route files. However, the engine name can be used as it may help to make debugging easier.
+        > **Note:** The `<name>` suffix doesn't need to match any labels - it just differentiates multiple additional route files. However, the engine name can be used as it may help to make debugging easier.
 
-2. Define additional pipeline transformers, for example:
+    3. Define additional pipeline transformers, for example:
 
-```json
+        ```json
         {
-          "transformers": [
-            {
-                "transformerName": "pdfToImageViaPng",
-                "transformerPipeline" : [
-                  {"transformerName": "pdfrenderer",      "targetMediaType": "image/png"},
-                  {"transformerName": "imagemagick"}
-                ],
-                "supportedSourceAndTargetList": [
-                ],
-                "transformOptions": [
-                  "pdfRendererOptions",
-                  "imageMagickOptions"
-                ]
-            }
-          ]
+            "transformers": [
+                {
+                    "transformerName": "pdfToImageViaPng",
+                    "transformerPipeline" : [
+                        {
+                            "transformerName": "pdfrenderer",
+                            "targetMediaType": "image/png"
+                        },
+                        {
+                            "transformerName": "imagemagick"
+                        }
+                    ],
+                    "supportedSourceAndTargetList": [],
+                    "transformOptions": [
+                        "pdfRendererOptions",
+                        "imageMagickOptions"
+                    ]
+                }
+            ]
         }
-```
+        ```

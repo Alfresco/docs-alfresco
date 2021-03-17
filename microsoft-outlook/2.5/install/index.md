@@ -56,13 +56,13 @@ You can use one of the following Outlook releases:
 
 * Alfresco Content Services 6.0 or later. See [Supported Platforms]({% link microsoft-outlook/2.5/support/index.md %}) for more information.
 
-If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites for using SAML SSO with Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-prereqs.html).
+If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites]({% link saml-module/latest/install/index.md %}#Prerequisites).
 
 ## Install AMPs {#install_amps}
 
 There are three steps to installing the Outlook Integration: install the Alfresco AMP files (the Alfresco Outlook Server software), apply the licenses and then install the Microsoft Outlook zip file (the Alfresco Outlook Client software).
 
-Make sure you are running the correct versions of operating system and software before you install the AMP files. If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites for using SAML SSO with Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-prereqs.html) for more information.
+Make sure you are running the correct versions of operating system and software before you install the AMP files. If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites]({% link saml-module/latest/install/index.md %}#Prerequisites) for more information.
 
 1. Stop the Alfresco server.
 
@@ -92,7 +92,7 @@ Make sure you are running the correct versions of operating system and software 
 
     where `localhost:8080` is your Alfresco server and port number.
 
-If you plan to use SAML SSO, you need to install and configure the Alfresco SAML module. See [Installing SAML SSO in Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-config-overview.html) and [Configuring SAML SSO](TODO_LINK:https://docs.alfresco.com/saml/tasks/saml-config.html) for more information.
+If you plan to use SAML SSO, you need to install and configure the Alfresco SAML module. See [Install with Zip]({% link saml-module/latest/install/index.md %}) and [Configure SAML SSO]({% link saml-module/latest/config/index.md %}) for more information.
 
 ### Install server and client licenses in Alfresco Share {#installserverclientlicenses}
 
@@ -162,7 +162,7 @@ You can automate the Alfresco Outlook Client installation by using the `msiexec`
 
 You might need local administrator rights to install .NET 4.5 and Microsoft VS Tools for Office Runtime. Ensure you have already installed the required AMP files in your Alfresco instance ([see Install Outlook Integration AMPs](#install_amps)).
 
->**Note:** If you plan to use SAML Module for Alfresco Content Services authentication, ensure you have already installed and configured the Alfresco SAML module. See [Installing SAML SSO in Alfresco](TODO_LINK:https://docs.alfresco.com/saml/concepts/saml-config-overview.html) and [Configuring SAML SSO](TODO_LINK:https://docs.alfresco.com/saml/tasks/saml-config.html) for more information.
+>**Note:** If you plan to use SAML Module for Alfresco Content Services authentication, ensure you have already installed and configured the Alfresco SAML module. See [Install with Zip]({% link saml-module/latest/install/index.md %}) and [Configure SAML SSO]({% link saml-module/latest/config/index.md %}) for more information.
 
 1. Extract the contents of the `alfresco-outlook-client-2.5.x.zip` file using a standard unzip tool.
 
@@ -222,7 +222,7 @@ This information provides uninstall directions for Alfresco Content Services.
 
 1. Stop the Alfresco server.
 
-2. Use the information in [Uninstall an AMP file](TODO_LINK:https://docs.alfresco.com/6.0/tasks/uninstall-amp.html) to uninstall each AMP file.
+2. Use the information in [Uninstall an Amp file]({% link content-services/latest/install/zip/amp.md %}#Uninstall an AMP file) to uninstall each AMP file.
 
     For example, from the Alfresco root directory, you need two commands:
 

@@ -17,7 +17,7 @@ In this section you'll install and set up everything you need to run Intelligenc
 
 ### Access to Docker images
 
-Some of the Docker images that are used by the Intelligence Services module are uploaded to a private registry, **Quay.io**. Since the Intelligence Services module adds AI capabilities to Alfresco Transform Service (see [Transform Service install overview](https://docs.alfresco.com/transform/concepts/transform-overview.html#ats-overview__images))(#LINK), you'll also need access to the following image:
+Some of the Docker images that are used by the Intelligence Services module are uploaded to a private registry, **Quay.io**. Since the Intelligence Services module adds AI capabilities to Alfresco Transform Service (see [Transform Service install overview]({% link transform-service/1.1/admin/index.md %}#docker-images-overview), you'll also need access to the following image:
 
 ```bash
 alfresco/alfresco-ai-docker-engine
@@ -240,7 +240,7 @@ See the AWS site for more details on [Object lifecycle management](https://docs.
 
 ## Install with zip
 
-Use these instructions to install the Intelligence Services AMP files to an instance of Alfresco Content Services.
+Use these instructions to install the Intelligence Services AMP files to an instance of Content Services.
 
 The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.1.x.zip`, includes all the files required to provide Intelligence Services. Ensure that you've installed the required software and completed the AWS set up before installing Intelligence Services.
 
@@ -250,12 +250,12 @@ The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.1.x
 
     In this directory you'll see the following content:
 
-    * `alfresco-ai-repo-1.1.x.amp`: AMP to be applied to the Alfresco Content Services repository
+    * `alfresco-ai-repo-1.1.x.amp`: AMP to be applied to the Content Services repository
     * `alfresco-ai-share-1.1.x.amp`: AMP to be applied to Alfresco Share
     * `ai-routes.yaml`: custom Transform Router configuration properties
     * `app.extensions.json`: custom extension file for Alfresco Digital Workspace
 
-3. Stop the Alfresco Content Services server.
+3. Stop the Content Services server.
 
 4. Copy the provided AMP files to the Alfresco `amps` and `amps_share` directories.
 
@@ -267,11 +267,11 @@ The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.1.x
 
     * `alfresco-ai-share-1.1.x.amp`
 
-5. Delete the `tomcat/webapps/alfresco` and `tomcat/webapps/share` folders in the Alfresco Content Services installation directory.
+5. Delete the `tomcat/webapps/alfresco` and `tomcat/webapps/share` folders in the Content Services installation directory.
 
 6. Navigate to the `bin` directory to run the Module Management Tool (MMT) file to install the AMP files into the relevant WAR file:
 
-    1. For the Alfresco Content Services repository:
+    1. For the Content Services repository:
 
         ```java
         java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-repository/alfresco-ai-repo-1.1.x.amp <installLocation>/tomcat/webapps/alfresco.war
@@ -283,10 +283,10 @@ The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.1.x
         java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-share/alfresco-ai-share-1.1.x.amp <installLocation>/tomcat/webapps/share.war
         ```
 
-    For more information, see [Using the Module Management Tool (MMT)](https://docs.alfresco.com/6.2/concepts/dev-extensions-modules-management-tool.html)(#LINK) and [Installing an Alfresco Module Package](https://docs.alfresco.com/6.2/tasks/amp-install.html)(#LINK).
+    For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
 
     Check the output to ensure that the AMP files have installed successfully.
 
 7. Check that the [configuration]({% link intelligence-services/1.1/config/index.md %}) is set up correctly for your environment.
 
-8. Restart the Alfresco Content Services server.
+8. Restart the Content Services server.
