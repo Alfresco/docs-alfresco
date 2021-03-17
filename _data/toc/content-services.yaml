@@ -91,6 +91,8 @@
             path: '/content-services/latest/admin/backup-restore/'
           - title: 'Migration'
             path: '/content-services/latest/admin/migration/'
+        - title: 'Query Accelerator'
+          path: '/content-services/latest/admin/query-accelerator/'
         - title: 'High availability features'
           pages:
           - title: 'Clustering'
