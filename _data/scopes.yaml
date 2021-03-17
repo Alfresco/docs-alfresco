@@ -2,6 +2,7 @@ services:
   title: "Services"
   scopes:
     content-services: "Content Services"
+    query-accelerator: "Query Accelerator"  
     process-automation: "Process Automation"
     process-services: "Process Services"
     governance-services: "Governance Services"

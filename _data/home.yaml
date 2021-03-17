@@ -6,6 +6,9 @@ services:
     sub:
       - title: "Read documentation"
         url: /content-services/latest/
+      - title: "Query Accelerator"
+        text: "The Query Accelerator is a mechanism for optimising selected queries in very large content repositories."
+        url: /query-accelerator/latest/ 
   - title: "Process"
     text: "Alfresco Process Services (powered by Activiti) is an enterprise Business Process Management (BPM) solution targeted at business people and developers.
     <br/>
