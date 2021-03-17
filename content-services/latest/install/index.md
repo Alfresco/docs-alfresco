@@ -7,6 +7,9 @@ This information helps you to install Content Services, additional software, and
 * using the distribution zip
 * using containerized deployment
 
+Before starting any type of production installation make sure you are familiar with 
+[how to secure your installation]({% link content-services/latest/admin/securing-install.md %}).
+
 You can install Content Services using standard WAR files, contained in the distribution zip, to deploy in a production environment.
 
 You can also install Content Services using Docker images that are packaged in Helm charts (as a deployment template for your specific deployment needs), or Docker Compose (for test and development environments only); there is no GUI installer.

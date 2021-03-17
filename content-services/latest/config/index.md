@@ -229,7 +229,7 @@ In a new installation, none of these properties are stored in the database. If y
 
 > **Note:** For advanced configuration, you can also extend or override the Spring bean definitions that control the Java classes. To do so, add or copy a Spring bean file named `*-context.xml` to the `<extension>` directory, or `<web-extension>` directory to extend Alfresco Share. For examples of the Spring bean extensions, download the sample extension files.
 
-### Connect through JMX
+### Connect through JMX {#connectthrujmx}
 
 Remote JMX functionality is disabled by default. You can connect to the Content Services MBean server through a JMX client that supports JSR-160 by editing your settings.
 
