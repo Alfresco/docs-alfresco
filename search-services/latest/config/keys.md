@@ -145,12 +145,14 @@ Before continuing, make sure that you've already completed the steps in [Generat
         # ssl encryption
         encryption.ssl.keystore.location=${dir.keystore}/ssl.keystore
         encryption.ssl.keystore.type=JCEKS
-        encryption.ssl.keystore.keyMetaData.location=encryption.ssl.truststore.location=${dir.keystore}/ssl.truststore
+        encryption.ssl.keystore.keyMetaData.location=${dir.keystore}/ssl-keystore-passwords.properties
+        encryption.ssl.truststore.location=${dir.keystore}/ssl.truststore
         encryption.ssl.truststore.type=JCEKS
-        encryption.ssl.truststore.keyMetaData.location=
+        encryption.ssl.truststore.keyMetaData.location=${dir.keystore}/ssl-truststore-passwords.properties
         # secret key keystore
         configurationencryption.keystore.location=${dir.keystore}/keystore
-        encryption.keystore.keyMetaData.location=encryption.keystore.type=JCEKS
+        encryption.keystore.keyMetaData.location=${dir.keystore}/keystore-passwords.properties
+        encryption.keystore.type=JCEKS
         solr.host=localhost
         solr.port=8983
         solr.port.ssl=8983
