@@ -218,7 +218,7 @@ The following `systemd` services are installed, which you can use to stop and st
 | Service Name | Purpose |
 | ------------ | ------- |
 | `activemq.service` | ActiveMQ Service |
-| `postgresql-<version>.service` | PostgreSQL DB Service (where `<version>` is 11 for ACS 6.2.N and 13 for ACS 7.x) |
+| `postgres-13.service` | PostgreSQL DB Service |
 | `nginx.service` | NGINX Service |
 | `alfresco-content.service` | Alfresco Content Service |
 | `alfresco-search.service` | Alfresco Search Services |
