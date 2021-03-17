@@ -26,21 +26,21 @@ recommended for development and test environments only.
 3. Edit the file and change the following two services:
 
     Add a `#` prefix to the Alfresco Content Repository and Alfresco Share Docker image locations so they are commented out, 
-    and add the Alfresco Governance image locations, change 3.4.x to latest 3.5 version:
+    and add the Alfresco Governance image locations, change 3.4.x to latest 3.4 version:
 
     ```text
     services:
         alfresco:
-            #image: alfresco/alfresco-content-repository:7.0.x
-            image: quay.io/alfresco/alfresco-governance-repository-enterprise:3.5.x
+            #image: alfresco/alfresco-content-repository:6.2.x
+            image: quay.io/alfresco/alfresco-governance-repository-enterprise:3.4.x
             mem_limit: 1700m
            
     ```
 
     ```text
         share:
-            #image: alfresco/alfresco-share:7.0.x
-            image: quay.io/alfresco/alfresco-governance-share-enterprise:3.5.x
+            #image: alfresco/alfresco-share:6.2.x
+            image: quay.io/alfresco/alfresco-governance-share-enterprise:3.4.x
             mem_limit: 1g
            
     ```
@@ -95,4 +95,4 @@ recommended for development and test environments only.
 
     * Share: `http://localhost:8080/share`
 
-Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/latest/install/create-rm-site.md %}).
+Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/3.4/install/create-rm-site.md %}).
