@@ -131,7 +131,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 For details about the webapp URLs, location of logs, configuration etc., see [useful information](#usefulinfo).
 
-To secure your installation for production see this [information](#TODO_LINK content-services/latest/admin/securing-install.md).
+If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
 
 ## Remote installation
 
@@ -200,7 +200,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 For details about the webapp URLs, location of logs, configuration etc., see [useful information](#usefulinfo).
 
-To secure your installation for production see this [information](#TODO_LINK content-services/latest/admin/securing-install.md).
+If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
 
 ### Multi-machine installation
 
@@ -250,7 +250,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 For details about the webapp URLs, location of logs, configuration etc., see [useful information](#usefulinfo).
 
-To secure your installation for production see this [information](#TODO_LINK content-services/latest/admin/securing-install.md).
+If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
 
 ## Useful information {#usefulinfo}
 
