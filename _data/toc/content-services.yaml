@@ -307,6 +307,8 @@
               path: '/content-services/community/install/zip/amp/'
             - title: 'Install additional software'
               path: '/content-services/community/install/zip/additions/'
+        - title: 'Install with Ansible'
+          path: '/content-services/community/install/ansible/'
         - title: 'Install using containers'
           pages:
             - title: 'Overview'
