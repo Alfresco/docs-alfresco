@@ -118,7 +118,7 @@ To check which branch tag corresponds to a specific Content Services release, re
     cd acs-deployment/docker-compose
     ```
 
-    > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to deploy. For example, if you want Content Services 6.2.2, then select tag `4.1.0`.
+    > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to deploy. For example, if you want Content Services 7.0.0, then select tag `5.0.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
@@ -139,14 +139,15 @@ To check which branch tag corresponds to a specific Content Services release, re
     This downloads the images, fetches all the dependencies, creates each container, and then starts the system:
 
     ```bash
-    Creating docker-compose_digital-workspace_1  ... done
-    Creating docker-compose_alfresco_1           ... done
-    Creating docker-compose_activemq_1           ... done
-    Creating docker-compose_share_1              ... done
-    Creating docker-compose_solr6_1              ... done
-    Creating docker-compose_shared-file-store_1  ... done
-    Creating docker-compose_sync-service_1       ... done
-    Creating docker-compose_postgres_1           ... done
+    Creating network "docker-compose_default" with the default driver
+    Creating docker-compose_digital-workspace_1 ... done
+    Creating docker-compose_solr6_1             ... done
+    Creating docker-compose_shared-file-store_1 ... done
+    Creating docker-compose_sync-service_1      ... done
+    Creating docker-compose_alfresco_1          ... done
+    Creating docker-compose_share_1             ... done
+    Creating docker-compose_postgres_1          ... done
+    Creating docker-compose_activemq_1          ... done
     Creating docker-compose_proxy_1              ... done
     Creating docker-compose_transform-router_1   ... done
     Creating docker-compose_transform-core-aio_1 ... done
@@ -208,19 +209,19 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```bash
-             Container                                 Repository                           ...     Size
-        ----------------------------------------------------------------------------------------------------
-        docker-compose_activemq_1             alfresco/alfresco-activemq                    ...   545.9 MB
-        docker-compose_alfresco_1             alfresco/alfresco-content-repository          ...   1.324 GB
-        docker-compose_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace   ...   34.35 MB
-        docker-compose_postgres_1             postgres                                      ...   312.5 MB
-        docker-compose_proxy_1                alfresco/alfresco-acs-nginx                   ...   20.42 MB
-        docker-compose_share_1                alfresco/alfresco-share                       ...   867.6 MB
-        docker-compose_shared-file-store_1    alfresco/alfresco-shared-file-store           ...   777.8 MB
-        docker-compose_solr6_1                alfresco/alfresco-search-services             ...   1.022 GB
-        docker-compose_sync-service_1         quay.io/alfresco/service-sync                 ...   809.7 MB
-        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio          ...   1.707 GB
-        docker-compose_transform-router_1     quay.io/alfresco/alfresco-transform-router    ...   729.8 MB
+        Container                             Repository                                     Tag         Image Id       Size  
+        ------------------------------------------------------------------------------------------------------------------------
+        docker-compose_activemq_1             alfresco/alfresco-activemq                     5.15.8      80350f7a9820   545.9 MB
+        docker-compose_alfresco_1             quay.io/alfresco/alfresco-content-repository   7.0.0       835dbb204129   1.076 GB
+        docker-compose_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace    2.0.0-adw   b360030b24f9   35.65 MB
+        docker-compose_postgres_1             postgres                                       11.7        028e3a6bd9eb   283 MB  
+        docker-compose_proxy_1                alfresco/alfresco-acs-nginx                    3.0.1       4f0b84bc5ba0   20.42 MB
+        docker-compose_share_1                quay.io/alfresco/alfresco-share                7.0.0       059352863557   868.2 MB
+        docker-compose_shared-file-store_1    alfresco/alfresco-shared-file-store            0.10.0      56ff9f67200d   776.7 MB
+        docker-compose_solr6_1                alfresco/alfresco-search-services              2.0.1       a98e3e14aefd   1.148 GB
+        docker-compose_sync-service_1         quay.io/alfresco/service-sync                  3.4.0       ab5f9ad0ede1   801.9 MB
+        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio           2.3.6       92c19ace0938   1.707 GB
+        docker-compose_transform-router_1     quay.io/alfresco/alfresco-transform-router     1.3.1       b91dd1045459   729.5 MB
         ```
 
     2. List the running containers:

@@ -6,11 +6,9 @@ The following sections help you to understand what containerized deployment is, 
 
 ## Deployment concepts
 
-Community Edition deployment introduces a number of concepts.
+In addition to the standard deployment methods for non-containerized deployment, Alfresco provides Content Services packaged in the form of Docker containers, for companies who choose to use containerized and orchestrated deployment tools. While this is a much more advanced approach to deployment, it is expected that customers who choose this approach have the necessary skills to manage its complexity.
 
-The way you deploy and run Community Edition has changed significantly since Community Edition version 6.0. Traditionally, you'd download an installer that installed Java, Tomcat, Database, WARs, tools, etc. and everything was configured to work together out-of-the-box. Then you'd use a script to start things off. That's no longer the case and there are no installers available. We'll be working with Docker containers instead.
-
-You can start Community Edition from a number of Docker images. These images are available in the [Docker Hub](https://hub.docker.com){:target="_blank"} and [Quay](https://quay.io/){:target="_blank"} repositories. However, starting individual Docker containers based on these images, and configuring them to work together might not be the most productive way to get up and running. To make things easier, and achieve a single-step deploy and run solution, a Docker Compose file is available to quickly start Community Edition when you need to test something or work on a proof-of-concept (PoC).
+You can start Community Edition from a number of Docker images. These images are available in the [Docker Hub](https://hub.docker.com){:target="_blank"} repository. However, starting individual Docker containers based on these images, and configuring them to work together can be complicated. To make things easier, a **Docker Compose** file is available to quickly start Community Edition when you need to test something or work on a proof-of-concept (PoC).
 
 There are also **Helm charts** available to deploy Community Edition in a Kubernetes cluster, for example, on Amazon Web Services (AWS). These charts are a deployment template which can be used as the basis for your specific deployment needs. The Helm charts are undergoing continual development and improvement and should not be used "as-is" for a production deployment, but should help you save time and effort deploying Community Edition for your organization.
 
@@ -50,7 +48,7 @@ The main difference is that when you run a container, you are not starting a com
 
 ## Alfresco Docker images
 
-The public Alfresco Docker images are available in the Docker Hub registry. There are also private Enterprise-only images in the Quay.io registry.
+The public Alfresco Docker images are available in the Docker Hub registry.
 
 Go to [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"} to see a list of images belonging to the `alfresco` user or, alternatively, [search for alfresco](https://hub.docker.com/search?q=alfresco%2F&type=image){:target="_blank"} from the Docker Hub home page:
 
@@ -60,9 +58,9 @@ Go to [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"} to see 
 
 The following Docker images relate to Community Edition:
 
+* `alfresco/alfresco-content-repository-community` - the repository app (i.e. `alfresco.war`) running on Apache Tomcat
 * `alfresco/alfresco-share` - the Share web interface (i.e. `share.war`) running on Apache Tomcat
 * `alfresco/alfresco-search-services` - the Solr 6 based search service running on Jetty
-* `alfresco/alfresco-content-repository-community` - the repository app (i.e. `alfresco.war`) running on Apache Tomcat
 * `alfresco/alfresco-activemq` - the Alfresco ActiveMQ image
 * `alfresco/acs-community-ngnix`
 
