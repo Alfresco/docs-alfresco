@@ -71,10 +71,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.4 | |
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Transform Service 1.3.2 | |
-| Alfresco Media Management 1.4.3 | ? |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search Services 2.0.1 | |
+| Alfresco Search Services 2.0 | |
 | Alfresco Federation Services 1.1 | |
 | Identity Service 1.4 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | SAML Module for Alfresco Content Services 1.2.1 | |
@@ -82,7 +80,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for AWS S3 4.0 | Only compatible with Alfresco Media Management 1.4.2 or above. |
 | Alfresco Content Connector for Azure 2.0 | |
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
-| Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.2.1 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP Cloud 1.0 | |
@@ -101,7 +98,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
-| VMWare ESXi | Support from ESXi 5.0 (as long as the ESXi version supports the guest OS) |
 | LibreOffice v6.3.5 | |
 
 {% endcapture %}
