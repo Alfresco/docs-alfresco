@@ -9,7 +9,7 @@ To install Alfresco Digital Workspace into Tomcat, you first need to install Alf
 
 3. Download `alfresco-digital-workspace-adw-x.x.x.war` for the required version.
 
-    `alfresco-digital-workspace-adw-x.x.x.war` is the file name followed by the version of the Digital Workspace, for example `alfresco-digital-workspace-adw-2.0.0.war`.
+    `alfresco-digital-workspace-adw-x.x.x.war` is the file name followed by the version of the Digital Workspace, for example `alfresco-digital-workspace-adw-2.1.0.war`.
 
 4. On the server that will host the Digital Workspace move the `alfresco-digital-workspace-adw-x.x.x.war` file to the `<TOMCAT_HOME>/webapps` folder.
 

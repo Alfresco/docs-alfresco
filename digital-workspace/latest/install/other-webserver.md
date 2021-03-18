@@ -9,7 +9,7 @@ You can deploy Alfresco Digital Workspace into a different web server than where
 
 3. Download `alfresco-digital-workspace-adw-x.x.x.zip` for the required version.
 
-   `alfresco-digital-workspace-adw-x.x.x.zip` is the file name followed by the version of the Digital Workspace, for example `alfresco-digital-workspace-adw-2.0.0.zip`.
+   `alfresco-digital-workspace-adw-x.x.x.zip` is the file name followed by the version of the Digital Workspace, for example `alfresco-digital-workspace-adw-2.1.0.zip`.
 
 4. On the server where you want to host the Digital Workspace extract the files to `<webserver-location>/html`.
 
