@@ -96,10 +96,10 @@ classes were deprecated in Content Services 6.0 and have now been removed. Conte
 rendition cannot be created by the Transform Service or Local Transforms. The process of migrating custom legacy 
 transformers is described at the end of this page.
 
-One of the advantages of Custom Transforms and Renditions in Content Services 6.2 and above is that there is no longer any need for custom 
-Java code, Spring bean definitions, or alfresco properties to be applied to the Repository. Generally custom transforms 
-and renditions can now be added to Docker deployments without having to create or apply an AMP/JAR, or even restarting
-the repository.
+One of the advantages of Custom Transforms and Renditions in Content Services 6.2 and above is that there is no longer 
+any need for custom Java code, Spring bean definitions, or alfresco properties to be applied to the Repository. Generally 
+custom transforms and renditions can now be added to Docker deployments without having to create or apply an AMP/JAR, or 
+even restarting the repository.
 
 ## Configure a T-Engine as a Local Transform
 For the repository to talk to a T-Engine, it must know the engine's URL. The URL can be added as an Alfresco global property,
