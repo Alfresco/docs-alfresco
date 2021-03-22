@@ -2,8 +2,8 @@
 - version: 1.0
   pages:
     - title: 'Introduction'
-      path: '/content-mobile/latest/'
+      path: '/mobile-workspace/latest/'
     - title: 'Configure'
-      path: '/content-mobile/latest/config/'
+      path: '/mobile-workspace/latest/config/'
     - title: 'Using'
-      path: '/content-mobile/latest/using/'
+      path: '/mobile-workspace/latest/using/'
