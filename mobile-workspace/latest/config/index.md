@@ -1,10 +1,12 @@
 ---
 title: Configure Alfresco Mobile Workspace
 ---
-Configuration
-Reference SSO Guide to configure a mobile client for ACS
 
-Application Sections* 
+Find Alfresco Mobile Workspace at [Google Play]({https://play.google.com/store/apps/details?id=com.alfresco.content.app&hl=en-GB&ah=tbrTPT50zRyrvFT0xxYx0IRH6DA}) for Android or [Apple App Store]({https://apps.apple.com/gb/app/alfresco-mobile-workspace/id1514434480}) for iOS.
+
+For Single Sign On (SSO) information see the [Single Sign On (SSO) Guide]({% link identity-service/latest/tutorial/sso/ %}).
+
+Application Sections
 Authenticating**
 Alfresco Mobile Workspace supports two methods for authentication 
 
@@ -43,7 +45,8 @@ Once authenticated successfully the application will then allow access
 
 Username/Password
 
+## Extending
 
+You can extend the Mobile Workspace.
 
-Extending* 
-Source code is available on GitHub (need to provide a link)
+Find the Mobile Workspace code at the following github repositories [Android]({https://github.com/Alfresco/alfresco-mobile-workspace-android}) for or [iOS]({https://github.com/Alfresco/alfresco-mobile-workspace-ios}).
