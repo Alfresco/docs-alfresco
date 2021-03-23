@@ -198,7 +198,7 @@ the same file.
 Media Types between transformers. There is no final `targetMediaType` as this comes from the `supportedSourceAndTargetList`.
 * `supportedSourceAndTargetList` - The supported source and target Media Types, which refer to the Media Types this 
 pipeline transformer can transform from and to, additionally you can set the priority and the
-maxSourceSizeBytes see [Supported Source and Target List](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/engine_config.md#supported-source-and-target-list).
+maxSourceSizeBytes see [Supported Source and Target List](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/engine_config.md#supported-source-and-target-list){:target="_blank"}.
 If blank, this indicates that all possible combinations are supported. This is the cartesian product of all source types to the first
 intermediate type and all target types from the last intermediate type. Any combinations supported by the first transformer are excluded. They
 will also have the priority from the first transform.
@@ -228,7 +228,7 @@ next time the location is read, which is dependent on the cron values.
 docker cp custom_pipelines.json <alfresco container>:/usr/local/tomcat/shared/classes/alfresco/extension/transform/pipelines/
 ```
 
-In a Kubernetes environment, [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+In a Kubernetes environment, [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/){:target="_blank"} 
 can be used to add pipeline definitions. You will need to create
 a ConfigMap from the JSON file and mount the ConfigMap through a volume
 to the Repository pods.
@@ -270,7 +270,7 @@ limited set of transforms and another that is slower but handles all cases.
 * `supportedSourceAndTargetList` - The supported source and target
 Media Types, which refer to the Media Types this failover transformer
 can transform from and to, additionally you can set the priority and the
-maxSourceSizeBytes see [Supported Source and Target List](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/engine_config.md#supported-source-and-target-list).
+maxSourceSizeBytes see [Supported Source and Target List](https://github.com/Alfresco/alfresco-transform-core/blob/master/docs/engine_config.md#supported-source-and-target-list){:target="_blank"}.
 Unlike pipelines, it must not be blank.
 * `transformOptions` - A list of references to options required by
 the pipeline transformer.
@@ -487,12 +487,6 @@ transform.service.cronExpression=4 30 0/1 * * ?
 transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
 ```
 
-## ATS Configuration
-Alfresco Transform Service configuration information.
-
-### Configure a T-Engine as a Remote Transform
-Please follow the steps described in [Alfresco Transform Service Docs](https://github.com/Alfresco/alfresco-transform-service/blob/master/docs/custom-t-engine.md).
-
 ## Creating a T-Engine {#creating-a-t-engine}
 The deployment and development of a T-Engine transformer is simpler
 than before.
@@ -541,3 +535,6 @@ helps by showing which areas of legacy code are no longer needed and
 which sections can be simply copied and pasted into the new code. Some of
 the concepts have changed sightly to simplify what the custom transform
 developer needs to do and understand.
+
+## Alfresco Transform Service (ATS) Configuration (ENTERPRISE)
+To configure a T-Engine as a Remote Transform follow the steps described in [Alfresco Transform Service Docs]({% link transform-service/latest/config/engine.md %}).
