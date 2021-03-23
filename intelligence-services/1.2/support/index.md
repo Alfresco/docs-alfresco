@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Alfresco Intelligence Services 1.3:
+The following are the supported platforms for Alfresco Intelligence Services 1.2:
 
 | Version | Notes |
 | ------- | ----- |
