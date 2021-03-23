@@ -361,6 +361,8 @@
               path: '/content-services/community/admin/import-transfer/'
         - title: 'Manage security'
           pages:
+          - title: 'Securing your installation'
+            path: '/content-services/community/admin/securing-install/'
           - title: 'Users and groups'
             path: '/content-services/community/admin/users-groups/'
           - title: 'Authentication and sync'
