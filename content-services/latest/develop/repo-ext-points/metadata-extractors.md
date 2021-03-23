@@ -109,7 +109,8 @@ Code that transforms a specific document type in a T-Engine generally implements
 [Transformer](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transformer-base/src/main/java/org/alfresco/transformer/executors/Transformer.java){:target="_blank"}
 interface. In addition to the `transform` method, `extractMetadata` and `embedMetadata` methods
 will be called depending on the target media type. The implementing class is called from the
-[transformImpl](creating-a-t-engine.md#transformImpl) method of the controller class.
+[transformImpl](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transformer-base/src/main/java/org/alfresco/transformer/TransformController.java){:target="_blank"}                 
+method of the controller class.
 
 ```java
 default void transform(String transformName, String sourceMimetype, String targetMimetype,
