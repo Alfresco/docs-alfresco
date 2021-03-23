@@ -6,7 +6,7 @@ Find Alfresco Mobile Workspace at [Google Play]({https://play.google.com/store/a
 
 ## Authenticating
 
-For Single Sign On (SSO) information see the [Single Sign On (SSO) Guide]({% link identity-service/latest/tutorial/sso/ %}).
+For Single Sign On (SSO) information see the [Single Sign On (SSO) Guide]({% link identity-service/latest/tutorial/sso/index.md %}).
 
 ### Connect to URL
 
