@@ -431,6 +431,8 @@
           path: '/content-services/community/develop/sdk/'
         - title: 'Extension packaging (modules)'
           path: '/content-services/community/develop/extension-packaging/'
+        - title: 'Extension Inspector'
+          path: '/content-services/community/develop/extension-inspector/'
         - title: 'Extension points overview'
           path: '/content-services/community/develop/overview-ext-points/'
         - title: 'Platform extension points'
