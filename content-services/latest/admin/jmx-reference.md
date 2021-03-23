@@ -45,9 +45,6 @@ The following is summary of the `alfresco-global.properties` that can be viewed 
 |server.allowedusers|A comma-separated list of users who are allowed to log in. Leave empty if all users are allowed to log in.|
 |server.maxusers|The maximum number of users who are allowed to log in or -1 if there is no limit.|
 |server.transaction.allow-writes|A Boolean property that when `true` indicates that the repository will allow write operations (provided that the license is valid). When `false` the repository is in read-only mode.|
-|img.dyn|Points to the directory containing the ImageMagick shared library (Unix) or DLL files (Windows). For example, (Windows) `img.dyn=${img.root}`; (Linux) `img.dyn=${img.root}/lib`.|
-|img.exe|Points to the ImageMagick executable file name.|
-|img.root|Points to the ImageMagick root directory.|
 
 ## JMX read-only MBeans
 
@@ -904,12 +901,6 @@ Exposes the default configuration settings that are present in the alfresco-glob
 |imap.server.attachments.extraction.enabled|`true`|
 |imap.server.enabled|`false`|
 |imap.server.port|`143`|
-|img.coders|`${img.root}\modules\coders`|
-|img.config|`${img.root}\config`|
-|img.dyn|`${img.root}/lib`|
-|img.exe|`${img.root}\convert.exe`|
-|img.gslib|`${img.root}\lib`|
-|img.root|`C:\Alfresco\imagemagick`|
 |index.backup.cronExpression|`0 0 3 * * ?`|
 |index.recovery.maximumPoolSize|`5`|
 |index.recovery.mode|`VALIDATE`|
@@ -925,9 +916,6 @@ Exposes the default configuration settings that are present in the alfresco-glob
 |index.tracking.minRecordPurgeAgeDays|`30`|
 |index.tracking.purgeSize|`7200000`|
 |index.tracking.reindexLagMs|`1000`|
-|jodconverter.enabled|`true`|
-|jodconverter.officeHome|`C:/Alfresco/libreoffice/App/libreoffice`|
-|jodconverter.portNumbers|`8100`|
 |location.license.embedded|`/WEB-INF/alfresco/license/*.lic`|
 |location.license.external|`file://${dir.license.external}/*.lic`|
 |location.license.shared|`classpath*:/alfresco/extension/license/*.lic`|
@@ -1588,15 +1576,6 @@ This MBean provides information about the administration settings for the Alfres
 Object Type = `thirdparty$default`
 
 This MBean provides information about the third party modules configured.
-
-| Attribute name | Example value |
-| -------------- | ------------- |
-| img.coders | `C:\Alfresco\imagemagick\modules\coders` |
-| img.config | `C:\Alfresco\imagemagick\config` |
-| img.dyn | `C:\Alfresco\imagemagick/lib` |
-| img.exe | `C:\Alfresco\imagemagick\convert.exe` |
-| img.gslib | `C:\Alfresco\imagemagick\lib` |
-| img.root | `C:\Alfresco\imagemagick` |
 
 ### Alfresco:Name=FileServerConfig (editable)
 

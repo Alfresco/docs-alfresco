@@ -6,6 +6,8 @@ This page describes how to manually install Content Services using the distribut
 
 For a description of the system paths used within this documentation, see [System path conventions]({% link content-services/latest/admin/index.md %}#system-paths-convention).
 
+>Before starting a production installation make sure you are familiar with [how to secure your installation]({% link content-services/latest/admin/securing-install.md %}).
+
 ## Prerequisites
 
 To install Content Services using the distribution zip (which also contains the WAR files), make sure that the required software is available on your system:

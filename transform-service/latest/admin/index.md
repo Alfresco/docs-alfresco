@@ -23,7 +23,11 @@ The main components of the Transform Service are:
 
 The following diagram shows a simple representation of the Transform Service components:
 
-![Docker Compose Deployment Overview]({% link transform-service/images/simple-arch.png %})
+![Transform service components Overview]({% link transform-service/images/ats-1.3.2-components.png %})
+
+Note that from Transform Service version 1.3.2 the metadata extraction that usually takes part in the core repository 
+legacy transform engines has now been lifted out into the separate transform engine processes. This enables scaling 
+of the metadata extraction.
 
 This shows an example implementation of how you can deploy into AWS, using a number of managed services:
 
@@ -39,12 +43,20 @@ The advantage of using Docker containers is that they provide a consistent envir
 
 ## Docker images overview
 
+A typical containerized deployment of Transform Service looks as follows:
+
+![Docker Compose Deployment Overview]({% link transform-service/images/ats-1.3.2-containerized-deployment.png %})
+
+Note that from Transform Service version 1.3 all the transform engines are contained in one component called 
+Transform Core All-In-One (AIO) Engine. Only for large deployments are the Transform Engines deployed separately.
+
 Some of the Docker images that are used by the Transform Service are uploaded to a private registry, **Quay.io**. Enterprise customers can contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"} to request Quay.io account credentials to pull the private (Enterprise-only) Docker images:
 
-* `alfresco/alfresco-transform-router`
+* `quay.io/alfresco/alfresco-transform-router`
 
 The other images are available in DockerHub:
 
+* `alfresco/alfresco-transform-core-aio`
 * `alfresco/alfresco-pdf-renderer`
 * `alfresco/alfresco-imagemagick`
 * `alfresco/alfresco-libreoffice`

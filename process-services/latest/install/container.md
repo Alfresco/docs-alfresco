@@ -7,7 +7,7 @@ There are two options for installing Process Services using containers:
 * For trials, testing and development it's recommended to deploy with Docker for Desktop.
 * For production environments, there's a reference Helm chart available for installation into a Kubernetes cluster.
 
-> **Note**: See the [Deployment and Containerization Support Policy]({% link support/latest/policies/deployment.md %}) for information regarding the supportability of Docker images and Helm charts.
+> **Note:** See the [Deployment and Containerization Support Policy]({% link support/latest/policies/deployment.md %}) for information regarding the supportability of Docker images and Helm charts.
 
 ## Install with Docker
 
