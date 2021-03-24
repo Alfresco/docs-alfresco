@@ -52,7 +52,7 @@ system.delete_not_exists.read_only=false
 system.delete_not_exists.timeout_seconds=-1
 ```
 
-If you're running an earlier version tha Content Services 6.2.1, then follow the steps in the remainder of this page to use the V2 algorithm.
+If you're running an earlier version than Content Services 6.2.1, then follow the steps in the remainder of this page to use the V2 algorithm.
 
 ### Run new job in read-only mode
 
@@ -129,7 +129,7 @@ If you're running an earlier version tha Content Services 6.2.1, then follow the
     3. Set the prop cleaner timeout:
 
         ```text
-        # This will stop the next batch from being processed if the elapsed time from  
+        # This will stop the next batch from being processed if the elapsed time from
         the job start is greater than 1 hour
         system.delete_not_exists.timeout_seconds=3600
         ```

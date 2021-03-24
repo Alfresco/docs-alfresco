@@ -4,7 +4,7 @@ title: Install using Helm
 
 Alfresco Content Services (ACS) is an Enterprise Content Management (ECM) system that's used for document and case management, project collaboration, web content publishing, and compliant records management.  The flexible compute, storage, and database services that Kubernetes offers make it an ideal platform for Content Services. This Helm chart presents an enterprise-grade Content Services configuration that you can adapt to virtually any scenario with the ability to scale up, down or out, depending on your use case.
 
->Before starting a production installation make sure you are familiar with 
+>Before starting a production installation make sure you are familiar with
 [how to secure your installation]({% link content-services/latest/admin/securing-install.md %}).
 
 The Helm chart in this repository supports deploying the Enterprise or Community Edition of Content Services.
@@ -366,7 +366,7 @@ Since you deployed Enterprise, you'll also have access to:
 * Alfresco Digital Workspace: `https://acs.YOUR-DOMAIN-NAME/workspace/`
 * Alfresco Sync Service: `https://acs.YOUR-DOMAIN-NAME/syncservice/healthcheck`
 
-If you're running Content Services 6.2 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
+If you're running Content Services 7.0 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
 
 * [https://acs.YOUR-DOMAIN-NAME/alfresco/service/enterprise/admin/admin-license](http://localhost:8080/alfresco/service/enterprise/admin/admin-license){:target="_blank"} (this only applies for the Enterprise Download Trial)
 * Default username and password is `admin`

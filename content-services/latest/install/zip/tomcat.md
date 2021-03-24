@@ -6,7 +6,7 @@ For more complex Content Services installations, or if you wish to use an existi
 
 Use this method of installing Content Services if you've already have installed a JRE, a supported database, a supported application server, a message broker, and the additional components.
 
-For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-8.5-doc/security-howto.html){:target="_blank"}.
+For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html){:target="_blank"}.
 
 ## Install application server
 
@@ -103,7 +103,7 @@ The Content Services distribution file is a zip containing the required WAR file
 
 1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
-2. Download the file: `alfresco-content-services-distribution-6.2.x.zip`
+2. Download the file: `alfresco-content-services-distribution-7.0.x.zip`
 
 3. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 
@@ -253,5 +253,5 @@ Next, you can [customize applications]({% link content-services/latest/config/in
 
 ### Adding a reverse proxy in front of Content Services
 
-See [adding a reverse proxy]({% link content-services/latest/admin/securing-install.md %}#addreverseproxy) 
+See [adding a reverse proxy]({% link content-services/latest/admin/securing-install.md %}#addreverseproxy)
 for more information.

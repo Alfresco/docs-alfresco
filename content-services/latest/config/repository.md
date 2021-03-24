@@ -472,7 +472,7 @@ For security reasons, configure your proxy to forward only requests to the resou
 1. Set your proxy to forward the following URL extensions:
 
     ```bash
-    /share  
+    /share
     /share/*
     /alfresco/api/*/public/cmis/versions/*
     /alfresco/api/*/public/alfresco/versions/*
@@ -485,7 +485,7 @@ For security reasons, configure your proxy to forward only requests to the resou
 2. If you're using WebDAV, add these URL extensions to your proxy:
 
     ```bash
-    /alfresco/webdav  
+    /alfresco/webdav
     /alfresco/webdav/*
     ```
 
@@ -600,7 +600,7 @@ For security reasons, configure your proxy to forward only requests to the resou
     JkWorkersFile  **/path/to/your/workers.properties**
     JkLogFile      **/path/to/your/apache/log/mod\_jk.log**
     JkLogLevel     info
-    JkShmFile      **/path/to/your/apache/log/jk-runtime-status**  
+    JkShmFile      **/path/to/your/apache/log/jk-runtime-status**
 
     # -------
     # SSL
@@ -656,7 +656,7 @@ For security reasons, configure your proxy to forward only requests to the resou
 
     In this example, Apache is configured to accept strong encryption only. Adapt SSLCipherSuite if this causes you problems.
 
-9. (Optional) Only required if configuring Alfresco Share. 
+9. (Optional) Only required if configuring Alfresco Share.
 
     Add and set the following properties in the `JAVA_OPTS` environmental variable referenced by the Share application, as they're required at Share start up:
 
@@ -665,9 +665,9 @@ For security reasons, configure your proxy to forward only requests to the resou
     -Dcookies.sameSite=none
     ```
 
-    When using Share with Chromium-based browsers (such as Google Chrome or the latest releases of Microsoft Edge) with either Alfresco Content Connector for Salesforce or the SAML Module, the share web must be secured using an HTTPS (SSL/TLS) certificate. 
+    When using Share with Chromium-based browsers (such as Google Chrome or the latest releases of Microsoft Edge) with either Alfresco Content Connector for Salesforce or the SAML Module, the share web must be secured using an HTTPS (SSL/TLS) certificate.
 
-10. (Optional) Only required if configuring Alfresco Share. 
+10. (Optional) Only required if configuring Alfresco Share.
 
     Add and set the property in the `JAVA_OPTS` environmental variable corresponding to the JVM of the Tomcat instance when deploying Share:
 
@@ -775,7 +775,7 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
     aos.baseUrlOverwrite=https://localhost:7070/alfresco/aos
     ```
 
-7. (Optional) Only required if configuring Alfresco Share to use HTTPS. 
+7. (Optional) Only required if configuring Alfresco Share to use HTTPS.
 
     Add and set the following properties in the `JAVA_OPTS` environmental variable referenced by the Share application, as they're required at Share start up:
 
@@ -786,7 +786,7 @@ Here's an example of how to configure Tomcat 8.5 to work with HTTPS for your dev
 
     When using Share with Chromium-based browsers (such as Google Chrome or the latest releases of Microsoft Edge), the Share communication must be secured using an HTTPS (SSL/TLS) certificate.
 
-8. (Optional) Only required if configuring Alfresco Share to use HTTPS. 
+8. (Optional) Only required if configuring Alfresco Share to use HTTPS.
 
     Add and set the property in the `JAVA_OPTS` environmental variable corresponding to the JVM of the Tomcat instance when deploying Share:
 
@@ -824,7 +824,7 @@ From Alfresco One version 5.0 and later, the caches can be configured by setting
 
 > **Note:** It's advisable not to change the cache values unless you have performance issues.
 
-1. Download the files [tx-cache-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/tx-cache-context.xml){:target="_blank"} and [caches.properties](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/caches.properties){:target="_blank"}.
+1. Download the files [tx-cache-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/tx-cache-context.xml){:target="_blank"} and [caches.properties](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/caches.properties){:target="_blank"}.
 
     The `caches.properties` file lists a series of properties for configuring a cache. The cache properties are used for both clustered and non-clustered configurations.
 
@@ -969,10 +969,10 @@ The MIME type is available in the repository.
 
 ## Configure metadata extraction
 
-Metadata extraction automatically extracts metadata information from inbound and/or updated content and updates the 
+Metadata extraction automatically extracts metadata information from inbound and/or updated content and updates the
 corresponding nodes properties with the metadata values.
 
-For more information see [metadata extraction extension point]({% link content-services/latest/develop/repo-ext-points/metadata-extractors.md %}). 
+For more information see [metadata extraction extension point]({% link content-services/latest/develop/repo-ext-points/metadata-extractors.md %}).
 
 ## About aspects
 
@@ -1014,7 +1014,7 @@ To change this behavior, you can set `cm:autoVersionOnUpdateProps` to `true`.
 
 Edit the `contentModel.xml` file to enable versioning for all content in the repository.
 
-1. Download the [contentModel.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/model/contentModel.xml){:target="_blank"} file.
+1. Download the [contentModel.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/model/contentModel.xml){:target="_blank"} file.
 
 2. Create a `$TOMCAT\_HOME/shared/classes/alfresco/extension/models` directory.
 
@@ -1130,7 +1130,7 @@ Follow these replication steps for the MySQL database.
 
 This task describes how to customize content transformations.
 
-1. Download the [content-services-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/content-services-context.xml){:target="_blank"} file.
+1. Download the [content-services-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/content-services-context.xml){:target="_blank"} file.
 
 2. Paste this file into the `<extension>` directory, and open the file.
 
