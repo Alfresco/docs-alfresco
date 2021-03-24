@@ -139,7 +139,7 @@ applications:
     image: /assets/img/logo_cm_72px.svg
   - title: "Mobile Workspace"
     text: "Alfresco Mobile Workspace enables users to work away from their workstation without compromising the way they access content. Keep productivity high by transporting technical documents into the field without having to worry about a data connection."
-    url: /content-mobile/latest/
+    url: /mobile-workspace/latest/
     image: /assets/img/logo_cm_72px.svg
 #  - title: "Process for iOS"
 #    text: "Alfresco Process Services for mobile allows you to start new processes and interact with related content #via the mobile app."

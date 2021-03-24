@@ -19,16 +19,16 @@ The Favorites view shows all files and folders from the content repository that 
 ## Offline
 
 Offline is a collection of content that is individual to a user and is available when offline.
-Mobile Workspace will attempt to keep this collection updated with the latest version wherever possible.
+The Mobile Workspace will attempt to keep this collection updated with the latest version wherever possible.
 
 ## Browse
 
 Browse contains the rest of the navigation structure. You can access your libraries, personal files, shared files and discarded files from this screen.
 
-Personal Files retrieves all content from the logged in user's home area `/User Homes/<username>/` in the repository. If the user is an administrator who does not have a home folder then the repository root folder is shown.
+* Personal Files retrieves all content from the logged in user's home area `/User Homes/<username>/` in the repository. If the user is an administrator who does not have a home folder then the repository root folder is shown.
 
-File Libraries retrieves all the sites that the user is a member of including what type of site it is, either public, moderated or private. File Libraries is the Libraries component, using the Sites API.
+* File Libraries retrieves all the sites that the user is a member of including what type of site it is, either public, moderated or private. File Libraries is the Libraries component, using the Sites API.
 
-The Shared Files view aggregates all files that have been shared using the QuickShare feature in the content repository.
+* The Shared Files view aggregates all files that have been shared using the QuickShare feature in the content repository.
 
-The Trash view shows all the items that a user has deleted, an administrator can see items deleted by all users. The actions available in this view are Restore and Permanently Delete.
+* The Trash view shows all the items that a user has deleted, an administrator can see items deleted by all users. The actions available in this view are Restore and Permanently Delete.
