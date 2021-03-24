@@ -5,7 +5,7 @@ title: Content Transformers and Renditions Extension Point
 Content Services provides many different types of content transformations out-of-the-box. Custom transformations 
 can also be implemented and configured.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/community/develop/software-architecture.md %}#platformarch)
 
 ## Description
 Content transformers transform one type of content into another, such as a HTML file into a PDF file. They are used to 
@@ -40,7 +40,7 @@ will show the updated transformations.
 When working with transformations and renditions it is important to make sure that the involved mimetypes are known to 
 Content Services. So when accessing the "mimetypes" Web Script make sure the mimetypes that will be used in 
 transformations and renditions are included there, if not you would have to register them with Content Services, 
-see the [Mimetypes extension point]({% link content-services/latest/develop/repo-ext-points/mimetypes.md %}) for more information about that.
+see the [Mimetypes extension point]({% link content-services/community/develop/repo-ext-points/mimetypes.md %}) for more information about that.
 
 Related to transformations are **renditions**, and the purpose of them is to provide support for rendering a specific 
 content item into other forms, known as renditions. The rendition items are derived from their source item and as such 

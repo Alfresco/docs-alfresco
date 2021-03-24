@@ -2,147 +2,10 @@
 title: Install additional software
 ---
 
-You can install the third-party software used by Community Edition independently. Some of the software can be installed any time before or after installing Community Edition.
+You can install the third-party software used by Community Edition independently. Some of the software can be installed 
+any time before or after installing Community Edition.
 
-## Install LibreOffice
-
-In Community Edition, you can transform a document from one format to another, for example, a text file to a PDF file. To access these transformation facilities, you must install LibreOffice. This is optional, and can be done any time after Community Edition is installed.
-
-1. Browse to the [LibreOffice download site](https://www.libreoffice.org/download/download/){:target="_blank"}.
-
-2. Download the latest (stable) version of LibreOffice for your platform.
-
-3. When prompted, specify a download destination.
-
-4. Browse to the location of your downloaded file, and install the application.
-
-5. Change the installation directory to:
-
-    * (Windows) `c:\Alfresco\LibreOffice`
-    * (Linux) `/opt/alfresco/LibreOffice`
-
-    If you're installing LibreOffice on Linux, you also need a number of libraries to be installed. See [Install Linux libraries](#install-linux-libraries) for more.
-
-6. Modify the `jodconverter.officeHome` property in the `<classpathRoot>/alfresco-global.properties` file to point to the LibreOffice install location.
-
-    > **Note:** For Windows, set the path using the `\\` separator, or use the forward slash `/` Unix path separator. For example: `c:\\Alfresco\\LibreOffice` or `c:/Alfresco/LibreOffice`.
-
-7. If the Community Edition server is running, stop and restart the server.
-
-### Install Linux libraries
-
-Use this information to install Linux libraries manually on supported Linux distributions, such as Ubuntu, SUSE and Red Hat.
-
-LibreOffice requires the following libraries to be installed on your system:
-
-* libfontconfig
-* libICE
-* libSM
-* libXrender
-* libXext
-* libXinerama
-* libcups
-* libGLU
-* libcairo2
-* libgl1-mesa-glx
-
-If the required libraries are missing, you'll get a warning message. You can install them using your preferred package manager from the command line. Note that the file names for the Linux libraries may vary by distribution.
-
-For Red Hat Enterprise Linux/CentOS, you can run:
-
-```bash
-cd <libre-install-dir>/LibreOffice_*.*.*.*_Linux_x86-64_rpm/RPMS/
-```
-
-```bash
-sudo yum localinstall *rpm
-```
-
-For Ubuntu:
-
-```bash
-cd <libre-install-dir>/LibreOffice_*.*.*.*_Linux_x86-64_rpm/RPMS/
-```
-
-```bash
-sudo dpkg -i *deb
-```
-
-If LibreOffice doesn't start up normally with Community Edition, test it manually, for example, by running this startup script:
-
-```bash
-start ex. {installdir}/libreoffice/scripts/libreoffice_ctl.sh start
-status ex. {installdir}/libreoffice/scripts/libreoffice_ctl.sh status
-```
-
-If you receive errors that indicate that a library is missing, work with your system administrator to add the missing library or its equivalent from your configured repositories.
-
-## Install ImageMagick
-
-To enable image manipulation in Community Edition, you must install and configure ImageMagick. Community Edition uses ImageMagick to manipulate images for previewing.
-
-1. Verify that ImageMagick is already installed on your system.
-
-    Use the ImageMagick convert command to check that you have the right software installed on your machine. This command is usually located in `/usr/bin`: `install Image`.
-
-2. If the ImageMagick software isn't available on your system, download and install the appropriate package for your platform.
-
-    To download ImageMagick, browse to the [ImageMagick download website](https://www.imagemagick.org/script/download.php){:target="_blank"}.
-
-    > **Note:** In next steps, you'll make changes to the Community Edition configuration files to enable the manually installed ImageMagick application. These steps can only be performed after Community Edition has been installed.
-
-3. Browse to the `<classpathRoot>` directory.
-
-4. Open the `alfresco-global.properties` file.
-
-5. Modify the ImageMagick properties to point to the ImageMagick root directory.
-
-    | Property | Description |
-    | -------- | ----------- |
-    | img.root | Windows: `img.root=C:\\ImageMagick`<br>Linux: `img.root=/ImageMagick`<br><br>**Note:** Don't include a slash (`/`) at the end of the path, i.e. `/ImageMagick/`. |
-    | img.dyn | Windows: `img.dyn=${img.root}\\lib` <br>Linux: `img.dyn=${img.root}/lib` |
-    | img.exe | Windows: `img.exe=${img.root}\\convert.exe` <br>Linux: `img.exe=${img.root}/bin/convert` |
-    | img.coders | Windows: `img.coders=${img.root}\\modules\\coders` <br>Linux: `img.coders=${img.root}/modules/coders` |
-    | img.config | Windows: `img.config=${img.root}\\config` <br>Linux: `img.config=${img.root}/config` |
-    | img.url | Windows: `img.url=${img.root}\\url` <br>Linux: `img.url=${img.root}/url` |
-
-> **Note:** Test that you're able to convert a PDF using the command: `convert filename.pdf[0] filename.png`
-
-## Install alfresco-pdf-renderer
-
-Community Edition uses `alfresco-pdf-renderer` for creating document thumbnails and previews. Use this information to install `alfresco-pdf-renderer` on your system.
-
-> **Note:** To use the `alfresco-pdf-renderer`, ensure that Community Edition is installed. Changes made to the `alfresco-global.properties` file in your installation will change the configuration and enable you to manually install the `alfresco-pdf-renderer` application.
-
-> **Note:** The `alfresco-pdf-renderer` executable file is platform-specific.
-
-The `alfresco-pdf-renderer` binaries are available in the Community Edition distribution zip.
-
-* For Windows:
-  * Extract the file `alfresco-pdf-renderer/alfresco-pdf-renderer-1.0-win64.tgz` to a location of your choice.
-  * Browse to the location of your saved file and extract the archive.
-  * Add the following properties to the `alfresco-global.properties` file:
-
-    ```bash
-    alfresco-pdf-renderer.root=<alfresco-pdf-renderer_installation_dir>
-    alfresco-pdf-renderer.exe=${alfresco-pdf-renderer.root}/alfresco-pdf-renderer
-    alfresco-pdf-renderer.url=http://localhost:8090/
-    ```
-
-* For Linux:
-  * Extract the file `alfresco-pdf-renderer/alfresco-pdf-renderer-1.0-linux.tgz` to a location of your choice.
-  * Browse to the location of your saved file and extract the archive.
-  * Add the following properties to the `alfresco-global.properties` file:
-
-    ```bash
-    alfresco-pdf-renderer.root=<alfresco-pdf-renderer_installation_dir>
-    alfresco-pdf-renderer.exe=${alfresco-pdf-renderer.root}/alfresco-pdf-renderer
-    alfresco-pdf-renderer.url=http://localhost:8090/
-    ```
-
-> **Note:** Use the `alfresco-pdf-renderer.url` property when running `alfresco-pdf-renderer` remotely. If you're running `alfresco-pdf-renderer` locally, then you don't need to set this property.
-
-## Language support
+## Install TinyMCE language packs
 
 Translations in Community Edition use language packs. The supported language packs are:
 
@@ -162,25 +25,17 @@ The language used switches according to the browser locale. Ensure that your bro
 
 The source-localized files are encoded in ASCII, and the special and accented characters are displayed using escape sequences. The source files have been renamed using the corresponding locale for each language. For example, `site-welcome.properties` is called `sitewelcome_ fr.properties` for the French version.
 
-Although the interface is localized, the following components have not been localized, therefore, any strings originating from these components will be displayed in English.
+If you wish to use a translation that is not supplied with Community Edition, then you must add the appropriate TinyMCE language pack for the translation to work correctly.
 
-* SharePoint
-* LibreOffice
+1. Browse to the [TinyMCE website](http://tinymce.moxiecode.com/download_i18n.php){:target="_blank"}.
 
-The following files are not localized and the error messages remain in English to ease searching for fixes to issues.
+2. Download the required TinyMCE language pack.
 
-* `content-service.properties`
-* `dictionary-messages.properties`
-* `module-messages.properties`
-* `patch-service.properties`
-* `repoadmin-interpreter-help.properties`
-* `schema-update.properties`
-* `system-messages.properties` (partially translated)
-* `tenant-interpreter-help.properties`
-* `version-service.properties`
-* `webclient-config-admin-interpreter-help.properties`
-* `workflow-interpreter-help.properties`
-* `control.properties` (in `remote-api` directory)
+    > **Note:** The next step makes configuration changes to the Alfresco Share application to configure the additional language packs for TinyMCE. This step can only be performed after Community Edition has been installed.
+
+3. Unpack the language file to `<TOMCAT_HOME>/webapps/share/modules/editors/tiny_mce/langs`.
+
+4. Ensure that the browser cache is cleared or refresh the page.
 
 ## Install integrations
 

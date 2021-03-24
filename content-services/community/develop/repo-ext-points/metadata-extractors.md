@@ -5,7 +5,7 @@ title: Metadata Extractors and Embedders Extension Point
 Content Services performs metadata extraction on content automatically, however, you may wish to create 
 custom metadata extractors to handle custom file properties and custom content models.
 
-Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
+Architecture Information: [Platform Architecture]({% link content-services/community/develop/software-architecture.md %}#platformarch)
 
 ## Introduction
 Every time a file is uploaded to the repository the file's MIME type is automatically detected. Based on the MIME type a 
@@ -558,7 +558,7 @@ content.metadataExtracter.pdf.maxConcurrentExtractionsCount=5
 ```
 
 ## Deployment
-For XML metadata extraction you will still use the [SDK]({% link content-services/latest/develop/sdk.md %}) and a 
+For XML metadata extraction you will still use the [SDK]({% link content-services/community/develop/sdk.md %}) and a 
 JAR project applied to the Repository (i.e. `alfresco.war`).
  
 To change the configuration for the majority of the metadata extractors you will have to generate a new 
