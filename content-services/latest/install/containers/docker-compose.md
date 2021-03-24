@@ -10,7 +10,7 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
 
 1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Content Services 6.2, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
+    If you already have a valid license file for Content Services 7.0, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
@@ -38,18 +38,21 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
 
     ```text
     ...
-    Creating acs-trial_digital-workspace_1  ... done
-    Creating acs-trial_alfresco_1           ... done
-    Creating acs-trial_activemq_1           ... done
-    Creating acs-trial_share_1              ... done
-    Creating acs-trial_solr6_1              ... done
-    Creating acs-trial_shared-file-store_1  ... done
-    Creating acs-trial_sync-service_1       ... done
-    Creating acs-trial_postgres_1           ... done
+    Creating acs-trial_shared-file-store_1 ... done
+    Creating acs-trial_share_1             ... done
+    Creating acs-trial_alfresco_1          ... done
+    Creating acs-trial_digital-workspace_1 ... done
+    Creating acs-trial_postgres_1          ... done
+    Creating acs-trial_proxy_1             ...
+    Creating acs-trial_sync-service_1      ... done
+    Creating acs-trial_solr6_1             ... done
+    Creating acs-trial_activemq_1          ... done
+    Creating acs-trial_transform-core-aio_1 ...
+    Creating acs-trial_transform-router_1   ...
     Creating acs-trial_proxy_1              ... done
-    Creating acs-trial_transform-router_1   ... done
     Creating acs-trial_transform-core-aio_1 ... done
-    Attaching to acs-trial_digital-workspace_1, acs-trial_shared-file-store_1, acs-trial_alfresco_1, acs-trial_sync-service_1, ...
+    Creating acs-trial_transform-router_1   ... done
+    Attaching to acs-trial_shared-file-store_1, acs-trial_share_1, acs-trial_alfresco_1, acs-trial_digital-workspace_1, acs-trial_postgres_1, acs-trial_sync-service_1, acs-trial_solr6_1, acs-trial_activemq_1, acs-trial_proxy_1, acs-trial_transform-core-aio_1, acs-trial_transform-router_1
     ...
     ```
 
@@ -61,10 +64,8 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
 
     ```bash
     ...
-    alfresco_1 | 2020-07-06 11:50:46,808  WARN ... The Alfresco Content Services license will expire in 2 days.
-    ...
-    alfresco_1 | 2020-07-06 11:50:50,938  INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2020-07-06 11:50:50,371  INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | 2021-03-18 15:44:21,010  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | 2021-03-18 15:44:21,294  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -109,19 +110,19 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```text
-                Container                           Repository                            ...       Size
-        --------------------------------------------------------------------------------------------------
-        acs-trial_activemq_1                alfresco/alfresco-activemq                    ...   545.9 MB
-        acs-trial_alfresco_1                alfresco/alfresco-content-repository          ...   1.324 GB
-        acs-trial_digital-workspace_1       quay.io/alfresco/alfresco-digital-workspace   ...   34.35 MB
-        acs-trial_postgres_1                postgres                                      ...   312.5 MB
-        acs-trial_proxy_1                   alfresco/alfresco-acs-nginx                   ...   20.42 MB
-        acs-trial_share_1                   alfresco/alfresco-share                       ...   867.6 MB
-        acs-trial_shared-file-store_1       alfresco/alfresco-shared-file-store           ...   777.8 MB
-        acs-trial_solr6_1                   alfresco/alfresco-search-services             ...   1.022 GB
-        acs-trial_sync-service_1            quay.io/alfresco/service-sync                 ...   809.7 MB
-        acs-trial_transform-core-aio_1      alfresco/alfresco-transform-core-aio          ...   1.707 GB
-        acs-trial_transform-router_1        quay.io/alfresco/alfresco-transform-router    ...   729.8 MB
+                Container                           Repository                          ...     Size
+        ----------------------------------------------------------------------------------------------
+        acs-trial_activemq_1             alfresco/alfresco-activemq                     ...   716.3 MB
+        acs-trial_alfresco_1             quay.io/alfresco/alfresco-content-repository   ...   1.484 GB
+        acs-trial_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace    ...   35.96 MB
+        acs-trial_postgres_1             postgres                                       ...   314.2 MB
+        acs-trial_proxy_1                alfresco/alfresco-acs-nginx                    ...   21.86 MB
+        acs-trial_share_1                quay.io/alfresco/alfresco-share                ...   743.2 MB
+        acs-trial_shared-file-store_1    quay.io/alfresco/alfresco-shared-file-store    ...   658.2 MB
+        acs-trial_solr6_1                alfresco/alfresco-search-services              ...   1.148 GB
+        acs-trial_sync-service_1         quay.io/alfresco/service-sync                  ...   800 MB
+        acs-trial_transform-core-aio_1   alfresco/alfresco-transform-core-aio           ...   1.579 GB
+        acs-trial_transform-router_1     quay.io/alfresco/alfresco-transform-router     ...   611.4 MB
         ```
 
     2. List the running containers:
@@ -168,14 +169,14 @@ Use this information to verify that the system started correctly, and to clean u
     Stopping acs-trial_transform-core-aio_1 ... done
     Stopping acs-trial_transform-router_1   ... done
     Stopping acs-trial_proxy_1              ... done
-    Stopping acs-trial_sync-service_1       ... done
     Stopping acs-trial_shared-file-store_1  ... done
-    Stopping acs-trial_postgres_1           ... done
-    Stopping acs-trial_activemq_1           ... done
-    Stopping acs-trial_share_1              ... done
-    Stopping acs-trial_solr6_1              ... done
     Stopping acs-trial_alfresco_1           ... done
+    Stopping acs-trial_solr6_1              ... done
+    Stopping acs-trial_share_1              ... done
     Stopping acs-trial_digital-workspace_1  ... done
+    Stopping acs-trial_activemq_1           ... done
+    Stopping acs-trial_postgres_1           ... done
+    Stopping acs-trial_sync-service_1       ... done
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -193,14 +194,14 @@ Use this information to verify that the system started correctly, and to clean u
     Removing acs-trial_transform-core-aio_1 ... done
     Removing acs-trial_transform-router_1   ... done
     Removing acs-trial_proxy_1              ... done
-    Removing acs-trial_sync-service_1       ... done
     Removing acs-trial_shared-file-store_1  ... done
-    Removing acs-trial_postgres_1           ... done
-    Removing acs-trial_activemq_1           ... done
-    Removing acs-trial_share_1              ... done
-    Removing acs-trial_solr6_1              ... done
     Removing acs-trial_alfresco_1           ... done
+    Removing acs-trial_solr6_1              ... done
+    Removing acs-trial_share_1              ... done
     Removing acs-trial_digital-workspace_1  ... done
+    Removing acs-trial_activemq_1           ... done
+    Removing acs-trial_postgres_1           ... done
+    Removing acs-trial_sync-service_1       ... done
     Removing network acs-trial_default
     ```
 
@@ -238,7 +239,7 @@ Use this information to verify that the system started correctly, and to clean u
         Removing acs-trial_transform-core-aio_1 ... done
         ...
         Removing network acs-trial_default
-        Removing image alfresco/alfresco-content-repository:6.2.2
+        Removing image alfresco/alfresco-content-repository:7.0.0
         Removing image ...
         ```
 
@@ -246,7 +247,7 @@ See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for m
 
 ### Deployment project in GitHub
 
-See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project for more details.
+See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} GitHub project for more details.
 
 * In this project, you'll find several Docker Compose files. The default `docker-compose.yml` file contains the latest work-in-progress deployment scripts, and installs the latest *development* version of Content Services.
 * To deploy a specific released version of Content Services, several *major.minor* Docker Compose files are provided in the `docker-compose` folder of the project.
