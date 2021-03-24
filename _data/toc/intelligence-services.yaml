@@ -1,5 +1,5 @@
-# Intelligence Services 1.2
-- version: 1.2
+# Intelligence Services 1.3
+- version: 1.3
   pages:
     - title: 'Introduction'
       path: '/intelligence-services/latest/'
@@ -21,6 +21,29 @@
           path: /intelligence-services/latest/admin/troubleshoot/
     - title: 'Using'
       path: '/intelligence-services/latest/using/'
+# Intelligence Services 1.2
+- version: 1.2
+  pages:
+    - title: 'Introduction'
+      path: '/intelligence-services/1.2/'
+    - title: 'Install'
+      path: '/intelligence-services/1.2/install/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/intelligence-services/1.2/config/'
+        - title: 'Custom Comprehend'
+          path: '/intelligence-services/1.2/config/comprehend/'
+        - title: 'Custom Textract'
+          path: '/intelligence-services/1.2/config/textract/'
+    - title: 'Administer'
+      pages:
+        - title: 'Overview'
+          path: '/intelligence-services/1.2/admin/'
+        - title: 'Troubleshoot'
+          path: /intelligence-services/1.2/admin/troubleshoot/
+    - title: 'Using'
+      path: '/intelligence-services/1.2/using/'
 # Intelligence Services 1.1
 - version: 1.1
   pages:
