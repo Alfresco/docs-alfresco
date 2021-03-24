@@ -316,7 +316,7 @@ The File System Transfer Receiver is delivered as a compressed zip file.
 
 1. Download the following file from the Alfresco Support Portal:
 
-    `alfresco-file-transfer-receiver-6.2.1.zip`
+    `alfresco-file-transfer-receiver-7.0.x.zip`
 
 2. Extract the zip file into a relevant directory.
 
@@ -359,7 +359,7 @@ Use this information to start the File System Transfer Receiver.
 
 1. Ensure that you've expanded the File System Transfer Receiver zip file:
 
-    `alfresco-file-transfer-receiver-6.2.1.zip`
+    `alfresco-file-transfer-receiver-7.0.x.zip`
 
 2. To run the File System Transfer Receiver, enter the following command:
 

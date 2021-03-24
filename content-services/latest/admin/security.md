@@ -33,7 +33,7 @@ A check that a user has Read permission for a node is done in two stages. First,
 
 ## Mitigate brute force attack on user passwords {#mitigatebruteforceattackpwd}
 
-Content Services 6.2 provides basic out-of-the-box protection against brute force attacks on password logins.
+Content Services provides basic out-of-the-box protection against brute force attacks on password logins.
 
 To mitigate brute force attacks on user passwords, after a few failed login attempts for any given user id, the user id is locked out and marked as `protected`. The user id stays in the `protected` mode for a six seconds protection period. During this time, even if the correct login details are specified, the user can't login. After the six seconds protection period is over, the user can login with the correct login details.
 
@@ -68,48 +68,48 @@ This section brings you up-to-speed on Alfresco keystores and truststores.
 In Alfresco both the keystore and truststore file types are Java Keystores stored in one of the formats JKS, JCEKS, or PKCS12.
 We use a keystore and a truststore when Alfresco needs to communicate over SSL/TLS.
 
-Usually, these are password-protected files that sit on the same file system as a running Alfresco instance. 
+Usually, these are password-protected files that sit on the same file system as a running Alfresco instance.
 The default format used for these files is JKS until Java 8.
 
-Since Java 9, though, the default keystore format is PKCS12. The biggest difference between JKS and PKCS12 is that JKS 
-is a format specific to Java, while PKCS12 is a standardized and language-neutral way of storing encrypted private keys 
+Since Java 9, though, the default keystore format is PKCS12. The biggest difference between JKS and PKCS12 is that JKS
+is a format specific to Java, while PKCS12 is a standardized and language-neutral way of storing encrypted private keys
 and certificates.
 
 #### Java KeyStore
-A Java keystore stores private key entries, certificates with public keys or just secret keys that we may use for 
+A Java keystore stores private key entries, certificates with public keys or just secret keys that we may use for
 various cryptographic purposes. It stores each by an alias for ease of lookup.
 
-Generally speaking, keystores hold keys that Alfresco owns, or you as a customer owns, that we can use to prove the 
+Generally speaking, keystores hold keys that Alfresco owns, or you as a customer owns, that we can use to prove the
 integrity of a message and the authenticity of the sender, say by signing payloads.
 
-Usually, we'll use a keystore when we are a server and want to use HTTPS, such as the Repository (i.e. `alfresco.war`). 
-During an SSL handshake, the server looks up the private key from the keystore and presents its corresponding public key 
+Usually, we'll use a keystore when we are a server and want to use HTTPS, such as the Repository (i.e. `alfresco.war`).
+During an SSL handshake, the server looks up the private key from the keystore and presents its corresponding public key
 and certificate to the client.
 
-Correspondingly, if the client also needs to authenticate itself (a situation called mutual authentication), such as with Solr, 
+Correspondingly, if the client also needs to authenticate itself (a situation called mutual authentication), such as with Solr,
 then the client also has a keystore and also presents its public key and certificate.
 
-There's no default keystore, so if we want to use an encrypted channel, we'll have to set `javax.net.ssl.keyStore` and 
-`javax.net.ssl.keyStorePassword`. If our keystore format is different than the default, we could use `javax.net.ssl.keyStoreType` 
+There's no default keystore, so if we want to use an encrypted channel, we'll have to set `javax.net.ssl.keyStore` and
+`javax.net.ssl.keyStorePassword`. If our keystore format is different than the default, we could use `javax.net.ssl.keyStoreType`
 to customize it.
 
-Of course, we can use these keys to service other needs as well. Private keys can sign or decrypt data, and public keys 
-can verify or encrypt data (i.e. node property/metadata encryption). Secret keys can perform these functions as well. 
+Of course, we can use these keys to service other needs as well. Private keys can sign or decrypt data, and public keys
+can verify or encrypt data (i.e. node property/metadata encryption). Secret keys can perform these functions as well.
 A keystore is a place that we can hold onto these keys.
 
 We can also interact with the keystore programmatically.
 
 #### Java TrustStore
-A truststore is the opposite, while a keystore typically holds onto certificates that identify us (i.e the Alfresco Repository server), 
+A truststore is the opposite, while a keystore typically holds onto certificates that identify us (i.e the Alfresco Repository server),
 a truststore holds onto certificates that identify others (such as the Alfresco Solr client).
 
 In Java, we use it to trust the third party we're about to communicate with (i.e. Solr).
 
-If the Solr client talks to the Repository server over HTTPS, the Repository server will look up the associated key from 
+If the Solr client talks to the Repository server over HTTPS, the Repository server will look up the associated key from
 its keystore and present the public key and certificate to the Solr client.
 
-We, the Solr client, then look up the associated certificate in our truststore. If the certificate or 
-Certificate Authorities (CA) presented by the external server is not in our truststore, we'll get an `SSLHandshakeException` 
+We, the Solr client, then look up the associated certificate in our truststore. If the certificate or
+Certificate Authorities (CA) presented by the external server is not in our truststore, we'll get an `SSLHandshakeException`
 and the connection won't be set up successfully.
 
 Java has bundled a truststore called `cacerts` and it resides in the `$JAVA_HOME/lib/security` directory.
@@ -119,7 +119,7 @@ It contains default, trusted Certificate Authorities (CA):
 ```bash
 $ keytool -list -keystore $JAVA_HOME/lib/security/cacerts
 Warning: use -cacerts option to access cacerts keystore
-Enter keystore password:  
+Enter keystore password:
 
 *****************  WARNING WARNING WARNING  *****************
 * The integrity of the information stored in your keystore  *
@@ -132,12 +132,12 @@ Keystore provider: SUN
 
 Your keystore contains 93 entries
 
-verisignclass2g2ca [jdk], 13 Jun 2018, trustedCertEntry, 
+verisignclass2g2ca [jdk], 13 Jun 2018, trustedCertEntry,
 Certificate fingerprint (SHA-256): 3A:43:E2:20:FE:7F:3E:A9:65:3D:1E:21:74:2E:AC:2B:75:C2:0F:D8:98:03:05:BC:50:2C:AF:8C:2D:9B:41:A1
 ...
 ```
 
-Here, we can override the default truststore location via the `javax.net.ssl.trustStore` property. Similarly, we can set 
+Here, we can override the default truststore location via the `javax.net.ssl.trustStore` property. Similarly, we can set
 `javax.net.ssl.trustStorePassword` and `javax.net.ssl.trustStoreType` to specify the truststore's password and type.
 
 #### Creating Java Keystores and Certificates
@@ -145,7 +145,7 @@ This is done from command line with the `keytool`, which provides the ability to
 different types, including private and public certificates.
 
 ### Introduction to Alfresco keystores an truststores
-When there is secure communication (i.e. HTTPS) between different Alfresco services, the following relationships must 
+When there is secure communication (i.e. HTTPS) between different Alfresco services, the following relationships must
 be satisfied:
 
 * **The Repository is a client of Solr**:
@@ -158,45 +158,45 @@ be satisfied:
     * A Zeppelin key must be generated and must be included in the Zeppelin keystore (`ssl.repo.client.keystore`)
     * A Zeppelin public certificate must be included in the Repository truststore (`ssl.truststore`)
     * Note. the same key certificates is used for both Solr and Zeppelin, as both are clients of the Repository
-* **When accessing Solr from a browser, the browser is client of Solr**:    
+* **When accessing Solr from a browser, the browser is client of Solr**:
     * A Browser key must be installed in the web browser in order to access Solr Web Console
-    
+
 The following picture illustrates:
 
 ![secure-comms-repo-solr-keystores]({% link content-services/images/acs-secure-comms-repo-solr-keystores.png %}){:height="500px" width="700px"}
-    
-Additionally, to support Alfresco encryption feature, a metadata cyphering key is generated and included on a keystore 
+
+Additionally, to support Alfresco encryption feature, a metadata cyphering key is generated and included on a keystore
 to be used by the Repository when encrypting node properties.
 
-These keystore and truststore files can be generated manually but it's easier to use the 
+These keystore and truststore files can be generated manually but it's easier to use the
 [https://github.com/Alfresco/alfresco-ssl-generator](https://github.com/Alfresco/alfresco-ssl-generator) GitHub project.
 Follow the [Search Services security documentation]({% link search-services/latest/config/keys.md %}) for information
 on how to set this up on Windows or Linux.
 
 ### Alfresco default keystore and backup keystore
-The out-of-the-box Content Services installation has a pre-configured main keystore, which contains a secret key generated 
-by Content Services. If you want to use encrypted properties, you should create your own keystore with your own password, 
+The out-of-the-box Content Services installation has a pre-configured main keystore, which contains a secret key generated
+by Content Services. If you want to use encrypted properties, you should create your own keystore with your own password,
 and update the metadata file appropriately.
 
-The default keystore configuration protects the keys by using two levels of passwords - a keystore password and a password 
-for each key. Currently, the keystore contains only a metadata secret key that is used for encrypting and decrypting node 
+The default keystore configuration protects the keys by using two levels of passwords - a keystore password and a password
+for each key. Currently, the keystore contains only a metadata secret key that is used for encrypting and decrypting node
 properties that are of type `d:encrypted`.
 
-You can also configure a backup keystore. This is useful in case the keys need to be changed. The user can back up the 
+You can also configure a backup keystore. This is useful in case the keys need to be changed. The user can back up the
 main keystore to the backup keystore location and create a new keystore in its place.
 
-If both the main and backup keystores are configured, the repository encryption works in the *fallback* mode. In this mode, 
-the node properties are decrypted with the main keystore's metadata key first. If that fails, the backup keystore's metadata 
+If both the main and backup keystores are configured, the repository encryption works in the *fallback* mode. In this mode,
+the node properties are decrypted with the main keystore's metadata key first. If that fails, the backup keystore's metadata
 key is tried. This allows the keystores to be changed on the disk and reloaded without affecting the running of the repository.
 
-Keystores are also used to protect the communication between the Repository and Solr using encryption and mutual 
-authentication. The keystores store RSA keys and certificates in this case. For more information on how to turn on 
-HTTPS between the Repository and Solr, and how to re-generate the default certificate, 
+Keystores are also used to protect the communication between the Repository and Solr using encryption and mutual
+authentication. The keystores store RSA keys and certificates in this case. For more information on how to turn on
+HTTPS between the Repository and Solr, and how to re-generate the default certificate,
 see [Solr security]({% link search-services/latest/config/security.md %}).
 
 ### Alfresco Keystore configuration
-The way you configure keystores in Content Services has changed. Previously the configuration was stored in properties 
-files like `keystore-passwords.properties` with passwords in plain text. The following properties that were used to 
+The way you configure keystores in Content Services has changed. Previously the configuration was stored in properties
+files like `keystore-passwords.properties` with passwords in plain text. The following properties that were used to
 configure the keystores have been *deprecated*.
 
 ```text
@@ -221,15 +221,15 @@ JAVA_TOOL_OPTIONS: "
     "
 ```
 
->**Note:** The old way of configuring keystores will still work for backwards compatibility but it's not recommended for 
+>**Note:** The old way of configuring keystores will still work for backwards compatibility but it's not recommended for
 security reasons. If the old approach is used you'll see a warning in the logs.
 
 You can configure the main and backup keystores using the `alfresco-global.properties` file.
 
 To configure the main keystore, set the following properties in the `alfresco-global.properties` file:
 
-> **Note:** The "metadata-keystore" properties need to be specified in the `JAVA_TOOL_OPTIONS` property in 
-`<TOMCAT_HOME>/bin/catalina.sh` for Linux based users and `<TOMCAT_HOME>/bin/catalina.bat` for Microsoft Windows users. 
+> **Note:** The "metadata-keystore" properties need to be specified in the `JAVA_TOOL_OPTIONS` property in
+`<TOMCAT_HOME>/bin/catalina.sh` for Linux based users and `<TOMCAT_HOME>/bin/catalina.bat` for Microsoft Windows users.
 The old keystore file can be found in the distribution zip `keystore/metadata-keystore`.
 
 Main keystore and backup:
@@ -372,7 +372,7 @@ During bootstrap and JMX keystore reload and re-encryption operations, the repos
 
 Content Services uses cryptographic password hashing technique to securely store passwords.
 
-All versions Content Services 6.2 used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NLTM) to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. You now have the option to configure Content Services to use Bcrypt to store passwords. By default, the system uses MD4 to allow users to use MD4 hashed passwords for `alfrescoNTLM` authentication.
+All versions prior to Alfresco One 5.1.5 used the MD4 (Message Digest 4) and SHA256 hash algorithms (mainly to support NLTM) to store critical data. But this is no longer considered a secure approach as the hashed password is very easy to decrypt. You now have the option to configure Content Services to use Bcrypt to store passwords. By default, the system uses MD4 to allow users to use MD4 hashed passwords for `alfrescoNTLM` authentication.
 
 Bcrypt is an adaptive hash function based on the Blowfish symmetric block cipher cryptographic algorithm. It is incredibly slow to hash input compared to other functions, but this results in a much better output hash. Content Services is configured to use a strength of `10` to provide a good compromise of speed and strength.
 
@@ -390,7 +390,7 @@ To maintain backwards compatibility with previous versions, the default setting 
 system.preferred.password.encoding=md4
 ```
 
-After upgrading to Content Services 6.2, when the user logs in or changes the password, the system rehashes the password using the preferred encoding mechanism and stores the mechanism being used. If the preferred encoding is set to `md4`, the system moves the current hashed passwords for that user.
+After upgrading to the latest Content Services version, when the user logs in or changes the password, the system rehashes the password using the preferred encoding mechanism and stores the mechanism being used. If the preferred encoding is set to `md4`, the system moves the current hashed passwords for that user.
 
 > **Note:** If SAML SSO is enabled, cryptographic password rehashing won't work at login.
 
@@ -458,7 +458,7 @@ Here is the list of protected attributes (the value for these will be masked in 
 * `cryptodoc.jce.keystore.password`
 * `ldap.synchronization.java.naming.security.credentials`
 
-### Encrypting configuration properties 
+### Encrypting configuration properties
 
 You can encrypt sensitive properties in the `alfresco-global.properties` configuration file.
 
@@ -654,7 +654,7 @@ An aspect can be applied at any time and there are no restrictions as to which a
     <requiredPermission on="parent" name="_DeleteChildren" implies="false"/>
     <requiredPermission on="node" name="_DeleteChildren" implies="false"/>
      -->
-    <!-- Recursive delete check on children --> 
+    <!-- Recursive delete check on children -->
     <!--  <requiredPermission on="children" name="_DeleteNode" implies="false"/>  -->
 </permission>
 ```
@@ -796,7 +796,7 @@ When Content Services makes permission checks, ACEs are considered in order with
 The default configuration is `any deny denies`. This is set by adding the following property to the `alfresco-global.properties` file:
 
 ```text
-security.anyDenyDenies=true  
+security.anyDenyDenies=true
 ```
 
 You can alter the configuration to support `any allow allows`. This is set by adding the following property to the `alfresco-global.properties` file:
@@ -1202,7 +1202,7 @@ If you lose or forget the password for the Admin user, you can reset the passwor
         SELECT anp1.node_id,
                anp1.qname_id,
                anp1.string_value
-        FROM alf_node_properties anp1  
+        FROM alf_node_properties anp1
            INNER JOIN alf_qname aq1 ON aq1.id = anp1.qname_id
            INNER JOIN alf_node_properties anp2 ON anp2.node_id = anp1.node_id
            INNER JOIN alf_qname aq2 ON aq2.id = anp2.qname_id
@@ -1225,9 +1225,9 @@ If you lose or forget the password for the Admin user, you can reset the passwor
     2. To update the password, use the following command:
 
         ```sql
-        UPDATE alf_node_properties  
+        UPDATE alf_node_properties
          SET string_value='209c6174da490caeb422f3fa5a7ae634'
-         WHERE  
+         WHERE
          node_id=THENODEIDABOVE
          and
          qname_id=THEQNAMEVALUEABOVE
@@ -1281,7 +1281,7 @@ If you lose or forget the password for the Admin user, you can reset the passwor
         SELECT anp1.node_id,
                anp1.qname_id,
                anp1.string_value
-        FROM alf_node_properties anp1  
+        FROM alf_node_properties anp1
            INNER JOIN alf_qname aq1 ON aq1.id = anp1.qname_id
            INNER JOIN alf_node_properties anp2 ON anp2.node_id = anp1.node_id
            INNER JOIN alf_qname aq2 ON aq2.id = anp2.qname_id
@@ -1304,9 +1304,9 @@ If you lose or forget the password for the Admin user, you can reset the passwor
     2. To update the password, use the following command:
 
         ```sql
-        UPDATE alf_node_properties  
+        UPDATE alf_node_properties
          SET string_value='209c6174da490caeb422f3fa5a7ae634'
-         WHERE  
+         WHERE
          node_id=THENODEIDABOVE
          and
          qname_id=THEQNAMEVALUEABOVE
@@ -1427,7 +1427,7 @@ If servers from other domains are allowed to POST requests to your system, then 
     </rule>
     ```
 
-The CSRF filter compares the incoming request with the rule request elements to find one that matches and then invokes 
+The CSRF filter compares the incoming request with the rule request elements to find one that matches and then invokes
 the defined actions for that rule before normal Share processing begins.
 
 If you want to completely block certain services in the repository, you can add these URLs to the CSRF filter:
@@ -1437,7 +1437,7 @@ If you want to completely block certain services in the repository, you can add 
 
     ```xml
      <config evaluator="string-compare"
-          condition="CSRFPolicy" replace="true"> 
+          condition="CSRFPolicy" replace="true">
     ```
 
 3. Copy the following code and add it as the first child of the `<filter>`  element:
