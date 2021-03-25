@@ -209,13 +209,217 @@ is added to a Spring Boot project.
 ### Creating event handler projects
 
 In this section we will see how to use SDK 5 to create Alfresco event handler projects, using plain Java and 
-using the Spring Integration.
+using the Spring framework.
 
-#### Java event handlers
+#### Prerequisites
+Before you start using any of the libraries in SDK 5 make sure you got the correct Java and Maven versions installed:
 
-To create a plain old Java project and set it up to handle Alfresco Events follow these steps:
+1. Java needs to be version 11 or above:
 
-1. 
+```bash
+$ java -version
+java version "11.0.2" 2019-01-15 LTS
+Java(TM) SE Runtime Environment 18.9 (build 11.0.2+9-LTS)
+Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.2+9-LTS, mixed mode)
+
+$ javac -version
+javac 11.0.2
+```
+2. Maven needs to be version 3.3 or above:
+
+```bash
+$ mvn -version
+Apache Maven 3.5.0 (ff8f5e7444045639af65f6095c62210b5713f426; 2017-04-03T20:39:06+01:00)
+Maven home: /Users/mbergljung/Tools/apache-maven-3.5.0
+Java version: 11.0.2, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home
+Default locale: en_GB, platform encoding: UTF-8
+OS name: "mac os x", version: "10.16", arch: "x86_64", family: "mac"
+```
+
+The Java artifacts (i.e. JAR libs) that we will be using are located in the 
+[Alfresco Nexus repo](https://artifacts.alfresco.com/nexus/#nexus-search;quick~alfresco-java-sdk){:target="_blank"}:
+
+![artifacts-alfresco-java-sdk]({% link content-services/images/artifacts-alfresco-java-sdk.png %}){:height="500px" width="400px"}
+
+Maven needs to know about the Artifacts Repository so add the following to `~/.m2/settings.xml`:
+
+```xml
+<repositories>
+  
+    <repository>
+      <id>alfresco-public</id>
+      <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+    </repository>
+  
+  </repositories>
+```
+
+#### Create a starting point Spring project
+The easiest way to get going is to use the **Spring Initializr** website and create a starting point project from there. 
+Go to [https://start.spring.io/](https://start.spring.io/){:target="_blank"} and fill in your project info something like
+this:
+
+![spring-initializr]({% link content-services/images/spring-initializr.png %}){:height="500px" width="400px"}
+
+Change so the parent of the Maven project (i.e. in `pom.xml`) is the Alfresco Java SDK (i.e. SDK 5). Then change to 
+use the Alfresco Java Event Spring Boot starter. You should have a project file looking something like this now:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Alfresco Java SDK 5 Parent -->
+    <parent>
+        <groupId>org.alfresco</groupId>
+        <artifactId>alfresco-java-sdk</artifactId>
+        <version>5.0.0</version>
+    </parent>
+
+    <groupId>org.alfresco.tutorial</groupId>
+    <artifactId>events</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>events</name>
+    <description>Alfresco SDK 5 - Demo of events</description>
+
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
+    <dependencies>
+        <!-- Alfresco Java SDK 5 Java Event Handler API Spring Boot Starter -->
+        <dependency>
+            <groupId>org.alfresco</groupId>
+            <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+```
+
+Remove the Test class as we are not going to use it, such as `org/alfresco/tutorial/events/EventsApplicationTests.java`.
+
+Tell the event app where the Active MQ server is running so it knows where to listen for events, this is done
+in the `src/main/resources/application.properties` configuration file :
+
+```text
+spring.activemq.brokerUrl=tcp://localhost:61616
+```
+
+Now package the project and make sure it builds properly:
+
+```bash
+$ mvn clean package -Dlicense.skip=true
+
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building events 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+...
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ events ---
+[INFO] Deleting /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample/target
+[INFO] 
+[INFO] --- license-maven-plugin:3.0:check (validate-license) @ events ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ events ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ events ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ events ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ events ---
+[INFO] Changes detected - recompiling the module!
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ events ---
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ events ---
+[INFO] Building jar: /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample/target/events-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.4.2:repackage (repackage) @ events ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 8.135 s
+[INFO] Finished at: 2021-03-25T13:29:53Z
+[INFO] Final Memory: 35M/127M
+[INFO] ------------------------------------------------------------------------
+```
+The build should be successful and you should have the JAR file created, in this case `events-0.0.1-SNAPSHOT.jar`, try
+and run the Spring Boot app:
+
+```bash
+$ java -jar target/events-0.0.1-SNAPSHOT.jar 
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.2)
+
+2021-03-25 13:38:16.460  INFO 65122 --- [           main] o.a.tutorial.events.EventsApplication    : Starting EventsApplication v0.0.1-SNAPSHOT using Java 11.0.2 on MBP512-MBERGLJUNG-0917 with PID 65122 (/Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample/target/events-0.0.1-SNAPSHOT.jar started by mbergljung in /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample)
+2021-03-25 13:38:16.465  INFO 65122 --- [           main] o.a.tutorial.events.EventsApplication    : No active profile set, falling back to default profiles: default
+2021-03-25 13:38:17.406  INFO 65122 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2021-03-25 13:38:17.410  INFO 65122 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2021-03-25 13:38:17.416  INFO 65122 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2021-03-25 13:38:17.547  INFO 65122 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-25 13:38:17.570  INFO 65122 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-25 13:38:17.572  INFO 65122 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-25 13:38:17.827  WARN 65122 --- [           main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'acsEventsListeningFlow' defined in class path resource [org/alfresco/event/sdk/autoconfigure/AlfrescoEventsAutoConfiguration.class]: Unsatisfied dependency expressed through method 'acsEventsListeningFlow' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.apache.activemq.ActiveMQConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2021-03-25 13:38:17.840  INFO 65122 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-03-25 13:38:17.867 ERROR 65122 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method acsEventsListeningFlow in org.alfresco.event.sdk.autoconfigure.AlfrescoEventsAutoConfiguration required a bean of type 'org.apache.activemq.ActiveMQConnectionFactory' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.apache.activemq.ActiveMQConnectionFactory' in your configuration.
+
+```
+
+
+#### Pure Java event handlers
+To use pure Java event handlers follow these steps:
+
+1. Add the following dependency in the Maven project file (i.e. `pom.xml`):
+
+```xml
+
+```
 
 #### Spring Integration event handlers
 
