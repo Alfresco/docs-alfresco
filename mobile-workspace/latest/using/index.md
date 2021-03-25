@@ -4,13 +4,13 @@ title: Using Mobile Workspace
 
 ## Searching
 
-* Search is persistent and the Mobile Workspace allows global searching at any time. The results can be quickly filtered by files, folders or libraries just like in the Digital Workspace.
+* You can search globally from all of the main/top level screens which means you can search at any time.
 * The Mobile Workspace keeps a recent history of search terms so that previous searches can be quickly repeated.
 * Contextual search is available within folders. This search mode will only search within that folder but can be converted to a global search using the quick filter. You can also filter by files and folders within the contextual folder search.
 
 ## Recent Files
 
-The Recent Files view shows all the files that have been created or modified within the last 30 days by the logged in user. The Search API is used to query SOLR for changes made by the user and includes an extra column to display where the file is located in the content repository.
+The Recent Files view shows all the files that have been created or modified within the last 30 days by the logged in user. The Search API is used to query for changes made by you and includes an extra column to display where the file is located in the content repository.
 
 ## Favorites
 
@@ -27,7 +27,7 @@ Browse contains the rest of the navigation structure. You can access your librar
 
 * Personal Files retrieves all content from the logged in user's home area `/User Homes/<username>/` in the repository. If the user is an administrator who does not have a home folder then the repository root folder is shown.
 
-* File Libraries retrieves all the sites that the user is a member of including what type of site it is, either public, moderated or private. File Libraries is the Libraries component, using the Sites API.
+* File Libraries retrieves all the sites that the user is a member of, either public, moderated or private. File Libraries is the Libraries component, using the Sites API.
 
 * The Shared Files view aggregates all files that have been shared using the QuickShare feature in the content repository.
 

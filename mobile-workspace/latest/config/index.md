@@ -4,7 +4,7 @@ title: Configure Mobile Workspace
 
 Find Alfresco Mobile Workspace at [Google Play](https://play.google.com/store/apps/details?id=com.alfresco.content.app&hl=en-GB&ah=tbrTPT50zRyrvFT0xxYx0IRH6DA){:target="_blank"} for Android or [Apple App Store](https://apps.apple.com/gb/app/alfresco-mobile-workspace/id1514434480){:target="_blank"} for iOS.
 
-## First screen
+## Login screen
 
 From the first screen you enter the URL of your Alfresco Content Services instance into the `Connect to`  field. You will then be asked to authenticate using your Alfresco credentials. If you want to use Single Sign-On (SSO) to connect to the Mobile Workspace you can enter the URL of your Alfresco Identity Management Service. You can enter the URL in the following format `my.alfresco.com`.
 > **Note:** You do not need to enter www because the URL will be formatted by the application.
@@ -17,13 +17,13 @@ The advanced settings are preconfigured with the correct default settings to con
 | ------- | --------- |
 | HTTPS | Allows you to switch between HTTP or HTTPS. If connecting to Alfresco Content Services Community Edition then HTTP is common but it is generally only used for testing purposes only. |
 | Port | The port used by your Alfresco Content Services instance. If you use HTTPS the default value is `443`, if it is HTTP the default value is `80`. |
-| Path | This is the domain name of your installation /alfresco, e.g. mydomain.com/alfresco. |
+| Path | This is the path where Alfresco Content Services is located on your domain. For example `mydomain.com/alfresco`. |
 | Realm | When authenticating against Alfresco Content Services with the Identity Service configured the value in the realm field must match the `Realm` value in the Identity Service configuration. |
 | Client ID | This value must match the value the `Client ID` value configured in the Identity Service. |
 
 ### SSO (Identity Service)
 
-If you are connecting to Alfresco Content Services using the Identity Service the app will request the credentials for your identity provider, e.g. okta, including any multi-factor authentication steps.
+If you are connecting to Alfresco Content Services using the Identity Service the app will delegate authentication responsibilities to your identity provider, for example okta, including any multi-factor authentication steps.
 
 For Single Sign On (SSO) information see the [Single Sign On (SSO) Guide]({% link identity-service/latest/tutorial/sso/index.md %}){:target="_blank"}.
 
