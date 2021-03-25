@@ -28,13 +28,15 @@ The Admin Console is a tool comprising separate pages that identify a particular
 * Repository Services:
   * Activities Feed: [Configuring the Activities Feed]({% link content-services/latest/config/email.md %}#configure-activities-feed)
   * Repository Server Clustering: [Managing members of a cluster]({% link content-services/latest/admin/cluster.md %}#managecluster)
-  * Index Server Sharding: [Configuring sharding using the Admin Console]({% link insight-engine/latest/config/sharding/index.md %})
+  * Search Service Sharding: [Configuring sharding using the Admin Console]({% link insight-engine/latest/config/sharding/index.md %})
   * Process Engines: [Enabling workflow process engines]({% link content-services/latest/admin/workflows.md %}#enableprocessengines)
-  * Query Accelerator: [View and manage query set configuration files](% link content-services/latest/admin/query-accelerator.md %})
+  * Query Accelerator: [View and manage query set configuration files]({% link content-services/latest/admin/query-accelerator.md %})
   * Replication Service: [Enabling the Replication Service]({% link content-services/latest/admin/replication.md %}#enablereplication)
   * Search Service: [Configuring Search Services using Admin Console]({% link search-services/latest/config/index.md %}#configure-using-the-admin-console)
   * Subscription Service: [Enabling the Subscription Service]({% link content-services/latest/config/email.md %}#enable-subscription-service)
-    > **Note:** Use Repository Services to manage individual repository servers. This function can't be accessed through a load balancer.
+
+    > **Note:** Use **Repository Services** to manage individual repository servers. This function can't be accessed through a load balancer.
+
 * Support Tools:
   * Download JMX Dump: [JMX Settings]({% link content-services/latest/admin/support-tools.md %}#jmxsettings)
   * Node Browser: [Using the Node Browser]({% link content-services/latest/admin/troubleshoot.md %}#using-the-node-browser)
@@ -85,7 +87,6 @@ The overview is divided into the following sections:
 
 * System information
 * File Systems
-* Transformation Services
 * Indexing Subsystem
 * Repository Clustering
 * Activities Feed
