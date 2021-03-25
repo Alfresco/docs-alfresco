@@ -26,13 +26,22 @@ There are two types of installations - local and remote:
 
 If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from [Nexus](https://artifacts.alfresco.com){:target="_blank"}. Customers can request these through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
+## Target O/S
+
+The playbooks have been tested using Ansible 2.9.16 (or later) on target hosts with the following operating systems:
+
+* CentOS 7 and 8
+* Red Hat Enterprise Linux 7 and 8
+
+Additional target environments will be added in future releases.
+
 ## Set up Ansible
 
 A control node is required to run the playbook. You can use any computer as a control node that has Python installed. Usually, laptops, desktops, and servers can all run Ansible.
 
 In the interest of keeping this guide simple, we'll use an AWS EC2 instance as the control node. The required steps are:
 
-1. Launch an EC2 instance using the Centos 7 or 8 (x86_64) AMI from the Marketplace:
+1. Launch an EC2 instance using the CentOS 7 or 8 (x86_64) AMI from the Marketplace:
 
     > **Note:** If you plan to install Content Services on this host too, referred to as a [local installation](#local-installation), then you need at least a `t2.xlarge` instance with 16GB RAM
     > (*Warning: This instance type is not free*).
