@@ -30,6 +30,7 @@ The Admin Console is a tool comprising separate pages that identify a particular
   * Repository Server Clustering: [Managing members of a cluster]({% link content-services/latest/admin/cluster.md %}#managecluster)
   * Index Server Sharding: [Configuring sharding using the Admin Console]({% link insight-engine/latest/config/sharding/index.md %})
   * Process Engines: [Enabling workflow process engines]({% link content-services/latest/admin/workflows.md %}#enableprocessengines)
+  * Query Accelerator: [View and manage query set configuration files](% link content-services/latest/admin/query-accelerator.md %})
   * Replication Service: [Enabling the Replication Service]({% link content-services/latest/admin/replication.md %}#enablereplication)
   * Search Service: [Configuring Search Services using Admin Console]({% link search-services/latest/config/index.md %}#configure-using-the-admin-console)
   * Subscription Service: [Enabling the Subscription Service]({% link content-services/latest/config/email.md %}#enable-subscription-service)
