@@ -64,7 +64,7 @@ If you're installing manually, then you can use the `alfresco-global.properties.
     | db.username=alfresco | Specifies the name of the main database user. This name is used to authenticate with the database. |
     | db.password=alfresco | Specifies the password for the database user. This password is used to authenticate with the database. |
 
-    Additional database properties can be set for further configuration. See [Configuring databases]({% link content-services/latest/config/databases.md %}) for more information.
+    You can set additional database properties, such as `db.port` and `db.host`. See [Advanced configuration properties]({% link content-services/latest/config/databases.md %}#advanced-configuration-properties) for more properties that can be set.
 
 4. Configure your supported database for use. See [Configuring databases]({% link content-services/latest/config/databases.md %}).
 
