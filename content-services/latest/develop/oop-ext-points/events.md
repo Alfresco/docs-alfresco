@@ -9,7 +9,6 @@ can be implemented in an external process separate from the Content Services ser
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
 
 ## Event Model {#eventmodel}
-
 The event model in Content Services is a library packaged as a JAR file, which is part of the repository (i.e. `alfresco.war`). 
 The library contains the event model and the databind helpers used to help the clients to marshall and unmarshall the events.
 
@@ -53,7 +52,6 @@ repo.event2.topic.endpoint=amqp:topic:alfresco.repo.event2
 Any custom configuration, to for example the default event filtering, can be done in `alfresco-global.properties`.
 
 ### CloudEvent attributes
-
 Standard CloudEvent attributes in the context of Content Services events:
 
 | Property             | Type          | Description                                                      |
@@ -68,7 +66,6 @@ Standard CloudEvent attributes in the context of Content Services events:
 |`data`                |JSON           |The domain-specific [data](#acsdata) of the event. ([1.0 spec#data](https://github.com/cloudevents/spec/blob/v1.0/spec.md#data-attribute){:target="_blank"})|
 
 ### Content Services event data attributes {#acsdata}
-
 Content Services event data payload/attributes:
 
 | Property             | Type          | Description                                                      |
@@ -97,7 +94,6 @@ Content Services event data payload/attributes:
 For a detailed view of the event data refer to [Repo Event JSON schema](https://github.com/Alfresco/acs-event-model/tree/master/src/main/resources/json-schema){:target="_blank"}.
 
 ### Content Services event types {#acseventtypes}
-
 The following are the different types of events that can be subscribed to:
 
 |Name                              |Description                                                      |
@@ -113,7 +109,6 @@ The following are the different types of events that can be subscribed to:
 TODO: OnPermissionUpdatedEventHandler (Enterprise)
 
 ## Event descriptions
-
 Let's have a look at each event and see what we can use it for when implementing business logic for a 
 particular content domain.
 
@@ -123,7 +118,6 @@ So a Camel Route could for example be configured to pick up events from `amqpCon
 [Active MQ](http://activemq.apache.org) endpoint in the Content Services server would then be configured to connect to `amqp://localhost:5672`.
 
 ### Node created event
-
 This event is fired whenever a node, such as a folder or file, is created in the repository. The full name of this 
 event is `org.alfresco.event.node.Created`. 
 
@@ -248,7 +242,6 @@ In this case a Spring Bean with ID `eventHandlerImpl` is called at the end of th
 necessary ReST API calls.
 
 ### Node updated event
-
 This event is fired whenever a node, such as a folder or file, is updated or moved in the repository. The full name of this 
 event is `org.alfresco.event.node.Updated`. The event is fired when the node's name, type, properties, aspects, or content 
 is updated.
@@ -405,7 +398,6 @@ In this case a Spring Bean with ID `updatedEventHandlerImpl` is called at the en
 necessary ReST API calls.
 
 ### Node deleted event
-
 This event is fired whenever a node, such as a folder or file, is deleted in the repository. The full name of this 
 event is `org.alfresco.event.node.Deleted`. 
 
@@ -535,7 +527,6 @@ In this case a Spring Bean with ID `deletedEventHandlerImpl` is called at the en
 necessary ReST API calls.
 
 ### Parent-Child association created event
-
 This event is fired whenever a **secondary** parent -> child association is created, such as via the the 
 [POST nodes/{parentId}/secondary-children]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#createparentchildassoc4nodeexist)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.child.Created`. 
@@ -621,7 +612,6 @@ In this case a Spring Bean with ID `parentChildAssocCreatedEventHandlerImpl` is 
 where you could make the necessary ReST API calls.
 
 ### Parent-Child association deleted event
-
 This event is fired whenever a **secondary** parent -> child association is deleted, such as via the the 
 [DELETE nodes/{parentId}/secondary-children]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}##deletingassociations)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.child.Deleted`. 
@@ -710,7 +700,6 @@ In this case a Spring Bean with ID `parentChildAssocDeletedEventHandlerImpl` is 
 where you could make the necessary ReST API calls.
 
 ### Peer association created event
-
 This event is fired whenever a peer association is created, such as via the the 
 [POST nodes/{sourceId}/targets]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#createparentchildassoc4nodeexist)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.peer.Created`. 
@@ -792,7 +781,6 @@ In this case a Spring Bean with ID `peerAssocCreatedEventHandlerImpl` is called 
 where you could make the necessary ReST API calls.
 
 ### Peer association deleted event
-
 This event is fired whenever a peer association is deleted, such as via the the 
 [DELETE nodes/{sourceId}/targets]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}##deletingassociations)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.peer.Deleted`. 
@@ -878,3 +866,27 @@ where you could make the necessary ReST API calls.
 ### Permission updated event (ENTERPRISE)
 
 TODO
+
+## Event filters {#eventfilters}
+
+
+AspectAddedFilter.java
+AspectRemovedFilter.java
+AssocTypeFilter.java
+ContentAddedFilter.java
+ContentChangedFilter.java
+EventFilter.java
+EventTypeFilter.java
+IsFileFilter.java
+IsFolderFilter.java
+MimeTypeFilter.java
+NodeAspectFilter.java
+NodeMovedFilter.java
+NodeTypeChangedFilter.java
+NodeTypeFilter.java
+PropertyAddedFilter.java
+PropertyChangedFilter.java
+PropertyCurrentValueFilter.java
+PropertyPreviousValueFilter.java
+PropertyRemovedFilter.java
+PropertyValueFilter.java
