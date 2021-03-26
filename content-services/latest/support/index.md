@@ -59,6 +59,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Java** | |
 | OpenJDK 11.0.7 | |
+| Amazon Corretto 11 | |
 | | |
 | **Third party integrations** | |
 | Microsoft 365 | |
