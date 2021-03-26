@@ -205,6 +205,16 @@ It is a Spring configuration class that automatically define the beans required 
 All this auto-configuration will be enabled as soon as the dependency `org.alfresco:alfresco-java-event-api-spring-boot-starter` 
 is added to a Spring Boot project.
 
+### Event API Reference
+TODO:
+
+Document stuff like the payload event model:
+
+org.alfresco.event.sdk.model.v1.model.DataAttributes;
+org.alfresco.event.sdk.model.v1.model.NodeResource;
+org.alfresco.event.sdk.model.v1.model.RepoEvent;
+org.alfresco.event.sdk.model.v1.model.Resource; 
+
 ### Creating event handler projects
 In this section we will see how to use SDK 5 to create Alfresco event handler projects, using plain Java and 
 using the Spring framework.
@@ -584,7 +594,7 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 ```
 
 Here we are using the `org.alfresco.event.sdk.handling.filter.IsFileFilter`, which will make sure that the event handler
-is triggered only when the node type is `cm:content` or subtype thereof.
+is triggered only when the node type is `cm:content` or subtype thereof, which represents files.
 
 For a complete list of events see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
 documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
@@ -594,4 +604,5 @@ documentation. For a complete list of Event Filters available in the SDK see thi
  
 
 ## ReST API Java wrapper
+
 

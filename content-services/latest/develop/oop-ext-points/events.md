@@ -207,7 +207,91 @@ call can also be used to get other properties for the created node as not all ar
 When subscribing to the `org.alfresco.event.node.Created` event it's possible to filter out anything that is
 of no interest. So for example, if you are interested in files with content type `cm:content` uploaded to a folder 
 called **/Company Home/Testing/Inbound** (e.g. Node ID `5f355d16-f824-4173-bf4b-b1ec37ef5549`) it would be easy to 
-configure this. The following code snippet shows how this could be done with an 
+configure this. 
+
+{% capture sdk5-plain-java %}
+The following code shows how this can be done with SDK 5 and plain Java event handlers:
+
+```java
+import org.alfresco.event.sdk.handling.filter.EventFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.handling.handler.OnNodeCreatedEventHandler;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+
+/**
+ * Sample event handler to demonstrate reacting to a document/file being uploaded to the repository.
+ *
+ * @author mbergljung
+ */
+@Component
+public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContentUploadedEventHandler.class);
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        NodeResource nodeResource = (NodeResource) repoEvent.getData().getResource();
+        LOGGER.info("A file was uploaded to the repository: {}, {}, {}", nodeResource.getId(), nodeResource.getNodeType(),
+               nodeResource.getName());
+    }
+
+    public EventFilter getEventFilter() {
+        return IsFileFilter.get()
+                .and(ParentFolderFilter.of("5f355d16-f824-4173-bf4b-b1ec37ef5549"));
+    }
+}
+```
+
+This code uses a custom `ParentFolderFilter` that is implemented as follows:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.AbstractEventFilter;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
+
+import java.util.Objects;
+
+/**
+ * Filter that can be used when a node needs to be in a specific folder.
+ *
+ * @author mbergljung
+ */
+public class ParentFolderFilter extends AbstractEventFilter {
+    private final String parentId;
+
+    private ParentFolderFilter(final String parentId) {
+        this.parentId = Objects.requireNonNull(parentId);
+    }
+
+    public static ParentFolderFilter of(final String parentId) {
+        return new ParentFolderFilter(parentId);
+    }
+
+    public boolean test(RepoEvent<DataAttributes<Resource>> event) {
+        NodeResource resource = (NodeResource) event.getData().getResource();
+        boolean parentFound = resource.getPrimaryHierarchy().get(0).equals(parentId);
+        return isNodeEvent(event) && parentFound;
+    }
+}
+```
+
+{% endcapture %}
+
+{% capture sdk5-spring-integration %}
+TODO
+{% endcapture %}
+
+{% capture apache-camel %}
+The following code snippet shows how this could be done with an 
 [Apache Camel route](https://camel.apache.org/manual/latest/routes.html){:target="_blank"} configuration:
 
 ```java
@@ -240,6 +324,9 @@ The `jsonpath` expression uses several of the event data properties to filter ou
 
 In this case a Spring Bean with ID `eventHandlerImpl` is called at the end of the route from where you could make the 
 necessary ReST API calls.
+{% endcapture %}
+
+{% include tabs.html tableid="sdk5-plain-java" opt1="SDK5 - Plain Java" content1=sdk5-plain-java opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration opt3="Apache Camel" content3=apache-camel %}
 
 ### Node updated event
 This event is fired whenever a node, such as a folder or file, is updated or moved in the repository. The full name of this 
