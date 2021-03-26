@@ -58,14 +58,14 @@ The Alfresco Java Event API is composed of four main components:
 * [Spring Integration](https://spring.io/projects/spring-integration){:target="_blank"} tooling library 
 * [Spring Boot](https://spring.io/projects/spring-boot){:target="_blank"} custom [starter](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-developing-auto-configuration){:target="_blank"}
 
-### Event Model
+### Event model
 The event model is a component that offers a custom model definition to clearly specify the way the Alfresco event data 
 is organised. 
 
 This component is declared in the module [alfresco-java-event-api-model](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-model){:target="_blank"} 
 and it is explained in detail [here]({% link content-services/latest/develop/oop-ext-points/events.md %}#eventmodel).
 
-### Event Handling Library
+### Event handling library
 The event handling library is a core component of the Alfresco Java Event API that offers a set of pre-defined event handling 
 interfaces and the classes required to properly work with them. The idea of this library is to ease the implementation of 
 business logic that must be executed as a response to an Alfresco repository event.
@@ -77,7 +77,7 @@ mostly plain Java classes, so the integrator can use them in a Spring project, a
 
 The main four items in this library are explained in the next sections.
 
-#### Event Handler {#eventhandler}
+#### Event handler interface {#eventhandlerinterface}
 The [`EventHandler`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/handler/EventHandler.java){:target="_blank"} 
 interface defines the contract for an Alfresco repository event handler implementation.
 
@@ -100,12 +100,12 @@ Content Services event system:
 * Peer-Peer Association Deleted - [`OnPeerAssocDeletedEventHandler`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/handler/OnPeerAssocDeletedEventHandler.java){:target="_blank"}.
 * Permission updated - [`OnPermissionUpdatedEventHandler`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/handler/OnPermissionUpdatedEventHandler.java){:target="_blank"}.
 
-#### Event Handling Registry
+#### Event handling registry
 The [`EventHandlingRegistry`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/EventHandlingRegistry.java){:target="_blank"} 
 is a class that registers the [`EventHandler`s](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/handler/EventHandler.java){:target="_blank"} 
 that must be executed in response to each repository event type.
 
-#### Event Handling Executor
+#### Event handling executor
 The [`EventHandlingExecutor`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/EventHandlingExecutor.java){:target="_blank"} 
 is an interface that defines the process to execute the event handlers when events are received.
 
@@ -114,9 +114,9 @@ of this interface that simply uses the [`EventHandlingRegistry`](https://github.
 to get the list of [`EventHandler`s](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/handler/EventHandler.java){:target="_blank"} 
 to execute when a specific repository event is triggered and executes them synchronously one by one. 
 
-#### Event Filter {#eventfilter}
-Event filters can be used in the [Event Handlers](#eventhandler) to narrow down the conditions required to execute the 
-business logic (i.e. the code) in response to a repository event being triggered.
+#### Event filter {#eventfilter}
+Event filters can be used in the [Event handler implementations](#eventhandlerinterface) to narrow down the conditions 
+required to execute the business logic (i.e. the code) in response to a repository event being triggered.
 
 The [`EventFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/EventFilter.java){:target="_blank"} 
 is an interface that defines the contract that must be fulfilled by a repository event. It is basically a predicate 
@@ -151,6 +151,16 @@ PropertyChangedFilter.of("cm:title")
     .and(MimeTypeFilter.of("text/html"))
 ```
 
+TODO: check the following classes too:
+
+AspectAddedFilter.java
+AspectRemovedFilter.java
+AssocTypeFilter.java
+EventFilter.java
+EventTypeFilter.java
+PropertyCurrentValueFilter.java
+PropertyPreviousValueFilter.java
+PropertyRemovedFilter.java
 
 TODO: ContentAddedFilter - check if this works, what if you just update a property, will this still be triggered?
 
@@ -485,7 +495,7 @@ Looks ready for some event handler code.
 
 Now, start adding your event handler code, let's add an event handler that will be triggered when a new document/file 
 is uploaded. To do this we need to create a class that implements the 
-`org.alfresco.event.sdk.handling.handler.OnNodeCreatedEventHandler` interface:
+`org.alfresco.event.sdk.handling.handler.OnNodeCreatedEventHandler` [event handler interface](#eventhandlerinterface):
 
 ```java
 package org.alfresco.tutorial.events;
@@ -535,7 +545,7 @@ Add a file via the Share user interface, you should see the following in the log
 ```
 
 Now, this event handler will actually also be triggered when a folder is created. So how can we fix so the handler is 
-only triggered when a file is created/uploaded? By adding a so called event filter to the class:
+only triggered when a file is created/uploaded? By adding a so called [event filter](#eventfilter) to the class:
 
 ```java
 package org.alfresco.tutorial.events;
@@ -576,8 +586,8 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 Here we are using the `org.alfresco.event.sdk.handling.filter.IsFileFilter`, which will make sure that the event handler
 is triggered only when the node type is `cm:content` or subtype thereof.
 
-For a complete list of available event handler interfaces [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
-documentation.
+For a complete list of events see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
+documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
 
 #### Spring Integration event handlers
 

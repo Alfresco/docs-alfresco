@@ -867,26 +867,3 @@ where you could make the necessary ReST API calls.
 
 TODO
 
-## Event filters {#eventfilters}
-
-
-AspectAddedFilter.java
-AspectRemovedFilter.java
-AssocTypeFilter.java
-ContentAddedFilter.java
-ContentChangedFilter.java
-EventFilter.java
-EventTypeFilter.java
-IsFileFilter.java
-IsFolderFilter.java
-MimeTypeFilter.java
-NodeAspectFilter.java
-NodeMovedFilter.java
-NodeTypeChangedFilter.java
-NodeTypeFilter.java
-PropertyAddedFilter.java
-PropertyChangedFilter.java
-PropertyCurrentValueFilter.java
-PropertyPreviousValueFilter.java
-PropertyRemovedFilter.java
-PropertyValueFilter.java
