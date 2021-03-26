@@ -8,6 +8,7 @@ can also be implemented and configured.
 Architecture Information: [Platform Architecture]({% link content-services/community/develop/software-architecture.md %}#platformarch)
 
 ## Description
+
 Content transformers transform one type of content into another, such as a HTML file into a PDF file. They are used to 
 enable indexing, thumbnails, and preview of content. If the target type cannot be achieved with one transformation 
 several transformations can be chained together, such as JSON to HTML to PDF. To implement these transformations, third 
@@ -84,6 +85,7 @@ cm:pdf               cm:thumbnail workspace://SpacesStore/8b3ec283-cd2a-4378-af2
 ```
 
 ## Transformation changes from Content Services 6.2
+
 From Content Services version 6.2 it is possible to create custom transforms that run in separate processes known as 
 T-Engines (short for Transformer Engines). The same engines may be used in Community and Enterprise Editions. They may be 
 directly connected to the Repository as Local Transforms, but in the Enterprise edition there is the option to include 
@@ -102,6 +104,7 @@ and renditions can now be added to Docker deployments without having to create o
 the repository.
 
 ## Configure a T-Engine as a Local Transform
+
 For the repository to talk to a T-Engine, it must know the engine's URL. The URL can be added as an Alfresco global property,
 or more simply as a Java system property. `JAVA_OPTS` may be used to set this if starting the repository with Docker.
 
@@ -121,6 +124,7 @@ local.transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
 ```
 
 ### Transformer selection strategy
+
 The repository will use the [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"} 
 to choose which T-Engine will perform a transform. A transformer definition contains a supported list of source and target 
 Media Types. This is used for the most basic selection. This is further refined by checking that the definition also 
@@ -131,13 +135,16 @@ in a rendition request. See [Configure a Custom Rendition](#configure-a-custom-r
 Transformer 1 defines options: Op1, Op2
 Transformer 2 defines options: Op1, Op2, Op3, Op4
 ```
-```
+
+```text
 Rendition provides values for options: Op2, Op3
 ```
+
 If we assume both transformers support the required source and target Media Types, Transformer 2 will be selected because 
 it knows about all the supplied options. The definition may also specify that some options are required or grouped.
 
 ### Enabling and disabling Local or Transform Service transforms
+
 Local or Transform Service transforms can be enabled or disabled independently of each other. The repository will try to 
 transform content using the Transform Service if possible and falling back to a Local Transform. If you are using Share, 
 Local Transforms are required, as they support both synchronous and asynchronous requests. Share makes use of both, so
@@ -162,6 +169,7 @@ localTransform.helloworld.url=
 ```
 
 ### Configure a custom Local transform pipeline
+
 Local Transforms may be combined together in a pipeline to form a new transform, where the output from one becomes the 
 input to the next and so on. A pipeline definition (JSON) defines the sequence of transforms and intermediate Media Types. 
 Like any other transformer, it specifies a list of supported source and target Media Types. If you don't supply any,
@@ -210,6 +218,7 @@ changed by resetting the following Alfresco global property.
 ```text
 local.transform.pipeline.config.dir=shared/classes/alfresco/extension/transform/pipelines
 ```
+
 On startup this location is checked every 10 seconds, but then switches to once an hour if successful. After a problem, 
 it tries every 10 seconds again. These are the same properties use to decide when to read T-Engine configurations, 
 because pipelines combine transformers in the T-Engines.
@@ -246,6 +255,7 @@ or when the repository pods are restarted.
 > From Kubernetes documentation: Caution: If there are some files in the mountPath location, they will be deleted.
 
 ### Configure custom Local failover transforms
+
 A failover transform, simply provides a list of transforms to be
 attempted one after another until one succeeds. For example, you may have a fast transform that is able to handle a
 limited set of transforms and another that is slower but handles all cases.
@@ -265,6 +275,7 @@ limited set of transforms and another that is slower but handles all cases.
   ]
 }
 ```
+
 * `transformerName` - Try to create a unique name for the transform.
 * `transformerFaillover` - A list of transformers to try.
 * `supportedSourceAndTargetList` - The supported source and target
@@ -276,6 +287,7 @@ Unlike pipelines, it must not be blank.
 the pipeline transformer.
 
 ### Overriding a Local transform
+
 In the same way as it is possible to combine Local transforms into pipelines, it is also possible to override a
 previously defined transform in a file in the _local.transform.pipeline.config.dir_ directory. The last definition read
 wins. The configuration from T-Engines or the Transform Service is initially read followed by files in this directory.
@@ -302,6 +314,7 @@ transform. This is not something you would normally want to do. It also changes 
 ```
 
 ### Configure a custom rendition {#configure-a-custom-rendition}
+
 Renditions are a representation of source content in another form. A
 Rendition Definition (JSON) defines the transform option (parameter)
 values that will be passed to a transformer and the target Media Type.
@@ -319,6 +332,7 @@ values that will be passed to a transformer and the target Media Type.
   ]
 }
 ```
+
 * `renditionName` - A unique rendition name.
 * `targetMediaType` - The target Media Type for the rendition.
 * `options` - The list of transform option names and values
@@ -335,6 +349,7 @@ may be taken to get them into Docker Compose and Kubernetes environments.
 ```text
 rendition.config.dir=shared/classes/alfresco/extension/transform/renditions/
 ```
+
 ```text
 rendition.config.cronExpression=2 30 0/1 * * ?
 rendition.config.initialAndOnError.cronExpression=0/10 * * * * ?
@@ -353,6 +368,7 @@ Again, the files will be picked up the next time the location is read,
 or when the repository pods are restarted.
 
 #### Disabling an existing rendition
+
 Just like transforms, it is possible to override renditions. The following example effectively
 disables the `doclib` rendition, used to create the thumbnail images in Share's Document Library
 page and other client applications. A good name for this file might be
@@ -378,6 +394,7 @@ transform taking place for `-- doclib --` when you upload a file in Share. With 
 doclib transform does not appear.
 
 #### Overriding an existing rendition
+
 It is possible to change a rendition by overriding it. The following `0300-biggerThumbnails.json`
 file changes the size of the `doclib` image from `100x100` to be `123x123` and introduces another
 rendition called `biggerThumbnail` that is `200x200`.
@@ -414,6 +431,7 @@ rendition called `biggerThumbnail` that is `200x200`.
 ```
 
 ### Configure a custom MIME type
+
 Quite often the reason a custom transform is created is to convert to or
 from a MIME type (or Media type) that is not known to Content Services by default.
 Another reason is to introduce an application specific MIME type that
@@ -457,6 +475,7 @@ follows:
 ```text
 mimetype.config.dir=shared/classes/alfresco/extension/mimetypes
 ```
+
 ```text
 mimetype.config.cronExpression=0 30 0/1 * * ?
 mimetype.config.initialAndOnError.cronExpression=0/10 * * * * ?
@@ -475,6 +494,7 @@ Again, the files will be picked up the next time the location is read,
 or when the repository pods are restarted.
 
 ### Configure the repository to use the Transform Service
+
 By default the Transform service is disabled by default, but Docker
 Compose and Kubernetes Helm Charts may enable it again by setting
 `transform.service.enabled`. The Transform Service handles
@@ -488,6 +508,7 @@ transform.service.initialAndOnError.cronExpression=0/10 * * * * ?
 ```
 
 ## Creating a T-Engine {#creating-a-t-engine}
+
 The deployment and development of a T-Engine transformer is simpler
 than before.
 
@@ -504,6 +525,7 @@ than before.
   every development or ad-hoc test environment.
 
 ### Developing a new T-Engine
+
 The process of developing a new T-Engine is described on the
 [Creating a T-Engine](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md){:target="_blank"} page. It walks
 through the steps involved in creating a simple Hello World transformer
@@ -522,6 +544,7 @@ transform.service.cronExpression=6 0/1 * * * ?
 ```
 
 ### Migrating a Legacy Transformer
+
 Content Services 6.2 is useful if you already have custom transformers based on the
 legacy approach, because it will allow you to gradually migrate them.
 Initially you will probably want to create new T-Engines but run them as
@@ -536,5 +559,6 @@ which sections can be simply copied and pasted into the new code. Some of
 the concepts have changed sightly to simplify what the custom transform
 developer needs to do and understand.
 
-## Alfresco Transform Service (ATS) Configuration (ENTERPRISE)
-To configure a T-Engine as a Remote Transform follow the steps described in [Alfresco Transform Service Docs]({% link transform-service/latest/config/engine.md %}).
+## Alfresco Transform Service (ATS) configuration (Enterprise only)
+
+To configure a T-Engine as a Remote Transform follow the steps described in [Alfresco Transform Service documentation]({% link transform-service/latest/config/engine.md %}).

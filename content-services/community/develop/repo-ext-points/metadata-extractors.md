@@ -8,6 +8,7 @@ custom metadata extractors to handle custom file properties and custom content m
 Architecture Information: [Platform Architecture]({% link content-services/community/develop/software-architecture.md %}#platformarch)
 
 ## Introduction
+
 Every time a file is uploaded to the repository the file's MIME type is automatically detected. Based on the MIME type a 
 related Metadata Extractor is invoked on the file. It will extract common properties from the file, such as author, 
 and set the corresponding content model property accordingly. Each Metadata Extractor has a mapping between the 
@@ -48,6 +49,7 @@ it will not be used. Created date, creator, modified date, and modifier is alway
 system, unless you are using the Bulk Import tool, in which case last modified date can be preserved.
 
 ## Metadata extraction and Transform Engines
+
 The extraction of metadata in the repository is performed in T-Engines (transform engines).
 Prior to Content Services version 7, it was performed inside the repository. T-Engines provide improved scalability,
 stability, security and flexibility. New extractors may be added without the need for
@@ -75,6 +77,7 @@ metadata values which are then updated in the supplied content. The content is t
 content repository and the node is updated. 
 
 ## Metadata extraction is just another transform
+
 Metadata extractors and embedders are just a specialist form of transform. The `targetMediaType`
 in the T-Engine `engine-config.json` is set to `"alfresco-metadata-extract"` or `"alfresco-metadata-embed"`
 the following is a snippet from the 
@@ -105,6 +108,7 @@ If a T-Engine definition says it supports a metadata extract or embed, it will b
 to any extractor or embedder using the deprecated frameworks in the content repository.
 
 ### Transform interface
+
 Code that transforms a specific document type in a T-Engine generally implements the 
 [Transformer](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transformer-base/src/main/java/org/alfresco/transformer/executors/Transformer.java){:target="_blank"}
 interface. In addition to the `transform` method, `extractMetadata` and `embedMetadata` methods
@@ -146,6 +150,7 @@ or embedding.
 ```
 
 ### AbstractMetadataExtractor base class
+
 The `AbstractMetadataExtractor` may be extended to perform metadata extract and embed tasks, by overriding two methods
 in the sub classes:
 
@@ -173,6 +178,7 @@ properties. The selected values are sent back to the repository as JSON as a map
 content model property names to values, where the values are applied to the source node.
 
 ### Metadata extraction configuration
+
 The `AbstractMetadataExtractor` class reads the `<classname>_metadata_extract.properties` file, so that it knows how to
 map metadata returned from the sub class `extractMetadata` method onto content model properties. The following is
 an example for an email (file extension `.eml`):
@@ -201,6 +207,7 @@ As can be seen, the email's metadata for `messageFrom` (if available) will be us
 repository (if they exist): `imap:messageFrom`, `cm:originator`. The property names use namespace prefixes specified above.
 
 ### Property overwrite policy
+
 It is possible to specify if properties in the repository will be set if the extracted values are not null or if
 the properties already have a value. By default, `PRAGMATIC` is used. Generally you will not need to change this.
 Other values (`CAUTIOUS`, `EAGER`, `PRUDENT`) are described in 
@@ -213,6 +220,7 @@ The following table shows which conditions must be met for overwriting the value
 ![overwrite-policy]({% link content-services/images/overwrite-policy.png %})
 
 ### Aspect property policy
+
 When a property is extracted, which is part of an aspect, it is possible to remove all other
 properties in the same aspect that do not have an extracted value. In this way only extracted values will be set and
 any previously set aspect properties will be cleared. By default, this does not take place and newly extracted values
@@ -220,6 +228,7 @@ are just added to the node's properties. To clear other aspect properties add `s
 the Map returned from the `extractMetadata` method.
 
 ### Enable tagging
+
 When an extracted property is taggable, it is possible to automatically extract tags from the value. By default, this is
 disabled, but may be enabled by adding `sys:enableStringTagging`= `true` to the Map returned from the `extractMetadata` method.
 
@@ -230,6 +239,7 @@ so json response would look like `"sys:stringTaggingSeparators": ";,\",\",\\|"` 
 separators.
 
 ### Overriding metadata extraction request in the repository
+
 The request from the repository to extract metadata goes through `RenditionService2`, so will use the 
 asynchronous Alfresco Transform Service if available and a synchronous Local transform if not.
 
@@ -288,6 +298,7 @@ Resulting in a request that contains the following transform options:
 ```
 
 ### Metadata extraction response
+
 The transformed content that is returned to the repository is JSON and specifies what properties that should be updated 
 on the source node. For example:
 
@@ -298,6 +309,7 @@ on the source node. For example:
 ```
 
 ### Metadata embed request
+
 An embed request simply contains a transform option called `metadata` that contains a map of property names to
 values, resulting in transform options like the following:
 
@@ -315,10 +327,12 @@ properties to metadata properties is normally the reverse of those defined in th
 `<classname>_metadata_extract.properties` file in the T-Engine.
 
 ### Metadata embed response
+
 This is simply the source content with the metadata embedded. The content repository updates
 the content of the node with what is returned.
 
 ## Repository information
+
 The repository still contains metadata extraction code.
 
 ### Framework
@@ -328,6 +342,7 @@ The `AsynchronousExtractor` handles the request and response in a generic way al
 code to be moved to a T-Engine.
 
 ### XML framework {#xmlextractors}
+
 The following XML based extractors have NOT been removed from the content repository as custom extensions may be
 using them. There are no out-of-the-box extractors that use them as part of the repository. Ideally any
 custom extensions should be moved to a custom T-Engine using code based on these classes.
@@ -336,6 +351,7 @@ custom extensions should be moved to a custom T-Engine using code based on these
 * [XPathMetadataExtracter](https://github.com/Alfresco/alfresco-community-repo/blob/master/repository/src/main/java/org/alfresco/repo/content/metadata/xml/XPathMetadataExtracter.java){:target="_blank"}
 
 ## Metadata extractors that have be moved to T-Engines {#ootbextractors}
+
 The following extractors, and their configuration (i.e. property mappings), exist now in T-Engines rather than in the 
 repository (i.e. `alfresco.war`):
 
@@ -360,6 +376,7 @@ repository as the preferred way to create extractors is via a T-Engine and these
 extensions.
 
 ## Changing default property mappings for PDF metadata extraction
+
 A common requirement is to be able to change the mapping of out-of-the-box properties, such as having the `subject` 
 property mapped to `cm:title` instead of `cm:description` for a PDF file. This is quite easy to achieve, just override 
 the out-of-the-box JSON configuration and re-configure the mapping. The out-of-the-box definitions for Metadata Extractors 
@@ -387,6 +404,7 @@ as in the above example with `namespace.prefix.cm`. It is also very important to
 case sensitive. 
 
 ## Metadata extraction debug logging
+
 Sometimes it can be useful to know what metadata extractor that is actually used when you upload a 
 document. Turning on Metadata Extraction logging is a good idea to get on top of what is happening. 
 Set the following property in `log4j.properties`:
@@ -407,6 +425,7 @@ This log configuration is set to some other log level out-of-the-box so you need
 able to see something. Now when running you will also see the extracted doc properties.
 
 ## Using custom content models in property mappings for PDF metadata extraction
+
 Next requirement is most likely to map properties to custom content models. There is an ACME content model tutorial 
 where the base document type has an `acme:documentId` property. You might want to add a document identifier to the PDFs 
 you are uploading and have it automatically set in the ACME content model. Start by updating the the 
@@ -433,6 +452,7 @@ to have a rule on the folder that applies the `acme:document` type to any PDF do
 type has the `acme:docuementId` property.
 
 ## Changing default property mappings for XML metadata extraction
+
 Now, what if you would like to extract metadata from an XML file, how would you go about that? This can be achieved with 
 the `XmlMetadataExtracter`, which in-turn uses the `XPathMetadataExtracter` to navigate the XML and extract metadata. 
 These extractors are still in the repository, see this [section](#xmlextractors).
@@ -535,6 +555,7 @@ projectNumber=/doc/project/number
 ```
 
 ## Metadata extractor limits
+
 Metadata extraction limits allows configurations on `AbstractMappingMetadataExtracter` for:
 
 * control of the maximum time allowed for an extraction
@@ -558,6 +579,7 @@ content.metadataExtracter.pdf.maxConcurrentExtractionsCount=5
 ```
 
 ## Deployment
+
 For XML metadata extraction you will still use the [SDK]({% link content-services/community/develop/sdk.md %}) and a 
 JAR project applied to the Repository (i.e. `alfresco.war`).
  
@@ -566,5 +588,3 @@ Transform Core AIO Docker image with the new configuration. Another option would
 [create a new separate T-Engine](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md){:target="_blank"} 
 that has a higher priority (lower number) for this metadata extraction. That way you can still use the standard T-Engine 
 and the new one from for this one special case. 
-
-
