@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Alfresco Community Edition
 ---
 
 Alfresco Community Edition is an open source Enterprise Content Management (ECM) system that manages all the content within an enterprise and provides the services and controls that manage this content.
