@@ -4,54 +4,6 @@ title: Install additional software
 
 You can install the third-party software used by Content Services independently. Some of the software can be installed any time before or after installing Content Services.
 
-### Install Linux libraries
-
-Use this information to install Linux libraries manually on supported Linux distributions, such as Ubuntu, SUSE and Red Hat.
-
-LibreOffice requires the following libraries to be installed on your system:
-
-* libfontconfig
-* libICE
-* libSM
-* libXrender
-* libXext
-* libXinerama
-* libcups
-* libGLU
-* libcairo2
-* libgl1-mesa-glx
-
-If the required libraries are missing, you'll get a warning message. You can install them using your preferred package manager from the command line. Note that the file names for the Linux libraries may vary by distribution.
-
-For Red Hat Enterprise Linux/CentOS, you can run:
-
-```bash
-cd <libre-install-dir>/LibreOffice_*.*.*.*_Linux_x86-64_rpm/RPMS/
-```
-
-```bash
-sudo yum localinstall *rpm
-```
-
-For Ubuntu:
-
-```bash
-cd <libre-install-dir>/LibreOffice_*.*.*.*_Linux_x86-64_rpm/RPMS/
-```
-
-```bash
-sudo dpkg -i *deb
-```
-
-If LibreOffice doesn't start up normally with Content Services, test it manually, for example, by running this startup script:
-
-```bash
-start ex. {installdir}/libreoffice/scripts/libreoffice_ctl.sh start
-status ex. {installdir}/libreoffice/scripts/libreoffice_ctl.sh status
-```
-
-If you receive errors that indicate that a library is missing, work with your system administrator to add the missing library or its equivalent from your configured repositories.
-
 ## Install TinyMCE language packs
 
 Translations in Content Services use language packs. The supported language packs are:
@@ -72,13 +24,13 @@ The language used switches according to the browser locale. Ensure that your bro
 
 The source-localized files are encoded in ASCII, and the special and accented characters are displayed using escape sequences. The source files have been renamed using the corresponding locale for each language. For example, `site-welcome.properties` is called `sitewelcome_ fr.properties` for the French version.
 
-If you wish to use a translation that is not supplied with Alfresco Community Edition, then you must add the appropriate TinyMCE language pack for the translation to work correctly.
+If you wish to use a translation that is not supplied with Content Services, then you must add the appropriate TinyMCE language pack for the translation to work correctly.
 
 1. Browse to the [TinyMCE website](http://tinymce.moxiecode.com/download_i18n.php){:target="_blank"}.
 
 2. Download the required TinyMCE language pack.
 
-    > **Note:** The next step makes configuration changes to the Alfresco Share application to configure the additional language packs for TinyMCE. This step can only be performed after Community Edition has been installed.
+    > **Note:** The next step makes configuration changes to the Alfresco Share application to configure the additional language packs for TinyMCE. This step can only be performed after Content Services has been installed.
 
 3. Unpack the language file to `<TOMCAT_HOME>/webapps/share/modules/editors/tiny_mce/langs`.
 

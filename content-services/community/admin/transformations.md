@@ -4,6 +4,8 @@ title: Manage transformations
 
 When you're working with transformations, it is important to understand how file types map to one another and the transformation formats that each file type supports.
 
+For more information about T-Engines and custom transformations and renditions see [extension point]({% link content-services/community/develop/repo-ext-points/content-transformers-renditions.md %}).
+
 Transformations can cause `OutOfMemory` errors under certain conditions; for example, if you're using Excel (`.xlsx`) files that contain shapes or drawings (.xml content).
 
 ## Standard transform options {#standard}
