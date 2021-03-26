@@ -2,7 +2,7 @@
 title: Documentation Terms
 layout: release
 date: 'Updated: 22 October 2020'
-intro: Copyright 2020 by Alfresco (or its applicable affiliate or licensor)
+intro: Copyright 2021 by Alfresco (or its applicable affiliate or licensor)
 github: false
 ---
 
