@@ -20,17 +20,17 @@ There are several options to configuring Intelligence Services.
 
 * **Custom configuration**
 
-    Choose one or more of the following options to create custom ML models:
+Choose one or more of the following options to create custom ML models:
 
-    1. Custom entity recognition - configure and deploy a custom AI recognizer. This allows you to identify new entity types that aren't supported by one of the preset entity types.
-    2. Custom document classification - configure and deploy a custom AI classifier. This allows you to classify documents, for example as either an invoice, purchase order, contract, or whatever fits your business model.
-    3. Custom metadata extraction - configure and deploy a custom AI model. This allows you to map basic OCR detected text lines into multi-valued text fields, so they can viewed and searched.
+1. Custom entity recognition - configure and deploy a custom AI recognizer. This allows you to identify new entity types that aren't supported by one of the preset entity types.
+2. Custom document classification - configure and deploy a custom AI classifier. This allows you to classify documents, for example as either an invoice, purchase order, contract, or whatever fits your business model.
+3. Custom metadata extraction - configure and deploy a custom AI model. This allows you to map basic OCR detected text lines into multi-valued text fields, so they can viewed and searched.
 
-    You can still customize the **Request AI renditions** action, as in the default configuration.
+You can still customize the **Request AI renditions** action, as in the default configuration.
 
-    > **Note:** It's recommended that you start developing one custom model at a time (i.e. either a recognizer or classifier), and test it thoroughly before adding another.
+> **Note:** It's recommended that you start developing one custom model at a time (i.e. either a recognizer or classifier), and test it thoroughly before adding another.
 
-    > **Note:** Metadata extraction from tables isn't supported.
+> **Note:** Metadata extraction from tables isn't supported.
 
 ## Default configuration
 
