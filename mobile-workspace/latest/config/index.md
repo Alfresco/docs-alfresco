@@ -9,12 +9,12 @@ Find Alfresco Mobile Workspace at [Google Play](https://play.google.com/store/ap
 From the first screen you enter the URL of your Alfresco Content Services instance into the `Connect to`  field. You will then be asked to authenticate using your Alfresco credentials. If you want to use Single Sign-On (SSO) to connect to the Mobile Workspace you can enter the URL of the Identity Service. You can enter the URL in the following format `my.alfresco.com`.
 > **Note:** You do not need to enter www because the URL will be formatted by the application.
 
-### Advanced Settings
+### Advanced settings
 
-The advanced settings are preconfigured with the correct default settings to connect to Alfresco. Depending on your installation you may need to change some of these. The advanced settings can be accessed from the first screen. There are a number of options which help to authenticate the application with your Alfresco Content Services instance.
+The **Advanced settings** are preconfigured with the correct default settings to connect to Alfresco. Depending on your installation you may need to change some of these. The advanced settings are accessed from the first screen. There are a number of options which help to authenticate the application with your Alfresco Content Services instance.
 
 | Field | Description|
-| ------- | --------- |
+| ----- | ---------- |
 | HTTPS | Allows you to switch between HTTP or HTTPS. If connecting to Alfresco Content Services Community Edition then HTTP is common but it is generally only used for testing purposes only. |
 | Port | The port used by your Alfresco Content Services instance. If you use HTTPS the default value is `443`, if it is HTTP the default value is `80`. |
 | Path | This is the path where Alfresco Content Services is located on your domain. For example `mydomain.com/alfresco`. |
