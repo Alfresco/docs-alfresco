@@ -603,8 +603,193 @@ documentation. For a complete list of Event Filters available in the SDK see thi
 For information on how to implement a custom event filter see this [section](#customeventfilter).
 
 #### Spring Integration event handlers
+Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).
 
- 
+To use Spring Integration based event handlers follow these steps:
+
+Add the following dependency in the Maven project file (i.e. `pom.xml`):
+
+```xml
+<dependencies>
+    <!-- Alfresco Java SDK 5 Spring Integration Event Handler API Spring Boot Starter -->
+    <dependency>
+        <groupId>org.alfresco</groupId>
+        <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+</dependencies>
+```
+
+Enable Spring Integration handlers in the `src/main/resources/application.properties` configuration file 
+(by default pure Java event handlers is expected), add the following two extra properties:
+
+```text
+# Where is Alfresco Active MQ JMS Broker running?
+spring.activemq.brokerUrl=tcp://localhost:61616
+# This property is required if you want Spring Boot to auto-define the ActiveMQConnectionFactory,
+# otherwise you can define that bean in Spring config
+spring.jms.cache.enabled=false
+# Enable Spring Integration based event handlers
+alfresco.events.enableSpringIntegration=true
+# Turn off plain Java event handlers
+alfresco.events.enableHandlers=false
+```
+
+Remove the default Spring Boot starter dependency (i.e. `<artifactId>spring-boot-starter</artifactId>`).
+
+Test it:
+
+```bash
+$ mvn clean package -Dlicense.skip=true
+[INFO] Scanning for projects...
+...
+
+$ java -jar target/events-0.0.1-SNAPSHOT.jar 
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.2)
+
+2021-03-29 13:44:49.441  INFO 2599 --- [           main] o.a.tutorial.events.EventsApplication    : Starting EventsApplication v0.0.1-SNAPSHOT using Java 11.0.2 on MBP512-MBERGLJUNG-0917 with PID 2599 (/Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-spring-integration-events-sample/target/events-0.0.1-SNAPSHOT.jar started by mbergljung in /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-spring-integration-events-sample)
+2021-03-29 13:44:49.446  INFO 2599 --- [           main] o.a.tutorial.events.EventsApplication    : No active profile set, falling back to default profiles: default
+2021-03-29 13:44:50.606  INFO 2599 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2021-03-29 13:44:50.613  INFO 2599 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2021-03-29 13:44:50.621  INFO 2599 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2021-03-29 13:44:50.775  INFO 2599 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-29 13:44:50.802  INFO 2599 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-29 13:44:50.803  INFO 2599 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-29 13:44:51.924  INFO 2599 --- [           main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-03-29 13:44:52.014  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2021-03-29 13:44:52.015  INFO 2599 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2021-03-29 13:44:52.015  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2021-03-29 13:44:52.015  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {transformer} as a subscriber to the 'acsEventsListeningFlow.channel#0' channel
+2021-03-29 13:44:52.015  INFO 2599 --- [           main] o.s.integration.channel.DirectChannel    : Channel 'application.acsEventsListeningFlow.channel#0' has 1 subscriber(s).
+2021-03-29 13:44:52.015  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean 'acsEventsListeningFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#0'; defined in: 'class path resource [org/alfresco/event/sdk/autoconfigure/AlfrescoEventsAutoConfiguration.class]'; from source: 'bean method acsEventsListeningFlow'
+2021-03-29 13:44:52.015  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {recipient-list-router} as a subscriber to the 'acsEventsListeningFlow.channel#1' channel
+2021-03-29 13:44:52.016  INFO 2599 --- [           main] o.s.integration.channel.DirectChannel    : Channel 'application.acsEventsListeningFlow.channel#1' has 1 subscriber(s).
+2021-03-29 13:44:52.016  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean 'acsEventsListeningFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#1'; defined in: 'class path resource [org/alfresco/event/sdk/autoconfigure/AlfrescoEventsAutoConfiguration.class]'; from source: 'bean method acsEventsListeningFlow'
+2021-03-29 13:44:52.016  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {bridge} as a subscriber to the 'alfresco.events.si.channel' channel
+2021-03-29 13:44:52.016  INFO 2599 --- [           main] o.s.integration.channel.DirectChannel    : Channel 'application.alfresco.events.si.channel' has 1 subscriber(s).
+2021-03-29 13:44:52.016  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean 'acsEventsSpringIntegrationFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#0'; defined in: 'class path resource [org/alfresco/event/sdk/autoconfigure/AlfrescoEventsAutoConfiguration.class]'; from source: 'bean method acsEventsSpringIntegrationFlow'
+2021-03-29 13:44:52.016  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {bridge} as a subscriber to the 'acsEventsSpringIntegrationFlow.channel#1' channel
+2021-03-29 13:44:52.016  INFO 2599 --- [           main] o.s.integration.channel.DirectChannel    : Channel 'application.acsEventsSpringIntegrationFlow.channel#1' has 1 subscriber(s).
+2021-03-29 13:44:52.016  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean 'acsEventsSpringIntegrationFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#1'; defined in: 'class path resource [org/alfresco/event/sdk/autoconfigure/AlfrescoEventsAutoConfiguration.class]'; from source: 'bean method acsEventsSpringIntegrationFlow'
+2021-03-29 13:44:52.017  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {bridge} as a subscriber to the 'alfresco.events.handlers.channel' channel
+2021-03-29 13:44:52.017  INFO 2599 --- [           main] o.s.integration.channel.DirectChannel    : Channel 'application.alfresco.events.handlers.channel' has 1 subscriber(s).
+2021-03-29 13:44:52.017  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean 'acsEventsHandlersFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#0'; defined in: 'class path resource [org/alfresco/event/sdk/autoconfigure/AlfrescoEventsAutoConfiguration.class]'; from source: 'bean method acsEventsHandlersFlow'
+2021-03-29 13:44:52.017  INFO 2599 --- [           main] o.s.integration.channel.DirectChannel    : Channel 'application.acsEventsHandlersFlow.channel#1' has 1 subscriber(s).
+2021-03-29 13:44:52.018  INFO 2599 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean 'acsEventsHandlersFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#1'; defined in: 'class path resource [org/alfresco/event/sdk/autoconfigure/AlfrescoEventsAutoConfiguration.class]'; from source: 'bean method acsEventsHandlersFlow'
+2021-03-29 13:44:52.018  INFO 2599 --- [           main] ishingJmsMessageListener$GatewayDelegate : started org.springframework.integration.jms.ChannelPublishingJmsMessageListener$GatewayDelegate@d8305c2
+2021-03-29 13:44:52.539  INFO 2599 --- [           main] o.s.i.jms.JmsMessageDrivenEndpoint       : started bean 'acsEventsListeningFlow.jms:message-driven-channel-adapter#0'; defined in: 'class path resource [org/alfresco/event/sdk/autoconfigure/AlfrescoEventsAutoConfiguration.class]'; from source: 'bean method acsEventsListeningFlow'
+2021-03-29 13:44:52.561  INFO 2599 --- [           main] o.a.tutorial.events.EventsApplication    : Started EventsApplication in 3.849 seconds (JVM running for 4.638)
+```
+
+Looks ready for some event handler code.
+
+Now, start adding your event handler code, let's add an event handler that will be triggered when a new document/file 
+is uploaded. To do this we need to create a class that implements the 
+`org.springframework.integration.dsl.IntegrationFlow` interface:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.dsl.IntegrationFlowDefinition;
+import org.springframework.integration.dsl.IntegrationFlows;
+import org.springframework.stereotype.Component;
+
+/**
+ * Spring Integration based event handler that will execute code when a file is uploaded
+ *
+ * @author mbergljung
+ */
+@Component
+public class NewContentFlow implements IntegrationFlow {
+	private static final Logger LOGGER = LoggerFactory.getLogger(NewContentFlow.class);
+
+	public void configure(IntegrationFlowDefinition<?> f) {
+		IntegrationFlows.from(EventChannels.MAIN)
+			.filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED))
+			.handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString()));
+	}
+}
+```
+
+Add the Spring Bean class into the same directory as the Spring boot starter class. It doesn't have to be added to this 
+directory, but in this case we are just testing it, so no need to organize too much. 
+
+Now stop, build and start it up again:
+
+```bash
+$ mvn clean package -Dlicense.skip=true
+[INFO] Scanning for projects...
+...
+
+$ java -jar target/events-0.0.1-SNAPSHOT.jar 
+...
+```
+
+Add a file via the Share user interface, you should see the following in the logs:
+
+```text
+2021-03-26 10:23:46.846  INFO 74020 --- [erContainer#0-1] o.a.t.e.ContentUploadedEventHandler      : A file was uploaded to the repository: 13ba2bbf-2422-4152-832f-060e017ec09c, cm:content, some-file.txt
+```
+
+Now, this event handler will actually also be triggered when a folder is created. So how can we fix so the handler is 
+only triggered when a file is created/uploaded? By adding a so called [event filter](#eventfilter) to the class:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.handling.handler.OnNodeCreatedEventHandler;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+
+/**
+ * Sample event handler to demonstrate reacting to a document/file being uploaded to the repository.
+ *
+ * @author mbergljung
+ */
+@Component
+public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContentUploadedEventHandler.class);
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        NodeResource nodeResource = (NodeResource) repoEvent.getData().getResource();
+        LOGGER.info("A file was uploaded to the repository: {}, {}, {}", nodeResource.getId(), nodeResource.getNodeType(),
+               nodeResource.getName());
+    }
+
+    public EventFilter getEventFilter() {
+        return IsFileFilter.get();
+    }
+}
+```
+
+Here we are using the `org.alfresco.event.sdk.handling.filter.IsFileFilter`, which will make sure that the event handler
+is triggered only when the node type is `cm:content` or subtype thereof, which represents files.
+
+For a complete list of events see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
+documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
+
+For information on how to implement a custom event filter see this [section](#customeventfilter).
+
 #### Implementing a custom event filter {#customeventfilter}
 The following event filter checks if a passed in node ID is equal to a desired parent folder node ID. This event filter
 can be used to check if a file or folder is located in a specific folder. To create a custom event filter you need to 
