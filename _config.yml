@@ -81,6 +81,21 @@ defaults:
     values:
       version: 1.5
 
+  # Alfresco Mobile Workspace
+  - scope:
+      path: "mobile-workspace"
+    values:
+      layout: "docs"
+      product: "Alfresco Mobile Workspace"
+      location: "mobile-workspace"
+      toc: "mobile-workspace"
+  - scope:
+      path: "mobile-workspace/latest"
+    values:
+      version: 1.0
+      latest: true
+
+
 # Alfresco Google Drive
   - scope:
       path: "google-drive"
@@ -787,20 +802,6 @@ defaults:
       toc: "content-mobile"
   - scope:
       path: "content-mobile/latest"
-    values:
-      version: 1.0
-      latest: true
-
-# Alfresco Mobile Workspace
-  - scope:
-      path: "mobile-workspace"
-    values:
-      layout: "docs"
-      product: "Alfresco Mobile Workspace"
-      location: "mobile-workspace"
-      toc: "mobile-workspace"
-  - scope:
-      path: "mobile-workspace/latest"
     values:
       version: 1.0
       latest: true
