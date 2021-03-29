@@ -6,6 +6,13 @@ Use this information to configure Amazon Transcribe.
 
 This guide takes you through the journey of configuring your Content Services instance to enrich the content with custom metadata detected with powerful state of the art AI algorithms.
 
+
+
+https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html
+
+ 
+
+
 ## Step 1: Define custom Textract models
 
 There are two parts to creating a Custom Metadata Extraction model:

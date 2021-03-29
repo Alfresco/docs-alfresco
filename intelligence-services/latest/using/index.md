@@ -45,7 +45,7 @@ Follow these steps to use the default (i.e. out-of-the-box) configuration of Int
         For example, you can add any of the default renditions:
 
         ```bash
-        aiFeatures, aiLabels, aiTextract
+        aiFeatures, aiLabels, aiTextract, aiSpeechToText 
         ```
 
         > **Note:** If you leave the text field empty, all three of the default renditions will be requested. The default renditions are `aiFeatures` for Amazon Comprehend, `aiLabels` for Amazon Rekognition of images, and `aiTextract` for Amazon Textract.
@@ -94,14 +94,20 @@ If you're planning to use custom recognizers, custom classifiers, or custom meta
 
         See [Custom AI rendition definitions]({% link intelligence-services/latest/config/comprehend.md %}#custom-ai-rendition-definitions) for configured renditions.
 
-    3. For custom metadata extraction (using Textract), request a rendition and add a custom AI aspects. For example:
+    3. For custom metadata extraction (using Textract), request a rendition and add custom AI aspects. For example:
 
-        * Request AI renditions: `aiTextract`
+        * Request AI rendition: `aiTextract`
         * Add aspect: `AI Text Lines`
         * Add aspect: `Applicant Info`
         * Add aspect: `w9form`
 
         See [Custom AI content model (Textract)]({% link intelligence-services/latest/config/textract.md %}#custom-ai-content-model) for configured aspects.
+
+    4. For speech to text extraction (using Transcribe), request renditions and add a custom AI aspect. For example:
+
+        * Request AI rendition: `aiSpeechToText`
+        * Request AI rendition: `webvtt`
+        * Add aspect: `AI Transcript`
 
     > **Note:** The new input field for the `Request AI renditions` action adds the ability to request custom renditions as comma separated rendition names. When left blank, the three default renditions are requested - (i.e. `aiFeatures`, `aiLabels`, and `aiTextract`). This allows you to configure a rule using various combinations, such as:
 
