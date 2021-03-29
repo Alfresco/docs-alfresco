@@ -13,6 +13,8 @@
           path: '/intelligence-services/latest/config/comprehend/'
         - title: 'Custom Textract'
           path: '/intelligence-services/latest/config/textract/'
+        - title: 'Transcribe'
+          path: '/intelligence-services/latest/config/transcribe/'
     - title: 'Administer'
       pages:
         - title: 'Overview'

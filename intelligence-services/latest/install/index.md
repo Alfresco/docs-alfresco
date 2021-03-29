@@ -214,7 +214,17 @@ In order to use Amazon Textract, you'll need to create a new IAM role and config
 
 {% endcapture %}
 
-{% include tabs.html tableid="permissions" opt1="Comprehend" content1=comprehend opt2="Rekognition" content2=rekognition opt3="Textract" content3=textract %}
+{% capture transcribe %}
+
+The credentials associated with your IAM user must have permissions to access Amazon Transcribe actions. These permissions are customized through roles associated with your IAM user.
+
+In order to use Amazon Transcribe, you'll need to create a new IAM role and configure a policy to access the desired services within Textract. The easiest way to do this is to attach the AWS managed policy `AmazonTranscribeFullAccess` to the IAM role.
+
+> **Note:** You must grant Amazon Transcribe access to the S3 bucket used above.
+
+{% endcapture %}
+
+{% include tabs.html tableid="permissions" opt1="Comprehend" content1=comprehend opt2="Rekognition" content2=rekognition opt3="Textract" content3=textract opt4="Transcribe" content4=transcribe %}
 
 ### Configure minimum confidence level
 
@@ -228,6 +238,8 @@ There's a setting for the level of confidence that each AWS AI service has in th
 ai.transformations.aiLabels.minConfidence=0.8
 ai.transformations.aiFeatures.minConfidence=0.8
 ai.transformations.aiTextract.minConfidence=0.8
+ai.transformations.aiPiiEntities.minConfidence=0.8
+ai.transformations.aiSpeechToText.minConfidence=0.8
 ```
 
 ### Clean up in S3
