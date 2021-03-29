@@ -227,8 +227,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * Sample event handler to demonstrate reacting to a document/file being uploaded to the repository.
- *
- * @author mbergljung
  */
 @Component
 public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
@@ -262,8 +260,6 @@ import java.util.Objects;
 
 /**
  * Filter that can be used when a node needs to be in a specific folder.
- *
- * @author mbergljung
  */
 public class ParentFolderFilter extends AbstractEventFilter {
     private final String parentId;

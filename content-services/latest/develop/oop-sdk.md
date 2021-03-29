@@ -219,7 +219,7 @@ org.alfresco.event.sdk.model.v1.model.Resource;
 In this section we will see how to use SDK 5 to create Alfresco event handler projects, using plain Java and 
 using the Spring framework.
 
-#### Start up Content Services 7 or newer
+#### Start up Content Services 7 or newer {#acsstart}
 Before continuing you need an instance of Content Services version 7 running, either Community or Enterprise. In this 
 samples section we will use Community and start it up with Docker Compose. You can get the Docker Compose file for 
 Community version 7 from the [acs-deployment](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/community-docker-compose.yml){:target="_blank"} 
@@ -253,7 +253,7 @@ and login with **admin/admin**.
 #### Prerequisites {#prereq}
 Before you start using any of the libraries in SDK 5 make sure you got the correct Java and Maven versions installed:
 
-1. Java needs to be version 11 or above:
+Java needs to be version 11 or above:
 
 ```bash
 $ java -version
@@ -264,7 +264,7 @@ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.2+9-LTS, mixed mode)
 $ javac -version
 javac 11.0.2
 ```
-2. Maven needs to be version 3.3 or above:
+Maven needs to be version 3.3 or above:
 
 ```bash
 $ mvn -version
@@ -281,7 +281,7 @@ The Java artifacts (i.e. JAR libs) that we will be using are located in the
 
 ![artifacts-alfresco-java-sdk]({% link content-services/images/artifacts-alfresco-java-sdk.png %}){:height="500px" width="400px"}
 
-Maven needs to know about the Artifacts Repository so add the following to `~/.m2/settings.xml`:
+Maven needs to know about the Alfresco Artifacts Repository (Nexus) so add the following to `~/.m2/settings.xml`:
 
 ```xml
 <repositories>
@@ -348,8 +348,9 @@ You should have a project file looking something like this now:
 ```
 
 Tell the event app where the Active MQ server is running so it knows where to listen for events, this is done
-in the `src/main/resources/application.properties` configuration file. Also add a property telling the system to
-auto-define the Active MQ Connection factory:
+in the `src/main/resources/application.properties` configuration file. Remember, the Active MQ server is started 
+as part of the [Content Services system](#acsstart). Also, add a property telling the system to auto-define the 
+Active MQ Connection factory:
 
 ```text
 # Where is Alfresco Active MQ JMS Broker running?
@@ -432,7 +433,7 @@ We are now ready to add the specifics depending on what type of event handler co
 Spring Integration based.
 
 #### Pure Java event handlers
-Make sure you have completed [prerequisites](#prereq) and created [starter project](#createstarterproj).
+Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).
 
 To use pure Java event handlers follow these steps:
 
@@ -449,7 +450,7 @@ Add the following dependency in the Maven project file (i.e. `pom.xml`):
 </dependencies>
 ```
 
-Remove the default Spring Boot starter dependency.
+Remove the default Spring Boot starter dependency (i.e. `<artifactId>spring-boot-starter</artifactId>`).
 
 Test it:
 
@@ -599,10 +600,73 @@ is triggered only when the node type is `cm:content` or subtype thereof, which r
 For a complete list of events see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
 documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
 
+For information on how to implement a custom event filter see this [section](#customeventfilter).
+
 #### Spring Integration event handlers
 
  
+#### Implementing a custom event filter {#customeventfilter}
+The following event filter checks if a passed in node ID is equal to a desired parent folder node ID. This event filter
+can be used to check if a file or folder is located in a specific folder. To create a custom event filter you need to 
+create a class that extends the `org.alfresco.event.sdk.handling.filter.AbstractEventFilter` class and implement
+the `test` method:  
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.AbstractEventFilter;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
+
+import java.util.Objects;
+
+/**
+ * Filter that can be used when a node needs to be in a specific folder.
+ */
+public class ParentFolderFilter extends AbstractEventFilter {
+    // The node ID for the folder we want to check against 
+    private final String parentId;
+
+    // Private ctor, make sure ID is not null
+    private ParentFolderFilter(final String parentId) {
+        this.parentId = Objects.requireNonNull(parentId);
+    }
+
+    // When using the filter, pass in the folder node ID we want to check against
+    public static ParentFolderFilter of(final String parentId) {
+        return new ParentFolderFilter(parentId);
+    }
+
+    // The actual test: 
+    // get the node resource we are testing (such as a file node), 
+    // then get its primary parent folder ID and check if it matches desired folder Node ID
+    public boolean test(RepoEvent<DataAttributes<Resource>> event) {
+        NodeResource resource = (NodeResource) event.getData().getResource();
+        boolean parentFound = resource.getPrimaryHierarchy().get(0).equals(parentId);
+        return isNodeEvent(event) && parentFound;
+    }
+}
+```
+
+This event filter can now be used in an event handler class as follows (in this case together with another filter):
+
+```java
+@Component
+public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
+    private String folderID = "5f355d16-f824-4173-bf4b-b1ec37ef5549";
+
+    ...
+    
+    public EventFilter getEventFilter() {
+        // Check if uploaded file is located in desired folder
+        return IsFileFilter.get()
+                .and(ParentFolderFilter.of(folderID));
+    }
+```
 
 ## ReST API Java wrapper
+
 
 
