@@ -6,7 +6,7 @@ Use this information to quickly start up Community Edition using Docker Compose.
 
 > **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided here is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 
-To deploy Community Edition using Docker Compose`, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/community/install/containers/index.md %}#prerequisites) before continuing.
+To deploy Community Edition using Docker Compose, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/community/install/containers/index.md %}#prerequisites) before continuing.
 
 1. Clone the project locally, change directory to the project folder, and switch to the release branch:
 
@@ -33,18 +33,23 @@ To deploy Community Edition using Docker Compose`, download and install [Docker]
 
     ```text
     ...
-    Creating docker-compose_postgres_1              ... done
-    Creating docker-compose_activemq_1              ... done
-    Creating docker-compose_libreoffice_1           ... done
-    Creating docker-compose_imagemagick_1           ... done
-    Creating docker-compose_transform-misc_1        ... done
-    Creating docker-compose_alfresco_1              ... done
-    Creating docker-compose_solr6_1                 ... done
-    Creating docker-compose_alfresco-pdf-renderer_1 ... done
-    Creating docker-compose_tika_1                  ... done
-    Creating docker-compose_share_1                 ... done
-    Creating docker-compose_proxy_1                 ... done
-    Attaching to docker-compose_alfresco-pdf-renderer_1, docker-compose_share_1, docker-compose_tika_1, docker-compose_al...
+    Creating network "docker-compose_default" with the default driver
+    ...
+    Creating docker-compose_share_1 ...
+    Creating docker-compose_solr6_1 ...
+    Creating docker-compose_alfresco_1 ...
+    Creating docker-compose_postgres_1 ...
+    Creating docker-compose_transform-core-aio_1 ...
+    Creating docker-compose_activemq_1           ...
+    Creating docker-compose_alfresco_1           ... done
+    Creating docker-compose_share_1              ... done
+    Creating docker-compose_proxy_1              ...
+    Creating docker-compose_postgres_1           ... done
+    Creating docker-compose_solr6_1              ... done
+    Creating docker-compose_transform-core-aio_1 ... done
+    Creating docker-compose_activemq_1           ... done
+    Creating docker-compose_proxy_1              ... done
+    Attaching to docker-compose_alfresco_1, docker-compose_share_1, docker-compose_postgres_1, docker-compose_solr6_1, docker-compose_transform-core-aio_1, docker-compose_activemq_1, docker-compose_proxy_1
     ...
     ```
 
@@ -56,8 +61,8 @@ To deploy Community Edition using Docker Compose`, download and install [Docker]
 
     ```bash
     ...
-    alfresco_1 | 2019-10-28 09:50:50,388  INFO ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2019-10-28 09:50.50,782  INFO ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | 2021-03-18 15:57:50,740  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | 2021-03-18 15:57:50,935  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -100,19 +105,15 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```text
-                Container                           Repository                              ...       Size
-        --------------------------------------------------------------------------------------------------
-        docker-compose_activemq_1                alfresco/alfresco-activemq                       ...   521 MB
-        docker-compose_alfresco-pdf-renderer_1   alfresco/alfresco-pdf-renderer                   ...   670 MB
-        docker-compose_alfresco_1                alfresco/alfresco-content-repository-community   ...   1.31 GB
-        docker-compose_imagemagick_1             alfresco/alfresco-imagemagick                    ...   793 MB
-        docker-compose_libreoffice_1             alfresco/alfresco-libreoffice                    ...   1.28 GB
-        docker-compose_postgres_1                postgres                                         ...   298 MB
-        docker-compose_proxy_1                   alfresco/acs-community-ngnix                     ...   19.5 MB
-        docker-compose_share_1                   alfresco/alfresco-share                          ...   749 MB
-        docker-compose_solr6_1                   alfresco/alfresco-search-services                ...   1.02e+03 MB
-        docker-compose_tika_1                    alfresco/alfresco-tika                           ...   804 MB
-        docker-compose_transform-misc_1          alfresco/alfresco-transform-misc                 ...   712 MB
+                Container                           Repository                                 ...     Size
+        -----------------------------------------------------------------------------------------------------
+        docker-compose_activemq_1             alfresco/alfresco-activemq                       ...   716.3 MB
+        docker-compose_alfresco_1             alfresco/alfresco-content-repository-community   ...   1.272 GB
+        docker-compose_postgres_1             postgres                                         ...   314.2 MB
+        docker-compose_proxy_1                alfresco/alfresco-acs-nginx                      ...   21.86 MB
+        docker-compose_share_1                alfresco/alfresco-share                          ...   743.2 MB
+        docker-compose_solr6_1                alfresco/alfresco-search-services                ...   1.148 GB
+        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio             ...   1.579 GB
         ```
 
     2. List the running containers:
@@ -156,17 +157,13 @@ Use this information to verify that the system started correctly, and to clean u
 
     ```text
     ^CGracefully stopping... (press Ctrl+C again to force)
-    Stopping docker-compose_proxy_1                 ... done
-    Stopping docker-compose_alfresco_1              ... done
-    Stopping docker-compose_libreoffice_1           ... done
-    Stopping docker-compose_imagemagick_1           ... done
-    Stopping docker-compose_postgres_1              ... done
-    Stopping docker-compose_solr6_1                 ... done
-    Stopping docker-compose_alfresco-pdf-renderer_1 ... done
-    Stopping docker-compose_tika_1                  ... done
-    Stopping docker-compose_share_1                 ... done
-    Stopping docker-compose_transform-misc_1        ... done
-    Stopping docker-compose_activemq_1              ... done
+    Stopping docker-compose_proxy_1              ... done
+    Stopping docker-compose_alfresco_1           ... done
+    Stopping docker-compose_share_1              ... done
+    Stopping docker-compose_solr6_1              ... done
+    Stopping docker-compose_transform-core-aio_1 ... done
+    Stopping docker-compose_postgres_1           ... done
+    Stopping docker-compose_activemq_1           ... done
     ```
 
 5. Alternatively, you can open a new terminal window, change directory to the `docker-compose` folder, and run:
@@ -178,20 +175,16 @@ Use this information to verify that the system started correctly, and to clean u
     This stops the running services, as shown in the previous example, and removes them from memory:
 
     ```text
-    Stopping docker-compose_compose_proxy_1         ... done
-    Stopping docker-compose_alfresco_1              ... done
+    Stopping docker-compose_proxy_1              ... done
+    Stopping docker-compose_alfresco_1           ... done
     ...
-    Removing docker-compose_proxy_1                 ... done
-    Removing docker-compose_alfresco_1              ... done
-    Removing docker-compose_libreoffice_1           ... done
-    Removing docker-compose_imagemagick_1           ... done
-    Removing docker-compose_postgres_1              ... done
-    Removing docker-compose_solr6_1                 ... done
-    Removing docker-compose_alfresco-pdf-renderer_1 ... done
-    Removing docker-compose_tika_1                  ... done
-    Removing docker-compose_share_1                 ... done
-    Removing docker-compose_transform-misc_1        ... done
-    Removing docker-compose_activemq_1              ... done
+    Removing docker-compose_proxy_1              ... done
+    Removing docker-compose_alfresco_1           ... done
+    Removing docker-compose_share_1              ... done
+    Removing docker-compose_solr6_1              ... done
+    Removing docker-compose_transform-core-aio_1 ... done
+    Removing docker-compose_postgres_1           ... done
+    Removing docker-compose_activemq_1           ... done
     Removing network docker-compose_default
     ```
 
@@ -229,7 +222,7 @@ Use this information to verify that the system started correctly, and to clean u
         Removing docker-compose_proxy_1
         ...
         Removing network docker-compose_default
-        Removing image alfresco/alfresco-content-repository-community:6.2.0-ga
+        Removing image alfresco/alfresco-content-repository-community:7.0.0
         Removing image ...
         ```
 
@@ -237,7 +230,7 @@ See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for m
 
 ### Deployment project in GitHub
 
-See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/){:target="_blank"} GitHub project for more details.
+See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} GitHub project for more details.
 
 * In this project, you’ll find several Docker Compose files. The default `docker-compose.yml` file contains the latest work-in-progress deployment scripts, and installs the latest *development* version of Content Services.
 * To deploy a specific released version of Content Services, several *major.minor* Docker Compose files are provided in the `docker-compose` folder of the project.

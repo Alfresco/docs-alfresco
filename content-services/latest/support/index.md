@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services.
+Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services 7.0.
 
 Last modified: **March 18 2021**
 
@@ -78,7 +78,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Identity Service 1.4 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | SAML Module for Alfresco Content Services 1.2.1 | |
 | Alfresco Intelligence Services 1.3 | |
-| Alfresco Content Connector for AWS S3 4.0 | Only compatible with Alfresco Media Management 1.4.2 or above. |
+| Alfresco Content Connector for AWS S3 4.0 | |
 | Alfresco Content Connector for Azure 2.0 | |
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
 | Alfresco Content Connector for Salesforce 2.2.1 | |
