@@ -793,7 +793,7 @@ Configure Microsoft Outlook to find and connect to the correct Alfresco server.
 
 5. Select either **Windows authentication** or **Standard** authentication.
 
-    If you select standard authentication, enter your Alfresco user name and password. If you select Windows authentication, the `passthru` authentication is used. For more information about authentication subsystem types, see [Authentication subsystem types]({% link content-services/6.0/admin/auth-sync.md %}#Authentication subsystem types).
+    If you select standard authentication, enter your Alfresco user name and password. If you select Windows authentication, the `passthru` authentication is used. For more information about authentication subsystem types, see [Authentication subsystem types]({% link content-services/latest/admin/auth-sync.md %}#Authentication subsystem types).
 
     >**Note:** By default, SAML authentication is enabled. Use the Client Settings XML file to disable SAML authentication, and remove the SAML authentication radio button in this panel. See [Setting SAML in AlfrescoClientSettings]({% link microsoft-outlook/latest/config/index.md %}#configure-connection-settings) for more information.
 
@@ -928,10 +928,10 @@ Set the configuration template to import when the configuration dialog is called
 
 Use the Alfresco Client Settings XML file for advanced configuration of Alfresco Microsoft Outlook client.
 
-The `AlfrescoClientSettings-2.7.x.xml` file contains advanced configuration properties.
+The `AlfrescoClientSettings-2.8.x.xml` file contains advanced configuration properties.
 Use this file to set up attributes and metadata settings.
 
-1. Locate and open `AlfrescoClientSettings-2.7.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
+1. Locate and open `AlfrescoClientSettings-2.8.x.xml` in the `C:\Users\<username>` directory, where `<username>` is your Windows user name.
 
     The `<outlook>` section contains elements that you can configure to customize the Alfresco Outlook Client, and also additional `<storage>`, `<connection>`, `<logging>`, `<restrictions>`, and `<tabs>` sections:
 
