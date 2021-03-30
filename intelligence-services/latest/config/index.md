@@ -112,7 +112,7 @@ A number of environment variables allow you to specify the configuration options
 
     ```yaml
     digital-workspace:
-        image: quay.io/alfresco/alfresco-digital-workspace:1.5.0
+        image: quay.io/alfresco/alfresco-digital-workspace:2.1.0
         volumes:
             - ./app.extensions.json:/usr/share/nginx/html/assets/app.extensions.json
     ```
