@@ -45,7 +45,7 @@ Follow these steps to use the default (i.e. out-of-the-box) configuration of Int
         For example, you can add any of the default renditions:
 
         ```bash
-        aiFeatures, aiLabels, aiTextract, aiSpeechToText 
+        aiFeatures, aiLabels, aiTextract, aiSpeechToText, webvtt, aiPiiEntities 
         ```
 
         > **Note:** If you leave the text field empty, all three of the default renditions will be requested. The default renditions are `aiFeatures` for Amazon Comprehend, `aiLabels` for Amazon Rekognition of images, and `aiTextract` for Amazon Textract.
@@ -108,6 +108,8 @@ If you're planning to use custom recognizers, custom classifiers, or custom meta
         * Request AI rendition: `aiSpeechToText`
         * Request AI rendition: `webvtt`
         * Add aspect: `AI Transcript`
+
+        See [Custom AI content model (Transcribe)]({% link intelligence-services/latest/config/transcribe.md %}#custom-ai-content-model) for configured aspects.
 
     > **Note:** The new input field for the `Request AI renditions` action adds the ability to request custom renditions as comma separated rendition names. When left blank, the three default renditions are requested - (i.e. `aiFeatures`, `aiLabels`, and `aiTextract`). This allows you to configure a rule using various combinations, such as:
 
