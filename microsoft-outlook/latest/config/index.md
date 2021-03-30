@@ -732,13 +732,21 @@ These settings define global controls across your enterprise and are applied imm
 
 17. Click **Enable upload restrictions** and **Manage** to specify content that can't be uploaded from the Outlook Client.
 
-    Enter a space delimited list of file extensions or files that you don't want to be uploaded to Alfresco, for example;
+    * Enter a space delimited list of file extensions or files that you don't want to be uploaded to Alfresco, for example;
 
     ```text
     *.docx *.txt *.xlsx
     ```
 
     >**Note:** Only content that is uploaded in the Alfresco Outlook Client is restricted. If you upload content directly to Alfresco (through Share), it isn't restricted.
+
+    * Specify the maximum number of files for the folder upload.
+
+    This limits the number of files that your users can drop at once onto the plugin to reduce server load.
+
+    * Specify the maximum combined file size in MB.
+
+    This sets a limit for the folder size that your users can drop onto the plugin.
 
 18. Click **Apply** to save your settings.
 
@@ -801,7 +809,7 @@ Configure Microsoft Outlook to find and connect to the correct Alfresco server.
 
     >**Note:** If your IT team has configured SAML authentication without single-sign on (SSO), then you may notice the following behaviour when you change the Outlook configuration. When you select **Check connection**, you'll see an authentication window, where you'll need to enter your Alfresco user name and password. If you choose to close the window without entering your login details, the Outlook Integration considers this to be a failed authentication attempt and will try again. When the authentication window is displayed for a 2nd time and you close the window, there'll be no further authentication attempts. The Alfresco Outlook Client displays a message to indicate that SAML authentication failed. Click **OK** to dismiss the message.
 
-### Configuring email archive settings
+### Configure email archive settings
 
 You can configure Microsoft Outlook to archive email in Alfresco, including archiving emails as links.
 
@@ -813,6 +821,7 @@ You can decide what format you want to use to save your emails, and how to archi
 * Use default settings for archiving (where all emails are saved to the Alfresco server, based on the option selected in **Default archive** settings)
 * Show settings when archiving (to select how each email will be archived)
 * Compress the email message when uploading the content
+* Always use the default folder
 
 You can reduce the size of your Outlook inbox by replacing emails with links to the content in Alfresco:
 
@@ -1086,6 +1095,7 @@ Use this file to set up attributes and metadata settings.
         |`<action type="move-document" enabled="true"/>`|Sets action: move document<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
         |`<action type="copy-folder" enabled="true"/>`|Sets action: copy folder<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
         |`<action type="move-folder" enabled="true"/>`|Sets action: move folder<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
+        |`<action type="send-and-archive" enabled="true"/>`|Sets action: send and archive<br><br>Added in Outlook Integration 2.8.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
 
 8. Configure the attributes that you need for the `<tabs>` element:
 

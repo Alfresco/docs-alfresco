@@ -69,7 +69,7 @@ When sending a new email, you can choose to automatically archive it after it ha
 
 This button is available in the **Alfresco Client** tab when you’re composing an email, and combines the separate actions for sending the email and then manually dragging it onto the Outlook sidebar to archive it:
 
-![This image shows the Send and Archive button in the Alfresco Client tab]({% link microsoft-outlook/images/28-ribbon_v2.png %})
+![This image shows the Send and Archive button in the Alfresco Client tab]({% link microsoft-outlook/images/2-8-ribbon.png %}){:width="600px"}
 
 **Note:** The standard **Send** button inside your email is not affected.
 
