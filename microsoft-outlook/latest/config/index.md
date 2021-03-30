@@ -662,7 +662,7 @@ These settings define global controls across your enterprise and are applied imm
 
     Options are **All public sites**, **My sites** or **Favorite sites**.
 
-    >**Note:** Outlook users are able to change this and other settings locally for the Alfresco Outlook Client. See [Configuring extended settings in Outlook](#configure-extended-settings) for more information.
+    >**Note:** Outlook users are able to change this and other settings locally for the Alfresco Outlook Client. See [Configure extended settings in Outlook](#configure-extended-settings) for more information.
 
 4. In **Prevent email duplication in**, choose to check the uniqueness of files and at what level.
 
@@ -846,6 +846,20 @@ As an administrator, you can decide if email names should be derived from the em
 
 See [Alfresco Client Settings file](#advanced-configuration) for more details.
 
+### Configure Send and Archive
+
+You can decide whether to use a default folder for every email sent with the **Send and Archive** button or always receive a prompt to choose a folder.
+
+1. Select **Configure > Email Archiving** from the **Alfresco Client** tab in Microsoft Outlook.
+
+2. Select **Always use default folder**, choose a folder in the **Folder selection** window, and click **OK** to save your default folder selection.
+
+3. Select **Open default folder** to open the folder in a new browser window, for example, if you wish to change your selection.
+
+4. Click **OK** to save your **Email Archiving** settings.
+
+See the `<storage>` section in [Alfresco Client Settings file](#advanced-configuration) for more details.
+
 ### Configure extended settings
 
 You can configure Outlook extended settings; for example, change the display language, Alfresco settings, or drag and drop priorities.
@@ -985,6 +999,7 @@ Use this file to set up attributes and metadata settings.
     |`storeLink`|Controls the Archive as link email option|`true`: email is replaced with a link to email stored in Alfresco<br><br>`false`: email is not replaced with a link to the email stored in Alfresco. This is the default setting.|
     |`storeMsg`|Controls the Store original Outlook .MSG file archive option|`true`: original Outlook . MSG file is stored on upload to Alfresco<br><br>`false`: original Outlook . MSG file is not stored on upload to Alfresco. This is the default setting.|
     |`compress`|Controls the Compress message while uploading setting|`true`: message is compressed while uploading to Alfresco. This is the default setting.<br><br>`false`: message is not compressed while uploading to Alfresco|
+    |`alwaysUseDefaultSendAndArchiveFolder`|Controls the Always use default folder archive option|`true`: uses the specified default folder. This is the default setting.<br><br>`false`: select folder with every upload.|
 
 4. Configure the attributes that you need for the `<connection>` element:
 
