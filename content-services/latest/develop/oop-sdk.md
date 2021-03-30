@@ -575,8 +575,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * Sample event handler to demonstrate reacting to a document/file being uploaded to the repository.
- *
- * @author mbergljung
  */
 @Component
 public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
@@ -691,7 +689,8 @@ Looks ready for some event handler code.
 
 Now, start adding your event handler code, let's add an event handler that will be triggered when a new document/file 
 is uploaded. To do this we need to create a class that implements the 
-`org.springframework.integration.dsl.IntegrationFlow` interface:
+`org.springframework.integration.dsl.IntegrationFlow` interface, we can use a helper adapter class (i.e. 
+`IntegrationFlowAdapter`) for this:
 
 ```java
 package org.alfresco.tutorial.events;
@@ -701,25 +700,24 @@ import org.alfresco.event.sdk.integration.EventChannels;
 import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.dsl.IntegrationFlowAdapter;
 import org.springframework.integration.dsl.IntegrationFlowDefinition;
-import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.stereotype.Component;
 
 /**
  * Spring Integration based event handler that will execute code when a file is uploaded
- *
- * @author mbergljung
  */
 @Component
-public class NewContentFlow implements IntegrationFlow {
-	private static final Logger LOGGER = LoggerFactory.getLogger(NewContentFlow.class);
+public class NewContentFlow extends IntegrationFlowAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(NewContentFlow.class);
 
-	public void configure(IntegrationFlowDefinition<?> f) {
-		IntegrationFlows.from(EventChannels.MAIN)
-			.filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED))
-			.handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString()));
-	}
+    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
+    @Override
+    protected IntegrationFlowDefinition<?> buildFlow() {
+        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
+                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())); // Handle event with a bit of logging
+    }
 }
 ```
 
@@ -740,8 +738,7 @@ $ java -jar target/events-0.0.1-SNAPSHOT.jar
 Add a file via the Share user interface, you should see the following in the logs:
 
 ```text
-2021-03-26 10:23:46.846  INFO 74020 --- [erContainer#0-1] o.a.t.e.ContentUploadedEventHandler      : A file was uploaded to the repository: 13ba2bbf-2422-4152-832f-060e017ec09c, cm:content, some-file.txt
-```
+2021-03-30 10:09:22.738  INFO 9603 --- [erContainer#0-1] o.a.tutorial.events.NewContentFlow : File uploaded: RepoEvent [specversion=1.0, type=org.alfresco.event.node.Created, id=12100b22-8dae-4ebe-b114-ba9dc2f9755b, source=/3bc24dba-d1ae-4c04-af60-0294a4c68a7f, time=2021-03-30T09:09:22.711117Z, dataschema=https://api.alfresco.com/schema/event/repo/v1/nodeCreated, datacontenttype=application/json, data=EventData [eventGroupId=3196f0f6-b4aa-4834-9aa2-a58eaa8f121f, resource=NodeResource [id=4e1f0830-2452-4a4c-b20a-7146402ce665, name=somefile-again.txt, nodeType=cm:content, isFile=true, isFolder=false, createdByUser=UserInfo [id=admin, displayName=Administrator], createdAt=2021-03-30T09:09:22.324Z, modifiedByUser=UserInfo [id=admin, displayName=Administrator], modifiedAt=2021-03-30T09:09:22.324Z, content=ContentInfo [mimeType=text/plain, sizeInBytes=0, encoding=UTF-8], properties={cm:title=, app:editInline=true, cm:description=}, aspectNames=[app:inlineeditable, cm:titled, cm:auditable], primaryHierarchy=[19e067a9-5d2a-43ba-ac93-d273d938050c, 30afd06d-6ec7-4434-b1d6-1f7671b6b9a7, 7a82ddff-0869-430e-8cc8-623d97b98dc4]], resourceBefore=null]]```
 
 Now, this event handler will actually also be triggered when a folder is created. So how can we fix so the handler is 
 only triggered when a file is created/uploaded? By adding a so called [event filter](#eventfilter) to the class:
@@ -749,46 +746,82 @@ only triggered when a file is created/uploaded? By adding a so called [event fil
 ```java
 package org.alfresco.tutorial.events;
 
-import org.alfresco.event.sdk.handling.filter.EventFilter;
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
 import org.alfresco.event.sdk.handling.filter.IsFileFilter;
-import org.alfresco.event.sdk.handling.handler.OnNodeCreatedEventHandler;
-import org.alfresco.event.sdk.model.v1.model.DataAttributes;
-import org.alfresco.event.sdk.model.v1.model.NodeResource;
-import org.alfresco.event.sdk.model.v1.model.RepoEvent;
-import org.alfresco.event.sdk.model.v1.model.Resource;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.integration.dsl.IntegrationFlowAdapter;
+import org.springframework.integration.dsl.IntegrationFlowDefinition;
 import org.springframework.stereotype.Component;
 
-
 /**
- * Sample event handler to demonstrate reacting to a document/file being uploaded to the repository.
- *
- * @author mbergljung
+ * Spring Integration based event handler that will execute code when a file is uploaded
  */
 @Component
-public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ContentUploadedEventHandler.class);
+public class NewContentFlow extends IntegrationFlowAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(NewContentFlow.class);
 
-    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
-        NodeResource nodeResource = (NodeResource) repoEvent.getData().getResource();
-        LOGGER.info("A file was uploaded to the repository: {}, {}, {}", nodeResource.getId(), nodeResource.getNodeType(),
-               nodeResource.getName());
-    }
-
-    public EventFilter getEventFilter() {
-        return IsFileFilter.get();
+    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
+    @Override
+    protected IntegrationFlowDefinition<?> buildFlow() {
+        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
+                .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
+                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())); // Handle event with a bit of logging
     }
 }
 ```
 
 Here we are using the `org.alfresco.event.sdk.handling.filter.IsFileFilter`, which will make sure that the event handler
-is triggered only when the node type is `cm:content` or subtype thereof, which represents files.
+is triggered only when the node type is `cm:content` or subtype thereof, which represents files. To use this filter with
+Spring Integration we use the [IntegrationEventFilter](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-event-api/alfresco-java-event-api-integration/src/main/java/org/alfresco/event/sdk/integration/filter/IntegrationEventFilter.java){:target="_blank"} 
+wrapper.
 
 For a complete list of events see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
 documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
 
 For information on how to implement a custom event filter see this [section](#customeventfilter).
+
+If you are thinking, do I really need a whole class just to process an event? No you don't, you can include a bean 
+definition directly in the Spring Boot app class as follows:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.dsl.IntegrationFlows;
+
+@SpringBootApplication
+public class EventsApplication {
+    private static final Logger LOGGER = LoggerFactory.getLogger(EventsApplication.class);
+    
+    public static void main(String[] args) {
+        SpringApplication.run(EventsApplication.class, args);
+    }
+
+    @Bean
+    public IntegrationFlow logCreateFileNode() {
+        return IntegrationFlows.from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
+                .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
+                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())) // Handle event with a bit of logging
+                .get();
+    }
+}
+```
+
+
 
 #### Implementing a custom event filter {#customeventfilter}
 The following event filter checks if a passed in node ID is equal to a desired parent folder node ID. This event filter
