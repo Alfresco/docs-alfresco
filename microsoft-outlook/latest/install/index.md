@@ -267,7 +267,7 @@ There are two different ways to uninstall the Alfresco Outlook Client for enterp
 
     The identifying number is tied to a specific version of your Outlook Integration. If your users have different versions installed, you need to find out the product IDs for each version.
 
-    1. Install the plugin version that was distributed to the machines of your end users.
+    1. Install the Outlook plugin version that was distributed to the machines of your end users.
 
     2. Run the PowerShell command:
 

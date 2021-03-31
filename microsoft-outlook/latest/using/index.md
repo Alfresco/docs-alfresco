@@ -339,9 +339,9 @@ You can drop complete folders from Windows Explorer onto the Alfresco Outlook In
 
 The upload starts after saving. This operation runs in the background until it's completed. While the upload is running, you can't upload any other files.
 
-* To indicate that the process is still running, you'll see a progress bar in your plugin with the option to **Cancel** the upload.
-* For every folder created with any associated files, you may see an email duplication dialog if your folder contains emails that have already been uploaded to the system. See the setting for [Prevent email duplication]({% link microsoft-outlook/latest/config/index.md %}#configoutlookemailsettings) for more details.
-* Once the operation is complete, the plugin will display the files that haven't been uploaded if there was a problem with uploading some of your data.
+* To indicate that the process is still running, you'll see a progress bar in your Outlook plugin with the option to **Cancel** the upload.
+* For every folder created (with associated files), you may see an email duplication dialog if your folder contains emails that have already been uploaded to the system.
+* Once the operation is complete, the Outlook plugin will display the files that haven't been uploaded if there was a problem with uploading some of your data.
 
 ## Managing archived files in Alfresco Share
 
