@@ -245,45 +245,47 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 }
 ```
 
-This code uses a custom `ParentFolderFilter` that is implemented as follows:
-
-```java
-package org.alfresco.tutorial.events;
-
-import org.alfresco.event.sdk.handling.filter.AbstractEventFilter;
-import org.alfresco.event.sdk.model.v1.model.DataAttributes;
-import org.alfresco.event.sdk.model.v1.model.NodeResource;
-import org.alfresco.event.sdk.model.v1.model.RepoEvent;
-import org.alfresco.event.sdk.model.v1.model.Resource;
-
-import java.util.Objects;
-
-/**
- * Filter that can be used when a node needs to be in a specific folder.
- */
-public class ParentFolderFilter extends AbstractEventFilter {
-    private final String parentId;
-
-    private ParentFolderFilter(final String parentId) {
-        this.parentId = Objects.requireNonNull(parentId);
-    }
-
-    public static ParentFolderFilter of(final String parentId) {
-        return new ParentFolderFilter(parentId);
-    }
-
-    public boolean test(RepoEvent<DataAttributes<Resource>> event) {
-        NodeResource resource = (NodeResource) event.getData().getResource();
-        boolean parentFound = resource.getPrimaryHierarchy().get(0).equals(parentId);
-        return isNodeEvent(event) && parentFound;
-    }
-}
-```
+This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
 {% endcapture %}
 
 {% capture sdk5-spring-integration %}
-TODO
+The following code shows how this can be done with SDK 5 and Spring Integration event handlers:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.integration.dsl.IntegrationFlowAdapter;
+import org.springframework.integration.dsl.IntegrationFlowDefinition;
+import org.springframework.stereotype.Component;
+
+/**
+ * Spring Integration based event handler that will execute code when a file is uploaded
+ */
+@Component
+public class NewContentFlow extends IntegrationFlowAdapter {
+ 	private static final Logger LOGGER = LoggerFactory.getLogger(NewContentFlow.class);
+
+    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
+    @Override
+    protected IntegrationFlowDefinition<?> buildFlow() {
+        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
+                .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
+                .filter(IntegrationEventFilter.of(ParentFolderFilter.of("55a21ec2-eaff-4e0f-b76b-c84e32d1c2fe"))) // Filter node and make sure we got correct parent folder ID
+                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())); // Handle event with a bit of logging
+    }
+}
+```
+
+This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+
 {% endcapture %}
 
 {% capture apache-camel %}

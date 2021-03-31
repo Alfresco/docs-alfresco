@@ -3,19 +3,18 @@ title: Alfresco SDK 5.0 for out-of-process extensions
 ---
 
 Alfresco SDK 5.0 is a development kit that provides an easy to use approach to developing applications and 
-out-of-process extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your 
-Alfresco extension project.
+out-of-process extensions for Content Services 7.x. With this SDK you can develop, package, test, run, document and 
+release your extension project.
 
-The Alfresco Software Development Kit (Alfresco SDK) is a fundamental tool provided by Alfresco to developers to build 
-customizations and extensions for the Alfresco Digital Business Platform. It is based on the [Spring Integration](https://spring.io/projects/spring-integration){:target="_blank"} 
-tooling library and [Spring Boot](https://spring.io/projects/spring-boot){:target="_blank"}. 
+The SDK is a fundamental tool provided by Alfresco to developers to build customizations and extensions for the 
+Content Services Platform. It is based on the [Spring Integration](https://spring.io/projects/spring-integration){:target="_blank"} 
+tooling library and the [Spring Boot](https://spring.io/projects/spring-boot){:target="_blank"} library. 
 
 Alfresco SDK 5.0 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
-and supports Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, 
+and supports Content Services Enterprise Edition as well as Community Edition. If you're an Enterprise customer, 
 please check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
-for the version you're using. If your version is in Limited or Full Support and you need help, contact our [Support team](https://support.alfresco.com/){:target="_blank"}.
-
-Alfresco SDK 5.0 is a major update to the SDK and provides support for Alfresco 7.x.
+for the version you're using. If your version is in Limited or Full Support and you need help, contact our 
+[Support team](https://support.alfresco.com/){:target="_blank"}.
 
 The 5.0 release takes advantage of Semantic Versioning ([SEMVER](http://semver.org/){:target="_blank"}), which means that 
 this new release is not directly compatible with the previous releases of the SDK.
@@ -25,9 +24,9 @@ support out-of-process extensions, rather than an updated 4.2 version. [Alfresco
 is still needed for a lot of the extension points, such as [content modelling]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 If you have an existing project with business logic that could be lifted out and implemented as an external service, then 
-the recommended approach is to generate a new SDK 5.0 project and start using the event system to implement the business logic. 
+the recommended approach is to create a new SDK 5.0 project and start using the event system to implement the business logic. 
 Any business logic that is executed as a result of an action in the Repository, such as document or folder uploaded, updated, deleted,
-can be reimplemented as an external out-process extension utilizing the new event system.
+can be reimplemented as an external out-process extension utilizing the new event system. 
 
 ## What's new?
 Alfresco SDK 5.0 is a brand new development environment that brings changes oriented to assist the way out-of-process 
@@ -47,7 +46,7 @@ before continuing as this section assumes familiarity with the Content Services 
 
 If you are not familiar with Alfresco ReST API version 1.0, then read through this [introduction]({% link content-services/latest/develop/rest-api-guide/index.md %}).
 
-## Alfresco Java Event API
+## Java Event API
 The SDK has a Java library that wraps the Alfresco Event Model so it is more convenient to handle events in a Java project. 
 This library provides the ability to work with events in a standard Java way or with Spring Integration.
 
@@ -215,11 +214,11 @@ org.alfresco.event.sdk.model.v1.model.NodeResource;
 org.alfresco.event.sdk.model.v1.model.RepoEvent;
 org.alfresco.event.sdk.model.v1.model.Resource; 
 
-### Creating event handler projects
+## Creating event handler projects
 In this section we will see how to use SDK 5 to create Alfresco event handler projects, using plain Java and 
 using the Spring framework.
 
-#### Start up Content Services 7 or newer {#acsstart}
+### Start up Content Services 7 or newer {#acsstart}
 Before continuing you need an instance of Content Services version 7 running, either Community or Enterprise. In this 
 samples section we will use Community and start it up with Docker Compose. You can get the Docker Compose file for 
 Community version 7 from the [acs-deployment](https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/community-docker-compose.yml){:target="_blank"} 
@@ -250,7 +249,7 @@ It will take 5-15 minutes to start up, depending on what Docker images you alrea
 started properly by accessing [http://localhost:8080/share](http://localhost:8080/share){:target="_blank"} 
 and login with **admin/admin**. 
 
-#### Prerequisites {#prereq}
+### Prerequisites {#prereq}
 Before you start using any of the libraries in SDK 5 make sure you got the correct Java and Maven versions installed:
 
 Java needs to be version 11 or above:
@@ -294,7 +293,7 @@ Maven needs to know about the Alfresco Artifacts Repository (Nexus) so add the f
   </repositories>
 ```
 
-#### Create a starting point Spring project {#createstarterproj}
+### Create a starting point Spring project {#createstarterproj}
 The easiest way to get going is to use the **Spring Initializr** website and create a starting point project from there. 
 Go to [https://start.spring.io/](https://start.spring.io/){:target="_blank"} and fill in your project info something like
 this:
@@ -432,7 +431,7 @@ $ java -jar target/events-0.0.1-SNAPSHOT.jar
 We are now ready to add the specifics depending on what type of event handler code we like to use, pure Java or 
 Spring Integration based.
 
-#### Pure Java event handlers
+### Pure Java event handlers {#purejavaeventhandlers}
 Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).
 
 To use pure Java event handlers follow these steps:
@@ -595,12 +594,12 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 Here we are using the `org.alfresco.event.sdk.handling.filter.IsFileFilter`, which will make sure that the event handler
 is triggered only when the node type is `cm:content` or subtype thereof, which represents files.
 
-For a complete list of events see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
+For a complete list of events with sample code see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
 documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
 
-For information on how to implement a custom event filter see this [section](#customeventfilter).
+For information on how to implement a custom event filter see this [section](#parentfoldercustomfilter).
 
-#### Spring Integration event handlers
+### Spring Integration event handlers {#springintegrationhandlers}
 Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).
 
 To use Spring Integration based event handlers follow these steps:
@@ -738,7 +737,8 @@ $ java -jar target/events-0.0.1-SNAPSHOT.jar
 Add a file via the Share user interface, you should see the following in the logs:
 
 ```text
-2021-03-30 10:09:22.738  INFO 9603 --- [erContainer#0-1] o.a.tutorial.events.NewContentFlow : File uploaded: RepoEvent [specversion=1.0, type=org.alfresco.event.node.Created, id=12100b22-8dae-4ebe-b114-ba9dc2f9755b, source=/3bc24dba-d1ae-4c04-af60-0294a4c68a7f, time=2021-03-30T09:09:22.711117Z, dataschema=https://api.alfresco.com/schema/event/repo/v1/nodeCreated, datacontenttype=application/json, data=EventData [eventGroupId=3196f0f6-b4aa-4834-9aa2-a58eaa8f121f, resource=NodeResource [id=4e1f0830-2452-4a4c-b20a-7146402ce665, name=somefile-again.txt, nodeType=cm:content, isFile=true, isFolder=false, createdByUser=UserInfo [id=admin, displayName=Administrator], createdAt=2021-03-30T09:09:22.324Z, modifiedByUser=UserInfo [id=admin, displayName=Administrator], modifiedAt=2021-03-30T09:09:22.324Z, content=ContentInfo [mimeType=text/plain, sizeInBytes=0, encoding=UTF-8], properties={cm:title=, app:editInline=true, cm:description=}, aspectNames=[app:inlineeditable, cm:titled, cm:auditable], primaryHierarchy=[19e067a9-5d2a-43ba-ac93-d273d938050c, 30afd06d-6ec7-4434-b1d6-1f7671b6b9a7, 7a82ddff-0869-430e-8cc8-623d97b98dc4]], resourceBefore=null]]```
+2021-03-30 10:09:22.738  INFO 9603 --- [erContainer#0-1] o.a.tutorial.events.NewContentFlow : File uploaded: RepoEvent [specversion=1.0, type=org.alfresco.event.node.Created, id=12100b22-8dae-4ebe-b114-ba9dc2f9755b, source=/3bc24dba-d1ae-4c04-af60-0294a4c68a7f, time=2021-03-30T09:09:22.711117Z, dataschema=https://api.alfresco.com/schema/event/repo/v1/nodeCreated, datacontenttype=application/json, data=EventData [eventGroupId=3196f0f6-b4aa-4834-9aa2-a58eaa8f121f, resource=NodeResource [id=4e1f0830-2452-4a4c-b20a-7146402ce665, name=somefile-again.txt, nodeType=cm:content, isFile=true, isFolder=false, createdByUser=UserInfo [id=admin, displayName=Administrator], createdAt=2021-03-30T09:09:22.324Z, modifiedByUser=UserInfo [id=admin, displayName=Administrator], modifiedAt=2021-03-30T09:09:22.324Z, content=ContentInfo [mimeType=text/plain, sizeInBytes=0, encoding=UTF-8], properties={cm:title=, app:editInline=true, cm:description=}, aspectNames=[app:inlineeditable, cm:titled, cm:auditable], primaryHierarchy=[19e067a9-5d2a-43ba-ac93-d273d938050c, 30afd06d-6ec7-4434-b1d6-1f7671b6b9a7, 7a82ddff-0869-430e-8cc8-623d97b98dc4]], resourceBefore=null]]
+```
 
 Now, this event handler will actually also be triggered when a folder is created. So how can we fix so the handler is 
 only triggered when a file is created/uploaded? By adding a so called [event filter](#eventfilter) to the class:
@@ -779,11 +779,6 @@ is triggered only when the node type is `cm:content` or subtype thereof, which r
 Spring Integration we use the [IntegrationEventFilter](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-event-api/alfresco-java-event-api-integration/src/main/java/org/alfresco/event/sdk/integration/filter/IntegrationEventFilter.java){:target="_blank"} 
 wrapper.
 
-For a complete list of events see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
-documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
-
-For information on how to implement a custom event filter see this [section](#customeventfilter).
-
 If you are thinking, do I really need a whole class just to process an event? No you don't, you can include a bean 
 definition directly in the Spring Boot app class as follows:
 
@@ -820,10 +815,16 @@ public class EventsApplication {
     }
 }
 ```
+For a complete list of events with sample code see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
+documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
 
+For information on how to implement a custom event filter see this [section](#parentfoldercustomfilter).
 
+## Implementing custom event filters {#customeventfilter}
+Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).
+And decided if you want to use pure [java event handlers](#purejavaeventhandlers) or [Spring Integration event handlers](#springintegrationhandlers).
 
-#### Implementing a custom event filter {#customeventfilter}
+### Parent folder filter {#parentfoldercustomfilter}
 The following event filter checks if a passed in node ID is equal to a desired parent folder node ID. This event filter
 can be used to check if a file or folder is located in a specific folder. To create a custom event filter you need to 
 create a class that extends the `org.alfresco.event.sdk.handling.filter.AbstractEventFilter` class and implement
