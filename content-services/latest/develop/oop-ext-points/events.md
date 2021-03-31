@@ -209,7 +209,7 @@ of no interest. So for example, if you are interested in files with content type
 called **/Company Home/Testing/Inbound** (e.g. Node ID `5f355d16-f824-4173-bf4b-b1ec37ef5549`) it would be easy to 
 configure this. 
 
-{% capture sdk5-plain-java %}
+{% capture sdk5-plain-java-nodecreated %}
 The following code shows how this can be done with SDK 5 and plain Java event handlers:
 
 ```java
@@ -239,8 +239,8 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
     }
 
     public EventFilter getEventFilter() {
-        return IsFileFilter.get()
-                .and(ParentFolderFilter.of("5f355d16-f824-4173-bf4b-b1ec37ef5549"));
+        return IsFileFilter.get() // Make sure it's a file
+                .and(ParentFolderFilter.of("5f355d16-f824-4173-bf4b-b1ec37ef5549")); // Located in the /Company Home/Testing/Inbound folder
     }
 }
 ```
@@ -249,7 +249,7 @@ This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/d
 
 {% endcapture %}
 
-{% capture sdk5-spring-integration %}
+{% capture sdk5-spring-integration-nodecreated %}
 The following code shows how this can be done with SDK 5 and Spring Integration event handlers:
 
 ```java
@@ -259,10 +259,15 @@ import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
 import org.alfresco.event.sdk.handling.filter.IsFileFilter;
 import org.alfresco.event.sdk.integration.EventChannels;
 import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.integration.dsl.IntegrationFlowAdapter;
 import org.springframework.integration.dsl.IntegrationFlowDefinition;
+import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
 
 /**
@@ -278,8 +283,15 @@ public class NewContentFlow extends IntegrationFlowAdapter {
         return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
                 .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
                 .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
-                .filter(IntegrationEventFilter.of(ParentFolderFilter.of("55a21ec2-eaff-4e0f-b76b-c84e32d1c2fe"))) // Filter node and make sure we got correct parent folder ID
-                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())); // Handle event with a bit of logging
+                .filter(IntegrationEventFilter.of(ParentFolderFilter.of("5f355d16-f824-4173-bf4b-b1ec37ef5549"))) // Filter node and make sure we got correct parent folder ID
+                .handle(t -> handleEvent(t)); // Handle event with a bit of logging
+    }
+
+    private void handleEvent(Message message) {
+        RepoEvent<DataAttributes<Resource>> repoEvent = (RepoEvent<DataAttributes<Resource>>)message.getPayload();
+        NodeResource resource = (NodeResource) repoEvent.getData().getResource();
+
+        LOGGER.info("File uploaded: {}", resource);
     }
 }
 ```
@@ -288,7 +300,7 @@ This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/d
 
 {% endcapture %}
 
-{% capture apache-camel %}
+{% capture apache-camel-nodecreated %}
 The following code snippet shows how this could be done with an 
 [Apache Camel route](https://camel.apache.org/manual/latest/routes.html){:target="_blank"} configuration:
 
@@ -324,7 +336,7 @@ In this case a Spring Bean with ID `eventHandlerImpl` is called at the end of th
 necessary ReST API calls.
 {% endcapture %}
 
-{% include tabs.html tableid="sdk5-plain-java" opt1="SDK5 - Plain Java" content1=sdk5-plain-java opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration opt3="Apache Camel" content3=apache-camel %}
+{% include tabs.html tableid="event-code-nodecreated" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-nodecreated opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-nodecreated opt3="Apache Camel" content3=apache-camel-nodecreated %}
 
 ### Node updated event
 This event is fired whenever a node, such as a folder or file, is updated or moved in the repository. The full name of this 
@@ -449,7 +461,112 @@ call can also be used to get other properties for the created node as not all ar
 When subscribing to the `org.alfresco.event.node.Updated` event it's possible to filter out anything that is
 of no interest. So for example, if you are interested in files with content type `cm:content` updated in the folder 
 called **/Company Home/Testing/Inbound** (e.g. Node ID `5f355d16-f824-4173-bf4b-b1ec37ef5549`) it would be easy to 
-configure this. The following code snippet shows how this could be done with an 
+configure this. 
+
+{% capture sdk5-plain-java-nodeupdated %}
+The following code shows how this can be done with SDK 5 and plain Java event handlers:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.handling.handler.OnNodeUpdatedEventHandler;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+
+/**
+ * Sample event handler to demonstrate reacting to a document/file being updated.
+ */
+@Component
+public class ContentUpdatedEventHandler implements OnNodeUpdatedEventHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContentUploadedEventHandler.class);
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        NodeResource beforeUpdateResource = (NodeResource) repoEvent.getData().getResourceBefore();
+        NodeResource afterUpdateResource = (NodeResource) repoEvent.getData().getResource();
+        LOGGER.info("A file was updated in the repository: {}, {}, {}", afterUpdateResource.getId(), 
+                afterUpdateResource.getNodeType(), afterUpdateResource.getName());
+    }
+
+    public EventFilter getEventFilter() {
+        return IsFileFilter.get() // Make sure it's a file
+                .and(ParentFolderFilter.of("5f355d16-f824-4173-bf4b-b1ec37ef5549")); // Located in the /Company Home/Testing/Inbound folder
+    }
+}
+```
+
+Note that you can get to the property values before the update via the `repoEvent.getData().getResourceBefore()` call.
+You can compare those to the values retreived via `repoEvent.getData().getResource()` and see what's changed.
+
+This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+
+{% endcapture %}
+
+{% capture sdk5-spring-integration-nodeupdated %}
+The following code shows how this can be done with SDK 5 and Spring Integration event handlers:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.integration.dsl.IntegrationFlowAdapter;
+import org.springframework.integration.dsl.IntegrationFlowDefinition;
+import org.springframework.messaging.Message;
+import org.springframework.stereotype.Component;
+
+/**
+ * Spring Integration based event handler that will execute code when a file is updated
+ */
+@Component
+public class UpdatedContentFlow extends IntegrationFlowAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(UpdatedContentFlow.class);
+
+    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
+    @Override
+    protected IntegrationFlowDefinition<?> buildFlow() {
+        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_UPDATED)) // Filter events and select only node updated events
+                .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
+                .filter(IntegrationEventFilter.of(ParentFolderFilter.of("5f355d16-f824-4173-bf4b-b1ec37ef5549"))) // Filter node and make sure we got correct parent folder ID (/Company Home/Testing/Inbound)
+                .handle(t -> handleEvent(t)); // Handle event with a bit of logging
+    }
+
+    private void handleEvent(Message message) {
+        RepoEvent<DataAttributes<Resource>> repoEvent = (RepoEvent<DataAttributes<Resource>>)message.getPayload();
+        NodeResource beforeUpdateResource = (NodeResource) repoEvent.getData().getResourceBefore();
+        NodeResource afterUpdateResource = (NodeResource) repoEvent.getData().getResource();
+
+        LOGGER.info("File updated: Before update {}, after update {}", beforeUpdateResource.toString(),
+                afterUpdateResource.toString());
+    }
+}
+```
+
+Note that you can get to the property values before the update via the `repoEvent.getData().getResourceBefore()` call.
+You can compare those to the values retreived via `repoEvent.getData().getResource()` and see what's changed.
+
+This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+
+{% endcapture %}
+
+{% capture apache-camel-nodeupdated %}
+The following code snippet shows how this could be done with an 
 [Apache Camel route](https://camel.apache.org/manual/latest/routes.html){:target="_blank"} configuration:
 
 ```java
@@ -481,6 +598,9 @@ The `jsonpath` expression uses several of the event data properties to filter ou
 
 In this case a Spring Bean with ID `updatedEventHandlerImpl` is called at the end of the route from where you could make the 
 necessary ReST API calls.
+{% endcapture %}
+
+{% include tabs.html tableid="event-code-nodeupdated" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-nodeupdated opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-nodeupdated opt3="Apache Camel" content3=apache-camel-nodeupdated %}
 
 ### Node deleted event
 This event is fired whenever a node, such as a folder or file, is deleted in the repository. The full name of this 
