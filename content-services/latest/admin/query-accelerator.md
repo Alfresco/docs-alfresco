@@ -9,7 +9,7 @@ system where humans are creating documents. In transactional deployments there t
 other properties, which identify a related collection of documents.
 
 An administrator may define a combination of properties and aspects as a `query set`, to support a faster alternative to
-TMDQ (Transactional MetaData Query) or Solr. Properties may be from multiple types or aspects. A single query set can
+Transactional Metadata Query (TMDQ) or Solr. Properties may be from multiple types or aspects. A single query set can
 speed up more than one query if the queries share common search properties or aspects. A number of different query sets
 may be created to support queries with different search properties or aspects.
 
@@ -26,7 +26,7 @@ be possible to replace a query set with a new version or to remove it completely
 properties or aspects applied to nodes and if necessary (for selected databases) the order of columns
 in compound indexes. Query sets are defined using JSON files.
 
-3. Administrators perform a query set refresh in the Alfresco Administration Console. The addition of new query sets, 
+3. Administrators perform a query set refresh in the Admin Console. The addition of new query sets, 
 the replacement of an existing query set or complete removal does not require a restart, an outage or have a major impact on normal operations. The `alfresco.log` will contain messages to reflect progress. When a new query set is identified, the system will start populating a denormalized 
 table in the background. It will also abandon the table population before it is complete, if a new 
 version of the query set is created. The implementation will also need to identify a query 
@@ -74,8 +74,8 @@ The necessary volumes are already provided out of the box and the files
 in ConfigMap `custom-queryset-config` will be mounted to
 `/usr/local/tomcat/shared/classes/alfresco/extension/querysets/`.
 
-> From Kubernetes documentation: Caution: If there are some files
-in the mountPath location, they will be deleted.
+> **Caution:** 
+> From Kubernetes documentation: If there are some files in the mountPath location, they will be deleted.
 
 ## Configuration
 
@@ -86,7 +86,7 @@ The query set configurations define the denormalized tables that will be created
 | ---------------- | ----------- |
 | version          | The version of the query set. |
 | name             | The table name. The actual database table name will have a prefix of 'alf_qs_' and a suffix of '_v' plus the version. So for a query set called of 'test1' and a version of 1 that actual database table name would be 'alf_qs_test1_v1'. |
-| properties       | A collection of properties to appear on the denormalized table. A property consists of a name attribute which is the name of a property and an isIndex attribute which indicates that the related column on the table should be indexed.            |
+| properties       | A collection of properties to appear on the denormalized table. A property consists of a name attribute which is the name of a property and an isIndex attribute which indicates that the related column on the table should be indexed. |
 | aspects          | A collection of aspects to appear on the denormalized table. The table will have a boolean column for each of the aspects to indicate if the node has those aspects applied. An aspect consists of a name attribute which is the name of an aspect and an isIndex attribute which indicates that the related column on the table should be indexed. |
 | compositeIndexes | A collection of composite indexes to be created for the table. A composite index consists of an attribute where the attribute name is the index name and the attribute value is a collection of names of properties and/or aspects of the query set. |
 
@@ -115,6 +115,7 @@ The query set configurations define the denormalized tables that will be created
 ## Query set configuration examples
 
 ### Example 1
+
 This first example is intentionally simple but should work on any system, providing a basic understanding of how the system works.
 
 ```json
@@ -153,6 +154,7 @@ Table entry:
 | 887     | 3        | 24       | demo1.txt | Joe Bloggs  | true      |
 
 ### Example 2
+
 The following example requires that at least one node in the system has the DublinCore aspect applied. This aspect is
 part of the system by default. If there are no nodes, an unknown property error is reported.
 
@@ -195,9 +197,9 @@ Table entry:
 | ------- | -------- | -------- | --------- | ------------ | --------- | ------------- |
 | 918     | 3        | 24       | demo2     | Egmont       | true      | true          |
 
-## Query Sets and Transaction Meta-Data Queries (TMDQ)
+## Query sets and TMDQ queries
 
-Here we give an example of how to create a Query Set to replace a TMDQ.
+Here we give an example of how to create a query set to replace a TMDQ.
 
 The following TMDQ selects all documents (cm:content) which have a dublincore aspect (cm:dublincore), a
 publisher (cm:publisher) equal to 'Hachette Livre' and a type (cm:type) equal to 'Action'.
@@ -236,7 +238,7 @@ has the DublinCore aspect applied.
 }
 ```
 
-## Query Set Status and Caching
+## Query set status and caching
 
 Denormalized tables have a status. For example:
 
@@ -252,7 +254,7 @@ The transition from NEW to INPROGRESS will normally happen almost immediately.
 
 ## Logging
 
-The admin console currently only indicates if updates were detected. For a more complete picture of the query sets configuration DEBUG logging must be used:
+The Admin Console currently only indicates if updates were detected. For a more complete picture of the query sets configuration DEBUG logging must be used:
 
 ```bash
 log4j.logger.org.alfresco.enterprise.repo.queryaccelerator=debug
@@ -320,7 +322,7 @@ Logs when a query is refused by the engine:
 
 ### Removing a query set
 
-You can remove a query set by performing its removal in the Alfresco Administration Console. There is no need to perform
+You can remove a query set by performing its removal in the Admin Console. There is no need to perform
  a refresh after the query set removal, however the JSON config file should be manually removed from the config directory.
 
 During the refresh the JSON config files will be compared against the internal registry of query sets. If a query set in
@@ -331,8 +333,7 @@ The denormalized database table will NOT be dropped.
 
 You can update/replace a query set by changing the properties, aspects and compositeIndexes in the query set JSON config.
 
-You then need to update the version in the query set JSON config and then perform a query set refresh in the
-Alfresco Administration Console.
+You then need to update the version in the query set JSON config and then perform a query set refresh in the Admin Console.
 
 This will start a process that will replace the previous version of the query set.
 * A new version of the query set will be added to the internal query set registry.
@@ -348,17 +349,17 @@ of the Alfresco installation.
 
  > **Important:** If you edit a query set config and change the name and request a query set refresh, the system will see this as the retirement of the original query set and the creation of a new one.
 
-### Query Set Refresh in Alfresco Administration Console
+### Query Set Refresh in Admin Console
 
-The query sets can be refreshed in the Alfresco Administration Console.
+The query sets can be refreshed in the Admin Console.
 
-1 Select 'Query Accelerator' in the left hand menu.
+1. Select **Query Accelerator** in the left hand menu.
 
-![Admin Console]({% link content-services/images/admin-console-menu.png %})
+    ![Admin Console]({% link content-services/images/admin-console-menu.png %})
 
-2 Press the 'Refresh Query Set' button.
+2. Press the **Refresh Query Set** button.
 
-![Refresh Query Set]({% link content-services/images/refresh-query-set.png %})
+    ![Refresh Query Set]({% link content-services/images/refresh-query-set.png %})
 
 If there are updates to the query sets in the folder defined by `queryAccelerator.config.dir` (normally
 `shared/classes/alfresco/extension/querysets`) you will see:
@@ -369,15 +370,15 @@ If there are no updates to the query sets you will see:
 
 ![Refresh Not Started Set]({% link content-services/images/refresh-query-set-not-started.png %})
 
-### Query Set Remove in Alfresco Administration Console
+### Query Set Remove in Admin Console
 
-The query sets can be removed in the Alfresco Administration Console.
+The query sets can be removed in the Admin Console.
 
-1 On the Query Accelerator page, complete the query set name and version text fields.
+1. On the **Query Accelerator** page, complete the query set name and version text fields.
 
-![Remove Query Set]({% link content-services/images/remove-query-set.png %})
+    ![Remove Query Set]({% link content-services/images/remove-query-set.png %})
 
-2 Press the 'Remove Query Set' button.
+2. Press the **Remove Query Set** button.
 
 If the query set is successfully removed you will see:
 
