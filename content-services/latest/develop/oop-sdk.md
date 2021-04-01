@@ -204,15 +204,172 @@ It is a Spring configuration class that automatically define the beans required 
 All this auto-configuration will be enabled as soon as the dependency `org.alfresco:alfresco-java-event-api-spring-boot-starter` 
 is added to a Spring Boot project.
 
-### Event API Reference
-TODO:
+### The NodeResource object {#noderesourceobj}
+When working with the Event API there is one data object called `NodeResource` that is used over and over. It's used to 
+get to the JSON data returned in the JMS message payload.
 
-Document stuff like the payload event model:
+Here is an example payload for a node updated event type:
 
-org.alfresco.event.sdk.model.v1.model.DataAttributes;
-org.alfresco.event.sdk.model.v1.model.NodeResource;
-org.alfresco.event.sdk.model.v1.model.RepoEvent;
-org.alfresco.event.sdk.model.v1.model.Resource; 
+```json
+{
+  "specversion": "1.0",
+  "type": "org.alfresco.event.node.Updated",
+  "id": "ae5dac3c-25d0-438d-b148-2084d1ab05a6",
+  "source": "/08d9b620-48de-4247-8f33-360988d3b19b",
+  "time": "2021-01-26T10:29:42.99524Z",
+  "dataschema": "https://api.alfresco.com/schema/event/repo/v1/nodeUpdated",
+  "datacontenttype": "application/json",
+  "data": {
+    "eventGroupId": "b5b1ebfe-45fc-4f86-b71b-421996482881",
+    "resource": {
+      "@type": "NodeResource",
+      "id": "d71dd823-82c7-477c-8490-04cb0e826e65",
+      "primaryHierarchy": [
+        "5f355d16-f824-4173-bf4b-b1ec37ef5549",
+        "93f7edf5-e4d8-4749-9b4c-e45097e2e19d",
+        "c388532e-8da6-4d50-a6d2-4f3f3ac36ff7",
+        "2fa2cde5-9d83-4460-a38c-cfe4ec9cca08"
+      ],
+      "name": "purchase-order-scan.pdf",
+      "nodeType": "cm:content",
+      "createdByUser": {
+        "id": "admin",
+        "displayName": "Administrator"
+      },
+      "createdAt": "2021-01-21T11:14:15.695Z",
+      "modifiedByUser": {
+        "id": "admin",
+        "displayName": "Administrator"
+      },
+      "modifiedAt": "2021-01-26T10:29:42.529Z",
+      "content": {
+        "mimeType": "application/pdf",
+        "sizeInBytes": 531152,
+        "encoding": "UTF-8"
+      },
+      "properties": {
+        "cm:autoVersion": true,
+        "cm:title": "Purchase Order",
+        "cm:versionType": "MAJOR",
+        "cm:versionLabel": "1.0",
+        "cm:autoVersionOnUpdateProps": false,
+        "cm:lastThumbnailModification": [
+          "doclib:1611227666770"
+        ],
+        "cm:description": "",
+        "cm:taggable": null,
+        "cm:initialVersion": true
+      },
+      "aspectNames": [
+        "cm:versionable",
+        "cm:author",
+        "cm:thumbnailModification",
+        "cm:titled",
+        "rn:renditioned",
+        "cm:auditable",
+        "cm:taggable"
+      ],
+      "isFolder": false,
+      "isFile": true
+    },
+    "resourceBefore": {
+      "@type": "NodeResource",
+      "modifiedAt": "2021-01-21T11:14:25.223Z",
+      "properties": {
+        "cm:title": null,
+        "cm:taggable": null,
+        "cm:description": null
+      },
+      "aspectNames": [
+        "cm:versionable",
+        "cm:author",
+        "cm:thumbnailModification",
+        "cm:titled",
+        "rn:renditioned",
+        "cm:auditable"
+      ]
+    },
+    "resourceReaderAuthorities": [
+      "GROUP_EVERYONE"
+    ],
+    "resourceDeniedAuthorities": []
+  }
+}
+```
+
+In an event handler, being it pure java or Spring Integration based, we can get to the payload data via the 
+`org.alfresco.event.sdk.model.v1.model.NodeResource` object:
+
+```java
+public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+    // Get the data for the node as it looked like before the update
+    NodeResource beforeUpdateResource = (NodeResource) repoEvent.getData().getResourceBefore();
+    ZonedDateTime prevModificationDate = beforeUpdateResource.getModifiedAt();
+    LOGGER.info("Before this update the node was last updated {}", prevModificationDate);
+    Set<String> beforeAspects = beforeUpdateResource.getAspectNames();
+    if (beforeAspects != null) {
+        LOGGER.info("Aspects before the update: ");
+        for (String aspectName : beforeAspects) {
+            LOGGER.info("    {}", aspectName);
+        }
+    }
+    Map<String, Serializable> beforeProperties = beforeUpdateResource.getProperties();
+    if (beforeProperties != null) {
+        LOGGER.info("Properties before the update");
+        for (Map.Entry<String, Serializable> property : beforeProperties.entrySet()) {
+            LOGGER.info("    {} = {}", property.getKey(), property.getValue());
+        }
+    }
+
+    // Get the latest data for the node
+    NodeResource afterUpdateResource = (NodeResource) repoEvent.getData().getResource();
+    LOGGER.info("Node data after update:");
+    LOGGER.info("    ID: {}", afterUpdateResource.getId());
+    LOGGER.info("    Name (cm:name): {}", afterUpdateResource.getName());
+    LOGGER.info("    Content Model Type: {}", afterUpdateResource.getNodeType());
+    LOGGER.info("    Created date (cm:created): {}", afterUpdateResource.getCreatedAt());
+    LOGGER.info("    Created by (cm:creator): {}", afterUpdateResource.getCreatedByUser().getDisplayName());
+    LOGGER.info("    Modified date (cm:modified): {}", afterUpdateResource.getModifiedAt());
+    LOGGER.info("    Modified by (cm:modifier): {}", afterUpdateResource.getModifiedByUser().getDisplayName());
+    if (afterUpdateResource.getContent() != null) {
+        LOGGER.info("    Content (cm:content): {}, {}, {} bytes", afterUpdateResource.getContent().getMimeType(),
+                afterUpdateResource.getContent().getEncoding(), afterUpdateResource.getContent().getSizeInBytes());
+    }
+    Set<String> afterAspects = afterUpdateResource.getAspectNames();
+    LOGGER.info("Aspects after the update");
+    for (String aspectName: afterAspects) {
+        LOGGER.info("    {}", aspectName);
+    }
+    Map<String, Serializable> afterProperties = afterUpdateResource.getProperties();
+    LOGGER.info("Properties after the update");
+    for (Map.Entry<String, Serializable> property: afterProperties.entrySet()) {
+        LOGGER.info("    {} = {}", property.getKey(), property.getValue());
+    }
+
+    // Get the node location hierarchy in the repository
+    // Use the ReST API to query for the name of the nodes
+    List<String> nodeHierarchy = afterUpdateResource.getPrimaryHierarchy();
+    LOGGER.info("Node location hierarchy (immediate parent node first):");
+    for (String nodeID: nodeHierarchy) {
+        LOGGER.info("    {}", nodeID);
+    }
+}
+```
+
+The permission related properties `resourceReaderAuthorities` and `resourceDeniedAuthorities` will be listed as part of
+`resource.getProperties()`.
+
+The folder primary hierarchy can be resolved by using the ReST API to get the names for the different Node IDs.
+The first node ID in the list is the immediate parent folder for the node as in the following example:
+
+```json
+  "id": "d71dd823-82c7-477c-8490-04cb0e826e65",   /app:company_home/cm:Testing/cm:Inbound/cm:purchase-order-scan.pdf (cm:content)
+  "primaryHierarchy": [
+    "5f355d16-f824-4173-bf4b-b1ec37ef5549",       /app:company_home/cm:Testing/cm:Inbound  (cm:folder)
+    "93f7edf5-e4d8-4749-9b4c-e45097e2e19d",       /app:company_home/cm:Testing             (cm:folder)
+    "c388532e-8da6-4d50-a6d2-4f3f3ac36ff7",       /app:company_home                        (cm:folder)
+    "2fa2cde5-9d83-4460-a38c-cfe4ec9cca08"        Store root                               (sys:store_root)
+```
 
 ## Creating event handler projects
 In this section we will see how to use SDK 5 to create Alfresco event handler projects, using plain Java and 
@@ -599,6 +756,8 @@ documentation. For a complete list of Event Filters available in the SDK see thi
 
 For information on how to implement a custom event filter see this [section](#parentfoldercustomfilter).
 
+For more information about how to extract all the properties from the message payload see [`NodeResource` info](#noderesourceobj).
+
 ### Spring Integration event handlers {#springintegrationhandlers}
 Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).
 
@@ -819,6 +978,8 @@ For a complete list of events with sample code see the [events extension point](
 documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
 
 For information on how to implement a custom event filter see this [section](#parentfoldercustomfilter).
+
+For more information about how to extract all the properties from the message payload see [`NodeResource` info](#noderesourceobj).
 
 ## Implementing custom event filters {#customeventfilter}
 Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).

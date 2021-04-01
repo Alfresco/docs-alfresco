@@ -247,6 +247,8 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 
 This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+
 {% endcapture %}
 
 {% capture sdk5-spring-integration-nodecreated %}
@@ -297,6 +299,8 @@ public class NewContentFlow extends IntegrationFlowAdapter {
 ```
 
 This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
 
 {% endcapture %}
 
@@ -507,6 +511,8 @@ You can compare those to the values retreived via `repoEvent.getData().getResour
 
 This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+
 {% endcapture %}
 
 {% capture sdk5-spring-integration-nodeupdated %}
@@ -561,7 +567,9 @@ public class UpdatedContentFlow extends IntegrationFlowAdapter {
 Note that you can get to the property values before the update via the `repoEvent.getData().getResourceBefore()` call.
 You can compare those to the values retreived via `repoEvent.getData().getResource()` and see what's changed.
 
-This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter).
+
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj). 
 
 {% endcapture %}
 
@@ -698,7 +706,112 @@ available in the trash can.
 When subscribing to the `org.alfresco.event.node.Deleted` event it's possible to filter out anything that is
 of no interest. So for example, if you are interested in files with content type `cm:content` deleted in the folder 
 called **/Company Home/Testing/Inbound** (e.g. Node ID `5f355d16-f824-4173-bf4b-b1ec37ef5549`) it would be easy to 
-configure this. The following code snippet shows how this could be done with an 
+configure this. 
+
+{% capture sdk5-plain-java-nodedeleted %}
+The following code shows how this can be done with SDK 5 and plain Java event handlers:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.handling.handler.OnNodeDeletedEventHandler;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+
+/**
+ * Sample event handler to demonstrate reacting to a document/file being deleted.
+ */
+@Component
+public class ContentDeletedEventHandler implements OnNodeDeletedEventHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContentUploadedEventHandler.class);
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        NodeResource resource = (NodeResource) repoEvent.getData().getResource();
+        LOGGER.info("A file was deleted: {}, {}, {}", resource.getId(), resource.getNodeType(), 
+            resource.getName());
+    }
+
+    public EventFilter getEventFilter() {
+        return IsFileFilter.get() // Make sure it's a file
+                .and(ParentFolderFilter.of("5f355d16-f824-4173-bf4b-b1ec37ef5549")); // Located in the /Company Home/Testing/Inbound folder
+    }
+}
+```
+
+This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+
+{% endcapture %}
+
+{% capture sdk5-spring-integration-nodedeleted %}
+The following code shows how this can be done with SDK 5 and Spring Integration event handlers:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.integration.dsl.IntegrationFlowAdapter;
+import org.springframework.integration.dsl.IntegrationFlowDefinition;
+import org.springframework.messaging.Message;
+import org.springframework.stereotype.Component;
+
+/**
+ * Spring Integration based event handler that will execute code when a file is updated
+ */
+@Component
+public class UpdatedContentFlow extends IntegrationFlowAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(UpdatedContentFlow.class);
+
+    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
+    @Override
+    protected IntegrationFlowDefinition<?> buildFlow() {
+        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_UPDATED)) // Filter events and select only node updated events
+                .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
+                .filter(IntegrationEventFilter.of(ParentFolderFilter.of("5f355d16-f824-4173-bf4b-b1ec37ef5549"))) // Filter node and make sure we got correct parent folder ID (/Company Home/Testing/Inbound)
+                .handle(t -> handleEvent(t)); // Handle event with a bit of logging
+    }
+
+    private void handleEvent(Message message) {
+        RepoEvent<DataAttributes<Resource>> repoEvent = (RepoEvent<DataAttributes<Resource>>)message.getPayload();
+        NodeResource beforeUpdateResource = (NodeResource) repoEvent.getData().getResourceBefore();
+        NodeResource afterUpdateResource = (NodeResource) repoEvent.getData().getResource();
+
+        LOGGER.info("File updated: Before update {}, after update {}", beforeUpdateResource.toString(),
+                afterUpdateResource.toString());
+    }
+}
+```
+
+Note that you can get to the property values before the update via the `repoEvent.getData().getResourceBefore()` call.
+You can compare those to the values retreived via `repoEvent.getData().getResource()` and see what's changed.
+
+This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+
+{% endcapture %}
+
+{% capture apache-camel-nodedeleted %}
+The following code snippet shows how this could be done with an 
 [Apache Camel route](https://camel.apache.org/manual/latest/routes.html){:target="_blank"} configuration:
 
 ```java
@@ -730,6 +843,9 @@ The `jsonpath` expression uses several of the event data properties to filter ou
 
 In this case a Spring Bean with ID `deletedEventHandlerImpl` is called at the end of the route from where you could make the 
 necessary ReST API calls.
+{% endcapture %}
+
+{% include tabs.html tableid="event-code-nodedeleted" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-nodedeleted opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-nodedeleted opt3="Apache Camel" content3=apache-camel-nodedeleted %}
 
 ### Parent-Child association created event
 This event is fired whenever a **secondary** parent -> child association is created, such as via the the 
