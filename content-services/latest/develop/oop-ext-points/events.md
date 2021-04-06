@@ -302,6 +302,8 @@ This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/d
 
 For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
 
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+
 {% endcapture %}
 
 {% capture apache-camel-nodecreated %}
@@ -571,6 +573,8 @@ This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/d
 
 For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj). 
 
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+
 {% endcapture %}
 
 {% capture apache-camel-nodeupdated %}
@@ -731,7 +735,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ContentDeletedEventHandler implements OnNodeDeletedEventHandler {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ContentUploadedEventHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContentDeletedEventHandler.class);
 
     public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
         NodeResource resource = (NodeResource) repoEvent.getData().getResource();
@@ -774,17 +778,17 @@ import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
 
 /**
- * Spring Integration based event handler that will execute code when a file is updated
+ * Spring Integration based event handler that will execute code when a file is deleted
  */
 @Component
-public class UpdatedContentFlow extends IntegrationFlowAdapter {
-    private static final Logger LOGGER = LoggerFactory.getLogger(UpdatedContentFlow.class);
+public class DeletedContentFlow extends IntegrationFlowAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DeletedContentFlow.class);
 
     // Use builder to create an integration flow based on alfresco.events.main.channel event channel
     @Override
     protected IntegrationFlowDefinition<?> buildFlow() {
         return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
-                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_UPDATED)) // Filter events and select only node updated events
+                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_DELETED)) // Filter events and select only node deleted events
                 .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
                 .filter(IntegrationEventFilter.of(ParentFolderFilter.of("5f355d16-f824-4173-bf4b-b1ec37ef5549"))) // Filter node and make sure we got correct parent folder ID (/Company Home/Testing/Inbound)
                 .handle(t -> handleEvent(t)); // Handle event with a bit of logging
@@ -792,21 +796,18 @@ public class UpdatedContentFlow extends IntegrationFlowAdapter {
 
     private void handleEvent(Message message) {
         RepoEvent<DataAttributes<Resource>> repoEvent = (RepoEvent<DataAttributes<Resource>>)message.getPayload();
-        NodeResource beforeUpdateResource = (NodeResource) repoEvent.getData().getResourceBefore();
-        NodeResource afterUpdateResource = (NodeResource) repoEvent.getData().getResource();
+        NodeResource resource = (NodeResource) repoEvent.getData().getResource();
 
-        LOGGER.info("File updated: Before update {}, after update {}", beforeUpdateResource.toString(),
-                afterUpdateResource.toString());
+        LOGGER.info("File deleted: {}", resource.toString());
     }
 }
 ```
 
-Note that you can get to the property values before the update via the `repoEvent.getData().getResourceBefore()` call.
-You can compare those to the values retreived via `repoEvent.getData().getResource()` and see what's changed.
-
 This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
 
 For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
 
 {% endcapture %}
 

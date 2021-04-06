@@ -130,7 +130,7 @@ A number of filter implementations are offered out-of-the-box, covering the most
 * [`PropertyAddedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyAddedFilter.java){:target="_blank"} - checks if an event corresponds to the addition of a node property in the repository.
 * [`PropertyChangedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyChangedFilter.java){:target="_blank"} - checks if an event corresponds to the update of a node property in the repository.
 * [`PropertyValueFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyValueFilter.java){:target="_blank"} - checks if an event represents a node with a specific property with a specific value.
-* [`NodeAspectFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/NodeAspectFilter.java){:target="_blank"} - checks if an event represents a node with an specific aspect.
+* [`NodeAspectFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/NodeAspectFilter.java){:target="_blank"} - checks if an event represents a node with a specific aspect.
 * [`NodeMovedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/NodeMovedFilter.java){:target="_blank"} - checks if an event represents a node being moved in the repository.
 * [`NodeTypeChangedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/NodeTypeChangedFilter.java){:target="_blank"} - checks if an event represents the change of the type of a node in the repository.
 * [`NodeTypeFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/NodeTypeFilter.java){:target="_blank"} - checks if an event represents a node with a specific type.
@@ -162,6 +162,8 @@ PropertyPreviousValueFilter.java
 PropertyRemovedFilter.java
 
 TODO: ContentAddedFilter - check if this works, what if you just update a property, will this still be triggered?
+
+It's possible to implement [custom event filters](#customeventfilters).
 
 ### Spring Integration Tooling Library
 The Spring Integration tooling library component offers some utility classes that ease the handling of Alfresco events 
@@ -588,6 +590,13 @@ $ java -jar target/events-0.0.1-SNAPSHOT.jar
 We are now ready to add the specifics depending on what type of event handler code we like to use, pure Java or 
 Spring Integration based.
 
+During development it's useful to be able to build and run the extension in one go (so you don't forget to build...). 
+This can be done using the `spring-boot-maven-plugin` as follows:
+
+```bash
+$ mvn spring-boot:run -Dlicense.skip=true
+```
+
 ### Pure Java event handlers {#purejavaeventhandlers}
 Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).
 
@@ -697,11 +706,9 @@ directory, but in this case we are just testing it, so no need to organize too m
 Now stop, build and start it up again:
 
 ```bash
-$ mvn clean package -Dlicense.skip=true
-[INFO] Scanning for projects...
+$ ^C
 ...
-
-$ java -jar target/events-0.0.1-SNAPSHOT.jar 
+$ mvn spring-boot:run -Dlicense.skip=true
 ...
 ```
 
@@ -885,13 +892,11 @@ directory, but in this case we are just testing it, so no need to organize too m
 Now stop, build and start it up again:
 
 ```bash
-$ mvn clean package -Dlicense.skip=true
-[INFO] Scanning for projects...
+$ ^C
 ...
-
-$ java -jar target/events-0.0.1-SNAPSHOT.jar 
+$ mvn spring-boot:run -Dlicense.skip=true
 ...
-```
+``` 
 
 Add a file via the Share user interface, you should see the following in the logs:
 
@@ -981,7 +986,7 @@ For information on how to implement a custom event filter see this [section](#pa
 
 For more information about how to extract all the properties from the message payload see [`NodeResource` info](#noderesourceobj).
 
-## Implementing custom event filters {#customeventfilter}
+## Implementing custom event filters {#customeventfilters}
 Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).
 And decided if you want to use pure [java event handlers](#purejavaeventhandlers) or [Spring Integration event handlers](#springintegrationhandlers).
 
@@ -1048,5 +1053,34 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 
 ## ReST API Java wrapper
 
+TODO
 
+## Debugging an extension project
+Debugging an extension project is most likely going to be something you will have to do to see what's going on. This is
+easy with a Spring Boot App. Configure for example the Spring Boot Maven plugin as follows:
 
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <jvmArguments>
+                    -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005
+                </jvmArguments>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+Then you can, from for example IntelliJ IDEA, attach remotely and debug:
+
+![sdk5-proj-debug]({% link content-services/images/sdk5-proj-debug.png %})
+
+You can also configure debug on the command line (no maven plugin config needed):
+
+```bash
+mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005" -Dlicense.skip=true
+```
