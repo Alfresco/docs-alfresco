@@ -1096,7 +1096,104 @@ you have to search in the `archive://SpacesStore` store to find it. This store c
 
 When subscribing to the `org.alfresco.event.assoc.child.Deleted` event it's possible to filter out anything that is
 of no interest. So for example, if you are only interested in associations of type `fdk:images` it would be easy to 
-configure this. The following code snippet shows how this could be done with an 
+configure this. 
+
+{% capture sdk5-plain-java-parentchildassocdeleted %}
+The following code shows how this can be done with SDK 5 and plain Java event handlers:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.AssocTypeFilter;
+import org.alfresco.event.sdk.handling.filter.EventFilter;
+import org.alfresco.event.sdk.handling.handler.OnChildAssocDeletedEventHandler;
+import org.alfresco.event.sdk.model.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+/**
+* Sample event handler to demonstrate reacting to a parent-child assoc being deleted.
+*/
+@Component
+public class ParentChildAssocDeletedEventHandler implements OnChildAssocDeletedEventHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ParentChildAssocDeletedEventHandler.class);
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        ChildAssociationResource resource = (ChildAssociationResource) repoEvent.getData().getResource();
+        LOGGER.info("A secondary Parent-Child association was deleted: {} -> {}", resource.getParent().getId(), 
+                resource.getChild().getId());
+    }
+
+    public EventFilter getEventFilter() {
+        return AssocTypeFilter.of("fdk:images"); // Make sure the Parent-Child association is of type FDK Images
+    }
+}
+```
+
+This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
+Parent-Child association we are interested in. 
+
+For more information about how to extract all the properties from the message payload see [`ChildAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#childassocresourceobj).
+
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+
+{% endcapture %}
+
+{% capture sdk5-spring-integration-parentchildassocdeleted %}
+The following code shows how this can be done with SDK 5 and Spring Integration event handlers:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.AssocTypeFilter;
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.alfresco.event.sdk.model.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.integration.dsl.IntegrationFlowAdapter;
+import org.springframework.integration.dsl.IntegrationFlowDefinition;
+import org.springframework.messaging.Message;
+import org.springframework.stereotype.Component;
+
+/**
+ * Spring Integration based event handler that will execute code when a secondary parent-child assoc is being deleted.
+ */
+@Component
+public class ParentChildAssocDeletedFlow extends IntegrationFlowAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ParentChildAssocDeletedFlow.class);
+
+    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
+    @Override
+    protected IntegrationFlowDefinition<?> buildFlow() {
+        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.CHILD_ASSOC_DELETED)) // Filter events and select only Parent-Child assoc deleted events
+                .filter(IntegrationEventFilter.of(AssocTypeFilter.of("fdk:images"))) // Make sure the Parent-Child association is of type FDK Images
+                .handle(t -> handleEvent(t)); // Handle event with a bit of logging
+    }
+
+    private void handleEvent(Message message) {
+        RepoEvent<DataAttributes<Resource>> repoEvent = (RepoEvent<DataAttributes<Resource>>)message.getPayload();
+        ChildAssociationResource resource = (ChildAssociationResource) repoEvent.getData().getResource();
+        LOGGER.info("A secondary Parent-Child association was deleted: {} -> {}", resource.getParent().getId(),
+                resource.getChild().getId());
+    }
+}
+```
+
+This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
+Parent-Child association we are interested in. 
+
+For more information about how to extract all the properties from the message payload see [`ChildAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#childassocresourceobj).
+
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+
+{% endcapture %}
+
+{% capture apache-camel-parentchildassocdeleted %}
+The following code snippet shows how this could be done with an 
 [Apache Camel route](https://camel.apache.org/manual/latest/routes.html){:target="_blank"} configuration:
 
 ```java
@@ -1126,6 +1223,9 @@ The `jsonpath` expression uses several of the event data properties to filter ou
 
 In this case a Spring Bean with ID `parentChildAssocDeletedEventHandlerImpl` is called at the end of the route from 
 where you could make the necessary ReST API calls.
+{% endcapture %}
+
+{% include tabs.html tableid="event-code-parentchildassocdeleted" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-parentchildassocdeleted opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-parentchildassocdeleted opt3="Apache Camel" content3=apache-camel-parentchildassocdeleted %}
 
 ### Peer association created event {#peer2peerassoccreatedevent}
 This event is fired whenever a peer association is created, such as via the the 
@@ -1359,7 +1459,102 @@ you have to search in the `archive://SpacesStore` store to find it. This store c
 
 When subscribing to the `org.alfresco.event.assoc.peer.Deleted` event it's possible to filter out anything that is
 of no interest. So for example, if you are only interested in associations of type `fdk:reviews` it would be easy to 
-configure this. The following code snippet shows how this could be done with an 
+configure this. 
+
+{% capture sdk5-plain-java-peer2peerassocdeleted %}
+The following code shows how this can be done with SDK 5 and plain Java event handlers:
+
+```java
+import org.alfresco.event.sdk.handling.filter.AssocTypeFilter;
+import org.alfresco.event.sdk.handling.filter.EventFilter;
+import org.alfresco.event.sdk.handling.handler.OnPeerAssocDeletedEventHandler;
+import org.alfresco.event.sdk.model.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+/**
+* Sample event handler to demonstrate reacting to a peer-2-peer assoc being deleted.
+*/
+@Component
+public class Peer2PeerAssocDeletedEventHandler implements OnPeerAssocDeletedEventHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Peer2PeerAssocDeletedEventHandler.class);
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        PeerAssociationResource resource = (PeerAssociationResource) repoEvent.getData().getResource();
+        LOGGER.info("A Peer-Peer association was deleted: Source {} -> Target {}", resource.getSource().getId(),
+                resource.getTarget().getId());
+    }
+
+    public EventFilter getEventFilter() {
+        return AssocTypeFilter.of("fdk:reviews"); // Make sure the Peer-Peer association is of type FDK Reviews
+    }
+}
+```
+
+This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
+Peer-2-Peer association we are interested in. 
+
+For more information about how to extract all the properties from the message payload see [`PeerAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#peerassocresourceobj).
+
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+
+{% endcapture %}
+
+{% capture sdk5-spring-integration-peer2peerassocdeleted %}
+The following code shows how this can be done with SDK 5 and Spring Integration event handlers:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.AssocTypeFilter;
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.alfresco.event.sdk.model.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.integration.dsl.IntegrationFlowAdapter;
+import org.springframework.integration.dsl.IntegrationFlowDefinition;
+import org.springframework.messaging.Message;
+import org.springframework.stereotype.Component;
+
+/**
+ * Spring Integration based event handler that will execute code when a peer-2-peer assoc is being deleted.
+ */
+@Component
+public class Peer2PeerAssocDeletedFlow extends IntegrationFlowAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Peer2PeerAssocDeletedFlow.class);
+
+    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
+    @Override
+    protected IntegrationFlowDefinition<?> buildFlow() {
+        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.PEER_ASSOC_DELETED)) // Filter events and select only Peer2Peer assoc deleted events
+                .filter(IntegrationEventFilter.of(AssocTypeFilter.of("fdk:reviews"))) // Make sure the Peer2Peer association is of type FDK Reviews
+                .handle(t -> handleEvent(t)); // Handle event with a bit of logging
+    }
+
+    private void handleEvent(Message message) {
+        RepoEvent<DataAttributes<Resource>> repoEvent = (RepoEvent<DataAttributes<Resource>>)message.getPayload();
+        PeerAssociationResource resource = (PeerAssociationResource) repoEvent.getData().getResource();
+        LOGGER.info("A Peer-Peer association was deleted: Source {} -> Target {}", resource.getSource().getId(),
+                resource.getTarget().getId());
+    }
+}
+```
+
+This code uses the `org.alfresco.event.sdk.handling.filter.AssocTypeFilter` event filter to specify what type of 
+Peer-2-Peer association we are interested in. 
+
+For more information about how to extract all the properties from the message payload see [`PeerAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#peerassocresourceobj).
+
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+
+{% endcapture %}
+
+{% capture apache-camel-peer2peerassocdeleted %}
+The following code snippet shows how this could be done with an 
 [Apache Camel route](https://camel.apache.org/manual/latest/routes.html){:target="_blank"} configuration:
 
 ```java
@@ -1389,6 +1584,10 @@ The `jsonpath` expression uses several of the event data properties to filter ou
 
 In this case a Spring Bean with ID `peerAssocDeletedEventHandlerImpl` is called at the end of the route from 
 where you could make the necessary ReST API calls.
+
+{% endcapture %}
+
+{% include tabs.html tableid="event-code-peer2peerassocdeleted" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-peer2peerassocdeleted opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-peer2peerassocdeleted opt3="Apache Camel" content3=apache-camel-peer2peerassocdeleted %}
 
 ### Permission updated event (ENTERPRISE)
 
