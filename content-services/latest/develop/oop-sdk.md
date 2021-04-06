@@ -206,11 +206,15 @@ It is a Spring configuration class that automatically define the beans required 
 All this auto-configuration will be enabled as soon as the dependency `org.alfresco:alfresco-java-event-api-spring-boot-starter` 
 is added to a Spring Boot project.
 
-### The NodeResource object {#noderesourceobj}
-When working with the Event API there is one data object called `NodeResource` that is used over and over. It's used to 
-get to the JSON data returned in the JMS message payload.
+## Event API Resource objects
+There are some data mapping objects that are good to know about when working with the Event API. They wrap the JSON 
+payload data from event messages. 
 
-Here is an example payload for a node updated event type:
+### The NodeResource object {#noderesourceobj}
+When working with the Event API and folders and files there is one data object called `NodeResource` that is used over 
+and over. It's used to get to the JSON node data returned in the JMS message payload.
+
+Here is an example payload for a file [node updated event]({% link content-services/latest/develop/oop-ext-points/events.md %}#nodeupdatedevent):
 
 ```json
 {
@@ -303,57 +307,60 @@ In an event handler, being it pure java or Spring Integration based, we can get 
 `org.alfresco.event.sdk.model.v1.model.NodeResource` object:
 
 ```java
-public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
-    // Get the data for the node as it looked like before the update
-    NodeResource beforeUpdateResource = (NodeResource) repoEvent.getData().getResourceBefore();
-    ZonedDateTime prevModificationDate = beforeUpdateResource.getModifiedAt();
-    LOGGER.info("Before this update the node was last updated {}", prevModificationDate);
-    Set<String> beforeAspects = beforeUpdateResource.getAspectNames();
-    if (beforeAspects != null) {
-        LOGGER.info("Aspects before the update: ");
-        for (String aspectName : beforeAspects) {
+public class ContentUpdatedEventHandler implements OnNodeUpdatedEventHandler {
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        // Get the data for the node as it looked like before the update
+        NodeResource beforeUpdateResource = (NodeResource) repoEvent.getData().getResourceBefore();
+        ZonedDateTime prevModificationDate = beforeUpdateResource.getModifiedAt();
+        LOGGER.info("Before this update the node was last updated {}", prevModificationDate);
+        Set<String> beforeAspects = beforeUpdateResource.getAspectNames();
+        if (beforeAspects != null) {
+            LOGGER.info("Aspects before the update: ");
+            for (String aspectName : beforeAspects) {
+                LOGGER.info("    {}", aspectName);
+            }
+        }
+        Map<String, Serializable> beforeProperties = beforeUpdateResource.getProperties();
+        if (beforeProperties != null) {
+            LOGGER.info("Properties before the update");
+            for (Map.Entry<String, Serializable> property : beforeProperties.entrySet()) {
+                LOGGER.info("    {} = {}", property.getKey(), property.getValue());
+            }
+        }
+    
+        // Get the latest data for the node
+        NodeResource afterUpdateResource = (NodeResource) repoEvent.getData().getResource();
+        LOGGER.info("Node data after update:");
+        LOGGER.info("    ID: {}", afterUpdateResource.getId());
+        LOGGER.info("    Name (cm:name): {}", afterUpdateResource.getName());
+        LOGGER.info("    Content Model Type: {}", afterUpdateResource.getNodeType());
+        LOGGER.info("    Created date (cm:created): {}", afterUpdateResource.getCreatedAt());
+        LOGGER.info("    Created by (cm:creator): {}", afterUpdateResource.getCreatedByUser().getDisplayName());
+        LOGGER.info("    Modified date (cm:modified): {}", afterUpdateResource.getModifiedAt());
+        LOGGER.info("    Modified by (cm:modifier): {}", afterUpdateResource.getModifiedByUser().getDisplayName());
+        if (afterUpdateResource.getContent() != null) {
+            LOGGER.info("    Content (cm:content): {}, {}, {} bytes", afterUpdateResource.getContent().getMimeType(),
+                    afterUpdateResource.getContent().getEncoding(), afterUpdateResource.getContent().getSizeInBytes());
+        }
+        Set<String> afterAspects = afterUpdateResource.getAspectNames();
+        LOGGER.info("Aspects after the update");
+        for (String aspectName: afterAspects) {
             LOGGER.info("    {}", aspectName);
         }
-    }
-    Map<String, Serializable> beforeProperties = beforeUpdateResource.getProperties();
-    if (beforeProperties != null) {
-        LOGGER.info("Properties before the update");
-        for (Map.Entry<String, Serializable> property : beforeProperties.entrySet()) {
+        Map<String, Serializable> afterProperties = afterUpdateResource.getProperties();
+        LOGGER.info("Properties after the update");
+        for (Map.Entry<String, Serializable> property: afterProperties.entrySet()) {
             LOGGER.info("    {} = {}", property.getKey(), property.getValue());
         }
-    }
-
-    // Get the latest data for the node
-    NodeResource afterUpdateResource = (NodeResource) repoEvent.getData().getResource();
-    LOGGER.info("Node data after update:");
-    LOGGER.info("    ID: {}", afterUpdateResource.getId());
-    LOGGER.info("    Name (cm:name): {}", afterUpdateResource.getName());
-    LOGGER.info("    Content Model Type: {}", afterUpdateResource.getNodeType());
-    LOGGER.info("    Created date (cm:created): {}", afterUpdateResource.getCreatedAt());
-    LOGGER.info("    Created by (cm:creator): {}", afterUpdateResource.getCreatedByUser().getDisplayName());
-    LOGGER.info("    Modified date (cm:modified): {}", afterUpdateResource.getModifiedAt());
-    LOGGER.info("    Modified by (cm:modifier): {}", afterUpdateResource.getModifiedByUser().getDisplayName());
-    if (afterUpdateResource.getContent() != null) {
-        LOGGER.info("    Content (cm:content): {}, {}, {} bytes", afterUpdateResource.getContent().getMimeType(),
-                afterUpdateResource.getContent().getEncoding(), afterUpdateResource.getContent().getSizeInBytes());
-    }
-    Set<String> afterAspects = afterUpdateResource.getAspectNames();
-    LOGGER.info("Aspects after the update");
-    for (String aspectName: afterAspects) {
-        LOGGER.info("    {}", aspectName);
-    }
-    Map<String, Serializable> afterProperties = afterUpdateResource.getProperties();
-    LOGGER.info("Properties after the update");
-    for (Map.Entry<String, Serializable> property: afterProperties.entrySet()) {
-        LOGGER.info("    {} = {}", property.getKey(), property.getValue());
-    }
-
-    // Get the node location hierarchy in the repository
-    // Use the ReST API to query for the name of the nodes
-    List<String> nodeHierarchy = afterUpdateResource.getPrimaryHierarchy();
-    LOGGER.info("Node location hierarchy (immediate parent node first):");
-    for (String nodeID: nodeHierarchy) {
-        LOGGER.info("    {}", nodeID);
+    
+        // Get the node location hierarchy in the repository
+        // Use the ReST API to query for the name of the nodes
+        List<String> nodeHierarchy = afterUpdateResource.getPrimaryHierarchy();
+        LOGGER.info("Node location hierarchy (immediate parent node first):");
+        for (String nodeID: nodeHierarchy) {
+            LOGGER.info("    {}", nodeID);
+        }
     }
 }
 ```
@@ -372,6 +379,106 @@ The first node ID in the list is the immediate parent folder for the node as in 
     "c388532e-8da6-4d50-a6d2-4f3f3ac36ff7",       /app:company_home                        (cm:folder)
     "2fa2cde5-9d83-4460-a38c-cfe4ec9cca08"        Store root                               (sys:store_root)
 ```
+
+
+[`ChildAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#childassocresourceobj).
+
+### The ChildAssociationResource object {#childassocresourceobj}
+When working with the Event API and Parent-Child associations there is one data object called `ChildAssociationResource` 
+that is used over and over. It's used to get to the JSON association data returned in the JMS message payload.
+
+Here is an example payload for a [Parent-Child association created event]({% link content-services/latest/develop/oop-ext-points/events.md %}#parentchildassoccreatedevent):
+
+```json
+{
+  "specversion": "1.0",
+  "type": "org.alfresco.event.assoc.child.Created",
+  "id": "4014bcb2-f1e6-447f-8caa-3a6219bc94ad",
+  "source": "/08d9b620-48de-4247-8f33-360988d3b19b",
+  "time": "2021-01-28T13:42:34.329162Z",
+  "dataschema": "https://api.alfresco.com/schema/event/repo/v1/childAssocCreated",
+  "datacontenttype": "application/json",
+  "data": {
+    "eventGroupId": "78da21cc-fa5a-47d1-afcb-03005229efa9",
+    "resource": {
+      "@type": "ChildAssociationResource",
+      "assocType": "fdk:images",
+      "parent": {
+        "id": "a4eb7684-0ffe-4bf5-b6f7-4297a6e4ee84"
+      },
+      "child": {
+        "id": "ceb3c804-8b32-4050-b2da-b55c47f01666"    
+      }
+    }
+  }
+}
+```
+
+In an event handler, being it pure java or Spring Integration based, we can get to the payload data via the 
+`org.alfresco.event.sdk.model.v1.model.ChildAssociationResource` object:
+
+```java
+public class ParentChildAssocCreatedEventHandler implements OnChildAssocCreatedEventHandler {
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        ChildAssociationResource resource = (ChildAssociationResource) repoEvent.getData().getResource();
+        LOGGER.info("A secondary Parent-Child association of type {} was created between nodes: {} -> {}", 
+            resource.getAssocType(), resource.getParent().getId(), resource.getChild().getId());
+    }
+}
+
+```
+
+The `resource.getParent().getId()` call will return the Node ID for the parent node in the association and the 
+`resource.getChild().getId()` call will return the Node ID for the child node.
+
+### The PeerAssociationResource object {#peerassocresourceobj}
+When working with the Event API and Peer-2-Peer associations there is one data object called `PeerAssociationResource` 
+that is used over and over. It's used to get to the JSON association data returned in the JMS message payload.
+
+Here is an example payload for a [Peer-2-Peer association created event]({% link content-services/latest/develop/oop-ext-points/events.md %}#peer2peerassoccreatedevent):
+
+```json
+{
+  "specversion": "1.0",
+  "type": "org.alfresco.event.assoc.peer.Created",
+  "id": "8a8113a2-fa67-4914-9ecb-2ec47c456159",
+  "source": "/08d9b620-48de-4247-8f33-360988d3b19b",
+  "time": "2021-01-28T13:42:34.352956Z",
+  "dataschema": "https://api.alfresco.com/schema/event/repo/v1/peerAssocCreated",
+  "datacontenttype": "application/json",
+  "data": {
+    "eventGroupId": "78da21cc-fa5a-47d1-afcb-03005229efa9",
+    "resource": {
+      "@type": "PeerAssociationResource",
+      "assocType": "fdk:reviews",
+      "source": {
+        "id": "a4eb7684-0ffe-4bf5-b6f7-4297a6e4ee84"
+      },
+      "target": {
+        "id": "f826ac49-0262-48af-8f63-f87eb7007078"
+      }
+    }
+  }
+}
+```
+
+In an event handler, being it pure java or Spring Integration based, we can get to the payload data via the 
+`org.alfresco.event.sdk.model.v1.model.PeerAssociationResource` object:
+
+```java
+public class Peer2PeerAssocCreatedEventHandler implements OnPeerAssocCreatedEventHandler {
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        PeerAssociationResource resource = (PeerAssociationResource) repoEvent.getData().getResource();
+        LOGGER.info("A Peer-Peer association was created: Assoc Type {}: Source {} -> Target {}", resource.getAssocType(), 
+                resource.getSource().getId(), resource.getTarget().getId());
+    }
+}
+```
+
+The `resource.getSource().getId()` call will return the Node ID for the source node in the association and the 
+`resource.getTarget().getId()` call will return the Node ID for the target node.
 
 ## Creating event handler projects
 In this section we will see how to use SDK 5 to create Alfresco event handler projects, using plain Java and 
