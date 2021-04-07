@@ -366,7 +366,8 @@ public class ContentUpdatedEventHandler implements OnNodeUpdatedEventHandler {
 ```
 
 The permission related properties `resourceReaderAuthorities` and `resourceDeniedAuthorities` will be listed as part of
-`resource.getProperties()`.
+`resource.getProperties()`. Note that these will only be present if you are running an Enterprise Edition of Alfresco 
+version 7 or later.
 
 The folder primary hierarchy can be resolved by using the ReST API to get the names for the different Node IDs.
 The first node ID in the list is the immediate parent folder for the node as in the following example:
@@ -868,7 +869,7 @@ is triggered only when the node type is `cm:content` or subtype thereof, which r
 For a complete list of events with sample code see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
 documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
 
-For information on how to implement a custom event filter see this [section](#parentfoldercustomfilter).
+For information on how to implement a custom event filter see this [section](#customeventfilters).
 
 For more information about how to extract all the properties from the message payload see [`NodeResource` info](#noderesourceobj).
 
@@ -1086,10 +1087,34 @@ public class EventsApplication {
     }
 }
 ```
+
+It also makes sense to add error management code to the application class as follows:
+
+```java
+@SpringBootApplication
+public class EventsApplication {
+    private static final Logger LOGGER = LoggerFactory.getLogger(EventsApplication.class);
+    
+    public static void main(String[] args) {
+        SpringApplication.run(EventsApplication.class, args);
+    }
+
+    @Bean
+    public IntegrationFlow logError() {
+        return IntegrationFlows.from(EventChannels.ERROR).handle(t -> {
+            LOGGER.info("Error: {}", t.getPayload().toString());
+            MessageHandlingException exception = (MessageHandlingException) t.getPayload();
+            exception.printStackTrace();
+        }).get();
+    }
+...
+}
+```
+
 For a complete list of events with sample code see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
 documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
 
-For information on how to implement a custom event filter see this [section](#parentfoldercustomfilter).
+For information on how to implement a custom event filter see this [section](#customeventfilters).
 
 For more information about how to extract all the properties from the message payload see [`NodeResource` info](#noderesourceobj).
 

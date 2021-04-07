@@ -86,9 +86,9 @@ Content Services event data payload/attributes:
 |`data.resource.aspectNames`      |Array|[Content model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) aspects that have been applied to the node.|
 |`data.resource.isFolder`         |Boolean|`true` if this node is of type `cm:folder`.|
 |`data.resource.isFile`           |Boolean|`true` if this node is of type `cm:content`.|
-|`data.resource.resourceReaderAuthorities`|Array|(*Enterprise*) The authority IDs, such as `GROUP_EVERYONE`, that have READ access to the resource affected by the event. **Note**: this property will not be present in the event when `authorities generation` is disabled.|
-|`data.resource.resourceDeniedAuthorities`|Array|(*Enterprise*) The authority IDs, such as `GROUP_EVERYONE`, that are denied READ access to the resource affected by the event. **Note**: this property will not be present in the event when `authorities generation` is disabled.|
-|`data.resource.resourceReaderSecurityControls`|Array|(*Enterprise*) The Governance security controls that have been placed on the resource affected by the event. **Note**: this property is only available for AGS. Also, it will not be present in the event response when `authorities generation` is disabled or when the AGS module is not installed.|
+|`data.resource.resourceReaderAuthorities`|Array|(*Enterprise Only*) The authority IDs, such as `GROUP_EVERYONE`, that have READ access to the resource affected by the event. **Note**: this property will not be present in the event when `authorities generation` is disabled.|
+|`data.resource.resourceDeniedAuthorities`|Array|(*Enterprise Only*) The authority IDs, such as `GROUP_EVERYONE`, that are denied READ access to the resource affected by the event. **Note**: this property will not be present in the event when `authorities generation` is disabled.|
+|`data.resource.resourceReaderSecurityControls`|Array|(*Enterprise Only*) The Governance security controls that have been placed on the resource affected by the event. **Note**: this property is only available for AGS. Also, it will not be present in the event response when `authorities generation` is disabled or when the AGS module is not installed.|
 |`data.resourceBefore` |Object (varies)|The object representing the old values of the changed resource's attributes. Note, this object is only available on the `org.alfresco.event.node.Updated` event type.|
 
 For a detailed view of the event data refer to [Repo Event JSON schema](https://github.com/Alfresco/acs-event-model/tree/master/src/main/resources/json-schema){:target="_blank"}.
@@ -105,8 +105,7 @@ The following are the different types of events that can be subscribed to:
 |`org.alfresco.event.assoc.child.Deleted`|Occurs when a secondary child association is deleted.<br><br>**Note.** This event is not triggered for `cm:contains` primary parent-child associations. I.e. when a file or folder is deleted.|
 |`org.alfresco.event.assoc.peer.Created`|Occurs when a peer association is created.|
 |`org.alfresco.event.assoc.peer.Deleted`|Occurs when a peer association is deleted.|
-
-TODO: OnPermissionUpdatedEventHandler (Enterprise)
+|`org.alfresco.event.permission.Updated`|Occurs when permissions for a node is updated|
 
 ## Event descriptions
 Let's have a look at each event and see what we can use it for when implementing business logic for a 
@@ -1589,7 +1588,224 @@ where you could make the necessary ReST API calls.
 
 {% include tabs.html tableid="event-code-peer2peerassocdeleted" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-peer2peerassocdeleted opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-peer2peerassocdeleted opt3="Apache Camel" content3=apache-camel-peer2peerassocdeleted %}
 
-### Permission updated event (ENTERPRISE)
+### Permission updated event (ENTERPRISE ONLY)
+This event is fired whenever a permission is updated for a node, such as via the the **Manage Permissions** action in the 
+Share user interface. The full name of this event is `org.alfresco.event.permission.Updated`. 
 
-TODO
+>Note. this event is not fired if you are using the Community Edition of Alfresco.
 
+Here is an example payload for this event type:
+
+```json
+{
+  "specversion": "1.0",
+  "type": "org.alfresco.event.permission.Updated",
+  "id": "ecf62eb0-55b5-4c42-969b-27bb24ad658d",
+  "source": "/bb4be766-5aeb-4bc9-bd23-948ae98e4e9f",
+  "time": "2021-04-07T09:10:33.825727Z",
+  "dataschema": "https://api.alfresco.com/schema/event/repo/v1/permissionUpdated",
+  "datacontenttype": "application/json",
+  "data": {
+    "eventGroupId": "8ddc1695-b911-40c4-b81c-05b549cd02dc",
+    "resource": {
+      "@type": "NodeResource",
+      "id": "018de31a-47bf-431f-9107-3aacb63fcb67",
+      "primaryHierarchy": [
+        "f813b415-aa71-43b9-9c8a-2ce92ab715f8",
+        "1f0371cf-ab5b-45f3-8d76-76699c82367d",
+        "341635c3-c089-4564-b5dd-8407498b7ea3"
+      ],
+      "name": "somefile.txt",
+      "nodeType": "cm:content",
+      "createdByUser": {
+        "id": "admin",
+        "displayName": "Administrator"
+      },
+      "createdAt": "2021-04-07T09:06:44.216Z",
+      "modifiedByUser": {
+        "id": "admin",
+        "displayName": "Administrator"
+      },
+      "modifiedAt": "2021-04-07T09:10:33.602Z",
+      "content": {
+        "mimeType": "text/plain",
+        "sizeInBytes": 9,
+        "encoding": "UTF-8"
+      },
+      "properties": {
+        "cm:title": "",
+        "app:editInline": true,
+        "cm:lastThumbnailModification": [
+          "pdf:1617786411514"
+        ],
+        "cm:description": ""
+      },
+      "aspectNames": [
+        "cm:thumbnailModification",
+        "cm:titled",
+        "app:inlineeditable",
+        "rn:renditioned",
+        "cm:auditable"
+      ],
+      "isFile": true,
+      "isFolder": false
+    },
+    "resourceReaderAuthorities": [
+      "GROUP_EVERYONE",
+      "abeecher",
+      "guest"
+    ],
+    "resourceDeniedAuthorities": []
+  }
+}
+```
+
+In this case the node permissions for user `abeecher` was updated. For information about what specific 
+permissions were set or removed for the user use the [ReST API]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#setpermissionsnode).
+
+When subscribing to the `org.alfresco.event.permission.Updated` event it's possible to filter out anything that is
+of no interest. So for example, if you are only interested in permission updates for a specific node or folder it would 
+be easy to configure this. 
+
+{% capture sdk5-plain-java-permissionupdated %}
+The following code shows how this can be done with SDK 5 and plain Java event handlers:
+
+```java
+import org.alfresco.event.sdk.handling.filter.EventFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.handling.handler.OnPermissionUpdatedEventHandler;
+import org.alfresco.event.sdk.model.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+/**
+ * Sample event handler to demonstrate reacting to a node permission being updated.
+ * 
+ * IMPORTANT! only works with ACS 7 Enterprise Edition.
+ */
+@Component
+public class PermissionUpdatedEventHandler implements OnPermissionUpdatedEventHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger(PermissionUpdatedEventHandler.class);
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        NodeResource resource = (NodeResource) repoEvent.getData().getResource();
+        LOGGER.info("A node permission was updated: {}", resource.toString());
+    }
+    
+    public EventFilter getEventFilter() {
+        return IsFileFilter.get() // permissions for a file is being updated
+                .and(ParentFolderFilter.of("55a21ec2-eaff-4e0f-b76b-c84e32d1c2fe")); // the file is located in a specific folder with this Node ID 
+    }
+}
+```
+
+This code uses the `org.alfresco.event.sdk.handling.filter.IsFileFilter` event filter to specify that we are only interested 
+in permission updates to files. 
+
+This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+
+To create an SDK event handler project that uses plain Java event handlers follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#purejavaeventhandlers).
+
+{% endcapture %}
+
+{% capture sdk5-spring-integration-permissionupdated %}
+The following code shows how this can be done with SDK 5 and Spring Integration event handlers:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.integration.dsl.IntegrationFlowAdapter;
+import org.springframework.integration.dsl.IntegrationFlowDefinition;
+import org.springframework.messaging.Message;
+import org.springframework.stereotype.Component;
+
+/**
+ * Spring Integration based event handler that will execute code when node permissions are being updated.
+* 
+* IMPORTANT! only works with ACS 7 Enterprise Edition.
+ */
+@Component
+public class PermissionUpdatedFlow extends IntegrationFlowAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(PermissionUpdatedFlow.class);
+
+    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
+    @Override
+    protected IntegrationFlowDefinition<?> buildFlow() {
+        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.PERMISSION_UPDATED)) // Filter events and select only permission updated events
+                .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
+                .filter(IntegrationEventFilter.of(ParentFolderFilter.of("5f355d16-f824-4173-bf4b-b1ec37ef5549"))) // Filter node and make sure the file is in a folder with this Node ID
+                .handle(t -> handleEvent(t)); // Handle event with a bit of logging
+    }
+
+    private void handleEvent(Message message) {
+        RepoEvent<DataAttributes<Resource>> repoEvent = (RepoEvent<DataAttributes<Resource>>)message.getPayload();
+        NodeResource resource = (NodeResource) repoEvent.getData().getResource();
+        LOGGER.info("Node permissions were updated: {} ", resource.toString());
+    }
+}
+```
+
+This code uses the `org.alfresco.event.sdk.handling.filter.IsFileFilter` event filter to specify that we are only interested 
+in permission updates to files. 
+
+This code uses a custom [`ParentFolderFilter`]({% link content-services/latest/develop/oop-sdk.md %}#parentfoldercustomfilter). 
+
+For more information about how to extract all the properties from the message payload see [`NodeResource` info]({% link content-services/latest/develop/oop-sdk.md %}#noderesourceobj).
+
+To create an SDK event handler project that uses Spring Integration follow [these instructions]({% link content-services/latest/develop/oop-sdk.md %}#springintegrationhandlers).
+
+{% endcapture %}
+
+{% capture apache-camel-permissionupdated %}
+The following code snippet shows how this could be done with an 
+[Apache Camel route](https://camel.apache.org/manual/latest/routes.html){:target="_blank"} configuration:
+
+```java
+public class SimpleRoute extends RouteBuilder {
+
+    @Override
+    public void configure() {
+        from("amqpConnection:topic:alfresco.repo.event2")
+            .id("PermissionUpdatedRoute")
+            .log("${body}") // Log all incoming events on this topic, even those that we are not interested in
+            .choice()
+            .when() // When the following is true:
+            // The event type is permission udpated
+            .jsonpath("$[?(@.type=='org.alfresco.event.permission.Updated' && " +
+                // The node that was created is a file
+                "@.data.resource.nodeType=='cm:content' && " +            
+                // The file is located in a folder with this Node ID
+                "'5f355d16-f824-4173-bf4b-b1ec37ef5549' in @.data.resource.primaryHierarchy[:1])]")
+            // Unpack the data into JSON format
+            .unmarshal("publicDataFormat")
+            // Call a Spring Bean with the event data
+            .bean("permissionUpdatedHandlerImpl", "onReceive(*, COPY)")
+            .end();
+    }
+}
+```
+
+The `jsonpath` expression uses several of the event data properties to filter out exactly the events we are interested in.
+
+In this case a Spring Bean with ID `permissionUpdatedHandlerImpl` is called at the end of the route from 
+where you could make the necessary ReST API calls.
+{% endcapture %}
+
+{% include tabs.html tableid="event-code-permissionupdated" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-permissionupdated opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-permissionupdated opt3="Apache Camel" content3=apache-camel-permissionupdated %}
+
+
+ 
