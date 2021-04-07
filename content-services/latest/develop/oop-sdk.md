@@ -123,45 +123,37 @@ interface that allows the developer to easily define conditions that an event mu
 
 A number of filter implementations are offered out-of-the-box, covering the most common use cases:
 
-* [`IsFileFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/IsFileFilter.java){:target="_blank"} - checks if an event corresponds to a repository node of type `cm:content` or subtype (i.e. a file).
-* [`IsFolderFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/IsFolderFilter.java){:target="_blank"} - checks if an event corresponds to a repository node of type `cm:folder` or subtype (i.e. a folder).
+* [`AspectAddedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/AspectAddedFilter.java){:target="_blank"} - checks if an event corresponds to a repository node that has had specified aspect added.
+* [`AspectRemovedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/AspectRemovedFilter.java){:target="_blank"} - checks if an event corresponds to a repository node that has had specified aspect removed.
+* [`AssocTypeFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/AssocTypeFilter.java){:target="_blank"} - checks if an event corresponds to a specific association type. This doesn't distinguish if the event is representing a peer-peer or parent-child association.
 * [`ContentAddedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/ContentAddedFilter.java){:target="_blank"} - checks if an event represents the addition of content (i.e. a file) to an existing `cm:content` node in the repository.
 * [`ContentChangedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/ContentChangedFilter.java){:target="_blank"} - checks if an event represents a content update (i.e. file updated) of a `cm:content` node in the repository.
-* [`PropertyAddedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyAddedFilter.java){:target="_blank"} - checks if an event corresponds to the addition of a node property in the repository.
-* [`PropertyChangedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyChangedFilter.java){:target="_blank"} - checks if an event corresponds to the update of a node property in the repository.
-* [`PropertyValueFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyValueFilter.java){:target="_blank"} - checks if an event represents a node with a specific property with a specific value.
+* [`IsFileFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/IsFileFilter.java){:target="_blank"} - checks if an event corresponds to a repository node of type `cm:content` or subtype (i.e. a file).
+* [`IsFolderFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/IsFolderFilter.java){:target="_blank"} - checks if an event corresponds to a repository node of type `cm:folder` or subtype (i.e. a folder).
+* [`MimeTypeFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/MimeTypeFilter.java){:target="_blank"} - checks if an event represents a content node (i.e. `cm:content`) with a specific mime-type. 
 * [`NodeAspectFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/NodeAspectFilter.java){:target="_blank"} - checks if an event represents a node with a specific aspect.
 * [`NodeMovedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/NodeMovedFilter.java){:target="_blank"} - checks if an event represents a node being moved in the repository.
 * [`NodeTypeChangedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/NodeTypeChangedFilter.java){:target="_blank"} - checks if an event represents the change of the type of a node in the repository.
 * [`NodeTypeFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/NodeTypeFilter.java){:target="_blank"} - checks if an event represents a node with a specific type.
-* [`AssocTypeFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/AssocTypeFilter.java){:target="_blank"} - checks if an event corresponds to a specific association type. This doesn't distinguish if the event is representing a peer-peer or parent-child association.
-* [`MimeTypeFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/MimeTypeFilter.java){:target="_blank"} - checks if an event represents a content node (i.e. `cm:content`) with a specific mime-type. 
+* [`PropertyAddedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyAddedFilter.java){:target="_blank"} - checks if an event corresponds to the addition of a node property in the repository.
+* [`PropertyChangedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyChangedFilter.java){:target="_blank"} - checks if an event corresponds to the update of a node property in the repository.
+* [`PropertyCurrentValueFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyCurrentValueFilter.java){:target="_blank"} - checks if an event represents a node with a specific property with a specific current value.
+* [`PropertyRemovedFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyRemovedFilter.java){:target="_blank"} - checks if an event corresponds to the removal of a specific property to a node in the repository.
+* [`PropertyPreviousValueFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyPreviousValueFilter.java){:target="_blank"} - checks if an event represents a node with a specific property with a specific previous value.
+* [`PropertyValueFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/PropertyValueFilter.java){:target="_blank"} - checks if an event represents a node with a specific property with a specific value.
 
-The developer can create new custom event filters, as complex as required, and can use the logical operation of the 
-[`EventFilter`](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-event-api/alfresco-java-event-api-handling/src/main/java/org/alfresco/event/sdk/handling/filter/EventFilter.java){:target="_blank"}
-interface to combine several simpler filters in any way.
+You can use these filters alone or combine several of them into one complex filter.
 
-For instance, you can create a filter to react to an event related to the modification of the title of a content of 
+For instance, you can create a complex filter to react to an event related to the modification of the title of a content of 
 type `cm:content` with a mime-type of `text/html` this way:
 
 ```java
-PropertyChangedFilter.of("cm:title")
-    .and(NodeTypeFilter.of("cm:content"))
-    .and(MimeTypeFilter.of("text/html"))
+public EventFilter getEventFilter() {
+    return PropertyChangedFilter.of("cm:title") // If title changed
+            .and(NodeTypeFilter.of("cm:content")) // And it's a file
+            .and(MimeTypeFilter.of("text/html")); // And the file is a HTML file
+}
 ```
-
-TODO: check the following classes too:
-
-AspectAddedFilter.java
-AspectRemovedFilter.java
-AssocTypeFilter.java
-EventFilter.java
-EventTypeFilter.java
-PropertyCurrentValueFilter.java
-PropertyPreviousValueFilter.java
-PropertyRemovedFilter.java
-
-TODO: ContentAddedFilter - check if this works, what if you just update a property, will this still be triggered?
 
 It's possible to implement [custom event filters](#customeventfilters).
 
@@ -367,7 +359,7 @@ public class ContentUpdatedEventHandler implements OnNodeUpdatedEventHandler {
 
 The permission related properties `resourceReaderAuthorities` and `resourceDeniedAuthorities` will be listed as part of
 `resource.getProperties()`. Note that these will only be present if you are running an Enterprise Edition of Alfresco 
-version 7 or later.
+version 7 or later. 
 
 The folder primary hierarchy can be resolved by using the ReST API to get the names for the different Node IDs.
 The first node ID in the list is the immediate parent folder for the node as in the following example:
@@ -380,9 +372,6 @@ The first node ID in the list is the immediate parent folder for the node as in 
     "c388532e-8da6-4d50-a6d2-4f3f3ac36ff7",       /app:company_home                        (cm:folder)
     "2fa2cde5-9d83-4460-a38c-cfe4ec9cca08"        Store root                               (sys:store_root)
 ```
-
-
-[`ChildAssociationResource` info]({% link content-services/latest/develop/oop-sdk.md %}#childassocresourceobj).
 
 ### The ChildAssociationResource object {#childassocresourceobj}
 When working with the Event API and Parent-Child associations there is one data object called `ChildAssociationResource` 
@@ -562,13 +551,15 @@ Maven needs to know about the Alfresco Artifacts Repository (Nexus) so add the f
 
 ### Create a starting point Spring project {#createstarterproj}
 The easiest way to get going is to use the **Spring Initializr** website and create a starting point project from there. 
+
+#### Create Spring Boot project
 Go to [https://start.spring.io/](https://start.spring.io/){:target="_blank"} and fill in your project info something like
 this:
 
 ![spring-initializr]({% link content-services/images/spring-initializr.png %}){:height="500px" width="400px"}
 
 Change so the parent of the Maven project (i.e. in `pom.xml`) is the Alfresco Java SDK (i.e. SDK 5). Then delete the
-Spring boot test dependency including the test source (i.e. `org/alfresco/tutorial/events/EventsApplicationTests.java`). 
+Spring boot test dependency including the test source (i.e. `org/alfresco/tutorial/sdk5demo/Sdk5DemoApplicationTests.java`). 
 You should have a project file looking something like this now:
 
 ```xml
@@ -576,24 +567,24 @@ You should have a project file looking something like this now:
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    
     <!-- Alfresco Java SDK 5 Parent -->
     <parent>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-sdk</artifactId>
         <version>5.0.0</version>
     </parent>
-
+    
     <groupId>org.alfresco.tutorial</groupId>
-    <artifactId>events</artifactId>
+    <artifactId>sdk5-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>events</name>
-    <description>Alfresco SDK 5 - Demo of Alfresco event handlers</description>
-
+    <name>sdk5-demo</name>
+    <description>Demo showing use of Alfresco SDK 5 libraries</description>
+    
     <properties>
         <java.version>11</java.version>
     </properties>
-
+    
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -612,6 +603,9 @@ You should have a project file looking something like this now:
 
 </project>
 ```
+#### Set properties for event handler projects (OPTIONAL)
+If you are going to create an event handler project set the following properties (i.e. not needed if you are just 
+creating a project for a Java ReST API client).
 
 Tell the event app where the Active MQ server is running so it knows where to listen for events, this is done
 in the `src/main/resources/application.properties` configuration file. Remember, the Active MQ server is started 
@@ -626,6 +620,22 @@ spring.activemq.brokerUrl=tcp://localhost:61616
 spring.jms.cache.enabled=false
 ```
 
+#### Set properties for Java ReST API projects (OPTIONAL)
+If you are going to create a project for a Java ReST API client set the following properties (i.e. not needed if you are 
+just creating a project for an Event handler client).
+
+Tell the ReST API client where the Content Services server is running and the endpoints for the ReST APIs:
+
+```text
+# HTTP Basic Authentication that will be used by the API
+content.service.security.basicAuth.username=admin
+content.service.security.basicAuth.password=admin
+# Location of the server and API endpoints
+content.service.url=http://localhost:8080
+content.service.path=/alfresco/api/-default-/public/alfresco/versions/1
+search.service.path=/alfresco/api/-default-/public/search/versions/1
+```
+#### Build and test
 Now package the project and make sure it builds properly (skip license test as none of the files have a license header):
 
 ```bash
@@ -634,69 +644,72 @@ $ mvn clean package -Dlicense.skip=true
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] Building events 0.0.1-SNAPSHOT
+[INFO] Building sdk5-demo 0.0.1-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
-...
 [INFO] 
-[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ events ---
-[INFO] Deleting /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample/target
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ sdk5-demo ---
+[INFO] Deleting /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-demo/target
 [INFO] 
-[INFO] --- license-maven-plugin:3.0:check (validate-license) @ events ---
+[INFO] --- license-maven-plugin:3.0:check (validate-license) @ sdk5-demo ---
 [INFO] 
-[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ events ---
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ sdk5-demo ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Using 'UTF-8' encoding to copy filtered properties files.
 [INFO] Copying 1 resource
 [INFO] Copying 0 resource
 [INFO] 
-[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ events ---
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ sdk5-demo ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 1 source file to /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample/target/classes
+[INFO] Compiling 1 source file to /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-demo/target/classes
 [INFO] 
-[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ events ---
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ sdk5-demo ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Using 'UTF-8' encoding to copy filtered properties files.
-[INFO] skip non existing resourceDirectory /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample/src/test/resources
+[INFO] skip non existing resourceDirectory /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-demo/src/test/resources
 [INFO] 
-[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ events ---
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ sdk5-demo ---
 [INFO] Changes detected - recompiling the module!
 [INFO] 
-[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ events ---
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ sdk5-demo ---
 [INFO] 
-[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ events ---
-[INFO] Building jar: /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample/target/events-0.0.1-SNAPSHOT.jar
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ sdk5-demo ---
+[INFO] Building jar: /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-demo/target/sdk5-demo-0.0.1-SNAPSHOT.jar
 [INFO] 
-[INFO] --- spring-boot-maven-plugin:2.4.2:repackage (repackage) @ events ---
+[INFO] --- spring-boot-maven-plugin:2.4.2:repackage (repackage) @ sdk5-demo ---
 [INFO] Replacing main artifact with repackaged archive
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 8.135 s
-[INFO] Finished at: 2021-03-25T13:29:53Z
-[INFO] Final Memory: 35M/127M
+[INFO] Total time: 5.364 s
+[INFO] Finished at: 2021-04-07T14:12:53+01:00
+[INFO] Final Memory: 24M/90M
 [INFO] ------------------------------------------------------------------------
 ```
 The build should be successful and you should have the JAR file created, in this case `events-0.0.1-SNAPSHOT.jar`, try
 and run the Spring Boot app:
 
 ```bash
-$ java -jar target/events-0.0.1-SNAPSHOT.jar 
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+$ java -jar target/sdk5-demo-0.0.1-SNAPSHOT.jar 
+  
+.   ____          _            __ _ _
+/\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v2.4.2)
+\\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+'  |____| .__|_| |_|_| |_\__, | / / / /
+=========|_|==============|___/=/_/_/_/
+:: Spring Boot ::                (v2.4.2)
 
-2021-03-26 08:55:04.975  INFO 72704 --- [           main] o.a.tutorial.events.EventsApplication    : Starting EventsApplication v0.0.1-SNAPSHOT using Java 11.0.2 on MBP512-MBERGLJUNG-0917 with PID 72704 (/Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample/target/events-0.0.1-SNAPSHOT.jar started by mbergljung in /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-pure-java-events-sample)
-2021-03-26 08:55:04.979  INFO 72704 --- [           main] o.a.tutorial.events.EventsApplication    : No active profile set, falling back to default profiles: default
-2021-03-26 08:55:05.622  INFO 72704 --- [           main] o.a.tutorial.events.EventsApplication    : Started EventsApplication in 1.104 seconds (JVM running for 1.587)
+2021-04-07 14:15:13.514  INFO 52906 --- [           main] o.a.t.sdk5demo.Sdk5DemoApplication       : Starting Sdk5DemoApplication v0.0.1-SNAPSHOT using Java 11.0.2 on MBP512-MBERGLJUNG-0917 with PID 52906 (/Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-demo/target/sdk5-demo-0.0.1-SNAPSHOT.jar started by mbergljung in /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-demo)
+2021-04-07 14:15:13.520  INFO 52906 --- [           main] o.a.t.sdk5demo.Sdk5DemoApplication       : No active profile set, falling back to default profiles: default
+2021-04-07 14:15:14.471  INFO 52906 --- [           main] o.a.t.sdk5demo.Sdk5DemoApplication       : Started Sdk5DemoApplication in 1.697 seconds (JVM running for 2.257)
 ```
 
-We are now ready to add the specifics depending on what type of event handler code we like to use, pure Java or 
-Spring Integration based.
+We are now ready to add the specifics depending on what type of project we are going to develop:
+
+* SDK 5 Event handler project using [pure Java](#purejavaeventhandlers)
+* SDK 5 Event handler project using [Spring Integration](#springintegrationhandlers) 
+* SDK 5 [Java ReST API project](#restapijavawrapperproject)
+* SDK 5 project using both event handling and Java ReST API
 
 During development it's useful to be able to build and run the extension in one go (so you don't forget to build...). 
 This can be done using the `spring-boot-maven-plugin` as follows:
@@ -886,7 +899,7 @@ Add the following dependency in the Maven project file (i.e. `pom.xml`):
     <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-        <version>${project.version}</version>
+        <version>5.0.0</version>
     </dependency>
 </dependencies>
 ```
@@ -1184,8 +1197,224 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
 ```
 
 ## ReST API Java wrapper
+The ReST API Java wrapper library in SDK 5 provides a Java object wrapper around the Alfresco ReST API. If you are not 
+familiar with Alfresco ReST API version 1.0, then read through this [introduction]({% link content-services/latest/develop/rest-api-guide/index.md %}).
 
-TODO
+The ReST API wrapper classes have been generated based on the ReST API [Swagger definition](https://swagger.io/){:target="_blank"}. 
+The following main packages exist for the different APIs:
+
+* [alfresco-auth-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-auth-rest-api){:target="_blank"} - Managing Alfresco tickets
+* [alfresco-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api){:target="_blank"} - The main API with actions, nodes, audit, renditions, sites, tagging, versioning etc 
+* [alfresco-discovery-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-discovery-rest-api){:target="_blank"} - Repository information, such as license, version, modules 
+* [alfresco-search-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-rest-api){:target="_blank"} - Search API  
+
+The following API requires the [Alfresco Insight Engine]({% link insight-engine/latest/index.md %}) to be installed:
+
+* [alfresco-search-sql-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-sql-rest-api){:target="_blank"} - SQL search with Alfresco Insight Engine
+
+The following APIs require the [Alfresco Governance Services]({% link governance-services/latest/index.md %}) module to be installed:
+ 
+* [alfresco-governance-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-governance-core-rest-api){:target="_blank"} - Main Governance Services API
+* [alfresco-governance-classification-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-governance-classification-rest-api){:target="_blank"} - Classification and Security Marks API
+
+## Creating a Java ReST API extension project {#restapijavawrapperproject}
+Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).
+
+Add the following dependency in the Maven project file (i.e. `pom.xml`):
+
+```xml
+<dependencies>
+    <!-- Alfresco Java SDK 5 Java ReST API wrapper Spring Boot Starter -->
+    <dependency>
+      <groupId>org.alfresco</groupId>
+      <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
+      <version>5.0.0</version>
+    </dependency>
+</dependencies>
+```
+
+Remove the default Spring Boot starter dependency (i.e. `<artifactId>spring-boot-starter</artifactId>`).
+
+Test it:
+
+```bash
+$ mvn clean package -Dlicense.skip=true
+[INFO] Scanning for projects...
+...
+
+$ java -jar target/rest-api-0.0.1-SNAPSHOT.jar 
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.2)
+
+2021-04-07 14:31:35.599  INFO 53273 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 11.0.2 on MBP512-MBERGLJUNG-0917 with PID 53273 (/Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by mbergljung in /Users/mbergljung/IDEAProjects/docs-new/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-04-07 14:31:35.605  INFO 53273 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-04-07 14:31:36.832  INFO 53273 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=55661aff-d1dc-3db8-94e2-cf0514d3118c
+2021-04-07 14:31:37.443  INFO 53273 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.832 seconds (JVM running for 3.563)
+```
+
+Looks ready for some ReST API code.
+
+Now, start adding your ReST API code, let's add some code that creates a folder in the **/Guest Home** folder in the 
+Alfresco repository:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.integration.dsl.IntegrationFlowAdapter;
+import org.springframework.integration.dsl.IntegrationFlowDefinition;
+import org.springframework.stereotype.Component;
+
+/**
+ * Spring Integration based event handler that will execute code when a file is uploaded
+ */
+@Component
+public class NewContentFlow extends IntegrationFlowAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(NewContentFlow.class);
+
+    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
+    @Override
+    protected IntegrationFlowDefinition<?> buildFlow() {
+        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
+                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())); // Handle event with a bit of logging
+    }
+}
+```
+
+Add the Spring Bean class into the same directory as the Spring boot starter class. It doesn't have to be added to this 
+directory, but in this case we are just testing it, so no need to organize too much. 
+
+Now stop, build and start it up again:
+
+```bash
+$ ^C
+...
+$ mvn spring-boot:run -Dlicense.skip=true
+...
+``` 
+
+Add a file via the Share user interface, you should see the following in the logs:
+
+```text
+2021-03-30 10:09:22.738  INFO 9603 --- [erContainer#0-1] o.a.tutorial.events.NewContentFlow : File uploaded: RepoEvent [specversion=1.0, type=org.alfresco.event.node.Created, id=12100b22-8dae-4ebe-b114-ba9dc2f9755b, source=/3bc24dba-d1ae-4c04-af60-0294a4c68a7f, time=2021-03-30T09:09:22.711117Z, dataschema=https://api.alfresco.com/schema/event/repo/v1/nodeCreated, datacontenttype=application/json, data=EventData [eventGroupId=3196f0f6-b4aa-4834-9aa2-a58eaa8f121f, resource=NodeResource [id=4e1f0830-2452-4a4c-b20a-7146402ce665, name=somefile-again.txt, nodeType=cm:content, isFile=true, isFolder=false, createdByUser=UserInfo [id=admin, displayName=Administrator], createdAt=2021-03-30T09:09:22.324Z, modifiedByUser=UserInfo [id=admin, displayName=Administrator], modifiedAt=2021-03-30T09:09:22.324Z, content=ContentInfo [mimeType=text/plain, sizeInBytes=0, encoding=UTF-8], properties={cm:title=, app:editInline=true, cm:description=}, aspectNames=[app:inlineeditable, cm:titled, cm:auditable], primaryHierarchy=[19e067a9-5d2a-43ba-ac93-d273d938050c, 30afd06d-6ec7-4434-b1d6-1f7671b6b9a7, 7a82ddff-0869-430e-8cc8-623d97b98dc4]], resourceBefore=null]]
+```
+
+Now, this event handler will actually also be triggered when a folder is created. So how can we fix so the handler is 
+only triggered when a file is created/uploaded? By adding a so called [event filter](#eventfilter) to the class:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.integration.dsl.IntegrationFlowAdapter;
+import org.springframework.integration.dsl.IntegrationFlowDefinition;
+import org.springframework.stereotype.Component;
+
+/**
+ * Spring Integration based event handler that will execute code when a file is uploaded
+ */
+@Component
+public class NewContentFlow extends IntegrationFlowAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(NewContentFlow.class);
+
+    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
+    @Override
+    protected IntegrationFlowDefinition<?> buildFlow() {
+        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
+                .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
+                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())); // Handle event with a bit of logging
+    }
+}
+```
+
+Here we are using the `org.alfresco.event.sdk.handling.filter.IsFileFilter`, which will make sure that the event handler
+is triggered only when the node type is `cm:content` or subtype thereof, which represents files. To use this filter with
+Spring Integration we use the [IntegrationEventFilter](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-event-api/alfresco-java-event-api-integration/src/main/java/org/alfresco/event/sdk/integration/filter/IntegrationEventFilter.java){:target="_blank"} 
+wrapper.
+
+If you are thinking, do I really need a whole class just to process an event? No you don't, you can include a bean 
+definition directly in the Spring Boot app class as follows:
+
+```java
+package org.alfresco.tutorial.events;
+
+import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+import org.alfresco.event.sdk.integration.EventChannels;
+import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.dsl.IntegrationFlows;
+
+@SpringBootApplication
+public class EventsApplication {
+    private static final Logger LOGGER = LoggerFactory.getLogger(EventsApplication.class);
+    
+    public static void main(String[] args) {
+        SpringApplication.run(EventsApplication.class, args);
+    }
+
+    @Bean
+    public IntegrationFlow logCreateFileNode() {
+        return IntegrationFlows.from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
+                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
+                .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
+                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())) // Handle event with a bit of logging
+                .get();
+    }
+}
+```
+
+It also makes sense to add error management code to the application class as follows:
+
+```java
+@SpringBootApplication
+public class EventsApplication {
+    private static final Logger LOGGER = LoggerFactory.getLogger(EventsApplication.class);
+    
+    public static void main(String[] args) {
+        SpringApplication.run(EventsApplication.class, args);
+    }
+
+    @Bean
+    public IntegrationFlow logError() {
+        return IntegrationFlows.from(EventChannels.ERROR).handle(t -> {
+            LOGGER.info("Error: {}", t.getPayload().toString());
+            MessageHandlingException exception = (MessageHandlingException) t.getPayload();
+            exception.printStackTrace();
+        }).get();
+    }
+...
+}
+```
+
+For a complete list of events with sample code see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
+documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
+
+For information on how to implement a custom event filter see this [section](#customeventfilters).
+
+For more information about how to extract all the properties from the message payload see [`NodeResource` info](#noderesourceobj).
 
 ## Debugging an extension project
 Debugging an extension project is most likely going to be something you will have to do to see what's going on. This is
