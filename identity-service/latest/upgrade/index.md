@@ -2,7 +2,7 @@
 title: Upgrade Identity Service
 ---
 
-Use the following information to upgrade the Identity Service from version 1.4 to version 1.4.
+Use the following information to upgrade the Identity Service from version 1.3 to version 1.4.
 
 > **Important:** Upgrading the Identity Service requires downtime and should be performed in a test environment before being attempted in a production environment.
 
