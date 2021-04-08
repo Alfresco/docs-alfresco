@@ -1260,161 +1260,435 @@ $ java -jar target/rest-api-0.0.1-SNAPSHOT.jar
 
 Looks ready for some ReST API code.
 
-Now, start adding your ReST API code, let's add some code that creates a folder in the **/Guest Home** folder in the 
-Alfresco repository:
+Now, start adding your ReST API code, let's create a command line client that can be used to create sites, create folders, 
+create files, and to search. First update the Spring Boot application class to look like follows, making use of the 
+`org.springframework.boot.CommandLineRunner`:
+
 
 ```java
-package org.alfresco.tutorial.events;
+package org.alfresco.tutorial.restapi;
 
-import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
-import org.alfresco.event.sdk.integration.EventChannels;
-import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.integration.dsl.IntegrationFlowAdapter;
-import org.springframework.integration.dsl.IntegrationFlowDefinition;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * Spring Integration based event handler that will execute code when a file is uploaded
- */
-@Component
-public class NewContentFlow extends IntegrationFlowAdapter {
-    private static final Logger LOGGER = LoggerFactory.getLogger(NewContentFlow.class);
+@SpringBootApplication
+public class RestApiApplication implements CommandLineRunner {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RestApiApplication.class);
 
-    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
-    @Override
-    protected IntegrationFlowDefinition<?> buildFlow() {
-        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
-                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
-                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())); // Handle event with a bit of logging
+    @Autowired
+    CreateSiteCmd createSiteCmd;
+
+    @Autowired
+    CreateFolderCmd createFolderCmd;
+
+    @Autowired
+    CreateFileCmd createFileCmd;
+
+    @Autowired
+    SearchCmd searchCmd;
+
+    public static void main(String[] args) {
+        SpringApplication.run(RestApiApplication.class, args);
+    }
+
+    public void run(String... args) throws Exception {
+        for (int i = 0; i < args.length; ++i) {
+            LOGGER.info("args[{}]: {}", i, args[i]);
+        }
+
+        String command = args[0];
+
+        switch (command) {
+            case "create-site":
+                createSiteCmd.execute(args[1]);
+                break;
+            case "create-folder":     // siteId, folderName
+                createFolderCmd.execute(args[1], args[2]);
+                break;
+            case "create-file":      // parentFolderNodeId, filename
+                createFileCmd.execute(args[1], args[2]);
+                break;
+            case "search":          // siteId, term
+                searchCmd.execute(args[1], args[2]);
+                break;
+            default:
+                LOGGER.error("Command {} is not available", command);
+        }
+
     }
 }
 ```
 
-Add the Spring Bean class into the same directory as the Spring boot starter class. It doesn't have to be added to this 
-directory, but in this case we are just testing it, so no need to organize too much. 
+This command line runner uses a number of beans to support creating different things in the Alfresco Repository, such as 
+sites and folders. Start by creating the `CreateSiteCmd` bean that will facilitate creating sites via the ReST API Java 
+wrapper, in the same package as the Spring Boot application class create the following class:
 
-Now stop, build and start it up again:
+```java
+package org.alfresco.tutorial.restapi;
+
+import org.alfresco.core.handler.SitesApi;
+import org.alfresco.core.model.Site;
+import org.alfresco.core.model.SiteBodyCreate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.Objects;
+
+@Component
+public class CreateSiteCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(CreateSiteCmd.class);
+
+    @Autowired
+    SitesApi sitesApi;
+
+    public void execute(String siteId) throws IOException {
+        Site site = Objects.requireNonNull(sitesApi.createSite(
+                new SiteBodyCreate()
+                        .id(siteId)
+                        .title("title-" + siteId)
+                        .description("description-" + siteId)
+                        .visibility(SiteBodyCreate.VisibilityEnum.PUBLIC),
+                null, null, null).getBody()).getEntry();
+        LOGGER.info("Created site: {}", site);
+    }
+}
+```
+
+To use one of the ReST API Java wrapper services, such as [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/SitesApi.java){:target="_blank"}, 
+auto wire it into the component as in the above class. Creating stuff in the repository usually mean making a HTTP POST 
+in the background. In these cases there is always a body class that we can use to fill in POST data, such as `SiteBody` in 
+this case. A successful API call will return a populated result object called `Site`. 
+
+In a similar way we add the other three command beans in the same directory as follows, starting with the `CreateFolderCmd`:
+
+```java
+package org.alfresco.tutorial.restapi;
+
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.handler.SitesApi;
+import org.alfresco.core.model.Node;
+import org.alfresco.core.model.NodeBodyCreate;
+import org.alfresco.core.model.SiteContainer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.Objects;
+
+@Component
+public class CreateFolderCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(CreateFolderCmd.class);
+
+    @Autowired
+    SitesApi sitesApi;
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String siteId, String folderName) throws IOException {
+        SiteContainer docLibContainer = Objects.requireNonNull(sitesApi.getSiteContainer(siteId,
+                "documentLibrary", null).getBody()).getEntry();
+        LOGGER.info("Creating folder in site DocumentLibrary folder Node ID: {}", docLibContainer.getId());
+
+        Node folderNode = Objects.requireNonNull(nodesApi.createNode(docLibContainer.getId(),
+                new NodeBodyCreate()
+                        .nodeType("cm:folder")
+                        .name(folderName),
+                null, null, null, null, null).getBody()).getEntry();
+
+        LOGGER.info("Created folder: {}", folderNode.toString());
+    }
+}
+```
+
+The [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"} 
+is one of the main APIs that we will use a lot to manipulate folders and files. We use it here to create a folder node 
+in the site's document library.
+
+Next we create the `CreateFileCmd` as follows in the same directory:
+
+```java
+package org.alfresco.tutorial.restapi;
+
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.Node;
+import org.alfresco.core.model.NodeBodyCreate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.Objects;
+
+@Component
+public class CreateFileCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(CreateFileCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String parentFolderId, String fileName) throws IOException {
+        // Get the parent folder where file should be stored
+        Node parentFolderNode = Objects.requireNonNull(nodesApi.getNode(parentFolderId, null,  null,
+                null).getBody()).getEntry();
+        LOGGER.info("Got parent folder node: {}", parentFolderNode.toString());
+
+        // Create the file node metadata
+        Node fileNode = Objects.requireNonNull(nodesApi.createNode(parentFolderNode.getId(),
+                new NodeBodyCreate().nodeType("cm:content").name(fileName),
+                null, null, null, null, null).getBody()).getEntry();
+
+        // Add the file node content
+        Node updatedFileNode = Objects.requireNonNull(nodesApi.updateNodeContent(fileNode.getId(),
+                "Some text for this file...".getBytes(), true, null, null,
+                null, null).getBody()).getEntry();
+
+        LOGGER.info("Created file with content: {}", updatedFileNode.toString());
+    }
+}
+```
+
+You might notice that it requires two calls to create a file with content. The ReST API does provide a way to do this 
+with one call as can be seen [here]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfile).
+However, the generated Java wrapping classes does not yet provide functionality for this (it is scheduled to be supported in 
+a future version of SDK 5).
+
+Add also the final `SearchCmd` class as follows:
+
+```java
+package org.alfresco.tutorial.restapi;
+
+import org.alfresco.search.handler.SearchApi;
+import org.alfresco.search.model.RequestQuery;
+import org.alfresco.search.model.ResultSetPaging;
+import org.alfresco.search.model.SearchRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+
+@Component
+public class SearchCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(SearchCmd.class);
+
+    @Autowired
+    SearchApi searchApi;
+
+    public void execute(String siteId, String term) throws IOException {
+        ResponseEntity<ResultSetPaging> result = searchApi.search(new SearchRequest()
+                .query(new RequestQuery()
+                        .language(RequestQuery.LanguageEnum.AFTS)
+                        .query("(SITE:\"" + siteId + "\" AND TEXT:\"" + term + "\" )")));
+
+        LOGGER.info("Search result: {}", result.getBody().getList().getEntries());
+    }
+}
+```
+
+Now, stop and build it again:
 
 ```bash
 $ ^C
 ...
-$ mvn spring-boot:run -Dlicense.skip=true
+$ mvn clean package -Dlicense.skip=true
 ...
 ``` 
+Create an Alfresco Share site with id `test` as follows:
 
-Add a file via the Share user interface, you should see the following in the logs:
-
-```text
-2021-03-30 10:09:22.738  INFO 9603 --- [erContainer#0-1] o.a.tutorial.events.NewContentFlow : File uploaded: RepoEvent [specversion=1.0, type=org.alfresco.event.node.Created, id=12100b22-8dae-4ebe-b114-ba9dc2f9755b, source=/3bc24dba-d1ae-4c04-af60-0294a4c68a7f, time=2021-03-30T09:09:22.711117Z, dataschema=https://api.alfresco.com/schema/event/repo/v1/nodeCreated, datacontenttype=application/json, data=EventData [eventGroupId=3196f0f6-b4aa-4834-9aa2-a58eaa8f121f, resource=NodeResource [id=4e1f0830-2452-4a4c-b20a-7146402ce665, name=somefile-again.txt, nodeType=cm:content, isFile=true, isFolder=false, createdByUser=UserInfo [id=admin, displayName=Administrator], createdAt=2021-03-30T09:09:22.324Z, modifiedByUser=UserInfo [id=admin, displayName=Administrator], modifiedAt=2021-03-30T09:09:22.324Z, content=ContentInfo [mimeType=text/plain, sizeInBytes=0, encoding=UTF-8], properties={cm:title=, app:editInline=true, cm:description=}, aspectNames=[app:inlineeditable, cm:titled, cm:auditable], primaryHierarchy=[19e067a9-5d2a-43ba-ac93-d273d938050c, 30afd06d-6ec7-4434-b1d6-1f7671b6b9a7, 7a82ddff-0869-430e-8cc8-623d97b98dc4]], resourceBefore=null]]
-```
-
-Now, this event handler will actually also be triggered when a folder is created. So how can we fix so the handler is 
-only triggered when a file is created/uploaded? By adding a so called [event filter](#eventfilter) to the class:
-
-```java
-package org.alfresco.tutorial.events;
-
-import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
-import org.alfresco.event.sdk.handling.filter.IsFileFilter;
-import org.alfresco.event.sdk.integration.EventChannels;
-import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.integration.dsl.IntegrationFlowAdapter;
-import org.springframework.integration.dsl.IntegrationFlowDefinition;
-import org.springframework.stereotype.Component;
-
-/**
- * Spring Integration based event handler that will execute code when a file is uploaded
- */
-@Component
-public class NewContentFlow extends IntegrationFlowAdapter {
-    private static final Logger LOGGER = LoggerFactory.getLogger(NewContentFlow.class);
-
-    // Use builder to create an integration flow based on alfresco.events.main.channel event channel
-    @Override
-    protected IntegrationFlowDefinition<?> buildFlow() {
-        return from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
-                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
-                .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
-                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())); // Handle event with a bit of logging
-    }
-}
-```
-
-Here we are using the `org.alfresco.event.sdk.handling.filter.IsFileFilter`, which will make sure that the event handler
-is triggered only when the node type is `cm:content` or subtype thereof, which represents files. To use this filter with
-Spring Integration we use the [IntegrationEventFilter](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-event-api/alfresco-java-event-api-integration/src/main/java/org/alfresco/event/sdk/integration/filter/IntegrationEventFilter.java){:target="_blank"} 
-wrapper.
-
-If you are thinking, do I really need a whole class just to process an event? No you don't, you can include a bean 
-definition directly in the Spring Boot app class as follows:
-
-```java
-package org.alfresco.tutorial.events;
-
-import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
-import org.alfresco.event.sdk.handling.filter.IsFileFilter;
-import org.alfresco.event.sdk.integration.EventChannels;
-import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.integration.dsl.IntegrationFlow;
-import org.springframework.integration.dsl.IntegrationFlows;
-
-@SpringBootApplication
-public class EventsApplication {
-    private static final Logger LOGGER = LoggerFactory.getLogger(EventsApplication.class);
-    
-    public static void main(String[] args) {
-        SpringApplication.run(EventsApplication.class, args);
-    }
-
-    @Bean
-    public IntegrationFlow logCreateFileNode() {
-        return IntegrationFlows.from(EventChannels.MAIN) // Listen to events coming from the Alfresco events channel
-                .filter(IntegrationEventFilter.of(EventTypeFilter.NODE_CREATED)) // Filter events and select only node created events
-                .filter(IntegrationEventFilter.of(IsFileFilter.get())) // Filter node and make sure it is a file node
-                .handle(t -> LOGGER.info("File uploaded: {}", t.getPayload().toString())) // Handle event with a bit of logging
-                .get();
-    }
-}
-```
-
-It also makes sense to add error management code to the application class as follows:
-
-```java
-@SpringBootApplication
-public class EventsApplication {
-    private static final Logger LOGGER = LoggerFactory.getLogger(EventsApplication.class);
-    
-    public static void main(String[] args) {
-        SpringApplication.run(EventsApplication.class, args);
-    }
-
-    @Bean
-    public IntegrationFlow logError() {
-        return IntegrationFlows.from(EventChannels.ERROR).handle(t -> {
-            LOGGER.info("Error: {}", t.getPayload().toString());
-            MessageHandlingException exception = (MessageHandlingException) t.getPayload();
-            exception.printStackTrace();
-        }).get();
-    }
+```bash
+$ java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-site test
 ...
+2021-04-08 13:16:49.239  INFO 62074 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: create-site
+2021-04-08 13:16:49.241  INFO 62074 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: test
+2021-04-08 13:16:52.989  INFO 62074 --- [           main] o.a.tutorial.restapi.CreateSiteCmd       : Created site: class Site {
+    id: test
+    guid: 59dc57a1-ad07-4715-8844-005cc7fc59d7
+    title: title-test
+    description: description-test
+    visibility: PUBLIC
+    preset: site-dashboard
+    role: SiteManager
 }
+``` 
+
+Then create a folder called `folder1` in the site with id `test`:
+
+```bash
+$ java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-folder test folder1
+...
+2021-04-08 13:19:23.264  INFO 62106 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: create-folder
+2021-04-08 13:19:23.266  INFO 62106 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: test
+2021-04-08 13:19:23.267  INFO 62106 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: folder1
+2021-04-08 13:19:23.560  INFO 62106 --- [           main] o.a.tutorial.restapi.CreateFolderCmd     : Creating folder in site DocumentLibrary folder Node ID: aa02f5eb-f45d-4ab4-bf21-9eeb8c243d51
+2021-04-08 13:19:24.166  INFO 62106 --- [           main] o.a.tutorial.restapi.CreateFolderCmd     : Created folder: class Node {
+    id: 3e16d079-2fdc-4d64-ad76-c65c233165f4
+    name: folder1
+    nodeType: cm:folder
+    isFolder: true
+    isFile: false
+    isLocked: false
+    modifiedAt: 2021-04-08T12:19:23.876Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-08T12:19:23.876Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: aa02f5eb-f45d-4ab4-bf21-9eeb8c243d51
+    isLink: null
+    isFavorite: null
+    content: null
+    aspectNames: [cm:auditable]
+    properties: null
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+``` 
+
+Create a file called `somefile.txt` in the folder called `folder1` (3e16d079-2fdc-4d64-ad76-c65c233165f4):
+
+```bash
+$ java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-file 3e16d079-2fdc-4d64-ad76-c65c233165f4 somefile.txt
+...
+2021-04-08 13:21:55.972  INFO 62152 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: create-file
+2021-04-08 13:21:55.973  INFO 62152 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 3e16d079-2fdc-4d64-ad76-c65c233165f4
+2021-04-08 13:21:55.973  INFO 62152 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: somefile.txt
+2021-04-08 13:21:56.211  INFO 62152 --- [           main] o.a.tutorial.restapi.CreateFileCmd       : Got parent folder node: class Node {
+    id: 3e16d079-2fdc-4d64-ad76-c65c233165f4
+    name: folder1
+    nodeType: cm:folder
+    isFolder: true
+    isFile: false
+    isLocked: false
+    modifiedAt: 2021-04-08T12:19:23.876Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-08T12:19:23.876Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: aa02f5eb-f45d-4ab4-bf21-9eeb8c243d51
+    isLink: null
+    isFavorite: null
+    content: null
+    aspectNames: [cm:auditable]
+    properties: null
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+2021-04-08 13:21:56.896  INFO 62152 --- [           main] o.a.tutorial.restapi.CreateFileCmd       : Created file with content: class Node {
+    id: 1187b449-258e-4843-997f-991b7995b665
+    name: somefile.txt
+    nodeType: cm:content
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-04-08T12:21:56.697Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-08T12:21:56.265Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 3e16d079-2fdc-4d64-ad76-c65c233165f4
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 26
+        encoding: ISO-8859-1
+    }
+    aspectNames: [cm:versionable, cm:auditable]
+    properties: {cm:versionLabel=1.0, cm:versionType=MAJOR}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+``` 
+Finally, search for content matching text `file` in site with id `test`:
+
+```bash
+$ java -jar target/rest-api-0.0.1-SNAPSHOT.jar search test file
+...
+2021-04-08 14:40:51.379  INFO 63261 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: search
+2021-04-08 14:40:51.381  INFO 63261 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: test
+2021-04-08 14:40:51.381  INFO 63261 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: file
+2021-04-08 14:40:52.493  INFO 63261 --- [           main] org.alfresco.tutorial.restapi.SearchCmd  : Search result: [class ResultSetRowEntry {
+    entry: class ResultNode {
+        id: 1187b449-258e-4843-997f-991b7995b665
+        name: somefile.txt
+        nodeType: cm:content
+        isFolder: false
+        isFile: true
+        isLocked: false
+        modifiedAt: 2021-04-08T12:21:59.077Z
+        modifiedByUser: class UserInfo {
+            displayName: Administrator
+            id: admin
+        }
+        createdAt: 2021-04-08T12:21:56.265Z
+        createdByUser: class UserInfo {
+            displayName: Administrator
+            id: admin
+        }
+        parentId: 3e16d079-2fdc-4d64-ad76-c65c233165f4
+        isLink: null
+        content: class ContentInfo {
+            mimeType: text/plain
+            mimeTypeName: Plain Text
+            sizeInBytes: 26
+            encoding: ISO-8859-1
+            mimeTypeGroup: null
+        }
+        aspectNames: null
+        properties: null
+        allowableOperations: null
+        path: null
+        search: class SearchEntry {
+            score: 1.0
+            highlight: null
+        }
+        archivedByUser: null
+        archivedAt: null
+        versionLabel: null
+        versionComment: null
+    }
+}]
 ```
 
-For a complete list of events with sample code see the [events extension point]({% link content-services/latest/develop/oop-ext-points/events.md %}) 
-documentation. For a complete list of Event Filters available in the SDK see this [section](#eventfilter).
-
-For information on how to implement a custom event filter see this [section](#customeventfilters).
-
-For more information about how to extract all the properties from the message payload see [`NodeResource` info](#noderesourceobj).
+This sample has shown us that it's is easy to interact with the Alfresco Repository from a Java client with the help 
+of SDK 5 Java ReST API services.
+ 
+For more information see the [ReST API Java wrapper extension point]({% link content-services/latest/develop/oop-ext-points/rest-api-java-wrapper.md %}) 
+documentation. 
 
 ## Debugging an extension project
 Debugging an extension project is most likely going to be something you will have to do to see what's going on. This is
