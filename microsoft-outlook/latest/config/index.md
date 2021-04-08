@@ -6,12 +6,12 @@ Configure Outlook settings in Alfresco Share using the Share Admin Tools menu, i
 
 In Alfresco Share, as an administrator, click **Admin Tools** on the Alfresco toolbar. In the left **Tools** panel, scroll down and under **Outlook Integration** there are the following options for configuration:
 
-* *Metadata Settings*: custom metadata and list view settings
-* *Search Settings*: custom simple and advanced search settings
-* *Integration Settings*: server and client setup, upload restrictions and email settings
-* *Access Tokens*: view and remove active users
-* *Licenses*: view and register server and client licenses
-* *System Info*: view version, license, server and installed module information
+* *Metadata Settings* - custom metadata and list view settings
+* *Search Settings* - custom simple and advanced search settings
+* *Integration Settings* - server and client setup, upload restrictions and email settings
+* *Access Tokens* - view and remove active users
+* *Licenses* - view and register server and client licenses
+* *System Info* - view version, license, server and installed module information
 
 The URL is:
 
@@ -23,14 +23,15 @@ where `localhost:8080` is your Alfresco server and port number.
 
 On the Microsoft Outlook toolbar, there is an Alfresco Client tab, with the following entries:
 
-![Alfresco Outlook Client ribbon in Outlook]({% link microsoft-outlook/images/ribbon_v2.png %})
+![Alfresco Outlook Client ribbon in Outlook]({% link microsoft-outlook/images/2-8-ribbon-top.png %}){:width="600px"}
 
-* *Configure*: client configuration and license
-* *Language*: client display language
-* *Show Sidebar*: show the Alfresco repository window
-* *Message Details*: displays details of a selected archived email
-* *Help*: Link to Alfresco Outlook Client documentation
-* *Info*: version and copyright information
+* *Configure* - client configuration and license
+* *Language* - client display language
+* *Show Sidebar* - show the Alfresco repository window
+* *Send and Archive* - automatically archive email after sending
+* *Message Details* - displays details of a selected archived email
+* *Help* - link to Alfresco Outlook Client documentation
+* *Info* - version and copyright information
 
 >**Note:** Not all settings can be configured using the Alfresco Client toolbar.
 
@@ -807,7 +808,7 @@ Configure Microsoft Outlook to find and connect to the correct Alfresco server.
 
 6. Click **Check connection** to test the connection to the Alfresco server.
 
-    >**Note:** If your IT team has configured SAML authentication without single-sign on (SSO), then you may notice the following behaviour when you change the Outlook configuration. When you select **Check connection**, you'll see an authentication window, where you'll need to enter your Alfresco user name and password. If you choose to close the window without entering your login details, the Outlook Integration considers this to be a failed authentication attempt and will try again. When the authentication window is displayed for a 2nd time and you close the window, there'll be no further authentication attempts. The Alfresco Outlook Client displays a message to indicate that SAML authentication failed. Click **OK** to dismiss the message.
+    >**Note:** If your IT team has configured SAML authentication without single-sign on (SSO), then you may notice the following behavior when you change the Outlook configuration. When you select **Check connection**, you'll see an authentication window, where you'll need to enter your Alfresco user name and password. If you choose to close the window without entering your login details, the Outlook Integration considers this to be a failed authentication attempt and will try again. When the authentication window is displayed for a 2nd time and you close the window, there'll be no further authentication attempts. The Alfresco Outlook Client displays a message to indicate that SAML authentication failed. Click **OK** to dismiss the message.
 
 ### Configure email archive settings
 
@@ -861,7 +862,7 @@ You can decide whether to use a default folder for every email sent with the **S
 
 1. Select **Configure > Email Archiving** from the **Alfresco Client** tab in Microsoft Outlook.
 
-2. Select **Always use default folder**, choose a folder in the **Folder selection** window, and click **OK** to save your default folder selection.
+2. Select **Always use default folder**, choose a folder in the **Folder selection** window, and click **OK** to save your selection.
 
 3. Select **Open default folder** to open the folder in a new browser window, for example, if you wish to change your selection.
 
