@@ -704,19 +704,19 @@ $ java -jar target/sdk5-demo-0.0.1-SNAPSHOT.jar
 2021-04-07 14:15:14.471  INFO 52906 --- [           main] o.a.t.sdk5demo.Sdk5DemoApplication       : Started Sdk5DemoApplication in 1.697 seconds (JVM running for 2.257)
 ```
 
-We are now ready to add the specifics depending on what type of project we are going to develop:
-
-* SDK 5 Event handler project using [pure Java](#purejavaeventhandlers)
-* SDK 5 Event handler project using [Spring Integration](#springintegrationhandlers) 
-* SDK 5 [Java ReST API project](#restapijavawrapperproject)
-* SDK 5 project using both event handling and Java ReST API
-
 During development it's useful to be able to build and run the extension in one go (so you don't forget to build...). 
 This can be done using the `spring-boot-maven-plugin` as follows:
 
 ```bash
 $ mvn spring-boot:run -Dlicense.skip=true
 ```
+
+We are now ready to add the specifics depending on what type of project we are going to develop:
+
+* SDK 5 Event handler project using [pure Java](#purejavaeventhandlers)
+* SDK 5 Event handler project using [Spring Integration](#springintegrationhandlers) 
+* SDK 5 [Java ReST API project](#restapijavawrapperproject)
+* SDK 5 project using both [event handling and Java ReST API](#eventandrestproject) 
 
 ### Pure Java event handlers {#purejavaeventhandlers}
 Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).
@@ -1689,6 +1689,124 @@ of SDK 5 Java ReST API services.
  
 For more information see the [ReST API Java wrapper extension point]({% link content-services/latest/develop/oop-ext-points/rest-api-java-wrapper.md %}) 
 documentation. 
+
+## Creating an extension project for both event handling and Java ReST API {#eventandrestproject}
+Make sure you have completed [prerequisites](#prereq) and then create a [starter project](#createstarterproj) with 
+configuration properties set for both event handling and ReST API. The `application.properties` file should look something 
+like this:
+
+```text
+# Where is Alfresco Active MQ JMS Broker running?
+spring.activemq.brokerUrl=tcp://localhost:61616
+# This property is required if you want Spring Boot to auto-define the ActiveMQConnectionFactory,
+# otherwise you can define that bean in Spring config
+spring.jms.cache.enabled=false
+
+# HTTP Basic Authentication that will be used by the API
+content.service.security.basicAuth.username=admin
+content.service.security.basicAuth.password=admin
+# Location of the server and API endpoints
+content.service.url=http://localhost:8080
+content.service.path=/alfresco/api/-default-/public/alfresco/versions/1
+search.service.path=/alfresco/api/-default-/public/search/versions/1
+``` 
+>**Note**. the configuration will look slightly different if you want to use the Spring Integration for event handling.
+
+Add the following dependencies in the Maven project file (i.e. `pom.xml`):
+
+```xml
+<dependencies>
+    <!-- Alfresco Java SDK 5 Java Event Handler API Spring Boot Starter -->
+    <dependency>
+        <groupId>org.alfresco</groupId>
+        <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
+        <version>5.0.0</version>
+    </dependency>
+    
+    <!-- Alfresco Java SDK 5 Java ReST API wrapper Spring Boot Starter -->
+    <dependency>
+      <groupId>org.alfresco</groupId>
+      <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
+      <version>5.0.0</version>
+    </dependency>
+</dependencies>
+```
+
+Remove the default Spring Boot starter dependency (i.e. `<artifactId>spring-boot-starter</artifactId>`).
+
+Test it:
+
+```bash
+$ mvn spring-boot:run -Dlicense.skip=true
+...
+2021-04-08 15:21:17.392  INFO 63958 --- [           main] o.a.t.sdk5demo.Sdk5DemoApplication       : Started Sdk5DemoApplication in 2.531 seconds (JVM running for 3.0)
+```
+
+We can now add event handling and ReST API code. Here is an example of an event handler that is triggered when a file 
+is uploaded. It then calls back to the repository via the ReST API to get the file content:
+
+```java
+package org.alfresco.tutorial.sdk5demo;
+
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.event.sdk.handling.filter.*;
+import org.alfresco.event.sdk.handling.handler.OnNodeCreatedEventHandler;
+import org.alfresco.event.sdk.model.v1.model.DataAttributes;
+import org.alfresco.event.sdk.model.v1.model.NodeResource;
+import org.alfresco.event.sdk.model.v1.model.RepoEvent;
+import org.alfresco.event.sdk.model.v1.model.Resource;
+import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+
+/**
+ * Sample event handler to demonstrate reacting to a document/file being uploaded to the repository.
+ * It then uses the Java ReST API to call back for the file content from the repository.
+ */
+@Component
+public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContentUploadedEventHandler.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void handleEvent(final RepoEvent<DataAttributes<Resource>> repoEvent) {
+        NodeResource nodeResource = (NodeResource) repoEvent.getData().getResource();
+        LOGGER.info("A file was uploaded to the repository: {}, {}, {}", nodeResource.getId(), nodeResource.getNodeType(),
+                nodeResource.getName());
+        try {
+            InputStream fileInputStream = nodesApi.getNodeContent(
+                    nodeResource.getId(), true, null, null)
+                    .getBody()
+                    .getInputStream();
+
+            String result = IOUtils.toString(fileInputStream, StandardCharsets.UTF_8.toString());
+            LOGGER.info("A file '{}' was uploaded with the following content: {}", nodeResource.getName(), result);
+
+        } catch (Exception ex) {
+            LOGGER.error("An error occurred trying to download the content of the file", ex);
+        }
+    }
+
+    public EventFilter getEventFilter() {
+        return IsFileFilter.get();
+    }
+}
+```
+
+Running this and uploading a text file to the Repository gives logging as follows:
+
+```bash
+$ mvn spring-boot:run -Dlicense.skip=true
+...
+2021-04-08 15:36:46.441  INFO 64121 --- [erContainer#0-1] o.a.t.s.ContentUploadedEventHandler      : A file was uploaded to the repository: 9e99d999-ef8f-4f6f-9582-ac5f52c2bf8d, cm:content, some.txt
+2021-04-08 15:36:47.134  INFO 64121 --- [erContainer#0-1] o.a.t.s.ContentUploadedEventHandler      : A file 'some.txt' was uploaded with the following content: This is a file with some text
+```
 
 ## Debugging an extension project
 Debugging an extension project is most likely going to be something you will have to do to see what's going on. This is
