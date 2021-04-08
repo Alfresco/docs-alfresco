@@ -17,36 +17,15 @@ You can read the material in this Developer guide sequentially, or the following
 |You would like to get an overview of the architecture of Alfresco Content Services from the developer's perspective|[Architectural overview](dev-arch-overview.md)|
 |You want to know what development kit to use when building extensions for Alfresco|[Alfresco SDK](sdk-intro.md)|
 |You would like to know how to package your extensions for distribution|[Extension packaging](dev-extensions-packaging-techniques.md)|
-|You want to write client applications for Alfresco Content Services using a ReST API|-   [ReST APIs Intro](../pra/1/topics/pra-welcome.md)
--   [Alfresco ReST API version 1.0 User Guide](dev-api-by-language-alf-rest.md)
-
-|
-|You are going to build a Platform \(Repository\) Extension.|-   [Platform / Repo Extension Intro](dev-platform-extensions.md)
--   [Platform / Repo Extension Points](dev-platform-extension-points.md)
-
-|
+|You want to write client applications for Alfresco Content Services using a ReST API|{::nomarkdown}<ul><li>[ReST APIs Intro](../pra/1/topics/pra-welcome.md)</li><li>[Alfresco ReST API version 1.0 User Guide](dev-api-by-language-alf-rest.md)</li></ul>{:/} |
+|You are going to build a Platform \(Repository\) Extension.|{::nomarkdown}<ul><li>[Platform / Repo Extension Intro](dev-platform-extensions.md)</li><li>[Platform / Repo Extension Points](dev-platform-extension-points.md)</li></ul>{:/} |
 |You are going to build a Platform \(Repository\) Integration.|[Developing integrations](dev-platform-integrations.md)|
-|You want to write small extensions for Alfresco Content Services in JavaScript and FreeMarker|-   [Repo Web Script Intro](ws-overview.md)
--   [Repo Web Script Extension Point](../references/dev-extension-points-webscripts.md)
--   [Repository JavaScript API](API-JS-intro.md)
-
-|
-|You want to create a custom ReST API for Alfresco Content Services, using Java and/or JavaScript for logic and FreeMarker to produce responses in JSON and/or XML|-   [Repo Web Script Intro](ws-overview.md)
--   [Repo Web Script Extension Point](../references/dev-extension-points-webscripts.md)
--   [Repository JavaScript API](API-JS-intro.md)
--   [Public Java API Services](dev-services.md)
-
-|
+|You want to write small extensions for Alfresco Content Services in JavaScript and FreeMarker|{::nomarkdown}<ul><li>[Repo Web Script Intro](ws-overview.md)</li><li>[Repo Web Script Extension Point](../references/dev-extension-points-webscripts.md)</li><li>[Repository JavaScript API](API-JS-intro.md)</li></ul>{:/} |
+|You want to create a custom ReST API for Alfresco Content Services, using Java and/or JavaScript for logic and FreeMarker to produce responses in JSON and/or XML|{::nomarkdown}<ul><li>[Repo Web Script Intro](ws-overview.md)</li><li>[Repo Web Script Extension Point](../references/dev-extension-points-webscripts.md)</li><li>[Repository JavaScript API](API-JS-intro.md)</li><li>[Public Java API Services](dev-services.md)</li></ul>{:/} |
 |You would like to know what APIs are available for Alfresco Content Services, and when you should use them|[Overview of Alfresco APIs](dev-api-intro.md)|
-|You want to write new services in Java, and need to check what APIs are supported|-   [Alfresco Public Java API Intro](java-public-api-list.md)
--   [Public Java API Services](dev-services.md)
-
-|
+|You want to write new services in Java, and need to check what APIs are supported|{::nomarkdown}<ul><li>[Alfresco Public Java API Intro](java-public-api-list.md)</li><li>[Public Java API Services](dev-services.md)</li></ul>{:/} |
 |You want to configure and customize Alfresco Share|[Share Extensions](dev-extensions-share.md)|
-|You would like to develop extensions to Alfresco Share UI|-   [Developing Share Extensions](dev-extensions-share.md)
--   [Share Extension Points](dev-extensions-share-extension-points-introduction.md)
-
-|
+|You would like to develop extensions to Alfresco Share UI|{::nomarkdown}<ul><li>[Developing Share Extensions](dev-extensions-share.md)</li><li>[Share Extension Points](dev-extensions-share-extension-points-introduction.md)</li></ul>{:/} |
 |You would like to know about the new UI framework Aikau|[Aikau](aikau-intro.md)|
 |You want to develop applications for iOS.|[Alfresco Mobile SDK for iOS](http://docs.alfresco.com/mobile_sdk/ios/concepts/mobile-sdk-ios-intro.html)|
 |You want to develop applications for Android.|[Alfresco Mobile SDK for Android](http://docs.alfresco.com/mobile_sdk/android/concepts/mobile-sdk-android-intro.html)|
