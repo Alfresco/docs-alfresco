@@ -13,7 +13,7 @@ The following sections walk through how to use the Java ReST API wrapper service
 
 ## List contents of a folder
 To list contents of a folder in the repository use the `listNodeChildren` method of the 
-[`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"}, 
+[`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listNodeChildren){:target="_blank"}, 
 which is one of the main APIs used when you want to manipulate folders and files. 
 
 ```java
@@ -100,7 +100,7 @@ TODO
 
 ## Get folder/file metadata
 To get metadata for a node, such as a file or folder, in the repository use the `getNode` method of the 
-[`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"}, 
+[`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#getNode){:target="_blank"}, 
 which is one of the main APIs used when you want to manipulate folders and files. 
 
 ```java
@@ -162,7 +162,7 @@ public class GetNodeMetadataCmd {
 
 ## Create a folder
 To create a folder in the repository use the `createNode` method of the 
-[`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"}, 
+[`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"}, 
 which is one of the main APIs used when you want to manipulate folders and files. 
 
 ```java
@@ -256,10 +256,152 @@ public class CreateFolder {
 ```
 
 ## Upload a file
-TODO
+To upload a file to the repository use first the [`NodesApi.createNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"} 
+method, which will create the metadata for the file, and then the [`NodesApi.updateNodeContent`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNodeContent){:target="_blank"} 
+method that will set the content for the file. 
 
-To upload a file to the repository use the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"}, 
-which is one of the main APIs use when you want to manipulate folders and files. 
+At the moment it's necessary to make two calls to upload a file, but enhancements are being developed in a new version 
+of SDK 5 to provide a one method approach as this is [supported in the ReST API]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfile). 
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.Node;
+import org.alfresco.core.model.NodeBodyCreate;
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Component
+public class CreateFile {
+    static final Logger LOGGER = LoggerFactory.getLogger(CreateFile.class);
+
+    // Set generic file content
+    private String contentType = "cm:content";
+    // If true, then  a name clash will cause an attempt to auto rename by
+    // finding a unique name using an integer suffix.
+    private Boolean autoRename = true;
+    // If true, then created node will be version '1.0 MAJOR'. If false, then created node will be version '0.1 MINOR'.
+    private Boolean majorVersion = true;
+    // Should versioning be enabled at all?
+    private Boolean versioningEnabled = true;
+    // Returns additional information about the node.
+    // The following optional fields can be requested:
+    // * allowableOperations
+    // * aspectNames
+    // * isLink
+    // * isLocked
+    // * path
+    // * properties
+    private List<String> include = null;
+    // A list of field names.
+    // You can use this parameter to restrict the fields returned within a response if, for example,
+    // you want to save on overall bandwidth. The list applies to a returned individual entity or entries
+    // within a collection. If the API method also supports the **include** parameter, then the fields specified in
+    // the **include** parameter are returned in addition to those specified in the **fields** parameter.
+    private List<String> fields = null;
+    // Add a version comment which will appear in version history. Setting this parameter also enables versioning of
+    // this node, if it is not already versioned.
+    private String updateComment = null;
+    // Optional new name. This should include the file extension. The name must not contain spaces or the following
+    // special characters: * " < > \ / ? : and |. The character `.` must not be used at the end of the name.
+    private String updatedName = null;
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute() throws IOException {
+        // Create a text file under the /Company Home/Guest Home folder
+        Node newTextFile = createTextFile("-root-", "somestuff.txt", "TextfileTitle",
+                "TextfileDesc", "/Guest Home", "Some text for the file");
+
+        // Upload a file from disk to the /Company Home/Guest Home folder, from the same directory we are running the app
+        Node newFile = uploadFile("-root-", "somepicture.png", "PicturefileTitle",
+                "PicturefileDesc", "/Guest Home", "somepicture.png");
+    }
+
+    /**
+     * Upload a file from disk
+     */
+    private Node uploadFile(String parentFolderId, String fileName, String title, String description,
+                            String relativeFolderPath, String filePath) {
+        Node fileNode = createFileMetadata(parentFolderId, fileName, title, description, relativeFolderPath);
+
+        // Get the file bytes
+        File someFile = new File(filePath);
+        byte[] fileData = null;
+        try {
+            fileData = FileUtils.readFileToByteArray(someFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Add the file node content
+        Node updatedFileNode = nodesApi.updateNodeContent(fileNode.getId(),
+                fileData, majorVersion, updateComment, updatedName, include, fields).getBody().getEntry();
+
+        LOGGER.info("Created file with content: {}", updatedFileNode.toString());
+
+        return updatedFileNode;
+    }
+
+    /**
+     * Create a text file
+     */
+    private Node createTextFile(String parentFolderId, String fileName, String title, String description,
+                                String relativeFolderPath, String textContent) {
+        Node fileNode = createFileMetadata(parentFolderId, fileName, title, description, relativeFolderPath);
+
+        // Add the file node content
+        Node updatedFileNode = nodesApi.updateNodeContent(fileNode.getId(),
+                textContent.getBytes(), majorVersion, updateComment, updatedName, include, fields).getBody().getEntry();
+
+        LOGGER.info("Created file with content: {}", updatedFileNode.toString());
+
+        return updatedFileNode;
+    }
+
+    /**
+     * Create metadata for a file node
+     *
+     * @param parentFolderId the parent folder node ID where the file should be stored
+     * @param fileName the name for the new file
+     * @param title the title property value for the new file
+     * @param description the description property value for the new file
+     * @param relativeFolderPath path relative to /Company Home
+     * @return a Node object with file metadata and the Node ID
+     */
+    private Node createFileMetadata(String parentFolderId, String fileName, String title, String description,
+                                    String relativeFolderPath) {
+        List<String> fileAspects = new ArrayList<String>();
+        fileAspects.add("cm:titled");
+        Map<String, String> fileProps = new HashMap<>();
+        fileProps.put("cm:title", title);
+        fileProps.put("cm:description", description);
+        
+        NodeBodyCreate nodeBodyCreate = new NodeBodyCreate();
+        nodeBodyCreate.setName(fileName);
+        nodeBodyCreate.setNodeType(contentType);
+        nodeBodyCreate.setAspectNames(fileAspects);
+        nodeBodyCreate.setProperties(fileProps);
+        nodeBodyCreate.setRelativePath(relativeFolderPath);
+
+        // Create the file node metadata
+        Node fileNode = nodesApi.createNode(parentFolderId, nodeBodyCreate, autoRename, majorVersion, versioningEnabled,
+                include, fields).getBody().getEntry();
+
+        return fileNode;
+    }
+}
+```
 
 ## Upload a file with custom type
 TODO
@@ -328,7 +470,56 @@ TODO
 The following sections walk through how to use the Java ReST API wrapper services when managing Alfresco Share sites.
 
 ## Create a site
-TODO
+To create an Alfresco Share site in the repository use the `createSite` method of the 
+[`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/SitesApi.md#createSite){:target="_blank"}, 
+which is the main API used to create and manage sites.
+
+```java
+import org.alfresco.core.handler.SitesApi;
+import org.alfresco.core.model.Site;
+import org.alfresco.core.model.SiteBodyCreate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class CreateSite {
+    static final Logger LOGGER = LoggerFactory.getLogger(CreateSite.class);
+
+    // A list of field names.
+    // You can use this parameter to restrict the fields returned within a response if, for example,
+    // you want to save on overall bandwidth. The list applies to a returned individual entity or entries
+    // within a collection. If the API method also supports the **include** parameter, then the fields specified in
+    // the **include** parameter are returned in addition to those specified in the **fields** parameter.
+    private List<String> fields = null;
+
+    // Flag to indicate whether the Share-specific (surf) configuration files for the site should not be created
+    // Default = false
+    Boolean skipConfiguration = null;
+    // Flag to indicate whether the site should not be added to the user's site favorites
+    // Default = false
+    Boolean skipAddToFavorites = null;
+
+    @Autowired
+    SitesApi sitesApi;
+
+    public void execute(String siteId) throws IOException {
+        SiteBodyCreate siteBodyCreate = new SiteBodyCreate();
+        siteBodyCreate.setId(siteId);
+        siteBodyCreate.setTitle("title-" + siteId);
+        siteBodyCreate.setDescription("description-" + siteId);
+        siteBodyCreate.setVisibility(SiteBodyCreate.VisibilityEnum.PUBLIC);
+
+        Site site = sitesApi.createSite(siteBodyCreate, skipConfiguration, skipAddToFavorites, fields).getBody().getEntry();
+
+        LOGGER.info("Created site: {}", site);
+    }
+}
+``` 
 
 ## Update a site
 TODO
@@ -420,7 +611,7 @@ The following sections walk through how to use the Java ReST API wrapper service
 their logs.
 
 ## Finding folders and files by a term
-To find a folder or a file node in the repository based on a term use the [`QueriesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/QueriesApi.java){:target="_blank"}, 
+To find a folder or a file node in the repository based on a term use the `findNodes` method of the [`QueriesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/QueriesApi.md#findNodes){:target="_blank"}, 
 which is a search API you can use when doing simple search on a term. For more complex search, such as Alfresco Full Text Search (AFTS), 
 use the [Search API](#searchingbyquery);
 
