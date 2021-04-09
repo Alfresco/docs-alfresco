@@ -75,7 +75,7 @@ Follow the linked pages in the Content Services documentation, starting from [In
 * Messaging broker: see [Configure ActiveMQ]({% link content-services/latest/config/activemq.md %})
 * ImageMagick: see [Install ImageMagick]({% link content-services/latest/install/zip/additions.md %}#install-imagemagick)
 * LibreOffice: see [Install LibreOffice]({% link content-services/latest/install/zip/additions.md %}#install-libreoffice)
-* alfresco-pdf-renderer: see [Install alfresco-pdf renderer]({% link content-services/latest/install/zip/additions.md %}#install-alfresco-pdf-renderer)
+* alfresco-pdf-renderer: Download the [Alfresco PDF Renderer zip file](https://artifacts.alfresco.com/nexus/content/groups/public/org/alfresco/alfresco-pdf-renderer/1.1/){:target="_blank"}.
 
 See [Install with zip]({% link transform-service/latest/install/index.md %}#install-with-zip) for more details.
 
