@@ -12,17 +12,158 @@ To set up a project with the Java ReST API library follow these [instructions]({
 The following sections walk through how to use the Java ReST API wrapper services when managing folders and files.
 
 ## List contents of a folder
-TODO
+To list contents of a folder in the repository use the `listNodeChildren` method of the 
+[`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"}, 
+which is one of the main APIs used when you want to manipulate folders and files. 
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class ListFolderContent {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListFolderContent.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute() throws IOException {
+        NodeChildAssociationPagingList nodes = listFolderContent("-root-", null);
+        NodeChildAssociationPagingList nodes2 = listFolderContent("-root-", "/Data Dictionary");
+    }
+    
+    /**
+     * List contents (i.e. folders and files) of a folder.
+     *
+     * @param rootNodeId         the id of the folder node that is the root. If relativeFolderPath is null, then content in this folder will be listed. Besides node ID the aliases -my-, -root- and -shared- are also supported.
+     * @param relativeFolderPath path relative rootNodeId, if this is not null, then the content of this folder will be listed
+     * @return a list of child node objects contained in the folder, or null if not found
+     */
+    private NodeChildAssociationPagingList listFolderContent(String rootNodeId, String relativeFolderPath) {
+        Integer skipCount = 0;            // The number of entities that exist in the collection before those included in this list.  If not supplied then the default value is 0.
+        Integer maxItems = 100;           // The maximum number of items to return in the list.  If not supplied then the default value is 100.
+
+        // Returns additional information about the node.
+        // The following optional fields can be requested:
+        // * allowableOperations
+        // * aspectNames
+        // * isLink
+        // * isLocked
+        // * path
+        // * properties
+        List<String> include = null;
+        // A string to control the order of the entities returned in a list.
+        // You can use the **orderBy** parameter to sort the list by one or more fields.
+        // Each field has a default sort order, which is normally ascending order.
+        // Read the API method implementation notes above to check if any fields used in this
+        // method have a descending default search order.
+        // To sort the entities in a specific order, you can use the **ASC** and **DESC** keywords for any field.
+        List<String> orderBy = null;
+        // A list of field names.
+        // You can use this parameter to restrict the fields returned within a response if, for example,
+        // you want to save on overall bandwidth. The list applies to a returned individual entity or entries
+        // within a collection. If the API method also supports the **include** parameter, then the fields specified in
+        // the **include** parameter are returned in addition to those specified in the **fields** parameter.
+        List<String> fields = null;
+        // Optionally filter the node list.
+        // Here are some examples:
+        // where=(isFolder=true)
+        // where=(isFile=true)
+        // where=(nodeType='my:specialNodeType')
+        // where=(nodeType='my:specialNodeType INCLUDESUBTYPES')
+        String where = null;
+        // Also include `source` in addition to `entries` with folder information on the parent node –
+        // either the specified parent nodeId, or as resolved by relativePath.
+        Boolean includeSource = false;
+
+        LOGGER.info("Listing folder {}{}", rootNodeId, relativeFolderPath);
+        NodeChildAssociationPagingList result = nodesApi.listNodeChildren(rootNodeId, skipCount, maxItems, orderBy, where, include,
+                relativeFolderPath, includeSource, fields).getBody().getList();
+        for (NodeChildAssociationEntry childNodeAssoc: result.getEntries()) {
+            LOGGER.info("Found node [name=" + childNodeAssoc.getEntry().getName() + "]");
+        }
+
+        return result;
+    }
+}
+```
 
 ## Filter contents of a folder
 TODO
 
 ## Get folder/file metadata
-TODO
+To get metadata for a node, such as a file or folder, in the repository use the `getNode` method of the 
+[`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"}, 
+which is one of the main APIs used when you want to manipulate folders and files. 
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.NodeEntry;
+import org.alfresco.core.model.Node;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class GetNodeMetadataCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(GetNodeMetadataCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute() throws IOException {
+        Node node = getNode("-root-", null);
+        Node node2 = getNode("-root-", "/Data Dictionary");
+    }
+
+    /**
+     * Get a node (file/folder).
+     *
+     * @param nodeId             the id of the node that we want to fetch metadata for. If relativeFolderPath is specified, then metadata for this node will be returned. Besides node ID the aliases -my-, -root- and -shared- are also supported.
+     * @param relativeFolderPath A path relative to the nodeId, if this is not null, then metadata is returned on the node resolved by this path
+     * @return Node object if exist, or null if does not exist
+     */
+    private Node getNode(String nodeId,
+                         String relativeFolderPath) {
+
+        // Returns additional information about the node. The following optional fields can be requested:
+        // * allowableOperations
+        // * association
+        // * isLink
+        // * isLocked
+        // * path
+        // * permissions
+        List<String> include = null;
+        // A list of field names.
+        // You can use this parameter to restrict the fields returned within a response if, for example,
+        // you want to save on overall bandwidth. The list applies to a returned individual entity or
+        // entries within a collection. If the API method also supports the **include** parameter,
+        // then the fields specified in the **include** parameter are returned in addition to
+        // those specified in the **fields** parameter.
+        List<String> fields = null;
+
+        NodeEntry result = nodesApi.getNode(nodeId, include, relativeFolderPath, fields).getBody();
+        LOGGER.info("Got node {}", result.getEntry());
+        return result.getEntry();
+    }
+}
+```
 
 ## Create a folder
-To create a folder in the repository use the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"}, 
-which is one of the main APIs use when you want to manipulate folders and files. 
+To create a folder in the repository use the `createNode` method of the 
+[`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/src/main/java/org/alfresco/core/handler/NodesApi.java){:target="_blank"}, 
+which is one of the main APIs used when you want to manipulate folders and files. 
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -297,8 +438,8 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
-public class FindNodeCmd {
-    static final Logger LOGGER = LoggerFactory.getLogger(FindNodeCmd.class);
+public class FindNode {
+    static final Logger LOGGER = LoggerFactory.getLogger(FindNode.class);
 
     @Autowired
     QueriesApi queriesApi;
