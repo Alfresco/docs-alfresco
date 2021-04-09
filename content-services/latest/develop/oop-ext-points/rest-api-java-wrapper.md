@@ -289,7 +289,7 @@ public class CreateFile {
     // If true, then  a name clash will cause an attempt to auto rename by
     // finding a unique name using an integer suffix.
     private Boolean autoRename = true;
-    // If true, then created node will be version '1.0 MAJOR'. If false, then created node will be version '0.1 MINOR'.
+    // If true, then created node will be version 1.0 MAJOR. If false, then created node will be version 0.1 MINOR.
     private Boolean majorVersion = true;
     // Should versioning be enabled at all?
     private Boolean versioningEnabled = true;
@@ -698,7 +698,59 @@ TODO
 TODO
 
 ## Finding content by a search query {#searchingbyquery}
-TODO
+To find content based on more complex search queries, such as using Alfresco Full Text Search (AFTS), use the 
+[`SearchApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-rest-api/docs/SearchApi.md#search){:target="_blank"},;
+
+```java
+import org.alfresco.search.handler.SearchApi;
+import org.alfresco.search.model.RequestQuery;
+import org.alfresco.search.model.ResultSetPaging;
+import org.alfresco.search.model.ResultSetRowEntry;
+import org.alfresco.search.model.SearchRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class SearchCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(SearchCmd.class);
+
+    @Autowired
+    SearchApi searchApi;
+
+    /**
+     * Search in a site
+     *
+     * @param siteId the site id
+     * @param term the term to search for in the site
+     */
+    public void execute(String siteId, String term) throws IOException {
+        List<ResultSetRowEntry> result = search("(SITE:\"" + siteId + "\" AND TEXT:\"" + term + "\" )");
+
+        LOGGER.info("Search result: {}", result);
+    }
+
+    /**
+     * Search the repository for content using an Alfresco Full Text Search (AFTS) query
+     *
+     * @param aftsQuery the query statement
+     * @return a list of search results
+     */
+    List<ResultSetRowEntry> search(String aftsQuery) {
+        ResponseEntity<ResultSetPaging> result = searchApi.search(new SearchRequest()
+                .query(new RequestQuery()
+                        .language(RequestQuery.LanguageEnum.AFTS)
+                        .query(aftsQuery)));
+
+        return result.getBody().getList().getEntries();
+    }
+}
+```
 
 
 
