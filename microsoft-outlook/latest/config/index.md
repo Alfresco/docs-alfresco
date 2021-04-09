@@ -676,19 +676,27 @@ These settings define global controls across your enterprise and are applied imm
 
     >**Note:** If an email is dropped into a folder, where the same email document already exists, the version detection feature will recognize it, and the **Versioning** dialog is displayed. See [Managing file versions in Outlook]({% link microsoft-outlook/latest/using/index.md %}#managing-file-versions-in-outlook) for more details.
 
-5. Specify a number in **Page size** to limit the number of files and folders visible at a time in the Explore view of the Alfresco sidebar in Outlook.
+5. If you have an Alfresco Application Development Framework (ADF) application installed, such as the Digital Workspace, you can configure your Outlook clients to use links to it instead of Alfresco Share. For example, if you want to view the document details page, this configuration will open the relevant page in Digital Workspace instead of Share.
+
+    In **ADF App Base URL**, set the path to something like:
+
+    ```http
+    http://localhost:8081/digital-workspace
+    ```
+
+6. Specify a number in **Page size** to limit the number of files and folders visible at a time in the Explore view of the Alfresco sidebar in Outlook.
 
     >**Note:** Entering a value of 0 removes any limit on the number of files and folders displayed.
 
-6. Specify a number in **Maximum number of search results** to limit the number of results returned in the Alfresco sidebar in Outlook.
+7. Specify a number in **Maximum number of search results** to limit the number of results returned in the Alfresco sidebar in Outlook.
 
     >**Note:** Entering a value of 0 removes any limit.
 
-7. Check **Automatically convert emails (EML, MSG) uploaded using Share, CIFS, WebDAV, FTP, NFS** if you want every email (EML / MSG) which is uploaded from Share, CIFS, WebDAV, FTP or NFS (for example, uploading using an integrated WebDAV folder in the Windows tree structure) to be converted in exactly the same way, as if it were uploaded through Outlook.
+8. Check **Automatically convert emails (EML, MSG) uploaded using Share, CIFS, WebDAV, FTP, NFS** if you want every email (EML / MSG) which is uploaded from Share, CIFS, WebDAV, FTP or NFS (for example, uploading using an integrated WebDAV folder in the Windows tree structure) to be converted in exactly the same way, as if it were uploaded through Outlook.
 
     **Module version** displays the version of the Alfresco Outlook Client.
 
-8. Check **Auto configure all clients** if you want every connected client with an installed Alfresco Outlook Client to receive the configuration settings automatically.
+9. Check **Auto configure all clients** if you want every connected client with an installed Alfresco Outlook Client to receive the configuration settings automatically.
 
     Checking this box activates **Allow overwriting**.
 
@@ -696,17 +704,17 @@ These settings define global controls across your enterprise and are applied imm
 
     2. Paste the XML code that contains the configuration settings for the Alfresco Outlook Client into the **Configuration XML content** field, or load and edit the default configuration template by clicking **Load default configuration template**.
 
-9. Check **Enable attachment stripping** to upload attachments to the selected site in the Alfresco repository. In the email they are replaced with a link to the repository file.
+10. Check **Enable attachment stripping** to upload attachments to the selected site in the Alfresco repository. In the email they are replaced with a link to the repository file.
 
     If **Enable attachment stripping** is enabled, the **Target site** field becomes mandatory (in order that the files are stored in the designated repository).
 
     >**Note:** Automated attachment stripping isn't supported for meetings and appointments.
 
-10. Click **Select** next to the **Target site** field to specify the Alfresco site where you want to store attachments. Click the plus (+) sign next to your chosen site, and **OK** to add it.
+11. Click **Select** next to the **Target site** field to specify the Alfresco site where you want to store attachments. Click the plus (+) sign next to your chosen site, and **OK** to add it.
 
     Only one site can be specified in this field.
 
-11. Select one or both of the stripping rules:
+12. Select one or both of the stripping rules:
 
     Wildcard characters can't be used in these fields, and if selected, they can't be left blank.
 
@@ -714,9 +722,9 @@ These settings define global controls across your enterprise and are applied imm
 
     2. **Strip attachments when recipient list contains the following email address**: type the required email address.
 
-12. Specify a number in **Min size in KB**. This number controls the minimum size of attachment that is stripped; for example, to exclude company logos or very small attachments.
+13. Specify a number in **Min size in KB**. This number controls the minimum size of attachment that is stripped; for example, to exclude company logos or very small attachments.
 
-13. Click **Manage** to prevent stripping of media in the email signature.
+14. Click **Manage** to prevent stripping of media in the email signature.
 
     Enter a space delimited list of file extensions or files that you don't want stripped from the email, for example;
 
@@ -724,13 +732,13 @@ These settings define global controls across your enterprise and are applied imm
     test.docx *.txt *.xlsx
     ```
 
-14. Click **Enable custom labels for Email as Link action** to define properties that determine what text is shown when you select **Email as link** in Alfresco.
+15. Click **Enable custom labels for Email as Link action** to define properties that determine what text is shown when you select **Email as link** in Alfresco.
 
-15. Specify the Subject text that you would like to be displayed in the **Email as link in subject prefix** field.
+16. Specify the Subject text that you would like to be displayed in the **Email as link in subject prefix** field.
 
-16. Specify the Action text that you would like to identify in the **Email as link action text**; for example, **Click to view file {0}** displays the file name at the end of the label.
+17. Specify the Action text that you would like to identify in the **Email as link action text**; for example, **Click to view file {0}** displays the file name at the end of the label.
 
-17. Click **Enable upload restrictions** and **Manage** to specify content that can't be uploaded from the Outlook Client.
+18. Click **Enable upload restrictions** and **Manage** to specify content that can't be uploaded from the Outlook Client.
 
     Enter a space delimited list of file extensions or files that you don't want to be uploaded to Alfresco, for example;
 
@@ -740,7 +748,7 @@ These settings define global controls across your enterprise and are applied imm
 
     >**Note:** Only content that is uploaded in the Alfresco Outlook Client is restricted. If you upload content directly to Alfresco (through Share), it isn't restricted.
 
-18. Click **Apply** to save your settings.
+19. Click **Apply** to save your settings.
 
 ## Configure other settings
 
@@ -873,7 +881,7 @@ You can configure Outlook extended settings; for example, change the display lan
     * **PDF**: Use drag and drop to convert Office files to PDF format and attach them to email.
     * **Link to PDF**: Use drag and drop to convert Office files to PDF format and add to the email as an HTTP link.
 
-8. Use web URIs for: Controls the target application for calling a browser directly from Outlook.
+8. **Use web URIs for**: Controls the target application for calling a browser directly from Outlook.
 
     Options are:
 
@@ -1015,6 +1023,7 @@ Use this file to set up attributes and metadata settings.
     |`useFilenameOnRenderMsg`|Controls if Alfresco should use the `cm:name` or `subjectline` attribute to display in the list/tree view. This option applies to email documents only.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`true`: Alfresco uses the `cm:name` instead of the `subjectline` attribute to show the email document in the list/tree view.<br><br>`false`: Alfresco uses the `subjectline` attribute to show the email document in the list/tree view.|
     |`enableWFTab`|Controls the visibility of the Workflow tab in high resolution mode.<br><br>Added in Outlook Integration 2.6.|`true`: Workflow tab is visible.<br><br>`false`: Workflow tab is collapsed. This is the default setting.|
     |`enableWPF`|Enables/disables the use of a high resolution front-end for the Alfresco Outlook Client.<br><br>Added in Outlook Integration 2.6.|`true`: High resolution front-end is enabled. This is the default setting.<br><br>`false`: High resolution front-end is disabled.|
+    |`tokenAlterMode`|Used for QA and testing. Toggles the way a client is uniquely identified.|**Note:** Keep the default value: `false`.|
 
 6. Configure the attributes that you need for the `<logging>` element:
 
