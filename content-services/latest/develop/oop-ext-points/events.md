@@ -107,7 +107,7 @@ The following are the different types of events that can be subscribed to:
 |`org.alfresco.event.assoc.peer.Deleted`|Occurs when a peer association is deleted.|
 |`org.alfresco.event.permission.Updated`|Occurs when permissions for a node is updated|
 
-## Event descriptions
+## === Event descriptions ===
 Let's have a look at each event and see what we can use it for when implementing business logic for a 
 particular content domain.
 
@@ -116,7 +116,7 @@ called `alfresco.repo.event2`. See (search) default configuration in the [reposi
 So a Camel Route could for example be configured to pick up events from `amqpConnection:topic:alfresco.repo.event2`. The `amqpConnection` to the 
 [Active MQ](http://activemq.apache.org) endpoint in the Content Services server would then be configured to connect to `amqp://localhost:5672`.
 
-### Node created event
+## Node created event
 This event is fired whenever a node, such as a folder or file, is created in the repository. The full name of this 
 event is `org.alfresco.event.node.Created`. 
 
@@ -345,7 +345,7 @@ necessary ReST API calls.
 
 {% include tabs.html tableid="event-code-nodecreated" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-nodecreated opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-nodecreated opt3="Apache Camel" content3=apache-camel-nodecreated %}
 
-### Node updated event {#nodeupdatedevent}
+## Node updated event {#nodeupdatedevent}
 This event is fired whenever a node, such as a folder or file, is updated or moved in the repository. The full name of this 
 event is `org.alfresco.event.node.Updated`. The event is fired when the node's name, type, properties, aspects, or content 
 is updated.
@@ -617,7 +617,7 @@ necessary ReST API calls.
 
 {% include tabs.html tableid="event-code-nodeupdated" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-nodeupdated opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-nodeupdated opt3="Apache Camel" content3=apache-camel-nodeupdated %}
 
-### Node deleted event
+## Node deleted event
 This event is fired whenever a node, such as a folder or file, is deleted in the repository. The full name of this 
 event is `org.alfresco.event.node.Deleted`. 
 
@@ -853,7 +853,7 @@ necessary ReST API calls.
 
 {% include tabs.html tableid="event-code-nodedeleted" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-nodedeleted opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-nodedeleted opt3="Apache Camel" content3=apache-camel-nodedeleted %}
 
-### Parent-Child association created event {#parentchildassoccreatedevent}
+## Parent-Child association created event {#parentchildassoccreatedevent}
 This event is fired whenever a **secondary** parent -> child association is created, such as via the the 
 [POST nodes/{parentId}/secondary-children]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#createparentchildassoc4nodeexist)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.child.Created`. 
@@ -1038,7 +1038,7 @@ where you could make the necessary ReST API calls.
 
 {% include tabs.html tableid="event-code-parentchildassoccreated" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-parentchildassoccreated opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-parentchildassoccreated opt3="Apache Camel" content3=apache-camel-parentchildassoccreated %}
 
-### Parent-Child association deleted event
+## Parent-Child association deleted event
 This event is fired whenever a **secondary** parent -> child association is deleted, such as via the the 
 [DELETE nodes/{parentId}/secondary-children]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}##deletingassociations)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.child.Deleted`. 
@@ -1226,7 +1226,7 @@ where you could make the necessary ReST API calls.
 
 {% include tabs.html tableid="event-code-parentchildassocdeleted" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-parentchildassocdeleted opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-parentchildassocdeleted opt3="Apache Camel" content3=apache-camel-parentchildassocdeleted %}
 
-### Peer association created event {#peer2peerassoccreatedevent}
+## Peer association created event {#peer2peerassoccreatedevent}
 This event is fired whenever a peer association is created, such as via the the 
 [POST nodes/{sourceId}/targets]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#createparentchildassoc4nodeexist)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.peer.Created`. 
@@ -1406,7 +1406,7 @@ where you could make the necessary ReST API calls.
 
 {% include tabs.html tableid="event-code-peer2peerassoccreated" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-peer2peerassoccreated opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-peer2peerassoccreated opt3="Apache Camel" content3=apache-camel-peer2peerassoccreated %}
 
-### Peer association deleted event
+## Peer association deleted event
 This event is fired whenever a peer association is deleted, such as via the the 
 [DELETE nodes/{sourceId}/targets]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}##deletingassociations)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.peer.Deleted`. 
@@ -1588,7 +1588,7 @@ where you could make the necessary ReST API calls.
 
 {% include tabs.html tableid="event-code-peer2peerassocdeleted" opt1="SDK5 - Plain Java" content1=sdk5-plain-java-peer2peerassocdeleted opt2="SDK5 - Spring Integration" content2=sdk5-spring-integration-peer2peerassocdeleted opt3="Apache Camel" content3=apache-camel-peer2peerassocdeleted %}
 
-### Permission updated event (ENTERPRISE ONLY)
+## Permission updated event (ENTERPRISE ONLY)
 This event is fired whenever a permission is updated for a node, such as via the the **Manage Permissions** action in the 
 Share user interface. The full name of this event is `org.alfresco.event.permission.Updated`. 
 
