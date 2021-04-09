@@ -81,7 +81,7 @@ In the `<match>` element:
 
 1. Define the match type. This can be a folder, type or aspect.
 
-2. Define the match pattern. This can be the location of the folder (defined in xpath format), or it can be based on a defined model, type, or aspect.
+2. Define the match pattern. This can be the location of the folder (defined in xpath format), or it can be based on a defined model, type, or aspect. When using a folder location for the metadata, you can use the asterisk wildcard (`*`) - an example is shown in step **21**.
 
 See step **11** for the complete example of metadata settings.
 
@@ -518,11 +518,40 @@ See step **11** for the complete example of metadata settings.
     </match>
     ```
 
-21. Save your changes and restart Microsoft Outlook.
+21. To use wildcards, add the asterisk character in the folder path, for example:
+
+    ```xml
+    <match type="folder" pattern="/app:company_home/st:sites/*/cm:standard-metadata-folder" >
+        <target>
+            <property name="cm:title" />
+            <property name="cm:description">
+                <ui multiline="true"/>
+            </property>
+        </target>
+    </match>
+    ```
+
+    This rule allows you to assign metadata to every `standard-metadata-folder` located under any `st:sites`, and with any number of folders between `st:sites` and `cm:standard-metadata-folder`.
+
+    Here is another example to show how the asterisk can be used in multiple locations:
+
+    ```xml
+    <match type="folder" pattern="/app:company_home/st:sites/*/cm:testfolder/*/cm:metadatafolder1">
+    ```
+
+    You can also use the asterisk wildcard in this way:
+
+    ```xml
+    <match type="folder" pattern="/app:company_home/st:sites/cm:test*/cm:metadatafolder1">
+    ```
+
+    > **Note:** An exact match of the folder without a wildcard takes priority over the wildcard pattern.
+
+22. Save your changes and restart Microsoft Outlook.
 
     The template changes are applied.
 
-    You can download the custom content metadata, custom folder metadata, and list view settings locally by clicking Download configuration.
+    You can download the custom content metadata, custom folder metadata, and list view settings locally by clicking **Download configuration**.
 
 ### Configure search settings
 
@@ -742,7 +771,7 @@ These settings define global controls across your enterprise and are applied imm
 
 18. Click **Apply** to save your settings.
 
-## Configure other settings
+### Configure other settings
 
 You can view and edit other settings for the Outlook Integration using Share **Admin Tools**.
 These settings define global controls across your enterprise.
