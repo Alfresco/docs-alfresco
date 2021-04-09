@@ -11,10 +11,11 @@ It's a good idea to start your developer journey by reading through the
 get you up to speed on the different components of the platform, and how they work together. It will also introduce you to 
 the different types of extensions that can be implemented.
 
-There are two types of extensions that can be built, in-process extensions and out-of-process extensions. In-process 
-extensions consist of custom code that is run together with the product code in the same process. With out-of process 
-extensions the custom code runs in a separate process. Traditionally it has been all in-process extensions. But in 
-Content Services version 7.0 a shift has been made towards out-of-process extensions.
+There are two types of [extensions]({% link content-services/latest/develop/overview-ext-points.md %}) that can be built, 
+in-process extensions and out-of-process extensions. In-process extensions consist of custom code that is run together 
+with the product code in the same process. With out-of process extensions the custom code runs in a separate process. 
+Traditionally it has been all in-process extensions. But in Content Services version 7.0 a shift has been made towards 
+out-of-process extensions.
 
 There are a number of reasons why out-of-process extensions are the preferred way to go these days:
 
@@ -38,6 +39,8 @@ to stop the service for a couple of hours. With out-of-process extensions you ca
 separately and there is no need to stop the content server.  
 * **Product support**: Product support sometimes have problems figuring out where a problem lies, in the product code or 
 in the custom code. If they are separated it's much easier to see where the problem is and respond appropriately.
+* **Development speed**: When developing out-of-process extensions the code-change -> test roundtrip is faster as you don't 
+have to restart Content Services to see the impact of a code change. This is a major benefit to the developers.  
 
 You can see why developing out-of-process extensions is the way to go, for more info see [SDK 5]({% link content-services/latest/develop/oop-sdk.md %}). 
 However, there are certain customizations that still has to be done in-process, such as implementing a content model. 
@@ -49,16 +52,13 @@ By implementing a content model you will get familiar with the in-process extens
 [SDK 4]({% link content-services/latest/develop/sdk.md %}).
 
 When you have the custom content model in place, providing types and aspects related to the project domain (i.e. finance,
-healthcare, manufacturing etc), then you can move on with the logic and the user interface that will manipulate and present the 
-content based on the custom content model. 
+healthcare, manufacturing etc), then you can move on and implement the business logic using [SDK 5 event handling and ReST API libraries]({% link content-services/latest/develop/oop-sdk.md %}) 
+and the user interface with the Alfresco [Application Development Framework (ADF)](https://www.alfresco.com/abn/adf/docs/){:target="_blank"}. 
+ADF is based on Angular and it provides a number of components that can be aggregated to create the user interface 
+you need for your domain.
 
-TODO:
-
-Notes:
-
-For the User Interface bit use Alfresco Application Development Framework
-
-If workflow is needed use the Process Services product...
+If you need to implement business processes that will process the content in domain specific ways, then have a look at the 
+[Process Services product]({% link process-services/latest/index.md %}).
 
 
 
