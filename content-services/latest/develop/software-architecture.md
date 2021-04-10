@@ -23,9 +23,8 @@ based on the Alfresco [Application Development Framework (ADF)](https://www.alfr
 it's also deployed as a WAR. The user interfaces makes it easy for users to manage their sites, folders, documents, 
 users and so on. 
 
-Alfresco Share also provides several [extension points]({% link content-services/latest/develop/overview-ext-points.md %}) 
-that can be used to build customizations for that user interface, they are also deployed as AMP or JAR modules. If you 
-want to extend the Digital Workspace UI JSON files are used.
+Alfresco Share also provides several extension points that can be used to build customizations for that user interface, 
+they are also deployed as AMP or JAR modules. If you want to extend the Digital Workspace UI JSON files are used.
 
 The [search service]({% link search-services/latest/index.md %}) functionality is implemented on top of Apache **Solr** 
 and provides the indexing of all content, which enables powerful search functionality. Search is delivered as the `solr.war` 
@@ -81,12 +80,13 @@ is easy to download, install, and deploy.
 For more information about the internals of the Platform, and specifically the content repository, see the 
 [concepts](#repoconcepts) section next. After that read more about the extension points.
 
-Alfresco provides a number of extension points to allow you to customize Content Services. 
-These extensions points have various formats, but include:
+Content Services provides a number of [extension points]({% link content-services/latest/develop/overview-ext-points.md %})  
+that will allow you to customize the management of content specific to your domain. These extensions points can be divided 
+into platform extensions and user interface extensions:
 
 * [Platform extension points and detailed architecture](#platformarch)
 * [Share extension points and detailed architecture](#sharearchitecture)
-* [ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}).
+* [Digital workspace extension points]({% link digital-workspace/latest/extensions/index.md %})
 
 ## Content repository concepts {#repoconcepts}
 It is important as a developer to have a good understanding of the fundamental concepts of Content Services 
@@ -353,7 +353,7 @@ will carry out when certain events happen (such as when new content is added to 
 entirely new services, if required.
 
 When you need to create custom business workflow you should use the 
-[Alfresco Process Services (APS)](TODO_LINK:https://docs.alfresco.com/process-services1.10/topics/developmentGuide.html) product.
+[Alfresco Process Services (APS)]({% link process-services/latest/index.md %}) product.
 
 ### Content modeling
 Content modeling is a fundamental building block of the repository that provides a foundation for structuring and 
