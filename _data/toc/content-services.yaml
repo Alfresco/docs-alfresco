@@ -173,6 +173,8 @@
           path: '/content-services/latest/develop/overview-ext-points/'
         - title: 'Out-of-Process extension points'
           pages:
+          - title: 'Overview'
+            path: '/content-services/latest/develop/oop-ext-points/'
           - title: 'Events'
             path: '/content-services/latest/develop/oop-ext-points/events/'
           - title: 'ReST API Java Wrapper'

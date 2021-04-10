@@ -319,8 +319,9 @@ default document content model:
 The platform architecture consists of the repository and related services. The platform contains the key extension points 
 for building your own extensions.
 
-The following diagram illustrates the platform architecture and [extension points]({% link content-services/latest/develop/repo-ext-points/index.md %}).
-Note that this does not represent a complete list of extension points:
+The following diagram illustrates the platform architecture and the [in-process extension points]({% link content-services/latest/develop/repo-ext-points/index.md %})
+and the [out-of-process extension points]({% link content-services/latest/develop/oop-ext-points/index.md %}).
+Note that this does not represent a complete list of all in-process extension points:
 
 ![acs-platform-architecture-detail]({% link content-services/images/acs-platform-architecture-detail.png %})
 
@@ -472,19 +473,22 @@ The Web UI architecture consists of a number of web clients and the Application 
 This section covers the Web UI architecture in detail. There are a number of web clients available when accessing the 
 repository. There is also the Application Development Framework that can be used to build domain specific web applications.
 
-### Application development architecture
-This section gives an overview of the Alfresco application development architecture. It covers the Application 
-Development Framework (ADF) and the Alfresco JavaScript framework.
+### Customizing the user interface
+Alfresco offers two content management web clients that can be used right out-of-the box:
 
-Alfresco has traditionally always offered a Web client called Share, which is still available. However, if a content management 
-solution requires extensive customization to its user interface, which most do, then it is not recommended to customize Share. 
-Develop instead a custom client with the Alfresco Application Development Framework, which is Angular based.
+* **[Alfresco Share]({% link content-services/latest/using/share.md %})** - the traditional web client that are still heavily used, but it is based on some technology that might not be well known among developers.
+* **[Digital Workspace]({% link digital-workspace/latest/index.md %})** - the newer web client that are based on the well known Angular JavaScript framework. This web client is also built with components from the Alfresco Application Development Framework (ADF).
+ 
+When developing (customizing) the user interface for your domain specific content management solution follow this approach:
 
-#### Application Development Framework (ADF)
+1. Check if your customizations can be done to the [Digital Workspace client]({% link digital-workspace/latest/extensions/index.md %}), this is usually the case when dealing with most customizations.
+2. When faced with more complex UI customizations where you would see that most of the Digital Workspace UI would have to change, develop a custom UI on top of [Alfresco ADF](#adf). 
+
+### Application Development Framework (ADF) {#adf}
 This section gives an introduction to the Alfresco Application Development Framework (ADF), which is used to build 
 custom domain specific Web UIs that should manage content and processes in the Alfresco content repository.
 
-##### Overview
+#### Overview
 The [Alfresco Application Development Framework](https://www.alfresco.com/abn/adf/docs/){:target="_blank"}, 
 referred to as ADF, is built on top of the Angular JavaScript framework. You can think of ADF as a library of 
 [Alfresco web components](https://www.alfresco.com/abn/adf/docs/core/components/info-drawer-tab.component/){:target="_blank"} 
@@ -525,7 +529,7 @@ There are also a number of generic components that are used with both ACS and AP
 
 For a complete list of all components with documentation see the [ADF Component Catalogue](https://www.alfresco.com/abn/adf/docs/core/components/info-drawer-tab.component/){:target="_blank"} .
 
-##### Architecture
+#### Architecture
 These ADF components don’t talk directly to the ACS and APS backend services. There are some layers between them that 
 are worth knowing about before you start coding. The ADF components talk to ADF services, which in turn talks to the 
 [Alfresco JS API](https://github.com/Alfresco/alfresco-js-api){:target="_blank"} , which internally calls ACS and APS via their respective 
@@ -540,7 +544,7 @@ The following picture illustrates the architecture of an ADF solution:
 The ADF components and services are implemented in Angular, which in turn is implemented in TypeScript. The Alfresco 
 JavaScript library is pure JavaScript and could be used with any other JavaScript framework.
 
-##### Application Generator
+#### Application Generator
 There is an [ADF application generator](https://github.com/Alfresco/generator-alfresco-adf-app){:target="_blank"} that 
 can be very useful if you just want to quickly get going with an ADF project, such as for a demo or proof-of-concept scenario. 
 It covers use cases for both ACS and APS. It can be used to generate the following types of ADF applications:
@@ -576,9 +580,7 @@ $ yo
 
 Select the 'Alfresco Adf App' generator and follow instructions.
 
-#### Alfresco JavaScript API
-This page gives an introduction to the Alfresco JavaScript API, which can be used from any third party JavaScript library.
-
+### Alfresco JavaScript API
 The Alfresco JavaScript API is not normally used directly. Instead the Alfresco Application Development Framework (ADF) 
 is used, which uses the JavaScript API indirectly. But there are situations when it might be necessary to use the 
 JavaScript API directly, such as when ADF cannot be used. ADF is based on Angular and if another JavaScript library 
