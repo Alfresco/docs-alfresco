@@ -6,23 +6,30 @@ This section gives an introduction to the Content Services architecture from a d
 
 ## High-level architecture
 Before we get into details, let's start by looking at Content Services from a high level. Traditionally there has
-always been a few well known components defining Content Services. The following diagram illustrates the three main 
-components that the Content Services consists of. The **Platform**, the User Interface (**UI**), and the **Search** engine. 
+always been a few well known components defining Content Services. The following diagram illustrates the main 
+components that the Content Services consists of. The **Platform**, the User Interfaces (**UI**), and the **Search** engine. 
 These components are implemented as separate web applications:
 
-![acs_60_architecture_overview]({% link content-services/images/acs_60_architecture_overview.png %})
+![acs_70_architecture_simplified]({% link content-services/images/acs_70_architecture_simplified.png %})
 
 The main component is called the **Platform** and is implemented in the `alfresco.war` web application. It provides the 
 repository where content is stored plus all the associated content services, such as classification and versioning. 
-Traditionally this component is also referred to as the Repository.
+Traditionally this component is also referred to as the Repository. There are several so called extension points that
+can be used to build customizations for the platform, they are usually deployed as AMP or JAR modules.
 
-Alfresco Share provides a web client interface (that is a User Interface, UI) for the repository and is implemented as 
-the `share.war` web application. There is also a new UI called Digital Workspace, based on the Alfresco Application 
-Development Framework (ADF), we will talk more about this later. Share makes it easy for users to manage their sites, 
-folders and documents, users and so on. 
+[Alfresco Share]({% link content-services/latest/using/share.md %}) provides a web client interface (that is a User Interface, UI) 
+for the repository and is implemented as the `share.war` web application. There is also a newer UI called [Digital Workspace]({% link digital-workspace/latest/index.md %}), 
+based on the Alfresco [Application Development Framework (ADF)](https://www.alfresco.com/abn/adf/docs/){:target="_blank"}, 
+it's also deployed as a WAR. The user interfaces makes it easy for users to manage their sites, folders, documents, 
+users and so on. 
 
-The search functionality is implemented on top of Apache **Solr** and provides the indexing of all content, which enables 
-powerful search functionality. There are also mobile clients that will access the content via ReST APIs provided by the platform.
+Alfresco Share also provides several [extension points]({% link content-services/latest/develop/overview-ext-points.md %}) 
+that can be used to build customizations for that user interface, they are also deployed as AMP or JAR modules. If you 
+want to extend the Digital Workspace UI JSON files are used.
+
+The [search service]({% link search-services/latest/index.md %}) functionality is implemented on top of Apache **Solr** 
+and provides the indexing of all content, which enables powerful search functionality. Search is delivered as the `solr.war` 
+web application. There are also mobile clients that will access the content via ReST APIs provided by the platform.
 
 Most Content Services projects will implement a domain specific web client based on ADF. It gives you full freedom to 
 design a content and process web client supporting exactly the use cases needed by the domain. Giving the end-users the 
@@ -36,14 +43,52 @@ The Search component runs in its own Jetty web application server. The Platform 
 Directory Server (LDAP) to be able to sync users and groups with Content Services. And most installations also integrates 
 with an SMTP server so the Platform can send emails, such as site invitations.
 
-Extensions to the repository , such as a domain specifc content model, and extensions to the UI, such as forms to support 
-custom types, has traditionally been done with [Alfresco Modules Packages (AMP)]({% link content-services/latest/develop/extension-packaging.md %}) and later on as JARs. These are running 
-in the same process as the repository. This changes with version 7 of content services where out-of-process extensions 
-are possible as we will see. 
+Extensions to the repository , such as a domain specific content model, and extensions to the UI, such as forms to support 
+custom types, has traditionally been done with [Alfresco Modules Packages (AMP)]({% link content-services/latest/develop/extension-packaging.md %}) 
+and later on as JARs. These are running in the same process as the repository. This changes with version 7 of Content Services 
+where out-of-process extensions are possible as we will see. 
 
-But first, let's make sure we are up to speed on core repository concepts.
+## Detailed architecture
+Now when we got an idea of how the Content Services architecture looks like on a high level, it's time to go more into 
+detail about the software architecture for the latest Content Services version:
 
-## Content repository concepts
+![acs_70_architecture_detailed]({% link content-services/images/acs_70_architecture_detailed.png %})
+
+We can see that there are a number of components that we did leave out in the simplified diagram. The main component
+that we did not talk about is the [Transformation Service]({% link transform-service/latest/index.md %}), which consist 
+of a router and a number of so called T-Engines. It's used to transform an uploaded document into different formats 
+depending on what it should be used for, such as thumbnail, preview, text for indexing etc.
+
+Another important component is the [Sync Service]({% link sync-service/latest/index.md %}) that is used by the 
+[Desktop Sync]({% link desktop-sync/latest/index.md %}) clients. They enable you to work with the repository content 
+from for example Windows Explorer instead of any of the web user interfaces. 
+
+It might come as a surprise, when you install Content Services an instance of [Apache ActiveMQ](https://activemq.apache.org/){:target="_blank"} 
+server is also installed. It's an integral part Content Services and sits as a message broker between the Repository and 
+several other components:
+
+* *Transformation Service*: receives messages about transformations that have been requested by the repository.
+* *Sync Service*: receives messages about folder and document changes in the repository
+* *External extensions*: maybe the most important addition to Content Services version 7 is that it is now possible to build out-of-process extensions. These extensions listen to the repository events and then execute code depending on what happened in the repository, such as file uploaded, folder created etc.
+
+The Content Services system is implemented in Java, which means that it can run on most servers that can run 
+the Java Standard Edition. The platform components have been implemented using the Spring framework, which provides 
+the ability to modularize functionality, such as versioning, security, and rules. The platform provides a scripting 
+environment to simplify adding new functionality and developing new programming interfaces. This portion of the 
+architecture is known as Web Scripts and can be used for both data and presentation services. The lightweight architecture 
+is easy to download, install, and deploy.
+
+For more information about the internals of the Platform, and specifically the content repository, see the 
+[concepts](#repoconcepts) section next. After that read more about the extension points.
+
+Alfresco provides a number of extension points to allow you to customize Content Services. 
+These extensions points have various formats, but include:
+
+* [Platform extension points and detailed architecture](#platformarch)
+* [Share extension points and detailed architecture](#sharearchitecture)
+* [ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}).
+
+## Content repository concepts {#repoconcepts}
 It is important as a developer to have a good understanding of the fundamental concepts of Content Services 
 when implementing extensions. It is vital to know what things such as repository, node, store, type, aspect, association and 
 so on mean in the context of Content Services.
@@ -270,157 +315,7 @@ default document content model:
 
 ![]({% link content-services/images/dev-repository-concepts-folder-file-node-overview.png %})
 
-## Detailed architecture
-Now when we got an idea of how the Content Services architecture looks like on a high level, and we have learned about the 
-core concepts of the repository, it's time to go more into detail about the software architecture for the latest 
-Content Services version:
-
-![acs_70_architecture_overview]({% link content-services/images/acs_70_architecture_overview.png %})
-
-TODO
-
-For more information about the internals of the Platform, and specifically the content repository, see the 
-[concepts](TODO_LATER:dev-repository-concepts.md) section.
-
-The Platform also contains numerous APIs, such as
-
-Alfresco provides a number of extension points to allow you to customize Content Services. 
-These extensions points have various formats, but include:
-
-* [Platform extension points and detailed architecture](#platformarch)
-* [Share extension points and detailed architecture](#sharearchitecture)
-* [ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}).
-
-
-
-
-
-TODO...
-
-## Guiding design principles
-
-The Content Services architecture supports the requirements of Enterprise Content Management (ECM) applications, 
-such as Document Management (DM), Web Content Management (WCM), Records Management (RM), Digital Asset Management (DAM), 
-and Search.
-
-### Support ECM requirements
-
-Each of these disciplines has unique and overlapping characteristics so that the design of each capability is not done 
-in isolation but in the context of the whole system.
-
-### Simple, simple, simple
-
-Content Services aims to be as simple as possible to develop against, customize, deploy, and use. The simplest 
-and probably most widely deployed ECM solution is the shared document drive: the architecture is driven by the aim to be 
-as simple as a shared drive.
-
-### Scaling to the enterprise
-
-Every service and feature is designed up front to scale in terms of size of data set, processing power, and number of users.
-
-### Modular approach
-
-Content Services architecture takes a modular approach in which capabilities are bundled into modules whose 
-implementation can be replaced if required, or not included at all. Aspect-Oriented Programming (AOP) techniques allow 
-for fine-tuning and optimization of an ECM solution.
-
-### Incorporating best-of-breed libraries
-
-Where possible, Content Services incorporates best-of-breed third-party libraries. The open source nature 
-lends itself to integrating with the wealth of available open source libraries. This is done whenever it is more 
-profitable to integrate than build or whenever expertise is better provided in another project rather than in-house.
-
-### Environment independence
-
-Content Services does not dictate the environment upon which it depends, allowing choice in the operating system, 
-database, application server, browser, and authentication system to use when deploying. ECM is less about the application 
-and more about the services embedded within an application. You can choose how to package Content Services — 
-for example, as a web application, an embedded library, or portlet.
-
-### Solid core
-
-The heart of Content Services is implemented in Java. This decision was driven by the wealth of available 
-Java libraries, monitoring tools, and enterprise integrations. Java is also a trusted runtime for many enterprises 
-wishing to deploy applications in their data centers. Each capability is implemented as a black-box Java service 
-tested independently and tuned appropriately.
-
-### Scriptable extensions
-
-Extensions will always need to be created for custom solutions and there are many custom solutions versus the single 
-Content Services core. Therefore, extension points are developed using JVM-based scripting languages, allowing 
-a much wider pool of developers to build extensions versus those that can contribute to the core. Extensions are 
-packaged entities, allowing for the growth of a library of third-party reusable extensions.
-
-### Standards-based approach
-
-The architecture always complies with standards where applicable and advantageous. Primary concerns are to reduce lock-in, 
-improve integration possibilities, and hook into the ecosystems built around the chosen standards.
-
-### Architecture of participation
-
-The architecture promotes a system designed for community contribution. In particular, the architecture principles of a 
-solid core, modularity, standards compliance, simplicity of development, and scriptable extensions encourage contribution 
-of plug-ins and custom ECM solutions. Participation complements the open source approach to the development of 
-Content Services and fosters growth of the Alfresco community. As the community grows, the quality of self 
-service improves, as well as the quality of feedback. This, in turn, enhances Content Services and creates the 
-ultimate feedback loop.
-
-## System overview
-
-At the core of the Content Services system is a repository supported by a server that persists content, 
-metadata, associations, and full text indexes. Programming interfaces support multiple languages and protocols upon 
-which developers can create custom applications and solutions. Out-of-the-box applications provide standard solutions 
-such as document management and records management.
-
-The Content Services system is implemented in Java, which means that it can run on most servers that can run 
-the Java Standard Edition. The platform components have been implemented using the Spring framework, which provides 
-the ability to modularize functionality, such as versioning, security, and rules. The platform provides a scripting 
-environment to simplify adding new functionality and developing new programming interfaces. This portion of the 
-architecture is known as Web Scripts and can be used for both data and presentation services. The lightweight architecture 
-is easy to download, install, and deploy.
-
-Ultimately, Content Services is used to implement ECM solutions, such as document management and records management. 
-There can also be elements of collaboration and search across these solutions.
-
-A content management solution is typically divided into clients and a server. The clients offer users a user interface 
-to the solution and the server provides content management services and storage. Solutions commonly offer multiple clients 
-against a shared server, where each client is tailored for the environment in which it is used.
-
-### Clients
-
-Content Services offers a web-based client called Alfresco Share, built entirely with the web script technology. 
-Share provides content management capabilities with simple user interfaces, tools to search and browse the repository, 
-content such as thumbnails and associated metadata, previews, and a set of collaboration tools such as wikis and discussions. 
-Share is organized as a set of sites that can be used as a meeting place for collaboration. It's a web-based application 
-that can be run on a different server to the server that runs the platform with repository, providing opportunities to 
-increase scale and performance.
-
-Alfresco has offered the Share web client for a long time. However, if a content management solution requires extensive 
-customization to the user interface, which most do, then it is not recommended to customize Share. Develop instead a 
-custom client with the Alfresco Application Development Framework (ADF), which is Angular based and uses the public 
-ReST API behind the scenes.
-
-Clients also exist for mobile platforms, Microsoft Outlook, Microsoft Office, and the desktop. In addition, users can 
-share documents through a network drive via WebDAV.
-
-### Server
-
-The content application server comprises a content repository, value-added services, extension points, and a ReST API 
-for building solutions.
-
-The content application server provides the following categories of services built upon the content repository:
-
-* Content services (node management, transformation, tagging, metadata extraction)
-* Control services (workflow, records management, change sets)
-* Collaboration services (calendar, activities, wiki)
-
-Clients communicate with the content application server and its services through a ReST API and numerous other 
-supported protocols, such as FTP, WebDAV, IMAP, and Microsoft SharePoint protocols.
-
-The server side repository with its services is also referred to as the platform.
-
 ## Platform architecture {#platformarch}
-
 The platform architecture consists of the repository and related services. The platform contains the key extension points 
 for building your own extensions.
 
@@ -461,7 +356,6 @@ When you need to create custom business workflow you should use the
 [Alfresco Process Services (APS)](TODO_LINK:https://docs.alfresco.com/process-services1.10/topics/developmentGuide.html) product.
 
 ### Content modeling
-
 Content modeling is a fundamental building block of the repository that provides a foundation for structuring and 
 working with content.
 
@@ -506,7 +400,6 @@ You can define new models for specific use cases from scratch or by inheriting d
 For more information see [content model introduction]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 ### Access protocols
-
 Content Services supports a number of different protocols for accessing the content repository. Their 
 availability extends the options available to developers, when building their own applications and extensions.
 
@@ -544,7 +437,6 @@ A subsystem for file servers allows configuration and lifecycle management for e
 property files or JMX.
 
 ### Modularity
-
 The Content Services system is modular. Every moving part is encapsulated as a service, where each service 
 provides an external face in a formally defined interface and has one or more black-box implementations.
 
@@ -575,14 +467,12 @@ This is useful to disable aspects of the server, or reconfigure parts of it, suc
 Each subsystem supports its own administration interface that is accessible through property files or JMX.
 
 ## Web UI architecture
-
 The Web UI architecture consists of a number of web clients and the Application Development Framework (ADF).
 
 This section covers the Web UI architecture in detail. There are a number of web clients available when accessing the 
 repository. There is also the Application Development Framework that can be used to build domain specific web applications.
 
 ### Application development architecture
-
 This section gives an overview of the Alfresco application development architecture. It covers the Application 
 Development Framework (ADF) and the Alfresco JavaScript framework.
 
@@ -591,12 +481,10 @@ solution requires extensive customization to its user interface, which most do, 
 Develop instead a custom client with the Alfresco Application Development Framework, which is Angular based.
 
 #### Application Development Framework (ADF)
-
 This section gives an introduction to the Alfresco Application Development Framework (ADF), which is used to build 
 custom domain specific Web UIs that should manage content and processes in the Alfresco content repository.
 
 ##### Overview
-
 The [Alfresco Application Development Framework](https://www.alfresco.com/abn/adf/docs/){:target="_blank"}, 
 referred to as ADF, is built on top of the Angular JavaScript framework. You can think of ADF as a library of 
 [Alfresco web components](https://www.alfresco.com/abn/adf/docs/core/components/info-drawer-tab.component/){:target="_blank"} 
@@ -638,7 +526,6 @@ There are also a number of generic components that are used with both ACS and AP
 For a complete list of all components with documentation see the [ADF Component Catalogue](https://www.alfresco.com/abn/adf/docs/core/components/info-drawer-tab.component/){:target="_blank"} .
 
 ##### Architecture
-
 These ADF components don’t talk directly to the ACS and APS backend services. There are some layers between them that 
 are worth knowing about before you start coding. The ADF components talk to ADF services, which in turn talks to the 
 [Alfresco JS API](https://github.com/Alfresco/alfresco-js-api){:target="_blank"} , which internally calls ACS and APS via their respective 
@@ -654,7 +541,6 @@ The ADF components and services are implemented in Angular, which in turn is imp
 JavaScript library is pure JavaScript and could be used with any other JavaScript framework.
 
 ##### Application Generator
-
 There is an [ADF application generator](https://github.com/Alfresco/generator-alfresco-adf-app){:target="_blank"} that 
 can be very useful if you just want to quickly get going with an ADF project, such as for a demo or proof-of-concept scenario. 
 It covers use cases for both ACS and APS. It can be used to generate the following types of ADF applications:
@@ -691,7 +577,6 @@ $ yo
 Select the 'Alfresco Adf App' generator and follow instructions.
 
 #### Alfresco JavaScript API
-
 This page gives an introduction to the Alfresco JavaScript API, which can be used from any third party JavaScript library.
 
 The Alfresco JavaScript API is not normally used directly. Instead the Alfresco Application Development Framework (ADF) 
@@ -708,12 +593,10 @@ For more information about the Alfresco JavaScript API, and examples of how to u
 [here](https://github.com/Alfresco/alfresco-js-api){:target="_blank"}.
 
 ### Share Web Client architecture {#sharearchitecture}
-
 When developing for Share it is important to understand the application architecture and the underlying development frameworks. 
 It is also important to know what extension points that are available to you for customizing the UI in a supported way.
 
 #### Introduction
-
 Alfresco Share (`share.war`) is a web application that runs on the Java Platform. In a development environment it is 
 usually deployed and run on top of Apache Tomcat. Share is built up of a main menu that leads to pages, which is 
 similar to most other web applications that you might come across. However, there is one special page type called 
@@ -760,7 +643,6 @@ as only the following has been converted to Aikau:
 The following sections get into a bit more details around Surf pages and Aikau pages.
 
 #### Server Side Framework (Surf) {#surf-framework}
-
 The layout of a Share page is defined with the Surf development framework, which is a server side framework 
 ([Surf deep dive]({% link content-services/latest/develop/reference/surf-framework-ref.md %})). This means that the
 involved files are processed on the server side (compared to Browser processing of JavaScript files). Surf is based on
@@ -977,7 +859,6 @@ by the browser to create the user interface. So as we are starting to talk about
 bit more in the next section.
 
 #### Client Side Frameworks (Surf Pages and Aikau Pages)
-
 To get an idea of the differences between the old school Surf pages, and the new Surf pages called Aikau, 
 this example implements a simple page in both client side frameworks. The thing that might be a bit confusing to 
 start with is that Aikau pages are also old school Surf pages under the hood. An Aikau page actually uses a predefined 
@@ -1010,7 +891,6 @@ To implement the Hello World page in Aikau we have to go through the following s
 For a full tutorial and introduction to Aikau Pages, see ([Introduction to Aikau Pages]({% link content-services/latest/develop/software-architecture.md %}#aikauintro)).
 
 #### Surf Pages introduction {#surfpageintro}
-
 Use this information for a brief introduction to Spring Surf Pages.
 
 Let's see how we can implement a Hello World page with the old school Surf Page framework.
@@ -1211,7 +1091,6 @@ If you do that you end up with the pattern for how most of the old school Share 
 Next we will have a look at how to implement the same Hello World page the new way with Aikau.
 
 #### Aikau Pages introduction {#aikauintro}
-
 Use this information for a brief overview of Aikau Pages.
 
 Let's see how we can implement a Hello World page with the new Aikau framework.
@@ -1368,7 +1247,6 @@ of XML files. We just create a web script where the controller will contain the 
 the page content will go into an auto-generated region on the Surf page we select.
  
 #### Surf Framework introduction
-
 Surf lets you build user interfaces for web applications using server-side scripts and templates without Java coding, 
 recompilation, or server restarts. Surf follows a content-driven approach, where scripts and templates are simple files 
 on disk so that you can make changes to a live site in a text editor.
@@ -1398,7 +1276,6 @@ services, such as CMIS, Atom, and RSS.
 * **Development tools**: Tools that plug into the SpringSource suite of development tools include Eclipse add-ons for SpringSource Tool Suite, as well as Spring Roo plug-ins to enable scaffolding and script-driven site generation.
 
 ## APIs
-
 To access and extend out-of-the-box services, the content application server exposes two flavors of API, each designed 
 for a specific type of client.
 
@@ -1406,14 +1283,12 @@ The two main categories of API that are available to use when interacting with t
 and the embedded APIs.
 
 ### Remote APIs
-
 The main remote Application Programming Interface (API) is the [Alfresco ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}),
 which should be the first place you go to when you want to interact with the Alfresco Repository remotely. 
 If portability is very important, than have a look at the CMIS ReST API,
 which is a standard implemented by many ECM vendors.
 
 ### Embedded APIs
-
 The embedded APIs have traditionally been used a lot to build customizations that run inside the same JVM as the 
 Alfresco Repository. There are both a Public Java API and a Repository JavaScript API.
 Before using the embedded APIs a thorough investigation should be done to rule out the possibility of building the extension 
