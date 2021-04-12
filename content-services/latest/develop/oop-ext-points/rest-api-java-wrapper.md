@@ -95,9 +95,6 @@ public class ListFolderContent {
 }
 ```
 
-## Filter contents of a folder
-TODO
-
 ## Get folder/file metadata
 To get metadata for a node, such as a file or folder, in the repository use the `getNode` method of the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#getNode){:target="_blank"}, 
@@ -403,69 +400,6 @@ public class CreateFile {
 }
 ```
 
-## Upload a file with custom type
-TODO
-
-## Upload a new version of file
-TODO
-
-## Get file version history
-TODO
-
-## Download a file
-TODO
-
-## Download multiple files
-TODO
-
-## List file renditions
-TODO
-
-## Get file rendition content
-TODO
-
-## Update metadata for a folder or file
-TODO
-
-## Add aspects to a folder or file
-TODO
-
-## Remove aspects from a folder or file
-TODO
-
-## Get and Set permissions for a folder or file
-TODO
-
-## Working with relationships between folders/files
-TODO
-
-## Manage comments for a folder or file
-TODO
-
-## Manage tags for a folder or file
-TODO
-
-## Copy folders and files
-TODO
-
-## Move folders and files
-TODO
-
-## Lock a file for editing
-TODO
-
-## Create a link to a file
-TODO
-
-## Delete a folder or file
-TODO
-
-## List deleted folders and files (Trashcan)
-TODO
-
-## Restore deleted folders and files (Trashcan)
-TODO
-
 ## === Managing Sites ===
 The following sections walk through how to use the Java ReST API wrapper services when managing Alfresco Share sites.
 
@@ -520,91 +454,6 @@ public class CreateSite {
     }
 }
 ``` 
-
-## Update a site
-TODO
-
-## Add content to a site
-TODO
-
-## Adding members to a site
-TODO
-
-## === Managing People and Groups ===
-The following sections walk through how to use the Java ReST API wrapper services when managing Alfresco Share sites.
-
-## List people (users)
-TODO
-
-## Create a person
-TODO
-
-## Get person metadata
-TODO
-
-## Update a person
-TODO
-
-## Request password reset for a person
-TODO
-
-## List groups a person is a member of
-TODO
-
-## List groups
-TODO
-
-## Create a group
-TODO
-
-## Get group metadata
-TODO
-
-## Update a group
-TODO
-
-## List all people and groups in a group
-TODO
-
-## Adding people and groups to a group
-TODO
-
-## Delete a person or group from a group
-TODO
-
-## Setting permissions for a group
-TODO
-
-## === Managing Audit Applications and Logs ===
-The following sections walk through how to use the Java ReST API wrapper services when managing audit applications and 
-their logs.
-
-## Enable auditing and Alfresco Access audit application
-TODO
-
-## List audit applications
-TODO
-
-## Get audit application metadata
-TODO
-
-## Enable/Disable an audit application
-TODO
-
-## List audit entries (logs) for an audit application
-TODO
-
-## List audit entries (logs) for a node
-TODO
-
-## Get an audit entry (log)
-TODO
-
-## Delete audit entries (logs) for an audit application
-TODO
-
-## Delete an audit entry (log) for an audit application
-TODO
 
 ## === Searching for content ===
 The following sections walk through how to use the Java ReST API wrapper services when managing audit applications and 
@@ -690,12 +539,6 @@ public class FindNode {
     }
 }
 ```
-
-## Finding sites by a term
-TODO
-
-## Finding people by a term
-TODO
 
 ## Finding content by a search query {#searchingbyquery}
 To find content based on more complex search queries, such as using Alfresco Full Text Search (AFTS), use the 
