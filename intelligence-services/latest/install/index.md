@@ -266,7 +266,7 @@ The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.3.x
     * `alfresco-ai-repo-1.3.x.amp`: AMP to be applied to the Content Services repository
     * `alfresco-ai-share-1.3.x.amp`: AMP to be applied to Alfresco Share
     * `ai-pipeline-routes.json`: custom Transform Router configuration properties
-    * `app.extensions.json`: custom extension file for Alfresco Digital Workspace
+    * `ai-view.extension.json`: custom extension file for Alfresco Digital Workspace
 
 3. Stop the Content Services server.
 

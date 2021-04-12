@@ -111,13 +111,15 @@ A number of environment variables allow you to specify the configuration options
 4. Add the following configuration to override the settings for Digital Workspace in your deployment.
 
     ```yaml
-    digital-workspace:
-        image: quay.io/alfresco/alfresco-digital-workspace:2.1.0
-        volumes:
-            - ./app.extensions.json:/usr/share/nginx/html/assets/app.extensions.json
+  digital-workspace:
+    image: quay.io/alfresco/alfresco-digital-workspace:2.1.0-adw
+    environment:
+      BASE_PATH: ./
+      APP_CONFIG_PLUGIN_AI_SERVICE: "true"
+    volumes:
+      - ./ai-view-extension.json:/usr/share/nginx/html/assets/plugins/ai-view-extension.json
     ```
-
-    > **Note:** The Digital Workspace configuration file, `app.extensions.json`, is also included in the Intelligence Services distribution zip.
+    > **Note:** The Digital Workspace configuration file, `ai-view-extension.json`, is also included in the Intelligence Services distribution zip.
 
     For more details on extending the features of Digital Workspace, see the Alfresco Content Application documentation: [Extending](https://alfresco-content-app.netlify.com/#/extending/){:target="_blank"}.
 
