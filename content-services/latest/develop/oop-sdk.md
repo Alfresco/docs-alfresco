@@ -6,6 +6,10 @@ Alfresco SDK 5.0 is a development kit that provides an easy to use approach to d
 out-of-process extensions for Content Services 7.x. With this SDK you can develop, package, test, run, document and 
 release your extension project.
 
+The following picture illustrates where SDK 5.x fits into the big picture:
+
+![sdk5_big_picture]({% link content-services/images/sdk5_big_picture.png %})
+
 The SDK is a fundamental tool provided by Alfresco to developers to build customizations and extensions for the 
 Content Services Platform. It is based on the [Spring Integration](https://spring.io/projects/spring-integration){:target="_blank"} 
 tooling library and the [Spring Boot](https://spring.io/projects/spring-boot){:target="_blank"} library. 
@@ -1196,7 +1200,7 @@ public class ContentUploadedEventHandler implements OnNodeCreatedEventHandler {
     }
 ```
 
-## ReST API Java wrapper
+## ReST API Java wrapper {#rest-api-java-wrapper}
 The ReST API Java wrapper library in SDK 5 provides a Java object wrapper around the Alfresco ReST API. If you are not 
 familiar with Alfresco ReST API version 1.0, then read through this [introduction]({% link content-services/latest/develop/rest-api-guide/index.md %}).
 
@@ -1216,6 +1220,22 @@ The following APIs require the [Alfresco Governance Services]({% link governance
  
 * [alfresco-governance-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-governance-core-rest-api){:target="_blank"} - Main Governance Services API
 * [alfresco-governance-classification-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-governance-classification-rest-api){:target="_blank"} - Classification and Security Marks API
+
+## The alfresco-core-rest-api package
+The [alfresco-core-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api){:target="_blank"} 
+package contains most of the APIs that you will need. Here are some of the APIs in this package:
+
+* `NodesApi` – Manage nodes, such as folders and files
+* `SitesApi` – Manage sites
+* `QueriesApi` – Simple search for people, groups, nodes by term
+* `VersionsApi` – Manage version history
+* `ActionsApi` – Manage repository actions
+* `AuditApi` – Manage audit apps and logging
+* `CommentsApi` – Manage node comments
+* `DownloadsApi` – Download node content 
+
+This package together with the [alfresco-search-rest-api](https://github.com/Alfresco/alfresco-java-sdk/tree/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-rest-api){:target="_blank"} 
+package, which contains the `SearchAPI`, is all you will need in most cases.
 
 ## Creating a Java ReST API extension project {#restapijavawrapperproject}
 Make sure you have completed [prerequisites](#prereq) and created a [starter project](#createstarterproj).

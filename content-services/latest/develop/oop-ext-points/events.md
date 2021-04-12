@@ -6,6 +6,10 @@ When implementing business logic an out-of-process model should be used. For exa
 every time a PDF is uploaded to a specific folder, then there is an event that can be subscribed to and the business logic 
 can be implemented in an external process separate from the Content Services server process.
 
+The following diagram gives an overview of the Event System and the event types:
+
+![acs_70_event_system_overview]({% link content-services/images/acs_70_event_system_overview.png %})
+
 Architecture Information: [Platform Architecture]({% link content-services/latest/develop/software-architecture.md %}#platformarch)
 
 ## Event Model {#eventmodel}
@@ -1040,7 +1044,7 @@ where you could make the necessary ReST API calls.
 
 ## Parent-Child association deleted event
 This event is fired whenever a **secondary** parent -> child association is deleted, such as via the the 
-[DELETE nodes/{parentId}/secondary-children]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}##deletingassociations)  
+[DELETE nodes/{parentId}/secondary-children]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#deletingassociations)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.child.Deleted`. 
 
 >**Note** that this event will not be generated when a file is deleted or a folder is deleted. In this case the **primary** 
@@ -1408,7 +1412,7 @@ where you could make the necessary ReST API calls.
 
 ## Peer association deleted event
 This event is fired whenever a peer association is deleted, such as via the the 
-[DELETE nodes/{sourceId}/targets]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}##deletingassociations)  
+[DELETE nodes/{sourceId}/targets]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#deletingassociations)  
 ReST API. The full name of this event is `org.alfresco.event.assoc.peer.Deleted`. 
 
 Here is an example payload for this event type:
