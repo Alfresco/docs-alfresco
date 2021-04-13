@@ -64,7 +64,7 @@ The process requires the configuration of a number of files that must be mounted
 | | bootstrap-custom-labels.properties | Comprehend
 | | share-custom-slingshot-application-context.xml | Comprehend, Textract |
 | | | |
-| Digital Workspace | ai-view.extension.json| Comprehend, Textract|
+| Digital Workspace | ai-view.extension.json| Comprehend, Textract, Transcribe |
 
 These files are described in more detail in the remainder of this page.
 
