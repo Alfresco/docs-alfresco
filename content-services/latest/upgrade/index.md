@@ -25,7 +25,7 @@ The following diagram shows the upgrade paths for major versions:
 
 The upgrade path recommendations are:
 
-* Direct upgrades to Content Services 7.0 are supported from only 5.2.x and later.
+* Direct upgrades to Content Services 7.0 are supported from only 5.2.x and later, with the latest Service Pack applied.
 * Content Services 7.0 introduces changes that require new releases of all modules. To upgrade to 7.0, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
 * You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.0. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
   * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services.
