@@ -72,7 +72,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Sync Service 3.4 | |
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Transform Service 1.3.2 | |
-| Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
+| Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9 is not compatible due to a bug in Jetty, Java 11.0.8 and Java 11.0.10 are both fine. |
 | Alfresco Search Services 2.0 | |
 | Alfresco Federation Services 1.1 | |
 | Identity Service 1.4 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |

@@ -67,9 +67,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.1.1 | |
 | Alfresco Document Transformation Engine 2.2.1 | |
 | Alfresco Media Management 1.2 | |
-| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search and Insight Engine 1.1 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search and Insight Engine 1.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
+| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9 is not compatible due to a bug in Jetty, Java 11.0.8 and Java 11.0.10 are both fine. |
+| Alfresco Search and Insight Engine 1.1 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9 is not compatible due to a bug in Jetty, Java 11.0.8 and Java 11.0.10 are both fine. |
+| Alfresco Search and Insight Engine 1.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9 is not compatible due to a bug in Jetty, Java 11.0.8 and Java 11.0.10 are both fine. |
 | Alfresco Search Services 1.4 | |
 | Alfresco Search Services 1.3.0.5 | |
 | Alfresco Search Services 1.2 | |
@@ -160,9 +160,9 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.1.1 | |
 | Alfresco Document Transformation Engine 2.2.1 | |
 | Alfresco Media Management 1.2 | |
-| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search and Insight Engine 1.1 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
-| Alfresco Search and Insight Engine 1.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
+| Alfresco Search and Insight Engine 1.4 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9 is not compatible due to a bug in Jetty, Java 11.0.8 and Java 11.0.10 are both fine. |
+| Alfresco Search and Insight Engine 1.1 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9 is not compatible due to a bug in Jetty, Java 11.0.8 and Java 11.0.10 are both fine. |
+| Alfresco Search and Insight Engine 1.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9 is not compatible due to a bug in Jetty, Java 11.0.8 and Java 11.0.10 are both fine. |
 | Alfresco Search Services 1.4 | |
 | Alfresco Search Services 1.2 | |
 | Alfresco Search Services 1.1 | |
