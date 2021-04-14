@@ -156,7 +156,7 @@
     - title: 'Develop'
       pages:
         - title: 'Getting started'
-          path: '/content-services/latest/develop/getting-started/'
+          path: '/content-services/latest/develop/'
         - title: 'Software architecture'
           path: '/content-services/latest/develop/software-architecture/'
         - title: 'Software Development Kits (SDK)'

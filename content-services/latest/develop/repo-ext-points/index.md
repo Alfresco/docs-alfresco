@@ -6,7 +6,7 @@ In-process Platform Extensions are extensions to the Platform or Content Service
 of mechanisms. This information identifies the supported extension points and how you can leverage them to build your 
 extensions to the Platform.
 
-Read through the [getting started guide]({% link content-services/latest/develop/getting-started.md %}) to get up to 
+Read through the [Getting started guide]({% link content-services/latest/develop/index.md %}) to get up to 
 speed on the difference between in-process and out-of-process extensions.
 
 There are many ways you can extend the Platform. You can write new actions and behaviors, create custom content models, 

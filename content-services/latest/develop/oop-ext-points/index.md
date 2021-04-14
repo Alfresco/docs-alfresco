@@ -11,7 +11,7 @@ is provided for easy development of extensions from Java applications.
 You should get familiar with the [SDK 5]({% link content-services/latest/develop/oop-sdk.md %}) as it is 
 the recommended way of developing out-of-process extensions.
 
-Read through the [getting started guide]({% link content-services/latest/develop/getting-started.md %}) to get up to 
+Read through the [Getting started guide]({% link content-services/latest/develop/index.md %}) to get up to 
 speed on the difference between in-process and out-of-process extensions.
 
 To fully understand the platform extension points it is a good idea to read through the  
