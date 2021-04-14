@@ -157,34 +157,25 @@ There's a setting for the level of confidence that Amazon Textract has in the ac
 
 ### Amazon Transcribe
 
-Amazon Transcribe makes it easy for you to generate speech to text from your video and audio files.
+Amazon Transcribe makes it easy for you to generate speech to text from your video and audio files to your applications.
 
-This service can detect text in a variety of documents (such as financial reports, medical records, and tax forms). For documents with structured data, the following can be detected:
-
-* Forms with their fields and values
-* Tables with their cells
+This service can be used convert video and audio data into text files which can then be searched for key words or used as closed captions on your videos and audio files.
 
 #### Prerequisites (Transcribe)
 
-The general prerequisites to use Amazon Textract are documented in [Getting Started with Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/getting-started.html){:target="_blank"}.
+The general prerequisites to use Amazon Transcribe are documented in [Getting Started with Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/getting-started.html){:target="_blank"}.
 
 #### Supported regions (Transcribe)
 
-See the list of supported AWS regions where Amazon Textract is [available](https://docs.aws.amazon.com/general/latest/gr/rande.html){:target="_blank"}.
+See the list of supported AWS regions where Amazon Transcribe is [available](https://docs.aws.amazon.com/general/latest/gr/rande.html){:target="_blank"}.
 
 #### Limits (Transcribe)
 
-There are a number of limits that relate to Amazon Textract:
-
-* Amazon Textract synchronous operations (`DetectDocumentText` and `AnalyzeDocument`) support the PNG and JPEG image formats. The maximum document image (JPG/PNG) size is 5 MB.
-* Asynchronous operations (`StartDocumentTextDetection`, `StartDocumentAnalysis`) also support the PDF file format. The maximum PDF file size is 500 MB, and a maximum of 3000 pages.
-  * To process PDF documents, we use asynchronous operations that go via an S3 bucket setup for Intelligence Services and Textract.
-  * The maximum number of concurrent jobs for all asynchronous operations is 1.
-
-See the AWS site for more details on service limits: [Limits in Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/limits.html){:target="_blank"}.
+See the AWS site for more details on service limits: [Limits in Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html){:target="_blank"}.
 
 #### Configuration (Transcribe)
 
 You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
 
-There's a setting for the level of confidence that Amazon Textract has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
+See the AWS site for transcription accuracy information [Improving domain-specific transcription accuracy with custom language models
+](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html){:target="_blank"}.
