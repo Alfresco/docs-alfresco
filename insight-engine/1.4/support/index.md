@@ -16,4 +16,4 @@ The following are the supported platforms for Search and Insight Engine:
 | Alfresco Content Services 6.0.0 | | |
 | Alfresco Content Services 6.0.1 | | |
 
-> **Note:** Search and Insight Engine 1.4 is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Java 11.0.9 is not compatible due to a bug in Jetty, Java 11.0.8 and Java 11.0.10 are both fine.
+> **Note:** Search and Insight Engine 1.4 is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty.
