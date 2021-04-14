@@ -157,7 +157,7 @@ There's a setting for the level of confidence that Amazon Textract has in the ac
 
 ### Amazon Transcribe
 
-Amazon Transcribe makes it easy for you to generate speech to text from your video and audioo files.
+Amazon Transcribe makes it easy for you to generate speech to text from your video and audio files.
 
 This service can detect text in a variety of documents (such as financial reports, medical records, and tax forms). For documents with structured data, the following can be detected:
 
