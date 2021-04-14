@@ -22,17 +22,26 @@ There are two types of installations - local and remote:
 
 ![deployment-type-ssh]({% link content-services/images/deployment-type-ssh.png %})
 
+## Target O/S
+
+The playbooks have been tested using Ansible 2.9.16 (or later) on target hosts with the following operating systems:
+
+* CentOS 7 and 8
+* Red Hat Enterprise Linux 7 and 8
+
+Additional target environments will be added in future releases.
+
 ## Set up Ansible
 
 A control node is required to run the playbook. You can use any computer as a control node that has Python installed. Usually, laptops, shared desktops, and servers can all run Ansible.
 
 In the interest of keeping this guide simple, we'll use an AWS EC2 instance as the control node. The required steps are:
 
-1. Launch an EC2 instance using the Centos 7 or 8 (x86_64) AMI from the Marketplace (instance size/type does not matter):
+1. Launch an EC2 instance using the CentOS 7 or 8 (x86_64) AMI from the Marketplace (instance size/type does not matter):
 
     ![centos-ami]({% link content-services/images/centos-ami.png %})
 
-2. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/1.0/alfresco-ansible-deployment-1.0.zip){:target="_blank"}.
+2. Download the Ansible playbook [zip file](https://download.alfresco.com/cloudfront/release/community/alfresco-ansible-deployment/alfresco-ansible-deployment-1.0.zip){:target="_blank"}.
 
 3. Transfer the ZIP file to the control node and SSH into the machine:
 

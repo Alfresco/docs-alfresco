@@ -10,26 +10,26 @@ These are tutorials for the Document Library in an Alfresco Share site.
 
 **Description**:
 
-In many extension projects you want to customize the Document Library in Alfresco Share. And quite often this involves 
-adding new actions that can be applied to the content in the library. These actions are referred to as "DocLib" actions, 
-and unlike a lot of other functionality in Content Services, they do not use web scripts to implement their 
+In many extension projects you want to customize the Document Library in Alfresco Share. And quite often this involves
+adding new actions that can be applied to the content in the library. These actions are referred to as "DocLib" actions,
+and unlike a lot of other functionality in Content Services, they do not use web scripts to implement their
 business logic, at least not directly, instead they hook into custom, or out-of-the-box, client-side JavaScript code.
 
-Each action has a 16x16 icon, one or more text labels, and configuration to hook them into the Share application. Most 
-actions by their nature do something, and it’s likely that they will make a call back to the repository to perform their 
+Each action has a 16x16 icon, one or more text labels, and configuration to hook them into the Share application. Most
+actions by their nature do something, and it’s likely that they will make a call back to the repository to perform their
 work, which may require a custom repository Action or a custom repository web script.
 
-This tutorial will demonstrate how to add a DocLib action that can be used to send documents as attachments in an email. 
-The "Send-as-Email" action will be available for documents in Browse view and Details view. The implementation of this 
-action will make use of a form to collect the email data, such as where to send the email, subject, etc. The email will 
+This tutorial will demonstrate how to add a DocLib action that can be used to send documents as attachments in an email.
+The "Send-as-Email" action will be available for documents in Browse view and Details view. The implementation of this
+action will make use of a form to collect the email data, such as where to send the email, subject, etc. The email will
 be sent by a custom repository Action that is invoked by an out-of-the-box JavaScript function.
 
-The tutorial will also show how a web script can be called from a DocLib action in a an easy way. And finally we will 
+The tutorial will also show how a web script can be called from a DocLib action in a an easy way. And finally we will
 look at how to create an action that displays an external Web page.
 
 **Implementation Steps**:
 
-Adding a new DocLib action to the Document Library involves the following steps: 
+Adding a new DocLib action to the Document Library involves the following steps:
 
 1. Configure the action so it is known to Share (typically in a Surf Extension Module)
 2. Configure where the action should be visible (typically in a Surf Extension Module)
@@ -40,19 +40,19 @@ Adding a new DocLib action to the Document Library involves the following steps:
 7. Implement custom client side JavaScript code that should be called when action is invoked, or use one of the out-of-the-box JavaScript functions (e.g. `onActionFormDialog` - displays a form and then calls a Repo Action, `onActionSimpleRepoAction` - calls a Repo Action)
 8. (Optionally) Implement any repository Action or repository web script that should be invoked by the action
 
-As we can see, implementing a DocLib action can involve quite a few steps and take some time. However, it can also be 
+As we can see, implementing a DocLib action can involve quite a few steps and take some time. However, it can also be
 very simple as we will see with our DocLib action example that navigates to the Google search home page.
 
 **Related Information**:
 
-This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it 
-[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself with how 
+This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it
+[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself with how
 [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}) work as we will be creating one of those.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-action-doclib-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) 
-project. To try out the Send-As-Email DocLib action in this tutorial you will need to install a local SMTP server such 
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio)
+project. To try out the Send-As-Email DocLib action in this tutorial you will need to install a local SMTP server such
 as [Fake SMTP](https://nilhcem.github.io/FakeSMTP){:target="_blank"}.
 
 This tutorial will demonstrate the following:
@@ -86,20 +86,20 @@ Tutorial implementation steps:
                   <version>${alfresco.share.version}</version>
                   <type>amp</type>
               </moduleDependency>
-    
+
               <!-- Bring in custom Modules -->
               <moduleDependency>
                   <groupId>${project.groupId}</groupId>
                   <artifactId>aio-platform-jar</artifactId>
                   <version>${project.version}</version>
               </moduleDependency>
-    
+
               <moduleDependency>
                   <groupId>${project.groupId}</groupId>
                   <artifactId>add-action-repo</artifactId>
                   <version>${project.version}</version>
               </moduleDependency>
-    
+
               <!-- Bring in the integration tests -->
               <moduleDependency>
                  <groupId>${project.groupId}</groupId>
@@ -115,19 +115,19 @@ Tutorial implementation steps:
     ```java
     public class SendAsEmailActionExecuter extends ActionExecuterAbstractBase {
         private static Log logger = LogFactory.getLog(SendAsEmailActionExecuter.class);
-    
+
         public static final String PARAM_EMAIL_TO_NAME = "to";
         public static final String PARAM_EMAIL_SUBJECT_NAME = "subject";
         public static final String PARAM_EMAIL_BODY_NAME = "body_text";
-    
+
         ...
-    
+
         @Override
         protected void addParameterDefinitions(List<ParameterDefinition> paramList) {
             for (String s : new String[]{PARAM_EMAIL_TO_NAME, PARAM_EMAIL_SUBJECT_NAME, PARAM_EMAIL_BODY_NAME}) {
                 paramList.add(new ParameterDefinitionImpl(s, DataTypeDefinition.TEXT, true, getParamDisplayLabel(s)));
             }
-        }               
+        }
     ```
 
     Our Send-As-Email DocLib action will collect the values for these three parameters via a form.
@@ -137,7 +137,7 @@ Tutorial implementation steps:
     After downloading the FakeSMTP server, see link in the beginning of this tutorial, unpack and then start it with the following command:
 
     ```bash
-    martin@gravitonian:~/apps/fakeSMTP$ java -jar fakeSMTP-1.13.jar -s -p 2525 
+    martin@gravitonian:~/apps/fakeSMTP$ java -jar fakeSMTP-1.13.jar -s -p 2525
     ```
 
     It should start up immediately and listen on port 2525, you should see a UI that will display any incoming emails.
@@ -178,7 +178,7 @@ Tutorial implementation steps:
                 </configurations>
             </module>
         </modules>
-    </extension> 
+    </extension>
     ```
 
     The different attributes and sub-elements for the `action` element have the following meaning:
@@ -196,7 +196,7 @@ Tutorial implementation steps:
 
     1.  Display a form where the end-user can type in the values for the email address, email subject, and email body text.
     2.  When the form is submitted it should automatically call a custom repository action with the information collected via the form.
-    
+
     We achieve this by using the out-of-the-box JavaScript function called `onActionFormDialog`. The following table explains the parameters used with this function:
 
     |Name|Description|
@@ -234,7 +234,7 @@ Tutorial implementation steps:
                         <actions>
                          ...
                         </actions>
-                        
+
                          <actionGroups>
                             <actionGroup id="document-browse">
                                 <action index="400" id="alfresco.tutorials.doclib.action.sendAsEmail" />
@@ -263,7 +263,7 @@ Tutorial implementation steps:
     |`folder-link-browse`|Action is visible for links to folders on the Browse page|
     |`folder-link-details`|Action is visible for link to folder on the Folder Details page|
 
-    The `index` argument is specifying the order of this action in the list of actions. The higher the number the lower it will be displayed in the action list. By having a look in the `share-documentlibrary-config.xml` configuration file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services 6.2 installation, you can find out that the highest index for `document-browse` actions is 360 and for `document-details` actions 390. So if we set our `index` for the Send-As-Email action to 400 it should end up last in both of these action lists.
+    The `index` argument is specifying the order of this action in the list of actions. The higher the number the lower it will be displayed in the action list. By having a look in the `share-documentlibrary-config.xml` configuration file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services installation, you can find out that the highest index for `document-browse` actions is 360 and for `document-details` actions 390. So if we set our `index` for the Send-As-Email action to 400 it should end up last in both of these action lists.
 
     If you want more examples of how Document Library actions can be defined and configured, have a look in the `share-documentlibrary-config.xml` file and the `DocLibActions` section.
 
@@ -280,19 +280,19 @@ Tutorial implementation steps:
     1.  Configure it with the <evaluator> element in the action configuration (We have already done this)
     2.  Create a Java class that extends the `org.alfresco.web.evaluator.BaseEvaluator` class
     3.  Define a spring bean with an id matching the <evaluator> configuration element’s value and then set the class for the Spring bean to the one implemented in step 2
-    
+
     Create a new Java class called `CheckIfDocIsEmailedEvaluator` in the `aio/aio-share-jar/src/main/java/org/alfresco/tutorial/doclibaction/evaluator` package (you will have to create the package path). Then implement the Java class like this:
 
     ```java
     package org.alfresco.tutorial.doclibaction.evaluator;
-    
+
     import org.alfresco.web.evaluator.BaseEvaluator;
     import org.json.simple.JSONArray;
     import org.json.simple.JSONObject;
-    
+
     public class CheckIfDocIsEmailedEvaluator extends BaseEvaluator {
         private static final String ASPECT_EMAILED = "cm:emailed";
-    
+
         @Override
         public boolean evaluate(JSONObject jsonObject) {
             try {
@@ -338,8 +338,8 @@ Tutorial implementation steps:
     * Metadata value
     * Is Browser (type)
     * Is Portlet mode
-    
-    See the `slingshot-documentlibrary-context.xml` file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services 6.2 installation for more information about out-of-the-box evaluators.
+
+    See the `slingshot-documentlibrary-context.xml` file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services installation for more information about out-of-the-box evaluators.
 
 6.  Add a Status Indicator for the Send-As-Email action.
 
@@ -351,7 +351,7 @@ Tutorial implementation steps:
     2.  Add an `indicator` configuration to the `DocumentLibrary` section configuration
     3.  Add i18n label to the resource property file
     4.  Add an image to be used as indicator to the `components/documentlibrary/indicators` directory
-    
+
     The `indicator` configuration is also done in the `add-doclib-actions-extension-modules.xml` file and points to the evaluator previously implemented. It looks like this in the new `DocumentLibrary` section:
 
     ```xml
@@ -372,11 +372,11 @@ Tutorial implementation steps:
                             </indicator>
                         </indicators>
                     </config>
-    
+
                     <config evaluator="string-compare" condition="DocLibActions">
                     ...
                     </config>
-    
+
                 </configurations>
             </module>
         </modules>
@@ -418,11 +418,11 @@ Tutorial implementation steps:
                     <config evaluator="string-compare" condition="DocumentLibrary">
                     ...
                     </config>
-    
+
                     <config evaluator="string-compare" condition="DocLibActions">
-                    ...                
+                    ...
                     </config>
-    
+
                     <config evaluator="string-compare"
                             condition="send-as-email"> <!-- ID for the Repository Action that this form is associated with -->
                         <forms>
@@ -442,7 +442,7 @@ Tutorial implementation steps:
                             </form>
                         </forms>
                     </config>
-    
+
                 </configurations>
             </module>
         </modules>
@@ -517,7 +517,7 @@ Tutorial implementation steps:
                 </configurations>
             </module>
         </modules>
-    </extension> 
+    </extension>
     ```
 
     This action is also of type `javascript` in the same way the Send-As-Email action was. However, this action will call a custom JavaScript function called `onActionCallWebScript`. The `callws-16.png` icon for this action should already be available if you implemented the Send-As-Email action above.
@@ -548,7 +548,7 @@ Tutorial implementation steps:
                         <actions>
                          ...
                         </actions>
-                        
+
                          <actionGroups>
                             <actionGroup id="document-browse">
                                 ...
@@ -582,7 +582,7 @@ Tutorial implementation steps:
                 fn: function org_alfresco_training_onActionCallWebScript(file) {
                     this.modules.actions.genericAction(
                         {
-    
+
                             success: {
                                 callback: {
                                     fn: function org_alfresco_training_onActionCallWebScriptSuccess(response) {
@@ -605,7 +605,7 @@ Tutorial implementation steps:
                                                         }
                                                     }]
                                             });
-    
+
                                     },
                                     scope: this
                                 }
@@ -704,12 +704,12 @@ Tutorial implementation steps:
     ```javascript
     var nodeRef = args["nodeRef"];
     var fileNode = search.findNode(nodeRef);
-    
+
     model["name"] = fileNode.name;
     model["creator"] = fileNode.properties.creator;
     model["createdDate"] = fileNode.properties.created;
     model["modifier"] = fileNode.properties.modifier;
-    model["modifiedDate"] = fileNode.properties.modified; 
+    model["modifiedDate"] = fileNode.properties.modified;
     ```
 
     Finally add the template file called `file-info.get.json.ftl`:
@@ -771,7 +771,7 @@ Tutorial implementation steps:
                 </configurations>
             </module>
         </modules>
-    </extension> 
+    </extension>
     ```
 
     This action is also of type `javascript` in the same way the previous actions have been.This action will call a custom JavaScript function called `onShowCustomMessage`. The `showmsg-16.png` icon for this action should already be available if you implemented the Send-As-Email action above.
@@ -801,7 +801,7 @@ Tutorial implementation steps:
                         <actions>
                          ...
                         </actions>
-                        
+
                          <actionGroups>
                             <actionGroup id="document-browse">
                                 ...
@@ -838,7 +838,7 @@ Tutorial implementation steps:
                         });
                 }
             });
-    
+
         YAHOO.Bubbling.fire("registerAction",
             {
                 actionName: "onActionCallWebScript",
@@ -850,7 +850,7 @@ Tutorial implementation steps:
     The only thing we do in this action code is to display a message with the help of the `Alfresco.util.PopupManager.displayMessage` function.
 
 5.  The implementation of the Show-Custom-Message DocLib action is now complete. This is probably the smallest DocLib action backed by JavaScript code that you might come across. To try it out build and start the application server as follows:
- 
+
     ```bash
     /all-in-one$ ./run.sh build_start
     ```
@@ -896,7 +896,7 @@ Tutorial implementation steps:
                 </configurations>
             </module>
         </modules>
-    </extension> 
+    </extension>
     ```
 
     The `google-16.png` icon for this action should already be available if you implemented the Send-As-Email action above.
@@ -925,7 +925,7 @@ Tutorial implementation steps:
                         <actions>
                          ...
                         </actions>
-                        
+
                          <actionGroups>
                             <actionGroup id="document-browse">
                                 ...
@@ -966,12 +966,12 @@ Tutorial implementation steps:
 
 **Description**:
 
-When custom content models are deployed to the repository it is sometimes a requirement to display properties from these 
-in the Document Library Browse view. This can be done with so called Metadata Templates, which are tied to an evaluator 
+When custom content models are deployed to the repository it is sometimes a requirement to display properties from these
+in the Document Library Browse view. This can be done with so called Metadata Templates, which are tied to an evaluator
 that decides if the template is applicable or not to the content item in question, such as a folder or a file.
 
-If there is no specific Metadata Template defined for a content item type then it falls back on a `default` Metadata 
-template that looks like this (all out-of-the-box Metadata Templates can be found in 
+If there is no specific Metadata Template defined for a content item type then it falls back on a `default` Metadata
+template that looks like this (all out-of-the-box Metadata Templates can be found in
 `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco/share-documentlibrary-config.xml`):
 
 ```xml
@@ -984,24 +984,24 @@ template that looks like this (all out-of-the-box Metadata Templates can be foun
     <line index="30" id="tags" view="detailed">{tags}</line>
     <line index="40" id="categories" view="detailed" evaluator="evaluator.doclib.metadata.hasCategories">{categories}</line>
     <line index="50" id="social" view="detailed">{social}</line>
- </template> 
+ </template>
 ```
 
 This template gives you the basic information for the node, such is in the following example for a file:
 
 ![dev-extensions-share-tutorials-custom-metadata-template-doclib-default]({% link content-services/images/dev-extensions-share-tutorials-custom-metadata-template-doclib-default.png %})
 
-This tutorial will demonstrate how to add a custom DocLib Metadata Template for a custom type from a content model that 
-comes with the SDK Samples. This content model has a type called `acme:document` that contains a property called 
-`acme:documentId` (for more info see `aio/aio-platform-jar/src/main/resources/alfresco/module/aio-platform-jar/model/content-model.xml`). 
-We will create a new template that displays this custom property. The template will be based on the `default` template 
+This tutorial will demonstrate how to add a custom DocLib Metadata Template for a custom type from a content model that
+comes with the SDK Samples. This content model has a type called `acme:document` that contains a property called
+`acme:documentId` (for more info see `aio/aio-platform-jar/src/main/resources/alfresco/module/aio-platform-jar/model/content-model.xml`).
+We will create a new template that displays this custom property. The template will be based on the `default` template
 that you can see above and the property will use the default presentation rendering.
 
 The tutorial will also show how you can render a property in a custom way in your Metadata template.
 
 **Implementation Steps**:
 
-Adding a new Metadata Template to the Document Library involves the following steps: 
+Adding a new Metadata Template to the Document Library involves the following steps:
 
 1. Configure the template so it is known to Share (typically in a Surf Extension Module)
 2. Add an evaluator that controls for what content nodes (i.e. file, folder, etc.) the template is applicable
@@ -1010,14 +1010,14 @@ Adding a new Metadata Template to the Document Library involves the following st
 
 **Related Information**:
 
-This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it 
-[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself with how 
+This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it
+[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself with how
 [Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}) work as we will be creating one of those.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-metadata-template-doclib-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) 
-project. 
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio)
+project.
 
 This tutorial will demonstrate the following:
 
@@ -1062,7 +1062,7 @@ Tutorial implementation steps:
                 </configurations>
             </module>
         </modules>
-    </extension> 
+    </extension>
     ```
 
     What we have done here is basically copied the metadata template with the identifier `<template id="default">` from the `/alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco/share-documentlibrary-config.xml` configuration file. Then added the `line` with `id="acmeDocId"` just before the social properties. We have also added a custom `evaluator` to the template that will only return `true` if the node in question has the type `acme:document` applied.
@@ -1120,7 +1120,7 @@ Tutorial implementation steps:
     * Metadata value
     * Is Browser (type)
     * Is Portlet mode
-    
+
     See the `slingshot-documentlibrary-context.xml` file located in the `alfresco/tomcat/webapps/share/WEB-INF/classes/alfresco` directory of your Content Services installation for more information about out-of-the-box evaluators.
 
 4.  The implementation of the custom Metadata Template is now complete. However, before we start the server up we need to make sure we have the Share JAR installed that provides the [Create Acme Document](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-create-menuitem-doclib-share){:target="_blank"} feature. This will make it easy to create a new text document with the specific `acme:document` type so we can test our new Metadata Template. Download the source and include the JAR in your AIO project.
@@ -1178,7 +1178,7 @@ Tutorial implementation steps:
                             </template>
                         </metadata-templates>
                     </config>
-    
+
                     <config evaluator="string-compare" condition="DocLibCustom">
                         <dependencies>
                             <js src="components/documentlibrary/custom-metadata-template-renderer.js"/>
@@ -1187,7 +1187,7 @@ Tutorial implementation steps:
                 </configurations>
             </module>
         </modules>
-    </extension> 
+    </extension>
     ```
 
     Here we have added an extra `line` identified with the `id="acmeDocIdCustom"` that will represent the custom rendered document identifier. The custom rendering will be done via some client side JavaScript code that is going to be associated with the `line` via the property name `acmeDocumentIdCustomRendition`. The custom JavaScript code will be loaded via the above `DocLibCustom` definition that loads a new JavaScript file called `custom-metadata-template-renderer.js`. This file needs to be created next.
@@ -1207,7 +1207,7 @@ Tutorial implementation steps:
                         html = "";
                     var acmeDocId = properties["acme:documentId"] || "";
                     html = '<span>' + label + '<h2>' + acmeDocId + '</h2></span>';
-    
+
                     return html;
                 }
             });
@@ -1232,12 +1232,12 @@ Tutorial implementation steps:
 
 **Description**:
 
-This tutorial demonstrates how to add a new menu item called **Create an Acme Text Document** to the **Create...** menu 
-that is available in the browse view in the Document Library. When the new menu item is selected it will prompt the user 
-for document name, title, description, and text content. When the user clicks **Create** to create the document it will 
-be created with a custom type set. Because the document is created with a custom type we also need to configure a 
-"create" form for this type, which this tutorial shows how to do. The general take away from this tutorial is that most 
-of the configuration that is normally done in the `share-config-custom.xml` file can also be done with 
+This tutorial demonstrates how to add a new menu item called **Create an Acme Text Document** to the **Create...** menu
+that is available in the browse view in the Document Library. When the new menu item is selected it will prompt the user
+for document name, title, description, and text content. When the user clicks **Create** to create the document it will
+be created with a custom type set. Because the document is created with a custom type we also need to configure a
+"create" form for this type, which this tutorial shows how to do. The general take away from this tutorial is that most
+of the configuration that is normally done in the `share-config-custom.xml` file can also be done with
 Surf Extension Modules, which makes it possible to enable and disable the configuration at runtime.
 
 **Implementation Steps**:
@@ -1251,17 +1251,17 @@ Adding a new content create item in the Document Library usually involves the fo
 
 **Related Information**:
 
-This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it 
-[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) 
-before starting this tutorial. Also, familiar yourself with how you can create a text document via the 
+This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it read up on it
+[here]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib)
+before starting this tutorial. Also, familiar yourself with how you can create a text document via the
 **Create... > Plain Text...** menu item as it is similar to what we are going to do in this tutorial.
 
 **Source Code**: [Go to code](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-create-menuitem-doclib-share){:target="_blank"}
 
-This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project. 
+This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
 
-Sometimes when you have a custom content model it is useful to be able to create new documents with a custom type set 
-automatically, and at the same time also collect values for the type's custom properties. All directly from the Share 
+Sometimes when you have a custom content model it is useful to be able to create new documents with a custom type set
+automatically, and at the same time also collect values for the type's custom properties. All directly from the Share
 user interface. This can be done by adding menu items to the **Create...** menu in the Document Library.
 
 Tutorial implementation steps:
@@ -1275,12 +1275,12 @@ Tutorial implementation steps:
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <model name="acme:contentModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
-    
+
         <!-- Optional meta-data about the model -->
         <description>Document Model for the fictional company Acme</description>
         <author>James Alfresco</author>
         <version>1.0</version>
-    
+
         <imports>
             <!-- Import Alfresco Dictionary Definitions -->
             <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
@@ -1289,12 +1289,12 @@ Tutorial implementation steps:
             <!-- Import Alfresco System Model Definitions -->
             <import uri="http://www.alfresco.org/model/system/1.0" prefix="sys"/>
         </imports>
-    
+
         <!-- Custom namespace for your domain -->
         <namespaces>
             <namespace uri="http://www.acme.org/model/content/1.0" prefix="acme"/>
         </namespaces>
-    
+
         <!-- ===============================================================================================================
             Constraints, Types, and Aspects go here...
             -->
@@ -1312,7 +1312,7 @@ Tutorial implementation steps:
                     </property>
                 </properties>
             </type>
-    
+
         </types>
         ...
     </model>
@@ -1338,7 +1338,7 @@ Tutorial implementation steps:
                             </content>
                         </create-content>
                     </config>
-    
+
                     <config evaluator="model-type" condition="acme:document">
                         <forms>
                             <form>
@@ -1408,7 +1408,7 @@ Tutorial implementation steps:
     It is also possible to skip these resource label properties all together, and just type in the label directly in the create action definition, if for example the system should only support English:
 
     ```xml
-    <content id="acme-plain-text" label="Create an Acme Text Document" icon="text" type="pagelink"> 
+    <content id="acme-plain-text" label="Create an Acme Text Document" icon="text" type="pagelink">
     ```
 
 4.  The implementation of this sample is now done, build and start the application server as follows:
@@ -1457,19 +1457,19 @@ Tutorial implementation steps:
 
 **Description**:
 
-This tutorial demonstrates how to customize an existing Surf JavaScript Widget by extending the out-of-the-box 
-Documentlist widget so it shows a message every time a filter is changed. In previous versions of Content Services 
-it was only possible to customize JavaScript widgets by copying existing code, modifying it, and then copying it onto 
-the web extensions path. This was not efficient as it created a maintenance burden as the code needed to be managed 
+This tutorial demonstrates how to customize an existing Surf JavaScript Widget by extending the out-of-the-box
+Documentlist widget so it shows a message every time a filter is changed. In previous versions of Content Services
+it was only possible to customize JavaScript widgets by copying existing code, modifying it, and then copying it onto
+the web extensions path. This was not efficient as it created a maintenance burden as the code needed to be managed
 through changes to the original widget.
 
-Now logic and metadata about widget instantiation has been moved from the FreeMarker templates and moved into the 
-JavaScript controller as this is easier to customize. The metadata is stored as a standardized object structure in the 
-model, which is then processed by a new custom directive in the FreeMarker template to output the JavaScript code 
+Now logic and metadata about widget instantiation has been moved from the FreeMarker templates and moved into the
+JavaScript controller as this is easier to customize. The metadata is stored as a standardized object structure in the
+model, which is then processed by a new custom directive in the FreeMarker template to output the JavaScript code
 necessary to instantiate the specified widgets.
 
-Existing JavaScript controller extension capabilities can be used so that 
-[Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %}) 
+Existing JavaScript controller extension capabilities can be used so that
+[Surf Extension Modules]({% link content-services/latest/develop/share-ext-points/surf-extension-modules.md %})
 can modify the default metadata object(s) to change the following:
 
 * The name of the JavaScript widget to be instantiated
@@ -1479,12 +1479,12 @@ can modify the default metadata object(s) to change the following:
 * Whether or not additional options are applied to the widget
 * The additional options that should be applied to the widget
 
-FreeMarker templates use a common “boiler-plate” structure to ensure consistency across web script rendered components. 
-Updated resource handling features in Surf are used to move all the CSS and JavaScript dependency requests into the 
-template and remove the associated *.head.ftl file. A consistent pattern of `<@markup>` directives is used throughout 
+FreeMarker templates use a common “boiler-plate” structure to ensure consistency across web script rendered components.
+Updated resource handling features in Surf are used to move all the CSS and JavaScript dependency requests into the
+template and remove the associated *.head.ftl file. A consistent pattern of `<@markup>` directives is used throughout
 the template to further enhance customization options.
 
-The general take away from this tutorial is that most JavaScript Widget customizations that was previously done by 
+The general take away from this tutorial is that most JavaScript Widget customizations that was previously done by
 changing out-of-the-box JavaScript code, can now be done via Surf Extension Modules and JavaScript object extensions.
 
 **Implementation Steps**:
@@ -1499,9 +1499,9 @@ Customizing the Documentlist Widget in the Document Library involves the followi
 
 **Related Information**:
 
-This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it, 
-see [Share Document Library]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself 
-with how you can switch between different filters in the Document Library (that is, the navigation menu to the left in 
+This tutorial assumes that you are familiar with the Document Library in Share. If you are new to it,
+see [Share Document Library]({% link content-services/latest/develop/share-ext-points/share-config.md %}#sharedoclib) before starting this tutorial. Also, familiar yourself
+with how you can switch between different filters in the Document Library (that is, the navigation menu to the left in
 the DocLib).
 
 This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/latest/develop/sdk.md %}#workingaio) project.
@@ -1522,7 +1522,7 @@ Tutorial implementation steps:
     			<sourcePackageRoot>org.alfresco.tutorials.customization</sourcePackageRoot>
     		</customization>
     	</customizations>
-    </module>                    
+    </module>
     ```
 
 3.  Create the following directory: `aio/aio-share-jar/src/main/resources/META-INF/resources/aio-share-jar/doclib/extension`.
@@ -1541,7 +1541,7 @@ Tutorial implementation steps:
         Tutorials.custom.DocumentList.superclass.constructor.call(this, htmlId);
         return this;
       };
-    
+
       // Extend default DocumentList
       YAHOO.extend(Tutorials.custom.DocumentList, Alfresco.DocumentList,
       {
@@ -1549,14 +1549,14 @@ Tutorial implementation steps:
         {
           // Call super class method
           Tutorials.custom.DocumentList.superclass.onFilterChanged.call(this, layer,args);
-    
+
           // Pop-up a message
           Alfresco.util.PopupManager.displayMessage({
             text: "Filter Changed!"
           });
         }
       });
-    })();                    
+    })();
     ```
 
 5.  Create the following directory: `aio/aio-share-jar/src/main/resources/alfresco/web-extension/site-webscripts/org/alfresco/tutorials/customization`.
@@ -1566,7 +1566,7 @@ Tutorial implementation steps:
     ```text
     <@markup id="custom-documentlist-dependencies" target="js" action="after" scope="global">
       <@script src="${url.context}/res/doclib/extension/custom-documentlist.js" group="documentlibrary"/>
-    </@markup>                    
+    </@markup>
     ```
 
     This loads our custom JavaScript widget class after the out-of-the-box JavaScript files used by the Document List widget.

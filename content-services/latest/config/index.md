@@ -64,7 +64,7 @@ If you're installing manually, then you can use the `alfresco-global.properties.
     | db.username=alfresco | Specifies the name of the main database user. This name is used to authenticate with the database. |
     | db.password=alfresco | Specifies the password for the database user. This password is used to authenticate with the database. |
 
-    Additional database properties can be set for further configuration. See [Configuring databases]({% link content-services/latest/config/databases.md %}) for more information.
+    You can set additional database properties, such as `db.port` and `db.host`. See [Advanced configuration properties]({% link content-services/latest/config/databases.md %}#advanced-configuration-properties) for more properties that can be set.
 
 4. Configure your supported database for use. See [Configuring databases]({% link content-services/latest/config/databases.md %}).
 
@@ -540,7 +540,7 @@ The Spring bean definitions are within configuration files in the following dire
 
 The Activity Email Summary ignores certain activity types by default. Use this information to override the Spring bean definition to include these activity types.
 
-The Spring bean definition for the ActivitiesFeed subsystem is called `activities-feed-context.xml` and can be downloaded from the Alfresco SVN: [`activities-feed-context.xml`](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/subsystems/ActivitiesFeed/default/activities-feed-context.xml){:target="_blank"}.
+The Spring bean definition for the ActivitiesFeed subsystem is called `activities-feed-context.xml` and can be downloaded from the Alfresco SVN: [`activities-feed-context.xml`](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/subsystems/ActivitiesFeed/default/activities-feed-context.xml){:target="_blank"}.
 
 1. Download the file and save to the `<subsystems/ActivitiesFeed/default>` directory.
 
