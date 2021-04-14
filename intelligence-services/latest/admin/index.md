@@ -159,7 +159,7 @@ There's a setting for the level of confidence that Amazon Textract has in the ac
 
 Amazon Transcribe makes it easy for you to generate speech to text from your video and audio files to your applications.
 
-This service can be used convert video and audio data into text files which can then be searched for key words or used as closed captions on your videos and audio files.
+This service can be used to convert video and audio data into text files which can then be searched for key words or used as closed captions on your videos and audio files.
 
 #### Prerequisites (Transcribe)
 
