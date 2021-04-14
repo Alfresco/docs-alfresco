@@ -476,7 +476,7 @@ File name: `ai-view.extension.json`
 Mount location and example:
 
 ```bash
-./ai-view.extension.json:/usr/share/nginx/html/assets/ai-view.extension.json
+./ai-view.extension.json:/usr/share/nginx/html/assets/plugins/ai-view.extension.json
 ```
 
 Content:

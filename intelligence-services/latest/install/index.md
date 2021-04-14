@@ -219,7 +219,7 @@ In order to use Amazon Textract, you'll need to create a new IAM role and config
 
 The credentials associated with your IAM user must have permissions to access Amazon Transcribe actions. These permissions are customized through roles associated with your IAM user.
 
-In order to use Amazon Transcribe, you'll need to create a new IAM role and configure a policy to access the desired services within Textract. The easiest way to do this is to attach the AWS managed policy `AmazonTranscribeFullAccess` to the IAM role.
+In order to use Amazon Transcribe, you'll need to create a new IAM role and configure a policy to access the desired services within Transcribe. The easiest way to do this is to attach the AWS managed policy `AmazonTranscribeFullAccess` to the IAM role.
 
 > **Note:** You must grant Amazon Transcribe access to the S3 bucket used above.
 
