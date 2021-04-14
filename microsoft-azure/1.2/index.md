@@ -8,9 +8,9 @@ New features introduced in v1.2 are:
 
 * Azure content store subsystems
 * Multiple Azure storage container configuration
-Two content store subsystems are provided out-of-the-box with this release: `Azure` and `AzureOnPrem`. The default subsystem that's enabled on installation is `AzureOnPrem`, for more see [Azure Connector content store subsystems]({% link microsoft-azure/1.2/config/index.md %}#azure-connector-content-store-subsystems).
+  * Two content store subsystems are provided out-of-the-box with this release: `Azure` and `AzureOnPrem`. The default subsystem that's enabled on installation is `AzureOnPrem`. See [Azure Connector content store subsystems]({% link microsoft-azure/1.2/config/index.md %}#azure-subsystems) for more details.
 
-Other features introduced in previous versions include::
+Other features introduced in previous versions include:
 
 * Support for [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction#blob-storage){:target="_blank"} for on-premises or Azure Cloud installation of Content Services
 * Support for hot and cool access tiers (based on storage account)
@@ -18,7 +18,7 @@ Other features introduced in previous versions include::
 * Storage path approach optimized for high-throughput reads and writes
 * Configurable retries and timeouts for large file uploads and downloads
 
-> **Note**: The Alfresco Content Connector for Azure module can be applied to Content Services 6.2 or later.
+> **Note:** The Alfresco Content Connector for Azure module can be applied to Content Services 6.2 or later.
 
 > **Note:** For improved performance of the Azure Connector, you may wish to run your Content Services instance on an Azure VM connected to Azure Blob storage.
 

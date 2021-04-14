@@ -203,7 +203,7 @@ Use this information to upgrade the Azure Connector from a previous version for 
 
     > **Note:** When upgrading from Azure Connector 1.0, make sure you define the Azure authentication mode and a supported value in your `alfresco-global.properties` file.
 
-     > **Note:** To upgrade a system that's never used the file system (for example, an on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See [Azure content store subsystems]({% link microsoft-azure/1.2/config/index.md %}#azure-connector-content-store-subsystems) for more details.
+     > **Note:** To upgrade a system that's never used the file system (for example, an on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See [Azure content store subsystems]({% link microsoft-azure/1.2/config/index.md %}#azure-subsystems) for more details.
 
 10. Start the server.
 
