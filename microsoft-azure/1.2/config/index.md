@@ -101,7 +101,7 @@ For a complete list of all configuration properties, see the [Properties referen
     connector.az.containerName=myazurecontainer
     ```
 
-    Within a given storage account, every container must have a unique name. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two storage accounts can have containers with the same name. For more details on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
+    Within a given storage account, every container must have a unique name. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two storage accounts can have containers with the same name. For more details on what a content store is, see [Manage content stores]({% link content-services/6.2/admin/content-stores.md %}#manage-content-stores).
 
     See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata){:target="_blank"} for more.
 
@@ -111,13 +111,13 @@ For a complete list of all configuration properties, see the [Properties referen
     connector.az.deleted.containerName=myazuredeletedcontainer
     ```
 
-    This is the container that stores content once it has been deleted. For more details on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
+    This is the container that stores content once it has been deleted. For more details on what a content store is, see [Manage content stores]({% link content-services/6.2/admin/content-stores.md %}#manage-content-stores).
 
 6. Set where the cached content is stored, and how much cache size you need.
 
     The cached content location (and default value) is `dir.cachedcontent=${dir.root}/cachedcontent`.
 
-    See [CachingContentStore properies]({% link content-services/latest/admin/content-stores.md %}#cachingcontentstore-properties) for more information on the caching content store.
+    See [CachingContentStore properies]({% link content-services/6.2/admin/content-stores.md %}#cachingcontentstore-properties) for more information on the caching content store.
 
     > **Note:** The size of the local caching content store can be configured as necessary to limit its use to a maximum overall size or by files with a maximum file size.
 
@@ -154,8 +154,8 @@ The Azure Connector provides a number of properties on installation and for cust
 | connector.az.keyVault.name | Defines a unique vault name to be used for Azure Key Vault authentication. Added in Azure Connector 1.1.
 | connector.az.keyVault.secret.name | Defines a secret to the vault to be used for Azure Key Vault authentication. Added in Azure Connector 1.1.
 | connector.az.storeProtocol | Defines the store protocol name. Choosing your own store protocol name allows you to run multi-cloud deployments and have a consistent content URL regardless of where the content is added. The default value is `azb`, to represent the Azure Blob connector as the default protocol. Added in Azure Connector 1.1.
-| connector.az.containerName | Within a given storage account, every container must have a unique name. Every Blob within a given container must also have a unique name within that container. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two accounts can have containers with the same name, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata){:target="_blank"} for more details. For more information on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
-| connector.az.deleted.containerName | Content is copied here once it has been deleted. This includes after content is removed from the recycle bin and after a 14 day grace period. In order for the content to be removed entirely it must be deleted manually by an Administrator. For more information on what a content store is, see [Manage content stores]({% link content-services/latest/admin/content-stores.md %}#manage-content-stores).
+| connector.az.containerName | Within a given storage account, every container must have a unique name. Every Blob within a given container must also have a unique name within that container. If the container does not already exist, it will be created, but the name must not have already been taken. Note that two accounts can have containers with the same name, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata){:target="_blank"} for more details. For more information on what a content store is, see [Manage content stores]({% link content-services/6.2/admin/content-stores.md %}#manage-content-stores).
+| connector.az.deleted.containerName | Content is copied here once it has been deleted. This includes after content is removed from the recycle bin and after a 14 day grace period. In order for the content to be removed entirely it must be deleted manually by an Administrator. For more information on what a content store is, see [Manage content stores]({% link content-services/6.2/admin/content-stores.md %}#manage-content-stores).
 | connector.az.maxErrorRetries | The maximum number of attempts to retry reads or writes to the Blob container in case of failed transfers. The default is `3`. This configuration uses exponential retries. See [Exponential back-off retry policy](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific#azure-storage){:target="_blank"} for more details.
 | connector.az.tryTimeout | Indicates the maximum time (in seconds) allowed for any single try of an HTTP request. When transferring large amounts of data, the default tryTimeout will probably not be sufficient. To overcome this, we compute the upload try timeout using: {::nomarkdown}<pre>uploadTryTimeout = tryTimeout * anticipatedPayloadSizeInMb</pre>{:/} |
 | connector.az.objectNamePrefix | You can attach a prefix or suffix when you build the Blob ObjectName from the GUID. This prefix or suffix is not stored in the database, which means correct configuration is needed when using this property. **Note:** The use of this property is strongly discouraged. If you need to separate Blobs from different connectors or systems, then you should use different containers. |
@@ -169,7 +169,7 @@ Starting from version 1.2, the Azure Connector provides out-of-the-box content s
 
 The subsystem approach allows a more flexible use of the Azure content store, even in conjunction with existing content stores. A subsystem can be started, stopped, and configured independently, and it has its own isolated Spring application context and configuration. The Azure subsystems belong to the `ContentStore` category, and have types `Azure` or `AzureOnPrem`.
 
-See the Content Services documentation on [Subsystems Extension Point]({% link content-services/latest/develop/repo-ext-points/subsystems.md %}) for more information.
+See the Content Services documentation on [Subsystems Extension Point]({% link content-services/6.2/develop/repo-ext-points/subsystems.md %}) for more information.
 
 ### AzureOnPrem content store subsystem
 
@@ -204,7 +204,7 @@ alfresco/extension/subsystems/ContentStore/Azure/Azure/*-context.xml
 alfresco/extension/subsystems/ContentStore/Azure/Azure/*.properties
 ```
 
-> **Note:** In Content Services 7.0 and Azure Connector 2.0, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Content Services which only allows switching between the embedded content stores.
+> **Note:** In Content Services 6.2 and Azure Connector 1.2, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Content Services which only allows switching between the embedded content stores.
 
 ### Deleted content store support in the repository versus Azure
 
@@ -227,7 +227,7 @@ The Azure multiple storage containers sample is a new store subsystem that is ba
 * `store1.azureBlobContentStore` as the default
 * `store2.azureBlobContentStore` as the second one
 
-The sample files can be found in `alfresco-azure-connector-2.0.x.amp`.
+The sample files can be found in `alfresco-azure-connector-1.2.x.amp`.
 
 * `azure-multiple-storage-containers-context.xml.sample` in `config/alfresco/extension`
 * `azure-mc-contentstore-context.xml.sample` and `azure-mc-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers`
@@ -378,7 +378,7 @@ The caching content store is defined over the content store selector so that we 
 
 This provides the subsystem properties where the `AzMultipleStorageContainers` subsystem declares default values for all the properties it requires.
 
-See the Content Services documentation on [Subsystem properties]({% link content-services/latest/config/subsystems.md %}#subsystem-properties) for more details.
+See the Content Services documentation on [Subsystem properties]({% link content-services/6.2/config/subsystems.md %}#subsystem-properties) for more details.
 
 ### Adding new Azure store to AzMultipleStorageContainers subsystem
 
@@ -490,4 +490,4 @@ If you've configured two content stores (as in the provided sample), you can use
 
     Once the property is set, all the content store properties are added for the node. For example, the content is copied to the second container if you've configured a different name for the second content store.
 
-    See the Content Services documentation, [Content store selector]({% link content-services/latest/admin/content-stores.md %}#content-store-selector) for more details on how the content store selector works.
+    See the Content Services documentation, [Content store selector]({% link content-services/6.2/admin/content-stores.md %}#content-store-selector) for more details on how the content store selector works.
