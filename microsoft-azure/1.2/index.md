@@ -8,7 +8,7 @@ New features introduced in v1.2 are:
 
 * Azure content store subsystems
 * Multiple Azure storage container configuration
-Two content store subsystems are provided out-of-the-box with this release: `Azure` and `AzureOnPrem`. The default subsystem that's enabled on installation is `AzureOnPrem`, for more see [Azure Connector content store subsystems]({% link microsoft-azure/latest/config/index.md %}#azure-connector-content-store-subsystems).
+Two content store subsystems are provided out-of-the-box with this release: `Azure` and `AzureOnPrem`. The default subsystem that's enabled on installation is `AzureOnPrem`, for more see [Azure Connector content store subsystems]({% link microsoft-azure/1.2/config/index.md %}#azure-connector-content-store-subsystems).
 
 Other features introduced in previous versions include::
 

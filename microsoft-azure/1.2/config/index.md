@@ -214,7 +214,7 @@ Previous versions of the Azure Connector support the deleted content store provi
 
 Starting with 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. However, you can enable the Content Services deleted content store, if required.
 
-See [Azure Connector deleted content store]({% link microsoft-azure/latest/install/index.md %}#azure-connector-deleted-content-store) for more details.
+See [Azure Connector deleted content store]({% link microsoft-azure/1.2/install/index.md %}#azure-connector-deleted-content-store) for more details.
 
 ## Configuring multiple storage containers
 

@@ -32,7 +32,7 @@ Use this information to upgrade the Azure Connector from a previous version for 
 
 6. Delete any previously installed Azure Connector AMP.
 
-7. Copy the AMP file you downloaded during [installation]({% link microsoft-azure/latest/install/index.md %}) to the `amps` directory.
+7. Copy the AMP file you downloaded during [installation]({% link microsoft-azure/1.2/install/index.md %}) to the `amps` directory.
 
 8. Use the Module Management Tool (MMT) to install the AMP into the repository WAR (`alfresco.war`).
 
@@ -40,13 +40,13 @@ Use this information to upgrade the Azure Connector from a previous version for 
 
     > **Note:** You must install the Azure Connector AMP using `-force`.
 
-9. Check that the [configuration]({% link microsoft-azure/latest/config/index.md %}) is set up correctly for your environment.
+9. Check that the [configuration]({% link microsoft-azure/1.2/config/index.md %}) is set up correctly for your environment.
 
     > **Note:** When upgrading from Azure Connector version 1.0, make sure you define the Azure authentication mode and a supported value in your `alfresco-global.properties` file.
 
-    > **Note:** To upgrade a system that's never used the file system (i.e. on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See [Azure Connector content store subsystems]({% link microsoft-azure/latest/config/index.md %}#azure-subsystems) for more details.
+    > **Note:** To upgrade a system that's never used the file system (i.e. on-premises installation without locally saved binaries), we recommend that you choose a pure Azure content store. See [Azure Connector content store subsystems]({% link microsoft-azure/1.2/config/index.md %}#azure-subsystems) for more details.
 
-10. Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see [Azure Connector deleted content store]({% link microsoft-azure/latest/config/index.md %}#azure-connector-deleted-content-store).
+10. Starting from version 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. For details on how to re-enable it, see [Azure Connector deleted content store]({% link microsoft-azure/1.2/config/index.md %}#azure-connector-deleted-content-store).
 
 11. Start the server.
 
