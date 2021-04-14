@@ -717,7 +717,7 @@ followed by files. To mix files and folders and order them alphabetically in rev
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?relativePath=My%20Stuff&orderBy=name%20DESC" | jq 
 ```
 
-## Get folder/file metadata
+## Get folder/file metadata {#getnodemetadata}
 
 Getting the metadata for a node returns the properties for the node type and applied aspects.
 
@@ -3689,7 +3689,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-### Create an association for a node that exists
+### Create an association for a node that exists {#createparentchildassoc4nodeexist}
 
 It's also possible to create associations on nodes that already exist, let's add some more to our "My Gadget" `fdk:gadget` 
 node. Before we do that though upload another image to the “My Gadgets” folder and some more content to represent another 
@@ -3816,7 +3816,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-### Deleting associations
+### Deleting associations {#deletingassociations}
 
 The last thing to cover is deleting associations, let's start by removing the second review from our `fdk:gadget` node. 
 To do this we send a DELETE request to:

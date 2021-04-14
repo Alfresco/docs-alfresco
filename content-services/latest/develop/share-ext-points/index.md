@@ -1,10 +1,13 @@
 ---
-title: Overview of Share extension points
+title: Overview of in-process Share extension points
 ---
 
 An extension point is an interface that a developer can use to customize the Share web application in a supported way. 
 There are a number of extension points that can be used to do things like adding custom pages, hiding content on 
-existing pages, display custom metadata, modify the menu, and so on. 
+existing pages, display custom metadata, modify the menu, and so on.
+
+Read through the [Getting started guide]({% link content-services/latest/develop/index.md %}) to get up to 
+speed on the difference between in-process and out-of-process extensions. 
 
 To fully understand the extension points it is a good idea to first read through the  
 [Share Architecture]({% link content-services/latest/develop/software-architecture.md %}#sharearchitecture) section.

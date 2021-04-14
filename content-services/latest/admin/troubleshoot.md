@@ -92,7 +92,7 @@ java.net.PlainSocketImpl.socketBind(Native Method)
 
 Check to see if you have any services running against port 8080 for the Content Services server or port 21 for the FTP integration.
 
-## Using the Node Browser
+## Using the Node Browser {#usingnodebrowser}
 
 Use Node Browser in the Repo Admin Console or in Share Admin Tools as a debugging aid to browse the raw repository structure. This feature is intended for developers responsible for customizing the application.
 

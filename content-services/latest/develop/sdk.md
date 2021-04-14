@@ -1,52 +1,51 @@
 ---
-title: Alfresco SDK
+title: Alfresco SDK 4.2 for in-process extensions
 ---
 
-Alfresco SDK 4.1 is a Maven based development kit that provides an easy to use approach to developing applications and 
+Alfresco SDK 4.2 is a Maven based development kit that provides an easy to use approach to developing applications and 
 extensions for Alfresco. With this SDK you can develop, package, test, run, document and release your Alfresco extension project.
+
+The following picture illustrates where SDK 4.x fits into the big picture:
+
+![sdk4_big_picture]({% link content-services/images/sdk4_big_picture.png %})
 
 The Alfresco Software Development Kit (Alfresco SDK) is a fundamental tool provided by Alfresco to developers to build 
 customizations and extensions for the Alfresco Digital Business Platform. It is based on [Apache Maven](http://maven.apache.org/){:target="_blank"} 
 and [Docker](https://www.docker.com/){:target="_blank"} and is compatible with major IDEs. This enables Rapid Application Development (RAD) 
 and Test Driven Development (TDD).
 
-Alfresco SDK 4.1 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
+Alfresco SDK 4.2 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
 and supports Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, 
-please check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
+check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
 for the version you're using. If your version is in Limited or Full Support and you need help, contact our [Support team](https://support.alfresco.com/){:target="_blank"}.
 
-Alfresco SDK 4.1 is a minor update to the SDK and provides support for Alfresco 6.2.x.
+Alfresco SDK 4.2 is a minor update to the SDK and provides support for Alfresco 7.0.
 
-The 4.0 release takes advantage of Semantic Versioning ([SEMVER](http://semver.org/){:target="_blank"}), which means that 
-this new release is not directly compatible with the previous releases of the SDK.
+The 4.0 release took advantage of Semantic Versioning ([SEMVER](http://semver.org/){:target="_blank"}), which means that it isn't directly compatible with the previous releases of the SDK.
 
-If you have existing projects that you wish to upgrade to SDK 4.1.x, the recommended approach is to generate a new project 
-from our archetypes and move your code into place.
+If you have existing projects that you wish to upgrade to SDK 4.1.x or 4.2.x, the recommended approach is to generate a new project from our archetypes and move your code into place.
 
 ## What's new?
 
-Alfresco SDK 4.0 brings some changes oriented to assist the way the customizations are built, packaged, run and tested for Content Services 6 and 
-Alfresco Share 6.
-
-This is a mayor release oriented to support Alfresco 6, so it is not compatible with previous versions of the SDK.
+Alfresco SDK 4.2 brings some changes oriented to assist the way the customizations are built, packaged, run and tested 
+for Content Services 7 and Alfresco Share 7.
 
 ### Embracing containers and Docker
 
 The main change included in SDK 4.0 is the addition of container technologies. Specifically, the new SDK is highly based 
-on [Docker](https://www.docker.com/){:target="_blank"} and [Docker compose](https://docs.docker.com/compose/){:target="_blank"} 
+on [Docker](https://www.docker.com/){:target="_blank"} and [Docker Compose](https://docs.docker.com/compose/){:target="_blank"} 
 to offer a solution aligned with the architectural decisions made in Alfresco for version 6: moving towards microservices-oriented 
 solutions.
 
 Working with Docker images gives the developers the opportunity to easily customize the deployment of the local environment to adapt it to their requirements.
-Adding, removing and configuring services in the environment is as easy as modifying the Docker compose descriptor file.
+Adding, removing and configuring services in the environment is as easy as modifying the Docker Compose descriptor file.
 
 ### Support for Java 11
 
-[Java 11](https://openjdk.java.net/projects/jdk/11/){:target="_blank"} is the next Long Term Support (LTS) version that provides support for 3 years. Alfresco 6.1 already offers
+[Java 11](https://openjdk.java.net/projects/jdk/11/){:target="_blank"} is the next Long Term Support (LTS) version that provides support for 3 years. Alfresco 6.1+ already offers
 support for this version of the Java platform.
 
-Alfresco SDK 4.0 has been modified to add support for Java 11 as well. This way, if you're working as a developer in customizations for Alfresco 6.1 you must
-now use SDK 4.0 + JDK 11 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 11.
+Alfresco SDK 4.0 has been modified to add support for Java 11 as well. This way, if you're working as a developer in customizations for Alfresco 6.1 or later, you must now use SDK 4.0 + JDK 11 to work on them. The Apache Maven plugins included in the archetypes has been updated to avoid any issue with Java 11.
 
 ### Easy dependency configuration
 
@@ -65,30 +64,30 @@ Alfresco SDK 4.0 manages the lifecycle of the generated projects making use of p
 
 If a development team has straightforward requirements and doesn't want to worry about the complexity of working with containers, it can use the utility scripts
 as they are. But, if any development team has a requirement or a development process that requires a customization in the project development lifecycle, it is 
-easy to modify the utility scripts, the Docker files or the Docker compose descriptor to adapt the SDK projects to their needs.
+easy to modify the utility scripts, the Docker files or the Docker Compose descriptor to adapt the SDK projects to their needs.
 
 The Alfresco Maven Plugin is only required in those cases in which it is required to package the customization project as an AMP. For more information about 
-how to work with AMPs, please visit [Working with AMPs](#workingwithamps).
+how to work with AMPs, visit [Working with AMPs](#workingwithamps).
 
 ### Integration testing
 
 The integration tests and the mechanisms to execute them in an Alfresco Content Service instance remains the same as in the previous version of the SDK. 
 
 However, the inclusion of Docker and the utility scripts provides a different perspective about the environment on which the integration tests are executed.
-In this version, the integration tests are run against the dockerised environment defined using Docker and Docker compose. By doing so, the integration test
+In this version, the integration tests are run against the dockerised environment defined using Docker and Docker Compose. By doing so, the integration test
 environment can be more similar to a real one, including whatever other service is required for a full featured integration test execution. 
 
-### Support for Alfresco 6.2.x
+### Support for Alfresco 7.x
 
-Alfresco SDK 4.1 provides support for Alfresco 6.2.x.
+Alfresco SDK 4.2 provides support for Alfresco 7.x.
 
 ## Getting started with Alfresco SDK {#gettingstarted}
 
-Use these instructions to get started with using Alfresco SDK 4.1.
+Use these instructions to get started with using Alfresco SDK 4.2.
 
 ### Prerequisites
-   
-There are a number of software requirements for using Alfresco SDK 4.1:
+
+There are a number of software requirements for using Alfresco SDK 4.2:
 
 * Java Development Kit (JDK) - Version 11
 * Maven - Version 3.3
@@ -126,7 +125,7 @@ ACS 6.0 is compiled and executed using Java 8, but it is highly recommended to w
 Alfresco recommends that you keep up-to-date with all the Maven releases. Linux distributions and package managers tend to bundle older releases and this is 
 the most common pitfall.
 
-Alfresco SDK 4.1 requires Maven 3.3.0+, but you are recommended to download the latest version.
+Alfresco SDK 4.2 requires Maven 3.3.0+, but you are recommended to download the latest version.
 
 1. Download and install [Apache Maven](https://maven.apache.org/download.cgi){:target="_blank"} and make sure it is configured correctly on your path.
 
@@ -154,7 +153,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     ```bash
     $ docker -v
     Docker version 18.06.1-ce, build e68fc7a
-    ``` 
+    ```
 
 3. [Docker Compose](https://docs.docker.com/compose/install/){:target="_blank"} is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
 
@@ -172,14 +171,13 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     ```bash
     mvn archetype:generate -Dfilter=org.alfresco:
     ```
-    
-    You'll be prompted to select the archetype you want. The previously available archetypes, `alfresco-amp-archetype` and `share-amp-archetype` will still show up 
-    as an option, however these archetypes are not part of Alfresco SDK 4.1.
-    
-    Attention: You'll need double quotes around the filter part if you are using Windows Powershell: `mvn archetype:generate "-Dfilter=org.alfresco:"`.
-    
+
+    You'll be prompted to select the archetype you want. The previously available archetypes, `alfresco-amp-archetype` and `share-amp-archetype` will still show up as an option, however these archetypes are not part of Alfresco SDK 4.2.
+
+    > **Note:** You'll need double quotes around the filter part if you are using Windows PowerShell: `mvn archetype:generate "-Dfilter=org.alfresco:"`.
+
     The output looks something like this:
-    
+
     ```text
     [INFO] Generating project in Interactive mode
     [INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.archetypes:maven-archetype-quickstart:1.0)
@@ -197,7 +195,7 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     * `org.alfresco.maven.archetype:alfresco-platform-jar-archetype`
     * `org.alfresco.maven.archetype:alfresco-share-jar-archetype`
 
-3. Choose the latest version, such as 4.1.0.
+3. Choose the latest version, such as 4.2.0.
 
     ```bash
     Choose org.alfresco.maven.archetype:alfresco-allinone-archetype version:
@@ -211,8 +209,10 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     8: 2.2.0
     9: 3.0.0
     10: 3.0.1
-    11: 4.0.0
-    12: 4.1.0
+    11: 3.1.0
+    12: 4.0.0
+    13: 4.1.0
+    14: 4.2.0
     ```
 
 4. Next you will be prompted for additional values, like `groupId`, `artifactId`, and `package`, as shown below:
@@ -238,10 +238,10 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
 6. Press **Y** and then press **Enter**.
 
     If everything has been configured correctly, you should see something similar to this:
-    
+
     ```bash
     [INFO] ----------------------------------------------------------------------------
-    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.1.0-SNAPSHOT
+    [INFO] Using following parameters for creating project from Archetype: alfresco-allinone-archetype:4.2.0-SNAPSHOT
     [INFO] ----------------------------------------------------------------------------
     [INFO] Parameter: groupId, Value: com.acme
     [INFO] Parameter: artifactId, Value: my-all-in-one
@@ -268,32 +268,33 @@ Alfresco recommends that you keep up-to-date with all the Docker releases. If yo
     [INFO] ------------------------------------------------------------------------
     ```
 
-7. You have successfully generated your first SDK 4.1 project.
+7. You have successfully generated your first SDK 4.2 project.
 
 Inside the project, you will find the `run.bat` and `run.sh` scripts. These are convenience scripts for you to quickly compile / test / run your project.
 
 In the terminal window, use:
+
 * `./run.sh build_start` for Mac OS X or Linux.
 * `run.bat build_start` for Windows.
 
 If this is the first time you are doing this, it will take a while for Maven to download all the required dependencies and for Docker to download all the
 required images.
 
-For more information about how to work with the projects, please visit [Working with generated projects](#workingwithprojects).
+For more information about how to work with the projects, visit [Working with generated projects](#workingwithprojects).
 
 ## Alfresco SDK Maven archetypes {#mvnarchetypes}
 
-The Alfresco SDK 4.1 comes with a number of Maven archetypes that can be used to generate Alfresco extension projects.
+The Alfresco SDK 4.2 comes with a number of Maven archetypes that can be used to generate Alfresco extension projects.
 
-For more details, see [Getting started with Alfresco SDK 4.1](#gettingstarted).
+For more details, see [Getting started with Alfresco SDK 4.2](#gettingstarted).
 
 These archetypes are available during the creation of a brand new project. In short, a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html){:target="_blank"} 
 is a project templating toolkit. It's defined as an original pattern or model from which all other things of the same kind are made. Using archetypes 
 provides a great way to enable developers to quickly follow best practice in a consistent way. This is valid for every project built with Apache Maven and 
-it's valid in particular when using Alfresco SDK 4.1.
+it's valid in particular when using Alfresco SDK 4.2.
 
-In this section we are going to introduce all the available archetypes in Alfresco SDK 4.1, with a brief description of their purpose and main use. 
-After reading this information, you should be able to understand the various possibilities that Alfresco SDK 4.1 can offer to developers, in terms of 
+In this section we are going to introduce all the available archetypes in Alfresco SDK 4.2, with a brief description of their purpose and main use. 
+After reading this information, you should be able to understand the various possibilities that Alfresco SDK 4.2 can offer to developers, in terms of 
 projects.
 
 When generating your project, you'll be prompted to select the Maven archetype you want to use through an interactive menu, similar to what you can see below.
@@ -331,7 +332,7 @@ Please note that the numbering is not sequential and some numbers may be skipped
 ### org.alfresco.maven.archetype:alfresco-allinone-archetype
 
 This archetype allows a developer to implement the All-In-One project on Content Services. The All-In-One project (also called AIO) is provided in 
-this and previous versions of Alfresco SDK, but in SDK 4.1 it has been reshaped to leverage on Docker.
+this and previous versions of Alfresco SDK, but in SDK 4.2 it has been reshaped to leverage on Docker.
 
 The All-In-One archetype allows a developer to create a multi-module project on Content Services. The All-In-One project mainly includes a module for 
 the core repository in ACS and a module for the Share client. This includes:
@@ -341,7 +342,7 @@ the core repository in ACS and a module for the Share client. This includes:
 * ACS Repository Docker image configuration
 * Alfresco Share Docker image configuration
 * Integration tests
-* Docker containers (ACS, Share, Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker compose
+* Docker containers (ACS, Share, Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker Compose
 * (Optional) AMP deployment configuration (JAR is the recommended artifact type and the default)
 
 The project created using the All-In-One Maven archetype includes some sample code (by default) to show you how to develop with the Content Services 
@@ -356,13 +357,13 @@ For more information about the All-In-One project, see [All-In-One project struc
 
 ### org.alfresco.maven.archetype:alfresco-platform-jar-archetype
 
-This archetype allows a developer to implement the Platform JAR project on Content Services. It has been reshaped in SDK 4.1 to leverage on Docker.
+This archetype allows a developer to implement the Platform JAR project on Content Services. It has been reshaped in SDK 4.2 to leverage on Docker.
 
 The Platform JAR Maven archetype allows a developer to create a module on Content Services, in particular on the Repository side, and includes:
 
 * ACS Repository JAR
 * ACS Repository Docker image configuration
-* Docker containers (ACS, Share (optional), Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker compose
+* Docker containers (ACS, Share (optional), Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker Compose
 * (Optional) AMP deployment configuration (JAR is the recommended artifact type and the default)
 
 The project created using the Platform JAR Maven archetype includes some sample code (by default) to show you how to develop with the Alfresco Content 
@@ -375,13 +376,13 @@ For more information about the Platform JAR project, see [Platform JAR project s
 
 ### org.alfresco.maven.archetype:alfresco-share-jar-archetype
 
-This archetype allows a developer to implement the Share JAR project on an Alfresco Share client. It has been reshaped in SDK 4.1 to leverage on Docker.
+This archetype allows a developer to implement the Share JAR project on an Alfresco Share client. It has been reshaped in SDK 4.2 to leverage on Docker.
 
 The Share JAR Maven archetype allows a developer to create a module on an Alfresco Share client, and includes:
 
 * Alfresco Share JAR
 * Alfresco Share Docker image configuration
-* Docker containers (ACS, Share, Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker compose
+* Docker containers (ACS, Share, Alfresco Search Service, PostgreSQL) configuration and orchestration via Docker Compose
 * (Optional) AMP deployment configuration (JAR is the recommended artifact type and the default)
 
 The project created using the Share JAR Maven archetype includes some sample code (by default) to show you how to develop with the Alfresco Share client. 
@@ -409,10 +410,10 @@ still listed.
 
 ## Working with generated projects {#workingwithprojects}
 
-After generating a project using one of the Alfresco SDK 4.1 Maven archetypes, it is important to know how to build / run / test these projects.
+After generating a project using one of the Alfresco SDK 4.2 Maven archetypes, it is important to know how to build / run / test these projects.
 
-The Alfresco Platform 6 [deployment]({% link content-services/latest/install/containers/index.md %}){:target="_blank"} architecture is highly based on container technologies, specifically in Docker. 
-Due to that, the projects generated using the Alfresco SDK 4.1 archetypes set up their local environment making an intensive use of Docker and Docker compose 
+The Alfresco Platform 6+ [deployment]({% link content-services/latest/install/containers/index.md %}) architecture is highly based on container technologies, specifically in Docker. 
+Due to that, the projects generated using the Alfresco SDK 4.2 archetypes set up their local environment making an intensive use of Docker and Docker Compose 
 technologies.
 
 If you're not familiar with these technologies, it is highly recommended visiting the [Docker documentation website](https://docs.docker.com){:target="_blank"}. This site offers
@@ -420,12 +421,12 @@ a great quantity of training resources about [Docker](https://docs.docker.com/ge
 
 Before continuing, make sure that you have read and completed the tasks in the [Getting started](#gettingstarted) tutorial.
 
-* [Working with an All-In-One project](#workinaio)
+* [Working with an All-In-One project](#workingaio)
 * [Working with a Platform (Repository) JAR project](#workingplatform)
 * [Working with a Share JAR project](#workingshare)
 
 After generating your project, using one of the Maven archetypes, review the project structure. The directory structure and content of each folder and file 
-can help you to understand how to start developing with the Alfresco SDK 4.1. 
+can help you to understand how to start developing with the Alfresco SDK 4.2. 
 
 The structure of the project and the purpose of the files it contains vary according to the [Maven archetype](#mvnarchetypes) used to generate the project 
 itself. The following links provide detailed descriptions of the different project types.
@@ -436,7 +437,7 @@ itself. The following links provide detailed descriptions of the different proje
 
 ### Run script {#workingwithrunscript}
 
-All the projects generated using the Alfresco SDK 4.1 archetypes provide a utility script to work with the project. This script is `run.sh` for Unix systems
+All the projects generated using the Alfresco SDK 4.2 archetypes provide a utility script to work with the project. This script is `run.sh` for Unix systems
 and `run.bat` for Windows systems.
 
 The execution of this script must be followed by a parameter that dictates the task to be executed in the project. The list of available tasks is:
@@ -454,19 +455,20 @@ The execution of this script must be followed by a parameter that dictates the t
 |`build_test` | Build the whole project, recreate the ACS and Share docker images, start the dockerised environment, execute the integration tests from the `integration-tests` module and stop the environment.|
 |`test` | Execute the integration tests (the environment must be already started).|
 
-This utility script uses `mvn`, `docker` and `docker-compose` commands, so make sure you have properly installed Maven, Docker and Docker compose and you have 
+This utility script uses `mvn`, `docker` and `docker-compose` commands, so make sure you have properly installed Maven, Docker and Docker Compose and you have 
 configured them properly to be accessible in the path.
 
 In the case of Maven, it is not necessary that the `mvn` executable is in the path if you've properly configured the environment variable `M2_HOME`. The script
-looks for the `M2_HOME` environment variable to build the path to the `mvn` executable. 
+looks for the `M2_HOME` environment variable to build the path to the `mvn` executable.
 
 ### Working with an All-In-One (AIO) project {#workingaio}
 
 Before you continue make sure that you have read and completed the tasks in the 
 [Getting started](#gettingstarted) tutorial to generate an All-In-One (AIO) project, 
 which means selecting the `org.alfresco.maven.archetype:alfresco-allinone-archetype` 
-Maven archetype when generating the project. The following information assumes that 
-the AIO project was generated with the name `my-all-in-one-project`.
+Maven archetype when generating the project.
+
+> **Note:** The following information assumes that the AIO project was generated with the name `my-all-in-one-project`.
 
 #### Introduction
 
@@ -474,7 +476,7 @@ An AIO SDK project is used to build extensions for both [Content Services (ACS) 
 and [Alfresco Share UI]({% link content-services/latest/develop/share-ext-points/index.md %}). The runtime environment
 for ACS is Docker so not only is this project building the source code for your extensions but also the 
 custom Docker images for the Alfresco Repository and Alfresco Share. The custom Docker images includes the 
-JARs, or AMPs, with your extension code. 
+JARs, or AMPs, with your extension code.
 
 Looking into the generated AIO parent project we can see that we got a Docker Compose file (`my-all-in-one-project/docker/docker-compose.yml`) 
 that will be used to build custom Docker images and run the project, one sub-project called `my-all-in-one-project-platform` that will be 
@@ -485,8 +487,7 @@ used to assemble (aggregate) all the Repository and Share extensions
 (there are usually more than one of each in a bigger project) and then build the custom Docker images with the 
 extension(s) applied.
 
-The Repository and Share extensions that are aggregated can either be extensions that you develop locally or extensions 
-that are available in a Maven repository somewhere. 
+The Repository and Share extensions that are aggregated can either be extensions that you develop locally or extensions that are available in a Maven repository somewhere.
 
 #### Configuration properties
 
@@ -497,8 +498,8 @@ The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 6.1.2-ga | The version of the ACS Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the ACS Repository Docker Image that the custom built Repository image should be based on. See `my-all-in-one-project-platform-docker/src/main/docker/Dockerfile` |
-| alfresco.share.version | `string` | 6.1.0-RC3 | The version of Alfresco Share (i.e. share.war) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-all-in-one-project-share-docker/src/main/docker/Dockerfile`|
+| alfresco.platform.version | `string` | 7.0.0 | The version of the ACS Repository (i.e. `alfresco.war`) that the Repository Extension should be applied to. This also specifies the version of the ACS Repository Docker Image that the custom built Repository image should be based on. See `my-all-in-one-project-platform-docker/src/main/docker/Dockerfile` |
+| alfresco.share.version | `string` | 7.0.0 | The version of Alfresco Share (i.e. `share.war`) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-all-in-one-project-share-docker/src/main/docker/Dockerfile`|
 | docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the ACS Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
@@ -524,12 +525,13 @@ contains the versions of Alfresco Repository and Alfresco Share that will be use
 ```bash
 $ cd my-all-in-one-project
 my-all-in-one-project mbergljung$ ./run.sh build_start
+
 [INFO] Scanning for projects...
 [WARNING] The project com.example:my-all-in-one-project:pom:1.0-SNAPSHOT uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
-[INFO] AIO - SDK 4.1
+[INFO] AIO - SDK 4.2
 [INFO] Alfresco Platform/Repository JAR Module
 [INFO] Alfresco Share JAR Module
 [INFO] Integration Tests Module
@@ -539,7 +541,7 @@ my-all-in-one-project mbergljung$ ./run.sh build_start
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] AIO - SDK 4.1 ...................................... SUCCESS [  0.680 s]
+[INFO] AIO - SDK 4.2 ...................................... SUCCESS [  0.680 s]
 [INFO] Alfresco Platform/Repository JAR Module ............ SUCCESS [  5.461 s]
 [INFO] Alfresco Share JAR Module .......................... SUCCESS [  0.557 s]
 [INFO] Integration Tests Module ........................... SUCCESS [  0.900 s]
@@ -554,11 +556,11 @@ my-all-in-one-project-db-volume
 my-all-in-one-project-ass-volume
 ...
 Building my-all-in-one-project-share
-Step 1/8 : FROM alfresco/alfresco-share:6.1.0-RC3
+Step 1/8 : FROM alfresco/alfresco-share:7.0.0
 ...
 Successfully tagged alfresco-share-my-all-in-one-project:development
 Building my-all-in-one-project-acs
-Step 1/9 : FROM alfresco/alfresco-content-repository-community:6.1.2-ga
+Step 1/9 : FROM alfresco/alfresco-content-repository-community:7.0.0
 ...
 Successfully tagged alfresco-content-services-my-all-in-one-project:development
 ...
@@ -593,14 +595,14 @@ The different web applications should now be accessible:
 
 #### Trying out the sample code
 
-The AIO project has some sample extension code that you can try out. There is a one Repository extension and one Share extension 
+The AIO project has some sample extension code that you can try out. There is one Repository extension and one Share extension 
 that you can test to make sure the extension JARs have been applied properly.
 
-The Repository extension is a Web Script that can be called with the following URL: `http://localhost:8080/alfresco/service/sample/helloworld`.
+The Repository extension is a Web Script that you can call with the following URL: `http://localhost:8080/alfresco/service/sample/helloworld`.
 The source code for the Web Script is located here: `my-all-in-one-project/my-all-in-one-project-platform/src/main/resources/alfresco/extension/templates/webscripts/alfresco/tutorials` 
 and here: `my-all-in-one-project/my-all-in-one-project-platform/src/main/java/ com/example/platformsample/HelloWorldWebScript.java`.
 
-The Share extension is a custom Aikau page with a custom widget, you reach it with the following URL: `http://localhost:8180/share/page/hdp/ws/simple-page`.
+The Share extension is a custom Aikau page with a custom widget, that you can reach with the following URL: `http://localhost:8180/share/page/hdp/ws/simple-page`.
 The source code for the Page and Widget is located here: `my-all-in-one-project/my-all-in-one-project-share/src/main/resources/alfresco/web-extension/site-webscripts/com/example/pages` 
 and here: `my-all-in-one-project/my-all-in-one-project-share/src/main/resources/META-INF/resources/my-all-in-one-project-share/js/tutorials/widgets`.
 
@@ -711,9 +713,9 @@ Removing network docker_default
 
 Before you continue make sure that you have read and completed the tasks in the 
 [Getting started](#gettingstarted) tutorial to generate a Platform project, 
-which means selecting the `org.alfresco.maven.archetype:alfresco-platform-jar-archetype` 
-Maven archetype when generating the project. The following information assumes that 
-the Platform project was generated with the name `my-platform-project`.
+which means selecting the `org.alfresco.maven.archetype:alfresco-platform-jar-archetype` Maven archetype when generating the project.
+
+> **Note:** The following information assumes that the Platform project was generated with the name `my-platform-project`.
 
 #### Introduction
 
@@ -735,8 +737,8 @@ The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 6.1.2-ga | The version of the ACS Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the ACS Repository Docker Image that the custom built Repository image should be based on. See `my-platform-project-platform-docker/src/main/docker/Dockerfile` |
-| alfresco.share.version | `string` | 6.1.0-RC3 | The version of Alfresco Share (i.e. share.war) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-platform-project-share-docker/src/main/docker/Dockerfile`|
+| alfresco.platform.version | `string` | 7.0.0 | The version of the ACS Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the ACS Repository Docker Image that the custom built Repository image should be based on. See `my-platform-project-platform-docker/src/main/docker/Dockerfile` |
+| alfresco.share.version | `string` | 7.0.0 | The version of Alfresco Share (i.e. share.war) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-platform-project-share-docker/src/main/docker/Dockerfile`|
 | docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the ACS Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
@@ -816,7 +818,7 @@ alfresco-content-services-my-platform-project                    development    
 The different web applications should now be accessible:
 
 * **ACS Repository**: http://localhost:8080/alfresco
-* And optionally (if enabled in Docker Compose file) **ACS Share**: http://localhost:8180/share/ - login with admin/admin
+* And optionally (if enabled in Docker Compose file) **ACS Share**: http://localhost:8180/share/ - login with **admin/admin**
 
 #### Trying out the sample code
 
@@ -945,8 +947,9 @@ Removing network docker_default
 Before you continue make sure that you have read and completed the tasks in the 
 [Getting started](#gettingstarted) tutorial to generate an Alfresco Share project, 
 which means selecting the `org.alfresco.maven.archetype:alfresco-share-jar-archetype` 
-Maven archetype when generating the project. The following information assumes that 
-the Share project was generated with the name `my-share-project`.
+Maven archetype when generating the project
+
+> **Note:** The following information assumes that the Share project was generated with the name `my-share-project`.
 
 #### Introduction
 
@@ -969,8 +972,8 @@ The following table explains some of these properties:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| alfresco.platform.version | `string` | 6.1.2-ga | The version of the ACS Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the ACS Repository Docker Image that the custom built Repository image should be based on. See `my-share-project-platform-docker/src/main/docker/Dockerfile` |
-| alfresco.share.version | `string` | 6.1.0-RC3 | The version of Alfresco Share (i.e. share.war) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-share-project-share-docker/src/main/docker/Dockerfile`|
+| alfresco.platform.version | `string` | 7.0.0 | The version of the ACS Repository (i.e. alfresco.war) that the Repository Extension should be applied to. This also specifies the version of the ACS Repository Docker Image that the custom built Repository image should be based on. See `my-share-project-platform-docker/src/main/docker/Dockerfile` |
+| alfresco.share.version | `string` | 7.0.0 | The version of Alfresco Share (i.e. share.war) that the Share Extension should be applied to. This also specifies the version of the Alfresco Share Docker Image that the custom built Share image should be based on. See `my-share-project-share-docker/src/main/docker/Dockerfile`|
 | docker.acs.image | `string` | alfresco/alfresco-content-repository-community | The name of the ACS Repository Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | docker.share.image | `string` | alfresco/alfresco-share | The name of the Alfresco Share Docker image in Docker Hub. This changes if you switch to Enterprise Edition.|
 | share.port | `number` | 8180 | The external port (i.e. outside container) for the Alfresco Share webapp.|
@@ -1050,7 +1053,7 @@ alfresco-share-my-share-project                                  development    
 The different web applications should now be accessible:
 
 * **ACS Repository**: http://localhost:8080/alfresco
-* **ACS Share**: http://localhost:8180/share/ - login with admin/admin
+* **ACS Share**: http://localhost:8180/share/ - login with **admin/admin**
 
 #### Trying out the sample code
 
@@ -1084,7 +1087,7 @@ Then check the name of the Alfresco Share container:
 ```bash 
 $ docker container ls
 CONTAINER ID        IMAGE                                                     COMMAND                  CREATED             STATUS              PORTS                                                      NAMES
-dda89172506c        alfresco/alfresco-content-repository-community:6.1.2-ga   "catalina.sh run -se…"   6 minutes ago       Up 6 minutes        0.0.0.0:8080->8080/tcp                                     docker_my-share-project-acs_1
+dda89172506c        alfresco/alfresco-content-repository-community:7.0.0   "catalina.sh run -se…"   6 minutes ago       Up 6 minutes        0.0.0.0:8080->8080/tcp                                     docker_my-share-project-acs_1
 2b4fa4b4a3f6        alfresco-share-my-share-project:development               "/usr/local/tomcat/s…"   6 minutes ago       Up 6 minutes        8000/tcp, 0.0.0.0:8180->8080/tcp, 0.0.0.0:9898->8888/tcp   docker_my-share-project-share_1
 ad8857f3574b        postgres:9.6                                              "docker-entrypoint.s…"   6 minutes ago       Up 6 minutes        0.0.0.0:5555->5432/tcp                                     docker_my-share-project-postgres_1
 92902d7ae624        alfresco/alfresco-search-services:1.2.0                   "/bin/sh -c '$DIST_D…"   6 minutes ago       Up 6 minutes        0.0.0.0:8983->8983/tcp                                     docker_my-share-project-ass_1
@@ -1167,19 +1170,21 @@ You can now check if the change took effect by accessing the `http://localhost:8
 To stop the solution you need to first `Ctrl-C` out of the log tailing. This does not stop the containers 
 as they run in daemon mode in the background. Check this by executing the following command that lists running containers:
 
-```bash 
+```bash
 $ docker container ls
+
 CONTAINER ID        IMAGE                                                     COMMAND                  CREATED             STATUS              PORTS                                                      NAMES
 59f02060955a        alfresco-share-my-share-project:development               "/usr/local/tomcat/s…"   4 minutes ago       Up 4 minutes        8000/tcp, 0.0.0.0:8180->8080/tcp, 0.0.0.0:9898->8888/tcp   docker_my-share-project-share_1
-dda89172506c        alfresco/alfresco-content-repository-community:6.1.2-ga   "catalina.sh run -se…"   16 minutes ago      Up 16 minutes       0.0.0.0:8080->8080/tcp                                     docker_my-share-project-acs_1
+dda89172506c        alfresco/alfresco-content-repository-community:7.0.0   "catalina.sh run -se…"   16 minutes ago      Up 16 minutes       0.0.0.0:8080->8080/tcp                                     docker_my-share-project-acs_1
 ad8857f3574b        postgres:9.6                                              "docker-entrypoint.s…"   16 minutes ago      Up 16 minutes       0.0.0.0:5555->5432/tcp                                     docker_my-share-project-postgres_1
 92902d7ae624        alfresco/alfresco-search-services:1.2.0                   "/bin/sh -c '$DIST_D…"   16 minutes ago      Up 16 minutes       0.0.0.0:8983->8983/tcp                                     docker_my-share-project-ass_1
-``` 
+```
 
 Now, standing in the directory where the `run.sh` script is located execute the following command to stop and remove the containers:
 
-```bash 
+```bash
 my-share-project mbergljung$ ./run.sh stop
+
 Stopping docker_my-share-project-share_1    ... done
 Stopping docker_my-share-project-acs_1      ... done
 Stopping docker_my-share-project-postgres_1 ... done
@@ -1189,7 +1194,7 @@ Removing docker_my-share-project-acs_1      ... done
 Removing docker_my-share-project-postgres_1 ... done
 Removing docker_my-share-project-ass_1      ... done
 Removing network docker_default
-``` 
+```
 
 ### All-In-One (AIO) project structure {#structureaio}
 
@@ -1670,8 +1675,7 @@ The Maven Alfresco SDK is designed to work well with Eclipse. This support inclu
 Alfresco SDK.
 
 Here we assume you already have an Eclipse installation up and running, together with an available Alfresco project created using the Alfresco SDK. If you 
-don't have a project already, follow the steps in [Getting started with Alfresco SDK 4.1](#gettingstarted) to learn how to quickly generate it in a few 
-easy steps.
+don't have a project already, follow the steps in [Getting started with Alfresco SDK 4.2](#gettingstarted) to learn how to quickly generate it in a few easy steps.
 
 #### Importing the Alfresco project into Eclipse
 
@@ -1710,7 +1714,7 @@ easy steps.
 
 Once this is done, the project is successfully imported in Eclipse. 
 
-If you want more detail about how to work with the project, please visit [Working with generated projects](#workingwithprojects).
+If you want more detail about how to work with the project, visit [Working with generated projects](#workingwithprojects).
 
 ### Setting up your development environment using Intellij IDEA
 
@@ -1718,7 +1722,7 @@ The Maven Alfresco SDK is designed to work well with Eclipse. This support inclu
 Alfresco SDK.
 
 Here we assume you already have an Eclipse installation up and running, together with an available Alfresco project created using the Alfresco SDK. If you 
-don't have a project already, follow the steps in [Getting started with Alfresco SDK 4.1](#gettingstarted) to learn how to quickly generate it in a few 
+don't have a project already, follow the steps in [Getting started with Alfresco SDK 4.2](#gettingstarted) to learn how to quickly generate it in a few 
 easy steps.
 
 #### Importing the Alfresco project into Intellij IDEA
@@ -1733,7 +1737,7 @@ easy steps.
 
 Once this is done, the project is successfully imported in IntelliJ IDEA. 
 
-If you want more detail about how to work with the project, please visit [Working with generated projects](#workingwithprojects).
+If you want more detail about how to work with the project, visit [Working with generated projects](#workingwithprojects).
 
 ## Advanced topics
 
@@ -1743,7 +1747,7 @@ look at how you can work with AMPs, remote debugging, hot reloading, enable tran
 ### Switching Content Services and Share versions
 
 The latest version of the Alfresco SDK supports different versions for Content Services and Alfresco Share. Since each product is no longer 
-released under one common version number, ACS (i.e. alfresco.war) and the Share UI (share.war) are now released with individual version numbers.
+released under one common version number, ACS (i.e. `alfresco.war`) and the Share UI (`share.war`) are now released with individual version numbers.
 
 By default, SDK 4 is configured to generate projects using the most recent version of ACS and Share. You can easily change one (or both) versions by 
 simply updating the `pom.xml` file in your project. The compatibility of these versions is up to you, however you should check in advance the right versions 
@@ -1752,22 +1756,22 @@ to use.
 When editing `pom.xml` you will see a number of properties that define the Content Services platform version and the Alfresco Share version, such as:
 
 ```xml
-<alfresco.platform.version>6.1.2-ga</alfresco.platform.version>
-<alfresco.share.version>6.1.0-RC3</alfresco.share.version>
+<alfresco.platform.version>7.0.0</alfresco.platform.version>
+<alfresco.share.version>7.0.0</alfresco.share.version>
 ```
 
 Before continuing, always remember to start from a newly generated SDK project before changing the version numbers. We do not recommend changing the versions 
 using developed customizations or source code.
 
-This article is focused on the Community version. If you want to switch to Alfresco Enterprise, please visit [Working with Enterprise](#workingwithenterprise).
+This article is focused on the Community version. If you want to switch to Alfresco Enterprise, visit [Working with Enterprise](#workingwithenterprise).
 
 The supported versions are explained in the next sections of this article.
 
 #### Switch to Alfresco version 6.0.x
 
-Starting from a newly created Alfresco SDK 4.1 project (All-In-One, Platform JAR, or Share JAR), let’s replace the two properties with the following ones.
+Starting from a newly created Alfresco SDK 4.2 project (All-In-One, Platform JAR, or Share JAR), let’s replace the two properties with the following ones.
 
-1. Open the pom.xml in your generated project.
+1. Open the `pom.xml` in your generated project.
 
 2. Replace the properties with the following:
 
@@ -1791,24 +1795,24 @@ Starting from a newly created Alfresco SDK 4.1 project (All-In-One, Platform JAR
     $ ./run.sh build_start
     ```
 
->**IMPORTANT:** Alfresco 6.1+ is ready to work with JDK 11, but Alfresco 6.0 needs to be compiled and run using JDK 8, so please take this into account when you
+>**Important:** Alfresco 6.1+ is ready to work with JDK 11, but Alfresco 6.0 needs to be compiled and run using JDK 8, so take this into account when you
 switch from version 6.1+ to 6.0.x. If you compile Alfresco 6.0.x with JDK 11 you'll experience the issue described in the [Troubleshooting page](#troubleshooting) 
 about wrong JDK versions.
 
-#### Switch to Alfresco version 6.1.x
+#### Switch to Alfresco version 7.0.x
 
-Starting from a newly created Alfresco SDK 4.1 project (All-In-One, Platform JAR, or Share JAR), let’s replace the two properties with the following ones.
+Starting from a newly created Alfresco SDK 4.2 project (All-In-One, Platform JAR, or Share JAR), let’s replace the two properties with the following ones.
 
-1. Open the pom.xml in your generated project.
+1. Open the `pom.xml` in your generated project.
 
 2. Replace the properties with the following:
 
     ```xml
-    <alfresco.platform.version>6.1.2-ga</alfresco.platform.version>
-    <alfresco.share.version>6.1.0-RC3</alfresco.share.version>
+    <alfresco.platform.version>7.0.0</alfresco.platform.version>
+    <alfresco.share.version>7.0.0</alfresco.share.version>
     ```
-    
-    In this example we have shown the switch to version 6.1.2-ga. Feel free to use the correct version for your project, paying attention to the compatible versions 
+
+    In this example we have shown the switch to version 7.0.0. Feel free to use the correct version for your project, paying attention to the compatible versions 
     of Content Services and Alfresco Share.
 
 3. After changing the versions, delete all the previous data of your development Docker environment:
@@ -1875,8 +1879,8 @@ The configuration of the Enterprise version is straightforward when using the `p
 You'll need to update the following settings in the `pom.xml` file:
 
 ```xml
-<alfresco.platform.version>6.2.0</alfresco.platform.version>
-<alfresco.share.version>6.2.0</alfresco.share.version>
+<alfresco.platform.version>7.0.0</alfresco.platform.version>
+<alfresco.share.version>7.0.0</alfresco.share.version>
 ```
 
 Making use of the Alfresco SDK 4 it is no longer required the configuration of the Alfresco Surf versions. The inclusion of the BOM and the custom Docker
@@ -1921,7 +1925,7 @@ It is possible to use encrypted passwords here. See the [official Maven document
 on how to do this.
 
 At this point you have configured Maven to have access to the Alfresco Private Repository.
-                                                         
+
 #### How to configure private Alfresco Docker registry {#enterprisedockerregistry}
 
 In order to download the Docker images needed to work with Content Services Enterprise Edition it is required to configure the Alfresco private Docker registry 
@@ -1949,12 +1953,12 @@ see [How to configure private Alfresco Docker registry](#enterprisedockerregistr
 
 In order to properly configure ATS in a project generated using the Alfresco SDK archetypes it is required to execute 2 steps:
 
-1. Add the containers that conform ATS to the Docker compose file.
+1. Add the containers that conform ATS to the Docker Compose file.
 2. Configure the properties that are required to properly set up ATS.
 
 ##### Adding the new containers
 
-* Locate the Docker compose file (usually at `PROJECT_ROOT_PATH/docker/docker-compose.yml`) and add the container that 
+* Locate the Docker Compose file (usually at `PROJECT_ROOT_PATH/docker/docker-compose.yml`) and add the container that 
 contains AIO transformer:
 
 ```text
@@ -1978,7 +1982,7 @@ services:
 ...
 ```
 
-* Check that you haven't any port conflict with other services in the Docker compose file.
+* Check that you haven't any port conflict with other services in the Docker Compose file.
 
 ##### Adding the required configuration
 
@@ -1997,7 +2001,7 @@ asynchronously whenever possible.
 
 ### Working with AMPs {#workingwithamps}
 
-Since the early days of the Alfresco SDK, the Alfresco Module Packages (AMP) have been the way customizations were packaged. In Alfresco SDK 4.1 everything 
+Since the early days of the Alfresco SDK, the Alfresco Module Packages (AMP) have been the way customizations were packaged. In Alfresco SDK 4.2 everything 
 is packaged as a JAR by default, while the AMPs are still available as an optional assembly. This gives you much more control over packaging, and simple 
 modules can easily be deployed as JARs.
 
@@ -2047,7 +2051,7 @@ to your needs.
 
 #### Installing AMPs with the SDK
 
-The projects created from the Alfresco SDK 4.1 archetypes are configured to deploy either JARs or AMPs to the ACS / Share docker container. The only thing to
+The projects created from the Alfresco SDK 4.2 archetypes are configured to deploy either JARs or AMPs to the ACS / Share docker container. The only thing to
 do is modify the `pom.xml` file of the corresponding docker module / project in order to properly configure the dependencies and the Maven dependency plugin.
 
 ##### All-In-One project
@@ -2110,7 +2114,7 @@ do is modify the `pom.xml` file of the corresponding docker module / project in 
         </configuration>
     </execution>
     ```
-    
+
 Once this configuration is in place, you simply need to rebuild and restart the project. The new configuration will make the Docker images automatically 
 install the packaged AMPs in ACS / Share.
 
@@ -2228,7 +2232,7 @@ include *.amp in the `copy-and-filter-docker-resources-non-filtered`:
 ## Controlling the order AMPs are applied
 
 Under some specific circumstances it is necessary to apply different AMPs in a development project in a precise order. The default configuration of the 
-projects generated using the Alfresco SDK 4.1 archetypes doesn't specify any concrete order applying the AMPs to the ACS/Share installation.
+projects generated using the Alfresco SDK 4.2 archetypes doesn't specify any concrete order applying the AMPs to the ACS/Share installation.
 
 Anyway, that order can be controlled modifying slightly the configuration of the custom Docker images in the project. For instance, let's say we have three
 third party AMPs that we want to apply in the next order `third-party-amp-01.amp -> third-party-amp-02.amp -> third-party-amp-03.amp`. In this example, we're
@@ -2275,11 +2279,11 @@ application server. This section outlines the steps needed to configure Alfresco
 and to troubleshoot issues by stepping through the code line by line.
 
 Here we assume you have already generated an Alfresco project using the Alfresco SDK. If you don't have a project already, follow the steps in 
-[Getting started with Alfresco SDK 4.1](#gettingstarted) to learn how to generate it in a few easy steps.
+[Getting started with Alfresco SDK 4.2](#gettingstarted) to learn how to generate it in a few easy steps.
 
 #### Remote debugging using Eclipse
 
-All the projects generated using the Alfresco SDK 4.1 are pre-configured to listen for remote debug connections. Depending on the selected archetypes you'll 
+All the projects generated using the Alfresco SDK 4.2 are pre-configured to listen for remote debug connections. Depending on the selected archetypes you'll 
 have a port for remotely debugging ACS, share or both of them.
 
 By default, the remote debug port for ACS is **8888** and for share is **9898**. This configuration can be changed through the maven properties `acs.debug.port` 
@@ -2351,8 +2355,8 @@ For more details on how to import an Alfresco project into your Eclipse IDE, see
 
 8. Open your browser and type `http://localhost:8080/alfresco/s/sample/helloworld`.
 
-    This is a sample webscript generated in every project created using SDK 4.1 and the platform artifact.
-    
+    This is a sample webscript generated in every project created using SDK 4.2 and the platform artifact.
+
     ![sdk-hellofromjava]({% link content-services/images/sdk-hellofromjava.png %})
 
     Now let's find the `HelloWorldWebScript.java` file in the `src/main/java/.../platformsample` folder of your project. If you're using an All-In-One project, 
@@ -2373,7 +2377,7 @@ at debug time, thanks to the local maven repository.
 
 #### Remote debugging using IntelliJ
 
-All the projects generated using the Alfresco SDK 4.1 are pre-configured to listen for remote debug connections. Depending on the selected archetypes you'll 
+All the projects generated using the Alfresco SDK 4.2 are pre-configured to listen for remote debug connections. Depending on the selected archetypes you'll 
 have a port for remotely debugging ACS, share or both of them.
 
 By default, the remote debug port for ACS is **8888** and for share is **9898**. This configuration can be changed through the maven properties `acs.debug.port` 
@@ -2443,10 +2447,10 @@ For more details on how to import an Alfresco project into your IntelliJ IDEA ID
 
 7. Open your browser and type `http://localhost:8080/alfresco/s/sample/helloworld`.
 
-    This is a sample webscript generated in every project created using SDK 4.1 and the platform artifact.
-    
+    This is a sample webscript generated in every project created using SDK 4.2 and the platform artifact.
+
     ![sdk-hellofromjava]({% link content-services/images/sdk-hellofromjava.png %})
-    
+
     Now let's find the `HelloWorldWebScript.java` file in the `src/main/java/.../platformsample` folder of your project. If you're using an All-In-One project, 
     the folder is located in the platform sub-project.
 
@@ -2471,12 +2475,12 @@ in an integration test plan to those aggregates, and delivers as its output the 
 
 Even if the definition of integration testing is a general description, the concept is also valid for Alfresco projects. 
 
-The Alfresco SDK 4.1 keeps the same general idea of integration testing provided by SDK 3.0, but this new version reshapes it slightly to leverage on a 
+The Alfresco SDK 4.2 keeps the same general idea of integration testing provided by SDK 3.0, but this new version reshapes it slightly to leverage on a 
 Docker-oriented environment.
 
 Here are the basics to understanding and using integration testing in the context of projects created with the SDK, from a technical perspective:
 
-* SDK 4.1 develops integration tests for the platform only. Currently, the integration tests that the SDK is able to manage by default is related to Content Services (ACS) only.
+* SDK 4.2 develops integration tests for the platform only. Currently, the integration tests that the SDK is able to manage by default is related to Content Services (ACS) only.
 * Integration tests require an ACS instance to be up and running. You will see that all the scripts and commands are designed to easily manage this requirement, but the prerequisite for the SDK is that an ACS instance is available.
 * If you're running a project created with a Platform JAR archetype, integration tests are not provided by default. However, you can copy them from your All-In-One project.
 
@@ -2495,6 +2499,7 @@ that conforms the Alfresco RAD module are:
 * [RunTestWebScript](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/RunTestWebScript.java){:target="_blank"}. This Web Script works in consort with the `AlfrescoTestRunner`. When a test is run from outside the repository, the Alfresco test runner sends a proxied request to perform the test to this script. This runs the test and wraps the results up so that the test initiator can be fooled into thinking they are running the tests locally.
 * [AbstractAlfrescoIT](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AbstractAlfrescoIT.java){:target="_blank"}. Abstract integration test class that gives access to the Alfresco Spring Application context and the `ServiceRegistry` that should be used when accessing Alfresco Services.
 * [Remote](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/Remote.java){:target="_blank"}. The `AlfrescoTestRunner` class has to determine where the ACS instance endpoint is exposed to send the proxied request to the `RunTestWebScript`. It uses, in order, the next three mechanisms:
+
     * The `Remote` annotation. If the test is annotated with `@Remote`, then it uses the `endpoint` property to determine the ACS endpoint.
     * The `acs.endpoint.path` Java system property. If the Java system property is set, then its value is used as the ACS endpoint.
     * A default value. If none of the previous mechanisms returned a value, then the default value `http://localhost:8080/alfresco` is used.
@@ -2505,7 +2510,7 @@ or set the Java system property `acs.endpoint.path`.
 
 ##### Integration tests configuration in the All-In-One project
 
-So, taking into account the previous section, let's see how the integration tests are configured in a project generated from the SDK 4.1 All-In-One archetype.
+So, taking into account the previous section, let's see how the integration tests are configured in a project generated from the SDK 4.2 All-In-One archetype.
 
 * The maven dependencies required to execute the integration tests are deployed to the ACS Docker image in the `PROJECT_ARTEFACTID-platform-docker` maven module using the `maven-dependency-plugin`. The configuration is done in the file `PROJECT_ARTEFACTID-platform-docker/pom.xml`: 
 
@@ -2591,7 +2596,7 @@ So, taking into account the previous section, let's see how the integration test
 
 * The All-In-One project utility scripts (`run.sh` / `run.bat`) offer two different tasks to execute the integration tests:
     * `build_test`. It builds the whole project, recreates the ACS and Share docker images, starts the dockerised environment, executes the integration tests from the `integration-tests` module and stops the environment.
-    * `test`. It simply executes the integration tests (the environment must be already started).   
+    * `test`. It simply executes the integration tests (the environment must be already started).
 
 ##### Sample tests included in the generated project
 
@@ -2626,7 +2631,7 @@ The test invokes the web script at the URL `http://localhost:8080/alfresco/servi
 
 #### How to run SDK's integration tests
 
-Running the integration tests of a project generated from the Alfresco SDK 4.1 archetypes is pretty easy. Let's distinguish different cases of executing the
+Running the integration tests of a project generated from the Alfresco SDK 4.2 archetypes is pretty easy. Let's distinguish different cases of executing the
 integration tests. 
 
 ##### Command line
@@ -2759,7 +2764,7 @@ JRebel is more powerful than HotSwapAgent and can also reload changes to the Spr
 [JRebel](https://zeroturnaround.com/software/jrebel/){:target="_blank"} is the agent that enables you to do hot reloading. This allows you to modify the application code, 
 and view the changes without having to restart Alfresco Tomcat (or the ACS Docker container).
 
-A prerequisite to this tutorial is having an Alfresco project created with Alfresco SDK 4.1, using the All-In-One archetype, or the Platform JAR archetype. 
+A prerequisite to this tutorial is having an Alfresco project created with Alfresco SDK 4.2, using the All-In-One archetype, or the Platform JAR archetype. 
 It's worth noting that hot reloading is only supported on the platform, and not in Alfresco Share.
 
 An open source and free of charge alternative to JRebel is HotSwapAgent. For more details, see the [HotSwapAgent website](http://hotswapagent.org/index.html){:target="_blank"}.
@@ -2802,7 +2807,7 @@ _Note that a license is required. In this step you will be able to request a tri
 2. Search for JRebel and select Install.
 3. Restart IntelliJ to complete the installation.
 4. Select `Preferences > JRebel > JRebel License` to activate your installation.
-    
+
     >**Note** that a license is required. In this step you will be able to request a trial license._
 
 5. Select `Preferences > JRebel > Remote Servers` to add a new remote server.
@@ -2857,7 +2862,7 @@ steps:
 1. Rebuild and restart the whole project (`run.sh/run.bat build_start`).
 
     You'll recognize JRebel is working when you see similar log messages:
-    
+
     ```text
     2017-05-16 15:28:12 JRebel:  Starting logging to file: /home/alfresco/.jrebel/jrebel.log
     2017-05-16 15:28:12 JRebel:  
@@ -2890,7 +2895,7 @@ steps:
 2. Before making any changes, let's run the sample webscript by opening your browser and typing `http://localhost:8080/alfresco/s/sample/helloworld`.
 
     This is a sample webscript generated in every project created using SDK 4.0 and the platform artifact.
-    
+
     ![sdk-hellofromjava]({% link content-services/images/sdk-hellofromjava.png %})
 
 3. Locate `HelloWorldWebScript.java` in the `src/main/java/.../platformsample` folder of your project (If you are using an All-In-One project, the folder is located in the platform sub-project).
@@ -2904,7 +2909,7 @@ steps:
 5. Save the file and compile the Java class (using your preferred IDE or the `mvn compile` command).
 
     A number of log messages appear in the Alfresco project terminal, for example:
-    
+
     ```text
     ... JRebel: Reloading class 'com.example.platformsample.HelloWorldWebScript'.
     ... JRebel: Reconfiguring bean 'webscript.alfresco.tutorials.helloworld.get' 
@@ -2922,7 +2927,7 @@ By changing the code and compiling it again, the changes have been dynamically r
 [HotSwapAgent](http://hotswapagent.org/index.html){:target="_blank"} is the agent that enables you to do hot reloading. This allows you to modify the application code, and 
 view the changes without having to restart Alfresco Tomcat (or the ACS Docker container).
 
-A prerequisite for this tutorial is to have a project created with the Alfresco SDK 4.1, using the All-In-One archetype or the Platform JAR archetype. It's 
+A prerequisite for this tutorial is to have a project created with the Alfresco SDK 4.2, using the All-In-One archetype or the Platform JAR archetype. It's 
 worth noting that hot reloading is only supported on the platform, and not in Alfresco Share.
 
 As an alternative to the HotSwapAgent you can also try out JRebel. It has more features but isn't free.
@@ -3016,14 +3021,14 @@ You can track the evolution of this issue [here](https://github.com/moby/moby/is
     ...
     ```
 
-For more information about HotSwapAgent configuration for Java 8, please check the [HotSwapAgent documentation](http://hotswapagent.org/mydoc_quickstart.html){:target="_blank"}.
+For more information about HotSwapAgent configuration for Java 8, check the [HotSwapAgent documentation](http://hotswapagent.org/mydoc_quickstart.html){:target="_blank"}.
 
 ##### Configuring HotSwapAgent in the project (Java 11)
 
 Using Java 11 and HotSwapAgent, it isn't necessary to configure the java agent and the alternative JVM as in previous versions. Instead, it is required 
 to use an alternative pre-built JDK distribution. That JDK is based on OpenJDK and includes all the required modifications to run the HotSwapAgent properly.
 
-In the context of the Alfresco SDK 4.1, this change is an issue because the JDK installation is inherited from the [Alfresco java docker image](https://github.com/Alfresco/alfresco-docker-base-java){:target="_blank"}. 
+In the context of the Alfresco SDK 4.2, this change is an issue because the JDK installation is inherited from the [Alfresco java docker image](https://github.com/Alfresco/alfresco-docker-base-java){:target="_blank"}. 
 It is necessary to modify the project ACS docker image to change the default java installation of the container's OS to the one provided by HotSwapAgent.
 
 A way to implement the required modifications would be:
@@ -3139,14 +3144,14 @@ that custom image:
 <docker.acs.image>alfresco/alfresco-content-repository-community-hotswap-agent</docker.acs.image>
 ```
 
-For more information about HotSwapAgent configuration for Java 11, please check the [HotSwapAgent documentation](http://hotswapagent.org/mydoc_quickstart-jdk11.html){:target="_blank"}.
+For more information about HotSwapAgent configuration for Java 11, check the [HotSwapAgent documentation](http://hotswapagent.org/mydoc_quickstart-jdk11.html){:target="_blank"}.
 
 ##### Reloading changes in source code
 
 1. Rebuild and restart the whole project (`run.sh/run.bat build_start`).
 
     You'll recognize HotSwapAgent is working when you see similar log messages:
-    
+
     ```text
      HOTSWAP AGENT: 14:08:07.154 DEBUG (org.hotswap.agent.util.classloader.URLClassLoaderHelper) - Added extraClassPath URLs [file:/usr/local/tomcat/hotswap-agent/] to classLoader ParallelWebappClassLoader
        context: alfresco
@@ -3157,8 +3162,8 @@ For more information about HotSwapAgent configuration for Java 11, please check 
 
 2. Before making any changes, let's run the sample webscript by opening your browser and typing `http://localhost:8080/alfresco/s/sample/helloworld`.
 
-    This is a sample webscript generated in every project created using SDK 4.1 and the platform artifact.
-    
+    This is a sample webscript generated in every project created using SDK 4.2 and the platform artifact.
+
     ![sdk-hellofromjava]({% link content-services/images/sdk-hellofromjava.png %})
 
 3. Locate `HelloWorldWebScript.java` in the `src/main/java/.../platformsample` folder of your project (If you are using an All-In-One project, the folder is located in the platform sub-project).
@@ -3172,7 +3177,7 @@ For more information about HotSwapAgent configuration for Java 11, please check 
 5. Save the file and compile the Java class (using your preferred IDE or the `mvn compile` command).
 
     A number of log messages appear in the Alfresco project terminal, for example:
-    
+
     ```text
      HOTSWAP AGENT: 14:10:29.887 DEBUG (org.hotswap.agent.watch.nio.WatcherNIO2) - Watch event 'ENTRY_MODIFY' on '/usr/local/tomcat/hotswap-agent/sample-project-platform/target/classes/com/example/platformsample/HelloWorldWebScript.class' --> HelloWorldWebScript.class
      HOTSWAP AGENT: 14:10:30.319 DEBUG (org.hotswap.agent.command.impl.SchedulerImpl) - Executing pluginManager.hotswap([class com.example.platformsample.HelloWorldWebScript])
@@ -3222,9 +3227,9 @@ So, the steps to configure a MySQL database in an All-In-One project are:
     db.url=jdbc:mysql://sample-aio-mysql:3306/alfresco?useUnicode=yes&characterEncoding=UTF-8&useSSL=false
     ```
     
-    Remember that the database URL must contain the name of the MySQL container configured in the Docker compose file.
+    Remember that the database URL must contain the name of the MySQL container configured in the Docker Compose file.
 
-3. Modify the Docker compose file (`PROJECT_ROOT_PATH/docker/docker-compose.yml`) to delete the PostgreSQL container and configure the new MySQL container:
+3. Modify the Docker Compose file (`PROJECT_ROOT_PATH/docker/docker-compose.yml`) to delete the PostgreSQL container and configure the new MySQL container:
 
     ```text
     version: '3.4'
@@ -3245,7 +3250,7 @@ So, the steps to configure a MySQL database in an All-In-One project are:
     ...
     ```
 
-4. Modify the Docker compose file (`PROJECT_ROOT_PATH/docker/docker-compose.yml`) to change the dependency of ACS container from the PostgreSQL container to the MySQL container:
+4. Modify the Docker Compose file (`PROJECT_ROOT_PATH/docker/docker-compose.yml`) to change the dependency of ACS container from the PostgreSQL container to the MySQL container:
 
     ```text
     version: '3.4'
@@ -3274,7 +3279,7 @@ databases.
  
 ## Troubleshooting {#troubleshooting}
 
-This section describes a list of common issues with the projects generated from the Alfresco SDK 4.1 archetypes and the way to troubleshoot them.
+This section describes a list of common issues with the projects generated from the Alfresco SDK 4.2 archetypes and the way to troubleshoot them.
 
 ### Incorrect JDK version
 
@@ -3297,7 +3302,7 @@ JDK 11 and it is deployed in an ACS 6.0 container (which uses JRE 8).
 To solve this issue you can follow several approaches:
 
 * Compile the project using a JDK version lower than 11 (and equal to or newer than 8).
-* Remove the `java11` profile in the `pom.xml` file of the base project (this is not recommended if you plan to move to ACS 6.1 in the future).
+* Remove the `java11` profile in the `pom.xml` file of the base project (this is not recommended if you plan to move to ACS 6.1+).
 * Move to ACS 6.1+. This is highly recommended due to the fact that it uses JRE 11 (JDK 8 has already reached its end of support time).
 
 ### Containers synchronization
@@ -3334,9 +3339,9 @@ services:
   sample-project-postgres:
     image: postgres:9.6
     ...
-``` 
+```
 
-The problem is Docker compose only ensures that the dependant container will be started before the one that declares the dependency. But that doesn't ensure 
+The problem is Docker Compose only ensures that the dependant container will be started before the one that declares the dependency. But that doesn't ensure 
 that the PostgreSQL (or any other database) service will be ready when the ACS script reaches the point in which the database is required. 
 
 Usually, the database service starts before ACS requires it, but there are some infrequent cases (an environment with low resources or high load) in which this
@@ -3360,7 +3365,7 @@ to accept connections:
     RUN chmod +x /tmp/wait-for-it.sh
     ```
 
-4. Modify the file `docker/docker-compose.yml` to change the ACS container command to use the _wait-for-it_ script to wait for the PostgreSQL service to be ready.
+3. Modify the file `docker/docker-compose.yml` to change the ACS container command to use the _wait-for-it_ script to wait for the PostgreSQL service to be ready.
 
     ```text
       sample-project-acs:
@@ -3414,4 +3419,4 @@ Transformation Service (ATS) is not working. ATS is required to generate the con
 By default, ATS is not included in the basic configuration of the projects generated making use of the Alfresco SDK 4 archetypes.
 
 To enable it, you simply need to follow the steps described in the article [How to set up Alfresco Transform Service](#setuptransformservice).
-If you're working with Alfresco Enterprise you must also follow [this guide](#workingwithenterprise). 
+If you're working with Alfresco Enterprise you must also follow [this guide](#workingwithenterprise).
