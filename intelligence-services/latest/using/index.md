@@ -103,12 +103,6 @@ If you're planning to use custom recognizers, custom classifiers, or custom meta
 
         See [Custom AI content model (Textract)]({% link intelligence-services/latest/config/textract.md %}#custom-ai-content-model) for configured aspects.
 
-    4. For speech to text extraction (using Transcribe), request renditions and add a custom AI aspect. For example:
-
-        * Request AI rendition: `aiSpeechToText`
-        * Request AI rendition: `webvtt`
-        * Add aspect: `AI Transcript`
-
     > **Note:** The new input field for the `Request AI renditions` action adds the ability to request custom renditions as comma separated rendition names. When left blank, the three default renditions are requested - (i.e. `aiFeatures`, `aiLabels`, and `aiTextract`). This allows you to configure a rule using various combinations, such as:
 
     ```bash

@@ -164,15 +164,15 @@ This service can detect text in a variety of documents (such as financial report
 * Forms with their fields and values
 * Tables with their cells
 
-#### Prerequisites (Textract)
+#### Prerequisites (Transcribe)
 
 The general prerequisites to use Amazon Textract are documented in [Getting Started with Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/getting-started.html){:target="_blank"}.
 
-#### Supported regions (Textract)
+#### Supported regions (Transcribe)
 
 See the list of supported AWS regions where Amazon Textract is [available](https://docs.aws.amazon.com/general/latest/gr/rande.html){:target="_blank"}.
 
-#### Limits (Textract)
+#### Limits (Transcribe)
 
 There are a number of limits that relate to Amazon Textract:
 
@@ -183,7 +183,7 @@ There are a number of limits that relate to Amazon Textract:
 
 See the AWS site for more details on service limits: [Limits in Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/limits.html){:target="_blank"}.
 
-#### Configuration (Textract)
+#### Configuration (Transcribe)
 
 You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
 
