@@ -1,0 +1,9 @@
+# Alfresco Mobile Workspace
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/mobile-workspace/latest/'
+    - title: 'Configure'
+      path: '/mobile-workspace/latest/config/'
+    - title: 'Using'
+      path: '/mobile-workspace/latest/using/'

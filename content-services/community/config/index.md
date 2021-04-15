@@ -45,24 +45,13 @@ If you're installing manually, then you can use the `alfresco-global.properties.
     | db.username=alfresco | Specifies the name of the main database user. This name is used to authenticate with the database. |
     | db.password=alfresco | Specifies the password for the database user. This password is used to authenticate with the database. |
 
-    Additional database properties can be set for further configuration. See [Configuring databases]({% link content-services/community/config/databases.md %}) for more information.
+    You can set additional database properties, such as `db.port` and `db.host`. See [Advanced configuration properties]({% link content-services/community/config/databases.md %}#advanced-configuration-properties) for more properties that can be set.
 
-4. Specify the locations of the following external software:
+4. Configure your supported database for use. See [Configuring databases]({% link content-services/community/config/databases.md %}).
 
-    | Property | Description |
-    | -------- | ------------|
-    | jodconverter.enabled= | Specifies whether to use the JODConverter. Set the property to `true`. |
-    | img.root= | Specifies the location of the ImageMagick installation. |
-    | img.coders= | Specifies the path to the image coders directory. Normally `${img.root}/modules/coders` |
-    | img.config= | Specifies the path to the image config directory. Normally `${img.root}` on Windows and `${img.root}/config` on Linux. |
-    | img.exe= | Specifies the path to the convert executable. Normally `${img.root}convert.exe` on Windows and /usr/bin/convert on Linux. |
-    | alfresco-pdf-renderer.exe | Specifies the path to the Alfresco PDF renderer executable. Normally this will be `C:\\Alfresco\\alfresco-pdf-renderer.exe` on Windows and `/usr/bin/alfresco-pdf-renderer` on Linux. |
+5. Select a JDBC driver used with each connection type.
 
-5. Configure your supported database for use. See [Configuring databases]({% link content-services/community/config/databases.md %}).
-
-6. Select a JDBC driver used with each connection type.
-
-7. Add your global custom configurations.
+6. Add your global custom configurations.
 
     > **Note:** Ensure that you use single-byte character sets (ISO-8859-1 Latin 1) in your `alfresco-global.properties` settings, particularly the `system.webdav.rootPath` setting. If you require other characters, you can use Unicode equivalents. For example, if your root path in Cyrillic was `фолдер`, which means folder in English, a valid value would be:
 
@@ -70,7 +59,7 @@ If you're installing manually, then you can use the `alfresco-global.properties.
     system.webdav.rootPath=/app:company_home/cm:\u0444\u043E\u043B\u0434\u0435\u0440
     ```
 
-8. Save your file without the `.sample` extension.
+7. Save your file without the `.sample` extension.
 
 You need to restart the server for the configuration changes to take effect.
 

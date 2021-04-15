@@ -38,7 +38,7 @@ If someone does compromise Content Services you want to limit the damage they ca
 as root, they can wreck havoc on your server.
 
 ## Adding a Reverse proxy (1) {#addreverseproxy}
-It's good security practice to have a reverse proxy in front of your Content Services infrastructure. This proxy is 
+It is mandatory to have a reverse proxy in front of your Content Services infrastructure. This proxy is 
 then configured with a whitelist of allowed URLs, and blocks everything else. The proxy is also where you [implement 
 SSL](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/){:target="_blank"}.
 

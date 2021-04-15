@@ -122,7 +122,7 @@ The packaging project is used to build the repository artifacts, such as the Doc
 
 Note that the Docker files for Alfresco Share, Alfresco Search Services, and other services are in their own projects:
 
-* Alfresco Share: [https://github.com/Alfresco/share/tree/support/HF/6.2.2](https://github.com/Alfresco/share/tree/support/HF/6.2.2){:target="_blank"}
+* Alfresco Share: [https://github.com/Alfresco/share/tree/alfresco-share-parent-7.0.0](https://github.com/Alfresco/share/tree/alfresco-share-parent-7.0.0){:target="_blank"}
 * Alfresco Search Services: [https://github.com/Alfresco/SearchServices](https://github.com/Alfresco/SearchServices){:target="_blank"}
 * Alfresco Content Services Nginx Proxy: [https://github.com/Alfresco/acs-ingress](https://github.com/Alfresco/acs-ingress){:target="_blank"}
 
