@@ -58,13 +58,11 @@ You can use one of the following Outlook releases:
 
 * Alfresco Content Services 7.0 or later. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
 
-If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites]({% link saml-module/latest/install/index.md %}#prerequisites).
-
 ## Install AMPs {#install_amps}
 
 There are three steps to installing the Outlook Integration: install the Alfresco AMP files (the Alfresco Outlook Server software), apply the licenses and then install the Microsoft Outlook zip file (the Alfresco Outlook Client software).
 
-Make sure you are running the correct versions of operating system and software before you install the AMP files. If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites]({% link saml-module/latest/install/index.md %}#prerequisites) for more information.
+Make sure you are running the correct versions of operating system and software before you install the AMP files. If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [SAML prerequisites]({% link saml-module/latest/install/index.md %}#prerequisites) for more information.
 
 1. Stop the Alfresco server.
 
@@ -124,7 +122,76 @@ Ensure that you have applied the Alfresco Outlook Server AMP files ([see Install
 
     >**Note:** If you added a client license, the license key is displayed, with a message to check the **Alfresco Client > Configure > License** tab in Microsoft Outlook (do this check after you have installed Alfresco Outlook Client).
 
-### Install the Alfresco Outlook Client in Microsoft Outlook
+## Install Transform Engine
+
+The Outlook Integration Transform Engine (or T-Engine) enables transformation of MSG and EML files into PDF format when used with the Alfresco Transform Service. The Outlook Integration T-Engine is available both as a Docker container and as a Web Archive (WAR) file.
+
+
+**TODO:**
+* *Add more info about the Docker container and WAR file use cases?*
+* *Separate "Install AMPs" + "Install T-Engine on Tomcat" from "Install using Docker"?*
+* *Add "Containerized deployment" sub-section?*
+ 
+
+### Install T-Engine on Tomcat
+
+If you wish to use an existing Tomcat application server, you can use the WAR bundle to install the Outlook Integration T-Engine.
+
+1. Install the latest version of [Tomcat 8.5](https://tomcat.apache.org/download-80.cgi){:target="_blank"} to run as a service.
+
+    See the [Tomcat documentation](https://tomcat.apache.org/tomcat-8.5-doc/index.html){:target="_blank"} for more information about configuring and using a Tomcat server.
+
+    For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-8.5-doc/security-howto.html).
+
+2. Copy the WAR file into your `<TOMCAT_HOME>/webapps` folder.
+
+    The WAR (`transform-outlook-webapp-1.0.0.war`) is included in the distribution zip.
+
+3. Start the Tomcat service.
+
+4. Test that the T-Engine is running:
+
+    1. Open your browser and access `http(s)://${SERVER}:{PORT}/transform-outlook` to load the T-Engine test page.
+
+    2. Add the following configuration property in `alfresco-global.properties`:
+
+        ```bash
+        localTransform.transform-outlook.url=http(s)://${SERVER}:{PORT}/transform-outlook
+        ```
+
+## Install using Docker Compose
+
+To deploy the Outlook Integration T-Engine as part of Content Services, you'll need to update your Docker Compose file for Content Services to include this T-Engine.
+
+> **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
+
+1. Add Outlook Integration T-Engine container to your `docker-compose.yaml` file:
+
+    ```yaml
+    transform-outlook:
+        image: alfresco/transform-outlook:1.0.0-RELEASE
+        mem_limit: 2g
+        environment:
+            JAVA_OPTS: " -Xms256m -Xmx512m"
+            ACTIVEMQ_URL: "nio://activemq:61616"
+            ACTIVEMQ_USER: "admin"
+            ACTIVEMQ_PASSWORD: "admin"
+            FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+        ports:
+            - 8091:8090
+        links:
+            - activemq
+    ```
+
+2. Add the following `JAVA_OPTS` variable to the `alfresco` container:
+
+    ```yaml
+    -DlocalTransform.transform-outlook.url=http://transform-outlook:8090/
+    ```
+
+3. **TODO** - needs more info: notes / start up / shutdown / troubleshooting...
+
+## Install the Alfresco Outlook Client in Microsoft Outlook
 
 Inside the Outlook Integration zip is another zip file that installs the Alfresco Outlook Client into Microsoft Outlook.
 
@@ -158,13 +225,13 @@ You might need local administrator rights to install .NET 4.5 and Microsoft VS T
 
     If you did not enter a client license key in Alfresco Share, you must enter one when you open Microsoft Outlook. Navigate to **Alfresco Client > Configure > License** to enter your key.
 
-#### Install the Alfresco Outlook Client in unattended mode {#installunattendedmode}
+### Install the Alfresco Outlook Client in unattended mode {#installunattendedmode}
 
 You can automate the Alfresco Outlook Client installation by using the `msiexec` command.
 
 You might need local administrator rights to install .NET 4.5 and Microsoft VS Tools for Office Runtime. Ensure you have already installed the required AMP files in your Alfresco instance ([see Install Outlook Integration AMPs](#install_amps)).
 
->**Note:** If you plan to use SAML Module for Alfresco Content Services authentication, ensure you have already installed and configured the Alfresco SAML module. See [Install with Zip]({% link saml-module/latest/install/index.md %}) and [Configure SAML SSO]({% link saml-module/latest/config/index.md %}) for more information.
+>**Note:** If you plan to use SAML Module for Alfresco Content Services authentication, ensure you have already installed and configured the Alfresco SAML module. See [Install with zip]({% link saml-module/latest/install/index.md %}) and [Configure SAML SSO]({% link saml-module/latest/config/index.md %}) for more information.
 
 1. Extract the contents of the `alfresco-outlook-client-2.8.x.zip` file using a standard unzip tool.
 
