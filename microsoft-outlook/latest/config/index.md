@@ -6,12 +6,12 @@ Configure Outlook settings in Alfresco Share using the Share Admin Tools menu, i
 
 In Alfresco Share, as an administrator, click **Admin Tools** on the Alfresco toolbar. In the left **Tools** panel, scroll down and under **Outlook Integration** there are the following options for configuration:
 
-* *Metadata Settings*: custom metadata and list view settings
-* *Search Settings*: custom simple and advanced search settings
-* *Integration Settings*: server and client setup, upload restrictions and email settings
-* *Access Tokens*: view and remove active users
-* *Licenses*: view and register server and client licenses
-* *System Info*: view version, license, server and installed module information
+* *Metadata Settings* - custom metadata and list view settings
+* *Search Settings* - custom simple and advanced search settings
+* *Integration Settings* - server and client setup, upload restrictions and email settings
+* *Access Tokens* - view and remove active users
+* *Licenses* - view and register server and client licenses
+* *System Info* - view version, license, server and installed module information
 
 The URL is:
 
@@ -23,14 +23,15 @@ where `localhost:8080` is your Alfresco server and port number.
 
 On the Microsoft Outlook toolbar, there is an Alfresco Client tab, with the following entries:
 
-![Alfresco Outlook Client ribbon in Outlook]({% link microsoft-outlook/images/ribbon_v2.png %})
+![Alfresco Outlook Client ribbon in Outlook]({% link microsoft-outlook/images/2-8-ribbon-top.png %}){:width="600px"}
 
-* *Configure*: client configuration and license
-* *Language*: client display language
-* *Show Sidebar*: show the Alfresco repository window
-* *Message Details*: displays details of a selected archived email
-* *Help*: Link to Alfresco Outlook Client documentation
-* *Info*: version and copyright information
+* *Configure* - client configuration and license
+* *Language* - client display language
+* *Show Sidebar* - show the Alfresco repository window
+* *Send and Archive* - automatically archive email after sending
+* *Message Details* - displays details of a selected archived email
+* *Help* - link to Alfresco Outlook Client documentation
+* *Info* - version and copyright information
 
 >**Note:** Not all settings can be configured using the Alfresco Client toolbar.
 
@@ -662,7 +663,7 @@ These settings define global controls across your enterprise and are applied imm
 
     Options are **All public sites**, **My sites** or **Favorite sites**.
 
-    >**Note:** Outlook users are able to change this and other settings locally for the Alfresco Outlook Client. See [Configuring extended settings in Outlook](#configure-extended-settings) for more information.
+    >**Note:** Outlook users are able to change this and other settings locally for the Alfresco Outlook Client. See [Configure extended settings in Outlook](#configure-extended-settings) for more information.
 
 4. In **Prevent email duplication in**, choose to check the uniqueness of files and at what level.
 
@@ -740,7 +741,7 @@ These settings define global controls across your enterprise and are applied imm
 
 18. Click **Enable upload restrictions** and **Manage** to specify content that can't be uploaded from the Outlook Client.
 
-    Enter a space delimited list of file extensions or files that you don't want to be uploaded to Alfresco, for example;
+    * Enter a space delimited list of file extensions or files that you don't want to be uploaded to Alfresco, for example;
 
     ```text
     *.docx *.txt *.xlsx
@@ -749,6 +750,16 @@ These settings define global controls across your enterprise and are applied imm
     >**Note:** Only content that is uploaded in the Alfresco Outlook Client is restricted. If you upload content directly to Alfresco (through Share), it isn't restricted.
 
 19. Click **Apply** to save your settings.
+
+    * Specify the maximum number of files for the folder upload.
+
+    This limits the number of files that your users can drop at once onto the plugin to reduce server load.
+
+    * Specify the maximum combined file size in MB.
+
+    This sets a limit for the folder size that your users can drop onto the plugin.
+
+18. Click **Apply** to save your settings.
 
 ## Configure other settings
 
@@ -807,9 +818,9 @@ Configure Microsoft Outlook to find and connect to the correct Alfresco server.
 
 6. Click **Check connection** to test the connection to the Alfresco server.
 
-    >**Note:** If your IT team has configured SAML authentication without single-sign on (SSO), then you may notice the following behaviour when you change the Outlook configuration. When you select **Check connection**, you'll see an authentication window, where you'll need to enter your Alfresco user name and password. If you choose to close the window without entering your login details, the Outlook Integration considers this to be a failed authentication attempt and will try again. When the authentication window is displayed for a 2nd time and you close the window, there'll be no further authentication attempts. The Alfresco Outlook Client displays a message to indicate that SAML authentication failed. Click **OK** to dismiss the message.
+    >**Note:** If your IT team has configured SAML authentication without single-sign on (SSO), then you may notice the following behavior when you change the Outlook configuration. When you select **Check connection**, you'll see an authentication window, where you'll need to enter your Alfresco user name and password. If you choose to close the window without entering your login details, the Outlook Integration considers this to be a failed authentication attempt and will try again. When the authentication window is displayed for a 2nd time and you close the window, there'll be no further authentication attempts. The Alfresco Outlook Client displays a message to indicate that SAML authentication failed. Click **OK** to dismiss the message.
 
-### Configuring email archive settings
+### Configure email archive settings
 
 You can configure Microsoft Outlook to archive email in Alfresco, including archiving emails as links.
 
@@ -821,6 +832,7 @@ You can decide what format you want to use to save your emails, and how to archi
 * Use default settings for archiving (where all emails are saved to the Alfresco server, based on the option selected in **Default archive** settings)
 * Show settings when archiving (to select how each email will be archived)
 * Compress the email message when uploading the content
+* Always use the default folder
 
 You can reduce the size of your Outlook inbox by replacing emails with links to the content in Alfresco:
 
@@ -853,6 +865,20 @@ As an administrator, you can decide if email names should be derived from the em
 >**Note:** These attributes are not exposed in the UI for Alfresco Outlook Client settings.
 
 See [Alfresco Client Settings file](#advanced-configuration) for more details.
+
+### Configure Send and Archive
+
+You can decide whether to use a default folder for every email sent with the **Send and Archive** button or always receive a prompt to choose a folder.
+
+1. Select **Configure > Email Archiving** from the **Alfresco Client** tab in Microsoft Outlook.
+
+2. Select **Always use default folder**, choose a folder in the **Folder selection** window, and click **OK** to save your selection.
+
+3. Select **Open default folder** to open the folder in a new browser window, for example, if you wish to change your selection.
+
+4. Click **OK** to save your **Email Archiving** settings.
+
+See the `<storage>` section in [Alfresco Client Settings file](#advanced-configuration) for more details.
 
 ### Configure extended settings
 
@@ -993,6 +1019,7 @@ Use this file to set up attributes and metadata settings.
     |`storeLink`|Controls the Archive as link email option|`true`: email is replaced with a link to email stored in Alfresco<br><br>`false`: email is not replaced with a link to the email stored in Alfresco. This is the default setting.|
     |`storeMsg`|Controls the Store original Outlook .MSG file archive option|`true`: original Outlook . MSG file is stored on upload to Alfresco<br><br>`false`: original Outlook . MSG file is not stored on upload to Alfresco. This is the default setting.|
     |`compress`|Controls the Compress message while uploading setting|`true`: message is compressed while uploading to Alfresco. This is the default setting.<br><br>`false`: message is not compressed while uploading to Alfresco|
+    |`alwaysUseDefaultSendAndArchiveFolder`|Controls the Always use default folder archive option|`true`: uses the specified default folder. This is the default setting.<br><br>`false`: select folder with every upload.|
 
 4. Configure the attributes that you need for the `<connection>` element:
 
@@ -1080,6 +1107,7 @@ Use this file to set up attributes and metadata settings.
         |`<action type="move-document" enabled="true"/>`|Sets action: move document<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
         |`<action type="copy-folder" enabled="true"/>`|Sets action: copy folder<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
         |`<action type="move-folder" enabled="true"/>`|Sets action: move folder<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
+        |`<action type="send-and-archive" enabled="true"/>`|Sets action: send and archive<br><br>Added in Outlook Integration 2.8.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
 
 8. Configure the attributes that you need for the `<tabs>` element:
 
