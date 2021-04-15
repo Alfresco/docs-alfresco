@@ -63,6 +63,16 @@ When you drag and drop the email with a subject that already exists in a specifi
 
     See [Outlook metadata settings]({% link microsoft-outlook/latest/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
 
+### Archiving emails after sending
+
+When sending a new email, you can choose to automatically archive it after it has been sent by using the **Send and Archive** button located in your **Alfresco Client** tab.
+
+This button is available in the **Alfresco Client** tab when you’re composing an email, and combines the separate actions for sending the email and then manually dragging it onto the Outlook sidebar to archive it:
+
+![This image shows the Send and Archive button in the Alfresco Client tab]({% link microsoft-outlook/images/2-8-ribbon.png %}){:width="600px"}
+
+**Note:** The standard **Send** button inside your email is not affected.
+
 ## Archiving folders in Outlook
 
 You can create folders in the Alfresco Outlook Client and assign metadata to these folders, similar to when archiving emails.
