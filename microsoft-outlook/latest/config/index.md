@@ -1136,6 +1136,7 @@ Use this file to set up attributes and metadata settings.
         |`<action type="move-document" enabled="true"/>`|Sets action: move document<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
         |`<action type="copy-folder" enabled="true"/>`|Sets action: copy folder<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
         |`<action type="move-folder" enabled="true"/>`|Sets action: move folder<br><br>Added in Outlook Integration 2.7.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
+        |`<action type="upload-drop-folder" enabled="true"/>`|Sets action: upload folder via drag & drop<br><br>Added in Alfresco Outlook Integration 2.8|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
         |`<action type="send-and-archive" enabled="true"/>`|Sets action: send and archive<br><br>Added in Outlook Integration 2.8.|`true`: action is enabled. This is the default setting.<br><br>`false`: action is not enabled.|
 
 8. Configure the attributes that you need for the `<tabs>` element:

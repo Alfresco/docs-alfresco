@@ -335,6 +335,24 @@ Create new versions of files by dragging & dropping them into the Alfresco sideb
 
     The original email remains in the selected location.
 
+## Uploading complete folders in Outlook
+
+You can drop complete folders from Windows Explorer onto the Alfresco Outlook Integration.
+
+1. Archive a folder by dragging and dropping it into a folder in your chosen site.
+
+    You might see a **Metadata** dialog for the folder (if this has been configured by your IT team).
+
+2. Enter the information needed for archiving the folder.
+
+    After saving, you may see a second **Metadata** dialog showing all files for all folders (if this has also been configured by your IT team).
+
+The upload starts after saving. This operation runs in the background until it's completed. While the upload is running, you can't upload any other files.
+
+* To indicate that the process is still running, you'll see a progress bar in your Outlook plugin with the option to **Cancel** the upload.
+* For every folder created (with associated files), you may see an email duplication dialog if your folder contains emails that have already been uploaded to the system.
+* Once the operation is complete, the Outlook plugin will display the files that haven't been uploaded if there was a problem with uploading some of your data.
+
 ## Managing archived files in Alfresco Share
 
 View your archived emails in Alfresco Share, just like any other files in Alfresco. Email filters allow you to search for the archived emails in a site or across Alfresco Repository.
