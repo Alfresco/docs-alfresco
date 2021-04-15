@@ -20,9 +20,9 @@ The Identity Service is installed or deployed with a default realm applied calle
 Customizing a realm manually uses the administrator console of the Identity Service to configure realm settings.
 
 1. Sign into the master realm administrator console using the credentials created on your first sign in.
-2. [Add a new realm](https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm) or edit the `Alfresco` realm.
-3. [Create a new OIDC client](https://www.keycloak.org/docs/latest/server_admin/index.html#oidc-clients) or edit the existing one.
-4. Configure any [groups](https://www.keycloak.org/docs/latest/server_admin/index.html#groups) or users.
+2. [Add a new realm](https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm){:target="_blank"} or edit the `Alfresco` realm.
+3. [Create a new OIDC client](https://www.keycloak.org/docs/latest/server_admin/index.html#oidc-clients){:target="_blank"} or edit the existing one.
+4. Configure any [groups](https://www.keycloak.org/docs/latest/server_admin/index.html#groups){:target="_blank"} or users.
 
 ### Customize a realm using a JSON file
 
@@ -30,7 +30,7 @@ Customizing a realm using a `JSON` file configures a realm outside of the Identi
 
 To import the configuration in the administrator console:
 
-1. Edit or use the [default realm file](https://github.com/Alfresco/alfresco-identity-service/blob/master/helm/alfresco-identity-service/alfresco-realm.json) provided in the Identity Service Github project as a reference to create a custom realm file.
+1. Edit or use the [default realm file](https://github.com/Alfresco/alfresco-identity-service/blob/master/helm/alfresco-identity-service/alfresco-realm.json){:target="_blank"} provided in the Identity Service Github project as a reference to create a custom realm file.
 2. Sign into the master realm administrator console using the credentials created on your first sign in.
 3. Navigate to the **Add Realm** page and use the **Select File** option to import your custom realm file.
 
@@ -72,9 +72,9 @@ The [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme) includ
 
 ### Developing a theme
 
-Themes are created using a combination of CSS, HTML ([Freemarker templates](https://freemarker.apache.org/)), theme properties and images.
+Themes are created using a combination of CSS, HTML [Freemarker templates](https://freemarker.apache.org/){:target="_blank"}, theme properties and images.
 
-Use the [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme) or the default [Keycloak theme](https://www.keycloak.org/docs/latest/server_development/#creating-a-theme) as a base to extend and create custom themes from.
+Use the [Alfresco theme](https://github.com/Alfresco/alfresco-keycloak-theme) or the default [Keycloak theme](https://www.keycloak.org/docs/latest/server_development/#creating-a-theme){:target="_blank"} as a base to extend and create custom themes from.
 
 ### Importing a theme for a Kubernetes deployment
 
