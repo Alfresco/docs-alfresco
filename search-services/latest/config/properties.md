@@ -105,7 +105,7 @@ If you wish to change the default value of a property, add the relevant property
 | solr.solrUser=solr | The Solr user name |
 | solr.solrPassword=solr | The Solr password |
 | solr.secureComms=https | The HTTPS connection |
-| solr.solrConnectTimeout=5000 | The Solr connection timeouts in ms |
+| solr.http.connection.timeout | The Solr connection timeouts in ms |
 | solr.solrPingCronExpression=0 0/5 * * * ? * | The cron expression defining how often the Solr Admin client (used by JMX) pings Solr if it goes away |
 
 ### Data dictionary options
