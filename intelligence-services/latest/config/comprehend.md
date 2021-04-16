@@ -533,4 +533,4 @@ For more details on extending the features of Digital Workspace, see the Alfresc
       - ./ai-view-extension.json:/usr/share/nginx/html/assets/plugins/ai-view-extension.json
 ```
 
-In the above `docker-compose` snippet, the modified `ai-view-extension.json` configuration file must be mounted in the Digital Workspace container. The environment variable `APP_CONFIG_PLUGIN_AI_SERVICE:` when set to `true` allows the Digital Workspace to generate transcripts for audio and video files, including indexing and metadata generation.
+In the above `docker-compose` snippet, the modified `ai-view-extension.json` configuration file must be mounted in the Digital Workspace container. The environment variable `APP_CONFIG_PLUGIN_AI_SERVICE:` when set to `true` allows the Digital Workspace to index and search by the content of the transcripted files and scanned images.
