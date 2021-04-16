@@ -2,7 +2,7 @@
 title: Alfresco Intelligence Services
 ---
 
-Alfresco Intelligence Services is an add-on module that adds AI capabilities to Alfresco Content Services and the Digital Workspace. It utilizes a number of Amazon AI Services (i.e. Amazon Transcribe, Detect Personally Identifiable Information (PII), Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine. This documentation describes how to install, set up, and configure Intelligence Services.
+Alfresco Intelligence Services is an add-on module that adds AI capabilities to Alfresco Content Services and the Digital Workspace. It utilizes a number of Amazon AI Services (i.e. Amazon Transcribe, Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine. This documentation describes how to install, set up, and configure Intelligence Services.
 
 The Intelligence Services module enables you to configure and use custom ML models (for Natural Language Processing), created in Amazon Web Services (AWS), to enrich content stored in Content Services and the Digital Workspace. This is done through an integration with the Amazon Comprehend Custom service. With this new release transcripts for audio and video files, including indexing and metadata generation are provided automatically and this content can then be searched easily. Personal Identification Information (PII) in documents can be detected and tagged automatically which provides easier privacy management including automatic detection of PII entities.
 
