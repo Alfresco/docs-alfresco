@@ -13,7 +13,7 @@ There are a number of software requirements for installing the Microsoft 365 Con
 * Alfresco Content Services 6.2.2 or later.
 * Alfresco Digital Workspace 2.0.0 or later.
 
-See the [Supported Platforms]({% link microsoft-365/latest/support/index.md %}) for more information.
+See the [Supported Platforms]({% link microsoft-365/1.0/support/index.md %}) for more information.
 
 ### Microsoft 365 requirements
 
@@ -121,7 +121,7 @@ Installations using Docker Compose should only be used for development and test 
 
     ```yaml
     ooi-service:
-        image: quay.io/alfresco/alfresco-ooi-service:1.1.0
+        image: quay.io/alfresco/alfresco-ooi-service:1.0.0
         mem_limit: 768m
         environment:
             JAVA_OPTS: "

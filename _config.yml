@@ -447,13 +447,18 @@ defaults:
       toc: "microsoft-365"
       support: true
       versions:
+        - 1.1
         - 1.0
   - scope:
       path: "microsoft-365/latest"
     values:
-      version: 1.0
+      version: 1.1
       latest: true
-
+  - scope:
+      path: "microsoft-365/1.0"
+    values:
+      version: 1.0
+      
 # Alfresco Office Services
   - scope:
       path: "microsoft-office"
