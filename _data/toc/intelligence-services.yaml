@@ -18,7 +18,7 @@
         - title: 'Overview'
           path: '/intelligence-services/latest/admin/'
         - title: 'Troubleshoot'
-          path: /intelligence-services/latest/admin/troubleshoot/
+          path: '/intelligence-services/latest/admin/troubleshoot/'
     - title: 'Using'
       path: '/intelligence-services/latest/using/'
 # Intelligence Services 1.2
@@ -41,7 +41,7 @@
         - title: 'Overview'
           path: '/intelligence-services/1.2/admin/'
         - title: 'Troubleshoot'
-          path: /intelligence-services/1.2/admin/troubleshoot/
+          path: '/intelligence-services/1.2/admin/troubleshoot/'
     - title: 'Using'
       path: '/intelligence-services/1.2/using/'
 # Intelligence Services 1.1
@@ -64,7 +64,7 @@
         - title: 'Overview'
           path: '/intelligence-services/1.1/admin/'
         - title: 'Troubleshoot'
-          path: /intelligence-services/1.1/admin/troubleshoot/
+          path: '/intelligence-services/1.1/admin/troubleshoot/'
     - title: 'Using'
       path: '/intelligence-services/1.1/using/'
 # Intelligence Services 1.0
@@ -81,6 +81,6 @@
         - title: 'Overview'
           path: '/intelligence-services/1.0/admin/'
         - title: 'Troubleshoot'
-          path: /intelligence-services/1.0/admin/troubleshoot/
+          path: '/intelligence-services/1.0/admin/troubleshoot/'
     - title: 'Using'
       path: '/intelligence-services/1.0/using/'

@@ -56,7 +56,7 @@ If you see the request but not the response, then check if the text file is larg
 
 Verify that you have correctly configured the AWS Comprehend Role to allow the Comprehend service read/write access to the S3 bucket used to temporarily store source files and results.
 
-See [Amazon Comprehend limits]({% link intelligence-services/latest/admin/index.md %}#amazon-comprehend) and [Amazon Comprehend role]({% link intelligence-services/latest/install/index.md %}) for more.
+See [Amazon Comprehend limits]({% link intelligence-services/latest/admin/index.md %}#amazon-comprehend) and [Role-Based Permissions Required for Asynchronous Operations](https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions){:target="_blank"} for more.
 
 ## Why don't I see a Textract image / text analysis?
 
