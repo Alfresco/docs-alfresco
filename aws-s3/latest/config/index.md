@@ -994,85 +994,27 @@ This sections describes what's changed in the properties configuration:
 
 ### New properties
 
-Here is a list of properties that have been added in S3 Connector 3.1.
+Here is a list of properties that have been added in S3 Connector 4.0.
 
-* `connector.s3.objectNamePrefix`
+* `connector.s3.deletionTagInsteadOfDelete`
+
+    Default value: `false`.
+
+    When set to `true`, the content won't be deleted but tagged instead. This property also requires the `deletionTagName` and `deletionTagValue` properties to be populated, otherwise an error will appear when an object deletion is performed. This property allows you to tag content that needs to be deleted when there are no delete permissions, so the content can be found and deleted later. It also allows you to define your own custom lifecycle policies based on tags.
+
+* `connector.s3.deletionTagName`
 
     Blank by default.
 
-    The value of this property will be appended (prefixed) to the AWS S3 URL for each uploaded file.
+    This property defines a tag value to apply to the content that needs to be deleted. When the content is tagged it won't be deleted. This property also requires the `deletionTagValue` property to be populated and the `deletionTagInsteadOfDelete` property to be set to `true`.
+    > **Note:** The name of the deletion tag needs to be carefully chosen to ensure it is not used anywhere else. If actual content is tagged with `deletionTagName` there is a risk that content will be removed in error.
+    > **Note:** Use the AWS documentation Object key and metadata for your naming guidelines because the properties must respect the same restrictions as if they were added via the AWS Management Console.
 
-    If used, it should typically represent a directory in S3, and be terminated by a "`/`" (slash) character (although this is not mandatory). 
-    For example:
+* `connector.s3.deletionTagValue`
 
-    ```text
-    connector.s3.objectNamePrefix=some/bucket/directory/
-    ```
+    Blank by default.
 
-    When no value is set (i.e. the default) files are uploaded directly into the root of the S3 bucket. This is a more generic replacement of the `dir.s3.contentstore` and `s3.useContentRootInPath` configuration properties.
-
-    >**Note:** The value of this property is not saved in the database with the `contentUrl`. It's appended dynamically when S3 content is accessed. Therefore, the value of this property shouldn't be changed without first moving/renaming the existing content to the new location.
-* `connector.s3.objectNameSuffix`
-
-    Blank by default
-
-    Previous versions of the S3 Connector (v2.0.0 - 3.0.0) appended the "`.bin`" extension to the `contentUrl`. Although not ideal, we keep this scheme for the sake of consistency. All S3 file URLs will use the "`.bin`" extension, as that's the hard-coded behavior.
-
-    The value of this property will be appended as a suffix to the AWS S3 URL for each uploaded file.
-
-    If used, it should typically represent a file extension, and have a pattern starting with a "`.`" (dot). For example:
-
-    ```text
-    connector.s3.objectNamePrefix=.something
-    ```
-
-    >**Note:** The value of this property is not saved in the database with the `contentUrl`. It's appended dynamically when S3 content is accessed. Therefore, the value of this property shouldn't be changed without renaming the existing content with the new suffix pattern.
-* `connector.s3.deleted.objectNamePrefix`
-
-    Default value: `${dir.s3.contentstore.deleted}/`
-
-    This is a similar property to `connector.s3.objectNamePrefix`, but it affects the `DeletedContentStore`:
-
-    ```text
-    The DeletedContentStore holds the files removed/deleted from Alfresco (including from the Alfresco Trash bin).
-    ```
-
-    Unlike the property for the regular content store (blank by default), it defaults to the `dir.s3.contentstore.deleted` property, which is equivalent to `dir.contentstore.deleted`, used by the `DeletedContentStore` prior to v3.1.0.
-
-    >**Note:** It is recommended that the value is never be left blank, as that would result in the deleted files always residing in the same bucket directory as the actual active Alfresco Content Services content. This could lead to complications when configuring the AWS S3 cleanup job for removed Alfresco Content Services content (with the worst case scenario being it would delete content that's not yet removed from Alfresco Content Services).
-* `connector.s3.deleted.objectNameSuffix`
-
-    Blank by default
-
-    This property is similar to `connector.s3.objectNameSuffix`, but it only affects the `DeletedContentStore`.
-
-* `connector.s3.storeProtocol`
-
-    Default value: `s3v2`
-
-    Allows custom protocol values in the Alfresco Content Services content URL (the file references stored in the database). This property should help with custom configurations of Alfresco Content Services with multiple instances of the S3 content stores.
-
-    >**Note:** The old "`s3`" store protocol is no longer used for new content, nor can it be configured through this new configuration property, as that's a forbidden value. However, old content that has already been created with the "`s3`" store protocol is still readable by the S3 Connector.
-* `filecontentstore.subsystem.name`
-
-    Default value: `S3OnPrem`
-
-    Defines the content store subsystem. Although the default value is `S3OnPrem`, this can be changed to any content store subsystem name that's available in the system.
-
-    See [S3 Connector content store subsystems](#content-store-subsystems) for more details.
-
-* `connector.s3.tagName`
-
-    Blank by default
-
-    Defines a tag to apply to the content when it's written into the S3 bucket. If used, it also requires the `tagValue` property to be populated. This allows you to define your own custom lifecycle policies based on tags.
-
-    >**Note:** Use the AWS documentation [Object key and metadata](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html) for naming guidelines, as the properties must respect the same restrictions as if they were added via the AWS Management Console.
-* `connector.s3.tagValue`
-
-    Blank by default
-
-    Defines a tag to apply to the content when it's written into the S3 bucket. If used, it also requires the `tagName` property to be populated. This allows you to define your own custom lifecycle policies based on tags.
+    This property defines a tag value to apply to the content that needs to be deleted. When the content is tagged it won't be deleted. This property also requires the `deletionTagName` property to be populated and the `deletionTagInsteadOfDelete` property to be set to `true`.
 
 ### New properties that supersede older properties
 
