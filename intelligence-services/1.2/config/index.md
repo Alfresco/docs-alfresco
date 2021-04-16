@@ -20,23 +20,23 @@ There are several options to configuring Intelligence Services.
 
 * **Custom configuration**
 
-Choose one or more of the following options to create custom ML models:
+    Choose one or more of the following options to create custom ML models:
 
-1. Custom entity recognition - configure and deploy a custom AI recognizer. This allows you to identify new entity types that aren't supported by one of the preset entity types.
-2. Custom document classification - configure and deploy a custom AI classifier. This allows you to classify documents, for example as either an invoice, purchase order, contract, or whatever fits your business model.
-3. Custom metadata extraction - configure and deploy a custom AI model. This allows you to map basic OCR detected text lines into multi-valued text fields, so they can viewed and searched.
+    1. Custom entity recognition - configure and deploy a custom AI recognizer. This allows you to identify new entity types that aren't supported by one of the preset entity types.
+    2. Custom document classification - configure and deploy a custom AI classifier. This allows you to classify documents, for example as either an invoice, purchase order, contract, or whatever fits your business model.
+    3. Custom metadata extraction - configure and deploy a custom AI model. This allows you to map basic OCR detected text lines into multi-valued text fields, so they can viewed and searched.
 
-You can still customize the **Request AI renditions** action, as in the default configuration.
+    You can still customize the **Request AI renditions** action, as in the default configuration.
 
-> **Note:** It's recommended that you start developing one custom model at a time (i.e. either a recognizer or classifier), and test it thoroughly before adding another.
+    > **Note:** It's recommended that you start developing one custom model at a time (i.e. either a recognizer or classifier), and test it thoroughly before adding another.
 
-> **Note:** Metadata extraction from tables isn't supported.
+    > **Note:** Metadata extraction from tables isn't supported.
 
 ## Default configuration
 
 There are four steps to configuring the default (i.e. out-of-the-box) deployment of Intelligence Services: export your environment variables, add the AI Transform Engine to your deployment, override the Transform Router configuration, and override the Digital Workspace configuration.
 
-> **Note:** Ensure that you've completed the [AWS setup]({% link intelligence-services/latest/install/index.md %}#set-up-services-in-aws) before continuing.
+> **Note:** Ensure that you've completed the [AWS setup]({% link intelligence-services/1.2/install/index.md %}#set-up-services-in-aws) before continuing.
 
 A number of environment variables allow you to specify the configuration options and credentials that are required to run the AI Transform Engine.
 
@@ -60,7 +60,7 @@ A number of environment variables allow you to specify the configuration options
 
     ```yaml
     aws-ai:
-        image: quay.io/alfresco/alfresco-ai-docker-engine:1.3.0
+        image: quay.io/alfresco/alfresco-ai-docker-engine:1.2.0
         environment:
             JAVA_OPTS: " -Xms256m -Xmx768m"
             # JAVA_OPTS: " -Xms256m -Xmx512m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 "
@@ -111,15 +111,13 @@ A number of environment variables allow you to specify the configuration options
 4. Add the following configuration to override the settings for Digital Workspace in your deployment.
 
     ```yaml
-  digital-workspace:
-    image: quay.io/alfresco/alfresco-digital-workspace:2.1.0-adw
-    environment:
-      BASE_PATH: ./
-      APP_CONFIG_PLUGIN_AI_SERVICE: "true"
-    volumes:
-      - ./ai-view-extension.json:/usr/share/nginx/html/assets/plugins/ai-view-extension.json
+    digital-workspace:
+        image: quay.io/alfresco/alfresco-digital-workspace:1.5.0
+        volumes:
+            - ./app.extensions.json:/usr/share/nginx/html/assets/app.extensions.json
     ```
-    > **Note:** The Digital Workspace configuration file, `ai-view-extension.json`, is also included in the Intelligence Services distribution zip.
+
+    > **Note:** The Digital Workspace configuration file, `app.extensions.json`, is also included in the Intelligence Services distribution zip.
 
     For more details on extending the features of Digital Workspace, see the Alfresco Content Application documentation: [Extending](https://alfresco-content-app.netlify.com/#/extending/){:target="_blank"}.
 

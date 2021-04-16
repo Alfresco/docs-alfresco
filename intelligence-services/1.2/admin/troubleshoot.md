@@ -46,7 +46,7 @@ aws-ai_1 | at org.alfresco.transformer.ai.client.AwsRekognitionLabelDetectionReq
  AwsRekognitionLabelDetectionRequestFactory.java:88) ~[alfresco-ai-image-analysis-0.4.0.jar!/:na]
 ```
 
-If the image file size is larger than 15 MB then it'll be skipped. See [Amazon Rekognition limits]({% link intelligence-services/latest/admin/index.md %}#amazon-rekognition) for more.
+If the image file size is larger than 15 MB then it'll be skipped. See [Amazon Rekognition limits]({% link intelligence-services/1.2/admin/index.md %}#amazon-rekognition) for more.
 
 ## Why don't I see a Comprehend text analysis?
 
@@ -56,7 +56,7 @@ If you see the request but not the response, then check if the text file is larg
 
 Verify that you have correctly configured the AWS Comprehend Role to allow the Comprehend service read/write access to the S3 bucket used to temporarily store source files and results.
 
-See [Amazon Comprehend limits]({% link intelligence-services/latest/admin/index.md %}#amazon-comprehend) and [Role-Based Permissions Required for Asynchronous Operations](https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions){:target="_blank"} for more.
+See [Amazon Comprehend limits]({% link intelligence-services/1.2/admin/index.md %}#amazon-comprehend) and [Amazon Comprehend role]({% link intelligence-services/1.2/install/index.md %}) for more.
 
 ## Why don't I see a Textract image / text analysis?
 
@@ -85,7 +85,7 @@ aws-ai_1 | at org.alfresco.transformer.ai.service.AwsTextractTransformer.transfo
  ~[alfresco-ai-image-text-analysis-0.4.0.jar!/:na]
 ```
 
-If the image file size is larger than 5 MB then it'll be skipped. See [Amazon Textract limits]({% link intelligence-services/latest/admin/index.md %}#amazon-textract) for more.
+If the image file size is larger than 5 MB then it'll be skipped. See [Amazon Textract limits]({% link intelligence-services/1.2/admin/index.md %}#amazon-textract) for more.
 
 ## Why do I see an AWS error when I upload a test folder of test files (e.g. via drag and drop)?
 
@@ -124,7 +124,7 @@ You'll find a summary of the Transform Router configuration properties in `ai-pi
 
 The current default on minimum confidence levels is set at 80%.
 
-See [Configuring the minimum confidence level]({% link intelligence-services/latest/install/index.md %}#configure-minimum-confidence-level) for more.
+See [Configuring the minimum confidence level]({% link intelligence-services/1.2/install/index.md %}#configure-minimum-confidence-level) for more.
 
 ## Which Amazon AI/ML APIs are used for processing?
 
@@ -170,7 +170,7 @@ Also, if you're using Docker Compose, then you may find that setting or exportin
 
 ## What do I need to set up to access Amazon AI services: Comprehend, Rekognition & Textract?
 
-See [Set up services in AWS]({% link intelligence-services/latest/install/index.md %}) for more.
+See [Set up services in AWS]({% link intelligence-services/1.2/install/index.md %}) for more.
 
 ## How do the Amazon AI services access the content to be processed?
 
@@ -182,11 +182,11 @@ We recommend the following setup:
 * Create an S3 bucket in the same region as the Amazon AI services.
 * For Comprehend, you also need to enable Comprehend to have write access to your S3 bucket for returning the results. This can be done by setting up an IAM role.
 
-See [Set up services in AWS]({% link intelligence-services/latest/install/index.md %}#set-up-services-in-aws) to configure AWS Identity and Access Management and the Amazon AI services.
+See [Set up services in AWS]({% link intelligence-services/1.2/install/index.md %}#set-up-services-in-aws) to configure AWS Identity and Access Management and the Amazon AI services.
 
 ## When is Amazon Elastic File System (EFS) used?
 
-From the architecture diagram in the [Intelligence Services overview]({% link intelligence-services/latest/admin/index.md %}), the Shared File Store (SFS) provides a mechanism for Content Services to send source files to the Transform Engines and receive target files from the Transform Engines. This includes the new AI Transform Engine that's used to call the Amazon AI services. In order to scale SFS for performance and reliability, it must be able to access a shared volume storage, such as managed EFS or self-managed NFS.
+From the architecture diagram in the [Intelligence Services overview]({% link intelligence-services/1.2/admin/index.md %}), the Shared File Store (SFS) provides a mechanism for Content Services to send source files to the Transform Engines and receive target files from the Transform Engines. This includes the new AI Transform Engine that's used to call the Amazon AI services. In order to scale SFS for performance and reliability, it must be able to access a shared volume storage, such as managed EFS or self-managed NFS.
 
 ## I'm concerned about data privacy of the content that's processed by AWS. Do I have any control around this?
 

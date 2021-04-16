@@ -8,7 +8,7 @@ To use the default (i.e. out-of-the-box) configuration of Intelligence Services,
 
 If you plan to use custom recognizers and custom classifiers to enrich your content with custom metadata, follow the **default configuration**, and then the **custom configuration** steps.
 
-> **Note:** Before you can use a custom rendition, make sure that you've trained a custom model, deployed and configured one of the custom implementations listed in [Configure Intelligence Services]({% link intelligence-services/latest/config/index.md %}).
+> **Note:** Before you can use a custom rendition, make sure that you've trained a custom model, deployed and configured one of the custom implementations listed in [Configure Intelligence Services]({% link intelligence-services/1.2/config/index.md %}).
 
 ## Set up a folder rule
 
@@ -45,7 +45,7 @@ Follow these steps to use the default (i.e. out-of-the-box) configuration of Int
         For example, you can add any of the default renditions:
 
         ```bash
-        aiFeatures, aiLabels, aiTextract, aiSpeechToText, webvtt, aiPiiEntities 
+        aiFeatures, aiLabels, aiTextract
         ```
 
         > **Note:** If you leave the text field empty, all three of the default renditions will be requested. The default renditions are `aiFeatures` for Amazon Comprehend, `aiLabels` for Amazon Rekognition of images, and `aiTextract` for Amazon Textract.
@@ -68,9 +68,9 @@ Follow these steps to use the default (i.e. out-of-the-box) configuration of Int
 
     As an administrator, you can view the logs for the repository, Transform Router, AI Engine, and ActiveMQ/Amazon MQ to monitor the progress.
 
-    See [Troubleshoot Intelligence Services]({% link intelligence-services/latest/admin/troubleshoot.md %}) for more.
+    See [Troubleshoot Intelligence Services]({% link intelligence-services/1.2/admin/troubleshoot.md %}) for more.
 
-12. Next, [view the AI properties]({% link intelligence-services/latest/using/index.md %}#view-ai-properties) in Alfresco Digital Workspace.
+12. Next, [view the AI properties]({% link intelligence-services/1.2/using/index.md %}#view-ai-properties) in Alfresco Digital Workspace.
 
 ### Custom configuration: Requesting custom AI renditions
 
@@ -86,22 +86,22 @@ If you're planning to use custom recognizers, custom classifiers, or custom meta
 
         ![Add configured custom AI aspects]({% link intelligence-services/images/cust-aspects.png %})
 
-        See [Custom AI content model]({% link intelligence-services/latest/config/comprehend.md %}#custom-ai-content-model) for configured aspects.
+        See [Custom AI content model]({% link intelligence-services/1.2/config/comprehend.md %}#custom-ai-content-model) for configured aspects.
 
     2. Request custom AI renditions, for example:
 
         ![Request configured custom AI renditions]({% link intelligence-services/images/cust-renditions.png %})
 
-        See [Custom AI rendition definitions]({% link intelligence-services/latest/config/comprehend.md %}#custom-ai-rendition-definitions) for configured renditions.
+        See [Custom AI rendition definitions]({% link intelligence-services/1.2/config/comprehend.md %}#custom-ai-rendition-definitions) for configured renditions.
 
-    3. For custom metadata extraction (using Textract), request a rendition and add custom AI aspects. For example:
+    3. For custom metadata extraction (using Textract), request a rendition and add a custom AI aspects. For example:
 
-        * Request AI rendition: `aiTextract`
+        * Request AI renditions: `aiTextract`
         * Add aspect: `AI Text Lines`
         * Add aspect: `Applicant Info`
         * Add aspect: `w9form`
 
-        See [Custom AI content model (Textract)]({% link intelligence-services/latest/config/textract.md %}#custom-ai-content-model) for configured aspects.
+        See [Custom AI content model (Textract)]({% link intelligence-services/1.2/config/textract.md %}#custom-ai-content-model) for configured aspects.
 
     > **Note:** The new input field for the `Request AI renditions` action adds the ability to request custom renditions as comma separated rendition names. When left blank, the three default renditions are requested - (i.e. `aiFeatures`, `aiLabels`, and `aiTextract`). This allows you to configure a rule using various combinations, such as:
 
@@ -117,7 +117,7 @@ This example shows you how to view these properties in Digital Workspace.
 
 1. Launch Alfresco Digital Workspace.
 
-2. Locate the demo folder or subfolder, if the folder rule also applies to subfolders, as created in [Set up a folder rule]({% link intelligence-services/latest/using/index.md %}#set-up-a-folder-rule).
+2. Locate the demo folder or subfolder, if the folder rule also applies to subfolders, as created in [Set up a folder rule]({% link intelligence-services/1.2/using/index.md %}#set-up-a-folder-rule).
 
 3. Select a file that you uploaded, and click the information icon.
 

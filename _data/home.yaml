@@ -80,7 +80,7 @@ integrations:
         text: "The SAML Module for Alfresco Content Services provides support for SAML authentication in Content Services."
         url: /saml-module/latest/
   - title: "Intelligence"
-    text: "Add AI capabilities to Alfresco Content Services using a number of Amazon AI Services (Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine."
+    text: "Add AI capabilities to Alfresco Content Services using a number of Amazon AI Services (Amazon Transcribe, Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine."
     url: /intelligence-services/latest/
     image: /assets/img/ic_intelligence_80px.svg
   - title: "Content Stores"

@@ -78,7 +78,7 @@ ai.transformation.aiTextract.keyValueSet.minConfidence
 
 This property has a default: 0.7 (i.e. 70%) unless overridden for a specific key/value mapping.
 
-You can add an optional `confidence` field for each key in the property mapping configuration file to override the global configuration. See example in [Custom AI property mapping]({% link intelligence-services/latest/config/textract.md %}#custom-ai-property-mapping).
+You can add an optional `confidence` field for each key in the property mapping configuration file to override the global configuration. See example in [Custom AI property mapping]({% link intelligence-services/1.2/config/textract.md %}#custom-ai-property-mapping).
 
 #### Custom aspects
 
@@ -146,7 +146,7 @@ The process requires the configuration of a number of files that must be mounted
 | | bootstrap-custom-labels.properties | Comprehend
 | | share-custom-slingshot-application-context.xml | Comprehend, Textract |
 | | | |
-| Digital Workspace | ai-view.extension.json| Comprehend, Textract|
+| Digital Workspace | app.extensions.json | Comprehend, Textract|
 
 These files are described in more detail in the remainder of this page.
 
@@ -294,7 +294,7 @@ In the above JSON snippet:
 
 * The property mapping configuration is loaded and validated at application startup.
 * If there's a mismatch between the aspect and the property, or if one or the other doesn't exist, a `WARN` message is logged, and the pairing is ignored (i.e. that particular pair is ignored, not the entire configuration).
-* This example uses an `EXACT` key matching for the `Mailing Address` field. Other options include regular expressions, with a fallback to the default matching if `keyMatch` isn't defined. See [Form extraction (key-value pairs)]({% link intelligence-services/latest/config/textract.md %}#form-extraction-key-value-pairs) for more.
+* This example uses an `EXACT` key matching for the `Mailing Address` field. Other options include regular expressions, with a fallback to the default matching if `keyMatch` isn't defined. See [Form extraction (key-value pairs)]({% link intelligence-services/1.2/config/textract.md %}#form-extraction-key-value-pairs) for more.
 
 ## Step 4: Configure Share and Digital Workspace
 
@@ -381,16 +381,16 @@ Content:
 
 ### Digital Workspace
 
-The Digital Workspace configuration for custom AI requires modification of an existing configuration file (`ai-view.extension.json`). The JSON file is included in the Intelligence Services distribution zip. This is unlike the repository and Share configuration, where only new files are created and mounted in the containers.
+The Digital Workspace configuration for custom AI requires modification of an existing configuration file (`app.extensions.json`). The JSON file is included in the Intelligence Services distribution zip. This is unlike the repository and Share configuration, where only new files are created and mounted in the containers.
 
 #### App extension
 
-File name: `ai-view.extension.json`
+File name: `app.extensions.json`
 
 Mount location and example:
 
 ```bash
-./ai-view.extension.json:/usr/share/nginx/html/assets/plugins/ai-view.extension.json
+./app.extensions.json:/usr/share/nginx/html/assets/app.extensions.json
 ```
 
 Content:
@@ -424,6 +424,6 @@ Content:
 ]
 ```
 
-The above snippet adds the aspects in the earlier [Custom AI content model configuration]({% link intelligence-services/latest/config/textract.md %}#custom-ai-content-model) (for Textract) to the existing `"ai.metadata.features"` list of items in the `ai-view.extension.json` file.
+The above snippet adds the aspects in the earlier [Custom AI content model configuration]({% link intelligence-services/1.2/config/textract.md %}#custom-ai-content-model) (for Textract) to the existing `"ai.metadata.features"` list of items in the `app.extensions.json` file.
 
 For more details on extending the features of Digital Workspace, see the Alfresco Content Application documentation: [Extending](https://alfresco-content-app.netlify.com/#/extending/){:target="_blank"}.
