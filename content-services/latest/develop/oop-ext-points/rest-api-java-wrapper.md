@@ -97,7 +97,7 @@ To filter listed contents of a folder in the repository use the `listNodeChildre
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listNodeChildren){:target="_blank"} 
 and set the `where` clause parameter. 
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}filtercontentsfolder)
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#filtercontentsfolder)
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -183,7 +183,7 @@ To get metadata for a node, such as a file or folder, in the repository use the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#getNode){:target="_blank"}, 
 which is one of the main APIs used when you want to manipulate folders and files. 
 
-[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}getnodemetadata)
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getnodemetadata)
 
 ```java
 import org.alfresco.core.handler.NodesApi;
