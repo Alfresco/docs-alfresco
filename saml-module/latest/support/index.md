@@ -6,19 +6,20 @@ The following are the supported platforms for SAML Module for Alfresco Content S
 
 ## Alfresco Content Services
 
-| Version | Supported | Notes |
-| ------- | --------- | ----- |
-| Content Services 6.2 | | |
+| Version | Notes |
+| ------- | ----- |
+| Content Services 7.0 | |
+| Content Services 6.2 | |
 
 ## Application servers
 
-| Version | Supported | Notes |
-| ------- | --------- | ----- |
-| Tomcat 8.5.43 | | |
+| Version | Notes |
+| ------- | ----- |
+| Tomcat 8.5.43 | |
 
 ## Microsoft Office
 
-| Version | Supported | Notes |
-| ------- | --------- | ----- |
-| Microsoft Office 2013 | | |
-| Microsoft Office 2016 | | |
+| Version | Notes |
+| ------- | ----- |
+| Microsoft Office 2013 | |
+| Microsoft Office 2016 | |
