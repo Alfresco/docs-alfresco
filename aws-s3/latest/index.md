@@ -8,7 +8,7 @@ allowing for virtually unlimited and inexpensive storage.
 
 New features introduced in v4.0 are:
 
-* DESCRIPTION OF NEW FEATURE S3 Connector - Add a tag to deleted content
+* Ability to add a tag to any deleted item stored in Amazon S3 so it can be found and then deleted by Amazon S3 adminstrators. 
 
 Two content store subsystems are provided out-of-the-box with this release: `S3OnPrem` and `S3`. 
 The default subsystem that's enabled on installation is `S3OnPrem`. 
@@ -20,10 +20,10 @@ Other features introduced in previous versions include:
 * S3MultipleBuckets subsystem configuration (v3.1)
 * Changes to the S3 Connector configuration and properties (v3.1) 
 * Support for AWS S3 for on-premises installation of Alfresco Content Services (v2.1)
-* [AWS S3 Standard - Infrequent Access (S3 IA) storage class](https://aws.amazon.com/s3/storage-classes/) support (v2.1)
+* [AWS S3 Standard - Infrequent Access (S3 IA) storage class](https://aws.amazon.com/s3/storage-classes/){:target="_blank"} support (v2.1)
 * Refactored to use AWS SDK instead of old JetS3t libraries as it's less error prone (v2.0)
-* [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/) support (v2.0)
-* [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/) support (v2.0)
+* [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/){:target="_blank"} support (v2.0)
+* [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/){:target="_blank"} support (v2.0)
 * Storage path approach optimized for high-throughput reads and writes (v2.0)
 * Handling incomplete multipart uploads abort (v2.0)
 
