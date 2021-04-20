@@ -388,12 +388,196 @@ See also:
 * [AttributeService Primer video](https://vimeo.com/67580571){:target="_blank"}
 
 ## AuditService
+The `AuditService` API provides facilities to query audit data. There are also methods to clear audit data, enable and 
+disable auditing, and check auditing status.
+
+```java
+/**
+ * Returns content changes.
+ */
+public ObjectList getContentChanges(Holder<String> changeLogToken, BigInteger maxItems) {
+    final ObjectListImpl result = new ObjectListImpl();
+    result.setObjects(new ArrayList<ObjectData>());
+
+    EntryIdCallback changeLogCollectingCallback = new EntryIdCallback(true) {
+        @Override
+        public boolean handleAuditEntry(Long entryId, String user, long time, Map<String, Serializable> values) {
+            result.getObjects().addAll(createChangeEvents(time, values));
+            return super.handleAuditEntry(entryId, user, time, values);
+        }
+    };
+
+    Long from = null;
+    if ((changeLogToken != null) && (changeLogToken.getValue() != null)) {
+        try {
+            from = Long.parseLong(changeLogToken.getValue());
+        } catch (NumberFormatException e) {
+            throw new CmisInvalidArgumentException("Invalid change log token: " + changeLogToken);
+        }
+    }
+
+    AuditQueryParameters params = new AuditQueryParameters();
+    params.setApplicationName(CMIS_CHANGELOG_AUDIT_APPLICATION);
+    params.setForward(true);
+    params.setFromId(from);
+
+    int maxResults = (maxItems == null ? 0 : maxItems.intValue());
+    maxResults = (maxResults < 1 ? 0 : maxResults + 1);
+
+    serviceRegistry.getAuditService().auditQuery(changeLogCollectingCallback, params, maxResults);
+
+    String newChangeLogToken = null;
+    if (maxResults > 0) {
+        if (result.getObjects().size() >= maxResults) {
+            StringBuilder clt = new StringBuilder();
+            newChangeLogToken = (from == null ? clt.append(maxItems.intValue() + 1).toString() : clt.append(from.longValue() + maxItems.intValue()).toString());
+            result.getObjects().remove(result.getObjects().size() - 1).getId();
+            result.setHasMoreItems(true);
+        } else {
+            result.setHasMoreItems(false);
+        }
+    }
+
+    if (changeLogToken != null) {
+        changeLogToken.setValue(newChangeLogToken);
+    }
+
+    return result;
+}
+```
+
+See also:
+
+* [Audit platform extension point]({% link content-services/latest/develop/repo-ext-points/audit-log.md %}).
+* [Auditing]({% link content-services/latest/admin/audit.md %}) provides a detailed overview of auditing.
+* [Audit API Hints and Tricks](https://www.youtube.com/watch?v=_aP_JYTwZ6Y){:target="_blank"} DevCon presentation by Mehdi Belmekki.
+* [Audit and Reporting with Alfresco and NoSQL by Zaizi](http://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture){:target="_blank"}
 
 ## AuthenticationService
+This service provides an API to allow authentication of users using various methods, such as username and password and 
+authentication tickets. Authentication is required at various access points into the repository. For example web scripts, 
+CMIS, FTP, WebDAV, and web clients represent access points where authentication needs to take place. 
+
+Authentication can be via a ticket, a username and password pair, or some other mechanism. The `AuthenticationService` 
+provides an API to:
+
+* Authenticate using a username and password
+* Authenticate using a ticket
+* Create, update and delete authentication information
+* Clear the current authentication
+* Invalidate a ticket
+* Get the username for who is currently authenticated
+* Get a ticket for subsequent re-authentication
+* Determine if the current user is "the system user"
+
+Not all implementations will support creating, updating and deleting authentication information.
+
+The authenticated username is used as the key to obtain other security information such as group membership, the details 
+about the person, to record a user as the owner of an object. It is one of the identifiers against which permissions may 
+be assigned.
+
+The `AuthenticationService` does not provide any details about a user other than authentication. It stores authentication 
+information on the calling thread. Application developers should ensure that this information is cleared.
+
+The `AuthenticationService` brings together three components:
+
+* The authentication component
+* The authentication DAO
+* The ticket component
+
+The authentication component supports authentication only. The authentication DAO provides an API to create, delete and 
+update authentication information. The ticket component is responsible for managing and storing tickets that may be 
+obtained after authentication and used in place of authentication.
+
+```java
+// Get services
+AuthenticationService authService = (AuthenticationService)serviceRegistry.getAuthenticationService();
+PersonService personService = (PersonService)serviceRegistry.getPersonService();
+
+// Get current user
+NodeRef person = personService.getPerson(authService.getCurrentUserName());
+```
+
+See also:
+
+* [Authentication & Sync documentation]({% link content-services/latest/admin/auth-sync.md %})
 
 ## AuthorityService
+The service that encapsulates authorities granted to users. This service will refuse to create any user authorities. 
+These should be managed using the AuthenticationService and PersonService. Methods that try to change alter users will 
+throw an exception. A string key is used to identify the authority. These follow the contract defined in AuthorityType. 
+If there are entities linked to these authorities this key should be used to find them, as userName is used to link user 
+and person.
+
+Authority is a general term to describe a group, user, or role. The AuthorityService provides an API to: 
+
+* Add and delete authorities.
+* Get authorities.
+* Retrieve authority details such as short name.
+
+```java
+/**
+ * Search the root groups, those without a parent group.
+ * 
+ * @param paging Paging object with max number to return, and items to skip
+ * @param sortBy What to sort on (authorityName, shortName or displayName)
+ * @return The root groups (empty if there are no root groups)
+ */
+public ScriptGroup[] searchRootGroupsInZone(
+        String displayNamePattern, String zone, ScriptPagingDetails paging, String sortBy) {
+    Set<String> authorities;
+    
+    try {
+        authorities = serviceRegistry.getAuthorityService().findAuthorities(AuthorityType.GROUP,
+                null, true, displayNamePattern, zone);
+    } catch (UnknownAuthorityException e) {
+        authorities = Collections.emptySet();
+    }
+    
+    return makeScriptGroups(authorities, paging, sortBy, serviceRegistry, this.getScope());
+}
+```
+
+Add an authority:
+
+```java
+String knightGroup = serviceRegistry.getAuthorityService().createAuthority(AuthorityType.GROUP, "KNIGHTS");
+serviceRegistry.getAuthorityService().addAuthority(knightGroup, ADMIN_USER_NAME);
+```
+
+See also 
+
+* [Authentication & Sync documentation]({% link content-services/latest/admin/auth-sync.md %})
 
 ## CategoryService
+Provides an API for creating and managing categories of nodes. Categories provide a system for organizing content. 
+Unlike tags, which have no hierarchical structure, and which can be created and applied by anyone, categories are created 
+by the Administrator, and are hierarchical in nature. 
+
+For example, You might have a Europe category, and then sub-categories such as France, Germany, Spain, and so on. 
+The top Category in the hierarchical structure is known as the Root Category. The `CategoryService` API provides methods 
+to perform actions such as the following:
+
+* Create a Category
+* Create a root Category
+* Delete a Category
+* Create a Classification (a grouping of Categories)
+* Delete a Classification
+* Get most popular Categories
+
+```java
+// To create a root category:
+NodeRef newRootCat = serviceRegistry.getCategoryService().createRootCategory(spacesStore, 
+        ContentModel.ASPECT_GEN_CLASSIFIABLE, "newRootCat");
+
+// To create a category
+NodeRef newCategory = serviceRegistry.getCategoryService().createCategory(newRootCat, "newCategory");
+```
+
+See also:
+
+* [Tagging and Categorizing Content]({% link content-services/latest/using/content/manage.md %}#tagcategorizecontent)
+* [Category Manager documentation]({% link content-services/latest/admin/share-admin-tools.md %}#cat-manager)
 
 ## CheckOutCheckInService
 
