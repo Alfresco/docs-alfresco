@@ -60,6 +60,10 @@ You can use one of the following Outlook releases:
 
 If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [Prerequisites]({% link saml-module/latest/install/index.md %}#prerequisites).
 
+### Java requirements
+
+* Java: OpenJDK 11 is recommended. This needs to be installed on the server only (i.e. not the Outlook clients). See the Content Services [Supported Platforms]({% link content-services/latest/support/index.md %}) for more information.
+
 ## Install AMPs {#install_amps}
 
 There are three steps to installing the Outlook Integration: install the Alfresco AMP files (the Alfresco Outlook Server software), apply the licenses and then install the Microsoft Outlook zip file (the Alfresco Outlook Client software).
