@@ -45,7 +45,7 @@ Follow these steps to use the default (i.e. out-of-the-box) configuration of Int
         For example, you can add any of the default renditions:
 
         ```bash
-        aiFeatures, aiLabels, aiTextract, aiSpeechToText, webvtt, aiPiiEntities 
+        aiFeatures, aiLabels, aiTextract, aiSpeechToText, webvtt, aiPiiEntities, aiSpeechToText, webvtt, aiPiiEntities 
         ```
 
         > **Note:** If you leave the text field empty, all three of the default renditions will be requested. The default renditions are `aiFeatures` for Amazon Comprehend, `aiLabels` for Amazon Rekognition of images, and `aiTextract` for Amazon Textract.
@@ -145,14 +145,18 @@ This example shows you how to view these properties in Digital Workspace.
 
 ## View Transcription
 
-When configured, transcripts of your audio and video files are generated automatically within the Digital Workspace, including indexing and metadata generation which allows you to search their content easier. Captions of the transcripts can be automatically placed on top of the audio and video content. For information on how to configure this in the Digital Workspace see [AWS related requirements]({% link intelligence-services/latest/install/index.md %}#AWS-related-requirements)
+When configured, transcripts of your audio and video files are generated automatically within the Digital Workspace, including indexing and metadata generation which allows you to search their content easier. Captions of the transcripts can be automatically placed on top of the audio and video content, See the images below. For information on how to configure this in the Digital Workspace see [AWS related requirements]({% link intelligence-services/latest/install/index.md %}#AWS-related-requirements)
 
+**Transcription**
+![transcript]({% link intelligence-services/images/text-transcript.png %})
 
-
- Searchable audio & video using AI
-• Transcripts for audio & video files are now generated automatically, enabling easier searchability
-• Automatic indexing and metadata generation for audio & video content
-• Automatic caption generation over audio & video content
+**Caption**
+![caption]({% link intelligence-services/images/transcript-caption.png %})
 
 ## View PII information
 
+You can detect PII in documents and tag it automatically which enables easier privacy management to comply
+with data protection regulations such as General Data Protection Regulation (GDPR). See the image below. You can also generate metadata automatically to flag PII entities. For information on how to configure this in the Digital Workspace see [AWS related requirements]({% link intelligence-services/latest/install/index.md %}#)
+
+**PII**
+![pii]({% link intelligence-services/images/pii.png %})
