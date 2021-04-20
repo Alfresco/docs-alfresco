@@ -64,7 +64,7 @@ The process requires the configuration of a number of files that must be mounted
 | | bootstrap-custom-labels.properties | Comprehend
 | | share-custom-slingshot-application-context.xml | Comprehend, Textract |
 | | | |
-| Digital Workspace | ai-view.extension.json| Comprehend, Textract, Transcribe |
+| Digital Workspace | app.extensions.json | Comprehend, Textract|
 
 These files are described in more detail in the remainder of this page.
 
@@ -446,7 +446,7 @@ In the `docker-compose` snippet, the custom AI configuration files must be mount
 
 ```yaml
 share:
-    image: quay.io/alfresco/alfresco-share-ai-transformers-module:1.3.0
+    image: quay.io/alfresco/alfresco-share-ai-transformers-module:1.2.0
     environment:
       REPO_HOST: "alfresco"
       REPO_PORT: "8080"
@@ -467,16 +467,16 @@ share:
 
 ### Digital Workspace
 
-The Digital Workspace configuration for custom AI requires modification of an existing configuration file (`ai-view.extension.json`). The JSON file is included in the Intelligence Services distribution zip. This is unlike the repository and Share configuration, where only new files are created and mounted in the containers.
+The Digital Workspace configuration for custom AI requires modification of an existing configuration file (`app.extensions.json`). The JSON file is included in the Intelligence Services distribution zip. This is unlike the repository and Share configuration, where only new files are created and mounted in the containers.
 
 #### App extension
 
-File name: `ai-view.extension.json`
+File name: `app.extensions.json`
 
 Mount location and example:
 
 ```bash
-./ai-view.extension.json:/usr/share/nginx/html/assets/plugins/ai-view.extension.json
+./app.extensions.json:/usr/share/nginx/html/assets/app.extensions.json
 ```
 
 Content:
@@ -515,7 +515,7 @@ Content:
 ]
 ```
 
-The above snippet adds the aspects in the earlier [Custom AI content model configuration]({% link intelligence-services/latest/config/comprehend.md %}#custom-ai-content-model) to the existing `"ai.metadata.features"` list of items in the `ai-view.extension.json` file.
+The above snippet adds the aspects in the earlier [Custom AI content model configuration]({% link intelligence-services/1.2/config/comprehend.md %}#custom-ai-content-model) to the existing `"ai.metadata.features"` list of items in the `app.extensions.json` file.
 
 The JSON path for the new items is `$.features.content-metadata-presets[:].custom[:].items`.
 
@@ -524,13 +524,10 @@ For more details on extending the features of Digital Workspace, see the Alfresc
 ### Digital Workspace - Docker service definition
 
 ```yaml
-  digital-workspace:
-    image: quay.io/alfresco/alfresco-digital-workspace:2.1.0-adw
-    environment:
-      BASE_PATH: ./
-      APP_CONFIG_PLUGIN_AI_SERVICE: "true"
+digital-workspace:
+    image: quay.io/alfresco/alfresco-digital-workspace:1.5.0
     volumes:
-      - ./ai-view-extension.json:/usr/share/nginx/html/assets/plugins/ai-view-extension.json
+      - ./app.extensions.json:/usr/share/nginx/html/assets/app.extensions.json
 ```
 
-In the above `docker-compose` snippet, the modified `ai-view-extension.json` configuration file must be mounted in the Digital Workspace container. The environment variable `APP_CONFIG_PLUGIN_AI_SERVICE:` when set to `true` allows the Digital Workspace to index and search by the content of the transcripted files and scanned images.
+In the above `docker-compose` snippet, the modified `app.extensions.json` configuration file must be mounted in the Digital Workspace container instead of the standard one (from Content Services deployment).

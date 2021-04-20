@@ -2,17 +2,16 @@
 title: Alfresco Intelligence Services
 ---
 
-Alfresco Intelligence Services is an add-on module that adds AI capabilities to Alfresco Content Services. It uses a number of Amazon AI Services (i.e. Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine. This documentation describes how to install, set up, and configure Intelligence Services.
+Alfresco Intelligence Services is an add-on module that adds AI capabilities to Alfresco Content Services and the Digital Workspace. It utilizes a number of Amazon AI Services (i.e. Amazon Transcribe, Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine. This documentation describes how to install, set up, and configure Intelligence Services.
 
-The Intelligence Services module enables you to configure and use custom ML models (for Natural Language Processing), created in Amazon Web Services (AWS), to enrich content stored in Content Services. This is done through an integration with the Amazon Comprehend Custom service. This release also enables you to configure information provided from Textract analysis to Content Services content models as metadata properties. You can configure and extract the following information:
-
-* Key-value pairs as metadata properties
-  * Including the ability to map multiple keys into the same metadata property
-  * Check boxes as metadata properties
-* All raw lines of text as a metadata property
+The Intelligence Services module enables you to configure and use custom ML models (for Natural Language Processing), created in Amazon Web Services (AWS), to enrich content stored in Content Services and the Digital Workspace. This is done through an integration with the Amazon Comprehend Custom service. With this new release transcripts for audio and video files, including indexing and metadata generation are provided automatically and this content can then be searched easily. Personal Identification Information (PII) in documents can be detected and tagged automatically which provides easier privacy management including automatic detection of PII entities.
 
 Other features introduced in previous versions include:
 
+* Key-value pairs as metadata properties (v1.2)
+  * Including the ability to map multiple keys into the same metadata property
+  * Check boxes as metadata properties
+* All raw lines of text as a metadata property (v1.2)
 * [Amazon Comprehend Custom Entity Recognition](https://docs.aws.amazon.com/comprehend/latest/dg/custom-entity-recognition.html){:target="_blank"} support (v1.1)
 * [Amazon Comprehend Custom Classification](https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html){:target="_blank"} support (v1.1)
 * [Amazon Textract Custom Metadata Extraction](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html){:target="_blank"} support (v1.1)
