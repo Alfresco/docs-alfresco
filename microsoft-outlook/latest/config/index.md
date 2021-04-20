@@ -1070,7 +1070,7 @@ Use this file to set up attributes and metadata settings.
     |`storeLink`|Controls the Archive as link email option|`true`: email is replaced with a link to email stored in Alfresco<br><br>`false`: email is not replaced with a link to the email stored in Alfresco. This is the default setting.|
     |`storeMsg`|Controls the Store original Outlook .MSG file archive option|`true`: original Outlook . MSG file is stored on upload to Alfresco<br><br>`false`: original Outlook . MSG file is not stored on upload to Alfresco. This is the default setting.|
     |`compress`|Controls the Compress message while uploading setting|`true`: message is compressed while uploading to Alfresco. This is the default setting.<br><br>`false`: message is not compressed while uploading to Alfresco|
-    |`alwaysUseDefaultSendAndArchiveFolder`|Controls the Always use default folder archive option|`true`: uses the specified default folder. This is the default setting.<br><br>`false`: select folder with every upload.|
+    |`alwaysUseDefaultSendAndArchiveFolder`|Controls the Always use default folder archive option|`true`: uses the specified default folder.<br><br>`false`: select folder with every upload. This is the default setting.|
 
 4. Configure the attributes that you need for the `<connection>` element:
 
