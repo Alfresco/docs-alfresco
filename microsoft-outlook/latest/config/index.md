@@ -507,6 +507,14 @@ See step **11** for the complete example of metadata settings.
 
     This rule allows you to deviate from the default column settings when the Alfresco Outlook Client presents content in the specified `numeric-metadata` folder (and its sub folders) on the `qa-ext-custom-metadata` site. The `<match>` rule is added into an `<overrides>` section of the XML configuration. In this example, when a user navigates to this location or starts a search in this location, an alternative list view is presented. The dialog shows four fields with custom numeric data in float, double, int, and long format.
 
+    Instead of using a folder, the `<match>` tag can be used with an aspect, for example:
+
+    ```xml
+    <match pattern="cm:aspectName" type="aspect" name="myListSettingsForAnAspect">
+    ```
+
+    If no `type` is given, the pattern will be treated as a folder.
+
     Note how the rule is similar to the custom content metadata configuration. The `<list-view>` and `<match>` elements can be assigned names, which will be displayed in the list view configuration of the Alfresco Outlook Client. The user can still define which columns of a particular server-side list view configuration are enabled/disabled.
 
 20. To provide users with the capability to rename the email subject before uploading it to the repository, use this example:
@@ -568,7 +576,7 @@ You can configure search settings for the Outlook Integration using Share Admin 
 
     You can use the default configuration template for testing purposes, and edit this if you prefer.
 
-4. Click Apply to save.
+4. Click **Apply** to save.
 
     If your XML isn't valid, you won't be allowed to save your settings, and you'll see an error message.
 
@@ -663,7 +671,21 @@ See examples of how to use these search settings below.
 
     If the above example is applied to the **Custom simple search** configuration, the Outlook Integration uses the search criteria mentioned in the `<target>` element only to find search results.
 
-6. Click **Apply** to save your changes and restart Microsoft Outlook.
+6. To apply search criteria using an aspect, use this example:
+
+    ```xml
+    <match type="aspect" pattern="cm:versionable">
+        <target useTags="true" useText="true">
+            <property name="cm:title"/>
+                <hr/>
+            <property name="cm:description">
+                <ui multiline="true"/>
+            </property>
+        </target>
+    </match>
+    ```
+
+7. Click **Apply** to save your changes and restart Microsoft Outlook.
 
     The template changes are applied.
 
