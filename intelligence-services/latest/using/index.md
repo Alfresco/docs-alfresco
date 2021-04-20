@@ -142,3 +142,17 @@ This example shows you how to view these properties in Digital Workspace.
 7. To search by a custom property, type `schema:<category>:<content>` in the search field and press **Enter**.
 
     For example, enter `schema:sport:runner`
+
+## View Transcription
+
+When configured, transcripts of your audio and video files are generated automatically within the Digital Workspace, including indexing and metadata generation which allows you to search their content easier. Captions of the transcripts can be automatically placed on top of the audio and video content. For information on how to configure this in the Digital Workspace see [AWS related requirements]({% link intelligence-services/latest/install/index.md %}#AWS-related-requirements)
+
+
+
+ Searchable audio & video using AI
+• Transcripts for audio & video files are now generated automatically, enabling easier searchability
+• Automatic indexing and metadata generation for audio & video content
+• Automatic caption generation over audio & video content
+
+## View PII information
+
