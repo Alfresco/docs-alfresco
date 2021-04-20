@@ -156,7 +156,7 @@ When configured, transcripts of your audio and video files are generated automat
 ## View PII information
 
 You can detect PII in documents and tag it automatically which enables easier privacy management to comply
-with data protection regulations such as General Data Protection Regulation (GDPR). See the image below. You can also generate metadata automatically to flag PII entities, see the image below. For information on how to configure this in the Digital Workspace see [Set up a folder rule]({% link intelligence-services/latest/using/index.md %}#set-up-a-folder-rule).
+with data protection regulations such as General Data Protection Regulation (GDPR). You can also generate metadata automatically to flag PII entities, see the image below. For information on how to configure this in the Digital Workspace see [Set up a folder rule]({% link intelligence-services/latest/using/index.md %}#set-up-a-folder-rule).
 
 **PII**
 ![pii]({% link intelligence-services/images/pii.png %})
