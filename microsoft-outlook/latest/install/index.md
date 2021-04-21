@@ -58,7 +58,11 @@ You can use one of the following Outlook releases:
 
 ### Alfresco requirements
 
-* Alfresco Content Services 7.0 or later. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
+* Alfresco Content Services 6.2.2 or later. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
+
+### Java requirements
+
+* Java: OpenJDK 11 is recommended. This needs to be installed on the server only (i.e. not the Outlook clients). See the Content Services [Supported Platforms]({% link content-services/latest/support/index.md %}) for more information.
 
 ### Access to Docker image
 
@@ -75,6 +79,8 @@ transform-outlook
 > **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.0.x` Docker image.
 
 > **Note:** It is recommended that you familiarize yourself with the concepts of [containerized deployment]({% link content-services/latest/install/containers/index.md %}) before working with Docker.
+
+## Install AMPs {#install_amps}
 
 ## Install AMPs
 
@@ -365,7 +371,7 @@ There are two different ways to uninstall the Alfresco Outlook Client for enterp
 
     The identifying number is tied to a specific version of your Outlook Integration. If your users have different versions installed, you need to find out the product IDs for each version.
 
-    1. Install the plugin version that was distributed to the machines of your end users.
+    1. Install the Outlook plugin version that was distributed to the machines of your end users.
 
     2. Run the PowerShell command:
 
