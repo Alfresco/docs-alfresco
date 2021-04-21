@@ -1256,12 +1256,361 @@ Translation of alfresco.tutorial.hello: Hej
 ```
 
 ## MimetypeService
+Provides support related to content mimetype. For example, provides methods to retrieve the extension for the 
+specified mimetype. Content Services supports numerous mimetypes out-of-the-box. However, it is also possible to add 
+your own custom mimetypes. The `MimetypeService` provides an API for managing mimetypes. For example, you can obtain a 
+list of current mimetypes, mimetype extensions, and guess mimetypes using a specified file and content reader.
+
+Using the mimetype service when writing content:
+
+```java
+ContentWriter contentWriter = serviceRegistry.getContentService().getWriter(node, ContentModel.PROP_CONTENT, true);
+contentWriter.setMimetype(serviceRegistry.getMimetypeService().guessMimetype(filename));
+contentWriter.putContent(field.getInputStream());
+```
+
+See also the [Mimetype platform extension point]({% link content-services/latest/develop/repo-ext-points/mimetypes.md %})
 
 ## ModuleService
+A service to control and provide information about the currently-installed [Alfresco Module Packages (AMPs)]({% link content-services/latest/develop/extension-packaging.md %}).
 
+A module is an extension to Content Services that is developed with a particular project structure and packaging. 
+Modules can be registered and loaded as part of the boot process. In Share Admin Tools, you can 
+[view the currently installed Modules]({% link content-services/latest/install/zip/amp.md %}#viewing-module-packages). 
+The `ModuleService` provides functionality to programmatically start up and shut down modules, and get module information.
+
+Get all modules and shut down:
+
+```java
+List<ModuleDetails> modules = serviceRegistry.getModuleService().getAllModules();
+loggerService.info(I18NUtil.getMessage(MSG_FOUND_MODULES, modules.size()));
+
+for (ModuleDetails module : modules) {
+    Map<String, ModuleComponent> components = getComponents(module.getId());
+    for (ModuleComponent component : components.values()) {
+        component.shutdown();
+    }
+}
+```
 ## NamespaceService
+Provides access to content model namespaces and their definition of namespace URIs and Prefixes. The `NamespaceService` 
+has constants defined for the major namespaces used by internal Alfresco content models, including the prefixes for those.
+
+Content Services namespaces start with `http://www.alfresco.org`. The top-level namespace sub-divisions are:
+
+* model - identify a data model
+* view - identify a view of content held in the repository
+* ws - identify a Web Service definition
+* test - identify a test definition
+
+Each namespace typically ends with its version number.
+
+Here is a list of some of the out-of-box content models that are good to know about:
+
+|Namespace|Common Prefix|Description|
+|---------|-------------|-----------|
+|http://www.alfresco.org|alf|General Namespace|
+|http://www.alfresco.org/model/dictionary/1.0|d|Data Dictionary model|
+|http://www.alfresco.org/model/system/1.0|sys|Repository system model|
+|http://www.alfresco.org/model/content/1.0|cm|Content Domain model|
+|http://www.alfresco.org/model/application/1.0|app|Application model|
+|http://www.alfresco.org/model/bpm/1.0|bpm|Business Process Model|
+|http://www.alfresco.org/model/site/1.0|st|Site Model|
+|http://www.alfresco.org/model/forum/1.0|fm|Forum Model|
+|http://www.alfresco.org/model/user/1.0|usr|User model (in repository.jar)|
+|http://www.alfresco.org/view/repository/1.0|view|Import / Export View|
+|http://www.alfresco.org/model/action/1.0|act|Action service model|
+|http://www.alfresco.org/model/rule/1.0|rule|Rule service model|
+|http://www.alfresco.org/ws/service/authentication/1.0|auth|Authentication Web Service|
+|http://www.alfresco.org/ws/service/repository/1.0|rep|Repository Web Service|
+|http://www.alfresco.org/ws/service/content/1.0|content|Content Web Service|
+|http://www.alfresco.org/ws/service/authoring/1.0|author|Authoring Web Service|
+|http://www.alfresco.org/ws/service/classification/1.0|cls|Classification Web Service|
+|http://www.alfresco.org/ws/cml/1.0|cml|Content Manipulation Language|
+|http://www.alfresco.org/ws/model/content/1.0|cm|Web Service Content Domain Model|
+|http://www.alfresco.org/model/workflow/1.0|wf|Workflow Model (link is to the simple workflow model, not generally extended)|
+
+It's common to use the `NamespaceService` to get to prefixes for content models, such as in this example:
+
+```java
+String companyHomePath = serviceRegistry.getNodeService().getPath(companyHome)
+               .toPrefixString(serviceRegistry.getNamespaceService());
+```
+
+This code would result in `companyHomePath` being set to `/app:company_home`.
+
+Another example usage is the following code that uses the `NamespaceService` when a `QName` is created:
+
+```java
+String name = "aName";
+QName aQName = QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, QName.createValidLocalName(name));
+```
+
+This code would result in `aQName` being set to `{http://www.alfresco.org/model/content/1.0}aName`.
 
 ## NodeService
+Provides an API for managing nodes, such as folders and files. Nodes are the fundamental data structure in Content Services. 
+All content that is stored is represented by a node data structure, which contains content metadata that is persisted in 
+a database (such as PostgreSQL). The content referenced by the node is stored as a `*.bin` file in a content store 
+(such as the file system, S3, encrypted or other content store). 
+
+Every node in the system is referenced by a `NodeRef`, which is made up of the content store protocol, the content store name, 
+and the Universal Unique Identifier (UUID) of the content, for example: `workspace://SpacesStore/ccb906ba-a768-4ccb-8b26-515119e1efdc`. 
+Generally nodes are of two main types, a file node (`cm:content`), or a folder node (`cm:folder`). Folders can contain 
+child nodes. Note that each content store will have a root node, and all other nodes in the store will be children of 
+the root node.
+
+The `NodeService` provides an extensive API for managing nodes. Functionality includes:
+
+* Adding aspects, children, properties, associations
+* Getting aspects, children, properties, associations
+* Removing aspects, children, properties, associations
+* Creating and deleting stores
+* Creating and deleting nodes
+* Checking for existence of a node
+* Get available content stores
+* Moving nodes
+
+The `NodeService` makes extensive use of `NodeRef`s to reference the node of interest.
+
+Note that for creating folders and files you should also have a look at [FileFolderService](#filefolderservice) as it is 
+an abstraction of the `NodeService` service that makes it a bit easier to work with folders and files with the cost of 
+being less flexible.
+
+Creating a file node:
+
+```java
+NodeRef parentFolderNodeRef = serviceRegistry.getNodeLocatorService().getNode(CompanyHomeNodeLocator.NAME, null, null);
+
+// Create file node metadata
+QName associationType = ContentModel.ASSOC_CONTAINS;
+QName associationQName = QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI,
+        QName.createValidLocalName(filename));
+Map<QName, Serializable> nodeProperties = new HashMap<QName, Serializable>();
+nodeProperties.put(ContentModel.PROP_NAME, filename);
+ChildAssociationRef parentChildAssocRef = serviceRegistry.getNodeService().createNode(
+        parentFolderNodeRef, associationType, associationQName, ContractType.QNAME, nodeProperties);
+NodeRef newFileNodeRef = parentChildAssocRef.getChildRef();
+
+// Set text content for file node
+boolean updateContentPropertyAutomatically = true;
+ContentWriter writer = serviceRegistry.getContentService().getWriter(
+        newFileNodeRef, ContentModel.PROP_CONTENT, updateContentPropertyAutomatically);
+writer.setMimetype(MimetypeMap.MIMETYPE_TEXT_PLAIN);
+writer.setEncoding("UTF-8");
+writer.putContent(someText);
+```
+
+Creating a folder node:
+
+```java
+private void createFolder(NodeRef rootRef) {
+    String folderName = "SampleFolder";
+    NodeRef parentFolderNodeRef = rootRef;
+
+    // Create folder node 
+    QName associationType = ContentModel.ASSOC_CONTAINS;
+    QName associationQName = QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI,
+            QName.createValidLocalName(folderName));
+    QName nodeType = ContentModel.TYPE_FOLDER;
+    Map<QName, Serializable> nodeProperties = new HashMap<QName, Serializable>();
+    nodeProperties.put(ContentModel.PROP_NAME, folderName);
+    ChildAssociationRef parentChildAssocRef = serviceRegistry.getNodeService().createNode(
+            parentFolderNodeRef, associationType, associationQName, nodeType, nodeProperties);
+    NodeRef newFolderNodeRef = parentChildAssocRef.getChildRef();
+
+}
+```
+
+Add an aspect to a node:
+
+```java
+NodeRef someNodeRef = ...
+Map<QName, Serializable> aspectProperties = new HashMap<QName, Serializable>();
+aspectProperties.put(ContentModel.PROP_TITLE, "A title");
+aspectProperties.put(ContentModel.PROP_DESCRIPTION, "A description");
+serviceRegistry.getNodeService().addAspect(someNodeRef, ContentModel.ASPECT_TITLED, aspectProperties);
+```
+
+Getting a `NodeRef` from the node path:
+
+```java
+StoreRef storeRef = new StoreRef(StoreRef.PROTOCOL_WORKSPACE, "SpacesStore");
+ResultSet rs = serviceRegistry.getSearchService().query(storeRef, SearchService.LANGUAGE_LUCENE, 
+        "PATH:\"/app:company_home/app:user_homes/sys:boris/cm:mypics\"");
+NodeRef companyHomeNodeRef = null;
+try {
+    if (rs.length() == 0) {
+        throw new AlfrescoRuntimeException("Didn't find Company Home");
+    }
+
+    companyHomeNodeRef = rs.getNodeRef(0);
+} finally {
+    rs.close();
+}
+```
+
+Getting a file name from a `NodeRef`:
+
+```java
+String fileName = (String) serviceRegistry.getNodeService().getProperty(nodeRef, ContentModel.PROP_NAME);
+```
+
+Reading a node property. The property may come from an aspect or not. You will probably want to cast to 
+the appropriate type:
+
+```java
+QName PROP_QNAME_MY_PROPERTY = QName.createQName("custom.model", "myProperty");
+Object value = serviceRegistry.getNodeService().getProperty(nodeRef, PROP_QNAME_MY_PROPERTY);
+```
+
+Updating a node property. The property may come from an aspect or not:
+
+```java
+QName PROP_QNAME_MY_PROPERTY = QName.createQName("custom.model", "myProperty");
+serviceRegistry.getNodeService().setProperty(nodeRef, PROP_QNAME_MY_PROPERTY, value);
+```
+
+Getting the parent of a `NodeRef`:
+
+```java
+ChildAssociationRef childAssociationRef = serviceRegistry.getNodeService().getPrimaryParent(nodeRef);
+NodeRef parentFolderNodeRef = childAssociationRef.getParentRef();
+```
+
+Adding an aspect to a node. Supposing the "MyAspect" aspect defines a "myProperty" property in the "custom.model" 
+namespace:
+
+```java
+QName CUSTOM_ASPECT_QNAME = QName.createQName("custom.model", "MyAspect");
+QName PROP_QNAME_MY_PROPERTY = QName.createQName("custom.model", "myProperty");
+Map<QName,Serializable> aspectValues = new HashMap<QName,Serializable>();
+aspectValues.put(PROP_QNAME_MY_PROPERTY, value);
+serviceRegistry.getNodeService().addAspect(nodeRef, CUSTOM_ASPECT_QNAME, aspectValues);
+```
+
+Checking whether a node has a given aspect:
+
+```java
+QName CUSTOM_ASPECT_QNAME = QName.createQName("custom.model", "MyAspect");
+boolean hasAspect = serviceRegistry.getNodeService().hasAspect(node, CUSTOM_ASPECT_QNAME);
+```
+
+Looping through children of a `NodeRef`:
+
+```java
+List<ChildAssociationRef> children = serviceRegistry.getNodeService().getChildAssocs(companyHome);
+for (ChildAssociationRef childAssoc : children) {
+    NodeRef childNodeRef = childAssoc.getChildRef();
+    // Use childNodeRef here.
+}
+```
+
+Creating a parent-child association between two existing `NodeRef`:
+
+```java
+QName PROP_QNAME_MY_CHILD_ASSOCIATION = QName.createQName("custom.model", "myChildAssociation");
+serviceRegistry.getNodeService().addChild(parentNodeRef, childNodeRef, PROP_QNAME_MY_CHILD_ASSOCIATION, PROP_QNAME_MY_CHILD_ASSOCIATION);
+```
+
+Creating a peer-2-peer association between two existing `NodeRef`:
+
+```java
+QName PROP_QNAME_MY_ASSOCIATION = QName.createQName("custom.model", "myAssociation");
+serviceRegistry.getNodeService().createAssociation(sourceNodeRef, targetNodeRef, PROP_QNAME_MY_ASSOCIATION);
+```
+
+Setting the content type of a node:
+
+```java
+QName PROP_QNAME_MY_TYPE = QName.createQName("custom.model", "myType");
+serviceRegistry.getNodeService().setType(finalOriginal, MY_TYPE);
+```
+
+Getting the MIME type of a node:
+
+```java
+ContentData contentData = (ContentData) serviceRegistry.getNodeService().getProperty(nodeRef, ContentModel.PROP_CONTENT);
+String originalMimeType = contentData.getMimetype();
+```
+
+Adding a category to a node:
+
+```java
+ArrayList<NodeRef> categories = new ArrayList<NodeRef>(1);
+categories.add(categoryNode);
+if (!serviceRegistry.getNodeService().hasAspect(targetNode, ContentModel.ASPECT_GEN_CLASSIFIABLE) {
+    HashMap<QName, Serializable> props = new HashMap<QName, Serializable>();
+    props.put(ContentModel.PROP_CATEGORIES, categories);
+    serviceRegistry.getNodeService().addAspect(targetNode, ContentModel.ASPECT_GEN_CLASSIFIABLE, props);
+} else {
+    serviceRegistry.getNodeService().setProperty(targetNode, ContentModel.PROP_CATEGORIES, categories);
+}
+```
+
+Getting the categories of a node:
+
+```java
+List<NodeRef> categories = (List<NodeRef>) serviceRegistry.getNodeService().getProperty(nodeRef, ContentModel.PROP_CATEGORIES);
+```
+
+Deleting a node for real (not recycle bin):
+
+```java
+serviceRegistry.getNodeService().addAspect(nodeRef, ContentModel.ASPECT_TEMPORARY, null);
+serviceRegistry.getNodeService().deleteNode(nodeRef);
+```
+
+See also [Custom Content Store platform extension point]({% link content-services/latest/develop/repo-ext-points/content-stores.md %})
+
+### Setting content for node
+Since Content Services 6.2 the `cm:content` property cannot be set using the `NodeService`. Any code that uses 
+`NodeService` methods `setProperties`, `addProperties`, `createNode`, `addAspect`, or `setProperty` to set the content 
+property need to be refactored or designed to use the `ContentWriter` service instead. The `ContentWriter` can be obtained 
+by using the [ContentService](#contentservice).
+
+There are ways to get around this security check: Add full class names as a comma separated list to a global property:
+
+`contentPropertyRestrictions.whitelist=org.alfresco.Class1,org.alfresco.Class2`
+
+Disable the `ContentPropertyRestrictionInterceptor` fully by setting a global property:
+
+`contentPropertyRestrictions.enabled=false`
+
+However, it's better to refactor the code by using the `ContentWriter`.
+
+### Deleting nodes
+Since Content Services 4.1.1 the `alf_node.node_deleted` database column has been replaced by a system type 
+(`sys:deleted`) and an aspect (`sys:pendingDelete`). While the `sys:deleted` type will never be visible to client code, 
+the `sys:pendingDelete` aspect will be. Any custom code that attempts to modify behaviour during node deletion may need 
+to be adjusted.
+
+Changes made in 4.1.1 introduced comprehensive behaviour policy callbacks (i.e. event handlers) for all associations 
+during node deletion. The following [node policies]({% link content-services/latest/develop/repo-ext-points/behavior-policies.md %}) 
+are available for node deletion:
+
+* `BeforeDeleteNodePolicy`
+* `BeforeArchiveNodePolicy`
+* `OnDeleteNodePolicy`
+* `BeforeDeleteChildAssociationPolicy`
+* `OnDeleteChildAssociationPolicy`
+* `BeforeDeleteAssociationPolicy`
+* `OnDeleteAssociationPolicy`
+
+The association (peer and child) policies are now fired reliably for all associations within the node hierarchy being 
+deleted. For examples of their usage, see: `org.alfresco.repo.model.ml.MultilingualDocumentAspect`.
+
+Once `NodeService.deleteNode` is called:
+
+* It is impossible to add or remove associations to or from any node in the hierarchy being deleted. This includes attempted changes from any source including changes attempted by custom code reacting to before- or on-delete callbacks.
+* All nodes in the hierarchy will temporarily have the `sys:pendingDelete` aspect applied. Custom code can using `NodeService.hasAspect` to discover if a node is about to be deleted.
+* It is impossible to add new nodes or link other nodes into any node in the hierarchy being deleted. Any attempt to do so will be treated as a concurrency violation since custom code should not be attempting this from callbacks during the node deletion.
+* All associations, with the notable exception of the primary parent-child links, will be removed even if node archival is taking place. Node archival now only preserves the core parent-child associations and discards all other associations after making the relevant callbacks. Custom code must use the association deletion callbacks to remove nodes or aspects that might violate model integrity constraints in the archived hierarchy.
+
+A good example of the changes is in the handling of the `cm:copiedFrom` aspect. Copied nodes have an aspect `cm:copiedfrom`, 
+which has a mandatory association to the original source node. When either the source or copy is deleted the aspect has 
+to be removed. See `org.alfresco.repo.copy.CopyServiceImpl.beforeDeleteOriginalAssociation` for how the association 
+deletion is detected in order to ensure that the aspect is removed from the copied node.
 
 ## NodeLocatorService
 
