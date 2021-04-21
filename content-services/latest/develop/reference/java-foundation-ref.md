@@ -580,20 +580,680 @@ See also:
 * [Category Manager documentation]({% link content-services/latest/admin/share-admin-tools.md %}#cat-manager)
 
 ## CheckOutCheckInService
+Service to provide document locking. If a document is locked, other users cannot change its content, until it is unlocked.
+
+Check out locks the item and creates a working copy that can be edited. The locked item can be viewed by others, but not 
+changed. When the item is checked in, the working copy replaces the original item and removes the lock. 
+
+The following `CheckOutCheckInService` methods are provided: 
+
+* Check out a node
+* Check in a node
+* Check if a node is a working copy
+* Check if a node is locked (checked out)
+* Cancel a check out for a given working copy
+* Get a working copy
+* Get the original checked out node
+
+```java
+CheckOutCheckInService checkOutCheckInService = serviceRegistry.getCheckOutCheckInService();
+
+NodeRef checkedOutCopy = checkOutCheckInService.checkout(nodeRef);
+```
 
 ## ContentService
+The `ContentService` provides an API for setting, accessing, and transforming content. You may want to read the content 
+associated with a node, or transform the content from one format to another, for example from `.ppt` to `.pdf`. Methods 
+provided by the API includes functionality to: 
+
+* Get obtainable transformers (to convert one mimetype to another)
+* Get a suitable reader for a content type. The returned `ContentReader` will have a `getContent` method to actually read the content to a specified file.
+* Get a suitable writer for a content type. The returned `ContentWriter` will have a `putContent` method to write the content to a specified file.
+* Transform content from one mimetype to another.
+* Get a transformer suitable for transforming images.
+* Utility methods (for example to check size of content and free space in the content store).
+
+Read plain text associated with a content `NodeRef`:
+
+```java
+ContentReader reader = serviceRegistry.getContentService().getReader(nodeRef, ContentModel.PROP_CONTENT);
+```
+
+Reading binary content of a `NodeRef`:
+
+```java
+ContentReader reader = serviceRegistry.getContentService().getReader(nodeRef, ContentModel.PROP_CONTENT);
+InputStream originalInputStream = reader.getContentInputStream();
+ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+final int BUF_SIZE = 1 << 8; //1KiB buffer
+byte[] buffer = new byte[BUF_SIZE];
+int bytesRead = -1;
+while((bytesRead = originalInputStream.read(buffer)) > -1) {
+    outputStream.write(buffer, 0, bytesRead);
+}
+originalInputStream.close();
+byte[] binaryData = outputStream.toByteArray();
+```
+
+Writing data to a node's content:
+
+```java
+ContentWriter writer = serviceRegistry.getContentService().getWriter(nodeRef, ContentModel.PROP_CONTENT, true);
+writer.putContent(new ByteArrayInputStream(content));
+```
+
+Writing a file's data to a node's content:
+
+```java
+ContentWriter writer = serviceRegistry.getContentService().getWriter(nodeRef, ContentModel.PROP_CONTENT, true);
+writer.setLocale(CONTENT_LOCALE);
+File file = new File("c:/temp/images/BigCheese1.bmp");
+writer.setMimetype("image/bmp");
+writer.putContent(file);
+```
+
+
+Transforming a PPT to PDF (also works for other file formats):
+
+```java
+ContentReader pptReader = serviceRegistry.getContentService().getReader(pptNodeRef, ContentModel.PROP_CONTENT);
+ContentWriter pdfWriter = serviceRegistry.getContentService().getWriter(pdfNodeRef, ContentModel.PROP_CONTENT, true);
+ContentTransformer pptToPdfTransformer = serviceRegistry.getContentService().getTransformer(MimetypeMap.MIMETYPE_PPT, MimetypeMap.MIMETYPE_PDF);
+pptToPdfTransformer.transform(pptReader, pdfWriter);
+```
+
+Example of creating a new node and setting provided text content:
+
+```java
+/**
+* Creates a new content node setting the content provided.
+*
+* @param  parent   the parent node reference
+* @param  name     the name of the newly created content object
+* @param  text     the content text to be set on the newly created node
+* @return NodeRef  node reference to the newly created content node
+*/
+private NodeRef createContentNode(NodeRef parent, String name, String text) {
+    // Create a map to contain the values of the properties of the node
+    Map<QName, Serializable> props = new HashMap<QName, Serializable>(1);
+    props.put(ContentModel.PROP_NAME, name);
+    
+    // use the node service to create a new node
+    NodeRef node = serviceRegistry.getNodeService().createNode(parent, ContentModel.ASSOC_CONTAINS, 
+        QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, name), ContentModel.TYPE_CONTENT, props).getChildRef();
+    
+    // Use the content service to set the content onto the newly created node
+    ContentWriter writer = serviceRegistry.getContentService().getWriter(node, ContentModel.PROP_CONTENT, true);
+    writer.setMimetype(MimetypeMap.MIMETYPE_TEXT_PLAIN);
+    writer.setEncoding("UTF-8");
+    writer.putContent(text);
+    
+    // Return a node reference to the newly created node
+    return node;
+}
+```
 
 ## CopyService
+This service provides methods to copy nodes within and across folders. It also provides support to update the state 
+of a node, with that of another node, within and across folders.
+
+The service is very useful for managing the copy of nodes. When copying container nodes (folders) you also have the option 
+to copy child nodes. Operations provided by the service include: 
+
+* Copy a node, along with (optionally) its children.
+* Copy and rename a node.
+* Get the copies of a specified node (with paged results).
+* Check if the name of a top-level node will be changed during copy, due to policies in place.
+* Given the copied node, obtain the original node.
+
+The following code is from the Alfresco source code implementation of the `copy` action that shows usage of the 
+`CopyService` service:
+
+```java
+public class CopyActionExecuter extends ActionExecuterAbstractBase {
+    public static final String ERR_OVERWRITE = "Unable to overwrite copy because more than one have been found.";
+    
+    public static final String NAME = "copy";
+    public static final String PARAM_DESTINATION_FOLDER = "destination-folder";
+    public static final String PARAM_DEEP_COPY = "deep-copy";
+    public static final String PARAM_OVERWRITE_COPY = "overwrite-copy";
+    
+    private CopyService copyService;
+    private NodeService nodeService;
+    private CheckOutCheckInService checkOutCheckInService;
+
+    public void setNodeService(NodeService nodeService) { this.nodeService = nodeService; }
+    public void setCopyService(CopyService copyService) { this.copyService = copyService; }
+    public void setCheckOutCheckInService(CheckOutCheckInService checkOutCheckInService) { this.checkOutCheckInService = checkOutCheckInService; }
+
+    @Override
+    protected void addParameterDefinitions(List<ParameterDefinition> paramList) {
+        paramList.add(new ParameterDefinitionImpl(PARAM_DESTINATION_FOLDER, DataTypeDefinition.NODE_REF, true, getParamDisplayLabel(PARAM_DESTINATION_FOLDER)));
+        paramList.add(new ParameterDefinitionImpl(PARAM_DEEP_COPY, DataTypeDefinition.BOOLEAN, false, getParamDisplayLabel(PARAM_DEEP_COPY)));		
+        paramList.add(new ParameterDefinitionImpl(PARAM_OVERWRITE_COPY, DataTypeDefinition.BOOLEAN, false, getParamDisplayLabel(PARAM_OVERWRITE_COPY)));
+    }
+
+    @Override
+    public void executeImpl(Action ruleAction, NodeRef actionedUponNodeRef) {
+        if (!nodeService.exists(actionedUponNodeRef)) {
+            return;
+        }
+
+        NodeRef destinationParent = (NodeRef) ruleAction.getParameterValue(PARAM_DESTINATION_FOLDER);
+        
+        Set<QName> destinationAspects = nodeService.getAspects(destinationParent);
+        if (destinationAspects.contains(ContentModel.ASPECT_PENDING_DELETE)) {
+            return;
+        }
+        
+        boolean deepCopy = false;
+        Boolean deepCopyValue = (Boolean)ruleAction.getParameterValue(PARAM_DEEP_COPY);
+        if (deepCopyValue != null) {
+            deepCopy = deepCopyValue.booleanValue();
+        }
+        
+        boolean overwrite = true;
+        Boolean overwriteValue = (Boolean)ruleAction.getParameterValue(PARAM_OVERWRITE_COPY);
+        if (overwriteValue != null) {
+            overwrite = overwriteValue.booleanValue();
+        }
+    
+        // Since we are overwriting we need to figure out whether the destination node exists
+        NodeRef copyNodeRef = null;
+        if (overwrite == true) {
+            // Try and find copies of the actioned upon node reference.
+            // Include the parent folder because that's where the copy will be if this action
+            // had done the first copy.
+            PagingResults<CopyInfo> copies = copyService.getCopies(actionedUponNodeRef, destinationParent,
+            new PagingRequest(1000));
+            
+            for (CopyInfo copyInfo : copies.getPage()) {
+                NodeRef copy = copyInfo.getNodeRef();
+
+                // We know that it is in the destination parent, but avoid working copies
+                if (checkOutCheckInService.isWorkingCopy(copy)) {
+                    continue;
+                }
+                
+                if (copyNodeRef == null) {
+                    copyNodeRef = copy;
+                } else {
+                    throw new RuleServiceException(ERR_OVERWRITE);
+                }
+            }
+        }
+    
+        if (copyNodeRef != null) {
+        // Overwrite the state of the destination node ref with the actioned upon node state
+            this.copyService.copy(actionedUponNodeRef, copyNodeRef);
+        } else {
+            ChildAssociationRef originalAssoc = nodeService.getPrimaryParent(actionedUponNodeRef);
+            // Create a new copy of the node
+            this.copyService.copyAndRename(actionedUponNodeRef, destinationParent, originalAssoc.getTypeQName(), 
+                    originalAssoc.getQName(), deepCopy);
+        }
+    }
+}
+```
 
 ## DictionaryService
+This service gives you access to the [Content Model]({% link content-services/latest/develop/repo-ext-points/content-model.md %}) 
+Dictionary. This dictionary provides access to content model meta-data, such as Type and Aspect descriptions. Content 
+model metadata is organized into models where each model is given a qualified name. This means that it is safe to develop 
+independent models and bring them together into the same Repository without name clashes (as long their namespace is different).
+
+The `DictionaryService` provides access to the entire content model meta-model. The content model meta-model contains 
+information of Types, DataTypes, Properties, Aspects, Associations and Constraints. Operations supported include: 
+
+* Getting DataTypes, Types, Associations, Properties, Constraints, Classes from a Content Model.
+* Check if a class (i.e. type or aspect) is a sub-class.
+* Get sub-types and sub-aspects.
+
+Get all content model types and put in a map keyed on type name prefix string:
+
+```java
+Collection<QName> types = serviceRegistry.getDictionaryService().getAllTypes();
+Map<String, String> result = new LinkedHashMap<String, String>(types.size());
+for (QName type : types) {
+    TypeDefinition typeDef = serviceRegistry.getDictionaryService().getType(type);
+    if (typeDef != null && typeDef.getTitle(serviceRegistry.getDictionaryService()) != null) {
+        result.put(type.toPrefixString(), typeDef.getTitle(dictionaryService));
+    }
+}
+```
+Get a content model type and check if it has an aspect:
+
+```java
+TypeDefinition typeDef = serviceRegistry.getDictionaryService().getType(typeQName);
+if (typeDef != null) {
+    boolean hasAspect = typeDef.getDefaultAspectNames().contains("cm:titled");
+}
+```
+
+Check if a node is of a certain type or sub-type, in this case `cm:content`:
+
+```java
+QName nodeType = serviceRegistry.getNodeService().getType(nodeRef);
+if (serviceRegistry.getDictionaryService().isSubClass(nodeType, ContentModel.TYPE_CONTENT)) {
+    // This is a file...
+}
+```
 
 ## FileFolderService
+Provides methods specific to manipulating files and folders. This service provides a simple way of accessing simple 
+trees of files and folders in the content repository. The `FileFolderService` provides methods for dealing with files and 
+folders. This class is an abstraction of the [NodeService](#nodeservice) class, which you should look at if you want more 
+control when creating folder and file nodes.
+
+With the `FileFolderService` class the following type of operations are available:
+
+* Create a file or folder
+* Copy a file or folder
+* Move a file or folder
+* Delete a file or folder
+* Get Readers and Writers for a file
+* List files and folders (with paged results)
+
+The methods typically work with a `NodeRef` for the node that represents the target file or folder.
+
+The following example uses the `FileFolderService` to create a folder and then a file in this new folder. The example 
+code is executed inside a [Web Script]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %}) so it 
+will automatically be part of a transaction using the `RetryingTransactionHelper`, same thing if the code was executed 
+from a [Repository Action]({% link content-services/latest/develop/repo-ext-points/repo-actions.md %}).
+
+```java
+import org.alfresco.model.ContentModel;
+import org.alfresco.repo.content.MimetypeMap;
+import org.alfresco.repo.nodelocator.CompanyHomeNodeLocator;
+import org.alfresco.service.ServiceRegistry;
+import org.alfresco.service.cmr.model.FileExistsException;
+import org.alfresco.service.cmr.model.FileInfo;
+import org.alfresco.service.cmr.repository.ContentWriter;
+import org.alfresco.service.cmr.repository.NodeRef;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.extensions.webscripts.Cache;
+import org.springframework.extensions.webscripts.DeclarativeWebScript;
+import org.springframework.extensions.webscripts.Status;
+import org.springframework.extensions.webscripts.WebScriptRequest;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * A Web Script that uses the FileFolderService to create a folder and a file.
+ *
+ * @author martin.bergljung@alfresco.com
+ */
+public class FileFolderServiceTestWebScript extends DeclarativeWebScript {
+    private static Log logger = LogFactory.getLog(FileFolderServiceTestWebScript.class);
+
+    /**
+     * The Alfresco Service Registry that gives access to all public content services in Alfresco.
+     */
+    private ServiceRegistry serviceRegistry;
+
+    public void setServiceRegistry(ServiceRegistry serviceRegistry) {
+        this.serviceRegistry = serviceRegistry;
+    }
+
+    protected Map<String, Object> executeImpl(
+            WebScriptRequest req, Status status, Cache cache) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        String message = "Your 'FileFolderServiceTestWebScript' Web Script was called ";
+
+        FileInfo newFolderInfo = null;
+        try {
+            newFolderInfo = createFolder("Some Folder");
+            message += "and a folder was created: " + newFolderInfo;
+        } catch (FileExistsException fee) {
+            message += "and there was a problem creating a folder: " + fee.getMessage();
+        }
+
+        if (newFolderInfo != null) {
+            FileInfo newFileInfo = null;
+            try {
+                newFileInfo = createFile(newFolderInfo,"some.txt", "Some text content...");
+                message += ", a text file was then created in this folder: " + newFileInfo;
+            } catch (FileExistsException fee) {
+                message += ", there was a problem creating a file in the new folder: " + fee.getMessage();
+            }
+        }
+
+        logger.info(message);
+
+        model.put("message", message);
+
+        return model;
+    }
+
+    /**
+     * Create a folder under the /Company Home folder.
+     *
+     * @param folderName the name of the folder
+     * @return a FileInfo object with data about the new folder, such as NodeRef
+     */
+    private FileInfo createFolder(String folderName) throws FileExistsException {
+
+        // Get a NodeRef for /Company Home folder
+        NodeRef parentFolderNodeRef = serviceRegistry.getNodeLocatorService().getNode(
+                CompanyHomeNodeLocator.NAME, null, null);
+
+        // Create the folder under /Company Home
+        FileInfo folderInfo = serviceRegistry.getFileFolderService().create(
+                parentFolderNodeRef, folderName, ContentModel.TYPE_FOLDER);
+
+        return folderInfo;
+    }
+
+    /**
+     * Create a file under the passed in folder.
+     *
+     * @param folderInfo the folder that the file should be created in
+     * @param filename the name of the file
+     * @param fileTxt the content of the file
+     * @return a FileInfo object with data about the new file, such as NodeRef
+     */
+    private FileInfo createFile(FileInfo folderInfo, String filename, String fileTxt) throws FileExistsException {
+
+        // Create the file under passed in folder, the file will be empty to start with
+        FileInfo fileInfo = serviceRegistry.getFileFolderService().create(
+                folderInfo.getNodeRef(), filename, ContentModel.TYPE_CONTENT);
+
+        // Get the NodeRef for the new file from the FileInfo object
+        NodeRef newFileNodeRef = fileInfo.getNodeRef();
+
+        // Add some content to the file
+        ContentWriter writer = serviceRegistry.getFileFolderService().getWriter(newFileNodeRef);
+        writer.setMimetype(MimetypeMap.MIMETYPE_TEXT_PLAIN);
+        writer.setEncoding("UTF-8");
+        writer.putContent(fileTxt);
+
+        return fileInfo;
+    }
+}
+```
+
+We use the `ServiceRegistry` to get to the `FileFolderService`. The `ServiceRegistry` bean is injected into the Web Script 
+controller bean as follows:
+
+```xml
+<bean id="webscript.alfresco.tutorials.filefolderservicetest.get"
+		  class="org.alfresco.training.platformsample.FileFolderServiceTestWebScript"
+		  parent="webscript">
+	<property name="serviceRegistry">
+		<ref bean="ServiceRegistry" />
+	</property>
+</bean>
+```
+
+>**Note** how we catch the `FileExistsException` to deal with the situations when the folder or file already exists. 
+> This is a runtime exception so we are not forced to deal with it, but it's good practice to catch it and display a 
+> nice message to the end user.
+
+If we complete the Web Script with a descriptor and template as follows:
+
+`/extension/templates/webscripts/alfresco/tutorials/filefolderservicetest.get.desc.xml`:
+
+```xml
+<webscript>
+    <shortname>FileFolderService Test Sample Webscript</shortname>
+    <description>Uses the FileFolderService to create a folder and a file</description>
+    <url>/sample/filefolderservicetest</url>
+    <authentication>user</authentication>
+    <format default="html"></format>
+    <lifecycle>sample</lifecycle>    
+</webscript>
+```
+
+`/extension/templates/webscripts/alfresco/tutorials/filefolderservicetest.get.html.ftl`:
+
+```text
+Message: '${message}'
+```
+
+Then, the first time we execute the Web Script ([http://localhost:8080/alfresco/s/sample/filefolderservicetest](http://localhost:8080/alfresco/s/sample/filefolderservicetest){:target="_blank"}) 
+we will get a response looking something like this:
+
+```text
+Message: 'Your 'FileFolderServiceTestWebScript' Web Script was called and a folder was created: FileInfo[name=Some Folder, isFolder=true, nodeRef=workspace://SpacesStore/91b0932a-5056-4607-a1bd-849ec655d16e], a text file was then created in this folder: FileInfo[name=some.txt, isFolder=false, nodeRef=workspace://SpacesStore/5b17ba0a-b0b5-4df1-bd37-91098cac7263]'
+```
+
+If we now run the Web Script again, when the folder and file exist, the following response is returned:
+
+```text
+Message: 'Your 'FileFolderServiceTestWebScript' Web Script was called and there was a problem creating a folder: 00270021 File or folder Some Folder already exists'
+```
 
 ## JobLockService
+This service ensures that a scheduled job can only run on one node of a cluster at a time. A scheduled job could be, 
+for example, an Activities feed job that generates an email to send to everyone every night, or a content cleaner job that 
+cleans up orphaned content.
+
+The `JobLockService` is used to provide a locking service at the job level, rather than the node level. It's for example 
+used indirectly via the [AbstractScheduledLockedJob](https://github.com/Alfresco/alfresco-community-repo/tree/master/repository/src/main/java/org/alfresco/schedule/AbstractScheduledLockedJob.java){:target="_blank"} `QuarzJobBean`.
+
+For an example of using the `JobLockService` see the [Content Store Cleaner code](https://github.com/Alfresco/alfresco-community-repo/tree/master/repository/src/main/java/org/alfresco/repo/content/cleanup/ContentStoreCleaner.java){:target="_blank"} on GitHub.
+
+See also the [Scheduled Jobs extension point]({% link content-services/latest/develop/repo-ext-points/scheduled-jobs.md %})
 
 ## LockService
+A node-level locking service, used by the `CheckOutCheckIn` service. Does not create a working copy. If you need a 
+node-level locking system, then the `LockService` can provide this. Functionality provided by the service includes: 
+
+* Checking for a lock on a node
+* Obtaining lock information
+* Locking and unlocking a node
+* Suspend and enable locks
+
+Example checking if a node is locked:
+
+```java
+/**
+* Return whether a Node is currently locked
+* @param node             The Node wrapper to test against
+* @param lockService      The LockService to use
+* @return whether a Node is currently locked
+*/
+public static Boolean isNodeLocked(Node node,LockService lockService) {
+  Boolean locked = Boolean.FALSE;
+  
+  if (node.hasAspect(ContentModel.ASPECT_LOCKABLE)) {
+      LockStatus lockStatus = serviceRegistry.getLockService().getLockStatus(node.getNodeRef());
+      if (lockStatus == LockStatus.LOCKED || lockStatus == LockStatus.LOCK_OWNER) {
+          locked = Boolean.TRUE;
+      }
+  }
+
+  return locked;
+}
+```
 
 ## MessageService
+Provides methods to access the locale of the current thread and to get localised strings. These strings may be loaded 
+from resource bundles deployed in the repository. The `MessageService` provides functionality around Internationalization (i18n). 
+It provides facilities to:
+
+* Get a message based on a key from a localized properties file
+* Get and set the locale
+* Register and unregister resource bundles
+
+All user displayed strings that originate in the repository should be externalised into resource bundles to ensure that 
+the repository is fully localisable. Examples of strings requiring extraction include:
+
+* Descriptive display labels used by a client
+* Error messages
+
+Extracted strings should be gathered into resource bundles by functional area. This enables functional areas to remain 
+distinct within the repository. The base bundle should be named by functional area and have the `.properties` extension. 
+All base bundles should be in US English. If a message needs to be parameterised the Java `MessageFormatter` style should 
+be used.
+
+The keys used in the resource bundles should be scoped by functional area to avoid clashes (this is important since at 
+runtime the contents of the various resource bundles is combined, any names clashes will result in message values being 
+overwritten).
+
+A resource bundle can be placed anywhere in the source tree, but in general repository resource bundles should be placed 
+in the `alfresco.messages` package.
+
+Example resource bundle contents:
+
+```text
+# User displayed string for the rule service functional area
+
+ruleservice.error=There has been an error executing rule {0}.
+ruleservice.confimation_all=All rules have been executed.
+```
+
+Before a resource bundle can be used by the repository it must be registered. Suitable methods are provided by the 
+service to support this. And more commonly the `org.alfresco.i18n.ResourceBundleBootstrapComponent` class can be used as 
+a Spring bean to register resource bundles.
+
+The following example uses a [Web Script]({% link content-services/latest/develop/repo-ext-points/web-scripts.md %}) 
+to test registered resource bundles as follows: 
+
+```java
+import org.alfresco.service.ServiceRegistry;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.extensions.webscripts.Cache;
+import org.springframework.extensions.webscripts.DeclarativeWebScript;
+import org.springframework.extensions.webscripts.Status;
+import org.springframework.extensions.webscripts.WebScriptRequest;
+
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
+/**
+* A Web Script that can be used to test the MessageService class.
+*
+* @author martin.bergljung@alfresco.com
+*/
+public class MessageServiceTestWebscript extends DeclarativeWebScript {
+  private static Log logger = LogFactory.getLog(MessageServiceTestWebscript.class);
+
+ /**
+  * The Alfresco Service Registry that gives access to all public content services in Alfresco.
+  */
+  private ServiceRegistry serviceRegistry;
+
+  public void setServiceRegistry(ServiceRegistry serviceRegistry) {
+      this.serviceRegistry = serviceRegistry;
+  }
+
+  protected Map<String, Object> executeImpl(WebScriptRequest req, Status status, Cache cache) {
+      String key = req.getParameter("key");
+      String language = req.getParameter("language");
+      Locale locale = Locale.forLanguageTag(language);
+
+      Map<String, Object> model = new HashMap<String, Object>();
+
+      String message = "Your 'MessageServiceTestWebscript' Web Script was called: <br/>";
+
+      message += "Locale: " + locale.getDisplayName() + "<br/>";
+      message += "Translation of " + key + ": " + this.serviceRegistry.getMessageService().getMessage(key, locale);
+
+      logger.info(message);
+
+      model.put("message", message);
+
+      return model;
+  }
+}
+```
+
+This Web Script is called with two parameters, one specifies the resource string we want (i.e. `key`) and one specifies 
+the language we want the resource string text in (i.e. `language`).
+
+We then use the `ServiceRegistry` to get to the `MessageService`, and then the `getMessage` method is called to get the 
+requested message in correct locale.
+
+The `ServiceRegistry` bean is injected into the Web Script controller bean as follows:
+
+```xml
+<bean id="webscript.alfresco.tutorials.messageservicetest.get"
+    class="org.alfresco.training.platformsample.MessageServiceTestWebscript"
+    parent="webscript">
+    
+    <property name="serviceRegistry">
+        <ref bean="ServiceRegistry" />
+    </property>
+</bean>
+```
+
+If we complete the Web Script with a descriptor and template as follows:
+
+`/extension/templates/webscripts/alfresco/tutorials/messageservicetest.get.desc.xml`:
+
+```xml
+<webscript>
+    <shortname>MessageService Test Sample Webscript</shortname>
+    <description>Get a message for a specific key and language, uses the MessageService</description>
+    <url>/sample/messageservicetest?key={key}&amp;language={language}</url>
+    <authentication>user</authentication>
+    <format default="html"></format>
+    <lifecycle>sample</lifecycle>    
+</webscript>
+```
+
+`/extension/templates/webscripts/alfresco/tutorials/messageservicetest.get.html.ftl`:
+
+```text
+${message}
+```
+
+And add two resource files as follows:
+
+`platform-jar/src/main/resources/alfresco/module/platform-jar/messages/test-messages.properties`:
+
+```text
+alfresco.tutorial.hello=Hello
+```
+
+`platform-jar/src/main/resources/alfresco/module/platform-jar/messages/test-messages_sv.properties`:
+
+```text
+alfresco.tutorial.hello=Hej
+```
+
+These two resource files can be loaded by defining the following Spring bean:
+
+```xml
+<bean id="org.alfresco.tutorial.test.i18nResourceBundles"
+          class="org.alfresco.i18n.ResourceBundleBootstrapComponent">
+    <property name="resourceBundles">
+        <list>
+            <value>alfresco.module.${project.artifactId}.messages.test-messages</value>
+        </list>
+    </property>
+</bean>
+```
+
+Then we can call the Web Script with the following URL:
+
+[http://localhost:8080/alfresco/s/sample/messageservicetest?key=alfresco.tutorial.hello&language=en](http://localhost:8080/alfresco/s/sample/messageservicetest?key=alfresco.tutorial.hello&language=en){:target="_blank"}
+
+The response in the browser will look something like this:
+
+```text
+Your 'MessageServiceTestWebscript' Web Script was called:
+
+Locale: English
+
+Translation of alfresco.tutorial.hello: Hello
+```
+
+If we call it with the other locale (sv) the response looks like this ([http://localhost:8080/alfresco/s/sample/messageservicetest?key=alfresco.tutorial.hello&language=sv](http://localhost:8080/alfresco/s/sample/messageservicetest?key=alfresco.tutorial.hello&language=sv){:target="_blank"}):
+
+```text
+Your 'MessageServiceTestWebscript' Web Script was called:
+
+Locale: Swedish
+
+Translation of alfresco.tutorial.hello: Hej
+```
 
 ## MimetypeService
 
