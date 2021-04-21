@@ -80,8 +80,6 @@ transform-outlook
 
 > **Note:** It is recommended that you familiarize yourself with the concepts of [containerized deployment]({% link content-services/latest/install/containers/index.md %}) before working with Docker.
 
-## Install AMPs {#install_amps}
-
 ## Install AMPs
 
 There are three steps to installing Outlook Integration:
