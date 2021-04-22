@@ -91,6 +91,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Enterprise Viewer 3.3.1 | |
 | Alfresco Content Accelerator 3.4.3 | |
 | Alfresco Content Services SDK 5 | |
+| Alfresco Content Services SDK 4.2 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 2.1 | |
