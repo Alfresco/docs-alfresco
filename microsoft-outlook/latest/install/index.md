@@ -90,8 +90,8 @@ There are three steps to installing Outlook Integration:
 
 Make sure you are running the correct versions of operating system and software before you install the AMP files.
 
-* If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [SAML prerequisites]({% link saml-module/latest/install/index.md %}#prerequisites) for more information.
-* If you plan to transform MSG and EML files into PDF format, check the requirements in the [Transform Service prerequisites]({% link transform-service/latest/install/index.md %}#prerequisites %}).
+* If you plan to use SAML Module for Alfresco Content Services authentication, check the requirements in [SAML prerequisites]({% link saml-module/latest/install/index.md %}#prerequisites).
+* If you plan to transform MSG and EML files into PDF format, check the requirements in [Transform Service prerequisites]({% link transform-service/latest/install/index.md %}#prerequisites).
 
 1. Stop the Alfresco server.
 
