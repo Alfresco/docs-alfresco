@@ -42,7 +42,7 @@ There are a number of software requirements for installing Content Connector for
 
 In order to use the S3 Connector, you will need an AWS account so that you can configure the S3 Connector successfully. This includes having an admin account to set up an S3 bucket, or have access to a bucket that's already set up.
 
->**Note:** The bucket name must be unique among all AWS users globally. See [S3 bucket restrictions](http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) for more information on bucket naming.
+>**Note:** The bucket name must be unique among all AWS users globally. See [S3 bucket restrictions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html) for more information on bucket naming.
 
 **Summary of features**
 

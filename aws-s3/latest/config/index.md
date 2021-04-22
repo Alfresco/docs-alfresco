@@ -51,9 +51,9 @@ If you need to override them for your environment, check the available settings 
     connector.s3.bucketName=myawsbucket
     ```
 
-    The bucket name must be unique among all AWS users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. If the bucket has an error, it will be reported in the alfresco.log file. See [S3 bucket restrictions](http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) for more information on bucket naming.
+    The bucket name must be unique among all AWS users globally. If the bucket does not already exist, it will be created, but the name must not have already been taken by another user. If the bucket has an error, it will be reported in the alfresco.log file. See [S3 bucket restrictions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html) for more information on bucket naming.
 
-5.  Add the `connector.s3.bucketRegion` property as specified in the [AWS service endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) page.
+5.  Add the `connector.s3.bucketRegion` property as specified in the [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) page.
 
     The value is taken from the *Code* column. For example, for *Region Name* Europe (Frankfurt):
 
@@ -61,7 +61,7 @@ If you need to override them for your environment, check the available settings 
     connector.s3.bucketRegion=eu-central-1
     ```
 
-    >**Note:** If you use a region other than the US East (N. Virginia) endpoint (previously named US Standard) to create a bucket, `connector.s3.bucketRegion` is a mandatory field. Use the [AWS service endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for guidance on the correct value.
+    >**Note:** If you use a region other than the US East (N. Virginia) endpoint (previously named US Standard) to create a bucket, `connector.s3.bucketRegion` is a mandatory field. Use the [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for guidance on the correct value.
 
 6.  Set the type of content store subsystem, for example:
 
@@ -112,7 +112,7 @@ If you need to override them for your environment, check the available settings 
 
     See [Properties reference]({% link aws-s3/latest/config/index.md %}#properties-reference) for more details.
 
-    >**Note:** Use the AWS documentation [Object key and metadata](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html) for naming guidelines, as the properties must respect the same restrictions as if they were added via the AWS Management Console.
+    >**Note:** Use the AWS documentation [Object key and metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingMetadata.html) for naming guidelines, as the properties must respect the same restrictions as if they were added via the AWS Management Console.
 
 11. Starting from version 3.1, the S3 Connector has the deleted content store disabled by default, since this feature is already present in Amazon's S3 service. For details on how to re-enable it, see [S3 Connector deleted content store](#enabledeletedcontentstore).
 
@@ -259,15 +259,15 @@ Standard and Standard - Infrequent Access (Standard-IA).
 
 * **Standard-IA**
 
-    Content should be changed to Standard-IA, or S3 IA, when it's less frequently used. For example, this may be useful for archiving or storing old data that is less likely to be accessed, as this may reduce storage costs. See [Amazon S3 Storage Classes](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) for more.
+    Content should be changed to Standard-IA, or S3 IA, when it's less frequently used. For example, this may be useful for archiving or storing old data that is less likely to be accessed, as this may reduce storage costs. See [Amazon S3 Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) for more.
 
 The transition of content from S3 to S3 IA is configured through the AWS console. You can change an object's 
 storage class either manually or by adding a lifecycle policy for an S3 bucket. 
-See [Creating a Lifecycle Policy](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) for more.
+See [Creating a Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) for more.
 
 You can use S3 storage class analysis to fine tune the lifecycle rules according to your storage access patterns, 
 so that the right data is transitioned to Standard-IA storage class. 
-See [Amazon S3 Storage Class Analysis](http://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) for more.
+See [Amazon S3 Storage Class Analysis](https://docs.aws.amazon.com/AmazonS3/latest/userguide/analytics-storage-class.html) for more.
 
 **Conditions for changing storage class to Standard-IA**
 
@@ -339,7 +339,7 @@ place for S3 access, a new policy must be created.
 
         3.  If lifecycle configuration on the bucket is not required, then see step (8) in [Configuring the S3 Connector]({% link aws-s3/latest/config/index.md %}).
     
-    Follow the steps from the AWS site to [Create a New Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) for additional guidance.
+    Follow the steps from the AWS site to [Create a New Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) for additional guidance.
 
 2.  Here are additional configuration options that you can apply to the bucket. These IAM policies grant additional permissions to the IAM user.
 
@@ -375,18 +375,18 @@ place for S3 access, a new policy must be created.
     See the AWS site for more documentation on IAM roles:
 
     * [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
-    * [Create a New Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html).
+    * [Create a New Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html).
     * [Getting Started: Security Best Practices](https://aws.amazon.com/blogs/security/getting-started-follow-security-best-practices-as-you-configure-your-aws-resources/)
 
 3.  Use the policy simulator to test the new IAM policy.
 
-    Follow the steps from the AWS site to [Test IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html).
+    Follow the steps from the AWS site to [Test IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html).
 
 4.  Create a new role. You can attach up to 10 policies to each role.
 
-    Follow the steps from the AWS site to [Create IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html).
+    Follow the steps from the AWS site to [Create IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html).
 
-    If an Amazon EC2 configuration is already in place, the new policy that you created is attached to the existing role used on the EC2 instance. Follow the steps from the AWS site to [Manage IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html).
+    If an Amazon EC2 configuration is already in place, the new policy that you created is attached to the existing role used on the EC2 instance. Follow the steps from the AWS site to [Manage IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html).
 
 5.  Attach the role to the EC2 instance where Alfresco Content Services is running.
 
@@ -407,8 +407,8 @@ The primary resources in AWS KMS are customer master keys (CMKs). These are eith
 You can use either type of CMK to protect data encryption keys (or data keys) which are then used to encrypt or 
 decrypt content stored by Alfresco Content Services in AWS S3. CMKs never leave AWS KMS unencrypted, but data keys can.
 
-For more details, see [AWS KMS Concepts](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) 
-and [How Envelope Encryption Works with Supported AWS Services](http://docs.aws.amazon.com/kms/latest/developerguide/workflow.html).
+For more details, see [AWS KMS Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) 
+and [How Envelope Encryption Works with Supported AWS Services](https://docs.aws.amazon.com/kms/latest/developerguide/workflow.html).
 
 To learn more about how AWS KMS uses cryptography and secures master keys, see the 
 [AWS Key Management Service Cryptographic Details whitepaper](https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf).
@@ -435,7 +435,7 @@ You can configure AWS KMS by adding the relevant properties to the global proper
 
     If you plan to use the AWS-managed default master key then continue from step 4.
 
-2.  To use a customer master key, either [create a new KMS key](http://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) using the AWS steps, or use a CMK by [importing your existing key material](http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html).
+2.  To use a customer master key, either [create a new KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) using the AWS steps, or use a CMK by [importing your existing key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html).
 
 3.  Edit `alfresco-global.properties` and set the value of `connector.s3.awsKmsKeyId` property to the key alias (see example) or the Amazon Resource Name (ARN) of the KMS key created.
 
@@ -464,7 +464,7 @@ that provides added protection against unauthorized access to your content in S3
 trail of when your key was used and by whom. You also have the option to create and manage encryption keys yourself, 
 or use a default key that is unique to you, the service you're using, and the region you're working in.
 
-For more information, see [Protecting Data Using Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html).
+For more information, see [Protecting Data Using Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html).
 
 **Customer-Provided Key Encryption**
 
@@ -473,7 +473,7 @@ data at rest, setting your own encryption keys.
 
 This option isn't supported by the S3 Connector.
 
-For more information, see [Protecting Data Using Server-Side Encryption with Customer-Provided Encryption Keys (SSE-C)](http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html).
+For more information, see [Protecting Data Using Server-Side Encryption with Customer-Provided Encryption Keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
 
 **AWS Managed Encryption**
 
@@ -483,7 +483,7 @@ Amazon S3 encrypts each object with a unique key. As an additional safeguard, it
 key that it regularly rotates. Amazon S3 server-side encryption uses one of the strongest block ciphers available, 
 256-bit Advanced Encryption Standard (AES-256), to encrypt data.
 
-For more information, see [Protecting Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html).
+For more information, see [Protecting Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingServerSideEncryption.html).
 
 **Unencrypted**
 
@@ -503,7 +503,7 @@ you would any other file in your bucket.
 
 If you don't send the complete multipart upload request successfully, AWS S3 will not assemble the parts and will 
 not create any file. So the parts remain in S3. As best practice, we recommend you configure a lifecycle rule. 
-See [Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) for more details.
+See [Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) for more details.
 
 We create the bucket and a global lifecycle rule to enforce the abort and deletion of incomplete uploads automatically 
 only if the bucket name configured in the global properties file doesn't exist in S3. In this case, you can configure 
@@ -516,7 +516,7 @@ connector.s3.abortIncompleteMultipartUploadDays=1
 When a file reaches the end of its lifetime, S3 queues it for removal and removes it asynchronously. 
 There may be a delay between the expiration date and the date when S3 removes a file.
 
-See [AWS Multipart Upload Overview](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html) for more details.
+See [AWS Multipart Upload Overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) for more details.
 
 ## Content store subsystems
 
@@ -629,7 +629,7 @@ Starting from version 3.1, the S3 Connector contains an S3 multiple buckets samp
 >**Note:** If you intend on configuring multiple buckets using the S3 Connector you will be unable to also use the Glacier Connector because it does not support using multiple buckets.
 
 Review the prerequisites in [S3 Connector content store subsystems](#content-store-subsystems) which introduces 
-the S3 content store subsystems added in version 4.0. The out-of-the-box S3 subsystems have two possible types: 
+the S3 content store subsystems. The out-of-the-box S3 subsystems have two possible types: 
 `S3` and `S3OnPrem`.
 
 ### Overview
@@ -1089,9 +1089,9 @@ Starting from version 3.1, the S3 Connector provides out-of-the-box content stor
 
     Indicates the key alias or ARN to be used for KMS encryption.
 
-    For more details see [create a key using KMS key material origin](http://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) or by [importing key material in AWS Key Management Service](http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html).
+    For more details see [create a key using KMS key material origin](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) or by [importing key material in AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html).
 
-    If no value is provided, the default master key attached to your account is used. See [Protecting Data Using Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html).
+    If no value is provided, the default master key attached to your account is used. See [Protecting Data Using Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html).
 
 * `connector.s3.accessKey`
 
