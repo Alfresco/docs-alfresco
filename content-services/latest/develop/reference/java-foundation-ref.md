@@ -5,7 +5,7 @@ title: Java Foundation API reference
 The Alfresco Java Foundation API provides the ability to build server-side extensions that runs in the same
 process as Content Services. This API is used to build extensions for the [Platform (Repository)]({% link content-services/latest/develop/software-architecture.md %}#platformarch). 
 
-## Getting started
+## Getting started {#gettingstarted}
 When we want to use one of the public Java APIs from an implementation of one of the Platform/Repository 
 [Extension Points]({% link content-services/latest/develop/repo-ext-points/index.md %}), 
 it follows a best practice. First acquire a reference to the `ServiceRegistry`. The service registry is 
@@ -1613,16 +1613,516 @@ to be removed. See `org.alfresco.repo.copy.CopyServiceImpl.beforeDeleteOriginalA
 deletion is detected in order to ensure that the aspect is removed from the copied node.
 
 ## NodeLocatorService
+The `NodeLocatorService` looks up node locators registered via Spring configuration by name. The service provides a way 
+to lookup one node from another. This Spring configuration file defines a base bean that can be used to define new node 
+locator implementations. Using this bean will automatically register the node locator with the repository and make it 
+available.
+
+The following table shows the node locators available out-of-the-box, the parameters they accept and their use.
+
+|Name|Class|Parameters|Usage|
+|----|-----|----------|-----|
+|`companyhome`|`CompanyHomeNodeLocator`|None|Returns the `/Company Home` folder node|
+|`userhome`|`UserHomeNodeLocator`|None|Returns the current user's home folder node|
+|`sharedhome`|`SharedHomeNodeLocator`|None|Returns the Shared Home folder root node|
+|`siteshome`|`SitesHomeNodeLocator`|None|Returns the Sites root node|
+|`doclib`|`DocLibNodeLocator`|None|Returns the `documentLibrary` node for the site the source node belongs to|
+|`self`|`SelfNodeLocator`|None|Returns the source node|
+|`xpath`|`XPathNodeLocator`|query, `store_type` and `store_id`|Returns the node pointed to by the given XPath query. The XPath should be relative to the root of a store. If a source node is provided the Store is taken from the node, otherwise the `store_type` and `store_id` must be provided.|
+|`ancestor`|`AncestorNodeLocator`|type and aspect|Returns an ancestor node of the source node. If no parameters are provided the immediate parent is returned. If a type parameter is present the first ancestor node of that type is returned. If an aspect parameter is present the first ancestor node with that aspect applied is returned. The type and aspect parameters can be combined thus finding an ancestor node of a certain type and with a specific aspect applied.|
+
+The following shows how to use one of the out-of-the-box node locators to get a `NodeRef` for the `/Company Home` folder:
+
+```java
+NodeRef result = serviceRegistry.getNodeLocatorService().getNode(CompanyHomeNodeLocator.NAME, null, null);
+```
+
+### Custom Node Locator
+In the following example we will see how to implement a custom node locator, it will allow a named folder to be found. 
+To define the example node locator the following Spring configuration is used (in a custom context file):
+
+```xml
+<bean id="namedFolderNodeLocator" class="com.example.NamedFolderNodeLocator" parent="baseNodeLocator">
+   <property name="NodeService" ref="NodeService" />
+   <property name="FileFolderService" ref="FileFolderService" />
+</bean>
+```
+
+A node locator must implement the `NodeLocator` interface, whose definition is shown below:
+
+```java
+public interface NodeLocator {
+    NodeRef getNode(NodeRef source, Map<String, Serializable> params);
+    public List<ParameterDefinition> getParameterDefinitions(); 
+}
+```
+
+A `NodeLocator` in its simplest form takes a source node, some optional parameters and returns a node or null if a 
+suitable node could not be found. If a node is not found the `NodeLocatorService` returns the `NodeRef` representing 
+the `/Company Home` folder.
+
+The source node is not mandatory, node locators can be used to return well known nodes, `/Company Home`, `/User Home` for 
+example in which case a source node is not required.
+
+If a `NodeLocator` has parameters they must be defined using the same definition classes (`ParameterDefinition`) used by 
+the `ActionService`.
+
+A base class `AbstractNodeLocator` is provided and it's recommended that your `NodeLocator` extends this base class. 
+It provides the functionality to register the `NodeLocator` with the `NodeLocatorService` registry. This class also 
+defines an abstract method your implementation must override.
+
+```java
+public abstract String getName();
+```
+
+This is the unique name for your `NodeLocator` and will be used by the `NodeLocatorService` in the lookup process. 
+It is also used in the `startLocation` configuration.
+
+Our example locator, `NamedFolderNodeLocator`, will be named `namedfolder` and will expect a single parameter called 
+`name` which will indicate what folder to locate. The full source for this example is shown below:
+
+```java
+public class NamedFolderNodeLocator extends AbstractNodeLocator {
+    public static final String LOCATOR_NAME = "namedfolder";
+    public static final String NAME_PARAM = "name";
+
+    private ServiceRegistry serviceRegistry;
+    
+    @Override
+    public NodeRef getNode(NodeRef source, Map<String, Serializable> params) {
+        NodeRef node = null;
+      
+        String folderName = (String)params.get(NAME_PARAM);
+        if (source != null && folderName != null) {
+           // Get the parent of the source node
+           NodeRef parent = serviceRegistry.getNodeService().getPrimaryParent(source).getParentRef();
+           // Look for a child with the provided name
+           NodeRef folder = serviceRegistry.getNodeService()NodeService().getChildByName(
+                   parent, ContentModel.ASSOC_CONTAINS, folderName);
+           // Make sure it's a folder
+           if (folder != null && serviceRegistry.getFileFolderService().getFileInfo(folder).isFolder()) {
+               node = folder;
+           }
+        }
+        
+        return node;
+    }
+      
+    public List<ParameterDefinition> getParameterDefinitions() {
+        List<ParameterDefinition> paramDefs = new ArrayList<ParameterDefinition>(2);
+        paramDefs.add(new ParameterDefinitionImpl(NAME_PARAM, DataTypeDefinition.TEXT, false, "Name"));
+        return paramDefs;
+    }
+            
+    public String getName() {
+        return LOCATOR_NAME;
+    }
+}
+```
+
+The `"`source`"` parameter in `getNode()` represents the starting point, in a form association control this will be the 
+node being edited, for a create form it will be the destination node. Our example finds the primary parent of the 
+source node and looks for a child folder with the given name. This is a fairly simple example but it is easy to see how 
+this could be extended to allow for a named folder to be located up or down a folder hierarchy.
+
+**startLocation**
+
+The main use of the `NodeLocatorService` is to determine where the forms association control should start when it is 
+first displayed. In some scenarios the picker may need to start in the root of the document library of a Share site or 
+start in the folder where the node being edited is located. See the next section for a list of `NodeLocators` provided 
+out-of-the-box.
+
+`NodeLocators` are configured using form control parameters. The name of the `NodeLocator` implementation is provided as 
+the `startLocation` parameter and the parameters are provided by a `startLocationParameters` parameter. They should be 
+provided in the form of query string parameters, for example `name=value&name=value`.
+
+The configuration for our example node locator is shown below, it will look for a folder named "Example" in the same 
+folder as the node being edited.
+
+```xml
+<field id="my:association">
+   <control>
+      <control-param name="startLocation">{namedfolder}</control-param>
+      <control-param name="startLocationParams">name=Example</control-param>
+   </control>
+</field>
+```
+
+>**Note:** The curly braces are required around the node locator name.
 
 ## PermissionService
+Provides an API for managing the node permissions. Permissions specify users and groups that have access to a node. 
+Each user and group can be assigned a role.
+
+The `PermissionService` is responsible for: 
+
+* Providing well known permissions and authorities
+* Providing an API to read, set, and delete permissions for a node
+* Providing an API to query, enable, and disable permission inheritance for a node
+* Determining if the current, authenticated user has a permission for a node
+
+The `PermissionService` interface defines constants for well-known permissions and authorities. The default implementation 
+coordinates implementations of two service provider interfaces: a `ModelDAO` and a `PermissionsDAO`. A permission is 
+simply a name scoped by the fully qualified name of the type or aspect to which it applies. The beans are defined and 
+configured in `<installLocation>\tomcat\webapps\alfresco\WEB-INF\classes\alfresco\public-services-security-context.xml`. 
+This file also contains the configuration for security enforcement.
+
+The `ModelDAO` interface defines an API to access a permissions model. The default permission model is in XML and defines 
+permission sets, and their related permission groups and permissions. Global permissions are part of the permission model. 
+There may be more than one permission model defined in XML; they are in practice merged into one permission model. 
+A module can extend the permission model.
+
+The available permissions are defined in the permission model. This is defined in 
+`<installLocation>\tomcat\webapps\alfresco\WEB-INF\classes\alfresco\model\permissionDefinitions.xml`. 
+This configuration is loaded in a bean definition in `<installLocation>\tomcat\webapps\alfresco\WEB-INF\classes\alfresco\public-services-security-context.xml`. 
+This file also defines global permissions. The definition file is read once at application start-up. If you make changes 
+to this file, you will have to restart the repository in order to apply the changes.
+
+Set `Coordinator` role permissions for a username `john` on a node:
+
+```java
+serviceRegistry.getPermissionService().setPermission(nodeRef, "john", PermissionService.COORDINATOR, true);
+```
+See also [Permissions platform extension point]({% link content-services/latest/develop/repo-ext-points/permissions.md %})
 
 ## PersonService
+This service encapsulates the management of people and groups. People and groups may be managed entirely in the 
+repository or entirely in some other implementation such as LDAP. Some properties may be in the repository and some in 
+another store. Individual properties may or may not be mutable.
+
+The `PersonService` supports various methods relating to users. The methods relating to the Person service include the 
+ability to:
+
+* Look up people from usernames
+* Create user information
+* Delete user information
+* Modify user information
+
+Create a user that can login/authenticate with password:
+
+```java
+if (serviceRegistry.getAuthenticationService().authenticationExists(userName) == false) {
+    serviceRegistry.getAuthenticationService().createAuthentication(userName, password.toCharArray());
+
+    Map user = new Map();
+    user.put(ContentModel.PROP_USERNAME, userName);
+    user.put(ContentModel.PROP_FIRSTNAME, "firstName");
+    user.put(ContentModel.PROP_LASTNAME, "lastName");
+    user.put(ContentModel.PROP_EMAIL, userName+"@example.com");
+    user.put(ContentModel.PROP_JOBTITLE, "jobTitle");
+    
+    NodeRef person = serviceRegistry.getPersonService().createPerson(user);
+}
+```
 
 ## RenditionService
+Provides support for rendering content nodes into other forms, known as renditions. The rendition nodes are derived from 
+their source node and as such can be updated automatically when their source node's content (or other properties) are 
+changed. Examples of renditions include reformatted content (essentially a transformation from one MIME-type to another), 
+rescaled images (including thumbnails), and the output of a Freemarker or XSLT template. 
+
+Renditions can be performed synchronously or asynchronously and can be created at a specified location within the 
+repository. They are by default created as primary children of their source node, but it is possible to have them 
+created at other nodes specified explicitly or as templated paths.
+
+### Rendering Engines
+Rendering engines are responsible for performing the transformation on a source node to create a rendition. Different 
+rendering engines will perform different types of transformation. They can be registered with the `RenditionService` 
+using a unique name.
+
+Rendering engine definitions provide a description of a given rendering engine. Each rendering engine definition exposes 
+parameter definitions for all the parameters which can be provided to the associated rendering engine. Each parameter 
+definition describes the parameter name, type and whether or not it is mandatory.
+
+Rendition definitions encapsulate all the necessary information for rendering a given source node into a rendition. 
+This includes the rendering engine, which is used to perform the rendition and all the parameter values specified. 
+Rendition definitions have unique, qualified names and can be persisted within the repository.
+
+Composite rendition definitions are a special type of rendition definition that allows the creation of renditions that 
+require a sequence of two or more transformation steps. For example, a composite rendition definition could be used to 
+first reformat a PDF document into a PNG image and then resize the image to a small thumbnail. Composite rendition 
+definitions specify an ordered list of other rendition definitions to be sequentially executed, with the output of the 
+previous transformation feeding in as the source node for the next definition. All composite rendition definitions 
+specify the composite rendering engine for their transformations.
+
+Available rendering engines include:
+
+* Base rendering engine
+* Reformat rendering engine
+* Image rendering engine
+* FreeMarker rendering engine
+* XSLT rendering engine
+* HTML rendering engine
+* Composite rendering engine
+
+### Sample code
+Rendering engines are registered with the `RenditionService` through Spring dependency injection. 
+The `rendition-services-context.xml` declares an abstract bean called `baseRenderingAction`, which is the parent bean 
+for all rendering engines. `baseRenderingAction` itself is a child bean of the `ActionService`s `action-executer` bean.
+
+In Content Services, there are a number of concrete rendering engine beans, for example, reformat within the same 
+spring context file. To register a new rendering engine, add new spring bean definitions.
+
+Creating a rendition definition:
+
+```java
+// Names must be provided for the rendition definition and the rendering engine to use.
+QName  renditionName       = QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, "myRendDefn");
+String renderingEngineName = ReformatRenderingEngine.NAME;
+
+// Create the Rendition Definition object.
+RenditionDefinition renditionDef = serviceRegistry.getRenditionService().createRenditionDefinition(renditionName, renderingEngineName);
+
+// Set parameters on the rendition definition.
+renditionDef.setParameterValue(AbstractRenderingEngine.PARAM_MIME_TYPE, MimetypeMap.MIMETYPE_PDF);
+```
+
+Storing a rendition definition:
+
+```java
+// Store the Rendition Definition using the QName
+// of the Rendition Definition as a unique identifier.
+serviceRegistry.getRenditionService().saveRenditionDefinition(renditionDef);
+```
+
+Retrieving a rendition definition can be done in the following ways:
+
+```java
+// 1. As a list of all stored Rendition Definitions
+List<RenditionDefinition> definitions = serviceRegistry.getRenditionService().loadRenditionDefinitions();
+
+// 2. As a list of stored Rendition Definitions filtered by Rendering Engine name.
+String renderingEngineName = "myEngineName";
+List<RenditionDefinition> definitions = serviceRegistry.getRenditionService().loadRenditionDefinitions();
+
+// 3. As a single Rendition Definition, uniquely identified by its QName.
+QName renditionName = QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, "myRendDefn");
+RenditionDefinition renditionDef = serviceRegistry.getRenditionService().loadRenditionDefinition(renditionName);
+```
+
+Editing an existing rendition definition:
+
+```java
+// Retrieve the existing Rendition Definition
+QName renditionName = QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, "myRendDefn");
+RenditionDefinition renditionDef = serviceRegistry.getRenditionService().loadRenditionDefinition(renditionName);
+
+// Make changes.
+renditionDef.setParameterValue(AbstractRenderingEngine.PARAM_MIME_TYPE, MimetypeMap.MIMETYPE_PDF);
+renditionDef.setParameterValue(serviceRegistry.getRenditionService().PARAM_ORPHAN_EXISTING_RENDITION, true);
+
+// Persist the changes.
+serviceRegistry.getRenditionService().saveRenditionDefinition(renditionDef);
+```
+
+Performing a simple rendition:
+
+```java
+// A rendition definition is required to perform any rendition.
+// The rendition definition can be loaded from the repository or created as shown above.
+NodeRef sourceNode = // obtained in the usual way e.g. from nodeService
+ChildAssociationRef renditionAssoc = serviceRegistry.getRenditionService().render(sourceNode, renditionDef);
+```
+
+Performing a composite rendition:
+
+```java
+// First obtain a Composite Rendition Definition
+// This can be loaded from the repository or created as shown here.
+QName renditionName = QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, "myRendDefn");
+CompositeRenditionDefinition compositeDefinition = 
+        serviceRegistry.getRenditionService().createCompositeRenditionDefinition(renditionName);
+
+// Now specify which other renditions are to be performed as part of the composite rendition.
+RenditionDefinition reformatDefinition = serviceRegistry.getRenditionService().load(reformatRenditionName);
+RenditionDefinition rescaleImageDefinition = serviceRegistry.getRenditionService().load(rescaleImageRenditionName);
+compositeDefinition.addAction(reformatDefinition);
+compositeDefinition.addAction(rescaleImageDefinition);
+
+// Perform the composite rendition
+NodeRef sourceNode = // obtained in the usual way e.g. from nodeService
+ChildAssociationRef renditionAssoc = serviceRegistry.getRenditionService().render(sourceNode, compositeDefinition);
+```
+
+Retrieving renditions for a node:
+
+```java
+NodeRef sourceNode = // obtained in the usual way e.g. from nodeService
+
+// 1. Get all renditions with the specified node as their source.
+List<ChildAssociationRef> allRenditions = serviceRegistry.getRenditionService().getRenditions(sourceNode);
+
+// 2. Get the rendition with the specified source node and the specified rendition definition name.
+//    If there is no matching rendition, null is returned
+QName renditionName = QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, "myRenditionDef");
+ChildAssociationRef rendition = serviceRegistry.getRenditionService().getRenditionByName(sourceNode, renditionName);
+
+// 3. Get the renditions with the specified source node whose MIME types match a filter
+//    This example returns renditions whose mimetype starts with "image".
+List<ChildAssociationRef> imageRenditions = serviceRegistry.getRenditionService().getRenditions(sourceNode, "image");
+```
+
+Specifying a rendition definition as asynchronous or synchronous:
+
+This behaviour is inherited from the `ActionService` - remember that `RenditionDefinition` extends `Action`. So we can 
+create a rendition definition as shown above and set it to execute asynchronously:
+
+```java
+RenditionDefinition renditionDef = // created as shown above
+
+renditionDef.setExecuteAsynchronously(true);
+```
+
+See also:
+
+* [Content Transformers and Renditions extension point]({% link content-services/latest/develop/repo-ext-points/content-transformers-renditions.md %})
+* [Mimetypes extension point]({% link content-services/latest/develop/repo-ext-points/mimetypes.md %})
 
 ## RetryingTransactionHelper
+A helper that runs a unit of work inside a `UserTransaction`, transparently retrying the unit of work if the cause of 
+failure is an optimistic locking or deadlock condition.
+
+A description and application of the `RetryingTransactionHelper` can be found in the [getting started](#gettingstarted) 
+section.
 
 ## SearchService
+This encapsulates the execution of search against different indexing mechanisms. Solr provides indexing of metadata and 
+the plain text of content. This can be queried using various query languages. The query languages supported include: 
+
+* LANGUAGE_FTS_ALFRESCO
+* LANGUAGE_CMIS_ALFRESCO
+* LANGUAGE_CMIS_STRICT
+* LANGUAGE_LUCENE
+* LANGUAGE_SOLR_ALFRESCO
+* LANGUAGE_SOLR_CMIS
+* LANGUAGE_SOLR_FTS_ALFRESCO
+* LANGUAGE_XPATH
+
+Alfresco Full Text Search (FTS) is Alfresco's native query language. It supports searching by single term, phrase, 
+exact term, term expansion, conjunctions, disjunctions, negation, optional, mandatory, excluded, fields, wildcards, 
+ranges, fuzzy matching, proximity, boosts and grouping. For example:
+
+`ASPECT:'cm:titled' AND cm:title:'*Sample*' AND TEXT:'code'`
+
+A CMIS query is based upon SQL-92. The query is read-only and presents no data manipulation capabilities. The CMIS 
+specification supports a subset of Alfresco FTS, which can be embedded in CMIS-SQL using the `contains()` predicate 
+function. CMIS query example:
+
+`SELECT * FROM cm:titledWHERE cm:titlelike '%Sample%' AND CONTAINS('code')`
+
+Examples using the `SearchService` languages FTS and CMIS:
+
+```java
+ResultSet results = serviceRegistry.getSearchService().query(storeRef, SearchService.LANGUAGE_FTS_ALFRESCO, 
+        "ASPECT:'cm:titled' AND cm:title:'*Sample*' AND TEXT:'code'");
+
+results = serviceRegistry.getSearchService().query(storeRef, SearchService.LANGUAGE_CMIS_ALFRESCO, 
+        "SELECT * FROM cm:titledWHERE cm:titlelike '%Sample%' AND CONTAINS('code')");
+```
+
+Using `SearchService` to get a `NodeRef` for an XPath (as seen in NodeBrowser) using language LUCENE:
+
+```java
+/**
+ * Get a NodeRef by its path.
+ *  
+ * @path as displayed by the NodeBrowser.
+ * @return the NodeRef, or null if no NodeRef matches this path.
+ */
+private NodeRef getNode(String path) {
+  ResultSet results = null;
+
+  try {
+      StoreRef storeRef = new StoreRef(StoreRef.PROTOCOL_WORKSPACE, "SpacesStore");
+      results = serviceRegistry.getSearchService().query(storeRef, SearchService.LANGUAGE_LUCENE, 
+        "PATH:\"" + path + "\"");
+      if (results.length() == 0) {
+          logger.debug("Zero matches for path: " + path);
+          return null;
+      }
+      
+      NodeRef nodeRef = results.getNodeRef(0);
+      logger.debug("NodeRef for \"" + path + "\" is " + nodeRef);
+      
+      return nodeRef;
+  } catch(Exception e) {
+      logger.debug("Exception while searching for path: " + path, e);
+      return null; // The node does not exist
+  } finally {
+      if (results != null) {
+        results.close();
+      }
+  }
+}
+```
+Use this method as in the following example:
+
+```java
+NodeRef someNodeRef = getNode("/app:company_home/app:shared/cm:abc/cm:def/cm:My_x0020_Document.txt");
+```
+
+> Note that this can also be achieved with the `NodeLocatorService`:
+> ```java
+> Map<String,Serializable> params = new HashMap<>();
+> params.put("query", "/app:company_home/app:shared/cm:abc/cm:def/cm:My_x0020_Document.txt");
+> NodeRef nodeRef = serviceRegistry.getNodeLocatorService().getNode("xpath",null,params);
+> ```
+
+If the search result is getting big you can use paging. There are two ways to query with the `SearchService` 
+(excluding the `selectNodes`/`selectProperties` calls). One way is to specify all your arguments directly to the `query` 
+method as seen above. This has the advantage of being concise, but the disadvantage is that you don't get all the options.
+Alternately, you can query with a `SearchParameters` object. This lets you do everything the simple query does, and more. 
+Included in that more are `setLimit`, `setSkipCount` and `setMaxItems`, which will allow you to do your paging.
+
+If your query used to be something like:
+
+```java
+serviceRegistry.getSearchService().query(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE, SearchService.LANGUAGE_LUCENE, myQuery);
+```
+
+You would instead do something like this:
+
+```java
+SearchParameters sp = new SearchParameters();
+sp.addStore(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE);
+sp.setLanguage(SearchService.LANGUAGE_LUCENE);
+sp.setQuery(myQuery);
+sp.setMaxItems(100);
+sp.setSkipCount(100);
+
+// Execute query.
+ResultSet resultSet = serviceRegistry.getSearchService().query(sp);
+
+for (NodeRef result : resultSet.getNodeRefs()) {
+    // Do stuff
+}
+
+resultSet.close();
+```
+
+Set up search params with unlimited results and sorting on `cm:modified` property (might not always be a good idea 
+with unlimited result, unless you know approximately how many nodes will be the limit):
+
+```java
+SearchParameters sp = new SearchParameters();
+sp.addStore(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE);
+sp.setLanguage(SearchService.LANGUAGE_LUCENE); // Can be lucene, FTS, CMIS, etc.
+sp.setQuery(myQuery);
+sp.setMaxItems(Integer.MAX_VALUE);
+sp.setMaxPermissionChecks(Integer.MAX_VALUE);
+sp.addSort("@" + ContentModel.PROP_MODIFIED, false);
+
+// Execute query.
+ResultSet resultSet = serviceRegistry.getSearchService().query(sp);
+
+for (NodeRef result : resultSet.getNodeRefs()) {
+    // Do stuff
+}
+
+resultSet.close();
+```
+
+See also [Alfresco FTS reference]({% link search-services/latest/using/index.md %}).
 
 ## SiteService
 
