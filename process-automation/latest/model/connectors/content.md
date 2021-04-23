@@ -597,6 +597,46 @@ The output parameters from declaring a record are:
 | --------- | ---- | ----------- |
 | response | JSON | *Optional.* The response from the call declaring the record. |
 
+## Security Marks
+
+The **ADD_SECURITY_MARKS** action is used to add security marks to specific content.  
+
+The input parameters from add security marks are:
+
+| Property | Type | Description |
+| --------- | ---- | ----------- |
+| file | file | *Required.* File to be updated. |
+| folder | folder | *Required.* Folder to be updated. |
+| path | String | *Required.* Location or relative path of the node to be updated. For example a location path could be `/app:company_home/app:user_homes/cm:hruser` and a relative path could be `/User Homes/hruser` (by default the relative path is from Company Home). |
+| nodeId |String | *Required.* The ID of the node in ACS to be updated. |
+| securityGroupName |String | *Required.* Security group that contains the security marks to be assigned. E.g: 'PII'. |
+| securityMarks | array | *Required.* Array including the name of the security marks to be added. |
+
+The output parameters from add security marks are:
+
+| Property | Type | Description |
+| --------- | ---- | ----------- |
+| response | json | *Optional.* Response for the calls. |
+
+The **GET_SECURITY_MARKS** action is used to get security marks from specific content.
+
+The input parameters from get security marks are:
+
+| Property | Type | Description |
+| --------- | ---- | ----------- |
+| file | file | *Required.* ACS file from which security maks are retrieved. |
+| folder | folder | *Required.* ACS folder from which security maks are retrieved. |
+| path | String | *Required.* Location or relative path of the node in ACS. For example a location path could be `/app:company_home/app:user_homes/cm:hruser` and a relative path could be `/User Homes/hruser` (by default the relative path is from Company Home). |
+| nodeId | String | *Required.* The ID of the node in ACS. |
+| securityGroupName | String | *Required.* Security group that contains the security marks to be assigned. E.g: 'PII'. |
+
+The output parameters from get security marks are:
+
+| Property | Type | Description |
+| --------- | ---- | ----------- |
+| response | json | *Optional.* Response for the calls. |
+| securityMarks | array | *Optional.* Array including security marks of the node for the provided security group. |
+
 ## Delete actions
 
 The delete actions are used to delete files and folders from the repository.
