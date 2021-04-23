@@ -2125,14 +2125,221 @@ resultSet.close();
 See also [Alfresco FTS reference]({% link search-services/latest/using/index.md %}).
 
 ## SiteService
+The `SiteService` provides an API for managing [Share Sites]({% link content-services/latest/using/sites/index.md %}). 
+
+Creating a site is not possible with the `siteService.createSite` method, it only creates a site at the repository 
+level, it does not create a fully functional site. To create a fully functional site use the 
+[ReST API]({% link content-services/latest/develop/rest-api-guide/sites.md %}#createsite).
+
+Adding a site manager (member):
+
+```java
+String siteShortName = "my-test";
+serviceRegistry.getSiteService().setMembership(siteShortName, "admin", SiteRole.SiteManager.toString());
+```
+
+Creating a folder/container in the site:
+
+```java
+String siteShortName = "my-test";
+NodeRef documentLibraryNodeRef =  serviceRegistry.getSiteService().createContainer(
+        siteShortName, SiteService.DOCUMENT_LIBRARY, null, null);
+```
+
+Get the Document Library folder/container of a site:
+
+```java
+String siteShortName = "my-test";
+NodeRef documentLibrary = serviceRegistry.getSiteService().getContainer(siteShortName, SiteService.DOCUMENT_LIBRARY);
+```
+
+Get information about a site:
+
+```java
+String siteShortName = "my-test";
+SiteInfo siteInfo = serviceRegistry.getSiteService().getSite(siteShortName);
+String title = siteInfo.getTitle();
+String description = siteInfo.getDescription();
+SiteVisibility visibility = siteInfo.getVisibility();
+Date created = siteInfo.getCreatedDate();
+```
+Get site information for the Share Site that contains the given `NodeRef`:
+
+```java
+NodeRef someFolderInSiteNodeRef = "node ref.......";
+SiteInfo siteInfo = serviceRegistry.getSiteService().getSite(someFolderInSiteNodeRef);
+```
 
 ## TaggingService
+It is possible to tag (a text label) any content, including folders. This service provides an API for creating, deleting, 
+and adding tags, and other tag management methods.
+
+Tags are simple text labels that are attached to a piece of content. Each piece of content can have multiple tags. Folders 
+also have a `TagScope` object which encapsulates information about the tags used on content in that folder. The `TagScope` 
+object contains an array that lists Tags in count order. There are methods to find out how many times a particular tag 
+is used.
+
+Get tags applied to node:
+
+```java
+List<String> tags = serviceRegistry.getTaggingService().getTags(nodeRef);
+```
 
 ## TemplateService
+Provides an API for executing template engine against a template file and data model. The service provides a configured 
+list of available template engines. The template file can either be in the repository (passed as `NodeRef` string) or on 
+the classpath. Also a template can be passed directly as a String using the `processTemplateString()` methods. 
+The data model is specified to the template engine. The [FreeMarker](https://freemarker.apache.org/){:target="_blank"} 
+template engine is used by default.
+
+```java
+// build the email template model
+final Map<String, Object> model = createEmailTemplateModel(nodeRef);
+
+// process the template against the model
+text = serviceRegistry.getTemplateService().processTemplate("freemarker", templateRef.toString(), model);
+```
 
 ## TenantService
+Provides APIs for the multi-tenancy capability. The service is applicable in both Single Tenancy and Multi Tenancy 
+arrangements.
+
+Multi-tenancy is supported by the Alfresco repository. Read more about it [here]({% link content-services/latest/admin/multi-tenancy.md %}). 
+The `TenantService` is used by Alfresco repository code to rewrite `NodeRef`s, `StoreRef`s etc so they include a tenant 
+domain when running in a multi tenant environment, which makes it possible to handle multiple tenants in parallel. 
+
+When you use the `TenantService` in a single tenant environment the methods are either NOOP, return what you pass in, 
+or return empty domain for domain related methods.
+
+The following code shows an example of how a `NodeRef` and a `StoreRef` can be rewritten to be multi-tenant aware:
+
+```java
+NodeRef nodeRef = "some node reference that needs to be rewritten for a specific tenant domain";
+NodeRef tenantNodeRef = serviceRegistry.getTenantService().getName(nodeRef);
+
+String store = "some repository store that needs to be rewritten for a specific tenant domain";
+StoreRef storeRef = serviceRegistry.getTenantService().getName(new StoreRef(store));
+```
+
+In a single tenant environment these `getName` operations would have no effect.
 
 ## VersionService
+Provides an API for managing file versions (i.e. content of type, or subtype, `cm:content`). Note that folders are not 
+versionable.
+
+Alfresco has a strong versioning story, which gives you the ability to version any file content stored in the repository, 
+no matter what the file type. Versions are full files and not diffs of the files. Alfresco gives you the ability to have 
+both major and minor versions of content. Versions can be created/updated by checkout/checkin, by rule, through any 
+interface or through script/APIs.
+
+If a content file has the aspect `cm:versionable` applied to it, then multiple versions of the file can be managed. 
+The `VersionService` provides an API to allow you to do this programmatically: 
+
+* `createVersion` - this creates a new version of the file, which is placed at the end of the appropriate version history. If the file has no version history then one is created and this version is considered to be the initial version.
+* `getVersionHistory` - this gets the version history that relates to the file.
+* `deleteVersionHistory` - this deletes the version history for a versioned file.
+* `getCurrentVersion` - gets the current version for a file.
+* `revert` - reverts the state of a file to that of a previous version.
+* `restore` - restores a previously deleted file from a version in its version history.
+
+Alfresco provides the ability to apply [behavior policies]({% link content-services/latest/develop/repo-ext-points/behavior-policies.md %}) 
+to content and metadata within the repository. You can think of these as event listeners, that allow you to take custom 
+actions based on what is happening within the repository.
+
+In the following example we are listening to the `afterCreateVersion` event, and when triggered we check if we have 
+reached the maximum number of versions that we want to store. If we have, then we delete the last one (by default Alfresco 
+has no limit of how many versions it stores):
+
+```java
+public class MaxVersionPolicy implements VersionServicePolicies.AfterCreateVersionPolicy {
+    private static Log logger = LogFactory.getLog(MaxVersionPolicy.class);
+
+    private ServiceRegistry serviceRegistry;
+    private PolicyComponent policyComponent;
+    private Behaviour afterCreateVersion;
+
+    /**
+     * Max number of versions we will store of a file in the repo
+     */
+    private int maxVersions;
+
+    public void setServiceRegistry(ServiceRegistry serviceRegistry) { this.serviceRegistry = serviceRegistry; }
+    public void setPolicyComponent(PolicyComponent policyComponent) { this.policyComponent = policyComponent; }
+    public void setMaxVersions(int maxVersions) {  this.maxVersions = maxVersions; }
+
+    /**
+     * Spring bean init() method
+     */
+    public void init() {
+        this.afterCreateVersion = new JavaBehaviour(this, "afterCreateVersion",
+                Behaviour.NotificationFrequency.TRANSACTION_COMMIT);
+
+        this.policyComponent.bindClassBehaviour(QName.createQName(
+                NamespaceService.ALFRESCO_URI, "afterCreateVersion"),
+                MaxVersionPolicy.class, this.afterCreateVersion);
+    }
+
+    @Override
+    public void afterCreateVersion(NodeRef versionableNode, Version version) {
+        VersionHistory versionHistory = serviceRegistry.getVersionService().getVersionHistory(versionableNode);
+
+        if (versionHistory != null) {
+            logger.debug("Current number of versions: " + versionHistory.getAllVersions().size());
+            logger.debug("least recent/root version: " + versionHistory.getRootVersion().getVersionLabel());
+
+            // If the current number of versions in the VersionHistory is greater
+            // than the maxVersions limit, remove the root/least recent version
+            if (versionHistory.getAllVersions().size() > maxVersions) {
+                logger.debug("Removing Version: " + versionHistory.getRootVersion().getVersionLabel());
+                serviceRegistry.getVersionService().deleteVersion(versionableNode, versionHistory.getRootVersion());
+            }
+        } else {
+            logger.debug("versionHistory does not exist");
+        }
+    }
+}
+```
+
+The Spring bean for the `MaxVersionPolicy` class looks like this:
+
+```xml
+<bean id="org.alfresco.training.maxVersion" 
+        class="org.alfresco.training.platformsample.MaxVersionPolicy"
+        init-method="init">
+    <property name="policyComponent">
+        <ref bean="policyComponent" />
+    </property>
+    <property name="serviceRegistry">
+        <ref bean="ServiceRegistry" />
+    </property>
+    <!-- The max number of versions per versioned file -->
+    <property name="maxVersions">
+        <value>10</value>
+    </property>
+</bean>
+```
 
 ## WorkflowService
+Provides an interface to work with built in [workflows and tasks]({% link content-services/latest/using/tasks.md %}). 
+The [Activiti](https://www.activiti.org/){:target="_blank"} workflow engine is built into Content Services. You can 
+create and manage workflows directly from your Dashboard. 
 
+With the `WorkflowService`, you can create and manage these workflows programmatically. 
+
+The default workflows out-of-the-box are: 
+
+* New Task
+* Assign a new task to yourself or a colleague
+* Review and approve (group review)
+* Assign a review task to a group
+* Review and Approve (one or more reviewers)
+* Assign a review task to multiple reviewers
+* Review and Approve (pooled review)
+* Assign a review task to multiple reviewers, who can take ownership of the task
+* Review and Approve (single reviewer)
+* Assign a review task to a single reviewer
+
+An extensive example of using the Workflow API is provided in the 
+[Alfresco source code](https://github.com/Alfresco/alfresco-repository/blob/master/src/main/java/org/alfresco/repo/workflow/WorkflowInterpreter.java){:target="_blank"}. 
+
+>**Note.** To build your own custom workflows you need to use [Alfresco Process Services]({% link process-services/latest/index.md %}) 
