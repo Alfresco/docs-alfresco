@@ -808,6 +808,7 @@ defaults:
       toc: "microsoft-outlook"
       support: true
       versions:
+        - 2.8
         - 2.7
         - 2.6
         - 2.5
@@ -815,8 +816,12 @@ defaults:
   - scope:
       path: "microsoft-outlook/latest"
     values:
-      version: 2.7
+      version: 2.8
       latest: true
+  - scope:
+      path: "microsoft-outlook/2.7"
+    values:
+      version: 2.7
   - scope:
       path: "microsoft-outlook/2.6"
     values:
