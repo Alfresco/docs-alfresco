@@ -604,7 +604,7 @@ The **ADD_SECURITY_MARKS** action is used to add security marks to specific cont
 The input parameters from add security marks are:
 
 | Property | Type | Description |
-| --------- | ---- | ----------- |
+| -------- | ---- | ----------- |
 | file | file | *Required.* File to be updated. |
 | folder | folder | *Required.* Folder to be updated. |
 | path | String | *Required.* Location or relative path of the node to be updated. For example a location path could be `/app:company_home/app:user_homes/cm:hruser` and a relative path could be `/User Homes/hruser` (by default the relative path is from Company Home). |
@@ -615,7 +615,7 @@ The input parameters from add security marks are:
 The output parameters from add security marks are:
 
 | Property | Type | Description |
-| --------- | ---- | ----------- |
+| -------- | ---- | ----------- |
 | response | json | *Optional.* Response for the calls. |
 
 The **GET_SECURITY_MARKS** action is used to get security marks from specific content.
@@ -623,7 +623,7 @@ The **GET_SECURITY_MARKS** action is used to get security marks from specific co
 The input parameters from get security marks are:
 
 | Property | Type | Description |
-| --------- | ---- | ----------- |
+| -------- | ---- | ----------- |
 | file | file | *Required.* ACS file from which security maks are retrieved. |
 | folder | folder | *Required.* ACS folder from which security maks are retrieved. |
 | path | String | *Required.* Location or relative path of the node in ACS. For example a location path could be `/app:company_home/app:user_homes/cm:hruser` and a relative path could be `/User Homes/hruser` (by default the relative path is from Company Home). |
@@ -633,7 +633,7 @@ The input parameters from get security marks are:
 The output parameters from get security marks are:
 
 | Property | Type | Description |
-| --------- | ---- | ----------- |
+| -------- | ---- | ----------- |
 | response | json | *Optional.* Response for the calls. |
 | securityMarks | array | *Optional.* Array including security marks of the node for the provided security group. |
 
