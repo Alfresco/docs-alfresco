@@ -335,9 +335,9 @@ Create new versions of files by dragging & dropping them into the Alfresco sideb
 
     The original email remains in the selected location.
 
-## Uploading complete folders in Outlook
+## Uploading folders in Outlook
 
-You can drop complete folders from Windows Explorer onto the Alfresco Outlook Integration.
+You can drop folders from Windows Explorer onto the Alfresco Outlook Integration.
 
 1. Archive a folder by dragging and dropping it into a folder in your chosen site.
 
