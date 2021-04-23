@@ -169,13 +169,23 @@ If you wish to use a Tomcat application server, you can use the WAR bundle to in
 
     For information about securing Tomcat, see [Tomcat security considerations](https://tomcat.apache.org/tomcat-8.5-doc/security-howto.html).
 
-2. Copy the WAR file into your `<TOMCAT_HOME>/webapps` folder.
+2. Rename the WAR file from `transform-outlook-webapp-${version}.war` to `transform-outlook.war`.
 
-    You'll find the WAR file, `transform-outlook-webapp-1.0.0.war`, in the distribution zip.
+    You'll find the file, `transform-outlook-webapp-1.0.0.war`, in the distribution zip.
 
-3. Start the Tomcat service.
+3. Copy the WAR file into your `<TOMCAT_HOME>/webapps` folder.
 
-4. Test that the T-Engine is running:
+4. To enable ActiveMQ in the Outlook T-Engine, set the following URL property in `JAVA_OPTS`:
+
+    `-Dactivemq.url=${activemq.url}`
+
+5. To enable the shared file store in the Outlook T-Engine, set the following URL property in `JAVA_OPTS`:
+
+    `-DfileStoreUrl=${shared.file.store.url}`
+
+6. Start the Tomcat service.
+
+7. Test that the T-Engine is running:
 
     1. Open your browser and access `http(s)://${SERVER}:{PORT}/transform-outlook` to load the T-Engine test page.
 
@@ -209,7 +219,7 @@ To deploy the Outlook Integration T-Engine with the Transform Service, you'll ne
             - activemq
     ```
 
-2. Add the following `JAVA_OPTS` variable to the `alfresco` container:
+2. Add the following `JAVA_OPTS` property to the `alfresco` container:
 
     ```yaml
     -DlocalTransform.transform-outlook.url=http://transform-outlook:8090/
