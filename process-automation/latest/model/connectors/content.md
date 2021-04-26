@@ -608,7 +608,7 @@ The input parameters from add security marks are:
 | file | file | *Required.* File to be updated. |
 | folder | folder | *Required.* Folder to be updated. |
 | path | String | *Required.* Location or relative path of the node to be updated. For example a location path could be `/app:company_home/app:user_homes/cm:hruser` and a relative path could be `/User Homes/hruser` (by default the relative path is from Company Home). |
-| nodeId |String | *Required.* The ID of the node in ACS to be updated. |
+| nodeId | String | *Required.* The ID of the node in ACS to be updated. |
 | securityGroupName | String | *Required.* Security group that contains the security marks to be assigned. E.g: 'PII'. |
 | securityMarks | array | *Required.* Array including the name of the security marks to be added. |
 
