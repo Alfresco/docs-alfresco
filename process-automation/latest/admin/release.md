@@ -90,6 +90,10 @@ The options for the storage location are:
 
 After clicking **Create** the deployment descriptor will be created and the application deployed, if **Deploy** was selected.
 
+### Delete
+
+You can delete a released project from the Admin App by selecting the three dots next to the project you want to delete and select **Delete**.
+
 ## Deployment descriptors
 
 The **Deployment Descriptors** section displays a list of all deployment descriptors in the environment. These are created by the [deployment service]({% link process-automation/latest/admin/architecture.md %}#deployment-service) whenever a project is deployed.

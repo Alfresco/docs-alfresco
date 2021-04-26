@@ -320,4 +320,5 @@ The actions that can be run against an interface are:
 | Download UI | Download the JSON for the interface. |
 | Validate | Run validation against the interface. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
 | Save | Save any changes made to the interface. |
+| Save As | Save As allows you to save a another copy of a model. This new saved copy will not affect the orirginal model. |
 | Delete | Delete the interface. |
