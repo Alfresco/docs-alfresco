@@ -607,10 +607,10 @@ The input parameters from add security marks are:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| file | file | *Required.* File to be updated. |
-| folder | folder | *Required.* Folder to be updated. |
+| file | file | *Required.* ACS file to be updated. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task. |
+| folder | folder | *Required.* ACS folder to be updated. Folder variables are initialised by content actions or content events in triggers. |
 | path | String | *Required.* Location or relative path of the node to be updated. For example a location path could be `/app:company_home/app:user_homes/cm:hruser` and a relative path could be `/User Homes/hruser` (by default the relative path is from Company Home). |
-| nodeId | String | *Required.* The ID of the node in ACS to be updated. |
+| nodeId | String | *Required.* Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3. |
 | securityGroupName | String | *Required.* Security group that contains the security marks to be assigned. E.g: 'PII'. |
 | securityMarks | array | *Required.* Array including the name of the security marks to be added. |
 
@@ -626,10 +626,10 @@ The input parameters from get security marks are:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| file | file | *Required.* ACS file from which security maks are retrieved. |
-| folder | folder | *Required.* ACS folder from which security maks are retrieved. |
+| file | file | *Required.* ACS file from which security maks are retrieved. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task. |
+| folder | folder | *Required.* ACS folder from which security maks are retrieved. Folder variables are initialised by content actions or content events in triggers. |
 | path | String | *Required.* Location or relative path of the node in ACS. For example a location path could be `/app:company_home/app:user_homes/cm:hruser` and a relative path could be `/User Homes/hruser` (by default the relative path is from Company Home). |
-| nodeId | String | *Required.* The ID of the node in ACS. |
+| nodeId | String | *Required.* Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3 |
 | securityGroupName | String | *Required.* Security group that contains the security marks to be assigned. E.g: 'PII'. |
 
 The output parameters from get security marks are:
