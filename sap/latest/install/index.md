@@ -212,7 +212,7 @@ These are the minimum required properties that must be appended to the `alfresco
 
 The access and use of the SAP Connector is managed by a license. Any limitations are set when you purchased the license. To increase the limitations, contact Alfresco to obtain a new license. If you don't have a license yet, you can request a trial license.
 
-> **Note:** Make sure you have a valid license file available before continuing. The name of the license file is `sapContentConnector.l4j`.
+> **Note:** Make sure you have a valid license file available before continuing. The name of the license file is `content-connector-for-sap.l4j`.
 
 ### Apply the license via the Alfresco Share user interface
 
@@ -220,7 +220,7 @@ The access and use of the SAP Connector is managed by a license. Any limitations
 2. Navigate to **Admin Tools** and click menu **SAP Integration**. This displays the SAP Connector Administration Console.
 
 3. In the **License Information** section click **Choose Files**.
-4. Select file `sapContentConnector.l4j` , and then click **Upload**.
+4. Select file `content-connector-for-sap.l4j` , and then click **Upload**.
 
     > **Note:** The new license is applied immediately- no restart of Content Services is required.
 
@@ -232,7 +232,7 @@ An existing license file is backed up, renamed with the current time stamp, and 
 
 1. Open the file `alfresco-global.properties` and search for the key `dir.license.external`. Note this value as you'll need it next.
 2. Navigate to the folder provided in the property value.
-3. Copy the license file `sapContentConnector.l4j` into that folder.
+3. Copy the license file `content-connector-for-sap.l4j` into that folder.
 4. Restart the Content Services application server.
 
 ## Set up in a cluster
