@@ -600,6 +600,7 @@ The output parameters from declaring a record are:
 ## Security Marks
 
 The **ADD_SECURITY_MARKS** action is used to add security marks to specific content.  
+To add security marks in Process Automation you must have configured security marks in Governance Services. For information on security marks in Governance Services, see [Alfresco Governance Services]({% link governance-services/latest/using/index.md %})
 
 The input parameters from add security marks are:
 
