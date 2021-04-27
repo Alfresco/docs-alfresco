@@ -8,6 +8,18 @@ from a Java client with standard Java classes. There is no need to parse JSON or
 
 To set up a project with the Java ReST API library follow these [instructions]({% link content-services/latest/develop/oop-sdk.md %}#restapijavawrapperproject).
 
+## Common parameters {#common-parameters}
+There are some common parameters in the different API calls. They are documented here instead of repeating the docs for 
+them under each section:
+
+|Parameter|Description|Usage|
+|---------|-----------|-----|
+|`include`|Use this parameter to return additional information about the node. The following optional fields can be requested: `allowableOperations`, `aspectNames`, `isLink`, `isFavorite`, `isLocked`, `path`, `properties`, `permissions`.|TODO |
+|`fields`| You can use this parameter to restrict the fields returned within a response if, for example, you want to save on overall bandwidth. The list applies to a returned individual entity or entries within a collection. If the API method also supports the `include` parameter, then the fields specified in `include` parameter are returned in addition to those specified in the `fields` parameter.|TODO|
+|`orderBy`| A string to control the order of the entities returned in a list. The default sort order for the returned list is for folders to be sorted before files, and by ascending name. You can override the default using `orderBy` to specify one or more fields to sort by. The default order is always ascending, but you can use an optional `ASC` or `DESC` modifier to specify an ascending or descending sort order. For example, specifying `orderBy=name DESC` returns a mixed folder/file list in descending name order. You can use any of the following fields to order the results: `isFolder`, `name`, `mimeType`, `nodeType`, `sizeInBytes`, `modifiedAt`, `createdAt`, `modifiedByUser`, `createdByUser`|TODO|
+
+
+
 ## === Managing Folders and Files ===
 The following sections walk through how to use the Java ReST API wrapper services when managing folders and files.
 
@@ -17,6 +29,8 @@ To list contents of a folder in the repository use the `listNodeChildren` method
 which is one of the main APIs used when you want to manipulate folders and files. 
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#listcontentsfolder)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -52,28 +66,9 @@ public class ListFolderContent {
         Integer skipCount = 0;            // The number of entities that exist in the collection before those included in this list.  If not supplied then the default value is 0.
         Integer maxItems = 100;           // The maximum number of items to return in the list.  If not supplied then the default value is 100.
 
-        // Returns additional information about the node.
-        // The following optional fields can be requested:
-        // * allowableOperations
-        // * aspectNames
-        // * isLink
-        // * isLocked
-        // * path
-        // * properties
         List<String> include = null;
-        // A string to control the order of the entities returned in a list.
-        // You can use the **orderBy** parameter to sort the list by one or more fields.
-        // Each field has a default sort order, which is normally ascending order.
-        // Read the API method implementation notes above to check if any fields used in this
-        // method have a descending default search order.
-        // To sort the entities in a specific order, you can use the **ASC** and **DESC** keywords for any field.
-        List<String> orderBy = null;
-        // A list of field names.
-        // You can use this parameter to restrict the fields returned within a response if, for example,
-        // you want to save on overall bandwidth. The list applies to a returned individual entity or entries
-        // within a collection. If the API method also supports the **include** parameter, then the fields specified in
-        // the **include** parameter are returned in addition to those specified in the **fields** parameter.
         List<String> fields = null;
+        List<String> orderBy = null;
         // Optionally filter the node list.
         String where = null;
         // Also include `source` in addition to `entries` with folder information on the parent node –
@@ -99,6 +94,8 @@ and set the `where` clause parameter.
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#filtercontentsfolder)
 
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
 ```java
 import org.alfresco.core.handler.NodesApi;
 import org.alfresco.core.model.*;
@@ -133,28 +130,9 @@ public class ListFolderContent {
         Integer skipCount = 0;            // The number of entities that exist in the collection before those included in this list.  If not supplied then the default value is 0.
         Integer maxItems = 100;           // The maximum number of items to return in the list.  If not supplied then the default value is 100.
 
-        // Returns additional information about the node.
-        // The following optional fields can be requested:
-        // * allowableOperations
-        // * aspectNames
-        // * isLink
-        // * isLocked
-        // * path
-        // * properties
         List<String> include = null;
-        // A string to control the order of the entities returned in a list.
-        // You can use the **orderBy** parameter to sort the list by one or more fields.
-        // Each field has a default sort order, which is normally ascending order.
-        // Read the API method implementation notes above to check if any fields used in this
-        // method have a descending default search order.
-        // To sort the entities in a specific order, you can use the **ASC** and **DESC** keywords for any field.
-        List<String> orderBy = null;
-        // A list of field names.
-        // You can use this parameter to restrict the fields returned within a response if, for example,
-        // you want to save on overall bandwidth. The list applies to a returned individual entity or entries
-        // within a collection. If the API method also supports the **include** parameter, then the fields specified in
-        // the **include** parameter are returned in addition to those specified in the **fields** parameter.
         List<String> fields = null;
+        List<String> orderBy = null;
         // Optionally filter the node list.
         // Here are some examples:
         // where=(isFolder=true)
@@ -184,6 +162,8 @@ To get metadata for a node, such as a file or folder, in the repository use the 
 which is one of the main APIs used when you want to manipulate folders and files. 
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getnodemetadata)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -219,20 +199,7 @@ public class GetNodeMetadataCmd {
     private Node getNode(String nodeId,
                          String relativeFolderPath) {
 
-        // Returns additional information about the node. The following optional fields can be requested:
-        // * allowableOperations
-        // * association
-        // * isLink
-        // * isLocked
-        // * path
-        // * permissions
         List<String> include = null;
-        // A list of field names.
-        // You can use this parameter to restrict the fields returned within a response if, for example,
-        // you want to save on overall bandwidth. The list applies to a returned individual entity or
-        // entries within a collection. If the API method also supports the **include** parameter,
-        // then the fields specified in the **include** parameter are returned in addition to
-        // those specified in the **fields** parameter.
         List<String> fields = null;
 
         NodeEntry result = nodesApi.getNode(nodeId, include, relativeFolderPath, fields).getBody();
@@ -246,6 +213,8 @@ public class GetNodeMetadataCmd {
 To create a folder in the repository use the `createNode` method of the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"}, 
 which is one of the main APIs used when you want to manipulate folders and files. 
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -305,24 +274,11 @@ public class CreateFolder {
         nodeBodyCreate.setProperties(folderProps);
         nodeBodyCreate.setRelativePath(relativeFolderPath);
 
+        List<String> include = null;
+        List<String> fields = null;
         // If true, then  a name clash will cause an attempt to auto rename by
         // finding a unique name using an integer suffix.
         Boolean autoRename = true;
-        // Returns additional information about the node.
-        // The following optional fields can be requested:
-        // * allowableOperations
-        // * association
-        // * isLink
-        // * isLocked
-        // * path
-        // * permissions
-        List<String> include = null;
-        // A list of field names.
-        // You can use this parameter to restrict the fields returned within a response if, for example,
-        // you want to save on overall bandwidth. The list applies to a returned individual entity or entries
-        // within a collection.  If the API method also supports the **include** parameter, then the fields specified in
-        // the **include** parameter are returned in addition to those specified in the **fields** parameter.
-        List<String> fields = null;
         // Should this be a major version?
         Boolean majorVersion = true;
         // Should versioning be enabled at all?
@@ -345,6 +301,8 @@ method that will set the content for the file.
 At the moment it's necessary to make two calls to upload a file, but enhancements are being developed in a new version 
 of SDK 5 to provide a one method approach as this is [supported in the ReST API]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfile). 
 
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
 ```java
 import org.alfresco.core.handler.NodesApi;
 import org.alfresco.core.model.Node;
@@ -366,6 +324,8 @@ import java.util.Map;
 public class CreateFile {
     static final Logger LOGGER = LoggerFactory.getLogger(CreateFile.class);
 
+    private List<String> include = null;
+    private List<String> fields = null;
     // Set generic file content
     private String contentType = "cm:content";
     // If true, then  a name clash will cause an attempt to auto rename by
@@ -375,21 +335,6 @@ public class CreateFile {
     private Boolean majorVersion = true;
     // Should versioning be enabled at all?
     private Boolean versioningEnabled = true;
-    // Returns additional information about the node.
-    // The following optional fields can be requested:
-    // * allowableOperations
-    // * aspectNames
-    // * isLink
-    // * isLocked
-    // * path
-    // * properties
-    private List<String> include = null;
-    // A list of field names.
-    // You can use this parameter to restrict the fields returned within a response if, for example,
-    // you want to save on overall bandwidth. The list applies to a returned individual entity or entries
-    // within a collection. If the API method also supports the **include** parameter, then the fields specified in
-    // the **include** parameter are returned in addition to those specified in the **fields** parameter.
-    private List<String> fields = null;
     // Add a version comment which will appear in version history. Setting this parameter also enables versioning of
     // this node, if it is not already versioned.
     private String updateComment = null;
@@ -556,6 +501,8 @@ To create an Alfresco Share site in the repository use the `createSite` method o
 [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/SitesApi.md#createSite){:target="_blank"}, 
 which is the main API used to create and manage sites.
 
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
 ```java
 import org.alfresco.core.handler.SitesApi;
 import org.alfresco.core.model.Site;
@@ -572,11 +519,6 @@ import java.util.List;
 public class CreateSite {
     static final Logger LOGGER = LoggerFactory.getLogger(CreateSite.class);
 
-    // A list of field names.
-    // You can use this parameter to restrict the fields returned within a response if, for example,
-    // you want to save on overall bandwidth. The list applies to a returned individual entity or entries
-    // within a collection. If the API method also supports the **include** parameter, then the fields specified in
-    // the **include** parameter are returned in addition to those specified in the **fields** parameter.
     private List<String> fields = null;
 
     // Flag to indicate whether the Share-specific (surf) configuration files for the site should not be created
@@ -697,6 +639,8 @@ To find a folder or a file node in the repository based on a term use the `findN
 which is a search API you can use when doing simple search on a term. For more complex search, such as Alfresco Full Text Search (AFTS), 
 use the [Search API](#searchingbyquery);
 
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
 ```java
 import org.alfresco.core.handler.QueriesApi;
 import org.alfresco.core.model.NodeEntry;
@@ -736,27 +680,8 @@ public class FindNode {
         Integer maxItems = 100;           // The maximum number of items to return in the list.  If not supplied then the default value is 100.
         String nodeType = null;           // Restrict the returned results to only those of the given node type and its sub-types
 
-        // Returns additional information about the node.
-        // The following optional fields can be requested:
-        // * allowableOperations
-        // * aspectNames
-        // * isLink
-        // * isLocked
-        // * path
-        // * properties
         List<String> include = null;
-        // A string to control the order of the entities returned in a list.
-        // You can use the **orderBy** parameter to sort the list by one or more fields.
-        // Each field has a default sort order, which is normally ascending order.
-        // Read the API method implementation notes above to check if any fields used in this
-        // method have a descending default search order.
-        // To sort the entities in a specific order, you can use the **ASC** and **DESC** keywords for any field.
         List<String> orderBy = null;
-        // A list of field names.
-        // You can use this parameter to restrict the fields returned within a response if, for example,
-        // you want to save on overall bandwidth. The list applies to a returned individual entity or entries
-        // within a collection. If the API method also supports the **include** parameter, then the fields specified in
-        // the **include** parameter are returned in addition to those specified in the **fields** parameter.
         List<String> fields = null;
 
         NodeEntry nodeEntry = null;
@@ -782,6 +707,10 @@ TODO
 ## Finding content by a search query {#searchingbyquery}
 To find content based on more complex search queries, such as using Alfresco Full Text Search (AFTS), use the 
 [`SearchApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-rest-api/docs/SearchApi.md#search){:target="_blank"},;
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+TODO: Find out how to use common parameters...
 
 ```java
 import org.alfresco.search.handler.SearchApi;
