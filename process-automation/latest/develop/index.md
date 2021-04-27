@@ -212,3 +212,27 @@ Once the custom interface has been fully developed and tested it can be deployed
 To include custom form fields within a form, the [form field customizations](https://www.alfresco.com/abn/adf/docs/user-guide/aae-extensions/){:target="_blank"} must be included in the [customization of Digital Workspace](#extend-the-digital-workspace) or the [development of a custom user interface](#develop-a-custom-user-interface).
 
 > **Note**: The custom field can be [included in a form]({% link process-automation/latest/model/forms.md %}#custom-form-widgets) before the custom interface has been deployed.
+
+## REST API to cleanup historical data
+
+You can clean up historical data by using specific keys as input paramaters.
+
+| Property | Description |
+| -------- | ----------- |
+| `historicRetentionDays` | *Required.* The number of days to retain any completed or cancelled processes. |
+| `processDefinitionKeys` | *Optional.* A list of process definition keys to clean up. If omitted, all current process definitions are queried from the database and applied to delete the criteria. The default is `null`. |
+| `limitSize` | *Optional.* A parameter that specifies the delete query size limit for performance. The default is `1000` rows. |
+| `schemaPrefix` | *Optional.* A parameter that specifies the schema prefix, i.e. `public`. The default is an empty string. |
+| `async` | *Optional.* A parameter that specifies the job execution strategy via the task executor. The default is true. |
+
+For example:
+
+`POST /v1/admin/batch/jobs/executions/cleanup-query-process-instance-history-job`
+```json
+{
+  "historicRetentionDays": 10,
+  "processDefinitionKeys": ["ConnectorProcess", "HeadersConnectorProcess"],
+  "limitSize": 100,
+  "schemaPrefix": "public",
+  "async": true
+}```
