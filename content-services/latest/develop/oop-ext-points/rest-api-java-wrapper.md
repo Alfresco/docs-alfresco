@@ -17,8 +17,8 @@ them under each section:
 |`include`|Use this parameter to return additional information about the node. The following optional fields can be requested: `allowableOperations`, `aspectNames`, `isLink`, `isFavorite`, `isLocked`, `path`, `properties`, `permissions`.|TODO |
 |`fields`| You can use this parameter to restrict the fields returned within a response if, for example, you want to save on overall bandwidth. The list applies to a returned individual entity or entries within a collection. If the API method also supports the `include` parameter, then the fields specified in `include` parameter are returned in addition to those specified in the `fields` parameter.|TODO|
 |`orderBy`| A string to control the order of the entities returned in a list. The default sort order for the returned list is for folders to be sorted before files, and by ascending name. You can override the default using `orderBy` to specify one or more fields to sort by. The default order is always ascending, but you can use an optional `ASC` or `DESC` modifier to specify an ascending or descending sort order. For example, specifying `orderBy=name DESC` returns a mixed folder/file list in descending name order. You can use any of the following fields to order the results: `isFolder`, `name`, `mimeType`, `nodeType`, `sizeInBytes`, `modifiedAt`, `createdAt`, `modifiedByUser`, `createdByUser`|TODO|
-
-
+|`skipCount`|The number of entities that exist in the collection before those included in this list, useful when implementing paging scenarios. If not supplied then the default value is `0`.|TODO|
+|`maxItems`|The maximum number of items to return in the list, useful when implementing paging scenarios. If not supplied then the default value is `100`.|TODO|
 
 ## === Managing Folders and Files ===
 The following sections walk through how to use the Java ReST API wrapper services when managing folders and files.
@@ -63,9 +63,8 @@ public class ListFolderContent {
      * @return a list of child node objects contained in the folder, or null if not found
      */
     private NodeChildAssociationPagingList listFolderContent(String rootNodeId, String relativeFolderPath) {
-        Integer skipCount = 0;            // The number of entities that exist in the collection before those included in this list.  If not supplied then the default value is 0.
-        Integer maxItems = 100;           // The maximum number of items to return in the list.  If not supplied then the default value is 100.
-
+        Integer skipCount = 0;         
+        Integer maxItems = 100;
         List<String> include = null;
         List<String> fields = null;
         List<String> orderBy = null;
@@ -127,9 +126,8 @@ public class ListFolderContent {
      * @return a list of child node objects contained in the folder, or null if not found
      */
     private NodeChildAssociationPagingList listFolderContent(String rootNodeId, String relativeFolderPath) {
-        Integer skipCount = 0;            // The number of entities that exist in the collection before those included in this list.  If not supplied then the default value is 0.
-        Integer maxItems = 100;           // The maximum number of items to return in the list.  If not supplied then the default value is 100.
-
+        Integer skipCount = 0;         
+        Integer maxItems = 100;
         List<String> include = null;
         List<String> fields = null;
         List<String> orderBy = null;
@@ -198,7 +196,6 @@ public class GetNodeMetadataCmd {
      */
     private Node getNode(String nodeId,
                          String relativeFolderPath) {
-
         List<String> include = null;
         List<String> fields = null;
 
@@ -293,7 +290,7 @@ public class CreateFolder {
 }
 ```
 
-## Upload a file
+## Upload a file {#uploadfile}
 To upload a file to the repository use first the [`NodesApi.createNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"} 
 method, which will create the metadata for the file, and then the [`NodesApi.updateNodeContent`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNodeContent){:target="_blank"} 
 method that will set the content for the file. 
@@ -350,7 +347,8 @@ public class CreateFile {
         Node newTextFile = createTextFile("-root-", "somestuff.txt", "TextfileTitle",
                 "TextfileDesc", "/Guest Home", "Some text for the file");
 
-        // Upload a file from disk to the /Company Home/Guest Home folder, from the same directory we are running the app
+        // Upload a file from disk to the '/Company Home/Guest Home' folder, the file that is being uploaded, 'somepicture.png' 
+        // in this case, is located in the same directory as we are running the app from
         Node newFile = uploadFile("-root-", "somepicture.png", "PicturefileTitle",
                 "PicturefileDesc", "/Guest Home", "somepicture.png");
     }
@@ -431,7 +429,180 @@ public class CreateFile {
 ```
 
 ## Upload a file with custom type
-TODO
+Uploading a file with a custom type to the Repository means creating a node with a type other than `cm:content`. See 
+[upload a file](#uploadfile) for info on how to upload a file with the out-of-the-box content type `cm:content` set. 
+There's actually not much difference to how you upload a file with a custom type. Let's say we have a content model type 
+`acme:document` and an aspect `acme:securityClassified` and these are defined as follows:
+
+```xml
+<type name="acme:document">
+   <title>Sample Document Type</title>
+   <parent>cm:content</parent>
+   <properties>
+       <property name="acme:documentId">
+           <title>Document Identification Number</title>
+           <type>d:text</type>
+       </property>
+   </properties>
+   <mandatory-aspects>
+       <aspect>acme:securityClassified</aspect>
+   </mandatory-aspects>
+</type>
+
+<aspect name="acme:securityClassified">
+    <title>ACME Security Classified</title>
+    <description>Content has been security classified</description>
+    <properties>
+        <property name="acme:securityClassification">
+            <type>d:text</type>
+            <index enabled="true">
+                <atomic>true</atomic>
+                <stored>false</stored>
+                <tokenised>false</tokenised>
+            </index>
+            <constraints>
+                <constraint ref="acme:securityClassificationOptions"/>
+            </constraints>
+        </property>
+    </properties>
+</aspect>
+```
+We got two custom properties `acme:documentId` and `acme:securityClassification`. For more information on how to 
+implement and deploy this custom content model see [this documentation]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadfilecustomtype).
+
+Now, to upload a file and set this custom type and aspect we use the same code as for [upload a file](#uploadfile) with
+minor updates to the `contentType` variable and the `createFileMetadata` method:
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.Node;
+import org.alfresco.core.model.NodeBodyCreate;
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Component
+public class CreateFileCustomTypeCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(CreateFileCustomTypeCmd.class);
+
+    private List<String> include = null;
+    private List<String> fields = null;
+
+    // Set custom content type
+    private String contentType = "acme:document";
+    // If true, then  a name clash will cause an attempt to auto rename by
+    // finding a unique name using an integer suffix.
+    private Boolean autoRename = true;
+    // If true, then created node will be version '1.0 MAJOR'. If false, then created node will be version '0.1 MINOR'.
+    private Boolean majorVersion = true;
+    // Should versioning be enabled at all?
+    private Boolean versioningEnabled = true;
+    // Add a version comment which will appear in version history. Setting this parameter also enables versioning of
+    // this node, if it is not already versioned.
+    private String updateComment = null;
+    // Optional new name. This should include the file extension. The name must not contain spaces or the following
+    // special characters: * " < > \ / ? : and |. The character `.` must not be used at the end of the name.
+    private String updatedName = null;
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute() throws IOException {
+        // Create a text file under the /Company Home/Guest Home folder
+        Node newTextFile = createTextFile("-root-", "somestuff2.txt", "TextfileTitle2",
+                "TextfileDesc2", "/Guest Home", "Some text for the file2");
+
+        // Upload a file from disk to the /Company Home/Guest Home folder, file resides in app dir
+        Node newFile = uploadFile("-root-", "somepicture2.png", "PicturefileTitle2",
+                "PicturefileDesc2", "/Guest Home", "somepicture.png");
+    }
+
+    /**
+     * Upload a file from disk
+     */
+    private Node uploadFile(String parentFolderId, String fileName, String title, String description,
+                            String relativeFolderPath, String filePath) {
+        Node fileNode = createFileMetadata(parentFolderId, fileName, title, description, relativeFolderPath);
+
+        // Get the file bytes
+        File someFile = new File(filePath);
+        byte[] fileData = null;
+        try {
+            fileData = FileUtils.readFileToByteArray(someFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Add the file node content
+        Node updatedFileNode = nodesApi.updateNodeContent(fileNode.getId(),
+                fileData, majorVersion, updateComment, updatedName, include, fields).getBody().getEntry();
+
+        LOGGER.info("Created file with content: {}", updatedFileNode.toString());
+
+        return updatedFileNode;
+    }
+
+    /**
+     * Create a text file
+     */
+    private Node createTextFile(String parentFolderId, String fileName, String title, String description,
+                                String relativeFolderPath, String textContent) {
+        Node fileNode = createFileMetadata(parentFolderId, fileName, title, description, relativeFolderPath);
+
+        // Add the file node content
+        Node updatedFileNode = nodesApi.updateNodeContent(fileNode.getId(),
+                textContent.getBytes(), majorVersion, updateComment, updatedName, include, fields).getBody().getEntry();
+
+        LOGGER.info("Created file with content: {}", updatedFileNode.toString());
+
+        return updatedFileNode;
+    }
+
+    /**
+     * Create metadata for a file node
+     *
+     * @param parentFolderId the parent folder node ID where the file should be stored
+     * @param fileName the name for the new file
+     * @param title the title property value for the new file
+     * @param description the description property value for the new file
+     * @param relativeFolderPath path relative to /Company Home
+     * @return a Node object with file metadata and the Node ID
+     */
+    private Node createFileMetadata(String parentFolderId, String fileName, String title, String description,
+                                    String relativeFolderPath) {
+        List<String> fileAspects = new ArrayList<String>();
+        fileAspects.add("cm:titled");
+        fileAspects.add("acme:securityClassified");
+        Map<String, String> fileProps = new HashMap<>();
+        fileProps.put("cm:title", title);
+        fileProps.put("cm:description", description);
+        fileProps.put("acme:documentId", "DOC-001");                          // custom prop from type
+        fileProps.put("acme:securityClassification", "Company Confidential"); // custom prop from aspect
+        
+        NodeBodyCreate nodeBodyCreate = new NodeBodyCreate();
+        nodeBodyCreate.setName(fileName);
+        nodeBodyCreate.setNodeType(contentType);
+        nodeBodyCreate.setAspectNames(fileAspects);
+        nodeBodyCreate.setProperties(fileProps);
+        nodeBodyCreate.setRelativePath(relativeFolderPath);
+
+        // Create the file node metadata
+        Node fileNode = nodesApi.createNode(parentFolderId, nodeBodyCreate, autoRename, majorVersion, versioningEnabled,
+                include, fields).getBody().getEntry();
+
+        return fileNode;
+    }
+}
+```
 
 ## Upload a new version of file
 TODO
@@ -676,10 +847,10 @@ public class FindNode {
     private Node findNode(String term,
                           String parentNodeId) {
         String rootNodeId = parentNodeId; // The id of the node to start the search from.  Supports the aliases -my-, -root- and -shared-.
-        Integer skipCount = 0;            // The number of entities that exist in the collection before those included in this list.  If not supplied then the default value is 0.
-        Integer maxItems = 100;           // The maximum number of items to return in the list.  If not supplied then the default value is 100.
-        String nodeType = null;           // Restrict the returned results to only those of the given node type and its sub-types
+        String nodeType = null; // Restrict the returned results to only those of the given node type and its sub-types
 
+        Integer skipCount = 0;
+        Integer maxItems = 100;
         List<String> include = null;
         List<String> orderBy = null;
         List<String> fields = null;
