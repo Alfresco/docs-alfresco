@@ -601,7 +601,7 @@ public class CreateSite {
         LOGGER.info("Created site: {}", site);
     }
 }
-``` 
+```
 
 ## Update a site
 TODO
