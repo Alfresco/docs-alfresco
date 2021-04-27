@@ -50,13 +50,6 @@ Follow these steps to use the default (i.e. out-of-the-box) configuration of Int
 
         > **Note:** If you leave the text field empty all of the default renditions will be requested.
 
-        The default renditions are:
-        * **aiLabels** AI Labels
-        * **aiTextract** AI Text Lines, aiFeatures -> AI Creative Works, AI Dates, AI Events, AI Organizations, AI People, AI Places, AI Products, AI Quantities, AI Things
-        * **aiPiiEntities** AI PII Entities
-        * **aiSpeechToText** AI Transcript
-        * **webVTT** n/a  
-
 8. (Optional) Select options **Rule applies to subfolders** and also apply when **Items are updated**.
 
     This will apply the rule to your test folder and all its subfolders.
