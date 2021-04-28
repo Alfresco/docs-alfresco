@@ -48,7 +48,7 @@ Follow these steps to use the default (i.e. out-of-the-box) configuration of Int
         aiFeatures, aiLabels, aiTextract, aiSpeechToText, webvtt, aiPiiEntities 
         ```
 
-        > **Note:** If you leave the text field empty, all three of the default renditions will be requested. The default renditions are `aiFeatures` for Amazon Comprehend, `aiLabels` for Amazon Rekognition of images, and `aiTextract` for Amazon Textract.
+        > **Note:** If you leave the text field empty all of the default renditions will be requested.
 
 8. (Optional) Select options **Rule applies to subfolders** and also apply when **Items are updated**.
 
@@ -142,3 +142,21 @@ This example shows you how to view these properties in Digital Workspace.
 7. To search by a custom property, type `schema:<category>:<content>` in the search field and press **Enter**.
 
     For example, enter `schema:sport:runner`
+
+## View Transcription
+
+When configured, transcripts of your audio and video files are generated automatically within the Digital Workspace, including indexing and metadata generation which allows you to search their content easier. Captions of the transcripts can be automatically placed on top of the audio and video content, see the images below. For information on how to configure this in the Digital Workspace see [Set up a folder rule]({% link intelligence-services/latest/using/index.md %}#set-up-a-folder-rule).
+
+**Transcription**
+![transcript]({% link intelligence-services/images/text-transcript.png %})
+
+**Caption**
+![caption]({% link intelligence-services/images/transcript-caption.png %})
+
+## View PII information
+
+You can detect PII in documents and tag it automatically which enables easier privacy management to comply
+with data protection regulations such as General Data Protection Regulation (GDPR). You can also generate metadata automatically to flag PII entities, see the image below. For information on how to configure this in the Digital Workspace see [Set up a folder rule]({% link intelligence-services/latest/using/index.md %}#set-up-a-folder-rule).
+
+**PII**
+![pii]({% link intelligence-services/images/pii.png %})
