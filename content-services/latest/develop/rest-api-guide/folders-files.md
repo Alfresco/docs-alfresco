@@ -1574,7 +1574,7 @@ has changed to `1.1` as we choose to do a minor version update. If we would have
 would have been set to 2.0. When versioning is turned on for a file, such as in this case, each previous version of the 
 file is saved on disk.
 
-## Get file version history
+## Get file version history {#getfileversionhistory}
 
 When a file has versioning turned on you can get its version history.
 

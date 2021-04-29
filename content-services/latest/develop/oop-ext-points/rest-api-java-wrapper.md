@@ -206,10 +206,80 @@ public class GetNodeMetadataCmd {
 }
 ```
 
+Executing this code would give the following result:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-node        
+                                       
+2021-04-29 08:09:19.367  INFO 18370 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 18370 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-04-29 08:09:19.371  INFO 18370 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-04-29 08:09:20.430  INFO 18370 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3f6bb7ee-3f47-307b-93ed-ce624cea7e36
+2021-04-29 08:09:22.215  INFO 18370 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.536 seconds (JVM running for 4.449)
+2021-04-29 08:09:22.217  INFO 18370 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-node
+2021-04-29 08:09:22.485  INFO 18370 --- [           main] o.a.tutorial.restapi.GetNodeMetadataCmd  : Got node class Node {
+    id: e439190c-3fe0-48a1-8a9a-374fbc54b570
+    name: Company Home
+    nodeType: cm:folder
+    isFolder: true
+    isFile: false
+    isLocked: false
+    modifiedAt: 2021-04-28T11:48:08.325Z
+    modifiedByUser: class UserInfo {
+        displayName: System
+        id: System
+    }
+    createdAt: 2021-04-28T11:47:59.098Z
+    createdByUser: class UserInfo {
+        displayName: System
+        id: System
+    }
+    parentId: null
+    isLink: null
+    isFavorite: null
+    content: null
+    aspectNames: [cm:titled, cm:auditable, app:uifacets]
+    properties: {cm:title=Company Home, cm:description=The company root space, app:icon=space-icon-default}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+2021-04-29 08:09:22.538  INFO 18370 --- [           main] o.a.tutorial.restapi.GetNodeMetadataCmd  : Got node class Node {
+    id: 1219e0ff-941f-49df-9151-997b84a8359b
+    name: Data Dictionary
+    nodeType: cm:folder
+    isFolder: true
+    isFile: false
+    isLocked: false
+    modifiedAt: 2021-04-28T11:48:17.700Z
+    modifiedByUser: class UserInfo {
+        displayName: System
+        id: System
+    }
+    createdAt: 2021-04-28T11:47:59.199Z
+    createdByUser: class UserInfo {
+        displayName: System
+        id: System
+    }
+    parentId: e439190c-3fe0-48a1-8a9a-374fbc54b570
+    isLink: null
+    isFavorite: null
+    content: null
+    aspectNames: [cm:titled, cm:auditable, app:uifacets]
+    properties: {cm:title=Data Dictionary, cm:description=User managed definitions, app:icon=space-icon-default}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+```
+
 ## Create a folder
 To create a folder in the repository use the `createNode` method of the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"}, 
-which is one of the main APIs used when you want to manipulate folders and files. 
+which is one of the main APIs used when you want to manipulate folders and files.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#createfolder)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -428,7 +498,7 @@ public class CreateFile {
 }
 ```
 
-## Upload a file with custom type
+## Upload a file with custom type {#uploadfilecustomtype}
 Uploading a file with a custom type to the Repository means creating a node with a type other than `cm:content`. See 
 [upload a file](#uploadfile) for info on how to upload a file with the out-of-the-box content type `cm:content` set. 
 There's actually not much difference to how you upload a file with a custom type. Let's say we have a content model type 
@@ -502,7 +572,7 @@ public class CreateFileCustomTypeCmd {
     // If true, then  a name clash will cause an attempt to auto rename by
     // finding a unique name using an integer suffix.
     private Boolean autoRename = true;
-    // If true, then created node will be version '1.0 MAJOR'. If false, then created node will be version '0.1 MINOR'.
+    // If true, then created node will be version 1.0 MAJOR. If false, then created node will be version 0.1 MINOR.
     private Boolean majorVersion = true;
     // Should versioning be enabled at all?
     private Boolean versioningEnabled = true;
@@ -605,10 +675,312 @@ public class CreateFileCustomTypeCmd {
 ```
 
 ## Upload a new version of file
-TODO
+To upload a new version of a file to the repository use the [`NodesApi.updateNodeContent`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNodeContent){:target="_blank"}
+method, which will set the new content for the file.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadnewversionfile)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+package org.alfresco.tutorial.restapi;
+
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.Node;
+import org.alfresco.core.model.NodeBodyCreate;
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Component
+public class UploadNewFileVersionCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(UploadNewFileVersionCmd.class);
+
+    private List<String> include = null;
+    private List<String> fields = null;
+
+    // If true, then created node will be version 1.0 MAJOR. If false, then created node will be version 0.1 MINOR.
+    private Boolean majorVersion = true;
+    // Add a version comment which will appear in version history. Setting this parameter also enables versioning of
+    // this node, if it is not already versioned.
+    private String updateComment = null;
+    // Optional new name. This should include the file extension. The name must not contain spaces or the following
+    // special characters: * " < > \ / ? : and |. The character `.` must not be used at the end of the name.
+    private String updatedName = null;
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String textFileNodeId, String binFileNodeId) throws IOException {
+        // Update text content for a file
+        Node newTextFile = updateTextFileContent(textFileNodeId,"Some UPDATED text for the file");
+
+        // Upload a file as new content
+        Node newFile = uploadNewFileVersion(binFileNodeId, "updatedpicture.png");
+    }
+
+    /**
+     * Upload a file from disk as a new version
+     */
+    private Node uploadNewFileVersion(String fileNodeId, String filePath) {
+        // Get the file bytes
+        File someFile = new File(filePath);
+        byte[] fileData = null;
+        try {
+            fileData = FileUtils.readFileToByteArray(someFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Update the file node content
+        Node updatedFileNode = nodesApi.updateNodeContent(fileNodeId,
+                fileData, majorVersion, updateComment, updatedName, include, fields).getBody().getEntry();
+
+        LOGGER.info("Uploaded new content for file: {}", updatedFileNode.toString());
+
+        return updatedFileNode;
+    }
+
+    /**
+     * Update text content for a file
+     */
+    private Node updateTextFileContent(String fileNodeId, String textContent) {
+        // Update the file node content
+        Node updatedFileNode = nodesApi.updateNodeContent(fileNodeId,
+                textContent.getBytes(), majorVersion, updateComment, updatedName, include, fields).getBody().getEntry();
+
+        LOGGER.info("Updated text content for file: {}", updatedFileNode.toString());
+
+        return updatedFileNode;
+    }
+}
+```
+
+We would execute this command class something like this, passing in the command name, text file Node ID, and the 
+binary file node id:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar upload-new-version 0492460b-6269-4ca1-9668-0d934d2f3370 48413f7a-066d-4e38-b2e6-c84ede635493
+
+2021-04-28 13:44:49.193  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 15466 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-04-28 13:44:49.196  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-04-28 13:44:50.105  INFO 15466 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6dfe0ea9-0f4a-3ec7-b2bd-c14ee9405daf
+2021-04-28 13:44:51.437  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.782 seconds (JVM running for 3.471)
+2021-04-28 13:44:51.439  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: upload-new-version
+2021-04-28 13:44:51.441  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-04-28 13:44:51.441  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: 48413f7a-066d-4e38-b2e6-c84ede635493
+2021-04-28 13:44:51.981  INFO 15466 --- [           main] o.a.t.restapi.UploadNewFileVersionCmd    : Updated text content for file: class Node {
+    id: 0492460b-6269-4ca1-9668-0d934d2f3370
+    name: somestuff2.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-04-28T12:44:51.578Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-28T12:02:33.143Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 8fa4e27d-35aa-411d-8bbe-831b6ed0c445
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 30
+        encoding: ISO-8859-1
+    }
+    aspectNames: [rn:renditioned, cm:versionable, cm:titled, cm:auditable, acme:securityClassified, cm:author, cm:thumbnailModification]
+    properties: {cm:title=TextfileTitle2, cm:versionType=MAJOR, acme:documentId=DOC-001, cm:versionLabel=3.0, acme:securityClassification=Company Confidential, cm:lastThumbnailModification=[doclib:1619611506701], cm:description=TextfileDesc2}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+2021-04-28 13:44:56.783  INFO 15466 --- [           main] o.a.t.restapi.UploadNewFileVersionCmd    : Uploaded new content for file: class Node {
+    id: 48413f7a-066d-4e38-b2e6-c84ede635493
+    name: somepicture2.png
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-04-28T12:44:52.055Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-28T12:02:33.621Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 8fa4e27d-35aa-411d-8bbe-831b6ed0c445
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: image/png
+        mimeTypeName: PNG Image
+        sizeInBytes: 23174
+        encoding: UTF-8
+    }
+    aspectNames: [rn:renditioned, cm:versionable, cm:titled, cm:auditable, acme:securityClassified, cm:author, cm:thumbnailModification, exif:exif]
+    properties: {cm:title=PicturefileTitle2, cm:versionType=MAJOR, acme:documentId=DOC-001, cm:versionLabel=3.0, exif:pixelYDimension=256, acme:securityClassification=Company Confidential, exif:pixelXDimension=256, cm:lastThumbnailModification=[doclib:1619611506392, imgpreview:1619611515611], cm:description=PicturefileDesc2}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+```
+
+Note how the `cm:versionLabel` has bumped up to `3.0`. Version 1.0 and 2.0 were created when the files were [created in two
+steps](#uploadfilecustomtype).
 
 ## Get file version history
-TODO
+To get the version history for a file use the [`VersionsApi.listVersionHistory`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/VersionsApi.md#listVersionHistory){:target="_blank"}
+method, which will set the new content for the file.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getfileversionhistory)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.VersionsApi;
+import org.alfresco.core.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class ListVersionHistoryCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListVersionHistoryCmd.class);
+
+    @Autowired
+    VersionsApi versionsApi;
+
+    public void execute(String fileNodeId) throws IOException {
+        VersionPagingList nodes = listVersionHistory(fileNodeId);
+    }
+    
+    /**
+     * List the version history for a file node.
+     *
+     * @param fileNodeId the id of the file node
+     * @return a list of child node objects contained in the folder, or null if not found
+     */
+    private VersionPagingList listVersionHistory(String fileNodeId) {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        List<String> include = null;
+        List<String> fields = null;
+
+        LOGGER.info("Listing versions for file node ID {}", fileNodeId);
+        VersionPagingList result = versionsApi.listVersionHistory(fileNodeId, include, fields, skipCount, maxItems).getBody().getList();
+        for (VersionEntry versionEntry: result.getEntries()) {
+            LOGGER.info("Node version " + versionEntry.getEntry().toString());
+        }
+
+        return result;
+    }
+}
+```
+
+We would execute this command class something like this, passing in the file Node ID:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-file-versions 0492460b-6269-4ca1-9668-0d934d2f3370                   
+
+2021-04-29 08:04:42.887  INFO 18326 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 18326 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-04-29 08:04:42.895  INFO 18326 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-04-29 08:04:45.282  INFO 18326 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3f6bb7ee-3f47-307b-93ed-ce624cea7e36
+2021-04-29 08:04:48.145  INFO 18326 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 6.498 seconds (JVM running for 7.686)
+2021-04-29 08:04:48.148  INFO 18326 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-file-versions
+2021-04-29 08:04:48.152  INFO 18326 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-04-29 08:04:48.152  INFO 18326 --- [           main] o.a.t.restapi.ListVersionHistoryCmd      : Listing versions for file node ID 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-04-29 08:04:48.990  INFO 18326 --- [           main] o.a.t.restapi.ListVersionHistoryCmd      : Node version class Version {
+    id: 3.0
+    versionComment: null
+    name: somestuff2.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    modifiedAt: 2021-04-28T12:44:51.578Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 30
+        encoding: ISO-8859-1
+    }
+    aspectNames: null
+    properties: null
+}
+2021-04-29 08:04:48.990  INFO 18326 --- [           main] o.a.t.restapi.ListVersionHistoryCmd      : Node version class Version {
+    id: 2.0
+    versionComment: null
+    name: somestuff2.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    modifiedAt: 2021-04-28T12:02:33.526Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 23
+        encoding: ISO-8859-1
+    }
+    aspectNames: null
+    properties: null
+}
+2021-04-29 08:04:48.990  INFO 18326 --- [           main] o.a.t.restapi.ListVersionHistoryCmd      : Node version class Version {
+    id: 1.0
+    versionComment: null
+    name: somestuff2.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    modifiedAt: 2021-04-28T12:02:33.143Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 0
+        encoding: UTF-8
+    }
+    aspectNames: null
+    properties: null
+}
+```
+
+Note the `id` property that contains the file version number. The `versionComment` property would contain any comments
+made when uploading a new version of the file.
 
 ## Download a file
 TODO
