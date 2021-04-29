@@ -228,6 +228,7 @@ You can clean up historical data by using specific keys as input paramaters.
 For example:
 
 `POST /v1/admin/batch/jobs/executions/cleanup-query-process-instance-history-job`
+
 ```json
 {
   "historicRetentionDays": 10,
@@ -235,4 +236,5 @@ For example:
   "limitSize": 100,
   "schemaPrefix": "public",
   "async": true
-}```
+}
+```
