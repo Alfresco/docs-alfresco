@@ -8,9 +8,9 @@ There are three concepts associated with modeling processes to understand and di
 
 * **Diagrams** are the container that process definitions are modeled in. A process diagram can contain multiple process definitions when [pools]({% link process-automation/latest/model/processes/bpmn.md %}#pools-and-lanes) are used to separate them.
 Process diagrams are colour coded with the following definitions:
-* Blue indicates completed nodes
-* Green indicates current active nodes
-* Red indicates failed nodes
+ * Blue indicates completed nodes
+ * Green indicates current active nodes
+ * Red indicates failed nodes
 
 * **Process definitions** are the templates that a process follows, made up of BPMN elements and sequence flows. A process definition describes the business logic that will be followed repeatedly at runtime.
 
