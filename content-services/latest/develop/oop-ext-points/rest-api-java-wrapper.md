@@ -154,7 +154,7 @@ public class ListFolderContent {
 }
 ```
 
-## Get folder/file metadata
+## Get folder/file metadata {#getnodemetadata}
 To get metadata for a node, such as a file or folder, in the repository use the `getNode` method of the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#getNode){:target="_blank"}, 
 which is one of the main APIs used when you want to manipulate folders and files. 
@@ -1219,7 +1219,6 @@ public class ListRenditionsCmd {
 
 Executing this code looks like this, here we are listing renditions for a text file:
 
-
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-renditions 0492460b-6269-4ca1-9668-0d934d2f3370                 
 
@@ -1296,16 +1295,221 @@ We can see the renditions `id`, such as `pdf`. Some renditions are for things yo
 thumbnail and preview of document. 
 
 ## Get file rendition content
-TODO
+To get the content for a file rendition the [`RenditionsApi.getRenditionContent`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/RenditionsApi.md#getRenditionContent){:target="_blank"}
+method, which will download the content bytes for the file rendition.
 
-## Update metadata for a folder or file
-TODO
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getrenditioncontent)
+
+```java
+import org.alfresco.core.handler.RenditionsApi;
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Component;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.OffsetDateTime;
+
+@Component
+public class GetRenditionContentCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(GetRenditionContentCmd.class);
+
+    @Autowired
+    RenditionsApi renditionsApi;
+
+    public void execute(String fileNodeId, String renditionId, String filePathOnDisk) throws IOException {
+        Resource nodeContent = getRenditionContent(fileNodeId, renditionId);
+
+        // Write rendition file to disk
+        File targetFile = new File(filePathOnDisk);
+        FileUtils.copyInputStreamToFile(nodeContent.getInputStream(), targetFile);
+    }
+
+    /**
+     * Get rendition content info.
+     *
+     * @param nodeId        the id for the node that the rendition is for
+     * @param renditionId   the id of the rendition that we want to fetch content for, such as doclib, pdf etc
+     * @return Rendition content info object
+     */
+    private Resource getRenditionContent(String nodeId, String renditionId) throws IOException {
+        // Relevant when using API call from web browser, true is the default
+        Boolean attachment = true;
+        // Only download if modified since this time, optional
+        OffsetDateTime ifModifiedSince = null;
+        // The Range header indicates the part of a rendition that the server should return.
+        // Single part request supported, for example: bytes=1-10., optional
+        String range = null;
+        // If true and there is no rendition for this nodeId and renditionId, then the placeholder image for the
+        // mimetype of this rendition is returned, rather than a 404 response
+        Boolean placeholder = false;
+
+        Resource result = renditionsApi.getRenditionContent(
+                nodeId, renditionId, attachment, ifModifiedSince, range, placeholder).getBody();
+        LOGGER.info("Got rendition {} size: {}", result.getFilename(), result.contentLength());
+
+        return result;
+    }
+}
+```
+Executing this code and getting a `pdf` rendition for a text file looks like this:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-rendition-content 0492460b-6269-4ca1-9668-0d934d2f3370 pdf mytext.pdf 
+
+2021-04-29 16:05:22.776  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 20077 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-04-29 16:05:22.780  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-04-29 16:05:23.767  INFO 20077 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d486eb2c-2415-3101-aa77-949438081983
+2021-04-29 16:05:25.501  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.324 seconds (JVM running for 3.867)
+2021-04-29 16:05:25.504  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-rendition-content
+2021-04-29 16:05:25.506  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-04-29 16:05:25.506  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: pdf
+2021-04-29 16:05:25.506  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[3]: mytext.pdf
+2021-04-29 16:05:25.657  INFO 20077 --- [           main] o.a.t.restapi.GetRenditionContentCmd     : Got rendition pdf size: 8472
+```
+
+## Update metadata for a folder or file {#updatenodemetadata}
+To update metadata for a node, such as a file or folder, use the [`NodesApi.updateNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNode){:target="_blank"}
+method.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#updatemetadatanode)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.Node;
+import org.alfresco.core.model.NodeBodyUpdate;
+import org.alfresco.core.model.NodeEntry;
+import org.alfresco.core.model.PermissionsBody;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Component
+public class UpdateNodeMetadataCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(UpdateNodeMetadataCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String nodeId) throws IOException {
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("cm:title", "UPDATED title");
+        properties.put("cm:description", "UPDATED description");
+        Node node = updateNode(nodeId, "newname.txt", properties, null, null);
+    }
+
+    /**
+     * Update a node (such as file/folder).
+     *
+     * @param nodeId the id of the node that we want to update metadata for.
+     * @param newName a new name for the node (sets cm:name)
+     * @param properties the properties we want to update and their new values
+     * @param aspectNames a list of aspect names to set the node, not that it needs to include all aspects as it will overwrite
+     * @param permissionsBody permissions to set on the node
+     * @return updated Node object
+     */
+    private Node updateNode(String nodeId,
+                            String newName,
+                            Map<String, Object> properties,
+                            List<String> aspectNames,
+                            PermissionsBody permissionsBody) {
+
+        List<String> include = null;
+        List<String> fields = null;
+
+        NodeBodyUpdate nodeBodyUpdate = new NodeBodyUpdate();
+        nodeBodyUpdate.setName(newName);
+        nodeBodyUpdate.setProperties(properties);
+        nodeBodyUpdate.setAspectNames(aspectNames);
+        nodeBodyUpdate.setPermissions(permissionsBody);
+
+        NodeEntry result = nodesApi.updateNode(nodeId, nodeBodyUpdate, include, fields).getBody();
+        LOGGER.info("Updated node {}", result.getEntry());
+
+        return result.getEntry();
+    }
+}
+```
+
+With the updateNode call we can update properties, aspects, and permissions for a node. Note that when updating 
+aspects you need to include the complete list of aspects that should be set on the node as this call overwrites. You can
+fetch existing aspects with the [getNodeMetadata](#getnodemetadata) call. If you are adding an aspect that has properties,
+then you can just add the properties and the aspect will be added automatically for you. 
+
+Executing this code result in this for a text file example:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar update-metadata 0492460b-6269-4ca1-9668-0d934d2f3370
+
+2021-04-29 16:27:39.686  INFO 20246 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 20246 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-04-29 16:27:39.690  INFO 20246 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-04-29 16:27:40.587  INFO 20246 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=29844b14-f031-3179-8d0e-b64257171844
+2021-04-29 16:27:42.303  INFO 20246 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.185 seconds (JVM running for 3.683)
+2021-04-29 16:27:42.306  INFO 20246 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: update-metadata
+2021-04-29 16:27:42.308  INFO 20246 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-04-29 16:27:43.089  INFO 20246 --- [           main] o.a.t.restapi.UpdateNodeMetadataCmd      : Updated node class Node {
+    id: 0492460b-6269-4ca1-9668-0d934d2f3370
+    name: newname.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-04-29T15:27:42.528Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-28T12:02:33.143Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 8fa4e27d-35aa-411d-8bbe-831b6ed0c445
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 30
+        encoding: ISO-8859-1
+    }
+    aspectNames: [rn:renditioned, cm:versionable, cm:titled, cm:auditable, acme:securityClassified, cm:author, cm:thumbnailModification]
+    properties: {cm:title=UPDATED title, cm:versionType=MAJOR, acme:documentId=DOC-001, cm:versionLabel=3.0, acme:securityClassification=Company Confidential, cm:lastThumbnailModification=[doclib:1619613896873, pdf:1619701086215], cm:description=UPDATED description}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+```
+We can see the updated name and properties in the returned node object.
 
 ## Add aspects to a folder or file
-TODO
+To add aspects to a node, use the [`NodesApi.updateNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNode){:target="_blank"} 
+method. The way you do this is described in the [update metadata for a node](#updatenodemetadata) section. Note that you
+only need to add aspects to a node when they are so called "marker" aspects without properties.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#addaspectnode)
 
 ## Remove aspects from a folder or file
-TODO
+To remove aspects from a node, use the [`NodesApi.updateNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNode){:target="_blank"}
+method. The way you do this is described in the [update metadata for a node](#updatenodemetadata) section. 
+
+Removing an aspect from a node is similar to how you add a “marker” aspect. You first get the list of aspects currently
+applied to the node. Then you remove the aspect from the list. And finally you use an update node call with the updated
+aspect list.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#removeaspectsnode)
 
 ## Get and Set permissions for a folder or file
 TODO

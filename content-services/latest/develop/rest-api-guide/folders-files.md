@@ -1964,7 +1964,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 In this case we got back information about six renditions for this text file, each contained in an `entry` object. 
 Note that only two of those have been created and can be downloaded (i.e. they have `status` set to `CREATED`).
 
-## Get file rendition content
+## Get file rendition content {#getrenditioncontent}
 
 Get the rendition file content, if it has been generated.
 
