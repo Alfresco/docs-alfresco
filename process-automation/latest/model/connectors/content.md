@@ -609,7 +609,7 @@ The input parameters from add security marks are:
 | -------- | ---- | ----------- |
 | file | file | *Required.* Alfresco Content Services file to be updated. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generated document task. |
 | folder | folder | *Required.* Alfresco Content Services folder to be updated. Folder variables are initialised by content actions or content events in triggers. |
-| path | String | *Required.* Location or relative path of the node to be updated. For example a location path could be `/app:company_home/app:user_homes/cm:hruser` and a relative path could be `/User Homes/hruser` (by default the relative path is from Company Home). |
+| path | String | *Required.* Location or relative path of the node to be updated. For example, a location path could be `/app:company_home/app:user_homes/cm:hruser` and a relative path could be `/User Homes/hruser` (by default the relative path is from Company Home). |  
 | nodeId | String | *Required.* Node ID of the file or folder in Alfresco Content Services. For example: `a6a977a6-c728-4038-8dbc-d914c4d8cfb3`. |
 | securityGroupName | String | *Required.* Security group that contains the security marks to be assigned. E.g: 'PII'. |
 | securityMarks | array | *Required.* Array including the name of the security marks to be added. |
