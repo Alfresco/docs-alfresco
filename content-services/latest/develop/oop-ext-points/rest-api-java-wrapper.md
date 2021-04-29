@@ -683,8 +683,6 @@ method, which will set the new content for the file.
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
 ```java
-package org.alfresco.tutorial.restapi;
-
 import org.alfresco.core.handler.NodesApi;
 import org.alfresco.core.model.Node;
 import org.alfresco.core.model.NodeBodyCreate;
@@ -851,7 +849,7 @@ steps](#uploadfilecustomtype).
 
 ## Get file version history
 To get the version history for a file use the [`VersionsApi.listVersionHistory`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/VersionsApi.md#listVersionHistory){:target="_blank"}
-method, which will set the new content for the file.
+method, which will retrieve a list of all the node versions.
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getfileversionhistory)
 
@@ -980,16 +978,322 @@ We would execute this command class something like this, passing in the file Nod
 ```
 
 Note the `id` property that contains the file version number. The `versionComment` property would contain any comments
-made when uploading a new version of the file.
+made when uploading a new version of the file. Folder nodes does not have content.
 
-## Download a file
-TODO
+## Download a file {#downloadfile}
+To download a file use the [`NodesApi.getNodeContent`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#getNodeContent){:target="_blank"}
+method, which will download the content bytes for the file.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#downloadfile)
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Component;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.OffsetDateTime;
+
+@Component
+public class GetNodeContentCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(GetNodeContentCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String fileNodeId, String filePathOnDisk) throws IOException {
+        Resource nodeContent = getNodeContent(fileNodeId);
+
+        // Write file to disk
+        File targetFile = new File(filePathOnDisk);
+        FileUtils.copyInputStreamToFile(nodeContent.getInputStream(), targetFile);
+    }
+
+    /**
+     * Get a file node content bytes (folders does not have content).
+     *
+     * @param nodeId   the id of the file node that we want to fetch content for.
+     * @return Node content info object
+     */
+    private Resource getNodeContent(String nodeId) throws IOException {
+        // Relevant when using API call from web browser, true is the default
+        Boolean attachment = true;
+        // Only download if modified since this time, optional
+        OffsetDateTime ifModifiedSince = null;
+        // The Range header indicates the part of a document that the server should return.
+        // Single part request supported, for example: bytes=1-10., optional
+        String range = null;
+
+        Resource result = nodesApi.getNodeContent(nodeId, attachment, ifModifiedSince, range).getBody();
+        LOGGER.info("Got node {} size: {}", result.getFilename(), result.contentLength());
+
+        return result;
+    }
+}
+```
 
 ## Download multiple files
-TODO
+To download multiple files use the [`DownloadsApi.createDownload`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/DownloadsApi.md#createDownload){:target="_blank"}
+method to create a ZIP download on the server side, then check the status of the ZIP download with [`DownloadsApi.getDownload`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/DownloadsApi.md#getDownload){:target="_blank"}.
+When the download is ready get it with [NodesApi.getNodeConent](#downloadfile)
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#downloadmultiplefiles)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.DownloadsApi;
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.Download;
+import org.alfresco.core.model.DownloadBodyCreate;
+import org.alfresco.core.model.DownloadEntry;
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Component;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.List;
+
+@Component
+public class GetMultipleNodeContentCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(GetMultipleNodeContentCmd.class);
+
+    @Autowired
+    DownloadsApi downloadsApi;
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String[] fileNodeIds, String zipFilePathOnDisk) throws IOException, InterruptedException {
+        DownloadEntry downloadEntry = createZipDownload(fileNodeIds);
+        Resource zipNodeContent = getNodeContent(downloadEntry.getEntry().getId());
+
+        // Write ZIP file to disk
+        File targetFile = new File(zipFilePathOnDisk);
+        FileUtils.copyInputStreamToFile(zipNodeContent.getInputStream(), targetFile);
+    }
+
+    /**
+     * Create a ZIP download with multiple file nodes. This method waits until download is ready.
+     *
+     * @param nodeIds   the node ids for the files we want to download in one ZIP
+     * @return download entry info object for the ZIP
+     */
+    private DownloadEntry createZipDownload(String[] nodeIds) throws InterruptedException {
+        List<String> fields = null;
+
+        // Set up POST data with node IDs we want to download
+        DownloadBodyCreate downloads = new DownloadBodyCreate();
+        for (String nodeId : nodeIds) {
+            downloads.addNodeIdsItem(nodeId);
+        }
+
+        // First create the download on the server side
+        DownloadEntry result = downloadsApi.createDownload(downloads, fields).getBody();
+
+        LOGGER.info("Created ZIP download: {}", result.getEntry().toString());
+
+        // Check the download status
+        DownloadEntry download = downloadsApi.getDownload(result.getEntry().getId(), fields).getBody();
+        while (!download.getEntry().getStatus().equals(Download.StatusEnum.DONE)) {
+            LOGGER.info("Checking ZIP download status: {}", download.getEntry().getStatus());
+            Thread.sleep(1000); // do nothing for 1000 milliseconds (1 second)
+            download = downloadsApi.getDownload(result.getEntry().getId(), fields).getBody();
+        }
+
+        LOGGER.info("ZIP download is READY: {}", result.getEntry().getId());
+
+        return download;
+    }
+
+    /**
+     * Get a file node content bytes (folders does not have content).
+     *
+     * @param nodeId   the id of the file node that we want to fetch content for.
+     * @return Node content info object
+     */
+    private Resource getNodeContent(String nodeId) throws IOException {
+        // Relevant when using API call from web browser, true is the default
+        Boolean attachment = true;
+        // Only download if modified since this time, optional
+        OffsetDateTime ifModifiedSince = null;
+        // The Range header indicates the part of a document that the server should return.
+        // Single part request supported, for example: bytes=1-10., optional
+        String range = null;
+
+        Resource result = nodesApi.getNodeContent(nodeId, attachment, ifModifiedSince, range).getBody();
+        LOGGER.info("Got node {} size: {}", result.getFilename(), result.contentLength());
+
+        return result;
+    }
+}
+```
+Executing the code gives a result looking something like this:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-multiple-file-content 0492460b-6269-4ca1-9668-0d934d2f3370 48413f7a-066d-4e38-b2e6-c84ede635493 mydownload.zip
+
+2021-04-29 12:58:51.139  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 19432 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-04-29 12:58:51.143  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-04-29 12:58:51.933  INFO 19432 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b2e7277d-da47-3e07-b7e9-1a8ee73ccd76
+2021-04-29 12:58:53.560  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.956 seconds (JVM running for 3.436)
+2021-04-29 12:58:53.562  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-multiple-file-content
+2021-04-29 12:58:53.564  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-04-29 12:58:53.564  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: 48413f7a-066d-4e38-b2e6-c84ede635493
+2021-04-29 12:58:53.564  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[3]: mydownload.zip
+2021-04-29 12:58:54.150  INFO 19432 --- [           main] o.a.t.restapi.GetMultipleNodeContentCmd  : Created ZIP download: class Download {
+    filesAdded: 0
+    bytesAdded: 0
+    id: b73c36e5-112b-48a0-baa6-fa225bd9d53d
+    totalFiles: 0
+    totalBytes: 0
+    status: PENDING
+}
+2021-04-29 12:58:54.167  INFO 19432 --- [           main] o.a.t.restapi.GetMultipleNodeContentCmd  : Checking ZIP download status: PENDING
+2021-04-29 12:58:55.194  INFO 19432 --- [           main] o.a.t.restapi.GetMultipleNodeContentCmd  : ZIP download is READY: b73c36e5-112b-48a0-baa6-fa225bd9d53d
+2021-04-29 12:58:55.223  INFO 19432 --- [           main] o.a.t.restapi.GetMultipleNodeContentCmd  : Got node archive.zip size: 23111
+```
+In this example we pass in two file node identifiers that will be requested in the zip download. The zip download file
+will be stored in current directory under the name `mydownload.zip`. Note that right after we have initialized the 
+creation of the zip download there are no files added to the zip (`filesAdded: 0`), we have to wait for the zip download 
+to be created on the server side. Then we can download with the usual [getNodeContent](#downloadfile) method.
 
 ## List file renditions
-TODO
+To list content renditions for a file use the [`RenditionsApi.listRenditions`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/RenditionsApi.md#listRenditions){:target="_blank"}
+method.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#listfilerenditions)
+
+```java
+import org.alfresco.core.handler.RenditionsApi;
+import org.alfresco.core.model.RenditionEntry;
+import org.alfresco.core.model.RenditionPagingList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class ListRenditionsCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListRenditionsCmd.class);
+
+    @Autowired
+    RenditionsApi renditionsApi;
+
+    public void execute(String fileNodeId) throws IOException {
+        RenditionPagingList nodeRenditions = listRenditions(fileNodeId);
+    }
+    
+    /**
+     * List renditions for a file node.
+     *
+     * @param fileNodeId the id of the file node
+     * @return a list of renditions, or null if not found
+     */
+    private RenditionPagingList listRenditions(String fileNodeId) {
+        String where = null; // filter renditions
+
+        LOGGER.info("Listing versions for file node ID {}", fileNodeId);
+        RenditionPagingList result = renditionsApi.listRenditions(fileNodeId, where).getBody().getList();
+        for (RenditionEntry renditionEntry: result.getEntries()) {
+            LOGGER.info("Node rendition: " + renditionEntry.getEntry().toString());
+        }
+
+        return result;
+    }
+}
+```
+
+Executing this code looks like this, here we are listing renditions for a text file:
+
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-renditions 0492460b-6269-4ca1-9668-0d934d2f3370                 
+
+2021-04-29 13:58:22.805  INFO 19701 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 19701 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-04-29 13:58:22.811  INFO 19701 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-04-29 13:58:23.857  INFO 19701 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b3c2fca5-7b19-3805-88e4-d3c558223d1c
+2021-04-29 13:58:25.387  INFO 19701 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.131 seconds (JVM running for 3.822)
+2021-04-29 13:58:25.389  INFO 19701 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-renditions
+2021-04-29 13:58:25.390  INFO 19701 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-04-29 13:58:25.391  INFO 19701 --- [           main] o.a.tutorial.restapi.ListRenditionsCmd   : Listing versions for file node ID 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-04-29 13:58:25.703  INFO 19701 --- [           main] o.a.tutorial.restapi.ListRenditionsCmd   : Node rendition: class Rendition {
+    id: avatar
+    content: class ContentInfo {
+        mimeType: image/png
+        mimeTypeName: PNG Image
+        sizeInBytes: null
+        encoding: null
+    }
+    status: NOT_CREATED
+}
+2021-04-29 13:58:25.703  INFO 19701 --- [           main] o.a.tutorial.restapi.ListRenditionsCmd   : Node rendition: class Rendition {
+    id: avatar32
+    content: class ContentInfo {
+        mimeType: image/png
+        mimeTypeName: PNG Image
+        sizeInBytes: null
+        encoding: null
+    }
+    status: NOT_CREATED
+}
+2021-04-29 13:58:25.703  INFO 19701 --- [           main] o.a.tutorial.restapi.ListRenditionsCmd   : Node rendition: class Rendition {
+    id: doclib
+    content: class ContentInfo {
+        mimeType: image/png
+        mimeTypeName: PNG Image
+        sizeInBytes: 222
+        encoding: UTF-8
+    }
+    status: CREATED
+}
+2021-04-29 13:58:25.703  INFO 19701 --- [           main] o.a.tutorial.restapi.ListRenditionsCmd   : Node rendition: class Rendition {
+    id: imgpreview
+    content: class ContentInfo {
+        mimeType: image/jpeg
+        mimeTypeName: JPEG Image
+        sizeInBytes: null
+        encoding: null
+    }
+    status: NOT_CREATED
+}
+2021-04-29 13:58:25.703  INFO 19701 --- [           main] o.a.tutorial.restapi.ListRenditionsCmd   : Node rendition: class Rendition {
+    id: medium
+    content: class ContentInfo {
+        mimeType: image/jpeg
+        mimeTypeName: JPEG Image
+        sizeInBytes: null
+        encoding: null
+    }
+    status: NOT_CREATED
+}
+2021-04-29 13:58:25.703  INFO 19701 --- [           main] o.a.tutorial.restapi.ListRenditionsCmd   : Node rendition: class Rendition {
+    id: pdf
+    content: class ContentInfo {
+        mimeType: application/pdf
+        mimeTypeName: Adobe PDF Document
+        sizeInBytes: 8472
+        encoding: UTF-8
+    }
+    status: CREATED
+}
+```
+
+We can see the renditions `id`, such as `pdf`. Some renditions are for things you see in the UI, such as 
+thumbnail and preview of document. 
 
 ## Get file rendition content
 TODO

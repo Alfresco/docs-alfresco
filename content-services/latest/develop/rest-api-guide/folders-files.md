@@ -1756,7 +1756,7 @@ add an extra query parameter called `attachment` and set it to `false` (i.e.
 
 It's possible to download multiple files as a ZIP.
 
-**API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/getNodeContent](http://localhost:8080/api-explorer/#!/nodes/getNodeContent){:target="_blank"}
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/downloads/createDownload](http://localhost:8080/api-explorer/#!/downloads/createDownload){:target="_blank"}
 
 **See also:** [Downloading a single file](#downloadfile)
 
@@ -1861,7 +1861,7 @@ It's better to try the download from a browser.
 By default, if the download node is not deleted it will be picked up by a cleaner job which removes download nodes older 
 than a configurable amount of time (default is 1 hour).
 
-## List file renditions
+## List file renditions {#listfilerenditions}
 
 A file can have a number of renditions generated for it. This is how you get a list these renditions.
 
