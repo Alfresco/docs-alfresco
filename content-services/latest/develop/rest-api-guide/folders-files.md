@@ -2589,7 +2589,7 @@ just the inherited **Consumer** role permission for group **EVERYONE**.
 When we get the permissions for a node we also get back a list of permission roles, in the `settable` property, that can 
 be set on the node (depends on the node type).
 
-Let's also look at a the permissions for a public Share site, we can get the document library node information for the 
+Let's also look at the permissions for a public Share site, we can get the document library node information for the 
 out-of-the-box site with id `swsdp` as follows:
 
 ```bash
@@ -2908,7 +2908,7 @@ When you work with the `cm:contains` association type you set up what is referre
 This is what happens when you upload a file or create a folder. There is also the possibility to work with other types 
 of child associations, they are then referred to as secondary child associations. We will have a look at them now.
 
-### Introduction to the FDK content model
+### Introduction to the FDK content model {#alfrescofdkcontentmodel}
 
 To be able to show how to use secondary child associations and peer-to-peer associations we will use a custom content model. 
 For those of you that have been with Alfresco for a while you might remember the Forms Development Kit (FDK) custom model. 

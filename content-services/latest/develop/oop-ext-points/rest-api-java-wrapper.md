@@ -14,16 +14,24 @@ them under each section:
 
 |Parameter|Description|Usage|
 |---------|-----------|-----|
-|`include`|Use this parameter to return additional information about the node. The following optional fields can be requested: `allowableOperations`, `aspectNames`, `isLink`, `isFavorite`, `isLocked`, `path`, `properties`, `permissions`.|TODO |
+|`include`|Use this parameter to return additional information about the node. The following optional fields can be requested: `allowableOperations`, `aspectNames`, `association`, `isLink`, `isFavorite`, `isLocked`, `path`, `properties`, `permissions`.|`List<String> include = new ArrayList<>(); include.add("permissions");` |
 |`fields`| You can use this parameter to restrict the fields returned within a response if, for example, you want to save on overall bandwidth. The list applies to a returned individual entity or entries within a collection. If the API method also supports the `include` parameter, then the fields specified in `include` parameter are returned in addition to those specified in the `fields` parameter.|TODO|
 |`orderBy`| A string to control the order of the entities returned in a list. The default sort order for the returned list is for folders to be sorted before files, and by ascending name. You can override the default using `orderBy` to specify one or more fields to sort by. The default order is always ascending, but you can use an optional `ASC` or `DESC` modifier to specify an ascending or descending sort order. For example, specifying `orderBy=name DESC` returns a mixed folder/file list in descending name order. You can use any of the following fields to order the results: `isFolder`, `name`, `mimeType`, `nodeType`, `sizeInBytes`, `modifiedAt`, `createdAt`, `modifiedByUser`, `createdByUser`|TODO|
 |`skipCount`|The number of entities that exist in the collection before those included in this list, useful when implementing paging scenarios. If not supplied then the default value is `0`.|TODO|
 |`maxItems`|The maximum number of items to return in the list, useful when implementing paging scenarios. If not supplied then the default value is `100`.|TODO|
+|`autoRename`||TODO|
+|`majorVersion`||TODO|
+|`versioningEnabled`||TODO|
+|`updateComment`||TODO|
+|`updatedName`||TODO|
+|`where`||TODO|
+|`includeSource`||TODO|
+|`autoRename`||TODO|
 
 ## === Managing Folders and Files ===
 The following sections walk through how to use the Java ReST API wrapper services when managing folders and files.
 
-## List contents of a folder
+## List contents of a folder {#listfoldercontent}
 To list contents of a folder in the repository use the `listNodeChildren` method of the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listNodeChildren){:target="_blank"}, 
 which is one of the main APIs used when you want to manipulate folders and files. 
@@ -85,6 +93,8 @@ public class ListFolderContent {
     }
 }
 ```
+
+See also [manage associations](#manageassociations) for information on how to list secondary child associations for a node. 
 
 ## Filter contents of a folder
 To filter listed contents of a folder in the repository use the `listNodeChildren` method of the 
@@ -274,6 +284,8 @@ Executing this code would give the following result:
 }
 ```
 
+See also [manage associations](#manageassociations) for information on how to list associations for a node.
+
 ## Create a folder
 To create a folder in the repository use the `createNode` method of the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"}, 
@@ -359,6 +371,8 @@ public class CreateFolder {
     }
 }
 ```
+
+See also [manage associations](#manageassociations) for more examples of node creation.
 
 ## Upload a file {#uploadfile}
 To upload a file to the repository use first the [`NodesApi.createNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"} 
@@ -497,6 +511,8 @@ public class CreateFile {
     }
 }
 ```
+
+See also [manage associations](#manageassociations) for more examples of uploading and creating nodes.
 
 ## Upload a file with custom type {#uploadfilecustomtype}
 Uploading a file with a custom type to the Repository means creating a node with a type other than `cm:content`. See 
@@ -673,6 +689,8 @@ public class CreateFileCustomTypeCmd {
     }
 }
 ```
+
+See also [manage associations](#manageassociations) for more examples of uploading and creating nodes.
 
 ## Upload a new version of file
 To upload a new version of a file to the repository use the [`NodesApi.updateNodeContent`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNodeContent){:target="_blank"}
@@ -1442,7 +1460,7 @@ public class UpdateNodeMetadataCmd {
 }
 ```
 
-With the updateNode call we can update properties, aspects, and permissions for a node. Note that when updating 
+With the `updateNode` call we can update properties, aspects, and permissions for a node. Note that when updating 
 aspects you need to include the complete list of aspects that should be set on the node as this call overwrites. You can
 fetch existing aspects with the [getNodeMetadata](#getnodemetadata) call. If you are adding an aspect that has properties,
 then you can just add the properties and the aspect will be added automatically for you. 
@@ -1512,10 +1530,690 @@ aspect list.
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#removeaspectsnode)
 
 ## Get and Set permissions for a folder or file
-TODO
+To manage permissions for a node, use the [`NodesApi.updateNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNode){:target="_blank"}
+method. 
 
-## Working with relationships between folders/files
-TODO
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#setpermissionsnode)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+In the following example we show how a node can be updated with new permissions for a group and a user.
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class SetNodePermissionsMetadataCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(SetNodePermissionsMetadataCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String nodeId) throws IOException {
+        // First get current permissions
+        PermissionsInfo currentPermissions = getNodePermissions(nodeId);
+
+        // Update with permissions for a user and a group
+        // Add current permissions first, it will overwrite so we need to add what's already set
+        PermissionsBody permissionsBody = new PermissionsBody();
+        permissionsBody.setIsInheritanceEnabled(true);
+        permissionsBody.setLocallySet(currentPermissions.getLocallySet());
+        PermissionElement engineeringGroupPermission = new PermissionElement();
+        engineeringGroupPermission.setName("Collaborator");
+        engineeringGroupPermission.setAuthorityId("GROUP_engineering");
+        engineeringGroupPermission.setAccessStatus(PermissionElement.AccessStatusEnum.ALLOWED);
+        permissionsBody.addLocallySetItem(engineeringGroupPermission);
+        PermissionElement testUserPermission = new PermissionElement();
+        testUserPermission.setName("Contributor");
+        testUserPermission.setAuthorityId("tester");
+        testUserPermission.setAccessStatus(PermissionElement.AccessStatusEnum.ALLOWED);
+        permissionsBody.addLocallySetItem(testUserPermission);
+
+        // Update permissions for node
+        Node node = updateNodePermissions(nodeId, permissionsBody);
+    }
+
+    /**
+     * Get node permissions.
+     *
+     * @param nodeId the id of the node that we want to get permissions for.
+     * @return updated Node object
+     */
+    private PermissionsInfo getNodePermissions(String nodeId) {
+        String relativePath = null;
+        List<String> fields = null;
+        List<String> include = new ArrayList<>();
+        include.add("permissions");
+
+        NodeEntry result = nodesApi.getNode(nodeId, include, relativePath, fields).getBody();
+        LOGGER.info("Got node including permissions {}", result.getEntry());
+
+        return result.getEntry().getPermissions();
+    }
+
+    /**
+     * Update node permissions.
+     *
+     * @param nodeId the id of the node that we want to update permissions for.
+     * @param permissionsBody permissions to set on the node
+     * @return updated Node object
+     */
+    private Node updateNodePermissions(String nodeId,
+                                       PermissionsBody permissionsBody) {
+
+        List<String> include = new ArrayList<>();
+        include.add("permissions");
+        List<String> fields = null;
+
+        NodeBodyUpdate nodeBodyUpdate = new NodeBodyUpdate();
+        nodeBodyUpdate.setPermissions(permissionsBody);
+
+        NodeEntry result = nodesApi.updateNode(nodeId, nodeBodyUpdate, include, fields).getBody();
+        LOGGER.info("Updated node permissions {}", result.getEntry());
+
+        return result.getEntry();
+    }
+}
+```
+
+Note that you have to first get the currently set permissions before you set the new ones. This is because the 
+update call will overwrite permissions already set. So we use the [getNodeMetadata](#getnodemetadata) call to get 
+already set node permissions.
+
+Executing this code result in this for a text file example:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar update-permissions 0492460b-6269-4ca1-9668-0d934d2f3370
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.2)
+
+2021-04-30 09:31:59.435  INFO 21515 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 21515 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-04-30 09:31:59.439  INFO 21515 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-04-30 09:32:00.402  INFO 21515 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=51c4f594-d970-3206-b766-5ee398458ccd
+2021-04-30 09:32:02.206  INFO 21515 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.4 seconds (JVM running for 3.957)
+2021-04-30 09:32:02.208  INFO 21515 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: update-permissions
+2021-04-30 09:32:02.210  INFO 21515 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-04-30 09:32:02.509  INFO 21515 --- [           main] o.a.t.r.SetNodePermissionsMetadataCmd    : Got node including permissions class Node {
+    id: 0492460b-6269-4ca1-9668-0d934d2f3370
+    name: newname.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-04-29T15:27:42.528Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-28T12:02:33.143Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 8fa4e27d-35aa-411d-8bbe-831b6ed0c445
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 30
+        encoding: ISO-8859-1
+    }
+    aspectNames: [rn:renditioned, cm:versionable, cm:titled, cm:auditable, acme:securityClassified, cm:author, cm:thumbnailModification]
+    properties: {cm:title=UPDATED title, cm:versionType=MAJOR, acme:documentId=DOC-001, cm:versionLabel=3.0, acme:securityClassification=Company Confidential, cm:lastThumbnailModification=[doclib:1619613896873, pdf:1619701086215], cm:description=UPDATED description}
+    allowableOperations: null
+    path: null
+    permissions: class PermissionsInfo {
+        isInheritanceEnabled: true
+        inherited: [class PermissionElement {
+            authorityId: GROUP_EVERYONE
+            name: Consumer
+            accessStatus: ALLOWED
+        }, class PermissionElement {
+            authorityId: guest
+            name: Consumer
+            accessStatus: ALLOWED
+        }]
+        locallySet: null
+        settable: [Contributor, Collaborator, Coordinator, Editor, Consumer]
+    }
+    definition: null
+}
+2021-04-30 09:32:02.708  INFO 21515 --- [           main] o.a.t.r.SetNodePermissionsMetadataCmd    : Updated node permissions class Node {
+    id: 0492460b-6269-4ca1-9668-0d934d2f3370
+    name: newname.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-04-30T08:32:02.635Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-28T12:02:33.143Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 8fa4e27d-35aa-411d-8bbe-831b6ed0c445
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 30
+        encoding: ISO-8859-1
+    }
+    aspectNames: [rn:renditioned, cm:versionable, cm:titled, cm:auditable, acme:securityClassified, cm:author, cm:thumbnailModification]
+    properties: {cm:title=UPDATED title, cm:versionType=MAJOR, acme:documentId=DOC-001, cm:versionLabel=3.0, acme:securityClassification=Company Confidential, cm:lastThumbnailModification=[doclib:1619613896873, pdf:1619701086215], cm:description=UPDATED description}
+    allowableOperations: null
+    path: null
+    permissions: class PermissionsInfo {
+        isInheritanceEnabled: true
+        inherited: [class PermissionElement {
+            authorityId: guest
+            name: Consumer
+            accessStatus: ALLOWED
+        }, class PermissionElement {
+            authorityId: GROUP_EVERYONE
+            name: Consumer
+            accessStatus: ALLOWED
+        }]
+        locallySet: [class PermissionElement {
+            authorityId: GROUP_engineering
+            name: Collaborator
+            accessStatus: ALLOWED
+        }, class PermissionElement {
+            authorityId: tester
+            name: Contributor
+            accessStatus: ALLOWED
+        }]
+        settable: [Contributor, Collaborator, Coordinator, Editor, Consumer]
+    }
+    definition: null
+}
+```
+
+We can see that before the permission update there were no locally set permissions for the node, only `inherited`. After
+the update we see also the `locallySet` returned with the newly set permissions. Note that for the permission information
+to be returned with each call we have to add `permissions` to the `include` parameter.
+
+## Working with relationships between folders/files {#manageassociations}
+To manage relationships (referred to as associations) between nodes use the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md){:target="_blank"}
+and the following methods:
+
+|Method|Description|
+|------|-----------|
+|[**listNodeChildren**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listNodeChildren)|List primary parent-child associations, see [list folder content](#listfoldercontent) |
+|[**createSecondaryChildAssociation**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createSecondaryChildAssociation)|Create secondary parent-child association|
+|[**deleteSecondaryChildAssociation**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#deleteSecondaryChildAssociation)|Delete secondary parent-child association|
+|[**listSecondaryChildren**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listSecondaryChildren)|List secondary parent-child associations|
+|[**createAssociation**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createAssociation)|Create peer-2-peer association|
+|[**deleteAssociation**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#deleteAssociation)|Delete peer-2-peer association(s)|
+|[**listSourceAssociations**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listSourceAssociations)|List source peer-2-peer associations|
+|[**listTargetAssociations**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listTargetAssociations)|List target peer-2-peer associations|
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#workingwithrelbetweennodes)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+Assuming we have deployed the [FDK content model]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#alfrescofdkcontentmodel) 
+with secondary parent-child and peer-2-peer association types, then the following code examples shows how to create those 
+types of associations (it also shows how to upload files, create folder, create node of different type):
+
+>**Note**. this code assumes the following two files exists in current directory: `somepicture.png` and `sometext.txt`.
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.*;
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+
+@Component
+public class ManageAssociationsCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ManageAssociationsCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    private Boolean autoRename = true;
+    private Boolean majorVersion = true;
+    private Boolean versioningEnabled = true;
+    private String updateComment = null;
+    private String updatedName = null;
+    private List<String> include = null;
+    private List<String> fields = null;
+    private List<String> orderBy = null;
+    private Integer skipCount = 0;
+    private Integer maxItems = 100;
+    private String where = null;
+    private Boolean includeSource = false;
+
+    public void execute() throws IOException {
+        // List all folders and files (primary parent-child associations) in /Company Home/Data Dictionary
+        NodeChildAssociationPagingList primaryChildAssociations =
+                listPrimaryChildAssociations("-root-", "/Data Dictionary");
+
+        // Create gadget folder, gadget image, and gadget review
+        Node gadgetFolderNode = createFolder("My Gadgets", "");
+        Node gadgetPictureNode = uploadFile(gadgetFolderNode.getId(), "gadget-picture.png", "somepicture.png");
+        Node gadgetReviewNode = uploadFile(gadgetFolderNode.getId(), "gadget-review.txt", "sometext.txt");
+
+        // Create the Gadget company node
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("fdk:email", "info@coolgadgets.com");
+        properties.put("fdk:url","www.coolgadgets.com");
+        properties.put("fdk:city","London");
+        Node companyNode = createNode(gadgetFolderNode.getId(), "Cool Gadgets Inc","fdk:company", properties);
+
+        // Create a gadget node with associations using the FDK content model
+        List<ChildAssociationBody> secondaryParentChildAssociations = new ArrayList<>();
+        ChildAssociationBody childAssoc = new ChildAssociationBody();
+        childAssoc.assocType("fdk:images");
+        childAssoc.setChildId(gadgetPictureNode.getId());
+        secondaryParentChildAssociations.add(childAssoc);
+        List<AssociationBody> peer2peerAssociations = new ArrayList<>();
+        AssociationBody peer2peerAssoc = new AssociationBody();
+        peer2peerAssoc.assocType("fdk:reviews");
+        peer2peerAssoc.setTargetId(gadgetReviewNode.getId());
+        peer2peerAssociations.add(peer2peerAssoc);
+        AssociationBody peer2peerAssoc2 = new AssociationBody();
+        peer2peerAssoc2.assocType("fdk:company");
+        peer2peerAssoc2.setTargetId(companyNode.getId());
+        peer2peerAssociations.add(peer2peerAssoc2);
+        Node gadgetNode = createNodeWithAssociations(
+                gadgetFolderNode.getId(),"My Gadget", "fdk:gadget",
+                secondaryParentChildAssociations, peer2peerAssociations);
+
+        // List secondary parent-child associations for a node
+        NodeChildAssociationPagingList secondaryAssoc = listSecondaryChildAssociations(gadgetNode.getId());
+
+        // List peer-2-peer associations for a node
+        NodeAssociationPagingList targetAssoc = listPeer2PeerAssociations(gadgetNode.getId());
+    }
+
+    /**
+     * List primary parent-child associations. Basically list folder contents.
+     *
+     * @param rootNodeId         the id of the folder node that is the root. If relativeFolderPath is null, then content in this folder will be listed. Besides node ID the aliases -my-, -root- and -shared- are also supported.
+     * @param relativeFolderPath path relative rootNodeId, if this is not null, then the content of this folder will be listed
+     * @return a list of child node objects contained in the folder, or null if not found
+     */
+    private NodeChildAssociationPagingList listPrimaryChildAssociations(String rootNodeId, String relativeFolderPath) {
+        LOGGER.info("Listing primary child associations for folder {}{}", rootNodeId, relativeFolderPath);
+        NodeChildAssociationPagingList result = nodesApi.listNodeChildren(rootNodeId, skipCount, maxItems, orderBy, where, include,
+                relativeFolderPath, includeSource, fields).getBody().getList();
+        for (NodeChildAssociationEntry childNodeAssoc: result.getEntries()) {
+            LOGGER.info("Found primary child [name=" + childNodeAssoc.getEntry().getName() + "]");
+        }
+
+        return result;
+    }
+
+    /**
+     * List secondary parent-child associations.
+     *
+     * @param nodeId         the node to list assoc for
+     * @return a list of child node objects contained in the node, or null if not found
+     */
+    private NodeChildAssociationPagingList listSecondaryChildAssociations(String nodeId) {
+        LOGGER.info("Listing secondary child associations for node {}", nodeId);
+        NodeChildAssociationPagingList result = nodesApi.listSecondaryChildren(
+                nodeId, where, include, skipCount, maxItems, includeSource, fields).getBody().getList();
+        for (NodeChildAssociationEntry childNodeAssoc: result.getEntries()) {
+            LOGGER.info("Found secondary child [name=" + childNodeAssoc.getEntry().getName() + "]");
+        }
+
+        return result;
+    }
+
+    /**
+     * List peer-2-peer associations.
+     *
+     * @param nodeId         the node to list assoc for
+     * @return a list of assoc objects associated with the node
+     */
+    private NodeAssociationPagingList listPeer2PeerAssociations(String nodeId) {
+        LOGGER.info("Listing peer-2-peer associations for node {}", nodeId);
+        NodeAssociationPagingList result = nodesApi.listTargetAssociations(
+                nodeId, where, include, fields).getBody().getList();
+        for (NodeAssociationEntry targetAssoc: result.getEntries()) {
+            LOGGER.info("Found target [name=" + targetAssoc.getEntry().getName() + "]");
+        }
+
+        return result;
+    }
+
+    /**
+     * Create a node with associations.
+     *
+     * @param parentNodeId the parent node id
+     * @param nodeName     the name of the node
+     * @param nodeType     the type of the node
+     * @param secondaryParentChildAssociations a list of secondary parent-child associations that should be set up
+     * @param peer2peerAssociations a list of peer-2-peer associations that should be set up
+     * @return a node object for the newly created node, contains the ID,
+     * such as e859588c-ae81-4c5e-a3b6-4c6109b6c905
+     */
+    private Node createNodeWithAssociations(
+            String parentNodeId,
+            String nodeName,
+            String nodeType,
+            List<ChildAssociationBody> secondaryParentChildAssociations,
+            List<AssociationBody> peer2peerAssociations) {
+        NodeBodyCreate nodeBodyCreate = new NodeBodyCreate();
+        nodeBodyCreate.setName(nodeName);
+        nodeBodyCreate.setNodeType(nodeType);
+        nodeBodyCreate.setSecondaryChildren(secondaryParentChildAssociations);
+        nodeBodyCreate.setTargets(peer2peerAssociations);
+        Node node = nodesApi.createNode(parentNodeId, nodeBodyCreate, autoRename, majorVersion, versioningEnabled,
+                include, fields).getBody().getEntry();
+        LOGGER.info("Created new node with associations: {}", node);
+
+        return node;
+    }
+
+    /**
+     * Make the remote call to create a folder in the repository, if it does not exist.
+     *
+     * @param folderName         the name of the folder
+     * @param relativeFolderPath path relative to /Company Home
+     * @return a node object for the newly created node, contains the ID,
+     * such as e859588c-ae81-4c5e-a3b6-4c6109b6c905
+     */
+    private Node createFolder(String folderName,
+                              String relativeFolderPath) {
+        String nodeId = "-root-";
+        NodeBodyCreate nodeBodyCreate = new NodeBodyCreate();
+        nodeBodyCreate.setName(folderName);
+        nodeBodyCreate.setNodeType("cm:folder");
+        nodeBodyCreate.setRelativePath(relativeFolderPath);
+        Node folderNode = nodesApi.createNode(nodeId, nodeBodyCreate, autoRename, majorVersion, versioningEnabled,
+                include, fields).getBody().getEntry();
+        LOGGER.info("Created new folder: {}", folderNode);
+
+        return folderNode;
+    }
+
+    /**
+     * Create a node
+     *
+     * @param parentNodeId  the node id for parent folder
+     * @param nodeName      the name of the node
+     * @param nodeType      the type of the node
+     * @return a node object for the newly created node, contains the ID,
+     * such as e859588c-ae81-4c5e-a3b6-4c6109b6c905
+     */
+    private Node createNode(String parentNodeId,
+                            String nodeName,
+                            String nodeType,
+                            Map<String, Object> properties) {
+        NodeBodyCreate nodeBodyCreate = new NodeBodyCreate();
+        nodeBodyCreate.setName(nodeName);
+        nodeBodyCreate.setNodeType(nodeType);
+        nodeBodyCreate.setProperties(properties);
+        Node node = nodesApi.createNode(
+                parentNodeId, nodeBodyCreate, autoRename, majorVersion, versioningEnabled, include, fields).getBody().getEntry();
+        LOGGER.info("Created new node: {}", node);
+
+        return node;
+    }
+
+    /**
+     * Upload a file from disk
+     */
+    private Node uploadFile(String folderId, String fileName, String filePath) {
+        // Create the file node metadata
+        NodeBodyCreate nodeBodyCreate = new NodeBodyCreate();
+        nodeBodyCreate.setName(fileName);
+        nodeBodyCreate.setNodeType("cm:content");
+        Node fileNode = nodesApi.createNode(
+                folderId, nodeBodyCreate, autoRename, majorVersion, versioningEnabled, include, fields).getBody().getEntry();
+
+        // Get the file bytes
+        File someFile = new File(filePath);
+        byte[] fileData = null;
+        try {
+            fileData = FileUtils.readFileToByteArray(someFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Add the file node content
+        Node updatedFileNode = nodesApi.updateNodeContent(fileNode.getId(),
+                fileData, majorVersion, updateComment, updatedName, include, fields).getBody().getEntry();
+
+        LOGGER.info("Created file with content: {}", updatedFileNode.toString());
+
+        return updatedFileNode;
+    }
+
+}
+```
+
+Executing the above code will result in logs such as follows:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar manage-associations                                    
+
+2021-04-30 16:26:20.317  INFO 22647 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 22647 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-04-30 16:26:20.321  INFO 22647 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-04-30 16:26:21.081  INFO 22647 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b9e2f3fd-e462-3455-a26b-5a4c02d3cee3
+2021-04-30 16:26:22.678  INFO 22647 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.93 seconds (JVM running for 3.402)
+2021-04-30 16:26:22.680  INFO 22647 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: manage-associations
+2021-04-30 16:26:22.681  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Listing primary child associations for folder -root-/Data Dictionary
+2021-04-30 16:26:23.071  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Email Templates]
+2021-04-30 16:26:23.071  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Imap Configs]
+2021-04-30 16:26:23.071  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Messages]
+2021-04-30 16:26:23.071  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Models]
+2021-04-30 16:26:23.071  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Node Templates]
+2021-04-30 16:26:23.071  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Presentation Templates]
+2021-04-30 16:26:23.071  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Rendering Actions Space]
+2021-04-30 16:26:23.071  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Replication Actions Space]
+2021-04-30 16:26:23.071  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=RSS Templates]
+2021-04-30 16:26:23.071  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Saved Searches]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Scheduled Actions]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Scripts]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Smart Folder Downloads]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Smart Folder Templates]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Solr Facets Space]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Space Templates]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Transfers]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Web Client Extension]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Web Scripts]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Web Scripts Extensions]
+2021-04-30 16:26:23.072  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found primary child [name=Workflow Definitions]
+2021-04-30 16:26:23.184  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Created new folder: class Node {
+    id: e6bacba5-0dba-40af-afa0-ff25e10a18bb
+    name: My Gadgets
+    nodeType: cm:folder
+    isFolder: true
+    isFile: false
+    isLocked: false
+    modifiedAt: 2021-04-30T15:26:23.129Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-30T15:26:23.129Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: e439190c-3fe0-48a1-8a9a-374fbc54b570
+    isLink: null
+    isFavorite: null
+    content: null
+    aspectNames: [cm:auditable]
+    properties: null
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+2021-04-30 16:26:23.482  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Created file with content: class Node {
+    id: b9bf8f12-269f-46a3-97a8-16900644a7d6
+    name: gadget-picture.png
+    nodeType: cm:content
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-04-30T15:26:23.404Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-30T15:26:23.218Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: e6bacba5-0dba-40af-afa0-ff25e10a18bb
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: image/png
+        mimeTypeName: PNG Image
+        sizeInBytes: 14799
+        encoding: UTF-8
+    }
+    aspectNames: [cm:versionable, cm:auditable]
+    properties: {cm:versionLabel=2.0, cm:versionType=MAJOR}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+2021-04-30 16:26:23.716  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Created file with content: class Node {
+    id: bb35fdd6-f2f3-44e4-84c9-30e48efaf3d5
+    name: gadget-review.txt
+    nodeType: cm:content
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-04-30T15:26:23.644Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-30T15:26:23.507Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: e6bacba5-0dba-40af-afa0-ff25e10a18bb
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 30
+        encoding: ISO-8859-1
+    }
+    aspectNames: [cm:versionable, cm:auditable]
+    properties: {cm:versionLabel=2.0, cm:versionType=MAJOR}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+2021-04-30 16:26:23.918  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Created new node: class Node {
+    id: 01c5e298-a6c2-4b5c-81e0-195172626e22
+    name: Cool Gadgets Inc
+    nodeType: fdk:company
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-04-30T15:26:23.772Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-30T15:26:23.772Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: e6bacba5-0dba-40af-afa0-ff25e10a18bb
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: application/octet-stream
+        mimeTypeName: Binary File (Octet Stream)
+        sizeInBytes: 0
+        encoding: UTF-8
+    }
+    aspectNames: [cm:versionable, cm:auditable]
+    properties: {fdk:email=info@coolgadgets.com, fdk:url=www.coolgadgets.com, cm:versionType=MAJOR, cm:versionLabel=1.0, fdk:city=London}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+2021-04-30 16:26:24.133  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Created new node with associations: class Node {
+    id: c5f329e8-7872-4e92-abe1-e7dd5f5f48ba
+    name: My Gadget
+    nodeType: fdk:gadget
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-04-30T15:26:23.950Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-30T15:26:23.950Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: e6bacba5-0dba-40af-afa0-ff25e10a18bb
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: application/octet-stream
+        mimeTypeName: Binary File (Octet Stream)
+        sizeInBytes: 0
+        encoding: UTF-8
+    }
+    aspectNames: [cm:versionable, cm:auditable]
+    properties: {cm:versionLabel=1.0, cm:versionType=MAJOR}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+2021-04-30 16:26:24.134  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Listing secondary child associations for node c5f329e8-7872-4e92-abe1-e7dd5f5f48ba
+2021-04-30 16:26:24.156  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found secondary child [name=gadget-picture.png]
+2021-04-30 16:26:24.157  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Listing peer-2-peer associations for node c5f329e8-7872-4e92-abe1-e7dd5f5f48ba
+2021-04-30 16:26:24.239  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found target [name=gadget-review.txt]
+2021-04-30 16:26:24.239  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Found target [name=Cool Gadgets Inc]
+```
+
+To create associations for existing nodes use the `createSecondaryChildAssociation` and `createAssociation` methods.
 
 ## Manage comments for a folder or file
 TODO
