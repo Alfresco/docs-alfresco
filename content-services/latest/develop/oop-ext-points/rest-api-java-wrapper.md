@@ -10,23 +10,22 @@ To set up a project with the Java ReST API library follow these [instructions]({
 
 ## Common parameters {#common-parameters}
 There are some common parameters in the different API calls. They are documented here instead of repeating the docs for 
-them under each section:
+them under multiple sections:
 
 |Parameter|Description|Usage|
 |---------|-----------|-----|
 |`include`|Use this parameter to return additional information about the node. The following optional fields can be requested: `allowableOperations`, `aspectNames`, `association`, `isLink`, `isFavorite`, `isLocked`, `path`, `properties`, `permissions`.|`List<String> include = new ArrayList<>(); include.add("permissions");` |
-|`fields`| You can use this parameter to restrict the fields returned within a response if, for example, you want to save on overall bandwidth. The list applies to a returned individual entity or entries within a collection. If the API method also supports the `include` parameter, then the fields specified in `include` parameter are returned in addition to those specified in the `fields` parameter.|TODO|
+|`fields`| You can use this parameter to restrict the fields returned within a response if, for example, you want to save on overall bandwidth. The list applies to a returned individual entity or entries within a collection. If the API method also supports the `include` parameter, then the fields specified in `include` parameter are returned in addition to those specified in the `fields` parameter.|`List<String> fields = new ArrayList<>(); fields.add("content,createdAt");`<br/>Note that all fields have to be added as one item comma separated.|
+|`where`|Optionally filter the node list.|Here are some examples:<br/>`where=(isFolder=true)`<br/>`where=(isFile=true)`<br/>`where=(nodeType='my:specialNodeType')`<br/>`where=(nodeType='my:specialNodeType INCLUDESUBTYPES')`|
+|`includeSource`|Also include `source` in addition to `entries` with folder information on the parent node – either the specified parent nodeId, or as resolved by `relativePath`|TODO|
 |`orderBy`| A string to control the order of the entities returned in a list. The default sort order for the returned list is for folders to be sorted before files, and by ascending name. You can override the default using `orderBy` to specify one or more fields to sort by. The default order is always ascending, but you can use an optional `ASC` or `DESC` modifier to specify an ascending or descending sort order. For example, specifying `orderBy=name DESC` returns a mixed folder/file list in descending name order. You can use any of the following fields to order the results: `isFolder`, `name`, `mimeType`, `nodeType`, `sizeInBytes`, `modifiedAt`, `createdAt`, `modifiedByUser`, `createdByUser`|TODO|
 |`skipCount`|The number of entities that exist in the collection before those included in this list, useful when implementing paging scenarios. If not supplied then the default value is `0`.|TODO|
 |`maxItems`|The maximum number of items to return in the list, useful when implementing paging scenarios. If not supplied then the default value is `100`.|TODO|
-|`autoRename`||TODO|
-|`majorVersion`||TODO|
-|`versioningEnabled`||TODO|
-|`updateComment`||TODO|
-|`updatedName`||TODO|
-|`where`||TODO|
-|`includeSource`||TODO|
-|`autoRename`||TODO|
+|`autoRename`|If `true`, then a name clash will cause an attempt to auto rename by finding a unique name using an integer suffix.|TODO|
+|`versioningEnabled`|Should versioning of files be enabled at all? |TODO|
+|`majorVersion`|If `true`, then it will be a major version, such as 1.0, 2.0 etc. If `false`, then the version change will be 1.1, 1.2, which is a minor version change.|TODO|
+|`updateComment`|Add a version comment which will appear in version history. Setting this parameter also enables versioning of this node, if it is not already versioned.|`String updateComment = "A comment";`|
+|`updatedName`|Optional new name of the node, sets `cm:name`. This should include the file extension. The name must not contain spaces or the following special characters: `* " < > \ / ? : |`. The character `.` must not be used at the end of the name.|TODO|
 
 ## === Managing Folders and Files ===
 The following sections walk through how to use the Java ReST API wrapper services when managing folders and files.
@@ -76,10 +75,7 @@ public class ListFolderContent {
         List<String> include = null;
         List<String> fields = null;
         List<String> orderBy = null;
-        // Optionally filter the node list.
         String where = null;
-        // Also include `source` in addition to `entries` with folder information on the parent node –
-        // either the specified parent nodeId, or as resolved by relativePath.
         Boolean includeSource = false;
 
         LOGGER.info("Listing folder {}{}", rootNodeId, relativeFolderPath);
@@ -103,7 +99,7 @@ and set the `where` clause parameter.
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#filtercontentsfolder)
 
-For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+For a description of the common parameters, such as `where` and `include`, see this [section](#common-parameters).
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -129,11 +125,11 @@ public class ListFolderContent {
     }
     
     /**
-     * List contents (i.e. folders and files) of a folder.
+     * List sub-folders of a folder.
      *
      * @param rootNodeId         the id of the folder node that is the root. If relativeFolderPath is null, then content in this folder will be listed. Besides node ID the aliases -my-, -root- and -shared- are also supported.
      * @param relativeFolderPath path relative rootNodeId, if this is not null, then the content of this folder will be listed
-     * @return a list of child node objects contained in the folder, or null if not found
+     * @return a list of child folder node objects contained in the folder, or null if not found
      */
     private NodeChildAssociationPagingList listFolderContent(String rootNodeId, String relativeFolderPath) {
         Integer skipCount = 0;         
@@ -141,22 +137,14 @@ public class ListFolderContent {
         List<String> include = null;
         List<String> fields = null;
         List<String> orderBy = null;
-        // Optionally filter the node list.
-        // Here are some examples:
-        // where=(isFolder=true)
-        // where=(isFile=true)
-        // where=(nodeType='my:specialNodeType')
-        // where=(nodeType='my:specialNodeType INCLUDESUBTYPES')
         String where = "(isFolder=true)";
-        // Also include `source` in addition to `entries` with folder information on the parent node –
-        // either the specified parent nodeId, or as resolved by relativePath.
         Boolean includeSource = false;
 
         LOGGER.info("Listing folder {}{} with filter {}", rootNodeId, relativeFolderPath, where);
         NodeChildAssociationPagingList result = nodesApi.listNodeChildren(rootNodeId, skipCount, maxItems, orderBy, where, include,
                 relativeFolderPath, includeSource, fields).getBody().getList();
         for (NodeChildAssociationEntry childNodeAssoc: result.getEntries()) {
-            LOGGER.info("Found node [name=" + childNodeAssoc.getEntry().getName() + "]");
+            LOGGER.info("Found folder node [name=" + childNodeAssoc.getEntry().getName() + "]");
         }
 
         return result;
@@ -343,9 +331,8 @@ public class CreateFolder {
         Map<String, String> folderProps = new HashMap<>();
         folderProps.put("cm:title", folderTitle);
         folderProps.put("cm:description", folderDescription);
-
-        // The identifier of a node. You can also use one of these well-known aliases: * -my- * -shared- * -root-
-        String nodeId = rootPath;
+        
+        String nodeId = rootPath; // The id of a node. You can also use one of these well-known aliases: -my-, -shared-, -root-
         NodeBodyCreate nodeBodyCreate = new NodeBodyCreate();
         nodeBodyCreate.setName(folderName);
         nodeBodyCreate.setNodeType(folderType);
@@ -355,10 +342,7 @@ public class CreateFolder {
 
         List<String> include = null;
         List<String> fields = null;
-        // If true, then  a name clash will cause an attempt to auto rename by
-        // finding a unique name using an integer suffix.
         Boolean autoRename = true;
-        // Should this be a major version?
         Boolean majorVersion = true;
         // Should versioning be enabled at all?
         Boolean versioningEnabled = true;
@@ -407,20 +391,11 @@ public class CreateFile {
 
     private List<String> include = null;
     private List<String> fields = null;
-    // Set generic file content
-    private String contentType = "cm:content";
-    // If true, then  a name clash will cause an attempt to auto rename by
-    // finding a unique name using an integer suffix.
+    private String contentType = "cm:content"; // Out-of-the-box content type for generic file content
     private Boolean autoRename = true;
-    // If true, then created node will be version 1.0 MAJOR. If false, then created node will be version 0.1 MINOR.
     private Boolean majorVersion = true;
-    // Should versioning be enabled at all?
     private Boolean versioningEnabled = true;
-    // Add a version comment which will appear in version history. Setting this parameter also enables versioning of
-    // this node, if it is not already versioned.
     private String updateComment = null;
-    // Optional new name. This should include the file extension. The name must not contain spaces or the following
-    // special characters: * " < > \ / ? : and |. The character `.` must not be used at the end of the name.
     private String updatedName = null;
 
     @Autowired
@@ -580,24 +555,14 @@ import java.util.Map;
 public class CreateFileCustomTypeCmd {
     static final Logger LOGGER = LoggerFactory.getLogger(CreateFileCustomTypeCmd.class);
 
+    private String contentType = "acme:document"; // Set custom content type
+    private Boolean autoRename = true;
+    private Boolean majorVersion = true;
+    private Boolean versioningEnabled = true;
+    private String updateComment = null;
+    private String updatedName = null;
     private List<String> include = null;
     private List<String> fields = null;
-
-    // Set custom content type
-    private String contentType = "acme:document";
-    // If true, then  a name clash will cause an attempt to auto rename by
-    // finding a unique name using an integer suffix.
-    private Boolean autoRename = true;
-    // If true, then created node will be version 1.0 MAJOR. If false, then created node will be version 0.1 MINOR.
-    private Boolean majorVersion = true;
-    // Should versioning be enabled at all?
-    private Boolean versioningEnabled = true;
-    // Add a version comment which will appear in version history. Setting this parameter also enables versioning of
-    // this node, if it is not already versioned.
-    private String updateComment = null;
-    // Optional new name. This should include the file extension. The name must not contain spaces or the following
-    // special characters: * " < > \ / ? : and |. The character `.` must not be used at the end of the name.
-    private String updatedName = null;
 
     @Autowired
     NodesApi nodesApi;
@@ -698,7 +663,7 @@ method, which will set the new content for the file.
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#uploadnewversionfile)
 
-For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+For a description of the common parameters, such as `majorVersion`, see this [section](#common-parameters).
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -720,18 +685,12 @@ import java.util.Map;
 @Component
 public class UploadNewFileVersionCmd {
     static final Logger LOGGER = LoggerFactory.getLogger(UploadNewFileVersionCmd.class);
-
+    
+    private Boolean majorVersion = true;
+    private String updateComment = null;
+    private String updatedName = null;
     private List<String> include = null;
     private List<String> fields = null;
-
-    // If true, then created node will be version 1.0 MAJOR. If false, then created node will be version 0.1 MINOR.
-    private Boolean majorVersion = true;
-    // Add a version comment which will appear in version history. Setting this parameter also enables versioning of
-    // this node, if it is not already versioned.
-    private String updateComment = null;
-    // Optional new name. This should include the file extension. The name must not contain spaces or the following
-    // special characters: * " < > \ / ? : and |. The character `.` must not be used at the end of the name.
-    private String updatedName = null;
 
     @Autowired
     NodesApi nodesApi;
@@ -1191,6 +1150,8 @@ To list content renditions for a file use the [`RenditionsApi.listRenditions`](h
 method.
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#listfilerenditions)
+
+For a description of the common parameters, such as `where`, see this [section](#common-parameters).
 
 ```java
 import org.alfresco.core.handler.RenditionsApi;
@@ -1760,14 +1721,14 @@ and the following methods:
 
 |Method|Description|
 |------|-----------|
-|[**listNodeChildren**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listNodeChildren)|List primary parent-child associations, see [list folder content](#listfoldercontent) |
-|[**createSecondaryChildAssociation**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createSecondaryChildAssociation)|Create secondary parent-child association|
-|[**deleteSecondaryChildAssociation**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#deleteSecondaryChildAssociation)|Delete secondary parent-child association|
-|[**listSecondaryChildren**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listSecondaryChildren)|List secondary parent-child associations|
-|[**createAssociation**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createAssociation)|Create peer-2-peer association|
-|[**deleteAssociation**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#deleteAssociation)|Delete peer-2-peer association(s)|
-|[**listSourceAssociations**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listSourceAssociations)|List source peer-2-peer associations|
-|[**listTargetAssociations**](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listTargetAssociations)|List target peer-2-peer associations|
+|[listNodeChildren](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listNodeChildren)|List primary parent-child associations, see [list folder content](#listfoldercontent) |
+|[createSecondaryChildAssociation](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createSecondaryChildAssociation)|Create secondary parent-child association|
+|[deleteSecondaryChildAssociation](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#deleteSecondaryChildAssociation)|Delete secondary parent-child association|
+|[listSecondaryChildren](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listSecondaryChildren)|List secondary parent-child associations|
+|[createAssociation](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createAssociation)|Create peer-2-peer association|
+|[deleteAssociation](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#deleteAssociation)|Delete peer-2-peer association(s)|
+|[listSourceAssociations](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listSourceAssociations)|List source peer-2-peer associations|
+|[listTargetAssociations](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listTargetAssociations)|List target peer-2-peer associations|
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#workingwithrelbetweennodes)
 
@@ -2216,10 +2177,246 @@ Executing the above code will result in logs such as follows:
 To create associations for existing nodes use the `createSecondaryChildAssociation` and `createAssociation` methods.
 
 ## Manage comments for a folder or file
-TODO
+To manage comments for a node, use the [`CommentsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/CommentsApi.md){:target="_blank"}
+and the following methods:
+
+|Method|Description|
+|------|-----------|
+|[createComment](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/CommentsApi.md#createComment)|Create a comment for a node| 
+|[deleteComment](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/CommentsApi.md#deleteComment)|Delete a comment for a node| 
+|[listComments](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/CommentsApi.md#listComments)|List comments for a node| 
+|[updateComment](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/CommentsApi.md#updateComment)|Update a comment for a node| 
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#managecomments)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.CommentsApi;
+import org.alfresco.core.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class ManageCommentsCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ManageCommentsCmd.class);
+
+    private Integer skipCount = 0;
+    private Integer maxItems = 100;
+    private List<String> fields = new ArrayList<>();
+
+    // Fetch only the fields we are interested in
+    public ManageCommentsCmd() {
+        fields.add("content,createdAt");
+    }
+
+    @Autowired
+    CommentsApi commentsApi;
+
+    public void execute(String nodeId) throws IOException {
+        Comment firstComment = createComment(nodeId, "First comment");
+        Comment secondComment = createComment(nodeId, "Second comment");
+
+        LOGGER.info("Listing comments: ");
+        CommentPagingList comments = commentsApi.listComments(nodeId, skipCount, maxItems, fields).getBody().getList();
+        for (CommentEntry commentEntry: comments.getEntries()) {
+            LOGGER.info("    {}", commentEntry.getEntry());
+        }
+    }
+
+    private Comment createComment(String nodeId, String text) {
+        CommentBody commentBody = new CommentBody();
+        commentBody.setContent(text);
+        Comment comment = commentsApi.createComment(nodeId, commentBody, fields).getBody().getEntry();
+        LOGGER.info("{}", comment);
+        return comment;
+    }
+}
+```
+
+Note the use of the `fields` parameter to limit the number of fields returned with each call, which saves bandwidth.
+
+Executing the code gives a log like follows:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar manage-comments 0492460b-6269-4ca1-9668-0d934d2f3370
+
+2021-05-03 18:54:45.538  INFO 26804 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 26804 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-03 18:54:45.542  INFO 26804 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-03 18:54:46.357  INFO 26804 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ebdcba5c-32fa-3044-88ec-b593933d7201
+2021-05-03 18:54:48.085  INFO 26804 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.075 seconds (JVM running for 3.55)
+2021-05-03 18:54:48.087  INFO 26804 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: manage-comments
+2021-05-03 18:54:48.088  INFO 26804 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-05-03 18:54:48.373  INFO 26804 --- [           main] o.a.tutorial.restapi.ManageCommentsCmd   : class Comment {
+    id: null
+    title: null
+    content: First comment
+    createdBy: null
+    createdAt: 2021-05-03T17:54:48.224Z
+    edited: null
+    modifiedBy: null
+    modifiedAt: null
+    canEdit: null
+    canDelete: null
+}
+2021-05-03 18:54:48.492  INFO 26804 --- [           main] o.a.tutorial.restapi.ManageCommentsCmd   : class Comment {
+    id: null
+    title: null
+    content: Second comment
+    createdBy: null
+    createdAt: 2021-05-03T17:54:48.417Z
+    edited: null
+    modifiedBy: null
+    modifiedAt: null
+    canEdit: null
+    canDelete: null
+}
+2021-05-03 18:54:48.492  INFO 26804 --- [           main] o.a.tutorial.restapi.ManageCommentsCmd   : Listing comments: 
+2021-05-03 18:54:48.545  INFO 26804 --- [           main] o.a.tutorial.restapi.ManageCommentsCmd   :     class Comment {
+    id: null
+    title: null
+    content: Second comment
+    createdBy: null
+    createdAt: 2021-05-03T17:54:48.417Z
+    edited: null
+    modifiedBy: null
+    modifiedAt: null
+    canEdit: null
+    canDelete: null
+}
+2021-05-03 18:54:48.545  INFO 26804 --- [           main] o.a.tutorial.restapi.ManageCommentsCmd   :     class Comment {
+    id: null
+    title: null
+    content: First comment
+    createdBy: null
+    createdAt: 2021-05-03T17:54:48.224Z
+    edited: null
+    modifiedBy: null
+    modifiedAt: null
+    canEdit: null
+    canDelete: null
+}
+```
 
 ## Manage tags for a folder or file
-TODO
+To manage tags for a node, use the [`TagsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TagsApi.md){:target="_blank"}
+and the following methods:
+
+|Method|Description|
+|------|-----------|
+[createTagForNode](TagsApi.md#createTagForNode)|Create a tag for a node| 
+[deleteTagFromNode](TagsApi.md#deleteTagFromNode)|Delete a tag from a node| 
+[getTag](TagsApi.md#getTag)|Get a tag| 
+[listTags](TagsApi.md#listTags)|List tags| 
+[listTagsForNode](TagsApi.md#listTagsForNode)|List tags for a node| 
+[updateTag](TagsApi.md#updateTag)|Update a tag| 
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#managecomments)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.TagsApi;
+import org.alfresco.core.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class ManageTagsCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ManageTagsCmd.class);
+
+    private Integer skipCount = 0;
+    private Integer maxItems = 100;
+    private List<String> fields = null;
+    private List<String> include = new ArrayList<>();
+
+    // Include an extra field with tag count
+    public ManageTagsCmd() {
+        include.add("count");
+    }
+
+    @Autowired
+    TagsApi tagsApi;
+
+    public void execute(String nodeId) throws IOException {
+        Tag firstTag = createTag(nodeId, "tag-one");
+        Tag secondTag = createTag(nodeId, "tag-two");
+
+        LOGGER.info("Listing tags for the whole repository: ");
+        TagPagingList repoTags = tagsApi.listTags(skipCount, maxItems, fields, include).getBody().getList();
+        for (TagEntry repoTagEntry: repoTags.getEntries()) {
+            LOGGER.info("    {} count: {}", repoTagEntry.getEntry().getTag(), repoTagEntry.getEntry().getCount());
+        }
+
+        LOGGER.info("Listing tags for node: {}", nodeId);
+        TagPagingList nodeTags = tagsApi.listTagsForNode(nodeId, skipCount, maxItems, fields).getBody().getList();
+        for (TagEntry nodeTagEntry: nodeTags.getEntries()) {
+            LOGGER.info("    {}", nodeTagEntry.getEntry());
+        }
+    }
+
+    private Tag createTag(String nodeId, String text) {
+        TagBody tagBody = new TagBody();
+        tagBody.setTag(text);
+        Tag tag = tagsApi.createTagForNode(nodeId, tagBody, fields).getBody().getEntry();
+        LOGGER.info("Created Tag {}", tag);
+        return tag;
+    }
+}
+```
+Executing the code gives a log like follows:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar manage-tags 0492460b-6269-4ca1-9668-0d934d2f3370
+
+2021-05-04 09:56:23.448  INFO 27655 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 27655 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-04 09:56:23.451  INFO 27655 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-04 09:56:24.178  INFO 27655 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=dee6f89b-5e5a-3852-b582-7032d13391d4
+2021-05-04 09:56:25.846  INFO 27655 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.884 seconds (JVM running for 3.333)
+2021-05-04 09:56:25.848  INFO 27655 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: manage-tags
+2021-05-04 09:56:25.849  INFO 27655 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-05-04 09:56:26.073  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       : Created Tag class Tag {
+    id: a6da6c4d-cb6b-41b5-a010-7188459dd3cb
+    tag: tag-one
+    count: null
+}
+2021-05-04 09:56:26.175  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       : Created Tag class Tag {
+    id: 9a9044c9-3787-44ca-bd92-c6797c9a82ae
+    tag: tag-two
+    count: null
+}
+2021-05-04 09:56:26.175  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       : Listing tags for the whole repository: 
+2021-05-04 09:56:26.288  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       :     activiti count: 3
+2021-05-04 09:56:26.288  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       :     aps count: 1
+2021-05-04 09:56:26.288  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       :     tag-one count: null
+2021-05-04 09:56:26.288  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       :     tag-two count: null
+2021-05-04 09:56:26.288  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       :     white-paper count: 2
+2021-05-04 09:56:26.288  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       : Listing tags for node: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-05-04 09:56:26.310  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       :     class Tag {
+    id: a6da6c4d-cb6b-41b5-a010-7188459dd3cb
+    tag: tag-one
+    count: null
+}
+2021-05-04 09:56:26.310  INFO 27655 --- [           main] o.a.tutorial.restapi.ManageTagsCmd       :     class Tag {
+    id: 9a9044c9-3787-44ca-bd92-c6797c9a82ae
+    tag: tag-two
+    count: null
+}
+```
+
+Note that the tag count are not available directly after you have created the tag. It has to be indexed first.
 
 ## Copy folders and files
 TODO
