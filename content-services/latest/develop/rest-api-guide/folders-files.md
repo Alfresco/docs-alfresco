@@ -4292,7 +4292,7 @@ done via the `/search` API and the `TAG:{tag}` keyword.
 
 See the [complex search]({% link content-services/latest/develop/rest-api-guide/searching.md %}#searchbyquery) page for an example.
 
-## Copy folders and files
+## Copy folders and files {#copynode}
 
 Copying folders and files means copying nodes.
 
@@ -4361,7 +4361,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-## Move folders and files
+## Move folders and files {#movenode}
 
 Moving folders and files means moving nodes.
 
@@ -4434,7 +4434,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-## Lock a file for editing
+## Lock a file for editing {#locknode}
 
 Locking a file is sometimes necessary when you want to edit it while no one else should be able to.
 

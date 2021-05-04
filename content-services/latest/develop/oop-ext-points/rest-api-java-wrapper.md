@@ -14,7 +14,7 @@ them under multiple sections:
 
 |Parameter|Description|Usage|
 |---------|-----------|-----|
-|`include`|Use this parameter to return additional information about the node. The following optional fields can be requested: `allowableOperations`, `aspectNames`, `association`, `isLink`, `isFavorite`, `isLocked`, `path`, `properties`, `permissions`.|`List<String> include = new ArrayList<>(); include.add("permissions");` |
+|`include`|Use this parameter to return additional information about the node. The following optional fields can be requested: `allowableOperations`, `aspectNames`, `association`, `isLink`, `isFavorite`, `isLocked`, `path`, `properties`, `permissions`.|`List<String> include = new ArrayList<>(); include.add("permissions");`|
 |`fields`| You can use this parameter to restrict the fields returned within a response if, for example, you want to save on overall bandwidth. The list applies to a returned individual entity or entries within a collection. If the API method also supports the `include` parameter, then the fields specified in `include` parameter are returned in addition to those specified in the `fields` parameter.|`List<String> fields = new ArrayList<>(); fields.add("content,createdAt");`<br/>Note that all fields have to be added as one item comma separated.|
 |`where`|Optionally filter the node list.|Here are some examples:<br/>`where=(isFolder=true)`<br/>`where=(isFile=true)`<br/>`where=(nodeType='my:specialNodeType')`<br/>`where=(nodeType='my:specialNodeType INCLUDESUBTYPES')`|
 |`includeSource`|Also include `source` in addition to `entries` with folder information on the parent node – either the specified parent nodeId, or as resolved by `relativePath`|TODO|
@@ -2419,13 +2419,310 @@ Executing the code gives a log like follows:
 Note that the tag count are not available directly after you have created the tag. It has to be indexed first.
 
 ## Copy folders and files
-TODO
+To copy a node, such as a file or folder, use the `copyNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#copyNode){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#copynode)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.Node;
+import org.alfresco.core.model.NodeBodyCopy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class CopyNodeCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(CopyNodeCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String nodeId, String parentFolderNodeId) throws IOException {
+        List<String> include = new ArrayList<>();
+        List<String> fields = null;
+
+        include.add("path"); // add extra path property in response so we can see location of node
+
+        Node node = nodesApi.getNode(nodeId, include, null, fields).getBody().getEntry();
+        LOGGER.info("Got node we want to copy ID: {} Parent: {} Location: {}",
+                node.getId(), node.getParentId(), node.getPath().getName());
+
+        NodeBodyCopy nodeBodyCopy = new NodeBodyCopy();
+        nodeBodyCopy.setTargetParentId(parentFolderNodeId);
+        Node copiedNode = nodesApi.copyNode(nodeId, nodeBodyCopy, include, fields).getBody().getEntry();
+        LOGGER.info("Copied node ID: {} Parent: {} Location: {}",
+                copiedNode.getId(), copiedNode.getParentId(), copiedNode.getPath().getName());
+    }
+}
+```
+
+Executing this code would give the following result, passing in node to copy and target folder node:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar copy-node 0492460b-6269-4ca1-9668-0d934d2f3370 7f041db0-fdb6-4185-b921-2fb9ed381480
+
+2021-05-04 10:52:13.655  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 28353 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-04 10:52:13.661  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-04 10:52:14.686  INFO 28353 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d9599038-7eb9-3338-8b05-7e0067af2eb4
+2021-05-04 10:52:16.741  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.667 seconds (JVM running for 4.218)
+2021-05-04 10:52:16.743  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: copy-node
+2021-05-04 10:52:16.745  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-05-04 10:52:16.745  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: 7f041db0-fdb6-4185-b921-2fb9ed381480
+2021-05-04 10:52:16.974  INFO 28353 --- [           main] o.alfresco.tutorial.restapi.CopyNodeCmd  : Got node we want to copy ID: 0492460b-6269-4ca1-9668-0d934d2f3370 Parent: 8fa4e27d-35aa-411d-8bbe-831b6ed0c445 Location: /Company Home/Guest Home
+2021-05-04 10:52:17.366  INFO 28353 --- [           main] o.alfresco.tutorial.restapi.CopyNodeCmd  : Copied node ID: fe955da0-c4e5-42d3-972f-697424b546b1 Parent: 7f041db0-fdb6-4185-b921-2fb9ed381480 Location: /Company Home/Imap Attachments
+```
+
+Note the new node ID for the copy in the response. 
+
+Note that we set the `include` parameter to `path` so the location of the node is returned.
+The following extra information is returned:
+
+```bash
+Location: class PathInfo {
+    elements: [class PathElement {
+        id: e439190c-3fe0-48a1-8a9a-374fbc54b570
+        name: Company Home
+        nodeType: cm:folder
+        aspectNames: [cm:titled, cm:auditable, app:uifacets]
+    }, class PathElement {
+        id: 7f041db0-fdb6-4185-b921-2fb9ed381480
+        name: Imap Attachments
+        nodeType: cm:folder
+        aspectNames: [cm:titled, cm:auditable, app:uifacets]
+    }]
+    name: /Company Home/Imap Attachments
+    isComplete: true
+}
+```
 
 ## Move folders and files
-TODO
+To copy a node, such as a file or folder, use the `moveNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#moveNode){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#movenode)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.Node;
+import org.alfresco.core.model.NodeBodyMove;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class MoveNodeCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(MoveNodeCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String nodeId, String parentFolderNodeId) throws IOException {
+        List<String> include = new ArrayList<>();
+        List<String> fields = null;
+
+        include.add("path"); // add extra path property in response so we can see location of node
+
+        Node node = nodesApi.getNode(nodeId, include, null, fields).getBody().getEntry();
+        LOGGER.info("Got node before move ID: {} Parent: {} Location: {}",
+                node.getId(), node.getParentId(), node.getPath().getName());
+
+        NodeBodyMove nodeBodyMove = new NodeBodyMove();
+        nodeBodyMove.setTargetParentId(parentFolderNodeId);
+        Node movedNode = nodesApi.moveNode(nodeId, nodeBodyMove, include, fields).getBody().getEntry();
+        LOGGER.info("Moved node ID: {} Parent: {} Location: {}",
+                movedNode.getId(), movedNode.getParentId(), movedNode.getPath().getName());
+    }
+}
+
+```
+
+Executing this code would give the following result, passing in node to copy and target folder node:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar move-node d11d6970-c5c4-4edd-9971-593a23b9344f 7f041db0-fdb6-4185-b921-2fb9ed381480
+
+2021-05-04 10:45:44.472  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 28288 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-04 10:45:44.476  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-04 10:45:45.300  INFO 28288 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d9599038-7eb9-3338-8b05-7e0067af2eb4
+2021-05-04 10:45:47.080  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.103 seconds (JVM running for 3.568)
+2021-05-04 10:45:47.081  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: move-node
+2021-05-04 10:45:47.082  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: d11d6970-c5c4-4edd-9971-593a23b9344f
+2021-05-04 10:45:47.082  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: 7f041db0-fdb6-4185-b921-2fb9ed381480
+2021-05-04 10:45:47.276  INFO 28288 --- [           main] o.alfresco.tutorial.restapi.MoveNodeCmd  : Got node before move ID: d11d6970-c5c4-4edd-9971-593a23b9344f Parent: 8fa4e27d-35aa-411d-8bbe-831b6ed0c445 Location: /Company Home/Guest Home
+2021-05-04 10:45:47.458  INFO 28288 --- [           main] o.alfresco.tutorial.restapi.MoveNodeCmd  : Moved node ID: d11d6970-c5c4-4edd-9971-593a23b9344f Parent: 7f041db0-fdb6-4185-b921-2fb9ed381480 Location: /Company Home/Imap Attachments
+```
+
+Note that the node ID in the response is the same as passed in node ID, it is just the location of the node that 
+has changed when moving it.
+
+Note that we set the `include` parameter to `path` so the location of the node is returned. 
+The following extra information is returned:
+
+```bash
+Location: class PathInfo {
+    elements: [class PathElement {
+        id: e439190c-3fe0-48a1-8a9a-374fbc54b570
+        name: Company Home
+        nodeType: cm:folder
+        aspectNames: [cm:titled, cm:auditable, app:uifacets]
+    }, class PathElement {
+        id: 7f041db0-fdb6-4185-b921-2fb9ed381480
+        name: Imap Attachments
+        nodeType: cm:folder
+        aspectNames: [cm:titled, cm:auditable, app:uifacets]
+    }]
+    name: /Company Home/Imap Attachments
+    isComplete: true
+}
+```
 
 ## Lock a file for editing
-TODO
+To lock a file for editing, use the `lockNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#lockNode){:target="_blank"}.
+Use the `unlockNode` method when you are finished editing the node.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#locknode)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.Node;
+import org.alfresco.core.model.NodeBodyLock;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class LockNodeCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(LockNodeCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String nodeId) throws IOException {
+        List<String> include = null;
+        List<String> fields = null;
+
+        Node node = nodesApi.getNode(nodeId, include, null, fields).getBody().getEntry();
+        LOGGER.info("Got node we want to lock ID: {} Is locked ?: {}", node.getId(), node.isIsLocked());
+
+        if (!node.isIsLocked()) {
+            // Lock the file with exclusive lock
+            NodeBodyLock nodeBodyLock = new NodeBodyLock();
+            Node lockedNode = nodesApi.lockNode(nodeId, nodeBodyLock, include, fields).getBody().getEntry();
+            LOGGER.info("Locked node: {}", lockedNode);
+
+            // Do the work on the file
+
+            // Unlock the file
+            Node unLockedNode = nodesApi.unlockNode(nodeId, include, fields).getBody().getEntry();
+            LOGGER.info("Unlocked node: {}", unLockedNode);
+
+        }
+    }
+}
+```
+
+Executing this code would give the following result, passing in node to lock:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar lock-node 0492460b-6269-4ca1-9668-0d934d2f3370                                 
+
+2021-05-04 11:12:48.131  INFO 28630 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 28630 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-04 11:12:48.136  INFO 28630 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-04 11:12:49.231  INFO 28630 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8dc3abb2-57d1-3bd8-865d-d387331673ce
+2021-05-04 11:12:51.070  INFO 28630 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.722 seconds (JVM running for 4.523)
+2021-05-04 11:12:51.072  INFO 28630 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: lock-node
+2021-05-04 11:12:51.074  INFO 28630 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
+2021-05-04 11:12:51.285  INFO 28630 --- [           main] o.alfresco.tutorial.restapi.LockNodeCmd  : Got node we want to lock ID: 0492460b-6269-4ca1-9668-0d934d2f3370 Is locked ?: false
+2021-05-04 11:12:51.671  INFO 28630 --- [           main] o.alfresco.tutorial.restapi.LockNodeCmd  : Locked node: class Node {
+    id: 0492460b-6269-4ca1-9668-0d934d2f3370
+    name: newname.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-05-04T08:56:26.135Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-28T12:02:33.143Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 8fa4e27d-35aa-411d-8bbe-831b6ed0c445
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 30
+        encoding: ISO-8859-1
+    }
+    aspectNames: [rn:renditioned, cm:versionable, acme:securityClassified, cm:taggable, cm:thumbnailModification, fm:discussable, cm:titled, cm:lockable, cm:auditable, fm:commentsRollup, cm:author]
+    properties: {cm:lockType=WRITE_LOCK, cm:title=UPDATED title, cm:lockOwner={id=admin, displayName=Administrator}, cm:versionType=MAJOR, acme:documentId=DOC-001, cm:versionLabel=3.0, cm:lockLifetime=PERSISTENT, fm:commentCount=2, acme:securityClassification=Company Confidential, cm:lastThumbnailModification=[doclib:1619613896873, pdf:1619701086215], cm:description=UPDATED description, cm:taggable=[a6da6c4d-cb6b-41b5-a010-7188459dd3cb, 9a9044c9-3787-44ca-bd92-c6797c9a82ae]}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+2021-05-04 11:12:51.743  INFO 28630 --- [           main] o.alfresco.tutorial.restapi.LockNodeCmd  : Unlocked node: class Node {
+    id: 0492460b-6269-4ca1-9668-0d934d2f3370
+    name: newname.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-05-04T08:56:26.135Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-28T12:02:33.143Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 8fa4e27d-35aa-411d-8bbe-831b6ed0c445
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 30
+        encoding: ISO-8859-1
+    }
+    aspectNames: [rn:renditioned, cm:versionable, acme:securityClassified, cm:taggable, cm:thumbnailModification, fm:discussable, cm:titled, cm:auditable, fm:commentsRollup, cm:author]
+    properties: {cm:title=UPDATED title, cm:versionType=MAJOR, acme:documentId=DOC-001, cm:versionLabel=3.0, fm:commentCount=2, acme:securityClassification=Company Confidential, cm:lastThumbnailModification=[doclib:1619613896873, pdf:1619701086215], cm:description=UPDATED description, cm:taggable=[a6da6c4d-cb6b-41b5-a010-7188459dd3cb, 9a9044c9-3787-44ca-bd92-c6797c9a82ae]}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+```
+
+Note that the `lockNode` call response contains some extra parameters with lock information, such as 
+`cm:lockType=WRITE_LOCK` and `cm:lockOwner={id=admin, displayName=Administrator}`.
 
 ## Create a link to a file
 TODO
