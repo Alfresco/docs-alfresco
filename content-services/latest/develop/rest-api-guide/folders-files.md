@@ -4573,7 +4573,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 
 We can now see that the `cm:lockable` aspect is no longer applied and the associated properties have been removed.
 
-## Create a link to a file
+## Create a link to a file {#linknode}
 
 Create a link to a file or folder stored somewhere else.
 

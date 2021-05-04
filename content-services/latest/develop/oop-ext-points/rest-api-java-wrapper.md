@@ -2725,10 +2725,152 @@ Note that the `lockNode` call response contains some extra parameters with lock 
 `cm:lockType=WRITE_LOCK` and `cm:lockOwner={id=admin, displayName=Administrator}`.
 
 ## Create a link to a file
-TODO
+To create a link to a file, use the `createNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"}
+and create a node of the type `app:filelink`.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#linknode)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.Node;
+import org.alfresco.core.model.NodeBodyCreate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.*;
+
+@Component
+public class LinkFileCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(LinkFileCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String parentFolderNodeId, String linkToNodeId) throws IOException {
+        Map<String, String> linkProps = new HashMap<>();
+        linkProps.put("cm:destination", linkToNodeId); // Link points to this file node
+
+        NodeBodyCreate nodeBodyCreate = new NodeBodyCreate();
+        nodeBodyCreate.setName("Link to a text file");
+        nodeBodyCreate.setNodeType("app:filelink"); // Out-of-the-box content model type for a file link
+        nodeBodyCreate.setProperties(linkProps);
+
+        Boolean autoRename = true;
+        List<String> include = new ArrayList<>();
+        List<String> fields = null;
+        Boolean majorVersion = true;
+        Boolean versioningEnabled = true;
+
+        // Include the isLink property in the response so we can see if a node is a link
+        include.add("isLink");
+
+        Node fileLinkNode = nodesApi.createNode(parentFolderNodeId, nodeBodyCreate, autoRename, majorVersion,
+                versioningEnabled, include, fields).getBody().getEntry();
+        LOGGER.info("File link: {}", fileLinkNode);
+    }
+}
+```
+
+Executing this code would give the following result, passing in parent folder and node to link:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar link-file 7f041db0-fdb6-4185-b921-2fb9ed381480 48413f7a-066d-4e38-b2e6-c84ede635493
+
+2021-05-04 13:27:40.440  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 29404 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-04 13:27:40.445  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-04 13:27:41.539  INFO 29404 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b1f9a9a7-fdd8-3f08-b1e4-5aa111f87b5c
+2021-05-04 13:27:43.981  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 4.237 seconds (JVM running for 4.904)
+2021-05-04 13:27:43.983  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: link-file
+2021-05-04 13:27:43.985  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 7f041db0-fdb6-4185-b921-2fb9ed381480
+2021-05-04 13:27:43.985  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: 48413f7a-066d-4e38-b2e6-c84ede635493
+2021-05-04 13:27:44.329  INFO 29404 --- [           main] o.alfresco.tutorial.restapi.LinkFileCmd  : File link: class Node {
+    id: c4ab808f-f42b-42a8-b308-d5d82df29830
+    name: Link to a text file
+    nodeType: app:filelink
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-05-04T12:27:44.166Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-05-04T12:27:44.166Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 7f041db0-fdb6-4185-b921-2fb9ed381480
+    isLink: true
+    isFavorite: null
+    content: null
+    aspectNames: [cm:auditable]
+    properties: {cm:destination=48413f7a-066d-4e38-b2e6-c84ede635493}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+```
+
+Note that the `include` parameter has been populated with the `isLink` value, which means the response will contain 
+a value for the `isLink` property.
 
 ## Delete a folder or file
-TODO
+To delete a folder or a file node, use the `deleteNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#deleteNode){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#deletenode)
+
+```java
+package org.alfresco.tutorial.restapi;
+
+import org.alfresco.core.handler.NodesApi;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+
+@Component
+public class DeleteNodeCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(DeleteNodeCmd.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String nodeId) throws IOException {
+        // If true, then the node is deleted permanently, without moving to the trashcan.
+        // Only the owner of the node or an admin can permanently delete the node.
+        // default value = false
+        Boolean permanent = false;
+
+        ResponseEntity<Void> deletedNodeResponse = nodesApi.deleteNode(nodeId, permanent);
+        LOGGER.info("Deleted node response: {}", deletedNodeResponse);
+    }
+}
+```
+
+Executing this code would give the following result, passing in the node to delete:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar delete-node fe955da0-c4e5-42d3-972f-697424b546b1                                   
+
+2021-05-04 13:47:07.413  INFO 29542 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 29542 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-04 13:47:07.417  INFO 29542 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-04 13:47:08.370  INFO 29542 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e76eb692-983a-3521-bbc5-a28de1410e18
+2021-05-04 13:47:10.376  INFO 29542 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.639 seconds (JVM running for 4.406)
+2021-05-04 13:47:10.377  INFO 29542 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: delete-node
+2021-05-04 13:47:10.379  INFO 29542 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: fe955da0-c4e5-42d3-972f-697424b546b1
+2021-05-04 13:47:10.787  INFO 29542 --- [           main] o.a.tutorial.restapi.DeleteNodeCmd       : Deleted node response: 
+  <204 NO_CONTENT No Content,[cache-control:"no-cache", connection:"keep-alive", content-type:"application/json;charset=UTF-8", date:"Tue, 04 May 2021 12:47:10 GMT", expires:"Thu, 01 Jan 1970 00:00:00 GMT", pragma:"no-cache", server:"nginx/1.18.0", x-frame-options:"SAMEORIGIN"]>
+```
 
 ## List deleted folders and files (Trashcan)
 TODO
