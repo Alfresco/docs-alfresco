@@ -2827,8 +2827,6 @@ To delete a folder or a file node, use the `deleteNode` method of the [`NodesApi
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#deletenode)
 
 ```java
-package org.alfresco.tutorial.restapi;
-
 import org.alfresco.core.handler.NodesApi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -2873,10 +2871,243 @@ Executing this code would give the following result, passing in the node to dele
 ```
 
 ## List deleted folders and files (Trashcan)
-TODO
+To list deleted nodes, use the `listDeletedNodes` method of the [`TrashcanApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TrashcanApi.md#listDeletedNodes){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#listdeletedfiles)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.TrashcanApi;
+import org.alfresco.core.model.DeletedNodeEntry;
+import org.alfresco.core.model.DeletedNodesPaging;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class ListDeletedNodesCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListDeletedNodesCmd.class);
+
+    @Autowired
+    TrashcanApi trashcanApi;
+
+    public void execute() throws IOException {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        List<String> include = new ArrayList<>();
+        include.add("path");
+
+        LOGGER.info("Listing soft deleted nodes in the trashcan:");
+        DeletedNodesPaging deletedNodes = trashcanApi.listDeletedNodes(skipCount, maxItems, include).getBody();
+        for (DeletedNodeEntry deletedNodeEntry: deletedNodes.getList().getEntries()) {
+            LOGGER.info("    Deleted node: {}", deletedNodeEntry.getEntry());
+        }
+    }
+}
+```
+
+Executing this code would list the soft deleted nodes that exist in the so called "Trashcan":
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-deleted-nodes                                       
+
+2021-05-05 09:38:53.223  INFO 14986 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 14986 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-05 09:38:53.226  INFO 14986 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-05 09:38:53.979  INFO 14986 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d6aa9570-9f13-3e29-a31b-181544b655d0
+2021-05-05 09:38:54.983  INFO 14986 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 4.404 seconds (JVM running for 4.861)
+2021-05-05 09:38:54.985  INFO 14986 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-deleted-nodes
+2021-05-05 09:38:54.986  INFO 14986 --- [           main] o.a.t.restapi.ListDeletedNodesCmd        : Listing soft deleted nodes in the trashcan:
+2021-05-05 09:38:55.333  INFO 14986 --- [           main] o.a.t.restapi.ListDeletedNodesCmd        :     Deleted node: class DeletedNode {
+    id: d32e1b4b-2ae0-48c2-9ee7-6323f8f4e96b
+    name: My Gadgets
+    nodeType: cm:folder
+    isFolder: true
+    isFile: false
+    isLocked: false
+    modifiedAt: 2021-04-30T15:46:17.334Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-04-30T15:46:16.332Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: null
+    isLink: null
+    isFavorite: null
+    content: null
+    aspectNames: null
+    properties: null
+    allowableOperations: null
+    path: class PathInfo {
+        elements: [class PathElement {
+            id: e439190c-3fe0-48a1-8a9a-374fbc54b570
+            name: Company Home
+            nodeType: cm:folder
+            aspectNames: [cm:titled, cm:auditable, app:uifacets]
+        }]
+        name: /Company Home
+        isComplete: true
+    }
+    permissions: null
+    definition: null
+    archivedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    archivedAt: 2021-05-05T08:36:11.141Z
+}
+2021-05-05 09:38:55.333  INFO 14986 --- [           main] o.a.t.restapi.ListDeletedNodesCmd        :     Deleted node: class DeletedNode {
+    id: fe955da0-c4e5-42d3-972f-697424b546b1
+    name: newname.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-05-04T09:52:17.053Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-05-04T09:52:17.053Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: null
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 30
+        encoding: ISO-8859-1
+    }
+    aspectNames: null
+    properties: null
+    allowableOperations: null
+    path: class PathInfo {
+        elements: [class PathElement {
+            id: e439190c-3fe0-48a1-8a9a-374fbc54b570
+            name: Company Home
+            nodeType: cm:folder
+            aspectNames: [cm:titled, cm:auditable, app:uifacets]
+        }, class PathElement {
+            id: 7f041db0-fdb6-4185-b921-2fb9ed381480
+            name: Imap Attachments
+            nodeType: cm:folder
+            aspectNames: [cm:titled, cm:auditable, app:uifacets]
+        }]
+        name: /Company Home/Imap Attachments
+        isComplete: true
+    }
+    permissions: null
+    definition: null
+    archivedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    archivedAt: 2021-05-04T12:47:10.524Z
+}
+```
+
+Note the extra properties at the end that tells you when the node was soft deleted and by who (i.e. `archivedAt` and 
+`archivedByUser`). Also, by setting the `include` parameter to `path` we get information about where the node was located
+before it was deleted (i.e. `path.name`)
 
 ## Restore deleted folders and files (Trashcan)
-TODO
+To list deleted nodes, use the `restoreDeletedNode` method of the [`TrashcanApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TrashcanApi.md#restoreDeletedNode){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#restorefile)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.TrashcanApi;
+import org.alfresco.core.model.DeletedNodeBodyRestore;
+import org.alfresco.core.model.NodeEntry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class RestoreDeletedNodeCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(RestoreDeletedNodeCmd.class);
+
+    @Autowired
+    TrashcanApi trashcanApi;
+
+    public void execute(String nodeId, String restoreFolderId) throws IOException {
+        List<String> fields = null;
+
+        // POST body need to ne supplied with target folder ID
+        DeletedNodeBodyRestore deletedNodeBodyRestore = new DeletedNodeBodyRestore();
+        deletedNodeBodyRestore.setTargetParentId(restoreFolderId);
+        deletedNodeBodyRestore.setAssocType("cm:contains");
+        NodeEntry restoredNode = trashcanApi.restoreDeletedNode(nodeId, fields, deletedNodeBodyRestore).getBody();
+        LOGGER.info("Restored node: {}", restoredNode.getEntry());
+    }
+}
+```
+
+Executing this code would restore a node with passed in ID. The location folder ID is also passed in:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar restore-deleted-node b717304b-1c07-400b-b8a8-3268ea79c49f 7f041db0-fdb6-4185-b921-2fb9ed381480
+
+2021-05-05 09:46:17.270  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 15098 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-05 09:46:17.273  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-05 09:46:18.060  INFO 15098 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d6aa9570-9f13-3e29-a31b-181544b655d0
+2021-05-05 09:46:19.805  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.033 seconds (JVM running for 3.498)
+2021-05-05 09:46:19.807  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: restore-deleted-node
+2021-05-05 09:46:19.808  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: b717304b-1c07-400b-b8a8-3268ea79c49f
+2021-05-05 09:46:19.808  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: 7f041db0-fdb6-4185-b921-2fb9ed381480
+2021-05-05 09:46:20.436  INFO 15098 --- [           main] o.a.t.restapi.RestoreDeletedNodeCmd      : Restored node: class Node {
+    id: b717304b-1c07-400b-b8a8-3268ea79c49f
+    name: newname.txt
+    nodeType: acme:document
+    isFolder: false
+    isFile: true
+    isLocked: false
+    modifiedAt: 2021-05-04T09:19:49.903Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-05-04T09:19:49.903Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 7f041db0-fdb6-4185-b921-2fb9ed381480
+    isLink: null
+    isFavorite: null
+    content: class ContentInfo {
+        mimeType: text/plain
+        mimeTypeName: Plain Text
+        sizeInBytes: 30
+        encoding: ISO-8859-1
+    }
+    aspectNames: [rn:renditioned, cm:versionable, cm:titled, cm:auditable, acme:securityClassified, cm:taggable, cm:author, cm:thumbnailModification]
+    properties: {cm:title=UPDATED title, cm:versionType=MAJOR, acme:documentId=DOC-001, cm:versionLabel=1.0, acme:securityClassification=Company Confidential, cm:lastThumbnailModification=[doclib:1620120715749], cm:description=UPDATED description, cm:taggable=[a6da6c4d-cb6b-41b5-a010-7188459dd3cb, 9a9044c9-3787-44ca-bd92-c6797c9a82ae]}
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+```
 
 ## === Managing Sites ===
 The following sections walk through how to use the Java ReST API wrapper services when managing Alfresco Share sites.
