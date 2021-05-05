@@ -2,12 +2,13 @@
 title: AWS connectors
 ---
 
-There are four connectors that can be used to invoke different Amazon Web Services (AWS):
+There are five connectors that can be used to invoke different Amazon Web Services (AWS):
 
 * [Lambda](#lambda)
 * [Comprehend](#comprehend)
 * [Rekognition](#rekognition)
 * [Textract](#textract)
+* [Transcribe](#transcribe)
 
 All Amazon connectors are displayed on the process diagram with their respective AWS logos.
 
@@ -147,6 +148,8 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | SERVICE_UNAVAILABLE | The server is not ready to handle the request. |
 | GATEWAY_TIMEOUT | The server is acting as a gateway and cannot get a response in time. |
 
+AAE Text Analysis Connector Service - AWS Comprehend
+
 ## Rekognition
 
 The **LABEL** action is used by the Rekognition connector to execute [Amazon Rekognition](https://aws.amazon.com/rekognition/){:target="_blank"} services to identify and label the objects in JPEG and PNG files that are less than 15mb in size.
@@ -285,3 +288,103 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | BAD_GATEWAY | The server got an invalid response. |
 | SERVICE_UNAVAILABLE | The server is not ready to handle the request. |
 | GATEWAY_TIMEOUT | The server is acting as a gateway and cannot get a response in time. |
+
+## Transcribe
+
+The **TRANSCRIBE** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from `UTF-8` plain text files.The Speech to Text connector is designed to provide a standard mechanism to transcribe audio or video files.
+
+## Installation
+
+The connector is a Spring Boot application that is included as a separate service as part of an AAE deployment.
+
+## Configuration
+
+### Building Configuration
+
+For the Speech to Text connector to function certain properties must be defined in the `application.properties` file of the Spring Boot application. By default, these properties are set to environment variables.
+
+The connector requires an AWS account to be configured.
+
+The following are a set of properties that shall be defined for a standard use of this connector:
+
+```bash
+aws.region=${AWS_REGION}
+aws.s3.bucket=${AWS_S3_BUCKET}
+aws.accessKeyId=${AWS_ACCESS_KEY_ID}
+aws.secretKey=${AWS_SECRET_KEY}
+aws.transcribe.languages=${AWS_TRANSCRIBE_LANGUAGES}
+```
+
+For increased accuracy with language identification, enter a list of the languages (comma-separated) that are spoken in your file in AWS_TRANSCRIBE_LANGUAGES. For example, if you’re confident your media file is either in US English, US Spanish, or French, provide the following in AWS_TRANSCRIBE_LANGUAGES: en-US,es-US,fr-FR
+
+As the connector uses a stream mechanism to send/receive information between AAE and the connector, the following property is used to identify the connector:
+
+```bash
+spring.cloud.stream.bindings.transcribeConnectorConsumer.destination=transcribe.TRANSCRIBE
+```
+
+The connector also needs connection to Alfresco in order to get the file containing the audio or video to be transcribed, so the url to the Alfresco instance and the credentials should be set in the following variables.
+
+```bash
+alfresco.identity.service.tokenUrl=${ALFRESCO_IDENTITY_SERVICE_AUTH_SERVER_URL}
+alfresco.identity.service.grant-type=${CONTENT_GRANT_TYPE:client_credentials}
+alfresco.identity.service.resource=${CONTENT_CLIENT_ID}
+alfresco.identity.service.credentials-secret=${CONTENT_CLIENT_SECRET}
+```
+
+The response of the transcription is a file that must be stored temporarily. The path where it would be stored can be set using the following property:
+
+```bash
+file.content.reference.directory.path=${VOLUME_MOUNT_PATH:/tmp}
+```
+
+The input file could be stored in a folder instead of Alfresco. The path where it would be stored can be set using the following property:
+
+```bash
+file.content.tmp.path=${ACT_TEMPORARY_FOLDER:/tmp}
+```
+
+The name of the channel requires to match the implementation value defined in the Service Task as part of the BPMN definition.
+
+### Deployment Configuration
+
+When deploying an application, you are asked to input the image for the connector, which is the one that has previously registered, and the environment variables. An example of the environment variables to set for this connector is the following:
+
+```json
+{
+    "AWS_ACCESS_KEY_ID":"*****************",
+    "AWS_SECRET_KEY":"*****************",
+    "AWS_S3_BUCKET":"aae-data",
+    "AWS_REGION":"eu-west-1",
+}
+```
+
+### AWS Configuration
+
+Currently, the connector uses [Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html) for audio files analysis that contain speech and uses advanced machine learning techniques to transcribe the voice data into text. Its recommended you access AWS using AWS Identity and Access Management (IAM). To use IAM to access AWS, create an IAM user, add the user to an IAM group with administrative permissions, and then grant administrative permissions to the IAM user. You can then access AWS using a special URL and the IAM user's credentials.
+
+### BPMN Tasks Configuration
+
+As part of BPMN definition process, any Service Task responsible for triggering the speech to text needs to set **_transcribe.TRANSCRIBE_** as the value for its implementation attribute.
+
+In addition to the above configuration, these variables are required to perform the audio analysis:
+
+The input parameters of the Transcribe connector are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| file | Array | *Required.* File to be transcribed. If multiple files are passed, only the first one will be processed. |
+| timeout | Integer | *Optional.* Timeout for the remote call to Transcribe service in milliseconds. Defaults to ${aws.transcribe.asynchTimeout}. |
+| generateWebVTT | Boolean | *Optional* The output webVTT is only populated if generateWebVTT is true. |
+
+The output parameters of the Transcribe connector are:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| awsResult | JSON | *Optional.* Result of the AWS Transcribe speech to text process. |
+| transcription | String | *Required.* Transcription result. |
+| webVTT | JSON | *Optional* Subtitles result in Web Video Text Tracks format. |
+
+### Limitations
+
+Minimum confidence is not currently supported. However, the confidence is included as part of the response.
