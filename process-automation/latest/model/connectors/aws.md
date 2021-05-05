@@ -291,21 +291,16 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 
 ## Transcribe
 
-The **TRANSCRIBE** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from `UTF-8` plain text files.The Speech to Text connector is designed to provide a standard mechanism to transcribe audio or video files.
+The transcribe connector provides a standard mechanism to obtain speech to text information from audio and video files using [Amazon Transcribe](https://aws.amazon.com/transcribe/){:target="_blank"}.
 
-## Installation
+### Installation
 
-The connector is a Spring Boot application that is included as a separate service as part of an AAE deployment.
+The connector is a Spring Boot application that is included as a separate service of your AAE deployment.
 
-## Configuration
+### Configuration
 
-### Building Configuration
-
-For the Speech to Text connector to function certain properties must be defined in the `application.properties` file of the Spring Boot application. By default, these properties are set to environment variables.
-
-The connector requires an AWS account to be configured.
-
-The following are a set of properties that shall be defined for a standard use of this connector:
+The transcribe connector requires certain properties to be defined in the `application.properties` file of the Spring Boot application. By default, these properties are set to your environment variables.
+The following are a set of properties that define the standard use of the connector:
 
 ```bash
 aws.region=${AWS_REGION}
@@ -315,15 +310,15 @@ aws.secretKey=${AWS_SECRET_KEY}
 aws.transcribe.languages=${AWS_TRANSCRIBE_LANGUAGES}
 ```
 
-For increased accuracy with language identification, enter a list of the languages (comma-separated) that are spoken in your file in AWS_TRANSCRIBE_LANGUAGES. For example, if you’re confident your media file is either in US English, US Spanish, or French, provide the following in AWS_TRANSCRIBE_LANGUAGES: en-US,es-US,fr-FR
+For increased accuracy with language identification, enter a list of comma-seperated languages that are spoken in your file in `AWS_TRANSCRIBE_LANGUAGES`. For example, if you’re confident your media file is either in US English, US Spanish, or French, provide the following in the `AWS_TRANSCRIBE_LANGUAGES` file: en-US,es-US,fr-FR
 
-As the connector uses a stream mechanism to send/receive information between AAE and the connector, the following property is used to identify the connector:
+The connector uses a stream mechanism to send and receive information it and AAE. The following property is used to identify the connector:
 
 ```bash
 spring.cloud.stream.bindings.transcribeConnectorConsumer.destination=transcribe.TRANSCRIBE
 ```
 
-The connector also needs connection to Alfresco in order to get the file containing the audio or video to be transcribed, so the url to the Alfresco instance and the credentials should be set in the following variables.
+The connector requires a connection to Alfresco in order to obtain the file containing the audio or video to be transcribed. This is achieved by setting the url to the Alfresco instance and user credentials using the following variables:
 
 ```bash
 alfresco.identity.service.tokenUrl=${ALFRESCO_IDENTITY_SERVICE_AUTH_SERVER_URL}
@@ -332,23 +327,23 @@ alfresco.identity.service.resource=${CONTENT_CLIENT_ID}
 alfresco.identity.service.credentials-secret=${CONTENT_CLIENT_SECRET}
 ```
 
-The response of the transcription is a file that must be stored temporarily. The path where it would be stored can be set using the following property:
+The response of the transcription is a file that must be stored temporarily. This path is set using the following property:
 
 ```bash
 file.content.reference.directory.path=${VOLUME_MOUNT_PATH:/tmp}
 ```
 
-The input file could be stored in a folder instead of Alfresco. The path where it would be stored can be set using the following property:
+The input file could be stored in a folder instead of Alfresco. This path is set using the following property:
 
 ```bash
 file.content.tmp.path=${ACT_TEMPORARY_FOLDER:/tmp}
 ```
 
-The name of the channel requires to match the implementation value defined in the Service Task as part of the BPMN definition.
+> **Note:** The name of the channel must match the implementation value defined in the Service Task as part of the BPMN definition.
 
 ### Deployment Configuration
 
-When deploying an application, you are asked to input the image for the connector, which is the one that has previously registered, and the environment variables. An example of the environment variables to set for this connector is the following:
+When deploying an application you are asked to input the image of the connector. The image and environment variables must be the same that were previously registered. The following is an example of the environment variables that could be set for the connector:
 
 ```json
 {
@@ -361,7 +356,7 @@ When deploying an application, you are asked to input the image for the connecto
 
 ### AWS Configuration
 
-Currently, the connector uses [Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html) for audio files analysis that contain speech and uses advanced machine learning techniques to transcribe the voice data into text. Its recommended you access AWS using AWS Identity and Access Management (IAM). To use IAM to access AWS, create an IAM user, add the user to an IAM group with administrative permissions, and then grant administrative permissions to the IAM user. You can then access AWS using a special URL and the IAM user's credentials.
+Currently, the connector uses [Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html) for audio and video files analysis that contain speech and uses advanced machine learning techniques to transcribe the voice data into text. Its recommended you access AWS using AWS Identity and Access Management (IAM). To use IAM to access AWS, create an IAM user, add the user to an IAM group with administrative permissions, and then grant administrative permissions to the IAM user. You can then access AWS using a special URL and the IAM user's credentials.
 
 ### BPMN Tasks Configuration
 
