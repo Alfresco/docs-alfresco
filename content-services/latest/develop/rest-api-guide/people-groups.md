@@ -10,7 +10,7 @@ for example, when group permissions should be set up on folders.
 However, it should be noted that in a production environment Alfresco is usually connected to an LDAP system and users 
 (people) and groups are then synchronized (imported) from the LDAP system, including group memberships.
 
-## List people (users)
+## List people (users) {#listusers}
 
 List people (i.e. users) in the repository.
 
@@ -244,7 +244,7 @@ To add an avatar image to a newly created person see the [update person](#update
 
 >**Note**. in a production environment the users and groups are usually synched / imported from an LDAP environment, and not created manually like this. However, it can be useful to create users remotely like this for testing purpose and in a developer environment.
 
-## Get person metadata
+## Get person metadata {#getpersonmetadata}
 
 Get the metadata (i.e. properties) for a person, including preferences and avatar.
 

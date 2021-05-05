@@ -3304,8 +3304,6 @@ Adding members to a site uses the `createSiteMembership` method of the [`SitesAp
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
 ```java
-package org.alfresco.tutorial.restapi;
-
 import org.alfresco.core.handler.SitesApi;
 import org.alfresco.core.model.*;
 import org.slf4j.Logger;
@@ -3396,16 +3394,297 @@ Executing this code will add a user with passed in ID with role *Site Collaborat
 ```
 
 ## === Managing People and Groups ===
-The following sections walk through how to use the Java ReST API wrapper services when managing Alfresco Share sites.
+The following sections walk through how to use the Java ReST API wrapper services when managing users and groups. Note
+that these are usually managed via a directory server (LDAP/Active Directory).
 
 ## List people (users)
-TODO
+Listing people uses the `listPeople` method of the [`PeopleApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#listPeople){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#listusers)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.PeopleApi;
+import org.alfresco.core.model.PersonEntry;
+import org.alfresco.core.model.PersonPaging;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class ListPeopleCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListPeopleCmd.class);
+
+    @Autowired
+    PeopleApi peopleApi;
+
+    public void execute() throws IOException {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        List<String> orderBy = null;
+        List<String> include = null;
+        List<String> fields = null;
+
+        LOGGER.info("Listing people in the repository");
+        PersonPaging people = peopleApi.listPeople(skipCount, maxItems, orderBy, include, fields).getBody();
+        for (PersonEntry personEntry: people.getList().getEntries()) {
+            LOGGER.info("  {} ({})", personEntry.getEntry().getDisplayName(), personEntry.getEntry().getId());
+        }
+    }
+}
+```
+
+Executing this code will list all users in the repository (note, if connected to LDAP this could be a lot of users...):
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-people
+
+2021-05-05 13:42:12.675  INFO 18327 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 18327 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-05 13:42:12.680  INFO 18327 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-05 13:42:13.568  INFO 18327 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=248400d4-2576-3189-948d-78e95ba3e43a
+2021-05-05 13:42:15.547  INFO 18327 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.426 seconds (JVM running for 3.96)
+2021-05-05 13:42:15.549  INFO 18327 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-people
+2021-05-05 13:42:15.550  INFO 18327 --- [           main] o.a.tutorial.restapi.ListPeopleCmd       : Listing people in the repository
+2021-05-05 13:42:15.879  INFO 18327 --- [           main] o.a.tutorial.restapi.ListPeopleCmd       :   Alice Beecher (abeecher)
+2021-05-05 13:42:15.880  INFO 18327 --- [           main] o.a.tutorial.restapi.ListPeopleCmd       :   Administrator (admin)
+2021-05-05 13:42:15.880  INFO 18327 --- [           main] o.a.tutorial.restapi.ListPeopleCmd       :   Guest (guest)
+2021-05-05 13:42:15.880  INFO 18327 --- [           main] o.a.tutorial.restapi.ListPeopleCmd       :   Mike Jackson (mjackson)
+2021-05-05 13:42:15.880  INFO 18327 --- [           main] o.a.tutorial.restapi.ListPeopleCmd       :   Test User (test)
+```
 
 ## Create a person
-TODO
+Creating a person uses the `createPerson` method of the [`PeopleApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#createPerson){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#createperson)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.PeopleApi;
+import org.alfresco.core.model.PersonBodyCreate;
+import org.alfresco.core.model.PersonEntry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class CreatePersonCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(CreatePersonCmd.class);
+
+    @Autowired
+    PeopleApi peopleApi;
+
+    public void execute(String username, String pwd, String firstname, String lastname, String email) throws IOException {
+        List<String> fields = null;
+
+        PersonBodyCreate personBodyCreate = new PersonBodyCreate();
+        personBodyCreate.setId(username);
+        personBodyCreate.setPassword(pwd);
+        personBodyCreate.setFirstName(firstname);
+        personBodyCreate.setLastName(lastname);
+        personBodyCreate.setEmail(email);
+        PersonEntry person = peopleApi.createPerson(personBodyCreate, fields).getBody();
+        LOGGER.info("Created person  {}", person);
+    }
+}
+```
+
+Executing this code will add a user passed in username, pwd, first name, last name and email:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-person martin 1234 Martin Bergljung martin@example.com
+
+2021-05-05 15:49:21.902  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 22389 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-05 15:49:21.907  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-05 15:49:22.902  INFO 22389 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a28a54f6-5875-38af-acad-e02c2902468b
+2021-05-05 15:49:25.198  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.928 seconds (JVM running for 4.427)
+2021-05-05 15:49:25.200  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: create-person
+2021-05-05 15:49:25.201  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: martin
+2021-05-05 15:49:25.201  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: 1234
+2021-05-05 15:49:25.201  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[3]: Martin
+2021-05-05 15:49:25.201  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[4]: Bergljung
+2021-05-05 15:49:25.201  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[5]: martin@example.com
+2021-05-05 15:49:25.830  INFO 22389 --- [           main] o.a.tutorial.restapi.CreatePersonCmd     : Created person  class PersonEntry {
+    entry: class Person {
+        id: martin
+        firstName: Martin
+        lastName: Bergljung
+        displayName: Martin Bergljung
+        description: null
+        avatarId: null
+        email: martin@example.com
+        skypeId: null
+        googleId: null
+        instantMessageId: null
+        jobTitle: null
+        location: null
+        company: class Company {
+            organization: null
+            address1: null
+            address2: null
+            address3: null
+            postcode: null
+            telephone: null
+            fax: null
+            email: null
+        }
+        mobile: null
+        telephone: null
+        statusUpdatedAt: null
+        userStatus: null
+        enabled: true
+        emailNotificationsEnabled: true
+        aspectNames: null
+        properties: null
+        capabilities: class Capabilities {
+            isAdmin: false
+            isGuest: false
+            isMutable: true
+        }
+    }
+}
+```
 
 ## Get person metadata
-TODO
+Getting metadata for a person involves a number of API calls:
+
+* [`PeopleApi.getPerson`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#getPerson){:target="_blank"}
+* [`PeopleApi.getAvatarImage`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#getAvatarImage){:target="_blank"}
+* [`PreferencesApi.listPreferences`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PreferencesApi.md#listPreferences){:target="_blank"}
+* [`PreferencesApi.getPreference`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PreferencesApi.md#getPreference){:target="_blank"}
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#getpersonmetadata)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.PeopleApi;
+import org.alfresco.core.handler.PreferencesApi;
+import org.alfresco.core.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class GetPersonMetadataCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(GetPersonMetadataCmd.class);
+
+    @Autowired
+    PeopleApi peopleApi;
+
+    @Autowired
+    PreferencesApi preferencesApi;
+
+    public void execute(String personId) throws IOException {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        List<String> fields = null;
+
+        PersonEntry person = peopleApi.getPerson(personId, fields).getBody();
+        LOGGER.info("Got person metadata {}", person);
+        PreferencePaging preferencePaging = preferencesApi.listPreferences(personId, skipCount, maxItems, fields).getBody();
+        LOGGER.info("Got person preferences:");
+        for (PreferenceEntry preferenceEntry: preferencePaging.getList().getEntries()) {
+            LOGGER.info("  preference: {}", preferenceEntry.getEntry());
+        }
+    }
+}
+```
+
+Executing this code will list the metadata for the user including any preferences. In the following example we list metadata
+for the out-of-the-box user `abeecher`:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-person-metadata abeecher
+
+2021-05-05 16:06:47.719  INFO 22610 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 22610 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-05 16:06:47.723  INFO 22610 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-05 16:06:48.598  INFO 22610 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f2de6c7-ccd4-3388-a179-0d91efecc989
+2021-05-05 16:06:50.550  INFO 22610 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.396 seconds (JVM running for 3.893)
+2021-05-05 16:06:50.552  INFO 22610 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-person-metadata
+2021-05-05 16:06:50.553  INFO 22610 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: abeecher
+2021-05-05 16:06:50.787  INFO 22610 --- [           main] o.a.t.restapi.GetPersonMetadataCmd       : Got person metadata class PersonEntry {
+    entry: class Person {
+        id: abeecher
+        firstName: Alice
+        lastName: Beecher
+        displayName: Alice Beecher
+        description: Alice is a demo user for the sample Alfresco Team site.
+        avatarId: 198500fc-1e99-4f5f-8926-248cea433366
+        email: abeecher@example.com
+        skypeId: abeecher
+        googleId: null
+        instantMessageId: null
+        jobTitle: Graphic Designer
+        location: Tilbury, UK
+        company: class Company {
+            organization: Moresby, Garland and Wedge
+            address1: 200 Butterwick Street
+            address2: Tilbury
+            address3: UK
+            postcode: ALF1 SAM1
+            telephone: null
+            fax: null
+            email: null
+        }
+        mobile: 0112211001100
+        telephone: 0112211001100
+        statusUpdatedAt: 2011-02-15T20:20:13.432Z
+        userStatus: Helping to design the look and feel of the new web site
+        enabled: false
+        emailNotificationsEnabled: true
+        aspectNames: null
+        properties: null
+        capabilities: class Capabilities {
+            isAdmin: false
+            isGuest: false
+            isMutable: true
+        }
+    }
+}
+2021-05-05 16:06:50.849  INFO 22610 --- [           main] o.a.t.restapi.GetPersonMetadataCmd       : Got person preferences:
+2021-05-05 16:06:50.849  INFO 22610 --- [           main] o.a.t.restapi.GetPersonMetadataCmd       :   preference: class Preference {
+    id: org.alfresco.share.documentList.showFolders
+    value: true
+}
+2021-05-05 16:06:50.849  INFO 22610 --- [           main] o.a.t.restapi.GetPersonMetadataCmd       :   preference: class Preference {
+    id: org.alfresco.share.documentList.simpleView
+    value: false
+}
+2021-05-05 16:06:50.849  INFO 22610 --- [           main] o.a.t.restapi.GetPersonMetadataCmd       :   preference: class Preference {
+    id: org.alfresco.share.documentList.sortField
+    value: cm:name
+}
+2021-05-05 16:06:50.849  INFO 22610 --- [           main] o.a.t.restapi.GetPersonMetadataCmd       :   preference: class Preference {
+    id: org.alfresco.share.documents.favourites
+    value: workspace://SpacesStore/7c7bca1d-b65d-4444-9378-805b459fb74d,workspace://SpacesStore/b2f21ddd-0b0e-449f-bea9-a0be73e7d67b,workspace://SpacesStore/2cf35860-6705-42c3-b123-c4d6b39997b4,workspace://SpacesStore/7d90c94c-fcf7-4f79-9273-bd1352bbb612,workspace://SpacesStore/05dedd34-9d9d-48d9-9af6-c81b555541c9
+}
+2021-05-05 16:06:50.850  INFO 22610 --- [           main] o.a.t.restapi.GetPersonMetadataCmd       :   preference: class Preference {
+    id: org.alfresco.share.sites.favourites.test
+    value: true
+}
+2021-05-05 16:06:50.850  INFO 22610 --- [           main] o.a.t.restapi.GetPersonMetadataCmd       :   preference: class Preference {
+    id: org.alfresco.share.sites.recent._0
+    value: swsdp
+}
+2021-05-05 16:06:50.850  INFO 22610 --- [           main] o.a.t.restapi.GetPersonMetadataCmd       :   preference: class Preference {
+    id: org.alfresco.share.twisters.collapsed
+    value: DocumentPermissions,DocumentWorkflows,DocumentLinks,DocumentActions
+}
+```
 
 ## Update a person
 TODO
