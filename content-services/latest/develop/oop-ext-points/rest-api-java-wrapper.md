@@ -274,7 +274,7 @@ Executing this code would give the following result:
 
 See also [manage associations](#manageassociations) for information on how to list associations for a node.
 
-## Create a folder
+## Create a folder {#createfolder}
 To create a folder in the repository use the `createNode` method of the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#createNode){:target="_blank"}, 
 which is one of the main APIs used when you want to manipulate folders and files.
@@ -3117,6 +3117,8 @@ To create an Alfresco Share site in the repository use the `createSite` method o
 [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/SitesApi.md#createSite){:target="_blank"}, 
 which is the main API used to create and manage sites.
 
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/sites.md %}#createsite)
+
 For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
 ```java
@@ -3160,15 +3162,238 @@ public class CreateSite {
     }
 }
 ```
+## List site containers
+For more information about how to list site containers, such as Document Library, for a site see 
+[add content to site](#addsitecontent).
 
-## Update a site
-TODO
+## Add content to a site {#addsitecontent}
+Adding content to a site uses the same API calls as are used to create folders and upload files elsewhere in the Repository.
+See [create folder](#createfolder) and [upload file](#uploadfile) for more information.
 
-## Add content to a site
-TODO
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/sites.md %}#addcontent)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+The tricky bit is to figure out how to add content to the so called "Document Library" of a site. We can figure out the
+Node ID for the Document Library by using the `listSiteContainers` method of the [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/SitesApi.md#listSiteContainers){:target="_blank"}:
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.handler.SitesApi;
+import org.alfresco.core.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class AddSiteContentCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(AddSiteContentCmd.class);
+
+    Integer skipCount = 0;
+    Integer maxItems = 100;
+    private List<String> fields = null;
+    private List<String> include = null;
+    private Boolean autoRename = true;
+    private Boolean majorVersion = true;
+    private Boolean versioningEnabled = true;
+
+    @Autowired
+    SitesApi sitesApi;
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute(String siteId) throws IOException {
+        // First get the Node ID for the Document Library
+        String docLibNodeId = null;
+        SiteContainerPaging siteContainerPaging = sitesApi.listSiteContainers(siteId, skipCount, maxItems, fields).getBody();
+        LOGGER.info("Listing site containers [{}]: ", siteId);
+        for (SiteContainerEntry siteContainerEntry: siteContainerPaging.getList().getEntries()) {
+            SiteContainer siteContainer = siteContainerEntry.getEntry();
+            LOGGER.info("  Site container: {}", siteContainer);
+            if (siteContainer.getFolderId().equalsIgnoreCase("DocumentLibrary")) {
+                docLibNodeId = siteContainer.getId();
+            }
+        }
+
+        if (docLibNodeId != null) {
+            // Create a folder in the document library
+            createFolder(docLibNodeId, "White papers");
+        } else {
+            LOGGER.info("Document library not found in site {}", siteId);
+        }
+    }
+
+    /**
+     * Make the remote call to create a folder in the repository, if it does not exist.
+     *
+     * @param parentFolderId the node ID for the site container
+     * @param folderName         the name of the folder
+     * @return a node object for the newly created node, contains the ID,
+     * such as e859588c-ae81-4c5e-a3b6-4c6109b6c905
+     */
+    private Node createFolder(String parentFolderId,
+                              String folderName) {
+        NodeBodyCreate nodeBodyCreate = new NodeBodyCreate();
+        nodeBodyCreate.setName(folderName);
+        nodeBodyCreate.setNodeType("cm:folder");
+        Node folderNode = nodesApi.createNode(parentFolderId, nodeBodyCreate, autoRename, majorVersion, versioningEnabled,
+                include, fields).getBody().getEntry();
+        LOGGER.info("Created new folder in DocLib: {}", folderNode);
+
+        return folderNode;
+    }
+}
+```
+
+Executing this code will create a folder in the passed in site's document library:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar add-site-content test
+
+2021-05-05 10:43:31.681  INFO 16095 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 16095 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-05 10:43:31.684  INFO 16095 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-05 10:43:32.468  INFO 16095 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f1926d1-09f7-3506-9415-3da51a2fd2e7
+2021-05-05 10:43:34.208  INFO 16095 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.019 seconds (JVM running for 3.46)
+2021-05-05 10:43:34.210  INFO 16095 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: add-site-content
+2021-05-05 10:43:34.211  INFO 16095 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: test
+2021-05-05 10:43:34.390  INFO 16095 --- [           main] o.a.tutorial.restapi.AddSiteContentCmd   : Listing site containers [test]: 
+2021-05-05 10:43:34.391  INFO 16095 --- [           main] o.a.tutorial.restapi.AddSiteContentCmd   :   Site container: class SiteContainer {
+    id: 605e085c-92ae-4a53-b902-99c7d215f475
+    folderId: documentLibrary
+}
+2021-05-05 10:43:34.833  INFO 16095 --- [           main] o.a.tutorial.restapi.AddSiteContentCmd   : Created new folder in DocLib: class Node {
+    id: 6e157336-068a-4384-bc29-e4e1ca09cc6c
+    name: White papers
+    nodeType: cm:folder
+    isFolder: true
+    isFile: false
+    isLocked: false
+    modifiedAt: 2021-05-05T09:43:34.660Z
+    modifiedByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    createdAt: 2021-05-05T09:43:34.660Z
+    createdByUser: class UserInfo {
+        displayName: Administrator
+        id: admin
+    }
+    parentId: 605e085c-92ae-4a53-b902-99c7d215f475
+    isLink: null
+    isFavorite: null
+    content: null
+    aspectNames: [cm:auditable]
+    properties: null
+    allowableOperations: null
+    path: null
+    permissions: null
+    definition: null
+}
+```
 
 ## Adding members to a site
-TODO
+Adding members to a site uses the `createSiteMembership` method of the [`SitesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/SitesApi.md#createSiteMembership){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/sites.md %}#addmemberstosite)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+package org.alfresco.tutorial.restapi;
+
+import org.alfresco.core.handler.SitesApi;
+import org.alfresco.core.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+import static org.alfresco.core.model.SiteMembershipBodyCreate.RoleEnum.SITECOLLABORATOR;
+
+@Component
+public class AddSiteMembersCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(AddSiteMembersCmd.class);
+
+    private List<String> fields = null;
+
+    @Autowired
+    SitesApi sitesApi;
+
+    public void execute(String siteId, String personId) throws IOException {
+        SiteMembershipBodyCreate siteMembershipBodyCreate = new SiteMembershipBodyCreate();
+        siteMembershipBodyCreate.setId(personId);
+        siteMembershipBodyCreate.setRole(SITECOLLABORATOR);
+        SiteMemberEntry siteMemberEntry = sitesApi.createSiteMembership(siteId, siteMembershipBodyCreate, fields).getBody();
+        LOGGER.info("Created site membership {}", siteMemberEntry);
+    }
+}
+```
+
+Executing this code will add a user with passed in ID with role *Site Collaborator* to site with passed in ID:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar add-site-member test test
+
+2021-05-05 13:21:28.873  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 17933 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-05 13:21:28.877  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-05 13:21:29.631  INFO 17933 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=54f6d6dd-86bf-3fad-924c-13cdd1ba44d2
+2021-05-05 13:21:31.290  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.923 seconds (JVM running for 3.377)
+2021-05-05 13:21:31.291  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: add-site-member
+2021-05-05 13:21:31.292  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: test
+2021-05-05 13:21:31.293  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: test
+2021-05-05 13:21:31.697  INFO 17933 --- [           main] o.a.tutorial.restapi.AddSiteMembersCmd   : Created site membership class SiteMemberEntry {
+    entry: class SiteMember {
+        id: test
+        person: class Person {
+            id: test
+            firstName: Test
+            lastName: User
+            displayName: Test User
+            description: null
+            avatarId: null
+            email: test@example.com
+            skypeId: null
+            googleId: null
+            instantMessageId: null
+            jobTitle: null
+            location: null
+            company: class Company {
+                organization: null
+                address1: null
+                address2: null
+                address3: null
+                postcode: null
+                telephone: null
+                fax: null
+                email: null
+            }
+            mobile: null
+            telephone: null
+            statusUpdatedAt: null
+            userStatus: null
+            enabled: true
+            emailNotificationsEnabled: true
+            aspectNames: null
+            properties: null
+            capabilities: class Capabilities {
+                isAdmin: false
+                isGuest: false
+                isMutable: true
+            }
+        }
+        role: SiteCollaborator
+        isMemberOfGroup: false
+    }
+}
+```
 
 ## === Managing People and Groups ===
 The following sections walk through how to use the Java ReST API wrapper services when managing Alfresco Share sites.
