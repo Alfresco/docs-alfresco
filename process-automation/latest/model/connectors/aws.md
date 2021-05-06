@@ -75,7 +75,9 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 
 ## Comprehend
 
-The **ENTITY** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from `UTF-8` plain text files.
+The transcribe connector provides a standard mechanism to obtain speech to text information from audio and video files using [Amazon Transcribe](https://aws.amazon.com/transcribe/){:target="_blank"}.
+
+The **ENTITY** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from `UTF-8` plain text files and .
 
 The Amazon Comprehend APIs that are called using the connector are:
 
@@ -84,6 +86,9 @@ The Amazon Comprehend APIs that are called using the connector are:
 * [Batch Detect Entities API](https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectEntities.html){:target="_blank"}
 * [Start Entities Detection Job API](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartEntitiesDetectionJob.html){:target="_blank"}
 * [Describe Entities Detection Job API](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeEntitiesDetectionJob.html){:target="_blank"}
+* [DetectPiiEntities](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectPiiEntities.html){:target="_blank"}
+* [StartPiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartPiiEntitiesDetectionJob.html){:target="_blank"}
+* [DescribePiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribePiiEntitiesDetectionJob.html){:target="_blank"}
 
 The input parameters of the Comprehend connector are:
 
@@ -147,8 +152,6 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | BAD_GATEWAY | The server got an invalid response. |
 | SERVICE_UNAVAILABLE | The server is not ready to handle the request. |
 | GATEWAY_TIMEOUT | The server is acting as a gateway and cannot get a response in time. |
-
-AAE Text Analysis Connector Service - AWS Comprehend
 
 ## Rekognition
 
