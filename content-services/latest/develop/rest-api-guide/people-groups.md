@@ -620,9 +620,9 @@ If you are running an SDK Project you will most likely get the following type of
 An Alfresco SDK project doesn't have all the image transformers configured so this avatar image upload does not work in 
 this situation.
 
-## Request password reset for a person
+## Request password reset for a person {#requestpwdreset}
 
-Requesting a password reset for a a person (user) in the repository.
+Requesting a password reset for a person (user) in the repository.
 
 **API Explorer URL:**
 
@@ -641,7 +641,7 @@ to reset the password:
 }
 ```
 
-Currently only the Alfresco Share UI client is registered with the Alfresco Repository server. So you would POST the 
+Currently, only the Alfresco Share UI client is registered with the Alfresco Repository server. So you would POST the 
 following:
 
 ```json
@@ -726,7 +726,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-## List groups
+## List groups {#listgroups}
 
 List groups in the repository.
 

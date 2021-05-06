@@ -3687,16 +3687,310 @@ for the out-of-the-box user `abeecher`:
 ```
 
 ## Update a person
-TODO
+Updating metadata for a person involves these two API calls:
+
+* [`PeopleApi.updatePerson`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#updatePerson){:target="_blank"}
+* [`PeopleApi.updateAvatarImage`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#updateAvatarImage){:target="_blank"}
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#updateperson)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.PeopleApi;
+import org.alfresco.core.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class UpdatePersonMetadataCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(UpdatePersonMetadataCmd.class);
+
+    @Autowired
+    PeopleApi peopleApi;
+
+    public void execute(String personId) throws IOException {
+        List<String> fields = null;
+
+        PersonBodyUpdate personBodyUpdate = new PersonBodyUpdate();
+        // Mandatory fields during an update
+        personBodyUpdate.setFirstName("Martin");
+        personBodyUpdate.setLastName("Bergljung");
+        personBodyUpdate.setEmail("martin@example.com");
+        personBodyUpdate.setEmailNotificationsEnabled(true);
+        personBodyUpdate.setOldPassword("1234");
+        personBodyUpdate.setPassword("1234");
+        personBodyUpdate.setEnabled(true);
+
+        // Other fields
+        personBodyUpdate.setJobTitle("Techie");
+        Company company = new Company();
+        company.setAddress1("Alfresco way 1");
+        company.setOrganization("Alfresco Org");
+        company.setTelephone("12345678");
+        personBodyUpdate.setCompany(company);
+
+        PersonEntry person = peopleApi.updatePerson(personId, personBodyUpdate, fields).getBody();
+        LOGGER.info("Updated person metadata {}", person);
+    }
+}
+```
+
+Executing this code will update the user `martin` with some new company information, there are a number of fields that
+are mandatory that you need to set, so might be best to read them first and then set them:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar update-person-metadata martin
+
+2021-05-06 09:16:39.124  INFO 24158 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 24158 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-06 09:16:39.128  INFO 24158 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-06 09:16:39.912  INFO 24158 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9d5fd567-d486-3175-8e67-3ad3ee08bbf2
+2021-05-06 09:16:41.833  INFO 24158 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.151 seconds (JVM running for 3.596)
+2021-05-06 09:16:41.835  INFO 24158 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: update-person-metadata
+2021-05-06 09:16:41.837  INFO 24158 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: martin
+2021-05-06 09:16:42.111  INFO 24158 --- [           main] o.a.t.restapi.UpdatePersonMetadataCmd    : Updated person metadata class PersonEntry {
+    entry: class Person {
+        id: martin
+        firstName: Martin
+        lastName: Bergljung
+        displayName: Martin Bergljung
+        description: null
+        avatarId: null
+        email: martin@example.com
+        skypeId: null
+        googleId: null
+        instantMessageId: null
+        jobTitle: Techie
+        location: null
+        company: class Company {
+            organization: Alfresco Org
+            address1: Alfresco way 1
+            address2: null
+            address3: null
+            postcode: null
+            telephone: 12345678
+            fax: null
+            email: null
+        }
+        mobile: null
+        telephone: null
+        statusUpdatedAt: null
+        userStatus: null
+        enabled: true
+        emailNotificationsEnabled: true
+        aspectNames: null
+        properties: null
+        capabilities: class Capabilities {
+            isAdmin: false
+            isGuest: false
+            isMutable: true
+        }
+    }
+}
+```
 
 ## Request password reset for a person
-TODO
+Requesting a password reset for a person (user) in the repository involves these two API calls:
+
+* [`PeopleApi.requestPasswordReset`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#requestPasswordReset){:target="_blank"}
+* [`PeopleApi.resetPassword`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/PeopleApi.md#resetPassword){:target="_blank"}
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#requestpwdreset)
+
+```java
+import org.alfresco.core.handler.PeopleApi;
+import org.alfresco.core.model.ClientBody;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+
+@Component
+public class RequestPwdResetCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(RequestPwdResetCmd.class);
+
+    @Autowired
+    PeopleApi peopleApi;
+
+    public void execute(String personId) throws IOException {
+        ClientBody clientBody = new ClientBody();
+        clientBody.setClient("share"); // Alfresco Share UI client
+
+        HttpEntity<Void> result = peopleApi.requestPasswordReset(personId, clientBody);
+        LOGGER.info("Password reset request sent for {} result {}", personId, result);
+    }
+}
+```
+
+Executing this code will request a password request for user `martin`, an email will be sent to the user assuming the 
+password request should be via the Alfresco Share UI:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar request-pwd-reset martin     
+
+2021-05-06 09:30:35.541  INFO 24356 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 24356 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-06 09:30:35.544  INFO 24356 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-06 09:30:36.455  INFO 24356 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=eea79e0e-e779-377b-89fd-f00aaf5c1c32
+2021-05-06 09:30:38.440  INFO 24356 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.438 seconds (JVM running for 3.939)
+2021-05-06 09:30:38.442  INFO 24356 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: request-pwd-reset
+2021-05-06 09:30:38.443  INFO 24356 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: martin
+2021-05-06 09:30:39.726  INFO 24356 --- [           main] o.a.tutorial.restapi.RequestPwdResetCmd  : Password reset request sent for martin result <202 ACCEPTED Accepted,[cache-control:"no-cache", connection:"keep-alive", content-length:"0", content-type:"application/json;charset=UTF-8", date:"Thu, 06 May 2021 08:30:39 GMT", expires:"Thu, 01 Jan 1970 00:00:00 GMT", pragma:"no-cache", server:"nginx/1.18.0", x-frame-options:"SAMEORIGIN"]>
+```
 
 ## List groups a person is a member of
-TODO
+Listing groups that a person is a member of uses the `listGroupMembershipsForPerson` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#listGroupMembershipsForPerson){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#listpersongroupmembership)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.GroupsApi;
+import org.alfresco.core.model.GroupEntry;
+import org.alfresco.core.model.GroupPaging;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class ListPersonGroupMembershipsCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListPersonGroupMembershipsCmd.class);
+
+    @Autowired
+    GroupsApi groupsApi;
+
+    public void execute(String personId) throws IOException {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        String where = null;
+        List<String> orderBy = null;
+        List<String> include = null;
+        List<String> fields = null;
+
+        LOGGER.info("Listing group memberships for person {}", personId);
+        GroupPaging groups = groupsApi.listGroupMembershipsForPerson(
+                personId, skipCount, maxItems, orderBy, include, where, fields).getBody();
+        for (GroupEntry groupEntry: groups.getList().getEntries()) {
+            LOGGER.info("  {}", groupEntry.getEntry().getDisplayName());
+        }
+    }
+}
+```
+
+Executing this code will list the group memberships for passed in username. In this example we list group memberships for
+two of the out-of-the-box users `abeecher` and `admin`:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-person-group-memberships abeecher
+
+2021-05-06 09:42:50.643  INFO 24597 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.63 seconds (JVM running for 4.106)
+2021-05-06 09:42:50.645  INFO 24597 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-person-group-memberships
+2021-05-06 09:42:50.647  INFO 24597 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: abeecher
+2021-05-06 09:42:50.647  INFO 24597 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    : Listing group memberships for person abeecher
+2021-05-06 09:42:50.821  INFO 24597 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   null
+2021-05-06 09:42:50.821  INFO 24597 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   site_swsdp
+2021-05-06 09:42:50.821  INFO 24597 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   site_swsdp_SiteCollaborator
+
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-person-group-memberships admin   
+
+2021-05-06 09:43:06.433  INFO 24599 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: admin
+2021-05-06 09:43:06.433  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    : Listing group memberships for person admin
+2021-05-06 09:43:06.631  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   ALFRESCO_ADMINISTRATORS
+2021-05-06 09:43:06.631  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   ALFRESCO_MODEL_ADMINISTRATORS
+2021-05-06 09:43:06.631  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   ALFRESCO_SEARCH_ADMINISTRATORS
+2021-05-06 09:43:06.631  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   EMAIL_CONTRIBUTORS
+2021-05-06 09:43:06.631  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   null
+2021-05-06 09:43:06.631  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   SITE_ADMINISTRATORS
+2021-05-06 09:43:06.632  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   site_swsdp
+2021-05-06 09:43:06.632  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   site_swsdp_SiteManager
+2021-05-06 09:43:06.632  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   site_test
+2021-05-06 09:43:06.632  INFO 24599 --- [           main] o.a.t.r.ListPersonGroupMembershipsCmd    :   site_test_SiteManager```
+```
 
 ## List groups
-TODO
+Listing the groups available in the repository uses the `listGroups` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#listGroups){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#listgroups)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.GroupsApi;
+import org.alfresco.core.model.GroupEntry;
+import org.alfresco.core.model.GroupPaging;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class ListGroupsCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListGroupsCmd.class);
+
+    @Autowired
+    GroupsApi groupsApi;
+
+    public void execute() throws IOException {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        String where = null;
+        List<String> orderBy = null;
+        List<String> include = null;
+        List<String> fields = null;
+
+        LOGGER.info("Listing group in the repo:");
+        GroupPaging groups = groupsApi.listGroups(skipCount, maxItems, orderBy, include, where, fields).getBody();
+        for (GroupEntry groupEntry: groups.getList().getEntries()) {
+            LOGGER.info("  {}", groupEntry.getEntry().getDisplayName());
+        }
+    }
+}
+```
+
+Executing this code will list the groups available in the repository, note that this can  be a lot of groups if there 
+are loads of Share sites and the system is connected to a directory server:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-groups                        
+
+2021-05-06 09:50:36.330  INFO 24665 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 24665 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-06 09:50:36.334  INFO 24665 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-06 09:50:37.247  INFO 24665 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a534de14-e138-3520-b669-68a789e0fa81
+2021-05-06 09:50:39.416  INFO 24665 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.637 seconds (JVM running for 4.131)
+2021-05-06 09:50:39.419  INFO 24665 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-groups
+2021-05-06 09:50:39.420  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       : Listing group in the repo:
+2021-05-06 09:50:39.807  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   Engineering
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   ALFRESCO_ADMINISTRATORS
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   ALFRESCO_MODEL_ADMINISTRATORS
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   ALFRESCO_SEARCH_ADMINISTRATORS
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   EMAIL_CONTRIBUTORS
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   SITE_ADMINISTRATORS
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   site_swsdp
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   site_swsdp_SiteCollaborator
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   site_swsdp_SiteConsumer
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   site_swsdp_SiteContributor
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   site_swsdp_SiteManager
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   site_test
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   site_test_SiteCollaborator
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   site_test_SiteConsumer
+2021-05-06 09:50:39.808  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   site_test_SiteContributor
+2021-05-06 09:50:39.809  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       :   site_test_SiteManager
+```
 
 ## Create a group
 TODO
