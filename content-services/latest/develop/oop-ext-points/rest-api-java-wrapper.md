@@ -3993,16 +3993,243 @@ are loads of Share sites and the system is connected to a directory server:
 ```
 
 ## Create a group
-TODO
+Creating a group uses the `createGroup` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#createGroup){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#creategroup)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.GroupsApi;
+import org.alfresco.core.model.GroupBodyCreate;
+import org.alfresco.core.model.GroupEntry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class CreateGroupCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(CreateGroupCmd.class);
+
+    @Autowired
+    GroupsApi groupsApi;
+
+    public void execute(String groupId, String name) throws IOException {
+        List<String> fields = null;
+        List<String> include = null;
+
+        GroupBodyCreate groupBodyCreate = new GroupBodyCreate();
+        groupBodyCreate.setId(groupId);
+        groupBodyCreate.setDisplayName(name);
+        GroupEntry groupEntry = groupsApi.createGroup(groupBodyCreate, include, fields).getBody();
+        LOGGER.info("Created group  {}", groupEntry.getEntry());
+    }
+}
+```
+
+Executing this code will create a group, in this case we are creating an HR group:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-group hr "Human Resources"
+
+2021-05-06 10:25:48.953  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 25139 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-06 10:25:48.956  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-06 10:25:49.781  INFO 25139 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7feceac5-b4cc-39a3-85a6-b75c1006f2d7
+2021-05-06 10:25:51.906  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.477 seconds (JVM running for 3.956)
+2021-05-06 10:25:51.908  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: create-group
+2021-05-06 10:25:51.909  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: hr
+2021-05-06 10:25:51.909  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: Human Resources
+2021-05-06 10:25:52.165  INFO 25139 --- [           main] o.a.tutorial.restapi.CreateGroupCmd      : Created group  class Group {
+    id: GROUP_hr
+    displayName: Human Resources
+    isRoot: true
+    parentIds: null
+    zones: null
+}
+```
 
 ## Get group metadata
-TODO
+Getting metadata for a group uses the `getGroup` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#getGroup){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#getgroup)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.GroupsApi;
+import org.alfresco.core.model.GroupEntry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class GetGroupCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(GetGroupCmd.class);
+
+    @Autowired
+    GroupsApi groupsApi;
+
+    public void execute(String groupId) throws IOException {
+        List<String> fields = null;
+        List<String> include = null;
+
+        GroupEntry groupEntry = groupsApi.getGroup(groupId, include, fields).getBody();
+        LOGGER.info("Got group metadata  {}", groupEntry.getEntry());
+    }
+}
+```
+
+Executing this code will get metadata for a group, in this case we are getting metadata for a group with id `hr`,
+note that you have to prefix group ids with `GROUP_`:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-group GROUP_hr
+
+2021-05-06 10:31:34.619  INFO 25363 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 25363 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-06 10:31:34.624  INFO 25363 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-06 10:31:35.528  INFO 25363 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b350c97e-2143-3e94-8f43-4954bb0213f4
+2021-05-06 10:31:37.864  INFO 25363 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.763 seconds (JVM running for 4.242)
+2021-05-06 10:31:37.866  INFO 25363 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-group
+2021-05-06 10:31:37.868  INFO 25363 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: GROUP_hr
+2021-05-06 10:31:38.025  INFO 25363 --- [           main] o.alfresco.tutorial.restapi.GetGroupCmd  : Got group metadata  class Group {
+    id: GROUP_hr
+    displayName: Human Resources
+    isRoot: true
+    parentIds: null
+    zones: null
+}
+```
 
 ## Update a group
-TODO
+Updating a group name uses the `updateGroup` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#updateGroup){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#updategroup)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.GroupsApi;
+import org.alfresco.core.model.GroupBodyUpdate;
+import org.alfresco.core.model.GroupEntry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class UpdateGroupCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(UpdateGroupCmd.class);
+
+    @Autowired
+    GroupsApi groupsApi;
+
+    public void execute(String groupId, String newName) throws IOException {
+        List<String> fields = null;
+        List<String> include = null;
+
+        GroupBodyUpdate groupBodyUpdate = new GroupBodyUpdate();
+        groupBodyUpdate.setDisplayName(newName);
+
+        GroupEntry group = groupsApi.updateGroup(groupId, groupBodyUpdate, include, fields).getBody();
+        LOGGER.info("Updated group {}", group);
+    }
+}
+```
+
+Executing this code will update the name of the group with passed in id, in this case we are updating the name for a 
+group with id `hr`, note that you have to prefix group ids with `GROUP_`:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar update-group GROUP_hr "Human Resources updated"
+
+2021-05-06 12:42:38.687  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 26302 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-06 12:42:38.691  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-06 12:42:39.451  INFO 26302 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9b8cfc4c-6bf4-366d-8691-465b9ceaa705
+2021-05-06 12:42:41.475  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.285 seconds (JVM running for 3.742)
+2021-05-06 12:42:41.477  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: update-group
+2021-05-06 12:42:41.478  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: GROUP_hr
+2021-05-06 12:42:41.478  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: Human Resources updated
+2021-05-06 12:42:41.673  INFO 26302 --- [           main] o.a.tutorial.restapi.UpdateGroupCmd      : Updated group class GroupEntry {
+    entry: class Group {
+        id: GROUP_hr
+        displayName: Human Resources updated
+        isRoot: true
+        parentIds: null
+        zones: null
+    }
+}
+```
 
 ## List all people and groups in a group
-TODO
+Listing all the members of a group (i.e. people and groups) uses the `listGroupMemberships` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#listGroupMemberships){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#listmembersofgroup)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.GroupsApi;
+import org.alfresco.core.model.GroupMemberEntry;
+import org.alfresco.core.model.GroupMemberPaging;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class ListGroupMembersCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListGroupMembersCmd.class);
+
+    @Autowired
+    GroupsApi groupsApi;
+
+    public void execute(String groupId) throws IOException {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        String where = null;
+        List<String> orderBy = null;
+        List<String> fields = null;
+
+        LOGGER.info("Listing members of group {}:", groupId);
+        GroupMemberPaging groupMembers = groupsApi.listGroupMemberships(
+                groupId, skipCount, maxItems, orderBy, where, fields).getBody();
+        for (GroupMemberEntry groupMemberEntry: groupMembers.getList().getEntries()) {
+            LOGGER.info("  {} ({})", groupMemberEntry.getEntry().getDisplayName(), 
+                    groupMemberEntry.getEntry().getMemberType());
+        }
+    }
+}
+```
+
+Executing this code will list the members of passed in group id, note that you have to prefix group ids with `GROUP_`::
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-group-members GROUP_engineering
+
+2021-05-06 12:55:40.169  INFO 26500 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 26500 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
+2021-05-06 12:55:40.175  INFO 26500 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
+2021-05-06 12:55:41.193  INFO 26500 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a4f4c44c-1457-3b7c-af25-946eaa18e2c6
+2021-05-06 12:55:43.231  INFO 26500 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.59 seconds (JVM running for 4.024)
+2021-05-06 12:55:43.233  INFO 26500 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-group-members
+2021-05-06 12:55:43.234  INFO 26500 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: GROUP_engineering
+2021-05-06 12:55:43.234  INFO 26500 --- [           main] o.a.t.restapi.ListGroupMembersCmd        : Listing members of group GROUP_engineering:
+2021-05-06 12:55:43.404  INFO 26500 --- [           main] o.a.t.restapi.ListGroupMembersCmd        :   martin (PERSON)
+2021-05-06 12:55:43.404  INFO 26500 --- [           main] o.a.t.restapi.ListGroupMembersCmd        :   System Architects (GROUP)
+```
 
 ## Adding people and groups to a group
 TODO

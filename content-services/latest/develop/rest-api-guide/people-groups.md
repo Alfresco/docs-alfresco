@@ -1030,7 +1030,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 The group id always starts with `GROUP_`. If this is omitted, as in this case, it will be added automatically. This 
 format is also returned when listing groups or group memberships.
 
-## Get group metadata
+## Get group metadata {#getgroup}
 
 Get the metadata (i.e. properties) for a group in the repository.
 
