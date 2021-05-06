@@ -209,9 +209,6 @@ Executing this code would give the following result:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-node        
                                        
-2021-04-29 08:09:19.367  INFO 18370 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 18370 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-04-29 08:09:19.371  INFO 18370 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-04-29 08:09:20.430  INFO 18370 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3f6bb7ee-3f47-307b-93ed-ce624cea7e36
 2021-04-29 08:09:22.215  INFO 18370 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.536 seconds (JVM running for 4.449)
 2021-04-29 08:09:22.217  INFO 18370 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-node
 2021-04-29 08:09:22.485  INFO 18370 --- [           main] o.a.tutorial.restapi.GetNodeMetadataCmd  : Got node class Node {
@@ -746,9 +743,6 @@ binary file node id:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar upload-new-version 0492460b-6269-4ca1-9668-0d934d2f3370 48413f7a-066d-4e38-b2e6-c84ede635493
 
-2021-04-28 13:44:49.193  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 15466 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-04-28 13:44:49.196  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-04-28 13:44:50.105  INFO 15466 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6dfe0ea9-0f4a-3ec7-b2bd-c14ee9405daf
 2021-04-28 13:44:51.437  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.782 seconds (JVM running for 3.471)
 2021-04-28 13:44:51.439  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: upload-new-version
 2021-04-28 13:44:51.441  INFO 15466 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -882,9 +876,6 @@ We would execute this command class something like this, passing in the file Nod
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-file-versions 0492460b-6269-4ca1-9668-0d934d2f3370                   
 
-2021-04-29 08:04:42.887  INFO 18326 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 18326 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-04-29 08:04:42.895  INFO 18326 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-04-29 08:04:45.282  INFO 18326 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3f6bb7ee-3f47-307b-93ed-ce624cea7e36
 2021-04-29 08:04:48.145  INFO 18326 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 6.498 seconds (JVM running for 7.686)
 2021-04-29 08:04:48.148  INFO 18326 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-file-versions
 2021-04-29 08:04:48.152  INFO 18326 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -1120,9 +1111,6 @@ Executing the code gives a result looking something like this:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-multiple-file-content 0492460b-6269-4ca1-9668-0d934d2f3370 48413f7a-066d-4e38-b2e6-c84ede635493 mydownload.zip
 
-2021-04-29 12:58:51.139  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 19432 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-04-29 12:58:51.143  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-04-29 12:58:51.933  INFO 19432 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b2e7277d-da47-3e07-b7e9-1a8ee73ccd76
 2021-04-29 12:58:53.560  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.956 seconds (JVM running for 3.436)
 2021-04-29 12:58:53.562  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-multiple-file-content
 2021-04-29 12:58:53.564  INFO 19432 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -1201,9 +1189,6 @@ Executing this code looks like this, here we are listing renditions for a text f
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-renditions 0492460b-6269-4ca1-9668-0d934d2f3370                 
 
-2021-04-29 13:58:22.805  INFO 19701 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 19701 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-04-29 13:58:22.811  INFO 19701 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-04-29 13:58:23.857  INFO 19701 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b3c2fca5-7b19-3805-88e4-d3c558223d1c
 2021-04-29 13:58:25.387  INFO 19701 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.131 seconds (JVM running for 3.822)
 2021-04-29 13:58:25.389  INFO 19701 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-renditions
 2021-04-29 13:58:25.390  INFO 19701 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -1339,9 +1324,6 @@ Executing this code and getting a `pdf` rendition for a text file looks like thi
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-rendition-content 0492460b-6269-4ca1-9668-0d934d2f3370 pdf mytext.pdf 
 
-2021-04-29 16:05:22.776  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 20077 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-04-29 16:05:22.780  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-04-29 16:05:23.767  INFO 20077 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d486eb2c-2415-3101-aa77-949438081983
 2021-04-29 16:05:25.501  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.324 seconds (JVM running for 3.867)
 2021-04-29 16:05:25.504  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-rendition-content
 2021-04-29 16:05:25.506  INFO 20077 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -1431,9 +1413,6 @@ Executing this code result in this for a text file example:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar update-metadata 0492460b-6269-4ca1-9668-0d934d2f3370
 
-2021-04-29 16:27:39.686  INFO 20246 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 20246 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-04-29 16:27:39.690  INFO 20246 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-04-29 16:27:40.587  INFO 20246 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=29844b14-f031-3179-8d0e-b64257171844
 2021-04-29 16:27:42.303  INFO 20246 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.185 seconds (JVM running for 3.683)
 2021-04-29 16:27:42.306  INFO 20246 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: update-metadata
 2021-04-29 16:27:42.308  INFO 20246 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -1490,7 +1469,7 @@ aspect list.
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#removeaspectsnode)
 
-## Get and Set permissions for a folder or file
+## Get and Set permissions for a folder or file {#setpermissionfornode}
 To manage permissions for a node, use the [`NodesApi.updateNode`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNode){:target="_blank"}
 method. 
 
@@ -1595,17 +1574,6 @@ Executing this code result in this for a text file example:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar update-permissions 0492460b-6269-4ca1-9668-0d934d2f3370
 
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v2.4.2)
-
-2021-04-30 09:31:59.435  INFO 21515 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 21515 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-04-30 09:31:59.439  INFO 21515 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-04-30 09:32:00.402  INFO 21515 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=51c4f594-d970-3206-b766-5ee398458ccd
 2021-04-30 09:32:02.206  INFO 21515 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.4 seconds (JVM running for 3.957)
 2021-04-30 09:32:02.208  INFO 21515 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: update-permissions
 2021-04-30 09:32:02.210  INFO 21515 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -1980,9 +1948,6 @@ Executing the above code will result in logs such as follows:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar manage-associations                                    
 
-2021-04-30 16:26:20.317  INFO 22647 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 22647 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-04-30 16:26:20.321  INFO 22647 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-04-30 16:26:21.081  INFO 22647 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b9e2f3fd-e462-3455-a26b-5a4c02d3cee3
 2021-04-30 16:26:22.678  INFO 22647 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.93 seconds (JVM running for 3.402)
 2021-04-30 16:26:22.680  INFO 22647 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: manage-associations
 2021-04-30 16:26:22.681  INFO 22647 --- [           main] o.a.t.restapi.ManageAssociationsCmd      : Listing primary child associations for folder -root-/Data Dictionary
@@ -2247,9 +2212,6 @@ Executing the code gives a log like follows:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar manage-comments 0492460b-6269-4ca1-9668-0d934d2f3370
 
-2021-05-03 18:54:45.538  INFO 26804 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 26804 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-03 18:54:45.542  INFO 26804 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-03 18:54:46.357  INFO 26804 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ebdcba5c-32fa-3044-88ec-b593933d7201
 2021-05-03 18:54:48.085  INFO 26804 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.075 seconds (JVM running for 3.55)
 2021-05-03 18:54:48.087  INFO 26804 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: manage-comments
 2021-05-03 18:54:48.088  INFO 26804 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -2381,9 +2343,6 @@ Executing the code gives a log like follows:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar manage-tags 0492460b-6269-4ca1-9668-0d934d2f3370
 
-2021-05-04 09:56:23.448  INFO 27655 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 27655 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-04 09:56:23.451  INFO 27655 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-04 09:56:24.178  INFO 27655 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=dee6f89b-5e5a-3852-b582-7032d13391d4
 2021-05-04 09:56:25.846  INFO 27655 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.884 seconds (JVM running for 3.333)
 2021-05-04 09:56:25.848  INFO 27655 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: manage-tags
 2021-05-04 09:56:25.849  INFO 27655 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -2469,9 +2428,6 @@ Executing this code would give the following result, passing in node to copy and
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar copy-node 0492460b-6269-4ca1-9668-0d934d2f3370 7f041db0-fdb6-4185-b921-2fb9ed381480
 
-2021-05-04 10:52:13.655  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 28353 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-04 10:52:13.661  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-04 10:52:14.686  INFO 28353 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d9599038-7eb9-3338-8b05-7e0067af2eb4
 2021-05-04 10:52:16.741  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.667 seconds (JVM running for 4.218)
 2021-05-04 10:52:16.743  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: copy-node
 2021-05-04 10:52:16.745  INFO 28353 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -2555,9 +2511,6 @@ Executing this code would give the following result, passing in node to copy and
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar move-node d11d6970-c5c4-4edd-9971-593a23b9344f 7f041db0-fdb6-4185-b921-2fb9ed381480
 
-2021-05-04 10:45:44.472  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 28288 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-04 10:45:44.476  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-04 10:45:45.300  INFO 28288 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d9599038-7eb9-3338-8b05-7e0067af2eb4
 2021-05-04 10:45:47.080  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.103 seconds (JVM running for 3.568)
 2021-05-04 10:45:47.081  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: move-node
 2021-05-04 10:45:47.082  INFO 28288 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: d11d6970-c5c4-4edd-9971-593a23b9344f
@@ -2646,9 +2599,6 @@ Executing this code would give the following result, passing in node to lock:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar lock-node 0492460b-6269-4ca1-9668-0d934d2f3370                                 
 
-2021-05-04 11:12:48.131  INFO 28630 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 28630 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-04 11:12:48.136  INFO 28630 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-04 11:12:49.231  INFO 28630 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8dc3abb2-57d1-3bd8-865d-d387331673ce
 2021-05-04 11:12:51.070  INFO 28630 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.722 seconds (JVM running for 4.523)
 2021-05-04 11:12:51.072  INFO 28630 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: lock-node
 2021-05-04 11:12:51.074  INFO 28630 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 0492460b-6269-4ca1-9668-0d934d2f3370
@@ -2781,9 +2731,6 @@ Executing this code would give the following result, passing in parent folder an
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar link-file 7f041db0-fdb6-4185-b921-2fb9ed381480 48413f7a-066d-4e38-b2e6-c84ede635493
 
-2021-05-04 13:27:40.440  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 29404 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-04 13:27:40.445  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-04 13:27:41.539  INFO 29404 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b1f9a9a7-fdd8-3f08-b1e4-5aa111f87b5c
 2021-05-04 13:27:43.981  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 4.237 seconds (JVM running for 4.904)
 2021-05-04 13:27:43.983  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: link-file
 2021-05-04 13:27:43.985  INFO 29404 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 7f041db0-fdb6-4185-b921-2fb9ed381480
@@ -2860,9 +2807,6 @@ Executing this code would give the following result, passing in the node to dele
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar delete-node fe955da0-c4e5-42d3-972f-697424b546b1                                   
 
-2021-05-04 13:47:07.413  INFO 29542 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on Admins-MBP with PID 29542 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-04 13:47:07.417  INFO 29542 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-04 13:47:08.370  INFO 29542 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e76eb692-983a-3521-bbc5-a28de1410e18
 2021-05-04 13:47:10.376  INFO 29542 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.639 seconds (JVM running for 4.406)
 2021-05-04 13:47:10.377  INFO 29542 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: delete-node
 2021-05-04 13:47:10.379  INFO 29542 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: fe955da0-c4e5-42d3-972f-697424b546b1
@@ -2917,9 +2861,6 @@ Executing this code would list the soft deleted nodes that exist in the so calle
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-deleted-nodes                                       
 
-2021-05-05 09:38:53.223  INFO 14986 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 14986 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-05 09:38:53.226  INFO 14986 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-05 09:38:53.979  INFO 14986 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d6aa9570-9f13-3e29-a31b-181544b655d0
 2021-05-05 09:38:54.983  INFO 14986 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 4.404 seconds (JVM running for 4.861)
 2021-05-05 09:38:54.985  INFO 14986 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-deleted-nodes
 2021-05-05 09:38:54.986  INFO 14986 --- [           main] o.a.t.restapi.ListDeletedNodesCmd        : Listing soft deleted nodes in the trashcan:
@@ -3067,9 +3008,6 @@ Executing this code would restore a node with passed in ID. The location folder 
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar restore-deleted-node b717304b-1c07-400b-b8a8-3268ea79c49f 7f041db0-fdb6-4185-b921-2fb9ed381480
 
-2021-05-05 09:46:17.270  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 15098 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-05 09:46:17.273  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-05 09:46:18.060  INFO 15098 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d6aa9570-9f13-3e29-a31b-181544b655d0
 2021-05-05 09:46:19.805  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.033 seconds (JVM running for 3.498)
 2021-05-05 09:46:19.807  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: restore-deleted-node
 2021-05-05 09:46:19.808  INFO 15098 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: b717304b-1c07-400b-b8a8-3268ea79c49f
@@ -3255,9 +3193,6 @@ Executing this code will create a folder in the passed in site's document librar
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar add-site-content test
 
-2021-05-05 10:43:31.681  INFO 16095 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 16095 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-05 10:43:31.684  INFO 16095 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-05 10:43:32.468  INFO 16095 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f1926d1-09f7-3506-9415-3da51a2fd2e7
 2021-05-05 10:43:34.208  INFO 16095 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.019 seconds (JVM running for 3.46)
 2021-05-05 10:43:34.210  INFO 16095 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: add-site-content
 2021-05-05 10:43:34.211  INFO 16095 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: test
@@ -3340,9 +3275,6 @@ Executing this code will add a user with passed in ID with role *Site Collaborat
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar add-site-member test test
 
-2021-05-05 13:21:28.873  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 17933 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-05 13:21:28.877  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-05 13:21:29.631  INFO 17933 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=54f6d6dd-86bf-3fad-924c-13cdd1ba44d2
 2021-05-05 13:21:31.290  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 2.923 seconds (JVM running for 3.377)
 2021-05-05 13:21:31.291  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: add-site-member
 2021-05-05 13:21:31.292  INFO 17933 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: test
@@ -3444,9 +3376,6 @@ Executing this code will list all users in the repository (note, if connected to
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-people
 
-2021-05-05 13:42:12.675  INFO 18327 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 18327 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-05 13:42:12.680  INFO 18327 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-05 13:42:13.568  INFO 18327 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=248400d4-2576-3189-948d-78e95ba3e43a
 2021-05-05 13:42:15.547  INFO 18327 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.426 seconds (JVM running for 3.96)
 2021-05-05 13:42:15.549  INFO 18327 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-people
 2021-05-05 13:42:15.550  INFO 18327 --- [           main] o.a.tutorial.restapi.ListPeopleCmd       : Listing people in the repository
@@ -3503,9 +3432,6 @@ Executing this code will add a user passed in username, pwd, first name, last na
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-person martin 1234 Martin Bergljung martin@example.com
 
-2021-05-05 15:49:21.902  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 22389 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-05 15:49:21.907  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-05 15:49:22.902  INFO 22389 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a28a54f6-5875-38af-acad-e02c2902468b
 2021-05-05 15:49:25.198  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.928 seconds (JVM running for 4.427)
 2021-05-05 15:49:25.200  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: create-person
 2021-05-05 15:49:25.201  INFO 22389 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: martin
@@ -3610,9 +3536,6 @@ for the out-of-the-box user `abeecher`:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-person-metadata abeecher
 
-2021-05-05 16:06:47.719  INFO 22610 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 22610 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-05 16:06:47.723  INFO 22610 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-05 16:06:48.598  INFO 22610 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f2de6c7-ccd4-3388-a179-0d91efecc989
 2021-05-05 16:06:50.550  INFO 22610 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.396 seconds (JVM running for 3.893)
 2021-05-05 16:06:50.552  INFO 22610 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-person-metadata
 2021-05-05 16:06:50.553  INFO 22610 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: abeecher
@@ -3747,9 +3670,6 @@ are mandatory that you need to set, so might be best to read them first and then
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar update-person-metadata martin
 
-2021-05-06 09:16:39.124  INFO 24158 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 24158 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-06 09:16:39.128  INFO 24158 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-06 09:16:39.912  INFO 24158 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9d5fd567-d486-3175-8e67-3ad3ee08bbf2
 2021-05-06 09:16:41.833  INFO 24158 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.151 seconds (JVM running for 3.596)
 2021-05-06 09:16:41.835  INFO 24158 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: update-person-metadata
 2021-05-06 09:16:41.837  INFO 24158 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: martin
@@ -3836,9 +3756,6 @@ password request should be via the Alfresco Share UI:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar request-pwd-reset martin     
 
-2021-05-06 09:30:35.541  INFO 24356 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 24356 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-06 09:30:35.544  INFO 24356 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-06 09:30:36.455  INFO 24356 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=eea79e0e-e779-377b-89fd-f00aaf5c1c32
 2021-05-06 09:30:38.440  INFO 24356 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.438 seconds (JVM running for 3.939)
 2021-05-06 09:30:38.442  INFO 24356 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: request-pwd-reset
 2021-05-06 09:30:38.443  INFO 24356 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: martin
@@ -3968,9 +3885,6 @@ are loads of Share sites and the system is connected to a directory server:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-groups                        
 
-2021-05-06 09:50:36.330  INFO 24665 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 24665 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-06 09:50:36.334  INFO 24665 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-06 09:50:37.247  INFO 24665 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a534de14-e138-3520-b669-68a789e0fa81
 2021-05-06 09:50:39.416  INFO 24665 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.637 seconds (JVM running for 4.131)
 2021-05-06 09:50:39.419  INFO 24665 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-groups
 2021-05-06 09:50:39.420  INFO 24665 --- [           main] o.a.tutorial.restapi.ListGroupsCmd       : Listing group in the repo:
@@ -4036,9 +3950,6 @@ Executing this code will create a group, in this case we are creating an HR grou
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-group hr "Human Resources"
 
-2021-05-06 10:25:48.953  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 25139 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-06 10:25:48.956  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-06 10:25:49.781  INFO 25139 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7feceac5-b4cc-39a3-85a6-b75c1006f2d7
 2021-05-06 10:25:51.906  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.477 seconds (JVM running for 3.956)
 2021-05-06 10:25:51.908  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: create-group
 2021-05-06 10:25:51.909  INFO 25139 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: hr
@@ -4093,9 +4004,6 @@ note that you have to prefix group ids with `GROUP_`:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-group GROUP_hr
 
-2021-05-06 10:31:34.619  INFO 25363 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 25363 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-06 10:31:34.624  INFO 25363 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-06 10:31:35.528  INFO 25363 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b350c97e-2143-3e94-8f43-4954bb0213f4
 2021-05-06 10:31:37.864  INFO 25363 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.763 seconds (JVM running for 4.242)
 2021-05-06 10:31:37.866  INFO 25363 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-group
 2021-05-06 10:31:37.868  INFO 25363 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: GROUP_hr
@@ -4153,9 +4061,6 @@ group with id `hr`, note that you have to prefix group ids with `GROUP_`:
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar update-group GROUP_hr "Human Resources updated"
 
-2021-05-06 12:42:38.687  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 26302 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-06 12:42:38.691  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-06 12:42:39.451  INFO 26302 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9b8cfc4c-6bf4-366d-8691-465b9ceaa705
 2021-05-06 12:42:41.475  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.285 seconds (JVM running for 3.742)
 2021-05-06 12:42:41.477  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: update-group
 2021-05-06 12:42:41.478  INFO 26302 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: GROUP_hr
@@ -4220,9 +4125,6 @@ Executing this code will list the members of passed in group id, note that you h
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-group-members GROUP_engineering
 
-2021-05-06 12:55:40.169  INFO 26500 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Starting RestApiApplication v0.0.1-SNAPSHOT using Java 16.0.1 on APL-c02sl03rgtfm with PID 26500 (/Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample/target/rest-api-0.0.1-SNAPSHOT.jar started by admin in /Users/admin/IdeaProjects/sdk5/sdk5-rest-api-java-wrapper-sample)
-2021-05-06 12:55:40.175  INFO 26500 --- [           main] o.a.tutorial.restapi.RestApiApplication  : No active profile set, falling back to default profiles: default
-2021-05-06 12:55:41.193  INFO 26500 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a4f4c44c-1457-3b7c-af25-946eaa18e2c6
 2021-05-06 12:55:43.231  INFO 26500 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.59 seconds (JVM running for 4.024)
 2021-05-06 12:55:43.233  INFO 26500 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-group-members
 2021-05-06 12:55:43.234  INFO 26500 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: GROUP_engineering
@@ -4232,13 +4134,128 @@ Executing this code will list the members of passed in group id, note that you h
 ```
 
 ## Adding people and groups to a group
-TODO
+Adding members to a group uses the `createGroupMembership` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#createGroupMembership){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#addtogroup)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.GroupsApi;
+import org.alfresco.core.model.GroupMemberEntry;
+import org.alfresco.core.model.GroupMembershipBodyCreate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class CreateGroupMembershipCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(CreateGroupMembershipCmd.class);
+
+    @Autowired
+    GroupsApi groupsApi;
+
+    public void execute(String groupId, String memberId, String type) throws IOException {
+        List<String> fields = null;
+
+        GroupMembershipBodyCreate groupMembershipBodyCreate = new GroupMembershipBodyCreate();
+        groupMembershipBodyCreate.setId(memberId);
+        groupMembershipBodyCreate.setMemberType(GroupMembershipBodyCreate.MemberTypeEnum.fromValue(type));
+
+        GroupMemberEntry groupMember = groupsApi.createGroupMembership(groupId, groupMembershipBodyCreate, fields).getBody();
+        LOGGER.info("Added member to group {} {}", groupId, groupMember.getEntry());
+    }
+}
+```
+
+Executing this code will add a person, or a group, to passed in group id, note that you have to prefix group ids with `GROUP_`:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-group-membership GROUP_hr martin PERSON
+
+2021-05-06 13:54:39.062  INFO 27295 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.83 seconds (JVM running for 4.364)
+2021-05-06 13:54:39.064  INFO 27295 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: create-group-membership
+2021-05-06 13:54:39.066  INFO 27295 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: GROUP_hr
+2021-05-06 13:54:39.066  INFO 27295 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: martin
+2021-05-06 13:54:39.066  INFO 27295 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[3]: PERSON
+2021-05-06 13:54:39.311  INFO 27295 --- [           main] o.a.t.restapi.CreateGroupMembershipCmd   : Added member to group GROUP_hr class GroupMember {
+    id: martin
+    displayName: martin
+    memberType: PERSON
+}
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar create-group-membership GROUP_hr GROUP_engineering GROUP
+
+2021-05-06 13:55:23.094  INFO 27297 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.855 seconds (JVM running for 4.351)
+2021-05-06 13:55:23.096  INFO 27297 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: create-group-membership
+2021-05-06 13:55:23.097  INFO 27297 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: GROUP_hr
+2021-05-06 13:55:23.097  INFO 27297 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: GROUP_engineering
+2021-05-06 13:55:23.097  INFO 27297 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[3]: GROUP
+2021-05-06 13:55:23.327  INFO 27297 --- [           main] o.a.t.restapi.CreateGroupMembershipCmd   : Added member to group GROUP_hr class GroupMember {
+    id: GROUP_engineering
+    displayName: Engineering
+    memberType: GROUP
+}
+```
 
 ## Delete a person or group from a group
-TODO
+Deleting members of a group uses the `deleteGroupMembership` method of the [`GroupsApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/GroupsApi.md#deleteGroupMembership){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#deletefromgroup)
+
+```java
+import org.alfresco.core.handler.GroupsApi;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+
+@Component
+public class DeleteGroupMembershipCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(DeleteGroupMembershipCmd.class);
+
+    @Autowired
+    GroupsApi groupsApi;
+
+    public void execute(String groupId, String groupMemberId) throws IOException {
+        HttpEntity<Void> result = groupsApi.deleteGroupMembership(groupId, groupMemberId);
+        LOGGER.info("Deleted group membership for group {} member {} result {}", groupId, groupMemberId, result);
+    }
+}
+```
+
+Executing this code will delete a person, or a group, from passed in group id, note that you have to prefix group ids 
+with `GROUP_`:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar delete-group-membership GROUP_hr martin           
+
+2021-05-06 14:09:25.825  INFO 27471 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.959 seconds (JVM running for 4.516)
+2021-05-06 14:09:25.828  INFO 27471 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: delete-group-membership
+2021-05-06 14:09:25.829  INFO 27471 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: GROUP_hr
+2021-05-06 14:09:25.829  INFO 27471 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: martin
+2021-05-06 14:09:26.112  INFO 27471 --- [           main] o.a.t.restapi.DeleteGroupMembershipCmd   : Deleted group membership for group GROUP_hr member martin result <204 NO_CONTENT No Content,[cache-control:"no-cache", connection:"keep-alive", content-type:"application/json;charset=UTF-8", date:"Thu, 06 May 2021 13:09:26 GMT", expires:"Thu, 01 Jan 1970 00:00:00 GMT", pragma:"no-cache", server:"nginx/1.18.0", x-frame-options:"SAMEORIGIN"]>
+
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar delete-group-membership GROUP_hr GROUP_engineering
+
+2021-05-06 14:09:51.048  INFO 27472 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.964 seconds (JVM running for 4.493)
+2021-05-06 14:09:51.050  INFO 27472 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: delete-group-membership
+2021-05-06 14:09:51.051  INFO 27472 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: GROUP_hr
+2021-05-06 14:09:51.051  INFO 27472 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: GROUP_engineering
+2021-05-06 14:09:51.152  INFO 27472 --- [           main] o.a.t.restapi.DeleteGroupMembershipCmd   : Deleted group membership for group GROUP_hr member GROUP_engineering result <204 NO_CONTENT No Content,[cache-control:"no-cache", connection:"keep-alive", content-type:"application/json;charset=UTF-8", date:"Thu, 06 May 2021 13:09:51 GMT", expires:"Thu, 01 Jan 1970 00:00:00 GMT", pragma:"no-cache", server:"nginx/1.18.0", x-frame-options:"SAMEORIGIN"]>
+```
 
 ## Setting permissions for a group
-TODO
+Setting permissions for a group uses the `updateNode` method of the [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#updateNode){:target="_blank"}.
+For more info see [set permissions for a node](#setpermissionfornode).
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#setpermissionsgroup)
 
 ## === Managing Audit Applications and Logs ===
 The following sections walk through how to use the Java ReST API wrapper services when managing audit applications and 

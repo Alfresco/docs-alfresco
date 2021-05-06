@@ -1473,7 +1473,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 When the Engineering group has been populated with users and groups we can start configuring folder and file permissions 
 for it.
 
-## Delete a person or group from a group
+## Delete a person or group from a group {#deletefromgroup}
 
 Deleting a person or group from a group in the repository.
 
