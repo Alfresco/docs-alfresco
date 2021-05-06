@@ -310,9 +310,9 @@ aws.secretKey=${AWS_SECRET_KEY}
 aws.transcribe.languages=${AWS_TRANSCRIBE_LANGUAGES}
 ```
 
-For increased accuracy with language identification, enter a list of comma-seperated languages that are spoken in your file in `AWS_TRANSCRIBE_LANGUAGES`. For example, if you’re confident your media file is either in US English, US Spanish, or French, provide the following in the `AWS_TRANSCRIBE_LANGUAGES` file: en-US,es-US,fr-FR
+For increased accuracy with language identification, you can enter a list of comma-seperated languages that are spoken. For example, if you your media files are primarily going to be in U.S. English, U.S. Spanish, or French, enter the following into your `AWS_TRANSCRIBE_LANGUAGES` file: `en-US,es-US,fr-FR`.
 
-The connector uses a stream mechanism to send and receive information it and AAE. The following property is used to identify the connector:
+The connector uses a stream mechanism to send and receive information from it and AAE. The following variable is used to identify the connector:
 
 ```bash
 spring.cloud.stream.bindings.transcribeConnectorConsumer.destination=transcribe.TRANSCRIBE
@@ -327,19 +327,19 @@ alfresco.identity.service.resource=${CONTENT_CLIENT_ID}
 alfresco.identity.service.credentials-secret=${CONTENT_CLIENT_SECRET}
 ```
 
-The response of the transcription is a file that must be stored temporarily. This path is set using the following property:
+The response of the transcription is a file that must be stored temporarily. This path is set using the following variable:
 
 ```bash
 file.content.reference.directory.path=${VOLUME_MOUNT_PATH:/tmp}
 ```
 
-The input file could be stored in a folder instead of Alfresco. This path is set using the following property:
+The input file could be stored in a folder instead of Alfresco. This path is set using the following variable:
 
 ```bash
 file.content.tmp.path=${ACT_TEMPORARY_FOLDER:/tmp}
 ```
 
-> **Note:** The name of the channel must match the implementation value defined in the Service Task as part of the BPMN definition.
+> **Note:** The name of the channel must match the implementation value defined in the Service Task as part of the [BPMN Tasks Configuration](#bpmn-tasks-configuration).
 
 ### Deployment Configuration
 
@@ -356,21 +356,21 @@ When deploying an application you are asked to input the image of the connector.
 
 ### AWS Configuration
 
-Currently, the connector uses [Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html) for audio and video files analysis that contain speech and uses advanced machine learning techniques to transcribe the voice data into text. Its recommended you access AWS using AWS Identity and Access Management (IAM). To use IAM to access AWS, create an IAM user, add the user to an IAM group with administrative permissions, and then grant administrative permissions to the IAM user. You can then access AWS using a special URL and the IAM user's credentials.
+Alfresco recommends you access AWS using AWS Identity and Access Management (IAM). To use IAM to access AWS, create an IAM user, add the user to an IAM group with administrative permissions, and then grant administrative permissions to the IAM user. You can then access AWS using a special URL and the IAM user's credentials.
 
 ### BPMN Tasks Configuration
 
-As part of BPMN definition process, any Service Task responsible for triggering the speech to text needs to set **_transcribe.TRANSCRIBE_** as the value for its implementation attribute.
+As part of BPMN definition process, any service task responsible for triggering speech to text needs to set **_transcribe.TRANSCRIBE_** as the value for its implementation attribute.
 
 In addition to the above configuration, these variables are required to perform the audio analysis:
 
-The input parameters of the Transcribe connector are:
+The input parameters of the transcribe connector are:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | file | Array | *Required.* File to be transcribed. If multiple files are passed, only the first one will be processed. |
-| timeout | Integer | *Optional.* Timeout for the remote call to Transcribe service in milliseconds. Defaults to ${aws.transcribe.asynchTimeout}. |
-| generateWebVTT | Boolean | *Optional* The output webVTT is only populated if generateWebVTT is true. |
+| timeout | Integer | *Optional.* Timeout for the remote call to transcribe service in milliseconds. The default is `${aws.transcribe.asynchTimeout}`. |
+| generateWebVTT | Boolean | *Optional* The output webVTT is only populated if generateWebVTT is set to `true`. |
 
 The output parameters of the Transcribe connector are:
 
@@ -382,4 +382,4 @@ The output parameters of the Transcribe connector are:
 
 ### Limitations
 
-Minimum confidence is not currently supported. However, the confidence is included as part of the response.
+Minimum confidence is not currently supported. The confidence is however included as part of the response.
