@@ -46,7 +46,7 @@ Configure the `activiti-identity-service.properties` file using the below proper
 |keycloak.token-store| *Required.* The location of where the account information token is stored. Possible values are `cookie` or `session`.|
 |keycloak.enable-basic-auth| *Optional.* Whether basic authentication is supported by the adapter. If set to `true` then a secret must also be provided.|
 |activiti.use-browser-based-logout| *Optional.* Sets whether signing out of Process Services calls the Identity Service `logout URL`. If set to `true`, set the **Admin URL** to `https://{server}:{port}/activiti-app/` under the client settings in the Identity Service management console.|
-|activiti.identity-service.cookie-auth-enabled| *Optional.* When set to true enables cookie based authentication that will work alongside the identity service authentication.|
+|activiti.identity-service.cookie-auth-enabled| *Optional.* When set to `true` enables cookie-based authentication that will work alongside the Identity Service authentication.|
 
 ## OAuth 2
 
