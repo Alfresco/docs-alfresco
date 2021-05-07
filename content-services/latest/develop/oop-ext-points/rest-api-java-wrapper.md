@@ -4120,7 +4120,7 @@ public class ListGroupMembersCmd {
 }
 ```
 
-Executing this code will list the members of passed in group id, note that you have to prefix group ids with `GROUP_`::
+Executing this code will list the members of passed in group id, note that you have to prefix group ids with `GROUP_`:
 
 ```bash
 % java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-group-members GROUP_engineering
@@ -4262,19 +4262,261 @@ The following sections walk through how to use the Java ReST API wrapper service
 their logs.
 
 ## Enable auditing and Alfresco Access audit application
-TODO
+[See this section]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#enableauditing)
 
 ## List audit applications
-TODO
+Listing all the audit applications uses the `listAuditApps` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#listAuditApps){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditapps)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.AuditApi;
+import org.alfresco.core.model.AuditAppEntry;
+import org.alfresco.core.model.AuditAppPaging;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class ListAuditAppsCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListAuditAppsCmd.class);
+
+    @Autowired
+    AuditApi auditApi;
+
+    public void execute() throws IOException {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        List<String> fields = null;
+
+        LOGGER.info("Listing active audit applications in the repository:");
+        AuditAppPaging auditApps = auditApi.listAuditApps(skipCount, maxItems, fields).getBody();
+        for (AuditAppEntry auditAppEntry: auditApps.getList().getEntries()) {
+            LOGGER.info("  {}", auditAppEntry);
+        }
+    }
+}
+```
+
+Executing this code will list the audit applications that have been activated, if you have enabled auditing and activated
+the `alfresco-access` audit application, then you will see the following listing of audit apps:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-audit-apps
+
+2021-05-07 12:48:12.434  INFO 36995 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.525 seconds (JVM running for 4.089)
+2021-05-07 12:48:12.436  INFO 36995 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-audit-apps
+2021-05-07 12:48:12.437  INFO 36995 --- [           main] o.a.tutorial.restapi.ListAuditAppsCmd    : Listing active audit applications in the repository:
+2021-05-07 12:48:12.912  INFO 36995 --- [           main] o.a.tutorial.restapi.ListAuditAppsCmd    :   class AuditAppEntry {
+    entry: class AuditApp {
+        id: tagging
+        name: Alfresco Tagging Service
+        isEnabled: true
+        maxEntryId: null
+        minEntryId: null
+    }
+}
+2021-05-07 12:48:12.913  INFO 36995 --- [           main] o.a.tutorial.restapi.ListAuditAppsCmd    :   class AuditAppEntry {
+    entry: class AuditApp {
+        id: alfresco-access
+        name: alfresco-access
+        isEnabled: true
+        maxEntryId: null
+        minEntryId: null
+    }
+}
+```
 
 ## Get audit application metadata
-TODO
+Getting the audit application metadata uses the `getAuditApp` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#getAuditApp){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#getauditappmetadata)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.AuditApi;
+import org.alfresco.core.model.AuditApp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class GetAuditAppCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(GetAuditAppCmd.class);
+
+    @Autowired
+    AuditApi auditApi;
+
+    public void execute(String auditAppId) throws IOException {
+        List<String> fields = null;
+        List<String> include = null;
+
+        AuditApp auditApp = auditApi.getAuditApp(auditAppId, fields, include).getBody();
+        LOGGER.info("Got audit app metadata  {}", auditApp);
+    }
+}
+```
 
 ## Enable/Disable an audit application
-TODO
+Enable and disable an audit application uses the `updateAuditApp` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#updateAuditApp){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#enabledisableapp)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.AuditApi;
+import org.alfresco.core.model.AuditApp;
+import org.alfresco.core.model.AuditBodyUpdate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class EnableDisableAuditAppCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(EnableDisableAuditAppCmd.class);
+
+    @Autowired
+    AuditApi auditApi;
+
+    public void execute(String auditAppId) throws IOException {
+        List<String> fields = null;
+
+        AuditBodyUpdate auditBodyUpdate = new AuditBodyUpdate();
+        auditBodyUpdate.setIsEnabled(true);
+
+        AuditApp auditApp = auditApi.updateAuditApp(auditAppId, auditBodyUpdate, fields).getBody();
+        LOGGER.info("Enabled audit app  {}", auditApp);
+    }
+}
+```
 
 ## List audit entries (logs) for an audit application
-TODO
+Listing all the audit applications uses the `listAuditEntriesForAuditApp` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#listAuditEntriesForAuditApp){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditlogsforapp)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.AuditApi;
+import org.alfresco.core.model.AuditEntryEntry;
+import org.alfresco.core.model.AuditEntryPaging;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class ListAuditLogsCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListAuditLogsCmd.class);
+
+    @Autowired
+    AuditApi auditApi;
+
+    public void execute(String auditAppId) throws IOException {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        String where = null;
+        List<String> fields = null;
+        List<String> include = new ArrayList<>();
+        List<String> orderBy = null;
+
+        // Include the log values
+        include.add("values");
+
+        // Controls if the response provides the total numbers of items in the collection.
+        // If not supplied then the default value is false.
+        Boolean omitTotalItems = true;
+
+        LOGGER.info("Listing logs for audit application {}:", auditAppId);
+        AuditEntryPaging auditLogs = auditApi.listAuditEntriesForAuditApp(
+                auditAppId, skipCount, omitTotalItems, orderBy, maxItems, where, include, fields).getBody();
+        for (AuditEntryEntry auditAppEntry: auditLogs.getList().getEntries()) {
+            String username = "N/A";
+            if (auditAppEntry.getEntry().getCreatedByUser() != null) {
+                username = auditAppEntry.getEntry().getCreatedByUser().getId();
+            }
+            String log = null;
+            if (auditAppEntry.getEntry().getValues().toString().length() > 60) {
+                log = auditAppEntry.getEntry().getValues().toString().substring(0, 60);
+            } else {
+                log = auditAppEntry.getEntry().getValues().toString();
+            }
+            LOGGER.info("  {} {} {}", auditAppEntry.getEntry().getCreatedAt(), username, log);
+        }
+    }
+}
+```
+
+Executing this code will list the audit logs for passed in audit app id. The audit log values have been trimmed:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-audit-logs alfresco-access
+
+2021-05-07 14:46:29.977  INFO 40544 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.493 seconds (JVM running for 3.948)
+2021-05-07 14:46:29.980  INFO 40544 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-audit-logs
+2021-05-07 14:46:29.981  INFO 40544 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: alfresco-access
+2021-05-07 14:46:29.981  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    : Listing logs for audit application alfresco-access:
+2021-05-07 14:46:30.376  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T11:48:12.758Z admin {/alfresco-access/login/user=admin}
+2021-05-07 14:46:30.376  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:30:46.256Z N/A {/alfresco-access/loginFailure/user=martin}
+2021-05-07 14:46:30.377  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:30:58.768Z N/A {/alfresco-access/loginFailure/user=test}
+2021-05-07 14:46:30.377  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:31:07.650Z admin {/alfresco-access/transaction/sub-actions=createNode updateN
+2021-05-07 14:46:30.379  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:31:08.087Z admin {/alfresco-access/transaction/sub-actions=createNode updateN
+2021-05-07 14:46:30.379  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:31:08.141Z admin {/alfresco-access/transaction/sub-actions=createNode updateN
+2021-05-07 14:46:30.379  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:31:08.800Z admin {/alfresco-access/transaction/sub-actions=updateContent upda
+2021-05-07 14:46:30.379  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:31:08.853Z admin {/alfresco-access/transaction/sub-actions=updateContent upda
+2021-05-07 14:46:30.380  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:31:08.961Z admin {/alfresco-access/transaction/sub-actions=updateContent upda
+2021-05-07 14:46:30.380  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:04.579Z admin {/alfresco-access/logout/user=admin}
+2021-05-07 14:46:30.381  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:10.404Z test {/alfresco-access/login/user=test}
+2021-05-07 14:46:30.381  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:11.261Z test {/alfresco-access/transaction/sub-actions=createNode updateN
+2021-05-07 14:46:30.381  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:11.316Z test {/alfresco-access/transaction/sub-actions=createNode updateN
+2021-05-07 14:46:30.381  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:11.371Z test {/alfresco-access/transaction/sub-actions=createNode updateN
+2021-05-07 14:46:30.381  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:11.436Z test {/alfresco-access/transaction/sub-actions=createNode updateN
+2021-05-07 14:46:30.382  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:12.075Z test {/alfresco-access/transaction/sub-actions=updateContent upda
+2021-05-07 14:46:30.382  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:12.101Z test {/alfresco-access/transaction/sub-actions=updateContent upda
+2021-05-07 14:46:30.382  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:12.124Z test {/alfresco-access/transaction/sub-actions=updateContent upda
+2021-05-07 14:46:30.383  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:24.764Z test {/alfresco-access/logout/user=test}
+2021-05-07 14:46:30.383  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:26.423Z admin {/alfresco-access/login/user=admin}
+2021-05-07 14:46:30.384  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:37.917Z admin {/alfresco-access/transaction/sub-actions=createNode updateN
+2021-05-07 14:46:30.384  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:47.013Z admin {/alfresco-access/transaction/sub-actions=createNode updateN
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:51.284Z admin {/alfresco-access/transaction/sub-actions=addNodeAspect crea
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:51.363Z admin {/alfresco-access/transaction/sub-actions=readContent addNod
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:51.458Z admin {/alfresco-access/transaction/sub-actions=updateNodeProperti
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:51.511Z admin {/alfresco-access/transaction/sub-actions=readContent, /alfr
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:54.271Z admin {/alfresco-access/transaction/sub-actions=addNodeAspect crea
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:54.343Z admin {/alfresco-access/transaction/sub-actions=updateNodeProperti
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:54.443Z admin {/alfresco-access/transaction/sub-actions=updateNodeProperti
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:32:54.468Z admin {/alfresco-access/transaction/sub-actions=readContent, /alfr
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:33:03.656Z admin {/alfresco-access/transaction/sub-actions=createNode updateN
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:33:03.784Z admin {/alfresco-access/transaction/sub-actions=readContent, /alfr
+2021-05-07 14:46:30.385  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:33:04.218Z admin {/alfresco-access/transaction/sub-actions=addNodeAspect, /al
+2021-05-07 14:46:30.386  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:33:04.264Z admin {/alfresco-access/transaction/sub-actions=readContent, /alfr
+2021-05-07 14:46:30.386  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:33:04.347Z admin {/alfresco-access/transaction/sub-actions=readContent, /alfr
+2021-05-07 14:46:30.386  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:33:04.754Z admin {/alfresco-access/transaction/sub-actions=addNodeAspect crea
+2021-05-07 14:46:30.386  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:33:04.806Z admin {/alfresco-access/transaction/sub-actions=addNodeAspect upda
+2021-05-07 14:46:30.386  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:33:04.878Z admin {/alfresco-access/transaction/sub-actions=updateNodeProperti
+2021-05-07 14:46:30.386  INFO 40544 --- [           main] o.a.tutorial.restapi.ListAuditLogsCmd    :   2021-05-07T13:33:04.899Z admin {/alfresco-access/transaction/sub-actions=readContent, /alfr
+```
 
 ## List audit entries (logs) for a node
 TODO

@@ -11,7 +11,7 @@ The ReST API supports listing audit applications, listing audit entries (logs), 
 
 If you are not familiar with audit logging in ACS, then have a look at this [page]({% link content-services/latest/admin/audit.md %}).
 
-## Enable auditing and Alfresco Access audit application
+## Enable auditing and Alfresco Access audit application {#enableauditing}
 
 Enable auditing in Alfresco repo and enable the out-of-the-box preconfigured "Alfresco Access" Audit Application.
 
@@ -110,7 +110,7 @@ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4Z
 }
 ```
 
-## Get audit application metadata
+## Get audit application metadata {#getauditappmetadata}
 
 Get the metadata (i.e. properties) for an audit application in the repository.
 
