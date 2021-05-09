@@ -117,16 +117,11 @@ This process also includes 2 web forms.
 
 19. Give the form a name (for example “Expense review”) and a description, the click **Create form**.
 
-20. Drag stencils onto the Design canvas in this order:
+20. Create four fields in Design canvas by Dragging and dropping "Display value" widget. These fields will allow us to see values filled by applicant in readonly form.
 
-    * Text
-    * Amount
-    * Date
-    * Attach File
+21. Click the Edit icon of first field, select "Form field" option in dialog and select "Text" field. Then click **Close**. This represent that when form will be loaded for reviewer he/she will see value added by "Workflow initiator" in the "Text" field.
 
-21. Hover over the Text stencil and click the Edit icon, then type "Text" as the Label and click **Close**.
-
-    Repeat this step for the other stencils you added, and type the following labels:
+    Repeat this step for the other stencils you added, and select following fields in each of the "Display value" widget:
 
     * Amount
     * Date
@@ -136,16 +131,9 @@ This process also includes 2 web forms.
 
 22. Click the **Outcomes** tab to add a custom outcome so that the reviewer can approve or reject the expense.
 
-23. Select **Use custom outcomes for this form**and in the **Possible** outcomes add two outcomes:
+23. Click ![Save]({% link process-services/images/gs-ico-save.png %}){:height="18px" width="18px"} then **Save and close editor.**
 
-    * Approve
-    * Reject
-
-    ![Outcomes]({% link process-services/images/gs-outcomes.png %})
-
-24. Click ![Save]({% link process-services/images/gs-ico-save.png %}){:height="18px" width="18px"} then **Save and close editor.**
-
-25. In the Process editor click ![Save]({% link process-services/images/gs-ico-save.png %}){:height="18px" width="18px"} then **Save**.
+24. In the Process editor click ![Save]({% link process-services/images/gs-ico-save.png %}){:height="18px" width="18px"} then **Save**.
 
 ## Step 2: Create and publish the process application
 
