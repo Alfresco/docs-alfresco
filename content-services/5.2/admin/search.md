@@ -769,7 +769,7 @@ The main Solr Admin dashboard is divided into two parts.
 
 Click on the left or the center of the Solr Admin UI below to learn more about it.
 
-![]({% link content-services/images/solr-admin.png %})
+![]({% link content-services/images/Solr-admin.png %})
 
 -   **[Solr Admin UI - left panel](#solr-admin-ui-left-panel)**  
 The left-side of the Solr Admin screen is a menu under the Solr logo that provides the navigation through the screens of the UI. The first set of links are for system-level information and configuration, and provide access to Logging, Core Admin and Java Properties, among other things.
@@ -1207,7 +1207,7 @@ You can only see the Admin Console if you are an administrator user.
 
 3.  Scroll down to the **Backup Settings** section.
 
-    ![]({% link content-services/images/solr-backup.png %})
+    ![]({% link content-services/images/Solr-backup.png %})
 
     Here, you can specify the backup location and edit backup properties for each core of the Solr index: **Main Store** and **Archive Store**.
 
