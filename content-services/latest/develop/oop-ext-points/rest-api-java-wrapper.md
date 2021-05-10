@@ -8,13 +8,36 @@ from a Java client with standard Java classes. There is no need to parse JSON or
 
 To set up a project with the Java ReST API library follow these [instructions]({% link content-services/latest/develop/oop-sdk.md %}#restapijavawrapperproject).
 
+## Common parameters {#common-parameters}
+There are some common parameters in the different API calls. They are documented here instead of repeating the docs for 
+them under multiple sections:
+
+|Parameter|Description|Usage|
+|---------|-----------|-----|
+|`include`|Use this parameter to return additional information about the node. The following optional fields can be requested: `allowableOperations`, `aspectNames`, `association`, `isLink`, `isFavorite`, `isLocked`, `path`, `properties`, `permissions`.|`List<String> include = new ArrayList<>(); include.add("permissions");`|
+|`fields`| You can use this parameter to restrict the fields returned within a response if, for example, you want to save on overall bandwidth. The list applies to a returned individual entity or entries within a collection. If the API method also supports the `include` parameter, then the fields specified in `include` parameter are returned in addition to those specified in the `fields` parameter.|`List<String> fields = new ArrayList<>(); fields.add("content,createdAt");`<br/>Note that all fields have to be added as one item comma separated.|
+|`where`|Optionally filter the node list.|Here are some examples:<br/>`(isFolder=true)`<br/>`(isFile=true)`<br/>`(nodeType='my:specialNodeType')`<br/>`(nodeType='my:specialNodeType INCLUDESUBTYPES')`<br/>`(id BETWEEN ('1', '79'))`|
+|`includeSource`|Also include `source` in addition to `entries` with folder information on the parent node – either the specified parent nodeId, or as resolved by `relativePath`|`Boolean includeSource = false;`|
+|`orderBy`| A string to control the order of the entities returned in a list. The default sort order for the returned list is for folders to be sorted before files, and by ascending name. You can override the default using `orderBy` to specify one or more fields to sort by. The default order is always ascending, but you can use an optional `ASC` or `DESC` modifier to specify an ascending or descending sort order. For example, specifying `orderBy=name DESC` returns a mixed folder/file list in descending name order. You can use any of the following fields to order the results: `isFolder`, `name`, `mimeType`, `nodeType`, `sizeInBytes`, `modifiedAt`, `createdAt`, `modifiedByUser`, `createdByUser`|`List<String> orderBy = new ArrayList<>(); orderBy.add("title");`|
+|`skipCount`|The number of entities that exist in the collection before those included in this list, useful when implementing paging scenarios. If not supplied then the default value is `0`.|`Integer skipCount = 0;`|
+|`maxItems`|The maximum number of items to return in the list, useful when implementing paging scenarios. If not supplied then the default value is `100`.|`Integer maxItems = 100;`|
+|`autoRename`|If `true`, then a name clash will cause an attempt to auto rename by finding a unique name using an integer suffix.|`Boolean autoRename = true;`|
+|`versioningEnabled`|Should versioning of files be enabled at all? |`Boolean versioningEnabled = true;`|
+|`majorVersion`|If `true`, then it will be a major version, such as 1.0, 2.0 etc. If `false`, then the version change will be 1.1, 1.2, which is a minor version change.|`Boolean majorVersion = true;`|
+|`updateComment`|Add a version comment which will appear in version history. Setting this parameter also enables versioning of this node, if it is not already versioned.|`String updateComment = "A comment";`|
+|`updatedName`|Optional new name of the node, sets `cm:name`. This should include the file extension. The name must not contain spaces or the following special characters: `* " < > \ / ? : |`. The character `.` must not be used at the end of the name.|`String updatedName = null;` if not updating or set to new name.|
+
 ## === Managing Folders and Files ===
 The following sections walk through how to use the Java ReST API wrapper services when managing folders and files.
 
-## List contents of a folder
+## List contents of a folder {#listfoldercontent}
 To list contents of a folder in the repository use the `listNodeChildren` method of the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listNodeChildren){:target="_blank"}, 
 which is one of the main APIs used when you want to manipulate folders and files. 
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#listcontentsfolder)
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -47,40 +70,12 @@ public class ListFolderContent {
      * @return a list of child node objects contained in the folder, or null if not found
      */
     private NodeChildAssociationPagingList listFolderContent(String rootNodeId, String relativeFolderPath) {
-        Integer skipCount = 0;            // The number of entities that exist in the collection before those included in this list.  If not supplied then the default value is 0.
-        Integer maxItems = 100;           // The maximum number of items to return in the list.  If not supplied then the default value is 100.
-
-        // Returns additional information about the node.
-        // The following optional fields can be requested:
-        // * allowableOperations
-        // * aspectNames
-        // * isLink
-        // * isLocked
-        // * path
-        // * properties
+        Integer skipCount = 0;         
+        Integer maxItems = 100;
         List<String> include = null;
-        // A string to control the order of the entities returned in a list.
-        // You can use the **orderBy** parameter to sort the list by one or more fields.
-        // Each field has a default sort order, which is normally ascending order.
-        // Read the API method implementation notes above to check if any fields used in this
-        // method have a descending default search order.
-        // To sort the entities in a specific order, you can use the **ASC** and **DESC** keywords for any field.
-        List<String> orderBy = null;
-        // A list of field names.
-        // You can use this parameter to restrict the fields returned within a response if, for example,
-        // you want to save on overall bandwidth. The list applies to a returned individual entity or entries
-        // within a collection. If the API method also supports the **include** parameter, then the fields specified in
-        // the **include** parameter are returned in addition to those specified in the **fields** parameter.
         List<String> fields = null;
-        // Optionally filter the node list.
-        // Here are some examples:
-        // where=(isFolder=true)
-        // where=(isFile=true)
-        // where=(nodeType='my:specialNodeType')
-        // where=(nodeType='my:specialNodeType INCLUDESUBTYPES')
+        List<String> orderBy = null;
         String where = null;
-        // Also include `source` in addition to `entries` with folder information on the parent node –
-        // either the specified parent nodeId, or as resolved by relativePath.
         Boolean includeSource = false;
 
         LOGGER.info("Listing folder {}{}", rootNodeId, relativeFolderPath);
@@ -95,10 +90,74 @@ public class ListFolderContent {
 }
 ```
 
+See also [manage associations](#manageassociations) for information on how to list secondary child associations for a node. 
+
+## Filter contents of a folder
+To filter listed contents of a folder in the repository use the `listNodeChildren` method of the 
+[`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#listNodeChildren){:target="_blank"} 
+and set the `where` clause parameter. 
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#filtercontentsfolder)
+
+For a description of the common parameters, such as `where` and `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.NodesApi;
+import org.alfresco.core.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class ListFolderContent {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListFolderContent.class);
+
+    @Autowired
+    NodesApi nodesApi;
+
+    public void execute() throws IOException {
+        NodeChildAssociationPagingList nodes = listFolderContent("-root-", null);
+        NodeChildAssociationPagingList nodes2 = listFolderContent("-root-", "/Data Dictionary");
+    }
+    
+    /**
+     * List sub-folders of a folder.
+     *
+     * @param rootNodeId         the id of the folder node that is the root. If relativeFolderPath is null, then content in this folder will be listed. Besides node ID the aliases -my-, -root- and -shared- are also supported.
+     * @param relativeFolderPath path relative rootNodeId, if this is not null, then the content of this folder will be listed
+     * @return a list of child folder node objects contained in the folder, or null if not found
+     */
+    private NodeChildAssociationPagingList listFolderContent(String rootNodeId, String relativeFolderPath) {
+        Integer skipCount = 0;         
+        Integer maxItems = 100;
+        List<String> include = null;
+        List<String> fields = null;
+        List<String> orderBy = null;
+        String where = "(isFolder=true)";
+        Boolean includeSource = false;
+
+        LOGGER.info("Listing folder {}{} with filter {}", rootNodeId, relativeFolderPath, where);
+        NodeChildAssociationPagingList result = nodesApi.listNodeChildren(rootNodeId, skipCount, maxItems, orderBy, where, include,
+                relativeFolderPath, includeSource, fields).getBody().getList();
+        for (NodeChildAssociationEntry childNodeAssoc: result.getEntries()) {
+            LOGGER.info("Found folder node [name=" + childNodeAssoc.getEntry().getName() + "]");
+        }
+
+        return result;
+    }
+}
+```
+
 ## Get folder/file metadata
 To get metadata for a node, such as a file or folder, in the repository use the `getNode` method of the 
 [`NodesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/NodesApi.md#getNode){:target="_blank"}, 
 which is one of the main APIs used when you want to manipulate folders and files. 
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#getnodemetadata)
 
 ```java
 import org.alfresco.core.handler.NodesApi;
@@ -453,7 +512,7 @@ public class CreateSite {
         LOGGER.info("Created site: {}", site);
     }
 }
-``` 
+```
 
 ## === Searching for content ===
 The following sections walk through how to use the Java ReST API wrapper services when managing audit applications and 
@@ -541,7 +600,7 @@ public class FindNode {
 ```
 
 ## Finding content by a search query {#searchingbyquery}
-To find content based on more complex search queries, such as using Alfresco Full Text Search (AFTS), use the 
+dTo find content based on more complex search queries, such as using Alfresco Full Text Search (AFTS), use the 
 [`SearchApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-rest-api/docs/SearchApi.md#search){:target="_blank"},;
 
 ```java
@@ -594,9 +653,3 @@ public class SearchCmd {
     }
 }
 ```
-
-
-
-
-
-

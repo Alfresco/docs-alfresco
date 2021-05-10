@@ -10,7 +10,7 @@ for example, when group permissions should be set up on folders.
 However, it should be noted that in a production environment Alfresco is usually connected to an LDAP system and users 
 (people) and groups are then synchronized (imported) from the LDAP system, including group memberships.
 
-## List people (users)
+## List people (users) {#listusers}
 
 List people (i.e. users) in the repository.
 
@@ -244,7 +244,7 @@ To add an avatar image to a newly created person see the [update person](#update
 
 >**Note**. in a production environment the users and groups are usually synched / imported from an LDAP environment, and not created manually like this. However, it can be useful to create users remotely like this for testing purpose and in a developer environment.
 
-## Get person metadata
+## Get person metadata {#getpersonmetadata}
 
 Get the metadata (i.e. properties) for a person, including preferences and avatar.
 
@@ -620,9 +620,9 @@ If you are running an SDK Project you will most likely get the following type of
 An Alfresco SDK project doesn't have all the image transformers configured so this avatar image upload does not work in 
 this situation.
 
-## Request password reset for a person
+## Request password reset for a person {#requestpwdreset}
 
-Requesting a password reset for a a person (user) in the repository.
+Requesting a password reset for a person (user) in the repository.
 
 **API Explorer URL:**
 
@@ -641,7 +641,7 @@ to reset the password:
 }
 ```
 
-Currently only the Alfresco Share UI client is registered with the Alfresco Repository server. So you would POST the 
+Currently, only the Alfresco Share UI client is registered with the Alfresco Repository server. So you would POST the 
 following:
 
 ```json
@@ -726,7 +726,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-## List groups
+## List groups {#listgroups}
 
 List groups in the repository.
 
@@ -1030,7 +1030,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 The group id always starts with `GROUP_`. If this is omitted, as in this case, it will be added automatically. This 
 format is also returned when listing groups or group memberships.
 
-## Get group metadata
+## Get group metadata {#getgroup}
 
 Get the metadata (i.e. properties) for a group in the repository.
 
@@ -1473,7 +1473,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 When the Engineering group has been populated with users and groups we can start configuring folder and file permissions 
 for it.
 
-## Delete a person or group from a group
+## Delete a person or group from a group {#deletefromgroup}
 
 Deleting a person or group from a group in the repository.
 
