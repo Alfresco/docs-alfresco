@@ -4759,9 +4759,11 @@ The following sections walk through how to use the Java ReST API wrapper service
 their logs.
 
 ## Finding folders and files by a term
-To find a folder or a file node in the repository based on a term use the `findNodes` method of the [`QueriesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/QueriesApi.md#findNodes){:target="_blank"}, 
+To find a folder node or a file node based on a term use the `findNodes` method of the [`QueriesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/QueriesApi.md#findNodes){:target="_blank"}, 
 which is a search API you can use when doing simple search on a term. For more complex search, such as Alfresco Full Text Search (AFTS), 
 use the [Search API](#searchingbyquery);
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/searching.md %}#findnodesbyterm)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -4823,7 +4825,68 @@ public class FindNode {
 ```
 
 ## Finding sites by a term
-TODO
+To find sites by term use the `findNodes` method of the [`QueriesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/QueriesApi.md#findNodes){:target="_blank"},
+which is a search API you can use when doing simple search on a term. For more complex search, such as Alfresco Full Text Search (AFTS),
+use the [Search API](#searchingbyquery);
+
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.QueriesApi;
+import org.alfresco.core.model.NodeEntry;
+import org.alfresco.core.model.NodePagingList;
+import org.alfresco.core.model.Node;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class FindNode {
+    static final Logger LOGGER = LoggerFactory.getLogger(FindNode.class);
+
+    @Autowired
+    QueriesApi queriesApi;
+
+    public void execute() throws IOException {
+        Node node = findNode("Dictionary", "-root-");
+    }
+    
+    /**
+     * Find a node based on name.
+     * Search term must be at least 3 characters.
+     *
+     * @param term         the term to search for, part of the name of the node (i.e. folder or file) that we are looking for, min 3 characters
+     * @param parentNodeId the parent node under which we expect to find the node
+     * @return a node object for the found node, or null if not found
+     */
+    private Node findNode(String term,
+                          String parentNodeId) {
+        String rootNodeId = parentNodeId; // The id of the node to start the search from.  Supports the aliases -my-, -root- and -shared-.
+        String nodeType = null; // Restrict the returned results to only those of the given node type and its sub-types
+
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        List<String> include = null;
+        List<String> orderBy = null;
+        List<String> fields = null;
+
+        NodeEntry nodeEntry = null;
+        NodePagingList result = queriesApi.findNodes(
+                term, rootNodeId, skipCount, maxItems, nodeType, include, orderBy, fields).getBody().getList();
+        if (result.getEntries().isEmpty() == false) {
+            nodeEntry = result.getEntries().get(0);
+            LOGGER.info("Found node [name=" + nodeEntry.getEntry().getName() + "]" + nodeEntry);
+            return nodeEntry.getEntry();
+        }
+
+        return null;
+    }
+}
+```
 
 ## Finding people by a term
 TODO

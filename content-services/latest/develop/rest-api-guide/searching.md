@@ -15,7 +15,7 @@ what type of files to search.
 
 This section also goes through how to specifically search for sites and people.
 
-## Finding folders and files by a term
+## Finding folders and files by a term {#findnodesbyterm}
 
 Simple search in metadata and content with a term.
 
