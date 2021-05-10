@@ -6588,7 +6588,7 @@ After you have imported the Web Quick Start website data, when you have refreshe
 
     The default site structure will have the following structure:
 
-    ![]({% link content-services/images/wqs-doclib-structure.png %})
+    ![]({% link content-services/images/WQS-doclib-structure.png %})
 
     The site structure contains two folders: Quick Start Editorial and Quick Start Live. These folders represent a separation between the work in progress content, and the finished, reviewed, editorially complete content that is then published to the “Live” environment.
 
@@ -6635,7 +6635,7 @@ This procedure configures the web application to view the “Live” site struct
 
 2.  In the **Site Configuration** field, enter the `isEditorial=true` flag.
 
-    ![]({% link content-services/images/wqs-config-iseditorial.png %})
+    ![]({% link content-services/images/WQS-config-isEditorial.png %})
 
 3.  Click **Submit**.
 
