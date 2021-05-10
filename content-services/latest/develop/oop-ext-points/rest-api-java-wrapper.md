@@ -17,15 +17,15 @@ them under multiple sections:
 |`include`|Use this parameter to return additional information about the node. The following optional fields can be requested: `allowableOperations`, `aspectNames`, `association`, `isLink`, `isFavorite`, `isLocked`, `path`, `properties`, `permissions`.|`List<String> include = new ArrayList<>(); include.add("permissions");`|
 |`fields`| You can use this parameter to restrict the fields returned within a response if, for example, you want to save on overall bandwidth. The list applies to a returned individual entity or entries within a collection. If the API method also supports the `include` parameter, then the fields specified in `include` parameter are returned in addition to those specified in the `fields` parameter.|`List<String> fields = new ArrayList<>(); fields.add("content,createdAt");`<br/>Note that all fields have to be added as one item comma separated.|
 |`where`|Optionally filter the node list.|Here are some examples:<br/>`(isFolder=true)`<br/>`(isFile=true)`<br/>`(nodeType='my:specialNodeType')`<br/>`(nodeType='my:specialNodeType INCLUDESUBTYPES')`<br/>`(id BETWEEN ('1', '79'))`|
-|`includeSource`|Also include `source` in addition to `entries` with folder information on the parent node – either the specified parent nodeId, or as resolved by `relativePath`|TODO|
-|`orderBy`| A string to control the order of the entities returned in a list. The default sort order for the returned list is for folders to be sorted before files, and by ascending name. You can override the default using `orderBy` to specify one or more fields to sort by. The default order is always ascending, but you can use an optional `ASC` or `DESC` modifier to specify an ascending or descending sort order. For example, specifying `orderBy=name DESC` returns a mixed folder/file list in descending name order. You can use any of the following fields to order the results: `isFolder`, `name`, `mimeType`, `nodeType`, `sizeInBytes`, `modifiedAt`, `createdAt`, `modifiedByUser`, `createdByUser`|TODO|
-|`skipCount`|The number of entities that exist in the collection before those included in this list, useful when implementing paging scenarios. If not supplied then the default value is `0`.|TODO|
-|`maxItems`|The maximum number of items to return in the list, useful when implementing paging scenarios. If not supplied then the default value is `100`.|TODO|
-|`autoRename`|If `true`, then a name clash will cause an attempt to auto rename by finding a unique name using an integer suffix.|TODO|
-|`versioningEnabled`|Should versioning of files be enabled at all? |TODO|
-|`majorVersion`|If `true`, then it will be a major version, such as 1.0, 2.0 etc. If `false`, then the version change will be 1.1, 1.2, which is a minor version change.|TODO|
+|`includeSource`|Also include `source` in addition to `entries` with folder information on the parent node – either the specified parent nodeId, or as resolved by `relativePath`|`Boolean includeSource = false;`|
+|`orderBy`| A string to control the order of the entities returned in a list. The default sort order for the returned list is for folders to be sorted before files, and by ascending name. You can override the default using `orderBy` to specify one or more fields to sort by. The default order is always ascending, but you can use an optional `ASC` or `DESC` modifier to specify an ascending or descending sort order. For example, specifying `orderBy=name DESC` returns a mixed folder/file list in descending name order. You can use any of the following fields to order the results: `isFolder`, `name`, `mimeType`, `nodeType`, `sizeInBytes`, `modifiedAt`, `createdAt`, `modifiedByUser`, `createdByUser`|`List<String> orderBy = new ArrayList<>(); orderBy.add("title");`|
+|`skipCount`|The number of entities that exist in the collection before those included in this list, useful when implementing paging scenarios. If not supplied then the default value is `0`.|`Integer skipCount = 0;`|
+|`maxItems`|The maximum number of items to return in the list, useful when implementing paging scenarios. If not supplied then the default value is `100`.|`Integer maxItems = 100;`|
+|`autoRename`|If `true`, then a name clash will cause an attempt to auto rename by finding a unique name using an integer suffix.|`Boolean autoRename = true;`|
+|`versioningEnabled`|Should versioning of files be enabled at all? |`Boolean versioningEnabled = true;`|
+|`majorVersion`|If `true`, then it will be a major version, such as 1.0, 2.0 etc. If `false`, then the version change will be 1.1, 1.2, which is a minor version change.|`Boolean majorVersion = true;`|
 |`updateComment`|Add a version comment which will appear in version history. Setting this parameter also enables versioning of this node, if it is not already versioned.|`String updateComment = "A comment";`|
-|`updatedName`|Optional new name of the node, sets `cm:name`. This should include the file extension. The name must not contain spaces or the following special characters: `* " < > \ / ? : |`. The character `.` must not be used at the end of the name.|TODO|
+|`updatedName`|Optional new name of the node, sets `cm:name`. This should include the file extension. The name must not contain spaces or the following special characters: `* " < > \ / ? : |`. The character `.` must not be used at the end of the name.|`String updatedName = null;` if not updating or set to new name.|
 
 ## === Managing Folders and Files ===
 The following sections walk through how to use the Java ReST API wrapper services when managing folders and files.
@@ -4759,7 +4759,7 @@ The following sections walk through how to use the Java ReST API wrapper service
 their logs.
 
 ## Finding folders and files by a term
-To find a folder node or a file node based on a term use the `findNodes` method of the [`QueriesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/QueriesApi.md#findNodes){:target="_blank"}, 
+To find a node, such as a folder or file, by a term use the `findNodes` method of the [`QueriesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/QueriesApi.md#findNodes){:target="_blank"}, 
 which is a search API you can use when doing simple search on a term. For more complex search, such as Alfresco Full Text Search (AFTS), 
 use the [Search API](#searchingbyquery);
 
@@ -4771,7 +4771,6 @@ For a description of the common parameters, such as `include`, see this [section
 import org.alfresco.core.handler.QueriesApi;
 import org.alfresco.core.model.NodeEntry;
 import org.alfresco.core.model.NodePagingList;
-import org.alfresco.core.model.Node;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -4781,47 +4780,52 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
-public class FindNode {
-    static final Logger LOGGER = LoggerFactory.getLogger(FindNode.class);
+public class FindNodesCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(FindNodesCmd.class);
 
     @Autowired
     QueriesApi queriesApi;
 
     public void execute() throws IOException {
-        Node node = findNode("Dictionary", "-root-");
-    }
-    
-    /**
-     * Find a node based on name.
-     * Search term must be at least 3 characters.
-     *
-     * @param term         the term to search for, part of the name of the node (i.e. folder or file) that we are looking for, min 3 characters
-     * @param parentNodeId the parent node under which we expect to find the node
-     * @return a node object for the found node, or null if not found
-     */
-    private Node findNode(String term,
-                          String parentNodeId) {
-        String rootNodeId = parentNodeId; // The id of the node to start the search from.  Supports the aliases -my-, -root- and -shared-.
-        String nodeType = null; // Restrict the returned results to only those of the given node type and its sub-types
-
+        String rootNodeId = "-root-"; // The id of the node to start the search from. Supports the aliases -my-, -root- and -shared-.
         Integer skipCount = 0;
         Integer maxItems = 100;
+
+        // Restrict the returned results to only those of the given node type and its sub-types
+        String nodeType = null;
+
         List<String> include = null;
         List<String> orderBy = null;
         List<String> fields = null;
 
-        NodeEntry nodeEntry = null;
+        String term = "Dict*";
+        LOGGER.info("Searching for nodes by term: {}", term);
         NodePagingList result = queriesApi.findNodes(
                 term, rootNodeId, skipCount, maxItems, nodeType, include, orderBy, fields).getBody().getList();
-        if (result.getEntries().isEmpty() == false) {
-            nodeEntry = result.getEntries().get(0);
-            LOGGER.info("Found node [name=" + nodeEntry.getEntry().getName() + "]" + nodeEntry);
-            return nodeEntry.getEntry();
+        for (NodeEntry node: result.getEntries()) {
+            LOGGER.info("Found node [name={}][id={}]", node.getEntry().getName(), node.getEntry().getId());
         }
-
-        return null;
     }
 }
+```
+
+Executing this code gives the following type of result:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar find-nodes
+
+2021-05-10 13:40:47.999  INFO 54955 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.429 seconds (JVM running for 3.909)
+2021-05-10 13:40:48.001  INFO 54955 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: find-nodes
+2021-05-10 13:40:48.003  INFO 54955 --- [           main] o.a.tutorial.restapi.FindNodesCmd        : Searching for nodes by term: Dict*
+2021-05-10 13:40:49.143  INFO 54955 --- [           main] o.a.tutorial.restapi.FindNodesCmd        : Found node [name=Dictionary][id=b1264564-9b33-4003-bff9-58f2591cea54]
+2021-05-10 13:40:49.143  INFO 54955 --- [           main] o.a.tutorial.restapi.FindNodesCmd        : Found node [name=Dictionary-stuff.txt][id=6f7689af-b31e-493a-ad3a-298abcf03664]
+2021-05-10 13:40:49.143  INFO 54955 --- [           main] o.a.tutorial.restapi.FindNodesCmd        : Found node [name=InviteHelper.txt][id=4875faf1-6366-477a-a97b-b30d15f33808]
+2021-05-10 13:40:49.143  INFO 54955 --- [           main] o.a.tutorial.restapi.FindNodesCmd        : Found node [name=Data Dictionary][id=392f377c-4a0b-4ab1-8327-3034269030a5]
+2021-05-10 13:40:49.143  INFO 54955 --- [           main] o.a.tutorial.restapi.FindNodesCmd        : Found node [name=readme.html][id=d38b8cb0-0973-4bfd-84c5-9db4959d4715]
+2021-05-10 13:40:49.143  INFO 54955 --- [           main] o.a.tutorial.restapi.FindNodesCmd        : Found node [name=Project Contract.pdf][id=1a0b110f-1e09-4ca2-b367-fe25e4964a4e]
+2021-05-10 13:40:49.143  INFO 54955 --- [           main] o.a.tutorial.restapi.FindNodesCmd        : Found node [name=Meeting Notes 2011-02-10.doc][id=a8290263-4178-48f5-a0b0-be155a424828]
+2021-05-10 13:40:49.144  INFO 54955 --- [           main] o.a.tutorial.restapi.FindNodesCmd        : Found node [name=Meeting Notes 2011-02-03.doc][id=150398b3-7f82-4cf6-af63-c450ef6c5eb8]
+2021-05-10 13:40:49.144  INFO 54955 --- [           main] o.a.tutorial.restapi.FindNodesCmd        : Found node [name=Meeting Notes 2011-01-27.doc][id=f3bb5d08-9fd1-46da-a94a-97f20f1ef208]
 ```
 
 ## Finding sites by a term
@@ -4831,13 +4835,12 @@ use the [Search API](#searchingbyquery);
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/searching.md %}#findsitesbyterm)
 
-For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
 
 ```java
 import org.alfresco.core.handler.QueriesApi;
-import org.alfresco.core.model.NodeEntry;
-import org.alfresco.core.model.NodePagingList;
-import org.alfresco.core.model.Node;
+import org.alfresco.core.model.SiteEntry;
+import org.alfresco.core.model.SitePagingList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -4847,59 +4850,107 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
-public class FindNode {
-    static final Logger LOGGER = LoggerFactory.getLogger(FindNode.class);
+public class FindSitesCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(FindSitesCmd.class);
 
     @Autowired
     QueriesApi queriesApi;
 
     public void execute() throws IOException {
-        Node node = findNode("Dictionary", "-root-");
-    }
-    
-    /**
-     * Find sites based on name.
-     * Search term must be at least 3 characters.
-     *
-     * @param term         the term to search for, part of the name of the node (i.e. folder or file) that we are looking for, min 3 characters
-     * @param parentNodeId the parent node under which we expect to find the node
-     * @return a node object for the found node, or null if not found
-     */
-    private Node findSites(String term,
-                          String parentNodeId) {
-        String rootNodeId = parentNodeId; // The id of the node to start the search from.  Supports the aliases -my-, -root- and -shared-.
-        String nodeType = null; // Restrict the returned results to only those of the given node type and its sub-types
-
         Integer skipCount = 0;
         Integer maxItems = 100;
-        List<String> include = null;
+
         List<String> orderBy = null;
         List<String> fields = null;
 
-        NodeEntry nodeEntry = null;
-        NodePagingList result = queriesApi.findSites(
-                term, rootNodeId, skipCount, maxItems, nodeType, include, orderBy, fields).getBody().getList();
-        if (result.getEntries().isEmpty() == false) {
-            nodeEntry = result.getEntries().get(0);
-            LOGGER.info("Found site [name=" + nodeEntry.getEntry().getName() + "]" + nodeEntry);
-            return nodeEntry.getEntry();
+        String term = "Soft*";
+        LOGGER.info("Searching for sites by term: {}", term);
+        SitePagingList result = queriesApi.findSites(term, skipCount, maxItems, orderBy, fields).getBody().getList();
+        for (SiteEntry node: result.getEntries()) {
+            LOGGER.info("Found site [id={}][name={}]", node.getEntry().getId(), node.getEntry().getTitle());
         }
-
-        return null;
     }
 }
 ```
 
+Executing this code gives the following type of result:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar find-sites
+
+2021-05-10 13:52:04.833  INFO 55062 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 4.107 seconds (JVM running for 4.762)
+2021-05-10 13:52:04.835  INFO 55062 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: find-sites
+2021-05-10 13:52:04.845  INFO 55062 --- [           main] o.a.tutorial.restapi.FindSitesCmd        : Searching for sites by term: Soft*
+2021-05-10 13:52:05.036  INFO 55062 --- [           main] o.a.tutorial.restapi.FindSitesCmd        : Found site [id=downloadable-software][name=Downloadable Software]
+2021-05-10 13:52:05.036  INFO 55062 --- [           main] o.a.tutorial.restapi.FindSitesCmd        : Found site [id=software-design][name=Software Design]
+```
+
 ## Finding people by a term
-TODO
+To find sites by term use the `findPeople` method of the [`QueriesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/QueriesApi.md#findPeople){:target="_blank"},
+which is a search API you can use when doing simple search on a term. For more complex search, such as Alfresco Full Text Search (AFTS),
+use the [Search API](#searchingbyquery);
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/searching.md %}#findpeoplebyterm)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.QueriesApi;
+import org.alfresco.core.model.PersonEntry;
+import org.alfresco.core.model.PersonPagingList;
+import org.alfresco.core.model.SiteEntry;
+import org.alfresco.core.model.SitePagingList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class FindPeopleCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(FindPeopleCmd.class);
+
+    @Autowired
+    QueriesApi queriesApi;
+
+    public void execute() throws IOException {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+
+        List<String> orderBy = null;
+        List<String> fields = null;
+
+        String term = "*mi*";
+        LOGGER.info("Searching for people by term: {}", term);
+        PersonPagingList result = queriesApi.findPeople(term, skipCount, maxItems, fields, orderBy).getBody().getList();
+        for (PersonEntry person: result.getEntries()) {
+            LOGGER.info("Found person [id={}][name={}]", person.getEntry().getId(), person.getEntry().getDisplayName());
+        }
+    }
+}
+```
+
+Executing this code gives the following type of result:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar find-people
+
+2021-05-10 14:00:38.019  INFO 55327 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.568 seconds (JVM running for 4.045)
+2021-05-10 14:00:38.021  INFO 55327 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: find-people
+2021-05-10 14:00:38.022  INFO 55327 --- [           main] o.a.tutorial.restapi.FindPeopleCmd       : Searching for people by term: *mi*
+2021-05-10 14:00:38.839  INFO 55327 --- [           main] o.a.tutorial.restapi.FindPeopleCmd       : Found person [id=admin][name=Administrator]
+2021-05-10 14:00:38.839  INFO 55327 --- [           main] o.a.tutorial.restapi.FindPeopleCmd       : Found person [id=mjackson][name=Mike Jackson]
+```
 
 ## Finding content by a search query {#searchingbyquery}
 To find content based on more complex search queries, such as using Alfresco Full Text Search (AFTS), use the 
 [`SearchApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-search-rest-api/docs/SearchApi.md#search){:target="_blank"},;
 
-For a description of the common parameters, such as `include`, see this [section](#common-parameters).
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/searching.md %}#searchbyquery)
 
-TODO: Find out how to use common parameters...
+For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
 ```java
 import org.alfresco.search.handler.SearchApi;
