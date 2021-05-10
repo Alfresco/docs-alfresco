@@ -6711,7 +6711,7 @@ The simplest way to deploy the Web Editor (AWE) is to use the pre-built WAR (awe
 
 The following diagram shows an example Web Editor deployment in the same application server as the repository.
 
-![]({% link content-services/images/alfresco-web-editor.png %})
+![]({% link content-services/images/Alfresco-web-editor.png %})
 
 The Web Editor is a Surf-based application, therefore it is also possible to deploy it in a different application server instance from the repository.
 
