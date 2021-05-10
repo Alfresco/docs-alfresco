@@ -16,7 +16,7 @@ them under multiple sections:
 |---------|-----------|-----|
 |`include`|Use this parameter to return additional information about the node. The following optional fields can be requested: `allowableOperations`, `aspectNames`, `association`, `isLink`, `isFavorite`, `isLocked`, `path`, `properties`, `permissions`.|`List<String> include = new ArrayList<>(); include.add("permissions");`|
 |`fields`| You can use this parameter to restrict the fields returned within a response if, for example, you want to save on overall bandwidth. The list applies to a returned individual entity or entries within a collection. If the API method also supports the `include` parameter, then the fields specified in `include` parameter are returned in addition to those specified in the `fields` parameter.|`List<String> fields = new ArrayList<>(); fields.add("content,createdAt");`<br/>Note that all fields have to be added as one item comma separated.|
-|`where`|Optionally filter the node list.|Here are some examples:<br/>`where=(isFolder=true)`<br/>`where=(isFile=true)`<br/>`where=(nodeType='my:specialNodeType')`<br/>`where=(nodeType='my:specialNodeType INCLUDESUBTYPES')`|
+|`where`|Optionally filter the node list.|Here are some examples:<br/>`(isFolder=true)`<br/>`(isFile=true)`<br/>`(nodeType='my:specialNodeType')`<br/>`(nodeType='my:specialNodeType INCLUDESUBTYPES')`<br/>`(id BETWEEN ('1', '79'))`|
 |`includeSource`|Also include `source` in addition to `entries` with folder information on the parent node – either the specified parent nodeId, or as resolved by `relativePath`|TODO|
 |`orderBy`| A string to control the order of the entities returned in a list. The default sort order for the returned list is for folders to be sorted before files, and by ascending name. You can override the default using `orderBy` to specify one or more fields to sort by. The default order is always ascending, but you can use an optional `ASC` or `DESC` modifier to specify an ascending or descending sort order. For example, specifying `orderBy=name DESC` returns a mixed folder/file list in descending name order. You can use any of the following fields to order the results: `isFolder`, `name`, `mimeType`, `nodeType`, `sizeInBytes`, `modifiedAt`, `createdAt`, `modifiedByUser`, `createdByUser`|TODO|
 |`skipCount`|The number of entities that exist in the collection before those included in this list, useful when implementing paging scenarios. If not supplied then the default value is `0`.|TODO|
@@ -4407,7 +4407,7 @@ public class EnableDisableAuditAppCmd {
 ```
 
 ## List audit entries (logs) for an audit application
-Listing all the audit applications uses the `listAuditEntriesForAuditApp` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#listAuditEntriesForAuditApp){:target="_blank"}.
+Listing all the audit logs for an audit application uses the `listAuditEntriesForAuditApp` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#listAuditEntriesForAuditApp){:target="_blank"}.
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditlogsforapp)
 
@@ -4468,6 +4468,9 @@ public class ListAuditLogsCmd {
 }
 ```
 
+Note that you have to add `values` to the `include` parameter for the logs to include all the data. Also, the audit log
+value have been truncated for readability.
+
 Executing this code will list the audit logs for passed in audit app id. The audit log values have been trimmed:
 
 ```bash
@@ -4519,16 +4522,237 @@ Executing this code will list the audit logs for passed in audit app id. The aud
 ```
 
 ## List audit entries (logs) for a node
-TODO
+Listing all the audit logs for a node uses the `listAuditEntriesForNode` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#listAuditEntriesForNode){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#listauditlogsnode)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.AuditApi;
+import org.alfresco.core.model.AuditEntryEntry;
+import org.alfresco.core.model.AuditEntryPaging;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class ListNodeAuditLogsCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListNodeAuditLogsCmd.class);
+
+    @Autowired
+    AuditApi auditApi;
+
+    public void execute(String nodeId) throws IOException {
+        Integer skipCount = 0;
+        Integer maxItems = 100;
+        String where = null;
+        List<String> fields = null;
+        List<String> include = new ArrayList<>();
+        List<String> orderBy = null;
+
+        // Include the log values
+        include.add("values");
+
+        LOGGER.info("Listing logs for node ID {}:", nodeId);
+        AuditEntryPaging auditLogs = auditApi.listAuditEntriesForNode(
+                nodeId, skipCount, orderBy, maxItems, where, include, fields).getBody();
+        for (AuditEntryEntry auditAppEntry: auditLogs.getList().getEntries()) {
+            String username = "N/A";
+            if (auditAppEntry.getEntry().getCreatedByUser() != null) {
+                username = auditAppEntry.getEntry().getCreatedByUser().getId();
+            }
+            String log = null;
+            if (auditAppEntry.getEntry().getValues().toString().length() > 60) {
+                log = auditAppEntry.getEntry().getValues().toString().substring(0, 60);
+            } else {
+                log = auditAppEntry.getEntry().getValues().toString();
+            }
+            LOGGER.info("  {} {} {} {}", auditAppEntry.getEntry().getId(), auditAppEntry.getEntry().getCreatedAt(),
+                    username, log);
+        }
+    }
+}
+```
+
+Note that you have to add `values` to the `include` parameter for the logs to include all the data. Also, the audit log
+value have been truncated for readability.
+
+Executing this code will list the audit logs for passed in audit app id and audit entry id:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar list-audit-logs-node 37eedde2-3c78-4d25-bade-5360e22579f4
+
+2021-05-10 09:27:33.714  INFO 51172 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 4.069 seconds (JVM running for 4.724)
+2021-05-10 09:27:33.716  INFO 51172 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: list-audit-logs-node
+2021-05-10 09:27:33.717  INFO 51172 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: 37eedde2-3c78-4d25-bade-5360e22579f4
+2021-05-10 09:27:33.717  INFO 51172 --- [           main] o.a.t.restapi.ListNodeAuditLogsCmd       : Listing logs for node ID 37eedde2-3c78-4d25-bade-5360e22579f4:
+2021-05-10 09:41:55.396  INFO 51505 --- [           main] o.a.t.restapi.ListNodeAuditLogsCmd       :   76 2021-05-10T08:26:58.965Z admin {/alfresco-access/transaction/sub-actions=updateNodeProperti
+2021-05-10 09:41:55.396  INFO 51505 --- [           main] o.a.t.restapi.ListNodeAuditLogsCmd       :   77 2021-05-10T08:27:06.541Z admin {/alfresco-access/transaction/sub-actions=readContent, /alfr
+2021-05-10 09:41:55.396  INFO 51505 --- [           main] o.a.t.restapi.ListNodeAuditLogsCmd       :   78 2021-05-10T08:27:11.353Z admin {/alfresco-access/transaction/sub-actions=updateContent upda
+2021-05-10 09:41:55.396  INFO 51505 --- [           main] o.a.t.restapi.ListNodeAuditLogsCmd       :   80 2021-05-10T08:27:12.270Z admin {/alfresco-access/transaction/sub-actions=updateNodeProperti
+2021-05-10 09:41:55.397  INFO 51505 --- [           main] o.a.t.restapi.ListNodeAuditLogsCmd       :   81 2021-05-10T08:27:12.429Z admin {/alfresco-access/transaction/sub-actions=readContent, /alfr
+2021-05-10 09:41:55.397  INFO 51505 --- [           main] o.a.t.restapi.ListNodeAuditLogsCmd       :   83 2021-05-10T08:27:13.524Z admin {/alfresco-access/transaction/sub-actions=updateNodeProperti
+2021-05-10 09:41:55.397  INFO 51505 --- [           main] o.a.t.restapi.ListNodeAuditLogsCmd       :   84 2021-05-10T08:27:13.609Z admin {/alfresco-access/transaction/sub-actions=readContent, /alfr
+```
 
 ## Get an audit entry (log)
-TODO
+Getting an audit log uses the `getAuditEntry` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#getAuditEntry){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#getauditentry)
+
+For a description of the common parameters, such as `fields`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.AuditApi;
+import org.alfresco.core.model.AuditEntryEntry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.List;
+
+@Component
+public class GetAuditLogCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(GetAuditLogCmd.class);
+
+    @Autowired
+    AuditApi auditApi;
+
+    public void execute(String auditAppId, String auditLogId) throws IOException {
+        List<String> fields = null;
+
+        AuditEntryEntry auditLog = auditApi.getAuditEntry(auditAppId, auditLogId, fields).getBody();
+        LOGGER.info("Got audit log metadata  {}", auditLog);
+    }
+}
+```
+
+Executing this code will list the audit logs for passed in audit app id. The audit log values have been trimmed:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar get-audit-log alfresco-access 80                     
+
+2021-05-10 09:49:57.492  INFO 51645 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.49 seconds (JVM running for 3.992)
+2021-05-10 09:49:57.494  INFO 51645 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: get-audit-log
+2021-05-10 09:49:57.496  INFO 51645 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: alfresco-access
+2021-05-10 09:49:57.496  INFO 51645 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: 80
+2021-05-10 09:49:57.676  INFO 51645 --- [           main] o.a.tutorial.restapi.GetAuditLogCmd      : Got audit log metadata  class AuditEntryEntry {
+    entry: class AuditEntry {
+        id: 80
+        auditApplicationId: alfresco-access
+        createdByUser: class UserInfo {
+            displayName: Administrator
+            id: admin
+        }
+        createdAt: 2021-05-10T08:27:12.270Z
+        values: {
+          /alfresco-access/transaction/sub-actions=updateNodeProperties, 
+          /alfresco-access/transaction/properties/from={cm:lastThumbnailModification=[pdf:1620394371183, doclib:1620394374161], {http://www.alfresco.org/model/content/1.0}modified=2021-05-10T08:27:10.986+0000}, 
+          /alfresco-access/transaction/properties/to={cm:lastThumbnailModification=[doclib:1620394374161, pdf:1620635231931], {http://www.alfresco.org/model/content/1.0}modified=2021-05-10T08:27:11.935+0000}, 
+          /alfresco-access/transaction/path=/app:company_home/app:guest_home/cm:somefileudpated.txt, 
+          /alfresco-access/transaction/action=updateNodeProperties, 
+          /alfresco-access/transaction/type=cm:content, 
+          /alfresco-access/transaction/user=admin}
+    }
+}
+```
 
 ## Delete audit entries (logs) for an audit application
-TODO
+Deleting audit logs for an audit app uses the `deleteAuditEntriesForAuditApp` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#deleteAuditEntriesForAuditApp){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#deletemultipleauditentries)
+
+For a description of the common parameters, such as `where`, see this [section](#common-parameters).
+
+```java
+import org.alfresco.core.handler.AuditApi;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+
+@Component
+public class DeleteAuditLogsForAppCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(DeleteAuditLogsForAppCmd.class);
+
+    @Autowired
+    AuditApi auditApi;
+
+    public void execute(String auditAppId) throws IOException {
+        // Delete all logs with ids between 1 and 79
+        String where = "(id BETWEEN ('1', '79'))";
+
+        HttpEntity<Void> response = auditApi.deleteAuditEntriesForAuditApp(auditAppId, where);
+        LOGGER.info("Deleted audit logs for app {} where {} response {}", auditAppId, where, response);
+    }
+}
+```
+
+Note that you have to supply a `where` clause to be able to delete any audit logs.
+
+Executing this code will delete audit logs for passed in audit app id and where clause:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar delete-audit-logs-for-app alfresco-access
+
+2021-05-10 10:05:22.248  INFO 51942 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 4.116 seconds (JVM running for 4.615)
+2021-05-10 10:05:22.250  INFO 51942 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: delete-audit-logs-for-app
+2021-05-10 10:05:22.251  INFO 51942 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: alfresco-access
+2021-05-10 10:05:22.357  INFO 51942 --- [           main] o.a.t.restapi.DeleteAuditLogsForAppCmd   : Deleted audit logs for app alfresco-access where (id BETWEEN ('1', '79')) response <204 NO_CONTENT No Content,[cache-control:"no-cache", connection:"keep-alive", content-type:"application/json;charset=UTF-8", date:"Mon, 10 May 2021 09:05:22 GMT", expires:"Thu, 01 Jan 1970 00:00:00 GMT", pragma:"no-cache", server:"nginx/1.18.0", x-frame-options:"SAMEORIGIN"]
+```
 
 ## Delete an audit entry (log) for an audit application
-TODO
+Deleting a single audit entry for an audit app uses the `deleteAuditEntry` method of the [`AuditApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/AuditApi.md#deleteAuditEntry){:target="_blank"}.
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/audit-apps.md %}#deletesingleentry)
+
+```java
+import org.alfresco.core.handler.AuditApi;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+
+@Component
+public class DeleteAuditLogCmd {
+    static final Logger LOGGER = LoggerFactory.getLogger(DeleteAuditLogCmd.class);
+
+    @Autowired
+    AuditApi auditApi;
+
+    public void execute(String auditAppId, String auditLogId) throws IOException {
+        HttpEntity<Void> response = auditApi.deleteAuditEntry(auditAppId, auditLogId);
+        LOGGER.info("Deleted audit log: app {} log id {} response {}", auditAppId, auditLogId, response);
+    }
+}
+
+```
+
+Executing this code will delete an audit log with passed in id for audit app with passed in id:
+
+```bash
+% java -jar target/rest-api-0.0.1-SNAPSHOT.jar delete-audit-log alfresco-access 80                      
+
+2021-05-10 10:14:54.941  INFO 52102 --- [           main] o.a.tutorial.restapi.RestApiApplication  : Started RestApiApplication in 3.736 seconds (JVM running for 4.24)
+2021-05-10 10:14:54.943  INFO 52102 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[0]: delete-audit-log
+2021-05-10 10:14:54.944  INFO 52102 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[1]: alfresco-access
+2021-05-10 10:14:54.944  INFO 52102 --- [           main] o.a.tutorial.restapi.RestApiApplication  : args[2]: 80
+2021-05-10 10:14:55.050  INFO 52102 --- [           main] o.a.tutorial.restapi.DeleteAuditLogCmd   : Deleted audit log: app alfresco-access log id 80 response <204 NO_CONTENT No Content,[cache-control:"no-cache", connection:"keep-alive", content-type:"application/json;charset=UTF-8", date:"Mon, 10 May 2021 09:14:55 GMT", expires:"Thu, 01 Jan 1970 00:00:00 GMT", pragma:"no-cache", server:"nginx/1.18.0", x-frame-options:"SAMEORIGIN"]>
+```
 
 ## === Searching for content ===
 The following sections walk through how to use the Java ReST API wrapper services when managing audit applications and 

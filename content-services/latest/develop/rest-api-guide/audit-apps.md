@@ -1041,58 +1041,21 @@ Now we got only the 2 log entries back that matches the date range.
 A few things to note here when using **curl** to make this call. Because the date and time format uses single quotes (') 
 the whole URL string needs to be enclosed with double quotes (") and the `where` clause need to be encoded.
 
-## Get an audit entry (log)
+## Get an audit entry (log) {#getauditentry}
 
-Get the metadata (i.e. properties) for a group in the repository.
+Get the metadata (i.e. properties) for an audit entry (i.e. log) in the repository.
 
-**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/getGroup](http://localhost:8080/api-explorer/#!/groups/getGroup){:target="_blank"}
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/audit/getAuditEntry](http://localhost:8080/api-explorer/#!/audit/getAuditEntry){:target="_blank"}
 
-**See also:** [How to get the members (people and groups) of a group]({% link content-services/latest/develop/rest-api-guide/people-groups.md %}#listmembersofgroup)
+To get metadata for an audit entry you must have admin rights. What this means is that the user that is making the
+ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
 
-Getting the metadata (i.e. properties) for a group is done with the following GET call:
+Getting the metadata (i.e. properties) for an audit entry is done with the following GET call:
 
-`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}`
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entry/{entryId}`
 
-The identifier for the group we want to get metadata for is specified with the `{id}` parameter.
-
-To get metadata for a group with id `engineering` make the following call:
-
-```bash
-$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering' | jq
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100    86    0    86    0     0  10750      0 --:--:-- --:--:-- --:--:-- 10750
-{
-  "entry": {
-    "isRoot": true,
-    "displayName": "Engineering UPDATED",
-    "id": "GROUP_engineering"
-  }
-}
-```
-
-Note that the group `id` has to be prefixed with `GROUP_`.
-
-The `include` parameter can be used to return `parentIds` and `zones`:
-
-```bash
-$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering?include=parentIds,zones' | jq
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100   136    0   136    0     0  11333      0 --:--:-- --:--:-- --:--:-- 11333
-{
-  "entry": {
-    "isRoot": true,
-    "displayName": "Engineering UPDATED",
-    "parentIds": [],
-    "id": "GROUP_engineering",
-    "zones": [
-      "APP.DEFAULT",
-      "AUTH.ALF"
-    ]
-  }
-}
-```
+The identifier for the audit application we want to get metadata for is specified with the `{id}` parameter, and the 
+audit entry is specified with the `{entryId}` parameter.
 
 ## Delete audit entries (logs) for an audit application {#deletemultipleauditentries}
 
@@ -1212,7 +1175,7 @@ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzIwM
 
 We can also remove audit entries for an audit application using audit entries id ranges. The above audit entries we 
 just deleted using a date and time range could also have been deleted using the following where clause: 
-`where=(id BETWEEN ('1', '3')`. Both the date and time range and the id range are inclusive.
+`where=(id BETWEEN ('1', '3'))`. Both the date and time range and the id range are inclusive.
 
 ## Delete an audit entry (log) for an audit application {#deletesingleentry}
 
