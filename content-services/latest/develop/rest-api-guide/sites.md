@@ -105,7 +105,7 @@ $ curl -X PUT -H 'Content-Type: application/json' -H 'Accept: application/json' 
 
 The updated site metadata is returned so you can make sure it's correct.
 
-## Add content to a site
+## Add content to a site {#addcontent}
 
 Creating folders and adding files to an Alfresco Share site's Document Library.
 
@@ -217,7 +217,7 @@ $ curl -X POST -F filedata=@some-stuff.txt -F "name=some-stuff.txt" -F "nodeType
 }
 ```
 
-## Adding members to a site
+## Adding members to a site {#addmemberstosite}
 
 Adding members to an Alfresco Share site.
 
@@ -272,7 +272,7 @@ from LDAP/AD, this is just a demo):
   "id": "test",
   "firstName": "Test",
   "lastName": "User",
-  "password": "test"
+  "password": "test",
   "email": "test@alfresco.com"
 }
 ```
