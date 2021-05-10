@@ -4825,9 +4825,11 @@ public class FindNode {
 ```
 
 ## Finding sites by a term
-To find sites by term use the `findNodes` method of the [`QueriesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/QueriesApi.md#findNodes){:target="_blank"},
+To find sites by term use the `findSites` method of the [`QueriesApi`](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/QueriesApi.md#findSites){:target="_blank"},
 which is a search API you can use when doing simple search on a term. For more complex search, such as Alfresco Full Text Search (AFTS),
 use the [Search API](#searchingbyquery);
+
+[More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/searching.md %}#findsitesbyterm)
 
 For a description of the common parameters, such as `include`, see this [section](#common-parameters).
 
@@ -4856,14 +4858,14 @@ public class FindNode {
     }
     
     /**
-     * Find a node based on name.
+     * Find sites based on name.
      * Search term must be at least 3 characters.
      *
      * @param term         the term to search for, part of the name of the node (i.e. folder or file) that we are looking for, min 3 characters
      * @param parentNodeId the parent node under which we expect to find the node
      * @return a node object for the found node, or null if not found
      */
-    private Node findNode(String term,
+    private Node findSites(String term,
                           String parentNodeId) {
         String rootNodeId = parentNodeId; // The id of the node to start the search from.  Supports the aliases -my-, -root- and -shared-.
         String nodeType = null; // Restrict the returned results to only those of the given node type and its sub-types
@@ -4875,11 +4877,11 @@ public class FindNode {
         List<String> fields = null;
 
         NodeEntry nodeEntry = null;
-        NodePagingList result = queriesApi.findNodes(
+        NodePagingList result = queriesApi.findSites(
                 term, rootNodeId, skipCount, maxItems, nodeType, include, orderBy, fields).getBody().getList();
         if (result.getEntries().isEmpty() == false) {
             nodeEntry = result.getEntries().get(0);
-            LOGGER.info("Found node [name=" + nodeEntry.getEntry().getName() + "]" + nodeEntry);
+            LOGGER.info("Found site [name=" + nodeEntry.getEntry().getName() + "]" + nodeEntry);
             return nodeEntry.getEntry();
         }
 
