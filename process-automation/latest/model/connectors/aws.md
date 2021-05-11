@@ -49,33 +49,33 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 
 | Error | Description |
 | ----- | ----------- |
-| MISSING_INPUT | A mandatory input variable was not provided. | 
-| INVALID_INPUT | The input variable has an invalid type. | 
-| SERVICE_ERROR | The service encountered an internal error. | 
-| INVALID_REQUEST | The request body could not be parsed as JSON. | 
-| REQUEST_TOO_LARGE | The request payload exceeded the Invoke request body JSON input limit. | 
-| UNKNOWN_ERROR | Unexpected runtime error. | 
-| BAD_REQUEST | The server could not understand the request due to invalid syntax. | 
-| UNAUTHORIZED | The request has not been applied because it lacks valid authentication. | 
-| FORBIDDEN | The server understood the request but refuses to authorize it. | 
-| NOT_FOUND | The server could not find what was requested. | 
-| METHOD_NOT_ALLOWED | The request method is known by the server but is not supported. | 
-| NOT_ACCEPTABLE | The server cannot produce a response matching the list of acceptable values. | 
-| REQUEST_TIMEOUT | The server would like to shut down this unused connection. | 
-| CONFLICT | The request conflicts with current state of the server. | 
-| GONE | No longer available. | 
-| UNPROCESSABLE_ENTITY | The server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions. | 
-| LOCKED | The resource that is being accessed is locked. | 
-| FAILED_DEPENDENCY | The request failed due to failure of a previous request. | 
-| INTERNAL_SERVER_ERROR | The server has encountered a situation it doesn't know how to handle. | 
-| NOT_IMPLEMENTED | The request method is not supported by the server and cannot be handled. | 
-| BAD_GATEWAY | The server got an invalid response. | 
-| SERVICE_UNAVAILABLE | The server is not ready to handle the request. | 
-| GATEWAY_TIMEOUT | The server is acting as a gateway and cannot get a response in time. | 
+| MISSING_INPUT | A mandatory input variable was not provided. |
+| INVALID_INPUT | The input variable has an invalid type. |
+| SERVICE_ERROR | The service encountered an internal error. |
+| INVALID_REQUEST | The request body could not be parsed as JSON. |
+| REQUEST_TOO_LARGE | The request payload exceeded the Invoke request body JSON input limit. |
+| UNKNOWN_ERROR | Unexpected runtime error. |
+| BAD_REQUEST | The server could not understand the request due to invalid syntax. |
+| UNAUTHORIZED | The request has not been applied because it lacks valid authentication. |
+| FORBIDDEN | The server understood the request but refuses to authorize it. |
+| NOT_FOUND | The server could not find what was requested. |
+| METHOD_NOT_ALLOWED | The request method is known by the server but is not supported. |
+| NOT_ACCEPTABLE | The server cannot produce a response matching the list of acceptable values. |
+| REQUEST_TIMEOUT | The server would like to shut down this unused connection. |
+| CONFLICT | The request conflicts with current state of the server. |
+| GONE | No longer available. |
+| UNPROCESSABLE_ENTITY | The server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions. |
+| LOCKED | The resource that is being accessed is locked. |
+| FAILED_DEPENDENCY | The request failed due to failure of a previous request. |
+| INTERNAL_SERVER_ERROR | The server has encountered a situation it doesn't know how to handle. |
+| NOT_IMPLEMENTED | The request method is not supported by the server and cannot be handled. |
+| BAD_GATEWAY | The server got an invalid response. |
+| SERVICE_UNAVAILABLE | The server is not ready to handle the request. |
+| GATEWAY_TIMEOUT | The server is acting as a gateway and cannot get a response in time. |
 
 ## Comprehend
 
-The Comprehend connector provides a standard mechanism to extract entities and Personally identifiable information (PII) entities from text in your documents. The **ENTITY** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from `UTF-8` plain text files.
+The Comprehend connector provides a standard mechanism to extract entities and Personally identifiable information (PII) entities from text in your documents. The **ENTITY** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from specific plain text files.
 
 > **Note:** The Comprehend connector can only receive either **files** or **text** but not both at the same time.
 
@@ -169,13 +169,11 @@ The Comprehend connector can extract entities and PII from the following file fo
 
 ### Installation
 
-The connector is a Spring Boot ` that is included as a separate service of your AAE deployment.
+The connector is a Spring Boot application that is included as a separate service of your AAE deployment.
 
 ### Configuration
 
-For the text analysis connector to function certain properties must be defined in the ``.properties` file of the Spring Boot `. By default, these properties are set to environment variables.
-
-The Comprehend connector requires certain properties to be defined in the ``.properties` file of the Spring Boot `. By default, these properties are set to your environment variables.
+The Comprehend connector requires certain properties to be defined in the `application.properties` file of the Spring Boot application. By default, these properties are set to your environment variables.
 The following are a set of properties that define the standard use of the connector:
 
 ```bash
@@ -206,7 +204,7 @@ spring.cloud.stream.bindings.textAnalysisConnectorConsumer.destination=comprehen
 spring.cloud.stream.bindings.textAnalysisPiiConnectorConsumer.destination=comprehend.PII_DETECTION
 ```
 
-> **Note:** The name of the channel must match the implementation value defined in the Service Task as part of the [BPMN Tasks Configuration](#bpmn-tasks-configuration).
+> **Note:** The name of the channel must match the implementation value defined in the service task as part of the [BPMN Tasks Configuration](#bpmn-tasks-configuration).
 
 The connector requires a connection to Alfresco in order to obtain the file containing the text to be analysed. This is achieved by setting the url to the Alfresco instance and user credentials using the following variables:
 
@@ -223,7 +221,7 @@ The response of the analysis is a file that must be stored temporarily. This pat
 file.content.reference.directory.path=${ACT_TEMPORARY_FOLDER}
 ```
 
-For extracting the content of the file when it is not in plain text, the existing [tika transformer](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transform-tika) is consumed by the connector via http request. Use the `ats.transformer.tika.wait` property to set whether the APA connector should wait until the Tika transformer request is complete before consuming another message from Spring Cloud Stream.
+For extracting the content of the file when it is not in plain text, the existing [Tika transformer](https://github.com/Alfresco/alfresco-transform-core/tree/master/alfresco-transform-tika) is consumed by the connector via http request. Use the `ats.transformer.tika.wait` property to set whether the APA connector should wait until the Tika transformer request is complete before consuming another message from Spring Cloud Stream.
 
 ```bash
 ats.transformer.tika.url=http://tika.aae/transform
@@ -284,59 +282,72 @@ The Amazon Comprehend APIs that are called using the connector are:
 * [StartPiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartPiiEntitiesDetectionJob.html){:target="_blank"}
 * [DescribePiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribePiiEntitiesDetectionJob.html){:target="_blank"}
 
-To perform these calls it uses the AWS Comprehend SDK and because of this requires IAM users with the correct permissions to be created. The easiest way to do this is to give an IAM user the AWS managed policy "ComprehendFullAccess" to be stricter with the access then please see [the list of all comprehend API permissions.](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-api-permissions-ref.html)
+To perform these calls it uses the AWS Comprehend SDK. This requires IAM users with the correct permissions to be created. The easiest way to do this is to give an IAM user the AWS managed policy `ComprehendFullAccess`. If you want to be stricter with access rights see [the list of all comprehend API permissions.](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-api-permissions-ref.html)
 
-The Asynchronous calls also require the ability to read and write to an S3 bucket so the IAM user must have access to the configured bucket. As well as the IAM user accessing the data the Comprehend service itself [needs to be given access.](https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions)
+The Asynchronous calls also require the ability to read and write to an Amazon S3 bucket so the IAM user must have access to the configured bucket. As well as the IAM user accessing the data the Comprehend service itself requires access, for more see [Role-Based Permissions Required for Asynchronous Operations
+](https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions).
 
-To allow the library to use this IAM user when communicating with the Comprehend service an AWS access key and secret key must be available. These will be loaded [using the default credentials locations.](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html#credentials-default)
+To allow the library to use this IAM user when communicating with the Comprehend service an AWS access key and secret key must be available, for more see [Using the Default Credential Provider Chain
+](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html#credentials-default)
 
 #### DetectDominantLanguage
 
-The calls to detect language need to be supplied the language of the text document that is to be processed. To do this, the connector calls the `DetectDominantLanguage` API and using the most dominant language as the documents language.
+You need to supply the calls that detect the language of the text document that is going to be processed. To do this, the connector calls the `DetectDominantLanguage` API. The `DetectDominantLanguage` call only works on text smaller than a configurable limit, the default is 5000 bytes. The connector uses the first bytes/characters of the document to determine what language to use when making calls to AWS Comprehend to determine which language is being used.
 
-The `DetectDominantLanguage` call will only work on text smaller than a configurable limit (default is 5000 bytes) so the connector assumes that the dominant language will be used in the first section of the document and therefore only uses the first set of bytes/characters to perform the call to AWS Comprehend.
-
-As the `DetectDominantLanguage` service currently supports a greater set of languages than the entity detection services we check the returned language against a configurable list of available languages (at time of writing only EN and ES are supported by AWS entity detection)and if the detected language is not in this list we use a configurable default language instead (EN by default).
+As the `DetectDominantLanguage` service currently supports a greater set of languages than the entity detection services we check the returned language against a configurable list of available languages.
+> **Note:** Currently only EN and ES are supported by AWS entity detection.
+If the detected language is not in this list we use a configurable default language instead, which is EN by default.
 
 #### Entities
 
-`DetectEntities` / `BatchDetectEntities` / `StartEntitiesDetectionJob` & `DescribeEntitiesDetectionJob`
+The following are the different types of entities:
 
-Depending on the size of the input, the connector will process it in different ways.
+| Entity |
+| --------- |
+| DetectEntities |
+| BatchDetectEntities |
+| StartEntitiesDetectionJob |
+| DescribeEntitiesDetectionJob |
 
-The `DetectEntities` operation will be called if the supplied text file is smaller than a configurable limit (by default 5000 bytes) therefore if the input file is larger than this then a different API must be used.
+Depending on the size of the input the connector will process it in a different a way.
 
-The `BatchDetectEntitie` is used if the file is larger than the `DetectEntities` limit although it also has a configurable limit (default 125000 bytes). When using the Batch API call the input file is split into chunks of less than the configurable limit of bytes (default 5000).
+The `DetectEntities` operation will be called if the supplied text file is smaller than a configurable limit, by default 5000 bytes. If the input file is larger than this then a different API must be used.
 
-The `StartEntitiesDetectionJob` & `DescribeEntititesDetectionJob` will be used if the input file is larger than the `BatchDetectEntities` limit. Similar to the Batch approach, the input file will be divided in a set of smaller files of a certain configured size. While dividing the original file, the engine ensures hat it only includes full words and will not split on a non whitespace character.
+The `BatchDetectEntitie` is used if the file is larger than the `DetectEntities` limit although it also has a configurable limit, by default 125000 bytes. When you use the Batch API call the input file is split into chunks of less than the configurable limit, by default 5000 bytes.
 
-Then, the divided files are uploaded to S3 using the same key prefix for all of them. When all of them have been uploaded, an asynchronous entity detection job is started, followed by a polling process to check the status of the job until it finishes or the timeout is reached.
+The `StartEntitiesDetectionJob` and `DescribeEntititesDetectionJob` are used if the input file is larger than the `BatchDetectEntities` limit, by default 5000 bytes. Similar to the batch approach, the input file will be divided into a set of smaller files of a certain configured size. When dividing the original file, the engine ensures that it only includes full words and does not split on a non whitespace character.
 
-If the asynchronous job finishes successfully, a compressed output file (`output.tar.gz`) with the result will be written by Comprehend in the same bucket within a directory named with the same key prefix. The format of the output file can be consulted [here](https://docs.aws.amazon.com/comprehend/latest/dg/how-async.html).
-This output file is finally downloaded from S3 and parsed into a `BatchDetectEntitiesResult` object. At the end of the process, all the resources files both locally and at S3 are cleaned.
+The divided files are then uploaded to Amazon S3 using the same key prefix for all files. When all of them have been uploaded an asynchronous entity detection job is started. This is then followed by a polling process to check the status of the job until it finishes or the timeout is reached.
+
+If the asynchronous job finishes successfully a compressed output file (`output.tar.gz`) with the result will be written by Amazon Comprehend. The file will be saved to the same bucket within a directory that is using the same key prefix. For more see [Asynchronous Batch Processing
+](https://docs.aws.amazon.com/comprehend/latest/dg/how-async.html). The output file is downloaded from Amazon S3 and parsed into a `BatchDetectEntitiesResult` object. At the end of the process, all the resource files are cleaned, both locally and at Amazon S3.
 
 #### PII Entities
 
-`DetectPiiEntities` /  `StartPiiEntitiesDetectionJob` & `DescribePiiEntitiesDetectionJob`
+| Entity |
+| --------- |
+| DetectPiiEntities |
+| StartPiiEntitiesDetectionJob |
+| DescribePiiEntitiesDetectionJob |
 
-Depending on the size of the input, the connector will process it in different ways.
+Depending on the size of the input the connector will process it in a different way.
 
-The `DetectPiiEntities` operation will be called if the supplied text file is smaller than a configurable limit (by default 5000 bytes) therefore if the input file is larger than this then a different API must be used.
+The `DetectPiiEntities` operation will be called if the supplied text file is smaller than a configurable limit, by default 5000 bytes. If the input file is larger than this then a different API must be used.
 
-The `StartPiiEntitiesDetectionJob` & `DescribePiiEntitiesDetectionJob` will be used if the input file is larger than the `AsynchDetectPIIEntities` limit (by default 5000 bytes). The input file will be divided in a set of smaller files of a certain configured size. While dividing the original file, the engine ensures hat it only includes full words and will not split on a non whitespace character.
+The `StartPiiEntitiesDetectionJob` and `DescribePiiEntitiesDetectionJob` are used if the input file is larger than the `AsynchDetectPIIEntities` limit, by default 5000 bytes. The input file will be divided into a set of smaller files of a certain configured size. When dividing the original file, the engine ensures that it only includes full words and will not split on a non whitespace character.
 
-Then, the divided files are uploaded to S3 using the same key prefix for all of them. When all of them have been uploaded, an asynchronous entity detection job is started, followed by a polling process to check the status of the job until it finishes or the timeout is reached.
+The divided files are then uploaded to Amazon S3 using the same key prefix for all files. When all of them have been uploaded an asynchronous entity detection job is started. This is then followed by a polling process to check the status of the job until it finishes or the timeout is reached.
 
-If the asynchronous job finishes successfully, a compressed output file (`output.tar.gz`) with the result will be written by Comprehend in the same bucket within a directory named with the same key prefix. The format of the output file can be consulted [here](https://docs.aws.amazon.com/comprehend/latest/dg/how-async.html).
-This output file is finally downloaded from S3 and parsed into a `BatchDetectPiiResult` object. At the end of the process, all the resources files both locally and at S3 are cleaned.
+If the asynchronous job finishes successfully a compressed output file (`output.tar.gz`) with the result will be written by Amazon Comprehend. The file will be saved to the same bucket within a directory that is using the same key prefix. For more see [Asynchronous Batch Processing
+](https://docs.aws.amazon.com/comprehend/latest/dg/how-async.html). The output file is downloaded from Amazon S3 and parsed into a `BatchDetectPiiResult` object. At the end of the process, all the resource files are cleaned, both locally and at Amazon S3.
 
 ### BPMN Tasks Configuration
 
-The following [text analysis process definition](textAnalysisProcess.bpmn20.xml) was created to show an example of how the text analysis connector is setup in AAE:
+The following [textAnalysisProcess.bpmn20.xml](https://github.com/Alfresco/alfresco-process-connector-services/blob/develop/alfresco-process-comprehend-connector-spring-boot-starter/textAnalysisProcess.bpmn20.xml) describes an example of how the text analysis connector is setup in AAE:
 
-![BPMN](textAnalysisProcess.png)
+![BPMN]({% link process-automation/images/analysis-process.png %})
 
-As part of BPMN definition process, any Service Task responsible for triggering the text analysis needs to set `comprehend.ENTITY` as the value for its implementation attribute.
+As part of the BPMN definition process, any service task responsible for triggering the text analysis `comprehend.ENTITY` has to be set as the value for its implementation attribute.
 
 The following variables are required to be configured in order for the text analysis to function.
 
@@ -373,7 +384,8 @@ The following is an example of the POST body for the Activiti REST API `http://{
 ```
 
 In the business process definition, the text analysis service task called **textAnalysisTask** has the implementation attribute configured to use the connector.
-```
+
+```bash
 <bpmn2:serviceTask id="ServiceTask_0j2v2yc" name="textAnalysisTask" implementation="comprehend.ENTITY">
   <bpmn2:incoming>SequenceFlow_0kibr65</bpmn2:incoming>
   <bpmn2:outgoing>SequenceFlow_1048knn</bpmn2:outgoing>
@@ -441,7 +453,7 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 
 ### Limitations
 
-PDF files size larger than 26214400 bytes are not supported.
+PDF files larger than 26214400 bytes are not supported.
 
 ## Rekognition
 
@@ -588,11 +600,11 @@ The transcribe connector provides a standard mechanism to obtain speech to text 
 
 ### Installation
 
-The connector is a Spring Boot ` that is included as a separate service of your AAE deployment.
+The connector is a Spring Boot application that is included as a separate service of your AAE deployment.
 
 ### Configuration
 
-The transcribe connector requires certain properties to be defined in the ``.properties` file of the Spring Boot `. By default, these properties are set to your environment variables.
+The transcribe connector requires certain properties to be defined in the `.properties` file of the Spring Boot application `. By default, these properties are set to your environment variables.
 The following are a set of properties that define the standard use of the connector:
 
 ```bash
@@ -636,7 +648,7 @@ file.content.tmp.path=${ACT_TEMPORARY_FOLDER:/tmp}
 
 ### Deployment Configuration
 
-When deploying an ` you are asked to input the image of the connector. The image and environment variables must be the same that were previously registered. The following is an example of the environment variables that could be set for the connector:
+When deploying you are asked to input the image of the connector. The image and environment variables must be the same that were previously registered. The following is an example of the environment variables that could be set for the connector:
 
 ```text
 {
