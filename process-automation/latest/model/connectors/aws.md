@@ -359,7 +359,7 @@ The input parameters of the Comprehend connector are:
 | text | String | *Requires one.* Raw text to be sent for analysis. |
 | mediaType | String | *Optional.* The media type of the file to be analyzed, for example `/octect-stream`. |
 | maxEntities | Integer | *Optional.* The maximum number of entities to be extracted, for example `5`. |
-| confidenceLevel | String | *Optional* The confidence level to use in the analysis between 0 and 1, for example `0.75`. |
+| confidenceLevel | String | *Optional.* The confidence level to use in the analysis between 0 and 1, for example `0.75`. |
 | timeout | Integer | *Optional.* The timeout period for calling the Comprehend service in milliseconds, for example `910000`. |
 
 The following is an example of the POST body for the Activiti REST API `http://{{domain}}/{{applicationName}}/rb/v1/process-instances` endpoint:
@@ -470,7 +470,7 @@ The input parameters of the Rekognition connector are:
 | file | File | *Required.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to send for analysis. |
 | mediaType | String | *Optional.* The media type of the file to be analyzed, for example ``/octect-stream`. |
 | maxLabels | Integer | *Optional.* The maximum number of labels to be return. The default value is `10`. |
-| confidenceLevel | String | *Optional* The confidence level to use in the analysis between 0 and 1, for example `0.75`. |
+| confidenceLevel | String | *Optional.* The confidence level to use in the analysis between 0 and 1, for example `0.75`. |
 | timeout | Integer | *Optional.* The timeout period for calling the Rekognition service in milliseconds, for example `910000`. |
 
 The output parameters from the Rekognition analysis are:
@@ -540,7 +540,7 @@ The input parameters of the Textract connector are:
 | --------- | ---- | ----------- |
 | file | File | *Required.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to send for extraction. |
 | outputFormat | String | *Optional.* The format of the output file. Possible values are `JSON` and `TXT`. The default value is `JSON`. |
-| confidenceLevel | String | *Optional* The confidence level to use in the analysis between 0 and 1, for example `0.75`. |
+| confidenceLevel | String | *Optional.* The confidence level to use in the analysis between 0 and 1, for example `0.75`. |
 | timeout | Integer | *Optional.* The timeout period for calling the Textract service in milliseconds, for example `910000`. |
 
 The output parameters from the Textract analysis are:
