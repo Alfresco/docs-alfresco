@@ -139,7 +139,7 @@ The access and use of the SAP Connector is managed by a license. Any limitations
     You'll need to have administrator permissions.
 
 3. In the **License Information** section click **Choose Files**.
-4. Select file `content-connector-for-sap.l4j` , and then click **Upload**.
+4. Select file `content-connector-for-sap.l4j`, and then click **Upload**.
 
     > **Note:** The new license is applied immediately. No restart of Content Services required.
 
