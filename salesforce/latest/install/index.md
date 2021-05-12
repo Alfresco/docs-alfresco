@@ -560,9 +560,9 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
 
 ### Step 6: Add the Alfresco app in Salesforce
 
-There are two ways to add the Connector in Salesforce Classic: As a [Canvas Component](#configappinsalesforce-classic-cavnas) or as a [Visualforce Page](#configappinsalesforce-classic-visualforce)
+There are two ways to add the Connector in Salesforce Classic: as a [Canvas Component](#configappinsalesforce-classic-canvas) or as a [Visualforce Page](#configappinsalesforce-classic-visualforce).
 
-#### Add the Alfresco app in Salesforce (Canvas Component) {#configappinsalesforce-classic-cavnas}
+#### Add the Alfresco app in Salesforce (Canvas Component) {#configappinsalesforce-classic-canvas}
 
 Lastly, you'll need to load the Alfresco canvas app for page layouts. You can add the app to any record type that supports layouts (for example; Accounts, Cases, and Opportunities). This is done by setting Alfresco for Salesforce example page layouts as the default for selected user profiles.
 
@@ -597,7 +597,7 @@ Make sure that you've downloaded the Alfresco Content Connector app, as describe
     6. Open a record that has the new page layout. You should now be able to see an Alfresco section, with a **Files** tab. You can add files here by dragging and dropping them, or by using the **Upload** button.
 
         You can also add new folders with the **Create** button. Equally, any files added in Alfresco can be seen in this window. This content is stored directly in Alfresco and can be viewed either in Salesforce, or in your usual Alfresco site.
-        
+
 #### Adding the Alfresco app in Salesforce (Visualforce Page) {#configappinsalesforce-classic-visualforce}
 
 Lastly, you'll need to load the Alfresco canvas app for page layouts. You can add the app to any record type that supports layouts (for example; Accounts, Cases, and Opportunities). This is done by setting Alfresco for Salesforce example page layouts as the default for selected user profiles.
