@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Desktop Sync 1.7:
+The following are the supported platforms for Desktop Sync 1.6:
 
 | Version | Notes |
 | ------- | ----- |
