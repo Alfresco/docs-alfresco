@@ -15,7 +15,7 @@ what type of files to search.
 
 This section also goes through how to specifically search for sites and people.
 
-## Finding folders and files by a term
+## Finding folders and files by a term {#findnodesbyterm}
 
 Simple search in metadata and content with a term.
 
@@ -113,7 +113,7 @@ metadata in the response.
 The type of nodes returned can be restricted via the `nodeType` query parameter, for example passing `acme:document` as 
 the value will only return nodes of that type and any of it's subtypes.
 
-## Finding sites by a term
+## Finding sites by a term {#findsitesbyterm}
 
 Simple search for sites with a term.
 

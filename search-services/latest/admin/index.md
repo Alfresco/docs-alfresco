@@ -48,7 +48,7 @@ If you have installed the Oracle Java SE Development Kit (JDK), you can use the 
 * You may also trigger a backup with an HTTP command which instructs the `/replication` handler to backup Solr, for example:
 
     ```http
-    http://localhost:8080/solr/alfresco/replication?command=backup&location={{existingDirectory}}&numberToKeep=4&wt=xml
+    http://localhost:8983/solr/alfresco/replication?command=backup&location={{existingDirectory}}&numberToKeep=4&wt=xml
     ```
 
     where:

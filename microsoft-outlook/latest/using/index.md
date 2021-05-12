@@ -63,6 +63,16 @@ When you drag and drop the email with a subject that already exists in a specifi
 
     See [Outlook metadata settings]({% link microsoft-outlook/latest/config/index.md %}#configmetadataandlistview) for metadata configuration guidance.
 
+### Archiving emails after sending
+
+When sending a new email, you can choose to automatically archive it after it has been sent by using the **Send and Archive** button located in your **Alfresco Client** tab.
+
+This button is available in the **Alfresco Client** tab when you’re composing an email, and combines the separate actions for sending the email and then manually dragging it onto the Outlook sidebar to archive it:
+
+![This image shows the Send and Archive button in the Alfresco Client tab]({% link microsoft-outlook/images/2-8-ribbon.png %}){:width="600px"}
+
+**Note:** The standard **Send** button inside your email is not affected.
+
 ## Archiving folders in Outlook
 
 You can create folders in the Alfresco Outlook Client and assign metadata to these folders, similar to when archiving emails.
@@ -324,6 +334,24 @@ Create new versions of files by dragging & dropping them into the Alfresco sideb
         Select **Skip** or **Cancel** to prevent the email upload.
 
     The original email remains in the selected location.
+
+## Uploading folders in Outlook
+
+You can drop folders from Windows Explorer onto the Alfresco Outlook Integration.
+
+1. Archive a folder by dragging and dropping it into a folder in your chosen site.
+
+    You might see a **Metadata** dialog for the folder (if this has been configured by your IT team).
+
+2. Enter the information needed for archiving the folder.
+
+    After saving, you may see a second **Metadata** dialog showing all files for all folders (if this has also been configured by your IT team).
+
+The upload starts after saving. This operation runs in the background until it's completed. While the upload is running, you can't upload any other files.
+
+* To indicate that the process is still running, you'll see a progress bar in your Outlook plugin with the option to **Cancel** the upload.
+* For every folder created (with associated files), you may see an email duplication dialog if your folder contains emails that have already been uploaded to the system.
+* Once the operation is complete, the Outlook plugin will display the files that haven't been uploaded if there was a problem with uploading some of your data.
 
 ## Managing archived files in Alfresco Share
 

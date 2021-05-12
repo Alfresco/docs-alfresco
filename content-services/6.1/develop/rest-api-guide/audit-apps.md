@@ -1043,56 +1043,19 @@ the whole URL string needs to be enclosed with double quotes (") and the `where`
 
 ## Get an audit entry (log)
 
-Get the metadata (i.e. properties) for a group in the repository.
+Get the metadata (i.e. properties) for an audit entry (i.e. log) in the repository.
 
-**API Explorer URL:** [http://localhost:8080/api-explorer/#!/groups/getGroup](http://localhost:8080/api-explorer/#!/groups/getGroup){:target="_blank"}
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/audit/getAuditEntry](http://localhost:8080/api-explorer/#!/audit/getAuditEntry){:target="_blank"}
 
-**See also:** [How to get the members (people and groups) of a group]({% link content-services/6.1/develop/rest-api-guide/people-groups.md %}#listmembersofgroup)
+To get metadata for an audit entry you must have admin rights. What this means is that the user that is making the
+ReST call must be a member of the `ALFRESCO_ADMINISTRATORS` group.
 
-Getting the metadata (i.e. properties) for a group is done with the following GET call:
+Getting the metadata (i.e. properties) for an audit entry is done with the following GET call:
 
-`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/{id}`
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{id}/audit-entry/{entryId}`
 
-The identifier for the group we want to get metadata for is specified with the `{id}` parameter.
-
-To get metadata for a group with id `engineering` make the following call:
-
-```bash
-$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering' | jq
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100    86    0    86    0     0  10750      0 --:--:-- --:--:-- --:--:-- 10750
-{
-  "entry": {
-    "isRoot": true,
-    "displayName": "Engineering UPDATED",
-    "id": "GROUP_engineering"
-  }
-}
-```
-
-Note that the group `id` has to be prefixed with `GROUP_`.
-
-The `include` parameter can be used to return `parentIds` and `zones`:
-
-```bash
-$ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/groups/GROUP_engineering?include=parentIds,zones' | jq
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100   136    0   136    0     0  11333      0 --:--:-- --:--:-- --:--:-- 11333
-{
-  "entry": {
-    "isRoot": true,
-    "displayName": "Engineering UPDATED",
-    "parentIds": [],
-    "id": "GROUP_engineering",
-    "zones": [
-      "APP.DEFAULT",
-      "AUTH.ALF"
-    ]
-  }
-}
-```
+The identifier for the audit application we want to get metadata for is specified with the `{id}` parameter, and the
+audit entry is specified with the `{entryId}` parameter.
 
 ## Delete audit entries (logs) for an audit application {#deletemultipleauditentries}
 

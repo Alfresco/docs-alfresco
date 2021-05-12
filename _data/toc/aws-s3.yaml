@@ -1,5 +1,5 @@
 # Alfresco Content Connector for AWS S3 
-- version: 3.1
+- version: 4.0
   pages:
     - title: 'Introduction'
       path: '/aws-s3/latest/'
@@ -13,6 +13,20 @@
       pages:
         - title: 'FAQ'
           path: '/aws-s3/latest/using/faq/'
+- version: 3.1
+  pages:
+    - title: 'Introduction'
+      path: '/aws-s3/3.1/'
+    - title: 'Install'
+      path: '/aws-s3/3.1/install/'
+    - title: 'Upgrade'
+      path: '/aws-s3/3.1/upgrade/'
+    - title: 'Configure'
+      path: '/aws-s3/3.1/config/'
+    - title: 'Using'
+      pages:
+        - title: 'FAQ'
+          path: '/aws-s3/3.1/using/faq/'
 - version: 3.0
   pages:
     - title: 'Introduction'

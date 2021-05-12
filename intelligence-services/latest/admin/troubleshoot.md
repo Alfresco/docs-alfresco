@@ -204,11 +204,11 @@ The performance of this module is mostly dependent on the limitations around pro
 
 ## What happens if I leave the 'Request AI renditions' input text field empty?
 
-The default renditions are requested (i.e. `aiFeatures`, `aiLabels`, and `aiTextract`).
+The default renditions are requested (i.e. `aiFeatures`, `aiLabels`, `aiTextract`, `aiSpeechToText`, `webvtt`, and `aiPiiEntities`).
 
 ## What happens if I specify only one default AI rendition?
 
-If you specify only one default AI rendition, such as `aiFeatures`, the other two options (`aiLabels` and `aiTextract`) are ignored. This may be really useful for saving costs if other renditions aren't required.
+If you specify only one default AI rendition, such as `aiFeatures`, the other five renditions (`aiLabels`, `aiTextract`, `aiSpeechToText`, `webvtt`, and `aiPiiEntities`) are ignored. This may be really useful for saving costs if other renditions aren't required.
 
 ## Do I need to pay for the Amazon Textract service in my AWS account?
 

@@ -422,7 +422,7 @@ The following variables are set by the start task in your process definition, an
 | bpm_package | A Repository Node with aspect `bpm:workflowPackage` representing the Workflow package containing content being routed through the workflow. |
 | bpm_context | A Repository Node of type `cm:folder` representing the folder in which the workflow was started. |
 
-The are some special node objects available in the process definition, that are not part of the task model:
+There are some special node objects available in the process definition, that are not part of the task model:
 
 | Variable | Description |
 | -------- | ----------- |
@@ -484,7 +484,7 @@ Content Services ships with two default workflow models that support the default
 
 |Workflow Model|Description|
 |--------------|-----------|
-|pmModel.xml|Is the basic workflow content model|
+|bpmModel.xml|Is the basic workflow content model|
 |workflowModel.xml|Contains more detailed task types and specializes the basic task types from the BPM model|
 
 ![wf-task-model-2]({% link content-services/images/wf-task-model-2.jpg %})

@@ -15,6 +15,7 @@ defaults:
         - 6.2
         - 6.1
         - 6.0
+        - 5.2
   - scope:
       path: "content-services/latest"
     values:
@@ -46,6 +47,14 @@ defaults:
       version: 6.0
   - scope:
       path: "content-services/6.0/tutorial"
+    values:
+      toc: "content-services-tutorial"
+  - scope:
+      path: "content-services/5.2"
+    values:
+      version: 5.2
+  - scope:
+      path: "content-services/5.2/tutorial"
     values:
       toc: "content-services-tutorial"
   - scope:
@@ -415,6 +424,7 @@ defaults:
       toc: "aws-s3"
       support: true
       versions:
+        - 4.0
         - 3.1
         - 3.0
         - 2.3
@@ -422,8 +432,12 @@ defaults:
   - scope:
       path: "aws-s3/latest"
     values:
-      version: 3.1
+      version: 4.0
       latest: true
+  - scope:
+      path: "aws-s3/3.1"
+    values:
+      version: 3.1
   - scope:
       path: "aws-s3/3.0"
     values:
@@ -803,6 +817,7 @@ defaults:
       toc: "microsoft-outlook"
       support: true
       versions:
+        - 2.8
         - 2.7
         - 2.6
         - 2.5
@@ -810,8 +825,12 @@ defaults:
   - scope:
       path: "microsoft-outlook/latest"
     values:
-      version: 2.7
+      version: 2.8
       latest: true
+  - scope:
+      path: "microsoft-outlook/2.7"
+    values:
+      version: 2.7
   - scope:
       path: "microsoft-outlook/2.6"
     values:
