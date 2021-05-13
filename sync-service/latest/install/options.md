@@ -20,7 +20,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.4.x.zip`, includes
 * `service-sync` directory with:
   * `service-sync-3.4.x.jar` Sync Service JAR
   * `config.yml` property file
-  * `alfresco-sync` start/stop script
+  * `syncservice` start/stop script
   * `sync.jks` SSL keys
 
 > **Note:** The keystore `sync.jks` contains a self-signed certificate that should be used for testing purposes only. You'll need to provide your own SSL keys for a production environment.
