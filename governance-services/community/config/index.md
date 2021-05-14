@@ -8,7 +8,8 @@ Use the information on this page to configure Governance Services.
 
 Use this information to understand the `alfresco-global.properties` properties related to the Governance Services.
 
-Properties for the Governance Services are listed in the `<configRoot>/classes/alfresco/module/org_alfresco_module_rm/alfresco-global.properties` file.
+Properties for the Governance Services are listed in the `<configRoot>/classes/alfresco/module/org_alfresco_module_rm/alfresco-global.properties` 
+file. 
 
 For example:
 
@@ -56,7 +57,7 @@ A full listing of the properties and their values is shown in this table:
 |rm.dispositionlifecycletrigger.cronexpression|Disposition lifecycle trigger cron job expression. Default is `0 0/5 * * * ?`.|
 |rm.ghosting.enabled|Enable/disable ghosting of records, when a record is deleted. Default is `true`.|
 |rm.notification.role|Specify which role receives notifications; for example, when notifications when vital records are due for review. Default is `RecordsManager`.<br><br>A background job executes by default every 15 minutes to search for vital records that are due for review, and sends a notification. The template for the email notification is editable, and is stored in the Governance Services section of the Data Dictionary.|
-|rm.record.contributors.group.enabled|Set which groups can perform Governance Services actions; for example, Declare as Record. Default is `false`. <br><br>If this is set to `true`, only members of the RECORD_CONTRIBUTORS group can perform these actions.|
+|rm.record.contributors.group.enabled|Set which groups can perform Governance Services actions; for example, File as Record. Default is `false`. <br><br>If this is set to `true`, only members of the RECORD_CONTRIBUTORS group can perform these actions.|
 |rm.rule.runasadmin|Require admin rights/ normal rights to run rules. Default is `true`.|
 |version.store.enableAutoVersionOnTypeChange|Set whether a version is automatically created when the type of a document is changed. Default is `false`.|
 
@@ -70,11 +71,11 @@ You can set the end date of the financial year and the end of the financial quar
 
 2. Copy the `alfresco-repository-xxx.jar` to `<temp-dir>/alfresco-repository-xxx.zip` and extract the contents
 
-3. From the extracted ZIP file copy `alfresco/period-type-context.xml` to `<TOMCAT_HOME>/shared/classes/alfresco/extension`.
+2. From the extracted ZIP file copy `alfresco/period-type-context.xml` to `<TOMCAT_HOME>/shared/classes/alfresco/extension`.
 
-4. Rename the file to `custom-period-type-context.xml`.
+3. Rename the file to `custom-period-type-context.xml`.
 
-5. Change all the `value` properties to suit the dates of your financial year.
+4. Change all the `value` properties to suit the dates of your financial year.
 
     For example, the following would customize your system to start the financial year in October.
 
@@ -105,6 +106,6 @@ You can set the end date of the financial year and the end of the financial quar
     </bean>
     ```
 
-6. Restart the server.
+5. Restart the server.
 
-7. (Optional) If you change your financial periods this does not update any previously set calculated schedules and you will need to edit all {% include tooltip.html word="retentionschedule" text="retention schedule" %}s to ensure the new period start date is used. See [Editing a retention schedule]({% link governance-services/community/using/retention-schedules.md %}#editing-a-retention-schedule).  
+6. (Optional) If you change your financial periods this does not update any previously set calculated schedules and you will need to edit all {% include tooltip.html word="retentionschedule" text="retention schedule" %}s to ensure the new period start date is used. See [Editing a retention schedule]({% link governance-services/community/using/retention-schedules.md %}#editing-a-retention-schedule).  
