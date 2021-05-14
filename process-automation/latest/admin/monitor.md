@@ -174,4 +174,4 @@ The properties for each audit event are:
 | Event ID | The unique ID of the event. |
 | Process Instance ID | The process instance ID of the process that the event occurred in. |
 | Event Action | The payload of the event in JSON format. Click to view the details. |
-| Triggers | Whenever a trigger is matched the event is added to the audit table. |
+
