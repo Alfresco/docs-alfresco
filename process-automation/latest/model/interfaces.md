@@ -43,6 +43,16 @@ Custom end user actions can be created for the Digital Workspace. This enables c
 * A list of one or more [rules](#rules) to describe which nodes the action will be displayed on.
 * The [feature](#features) the action will be displayed on, for example the header or a context menu.
 
+### Auditing
+
+When an event action is performed you will find an entry in the Audit service, the information visible depends on the Action type.
+
+| Action type | Event type | Description |
+| ----------- |----------- | ----------- |
+| Event | USER_ACTION_NAMED_EVENT | This event is sent from the [Form runtime]({% link process-automation/latest/admin/architecture.md %}#form-runtime) and provides information about the user action, such as the name of the interface in which the action was performed, the name of the event and the nodes selected when the action was performed. |
+| Form | USER_ACTION_FORM_SUBMITTED |  This event is sent from the [Form runtime]({% link process-automation/latest/admin/architecture.md %}#form-runtime) and provides information about the form submitted from the user action, such as the name of the interface in which the action was performed, id of the submitted form, the values submitted, or the outcome pressed. |
+| Start process | PROCESS_STARTED | This event is sent from the [Process runtime]({% link process-automation/latest/admin/architecture.md %}#process-runtime) and provides information about the process definition and the process instance created. |
+
 ### Actions
 
 There are four types of end user actions that can be configured:
