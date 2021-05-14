@@ -6,8 +6,8 @@ Governance Services is installed by applying two AMP files to an existing Alfres
 
 The Governance Services distribution zip file contain the following AMP files:
 
-|alfresco-rm-community-repo-3.0.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Community Edition installation.|
-|alfresco-rm-community-share-3.0.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Share installation.|
+|alfresco-governance-services-community-repo-3.5.a.amp|Contains Governance Services functionality that's applied to an existing Alfresco Community Edition installation.|
+|alfresco-governance-services-community-share-3.5.a.amp|Contains Governance Services functionality that's applied to an existing Alfresco Share installation.|
 
 >**Note:** Install the AMPs manually using the Module Management Tool (MMT), rather than using the `apply_amps` tool.
 
@@ -21,19 +21,19 @@ The Governance Services distribution zip file contain the following AMP files:
 
 3. Copy the AMP files to the Alfresco `amps` and `amps_share` directories.
 
-    * Copy the `alfresco-rm-community-repo-3.0.x.amp` file to the Alfresco `amps` directory.
-    * Copy the `alfresco-rm-community-share-3.0.x.amp` file to the Alfresco `amps_share` directory.
+    * Copy the `alfresco-governance-services-community-repo-3.5.a.amp` file to the Alfresco `amps` directory.
+    * Copy the `alfresco-governance-services-community-share-3.5.a.amp` file to the Alfresco `amps_share` directory.
 
 4. Change into the root of the Alfresco Community Edition installation directory. Directories specified in the following procedures are relative to this directory.
 
 5. Run the following commands to install the AMP files:
 
     ```bash
-    java -jar bin\alfresco-mmt.jar install amps\alfresco-rm-community-repo-3.0.x.amp tomcat\webapps\alfresco.war
+    java -jar bin\alfresco-mmt.jar install amps\alfresco-governance-services-community-repo-3.5.a.amp tomcat\webapps\alfresco.war
     ```
 
     ```bash
-    java -jar bin\alfresco-mmt.jar install amps_share\alfresco-rm-community-share-3.0.x.amp tomcat\webapps\share.war
+    java -jar bin\alfresco-mmt.jar install amps_share\alfresco-governance-services-community-share-3.5.a.amp tomcat\webapps\share.war
     ```
 
 6. Start the Alfresco Community Edition server.

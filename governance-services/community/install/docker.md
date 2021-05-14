@@ -26,14 +26,14 @@ Use this information to quickly deploy Governance Services using Docker Compose.
     ```text
     services:
         alfresco:
-            #image: alfresco/alfresco-content-repository-community:6.0.7-ga
-            image: alfresco/alfresco-governance-repository-community:3.0.a
+            #image: alfresco/alfresco-content-repository-community:7.0.0
+            image: alfresco/alfresco-governance-repository-community:3.5.a
             ... 
     ```
 
     ```text
         share:
-            #image: alfresco/alfresco-share:6.0.b
+            #image: alfresco/alfresco-share:7.0.0
             image: alfresco/alfresco-governance-share-community
             ... 
     ```
@@ -56,9 +56,9 @@ Use this information to quickly deploy Governance Services using Docker Compose.
 
     ```text
     ...
-    alfresco_1  | 2018-10-05 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-    alfresco_1  | 2018-10-05 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-    alfresco_1  | 2018-10-05 13:59:36,903 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
+    alfresco_1  | 2021-10-05 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+    alfresco_1  | 2021-10-05 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+    alfresco_1  | 2021-10-05 13:59:36,903 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
     ```
 
     If you encounter errors whilst the system is starting up:
