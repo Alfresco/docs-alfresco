@@ -434,3 +434,9 @@ central location in Alfresco Content Services. This allows you to update the con
 Desktop Sync clients without any manual intervention.
 
 See [Managing automatic configuration updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-configuration-updates) for more.
+
+## Force users to sync specific paths {#force-user-sync}
+
+You can configure your Desktop Sync client apps to enforce the sync and exclusion of specific paths or Sites that are added to the configuration file. This allows you to restrict what your Desktop Sync clients sync by pre-selecting the sync folders.
+
+See [Manage enforced sync]({% link desktop-sync/latest/admin/index.md %}#manage-enforced-sync) for more.
