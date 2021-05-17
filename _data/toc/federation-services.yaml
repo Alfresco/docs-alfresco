@@ -8,7 +8,9 @@
     - title: 'Configure'
       path: '/federation-services/latest/config/'
     - title: 'Administer'
-      path: '/federation-services/latest/admin'
+      path: '/federation-services/latest/admin/'
+
+# Federation Services 1.0
 - version: 1.0
   pages:
     - title: 'Introduction'
@@ -18,4 +20,4 @@
     - title: 'Configure'
       path: '/federation-services/1.0/config/'
     - title: 'Administer'
-      path: '/federation-services/1.0/admin'
+      path: '/federation-services/1.0/admin/'
