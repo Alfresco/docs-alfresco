@@ -43,7 +43,6 @@ There are three options available for declaring files as records:
 
     And as with standard Alfresco functionality you need to have the required permissions before you can do anything with files.
 
-
 You can see version details of records created from versions in the file preview screen on the Records Management site. 
 When records are created from versions of the same file, a relationship between the records is automatically created.
 
