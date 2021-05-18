@@ -15,7 +15,7 @@ Use this information to quickly deploy Governance Services using Docker Compose.
 
 ## Installation steps
 
-1. Download the Alfresco Community Edition [docker-compose.yml](https://raw.githubusercontent.com/Alfresco/acs-community-deployment/1.0.0/docker-compose/docker-compose.yml) file from GitHub.
+1. Download the Alfresco Community Edition [docker-compose.yml](https://raw.githubusercontent.com/Alfresco/acs-deployment/master/docker-compose/community-docker-compose.yml) file from GitHub.
 
 2. Save the file in a local folder.
 
