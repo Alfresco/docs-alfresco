@@ -10,7 +10,7 @@ The APIs are designed for you to create remote clients to manage the {% include 
 
 You can download the API Explorer from:
 
-* [Alfresco Community RM ReST API Explorer](https://download.alfresco.com/cloudfront/release/community/RM/3.0.a/alfresco-rm-community-rest-api-explorer-3.0.a.war)
+* [Alfresco Community RM ReST API Explorer](https://download.alfresco.com/cloudfront/release/community/RM/3.0.a/alfresco-rm-community-rest-api-explorer-3.5.a.war)
 
 Deploy it on the same port as Governance Services and test the APIs with your server directly from the API Explorer.
 
