@@ -218,6 +218,160 @@ The keystore keys are registered with the repository to ensure that they're not 
 
 During bootstrap and JMX keystore reload and re-encryption operations, the repository checks if the main keystore's keys and the metadata key have changed. If they have changed, the repository throws an exception.
 
+### Encrypted node properties {#encrypted-node-properties}
+
+Data encryption in Alfresco Content Services uses secret keys which are stored in the Java keystore.
+
+> **Note:** Encrypted node properties will be deprecated and no longer available from Alfresco Content Services 6.0 and above.
+
+Alfresco provides a type `d:encrypted` that can be used to store sensitive property values in the database in a sealed encrypted format.
+
+-   **[Using encrypted node properties](#using-encrypted-node-properties)**  
+Node properties can be encrypted in the repository by setting their type to `d:encrypted` in the model.
+-   **[Changing encrypted properties keystore keys and re-encryption](#changing-encrypted-properties-keystore-keys-and-re-encryption)**  
+ During bootstrap, the repository checks whether the keys in the main encrypted properties keystore have been changed in order to detect any accidental keystore changes.
+
+#### Using encrypted node properties {#using-encrypted-node-properties}
+
+Node properties can be encrypted in the repository by setting their type to `d:encrypted` in the model.
+
+By default, the node service will not automatically encrypt and decrypt these properties as they pass in and out of the node service. Encryption and decryption should be handled by the trusted custom code (that uses the `metadataEncryptor`) running in the repository. Clients, such as Alfresco Share will not automatically be able to decrypt and display encrypted property values.
+
+> **Note:** The encrypted node properties will not available in Share without the code.
+
+The `org.alfresco.repo.node.encryption.MetadataEncryptor` class (defined as the Spring bean with name `metadataEncryptor`) provides an interface to encrypt and decrypt encryptable properties. The repository's node integrity checking will ensure that encryptable properties are actually encrypted (by the `MetaDataEncryptor`) when the transaction commits. If they are not encrypted, an integrity violation exception is raised.
+
+For example, given the model:
+
+```
+<model name="test:encryptedPropModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+   <description>Alfresco Content Model</description>
+   <author>Alfresco</author>
+   <published>2005-05-30</published>
+   <version>1.0</version>
+  
+   <imports>
+       <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+       <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+   </imports>
+  
+   <namespaces>
+       <namespace uri="http://www.alfresco.org/test/encryptedPropModel/1.0" prefix="test"/>
+   </namespaces>
+  
+   <constraints>
+   </constraints>
+  
+........................................................................................................
+ 
+   <types>
+     
+      <type name="test:encrypted">
+         <title>Encrypted</title>
+         <description>The Base Type</description>
+         <parent>cm:content</parent>
+        
+         <properties>
+            <property name="test:prop1">
+               <type>d:encrypted</type>
+               <protected>true</protected>
+               <default></default>
+               <constraints>
+               </constraints>
+            </property>
+         </properties>
+        
+         <associations>
+         </associations>
+        
+         <mandatory-aspects>
+         </mandatory-aspects>
+      </type>
+     
+   </types>
+</model>
+```
+
+the following code creates a node of type `test:encrypted` using `MetadataEncryptor` to encrypt the property.
+
+```
+MetadataEncryptor metadataEncryptor = (MetadataEncryptor)ctx.getBean("metadataEncryptor");
+
+.....................................................................................................
+
+  Map<QName, Serializable> allProperties = new PropertyMap();
+  allProperties.put(ENCRYPTED_PROP_QNAME, "ABC");
+  allProperties = metadataEncryptor.encrypt(allProperties);
+               
+  try
+   {
+     // Create a node using the thread's locale
+      NodeRef nodeRef2 = nodeService.createNode(
+      nodeRef1,
+      ContentModel.ASSOC_CONTAINS,
+      QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, getName()),
+      ENCRYPTED_TYPE_QNAME, allProperties).getChildRef();
+```
+
+The property can be decrypted as follows:
+
+```
+Serializable encryptedPropertyValue = nodeService.getProperty(nodeRef2, ENCRYPTED_PROP_QNAME);
+Serializable decryptedPropertyValue = metadataEncryptor.decrypt(ENCRYPTED_PROP_QNAME, encryptedPropertyValue);
+assertEquals("ABC", decryptedPropertyValue);
+```
+
+#### Changing encrypted properties keystore keys and re-encryption {#changing-encrypted-properties-keystore-keys-and-re-encryption}
+
+During bootstrap, the repository checks whether the keys in the main encrypted properties keystore have been changed in order to detect any accidental keystore changes.
+
+However if you purposely want to change your keys, you can do so and the repository will re-encrypt any existing encrypted node properties for you. The newly encrypted node properties will be encrypted using the new keys.
+
+Changing your keys involves backing up your keystore to a specific location and creating a new keystore in its place. This can be done in two ways:
+
+-   During bootstrap
+-   During runtime (not in Alfresco Community Edition)
+
+**Bootstrap Re-encryption**
+
+Re-encryption occurs during the repository bootstrap. For bootstrap re-encryption, follow the steps below:
+
+1.  Stop the Alfresco Content Services server.
+2.  Set the following property in the `alfresco-global.properties` file.
+
+    ```
+    encryption.bootstrap.reencrypt=true 
+    ```
+
+3.  Backup the current keystore to backup-keystore as shown below:
+
+    ```
+    mv keystore backup-keystore
+    mv keystore-passwords.properties backup-keystore-passwords.properties
+    ```
+
+4.  Copy your new keystore over the old keystore.
+5.  Update keystore-passwords.properties with the passwords you used to create the keystore. In other words, update the `keystore.password` property with the keystore password and the `metadata.password` property with the metadata key password.
+6.  Restart the server.
+
+**Runtime Re-encryption**
+
+Re-encryption occurs while the repository is running. For runtime re-encryption, follow the steps below:
+
+1.  Backup the current keystore to backup-keystore.
+
+    ```
+    mv keystore backup-keystore
+    mv keystore-passwords.properties backup-keystore-passwords.properties
+    ```
+
+2.  Copy your new keystore over the old keystore.
+3.  In your JMX console, execute the operation **Encryption** > **Operations** > **Encrypt**.
+
+    This will re-read the main and backup keystores and re-encrypt the encrypted properties. The repository can continue to run during this operation; any newly-created encrypted properties will be encrypted with the new key.
+
+    > **Note:** Only a single re-encryption can be done at a particular time. If a re-encrypt is already running then subsequent requests have no effect.
+
 ## Cryptographic password hashing {#bcryptoverview}
 
 Content Services uses cryptographic password hashing technique to securely store passwords.
