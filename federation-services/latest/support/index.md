@@ -8,8 +8,9 @@ The following are the supported platforms for Alfresco Federation Services 1.1:
 
 | Version | Supported | Notes |
 | ------- | --------- | ----- |
-| Content Services 7.0 | | |
-
+| Content Services 6.2 | | |
+| Content Services 6.1 | | |
+| Content Services 6.0 | | |
 
 ## Java
 

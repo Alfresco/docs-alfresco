@@ -16,7 +16,7 @@ You can download the Federation Services software from the [Alfresco Support Por
 
 * Federation Services Admin server (i.e. Simflofy Admin)
 * TSearch component (provides federated search capabilities)
-* MongoDB server
+* MongoDB server    
 * Tomcat server
 
     **Note:** We recommend using a separate instance, where possible, instead of using the same one used by Alfresco Content Services.
@@ -34,9 +34,9 @@ These steps describe how to install Federation Services to an instance of Alfres
     This should include the following:
 
     * `federation.war`: Simflofy Admin application
-    * `t-search-2.7.6.war`: Federated search application
-    * `transparent-content-services-platform-2.7.6-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to the Alfresco Content Services repository)
-    * `transparent-content-services-share-2.7.6-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to Alfresco Share)
+    * `t-search-2.7.8.war`: Federated search application
+    * `transparent-content-services-platform-2.7.8-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to the Alfresco Content Services repository)
+    * `transparent-content-services-share-2.7.8-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to Alfresco Share)
 
 2. Follow the steps in the Simflofy documentation, [Installing Simflofy Admin](https://simflofy.helpdocsonline.com/iandc/install){:target="_blank"}.
 
