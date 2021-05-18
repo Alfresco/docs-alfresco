@@ -227,7 +227,7 @@ In this example, the `freeSpaceLimit` is set 3GB below the available space and t
 
 ## Force maximum size for user sync
 
-You can limit the amount of data that a user can sync by setting `syncmanager.maxSyncSize` to `10` bytes or more. When this is set and the data to sync exceeds the limit, you'll be notified in the content selection dialog, and the **Sync** button is disabled.
+You can limit the amount of data that a user can select to sync by setting `syncmanager.maxSyncSize` to `10` bytes or more. This property is only checked in the content selection dialog. When this is set and the data to sync exceeds the limit, you'll be notified in the content selection dialog, and the **Sync** button is disabled.
 
 The `syncmanager.maxSyncSize` property is specified as:
 
