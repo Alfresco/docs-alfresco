@@ -16,7 +16,7 @@ You can download the Federation Services software from the [Alfresco Support Por
 
 * Federation Services Admin server (i.e. Simflofy Admin)
 * TSearch component (provides federated search capabilities)
-* MongoDB server    
+* MongoDB server
 * Tomcat server
 
     **Note:** We recommend using a separate instance, where possible, instead of using the same one used by Alfresco Content Services.
