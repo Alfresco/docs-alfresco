@@ -158,4 +158,4 @@ To save your work in Alfresco, just work on your files in the `/<userHome>/Alfre
 
 {% endcapture %}
 
-{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
+{% include tabs.html tableid="sync" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

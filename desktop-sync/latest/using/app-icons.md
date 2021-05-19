@@ -128,4 +128,4 @@ You can access Desktop Sync actions through the Finder context menu by right cli
 
 {% endcapture %}
 
-{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
+{% include tabs.html tableid="icons" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

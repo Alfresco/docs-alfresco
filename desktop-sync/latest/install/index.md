@@ -6,8 +6,6 @@ Your Alfresco Administrator can give you a link or location to download the Desk
 
 {% capture windows %}
 
-## Installing Desktop Sync on Windows
-
 If you want to use Desktop Sync on Windows, you'll need:
 
 * Windows 10: 64-bit or 32-bit version
@@ -54,8 +52,6 @@ All your favorite Alfresco content, My Files, Shared Files, and your Alfresco si
 {% endcapture %}
 
 {% capture mac %}
-
-## Installing Desktop Sync on Mac
 
 If you want to use Desktop Sync on Mac, you'll need:
 
@@ -145,4 +141,4 @@ Before uninstalling Desktop Sync for Mac you should first remove your account th
 
 {% endcapture %}
 
-{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
+{% include tabs.html tableid="install" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

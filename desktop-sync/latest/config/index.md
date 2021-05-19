@@ -400,7 +400,7 @@ logging.loggers.l6.name = PocoSQLiteDB
 logging.loggers.l6.level = error
 ```
 
-For more details on the logging configuration, see the [PocoProject](https://pocoproject.org/) documentation.
+For more details on the logging configuration, see the [PocoProject](https://pocoproject.org/){:target="_blank"} documentation.
 
 ## Localization
 

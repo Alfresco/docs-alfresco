@@ -114,4 +114,4 @@ where ![]({% link desktop-sync/images/tick.png %}) indicates no conflict.
 
 {% endcapture %}
 
-{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
+{% include tabs.html tableid="conflicts" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

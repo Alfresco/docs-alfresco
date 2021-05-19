@@ -34,7 +34,7 @@ The content is synced to `C:\Users\<username>\Alfresco`, by default, or whatever
 
 You can sync as many folder levels but the maximum length for a path should not be more than 260 characters. This is a limitation of the Windows File System.
 
-For more information see [Maximum Path Length Limitation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx#maxpath){:target="_blank"}.
+For more information see [Maximum Path Length Limitation](https://docs.microsoft.com/en-gb/windows/win32/fileio/naming-a-file?redirectedfrom=MSDN#maxpath){:target="_blank"}.
 
 ### Can I cancel initial sync?
 
@@ -148,7 +148,7 @@ You can find the log file in the following locations, but be aware that it's a h
 
 Additionally, you can use applications, such as DebugView to monitor debug output on your computer. To use DebugView, follow the steps below:
 
-1. Download and install [DebugView](https://technet.microsoft.com/en-us/sysinternals/debugview.aspx){:target="_blank"}.
+1. Download and install [DebugView](https://docs.microsoft.com/en-gb/sysinternals/downloads/debugview){:target="_blank"}.
 
     DebugView will immediately start capturing debug output.
 

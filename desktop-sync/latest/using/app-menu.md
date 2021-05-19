@@ -255,4 +255,4 @@ You can also work with multiple files by using the Finder right click menu actio
 
 {% endcapture %}
 
-{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
+{% include tabs.html tableid="menu" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
