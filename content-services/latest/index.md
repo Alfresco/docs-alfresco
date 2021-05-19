@@ -17,4 +17,4 @@ Alfresco customers should also take a look at the [Alfresco Support Handbook]({%
 
 > **Note:** See the [Supported platforms]({% link content-services/latest/support/index.md %}) page for compatibility between Content Services and other applications.
 
-> **Important:** You can navigate through older versions of this content, such as Content Services 5.2 and earlier, in the [Legacy documentation](https://github.com/Alfresco/docs-alfresco/tree/master/_archive/){:target="_blank"}.
+> **Important:** You can navigate through older versions of this content, such as Alfresco One 5.1 and earlier, in the [Legacy documentation](https://github.com/Alfresco/docs-alfresco/tree/master/_archive/){:target="_blank"}.
