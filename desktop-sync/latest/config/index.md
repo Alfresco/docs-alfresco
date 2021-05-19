@@ -225,6 +225,22 @@ syncmanager.freeSpaceRestart=-3500M
 
 In this example, the `freeSpaceLimit` is set 3GB below the available space and the `freeSpaceRestart` is set 3.5GB below the current available space.
 
+## Force maximum size for user sync
+
+You can limit the amount of data that a user can select to sync by setting `syncmanager.maxSyncSize` to `10` bytes or more. This property is only checked in the content selection dialog. When this is set and the data to sync exceeds the limit, you'll be notified in the content selection dialog, and the **Sync** button is disabled.
+
+The `syncmanager.maxSyncSize` property is specified as:
+
+```bash
+syncmanager.maxSyncSize=<number of bytes greater than 10>
+```
+
+> **Note:**
+>
+> * If the size is set to `0` or less than `10` bytes, then no limit is set.
+> * The value of the property must be an integer followed by one character: `K|M|G|T` for kilobyte, megabyte, gigabyte, and terabyte values (where 1K = 1 kilobyte = 1024 bytes).
+> * If the value is not set correctly, then the maximum size limit defaults to bytes. For example, if there's an illegal character in the value, like `12W345K`, then the limit will be set to just `12` bytes.
+
 ## CMIS transfers
 
 Use the CMIS transfer properties to control problems with slow or stalled data transfers when Desktop Sync is 
