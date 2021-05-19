@@ -75,3 +75,42 @@ Alfresco Content Services repository is configured to use the Identity Service.
 See the Alfresco Sync Service documentation for [SAML configuration]({% link sync-service/latest/config/index.md %}#saml-configuration) details.
 
 Once users have entered the repository URL (shown in step 2 of [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#setting-up-desktop-sync-on-windows) for Windows and [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac) for Mac), they will be asked to enter their username and password into the SAML provider login page via their default browser.
+
+## Manage enforced sync
+
+If you're an IT administrator, you can configure Desktop Sync client apps to enforce the sync of specific paths or Sites, and optionally enforce the exclusion of sub-folders for those paths or Sites. This allows you to restrict what your Desktop Sync clients sync by pre-selecting the sync folders.
+
+When you add this configuration, users can't select anything to sync as the Desktop Sync client hides the content selection dialog.
+
+The properties to *enforce sync* are specified as:
+
+```text
+test.path.<n> = <enforced-sync-path>
+test.siteName.<n> = <enforced-sync-siteId>
+```
+
+where `<n>` is an ascending index number starting at `1`. These must be consecutive otherwise, if a number is skipped, all paths that follow are ignored.
+
+The properties to *enforce exclusion* are specified as:
+
+```text
+test.subfolderFilter.<enforced-sync-path> = <relative path to folder to be excluded>
+test.subfolderFilter.<enforced-sync-siteId> = <relative path to folder to be excluded>
+```
+
+Here's an example of how these properties are configured:
+
+```bash
+test.path.1 = /Shared
+test.path.2 = /Sites/siteId/documentLibrary/folder3
+test.path.3 = /User Homes/username
+test.subFolderFilter./Shared=folder8,folder9
+test.subFolderFilter./User Homes/username=folder7
+```
+
+> **Note:**
+>
+> * The exclusion property `test.subfolderFilter` can't be used on its own - it needs to be applied to one of the paths specified by `test.path.<n>`.
+> * If all enforced sync paths are specified incorrectly, then the content selection dialog is enabled.
+> * If, for example, one of two paths is invalid and one is valid, the content selection dialog is disabled and only the valid path is synced.
+> * If an excluded folder is renamed, then that folder will be synced after a restart.
