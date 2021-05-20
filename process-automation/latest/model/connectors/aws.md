@@ -468,7 +468,7 @@ The input parameters of the Rekognition connector are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | file | File | *Required.* A [variable]({% link process-automation/latest/model/processes/index.md %}#process-variables) of type file to send for analysis. |
-| mediaType | String | *Optional.* The media type of the file to be analyzed, for example ``/octect-stream`. |
+| mediaType | String | *Optional.* The media type of the file to be analyzed, for example `/octect-stream`. |
 | maxLabels | Integer | *Optional.* The maximum number of labels to be return. The default value is `10`. |
 | confidenceLevel | String | *Optional.* The confidence level to use in the analysis between 0 and 1, for example `0.75`. |
 | timeout | Integer | *Optional.* The timeout period for calling the Rekognition service in milliseconds, for example `910000`. |
