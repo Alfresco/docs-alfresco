@@ -320,4 +320,15 @@ The actions that can be run against an interface are:
 | Download UI | Download the JSON for the interface. |
 | Validate | Run validation against the interface. Any errors can be seen in the log history at the bottom of the Modeling Application and are flagged in a pop-up box. |
 | Save | Save any changes made to the interface. |
+| Save As | Save As allows you to save a another copy of a model. This new saved copy will not affect the orirginal model. |
 | Delete | Delete the interface. |
+
+## Auditing
+
+When an event action is performed you will find an entry in the Audit service, the information visible depends on the Action type.
+
+| Action type | Event type | Description |
+| ----------- |----------- | ----------- |
+| Event | USER_ACTION_NAMED_EVENT | This event is sent from the [Form runtime]({% link process-automation/latest/admin/architecture.md %}#form-runtime) and provides information about the user action, such as the name of the interface in which the action was performed, the name of the event and the nodes selected when the action was performed. |
+| Form | USER_ACTION_FORM_SUBMITTED |  This event is sent from the [Form runtime]({% link process-automation/latest/admin/architecture.md %}#form-runtime) and provides information about the form submitted from the user action, such as the name of the interface in which the action was performed, id of the submitted form, the values submitted, or the outcome pressed. |
+| Start process | PROCESS_STARTED | This event is sent from the [Process runtime]({% link process-automation/latest/admin/architecture.md %}#process-runtime) and provides information about the process definition and the process instance created. |
