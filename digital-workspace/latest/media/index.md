@@ -1,14 +1,14 @@
 ---
-title: Media Management
+title: Image Management
 ---
 
-Media Management allows you to view and manipulate your digital assets in the Digital Workspace.
+Image Management allows you to view and manipulate your digital assets in the Digital Workspace.
 
-Features provided with Media Management include enhanced image manipulation with image crop and rotate capabilities
+Features provided with Image Management include enhanced image manipulation with image crop and rotate capabilities
 and [IPTC](https://iptc.org/standards/photo-metadata/){:target="_blank"} metadata extraction. 
 
-## Uploading media
-Media Management provides information and features about media files that you upload in Digital Workspace.
+## Uploading images
+Image Management provides information and features about image files that you upload in Digital Workspace.
 
 1. Select the folder in the File Library where you want to add your content.
 
@@ -27,7 +27,7 @@ Media Management provides information and features about media files that you up
    image that a rendition is created.
    
 ## Viewing IPTC and EXIF metadata
-Media Management provides additional information and features in Digital Workspace when you view image files.
+Image Management provides additional information and features in Digital Workspace when you view image files.
 
 1. Select an image in the Document Library, as you would normally in Digital Workspace, by clicking the thumbnail or name, to view it in the file preview screen.
 
@@ -48,7 +48,7 @@ Media Management provides additional information and features in Digital Workspa
 >**Note**. The IPTC Content Model needs to be bootstrapped into Alfresco Content Services for the IPTC metadata extraction to work.
  
 ## Manipulating images
-Media Management provides features to allow you to edit image files in Digital Workspace.
+Image Management provides features to allow you to edit image files in Digital Workspace.
 
 1. Select an image from the File Library, as you would normally in Digital Workspace, by clicking the thumbnail or name, to view it in the file preview screen.
 
