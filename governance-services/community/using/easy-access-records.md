@@ -117,13 +117,13 @@ You can autoclassify by adding instructions, manually apply classifications and 
 
     **Declassification Schedule**
 
-    Set a schedule for when the file will be declassified. These means when its classification level will be set to Unclassified. You can enter a specific date for the declassification to take place, an event that means declassification should be considered, and exemptions for when declassification shouldn't take place. All of these are optional.
+    Set a schedule for when the file will be declassified. This means when its classification level will be set to Unclassified. You can enter a specific date for the declassification to take place, an event that means declassification should be considered, and exemptions for when declassification shouldn't take place. All of these are optional.
 
     >**Note:** Downgrade and declassification schedules are not automated. Any reclassification needs to be done manually.
 
 18. Click security marks to apply them to the item, and again to remove them.
 
-    You cannot use security marks you do not posses when classifying content, unless you also use a security mark you do posses from the same group. If you have a security mark from a security group 'any' then you can view and assign all other marks from that group. When using marks (either when Classifying Content or creating Instructions) that you don't posses, you must include a mark from the same group to avoid losing access to the content. An error will appear if you attempt to create an instruction using only a mark you don't have, or have not included a mark from the same group.
+    You cannot use security marks you do not possess when classifying content, unless you also use a security mark you do possess from the same group. If you have a security mark from a security group 'any' then you can view and assign all other marks from that group. When using marks (either when Classifying Content or creating Instructions) that you don't possess, you must include a mark from the same group to avoid losing access to the content. An error will appear if you attempt to create an instruction using only a mark you don't have, or have not included a mark from the same group.
 
 19. Click **Classify**.
 
@@ -152,7 +152,7 @@ You can create records from files in non-Governance Services sites and select th
 4. Click **Declare and File**.
 
    The file is added to the chosen destination folder in your Governance Services site. It's still visible in the original site, identified by the ![Easy access record]({% link governance-services/images/ico-rm-inplace.png %}){:height="18px" width="18px"} icon, but is locked and has a limited set of actions.
-    
+
    >**Note:** If the file is locked, you won't see the **File as Record** action. A file that has been filed as a record can be deleted but the record remains in the File Plan.
 
 ## File version as a record
