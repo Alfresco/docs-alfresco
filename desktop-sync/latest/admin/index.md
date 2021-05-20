@@ -1,6 +1,8 @@
 ---
-title: Administration of Desktop Sync
+title: Administer Desktop Sync
 ---
+
+If you’re an IT administrator, you can configure a number of features to centrally manage your Desktop Sync clients.
 
 ## Manage automatic configuration updates
 
@@ -11,7 +13,7 @@ This allows you to update the configuration file for all your Desktop Sync users
 
 1. Create a **Desktop Sync** folder in the Alfresco Content Services repository path: `/Data Dictionary/`
 
-2. Browse to the [Alfresco Support Portal](http://support.alfresco.com/) and download the configuration file: `AlfrescoSync.conf`.
+2. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download the configuration file: `AlfrescoSync.conf`.
 
 3. Save the file in the new **Desktop Sync** folder.
 

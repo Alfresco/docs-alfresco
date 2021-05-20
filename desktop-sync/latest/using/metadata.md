@@ -116,4 +116,4 @@ You can also edit properties in multiple files simultaneously. The steps are sim
 
 {% endcapture %}
 
-{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
+{% include tabs.html tableid="metadata" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
