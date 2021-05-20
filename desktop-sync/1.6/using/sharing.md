@@ -6,7 +6,7 @@ You can easily share a file from the Explorer or Finder menu actions. Clicking t
 
 {% capture windows %}
 
-Make sure that you've [configured file sharing]({% link desktop-sync/latest/config/index.md %}#sharing-files) before continuing.
+Make sure that you've [configured file sharing]({% link desktop-sync/1.6/config/index.md %}#sharing-files) before continuing.
 
 1. In your **Alfresco** synced folder find the file you want to share.
 
@@ -48,7 +48,7 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
 {% capture mac %}
 
-Make sure that you've [configured file sharing]({% link desktop-sync/latest/config/index.md %}#sharing-files) before continuing.
+Make sure that you've [configured file sharing]({% link desktop-sync/1.6/config/index.md %}#sharing-files) before continuing.
 
 1. In your **Alfresco** synced folder find the file you want to share.
 
@@ -88,4 +88,4 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
 {% endcapture %}
 
-{% include tabs.html tableid="sharing" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
+{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

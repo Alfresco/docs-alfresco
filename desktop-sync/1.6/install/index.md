@@ -6,6 +6,8 @@ Your Alfresco Administrator can give you a link or location to download the Desk
 
 {% capture windows %}
 
+## Installing Desktop Sync on Windows
+
 If you want to use Desktop Sync on Windows, you'll need:
 
 * Windows 10: 64-bit or 32-bit version
@@ -15,7 +17,7 @@ To install Desktop Sync, follow these steps.
 
 1. Download the setup file:
 
-    * Windows 64-bit: `Alfresco-Desktop-Sync-Setup-v1.7.x_64.exe`
+    * Windows 64-bit: `Alfresco-Desktop-Sync-Setup-v1.6.x_64.exe`
 
 2. Double-click the downloaded file to run it.
 
@@ -53,15 +55,17 @@ All your favorite Alfresco content, My Files, Shared Files, and your Alfresco si
 
 {% capture mac %}
 
+## Installing Desktop Sync on Mac
+
 If you want to use Desktop Sync on Mac, you'll need:
 
 * Mac OS version 10.11 or later
 
-1. Download the Mac installation file: `Alfresco-Desktop-Sync-v1.7.x.dmg`
+1. Download the Mac installation file: `Alfresco-Desktop-Sync-v1.6.x.dmg`
 
 2. Double click the downloaded file to unpack the content.
 
-3. Double click the PKG file to start the installation: `Alfresco-Desktop-Sync-v1.7.x.pkg`
+3. Double click the PKG file to start the installation: `Alfresco-Desktop-Sync-v1.6.x.pkg`
 
     A wizard will install Alfresco Desktop Sync at `/Applications/Alfresco Desktop Sync`.
 
@@ -141,4 +145,4 @@ Before uninstalling Desktop Sync for Mac you should first remove your account th
 
 {% endcapture %}
 
-{% include tabs.html tableid="install" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
+{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

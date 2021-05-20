@@ -17,7 +17,6 @@ The roles are replicated on the desktop as follows:
 
 >**Important:** (*) Mac OS X and Windows don't have the same permissions granularity that Alfresco Content Services provides, so users will experience limitations on their desktops.
 >The most notable differences are:
->
 >* Specific permissions applied to a file that override the inherited permission from the folder. For example, a Consumer that's given Manager permissions on a file won't be able to rename, move, or delete the file.
 >* Collaborators are only able to edit content that other users have created. Other actions, like rename or move are not permitted.
 
