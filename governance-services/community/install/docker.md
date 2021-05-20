@@ -56,9 +56,9 @@ Use this information to quickly deploy Governance Services using Docker Compose.
 
     ```text
     ...
-    alfresco_1  | 2021-10-05 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
-    alfresco_1  | 2021-10-05 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
-    alfresco_1  | 2021-10-05 13:59:36,903 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
+    alfresco_1  | 2021-04-07 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+    alfresco_1  | 2021-04-07 13:59:36,469 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+    alfresco_1  | 2021-04-07 13:59:36,903 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 226026 ms
     ```
 
     If you encounter errors whilst the system is starting up:
