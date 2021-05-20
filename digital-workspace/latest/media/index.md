@@ -2,7 +2,7 @@
 title: Image Management
 ---
 
-Image Management allows you to view and manipulate your digital assets in the Digital Workspace.
+Image Management allows you to view and manipulate your image files in the Digital Workspace.
 
 Features provided with Image Management include enhanced image manipulation with image crop and rotate capabilities
 and [IPTC](https://iptc.org/standards/photo-metadata/){:target="_blank"} metadata extraction. 
