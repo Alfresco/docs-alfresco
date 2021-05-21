@@ -35,6 +35,8 @@
           path: '/digital-workspace/latest/process/tasks/'
         - title: 'Configuring Process Services'
           path: '/digital-workspace/latest/process/config/'
+    - title: 'Image Management'
+      path: '/digital-workspace/latest/media/'
     - title: 'Developing Extensions'
       path: '/digital-workspace/latest/extensions/'
     - title: 'Troubleshooting'
