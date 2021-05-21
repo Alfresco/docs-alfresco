@@ -41,3 +41,27 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 | sidenav/preserveState | Remember the users choice of sidenav minimized or expanded, `true` or `false`.|
 | sideNav/expandedSidenav | Side navigation expanded by default, `true` or `false`.|
 | viewer.maxRetries | The preview mechanism used to view a file tries to open it and if its unsuccessful it waits 20 seconds and then tries again. The process involves converting the file (multiple file formats are supported depending on content type) and if it takes more than 20 seconds the system will say that the content isn't supported. This time out can be increased by adding a value for this property. If you enter 2 the wait time before time out will be 40 seconds|
+
+## Permissions
+
+Permissions for folders and files in the Digital Workspace can be assigned and viewed easily.
+To view the permissions of a folder or file in the Digital Workspace select the file or folder and right click it and select **Permissions**. You are presented with the Permissions tab.
+
+The type of permissions a user or group has for a file is determined by what role they have.
+
+For more information on roles see [User roles and permissions](https://docs.alfresco.com/content-services/latest/using/permissions/)
+
+### Setting Permissions
+
+Setting permsissions for folders and files allows you to manage what type of access a user has for a folder or file. From within the Permissions tab you can assign a user or a group to have a specific type of access based on what role you assign them.
+> **Note:** You can also delete permissions from here by using the Bin icon next to the user or group that has permissions assigned to it.
+
+1. From within the permissions tab use the Add icon to add a user or group.
+
+2. Search for the user or group you want to assign access to your folder or file and then click **SELECT**.
+
+3. Select the role you want to assign to the user or group and then click **ADD**.
+
+    If you are assigning a role to a group you can select a different role for the administrator of that group than for the rest of the users in the group.
+
+4. (Optional) Use the slider to allow the added users or groups to inherit the permissions from the parent folder.
