@@ -218,6 +218,59 @@ The keystore keys are registered with the repository to ensure that they're not 
 
 During bootstrap and JMX keystore reload and re-encryption operations, the repository checks if the main keystore's keys and the metadata key have changed. If they have changed, the repository throws an exception.
 
+### secure credentials store {#secure-credentials-store}
+
+Alfresco uses a secure store for credentials it needs to maintain for user accounts. This data encryption uses secret keys which are stored in the Java keystore. It is possible to rotate the keys used for credentials encryption.
+
+During bootstrap, the repository checks whether the keys in the main encrypted properties keystore have been changed in order to detect any accidental keystore changes.
+
+However if you purposely want to change your keys, you can do so and the repository will re-encrypt any existing encrypted node properties for you. The newly encrypted node properties will be encrypted using the new keys.
+
+Changing your keys involves backing up your keystore to a specific location and creating a new keystore in its place. This can be done in two ways:
+
+-   During bootstrap
+-   During runtime (not in Alfresco Community Edition)
+
+**Bootstrap Re-encryption**
+
+Re-encryption occurs during the repository bootstrap. For bootstrap re-encryption, follow the steps below:
+
+1.  Stop the Alfresco Content Services server.
+2.  Set the following property in the `alfresco-global.properties` file.
+
+    ```
+    encryption.bootstrap.reencrypt=true 
+    ```
+
+3.  Backup the current keystore to backup-keystore as shown below:
+
+    ```
+    mv keystore backup-keystore
+    mv keystore-passwords.properties backup-keystore-passwords.properties
+    ```
+
+4.  Copy your new keystore over the old keystore.
+5.  Update keystore-passwords.properties with the passwords you used to create the keystore. In other words, update the `keystore.password` property with the keystore password and the `metadata.password` property with the metadata key password.
+6.  Restart the server.
+
+**Runtime Re-encryption**
+
+Re-encryption occurs while the repository is running. For runtime re-encryption, follow the steps below:
+
+1.  Backup the current keystore to backup-keystore.
+
+    ```
+    mv keystore backup-keystore
+    mv keystore-passwords.properties backup-keystore-passwords.properties
+    ```
+
+2.  Copy your new keystore over the old keystore.
+3.  In your JMX console, execute the operation **Encryption** > **Operations** > **Encrypt**.
+
+    This will re-read the main and backup keystores and re-encrypt the encrypted properties. The repository can continue to run during this operation; any newly-created encrypted properties will be encrypted with the new key.
+
+    > **Note:** Only a single re-encryption can be done at a particular time. If a re-encrypt is already running then subsequent requests have no effect.
+
 ## Cryptographic password hashing {#bcryptoverview}
 
 Content Services uses cryptographic password hashing technique to securely store passwords.
