@@ -45,7 +45,7 @@ Image Management provides additional information and features in Digital Workspa
 
 >**Note:** IPTC metadata is also mapped to existing description (IPTC caption/description) and title (IPTC headline) properties, hover over the filename in the File library, and the IPTC property values are displayed.
    
->**Note**. The IPTC Content Model needs to be bootstrapped into Alfresco Content Services for the IPTC metadata extraction to work.
+>**Note:** The IPTC Content Model needs to be bootstrapped into Alfresco Content Services for the IPTC metadata extraction to work.
  
 ## Manipulating images
 Image Management provides features to allow you to edit image files in Digital Workspace.
