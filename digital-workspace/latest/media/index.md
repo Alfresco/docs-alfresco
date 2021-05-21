@@ -50,7 +50,7 @@ Image Management provides additional information and features in Digital Workspa
 ## Manipulating images
 Image Management provides features to allow you to edit image files in Digital Workspace.
 
-1. Select an image from the File Library, as you would normally in Digital Workspace, by clicking the thumbnail or name, to view it in the file preview screen.
+1. Select an image from the File Library, as you would normally in the Digital Workspace, by clicking the thumbnail or name, to view it in the file preview screen.
 
 2. The ![image-preview]({% link digital-workspace/images/adw-image-crop-rotate-panel.png %}){:height="32px" width="150px"} panel is visible at the bottom of the preview screen, and it provides crop and rotate actions, and the possibility to save the manipulated image. 
 
