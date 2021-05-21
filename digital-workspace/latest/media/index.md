@@ -12,7 +12,7 @@ Image Management provides information and features about image files that you up
 
 1. Select the folder in the File Library where you want to add your content.
 
-2. You can drag and drop images, or select **NEW -> Upload File** from the toolbar, as you would normally do in Digital Workspace.
+2. You can drag and drop images, or select **NEW -> Upload File** from the toolbar, as you would normally in the Digital Workspace.
 
    You will see the image in the folder listing:
 
