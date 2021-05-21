@@ -8,7 +8,7 @@ Features provided with Image Management include enhanced image manipulation with
 and [IPTC](https://iptc.org/standards/photo-metadata/){:target="_blank"} metadata extraction. 
 
 ## Uploading images
-Image Management provides information and features about image files that you upload in Digital Workspace.
+Image Management provides information and features about image files that you upload in the Digital Workspace.
 
 1. Select the folder in the File Library where you want to add your content.
 
