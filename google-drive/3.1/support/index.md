@@ -8,5 +8,6 @@ The following are the supported platforms for Google Docs Integration:
 
 | Version | Supported | Notes |
 | ------- | --------- | ----- |
-| Alfresco Content Services 6.1 | | |
-| Alfresco Content Services 6.0 | | |
+| Content Services 6.1 | | |
+| Content Services 6.0 | | |
+| Community Edition 201901 GA | |
