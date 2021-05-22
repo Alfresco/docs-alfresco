@@ -16,8 +16,6 @@ To install Content Services using the distribution zip (which also contains the 
 * Application server: Apache Tomcat
 * Database: PostgreSQL or MySQL
 * Message broker: ActiveMQ
-* LibreOffice
-* ImageMagick
 
 For a list of other supported components and versions, refer to the `VERSIONS.md` file in the distribution zip.
 

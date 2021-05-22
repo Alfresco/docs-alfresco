@@ -63,21 +63,119 @@ This is recommended for evaluations only (i.e. test and development environments
 
 See [Install with Docker Compose]({% link transform-service/1.3/install/index.md %}#install-with-docker-compose) for more details.
 
-### Non-containerized deployment
+### Non-containerized deployment {#prereq-non-containerized-deploy}
+Before installing Transform Services from the distribution ZIP file, [install Alfresco Content Services using distribution ZIP]({% link content-services/latest/install/zip/index.md %}).
+This will also install the message broker ActiveMQ, which is used by Transform Services.
 
-Before you can use the Transform Service zip, you need to install the software requirements listed.
+In a non-containerized environment you need to install the following software before installing Transform Services:
 
-Follow the linked pages in the Content Services documentation, starting from [Install using distribution zip]({% link content-services/latest/install/zip/index.md %}).
+* LibreOffice: see [Install LibreOffice](#install-libreoffice)
+* ImageMagick: see [Install ImageMagick](#install-imagemagick)
+* alfresco-pdf-renderer: see [Install alfresco-pdf renderer](#install-pdf-renderer)
 
-#### Software requirements (zip)
+You can install the third-party software used by Transform Services independently.
 
-* Content Services: see [Supported Platforms]({% link transform-service/1.3/support/index.md %}) for the supported versions.
-* Messaging broker: see [Configure ActiveMQ]({% link content-services/latest/config/activemq.md %})
-* ImageMagick: see [Install ImageMagick]({% link content-services/latest/install/zip/additions.md %}#install-imagemagick)
-* LibreOffice: see [Install LibreOffice]({% link content-services/latest/install/zip/additions.md %}#install-libreoffice)
-* alfresco-pdf-renderer: see [Install alfresco-pdf renderer]({% link content-services/latest/install/zip/additions.md %}#install-alfresco-pdf-renderer)
+#### Install LibreOffice {#install-libreoffice}
+In Transform Services, you can transform a document from one format to another, for example, a text file to a PDF file.
+To access these transformation facilities, you must install LibreOffice.
 
-See [Install with zip]({% link transform-service/1.3/install/index.md %}#install-with-zip) for more details.
+1. Browse to the LibreOffice download site: [LibreOffice download site](https://www.libreoffice.org/download/download/){:target="_blank"}
+2. Download the latest (stable) version of LibreOffice for your platform.
+3. When prompted, specify a download destination.
+4. Browse to the location of your downloaded file, and install the application.
+5. Change the installation directory to:
+    * (Windows) `c:\Alfresco\LibreOffice`
+    * (Linux) `/opt/alfresco/LibreOffice`
+      If you're installing LibreOffice on Linux, you also need a number of libraries to be installed. See [Install Linux libraries](#install-linux-libraries) for more.
+
+##### Install Linux libraries {#install-linux-libraries}
+Use this information to install Linux libraries manually on supported Linux distributions, such as Ubuntu, SUSE and Red Hat.
+
+LibreOffice requires the following libraries to be installed on your system:
+* libfontconfig
+* libICE
+* libSM
+* libXrender
+* libXext
+* libXinerama
+* libcups
+* libGLU
+* libcairo2
+* libgl1-mesa-glx
+
+If the required libraries are missing, you'll get a warning message. You can install them using your preferred package
+manager from the command line. Note that the file names for the Linux libraries may vary by distribution.
+
+For Red Hat Enterprise Linux/CentOS, you can run:
+
+```bash
+cd <libre-install-dir>/LibreOffice_*.*.*.*_Linux_x86-64_rpm/RPMS/
+```
+
+```bash
+sudo yum localinstall *rpm
+```
+
+For Ubuntu:
+
+```bash
+cd <libre-install-dir>/LibreOffice_*.*.*.*_Linux_x86-64_rpm/RPMS/
+```
+
+```bash
+sudo dpkg -i *deb
+```
+
+If LibreOffice doesn't start up normally with Transform Services, test it manually, for example, by running this startup script:
+
+```bash
+start ex. {installdir}/libreoffice/scripts/libreoffice_ctl.sh start
+status ex. {installdir}/libreoffice/scripts/libreoffice_ctl.sh status
+```
+
+If you receive errors that indicate that a library is missing, work with your system administrator to add the
+missing library or its equivalent from your configured repositories.
+
+#### Install ImageMagick {#install-imagemagick}
+To enable image manipulation in Transform Services, you must install and configure ImageMagick. Transform Services uses
+ImageMagick to manipulate images for previewing.
+
+1. Check if ImageMagick is already installed on your system.
+   Use the ImageMagick convert command to check that you have the right software installed on your machine. This command is usually located in `/usr/bin`: `install Image`.
+2. If the ImageMagick software isn't available on your system, download and install the appropriate package for your platform.
+   To download ImageMagick, browse to [ImageMagick download website](https://www.imagemagick.org/script/download.php){:target="_blank"}.
+   > **Note:** In next steps, you'll make changes to the Content Services configuration files to enable the manually installed ImageMagick application. These steps can only be performed after Content Services has been installed.
+
+The following table lists example of how to set the paths to different things when starting Transform Core AIO later on:
+
+|Property|Description|
+   |--------|-----------|
+|img.root| Windows: `img.root=C:\\ImageMagick`<br>Linux: `img.root=/ImageMagick`<br><br>**Note:** Don't include a slash (`/`) at the end of the path, i.e. `/ImageMagick/`.|
+|img.dyn|Windows: `img.dyn=${img.root}\\lib` <br>Linux: `img.dyn=${img.root}/lib`|
+|img.exe|Windows: `img.exe=${img.root}\\convert.exe` <br>Linux: `img.exe=${img.root}/bin/convert`|
+|img.coders|Windows: `img.coders=${img.root}\\modules\\coders` <br>Linux: `img.coders=${img.root}/modules/coders`|
+|img.config|Windows: `img.config=${img.root}\\config` <br>Linux: `img.config=${img.root}/config`|
+|img.url|Windows: `img.url=${img.root}\\url` <br>Linux: `img.url=${img.root}/url`|
+
+> **Note:** Test that you're able to convert a PDF using the command: `convert filename.pdf[0] filename.png`
+
+#### Install alfresco-pdf-renderer {#install-pdf-renderer}
+Transform Services uses `alfresco-pdf-renderer` for creating document thumbnails and previews. Use this information to
+install `alfresco-pdf-renderer` on your system.
+
+>**Note:** The `alfresco-pdf-renderer` executable file is platform-specific.
+
+The `alfresco-pdf-renderer` binaries are available in the Alfresco Content Services distribution zip.
+
+* For Windows:
+    * Extract the file `alfresco-pdf-renderer/alfresco-pdf-renderer-1.0-win64.tgz` to a location of your choice.
+    * Browse to the location of your saved file and extract the archive.
+    * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`
+
+* For Linux:
+    * Extract the file `alfresco-pdf-renderer/alfresco-pdf-renderer-1.0-linux.tgz` to a location of your choice.
+    * Browse to the location of your saved file and extract the archive.
+    * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`
 
 ## Install with Helm charts
 
@@ -326,10 +424,12 @@ Use this information to verify that the system started correctly, and to clean u
 See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for more on getting started with Docker and using Docker.
 
 ## Install with zip
+Use these instructions to install Transform Service using the distribution zip and connect it to an instance of
+Alfresco Content Services.
 
-Use these instructions to install Transform Service using the distribution zip to an instance of Content Services.
-
-The Transform Service distribution zip file includes all the files required to provide the Transform Service capabilities. Ensure that you've installed the prerequisites before continuing, for more see [Install Transform Service]({% link transform-service/1.3/install/index.md %}).
+The Transform Services distribution zip file includes all the files required to provide the transformation and
+metadata extraction capabilities. Ensure that you've installed the [prerequisites](#prereq-non-containerized-deploy)
+before continuing.
 
 1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.3.x.zip`.
 
@@ -416,16 +516,12 @@ The Transform Service distribution zip file includes all the files required to p
     sfs.url=http://localhost:8099
     sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1/file
 
-    # Transform Router property:
+    # Transform Router properties:
+    transform.service.enabled=true
     transform.service.url=http://localhost:8095/
 
     # Transform Core properties:
     localTransform.core-aio.url=http://transform-core-aio:8090/
-    alfresco-pdf-renderer.url=http://transform-core-aio:8090/
-    jodconverter.url=http://transform-core-aio:8090/
-    img.url=http://transform-core-aio:8090/
-    tika.url=http://transform-core-aio:8090/
-    transform.misc.url=http://transform-core-aio:8090/
     ```
 
     This overrides the default properties provided by Content Services.
