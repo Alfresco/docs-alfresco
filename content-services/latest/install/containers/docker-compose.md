@@ -268,6 +268,10 @@ The Docker Compose file provides some default configuration. This section lists 
 | JAVA_TOOL_OPTIONS | Adding this environment variable, allows to set sensitive values (like passwords) that are not passed as arguments to the Java Process. |
 | JAVA_OPTS | A set of properties that are picked up by the JVM inside the container. Any Content Services property can be passed to the container using the format `-Dproperty=value` (e.g. `-Ddb.driver=org.postgresql.Driver`). |
 
+>**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
+then you need to [bootstrap the IPTC Content Model]({% link content-services/latest/install/containers/index.md %}#iptc-model-bootstrap) manually
+into Content Services.
+
 ### Alfresco Share (share)
 
 | Property | Description |
