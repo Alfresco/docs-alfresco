@@ -10,3 +10,4 @@ The following are the supported platforms for Google Docs Integration:
 | ------- | ----- |
 | Content Services 7.0 | |
 | Content Services 6.2 | |
+| Community Edition 7.0 | |
