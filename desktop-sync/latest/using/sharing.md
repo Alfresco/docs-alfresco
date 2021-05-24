@@ -88,4 +88,4 @@ Make sure that you've [configured file sharing]({% link desktop-sync/latest/conf
 
 {% endcapture %}
 
-{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
+{% include tabs.html tableid="sharing" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

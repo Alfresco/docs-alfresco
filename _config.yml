@@ -282,13 +282,18 @@ defaults:
       toc: "desktop-sync"
       support: true
       versions:
+        - 1.7
         - 1.6
         - 1.5
   - scope:
       path: "desktop-sync/latest"
     values:
-      version: 1.6
+      version: 1.7
       latest: true
+  - scope:
+      path: "desktop-sync/1.6"
+    values:
+      version: 1.6
   - scope:
       path: "desktop-sync/1.5"
     values:
@@ -663,12 +668,17 @@ defaults:
       toc: "federation-services"
       support: true
       versions:
+        - 1.1
         - 1.0
   - scope:
       path: "federation-services/latest"
     values:
-      version: 1.0
+      version: 1.1
       latest: true
+  - scope:
+      path: "federation-services/1.0"
+    values:
+      version: 1.0
 
 # Alfresco Search and Insight Engine
   - scope:

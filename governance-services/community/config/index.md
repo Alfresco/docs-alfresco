@@ -8,7 +8,8 @@ Use the information on this page to configure Governance Services.
 
 Use this information to understand the `alfresco-global.properties` properties related to the Governance Services.
 
-Properties for the Governance Services are listed in the `<configRoot>/classes/alfresco/module/org_alfresco_module_rm/alfresco-global.properties` file.
+Properties for the Governance Services are listed in the `<configRoot>/classes/alfresco/module/org_alfresco_module_rm/alfresco-global.properties` 
+file. 
 
 For example:
 
@@ -56,7 +57,7 @@ A full listing of the properties and their values is shown in this table:
 |rm.dispositionlifecycletrigger.cronexpression|Disposition lifecycle trigger cron job expression. Default is `0 0/5 * * * ?`.|
 |rm.ghosting.enabled|Enable/disable ghosting of records, when a record is deleted. Default is `true`.|
 |rm.notification.role|Specify which role receives notifications; for example, when notifications when vital records are due for review. Default is `RecordsManager`.<br><br>A background job executes by default every 15 minutes to search for vital records that are due for review, and sends a notification. The template for the email notification is editable, and is stored in the Governance Services section of the Data Dictionary.|
-|rm.record.contributors.group.enabled|Set which groups can perform Governance Services actions; for example, Declare as Record. Default is `false`. <br><br>If this is set to `true`, only members of the RECORD_CONTRIBUTORS group can perform these actions.|
+|rm.record.contributors.group.enabled|Set which groups can perform Governance Services actions; for example, File as Record. Default is `false`. <br><br>If this is set to `true`, only members of the RECORD_CONTRIBUTORS group can perform these actions.|
 |rm.rule.runasadmin|Require admin rights/ normal rights to run rules. Default is `true`.|
 |version.store.enableAutoVersionOnTypeChange|Set whether a version is automatically created when the type of a document is changed. Default is `false`.|
 

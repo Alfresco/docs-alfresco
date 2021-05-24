@@ -10,7 +10,7 @@ To upgrade Alfresco Governance Services you need to make sure you're running the
 
 3. Upgrade Alfresco Community Edition.
 
-    For more information about upgrading Alfresco Community Edition, see [Upgrading Alfresco]({% link content-services/latest/upgrade/index.md %}).
+    For more information about upgrading Alfresco Community Edition, see [Upgrading Alfresco]({% link content-services/community/upgrade/index.md %}).
 
     You can start the server at this point to verify that the upgrade was successful.
 
