@@ -1,6 +1,7 @@
 ---
 title: Configure Digital Workspace
 ---
+
 Alfresco Digital Workspace settings are in the following file `../digital-workspace/app.config.json`. You can use the file to tailor Alfresco Digital Workspace easily and without making any code changes. The file can be updated while Alfresco Digital Workspace is still running and users will see the changes once their pages are reloaded.
 
 For more in-depth documentation about how to configure Digital Workspace, see [Application features](https://alfresco-content-app.netlify.com/#/features/){:target="_blank"}.
@@ -45,15 +46,15 @@ The following settings can be configured in `../digital-workspace/app.config.jso
 ## Permissions
 
 Permissions for folders and files in the Digital Workspace can be assigned and viewed easily.
-To view the permissions of a folder or file in the Digital Workspace select the file or folder and right click it and select **Permissions**. You are presented with the Permissions tab.
+To view the permissions of a folder or file in the Digital Workspace, select the file or folder, right click it, and select **Permissions**. You are presented with the Permissions tab.
 
 The type of permissions a user or group has for a file is determined by what role they have.
 
-For more information on roles see [User roles and permissions](https://docs.alfresco.com/content-services/latest/using/permissions/)
+For more information on roles see [User roles and permissions](https://docs.alfresco.com/content-services/latest/using/permissions/).
 
-### Setting Permissions
+### Setting permissions
 
-Setting permsissions for folders and files allows you to manage what type of access a user has for a folder or file. From within the Permissions tab you can assign a user or a group to have a specific type of access based on what role you assign them.
+Setting permissions for folders and files allows you to manage what type of access a user has for a folder or file. From within the Permissions tab you can assign a user or a group to have a specific type of access based on what role you assign them.
 > **Note:** You can also delete permissions from here by using the Bin icon next to the user or group that has permissions assigned to it.
 
 1. From within the permissions tab use the Add icon to add a user or group.
