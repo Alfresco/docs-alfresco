@@ -205,13 +205,18 @@ defaults:
       toc: "salesforce"
       support: true
       versions:
+        - 2.3
         - 2.2
         - 2.1
   - scope:
       path: "salesforce/latest"
     values:
-      version: 2.2
+      version: 2.3
       latest: true
+  - scope:
+      path: "salesforce/2.2"
+    values:
+      version: 2.2
   - scope:
       path: "salesforce/2.1"
     values:
