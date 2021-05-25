@@ -4,12 +4,12 @@ title: Install with Zip
 
 The Alfresco Document Transformation Engine is installed in three parts.
 
-The following file is used to install the standalone Document Transformation Engine `alfresco-document-transformation-engine-2.3.x.zip`
+The following file is used to install the standalone Document Transformation Engine `alfresco-document-transformation-engine-2.2.x.zip`
 
 The zip file contains the following files:
 
-* `alfresco-document-transformation-engine-repo-2.3.x.amp`
-* `alfresco-document-transformation-engine-share-2.3.x.amp`
+* `alfresco-document-transformation-engine-repo-2.2.x.amp`
+* `alfresco-document-transformation-engine-share-2.2.x.amp`
 * `alfresco-document-transformation-engine-server.msi`
 
 The package contains a keystore that is used by the Tomcat SSL connector. This keystore is shipped for demonstration purposes only and should not be used in production environments. You can edit the file, `conf/server.xml`, to integrate a custom keystore. Remember to change the attributes, `keystoreFile` and `keystorePass`.
@@ -60,9 +60,9 @@ Before starting verify that:
 
 2. Open a terminal (Linux) or command line window (Windows).
 
-3. Unzip the `alfresco-document-transformation-engine-2.3.x.zip` file.
+3. Unzip the `alfresco-document-transformation-engine-2.2.x.zip` file.
 
-4. Copy `alfresco-document-transformation-engine-repo-2.3.x.amp` to the `<ALFRESCO_HOME>/amps` folder, and copy `alfresco-document-transformation-engine-share-2.3.x.amp` to the `<ALFRESCO_HOME>/amps_share` folder.
+4. Copy `alfresco-document-transformation-engine-repo-2.2.x.amp` to the `<ALFRESCO_HOME>/amps` folder, and copy `alfresco-document-transformation-engine-share-2.2.x.amp` to the `<ALFRESCO_HOME>/amps_share` folder.
 
 5. Install the AMP files using the Module Management Tool (MMT).
 

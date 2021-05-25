@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Alfresco Document Transformation Engine:
+The following are the supported platforms for the Alfresco Document Transformation Engine:
 
 ## Alfresco Content Services
 
@@ -12,7 +12,6 @@ The following are the supported platforms for Alfresco Document Transformation E
 | Content Services 6.1.0 | Yes | No |
 | Content Services 6.1.1 | No | Yes |
 | Content Services 6.2 | No | Yes |
-| Content Services 7.0 | No | Yes |
 
 ## Java
 

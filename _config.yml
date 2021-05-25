@@ -412,9 +412,15 @@ defaults:
       toc: "transformation-engine"
       support: true
       versions:
+        - 2.3
         - 2.2
   - scope:
       path: "transformation-engine/latest"
+    values:
+      version: 2.3
+      latest: true
+  - scope:
+      path: "transformation-engine/2.2"
     values:
       version: 2.2
       latest: true
