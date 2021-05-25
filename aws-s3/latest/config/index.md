@@ -607,13 +607,13 @@ about it when the subsystem is started.
 
 ```xml
 <bean id="deletedContentStore" class="org.alfresco.repo.management.subsystems.SubsystemProxyFactory">
-    <propertyname="sourceApplicationContextFactory">
+    <property name="sourceApplicationContextFactory">
         <ref bean="${filecontentstore.subsystem.name}" />
     </property>
-    <propertyname="sourceBeanName">
+    <property name="sourceBeanName">
         <value>deletedContentStore</value>
     </property>
-    <propertyname="interfaces">
+    <property name="interfaces">
         <list>
             <value>org.alfresco.repo.content.ContentStore</value>
         </list>
