@@ -567,12 +567,12 @@ For example, the common bean `s3ClientConfiguration`, used to set AWS SDK client
 
 ```xml
 <!-- Client configuration options such as proxy settings, user agent string, max retry attempts, etc. -->
-    <beanid="s3ClientConfiguration"class="com.amazonaws.ClientConfiguration">
+    <bean id="s3ClientConfiguration" class="com.amazonaws.ClientConfiguration">
         <!-- Sets the retry policy upon failed requests -->
-        <propertyname="retryPolicy"ref="s3RetryPolicy"/>
+        <property name="retryPolicy" ref="s3RetryPolicy"/>
         <!-- Sets whether throttled retries should be used -->
-        <propertyname="useThrottleRetries"value="true"/>
-        <propertyname="requestTimeout"value="${connector.s3.httpRequestTimeout}" />
+        <property name="useThrottleRetries" value="true"/>
+        <property name="requestTimeout" value="${connector.s3.httpRequestTimeout}"/>
     </bean>
 ```
 
