@@ -567,12 +567,12 @@ For example, the common bean `s3ClientConfiguration`, used to set AWS SDK client
 
 ```xml
 <!-- Client configuration options such as proxy settings, user agent string, max retry attempts, etc. -->
-    <beanid="s3ClientConfiguration"class="com.amazonaws.ClientConfiguration">
+    <bean id="s3ClientConfiguration" class="com.amazonaws.ClientConfiguration">
         <!-- Sets the retry policy upon failed requests -->
-        <propertyname="retryPolicy"ref="s3RetryPolicy"/>
+        <property name="retryPolicy" ref="s3RetryPolicy"/>
         <!-- Sets whether throttled retries should be used -->
-        <propertyname="useThrottleRetries"value="true"/>
-        <propertyname="requestTimeout"value="${connector.s3.httpRequestTimeout}" />
+        <property name="useThrottleRetries" value="true"/>
+        <property name="requestTimeout" value="${connector.s3.httpRequestTimeout}"/>
     </bean>
 ```
 
@@ -607,13 +607,13 @@ about it when the subsystem is started.
 
 ```xml
 <bean id="deletedContentStore" class="org.alfresco.repo.management.subsystems.SubsystemProxyFactory">
-    <propertyname="sourceApplicationContextFactory">
+    <property name="sourceApplicationContextFactory">
         <ref bean="${filecontentstore.subsystem.name}" />
     </property>
-    <propertyname="sourceBeanName">
+    <property name="sourceBeanName">
         <value>deletedContentStore</value>
     </property>
-    <propertyname="interfaces">
+    <property name="interfaces">
         <list>
             <value>org.alfresco.repo.content.ContentStore</value>
         </list>
