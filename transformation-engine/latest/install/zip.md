@@ -24,7 +24,7 @@ The standalone Document Transformation Engine is installed using the MSI file.
 
 2. Double click the MSI installer package `alfresco-document-transformation-engine-server.msi`.
 
-    > **Note:** The Document Transformation Engine T-engine can also be installed. This allows transformation of MSG and EML files into PDF format when used with the Transform Service.
+3. (Optional) Select DTE T-Engine > **Note:** The Document Transformation Engine T-engine can also be installed. This allows transformation of MSG and EML files into PDF format when used with the Transform Service.
 
 3. Click **Next** and the license information screen displays.
 
