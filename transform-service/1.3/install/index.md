@@ -20,15 +20,15 @@ The following diagram shows how Content Services and the components of the Trans
 
 ## Prerequisites
 
-There are a number of software requirements for deploying Transform Service.
+There are a number of software requirements for installing Transform Service.
 
 The Transform Service is only deployed as part of Content Services for containerized deployments.
 
-However, this is not the case if you're installing Content Services using the distribution zip. See [Supported platforms]({% link transform-service/1.2/support/index.md %}) for more details.
+However, this is not the case if you're installing Content Services using the distribution zip. See [Supported platforms]({% link transform-service/1.3/support/index.md %}) for more information.
 
 ### Containerized deployments
 
-The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Alfresco Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"}.
+The images downloaded directly from [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"}, or [Quay.io](https://quay.io/){:target="_blank"} are for a limited trial of the Enterprise version of Content Services that goes into read-only mode after 2 days. For a longer (30-day) trial, get the Alfresco Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"}.
 
 > **Note:** A [Quay.io](https://quay.io/) account is needed to pull the Docker images that are needed for the Transform Service:
 >
@@ -48,7 +48,7 @@ To use the Content Services deployment (including the Transform Service), you ne
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
   * There are Helm charts that allow you to deploy Content Services with Transform Service in a Kubernetes cluster, for example, on AWS.
 
-See [Install with Helm charts]({% link transform-service/1.2/install/index.md %}#install-with-helm-charts) for more details.
+See [Install with Helm charts]({% link transform-service/1.3/install/index.md %}#install-with-helm-charts) for more details.
 
 #### Software requirements (Docker)
 
@@ -61,23 +61,121 @@ This is recommended for evaluations only (i.e. test and development environments
 
 > **Note:** Check the prerequisites for your operating system, both for Docker and Docker Compose.
 
-See [Install with Docker Compose]({% link transform-service/1.2/install/index.md %}#install-with-docker-compose) for more details.
+See [Install with Docker Compose]({% link transform-service/1.3/install/index.md %}#install-with-docker-compose) for more details.
 
-### Non-containerized deployment
+### Non-containerized deployment {#prereq-non-containerized-deploy}
+Before installing Transform Services from the distribution ZIP file, [install Alfresco Content Services using distribution ZIP]({% link content-services/latest/install/zip/index.md %}).
+This will also install the message broker ActiveMQ, which is used by Transform Services.
 
-Before you can use the Transform Service zip, you need to install the software requirements listed.
+In a non-containerized environment you need to install the following software before installing Transform Services:
 
-Follow the linked pages in the Content Services documentation, starting from [Install using distribution zip]({% link content-services/latest/install/zip/index.md %}).
+* LibreOffice: see [Install LibreOffice](#install-libreoffice)
+* ImageMagick: see [Install ImageMagick](#install-imagemagick)
+* alfresco-pdf-renderer: see [Install alfresco-pdf renderer](#install-pdf-renderer)
 
-#### Software requirements (zip)
+You can install the third-party software used by Transform Services independently.
 
-* Content Services: see [Supported Platforms]({% link transform-service/1.2/support/index.md %}) for the supported versions.
-* Messaging broker: see [Configure ActiveMQ]({% link content-services/latest/config/activemq.md %})
-* ImageMagick: see [Install ImageMagick]({% link content-services/latest/install/zip/additions.md %}#install-imagemagick)
-* LibreOffice: see [Install LibreOffice]({% link content-services/latest/install/zip/additions.md %}#install-libreoffice)
-* alfresco-pdf-renderer: see [Install alfresco-pdf renderer]({% link content-services/latest/install/zip/additions.md %}#install-alfresco-pdf-renderer)
+#### Install LibreOffice {#install-libreoffice}
+In Transform Services, you can transform a document from one format to another, for example, a text file to a PDF file.
+To access these transformation facilities, you must install LibreOffice.
 
-See [Install with zip]({% link transform-service/1.2/install/index.md %}#install-with-zip) for more details.
+1. Browse to the LibreOffice download site: [LibreOffice download site](https://www.libreoffice.org/download/download/){:target="_blank"}
+2. Download the latest (stable) version of LibreOffice for your platform.
+3. When prompted, specify a download destination.
+4. Browse to the location of your downloaded file, and install the application.
+5. Change the installation directory to:
+    * (Windows) `c:\Alfresco\LibreOffice`
+    * (Linux) `/opt/alfresco/LibreOffice`
+      If you're installing LibreOffice on Linux, you also need a number of libraries to be installed. See [Install Linux libraries](#install-linux-libraries) for more.
+
+##### Install Linux libraries {#install-linux-libraries}
+Use this information to install Linux libraries manually on supported Linux distributions, such as Ubuntu, SUSE and Red Hat.
+
+LibreOffice requires the following libraries to be installed on your system:
+* libfontconfig
+* libICE
+* libSM
+* libXrender
+* libXext
+* libXinerama
+* libcups
+* libGLU
+* libcairo2
+* libgl1-mesa-glx
+
+If the required libraries are missing, you'll get a warning message. You can install them using your preferred package
+manager from the command line. Note that the file names for the Linux libraries may vary by distribution.
+
+For Red Hat Enterprise Linux/CentOS, you can run:
+
+```bash
+cd <libre-install-dir>/LibreOffice_*.*.*.*_Linux_x86-64_rpm/RPMS/
+```
+
+```bash
+sudo yum localinstall *rpm
+```
+
+For Ubuntu:
+
+```bash
+cd <libre-install-dir>/LibreOffice_*.*.*.*_Linux_x86-64_rpm/RPMS/
+```
+
+```bash
+sudo dpkg -i *deb
+```
+
+If LibreOffice doesn't start up normally with Transform Services, test it manually, for example, by running this startup script:
+
+```bash
+start ex. {installdir}/libreoffice/scripts/libreoffice_ctl.sh start
+status ex. {installdir}/libreoffice/scripts/libreoffice_ctl.sh status
+```
+
+If you receive errors that indicate that a library is missing, work with your system administrator to add the
+missing library or its equivalent from your configured repositories.
+
+#### Install ImageMagick {#install-imagemagick}
+To enable image manipulation in Transform Services, you must install and configure ImageMagick. Transform Services uses
+ImageMagick to manipulate images for previewing.
+
+1. Check if ImageMagick is already installed on your system.
+   Use the ImageMagick convert command to check that you have the right software installed on your machine. This command is usually located in `/usr/bin`: `install Image`.
+2. If the ImageMagick software isn't available on your system, download and install the appropriate package for your platform.
+   To download ImageMagick, browse to [ImageMagick download website](https://www.imagemagick.org/script/download.php){:target="_blank"}.
+   > **Note:** In next steps, you'll make changes to the Content Services configuration files to enable the manually installed ImageMagick application. These steps can only be performed after Content Services has been installed.
+
+The following table lists example of how to set the paths to different things when starting Transform Core AIO later on:
+
+|Property|Description|
+   |--------|-----------|
+|img.root| Windows: `img.root=C:\\ImageMagick`<br>Linux: `img.root=/ImageMagick`<br><br>**Note:** Don't include a slash (`/`) at the end of the path, i.e. `/ImageMagick/`.|
+|img.dyn|Windows: `img.dyn=${img.root}\\lib` <br>Linux: `img.dyn=${img.root}/lib`|
+|img.exe|Windows: `img.exe=${img.root}\\convert.exe` <br>Linux: `img.exe=${img.root}/bin/convert`|
+|img.coders|Windows: `img.coders=${img.root}\\modules\\coders` <br>Linux: `img.coders=${img.root}/modules/coders`|
+|img.config|Windows: `img.config=${img.root}\\config` <br>Linux: `img.config=${img.root}/config`|
+|img.url|Windows: `img.url=${img.root}\\url` <br>Linux: `img.url=${img.root}/url`|
+
+> **Note:** Test that you're able to convert a PDF using the command: `convert filename.pdf[0] filename.png`
+
+#### Install alfresco-pdf-renderer {#install-pdf-renderer}
+Transform Services uses `alfresco-pdf-renderer` for creating document thumbnails and previews. Use this information to
+install `alfresco-pdf-renderer` on your system.
+
+>**Note:** The `alfresco-pdf-renderer` executable file is platform-specific.
+
+The `alfresco-pdf-renderer` binaries are available in the Alfresco Content Services distribution zip.
+
+* For Windows:
+    * Extract the file `alfresco-pdf-renderer/alfresco-pdf-renderer-1.0-win64.tgz` to a location of your choice.
+    * Browse to the location of your saved file and extract the archive.
+    * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`
+
+* For Linux:
+    * Extract the file `alfresco-pdf-renderer/alfresco-pdf-renderer-1.0-linux.tgz` to a location of your choice.
+    * Browse to the location of your saved file and extract the archive.
+    * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`
 
 ## Install with Helm charts
 
@@ -95,13 +193,13 @@ Here is a summary of the steps required:
 4. To access the images in [Quay.io](https://quay.io/){:target="_blank"}, you'll need to generate a pull secret and apply it to your cluster.
 5. Deploy Content Services.
 
-    Before you can use the Transform Service zip, you need to install the following software requirements.
-
     > **Note:** Remember to pass the name of the secret as an extra `--set` argument in the `helm install` command.
 
 6. Check the status of your deployment.
 
-See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/tree/support/SP/4.N){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup.
+See the [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment/){:target="_blank"} GitHub project documentation for the prerequisites and detailed setup:
+
+* [Deploying with Helm charts on AWS using EKS](https://github.com/Alfresco/acs-deployment/blob/support/SP/4.N/docs/helm-deployment-aws_eks.md){:target="_blank"}
 
 ## Install with Docker Compose
 
@@ -118,7 +216,7 @@ To check which branch tag corresponds to a specific Content Services release, re
     cd acs-deployment/docker-compose
     ```
 
-    > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to deploy. For example, if you want Content Services 6.2.2, then select tag `4.1.0`.
+    > **Note:** Replace the version number `x.y.z` with the tag that matches the Content Services version you want to deploy. For example, if you want Content Services 7.0.0, then select tag `5.0.0`.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
@@ -139,14 +237,15 @@ To check which branch tag corresponds to a specific Content Services release, re
     This downloads the images, fetches all the dependencies, creates each container, and then starts the system:
 
     ```bash
-    Creating docker-compose_digital-workspace_1  ... done
-    Creating docker-compose_alfresco_1           ... done
-    Creating docker-compose_activemq_1           ... done
-    Creating docker-compose_share_1              ... done
-    Creating docker-compose_solr6_1              ... done
-    Creating docker-compose_shared-file-store_1  ... done
-    Creating docker-compose_sync-service_1       ... done
-    Creating docker-compose_postgres_1           ... done
+    Creating network "docker-compose_default" with the default driver
+    Creating docker-compose_digital-workspace_1 ... done
+    Creating docker-compose_solr6_1             ... done
+    Creating docker-compose_shared-file-store_1 ... done
+    Creating docker-compose_sync-service_1      ... done
+    Creating docker-compose_alfresco_1          ... done
+    Creating docker-compose_share_1             ... done
+    Creating docker-compose_postgres_1          ... done
+    Creating docker-compose_activemq_1          ... done
     Creating docker-compose_proxy_1              ... done
     Creating docker-compose_transform-router_1   ... done
     Creating docker-compose_transform-core-aio_1 ... done
@@ -167,10 +266,10 @@ To check which branch tag corresponds to a specific Content Services release, re
 
     * Stop the session (by using `CONTROL+C`).
     * Remove the container using `--rmi all`. This option also removes the images created by docker-compose up, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them.
-    * Try allocating more memory resources, as advised in `docker-compose.yml`. For example, in Docker, change the memory setting in **Preferences** (or **Settings**) > **Advanced** > **Memory**, to at least 6 GB. Make sure you restart Docker and wait for the process to finish before continuing.
-    * Go back to step 3 and start the deployment again.
+    * Try allocating more memory resources, as advised in `docker-compose.yml`. For example, in Docker, change the memory setting in **Preferences** (or **Settings**) > **Advanced** > **Memory**, to at least 8GB. Make sure you restart Docker and wait for the process to finish before continuing.
+    * Go back to step 5 in the initial Docker Compose instructions to start the deployment again.
 
-    > **Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
+    > **Note:** You'll need a machine with at least 13GB of memory to distribute among the Docker containers.
 
 5. Open your browser and check everything starts up correctly:
 
@@ -208,19 +307,19 @@ Use this information to verify that the system started correctly, and to clean u
         You should see a list of the services defined in your `docker-compose.yaml` file:
 
         ```bash
-               Container                                 Repository                         ...     Size
-        ----------------------------------------------------------------------------------------------------
-        docker-compose_activemq_1             alfresco/alfresco-activemq                    ...   545.9 MB
-        docker-compose_alfresco_1             alfresco/alfresco-content-repository          ...   1.3 GB
-        docker-compose_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace   ...   46.59 MB
-        docker-compose_postgres_1             postgres                                      ...   312.5 MB
-        docker-compose_proxy_1                alfresco/alfresco-acs-nginx                   ...   20.42 MB
-        docker-compose_share_1                alfresco/alfresco-share                       ...   837.6 MB
-        docker-compose_shared-file-store_1    alfresco/alfresco-shared-file-store           ...   769.1 MB
-        docker-compose_solr6_1                alfresco/alfresco-search-services             ...   1.022 GB
-        docker-compose_sync-service_1         quay.io/alfresco/service-sync                 ...   801.3 MB
-        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio          ...   1.682 GB
-        docker-compose_transform-router_1     quay.io/alfresco/alfresco-transform-router    ...   721.2 MB
+        Container                             Repository                                     Tag         Image Id       Size  
+        ------------------------------------------------------------------------------------------------------------------------
+        docker-compose_activemq_1             alfresco/alfresco-activemq                     5.15.8      80350f7a9820   545.9 MB
+        docker-compose_alfresco_1             quay.io/alfresco/alfresco-content-repository   7.0.0       835dbb204129   1.076 GB
+        docker-compose_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace    2.0.0-adw   b360030b24f9   35.65 MB
+        docker-compose_postgres_1             postgres                                       11.7        028e3a6bd9eb   283 MB  
+        docker-compose_proxy_1                alfresco/alfresco-acs-nginx                    3.0.1       4f0b84bc5ba0   20.42 MB
+        docker-compose_share_1                quay.io/alfresco/alfresco-share                7.0.0       059352863557   868.2 MB
+        docker-compose_shared-file-store_1    alfresco/alfresco-shared-file-store            0.10.0      56ff9f67200d   776.7 MB
+        docker-compose_solr6_1                alfresco/alfresco-search-services              2.0.1       a98e3e14aefd   1.148 GB
+        docker-compose_sync-service_1         quay.io/alfresco/service-sync                  3.4.0       ab5f9ad0ede1   801.9 MB
+        docker-compose_transform-core-aio_1   alfresco/alfresco-transform-core-aio           2.3.6       92c19ace0938   1.707 GB
+        docker-compose_transform-router_1     quay.io/alfresco/alfresco-transform-router     1.3.1       b91dd1045459   729.5 MB
         ```
 
     2. List the running containers:
@@ -325,12 +424,14 @@ Use this information to verify that the system started correctly, and to clean u
 See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for more on getting started with Docker and using Docker.
 
 ## Install with zip
+Use these instructions to install Transform Service using the distribution zip and connect it to an instance of
+Alfresco Content Services.
 
-Use these instructions to install Transform Service using the distribution zip to an instance of Content Services.
+The Transform Services distribution zip file includes all the files required to provide the transformation and
+metadata extraction capabilities. Ensure that you've installed the [prerequisites](#prereq-non-containerized-deploy)
+before continuing.
 
-The Transform Service distribution zip file includes all the files required to provide the Transform Service capabilities. Ensure that you've installed the prerequisites before continuing, for more see [Install Transform Service]({% link transform-service/1.2/install/index.md %}).
-
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.2.x.zip`.
+1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-transform-service-distribution-1.3.x.zip`.
 
 2. Extract the zip file into a system directory; for example, `<installLocation>/`.
 
@@ -338,7 +439,7 @@ The Transform Service distribution zip file includes all the files required to p
 
     * `alfresco-shared-file-store-controller-x.y.z.jar`
     * `alfresco-transform-core-aio-boot-x.y.z.jar`
-    * `alfresco-transform-router.1.2.0.jar`
+    * `alfresco-transform-router-1.3.x.jar`
     * `README.md`
 
 3. Start Active MQ.
@@ -396,7 +497,7 @@ The Transform Service distribution zip file includes all the files required to p
      -DCORE_AIO_QUEUE=org.alfresco.transform.engine.aio.acs
      -DACTIVEMQ_URL=failover:(tcp://server:61616)?timeout=3000
      -DFILE_STORE_URL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file
-     -jar alfresco-transform-router-1.2.0.jar
+     -jar alfresco-transform-router-1.3.x.jar
     ```
 
     Check the output to ensure that it starts successfully.
@@ -427,7 +528,7 @@ The Transform Service distribution zip file includes all the files required to p
 
     > **Note:** Any changes to `alfresco-global.properties` require you to restart Content Services to apply the updates. See the Content Services documentation [Using alfresco-global.properties]({% link content-services/latest/config/index.md%}#using-alfresco-globalproperties) for more information.
 
-8. Check that the [configuration]({% link transform-service/1.2/config/index.md %}) is set up correctly for your environment.
+8. Check that the [configuration]({% link transform-service/1.3/config/index.md %}) is set up correctly for your environment.
 
 9. Restart Content Services.
 
