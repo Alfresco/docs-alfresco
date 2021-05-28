@@ -12,13 +12,13 @@ Below are the environment/software prerequisites for installing and using the SA
 
 * Content Services 6.2 or later.
 * A valid license for the SAP Cloud Connector.
-* SAP <!--full product name?-->version that supports CMIS - SAP S4/HANA 1909 (minimum).
+* SAP version that supports CMIS - SAP S4/HANA 1909 (minimum).
 
-## Install SAP Cloud Connector {#install-license}
+## Install SAP Cloud Connector {#install-connector}
 
 The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" text="AMP" %} file. These steps describe how to install the SAP Cloud Connector to an instance of Content Services.
 
-1. Download the Alfresco Content Connector for SAP Cloud software from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, and then download the SAP Cloud Connector:
+1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, and then download Alfresco Content Connector for SAP Cloud :
 
     * `sap-content-connector-cmis-repo-1.0.x.amp` for Content Services.
 
@@ -28,18 +28,15 @@ The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" tex
 
 3. Start Content Services.
 
-## Install the license
+## Install the license {#install-license}
 
-The access and use of the Alfresco Content Connector for SAP Cloud is managed by a license. If you don't have a license yet, you can request a trial license from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
+The access and use of the SAP Cloud Connector is managed by a license. If you don't have a license yet, you can request a trial license from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}.
 
 > **Note:** Make sure you have a valid license file before continuing. The name of the license file is `content-connector-for-sap-cloud.l4j`.
 
 ### Apply the license via the file system
 
-1. Open the `alfresco-global.properties` file and search for the key **`dir.license.external`**.
-
-    Note down this value as you'll need it next.
-
+1. Open the `alfresco-global.properties` file and search for the key **`dir.license.external`**. Note down this value as you'll need it in the following steps.
 2. Navigate to the folder provided in the property value.
 3. Copy the license file `content-connector-for-sap-cloud.l4j` into that folder.
 4. Restart the Content Services application server.
