@@ -636,6 +636,23 @@ defaults:
     values:
       version: 5.0
 
+# Alfresco Content Connector for SAP Cloud
+  - scope:
+      path: "sap-cloud"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Connector for SAP Cloud"
+      location: "sap-cloud"
+      toc: "sap-cloud"
+      support: true
+      versions:
+        - 1.0
+  - scope:
+      path: "sap-cloud/latest"
+    values:
+      version: 1.0
+      latest: true
+
 # Alfresco ECM Centera
   - scope:
       path: "centera"

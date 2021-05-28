@@ -1,0 +1,11 @@
+# Alfresco Content Connector for SAP Cloud 1.0
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/sap-cloud/latest/'
+    - title: 'Install'
+      path: '/sap-cloud/latest/install/'
+    - title: 'Configure'
+      path: '/sap-cloud/latest/config/'
+    - title: 'Administer'
+      path: '/sap-cloud/latest/admin/'
