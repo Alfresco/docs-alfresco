@@ -289,6 +289,8 @@
             path: '/content-services/latest/develop/rest-api-guide/searching/'
         - title: 'Reference'
           pages:
+          - title: 'Debugging Remote APIs'
+            path: '/content-services/latest/develop/reference/debug-remote-apis/'
           - title: 'Java Foundation API'
             path: '/content-services/latest/develop/reference/java-foundation-ref/'
           - title: 'Web Scripts'
