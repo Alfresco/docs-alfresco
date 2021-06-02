@@ -55,7 +55,7 @@ When you upgrade from APS 1.x to 2.x you are upgrading from Activi 5.x to 6. The
 
 > **Note:** You do not need to migrate your database when upgrading from 1.x to 2.x.
 
-### Breaking changes
+### Alfresco Process Services breaking changes
 
 #### PVM classes
 
@@ -121,3 +121,8 @@ All `EntityManager` interfaces extend the generic `org.activiti.engine.impl.pers
 The class `org.activiti.engine.impl.db.PersistentObject` has been renamed to `Entity` to be consistent with all the other classes suchg as `EntityManagers`.
 
 All related classes that used the term 'persistent object' have been refactored to 'entity' too.
+
+### Alfresco Process Services third-party breaking changes
+
+The following are third party breaking changes that have occured.
+
