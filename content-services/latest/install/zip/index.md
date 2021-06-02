@@ -16,10 +16,12 @@ To install Content Services using the distribution zip (which also contains the 
 * Application server: Apache Tomcat
 * Database: PostgreSQL or MySQL
 * Message broker: ActiveMQ
-* LibreOffice
-* ImageMagick
 
 For a list of other supported components and versions, refer to the `VERSIONS.md` file in the distribution zip.
+
+>**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
+then you need to [bootstrap the IPTC Content Model]({% link content-services/latest/install/containers/index.md %}#iptc-model-bootstrap) manually
+into Content Services. If you follow the link you will find the necessary content model files.
 
 ## Install overview
 
