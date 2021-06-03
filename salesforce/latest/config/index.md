@@ -123,3 +123,25 @@ Ensure you have the [prerequisites](#prereqs) installed and configured first, an
     By doing this when a user is created your domain name is used by default instead of `@myDomain.com`.
 
     >**Note:** The Apex code can be configured in lots of different ways to suit your organization. See the Apex documentation at Salesforce for more: [What is Apex?](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_intro_what_is_apex.htm){:target="_blank"}.
+
+## Configure a Salesforce community site
+
+To configure a Salesforce community site you must add the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services.
+
+1. Log in to Alfresco Content Services as an administrator and click **Admin Tools**.
+
+2. Click **Groups** under **Users and Groups**.
+
+3. Select **Show System groups** on the top right.
+
+4. Click **Browse** and select `GROUP_SALESFORCE_MODERATORS`.
+
+5. Click the **Add User** icon.
+
+    You are presented with the **Add User** window.
+
+6. Search for administrator user you want to add.
+
+7. Click the **Add** button next to the user.
+
+8. The user you have added will appear in the middle column.

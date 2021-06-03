@@ -288,3 +288,9 @@ You can search:
 There is certain content, and associated metadata, that you might want only certain users to see; for example, Human Resources (HR) personnel data. Use a private site for this record type. See [Creating sites]({% link content-services/latest/using/sites/index.md %}#creating-a-site) for more information about the different site types.
 
 You can map an specific object (and therefore all records associated with that object) to a named site in Share. See part 4 of [Step 6: Add the Alfresco app using a Salesforce Lightning Component]({% link salesforce/latest/install/index.md %}#addappusinglightningcomponent) for instructions on how to do this.
+
+## How to create a community site?
+
+> **Note:** If you want to create a community site you must add the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services., for more see [Configure Salesforce community]({% link salesforce/latest/config/index.md %}#configure-salesforce-community)
+
+You can create a community site 
