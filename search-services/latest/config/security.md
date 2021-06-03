@@ -158,3 +158,21 @@ On the left-side of the Solr Admin screen, you will see **Core Selector**. Click
 This includes a sub-navigation for the option or text or graphical representation of the requested data.
 
 See [Solr Admin UI left panel](#solr-admin-ui-left-panel) and [Solr Admin UI center panel](#solr-admin-ui-center-panel) to know more about each screen.
+
+## Solr backup directory
+
+For addressing the security issue https://nvd.nist.gov/vuln/detail/CVE-2020-13941, it is necessary to configure the location parameter of the replication handler to be invariant.
+
+```xml
+<requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
+    <!--
+    This invariant is needed to prevent the usage of location parameter in the replication handler APIs.
+    There is no validation for location parameter. This results in a vulnerability described in https://nvd.nist.gov/vuln/detail/CVE-2020-13941
+    -->
+    <lst name="invariants">
+        <str name="location">${solr.backup.dir:.}</str>
+    </lst>
+</requestHandler>
+```
+
+In order to specify the backup location, set the *solr.backup.dir* in solrcore.properties.
