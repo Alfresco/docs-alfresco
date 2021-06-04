@@ -288,23 +288,3 @@ You can search:
 There is certain content, and associated metadata, that you might want only certain users to see; for example, Human Resources (HR) personnel data. Use a private site for this record type. See [Creating sites]({% link content-services/latest/using/sites/index.md %}#creating-a-site) for more information about the different site types.
 
 You can map an specific object (and therefore all records associated with that object) to a named site in Share. See part 4 of [Step 6: Add the Alfresco app using a Salesforce Lightning Component]({% link salesforce/latest/install/index.md %}#addappusinglightningcomponent) for instructions on how to do this.
-
-## How do create a community site?
-
-> **Note:** If you want to create a community site you must add the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services., for more see [Configure Salesforce community]({% link salesforce/latest/config/index.md %}#configure-salesforce-community)
-
-To create a commuity site you need to peform the following:
-
-1. Add the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services., for more see [Configure Salesforce community]({% link salesforce/latest/config/index.md %}#configure-salesforce-community).
-
-2. See [Create an Experience Cloud Site pg. 51](https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/communities.pdf)
-
-3. See [Add Members to Your Experience Cloud Site pg. 54](https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/communities.pdf)
-
-4. [Share content externally](#share-content-externally)
-
-### Share content externall to community members
-
-1. Log in to Salesforce.
-
-2. 

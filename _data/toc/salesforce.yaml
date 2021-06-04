@@ -13,6 +13,8 @@
           path: '/salesforce/latest/using/'
         - title: 'Recommended content'
           path: '/salesforce/latest/using/recommend/'
+        - title: 'Community Sites'
+          path: '/salesforce/latest/using/community/'
         - title: 'Troubleshoot'
           path: '/salesforce/latest/using/troubleshoot/'
 - version: 2.2
