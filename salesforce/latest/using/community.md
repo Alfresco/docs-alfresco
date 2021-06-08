@@ -70,31 +70,23 @@ The result of the performed actions will be that when the community member logs 
 
 1. Log in to Salesforce community.
 
-2. Click **Cases** and select **View all** from the bottom left.
-
-      ![lightning-alfresco-tab]({% link salesforce/images/lightning-alfresco-tab.png %})
-
-3. Click the **My Open Cases** drop down list and then select **All Open Cases**.
+2. Click the **My Open Cases** drop down list and then select **All Open Cases**.
 
       ![lightning-open-cases]({% link salesforce/images/lightning-open-cases.png %})
 
-4. Select the required **Case Origin**.
+3. Click the link of the case number that has been shared with you to open it.
 
-   Enter any other information required for the case.
+      ![lightning-all-new]({% link salesforce/images/lightning-all-new.png %})
 
-      ![create-new-lightning-page]({% link salesforce/images/create-new-lightning-page.png %})
-
-5. Click **Save**.
+4. Click **Save**.
 
       ![create-new-lightning-page]({% link salesforce/images/create-new-lightning-page.png %})
 
-6. Click the drop down arrow next to Change Owner and select **Sharing**.
+5. Click the drop down arrow next to Change Owner and select **Sharing**.
 
       ![create-new-lightning-page]({% link salesforce/images/create-new-lightning-page.png %})
 
 ## Salesforce Classic
-
-## Lightning experience
 
 To create a commuity site you need to peform the following:
 
