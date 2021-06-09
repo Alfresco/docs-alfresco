@@ -17,8 +17,10 @@ There are a number of software requirements for using the Salesforce Connector.
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.2.1 or later
+* Alfresco Content Services 6.2.2 or later
 * Identity Service 1.3 or later (if you plan to use Single Sign On (SSO))
+
+> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (Digital Business Platform-as-a-Service (PaaS))
 
 ### Salesforce requirements
 

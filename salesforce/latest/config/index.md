@@ -10,7 +10,7 @@ Here, you'll use the Identity Service with Salesforce and Alfresco Content Servi
 
 Before you begin ensure you've installed:
 
-* [Alfresco Content Services]({% link content-services/latest/install/index.md %}) 6.2.1 or above
+* [Alfresco Content Services]({% link content-services/latest/install/index.md %}) 6.2.2 or above
 * [Alfresco Content Connector for Salesforce]({% link salesforce/latest/install/index.md %}) 2.2 or above
 * [Identity Service]({% link identity-service/latest/install/index.md %}) 1.3 or above
 
@@ -126,13 +126,15 @@ Ensure you have the [prerequisites](#prereqs) installed and configured first, an
 
 ## Configure a Salesforce Community site
 
-To configure a Salesforce community site you must add the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services.
+To configure a Salesforce Community site you must add the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services.
+
+> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (Digital Business Platform-as-a-Service (PaaS))
 
 1. Log in to Alfresco Content Services as an administrator and click **Admin Tools**.
 
 2. Click **Groups** under **Users and Groups**.
 
-3. Select **Show System groups** on the top right.
+3. Select **Show System Groups** on the top right.
 
 4. Click **Browse** and select `GROUP_SALESFORCE_MODERATORS`.
 

@@ -2,13 +2,11 @@
 title: Community Sites
 ---
 
-To create a commuity site and retrieve a shared case as a community member you need to peform a series of steps. This can be done using either the [Lightning Experience](#lightning-experience) or [Salesforce Classic](#salesforce-classic).
+To share content externally to a community site and retrieve a shared case as a community member you need to peform a series of actions. This can be done using either the [Lightning Experience](#lightning-experience) or [Salesforce Classic](#salesforce-classic). Before you begin ensure you have added the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services, for more see [Configure a Salesforce Community site]({% link salesforce/latest/config/index.md %}#configure-a-salesforce-community-site).
 
-> **Note:** Before you begin ensure you have added the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services, for more see [Configure a Salesforce Community Site]({% link salesforce/latest/config/index.md %}#configure-salesforce-community-site).
+> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (Digital Business Platform-as-a-Service (PaaS))
 
-## Lightning experience
-
-To create a commuity site you need to peform the following:
+## Lightning Experience
 
 1. See [Create an Experience Cloud Site pg. 51](https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/communities.pdf){:target="_blank"}
 
@@ -32,7 +30,7 @@ To create a commuity site you need to peform the following:
 
       ![lightning-new-case]({% link salesforce/images/lightning-new-case.png %})
 
-6. Click the drop down arrow next to Change Owner and select **Sharing**.
+6. Click the drop down arrow next to **Change Owner** and select **Sharing**.
 
       ![create-new-lightning-page]({% link salesforce/images/lightning-sharing.png %})
 
@@ -52,7 +50,7 @@ To create a commuity site you need to peform the following:
 
       ![lightning-create-folder]({% link salesforce/images/lightning-create-folder.png %})
 
-11. Enter the details you require for your new folder and then click **Save**.
+11. Enter the details you require for your new folder and then click **Create**.
 
       ![lightning-details-folder]({% link salesforce/images/lightning-details-folder.png %})
 
@@ -64,11 +62,9 @@ To create a commuity site you need to peform the following:
 
       ![lightning-externally-select]({% link salesforce/images/lightning-externally-select.png %})
 
-You will see a **Successfully Shared Accounts Externally** message. The result of the performed actions is when the community member logs into Salesforce they will see the case in their **All Open Cases** list.
+You will see a **Successfully Shared Accounts Externally** message. The result of the performed actions is that when the community member logs into Salesforce they will see the case in their **All Open Cases** list.
 
 ## Salesforce Classic
-
-To create a commuity site you need to peform the following:
 
 1. See [Create an Experience Cloud Site pg. 51](https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/communities.pdf){:target="_blank"}
 
@@ -92,41 +88,37 @@ To create a commuity site you need to peform the following:
 
       ![classic-new-case]({% link salesforce/images/classic-new-case.png %})
 
-6. Click the **Sharing** button above the case.
+5. Click the **Sharing** button above the case.
 
       ![classic-sharing]({% link salesforce/images/classic-sharing.png %})
 
-7. Click the **Add** button.
+6. Click the **Add** button.
 
       ![classic-sharing-add]({% link salesforce/images/classic-sharing-add.png %})
 
-8. Search **Public Groups** and add All Customer Portal Users to the **Share With** column. Click **Save**.
+7. Search **Public Groups** and add All Customer Portal Users to the **Share With** column. Click **Save**.
 
       ![classic-sharing-groups]({% link salesforce/images/classic-sharing-groups.png %})
 
-9. Click the **Create** drop down list and select **Folder**.
+8. Click the **Create** drop down list and select **Folder**.
 
       ![classic-create-folder]({% link salesforce/images/classic-create-folder.png %})
 
-10. Enter a name for the folder and click **Create**.
+9. Enter a name for the folder and click **Create**.
 
       ![classic-name-folder]({% link salesforce/images/classic-name-folder.png %})
 
-11. Click the **Actions** button and select **Share Externally**.
+10. Click the **Actions** button and select **Share Externally**.
 
       ![classic-share-externally]({% link salesforce/images/classic-share-externally.png %})
 
-12. Click the **Actions** button and select **Share Externally**.
-
-    ![classic-share-name]({% link salesforce/images/classic-share-name.png %})
-
-13. Select the **Salesforce Community Name** you would like to share with and the **Users**. Click **Save**.
+11. Select the **Salesforce Community Name** you would like to share with and the **Users**. Click **Save**.
 
       ![lightning-externally-select]({% link salesforce/images/lightning-externally-select.png %})
 
-You will see a **Successfully Shared Accounts Externally** message. The result of the performed actions is when the community member logs into Salesforce they will see the case in their **All Open Cases** list.
+You will see a **Successfully Shared Accounts Externally** message. The result of the performed actions is that when the community member logs into Salesforce they will see the case in their **All Open Cases** list.
 
-## Retrieve a shared case if you are a community user
+## Retrieve a shared case if you are a community user (Lightning Experience and Classic View users)
 
 1. Log in to Salesforce Community.
 
