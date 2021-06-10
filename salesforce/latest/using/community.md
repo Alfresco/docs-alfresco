@@ -1,10 +1,12 @@
 ---
-title: Community Sites
+title: Salesforce Community
 ---
 
-To share content externally to a community site and retrieve a shared case as a community member you need to peform a series of actions. Sharing sites externally can be done using either the [Lightning Experience](#lightning-experience) or [Salesforce Classic](#salesforce-classic). [Retrieving shared cases](#retrieving-shared-cases) as a community member can only be done using the Lightning Experience. Before you begin ensure you have added the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services, for more see [Configure a Salesforce Community site]({% link salesforce/latest/config/index.md %}#configure-a-salesforce-community-site).
+Support for Salesforce Community allows external Salesforce Community Members to store and access documents in Alfresco. To provide access and share documents with external Salesforce Community members, internal Salesforce users need to perform a series of actions.
+Before you begin, ensure your internal Salesforce users have been added to the 'GROUP_SALESFORCE_MODERATORS' group in Alfresco Content Services, for more see [Configure Salesforce Community]({% link salesforce/latest/config/index.md %}#configure-a-salesforce-community-site).
+This documentation describes a Salesforce Case object, however any standard or custom object can be shared externally with Community Members.
 
-> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (Digital Business Platform-as-a-Service (PaaS)).
+> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (PaaS).
 
 ## Lightning Experience
 
@@ -12,13 +14,13 @@ To share content externally to a community site and retrieve a shared case as a 
 
 2. See [Add Members to Your Experience Cloud Site pg. 54](https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/communities.pdf){:target="_blank"}
 
-3. [Share content externally to community members Lightning Experience](#share-content-externally-to-community-members-lightning-experience)
+3. [Share content externally to Community Members Lightning Experience](#share-content-externally-to-community-members-lightning-experience)
 
-## Share content externally to community members Lightning Experience
+## Share content externally to Community Members Lightning Experience
 
 1. Log in to Salesforce.
 
-2. Log in as a community administrator to Alfresco Share in the Canvas app.
+2. Log in as an administrator to Alfresco Share in the Canvas app.
 
       ![lightning-alfresco-tab]({% link salesforce/images/lightning-alfresco-tab.png %})
 
@@ -62,7 +64,7 @@ To share content externally to a community site and retrieve a shared case as a 
 
       ![lightning-externally-select]({% link salesforce/images/lightning-externally-select.png %})
 
-You will see a **Successfully Shared Accounts Externally** message. The result of the performed actions is that when the community member logs into Salesforce they will see the case in their **All Open Cases** list.
+You will see a **Salesforce Community Member Access** message. The result of the performed actions is that when the Community Member logs into Salesforce they will see the case in their **All Open Cases** list.
 
 ## Salesforce Classic
 
@@ -70,13 +72,13 @@ You will see a **Successfully Shared Accounts Externally** message. The result o
 
 2. See [Add Members to Your Experience Cloud Site pg. 54](https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/communities.pdf){:target="_blank"}
 
-3. [Share content externally to community members Salesforce Classic](#share-content-externally-to-community-members-salesforce-classic)
+3. [Share content externally to Community Members Salesforce Classic](#share-content-externally-to-community-members-salesforce-classic)
 
-## Share content externally to community members Salesforce Classic
+## Share content externally to Community Members Salesforce Classic
 
 1. Log in to Salesforce.
 
-2. Click **Alfresco Repository** and log in as a community administrator to Alfresco Share in the Canvas app.
+2. Click **Alfresco Repository** and Log in as an administrator to Alfresco Share in the Canvas app.
 
       ![lightning-alfresco-tab]({% link salesforce/images/lightning-alfresco-tab.png %})
 
@@ -116,7 +118,7 @@ You will see a **Successfully Shared Accounts Externally** message. The result o
 
       ![lightning-externally-select]({% link salesforce/images/lightning-externally-select.png %})
 
-You will see a **Successfully Shared Accounts Externally** message. The result of the performed actions is that when the community member logs into Salesforce they will see the case in their **All Open Cases** list.
+You will see a **Salesforce Community Member Access** message. The result of the performed actions is that when the Community Member logs into Salesforce they will see the case in their **All Open Cases** list.
 
 ## Retrieving shared cases
 
@@ -130,6 +132,8 @@ You will see a **Successfully Shared Accounts Externally** message. The result o
 
       ![lightning-all-new]({% link salesforce/images/lightning-all-cases.png %})
 
-4. Log in as a Community member to access the case.
+4. Log in as a Community Member to access the case and documents linked to the case.
 
       ![lightning-alfresco-tab]({% link salesforce/images/lightning-alfresco-tab.png %})
+
+  Community Members can download and view documents linked to the case. They can also upload documents to the case that will get stored in Alfresco.

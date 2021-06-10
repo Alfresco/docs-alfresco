@@ -124,11 +124,12 @@ Ensure you have the [prerequisites](#prereqs) installed and configured first, an
 
     >**Note:** The Apex code can be configured in lots of different ways to suit your organization. See the Apex documentation at Salesforce for more: [What is Apex?](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_intro_what_is_apex.htm){:target="_blank"}.
 
-## Configure a Salesforce Community site
+## Configure a Salesforce Community
 
-To configure a Salesforce Community site you must add the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services.
+To configure access to Salesforce Community you must add the internal Salesforce users to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services.
+Internal Salesforce users added to this group will be allowed to share content externally to Community Members. Users not added to this group will not be granted access to share content externally.
 
-> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (Digital Business Platform-as-a-Service (PaaS)).
+> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (PaaS).
 
 1. Log in to Alfresco Content Services as an administrator and click **Admin Tools**.
 
