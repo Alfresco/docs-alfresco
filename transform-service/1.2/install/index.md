@@ -415,16 +415,12 @@ The Transform Service distribution zip file includes all the files required to p
     sfs.url=http://localhost:8099
     sfs.endpoint=${sfs.url}/alfresco/api/-default-/private/sfs/versions/1/file
 
-    # Transform Router property:
+    # Transform Router properties:
+    transform.service.enabled=true
     transform.service.url=http://localhost:8095/
 
     # Transform Core properties:
     localTransform.core-aio.url=http://transform-core-aio:8090/
-    alfresco-pdf-renderer.url=http://transform-core-aio:8090/
-    jodconverter.url=http://transform-core-aio:8090/
-    img.url=http://transform-core-aio:8090/
-    tika.url=http://transform-core-aio:8090/
-    transform.misc.url=http://transform-core-aio:8090/
     ```
 
     This overrides the default properties provided by Content Services.
