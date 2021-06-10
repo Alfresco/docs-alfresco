@@ -161,9 +161,9 @@ See [Solr Admin UI left panel](#solr-admin-ui-left-panel) and [Solr Admin UI cen
 
 ## Solr backup directory
 
-For addressing the security issue https://nvd.nist.gov/vuln/detail/CVE-2020-13941, it is necessary to configure the location parameter of the replication handler to be invariant.
+To address the security issue [https://nvd.nist.gov/vuln/detail/CVE-2020-13941](https://nvd.nist.gov/vuln/detail/CVE-2020-13941){:target="_blank"}, it is necessary to configure the location parameter of the replication handler to be invariant.
 
-This configuration is already in the provided solrconfig.xml. 
+This configuration is already provided in `solrconfig.xml`.
 
 ```xml
 <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
@@ -177,4 +177,4 @@ This configuration is already in the provided solrconfig.xml.
 </requestHandler>
 ```
 
-In order to specify the backup location, set the *solr.backup.dir* in solrcore.properties.
+To specify the backup location, set `solr.backup.dir` in `solrcore.properties`.

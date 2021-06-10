@@ -83,7 +83,7 @@ The `solrcore.properties` configuration file is the property configuration file 
 |solr.readerCache.initialSize|This property configures the Solr result cache, for example `1024`.|
 |solr.readerCache.size|This property configures the Solr result cache, for example `4096`.|
 |solr.request.content.compress|This property when set to `true` will compress the content that is sent back from the repository during system communication, for example `false`.|
-|solr.backup.dir| This property specify the directory for backup files. If the path is not absolute then the backup path will be relative to Solr’s instance directory.|
+|solr.backup.dir| This property specifies the directory for backup files. If the path is not absolute then the backup path will be relative to Solr’s instance directory.|
 
 ## Full text search configuration properties
 
