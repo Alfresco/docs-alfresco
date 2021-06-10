@@ -163,6 +163,9 @@ See [Solr Admin UI left panel](#solr-admin-ui-left-panel) and [Solr Admin UI cen
 
 For addressing the security issue https://nvd.nist.gov/vuln/detail/CVE-2020-13941, it is necessary to configure the location parameter of the replication handler to be invariant.
 
+This configuration is already in the provided solrconfig.xml. 
+
+
 ```xml
 <requestHandler name="/replication" class="org.alfresco.solr.handler.AlfrescoReplicationHandler" > 
     <!--
