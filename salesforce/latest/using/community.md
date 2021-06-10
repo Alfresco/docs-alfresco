@@ -2,9 +2,9 @@
 title: Community Sites
 ---
 
-To share content externally to a community site and retrieve a shared case as a community member you need to peform a series of actions. This can be done using either the [Lightning Experience](#lightning-experience) or [Salesforce Classic](#salesforce-classic). Before you begin ensure you have added the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services, for more see [Configure a Salesforce Community site]({% link salesforce/latest/config/index.md %}#configure-a-salesforce-community-site).
+To share content externally to a community site and retrieve a shared case as a community member you need to peform a series of actions. Sharing sites externally can be done using either the [Lightning Experience](#lightning-experience) or [Salesforce Classic](#salesforce-classic). [Retrieving shared cases](#retrieving-shared-cases) as a community member can only be done using the Lightning Experience. Before you begin ensure you have added the administrator user of Alfresco Content Services that you use as an administrator of Salesforce to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services, for more see [Configure a Salesforce Community site]({% link salesforce/latest/config/index.md %}#configure-a-salesforce-community-site).
 
-> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (Digital Business Platform-as-a-Service (PaaS))
+> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (Digital Business Platform-as-a-Service (PaaS)).
 
 ## Lightning Experience
 
@@ -30,35 +30,35 @@ To share content externally to a community site and retrieve a shared case as a 
 
       ![lightning-new-case]({% link salesforce/images/lightning-new-case.png %})
 
-6. Click the drop down arrow next to **Change Owner** and select **Sharing**.
+5. Click the drop down arrow next to **Change Owner** and select **Sharing**.
 
       ![create-new-lightning-page]({% link salesforce/images/lightning-sharing.png %})
 
-7. Click the drop down arrow in the search bar and select **Public Group**.
+6. Click the drop down arrow in the search bar and select **Public Group**.
 
       ![lightning-public-group]({% link salesforce/images/lightning-public-group.png %})
 
-8. Type *all* into the search field and select **All Customer Portal Users**.
+7. Type *all* into the search field and select **All Customer Portal Users**.
 
       ![lightning-portal-users]({% link salesforce/images/lightning-portal-users.png %})
 
-9. Click the drop down arrow in the **Case Access** field and select the type of access required for this case. Click **Save**.
+8. Click the **Case Access** field and select the type of access required for this case. Click **Save**.
 
       ![lightning-share-access]({% link salesforce/images/lightning-share-access.png %})
 
-10. Click the drop down arrow next to **Create** and select **Folder**.
+9. Click the **Create** drop down list and select **Folder**.
 
       ![lightning-create-folder]({% link salesforce/images/lightning-create-folder.png %})
 
-11. Enter the details you require for your new folder and then click **Create**.
+10. Enter the details you require for your new folder and then click **Create**.
 
       ![lightning-details-folder]({% link salesforce/images/lightning-details-folder.png %})
 
-12. Click the **Actions** button and select **Share Externally**.
+11. Click the **Actions** drop down list and select **Share Externally**.
 
     ![lightning-share-externally]({% link salesforce/images/lightning-share-externally.png %})
 
-13. Select the **Salesforce Community Name** you would like to share with and the **Users**. Click **Save**.
+12. Select the **Salesforce Community Name** you would like to share with and the **Users**. Click **Save**.
 
       ![lightning-externally-select]({% link salesforce/images/lightning-externally-select.png %})
 
@@ -96,7 +96,7 @@ You will see a **Successfully Shared Accounts Externally** message. The result o
 
       ![classic-sharing-add]({% link salesforce/images/classic-sharing-add.png %})
 
-7. Search **Public Groups** and add All Customer Portal Users to the **Share With** column. Click **Save**.
+7. Search **Public Groups** and add **All Customer Portal Users** to the **Share With** column. Click **Save**.
 
       ![classic-sharing-groups]({% link salesforce/images/classic-sharing-groups.png %})
 
@@ -118,7 +118,7 @@ You will see a **Successfully Shared Accounts Externally** message. The result o
 
 You will see a **Successfully Shared Accounts Externally** message. The result of the performed actions is that when the community member logs into Salesforce they will see the case in their **All Open Cases** list.
 
-## Retrieve a shared case if you are a community user (Lightning Experience and Classic View users)
+## Retrieving shared cases
 
 1. Log in to Salesforce Community.
 
@@ -130,6 +130,6 @@ You will see a **Successfully Shared Accounts Externally** message. The result o
 
       ![lightning-all-new]({% link salesforce/images/lightning-all-cases.png %})
 
-4. Log in as a Community member.
+4. Log in as a Community member to access the case.
 
       ![lightning-alfresco-tab]({% link salesforce/images/lightning-alfresco-tab.png %})
