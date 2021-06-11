@@ -30,7 +30,9 @@ Download the following four projects to your developer machine:
 * [acs-packaging](https://github.com/Alfresco/acs-packaging){:target="_blank"}
     
 Only the first project is needed here, but it's recommended to have the other projects available, so might as well get 
-them from the beginning.
+them from the beginning. The packaging projects will give you valuable information about how the Docker Image for 
+the Alfresco Repository is created. The packaging projects also contain information about how to create custom Docker Images, 
+which can be very useful when custom JARs/AMPs should be applied.
 
 ### Docker 
 If you will be doing the remote debugging with Content Services running in Docker, then download the following project:
