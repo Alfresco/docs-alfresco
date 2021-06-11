@@ -120,7 +120,7 @@ You will see a **Salesforce Community Member Access** message. The result of the
 
 You will see a **Salesforce Community Member Access** message. The result of the performed actions is that when the Community Member logs into Salesforce they will see the case in their **All Open Cases** list.
 
-## Retrieving shared cases
+## Community Member accessing shared content
 
 1. Log in to Salesforce Community.
 
