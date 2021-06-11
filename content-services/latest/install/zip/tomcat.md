@@ -110,7 +110,6 @@ The Content Services distribution file is a zip containing the required WAR file
     You'll see the following directory structure - details are described [later](#directory-structure).
 
     ```bash
-    alfresco-pdf-renderer
     amps
     bin
     licenses
@@ -193,9 +192,6 @@ After you've extracted the Content Services distribution zip, several directorie
 
 | Folder | File/Sub-folder | Description |
 | ------ | --------------- | ----------- |
-| alfresco-pdf-renderer | `alfresco-pdf-renderer-1.0-linux.tgz` | Binary file for Linux |
-| | `alfresco-pdf-renderer-1.0-win64.tgz` | Binary file for Windows |
-| | | |
 | amps | `alfresco-share-services.amp` | Contains Alfresco Share AMP |
 | | | |
 | bin | `alfresco-spring-encryptor.jar` | Alfresco Encrypted Properties Management Tool |

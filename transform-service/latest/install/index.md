@@ -164,20 +164,18 @@ The following table lists example of how to set the paths to different things wh
 Transform Services uses `alfresco-pdf-renderer` for creating document thumbnails and previews. Use this information to 
 install `alfresco-pdf-renderer` on your system.
 
->**Note:** The `alfresco-pdf-renderer` executable file is platform-specific.
-
-The `alfresco-pdf-renderer` binaries are available in the Alfresco Content Services distribution zip.
+>**Note:** The `alfresco-pdf-renderer` executable file is platform-specific. You can download the binaries from our Nexus repository.
 
 * For Windows:
-    * Extract the file `alfresco-pdf-renderer/alfresco-pdf-renderer-1.0-win64.tgz` to a location of your choice.
-    * Browse to the location of your saved file and extract the archive.
-    * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`
+    * Download [alfresco-pdf-renderer-1.1-win64.tgz](https://artifacts.alfresco.com/nexus/content/groups/public/org/alfresco/alfresco-pdf-renderer/1.1/alfresco-pdf-renderer-1.1-win64.tgz).
+    * Browse to the location of your saved file and extract the archive to a location of your choice.
+    * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`.
 
 * For Linux:
-    * Extract the file `alfresco-pdf-renderer/alfresco-pdf-renderer-1.0-linux.tgz` to a location of your choice.
-    * Browse to the location of your saved file and extract the archive.
-    * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`
-    
+    * Download [alfresco-pdf-renderer-1.1-linux.tgz](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-pdf-renderer/1.1/alfresco-pdf-renderer-1.1-linux.tgz).
+    * Browse to the location of your saved file and extract the archive to a location of your choice.
+    * Note down the exe path: `<alfresco-pdf-renderer_installation_dir>/alfresco-pdf-renderer`.
+
 #### Install ExifTool {#install-exiftool}
 Transform Services uses the [ExifTool](https://exiftool.org/){:target="_blank"} for metadata extraction. 
 
