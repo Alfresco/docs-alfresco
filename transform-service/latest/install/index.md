@@ -65,21 +65,21 @@ See [Install with Docker Compose]({% link transform-service/latest/install/index
 
 ### Non-containerized deployment {#prereq-non-containerized-deploy}
 
-Before installing Transform Services from the distribution ZIP file, [install Alfresco Content Services using distribution ZIP]({% link content-services/latest/install/zip/index.md %}).
-This will also install the message broker ActiveMQ, which is used by Transform Services.
+Before installing Transform Service from the distribution ZIP file, [install Alfresco Content Services using distribution ZIP]({% link content-services/latest/install/zip/index.md %}).
+This will also install the message broker ActiveMQ, which is used by Transform Service.
 
-In a non-containerized environment you need to install the following software before installing Transform Services:
+In a non-containerized environment you need to install the following software before installing Transform Service:
 
 * LibreOffice: see [Install LibreOffice](#install-libreoffice)
 * ImageMagick: see [Install ImageMagick](#install-imagemagick)
 * alfresco-pdf-renderer: see [Install alfresco-pdf renderer](#install-pdf-renderer)
 * Exiftool: see [Install Exiftool](#install-exiftool)
 
-You can install the third-party software used by Transform Services independently.
+You can install the third-party software used by Transform Service independently.
 
 #### Install LibreOffice {#install-libreoffice}
 
-In Transform Services, you can transform a document from one format to another, for example, a text file to a PDF file. To access these transformation facilities, you must install LibreOffice.
+In Transform Service, you can transform a document from one format to another, for example, a text file to a PDF file. To access these transformation facilities, you must install LibreOffice.
 
 1. Browse to the LibreOffice download site: [LibreOffice download site](https://www.libreoffice.org/download/download/){:target="_blank"}
 2. Download the latest (stable) version of LibreOffice for your platform.
@@ -131,7 +131,7 @@ cd <libre-install-dir>/LibreOffice_*.*.*.*_Linux_x86-64_rpm/RPMS/
 sudo dpkg -i *deb
 ```
 
-If LibreOffice doesn't start up normally with Transform Services, test it manually, for example, by running this startup script:
+If LibreOffice doesn't start up normally with Transform Service, test it manually, for example, by running this startup script:
 
 ```bash
 start ex. {installdir}/libreoffice/scripts/libreoffice_ctl.sh start
@@ -142,7 +142,7 @@ If you receive errors that indicate that a library is missing, work with your sy
 
 #### Install ImageMagick {#install-imagemagick}
 
-To enable image manipulation in Transform Services, you must install and configure ImageMagick. Transform Services uses ImageMagick to manipulate images for previewing.
+To enable image manipulation in Transform Service, you must install and configure ImageMagick. Transform Service uses ImageMagick to manipulate images for previewing.
 
 1. Check if ImageMagick is already installed on your system.
    Use the ImageMagick convert command to check that you have the right software installed on your machine. This command is usually located in `/usr/bin`: `install Image`.
@@ -166,7 +166,7 @@ The following table lists example of how to set the paths to different things wh
 
 #### Install alfresco-pdf-renderer {#install-pdf-renderer}
 
-Transform Services uses `alfresco-pdf-renderer` for creating document thumbnails and previews. Use this information to 
+Transform Service uses `alfresco-pdf-renderer` for creating document thumbnails and previews. Use this information to 
 install `alfresco-pdf-renderer` on your system.
 
 >**Note:** The `alfresco-pdf-renderer` executable file is platform-specific. You can download the binaries from our Nexus repository.
@@ -183,7 +183,7 @@ install `alfresco-pdf-renderer` on your system.
 
 #### Install ExifTool {#install-exiftool}
 
-Transform Services uses the [ExifTool](https://exiftool.org/){:target="_blank"} for metadata extraction.
+Transform Service uses the [ExifTool](https://exiftool.org/){:target="_blank"} for metadata extraction.
 
 Download version 12.25 of the ExifTool from [Alfresco Nexus Server](https://nexus.alfresco.com/nexus/service/local/repositories/thirdparty/content/org/exiftool/image-exiftool/12.25/image-exiftool-12.25.tgz){:target="_blank"}
 
@@ -196,7 +196,7 @@ The steps to install are:
 * Perl needs to be installed
 * ExifTool needs to then be installed globally
 
-Example from Transform Services Dockerfile:
+Example from Transform Service Dockerfile:
 
 ```bash
 ARG EXIFTOOL_VERSION=12.25
@@ -465,7 +465,7 @@ See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for m
 Use these instructions to install Transform Service using the distribution zip and connect it to an instance of 
 Alfresco Content Services.
 
-The Transform Services distribution zip file includes all the files required to provide the transformation and 
+The Transform Service distribution zip file includes all the files required to provide the transformation and 
 metadata extraction capabilities. Ensure that you've installed the [prerequisites](#prereq-non-containerized-deploy) 
 before continuing.
 
