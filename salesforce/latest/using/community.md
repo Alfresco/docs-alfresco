@@ -3,7 +3,7 @@ title: Salesforce Community
 ---
 
 Support for Salesforce Community allows external Salesforce Community Members to store and access documents in Alfresco. To provide access and share documents with external Salesforce Community Members, internal Salesforce users need to perform a series of actions.
-Before you begin, ensure your internal Salesforce users have been added to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services, for more see [Configure Salesforce Community]({% link salesforce/latest/config/index.md %}#configure-a-salesforce-community-site).
+Before you begin, ensure your internal Salesforce users have been added to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services, for more see [Configure Salesforce Community]({% link salesforce/latest/config/index.md %}#configure-a-salesforce-community).
 This documentation describes a Salesforce Case object, however any standard or custom object can be shared externally with Community Members.
 
 > **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (PaaS).
