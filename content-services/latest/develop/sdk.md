@@ -2272,7 +2272,7 @@ going to consider we need to apply them to a platform JAR module (the process wo
 
 At this point, you have configured your project to apply the AMPs in a specific order.
 
-### Debugging
+### Debugging {#debugging}
 
 When developing add-ins, fixing bugs, or changing Alfresco from the source code, it is helpful to debug an instance of Alfresco running on a standard 
 application server. This section outlines the steps needed to configure Alfresco and Eclipse (or IntelliJ IDEA) to provide a real-time view of the server 
