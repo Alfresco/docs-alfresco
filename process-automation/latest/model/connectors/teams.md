@@ -1,17 +1,17 @@
 ---
-title: Microsoft Teams Connector
+title: Microsoft Teams connector
 ---
 
-The Microsoft Teams Connector uses the [Microsoft Graph](https://slack.com){:target="_blank"} API to intergrate with Microsfot Teams. What can I add here.
+The Microsoft Teams connector uses the [Microsoft Graph](https://slack.com){:target="_blank"} API to intergrate with Microsfot Teams.
 
-The Teams Connector is displayed on the process diagram with the Teams logo.
+The Teams connector is displayed on the process diagram with the Teams logo.
 
-> **Important**: The Teams Connector and user both require a Microsoft Teams client. The Teams Connector requires a Teams account and is separate to the Alfresco hosted environment and should be created and managed by customers.
+> **Important**: The Teams connector and user both require a Microsoft Teams client. The Teams connector requires a Microsoft Outlook account and is separate to the Alfresco hosted environment and should be created and managed by an administrator.
 
 The actions that can be executed using the Teams connector are:
 
-* [Get Teams](#get-teams) retrieves all teams of the organisation.
-* [Create Teams channel](#createTeamsChannel) (public or private).
+* [Get Teams](#get-teams) retrieves all teams of the organization.
+* [Create Teams channel](#createTeamsChannel) creates a new public or private channel.
 * [Get channels](#get-channels) retrieves all existing channels for a specific team.
 
 ## Configuration
@@ -29,7 +29,7 @@ teams.connector.password=${TEAMS_PASSWORD}
 teams.connector.tenant=${TEAMS_TENANT}
 ```
 
-The connector uses a stream mechanism to send and receive information between Process Services and the connector. For this to occur you need to configure the following properties to so connector can be identified:
+The connector uses a stream mechanism to send and recieve information between Process Services and the connector. For this to occur you need to configure the following properties so the connector can be identified:
 
 ```bash
 spring.cloud.stream.bindings.createTeamsChannel.destination=${teams.connector.name}${spring.application.name}.CREATE_CHANNEL
@@ -43,31 +43,29 @@ spring.cloud.stream.bindings.getChannels.contentType=application/json
 spring.cloud.stream.bindings.getChannels.group=${CONSUMER_GROUP:${spring.application.name}}
 ```
 
-In addition to the above configuration, these properties are required to perform the Teams operations:
+In addition to the above configuration the following properties are required to perform Teams operations:
 
 ## Get Teams
 
-The `getTeams` action is used by the Teams Connector to retrieves all the teams of the organisation that are visible to the application.
+The `getTeams` action is used by the Teams connector and retrieves all of the visible teams of the organization.
 
-The input parameters to create a calendar event in Microsoft Outlook are:
+The input parameters to retrieves all of the visible teams are:
 
 | Property | Type | Description |
 |--- | --- | --- |
 | teamName | String | *Optional* Name of the team. If this property is null, the action will return all the teams. |
 
-The output parameters to create a calendar event in Microsoft Outlook are:
+The output parameters to retrieves all of the visible teams are:
 
 | Property  | Type | Description |
 |--- |--- |--- |
-| result | JSON | *Optional* Response with the team name and the identifier returned by MS Teams API. |
+| result | JSON | *Optional* Response with the team name and the identifier returned by the Teams API. |
 
-## Create Teams Channel`
+## Create Teams Channel
 
-The `createTeamsChannel` action is used by the Teams Connector to create a new public or private channel in Teams.
+The `createTeamsChannel` action is used by the Teams connector to create a new public or private channel in Teams.
 
-The input parameters to create a calendar event in Microsoft Outlook are:
-
-#### Inbound Variables
+The input parameters to create a new private or public channel are:
 
 | Property  | Type | Description |
 |--- |--- | --- |
@@ -76,26 +74,26 @@ The input parameters to create a calendar event in Microsoft Outlook are:
 | channelDescription | String | *Optional* Description of the channel. |
 | channelType | String | *Optional* Type of the channel. |
 
-The output parameters to create a calendar event in Microsoft Outlook are:
+The output parameters to create a new private or public channel are:
 
 | Property | Type | Description |
 |--- | --- | --- |
-| result | JSON | *Optional* Response with the channel name and the description returned by MS Teams API. |
+| result | JSON | *Optional* Response with the channel name and the description returned by the Teams API. |
 | channelId | String | *Optional* Identifier of the channel created. |
 
 ## Get channels
 
-The `getChannels` action is used by the Teams Connector to retrieve all the existing channels from a specific team.  
+The `getChannels` action is used by the Teams connector to retrieve all the existing channels from a specific team.  
 
-The input parameters to create a calendar event in Microsoft Outlook are:
+The input parameters to retrieve all the existing channels from a specific team are:
 
 | Property | Type | Description |
 |---|---| --- |
 | teamId | String | *Required* Identifier of the team. |
 | channelName | String | *Optional* Name of the channel. If this property is null, the action will return all the channels. |
 
-The input parameters to create a calendar event in Microsoft Outlook are:
+The output parameters to retrieve all the existing channels from a specific team are:
 
 | Property | Type | Description |
 |---|---|--- |
-| result | JSON | *Optional* Response with the identifier, the name, the membership type and the web url returned by MS Teams API. |
+| result | JSON | *Optional* Response with the identifier, the name, the membership type, and the web url returned by the Teams API. |
