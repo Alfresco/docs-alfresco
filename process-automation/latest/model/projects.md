@@ -20,7 +20,7 @@ To create a project:
 
 4. Enter a **Project name** and optional **Project description** if **Create Project** was chosen.
 
-You can use the **Save as** function accessible by clicking the  
+You can use the **Save as** function to save a new copy of a project from the projects view screen or from the home screen. This is accessed by clicking on the three dots and selecting **Save as**.  
 
 ## Properties
 
