@@ -20,6 +20,8 @@ To create a project:
 
 4. Enter a **Project name** and optional **Project description** if **Create Project** was chosen.
 
+You can use the **Save as** function accessible by clicking the  
+
 ## Properties
 
 The properties for a project are:
