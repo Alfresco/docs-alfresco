@@ -6,12 +6,12 @@ The Microsoft Teams connector uses the [Microsoft Graph](https://slack.com){:tar
 
 The Teams connector is displayed on the process diagram with the Teams logo.
 
-> **Important**: The Teams connector and user both require a Microsoft Teams client. The Teams connector requires a Microsoft Outlook account and is separate to the Alfresco hosted environment and should be created and managed by an administrator.
+> **Important**: The Teams connector and user both require a Microsoft Teams client. The Teams connector requires a Microsoft Teams account and is separate to the Alfresco hosted environment and should be created and managed by an administrator.
 
 The actions that can be executed using the Teams connector are:
 
 * [Get Teams](#get-teams) retrieves all teams of the organization.
-* [Create Teams channel](#createTeamsChannel) creates a new public or private channel.
+* [Create Teams channel](#create-teams-channel) creates a new public or private channel.
 * [Get channels](#get-channels) retrieves all existing channels for a specific team.
 
 ## Configuration
@@ -49,17 +49,17 @@ In addition to the above configuration the following properties are required to 
 
 The `getTeams` action is used by the Teams connector and retrieves all of the visible teams of the organization.
 
-The input parameters to retrieves all of the visible teams are:
+The input parameter to retrieves all of the visible teams is:
 
 | Property | Type | Description |
 |--- | --- | --- |
-| teamName | String | *Optional* Name of the team. If this property is null, the action will return all the teams. |
+| teamName | String | *Optional.* Name of the team. If this property is null, the action will return all the teams. |
 
-The output parameters to retrieves all of the visible teams are:
+The output parameter to retrieves all of the visible teams is:
 
 | Property  | Type | Description |
 |--- |--- |--- |
-| result | JSON | *Optional* Response with the team name and the identifier returned by the Teams API. |
+| result | JSON | *Optional.* Response with the team name and the identifier returned by the Teams API. |
 
 ## Create Teams Channel
 
@@ -69,17 +69,17 @@ The input parameters to create a new private or public channel are:
 
 | Property  | Type | Description |
 |--- |--- | --- |
-| teamId | String | *Required* Identifier of the team in which the channel will be created. |
-| channelName | String | *Required* Name of the channel. |
-| channelDescription | String | *Optional* Description of the channel. |
-| channelType | String | *Optional* Type of the channel. |
+| teamId | String | *Required.* Identifier of the team in which the channel will be created. |
+| channelName | String | *Required.* Name of the channel. |
+| channelDescription | String | *Optional.* Description of the channel. |
+| channelType | String | *Optional.* Type of the channel. |
 
 The output parameters to create a new private or public channel are:
 
 | Property | Type | Description |
 |--- | --- | --- |
-| result | JSON | *Optional* Response with the channel name and the description returned by the Teams API. |
-| channelId | String | *Optional* Identifier of the channel created. |
+| result | JSON | *Optional.* Response with the channel name and the description returned by the Teams API. |
+| channelId | String | *Optional.* Identifier of the channel created. |
 
 ## Get channels
 
@@ -89,11 +89,11 @@ The input parameters to retrieve all the existing channels from a specific team 
 
 | Property | Type | Description |
 |---|---| --- |
-| teamId | String | *Required* Identifier of the team. |
-| channelName | String | *Optional* Name of the channel. If this property is null, the action will return all the channels. |
+| teamId | String | *Required.* Identifier of the team. |
+| channelName | String | *Optional.* Name of the channel. If this property is null, the action will return all the channels. |
 
-The output parameters to retrieve all the existing channels from a specific team are:
+The output parameter to retrieve all the existing channels from a specific team is:
 
 | Property | Type | Description |
 |---|---|--- |
-| result | JSON | *Optional* Response with the identifier, the name, the membership type, and the web url returned by the Teams API. |
+| result | JSON | *Optional.* Response with the identifier, the name, the membership type, and the web url returned by the Teams API. |
