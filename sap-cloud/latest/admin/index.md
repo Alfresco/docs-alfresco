@@ -16,7 +16,7 @@ Upload an attachment to a Material Master so it's shown in the **Business Object
 
    ![SAP transaction MM03]({% link sap-cloud/images/sap_test_mm03_1.png %})
 
-2. In the GOS menu click on **Create Attachment** and upload any desired file. This stores it in Content Services via CMIS:
+2. In the {% include tooltip.html word="GOS" text="GOS" %} menu click on **Create Attachment** and upload any desired file. This stores it in Content Services via CMIS:
 
    ![SAP transaction MM03]({% link sap-cloud/images/sap_test_mm03_2.png %})
 
@@ -26,7 +26,7 @@ Upload an attachment to a Material Master so it's shown in the **Business Object
 
 #### Verify Material Master in Content Services
 
-In the Content Services repository, navigate to the **Business Object Types > Products** folder to find the recently stored document. There will be some basic CMIS related aspects available.
+In the Content Services repository, navigate to the **Business Object Types > Product** folder to find the recently stored document. There will be some basic CMIS related aspects available.
 
 ![View in Content Services]({% link sap-cloud/images/sap_test_mm03_4_acs_view.png %})
 
@@ -49,7 +49,7 @@ In Content Services navigate to the **Business Object Types > Equipment** folder
 
 ## Supported SAP Business Objects
 
-The following table lists all SAP Business Objects that are tested and supported in the current version of the Alfresco Content Connector for SAP Cloud against an S/4HANA 2020 on-premises:
+The following table lists all SAP Business Objects that are tested and supported in the current version of the Content Connector for SAP Cloud against S/4HANA 2020 on-premises:
 
 | SAP Business Object Name | SAP Business Object Type | Transaction Code | Supported |
 | ---------------- | --------- | ---- | --- |
