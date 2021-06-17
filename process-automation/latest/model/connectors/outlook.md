@@ -6,7 +6,7 @@ The Outlook connector uses the [Microsoft Graph](https://docs.microsoft.com/en-u
 
 The Outlook connector is displayed on the process diagram with the Outlook logo.
 
-> **Important**: The Outlook connector and user both require a Microsoft Outlook client. The Outlook connector requires a Microsoft Outlook account and is separate to the Alfresco hosted environment and should be created and managed by an administrator.
+> **Important**: The Outlook connector and user both require a Microsoft Outlook client. The Outlook connector requires a Microsoft Outlook account. The account is separate to the Alfresco hosted environment and should be created and managed by an administrator.
 
 The actions that can be executed using the Outlook connector are:
 
