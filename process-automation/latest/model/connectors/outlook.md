@@ -2,7 +2,7 @@
 title: Microsoft Outlook connector
 ---
 
-The Outlook connector uses the [Microsoft Graph](https://slack.com){:target="_blank"} API to integrate with Microsoft Outlook.
+The Outlook connector uses the [Microsoft Graph](https://docs.microsoft.com/en-us/graph/use-the-api){:target="_blank"} API to integrate with Microsoft Outlook.
 
 The Outlook connector is displayed on the process diagram with the Outlook logo.
 

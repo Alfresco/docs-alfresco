@@ -2,11 +2,11 @@
 title: Microsoft Teams connector
 ---
 
-The Microsoft Teams connector uses the [Microsoft Graph](https://slack.com){:target="_blank"} API to intergrate with Microsfot Teams.
+The Microsoft Teams connector uses the [Microsoft Graph](https://docs.microsoft.com/en-us/graph/use-the-api){:target="_blank"} API to intergrate with Microsfot Teams.
 
 The Teams connector is displayed on the process diagram with the Teams logo.
 
-> **Important**: The Teams connector and user both require a Microsoft Teams client. The Teams connector requires a Microsoft Teams account and is separate to the Alfresco hosted environment and should be created and managed by an administrator.
+> **Important**: The Teams connector and user both require a Microsoft Teams client. The Teams connector requires a Microsoft Teams account. The account is separate to the Alfresco hosted environment and should be created and managed by an administrator.
 
 The actions that can be executed using the Teams connector are:
 
