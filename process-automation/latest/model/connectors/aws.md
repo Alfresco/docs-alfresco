@@ -343,6 +343,8 @@ If the asynchronous job finishes successfully a compressed output file (`output.
 
 ### BPMN Tasks Configuration
 
+The following describes an example of how the text analysis connector is setup in AAE:
+
 ![BPMN]({% link process-automation/images/analysis-process.png %})
 
 As part of the BPMN definition process, any service task responsible for triggering the text analysis `comprehend.ENTITY` has to be set as the value for its implementation attribute.
