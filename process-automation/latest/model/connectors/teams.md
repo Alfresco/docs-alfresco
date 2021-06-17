@@ -49,13 +49,13 @@ In addition to the above configuration the following properties are required to 
 
 The `getTeams` action is used by the Teams connector and retrieves all of the visible teams of the organization.
 
-The input parameter to retrieves all of the visible teams is:
+The input parameter to retrieve all of the visible teams is:
 
 | Property | Type | Description |
 |--- | --- | --- |
 | teamName | String | *Optional.* Name of the team. If this property is null, the action will return all the teams. |
 
-The output parameter to retrieves all of the visible teams is:
+The output parameter to retrieve all of the visible teams is:
 
 | Property  | Type | Description |
 |--- |--- |--- |
