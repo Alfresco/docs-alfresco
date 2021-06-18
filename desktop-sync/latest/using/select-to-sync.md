@@ -60,6 +60,8 @@ Use the *Choose files and folders to sync* screen to select the content to sync 
 
     > **Note:** If you wish to move the Alfresco sync folder location later, you'll have to remove your account and set up Desktop Sync again.
 
+    > **Note:** The sync folder location must be set to a local folder as network folders aren't supported.
+
 ### About the initial sync
 
 The **Syncing** progress screen shows the status of initial sync. The Alfresco icon ![]({% link desktop-sync/images/ds-spin.png %})in the system tray will spin during the sync process. On completion, a notification appears on the system tray.
@@ -134,6 +136,8 @@ Use the *Select sites and folders to sync* dialog to select the content to sync 
     2. To change the sync location, select **Browse…**, choose a new location, click **Select Folder**, and then click **OK** to start the sync.
 
     > **Note:** If you wish to move the Alfresco sync folder location later, you'll have to remove your account and set up Desktop Sync again.
+
+    > **Note:** The sync folder location must be set to a local folder as network folders aren't supported.
 
 ### About the initial sync
 

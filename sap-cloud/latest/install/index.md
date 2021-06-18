@@ -8,17 +8,19 @@ In these topics you'll install and set up everything you need to run the SAP Clo
 
 ## Prerequisites
 
-Below are the environment/software prerequisites for installing and using the SAP Cloud Connector.
+There are a number of software requirements for installing and using the SAP Cloud Connector.
 
-* Content Services 6.2 or later.
-* A valid license for the SAP Cloud Connector.
-* SAP version that supports CMIS - SAP S4/HANA 1909 (minimum).
+See [Supported platforms]({% link sap-cloud/latest/support/index.md %}) for more information.
+
+### General requirements
+
+You also need to [install a valid license](#install-license) for the SAP Cloud Connector.
 
 ## Install SAP Cloud Connector {#install-connector}
 
 The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" text="AMP" %} file. These steps describe how to install the SAP Cloud Connector to an instance of Content Services.
 
-1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, and then download Alfresco Content Connector for SAP Cloud :
+1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, and then download Alfresco Content Connector for SAP Cloud:
 
     * `sap-content-connector-cmis-repo-1.0.x.amp` for Content Services.
 

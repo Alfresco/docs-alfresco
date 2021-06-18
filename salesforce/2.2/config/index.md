@@ -10,8 +10,8 @@ Here, you'll use the Identity Service with Salesforce and Alfresco Content Servi
 
 Before you begin ensure you've installed:
 
-* [Alfresco Content Services]({% link content-services/latest/install/index.md %}) 6.2.2 or above
-* [Alfresco Content Connector for Salesforce]({% link salesforce/latest/install/index.md %}) 2.2 or above
+* [Alfresco Content Services]({% link content-services/latest/install/index.md %}) 6.2.1 or above
+* [Alfresco Content Connector for Salesforce]({% link salesforce/2.2/install/index.md %}) 2.2 or above
 * [Identity Service]({% link identity-service/latest/install/index.md %}) 1.3 or above
 
 There are two parts to this configuration: [configure SSO between Content Services and the Salesforce Connector](#sso-alfresco) and [configure SSO for Salesforce](#sso-salesforce)
@@ -123,28 +123,3 @@ Ensure you have the [prerequisites](#prereqs) installed and configured first, an
     By doing this when a user is created your domain name is used by default instead of `@myDomain.com`.
 
     >**Note:** The Apex code can be configured in lots of different ways to suit your organization. See the Apex documentation at Salesforce for more: [What is Apex?](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_intro_what_is_apex.htm){:target="_blank"}.
-
-## Configure a Salesforce Community
-
-To configure access to Salesforce Community you must add the internal Salesforce users to the `GROUP_SALESFORCE_MODERATORS` group in Alfresco Content Services.
-Internal Salesforce users added to this group will be allowed to share content externally to Community Members. Users not added to this group will not be granted access to share content externally.
-
-> **Note:** Support for Salesforce Community is only available when using Alfresco Cloud (PaaS).
-
-1. Log in to Alfresco Content Services as an administrator and click **Admin Tools**.
-
-2. Click **Groups** under **Users and Groups**.
-
-3. Select **Show System Groups** on the top right.
-
-4. Click **Browse** and select `GROUP_SALESFORCE_MODERATORS`.
-
-5. Click the **Add User** icon.
-
-    You are presented with the **Add User** window.
-
-6. Search for the administrator user you want to add.
-
-7. Click the **Add** button next to the user.
-
-You will see the user you have added will appear in the middle column.
