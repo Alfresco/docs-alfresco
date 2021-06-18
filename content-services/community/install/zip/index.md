@@ -38,6 +38,8 @@ To get started, prepare your production server by installing the prerequisite so
 7. Set up ActiveMQ.
 8. Install third-party software used by Community Edition. This includes LibreOffice, ImageMagick, and Alfresco PDF Renderer.
 
+> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip.
+
 Review and test your setup to check that all the installation steps are complete:
 
 1. Start and configure your database.
