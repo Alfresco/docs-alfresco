@@ -99,7 +99,7 @@ Use this method of installing if you've already installed a JRE, a supported dat
 
 The Community Edition distribution file is a zip containing the required WAR files, in addition to the additional commands, and configuration files for a manual installation.
 
-1. Download the file: `alfresco-content-services-community-distribution-6.2.0-ga.zip`
+1. Download the file: `alfresco-content-services-community-distribution-7.0.x.zip`
 
 2. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 
