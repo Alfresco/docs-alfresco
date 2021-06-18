@@ -257,7 +257,6 @@ defaults:
       path: "identity-service/latest"
     values:
       version: 1.4
-      latest: true
   - scope:
       path: "identity-service/1.4/tutorial"
     values:
