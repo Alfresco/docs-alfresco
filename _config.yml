@@ -254,7 +254,7 @@ defaults:
     values:
       toc: "identity-service-tutorial"
   - scope:
-      path: "identity-service/latest"
+      path: "identity-service/1.4"
     values:
       version: 1.4
   - scope:
