@@ -103,7 +103,7 @@ cm:my content:my name
 
 ## Search for an exact term
 
-To search for an exact term you must prefix it with "=". The supported syntax:
+To search for an exact term you must prefix it with "=". Exact term search is not case sensitive. The supported syntax:
 
 * `=term`
 * `=term1 =term2`
@@ -117,7 +117,7 @@ To search for an exact term you must prefix it with "=". The supported syntax:
 
 If you don’t specify a field the search runs against name, description, title, and content. If the field specified is `TOKENIZED=false`, only the full field is matched. If the field you specified is `TOKENIZED=TRUE` or `TOKENIZED=BOTH` then the search is run on the cross locale tokenized version of the field.
 
-> **Note:** If cross locale is not configured for the field then an exception occurs.
+> **Note:** If cross locale is not configured for the field then a 501 status code will be returned.
 
 The list of the default supported types as declared in the `<alfresco_home>/solr4/conf/shared.properties` file:
 
