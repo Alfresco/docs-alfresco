@@ -24,20 +24,20 @@ As an example, the following upgrade steps reference the infrastructure chart on
 4. Back up the database used by the Identity Service.
 5. Locate the previously deployed infrastructure chart in Kubernetes and set it as a variable:
 
-    ```
+    ```bash
     export RELEASENAME=knobby-wolf
     ```
 
 6. Use the `helm upgrade` command to upgrade the infrastructure chart to a release that contains version 1.2 of the Identity Service:
 
-    ```
+    ```bash
     helm upgrade $RELEASENAME alfresco-stable/alfresco-infrastructure --version 5.2.0
     ```
 
 7. Wait for the new pods to start up before accessing the new version of the Identity Service.
 8. (*Optional*) Use the following command to rollback to the previous version if required:
 
-    ```
+    ```bash
     helm rollback --force --recreate-pods --cleanup-on-fail $RELEASENAME 1
     ```
 
@@ -49,7 +49,7 @@ Use the following steps to upgrade a manual ZIP installation:
 
     For example, for a PostgreSQL database backup:
 
-    ```
+    ```bash
     pg_dump --clean --no-owner --no-acl -h ${POSTGRES_HOST} -p ${POSTGRES_PORT}  -U ${POSTGRES_USER} ${POSTGRES_DATABASE} | grep -v -E '(DROP\ SCHEMA\ public|CREATE\ SCHEMA\ public|COMMENT\ ON\ SCHEMA\ public|DROP\ EXTENSION\ plpgsql|CREATE\ EXTENSION\ IF\ NOT\ EXISTS\ plpgsql|COMMENT\ ON\ EXTENSION\ plpgsql)' > /backup/backup.sql
     ```
 
@@ -60,7 +60,7 @@ Use the following steps to upgrade a manual ZIP installation:
 
     For example, for a PostgreSQL database:
 
-    ```
+    ```bash
     psql -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DATABASE} -U ${POSTGRES_USER} -f /backup/backup.sql
     ```
 
@@ -70,19 +70,19 @@ Use the following steps to upgrade a manual ZIP installation:
 
     For a Linux or Unix environment:
 
-    ```
-    $ cd alfresco-identity-service-1.2.0/bin
-    $ ./standalone.sh -b <IP_ADDRESS>
+    ```bash
+    cd alfresco-identity-service-1.2.0/bin
+    /standalone.sh -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a bat script:
 
-    ```
-    > ...\alfresco-identity-service-1.2.0\bin\standalone.bat -b <IP_ADDRESS>
+    ```bash
+    \alfresco-identity-service-1.2.0\bin\standalone.bat -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a Powershell script:
 
-    ```
-    > ...\alfresco-identity-service-1.2.0\bin\standalone.ps1 -b <IP_ADDRESS>
+    ```bash
+    \alfresco-identity-service-1.2.0\bin\standalone.ps1 -b <IP_ADDRESS>
     ```

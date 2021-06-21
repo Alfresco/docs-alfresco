@@ -222,9 +222,10 @@ The Java login files need to be updated with details of the Kerberos configurati
     * Navigate to the `<!--- Kerberos settings --->` section and replace `condition="KerberosDisabled"` with `condition="Kerberos"`
 
     > **Note**: For Kerberos to work with user names that contain non-ASCII characters, add the following option to JAVA\_OPTS for the Share JVM:
-    >```bash
-    >-Dsun.security.krb5.msinterop.kstring=true
-    >```
+  
+    ```bash
+    -Dsun.security.krb5.msinterop.kstring=true
+    ```
 
 ## Step 4: Configure Alfresco Digital Workspace
 
