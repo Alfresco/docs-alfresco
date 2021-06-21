@@ -88,7 +88,6 @@ From Activiti 6, the jobs have been split up in a job `ACT_RU_JOB`, timer `ACT_R
 
 > **Note:** It's important to complete all pending jobs before upgrading from APS 1.x to APS 2.
 
-
 #### Signaling an execution
 
 In Activiti 6, the `signal()` methods have been renamed to `trigger()`.
