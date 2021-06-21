@@ -238,7 +238,7 @@ A node is defined by the following properties:
 | language | Mandatory property, set to `fts-alfresco`. |
 | query | Mandatory FTS query that defines the folder content. |
 | filing | Optional rule that defines the filing action for a new file when it is uploaded to the Smart Folder. If no filing rule is defined, files can't be uploaded to that folder. Parameters include: {::nomarkdown}<ul><li>path: path where a document is physically stored</li><li>classification: type and aspects assigned to the new file</li><li>properties: property values attributed to the new file</li></ul>{:/} |
-| path | Mandatory property in a filing rule. Path to store new documents. This is the [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded `QName`. |
+| path | Mandatory property in a filing rule. Path to store new documents. This is the [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/7.0.0/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded `QName`. |
 | classification | Mandatory property in a filing rule. Type and aspects of the new object. |
 | properties | Optional property. Defines property values and inheritance. |
 
@@ -246,13 +246,13 @@ Here are some tips on notation:
 
 * Use percent (%) signs to use predefined placeholders in queries and filing rules
 * For repository path expressions use QNames, for example; `/app:company_home/st:sites/cm:swsdp/cm:documentLibrary`.
-* Special characters and whitespace are [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded. Use this notation to encode special characters in repository path names. For example, use `_x0020_` for the whitespace character.
+* Special characters and whitespace are [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/7.0.0/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded. Use this notation to encode special characters in repository path names. For example, use `_x0020_` for the whitespace character.
 
 | Placeholder | Description |
 | ----------- | ----------- |
-| %ACTUAL_PATH% | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded repository path of the physical parent folder. Only the physical parent folder (or next physical folder up the folder tree) can use `%ACTUAL_PATH%`. |
+| %ACTUAL_PATH% | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/7.0.0/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded repository path of the physical parent folder. Only the physical parent folder (or next physical folder up the folder tree) can use `%ACTUAL_PATH%`. |
 | %CURRENT_USER% | Account name of the user. |
-| \_x0020\_ | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded whitespace character. |
+| \_x0020\_ | [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/7.0.0/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded whitespace character. |
 | <> | Use angle brackets, for example, `<cm:name>`, to inherit property values from the physical parent folder. Used for inheritance in a filing rule and in a query. |
 
 The following code fragments give more information about these properties.
@@ -367,7 +367,7 @@ These define the path where a document uploaded to a Smart Folder should be crea
 
   The path can be an existing folder location, for example:
 
-  * Using an XPath expression, and ensuring the expression is [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/6.2.2/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded:
+  * Using an XPath expression, and ensuring the expression is [ISO9075](https://github.com/Alfresco/alfresco-community-repo/tree/release/7.0.0/data-model/src/main/java/org/alfresco/util){:target="_blank"} encoded:
 
     ```json
       "path":"/app:company_home/cm:Claims_x0020_Pool"
