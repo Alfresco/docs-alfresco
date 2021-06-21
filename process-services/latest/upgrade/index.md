@@ -51,7 +51,7 @@ Any database upgrade changes should have now been applied.
 
 ## Upgrading from 1.x to 2.x
 
-When you upgrade from APS 1.x to 2.x you are upgrading from Activi 5.x to 6. There are breaking changes that you need to be aware of in order for your system to function correctly after you have upgraded.
+When you upgrade from APS 1.x to 2.x you are upgrading from Activiti 5.x to 7. There are breaking changes that you need to be aware of in order for your system to function correctly after you have upgraded.
 
 > **Note:** You do not need to migrate your database when upgrading from 1.x to 2.x.
 
@@ -84,45 +84,36 @@ All methods from the `ActivityExecution` class are copied to the `DelegateExecut
 
 Activiti 5 had only 1 job table and this meant that a fairly complex query had to be executed to get the jobs that needed to be executed from the database.
 
-With Activiti 6, the jobs have been split up in a job `ACT_RU_JOB`, timer `ACT_RU_TIMER_JOB`, suspended `ACT_RU_SUSPENDED_JOB`, and `ACT_RU_DEADLETTER_JOB` dead letter table. Jobs in the job table can be directly executed in the same way as asynchronous and due timer jobs. So there's no need for a complex query anymore, the only where clause is a lock time column that should be `NULL`.
-Timer jobs are now persisted in a dedicated timer jobs table and there's a Runnable that checks for timer jobs due to execute. When a timer job is due to be executed, the job will be moved to the job table. When the job executor Runnable is ready to execute the job it will be fetched from the job table and executed. When a process definition and process instance is suspended, the corresponding jobs will be moved to a separate suspended job table. This simplifies the job executor query and makes it very clear which jobs are suspended. If a job execution fails, the job will be placed in the timer job table with a due date that's set to current time + the async failed job wait time configured on the process engine configuration. When the job is due to be executed it will be moved to the job table again and be executed. When the number of retries is down to zero, the job will be moved to the dead letter table and no automatic execution will be performed. This also simplifies the default job executor queries and makes it obvious which jobs are stuck and might need manual intervention.
+From Activiti 6, the jobs have been split up in a job `ACT_RU_JOB`, timer `ACT_RU_TIMER_JOB`, suspended `ACT_RU_SUSPENDED_JOB`, and `ACT_RU_DEADLETTER_JOB` dead letter table.
 
-The embedded Activiti 5 engine in Activiti 6 works with these 4 job tables as well. But there's only one threadpool fetching jobs from the database. When a job is fetched from the database, the engine version for the job is checked based on the process definition id, and the job is executed by the Activiti 6 or embedded Activiti 5 Engine.
+> **Note:** It's important to complete all pending jobs before upgrading from APS 1.x to APS 2.
+
 
 #### Signaling an execution
 
-In version 2.x, the `signal()` methods have been renamed to `trigger()`.
+In Activiti 6, the `signal()` methods have been renamed to `trigger()`.
 
 This also means that `SignalableActivityBehavior`, the interface to be implemented for behaviors that can be `triggered` from external sources, is now called `TriggerableActivityBehavior`.
 
 #### Checked Exceptions
 
-In version 5, the delegate classes like `JavaDelegate` and `ActivityBevior` had `throws Exception` in their signature. As with any modern framework, the use of checked Exceptions has been removed in version 6.
+In version 5, the delegate classes like `JavaDelegate` and `ActivityBehavior` had `throws Exception` in their signature. As with any modern framework, the use of checked Exceptions has been removed in version 6.
 
 #### Delegate classes
 
 `org.activiti.engine.impl.pvm.delegate.ActivityBehavior` has changed package and lives now in `org.activiti.engine.impl.delegate`.
 
-The following methods have been removed from `DelegateExecution`:
+The method `getEngineServices()` have been removed from `DelegateExecution`. It's possible to retrieve services like `RepositoryService` from `org.activiti.engine.impl.context.Context` using `Context.getProcessEngineConfiguration().getRepositoryService()`.
 
-* `end()`
-* `createdExecution()`
 
-They have been replaced by calls to the `ExecutionEntityManager`, which can be fetched through `Context.getCommandContext.getExecutionEntityManager()`.
+#### Identity management classes removed
+In Activiti 7, the package `org.activiti.engine.identity` and all it's classes like `User` and `Group` were removed. While the classes have been removed the database tables like `ACT_ID_USER` and `ACT_ID_GROUP` will not be removed when upgrading from APS 1.x to APS 2. However, they'll not be created if you start APS 2 on a new database.
 
-#### EntityManagers
-
-In Activiti version 5, all `EntityManager`, which was responsible for persistence but also certain logic classes did not have an interface. In version 6, all `EntityManager` classes have been renamed to have `Impl` as suffix and an interface without the suffix. This effectively means that the version 5 `EntityManager` class name is now the name of the corresponding interface.
-
-All `EntityManager` interfaces extend the generic `org.activiti.engine.impl.persistence.entity.EntityManager` interface. All implementation classes extend a generic `AbstractEntityManager` interface. The `UserIdentityManager` interface has been renamed to `UserEntityManager`. The `GroupIdentityManager` interface has been renamed to `GroupEntityManager`
-
-#### PersistentObject renamed to Entity
-
-The class `org.activiti.engine.impl.db.PersistentObject` has been renamed to `Entity` to be consistent with all the other classes suchg as `EntityManagers`.
-
-All related classes that used the term 'persistent object' have been refactored to 'entity' too.
 
 ### Alfresco Process Services third-party breaking changes
 
 The following are third party breaking changes that have occured.
 
+* Spring framework upgraded from 4.x to 5
+* Spring boot upgraded from 1.x to 2
+* Hibernate upgraded from 4.x to 5
