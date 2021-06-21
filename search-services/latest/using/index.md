@@ -117,7 +117,7 @@ To search for an exact term you must prefix it with "=". Exact term search is no
 
 If you don’t specify a field the search runs against name, description, title, and content. If the field specified is `TOKENIZED=false`, only the full field is matched. If the field you specified is `TOKENIZED=TRUE` or `TOKENIZED=BOTH` then the search is run on the cross locale tokenized version of the field.
 
-> **Note:** If cross locale is not configured for the field then a 501 status code will be returned.
+> **Note:** If cross locale is not configured for the field then an exception occurs. Search requests from the v1 REST API will receive a 501 status code.
 
 The list of the default supported types as declared in the `<alfresco_home>/solr4/conf/shared.properties` file:
 
