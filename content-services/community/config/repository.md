@@ -677,7 +677,7 @@ From Alfresco One version 5.0 and later, the caches can be configured by setting
 
 > **Note:** It's advisable not to change the cache values unless you have performance issues.
 
-1. Download the files [tx-cache-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/tx-cache-context.xml){:target="_blank"} and [caches.properties](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/caches.properties){:target="_blank"}.
+1. Download the files [tx-cache-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/tx-cache-context.xml){:target="_blank"} and [caches.properties](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/caches.properties){:target="_blank"}.
 
     The `caches.properties` file lists a series of properties for configuring a cache. The cache properties are used for both clustered and non-clustered configurations.
 
@@ -868,7 +868,7 @@ To change this behavior, you can set `cm:autoVersionOnUpdateProps` to `true`.
 
 Edit the `contentModel.xml` file to enable versioning for all content in the repository.
 
-1. Download the [contentModel.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/model/contentModel.xml){:target="_blank"} file.
+1. Download the [contentModel.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/model/contentModel.xml){:target="_blank"} file.
 
     If you're deploying a nightly build, you might prefer to extract the `contentModel.xml` file from the deployed `alfresco.war` file to ensure you have the correct version.
 
@@ -986,7 +986,7 @@ Follow these replication steps for the MySQL database.
 
 This task describes how to customize content transformations.
 
-1. Download the [content-services-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/6.2.2/repository/src/main/resources/alfresco/content-services-context.xml){:target="_blank"} file.
+1. Download the [content-services-context.xml](https://github.com/Alfresco/alfresco-community-repo/blob/release/7.0.0/repository/src/main/resources/alfresco/content-services-context.xml){:target="_blank"} file.
 
 2. Paste this file into the `<extension>` directory, and open the file.
 
