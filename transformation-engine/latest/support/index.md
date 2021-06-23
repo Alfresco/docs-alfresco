@@ -6,16 +6,12 @@ The following are the supported platforms for Alfresco Document Transformation E
 
 ## Alfresco Content Services
 
-| Version | Transformation Engine 2.2.1 | Transformation Engine 2.2.2 |
-| ------- | --------------------------- | --------------------------- |
-| Content Services 6.0 | Yes | No |
-| Content Services 6.1.0 | Yes | No |
-| Content Services 6.1.1 | No | Yes |
-| Content Services 6.2 | No | Yes |
-| Content Services 7.0 | No | Yes |
+| Version | Transformation Engine 2.3 |  
+| ------- | --------------------------- |
+| Content Services 7.0 | Yes |
 
 ## Java
 
 | Version | Supported | Notes |
 | ------- | --------- | ----- |
-| Oracle JDK 8 | | |
+| Oracle JDK 11 | | |
