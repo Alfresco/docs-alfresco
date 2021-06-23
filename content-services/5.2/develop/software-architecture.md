@@ -15,36 +15,15 @@ You can read the material in this Developer guide sequentially, or the following
 |You would like to get an overview of the architecture of Alfresco Content Services from the developer's perspective|[Architectural overview](#alfresco-content-services-architecture)|
 |You want to know what development kit to use when building extensions for Alfresco|[Alfresco SDK]({% link content-services/5.2/develop/sdk.md %})|
 |You would like to know how to package your extensions for distribution|[Extension packaging]({% link content-services/5.2/develop/extension-packaging.md %}#module-package-formats)|
-|You want to write client applications for Alfresco Content Services using a ReST API|-   [ReST APIs Intro]({% link content-services/5.2/develop/api-reference.md %}#rest-apis)
--   [Alfresco ReST API version 1.0 User Guide]({% link content-services/5.2/develop/rest-api-guide/index.md %}#rest-api)
-
-|
-|You are going to build a Platform (Repository) Extension.|-   [Platform / Repo Extension Intro](#platform-extension-point)
--   [Platform / Repo Extension Points](#platform-extension-points)
-
-|
+|You want to write client applications for Alfresco Content Services using a ReST API|[ReST APIs Intro]({% link content-services/5.2/develop/api-reference.md %}#rest-apis)<br>[Alfresco ReST API version 1.0 User Guide]({% link content-services/5.2/develop/rest-api-guide/index.md %}#rest-api)|
+|You are going to build a Platform (Repository) Extension.|- [Platform / Repo Extension Intro](#platform-extension-point)<br>- [Platform / Repo Extension Points](#platform-extension-points)|
 |You are going to build a Platform (Repository) Integration.|[Developing integrations]({% link content-services/5.2/develop/platform-integrations.md %})|
-|You want to write small extensions for Alfresco Content Services in JavaScript and FreeMarker|-   [Repo Web Script Intro]({% link content-services/5.2/develop/reference/web-scripts-ref.md %}#repository-tier-web-scripts)
--   [Repo Web Script Extension Point]({% link content-services/5.2/develop/api-reference.md %}#web-scripts)
--   [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)
-
-|
-|You want to create a custom ReST API for Alfresco Content Services, using Java and/or JavaScript for logic and FreeMarker to produce responses in JSON and/or XML|-   [Repo Web Script Intro]({% link content-services/5.2/develop/reference/web-scripts-ref.md %}#repository-tier-web-scripts)
--   [Repo Web Script Extension Point]({% link content-services/5.2/develop/api-reference.md %}#web-scripts)
--   [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)
--   [Public Java API Services]({% link content-services/5.2/develop/java-api-guide.md %}#public-java-api-services)
-
-|
+|You want to write small extensions for Alfresco Content Services in JavaScript and FreeMarker|- [Repo Web Script Intro]({% link content-services/5.2/develop/reference/web-scripts-ref.md %}#repository-tier-web-scripts)<br>- [Repo Web Script Extension Point]({% link content-services/5.2/develop/api-reference.md %}#web-scripts)<br>- [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)|
+|You want to create a custom ReST API for Alfresco Content Services, using Java and/or JavaScript for logic and FreeMarker to produce responses in JSON and/or XML|- [Repo Web Script Intro]({% link content-services/5.2/develop/reference/web-scripts-ref.md %}#repository-tier-web-scripts)<br>- [Repo Web Script Extension Point]({% link content-services/5.2/develop/api-reference.md %}#web-scripts)<br>- [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)<br>- [Public Java API Services]({% link content-services/5.2/develop/java-api-guide.md %}#public-java-api-services)|
 |You would like to know what APIs are available for Alfresco Content Services, and when you should use them|[Overview of Alfresco APIs]({% link content-services/5.2/develop/rest-api-guide/index.md %}#api-guide)|
-|You want to write new services in Java, and need to check what APIs are supported|-   [Alfresco Public Java API Intro]({% link content-services/5.2/develop/api-reference.md %}#java-api)
--   [Public Java API Services]({% link content-services/5.2/develop/java-api-guide.md %}#public-java-api-services)
-
-|
+|You want to write new services in Java, and need to check what APIs are supported|- [Alfresco Public Java API Intro]({% link content-services/5.2/develop/api-reference.md %}#java-api)<br>- [Public Java API Services]({% link content-services/5.2/develop/java-api-guide.md %}#public-java-api-services)|
 |You want to configure and customize Alfresco Share|[Share Extensions](#share-extensions)|
-|You would like to develop extensions to Alfresco Share UI|-   [Developing Share Extensions](#share-extensions)
--   [Share Extension Points]({% link content-services/5.2/develop/share-ext-points/index.md %})
-
-|
+|You would like to develop extensions to Alfresco Share UI|- [Developing Share Extensions](#share-extensions)<br>- [Share Extension Points]({% link content-services/5.2/develop/share-ext-points/index.md %})|
 |You would like to know about the new UI framework Aikau|[Aikau]({% link content-services/5.2/develop/reference/aikau-intro-ref.md %}#introducing-aikau)|
 
 -   **[Alfresco Content Services architecture](#alfresco-content-services-architecture)**  
@@ -528,7 +507,7 @@ The following table list some of the main protocols supported by Alfresco Conten
 |Protocol|Description|Support Status|
 |--------|-----------|--------------|
 |HTTP|The main protocol used to access the repository via for example the REST APIs.|Standard in Alfresco Content Services and Community Edition.|
-|[WebDAV]({% link content-services/5.2/admin/troubleshoot.md %}#troubleshooting-webdav)|Web-based Distributed Authoring and Versioning is a set of HTTP extensions that lets you manage files collaboratively on web servers.|Standard in Alfresco Content Servicesand Community Edition.|
+|[WebDAV]({% link content-services/5.2/admin/troubleshoot.md %}#troubleshooting-webdav)|Web-based Distributed Authoring and Versioning is a set of HTTP extensions that lets you manage files collaboratively on web servers.|Standard in Alfresco Content Services and Community Edition.|
 |[FTP]({% link content-services/5.2/config/file-servers.md %}#configuring-the-ftp-file-server)|File Transfer Protocol - standard network protocol for file upload, download and manipulation. Useful for bulk uploads and downloads.|Standard in Alfresco Content Services and Community.|
 |[CIFS]({% link content-services/5.2/config/file-servers.md %}#configuring-smb/cifs-server)|Common Internet File System - allows the projection of Alfresco Content Services as a native shared drive. Any client that can read or write to file drives can read and write to Alfresco Content Services, allowing the commonly used shared file drive to be replaced with an ECM system, without users knowing.|Standard in Alfresco Content Servicesand Community Edition.|
 |[SPP]({% link content-services/5.2/admin/audit.md %}#installing-and-configuring-alfresco-office-services)|Enables Alfresco Content Services to act as a Microsoft SharePoint Server. Allows Microsoft Office users to access documents within the Alfresco repository.|Supported as part of Alfresco Office Services (AOS). Community versions have support for the older SharePoint Protocol Support.|
@@ -694,24 +673,8 @@ Terms and concepts used when developing for Alfresco Content Services.
 |Content Store|The repository has multiple content stores. Typically this would include a main content store, an encrypted content store, an archive content store (for deleted items), and a version store (to hold previous versions of documents). It is also possible for developers to create custom content stores for specific purposes.|
 |Content Transformation|Content transformation transforms one format of content into another. There are numerous applications of this, such as converting content into plain text for indexing and generating PDF versions of Word files. Transformations can be chained together, for example DOC to PDF using LibreOffice. Key service is the ContentTransformation Service.|
 |Extension|Extensions can be thoughts of as server-side additions to Alfresco Content Services. There are two main types of extension: Platform and Share. Each of these extension types are fully described in this documentation, along with all officially supported extension points.|
-|Events|Data structures created on various changes within the repository, such as name change of a piece of content. There are three types of Event: 1.  Inbound event - content arriving into a folder
-2.  Outbound event - content leaving a folder
-3.  Update event - content being modified
-
-|
-|Indexing|As content is added to Alfresco Content Services it is indexed by an indexer such as Solr. Solr indexes both meta data and the plain text content of files added. The content model defines the metadata (aspects, properties, types, associations) that are to be indexed via the `<tokenise>` element. The indexes can be queried using a variety of query languages, including: -   fts-alfresco
--   storeroot
--   noderef
--   xpath
--   lucene
--   cmis-strict
--   cmis-alfresco
--   db-afts
--   db-cmis
-
- Queries can be executed from JavaScript and Java code, and also in the Node Browser (available under Admin Tools in Share).
-
-|
+|Events|Data structures created on various changes within the repository, such as name change of a piece of content. There are three types of Event: {::nomarkdown}<ol><li>Inbound event - content arriving into a folder</li><li>Outbound event - content leaving a folder</li><li>Update event - content being modified</li></ol>{:/}|
+|Indexing|As content is added to Alfresco Content Services it is indexed by an indexer such as Solr. Solr indexes both meta data and the plain text content of files added. The content model defines the metadata (aspects, properties, types, associations) that are to be indexed via the `<tokenise>` element. The indexes can be queried using a variety of query languages, including: {::nomarkdown}<ol><li>fts-alfresco</li><li>storeroot</li><li>noderef</li><li>xpath</li><li>lucene</li><li>cmis-strict</li><li>cmis-alfresco</li><li>db-afts</li><li>db-cmis</li></ol>{:/}<br>Queries can be executed from JavaScript and Java code, and also in the Node Browser (available under Admin Tools in Share).|
 |Nodes|Each piece of content in the repository has a node associated with it. The node contains information about the content, such as its metadata and location within the content store. The node is stored in a RDBMS such as PostgreSQL, the content itself is stored on the file system.|
 |Predefined Content Model|There are pre-defined content models provided out-of-the-box, these include Folder/Document hierarchy, Dublin Core, blogs, Wiki, Sites.|
 |Policies|These are event handlers triggered by certain node events for either all nodes or just nodes of a specific type.|
@@ -721,14 +684,7 @@ Terms and concepts used when developing for Alfresco Content Services.
 |Module|A module is the format in which an *extension* is packaged.|
 |Property|Properties are named items of metadata associated with a Type. Each Property is of a specific data type (such as Text or Date). Constraints can be applied to restrict the value of a Property.|
 |Repository|This is where content is stored, and can be thought of as the content stores and all the related services. It consists of the filesystem or storage service where the content is stored and a database containing metadata. See [Repository Concepts](#repository-concepts) for an overview.|
-|Rules|Declarative definition of processes based on addition, update, or removal of nodes with respect to folders (think email rules for content). These are set up for a folder in Share. See documentation and videos on [applying rules to folders]({% link content-services/5.2/using/content/rules.md %}#applying-rules-to-folders). Note that Rules can be filtered based on conditions/criteria: -   All items (no filter)
--   Items with a specific mimetype (for example .doc, .pdf)
--   Contained in a category
--   Specific content type applied to a specific aspect file name pattern (for example *-context.xml)
-
-Boolean NOT can be used (for example not .pdf). There are no limits to the number of conditions that can be applied to each Rule.
-
-|
+|Rules|Declarative definition of processes based on addition, update, or removal of nodes with respect to folders (think email rules for content). These are set up for a folder in Share. See documentation and videos on [applying rules to folders]({% link content-services/5.2/using/content/rules.md %}#applying-rules-to-folders). Note that Rules can be filtered based on conditions/criteria:  {::nomarkdown}<ul><li>All items (no filter)</li><li>Items with a specific mimetype (for example .doc, .pdf)</li><li>Contained in a category</li><li>Specific content type applied to a specific aspect file name pattern (for example: *-context.xml)</li></ul>{:/}<br>Boolean NOT can be used (for example not .pdf). There are no limits to the number of conditions that can be applied to each Rule.|
 |Type|A node is always of a single Type. A Type is similar to a class in Object-Oriented Programming, Types can be inherited from a parent Type in the content model.|
 
 ## Platform architecture {#platform-architecture}
@@ -1537,6 +1493,3 @@ Presentation content consists of templates, scripts, and XML files that Surf can
 Web script developers often work with remote sources of data. Surf makes it easy to reach out to these information sources and pull together feeds of data.
 -   **[Surf object XML quick reference (siteData)]({% link content-services/5.2/develop/reference/surf-framework-ref.md %}#surf-object-xml-quick-reference-sitedata)**  
 Surf objects are defined in XML. This document provides a quick reference guide to the most commonly used Surf objects, and how they are defined in XML.
-
-
-
