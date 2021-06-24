@@ -6,15 +6,14 @@ Use the following information to upgrade the Identity Service from version 1.2 t
 
 > **Important:** Upgrading the Identity Service requires downtime and should be performed in a test environment before being attempted in a production environment.
 
-- [Upgrade a Kubernetes deployment](#upgrade-a-kubernetes-deployment)  
-- [Upgrade a ZIP distribution installation](#upgrade-a-zip-distribution-installation)  
+* [Upgrade a Kubernetes deployment](#upgrade-a-kubernetes-deployment)  
+* [Upgrade a ZIP distribution installation](#upgrade-a-zip-distribution-installation)  
 
 ## Upgrade a Kubernetes deployment
 
 Use the following steps as a reference to upgrade a Kubernetes deployment:
 
-Normally the infrastructure chart that contains the Identity Service will be deployed as part 
-of another product chart such as Alfresco Content Services or Alfresco Process Services. 
+Normally the infrastructure chart that contains the Identity Service will be deployed as part of another product chart such as Alfresco Content Services or Alfresco Process Services.
 
 As an example, the following upgrade steps reference the infrastructure chart on its own:
 
@@ -78,11 +77,11 @@ Use the following steps to upgrade a manual ZIP installation:
     For a Windows environment using a bat script:
 
     ```bash
-    \alfresco-identity-service-1.3.0\bin\standalone.bat -b <IP_ADDRESS>
+   alfresco-identity-service-1.3.0\bin\standalone.bat -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a Powershell script:
 
     ```bash
-    \alfresco-identity-service-1.3.0\bin\standalone.ps1 -b <IP_ADDRESS>
+   alfresco-identity-service-1.3.0\bin\standalone.ps1 -b <IP_ADDRESS>
     ```

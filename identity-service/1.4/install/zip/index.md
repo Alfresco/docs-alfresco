@@ -18,7 +18,7 @@ A default realm called `Alfresco` is installed.
     For a Linux or Unix environment:
 
     ```bash
-    $ unzip alfresco-identity-service-1.4.0.zip
+    unzip alfresco-identity-service-1.4.0.zip
     ```
 
     For a Windows environment:
@@ -35,19 +35,19 @@ A default realm called `Alfresco` is installed.
 
     ```bash
     cd alfresco-identity-service-1.4.0/bin
-    /standalone.sh -b <IP_ADDRESS>
+    standalone.sh -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a bat script:
 
     ```bash
-    \alfresco-identity-service-1.4.0\bin\standalone.bat -b <IP_ADDRESS>
+    alfresco-identity-service-1.4.0\bin\standalone.bat -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a Powershell script:
 
     ```bash
-    \alfresco-identity-service-1.4.0\bin\standalone.ps1 -b <IP_ADDRESS>
+    alfresco-identity-service-1.4.0\bin\standalone.ps1 -b <IP_ADDRESS>
     ```
 
 4. Navigate to `http://localhost:8080/auth` once the service has started.

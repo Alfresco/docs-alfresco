@@ -49,6 +49,7 @@ The following table explains the values used to generate the `keytab` and `krb5.
     * Enter a full name such as `HTTP alfresco`.
     * Enter a login name such as `httpalfresco`.
     * Enable the setting **Do not require Kerberos pre-authentication**.
+
 2. Use the `ktpass` command to generate a key table for the user account created in the previous step:
 
     ```bash
@@ -80,6 +81,7 @@ The following table explains the values used to generate the `keytab` and `krb5.
     ```
 
 4. In the **Delegation** tab of the **Properties** of the user account created in the first step, tick the **Trust this user for delegation to any service (Kerberos only)** checkbox.
+
 5. Copy the key table file created to a protected area on each server such as `C:\etc`.
 
     > **Note**: The servers to copy the key table file to are Alfresco Content Services, Alfresco Share and Alfresco Process Services.
@@ -221,7 +223,7 @@ The Java login files need to be updated with details of the Kerberos configurati
     * Uncomment the **two** sections that begin with: `<config evaluator="string-compare" condition="Remote">`
     * Navigate to the `<!--- Kerberos settings --->` section and replace `condition="KerberosDisabled"` with `condition="Kerberos"`
 
-    > **Note**: For Kerberos to work with user names that contain non-ASCII characters, add the following option to JAVA\_OPTS for the Share JVM:
+    > **Note**: For Kerberos to work with user names that contain non-ASCII characters, add the following option to JAVA_OPTS for the Share JVM:
 
     ```bash
     Dsun.security.krb5.msinterop.kstring=true

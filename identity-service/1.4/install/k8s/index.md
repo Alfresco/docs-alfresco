@@ -34,17 +34,17 @@ The Identity Service can be deployed into a new or existing Kubernetes cluster.
     the Identity Service and the [ngnix-ingress](https://github.com/helm/charts/tree/master/stable/nginx-ingress).
 
     ```bash
-    helm install alfresco-stable/alfresco-infrastructure \
-        set alfresco-infrastructure.activemq.enabled=false \
-        set alfresco-infrastructure.nginx-ingress.enabled=true \
-        set alfresco-infrastructure.alfresco-identity-service.enabled=true \
+    helm install alfresco-stable/alfresco-infrastructure
+        set alfresco-infrastructure.activemq.enabled=false
+        set alfresco-infrastructure.nginx-ingress.enabled=true
+        set alfresco-infrastructure.alfresco-identity-service.enabled=true
         namespace $DESIREDNAMESPACE
     ```
 
 4. (*Optional*) To set the `redirectUri` property during deployment add the following line to the deployment command setting the `{DNSNAME}`:
 
     ```bash
-    --set alfresco-identity-service.realm.alfresco.client.redirectUris="{$DNSNAME}" \
+    set alfresco-identity-service.realm.alfresco.client.redirectUris="{$DNSNAME}"
     ```
 
     > **Note:** To include multiple `redirectUri` use comma separated values without any whitespace between the DNS names.
@@ -52,7 +52,7 @@ The Identity Service can be deployed into a new or existing Kubernetes cluster.
 5. (*Optional*) To set the `webOrigins` property during deployment add the following line to the deployment command setting the `{DNSNAME}`:
 
     ```bash
-    set alfresco-identity-service.realm.alfresco.client.webOrigins="{$DNSNAME1,$DNSNAME2,$DNSNAME3}" \
+    set alfresco-identity-service.realm.alfresco.client.webOrigins="{$DNSNAME1,$DNSNAME2,$DNSNAME3}"
     ```
 
 6. (*Optional*) To set the number of replicas during deployment add the following line to the deployment command using the required number of replicas:

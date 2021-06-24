@@ -39,8 +39,8 @@ To set the realm file during deployment:
 1. Create a Kubernetes secret in the cluster called `realm-secret`:
 
     ```bash
-    kubectl create secret generic realm-secret \
-        --from-file=./realm.json \
+    kubectl create secret generic realm-secret
+        --from-file=./realm.json
         --namespace=$DESIREDNAMESPACE
     ```
 
@@ -49,11 +49,11 @@ To set the realm file during deployment:
 2. Deploy the Helm chart with the additional argument to use the custom realm file:
 
     ```bash
-    helm install alfresco-stable/alfresco-infrastructure \
-        --set alfresco-infrastructure.activemq.enabled=false \
-        --set alfresco-infrastructure.nginx-ingress.enabled=true \
-        --set alfresco-infrastructure.alfresco-identity-service.enabled=true \
-        --set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json" \
+    helm install alfresco-stable/alfresco-infrastructure
+        set alfresco-infrastructure.activemq.enabled=false
+        set alfresco-infrastructure.nginx-ingress.enabled=true
+        set alfresco-infrastructure.alfresco-identity-service.enabled=true
+        set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json"
         --namespace $DESIREDNAMESPACE
     ```
 

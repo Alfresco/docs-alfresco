@@ -78,11 +78,11 @@ Use the following steps to upgrade a manual ZIP installation:
     For a Windows environment using a bat script:
 
     ```bash
-   \alfresco-identity-service-1.4.0\bin\standalone.bat -b <IP_ADDRESS>
+  alfresco-identity-service-1.4.0\bin\standalone.bat -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a Powershell script:
 
     ```bash
-    \alfresco-identity-service-1.4.0\bin\standalone.ps1 -b <IP_ADDRESS>
+   alfresco-identity-service-1.4.0\bin\standalone.ps1 -b <IP_ADDRESS>
     ```

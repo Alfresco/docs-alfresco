@@ -394,7 +394,6 @@ The following is an example Dockerfile used to overwrite the files in the Alfres
 
 ```dockerfile
 FROM alfresco/process-services:1.10.0
-
 COPY config/krb5.conf /etc/krb5.conf
 COPY config/kerberos.keytab /etc/kerberos.keytab
 COPY config/java.login.config /usr/java/default/conf/security/java.login.config
