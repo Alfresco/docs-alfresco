@@ -4,9 +4,9 @@ title: Configure Identity Service
 
 There are two things that can be configured in the Identity Service:
 
-- [Custom realm](#configure-a-custom-realm)  
+* [Custom realm](#configure-a-custom-realm)  
 A default realm is provided when deploying the Identity Service, and it should be customized.
-- [Custom theme](#configure-a-custom-theme)  
+* [Custom theme](#configure-a-custom-theme)  
 Deploying the Identity Service will deploy an Alfresco login theme, it can be customized.
 
 ## Configure a custom realm
@@ -20,8 +20,11 @@ The Identity Service is installed or deployed with a default realm applied calle
 Customizing a realm manually uses the administrator console of the Identity Service to configure realm settings.
 
 1. Sign into the master realm administrator console using the credentials created on your first sign in.
+
 2. [Add a new realm](https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm){:target="_blank"} or edit the `Alfresco` realm.
+
 3. [Create a new OIDC client](https://www.keycloak.org/docs/latest/server_admin/index.html#oidc-clients){:target="_blank"} or edit the existing one.
+
 4. Configure any [groups](https://www.keycloak.org/docs/latest/server_admin/index.html#groups){:target="_blank"} or users.
 
 ### Customize a realm using a JSON file
@@ -31,7 +34,9 @@ Customizing a realm using a `JSON` file configures a realm outside of the Identi
 To import the configuration in the administrator console:
 
 1. Edit or use the [default realm file](https://github.com/Alfresco/alfresco-identity-service/blob/master/helm/alfresco-identity-service/alfresco-realm.json){:target="_blank"} provided in the Identity Service Github project as a reference to create a custom realm file.
+
 2. Sign into the master realm administrator console using the credentials created on your first sign in.
+
 3. Navigate to the **Add Realm** page and use the **Select File** option to import your custom realm file.
 
 To set the realm file during deployment:
@@ -50,11 +55,11 @@ To set the realm file during deployment:
 
     ```bash
     helm install alfresco-stable/alfresco-infrastructure
-        set alfresco-infrastructure.activemq.enabled=false
-        set alfresco-infrastructure.nginx-ingress.enabled=true
-        set alfresco-infrastructure.alfresco-identity-service.enabled=true
-        set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json"
-        --namespace $DESIREDNAMESPACE
+       set alfresco-infrastructure.activemq.enabled=false
+       set alfresco-infrastructure.nginx-ingress.enabled=true
+       set alfresco-infrastructure.alfresco-identity-service.enabled=true
+       set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json"
+       --namespace $DESIREDNAMESPACE
     ```
 
 ## Configure a custom theme
@@ -116,7 +121,11 @@ However a new theme is imported, the new theme will need to be applied by signin
 ### Importing a theme for a standalone installation
 
 1. Navigate to the themes directory of the installation.
+
 2. Create a new directory for the custom theme.
+
 3. Copy the custom files into directories for each custom theme component for example /themes/login/
+
 4. Restart the Identity Service service.
+
 5. In the administrator console select the new themes for each component in the **Themes** tab under **Realm Settings**.

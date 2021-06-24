@@ -49,6 +49,7 @@ The following table explains the values used to generate the `keytab` and `krb5.
     * Enter a full name such as `HTTP alfresco`.
     * Enter a login name such as `httpalfresco`.
     * Enable the setting **Do not require Kerberos pre-authentication**.
+
 2. Use the `ktpass` command to generate a key table for the user account created in the previous step:
 
     ```bash
@@ -80,6 +81,7 @@ The following table explains the values used to generate the `keytab` and `krb5.
     ```
 
 4. In the **Delegation** tab of the **Properties** of the user account created in the first step, tick the **Trust this user for delegation to any service (Kerberos only)** checkbox.
+
 5. Copy the key table file created to a protected area on each server such as `C:\etc`.
 
     > **Note**: The servers to copy the key table file to are Alfresco Content Services, Alfresco Share and Alfresco Process Services.
@@ -224,7 +226,7 @@ The Java login files need to be updated with details of the Kerberos configurati
     > **Note**: For Kerberos to work with user names that contain non-ASCII characters, add the following option to JAVA\_OPTS for the Share JVM:
   
     ```bash
-    -Dsun.security.krb5.msinterop.kstring=true
+    Dsun.security.krb5.msinterop.kstring=true
     ```
 
 ## Step 4: Configure Alfresco Digital Workspace
@@ -283,18 +285,18 @@ The Java login files need to be updated with details of the Kerberos configurati
     | Property | Description |
     | -------- | ----------- |
     | kerberos.authentication.enabled | Sets whether authentication via Kerberos is enabled. This needs to be set to `true` to setup SSO using Kerberos, for example `true` |
-    | kerberos.authentication.principal | The Service Principal Name (SPN) to authenticate against, for example `HTTP/alfresco.example.com` |
-    | kerberos.authentication.keytab | The location of key table file, for example `C:/alfresco/alfrescohttp.keytab` |
-    | kerberos.authentication.krb5.conf | The location of the Kerberos ini file, for example `C:/Windows/krb5.ini` |
-    | kerberos.allow.ldap.authentication.fallback |Sets whether to allow sign in from unsupported browsers using LDAP credentials, for example `false` |
-    | kerberos.allow.database.authentication.fallback | Sets whether to allow sign in from unsupported browsers using database credentials, for example `true` |
-    | kerberos.allow.samAccountName.authentication | Sets whether authentication can use the short form such as `username` rather than `username@domain.com`, for example `true` |
-    | security.authentication.use-externalid | A setting that enables authentication through Kerberos, for example `true` |
-    | ldap.authentication.enabled | Sets whether LDAP authentication is enabled. This setting needs to be set to `true` for SSO to work for Kerberos, for example `true` |
+    | kerberos.authentication.principal | The Service Principal Name (SPN) to authenticate against, for example `HTTP/alfresco.example.com`. |
+    | kerberos.authentication.keytab | The location of key table file, for example `C:/alfresco/alfrescohttp.keytab`. |
+    | kerberos.authentication.krb5.conf | The location of the Kerberos ini file, for example `C:/Windows/krb5.ini`. |
+    | kerberos.allow.ldap.authentication.fallback |Sets whether to allow sign in from unsupported browsers using LDAP credentials, for example `false`. |
+    | kerberos.allow.database.authentication.fallback | Sets whether to allow sign in from unsupported browsers using database credentials, for example `true`. |
+    | kerberos.allow.samAccountName.authentication | Sets whether authentication can use the short form such as `username` rather than `username@domain.com`, for example `true`. |
+    | security.authentication.use-externalid | A setting that enables authentication through Kerberos, for example `true`. |
+    | ldap.authentication.enabled | Sets whether LDAP authentication is enabled. This setting needs to be set to `true` for SSO to work for Kerberos, for example `true`. |
 
 ## Step 6: Configure Alfresco Process Workspace
 
-The Alfresco Process Workspace requires three properties added to enable Kerberos SSO. These can be added in the `app.config.json`, located by default in the `/src`directory.
+The Alfresco Process Workspace requires three properties added to enable Kerberos SSO. These can be added in the `app.config.json`, located by default in the `/src` directory.
 
 The following are the properties to add to the `app.config.json`:
 
@@ -394,7 +396,6 @@ The following is an example Dockerfile used to overwrite the files in the Alfres
 
 ```dockerfile
 FROM alfresco/process-services:1.10.0
-
 COPY config/krb5.conf /etc/krb5.conf
 COPY config/kerberos.keytab /etc/kerberos.keytab
 COPY config/java.login.config /usr/java/default/conf/security/java.login.config
@@ -415,7 +416,11 @@ To verify that SSO is working correctly after configuring Kerberos, the followin
 The following is an example sequence to follow to verify that SSO works correctly:
 
 1. Sign in to the Windows client machine as the user configured in [Step 1](#step-1-configure-kerberos-files).
+
 2. Open a new browser session and navigate to the Alfresco Digital Workspace at the URL `http://adw.example.com/workspace` and there should be no additional sign in step required.
+
 3. Create a new tab in the same browser session and navigate to Alfresco Share at the URL `http://share.example.com/share` and there should be no additional sign in step required.
+
 4. Create a new tab in the same browser session and navigate to Alfresco Process Services at the URL `http://aps.example.com/activiti-app` and there should be no additional sign in step required.
+
 5. Create a new tab in the same browser session and navigate to Alfresco Process Workspace at the URL `http://apw.example.com/process-workspace` and there should be no additional sign in step required.

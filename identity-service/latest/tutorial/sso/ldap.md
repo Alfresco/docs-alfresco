@@ -38,7 +38,7 @@ There are thirteen steps to configuring SSO using an LDAP directory with Alfresc
 * Alfresco Process Workspace: `apw.example.com`
 * Identity Service: `ids.example.com`
 * LDAP Directory: `ldap.example.com`
-    * OpenLDAP was used for testing purposes.
+  * OpenLDAP was used for testing purposes.
 
 It is also assumed that certificates are correctly set up for each host and that each host exposes its service solely via TLS on the default port (443).
 
@@ -75,7 +75,9 @@ A realm and client need to be configured in the Identity Service for the Alfresc
 Clients need to be created and configured for Alfresco Office Services (AOS) and Desktop Sync if they are used. The configuration steps for these additional clients can be ignored if they are not used.
 
 1. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
+
 2. Navigate to **Directories** > **Single Sign-On (SAML)** and download the service provider certificate using the **Download SP Certificate** button.
+
 3. Run the following command on the downloaded certificate using Terminal or the Command Line:
 
     ```bash
@@ -83,42 +85,43 @@ Clients need to be created and configured for Alfresco Office Services (AOS) and
     ```
 
 4. Sign in to the administrator console of the Identity Service as an administrator. The URL of the Identity Service administrator console is `https://ids.example.com/auth/admin`.
+
 5. Create a new client for AOS under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-clients) setting the following:
 
     In the **Settings** tab:
 
     * A unique and identifiable **Client ID**.
-    *   A **Client Protocol** of `SAML`
-    *   A valid **Base URL**, for example: `https://repo.example.com/alfresco`
-    *   An identifiable **Name** that will be displayed.
-    *   The **Login Theme** is set to `Alfresco`
-    *   Set the **Valid Redirect URIs** using a wildcard `*`, for example: `https://repo.example.com/alfresco/*` and `https://ids.example.com/*`
-    *   Set **Master SAML Processing URL** and **IDP Initiated SSO URL Name** to the same value that you used for **Client ID**.
-    *   Set **Logout Service POST Binding URL**: `https://repo.example.com/alfresco/service/saml/-default-/aos/logout-request`
-    *   Make sure that the **Front Channel Logout** property is off.
-    *   **Save** the settings.
+    * A **Client Protocol** of `SAML`
+    * A valid **Base URL**, for example: `https://repo.example.com/alfresco`
+    * An identifiable **Name** that will be displayed.
+    * The **Login Theme** is set to `Alfresco`
+    * Set the **Valid Redirect URIs** using a wildcard `*`, for example: `https://repo.example.com/alfresco/*` and `https://ids.example.com/*`
+    * Set **Master SAML Processing URL** and **IDP Initiated SSO URL Name** to the same value that you used for **Client ID**.
+    * Set **Logout Service POST Binding URL**: `https://repo.example.com/alfresco/service/saml/-default-/aos/logout-request`
+    * Make sure that the **Front Channel Logout** property is off.
+    * **Save** the settings.
 
     In the **SAML Keys** tab:
 
-    *   Click the **Import** button:
-        *   Set **Key Alias** to `idpCert`
-        *   Set **Store Password** to `password`
-        *   Select the file `idp.jks` generated in step 3 of this section as the **Import File**.
-        *   **Import** the certificate.
-    
+    * Click the **Import** button:
+        * Set **Key Alias** to `idpCert`
+        * Set **Store Password** to `password`
+        * Select the file `idp.jks` generated in step 3 of this section as the **Import File**.
+        * **Import** the certificate.
+
     In the **Mappers** tab:
 
-    *   Click the **Add Builtin** button and add `X500 email`, `X500 givenName` and `X500 surname`.
-    *   **Edit** each mapper and set **SAML Attribute Name** to match the value of **Property** and set **SAML Attribute NameFormat** to `Basic`.
-    *   **Save** the edits.
+    * Click the **Add Builtin** button and add `X500 email`, `X500 givenName` and `X500 surname`.
+    * **Edit** each mapper and set **SAML Attribute Name** to match the value of **Property** and set **SAML Attribute NameFormat** to `Basic`.
+    * **Save** the edits.
 
 6. Create a new client for Desktop Sync under the `Alfresco` realm or the realm you created in [step 1](#step-1-configure-a-realm-and-clients) setting at least the following :
 
     In the **Settings** tab:
 
-    *   A unique and identifiable **Client ID** .
-    *   The **Valid Redirect URI** must be set to `http://127.0.0.1*, http://localhost*`.
-    *   **Implicit Flow Enabled** is switched off.
+    * A unique and identifiable **Client ID** .
+    * The **Valid Redirect URI** must be set to `http://127.0.0.1*, http://localhost*`.
+    * **Implicit Flow Enabled** is switched off.
 
 ## Step 3: Configure LDAP synchronization
 
@@ -146,21 +149,21 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
 
     | Property | Description |
     | -------- | ----------- |
-    | authentication.chain | The authentication chain needs to be set for the Identity Service and LDAP synchronization, for example `identity-service-1:identity-service,alfrescoNtlm-1:alfrescoNtlm,ldap-1:ldap`|
-    |identity-service.auth-server-url|The base URL of the Identity Service, for example `https://ids.example.com/auth`|
-    |identity-service.enable-basic-auth | Sets whether basic authentication is also supported by the Identity Service, for example `true`|
-    |identity-service.realm | The realm name configured in the Identity Service for the Alfresco applications, for example `alfresco`|
-    |identity-service.resource|The **Client ID** set up in the Identity Service for Alfresco Content Services. The client needs to exist underneath the realm set for `identity-service.realm`, for example `alfresco`|
-    |saml.keystore.location | The location of the SAML keystore self-signed certificate. This file needs to be accessible to the repository and has the file type `.keystore`. This file is generated as part of configuring the SAML Module AMP, for example `/path/to/saml.keystore`|
-    |saml.keystore.keyMetaData.location | The location of the SAML keystore metadata. This file needs to be accessible to the repository and has the file type `.properties`. This file is generated as part of configuring the SAML Module AMP, for example `/path/to/saml-keystore-passwords.properties`|
-    |ldap.authentication.active | Sets whether LDAP authentication is enabled or not. This needs to be set to `false` to use SAML authentication via the Identity Service, for example `false`|
-    |ldap.synchronization.active|Sets whether LDAP synchronization is enabled or not. This needs to be set to `true` to sync users with the repository, for example `true`|
-    |ldap.synchronization.java.naming. security.authentication | The mechanism to use to authenticate with the LDAP server, for example `simple`|
-    |ldap.synchronization.java.naming. security.principal|The user principal name (UPN) of the account used to retrieve account details for all users and groups, for example `alfresco@domain.com`|
-    |ldap.synchronization.java.naming.security.credentials | The password for the account set in `ldap.synchronization.java.naming.security.principal`, for example `secret`|
-    |ldap.*|There are several optional [configuration]({% link content-services/latest/admin/auth-sync.md %}#ldapconfprops) and [synchronization]({% link content-services/latest/admin/auth-sync.md %}#synchronization-configuration-properties) properties|
-    |csrf.filter.referer | The referer value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com`|
-    |csrf.filter.origin | The origin value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com/*`|
+    | authentication.chain | The authentication chain needs to be set for the Identity Service and LDAP synchronization, for example `identity-service-1:identity-service,alfrescoNtlm-1:alfrescoNtlm,ldap-1:ldap`.|
+    |identity-service.auth-server-url|The base URL of the Identity Service, for example `https://ids.example.com/auth`.|
+    |identity-service.enable-basic-auth | Sets whether basic authentication is also supported by the Identity Service, for example `true`.|
+    |identity-service.realm | The realm name configured in the Identity Service for the Alfresco applications, for example `alfresco`.|
+    |identity-service.resource|The **Client ID** set up in the Identity Service for Alfresco Content Services. The client needs to exist underneath the realm set for `identity-service.realm`, for example `alfresco`.|
+    |saml.keystore.location | The location of the SAML keystore self-signed certificate. This file needs to be accessible to the repository and has the file type `.keystore`. This file is generated as part of configuring the SAML Module AMP, for example `/path/to/saml.keystore`.|
+    |saml.keystore.keyMetaData.location | The location of the SAML keystore metadata. This file needs to be accessible to the repository and has the file type `.properties`. This file is generated as part of configuring the SAML Module AMP, for example `/path/to/saml-keystore-passwords.properties`.|
+    |ldap.authentication.active | Sets whether LDAP authentication is enabled or not. This needs to be set to `false` to use SAML authentication via the Identity Service, for example `false`.|
+    |ldap.synchronization.active|Sets whether LDAP synchronization is enabled or not. This needs to be set to `true` to sync users with the repository, for example `true`.|
+    |ldap.synchronization.java.naming. security.authentication | The mechanism to use to authenticate with the LDAP server, for example `simple`.|
+    |ldap.synchronization.java.naming. security.principal|The user principal name (UPN) of the account used to retrieve account details for all users and groups, for example `alfresco@domain.com`.|
+    |ldap.synchronization.java.naming.security.credentials | The password for the account set in `ldap.synchronization.java.naming.security.principal`, for example `secret`.|
+    |ldap.*|There are several optional [configuration]({% link content-services/latest/admin/auth-sync.md %}#ldapconfprops) and [synchronization]({% link content-services/latest/admin/auth-sync.md %}#synchronization-configuration-properties) properties.|
+    |csrf.filter.referer | The referer value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com`.|
+    |csrf.filter.origin | The origin value of ACS to prevent Cross Site Request Forgery (CSRF), for example `https://repo.example.com/*`.|
 
 2. Update the `share-config-custom.xml` file located by default in `$ALFRESCO_HOME/tomcat/shared/classes/alfresco/web-extension/`:
 
@@ -190,7 +193,7 @@ The properties listed that need to be set for Alfresco Content Services (ACS) ar
         </rule>
         ```
 
-        > **Note**: Incoming public GET requests will be caught avoiding them being evaluated by other rules. Incoming POST requests from identity providers do not need a token.
+        > **Note:** Incoming public GET requests will be caught avoiding them being evaluated by other rules. Incoming POST requests from identity providers do not need a token.
 
 3. Sign in to the administrator console of ACS as an administrator. The URL of the administrator console is `https://repo.example.com:443/alfresco/service/enterprise/admin`.
 
@@ -228,7 +231,7 @@ The configuration steps can be ignored if AOS is not used.
 
 8. Navigate to **Directories** > **Single Sign-On (SAML)** and upload the certificate generated from the Identity Service in the **Share** and **AOS** tabs.
 
-9. Set the value of **Authentication Request Service URL**, **Logout Request Service URL** and **Logout Response Service URL** to `https://ids.example.com/auth/realms/alfresco/protocol/saml` on the **Share** and **AOS** tabs.
+9. Set the value of **Authentication Request Service URL**, **Logout Request Service URL**, and **Logout Response Service URL** to `https://ids.example.com/auth/realms/alfresco/protocol/saml` on the **Share** and **AOS** tabs.
 
 10. Set the value of **Entity Identification (Issuer)** to **Share** or **AOS** client name from [step 2](#step-2-configure-clients-for-alfresco-content-services).
 
@@ -240,16 +243,16 @@ Alfresco Digital Workspace only requires its properties to be updated to enable 
 
 | Property | Environment variable | Description |
 | -------- | -------------------- | ----------- |
-| authType | APP_CONFIG_AUTH_TYPE |The authentication type. Must be set to `OAUTH`|
-| host | APP_CONFIG_OAUTH2_HOST |The address of the Identity Service including the realm name configured in [step 1](#step-1-configure-a-realm-and-clients). In the example the realm name is *Alfresco*|
-| clientId | APP_CONFIG_OAUTH2_CLIENTID |The name of the client configured in [step 1](#step-1-configure-a-realm-and-clients) for Digital Workspace|
+| authType | APP_CONFIG_AUTH_TYPE |The authentication type. Must be set to `OAUTH`.|
+| host | APP_CONFIG_OAUTH2_HOST |The address of the Identity Service including the realm name configured in [step 1](#step-1-configure-a-realm-and-clients). In the example the realm name is *Alfresco*.|
+| clientId | APP_CONFIG_OAUTH2_CLIENTID |The name of the client configured in [step 1](#step-1-configure-a-realm-and-clients) for Digital Workspace.|
 | implicitFlow | APP_CONFIG_OAUTH2_IMPLICIT_FLOW | |
-| silentLogin | APP_CONFIG_OAUTH2_SILENT_LOGIN |Setting `silentLogin` to true removes a login page from displaying if a user is already authenticated. Setting the value to `false` will display a sign in page even though a user needs to only select the **Sign in** option and not enter any credentials|
-| redirectSilentIframeUri | APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI |The address that Digital Workspace uses to refresh authorization tokens|
-| redirectUri | APP_CONFIG_OAUTH2_REDIRECT_LOGIN |The URL to redirect to after a user is successfully authenticated|
-| redirectUriLogout | APP_CONFIG_OAUTH2_REDIRECT_LOGOUT |The URL to redirect to after a user successfully signs out|
+| silentLogin | APP_CONFIG_OAUTH2_SILENT_LOGIN |Setting `silentLogin` to true removes a login page from displaying if a user is already authenticated. Setting the value to `false` will display a sign in page even though a user needs to only select the **Sign in** option and not enter any credentials.|
+| redirectSilentIframeUri | APP_CONFIG_OAUTH2_REDIRECT_SILENT_IFRAME_URI |The address that Digital Workspace uses to refresh authorization tokens.|
+| redirectUri | APP_CONFIG_OAUTH2_REDIRECT_LOGIN |The URL to redirect to after a user is successfully authenticated.|
+| redirectUriLogout | APP_CONFIG_OAUTH2_REDIRECT_LOGOUT |The URL to redirect to after a user successfully signs out.|
 
-> **Note**: If `implicitFlow` is set to `false` the grant type `password` will be used instead.
+> **Note:** If `implicitFlow` is set to `false` the grant type `password` will be used instead.
 
 The following is an example `app.config.json` file excerpt. By default this file is located in the `/src` directory.
 
@@ -279,7 +282,7 @@ Use the following configuration parameters either in the `share-config.propertie
 | aims.enabled | Enables or disables Identity Service, for example `true`. |
 | aims.realm | The name of the realm, for example `alfresco`. |
 | aims.resource | The Client ID of the application, for example `share`. |
-| aims.authServerUrl | The base URL of the Identity Service, for example `https://ids.example.com` |
+| aims.authServerUrl | The base URL of the Identity Service, for example `https://ids.example.com`. |
 | aims.publicClient | If set to `true`, the adapter will not send credentials for the client to Identity Service. |
 
 ## Step 8: (Optional) Configure Alfresco Sync Service
@@ -288,10 +291,10 @@ If Alfresco Sync Service is used and a client has been created for it in [step 2
 
 | Property | Description |
 | -------- | ----------- |
-| identity-service.auth-server-url |The base URL of the Identity Service, for example `https://ids.example.com/auth`|
-| identity-service.realm |The realm name configured in the Identity Service for the Alfresco application, for example `alfresco`|
-| identity-service.resource |The **Client ID** set up in the Desktop Sync for Alfresco Content Services. The client needs to exist underneath the realm set for `identity-service.realm`, for example `desktop-sync`|
-| identity-service.public-client |The adapter will not send credentials for the client to the Identity Service if this is set to true, for example `true`|
+| identity-service.auth-server-url |The base URL of the Identity Service, for example `https://ids.example.com/auth`.|
+| identity-service.realm |The realm name configured in the Identity Service for the Alfresco application, for example `alfresco`.|
+| identity-service.resource |The **Client ID** set up in the Desktop Sync for Alfresco Content Services. The client needs to exist underneath the realm set for `identity-service.realm`, for example `desktop-sync`.|
+| identity-service.public-client |The adapter will not send credentials for the client to the Identity Service if this is set to true, for example `true`.|
 | identity-service.credentials.secret |The secret key for this client if the access type is not set to public.|
 
 ## Step 9: Configure Alfresco Process Services
@@ -302,32 +305,32 @@ Alfresco Process Services (APS) has two sets of properties that need to be confi
 
     | Property | Description |
     | -------- | ----------- |
-    | ldap.authentication.enabled |Sets whether LDAP authentication is enabled. This needs to be `false` as LDAP is only being used for user synchronization, for example `false`|
-    | ldap.authentication.java.naming.provider.url |The URL of the LDAP instance, for example `ldaps://ldap.example.com:636`|
-    | ldap.synchronization.java.naming.security.principal |The user used to access the LDAP directory to perform the synchronization, for example `uid=admin,ou=system`|
-    | ldap.synchronization.java.naming.security.credentials |The password for the user set in `ldap.synchronization.java.naming.security.principal`, for example `secret`|
-    | ldap.synchronization.full.enabled | Sets whether full LDAP synchronization is enabled or not, for example `true`|
-    | ldap.synchronization.full.cronExpression |The cron expression describing how often the full synchronization should run, for example `0 0 0 * * ?`|
-    | ldap.synchronization.differential.enabled |Sets whether differential LDAP synchronization is enabled or not, for example `true`|
+    | ldap.authentication.enabled |Sets whether LDAP authentication is enabled. This needs to be `false` as LDAP is only being used for user synchronization, for example `false`.|
+    | ldap.authentication.java.naming.provider.url |The URL of the LDAP instance, for example `ldaps://ldap.example.com:636`.|
+    | ldap.synchronization.java.naming.security.principal |The user used to access the LDAP directory to perform the synchronization, for example `uid=admin,ou=system`.|
+    | ldap.synchronization.java.naming.security.credentials |The password for the user set in `ldap.synchronization.java.naming.security.principal`, for example `secret`.|
+    | ldap.synchronization.full.enabled | Sets whether full LDAP synchronization is enabled or not, for example `true`.|
+    | ldap.synchronization.full.cronExpression |The cron expression describing how often the full synchronization should run, for example `0 0 0 * * ?`.|
+    | ldap.synchronization.differential.enabled |Sets whether differential LDAP synchronization is enabled or not, for example `true`.|
     | ldap.synchronization.differential.cronExpression |The cron expression describing how often the differential synchronization should run, for example `0 0 */4 * * ?`|
-    | ldap.synchronization.userSearchBase |The section of the LDAP directory to restrict user synchronization to, for example `ou=users,dc=alfresco,dc=com`|
-    | ldap.synchronization.groupSearchBase |The section of the LDAP directory to restrict group synchronization to, for example `ou=groups,dc=alfresco,dc=com`|
+    | ldap.synchronization.userSearchBase |The section of the LDAP directory to restrict user synchronization to, for example `ou=users,dc=alfresco,dc=com`.|
+    | ldap.synchronization.groupSearchBase |The section of the LDAP directory to restrict group synchronization to, for example `ou=groups,dc=alfresco,dc=com`.|
 
 2. Configuration with the Alfresco Process Services can be achieved manually for WAR file deployments using the `activiti-identity-service.properties` or reference an external file for Docker and Kubernetes deployments:
 
     | Property | Description |
     | -------- | ----------- |
-    | keycloak.enabled |Sets whether Process Services will use the Identity Service to authenticate against, for example `true`|
-    | keycloak.realm |The realm name configured in the Identity Service for the Alfresco applications, for example `alfresco`|
-    | keycloak.auth-server-url |The base URL of the Identity Service, for example `https://ids.example.com/auth`|
-    | keycloak.ssl-required |Sets whether SSL is mandatory for access or not, for example `all`|
-    | keycloak.resource |The **Client ID** set up in the Identity Service for Process Services. The client needs to exist underneath the realm set for `keycloak.realm` or `IDENTITY_SERVICE_REALM`, for example `alfresco`|
-    | keycloak.principal-attribute |The attribute to identify users by for authentication. This needs to be set to `email` for Process Services, for example `email`|
-    | keycloak.public-client |The adapter will not send credentials for the client to the Identity Service if this is set to `true`, for example `true`|
-    | keycloak.always-refresh-token |Sets whether a token should be refreshed for every request or not, for example `true`|
-    | keycloak.autodetect-bearer-only |This should be set to true to serve both a web application and web services, for example `true`|
-    | keycloak.token-store |The location of where account information token should be stored, for example `cookie`|
-    | keycloak.enable-basic-auth |Sets whether basic authentication is also supported by the Identity Service, for example `true`|
+    | keycloak.enabled |Sets whether Process Services will use the Identity Service to authenticate against, for example `true`.|
+    | keycloak.realm |The realm name configured in the Identity Service for the Alfresco applications, for example `alfresco`.|
+    | keycloak.auth-server-url |The base URL of the Identity Service, for example `https://ids.example.com/auth`.|
+    | keycloak.ssl-required |Sets whether SSL is mandatory for access or not, for example `all`.|
+    | keycloak.resource |The **Client ID** set up in the Identity Service for Process Services. The client needs to exist underneath the realm set for `keycloak.realm` or `IDENTITY_SERVICE_REALM`, for example `alfresco`.|
+    | keycloak.principal-attribute |The attribute to identify users by for authentication. This needs to be set to `email` for Process Services, for example `email`.|
+    | keycloak.public-client |The adapter will not send credentials for the client to the Identity Service if this is set to `true`, for example `true`.|
+    | keycloak.always-refresh-token |Sets whether a token should be refreshed for every request or not, for example `true`.|
+    | keycloak.autodetect-bearer-only |This should be set to true to serve both a web application and web services, for example `true`.|
+    | keycloak.token-store |The location of where account information token should be stored, for example `cookie`.|
+    | keycloak.enable-basic-auth |Sets whether basic authentication is also supported by the Identity Service, for example `true`.|
 
 ## Step 10: Configure Alfresco Process Workspace
 
@@ -335,18 +338,18 @@ Alfresco Process Workspace requires one set of properties to be configured to en
 
 | Property | Description |
 | -------- | ----------- |
-| ecmHost |The address of the Alfresco Content Services instance, for example `https://repo.example.com`|
-| bpmHost |The address of the Alfresco Process Services instance, for example `https://aps.example.com`|
-| identityHost |The address of the Identity Service including the realm name configured in [step 1](#step1-configure-a-realm-and-clients). In the example the realm name is **Alfresco**: `https://ids.example.com/auth/realms/alfresco`|
-| providers |The user database that Alfresco Process Workspace reads from, for example `BPM`|
-| authType |The authentication type. Must be set to `OAUTH`|
-| host |The address of the Identity Service including the realm name configured in [step 1](#step1-configure-a-realm-and-clients). In the example the realm name is **Alfresco**: `https://ids.example.com/auth/realms/alfresco`|
-| clientId |The name of the client configured in [step 1](#step1-configure-a-realm-and-clients) for Alfresco Process Workspace, for example `alfresco`|
+| ecmHost |The address of the Alfresco Content Services instance, for example `https://repo.example.com`.|
+| bpmHost |The address of the Alfresco Process Services instance, for example `https://aps.example.com`.|
+| identityHost |The address of the Identity Service including the realm name configured in [step 1](#step1-configure-a-realm-and-clients). In the example the realm name is **Alfresco**: `https://ids.example.com/auth/realms/alfresco`.|
+| providers |The user database that Alfresco Process Workspace reads from, for example `BPM`.|
+| authType |The authentication type. Must be set to `OAUTH`.|
+| host |The address of the Identity Service including the realm name configured in [step 1](#step1-configure-a-realm-and-clients). In the example the realm name is **Alfresco**: `https://ids.example.com/auth/realms/alfresco`.|
+| clientId |The name of the client configured in [step 1](#step1-configure-a-realm-and-clients) for Alfresco Process Workspace, for example `alfresco`.|
 | implicitFlow ||
-| silentLogin |Setting `silentLogin` to true removes a login page from displaying if a user is already authenticated. Setting the value to `false` will display a sign in page even though a user needs to only select the *Sign in* option and not enter any credentials, for example `true`|
-| redirectSilentIframeUri |The address Process Workspace uses to refresh authorization tokens, for example `https://apw.example.com/process-workspace/assets/silent-refresh.html`|
-| redirectUri |The URL to redirect to after a user is successfully authenticated, for example `/process-workspace/`|
-| redirectUriLogout |The URL to redirect to after a user successfully signs out, for example `/process-workspace/logout`|
+| silentLogin |Setting `silentLogin` to true removes a login page from displaying if a user is already authenticated. Setting the value to `false` will display a sign in page even though a user needs to only select the *Sign in* option and not enter any credentials, for example `true`.|
+| redirectSilentIframeUri |The address Process Workspace uses to refresh authorization tokens, for example `https://apw.example.com/process-workspace/assets/silent-refresh.html`.|
+| redirectUri |The URL to redirect to after a user is successfully authenticated, for example `/process-workspace/`.|
+| redirectUriLogout |The URL to redirect to after a user successfully signs out, for example `/process-workspace/logout`.|
 
 > **Note**: If `implicitFlow` is set to `false` the grant type `password` will be used instead.
 
@@ -377,15 +380,15 @@ An SSO connection can be configured between Process Services and Content Service
 
     | Property | Description |
     | -------- | ----------- |
-    | alfresco.content.sso.enabled |Sets whether SSO is enabled between Process Services and Content Services, for example `${keycloak.enabled}`|
-    | alfresco.content.sso.client_id |The **Client ID** within the realm that points to Process Services, for example `${keycloak.resource}`|
-    | alfresco.content.sso.client_secret |The secret key for the Process Services client, for example `${keycloak.credentials.secret}`|
-    | alfresco.content.sso.realm |The realm that is configured for the Content Services and Process Services clients, for example `${keycloak.realm}`|
-    | alfresco.content.sso.scope |Sets the duration that tokens are valid for. For example using the value`offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/latest/server_admin/#_offline-access){:target="_blank"} for further information, for example `offline_access`|
-    | alfresco.content.sso.javascript_origins |The base URL for the Javascript origins of the Process Services instance, for example `https://aps.example.com`|
-    | alfresco.content.sso.auth_uri |The authorization URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/auth`|
-    | alfresco.content.sso.token_uri |The authorization token URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/token`|
-    | alfresco.content.sso.redirect_uri |The redirect URI for authorization. The value in the example column needs to be updated with the correct base URL for the Process Services instance, for example`https://aps.example.com/activiti-app/rest/integration/sso/confirm-auth-request`|
+    | alfresco.content.sso.enabled |Sets whether SSO is enabled between Process Services and Content Services, for example `${keycloak.enabled}`.|
+    | alfresco.content.sso.client_id |The **Client ID** within the realm that points to Process Services, for example `${keycloak.resource}`.|
+    | alfresco.content.sso.client_secret |The secret key for the Process Services client, for example `${keycloak.credentials.secret}`.|
+    | alfresco.content.sso.realm |The realm that is configured for the Content Services and Process Services clients, for example `${keycloak.realm}`.|
+    | alfresco.content.sso.scope |Sets the duration that tokens are valid for. For example using the value`offline_access` a token is valid even after a user logs out as long as the token is used at least once every 30 days. See the [Keycloak documentation](https://www.keycloak.org/docs/latest/server_admin/#_offline-access){:target="_blank"} for further information, for example `offline_access`.|
+    | alfresco.content.sso.javascript_origins |The base URL for the Javascript origins of the Process Services instance, for example `https://aps.example.com`.|
+    | alfresco.content.sso.auth_uri |The authorization URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/auth`.|
+    | alfresco.content.sso.token_uri |The authorization token URL, for example `https://ids.example.com/realms/alfresco/protocol/openid-connect/token`.|
+    | alfresco.content.sso.redirect_uri |The redirect URI for authorization. The value in the example column needs to be updated with the correct base URL for the Process Services instance, for example`https://aps.example.com/activiti-app/rest/integration/sso/confirm-auth-request`.|
 
 2. Sign into Process Services as an administrator.
 

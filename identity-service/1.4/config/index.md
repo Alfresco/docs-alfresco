@@ -4,9 +4,9 @@ title: Configure Identity Service
 
 There are two things that can be configured in the Identity Service:
 
-- [Custom realm](#configure-a-custom-realm)  
+* [Custom realm](#configure-a-custom-realm)  
 A default realm is provided when deploying the Identity Service, and it should be customized.
-- [Custom theme](#configure-a-custom-theme)  
+* [Custom theme](#configure-a-custom-theme)  
 Deploying the Identity Service will deploy an Alfresco login theme, it can be customized.
 
 ## Configure a custom realm

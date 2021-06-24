@@ -35,10 +35,10 @@ The Identity Service can be deployed into a new or existing Kubernetes cluster.
 
     ```bash
     helm install alfresco-stable/alfresco-infrastructure
-        set alfresco-infrastructure.activemq.enabled=false
-        set alfresco-infrastructure.nginx-ingress.enabled=true
-        set alfresco-infrastructure.alfresco-identity-service.enabled=true
-        namespace $DESIREDNAMESPACE
+    set alfresco-infrastructure.activemq.enabled=false
+    set alfresco-infrastructure.nginx-ingress.enabled=true
+    set alfresco-infrastructure.alfresco-identity-service.enabled=true
+    namespace $DESIREDNAMESPACE
     ```
 
 4. (*Optional*) To set the `redirectUri` property during deployment add the following line to the deployment command setting the `{DNSNAME}`:

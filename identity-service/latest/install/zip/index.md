@@ -2,8 +2,7 @@
 title: Install Identity Service from ZIP file
 ---
 
-The Identity Service can be installed using a standalone ZIP distribution. 
-A default realm called `Alfresco` is installed.
+The Identity Service can be installed using a standalone ZIP distribution. A default realm called `Alfresco` is installed.
 
 ## Prerequisites
 
@@ -13,7 +12,7 @@ A default realm called `Alfresco` is installed.
 
 1. Download the zip file for the Identity Service from the [Support Portal](http://support.alfresco.com/).
 
-2. Move the downloaded zip file to install location of choice and unzip the contents:
+2. Move the downloaded zip file to your install location of choice and unzip the contents:
 
     For a Linux or Unix environment:
 
@@ -41,13 +40,13 @@ A default realm called `Alfresco` is installed.
     For a Windows environment using a bat script:
 
     ```bash
-    ...\alfresco-identity-service-1.5.0.\bin\standalone.bat -b <IP_ADDRESS>
+    alfresco-identity-service-1.5.0.\bin\standalone.bat -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a Powershell script:
 
     ```bash
-    ...\alfresco-identity-service-1.5.0.\bin\standalone.ps1 -b <IP_ADDRESS>
+    alfresco-identity-service-1.5.0.\bin\standalone.ps1 -b <IP_ADDRESS>
     ```
 
 4. Navigate to `http://localhost:8080/auth` once the service has started.

@@ -49,6 +49,7 @@ The following table explains the values used to generate the `keytab` and `krb5.
     * Enter a full name such as `HTTP alfresco`.
     * Enter a login name such as `httpalfresco`.
     * Enable the setting **Do not require Kerberos pre-authentication**.
+
 2. Use the `ktpass` command to generate a key table for the user account created in the previous step:
 
     ```bash
