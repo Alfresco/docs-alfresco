@@ -43,7 +43,7 @@
             <div class="content">
               <h1>{{page.title}}</h1>
               <p>{{ page.path }}</p>
-              <p>Last modified date: {{ page.path | file_date | date_to_string }}</p>
+              <p>Last modified: {{ page.path | file_date | date_to_string }}</p>
               <article>
                 {{content}}
               </article>
