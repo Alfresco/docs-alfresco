@@ -1002,6 +1002,7 @@ Use this file to set up attributes and metadata settings.
     |`checkVersion`|Specifies whether to check the Alfresco server version|`true`: version is checked and if it is not correct then the connection fails. This is the default setting.<br><br>`false`: version is not checked|
     |`settingsCheckInterval`|Specifies the interval, in seconds, between checks to determine if the central settings have changed|`480`: 480 seconds is the default setting.|
     |`samlFallbackTimeout`|Sets a time, in seconds, for the Alfresco Outlook Client to wait before the SAML authentication window appears. This should only be required for slower networks to reduce the number of times that the authentication window reappears due to a delay from the server.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`7`: 7 seconds is the default setting.|
+    |`writeStreamBuffering`|Sets the `AllowWriteStreamBuffering` parameter of the HttpWebRequest.<br><br>**Note:** In a clustered Alfresco environment, you may encounter the error message _“This request requires buffering data to succeed”_ while uploading emails or files. Setting `writeStreamBuffering` to `true` will prevent this error from happening.<br><br>Added in Outlook Integration 2.7.|`true`: `AllowWriteStreamBuffering` is enabled.<br><br>`false`: `AllowWriteStreamBuffering` is disabled. This is the default setting.|
 
 5. Configure the attributes that you need for the `<feature>` element:
 
@@ -1015,6 +1016,7 @@ Use this file to set up attributes and metadata settings.
     |`useFilenameOnRenderMsg`|Controls if Alfresco should use the `cm:name` or `subjectline` attribute to display in the list/tree view. This option applies to email documents only.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`true`: Alfresco uses the `cm:name` instead of the `subjectline` attribute to show the email document in the list/tree view.<br><br>`false`: Alfresco uses the `subjectline` attribute to show the email document in the list/tree view.|
     |`enableWFTab`|Controls the visibility of the Workflow tab in high resolution mode.<br><br>Added in Outlook Integration 2.6.|`true`: Workflow tab is visible.<br><br>`false`: Workflow tab is collapsed. This is the default setting.|
     |`enableWPF`|Enables/disables the use of a high resolution front-end for the Alfresco Outlook Client.<br><br>Added in Outlook Integration 2.6.|`true`: High resolution front-end is enabled. This is the default setting.<br><br>`false`: High resolution front-end is disabled.|
+    |`copyMoveWarningThreshold`|Sets the threshold for when a warning should be displayed, when a large amount of files is being copied/moved inside the repository with the copy/move & paste feature. Warns the user that copying `x` amount of files can take a long time depending on the server.<br><br>Added in Outlook Integration 2.7.|`100` is the default setting.|
 
 6. Configure the attributes that you need for the `<logging>` element:
 
