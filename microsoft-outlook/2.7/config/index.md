@@ -944,7 +944,7 @@ Use this file to set up attributes and metadata settings.
         <connection url="http://127.0.0.1:8080/" shareUrl="share" alfrescoUrl="alfresco" login="admin" password="7DkTRpO8sfo=" checkCertificate="true" checkVersion="true" authentication="basic" webApp="2" shareAlterUrl="" settingsCheckInterval="480" />
         <logging minLevel="info" />
         <storage archiveOption="0" storeFiles="true" storeLink="true" storeMsg="false" compress="true" />
-        <feature autoPaging="false" highlightTexts="false" collapsible="true" tokenAlterMode="false" messageIcon="false" saml="true" />
+        <feature autoPaging="false" highlightTexts="false" tokenAlterMode="false" messageIcon="false" />
         <explorer-search-properties />
         <search-properties />
       </outlook>
@@ -1009,8 +1009,6 @@ Use this file to set up attributes and metadata settings.
     |Attribute|Description|Value|
     |---------|-----------|-----|
     |`autoPaging`|Controls auto paging (for the tree view)|`true`: auto paging is enabled. A refreshed list of files and folders is automatically loaded when scrolling to the bottom of the tree.<br><br>`false`: auto paging is not enabled. This is the default setting. A More button is displayed to allow loading of content.|
-    |`collapsible`|Allows Alfresco sidebar to be expanded or collapsed|`true`: panel is collapsible. This is the default setting.<br><br>`false`: panel is not collapsible.|
-    |`saml`|Controls SAML authentication|`true`: SAML authentication can be used to connect to Alfresco. This is the default setting.<br><br>`false`: SAML authentication cannot be used to connect to Alfresco|
     |`messageIcon`|Controls the appearance of the Alfresco icon for archived mail|`true`: Alfresco icon appears on archived emails. This is the default setting.<br><br>`false`: Alfresco icon appears on archived emails.<br><br>**Note:** There is no visual icon to indicate that the email is archived.|
     |`useFilenameOnUploadMsg`|Controls if Alfresco should use the file name of email files uploaded from the desktop or the subject line to name the document in the repository. This option applies to email files uploaded from the desktop only.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`true`: Alfresco uses the file name to name the document in the repository.<br><br>`false`: Alfresco uses the subject line of the email to name the document in the repository.|
     |`useFilenameOnRenderMsg`|Controls if Alfresco should use the `cm:name` or `subjectline` attribute to display in the list/tree view. This option applies to email documents only.<br><br>Added in Outlook Integration 2.4.7. Supported in versions 2.4.7 onwards and 2.6.|`true`: Alfresco uses the `cm:name` instead of the `subjectline` attribute to show the email document in the list/tree view.<br><br>`false`: Alfresco uses the `subjectline` attribute to show the email document in the list/tree view.|
