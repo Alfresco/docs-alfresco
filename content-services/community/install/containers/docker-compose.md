@@ -4,29 +4,23 @@ title: Install using Docker Compose
 
 Use this information to quickly start up Community Edition using Docker Compose.
 
-> **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided here is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
+> **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 
 To deploy Community Edition using Docker Compose, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/community/install/containers/index.md %}#prerequisites) before continuing.
 
-1. Clone the project locally, change directory to the project folder, and switch to the release branch:
+1. Clone the project locally, change directory to the project's `docker-compose` folder:
 
     ```bash
     git clone https://github.com/Alfresco/acs-deployment.git
-    cd acs-deployment
+    cd acs-deployment/docker-compose
     ```
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
-2. Save the `docker-compose.yml` file in a local folder.
-
-    For example, you can create a folder `docker-compose`.
-
-3. Change directory to the location of your `docker-compose.yml` file.
-
-4. Deploy Community Edition, including the repository, Share, Postgres database, Search Services, etc.:
+2. Deploy Community Edition, including the repository, Share, Postgres database, Search Services, etc.:
 
     ```bash
-    docker-compose up
+    docker-compose -f community-docker-compose.yml up
     ```
 
     This downloads the images, fetches all the dependencies, creates each container, and then starts the system:
@@ -34,22 +28,21 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
     ```text
     ...
     Creating network "docker-compose_default" with the default driver
-    ...
-    Creating docker-compose_share_1 ...
-    Creating docker-compose_solr6_1 ...
+    Creating docker-compose_activemq_1 ...
     Creating docker-compose_alfresco_1 ...
     Creating docker-compose_postgres_1 ...
+    Creating docker-compose_solr6_1    ...
     Creating docker-compose_transform-core-aio_1 ...
-    Creating docker-compose_activemq_1           ...
-    Creating docker-compose_alfresco_1           ... done
-    Creating docker-compose_share_1              ... done
+    Creating docker-compose_share_1              ...
+    Creating docker-compose_alfresco_1           ...done
+    Creating docker-compose_share_1              ...done
     Creating docker-compose_proxy_1              ...
-    Creating docker-compose_postgres_1           ... done
-    Creating docker-compose_solr6_1              ... done
-    Creating docker-compose_transform-core-aio_1 ... done
-    Creating docker-compose_activemq_1           ... done
-    Creating docker-compose_proxy_1              ... done
-    Attaching to docker-compose_alfresco_1, docker-compose_share_1, docker-compose_postgres_1, docker-compose_solr6_1, docker-compose_transform-core-aio_1, docker-compose_activemq_1, docker-compose_proxy_1
+    Creating docker-compose_transform-core-aio_1 ...done
+    Creating docker-compose_postgres_1           ...done
+    Creating docker-compose_solr6_1              ...done
+    Creating docker-compose_proxy_1              ...done
+    Creating docker-compose_activemq_1           ...done
+    Attaching to docker-compose_alfresco_1, docker-compose_share_1, docker-compose_transform-core-aio_1, docker-compose_postgres_1, docker-compose_solr6_1, docker-compose_proxy_1, docker-compose_activemq_1
     ...
     ```
 
@@ -57,7 +50,7 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     As an alternative, you can also start the containers in the background by running `docker-compose up -d`.
 
-5. Wait for the logs to complete, showing messages:
+3. Wait for the logs to complete, showing messages:
 
     ```bash
     ...
@@ -68,7 +61,7 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
 
     See [Troubleshooting](#troubleshooting) if you encounter errors whilst the system is starting up.
 
-6. Open your browser and check everything starts up correctly:
+4. Open your browser and check everything starts up correctly:
 
     | Service | Endpoint |
     | ------- | -------- |
@@ -84,7 +77,7 @@ To deploy Community Edition using Docker Compose, download and install [Docker](
     docker-machine ip
     ```
 
-7. Log in as the `admin` user. Enter the default administrator password `admin`.
+5. Log in as the `admin` user. Enter the default administrator password `admin`.
 
 ## Check system start up
 
@@ -250,13 +243,13 @@ docker-compose down
 
 ## Troubleshooting
 
-1. If you have issues running ```docker-compose up``` after deleting a previous Docker Compose cluster, try replacing step 4 in the initial Docker Compose instructions with:
+1. If you have issues running `docker-compose up` after deleting a previous Docker Compose cluster, try replacing step 2 in the initial Docker Compose instructions with:
 
     ```bash
     docker-compose down && docker-compose build --no-cache && docker-compose up
     ```
 
-    > **Note:** Make sure that the `docker-compose up` part of the command uses the format you chose in step 4.
+    > **Note:** Make sure that the `docker-compose up` part of the command uses the format you chose in step 2.
 
 2. Stop the session by using `CONTROL+C`.
 
@@ -270,6 +263,6 @@ docker-compose down
 
     For example, in Docker, change the memory setting in **Preferences** (or **Settings**) **Resources** > **Advanced** > **Memory** to at least 8GB. Make sure you restart Docker and wait for the process to finish before continuing.
 
-    Go back to step 4 in the initial Docker Compose instructions to start the deployment again.
+    Go back to step 2 in the initial Docker Compose instructions to start the deployment again.
 
-> **Note:** Keep in mind that 8GB is much lower than the required minimum, and may need to be adapted for your environment. You'll need a machine with at least 13GB of memory to distribute among the Docker containers.
+> **Note:** You'll need a machine with at least 13GB of memory to distribute among the Docker containers.
