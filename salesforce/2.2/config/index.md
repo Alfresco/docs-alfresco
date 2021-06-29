@@ -75,7 +75,7 @@ Ensure you have the [prerequisites](#prereqs) installed and configured first, an
     |Include Consumer Secret in API Responses|Selected|
     |Custom Error URL|Leave Empty|
     |Custom Logout URL|Leave Empty<br><br>**Note:** The Custom Logout URL will be configured later on in the configuration steps.|
-    |Registration Handler|Select **Automatically create a registration handler template**.<br><br>**Note:** This creates the Apex code.|
+    |Registration Handler|Select an existing Registration Handler for your Provider or click **Automatically create a registration handler template**.<br><br>**Note:** Creating a template will require modification by your Salesforce team for it to  work for your use case and provider.|
     |Execute Registration As|Select an Admin user.|
     |Portal|None|
     |Icon URL|***Optional.*** Enter a URL where an image can be found.|
@@ -109,17 +109,25 @@ Ensure you have the [prerequisites](#prereqs) installed and configured first, an
 16. Add `?redirect_uri=` between your domain URL and the `end_session_endpoint` value and click **Save**.
 
     It should take the form of `end_session_endpoint?redirect_uri=<Your domain>`.
+   
+### Customizing Registraition Handler {#configure-handler}
 
-17. To update the Apex code, on the Auth. Providers window click the link next to **Registration Handler** to open the **Apex classes** window.
+Configuring the registration handler should be completed by someone with an understanding of Apex, Salesforce SSO, and your identity provider. Below is a sample approach for a simplified implementation using the default template. This should not be used for production as it may not meet your specific needs. We encourage testing to validate that your registraion handler is configured correctly. This is not a definitive guide on how to customize the registraion handler.
 
-18. Click **Edit** and change the Global Class to something more meaningful such as `IdentityServiceRegistrationHandler`.
+1. To update the Apex code, in the newly created Auth. Providers window click the link next to **Registration Handler** to open the **Apex classes** window.
 
-19. Comment out the global boolean `canCreateUser(Auth.UserData data)` method and all references to it.
+2. Click **Edit** and change the generate Global Class name to something more meaningful to you such as *`IdentityServiceRegistrationHandler`*. 
+    The generated name will be something like *`AutocreatedRegHandler1624989012775`*.
 
-    If you don't comment this out you will not be able to log in because a new user will not be automatically created.
+3. Comment out all references to the method *`canCreateUser(Auth.UserData data)`*.
 
-20. Change the value of `@myDomain.com` to be your domain within the section where you create a regular standard user. To do this within the Apex code find `u.username = data.username + '@myDomain.com'` and add your domain instead.
+    If the method references are not commented out you will not be able to log in through your provider because a new user will not be created. The method by default `false`.
 
-    By doing this when a user is created your domain name is used by default instead of `@myDomain.com`.
+4. In the *`createUser`* method, change the value of the string `@myorg.com` to be the email domain as specified in your identity provider within the section where  a standard user object is instantiated. To do this within the Apex code find `u.username = data.username + '@myorg.com'` and add your domain instead. If your providers username is formated as an email address change the line to be `u.username = data.username`.
 
-    >**Note:** The Apex code can be configured in lots of different ways to suit your organization. See the Apex documentation at Salesforce for more: [What is Apex?](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_intro_what_is_apex.htm){:target="_blank"}.
+**Note:** In the example above, a new Salesforce user is created at login through your provider.  If you are attempting to match an existing Salesforce user, the same *`createUser`* method is called, but the Registraion Handlers Apex code should be updated to use some combination of identifiable values from your provider to query Salesforce to find user values to identify and return an existing user instead of attempting to create a new user.
+
+    >**Note:** The Apex code can be configured in lots of different ways to suit your organization. See the Salesforce documentation for more information: 
+    > * [What is Apex?](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_intro_what_is_apex.htm){:target="_blank"}.
+    > * [Setup SSO for your users](https://developer.salesforce.com/docs/atlas.en-us.externalidentityImplGuide.meta/externalidentityImplGuide/external_identity_accept_identity_from_existing_provider.htm){:target="_blank"}.
+    > * [RegistrationHandler Interface](https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_auth_plugin.htm){:target="_blank"}.
