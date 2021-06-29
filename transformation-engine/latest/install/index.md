@@ -23,8 +23,6 @@ There are a number of important notes to consider when installing the Document T
 
 * Make sure that the Windows print spooler service is running.
 
-* GhostScript v8.64 and pdf2swf are no longer distributed along with Document Transformation Engine. Make sure you install both these tools manually.
-
 ### Sizing
 
 There are a number of recommendations for calculating sizing. You will need:

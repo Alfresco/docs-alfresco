@@ -1,16 +1,9 @@
 ---
-title: Install with Zip
+title: Install with MSI
 ---
 
-The Alfresco Document Transformation Engine is installed in three parts.
-
-The following file is used to install the standalone Document Transformation Engine `alfresco-document-transformation-engine-2.3.x.zip`
-
-The zip file contains the following files:
-
-* `alfresco-document-transformation-engine-repo-2.3.x.amp`
-* `alfresco-document-transformation-engine-share-2.3.x.amp`
-* `alfresco-document-transformation-engine-server.msi`
+The Alfresco Document Transformation Engine is installed by using `alfresco-document-transformation-engine-server-2.3.0.msi`. Download the file from the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"}.
+In previous versions the installation files were contained within a .zip file which also included .amp files that enabled you to Install the Alfresco Transformation client into Alfresco Content Services. This is no longer possible 
 
 The package contains a keystore that is used by the Tomcat SSL connector. This keystore is shipped for demonstration purposes only and should not be used in production environments. You can edit the file, `conf/server.xml`, to integrate a custom keystore. Remember to change the attributes, `keystoreFile` and `keystorePass`.
 
@@ -26,21 +19,21 @@ The standalone Document Transformation Engine is installed using the MSI file.
 
 3. (Optional) Select DTE T-Engine > **Note:** The Document Transformation Engine T-engine can also be installed. This allows transformation of MSG and EML files into PDF format when used with the Transform Service.
 
-3. Click **Next** and the license information screen displays.
+4. Click **Next** and the license information screen displays.
 
-4. Click **Next** and select an installation folder or accept the default folder, and then click **Next**.
+5. Click **Next** and select an installation folder or accept the default folder, and then click **Next**.
 
-5. Select the TCP/IP ports used by the Document Transformation Engine.
+6. Select the TCP/IP ports used by the Document Transformation Engine.
 
     The default values are `8080` (HTTP) and `8443` (HTTPS) but you can also use the standard ports `80` and `443` (or any other port) if this fits better into your network infrastructure.
 
-6. Click **Next** to start the installation.
+7. Click **Next** to start the installation.
 
     You will see a progress bar and a command line window during the installation. The installer will show a confirmation when the installation is finished.
 
-7. Click **Close** to finish the installation.
+8. Click **Close** to finish the installation.
 
-8. Verify that the installation has completed successfully.
+9. Verify that the installation has completed successfully.
 
     1. Check the Windows Services in the management console.
 
