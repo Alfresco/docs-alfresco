@@ -8,7 +8,7 @@ Use this information to quickly start up Community Edition using Docker Compose.
 
 To deploy Community Edition using Docker Compose, download and install [Docker](https://docs.docker.com/install/){:target="_blank"}, then follow the steps below. Make sure that you've reviewed the [prerequisites]({% link content-services/community/install/containers/index.md %}#prerequisites) before continuing.
 
-1. Clone the project locally, change directory to the project's `docker-compose` folder:
+1. Clone the project locally, and change directory to the project's `docker-compose` folder:
 
     ```bash
     git clone https://github.com/Alfresco/acs-deployment.git
@@ -246,7 +246,7 @@ docker-compose down
 1. If you have issues running `docker-compose up` after deleting a previous Docker Compose cluster, try replacing step 2 in the initial Docker Compose instructions with:
 
     ```bash
-    docker-compose down && docker-compose build --no-cache && docker-compose up
+    docker-compose down && docker-compose build --no-cache && docker-compose -f community-docker-compose.yml up
     ```
 
     > **Note:** Make sure that the `docker-compose up` part of the command uses the format you chose in step 2.
