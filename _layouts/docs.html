@@ -40,12 +40,16 @@
           <div class="column column-content">
             <button class="button is-rounded" id="table-of-contents" onclick="tocToggler()">Table of contents</button>
             <div class="content">
-              <!-- If it is the landing page for a product, then print out the currently selected version for the product. -->
-              <!-- A page is considered to be the landing page if the path to it is <product id>/<product version>/index.md -->
-              <!-- Any longer path is considered a sub page, which should not have the product version printed out -->
+              <!-- For each landing page, print out the selected version for the product (unless it's a Community version). -->
+              <!-- A landing page has a path with format: <product-name>/<product-version>/index.md -->
+              <!-- A longer path is considered a sub page, which should not have the version printed out. -->
               {% assign pathElements = page.path | split: "/"%}
               {% if pathElements.size == 3 %}
+              {% unless page.version == 'community' %}
               <h1>{{page.title}} {{page.version}}</h1>
+              {% else %}
+              <h1>{{page.title}}</h1>
+              {% endunless %}
               {% else %}
               <h1>{{page.title}}</h1>
               {% endif %}
