@@ -23,7 +23,7 @@ based on the Alfresco [Application Development Framework (ADF)](https://www.alfr
 it's also deployed as a WAR. The user interfaces makes it easy for users to manage their sites, folders, documents,
 users and so on.
 
->**Note**. The Digital Workspace UI is not available with the Community version.
+>**Note:**. The Digital Workspace UI is not available with the Community version.
 
 Alfresco Share also provides several extension points that can be used to build customizations for that user interface,
 they are also deployed as AMP or JAR modules. If you want to extend the Digital Workspace UI JSON files are used.
