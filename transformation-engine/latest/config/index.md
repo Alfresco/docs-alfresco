@@ -42,14 +42,12 @@ transformer.timeout.default=300
 
 `content.transformer.default.timeoutMs` is the system transformation timeout (set to 120000 milliseconds by default), but the Document Transformation Engine is controlled by `transformserver.transformationTimeout` and `transformer.timeout.default`. This means that with the default settings, Alfresco Content Services stops processing after 120 seconds, whereas the Document Transformation Engine attempts to transform a document for up to 300 seconds and any results returned after 120 seconds are ignored.
 
-If you set the following:
+Set the following to configure the Document Transformation Engine to stop processing at the same time as the default system transformation timeout:
 
 ```bash
 transformserver.transformationTimeout=120
 transformer.timeout.default=120
 ```
-
-the Document Transformation Engine stops processing at the same time as the default system transformation timeout.
 
 ### Configuration using the `global-properties.file`
 
