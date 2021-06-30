@@ -5,8 +5,6 @@ title: Supported platforms
 Here is a list of the individual components that have been through the complete 
 Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
 
-**Last modified: March 31 2020**
-
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact 
 our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
