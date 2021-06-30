@@ -512,7 +512,7 @@ When you first start out you don't need to change any of these properties, just 
 #### Building and running the project
 
 The first thing you need to do before you can run anything is to build the custom ACS Docker images with the custom extensions.
-We can build images and extensions at the same time as we start (run) the project by using the `./run.sh build_start` script
+You can build images and extensions at the same time as you start (run) the project by using the `./run.sh build_start` script
 (on Windows use the `run.bat build_start` script instead).
 
 Note that if you have another Alfresco SDK project running, then you need to stop it first. Also, make sure that the
