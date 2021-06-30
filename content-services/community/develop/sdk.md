@@ -1706,7 +1706,7 @@ don't have a project already, follow the steps in [Getting started with Alfresco
 
 7. Repeat the fix for all similar issues you have. Note that these issues really depend on the archetype you used to generate the project.
 
-   Once done, you may see an error with description: Project configuration is not up-to-date with pom.xml.
+   Once done, you may see an error with description: Project configuration is not up-to-date with `pom.xml`.
 
 8. To fix this, right click one of the Alfresco projects and select `Maven > Update Project`, ensure all the Alfresco projects and sub-projects are selected, and then click `OK`.
 
