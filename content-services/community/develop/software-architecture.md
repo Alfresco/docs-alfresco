@@ -28,7 +28,7 @@ users and so on.
 Alfresco Share also provides several extension points that can be used to build customizations for that user interface,
 they are also deployed as AMP or JAR modules. If you want to extend the Digital Workspace UI JSON files are used.
 
-The [search service]({% link search-services/latest/index.md %}) functionality is implemented on top of Apache **Solr**
+The [search services]({% link search-services/latest/index.md %}) functionality is implemented on top of Apache **Solr**
 and provides the indexing of all content, which enables powerful search functionality. Search is delivered as the `solr.war`
 web application. There are also mobile clients that will access the content via ReST APIs provided by the platform.
 
