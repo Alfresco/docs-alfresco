@@ -2806,7 +2806,7 @@ _Note that a license is required. In this step you will be able to request a tri
 3. Restart IntelliJ to complete the installation.
 4. Select `Preferences > JRebel > JRebel License` to activate your installation.
 
-   >**Note** that a license is required. In this step you will be able to request a trial license._
+   >**Note:** that a license is required. In this step you will be able to request a trial license._
 
 5. Select `Preferences > JRebel > Remote Servers` to add a new remote server.
 6. Give a descriptive name to the new server and set the `Server URL` as `http://localhost:8080/alfresco.
