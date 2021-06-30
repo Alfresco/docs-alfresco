@@ -65,7 +65,7 @@ public class ListFolderContent {
     /**
      * List contents (i.e. folders and files) of a folder.
      *
-     * @param rootNodeId         the id of the folder node that is the root. If relativeFolderPath is null, then content in this folder will be listed. Besides node ID the aliases -my-, -root- and -shared- are also supported.
+     * @param rootNodeId the id of the folder node that is the root. If relativeFolderPath is null, then content in this folder will be listed. Besides node ID the aliases -my-, -root- and -shared- are also supported.
      * @param relativeFolderPath path relative rootNodeId, if this is not null, then the content of this folder will be listed
      * @return a list of child node objects contained in the folder, or null if not found
      */
