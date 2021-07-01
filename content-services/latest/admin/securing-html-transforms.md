@@ -72,14 +72,18 @@ but for TEXT to PDF transformation, not for HTML to PDF.
 
 Store this transform configuration in a file called `0200-html-via-txt.json`. 
 
-### Deploy new configuration in Alfresco Repository
+### Deploying configuration
+You have two options for this, either deploy directly to the Alfresco Repository or deploy configuration to the 
+Transform Router.
+
+#### Deploy new configuration to Alfresco Repository
 
 * Copy the `0200-html-via-txt.json` file into the `tomcat/shared/classes/alfresco/extension/transform/pipelines` directory
 * Make sure `alfresco-global.properties` is still configured with the default location for transform pipelines: `local.transform.pipeline.config.dir=shared/classes/alfresco/extension/transform/pipelines`
 
-### Deploy new configuration in T-Router
+#### Deploy new configuration to Transform Router
 
-* Copy the `0200-html-via-txt.json` file into the T-Router container, this is usually done by creating a custom image via a `Dockerfile` 
+* Copy the `0200-html-via-txt.json` file into the Transform Router container, this is usually done by creating a custom image via a `Dockerfile` 
 * Export an environment variable pointing to the file location inside the container. 
   * The variable name should have this pattern: `TRANSFORMER_ROUTES_ADDITIONAL_<name>`
   * The variable can be defined inside the container: `export TRANSFORMER_ROUTES_ADDITIONAL_HTML_VIA_TXT="/0200-html-via-txt.json"`
@@ -87,7 +91,7 @@ Store this transform configuration in a file called `0200-html-via-txt.json`.
     ```txt
     transform-router:
       mem_limit: 512m
-      image: quay.io/alfresco/alfresco-transform-router:1.3.2
+      image: quay.io/alfresco/alfresco-transform-router:1.4.0
       environment:
         JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
         ACTIVEMQ_URL: "nio://activemq:61616"
@@ -99,6 +103,8 @@ Store this transform configuration in a file called `0200-html-via-txt.json`.
       links:
         - activemq
     ```
+
+For more information see this [page]({% link transform-service/latest/config/extend.md %})
 
 ## Restore HTML pipelines that use LibreOffice
 
@@ -177,3 +183,39 @@ configuration file containing the original pipelines as below:
   ]
 }
 ```
+
+Store this transform configuration in a file called `restore-html-libreoffice.json`.
+
+### Deploying configuration
+You have two options for this, either deploy directly to the Alfresco Repository or deploy configuration to the
+Transform Router.
+
+#### Deploy new configuration to Alfresco Repository
+
+* Copy the `restore-html-libreoffice.json` file into the `tomcat/shared/classes/alfresco/extension/transform/pipelines` directory
+* Make sure `alfresco-global.properties` is still configured with the default location for transform pipelines: `local.transform.pipeline.config.dir=shared/classes/alfresco/extension/transform/pipelines`
+
+#### Deploy new configuration to Transform Router
+
+* Copy the `restore-html-libreoffice.json` file into the Transform Router container, this is usually done by creating a custom image via a `Dockerfile`
+* Export an environment variable pointing to the file location inside the container.
+  * The variable name should have this pattern: `TRANSFORMER_ROUTES_ADDITIONAL_<name>`
+  * The variable can be defined inside the container: `export TRANSFORMER_ROUTES_ADDITIONAL_RESTORE_HTML_LIBREOFFICE="/restore-html-libreoffice.json"`
+  * Or by changing the Docker Compose file as shown below:
+    ```txt
+    transform-router:
+      mem_limit: 512m
+      image: quay.io/alfresco/alfresco-transform-router:1.4.0
+      environment:
+        JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
+        ACTIVEMQ_URL: "nio://activemq:61616"
+        TRANSFORMER_ROUTES_ADDITIONAL_RESTORE_HTML_LIBREOFFICE: "/restore-html-libreoffice.json"
+        CORE_AIO_URL : "http://transform-core-aio:8090"
+        FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+      ports:
+        - 8095:8095
+      links:
+        - activemq
+    ```
+
+For more information see this [page]({% link transform-service/latest/config/extend.md %})
