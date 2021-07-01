@@ -603,7 +603,7 @@ The following table lists all available `SAP Object Types`, which are supported 
 | --------------- | --------------- | ------------------ |
 | BKPF | FB03 | RF05L-BELNR, RF05L-BUKRS, RF05L-GJAHR |
 | BUS1065 | PA40 | RP50G-PERNR |
-| BUS10001006 | MM03 | RMMG1-MATNR |
+| BUS1001006 | MM03 | RMMG1-MATNR |
 | BUS2010 | ME43 | RM06E-ANFNR |
 | BUS2012 | ME23 | RM06E-BSTNR |
 | BUS2032 | VA03 | VBAK-VBELN |
