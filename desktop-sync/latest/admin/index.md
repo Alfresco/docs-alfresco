@@ -27,7 +27,7 @@ This allows you to update the configuration file for all your Desktop Sync users
     When a new configuration file is found, it's downloaded and retained in the appropriate folder. For example:
 
     * Windows: `<userHome>\AppData\Local\Alfresco`
-    * Mac:`~/Library/Application Support/Alfresco`
+    * Mac: `~/Library/Application Support/Alfresco`
 
     The existing configuration file is kept as a backup (i.e. `AlfrescoSync-backup.conf`).
 
@@ -35,7 +35,7 @@ This allows you to update the configuration file for all your Desktop Sync users
 
     >**Note:** If you're a Windows user, you'll see a message stating:
     >
-    >```
+    >```text
     >C:\Users\Program Files\AppData\Local\Alfresco\AlfrescoSync.conf
     >This file has been modified by another program. Do you want to reload it?
     >```
@@ -116,3 +116,22 @@ test.subFolderFilter./User Homes/username=folder7
 > * If all enforced sync paths are specified incorrectly, then the content selection dialog is enabled.
 > * If, for example, one of two paths is invalid and one is valid, the content selection dialog is disabled and only the valid path is synced.
 > * If an excluded folder is renamed, then that folder will be synced after a restart.
+
+## Manage hidden sync
+
+If you're an IT administrator, you can configure Desktop Sync client apps to hide specific paths or Sites. This allows you to restrict what your Desktop Sync clients can sync by hiding those locations from view in the content selection dialog.
+
+The properties to *hide content from sync* are specified as:
+
+```bash
+test.excludePath.<n>=<full-path-to-folder-or-site>
+test.excludeSite.<n>=<siteId>
+```
+
+where `<n>` is an ascending index number starting at `1`.
+
+Adding this configuration ensures that users aren't able to sync the defined content. In addition:
+
+* The folder/site will not be shown in the content selection dialog.
+* If the excluded folder is inside a synced path, the excluded folder will be skipped when syncing.
+* The sync folder selection is checked every time the Desktop Sync client restarts. If a sync location is hidden by the administrator, then that content is removed from the client.

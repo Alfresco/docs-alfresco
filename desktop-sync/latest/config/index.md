@@ -86,7 +86,7 @@ Here are some examples of the information that's collected:
 As an IT administrator, you can control the parts of the Desktop Sync UI that users can access, 
 so that they can't sync content from specific areas in Alfresco Content Services. 
 
-By default, the Content selection screen (see [selecting content to sync]({% link desktop-sync/latest/using/select-to-sync.md %})) 
+By default, the content selection dialog (see [selecting content to sync]({% link desktop-sync/latest/using/select-to-sync.md %})) 
 displays **My Files**, **Shared Files**, **Sites**, and **Company Home**. 
 If you want to hide any of these areas, change the value of the relevant `syncui.show*` property to `false`.
 
@@ -456,3 +456,9 @@ See [Managing automatic configuration updates]({% link desktop-sync/latest/admin
 You can configure your Desktop Sync client apps to enforce the sync and exclusion of specific paths or Sites that are added to the configuration file. This allows you to restrict what your Desktop Sync clients sync by pre-selecting the sync folders.
 
 See [Manage enforced sync]({% link desktop-sync/latest/admin/index.md %}#manage-enforced-sync) for more.
+
+## Hide specific paths from users {#hide-from-sync}
+
+You can configure your Desktop Sync client apps to hide specific paths or Sites that are added to the configuration file. This allows you to restrict what your Desktop Sync clients sync by hiding those locations from view in the content selection dialog.
+
+See [Manage hidden sync]({% link desktop-sync/latest/admin/index.md %}#manage-hidden-sync) for more.
