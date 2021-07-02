@@ -651,12 +651,17 @@ defaults:
       toc: "sap-cloud"
       support: true
       versions:
+        - 1.1
         - 1.0
   - scope:
       path: "sap-cloud/latest"
     values:
-      version: 1.0
+      version: 1.1
       latest: true
+  - scope:
+      path: "sap-cloud/1.0"
+    values:
+      version: 1.0
 
 # Alfresco ECM Centera
   - scope:
