@@ -6,7 +6,11 @@
     - title: 'Install'
       path: '/sap-cloud/latest/install/'
     - title: 'Configure'
-      path: '/sap-cloud/latest/config/'
+      pages:
+        - title: 'Configure SAP on-premises'
+          path: '/sap-cloud/latest/config/'
+        - title: 'Configure SAP Cloud'
+          path: '/sap-cloud/latest/config/cloud/'
     - title: 'Administer'
       path: '/sap-cloud/latest/admin/'
 
