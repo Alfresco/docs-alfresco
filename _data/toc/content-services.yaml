@@ -291,6 +291,8 @@
           pages:
           - title: 'Java Foundation API'
             path: '/content-services/latest/develop/reference/java-foundation-ref/'
+          - title: 'CMIS API'
+            path: '/content-services/latest/develop/reference/cmis-ref/'
           - title: 'Web Scripts'
             path: '/content-services/latest/develop/reference/web-scripts-ref/'
           - title: 'Surf Framework'
@@ -561,6 +563,8 @@
           pages:
           - title: 'Java Foundation API'
             path: '/content-services/community/develop/reference/java-foundation-ref/'
+          - title: 'CMIS API'
+            path: '/content-services/community/develop/reference/cmis-ref/'
           - title: 'Web Scripts'
             path: '/content-services/community/develop/reference/web-scripts-ref/'
           - title: 'Surf Framework'
