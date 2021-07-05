@@ -42,7 +42,8 @@ Ensure you have the [prerequisites](#prereqs) installed and configured first.
 
 8. Add `frame-src 'self' <Your Salesforce URL>` to the **Content-Security-Policy** field.
 
-    >**Note:** `<Your Salesforce URL>` can take two different forms:
+    > **Note:** `<Your Salesforce URL>` can take two different forms:
+    >
     > * For the Classic view, the URL will take the form `visual.force.com`.
     > * For the Lightning view, the URL will take the form `lightning.force.com`.
 
@@ -111,14 +112,14 @@ Ensure you have the [prerequisites](#prereqs) installed and configured first, an
 16. Add `?redirect_uri=` between your domain URL and the `end_session_endpoint` value and click **Save**.
 
     It should take the form of `end_session_endpoint?redirect_uri=<Your domain>`.
-   
+
 ### Customize Registration Handler {#configure-handler}
 
 Configuring the registration handler should be completed by someone with an understanding of Apex, Salesforce SSO, and your identity provider. Below is a sample approach for a simplified implementation using the default template. This should not be used for production as it may not meet your specific needs. We encourage testing to validate that your registration handler is configured correctly. This is not a definitive guide on how to customize the registration handler.
 
 1. To update the Apex code, in the newly created Auth. Providers window click the link next to **Registration Handler** to open the **Apex classes** window.
 
-2. Click **Edit** and change the generate Global Class name to something more meaningful to you such as *`IdentityServiceRegistrationHandler`*. 
+2. Click **Edit** and change the generate Global Class name to something more meaningful to you such as *`IdentityServiceRegistrationHandler`*.
 
     The generated name will be something like *`AutocreatedRegHandler1624989012775`*.
 
@@ -131,9 +132,10 @@ Configuring the registration handler should be completed by someone with an unde
     * Find `u.username = data.username + '@myorg.com'` and add your domain instead.
     * If your providers username is formated as an email address, change the line to be `u.username = data.username`.
 
->**Note:** In the example above, a new Salesforce user is created at login through your provider. If you are attempting to match an existing Salesforce user, the same `createUser` method is called, but the Registration Handlers Apex code should be updated to use some combination of identifiable values from your provider to query Salesforce to find user values to identify, and return an existing user instead of attempting to create a new user.
+> **Note:** In the example above, a new Salesforce user is created at login through your provider. If you are attempting to match an existing Salesforce user, the same `createUser` method is called, but the Registration Handlers Apex code should be updated to use some combination of identifiable values from your provider to query Salesforce to find user values to identify, and return an existing user instead of attempting to create a new user.
 
->**Note:** You can configure the Apex code in lots of different ways to suit your organization. See the Salesforce documentation for more information: 
+> **Note:** You can configure the Apex code in lots of different ways to suit your organization. See the Salesforce documentation for more information:
+>
 > * [What is Apex?](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_intro_what_is_apex.htm){:target="_blank"}.
 > * [Setup SSO for your users](https://developer.salesforce.com/docs/atlas.en-us.externalidentityImplGuide.meta/externalidentityImplGuide/external_identity_accept_identity_from_existing_provider.htm){:target="_blank"}.
 > * [RegistrationHandler Interface](https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_auth_plugin.htm){:target="_blank"}.
