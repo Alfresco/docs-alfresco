@@ -593,6 +593,8 @@
               path: '/content-services/6.2/install/zip/amp/'
             - title: 'Install additional software'
               path: '/content-services/6.2/install/zip/additions/'
+        - title: 'Install with Ansible'
+          path: '/content-services/6.2/install/ansible/'
         - title: 'Install using containers'
           pages:
             - title: 'Overview'
