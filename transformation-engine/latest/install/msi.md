@@ -23,7 +23,7 @@ In previous versions the installation files were contained within a `.zip` file.
 
 5. (Optional) Select DTE T-Engine.
 
-    > **Important:** If you do not have a T-Engine installed with Content Services, you must select this option. This allows transformation of MSG and EML files into PDF format using the Transform Service. If you already have a T-Engine installed with Content Services you should not select this option because it will produce an error.
+    > **Important:** If you do not intend to use the DTE T-Engine Docker image, you must select this option.
 
 6. Click **Next** and the license information screen displays.
 
@@ -103,7 +103,7 @@ To deploy the Document Transformation Engine T-Engine with the Transform Service
 2. Add the following `JAVA_OPTS` property to the `alfresco` container:
 
     ```yaml
-    -DlocalTransform.transform-dte.url=http://transform-dte:8090/
+    -DlocalTransform.transform-dte.url=http://transform-dte-engine:8090/
     ```
 
 See the Content Services documentation - [T-Engine configuration](https://github.com/Alfresco/acs-packaging/blob/master/docs/creating-a-t-engine.md#t-engine-configuration){:target="_blank"} for more details. For further development, see [Content Transformers and Renditions Extension Points]({% link content-services/latest/develop/repo-ext-points/content-transformers-renditions.md %}).
