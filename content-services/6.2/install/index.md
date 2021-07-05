@@ -29,15 +29,7 @@ This is also referred to as the zip distribution deployment, and is the most fle
 See [Install with zip]({% link content-services/6.2/install/zip/index.md %}) for more details.
 
 <!--NOT AVAILABLE YET
-#### Ansible playbooks
-
-Ansible playbooks provide an automated way of deploying a complete Content Services system on "bare metal" servers, Virtual Machines, or Virtual Private Cloud instances, without the use of containers. The single playbook provided can be configured to deploy single or multi-machine instances, with a number of supported configuration options.
-
-See [Install using Ansible]({% link content-services/6.2/install/ansible.md %}) for basic instructions on deploying with Ansible.
-
-To explore more technical information on the ACS playbook, and to access the playbook source, see [Ansible on GitHub](https://github.com/Alfresco/alfresco-ansible-deployment){:target="_blank"}.
-
-The ACS Ansible playbook is provided as an Open Source reference script, which customers can modify and enhance to suit their own deployment environments.-->
+#### Ansible playbooks-->
 
 ### Containerized deployment
 
