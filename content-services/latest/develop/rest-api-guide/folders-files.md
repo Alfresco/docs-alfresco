@@ -717,7 +717,7 @@ followed by files. To mix files and folders and order them alphabetically in rev
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children?relativePath=My%20Stuff&orderBy=name%20DESC" | jq 
 ```
 
-## Get folder/file metadata
+## Get folder/file metadata {#getnodemetadata}
 
 Getting the metadata for a node returns the properties for the node type and applied aspects.
 
@@ -1574,7 +1574,7 @@ has changed to `1.1` as we choose to do a minor version update. If we would have
 would have been set to 2.0. When versioning is turned on for a file, such as in this case, each previous version of the 
 file is saved on disk.
 
-## Get file version history
+## Get file version history {#getfileversionhistory}
 
 When a file has versioning turned on you can get its version history.
 
@@ -1756,7 +1756,7 @@ add an extra query parameter called `attachment` and set it to `false` (i.e.
 
 It's possible to download multiple files as a ZIP.
 
-**API Explorer URL:** [http://localhost:8080/api-explorer/#!/nodes/getNodeContent](http://localhost:8080/api-explorer/#!/nodes/getNodeContent){:target="_blank"}
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/downloads/createDownload](http://localhost:8080/api-explorer/#!/downloads/createDownload){:target="_blank"}
 
 **See also:** [Downloading a single file](#downloadfile)
 
@@ -1861,7 +1861,7 @@ It's better to try the download from a browser.
 By default, if the download node is not deleted it will be picked up by a cleaner job which removes download nodes older 
 than a configurable amount of time (default is 1 hour).
 
-## List file renditions
+## List file renditions {#listfilerenditions}
 
 A file can have a number of renditions generated for it. This is how you get a list these renditions.
 
@@ -1964,7 +1964,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 In this case we got back information about six renditions for this text file, each contained in an `entry` object. 
 Note that only two of those have been created and can be downloaded (i.e. they have `status` set to `CREATED`).
 
-## Get file rendition content
+## Get file rendition content {#getrenditioncontent}
 
 Get the rendition file content, if it has been generated.
 
@@ -2589,7 +2589,7 @@ just the inherited **Consumer** role permission for group **EVERYONE**.
 When we get the permissions for a node we also get back a list of permission roles, in the `settable` property, that can 
 be set on the node (depends on the node type).
 
-Let's also look at a the permissions for a public Share site, we can get the document library node information for the 
+Let's also look at the permissions for a public Share site, we can get the document library node information for the 
 out-of-the-box site with id `swsdp` as follows:
 
 ```bash
@@ -2908,7 +2908,7 @@ When you work with the `cm:contains` association type you set up what is referre
 This is what happens when you upload a file or create a folder. There is also the possibility to work with other types 
 of child associations, they are then referred to as secondary child associations. We will have a look at them now.
 
-### Introduction to the FDK content model
+### Introduction to the FDK content model {#alfrescofdkcontentmodel}
 
 To be able to show how to use secondary child associations and peer-to-peer associations we will use a custom content model. 
 For those of you that have been with Alfresco for a while you might remember the Forms Development Kit (FDK) custom model. 
@@ -3689,7 +3689,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-### Create an association for a node that exists
+### Create an association for a node that exists {#createparentchildassoc4nodeexist}
 
 It's also possible to create associations on nodes that already exist, let's add some more to our "My Gadget" `fdk:gadget` 
 node. Before we do that though upload another image to the “My Gadgets” folder and some more content to represent another 
@@ -3816,7 +3816,7 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-### Deleting associations
+### Deleting associations {#deletingassociations}
 
 The last thing to cover is deleting associations, let's start by removing the second review from our `fdk:gadget` node. 
 To do this we send a DELETE request to:
@@ -4292,7 +4292,7 @@ done via the `/search` API and the `TAG:{tag}` keyword.
 
 See the [complex search]({% link content-services/latest/develop/rest-api-guide/searching.md %}#searchbyquery) page for an example.
 
-## Copy folders and files
+## Copy folders and files {#copynode}
 
 Copying folders and files means copying nodes.
 
@@ -4361,7 +4361,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-## Move folders and files
+## Move folders and files {#movenode}
 
 Moving folders and files means moving nodes.
 
@@ -4434,7 +4434,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-## Lock a file for editing
+## Lock a file for editing {#locknode}
 
 Locking a file is sometimes necessary when you want to edit it while no one else should be able to.
 
@@ -4573,7 +4573,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 
 We can now see that the `cm:lockable` aspect is no longer applied and the associated properties have been removed.
 
-## Create a link to a file
+## Create a link to a file {#linknode}
 
 Create a link to a file or folder stored somewhere else.
 

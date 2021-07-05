@@ -37,13 +37,14 @@ You can replace the AWS services (EKS, MQ, and EFS) with a self-managed Kubernet
 
 ### Integrated AWS Services
 
-The Intelligence Services module integrates three different AWS services:
+The Intelligence Services module integrates four different AWS services:
 
 * [Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html){:target="_blank"} for text analysis
 * [Amazon Rekognition](https://docs.aws.amazon.com/rekognition/latest/dg/what-is.html){:target="_blank"} for image analysis
 * [Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/what-is.html){:target="_blank"} for text detection and form analysis of fields (key-value pairs) including check boxes
+* [Amazon Transcribe](https://aws.amazon.com/transcribe/){:target="_blank"} for transcribing text from video and audio files
 
-Alfresco Intelligence Services requests renditions for all three services (Comprehend, Rekognition, and Textract), using the default configuration. However, the API processing calls only take place for the relevant AWS service. With the release of version 1.1, you can configure the requested renditions.
+Alfresco Intelligence Services requests renditions for all four services (Comprehend, Rekognition, Textract, and Transcribe), using the default configuration. However, the API processing calls only take place for the relevant AWS service. From the release of version 1.1, you can configure the requested renditions.
 
 Before you can add these services to your deployment, some configuration is first required in AWS. The details are covered in the [installation guide]({% link intelligence-services/latest/install/index.md %}).
 
@@ -153,3 +154,28 @@ See the AWS site for more details on service limits: [Limits in Amazon Textract]
 You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
 
 There's a setting for the level of confidence that Amazon Textract has in the accuracy of the extracted content. This is defined as the minimum confidence level and has a default value of 80%.
+
+### Amazon Transcribe
+
+Amazon Transcribe makes it easy for you to generate speech to text from your video and audio files to your applications.
+
+This service can be used to convert video and audio data into text files which can then be searched for key words or used as closed captions on your videos and audio files.
+
+#### Prerequisites (Transcribe)
+
+The general prerequisites to use Amazon Transcribe are documented in [Getting Started with Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/getting-started.html){:target="_blank"}.
+
+#### Supported regions (Transcribe)
+
+See the list of supported AWS regions where Amazon Transcribe is [available](https://docs.aws.amazon.com/general/latest/gr/rande.html){:target="_blank"}.
+
+#### Limits (Transcribe)
+
+See the AWS site for more details on service limits: [Limits in Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html){:target="_blank"}.
+
+#### Configuration (Transcribe)
+
+You'll need to create an AWS Identity and Access Management (IAM) role with the correct permissions to control access to AWS services and resources.
+
+See the AWS site for transcription accuracy information [Improving domain-specific transcription accuracy with custom language models
+](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html){:target="_blank"}.

@@ -35,7 +35,7 @@ To create a trigger:
 
 ## Events
 
-Trigger events include specific [BPMN]({% link process-automation/latest/model/processes/bpmn.md %}) states occurring in a process such as a timer being fired, a form being saved or events related to [connectors]({% link process-automation/latest/model/connectors/index.md %}) such as an email being received or a webhook REST request.
+Trigger events include specific [BPMN]({% link process-automation/latest/model/processes/bpmn.md %}) states occurring in a process such as a timer being fired, a form being saved or events related to [connectors]({% link process-automation/latest/model/connectors/index.md %}) such as an email being received or a webhook REST request. 
 
 The events that can be created for a trigger are:
 

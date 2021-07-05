@@ -14,7 +14,7 @@ easyaccessrecords: Records that are created from a file that's in another site, 
 electronicrecord: A record such as an email, spreadsheet, or image that can be stored in the Records Management site. A non-electronic record is a physical record such as a paper letter or microfilm.
 events: The life cycle of a record is controlled by either time-based or event-based triggers that are set in the retention schedule. Events are triggered when actions occur on a record or folder, such as it being versioned, cut off, closed, superseded, or obsoleted.
 fileplan: The File Plan is a container for records, folders, categories and retention schedules. It's effectively a virtual filing cabinet for storing records, and is the basic structure of Records Management. This structure lets you classify and group records with similar characteristics. The top level of the File Plan is created when you create a Records Management site.
-hold: A hold is a state that you can put records and record folders in to freeze them and suspend their retention schedules indefinately. The reason for doing this often relates to a legal issue. Records and record folders on hold can't be edited or disposed of, until such a time that they are removed from the hold or the hold itself is deleted.
+hold: A hold is a state that you can put records and record folders in to freeze them and suspend their retention schedules indefinitely. The reason for doing this often relates to a legal issue. Records and record folders on hold can't be edited or disposed of, until such a time that they are removed from the hold or the hold itself is deleted.
 publicationdate: The date that a record is completed and becomes part of the File Plan. This is mandatory metadata in DoD 5015.2-STD.
 rejectedrecords: After you've created a record from a file, the Records Manager has the option to reject the record from the Records Management site. If they reject the record then the original file will display a warning that it's a Rejected Record. At this point the options to declare the file as a record aren't available.
 retentionschedule: A schedule of actions, events, and rules that determines how records are managed throughout their lifecycle. The actions that can happen in a retention schedule are the following. Retain – for a period or until an event, Cutoff – retention schedule triggered, Transfer – move to another location/system, Accession - record moved to another authority, Destroy - removed from the system
@@ -33,3 +33,4 @@ SAP_IMG: Implementation Guide (SAP)
 SAP_JCo: SAP Java Connector
 SAP_PSE: Personal Security Environment (SAP)
 SAP_OSS: Online Service System (SAP)
+GOS: Generic Object Services

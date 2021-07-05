@@ -29,7 +29,7 @@ See [Install Intelligence Services]({% link intelligence-services/latest/install
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Intelligence Services, so that you can use the additional `alfresco-ai-docker-engine-1.2.x` Docker image.
+> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Intelligence Services, so that you can use the additional `alfresco-ai-docker-engine-1.3.x` Docker image.
 
 ### AWS related requirements
 
@@ -43,6 +43,7 @@ To use Alfresco Intelligence Services, you need:
 * [Amazon Comprehend](https://aws.amazon.com/comprehend/faqs/){:target="_blank"} supports the following [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html){:target="_blank"}. For cost information, see [Amazon Comprehend Pricing](https://aws.amazon.com/comprehend/pricing/){:target="_blank"}.
 * [Amazon Rekognition](https://aws.amazon.com/rekognition/faqs/){:target="_blank"} supports the following [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html){:target="_blank"}. For cost information, see [Amazon Rekognition Pricing](https://aws.amazon.com/rekognition/pricing/){:target="_blank"}.
 * [Amazon Textract](https://aws.amazon.com/textract/faqs/) supports the following [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html){:target="_blank"}. For cost information, see [Amazon Textract Pricing](https://aws.amazon.com/textract/pricing/){:target="_blank"}.
+* [Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html){:target="_blank"} supports the following [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/transcribe.html#transcribe_region){:target="_blank"}. For cost information, see [Amazon Transcribe Pricing](https://aws.amazon.com/transcribe/pricing/){:target="_blank"}.  
 
 You can also check the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/){:target="_blank"} for all AWS global infrastructure.
 
@@ -214,7 +215,17 @@ In order to use Amazon Textract, you'll need to create a new IAM role and config
 
 {% endcapture %}
 
-{% include tabs.html tableid="permissions" opt1="Comprehend" content1=comprehend opt2="Rekognition" content2=rekognition opt3="Textract" content3=textract %}
+{% capture transcribe %}
+
+The credentials associated with your IAM user must have permissions to access Amazon Transcribe actions. These permissions are customized through roles associated with your IAM user.
+
+In order to use Amazon Transcribe, you'll need to create a new IAM role and configure a policy to access the desired services within Transcribe. The easiest way to do this is to attach the AWS managed policy `AmazonTranscribeFullAccess` to the IAM role.
+
+> **Note:** You must grant Amazon Transcribe access to the S3 bucket used above.
+
+{% endcapture %}
+
+{% include tabs.html tableid="permissions" opt1="Comprehend" content1=comprehend opt2="Rekognition" content2=rekognition opt3="Textract" content3=textract opt4="Transcribe" content4=transcribe %}
 
 ### Configure minimum confidence level
 
@@ -228,6 +239,8 @@ There's a setting for the level of confidence that each AWS AI service has in th
 ai.transformations.aiLabels.minConfidence=0.8
 ai.transformations.aiFeatures.minConfidence=0.8
 ai.transformations.aiTextract.minConfidence=0.8
+ai.transformations.aiPiiEntities.minConfidence=0.8
+ai.transformations.aiSpeechToText.minConfidence=0.8
 ```
 
 ### Clean up in S3
@@ -242,18 +255,18 @@ See the AWS site for more details on [Object lifecycle management](https://docs.
 
 Use these instructions to install the Intelligence Services AMP files to an instance of Content Services.
 
-The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.2.x.zip`, includes all the files required to provide Intelligence Services. Ensure that you've installed the required software and completed the AWS set up before installing Intelligence Services.
+The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.3.x.zip`, includes all the files required to provide Intelligence Services. Ensure that you've installed the required software and completed the AWS set up before installing Intelligence Services.
 
 1. Download the Intelligence Services distribution zip file.
 
-2. Extract the `alfresco-ai-distribution-1.2.x.zip` file into a system directory; for example, `<installLocation>/`.
+2. Extract the `alfresco-ai-distribution-1.3.x.zip` file into a system directory; for example, `<installLocation>/`.
 
     In this directory you'll see the following content:
 
-    * `alfresco-ai-repo-1.2.x.amp`: AMP to be applied to the Content Services repository
-    * `alfresco-ai-share-1.2.x.amp`: AMP to be applied to Alfresco Share
+    * `alfresco-ai-repo-1.3.x.amp`: AMP to be applied to the Content Services repository
+    * `alfresco-ai-share-1.3.x.amp`: AMP to be applied to Alfresco Share
     * `ai-pipeline-routes.json`: custom Transform Router configuration properties
-    * `app.extensions.json`: custom extension file for Alfresco Digital Workspace
+    * `ai-view.extension.json`: custom extension file for Alfresco Digital Workspace
 
 3. Stop the Content Services server.
 
@@ -261,11 +274,11 @@ The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.2.x
 
     Copy the repository AMP file to the `amps` directory:
 
-    * `alfresco-ai-repo-1.2.x.amp`
+    * `alfresco-ai-repo-1.3.x.amp`
 
     Copy the Share AMP file to the `amps_share` directory:
 
-    * `alfresco-ai-share-1.2.x.amp`
+    * `alfresco-ai-share-1.3.x.amp`
 
 5. Delete the `tomcat/webapps/alfresco` and `tomcat/webapps/share` folders in the Content Services installation directory.
 
@@ -274,13 +287,13 @@ The Intelligence Services distribution zip file, `alfresco-ai-distribution-1.2.x
     1. For the Content Services repository:
 
         ```java
-        java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-repository/alfresco-ai-repo-1.2.x.amp <installLocation>/tomcat/webapps/alfresco.war
+        java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-repository/alfresco-ai-repo-1.3.x.amp <installLocation>/tomcat/webapps/alfresco.war
         ```
 
     2. For Alfresco Share:
 
         ```java
-        java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-share/alfresco-ai-share-1.2.x.amp <installLocation>/tomcat/webapps/share.war
+        java -jar <alfrescoInstallLocation>/bin/alfresco-mmt.jar install <installLocation>/amps-share/alfresco-ai-share-1.3.x.amp <installLocation>/tomcat/webapps/share.war
         ```
 
     For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).

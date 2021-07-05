@@ -2,7 +2,7 @@
 title: Surfacing recommended content
 ---
 
-You can configure a Visualforce Page for one or more Salesforce objects or record types, for example Opportunity or Account, to display a Recommended Content panel. The configuration consists of one or more named sections. Each section executes an Alfresco Search Query which can return many results of content items per query. The queries can also be informed by Salesforce field values that can be matched with Alfresco metadata values (content model properties).
+You can configure a Visualforce Page for one or more Salesforce objects, for example Opportunity or Account, to display a Recommended Content panel. The configuration consists of one or more named sections. Each section executes an Alfresco Search Query which can return many results of content items per query. The queries can also be informed by Salesforce field values that can be matched with Alfresco metadata values (content model properties).
 
 A sales rep can view the Recommended Content panel when creating, viewing, and editing Salesforce objects. The panel will run each of the pre-configured Alfresco Search Queries and display a list of content item results for each named section. Each content item result will initially show the name of the document or file with a clickable link to open the Salesforce Connector preview page.
 
@@ -111,7 +111,7 @@ The Alfresco Search Query can reference properties from the Salesforce object us
 
 You can use complicated business logic, or reference object properties that don't have a child relationship to the object, through additional Apex code referenced in the `extensions` attribute of the `apex:page` tag.
 
-If a property could have characters that may break the structure of a JSON file they should be wrapped in a [Salesforce formula function](https://help.salesforce.com/articleView?id=customize_functions.htm&type=5){:target="_blank"} i.e. `{!JSENCODE(Opportunity.Name)}`.
+If a property could have characters that may break the structure of a JSON file they should be wrapped in a [Salesforce JSENCODE formula function](https://help.salesforce.com/articleView?id=customize_functions.htm&type=5){:target="_blank"} i.e. `{!JSENCODE(Opportunity.Name)}`.
 
 Example with Salesforce object field pickvalue (single-valued and mandatory):
 
@@ -194,166 +194,6 @@ Classic UI:
 Once you click on a file in the recommended content panel, the existing Salesforce Connector Doc Details tab will open:
 
 ![]({% link salesforce/images/sf-preview-sfdc-document.png %})
-
-## APIs and error handling
-
-Here you can find web scripts, API examples, and how to address queries defined in the Salesforce object can produce errors
-
-### Private Share web script
-
-`GET /share/page/dp/ws/sfdc-recommended-content/{id}`
-
-where `{id}` path parameter is a record ID (eg. `0011R00002PA12OQAT`).
-
-Sample response (HTML content generated from a FreeMarker template):
-
-```xml
-<#assign results = queries?eval.list>
-<ul class="list-categories">
-    <#list results as result>
-        <li>
-            <div class="rc-group">
-                <p>${result.name}</p>
-                <ul class="list-recommended-entries">
-                    <#list result.alfrescoNodes as entry>
-                        <li class="list-recommended-entries_item">
-                            <div class="rc-item">
-                                  <a class="rc-item__link" href="${url.context}/page/sfdc-document-details?nodeRef=${entry.nodeRef}" target="_blank">
-                                      <img src="${url.context}/proxy/alfresco/api/node/${entry.nodeRef?replace(":/","")}/content/thumbnails/doclib?c=queue&ph=true"
-                                           width="100" height="100" align="middle" class="rc-item-thumbnail" />
-                                      <p class="rc-item-text-main">${entry.name}</p>
-                                  </a>
-                            </div>
-                        </li>
-                    </#list>
-                </ul>
-            </div>
-        </li>
-    <#else>
-        <p>No content found</p>
-    </#list>
-</ul>
-```
-
-### Private Repo web script
-
-`POST /alfresco/s/sfdc/recommendedContent`
-
-Sample request data:
-
-```json
-[
-    {"id": 1, "name": "Name 1", "query": "PARENT:\"workspace://SpacesStore/38745585-816a-403f-8005-0a55c0aec813\" AND TYPE:content"},
-    {"id": 2, "name": "Name 2", "query": "PARENT:\"workspace://SpacesStore/a211774d-ba6d-4a35-b97f-dacfaac7bde3\" AND TYPE:content", "sort" : [{"field":"cm:name", "ascending":false}], "maxResults" : 5}
-]
-```
-
->**Note:** If `sort` is not specified then the response defaults to `field:cm:name`, `ascending:true`. If `maxResults` is not specific then defaults to `10`.
-
-Sample response:
-
-```json
-{
-    "list": [
-        {
-            "id": 1,
-            "name": "Name 1",
-            "nodeRefs": [
-                {
-                    "nodeRef": "workspace://SpacesStore/3a40287c-c64c-44bd-a36e-ed5244bb1bd9",
-                    "name": "my doc1.txt"
-                },
-                {
-                    "nodeRef": "workspace://SpacesStore/99cb2789-f67e-41ff-bea9-505c138a6b23",
-                    "name": "my doc2.pdf"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "name": "Name 2",
-            "nodeRefs": [
-                {
-                    "nodeRef": "workspace://SpacesStore/150398b3-7f82-4cf6-af63-c450ef6c5eb8",
-                    "name": "my doc3.txt"
-                },
-                {
-                    "nodeRef": "workspace://SpacesStore/f3bb5d08-9fd1-46da-a94a-97f20f1ef208",
-                    "name": "my doc4.txt"
-                }
-            ]
-        }
-    ]
-}
-```
-
-#### Query property
-
-As per above example Search Query (for example: `"query": "PARENT:\"workspace://SpacesStore/38745585-816a-403f-8005-0a55c0aec813\" AND TYPE:content"`).
-
-#### Sort order property
-
-A list of sort parameters defined in JSON format, for example: `"sort" : [{"field":<property>, "ascending":true or false}]`.
-
-If not configured then implement the pre-defined default:
-
-```json
-"sort" : [{"field":"cm:name", "ascending":false}]
-```
-
-We should also allow adding a secondary sort, in addition to primary.
-
-Examples:
-
-* Sort alphabetically by name, default if no sort configured):
-
-  ```json
-  "sort" : [{"field":"cm:name", "ascending":true}]
-  ```
-
-* Sort by the most recently modified:
-
-  ```json
-  "sort" : [{"field":"cm:modified", "ascending":false}]
-  ```
-
-* Sort alphabetically and for the same file name (for example: across different folders), and then sort by most recently modified.:
-
-  ```json
-  "sort" : [{"field":"cm:name", "ascending":true},{"field":"cm:modified", "ascending":false}]
-  ```
-
-#### Max results
-
-Initially there will be no paging or infinite scrolling. If not configured then implement pre-defined default, e.g. 10.
-
-### Error handling
-
-There are some scenarios and situations where the queries defined in the Salesforce object can produce errors in the Alfresco Repository or can return empty results:
-
-* Where the defined Salesforce object contains no queries `({[]})` the Sales Rep will be presented with a message that says *'No queries set. Check your queries setup.'*. No log will be present in the Alfresco Repository.
-
-* Where no content was found for a query, the Sales Rep will be presented with a message (within the requested category) saying that No content was found. Check your query setup. All the other sections and results will be presented.
-
-    ```json
-    {[
-      {"id":2,"name":"My query with no results","query":"TYPE:content AND cm:creator:an_unicorn"}
-    ]}
-    ```
-
-* Where the defined Salesforce object contains invalid queries, the Sales Rep will be presented with a message (within the requested category) saying that a semantically invalid query was provided. Check your setup. Besides the presented message, a log entry detailing what went wrong will be present in the Alfresco Repository logs. All the other sections and results will be presented.
-
-    ```json
-    {[
-      {"id":1,"name":"My invalid query","query":"<lots of /\ invalid characters ;',.???!!!"}
-    ]}
-    ```
-
-* JSON syntax errors are handled by the `SignedRequest` package.
-
-<!-- private repo: https://github.com/Alfresco/alfresco-content-connector-for-salesforce/blob/master/alfresco-content-connector-for-salesforce-repo/src/main/java/org/alfresco/integrations/sfdc/webscripts/SignedRequest.java#L88 -->
-
-* In the situation where the defined Salesforce object contains semantically invalid JSON, the Sales Rep will be presented with a message saying that a semantically invalid JSON body representing the queries was provided. Check your setup. Besides the presented message, a log entry detailing what went wrong will be present in the Alfresco Repository logs. No section will be presented.
 
 ## Lightning configuration and setup
 

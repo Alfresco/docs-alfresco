@@ -80,7 +80,7 @@ integrations:
         text: "The SAML Module for Alfresco Content Services provides support for SAML authentication in Content Services."
         url: /saml-module/latest/
   - title: "Intelligence"
-    text: "Add AI capabilities to Alfresco Content Services using a number of Amazon AI Services (Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine."
+    text: "Add AI capabilities to Alfresco Content Services using a number of Amazon AI Services (Amazon Transcribe, Amazon Comprehend, Amazon Rekognition, and Amazon Textract) as an additional AI Transform Engine."
     url: /intelligence-services/latest/
     image: /assets/img/ic_intelligence_80px.svg
   - title: "Content Stores"
@@ -111,6 +111,9 @@ integrations:
       - title: "SAP"
         text: "Alfresco Content Connector for SAP applications offers seamless integration between Alfresco Content Services and SAP systems (R/3, S/4HANA)."
         url: /sap/latest/
+      - title: "SAP Cloud"
+        text: "Alfresco Content Connector for SAP Cloud is an add-on module that offers seamless integration between Alfresco Content Services and SAP S/4HANA Cloud as well as on-premises through the SAP Document Management Service."
+        url: /sap-cloud/latest/
       - title: "Microsoft 365"
         text: "Alfresco Collaboration Connector for Microsoft 365 allows you to integrate with Microsoft Office Online applications from the Alfresco Digital Workspace."
         url: /microsoft-365/latest/

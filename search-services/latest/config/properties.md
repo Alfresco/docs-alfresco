@@ -86,6 +86,7 @@ The `solrcore.properties` configuration file is the property configuration file 
 |solr.readerCache.initialSize|This property configures the Solr result cache, for example `1024`.|
 |solr.readerCache.size|This property configures the Solr result cache, for example `4096`.|
 |solr.request.content.compress|This property when set to `true` will compress the content that is sent back from the repository during system communication, for example `false`.|
+|solr.backup.dir| This property specifies the directory for backup files. If the path is not absolute then the backup path will be relative to Solr’s instance directory.|
 
 ## Full text search configuration properties
 
@@ -105,7 +106,7 @@ If you wish to change the default value of a property, add the relevant property
 | solr.solrUser=solr | The Solr user name |
 | solr.solrPassword=solr | The Solr password |
 | solr.secureComms=https | The HTTPS connection |
-| solr.solrConnectTimeout=5000 | The Solr connection timeouts in ms |
+| solr.http.connection.timeout=500 | The Solr connection timeouts in ms |
 | solr.solrPingCronExpression=0 0/5 * * * ? * | The cron expression defining how often the Solr Admin client (used by JMX) pings Solr if it goes away |
 
 ### Data dictionary options

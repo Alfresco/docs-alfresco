@@ -4,7 +4,7 @@ title: Supported platforms
 
 Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services.
 
-Last modified: **December 10 2020**
+Last modified: **June 11 2021**
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact [Support](https://support.alfresco.com){:target="_blank"}.
 
@@ -68,6 +68,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.3 | |
 | Alfresco Desktop Sync 1.6 | |
+| Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3 | |
 | Alfresco Document Transformation Engine 2.2.2 | |
 | Alfresco Media Management 1.4.3 | |
@@ -87,10 +88,12 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
 | Alfresco Content Connector for AWS Glacier 2.0 | Only compatible with Alfresco Content Connector for AWS S3 3.0 and below. |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
+| Alfresco Content Connector for Salesforce 2.3 | |
 | Alfresco Content Connector for Salesforce 2.2 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
+| Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Office Services 1.3.2 | |
@@ -200,6 +203,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
+| Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Outlook Integration 2.6.1 | |
 | Alfresco Office Services 1.3 | |
@@ -305,6 +309,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
+| Alfresco Content Connector for SAP Cloud 1.0 | |
 | Alfresco Outlook Integration 2.7 | |
 | Alfresco Outlook Integration 2.6.1 | |
 | Alfresco Office Services 1.3 | |

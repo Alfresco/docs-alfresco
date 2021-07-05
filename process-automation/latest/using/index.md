@@ -99,6 +99,8 @@ The **Tasks** section is used for monitoring all the tasks in the application. T
 * **Queued Tasks** which displays all unclaimed tasks the user is eligible to claim.
 * **Completed Tasks** which displays all tasks completed by the user.
 
+In the Digital Workspace you are notified of new tasks assigned to you next to **My Tasks** and **Queued Tasks**. The number within the indicator displays how many tasks of that type you have been assigned. If at least one task has not been seen yet the indicator will be orange. The number within the task counter will continue to display until the tasks are completed.
+
 ### Properties {#task-properties}
 
 The properties for each process instance are:

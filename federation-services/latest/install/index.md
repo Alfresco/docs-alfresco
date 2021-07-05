@@ -10,7 +10,7 @@ Check the [supported platforms]({% link federation-services/latest/support/index
 
 > **Note**: A compatible version of Alfresco Governance Services (if you plan to use the Manage in Place capabilities) is required, for example: if using Alfresco Content Services 6.2, make sure that you install Alfresco Governance Services 3.2 or above.
 
-You can download the Federation Services software from the Alfresco Support Portal: [https://support.alfresco.com](https://support.alfresco.com/).
+You can download the Federation Services software from the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
 ### Federation Services requirements
 
@@ -21,7 +21,7 @@ You can download the Federation Services software from the Alfresco Support Port
 
     **Note:** We recommend using a separate instance, where possible, instead of using the same one used by Alfresco Content Services.
 
-See the [Simflofy documentation](https://simflofy.helpdocsonline.com/iandc/architecture), for specific hardware and software requirements.
+See the [Simflofy documentation](https://simflofy.helpdocsonline.com/iandc/architecture){:target="_blank"}, for specific hardware and software requirements.
 
 **Note:** This release of Alfresco Federation Services doesn't support deployment in Docker containers.
 
@@ -34,9 +34,9 @@ These steps describe how to install Federation Services to an instance of Alfres
     This should include the following:
 
     * `federation.war`: Simflofy Admin application
-    * `t-search-2.7.6.war`: Federated search application
-    * `transparent-content-services-platform-2.7.6-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to the Alfresco Content Services repository)
-    * `transparent-content-services-share-2.7.6-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to Alfresco Share)
+    * `t-search-2.7.8.war`: Federated search application
+    * `transparent-content-services-platform-2.7.8-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to the Alfresco Content Services repository)
+    * `transparent-content-services-share-2.7.8-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to Alfresco Share)
 
 2. Follow the steps in the Simflofy documentation, [Installing Simflofy Admin](https://simflofy.helpdocsonline.com/iandc/install){:target="_blank"}.
 

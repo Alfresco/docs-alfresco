@@ -78,7 +78,7 @@ See [Custom Transforms and Renditions](https://github.com/Alfresco/acs-packaging
 
 > **Note:** The core Transform Engine images can be used in Community Edition. The open-sourced code for the Transform Engines is available in the [Alfresco/alfresco-transform-core](https://github.com/Alfresco/alfresco-transform-core){:target="_blank"} GitHub project.
 
-To build the `alfresco/alfresco-content-repository-community` image, Alfresco uses the [Alfresco/acs-community-packaging](https://github.com/Alfresco/acs-community-packaging/tree/acs-community-packaging-6.2.0-ga){:target="_blank"} GitHub project. This project doesn't include any deployment templates.
+To build the `alfresco/alfresco-content-repository-community` image, Alfresco uses the [Alfresco/acs-community-packaging](https://github.com/Alfresco/acs-community-packaging){:target="_blank"} GitHub project. This project doesn't include any deployment templates.
 
 The [Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} GitHub project contains deployment templates and instructions. It includes a Docker Compose script that's used to launch a demo, test, or PoC of Community Edition. You can customize this script, if you like, in order to run with different versions than those set by default (which are usually the latest versions).
 
@@ -118,7 +118,7 @@ The packaging project is used to build the repository artifacts, such as the Doc
 
 Note that the Docker files for Alfresco Share, Alfresco Search Services, and other services are in their own projects:
 
-* Alfresco Share: [https://github.com/Alfresco/share/tree/support/HF/6.2.1](https://github.com/Alfresco/share/tree/support/HF/6.2.1){:target="_blank"}
+* Alfresco Share: [https://github.com/Alfresco/share](https://github.com/Alfresco/share){:target="_blank"}
 * Alfresco Search Services: [https://github.com/Alfresco/SearchServices](https://github.com/Alfresco/SearchServices){:target="_blank"}
 * Alfresco Community Edition Nginx Proxy: [https://github.com/Alfresco/acs-ingress/tree/acs-community-ingress](https://github.com/Alfresco/acs-ingress/tree/acs-community-ingress){:target="_blank"}
 

@@ -11,7 +11,7 @@ The Sync Service distribution zip file, `AlfrescoSyncServer-3.0.x.zip`, includes
 * `service-sync` directory with:
   * `service-sync-3.0.x.jar` Sync Service JAR
   * `config.yml` property file
-  * `alfresco-sync` start/stop script
+  * `syncservice` start/stop script
   * `sync.jks` SSL keys
 * `activemq` directory containing a bundled ActiveMQ zip file
 

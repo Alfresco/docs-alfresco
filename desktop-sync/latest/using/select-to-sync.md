@@ -60,6 +60,8 @@ Use the *Choose files and folders to sync* screen to select the content to sync 
 
     > **Note:** If you wish to move the Alfresco sync folder location later, you'll have to remove your account and set up Desktop Sync again.
 
+    > **Note:** The sync folder location must be set to a local folder as network folders aren't supported.
+
 ### About the initial sync
 
 The **Syncing** progress screen shows the status of initial sync. The Alfresco icon ![]({% link desktop-sync/images/ds-spin.png %})in the system tray will spin during the sync process. On completion, a notification appears on the system tray.
@@ -135,6 +137,8 @@ Use the *Select sites and folders to sync* dialog to select the content to sync 
 
     > **Note:** If you wish to move the Alfresco sync folder location later, you'll have to remove your account and set up Desktop Sync again.
 
+    > **Note:** The sync folder location must be set to a local folder as network folders aren't supported.
+
 ### About the initial sync
 
 The **Sync** progress dialog shows the status of the initial sync. The Alfresco icon in the menu bar changes to indicate that the sync is in progress ![]({% link desktop-sync/images/ds-syncing-mac.png %}){:height="23px" width="23px"}. Once the sync has completed successfully, the icon changes to ![]({% link desktop-sync/images/ds-synced-mac.png %}){:height="23px" width="23px"}.
@@ -158,4 +162,4 @@ To save your work in Alfresco, just work on your files in the `/<userHome>/Alfre
 
 {% endcapture %}
 
-{% include tabs.html tableid="faq" opt1="Windows" content1=windows opt2="Mac" content2=mac %}
+{% include tabs.html tableid="sync" opt1="Windows" content1=windows opt2="Mac" content2=mac %}

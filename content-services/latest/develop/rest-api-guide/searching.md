@@ -15,7 +15,7 @@ what type of files to search.
 
 This section also goes through how to specifically search for sites and people.
 
-## Finding folders and files by a term
+## Finding folders and files by a term {#findnodesbyterm}
 
 Simple search in metadata and content with a term.
 
@@ -113,7 +113,7 @@ metadata in the response.
 The type of nodes returned can be restricted via the `nodeType` query parameter, for example passing `acme:document` as 
 the value will only return nodes of that type and any of it's subtypes.
 
-## Finding sites by a term
+## Finding sites by a term {#findsitesbyterm}
 
 Simple search for sites with a term.
 
@@ -358,7 +358,7 @@ The example body below shows how to define a simple CMIS query to find all files
 }
 ```
 
-Here is how the call looks like, I have stored the query JSON data in a file called `cmis-query.json` (it does not work 
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `cmis-query.json` (it does not work 
 to write the query with the `-d` curl parameter on the command line):
 
 ```bash
@@ -454,7 +454,7 @@ The example body below shows how to execute a simple Lucene query to find all th
 }
 ```
 
-Here is how the call looks like, I have stored the query JSON data in a file called `lucene-query.json`:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `lucene-query.json`:
 
 ```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@lucene-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
@@ -533,7 +533,7 @@ The results can also be sorted. The example body below shows how to execute a se
 
 This also shows how you can search for a specific content type with the `TYPE` keyword.
 
-Here is how the call looks like, I have stored the query JSON data in a file called `paging-sort-query.json`:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `paging-sort-query.json`:
 
 ```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@paging-sort-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
@@ -632,7 +632,7 @@ that comes with the SDK template projects):
 Note also that we have requested to include the aspect names in the response. We can use the `include` JSON body parameter 
 to return additional information. This works in the same way as in the `/nodes/{id}/children` method in the core API.
 
-Here is how the call looks like, I have stored the query JSON data in a file called `type-and-aspect-query.json`:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `type-and-aspect-query.json`:
 
 ```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@type-and-aspect-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
@@ -713,7 +713,7 @@ In this case I want to search for all folders and files that have been tagged `p
 
 I have previously tagged a text file with this tag.
 
-Here is how the call looks like, I have stored the query JSON data in a file called `tag-query.json`:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `tag-query.json`:
 
 ```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@tag-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
@@ -801,7 +801,7 @@ for the `creator` facet field to be included, which will indicate how many of th
 }
 ```
 
-Here is how the call looks like, I have stored the query JSON data in a file called `facet-query.json`:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `facet-query.json`:
 
 ```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@facet-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
@@ -926,7 +926,7 @@ as shown in the example below:
 }
 ```
 
-Here is how the call looks like, I have stored the query JSON data in a file called `highlight-query.json`:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `highlight-query.json`:
 
 ```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@highlight-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq

@@ -195,7 +195,7 @@ See the source code here for details of data extractors provided out of the box 
 
 ### Data Generator
 
-Unlike Data Extractors, which require an input (typically a node ref) to work with, Data Generators do not require an input. The are activated when an inbound mapped path is present, but they're not dependent on the value on that path. They can generate data purely from the system state and thread context. Out of the box data generators include:
+Unlike Data Extractors, which require an input (typically a node ref) to work with, Data Generators do not require an input. They are activated when an inbound mapped path is present, but they're not dependent on the value on that path. They can generate data purely from the system state and thread context. Out of the box data generators include:
 
 * Authenticated Person
 * Authenticated User

@@ -4,7 +4,7 @@ title: Supported platforms
 
 Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services 7.0.
 
-Last modified: **March 18 2021**
+Last modified: **June 11 2021**
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact [Support](https://support.alfresco.com){:target="_blank"}.
 
@@ -71,16 +71,17 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.4 | |
 | Alfresco Desktop Sync 1.7 | |
+| Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3.2 | |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty. |
 | Alfresco Search Services 2.0 | |
-| Alfresco Federation Services 1.1 | |
 | Identity Service 1.4 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | SAML Module for Alfresco Content Services 1.2.1 | |
 | Alfresco Intelligence Services 1.3 | |
 | Alfresco Content Connector for AWS S3 4.0 | |
 | Alfresco Content Connector for Azure 2.0 | |
 | Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
+| Alfresco Content Connector for Salesforce 2.3 | |
 | Alfresco Content Connector for Salesforce 2.2.1 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP Cloud 1.0 | |
@@ -91,8 +92,10 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Enterprise Viewer 3.3.1 | |
 | Alfresco Content Accelerator 3.4.3 | |
 | Alfresco Content Services SDK 5 | |
+| Alfresco Content Services SDK 4.2 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 2.2 | |
 | Alfresco Digital Workspace 2.1 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.0 | |

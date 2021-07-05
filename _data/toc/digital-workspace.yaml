@@ -1,5 +1,5 @@
 # Digital Workspace
-- version: 2.1
+- version: 2.2
   pages:
     - title: 'Introduction'
       path: '/digital-workspace/latest/'
@@ -35,10 +35,52 @@
           path: '/digital-workspace/latest/process/tasks/'
         - title: 'Configuring Process Services'
           path: '/digital-workspace/latest/process/config/'
+    - title: 'Image Management'
+      path: '/digital-workspace/latest/media/'
     - title: 'Developing Extensions'
       path: '/digital-workspace/latest/extensions/'
     - title: 'Troubleshooting'
       path: '/digital-workspace/latest/troubleshooting/'
+- version: 2.1
+  pages:
+    - title: 'Introduction'
+      path: '/digital-workspace/2.1/'
+    - title: 'Install'
+      pages: 
+        - title: 'Overview'
+          path: '/digital-workspace/2.1/install/'
+        - title: 'Install into Tomcat'
+          path: '/digital-workspace/latest/2.1/tomcat/'
+        - title: 'Install into other webserver'
+          path: '/digital-workspace/latest/2.1/other-webserver/'
+        - title: 'Install with Docker Compose'
+          path: '/digital-workspace/latest/2.1/containerized/'
+    - title: 'Configure'
+      path: '/digital-workspace/2.1/config/'
+    - title: 'Governance Services'
+      pages: 
+        - title: 'Governance Services overview'
+          path: '/digital-workspace/2.1/governance/'
+        - title: 'Working with records'
+          path: '/digital-workspace/2.1/governance/records/'
+        - title: 'Archiving Files'
+          path: '/digital-workspace/2.1/governance/archiving/'
+    - title: 'Process Services'
+      pages: 
+        - title: 'Process Services overview'
+          path: '/digital-workspace/2.1/process/'
+        - title: 'Starting processes'
+          path: '/digital-workspace/2.1/process/starting/'
+        - title: 'Managing processes'
+          path: '/digital-workspace/2.1/process/managing/'
+        - title: 'Managing Tasks'
+          path: '/digital-workspace/2.1/process/tasks/'
+        - title: 'Configuring Process Services'
+          path: '/digital-workspace/2.1/process/config/'
+    - title: 'Developing Extensions'
+      path: '/digital-workspace/2.1/extensions/'
+    - title: 'Troubleshooting'
+      path: '/digital-workspace/2.1/troubleshooting/'
 - version: 2.0
   pages:
     - title: 'Introduction'

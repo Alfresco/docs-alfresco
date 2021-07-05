@@ -55,7 +55,7 @@ Use the following steps to upgrade a manual ZIP installation:
 
 2. Remove the existing data from the database and stop the database service.
 3. Stop the Identity Service service.
-4. Open the zip file for version 1.4 of the Identity Service and [configure its connection to the database](https://www.keycloak.org/docs/8.0/server_installation/#_database).
+4. Open the zip file for version 1.4 of the Identity Service and [configure its connection to the database](https://www.keycloak.org/docs/latest/server_installation/#_database){:target="_blank"}.
 5. Restart the database service and restore the database backup to it.
 
     For example, for a PostgreSQL database:
@@ -86,3 +86,4 @@ Use the following steps to upgrade a manual ZIP installation:
     ```
     > ...\alfresco-identity-service-1.4.0\bin\standalone.ps1 -b <IP_ADDRESS>
     ```
+
