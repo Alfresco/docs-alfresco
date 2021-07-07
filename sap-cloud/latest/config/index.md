@@ -1,5 +1,5 @@
 ---
-title: Configure SAP on-premises
+title: Configure SAP S/4HANA on-premises
 ---
 
 Use this information to configure the SAP Cloud Connector for on-premises installations of SAP S4/HANA.

@@ -4,7 +4,40 @@ title: Administer SAP Cloud Connector
 
 This page shows you how to check the health of the current installation and troubleshooting.
 
-## Test connection use-cases
+## Test connection use-cases on SAP S/4HANA Cloud Esentials
+Follow the guidance to test the newly installed and configured module on SAP S/4HANA Cloud Essentials.
+
+### Product Master Data
+
+Upload an attachment to a Product, so it's shown in the **Business Object Types > Product** folder in Content Services.
+
+1. Login to SAP S/4HANA Cloud Essentials
+2. Open the **Product Master Data** app and select any Material (i.e. `FG111`).
+   
+   ![Product Master Data App]({% link sap-cloud/images/sap_cloud_manage_product_master_data.png %})
+
+3. Navigate to section `Attachments - Document Management Service` on the Material.
+4. Click on `Edit` and upload a document with the `Upload` button. Choose *Office Documents* as Document Type for now. 
+   
+   ![Upload Attachment]({% link sap-cloud/images/sap_cloud_add_attachment_1.png %})
+
+5. Once the document was successfully uploaded, it is in `Draft` mode. **DO NOT CLICK** the `Save` button for now! We just want to verify before, that the `Draft` mode is supported.
+
+   ![Uploaded Attachment]({% link sap-cloud/images/sap_cloud_add_attachment_2_draft.png %})
+
+6. Login to Content Services and navigate to the following folder in the repository: `Knowledge Provider` -> `DMS_PCD1`. The document is available in this folder but was not yet moved to the final and expected folder under `Business Object Types` -> `DocumentInfoRecord`. The reason is, it is still in `Draft` mode.
+
+![Draft Mode Content Services]({% link sap-cloud/images/sap_cloud_add_attachment_2_draft_alfresco.png %})
+
+7. Now, switch back to SAP S/4HANA Cloud Essentials and click `Save` for the recently stored Attachment. The Product is not in `Edit` mode anymore, hence the attachment is also not in `Draft` mode anymore.  
+
+![Saved Attachment]({% link sap-cloud/images/sap_cloud_add_attachment_2_final.png %})
+
+8. Again, switch back to Content Services and refresh the page. The document is gone and not anymore in the repository folder `Knowledge Provider` -> `DMS_PCD1`. It has been moved to its final folder under `Business Object Types` -> `DocumentInfoRecord`:
+
+![Saved Attachment]({% link sap-cloud/images/sap_cloud_add_attachment_2_final_alfresco.png %})
+
+## Test connection use-cases on SAP S/4HANA on premises
 
 Follow the guidance to test the newly installed and configured module for the selected SAP Business Objects.
 
