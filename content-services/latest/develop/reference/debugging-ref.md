@@ -20,26 +20,29 @@ how to do remote debugging in these environments:
 * [SDK 4 remote debugging]({% link content-services/latest/develop/sdk.md %}#debugging)
 
 ## Introduction
+
 Content Services is slightly more complex than the Hello World example above. Let’s see how to debug a ReST API call, 
-such as for example the [login]({% link content-services/latest/develop/rest-api-guide/install.md %}#auth) to get a ticket.
+such as the [login]({% link content-services/latest/develop/rest-api-guide/install.md %}#auth) to get a ticket.
 
 Remote debugging can be done either by running Content Services in [Docker containers](#docker-env) or by running in a 
 local [Tomcat environment](#tomcat-env).
 
 ## Prerequisites
-Download the following four projects to your developer machine:
+
+Download the following projects to your developer machine:
 
 * [alfresco-community-repo](https://github.com/Alfresco/alfresco-community-repo){:target="_blank"}
 * [acs-community-packaging](https://github.com/Alfresco/acs-community-packaging){:target="_blank"}
 * [acs-packaging](https://github.com/Alfresco/acs-packaging){:target="_blank"}
-    
-Only the first project is needed here, it contains the product source code, but it's recommended to have the other projects 
-available as well. The packaging projects will give you valuable information about how the Docker Image for 
-the Alfresco Repository is created. The packaging projects also contain information about how to create custom Docker Images, 
-which can be very useful when custom [JARs/AMPs]({% link content-services/latest/develop/extension-packaging.md %}) should be applied.
 
-## Debugging in a Docker environment {#docker-env}
-If you will be doing the remote debugging with Content Services running in Docker, then download the following project:
+Only the first project is needed here, as it contains the product source code, but it's recommended to have the other projects 
+available as well. The packaging projects gives valuable information about how the Docker image for 
+the Alfresco Repository is created. The packaging projects also contain information about how to create custom Docker images, 
+which is very useful when custom [JARs/AMPs]({% link content-services/latest/develop/extension-packaging.md %}) should be applied.
+
+## Debug in a Docker environment {#docker-env}
+
+To start remote debugging with Content Services running in Docker, then download the following project:
 
 * [acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"}
 
@@ -64,6 +67,7 @@ total 88
 ```
 
 ### Configure Docker Compose for remote debugging
+
 Edit the `debug-community-docker-compose.yml` file by adding the following `ports` and `environment` settings:
 
 ```text
@@ -81,7 +85,7 @@ services:
             ...
 ```
 
-The `-agentlib:jdwp=transport=dt_socket,address=*:8000,server=y,suspend=n` option will tell the JVM to start with the 
+The `-agentlib:jdwp=transport=dt_socket,address=*:8000,server=y,suspend=n` option tells the JVM to start with the 
 port 8000 open, ready to accept remote debugging sessions.
 
 Note that the remote debugging configuration is done via the `CATALINA_OPTS` variable instead of `JAVA_TOOL_OPTIONS` or 
@@ -89,10 +93,15 @@ Note that the remote debugging configuration is done via the `CATALINA_OPTS` var
 IntelliJ tutorial).
 
 We need to also open the remote debug port from the container to the host, so that `http://localhost:8000` will be 
-propagated to the container and Tomcat, this is done with the `ports` configuration.
+propagated to the container and Tomcat. This is done with the `ports` configuration.
 
 ### Run Content Services
-Now, run Content Services with `docker-compose -f debug-community-docker-compose.yml up` and wait for it to start.
+
+Now, run Content Services and wait for it to start:
+
+```bash
+docker-compose -f debug-community-docker-compose.yml up
+```
 
 It's ready when you see logs as follows:
 
@@ -102,41 +111,43 @@ alfresco_1 | 2021-06-16 09:12:50,884  INFO  [management.subsystems.ChildApplicat
 ```
 
 ### Debug some source code {#debug-some-code}
-To test out the new debug settings we will debug the source code that is called when you call the remote API to [get a 
+
+To test out the new debug settings, let's debug the source code that is called when you call the remote API to [get a 
 ticket]({% link content-services/latest/develop/rest-api-guide/install.md %}#auth) that can be used for authentication.
 
 Open the [alfresco-community-repo](https://github.com/Alfresco/alfresco-community-repo){:target="_blank"} project in 
 IntelliJ IDEA and look up the `src/main/java/org/alfresco/rest/api/impl/AuthenticationsImpl.java` file. Set a breakpoint
-in this file where a ticket is created, see following screenshot:
+in this file where a ticket is created, as shown:
 
 ![create-ticket-breakpoint]({% link content-services/images/acs-debug-idea-breakpoint-set.png %})
 
-Set up Remote debugging session in IDEA (**Run -> Debug... -> Edit Configurations... -> + -> Remote JVM Debug**):
+Set up a Remote debugging session in IDEA (**Run -> Debug... -> Edit Configurations... -> + -> Remote JVM Debug**):
 
 ![idea-remote-debug-setup]({% link content-services/images/acs-debug-idea-settings.png %})
 
-Start the debug session by clicking the **Debug** button:
+Click **Debug** to start the debug session:
 
 ![remote-debug-session-started]({% link content-services/images/acs-debug-idea-session-started.png %})
 
-Now, call the Remote API that is used to login and get a ticket (using the default **admin/admin** credentials):
+Now, call the Remote API that is used to log in and get a ticket (using the default **admin/admin** credentials):
 
 ```bash
 % curl --header "Content-Type: application/json" --request POST --data '{"userId":"admin","password":"admin"}' http://localhost:8080/alfresco/api/-default-/public/authentication/versions/1/tickets
 ```
 
-This should have the debugger stop on the breakpoint line in IDEA:
+This should make the debugger stop on the breakpoint line in IDEA:
 
 ![idea-remote-debug-breakpoint-stop]({% link content-services/images/acs-debug-idea-create-ticket.png %})
 
-We can see the credentials used to login and we can start debugging the code as we are used to.
+We can see the credentials used to log in, and start debugging the code as we are used to.
 
 This way of debugging works equally well for any custom code that you have applied to Content Services.
 
-## Debugging in a Tomcat environment (no containers) {#tomcat-env}
-If you will be doing the remote debugging with Content Services running directly in Tomcat (i.e. not using containers but 
+## Debug in a Tomcat environment (no containers) {#tomcat-env}
+
+To start remote debugging with Content Services running directly in Tomcat (i.e. not using containers but 
 running Content Services based on a [ZIP installation]({%link content-services/latest/install/zip/index.md %})), 
-then you need to make sure you are starting Tomcat in debug mode (similar to how we configured the `CATALINA_OPTS` variable 
+then make sure you start Tomcat in debug mode (similar to how we configured the `CATALINA_OPTS` variable 
 in the container environment).
 
 See this [StackOverflow article](https://stackoverflow.com/questions/16689274/how-to-start-debug-mode-from-command-prompt-for-apache-tomcat-server){:target="_blank"} 
@@ -145,4 +156,5 @@ for more information about how to start Apache Tomcat in debug mode. This articl
 page, which is a good read.
 
 ### Debug some source code
+
 Debugging in a Tomcat environment is the same as in a Docker container environment, see [this section above](#debug-some-code).

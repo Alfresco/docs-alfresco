@@ -1919,7 +1919,7 @@ easy with a Spring Boot App. Configure for example the Spring Boot Maven plugin 
 </build>
 ```
 
-Then you can, from for example IntelliJ IDEA, attach remotely and debug:
+Then you can attach remotely and debug from, for example, IntelliJ IDEA:
 
 ![sdk5-proj-debug]({% link content-services/images/sdk5-proj-debug.png %})
 
