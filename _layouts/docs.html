@@ -45,7 +45,7 @@
               <!-- A longer path is considered a sub page, which should not have the version printed out. -->
               {% assign pathElements = page.path | split: "/"%}
               {% if pathElements.size == 3 %}
-              {% unless page.version == 'community' or page.path contains 'support' %}
+              {% unless page.version == 'community' or page.path contains 'support' or page.path contains 'process-automation' or page.path contains 'mobile-workspace' or page.path contains 'content-mobile' %}
               <h1>{{page.title}} {{page.version}}</h1>
               {% else %}
               <h1>{{page.title}}</h1>
