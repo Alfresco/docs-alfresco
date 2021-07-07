@@ -2,21 +2,21 @@
 title: Performance Recommendations
 ---
 
-From Search Services 2.0, custom `<SOLR6_INSTALL_LOCATION>/contentstore` folder has been removed. Metadata, Permissions and Content for Alfresco Repository nodes are fully stored in SOLR Core standard indexes.
+From version 2.0.2, the custom `<SOLR6_INSTALL_LOCATION>/contentstore` folder has been removed. Metadata, Permissions, and Content for the Alfresco Repository nodes are fully stored in the SOLR Core standard indexes.
 
-Since the total amount of storage could be equivalent between previous versions and Search Services 2.0, SOLR Core Index storage has been increased. In order to control the size and the performance of SOLR index, following actions may be performed in Search Services configuration:
+Since the total amount of storage could be equivalent between previous versions, the SOLR Core Index storage has been increased. In order to control the size and the performance of the SOLR index, the following actions may be performed:
 
-* Disabling FINGERPRINT feature to reduce storage requirements
-* Disabling SOLR Document Caches feature to reduce RAM requirements
-* Optimizing SOLR Index to improve searching performance
+* [Disable FINGERPRINT](#disable-fingerprint) reduces storage requirements
+* [Disable SOLR Document Cache](#disable-solr-document-cache) reduces RAM requirements
+* [Optimize SOLR Index](#optimize-solr-index) improves search performance
 
 Additionally, from Search Services 2.0.2, SOLR Merging parameters have been exposed to be used from `solrcore.properties` file. Since default values would work fine for many use cases, some recommendations are given to increase performance in large deployments.
 
-## Disabling FINGERPRINT feature
+## Disable FINGERPRINT
 
 [Document Fingerprint](https://docs.alfresco.com/search-services/latest/admin/#document-fingerprints) feature can be used to get similar documents from SOLR using the reserved word `FINGERPRINT` in `FTS` search syntax. In order to provide these results, each document in SOLR Index includes a list of `MINHASH` fields that is creating larger Lucene Indexes.
 
-From Search Services 2.0.2, Document Fingerprint feature is disabled by default, including the following property in default `solrcore.properties` file.
+From version 2.0.2, Document Fingerprint feature is disabled by default, including the following property in default `solrcore.properties` file.
 
 ```bash
 alfresco.fingerprint=false
@@ -26,11 +26,11 @@ alfresco.fingerprint=false
 
 When applying this flag to an existing SOLR Core, full re-indexing operation is recommended. Since no more `MINHASH` properties will be calculated from the moment the property is set to `false`, existing Solr Documents won't be re-calculated in order to remove this additional information until a re-indexing process is executed on the Solr Core.
 
-## Disabling SOLR Document Caches
+## Disable SOLR Document Cache
 
 SOLR uses several [Caches](https://solr.apache.org/guide/6_6/query-settings-in-solrconfig.html#QuerySettingsinSolrConfig-Caches) in order to retain some results information in memory. Since Search Services 2.0 is not using the features of the cache associated to Document Results, the feature can be disabled in order to decrease the use of RAM memory.
 
-From Search Services 2.0.2, SOLR Document Caches feature is disabled by default, including the following properties in default `solrcore.properties` file.
+From version 2.0.2, SOLR Document Caches feature is disabled by default, including the following properties in default `solrcore.properties` file.
 
 ```bash
 solr.documentCache.size=0
@@ -42,7 +42,7 @@ solr.documentCache.autowarmCount=0
 
 When applying these flags to an existing SOLR Core, **no** re-indexing operation is recommended. Once the properties have been set in `solrcore.properties` file, all the benefits will be available immediately.
 
-## Optimizing SOLR Index
+## Optimize SOLR Index
 
 During indexing, whenever a document is deleted or updated, the document is *marked as deleted* in its original segment. This generates some percentage of *waste* storage, as the index will contain around 15% to 20% deleted documents. Merging Lucene Segment process will control this ratio with the time, in order to maintain it as lower as posible.
 
@@ -58,10 +58,12 @@ Remember that, after the initial optimization, a periodic execution of the optim
 This operation can be performed using the SOLR REST API (by default available in http://127.0.0.1:8983/solr/alfresco/update?optimize=true) or hitting the `Optimize now` button in the section `Core >> Overview` of the Solr Admin UI.
 
 It is possible to optimize the index reducing it to N segments at most, with N >= 1.
-
+```text
 http://127.0.0.1:8983/solr/alfresco/update?optimize=true&maxSegments=N
+```
 
 This can be useful for reducing the impact of the force merge operation. The advantages of using N > 1 are:
+
 * The force merge execution take less resources.
 * Avoid to produce a single huge segment.
 
@@ -69,28 +71,14 @@ The value of N must be chosen carefully. N should be smaller than the current nu
 
 ## Merging parameters
 
-From Search Services 2.0.2 following parameters has been exposed to be used from `solrcore.properties` file.
+From version 2.0.2 following parameters has been exposed to be used from `solrcore.properties` file.
 
-**merge.policy.maxMergedSegmentMB**
+| Property | Description |
+| ------------- |----------- |
+| merge.policy.maxMergedSegmentMB | This number shoud be increased for large deployments. For instance, when using a 40+ million indexed nodes with content on a SOLR Shard. You may use `10240` instead of `5120`. The default is `5120`. |
+| merge.policy.maxMergeAtOnce | The numbers should be decreased in order to reduce the number of segments. This also improves searching performance when using 40+ million indexed nodes with content on a SOLR Shard. You may use `5` instead of `10`. The default value is `10`, **Note:** The value used must be the same as for `merge.policy.segmentsPerTier`. |
+| merge.policy.segmentsPerTier | The numbers should be decreased in order to reduce the number of segments. This also improves searching performance when using 40+ million indexed nodes with content on a SOLR Shard. You may use `5` instead of `10`. The default value is `10`, **Note:** The value used must be the same as for `merge.policy.maxMergeAtOnce`. |
+| merger.maxMergeCount | Increment this number for large deployments, so more merge operations can be executed simultaneously. The default value is `6`. |
+| merger.maxThreadCount | This number should always be lower than the amount of dedicated CPUs and also lower than `mergermaxMergeCount`. Increment this number for large deployments in order to use all your available CPU threads. The default value is `3`. |
 
-* Default value is `5120` (5 GB)
-* This number shoud be increased for large deployments. For instance, when using a 40+ million indexed nodes with content on a SOLR Shard. You may use `10240` instead of `5120`
-
-**merge.policy.maxMergeAtOnce**
-**merge.policy.segmentsPerTier**
-
-* Default value is `10`, use the same value for both properties
-* These numbers should be decreased in order to reduce the number of segments (and improve searching performance) when using a 40+ million indexed nodes with content on a SOLR Shard. You may use `5` instead of `10`
-
-**merger.maxMergeCount**
-
-* Default value is `6`
-* Increment this number for large deployments, so more merge operations can be executed simultaneously
-
-**merger.maxThreadCount**
-
-* Default value is `3`
-* This number should be always lower than the amount of dedicated CPUs and also lower than `maxMergeCount`
-* Increment this number for large deployment in order to use all your available CPU Threads
-
-> ***Note:** Changing any of these values requires a full re-indexation in SOLR Core in order to get performance benefits.
+> ***Note:** Changing any of these values requires a full re-indexation of your SOLR Core in order to get the performance benefits.
