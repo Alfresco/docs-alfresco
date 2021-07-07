@@ -2,8 +2,173 @@
 title: CMIS API reference
 ---
 
-The Content Management Interoperability Services (CMIS) is an OASIS standard that is useful when you want to build 
-clients and services that work with different types of ECM systems in a standard way.
+CMIS (Content Management Interoperability Services) is a vendor-neutral [OASIS Web services interface specification](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cmis){:target="_blank"} 
+that enables interoperability between Enterprise Content Management (ECM) systems. CMIS allows rich information to be 
+shared across Internet protocols in vendor-neutral formats, among document systems, publishers and repositories, 
+in a single enterprise and between companies.
+
+Alfresco fully implements both the CMIS 1.0 and 1.1 standards to allow your application to manage content and metadata 
+in a repository. This section gives a brief overview of the URL format for CMIS REST API calls, and explains the format 
+of responses.
+
+You can use basic HTTP methods to invoke CMIS methods, or you can use one of the many language-specific libraries that 
+wrap CMIS. One such example for the Java language is the [OpenCMIS Client API](http://chemistry.apache.org/java/developing/guide.html){:target="_blank"} 
+provided by the [Apache Chemistry](http://chemistry.apache.org/){:target="_blank"} project. Apache Chemistry provides 
+client libraries for many other languages such as Python, PHP, and .NET.
+
+You can use methods described by both CMIS [1.0](http://docs.oasis-open.org/cmis/CMIS/v1.0/cmis-spec-v1.0.html){:target="_blank"} 
+and [1.1](http://docs.oasis-open.org/cmis/CMIS/v1.1/CMIS-v1.1.html){:target="_blank"} in the same application, although 
+in practice it is advisable to write all new applications to the latest 1.1 specification.
+
+* **[CMIS basics](#cmis-basics)**: CMIS is built around a number of concepts. This information provides an overview of those that are shared between all CMIS versions.
+* **[CMIS 1.1](#cmis-11)**: CMIS 1.1 introduces a number of new concepts that are supported by Alfresco. You can now use the new browser binding to simplify flows for web applications, use Alfresco aspects, and use the append data support to manage large items of content.
+
+## CMIS basics {#cmis-basics}
+CMIS is built around a number of concepts. This information provides an overview of those that are shared between all 
+CMIS versions.
+
+* **[CMIS repository](#cmis-repo)**: At the root of the CMIS model and services is a repository, which is an instance of the content management system and its store of metadata, content, and indexes.
+* **[CMIS query](#cmis-query)**: A CMIS query is based upon SQL-92. The query is read-only and presents no data manipulation capabilities.
+* **[CMIS services](#cmis-services)**: CMIS provides services that you can access using SOAP or AtomPub, depending on your preferred architectural style.
+* **[CMIS object model](#cmis-obj-model)**: The CMIS object model is similar to the Alfresco object model without the support of aspects. It supports versioning, policy, document, and folder objects.
+* **[CMIS bindings](#cmis-bindings)**: Clients can communicate with a CMIS repository using one of three protocol bindings: AtomPub, SOAP Web Services, and in CMIS 1.1, the Browser bindings. CMIS repositories provide a service endpoint, or URL, for each of these bindings.
+
+### CMIS repository {#cmis-repo}
+At the root of the CMIS model and services is a repository, which is an instance of the content management system and 
+its store of metadata, content, and indexes.
+
+The repository is the end point to which all requests are directed. In the RESTful model, it is the root path of the 
+resources being addressed in CMIS. The repository is capable of describing itself and its capabilities.
+
+### CMIS query {#cmis-query}
+A CMIS query is based upon SQL-92. The query is read-only and presents no data manipulation capabilities.
+
+The syntax consists of the following clauses:
+
+* `SELECT` with a target list
+* `FROM` with the object types being queried
+* `JOIN` to perform a join between object types
+* `WHERE` with the predicate
+* `IN` and `ANY` to query multi-value properties
+* `CONTAINS` to specify a full-text qualification
+* `IN_FOLDER` and `IN_TREE` to search within a folder hierarchy
+* `ORDERBY` to sort the results
+
+The CMIS query maps the object type into a relational structure where object type approximates a table, the object 
+approximates a row, and the property approximates a column that can be multi-valued. You can query the actual binary 
+content using a full text query and folder path information using the `in_folder` and `in_tree` functions.
+
+A query can also be paged for user interface presentation.
+
+### CMIS services  {#cmis-services}
+CMIS provides services that you can access using SOAP or AtomPub, depending on your preferred architectural style.
+
+CMIS services include the following:
+
+* **Repository services** let you discover available repositories, get the capabilities of these repositories, and provide basic Data Dictionary information of what types are available in the repository.
+* **Navigation services** let you navigate the repository by accessing the folder tree and traversing the folder/child hierarchy. You can use these services to get both children and parents of an object.
+* **Object services** provide the basic CRUD (Create, Read, Update, Delete) and Control services on any object, including document, folder, policy, and relationship objects. For document objects, this includes setting and getting of properties, policies, and content streams. Object services retrieve objects by path or object ID. Applications may also discover what actions users are allowed to perform.
+* **Multi-filing services** let you establish the hierarchy by adding or removing an object to or from a folder.
+* **Discovery services** provide Query and Change services, and a means of paging the results of the query.
+* **Change services** let you discover what content has changed since the last time checked, as specified by a special token. You can use Change services for external search indexing and replication services.
+* **Versioning services** control concurrent operation of the Object services by providing Check In and Check Out services. Version services also provide version histories for objects that are versioned.
+* **Relationship services** let you create, manage, and access relationships or associations between objects as well as allow an application to traverse those associations.
+* **Policy services** apply policies on document objects. Policies are free-form objects and can be used by implementations for security, record, or control policies.
+* **ACL services** let you create, manage, and access Access Control Lists to control who can perform certain operations on an object.
+
+### CMIS object model  {#cmis-obj-model}
+The CMIS object model is similar to the Alfresco repository object model without the support of aspects. It supports 
+versioning, policy, document, and folder objects.
+
+CMIS supports object types that define properties associated with each type. Each object has an object type, properties 
+defined by that object type, and an object ID.
+
+Object types support inheritance and are sub-typed as document object types and folder object types. Document object 
+types can have content streams to store and access binary data. Object types can also be related through relationship 
+object types.
+
+![CMIS-object-model]({% link content-services/images/cmis-objects.png %}){:width="400" height="300px"}
+
+#### CMIS policy object  
+A policy object represents an administrative policy that can be enforced by a repository, such as a retention management 
+policy.
+
+An Access Control List (ACL) is a type of policy object. CMIS allows applications to create or apply ACLs. The Alfresco 
+repository also uses policy objects to apply aspects.
+
+#### CMIS document object 
+Document objects have properties and content streams for accessing the binary information that is the document, 
+properties that can be multi-valued, and versions.
+
+Document objects can also have renditions that represent alternate file types of the document. Only one rendition type, 
+a thumbnail, is well defined.
+
+![CMIS-properties]({% link content-services/images/cmis-props.png %}){:width="400" height="300px"}
+
+#### CMIS versioning
+Versioning in CMIS is relatively simple to encompass the various versioning models of different CMIS implementations.
+
+Each version is a separate object with its own object ID. For a given object ID, you can retrieve the specific version, 
+the current version, or all versions of the object, as well as delete specific or all versions of a Document object. 
+Document versions are accessed as a set of Document objects organized on the time stamp of the object. CMIS does not 
+provide a history graph.
+
+![CMIS-versioning]({% link content-services/images/cmis-versioning.png %}){:width="400" height="300px"}
+
+#### CMIS folder object
+Document objects live in a folder hierarchy. As in the Alfresco repository, a folder can exist in another folder to 
+create the hierarchy. The relationship between a folder and document is many-to-many if the repository supports 
+multi-filing, allowing a document to appear in more than one folder. Otherwise, it is one-to-many relationship.
+
+![CMIS-folder]({% link content-services/images/cmis-folder.png %}){:width="400" height="300px"}
+
+### CMIS bindings {#cmis-bindings}
+Clients can communicate with a CMIS repository using one of three protocol bindings: AtomPub, SOAP Web Services, and in 
+CMIS 1.1, the Browser bindings. The CMIS repositories provide a service endpoint, or URL, for each of these bindings.
+
+#### AtomPub binding
+This RESTful binding is based on the [Atom Publishing Protocol](https://tools.ietf.org/html/rfc5023){:target="_blank"}. Clients communicate 
+with the repository by requesting the service document, which is obtained through a well-known URI. In Alfresco, the 
+service document is at:
+
+```text
+http://<hostname>:<port>/alfresco/api/-default-/public/cmis/versions/1.1/atom
+```
+
+Response format is XML. 
+
+#### Web service binding
+This binding is based on the [SOAP protocol](http://www.w3.org/TR/soap/){:target="_blank"} All services and operations defined in the 
+CMIS domain model specification are present in the Web Services binding. You can get a summary of the CMIS services from 
+Alfresco from the following URL:
+
+```text
+http://<hostname>:<port>/alfresco/cmis
+```
+
+Response format is XML.
+
+#### Browser binding
+From version 1.1 of the specification, CMIS provides a simpler [JSON-based](http://tools.ietf.org/html/rfc4627){:target="_blank"} 
+binding. The browser binding is designed for web applications, and is easy to use with HTML and JavaScript. It uses just 
+two verbs, GET and POST, and resources are referenced using simple and predictable URLs. You can get a summary of the 
+repository information from Alfresco from the following URL:
+
+```text
+http://<hostname>:<port>/alfresco/api/-default-/public/cmis/versions/1.1/browser
+```
+
+Response format is JSON.
+
+#### CMIS 1.1 {#cmis-11}
+-   [The Browser binding](../pra/1/concepts/cmis-1.1-browser-binding.md)
+    -   [Getting content](../pra/1/concepts/cmis-1.1-browser-binding-get.md)
+    -   [Creating content](../pra/1/concepts/cmis-1.1-browser-binding-post.md)
+    -   [Compact JSON return values](../pra/1/concepts/cmis-1.1-browser-binding-succint.md)
+-   [Using aspects](../pra/1/concepts/cmis-1.1-using-aspects.md)
+-   [Appending content](../pra/1/concepts/cmis-1.1-appending-content.md)
+-   [cmis:item support](../pra/1/concepts/cmis-1.1-item-support.md)
+
 
 ## Getting Started
 To get you started with CMIS, review the format of the URL you will use, and what responses to expect.
@@ -214,7 +379,7 @@ Some updated text.
 
 If the request is successful an `HTTP CREATED` response (status 201) is returned.
 
-## Working with the CMIS API from Java
+## Working with the CMIS API from Java {#opencmisintro}
 The [Apache Chemistry](https://chemistry.apache.org){:target="_blank"} project provides a Java API called OpenCMIS that 
 wraps the CMIS ReST API. It contains a number of libraries that abstract the CMIS low-level protocol bindings. 
 [OpenCMIS](https://chemistry.apache.org/java/opencmis.html){:target="_blank"} is the library used by Java developers. 
@@ -433,7 +598,7 @@ private CmisObject getObject(Session session, Folder parentFolder, String object
 }
 ```
 
-The `getObject` method is quite useful as it can be used to, in an easy way, get a CMIS object, such as a `Folder` or 
+The `getObject` method is quite useful as it can be used to easily get a CMIS object, such as a `Folder` or
 a `Document`.
 
 There is also the `date2String` convenience method that we used to format the date, it's implemented as follows and used 
@@ -577,8 +742,174 @@ if you are going to work extensively with this API get one of those.
 If you are wondering about how to work with Alfresco aspects using OpenCMIS see [next section](#workingwithaspects).
 
 ### Working with Alfresco aspects from OpenCMIS {#workingwithaspects}
+It's possible to work with Alfresco aspects directly via OpenCMIS using CMIS secondary types.
 
-#### Adding aspects to a document or folder
-#### Removing aspects from a document or folder
+Alfresco has two types of classes that can be used to classify content, types and aspects. A node in Alfresco 
+(that is, a CMIS object) can have one and only one type set but zero or more aspects applied.
+
+We can use so-called CMIS secondary types to manage the aspects for an object in Alfresco, as Alfresco exposes any 
+aspects that are set on an object as secondary types.
+
+This will work if you are running Alfresco 4.2.e Community, Alfresco 4.2.0 Enterprise, or newer versions. With earlier 
+versions, you have to use a special Alfresco OpenCMIS extension to manage aspects.
+
+When we want to manage aspects via CMIS secondary types, we will just use standard OpenCMIS library functions. Secondary 
+object types are managed in a specific multivalued property named `cmis:secondaryObjectTypeIds`.
+
+See this [section](#addaspects) for how to add aspects to a CMIS object, such as a folder or document.
+
+See this [section](#removeaspects) for how to remove aspects from a CMIS object.
+
+#### Adding aspects to a document or folder {#addaspects}
+Aspects can be applied when creating or updating a document or folder.
+
+To demonstrate how to add an aspect when we are creating an object, we will add one of the out-of-the-box Alfresco 
+aspects called Titled (`cm:titled`) when we create a folder. This aspect, or the CMIS secondary type, requires two extra 
+properties to be filled in, title and description:
+
+```java
+public void createFolderWithTitledAspect(Session session) {
+	String folderName = "OpenCMISTestTitled";
+	Folder parentFolder = session.getRootFolder();
+		
+	// Check if folder already exist, if not create it
+	Folder newFolder = (Folder) getObject(session, parentFolder, folderName);
+	if (newFolder == null) {
+		List<Object> aspects = new ArrayList<Object>();
+		aspects.add("P:cm:titled");
+
+		Map<String, Object> newFolderProps = new HashMap<String, Object>();
+		newFolderProps.put(PropertyIds.OBJECT_TYPE_ID, "cmis:folder");
+		newFolderProps.put(PropertyIds.NAME, folderName);
+		newFolderProps.put("cmis:secondaryObjectTypeIds", aspects);
+		newFolderProps.put("cm:title", "Folder Title");
+		newFolderProps.put("cm:description", "Folder Description");
+
+		newFolder = parentFolder.createFolder(newFolderProps);
+
+		System.out.println("Created new folder with Titled aspect: " +
+				newFolder.getPath() + " [creator=" + newFolder.getCreatedBy()
+				+ "][created=" + date2String(newFolder.getCreationDate().getTime()) + "]");
+	} else {
+		System.out.println("Cannot create folder, it already exist: " +
+				newFolder.getPath());
+	}
+}
+```
+
+For information on how to get a `Session` object, `getObject` method implementation, and `date2String` method, see 
+[this section](#opencmisintro).
+
+Here we first check whether the folder we intend to create already exists. If it doesn't, we go ahead and create a list 
+of aspects that we want to set for the folder object. In this case, it is just the one aspect called `P:cm:titled` 
+(P stands for policy; it's the way Alfresco traditionally exposes aspects, and you still have to use this prefix), 
+but the `cmis:secondaryObjectTypeIds` property is a multivalued property, so we need to keep the aspect name in a list.
+
+Then the standard properties map is created where one of the properties is the `cmis:secondaryObjectTypeIds` property, 
+keeping the list of aspects. The folder is then created with this map of properties, and the aspect is set for us and 
+exposed as a secondary type via CMIS.
+
+If we already have an object and want to add an aspect to it, we can also use the `cmis:secondaryObjectTypeIds` property 
+and update it via the `updateProperties` operation. We are going to use another of Alfresco's out-of-the-box aspects 
+called Effectivity (`cm:effectivity`). It can be used to set a from date and a to date for an object, representing some 
+form of time period when the object is effective. To do this for a document object, do as follows:
+
+```java
+public void addAspectToExistingDocument(Document document) {
+	String aspectName = "P:cm:effectivity";
+
+	// Make sure we got a document, and then add the aspect to it
+	if (document != null) {
+		// Check that document don't already got the aspect applied
+		List<Object> aspects = document.getProperty("cmis:secondaryObjectTypeIds").getValues();
+		if (!aspects.contains(aspectName)) {
+			aspects.add(aspectName);
+
+			Map<String, Object> properties = new HashMap<String, Object>();
+			properties.put("cmis:secondaryObjectTypeIds", aspects);
+			properties.put("cm:from", new Date());
+			Calendar toDate = Calendar.getInstance();
+			toDate.add(Calendar.MONTH, 2);
+			properties.put("cm:to", toDate.getTime());
+
+			Document updatedDocument = (Document) document.updateProperties(properties);
+	
+       		System.out.println("Added aspect " + aspectName + " to " + getDocumentPath(updatedDocument));
+		} else {
+			System.out.println("Aspect " + aspectName + " is already applied to " + getDocumentPath(document));
+		}
+	} else {
+		System.out.println("Document is null, cannot add aspect to it!");
+	}
+}
+```
+
+The document object that we want to apply the aspect to is passed to the method. We start by getting currently set 
+aspects, so we can see if the `cm:effectivity` aspect is already set. We also need to keep a list of aspects that are 
+already set as we need to add them to the aspect list together with the new aspect. If we don't include the aspects 
+that are already set, we will basically unset them when we update the properties.
+
+For information on how to implement the `getDocumentPath` method see [this section](#opencmisintro).
+
+#### Removing aspects from a document or folder {#removeaspects}
+To remove aspects from an existing object, such as a document or folder, you must first get all aspects and then 
+remove the unwanted ones from the list before updating.
+
+If we have a document or folder, and we want to remove an aspect from it, then we can use the `cmis:secondaryObjectTypeIds` 
+property and update it via the `updateProperties` operation. Let's take an example where a document has the 
+out-of-the-box aspect called Effectivity (`cm:effectivity`) applied, and we want to remove it. To do this for 
+a document object, do as follows:
+
+```java
+public void removeAspectFromDocument(Document document) {
+	String aspectName = "P:cm:effectivity";
+
+	// Make sure we got a document, and then remove the aspect from it
+	if (document != null) {
+		// Check that document got the aspect applied
+		List<Object> aspects = document.getProperty("cmis:secondaryObjectTypeIds").getValues();
+		if (aspects.contains(aspectName)) {
+			aspects.remove(aspectName);
+			Map<String, Object> properties = new HashMap<String, Object>();
+			properties.put("cmis:secondaryObjectTypeIds", aspects);
+			Document updatedDocument = (Document) document.updateProperties(properties);
+			
+			System.out.println("Removed aspect " + aspectName + " from " + getDocumentPath(updatedDocument));
+		} else {
+			System.out.println("Aspect " + aspectName + " is not applied to " + getDocumentPath(document));
+		}
+	} else {
+		System.out.println("Document is null, cannot remove aspect from it!");
+	}
+}
+```
+
+The document object that we want to remove the aspect from is passed into the method. We start by getting currently set 
+aspects, so we can make sure that the `cm:effectivity` aspect is indeed set. We need to keep a list of all the aspects 
+that are already set, and which we want to keep when updating. There is no method to remove just one aspect, we need to 
+set all aspects that we want to keep when we update the properties.
+
+Note that when you remove an aspect in this way, all the associated properties are removed as well automatically, in 
+this case `cm:from` and `cm:to`.
+
+For information on how to implement the `getDocumentPath` method see [this section](#opencmisintro).
 
 ### Using the CMIS Workbench with Alfresco
+The CMIS Workbench is a CMIS desktop client for developers. It is a repository browser and an interactive test bed for 
+the OpenCMIS client API.
+
+1.  Download the CMIS workbench zip file from the [Apache Chemistry](http://www.apache.org/dyn/closer.cgi/chemistry/opencmis){:target="_blank"} website.
+2.  Unpack the contents of the zip file to a new directory.
+3.  Navigate to the directory and run the following command to install the workbench:
+    -   Unix: `workbench.sh`
+    -   Windows: `workbench.bat`
+4.  During the installation:
+    1.  In the URL field, enter the Alfresco CMIS URL: `http://localhost:8080/alfresco/api/-default-/cmis/versions/1.1/atom`
+
+        **Note:** This URL has changed since Alfresco One 4.2.1.
+
+        For a Browser binding, use `http://localhost:8080/alfresco/api/-default-/cmis/versions/1.1/browser`.
+    2.  Enter the username and password.
+    3.  Click **Load Repositories**.
+    4.  Click **Login**.
+5.  In the CMIS workbench, check that you can connect to the repository by running CMIS functions such as creating, updating, and deleting folders.
