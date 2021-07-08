@@ -14,7 +14,7 @@ Additionally, from version 2.0.2, SOLR Merging parameters have been exposed that
 
 ## Disable FINGERPRINT
 
-The [Document Fingerprint]({% link search-services/latest/admin/#document-fingerprints %}) feature can be used to get similar documents from SOLR using the reserved word `FINGERPRINT` in `FTS` search syntax. In order to provide these results, each document in the SOLR Index includes a list of `MINHASH` fields that create larger Lucene Indexes.
+The [Document Fingerprints]({% link search-services/latest/admin/index.md %}#document-fingerprints) feature can be used to get similar documents from SOLR using the reserved word `FINGERPRINT` in `FTS` search syntax. In order to provide these results, each document in the SOLR Index includes a list of `MINHASH` fields that create larger Lucene Indexes.
 
 From version 2.0.2 the Fingerprint feature is disabled by default and appears in the `solrcore.properties` file as `alfresco.fingerprint=false`.
 
