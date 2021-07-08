@@ -80,26 +80,43 @@ In Content Services navigate to the **Business Object Types > Equipment** folder
 
 ![View Equipment in Content Services]({% link sap-cloud/images/sap_test_ie03_2_acs_view.png %})
 
-## Supported SAP Business Objects
+## Supported Business Objects 
 
-The following table lists all SAP Business Objects that are tested and supported in the current version of the Content Connector for SAP Cloud against S/4HANA 2020 on-premises:
+The following table lists all SAP Business Objects which are currently supported. 
 
-| SAP Business Object Name | SAP Business Object Type | Transaction Code | Supported |
-| ---------------- | --------- | ---- | --- |
-| Business Partner | `BUS1006` | `BP` | Yes |
-| Condition Contract | `BUS2235` | `WCOCO` | Yes |
-| Equipment | `EQUI` | `IE03` | Yes |
-| Inbound Delivery | `BUS2015` | `VL33N` | Yes |
-| Material Master | `BUS1001006` | `MM03` | Yes |
-| Outbound Delivery | `LIKP` | `VL03` | Yes |
-| Product | `MARA`, `BUS1001001`, `BUS1001006` | `MM03` | Yes |
-| Production Order  | `PORDER` | `CO03` | Yes |
+| SAP Business Object Name |
+| ---------------- |
+| Bill Of Material |
+| Billing Document |
+| Business Partner |
+| Condition Contract |
+| Customer Return | 
+| Document Info Record | 
+| Equipment  | 
+| Inbound Delivery | 
+| Journal Entry | 
+| Legal Document | 
+| Legal Transaction | 
+| Material Master | 
+| Outbound Delivery | 
+| Product | 
+| Production Order  | 
+| Purchase Order  | 
+| Purchase Requisition  | 
+| Sales Contract  | 
+| Sales Inquiry  | 
+| Sales Order | 
+| Sales Quotation  | 
+| Sales Contract  | 
+| Supplier  | 
+| Supplier Invoice | 
+| Supplier Quotation | 
 
 ## Troubleshooting
 
 Sorry you're having trouble with the Content Connector for SAP Cloud. Your problem may be related to any one of the following issues.
 
-### RFC destination connection test fails (HTTP response code 400)
+### SAP on premises: RFC destination connection test fails (HTTP response code 400)
 
 The connection test of the created RFC destination (`SM59`) returns with **`400`** response code:
 
@@ -107,7 +124,7 @@ The connection test of the created RFC destination (`SM59`) returns with **`400`
 
 This may be due to an incorrect **Path Prefix** specified for the target system. Make sure you use the exact value mentioned in [step 3 of creating the RFC Connection]({% link sap-cloud/latest/config/index.md %}#new-http-connection).
 
-### RFC destination connection test fails (HTTP response code 402)
+### SAP on premises: RFC destination connection test fails (HTTP response code 402)
 
 The connection test of the created RFC destination (`SM59`) returns with **`402`** response code:
 
@@ -115,7 +132,7 @@ The connection test of the created RFC destination (`SM59`) returns with **`402`
 
 This may be due to a missing (or expired) license file. Make sure you've [applied a valid license file]({% link sap-cloud/latest/install/index.md %}#install-license).
 
-### Upload of attachments fails
+### SAP on premises: Upload of attachments fails
 
 The upload of an attachment fails in any transaction with the following error:
 
@@ -124,3 +141,10 @@ The upload of an attachment fails in any transaction with the following error:
 In most cases, this is due to an expired license file. Make sure you've applied a valid license file for the SAP Cloud Connector.
 
 If the license exists and is valid, this error may be due to incorrect configuration of the related repository in `OAC0`. In this case, check the repository configuration again.
+
+### SAP Cloud: Upload of attachments fails
+The upload of an attachment fails in any Fiori app with the following error:
+
+![SAP Application Error]({% link sap-cloud/images/sap_cloud_troubleshooting_error_upload.png %})
+
+If it is not related to a missing or expired license (see above), make sure you've entered the correct Content Services CMIS endpoint for the [Destination in the SAP Business Technology Platform]({% link sap-cloud/latest/config/cloud.md %}#create-destination).

@@ -4,9 +4,9 @@ title: Configure SAP Configure SAP S/4HANA Cloud Essentials
 
 Use this information to configure the SAP Cloud Connector for SAP S/4HANA Cloud Essentials.
 
-## Connect SAP Cloud with SAP Business Technology Platform (BTP)
+## Connect SAP Cloud with SAP Business Technology Platform (BTP) {#connect-btp}
 There are a few steps required to connect an external repository to the SAP S/4HANA Cloud Essentials, such as:
- * SAP BTP must be fundamentally configured (i.e. Subaccount, Cloud Foundry, entitlements.).
+ * SAP BTP must be fundamentally configured (i.e. Subaccount, Cloud Foundry, Entitlements).
  * SAP BTP must be enabled to work with the Document Management Service. 
  * The Content Services repository must be set up as Destination in the SAP BTP (refer to the below step).
  * In SAP S/4HANA Cloud Essentials, the required Communication Scenarios (including Communication User) must be created and maintained. 
@@ -21,7 +21,7 @@ A good starting point with the complete list of steps required, is the **Documen
 -Up Instructions for Customer managed CMIS 
 Repository** provided by SAP to customers.
 
-### Create Destination on SAP BTP
+### Create Destination on SAP BTP {#create-destination}
 As a foundation, Content Services must be created as a Destination on the SAP Business Technology Platform. This is the only touchpoint in the whole process where the connection to the Content Services must be specified.
 
 1. Navigate to the Subaccount and click on `Destinations`
