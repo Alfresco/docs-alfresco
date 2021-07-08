@@ -21,18 +21,17 @@ You can only see the Admin Console if you're an administrator.
 
     Here, you can specify the backup location and edit backup properties for each core of the Solr index: **Main Store** and **Archive Store**.
 
-    * **Backup Location**: Specifies the full-path location for the backup to be stored. This location must be on the machine on which Search Services is installed or it must be a location which is accessible from the Solr host. For example, `/opt/alfresco-search-services/backups/alfresco`.
     * **Backup Cron Expression**: Specifies a Quartz cron expression that defines when backups occur. Solr creates a timestamped sub-directory for each index back up you make.
     * **Backups To Keep**: Specifies the maximum number of index backups that Solr should store.
 4. Click **Save**.
 
 This task shows how to specify the Solr backup directory by using the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file.
 
-To set the Solr backup directory using the `alfresco-global.properties` file, set the value of the following properties to the full path where the backups should be kept:
+Configuration of the Solr backup directory is in `solrcore.properties` file on SearchService. Set the value of the following properties to the full path where the backups should be kept:
 
 ```text
-solr.backup.archive.remoteBackupLocation=
 solr.backup.alfresco.remoteBackupLocation=
+solr.backup.archive.remoteBackupLocation=
 ```
 
 The values set on a subsystem will mean that the property values from configuration files may be ignored. Use the Admin Console or JMX client to set the backup location.
