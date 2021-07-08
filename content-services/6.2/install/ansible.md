@@ -187,7 +187,7 @@ To install Content Services 7 on the target host, run the playbook as the curren
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml
 ```
 
-Alternatively, to install an Content Services 6.2.N Enterprise system:
+Alternatively, to install a Content Services 6.2.N Enterprise system:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"
@@ -237,7 +237,7 @@ To install Content Services 7 on the target hosts, run the playbook as the curre
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml
 ```
 
-Alternatively, to install an Content Services 6.2.N system:
+Alternatively, to install a Content Services 6.2.N system:
 
 ```bash
 ansible-playbook playbooks/acs.yml -i inventory_ssh.yml -e "@6.2.N-extra-vars.yml"
