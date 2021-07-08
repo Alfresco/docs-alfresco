@@ -2,7 +2,7 @@
 title: Installation
 ---
 
-The standalone Alfresco Document Transformation Engine is installed by using either an `.msi` or by installing the Document Transformation Engine T-Engine with the Transform Service, using Docker Compose.
+The standalone Alfresco Document Transformation Engine is installed by using either an `.msi` file where you can select to install a T-Engine at the same time, or you can install a hybrid version and install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine.
 
 In previous versions the installation files were contained within a `.zip` file. This file also contained `.amp` files that enabled you to install the Document Transformation client into Alfresco Content Services. In the current version this is not possible.
 
@@ -79,6 +79,8 @@ Before starting verify that:
 ## Install T-Engine using Docker Compose
 
 To deploy the Document Transformation Engine T-Engine with the Transform Service, you'll need to update your Docker Compose file to include the Document Transformation Engine T-Engine.
+
+**Important:** You still need to install the Document Transformation Engine using the `.msi`.
 
 > **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 

@@ -45,4 +45,4 @@ Using an Amazon EC2 instance c3.2xlarge, the I/O metrics are as follows:
 
 ## Installation
 
-The Document Transformation Engine is installed using an `msi` file or Docker Compose, for more see [Installation]({% link transformation-engine/latest/install/msi.md %}) and also has an [SDK that can be installed]({% link transformation-engine/latest/install/sdk.md %}).
+The Document Transformation Engine is installed using an `msi` file where you can select to install a T-Engine at the same time. Alternatively you can install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine, for more see [Installation]({% link transformation-engine/latest/install/msi.md %}). There is also an [SDK that can be installed]({% link transformation-engine/latest/install/sdk.md %}).
