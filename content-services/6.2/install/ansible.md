@@ -27,7 +27,7 @@ There are two types of installations - local and remote:
 If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from [Nexus](https://artifacts.alfresco.com){:target="_blank"}. Customers can request these through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 >**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
-then you need to [bootstrap the IPTC Content Model]({% link content-services/latest/install/containers/index.md %}#iptc-model-bootstrap) manually
+then you need to [bootstrap the IPTC Content Model]({% link content-services/6.2/install/containers/index.md %}#iptc-model-bootstrap) manually
 into Content Services. If you follow the link you will find the necessary content model files.
 
 ## Target O/S
@@ -144,7 +144,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 For details about the webapp URLs, location of logs, configuration etc., see [useful information](#usefulinfo).
 
-If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
+If you're deploying a production system, ensure that you secure your installation.
 
 ## Remote installation
 
@@ -213,7 +213,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 For details about the webapp URLs, location of logs, configuration etc., see [useful information](#usefulinfo).
 
-If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
+If you're deploying a production system, ensure that you secure your installation.
 
 ### Multi-machine installation
 
@@ -263,7 +263,7 @@ transformers_1             : ok=81   changed=10   unreachable=0    failed=0    s
 
 For details about the webapp URLs, location of logs, configuration etc., see [useful information](#usefulinfo).
 
-If you're deploying a production system, ensure that you review the additional information provided in [Securing your installation]({% link content-services/latest/admin/securing-install.md %}).
+If you're deploying a production system, ensure that you secure your installation.
 
 ## Useful information {#usefulinfo}
 
@@ -365,7 +365,7 @@ This section describes how to configure your installation before running the pla
 
 If you have a valid license, place your `*.lic` file in the `configuration_files/licenses` folder before running the playbook.
 
-> **Note:** You can also [upload a license]({% link content-services/latest/admin/license.md %}) via the Admin Console once the system is running.
+> **Note:** You can also [upload a license]({% link content-services/6.2/admin/license.md %}) via the Admin Console once the system is running.
 
 ### Alfresco global properties
 
@@ -428,7 +428,7 @@ Along with the URL, the database driver binaries need to be provided for one or 
 
 The default database username (`repo_db_username` and/or `sync_db_username`) and password (`repo_db_password` and/or `sync_db_password`) in the configuration file `group_vars/all.yml` can also be overidden with your custom values.
 
-See [Configuring databases]({% link content-services/latest/config/databases.md %}) for more details.
+See [Configuring databases]({% link content-services/6.2/config/databases.md %}) for more details.
 
 ### Custom keystore
 

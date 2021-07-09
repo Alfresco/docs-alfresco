@@ -289,6 +289,8 @@
             path: '/content-services/latest/develop/rest-api-guide/searching/'
         - title: 'Reference'
           pages:
+          - title: 'Debugging'
+            path: '/content-services/latest/develop/reference/debugging-ref/'
           - title: 'Java Foundation API'
             path: '/content-services/latest/develop/reference/java-foundation-ref/'
           - title: 'Web Scripts'
@@ -593,6 +595,8 @@
               path: '/content-services/6.2/install/zip/amp/'
             - title: 'Install additional software'
               path: '/content-services/6.2/install/zip/additions/'
+        - title: 'Install with Ansible'
+          path: '/content-services/6.2/install/ansible/'
         - title: 'Install using containers'
           pages:
             - title: 'Overview'

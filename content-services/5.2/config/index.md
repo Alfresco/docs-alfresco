@@ -338,7 +338,9 @@ Restrict JMX RMI connections to an internal administration group, due to securit
 
 4.  Connect to the JMX URL:
 
+    ```
     service:jmx:rmi:///jndi/rmi://<hostname>:50500/alfresco/jmxrmi
+    ```
 
     Where `<hostname>` is the name of a reachable domain name or an IP address. If you running this on the local server, you can use `localhost`.
 
