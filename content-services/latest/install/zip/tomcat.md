@@ -89,7 +89,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
 
         > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
 
-        > **Note:** In Tomcat versions priors to 9 it was possible to use _org.apache.coyote.http11.Http11Protocol_ as protocol value, but now it was removed. If you are using configuration from an old instance using a Tomcat version before 9, you need to update the connector protocol value.
+        > **Note:** In Tomcat versions prior to 9 it was possible to use `org.apache.coyote.http11.Http11Protocol` as the protocol value, but now it has been removed. If you are using configuration from an old instance using a Tomcat version before 9, you need to update the connector protocol value.
 
 8. Save the `server.xml` file.
 
