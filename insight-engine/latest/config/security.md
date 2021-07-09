@@ -17,7 +17,7 @@ The keys and certificates required for mutual TLS on the repository side are set
 1. Modify `<TOMCAT_HOME>/conf/server.xml` and add the following connector:
 
     ```bash
-    <Connector port="8999" protocol="org.apache.coyote.http11.Http11Protocol"
+    <Connector port="8443" protocol="HTTP\1.1"
         connectionTimeout="20000"
         SSLEnabled="true" scheme="https" secure="true"
         sslProtocol="TLS" clientAuth="true"

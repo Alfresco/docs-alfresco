@@ -166,7 +166,7 @@ Before continuing, make sure that you've already completed the steps in [Generat
     2. For the Tomcat SSL Connector in `<TOMCAT_HOME>/conf/server.xml` update the following:
 
         ```bash
-        <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
+        <Connector port="8443" protocol="HTTP\1.1"
             SSLEnabled="true" maxThreads="150" scheme="https"
             keystoreFile="/usr/local/tomcat/alf_data/keystore/ssl.keystore"
             keystorePass="password" keystoreType="JCEKS"
