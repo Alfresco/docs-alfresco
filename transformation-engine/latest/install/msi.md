@@ -2,7 +2,10 @@
 title: Installation
 ---
 
-The standalone Alfresco Document Transformation Engine is installed by using either an `.msi` file where you can select to install a T-Engine at the same time, or you can install a hybrid version and install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine.
+The standalone Alfresco Document Transformation Engine is installed by using an `.msi` file where you can either:
+
+* Select to install a T-Engine wrapper from the `.msi`.
+* Install a hybrid version by using a Docker Compose file to install the T-Engine.
 
 In previous versions the installation files were contained within a `.zip` file. This file also contained `.amp` files that enabled you to install the Document Transformation client into Alfresco Content Services. In the current version this is not possible.
 
@@ -11,7 +14,10 @@ In previous versions the installation files were contained within a `.zip` file.
 
 ## Install with MSI
 
-> **Note:** When upgrading the Document Transformation Engine, the previous installation must be uninstalled first. If your old version of the Document Transformation Engine is earlier than 1.3.1, use the Control Panel **Uninstall a program** option to remove the old version, and then manually remove the Document Transformation Engine directory. By default, the Document Transformation Engine directory is `C:\Program Files (x86)\Transformation Engine\`. If your old version of the Document Transformation Engine is 1.3.1 or later, the new Document Transformation Engine MSI prompts you to uninstall the previous version. When the uninstall is complete, you can run the MSI package again to install the new version. There is no need to manually remove anything.
+> **Note:** When upgrading the Document Transformation Engine, the previous installation must be uninstalled first.
+>
+> * If your old version is earlier than 1.3.1, use the Control Panel **Uninstall a program** option to remove the old version, and then manually remove the Document Transformation Engine directory. By default, the Document Transformation Engine directory is `C:\Program Files (x86)\Transformation Engine\`.
+> * If your old version is 1.3.1 or later, the new Document Transformation Engine MSI prompts you to uninstall the previous version. When the uninstall is complete, you can run the MSI package again to install the new version. There is no need to manually remove anything.
 
 1. Download `alfresco-document-transformation-engine-server-2.3.0.msi` from the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"}.
 
@@ -23,7 +29,7 @@ In previous versions the installation files were contained within a `.zip` file.
 
 5. (Optional) Select DTE T-Engine.
 
-    > **Important:** If you do not intend to use the DTE T-Engine Docker image, you must select this option.
+    > **Important:** If you do not intend to use the DTE T-Engine Docker image, you must select this option for DTE to work correctly.
 
 6. Click **Next** and the license information screen displays.
 
@@ -80,7 +86,7 @@ Before starting verify that:
 
 To deploy the Document Transformation Engine T-Engine with the Transform Service, you'll need to update your Docker Compose file to include the Document Transformation Engine T-Engine.
 
-**Important:** You still need to install the Document Transformation Engine using the `.msi`.
+> **Important:** You still need to install the Document Transformation Engine using the `.msi`.
 
 > **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 
