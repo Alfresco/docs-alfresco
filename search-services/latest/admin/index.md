@@ -76,7 +76,9 @@ You can set different debug logging levels for Solr components using the Solr lo
 
 ### Document fingerprints
 
-Alfresco Content Services 6.2 provides support for Document Fingerprints to find related documents. Document Fingerprinting is performed by algorithms that map data, such as documents and files to shorter text strings, also known as fingerprints. This feature is exposed as a part of the Alfresco Full Text Search Query Language.
+Alfresco Content Services 6.2 and above provides support for Document Fingerprints to find related documents. Document Fingerprinting is performed by algorithms that map data, such as documents and files to shorter text strings, also known as fingerprints. This feature is exposed as a part of the Alfresco Full Text Search Query Language.
+
+> **NOTE:** Document fingersprints is disabled by default, for more see [Document Fingerprints]({% link search-services/latest/config/performance.md %}#document-fingerprints)
 
 Document Fingerprints can be used to find similar content in general or biased towards containment. The language adds a new `FINGERPRINT` keyword:
 
