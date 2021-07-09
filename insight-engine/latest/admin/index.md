@@ -6,8 +6,8 @@ title: Overview
 
 There are a number of ways to back up Search and Insight Engine. You can set the Solr indexes backup properties either by:
 
-* Using the Admin Console
-* Editing the `alfresco-global.properties` file
+* Using the Admin Console.
+* Editing the `alfresco-global.properties` file.
 * Using a JMX client, such as JConsole.
 
 {% capture console %}

@@ -7,7 +7,7 @@ title: Overview
 There are a number of ways to back up Search Services. You can set the Solr indexes backup properties either by:
 
 * Using the Admin Console **Note:** This feature is only available when you are using Alfresco Content Services Enterprise.
-* Editing the `alfresco-global.properties` file
+* Editing the `alfresco-global.properties` file.
 * Using a JMX client, such as JConsole. **Note:** This feature is only available when you are using Alfresco Content Services Enterprise. 
 
 You can only see the Admin Console if you're an administrator.
