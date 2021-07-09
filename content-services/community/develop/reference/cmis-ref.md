@@ -2,73 +2,172 @@
 title: CMIS API reference
 ---
 
-The Content Management Interoperability Services (CMIS) is an OASIS standard that is useful when you want to build
-clients and services that work with different types of ECM systems in a standard way.
+CMIS (Content Management Interoperability Services) is a vendor-neutral [OASIS Web services interface specification](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cmis){:target="_blank"}
+that enables interoperability between Enterprise Content Management (ECM) systems. CMIS allows rich information to be
+shared across Internet protocols in vendor-neutral formats, among document systems, publishers and repositories,
+in a single enterprise and between companies.
 
-## Getting Started
-To get you started with CMIS, review the format of the URL you will use, and what responses to expect.
+Content Services fully implements both the CMIS 1.0 and 1.1 standards to allow your application to manage content and
+metadata in a repository. This section gives a brief overview of the URL format for CMIS ReST API calls, and explains
+the format of responses.
 
->**Note:** If you are accessing an on-premise instance, the term **repository** means the same thing in Content Services and CMIS.
+You can use basic HTTP methods to invoke CMIS methods, or you can use one of the many language-specific libraries that
+wrap CMIS. One such example for the Java language is the [OpenCMIS Client API](http://chemistry.apache.org/java/developing/guide.html){:target="_blank"}
+provided by the [Apache Chemistry](http://chemistry.apache.org/){:target="_blank"} project. Apache Chemistry provides
+client libraries for many other languages such as Python, PHP, and .NET. The OpenCMIS library is covered in this section.
 
-### The domain model
-CMIS defines a domain model. A client will access a CMIS service endpoint described by a URL. A service endpoint must
-have at least one repository. A repository, in this case an instance of Content Services, is a data store which contains
-content. Each item of content is an object such as a folder, or a document. A repository is identified by its ID, and has
-a set of capabilities which describe what optional CMIS functionality the repository supports.
+You can use methods described by both CMIS [1.0](http://docs.oasis-open.org/cmis/CMIS/v1.0/cmis-spec-v1.0.html){:target="_blank"}
+and [1.1](http://docs.oasis-open.org/cmis/CMIS/v1.1/CMIS-v1.1.html){:target="_blank"} in the same application, although
+in practice it is advisable to write all new applications to the latest 1.1 specification.
 
-Using the CMIS service endpoint in an HTTP Get call will return the endpoint's CMIS service document which describes the
-CMIS functionality it supports.
+* **[CMIS basics](#cmis-basics)**: CMIS is built around a number of concepts. This information provides an overview of those that are shared between all CMIS versions.
+* **[Content Services configuration settings](#repoconfigsettings)**: Information about repository configuration related to CMIS.
+* **[Getting started with the AtomPub binding (XML)](#atompubbinding)**: CMIS 1.0 introduces the XML based AtomPub binding.
+* **[Getting started with the Browser binding (JSON)](#browserbinding)**: CMIS 1.1 introduces a number of new concepts that are supported by Alfresco. You can now use the new browser binding to simplify flows for web applications, use Alfresco aspects, and use the append data support to manage large items of content.
+* **[Working with the CMIS API from Java](#opencmisintro)**: Introduction to the OpenCMIS Java library that wraps the CMIS ReST API.
 
-Each CMIS object has an ID, type, and a set of properties for that type. There are four base types for a CMIS object:
+## CMIS basics {#cmis-basics}
+CMIS is built around a number of concepts. This information provides an overview of those that are shared between all
+CMIS versions.
 
-* **Document**: An item of content. The document can have a content stream, which is the actual file associated with the document. A content stream exists only as part of its containing document object. A content stream has a mimetype associated with it. A document object can contain one or more renditions, which are alternate views of the content. Documents objects are the only objects that are versionable. Each version of a document has its own object ID. All the versions of a document make up a version series and share a version series ID. You can create, read, update and delete documents using CMIS methods.
-* **Folder**: A container used to organize the document objects. A repository has one root folder. All other folder objects have one parent folder. A folder has a folder path representing its place in the repository's folder hierarchy.
-* **Relationship**: A relationship between a source object and a target object. Creating, changing and deleting relationships does not change the source or target objects themselves.
-* **Policy**: An optional repository-specific object that can be applied to controllable objects. The behavior of policies are not modeled by the CMIS specification. A policy object can be applied to multiple controllable objects and a controllable object can have multiple policies applied to it. A policy object can not be deleted if it is currently applied to one or more controllable objects.
+* **[CMIS repository](#cmis-repo)**: At the root of the CMIS model and services is a repository, which is an instance of the content management system and its store of metadata, content, and indexes.
+* **[CMIS query](#cmis-query)**: A CMIS query is based upon SQL-92. The query is read-only and presents no data manipulation capabilities.
+* **[CMIS services](#cmis-services)**: CMIS provides services that you can access using SOAP or AtomPub, depending on your preferred architectural style.
+* **[CMIS object model](#cmis-obj-model)**: The CMIS object model is similar to the Alfresco object model without the support of aspects. It supports versioning, policy, document, and folder objects.
+* **[CMIS bindings](#cmis-bindings)**: Clients can communicate with a CMIS repository using one of three protocol bindings: AtomPub, SOAP Web Services, and in CMIS 1.1, the Browser bindings. CMIS repositories provide a service endpoint, or URL, for each of these bindings.
 
-### What does a request look like?
-You call a method on the CMIS ReST API by issuing an authenticated HTTP request with a URL.
+### CMIS repository {#cmis-repo}
+At the root of the CMIS model and services is a repository, which is an instance of the content management system and
+its store of metadata, content, and indexes.
 
-The four HTTP methods are used to support the traditional Create, Read, Update, and Delete (CRUD) operations of
-content management:
+The repository is the end point to which all requests are directed. In the RESTful model, it is the root path of the
+resources being addressed in CMIS. The repository is capable of describing itself and its capabilities.
 
-* **POST**: is used to create a new entities
-* **GET**: is used to retrieve information
-* **PUT**: is used to update a single entity
-* **DELETE**: is used to delete a single entity
+### CMIS query {#cmis-query}
+A CMIS query is based upon SQL-92. The query is read-only and presents no data manipulation capabilities.
 
-#### Request URL format
-Each request is a URL with a specific format. The format is dependent on the type of target repository.
+The syntax consists of the following clauses:
 
-For an on-premise Content Services repository it looks as follows.
+* `SELECT` with a target list
+* `FROM` with the object types being queried
+* `JOIN` to perform a join between object types
+* `WHERE` with the predicate
+* `IN` and `ANY` to query multi-value properties
+* `CONTAINS` to specify a full-text qualification
+* `IN_FOLDER` and `IN_TREE` to search within a folder hierarchy
+* `ORDERBY` to sort the results
 
-This is an example of a request URL for CMIS 1.1:
+The CMIS query maps the object type into a relational structure where object type approximates a table, the object
+approximates a row, and the property approximates a column that can be multi-valued. You can query the actual binary
+content using a full text query and folder path information using the `in_folder` and `in_tree` functions.
+
+A query can also be paged for user interface presentation.
+
+### CMIS services  {#cmis-services}
+CMIS provides services that you can access using SOAP or AtomPub, depending on your preferred architectural style.
+
+CMIS services include the following:
+
+* **Repository services** let you discover available repositories, get the capabilities of these repositories, and provide basic Data Dictionary information of what types are available in the repository.
+* **Navigation services** let you navigate the repository by accessing the folder tree and traversing the folder/child hierarchy. You can use these services to get both children and parents of an object.
+* **Object services** provide the basic CRUD (Create, Read, Update, Delete) and Control services on any object, including document, folder, policy, and relationship objects. For document objects, this includes setting and getting of properties, policies, and content streams. Object services retrieve objects by path or object ID. Applications may also discover what actions users are allowed to perform.
+* **Multi-filing services** let you establish the hierarchy by adding or removing an object to or from a folder.
+* **Discovery services** provide Query and Change services, and a means of paging the results of the query.
+* **Change services** let you discover what content has changed since the last time checked, as specified by a special token. You can use Change services for external search indexing and replication services.
+* **Versioning services** control concurrent operation of the Object services by providing Check In and Check Out services. Version services also provide version histories for objects that are versioned.
+* **Relationship services** let you create, manage, and access relationships or associations between objects as well as allow an application to traverse those associations.
+* **Policy services** apply policies on document objects. Policies are free-form objects and can be used by implementations for security, record, or control policies.
+* **ACL services** let you create, manage, and access Access Control Lists to control who can perform certain operations on an object.
+
+### CMIS object model  {#cmis-obj-model}
+The CMIS object model is similar to the Alfresco repository object model without the support for aspects. It supports
+versioning, policy, document, and folder objects.
+
+CMIS supports object types that define properties associated with each type. Each object has an object type, properties
+defined by that object type, and an object ID.
+
+Object types support inheritance and are sub-typed as document object types and folder object types. Document object
+types can have content streams to store and access binary data. Object types can also be related through relationship
+object types.
+
+![CMIS-object-model]({% link content-services/images/cmis-objects.png %}){:width="400" height="300px"}
+
+#### CMIS policy object
+A policy object represents an administrative policy that can be enforced by a repository, such as a retention management
+policy.
+
+An Access Control List (ACL) is a type of policy object. CMIS allows applications to create or apply ACLs. The Alfresco
+repository also uses policy objects to apply aspects.
+
+#### CMIS document object
+Document objects have properties and content streams for accessing the binary information that is the document,
+properties that can be multi-valued, and versions.
+
+Document objects can also have renditions that represent alternate file types of the document. Only one rendition type,
+a thumbnail, is well defined.
+
+![CMIS-properties]({% link content-services/images/cmis-props.png %}){:width="400" height="300px"}
+
+#### CMIS versioning
+Versioning in CMIS is relatively simple to encompass the various versioning models of different CMIS implementations.
+
+Each version is a separate object with its own object ID. For a given object ID, you can retrieve the specific version,
+the current version, or all versions of the object, as well as delete specific or all versions of a Document object.
+Document versions are accessed as a set of Document objects organized on the time stamp of the object. CMIS does not
+provide a history graph.
+
+![CMIS-versioning]({% link content-services/images/cmis-versioning.png %}){:width="400" height="300px"}
+
+#### CMIS folder object
+Document objects live in a folder hierarchy. As in the Alfresco repository, a folder can exist in another folder to
+create the hierarchy. The relationship between a folder and document is many-to-many if the repository supports
+multi-filing, allowing a document to appear in more than one folder. Otherwise, it is one-to-many relationship.
+
+![CMIS-folder]({% link content-services/images/cmis-folder.png %}){:width="400" height="300px"}
+
+### CMIS bindings {#cmis-bindings}
+Clients can communicate with a CMIS repository using one of three protocol bindings: AtomPub, SOAP Web Services, and in
+CMIS 1.1, the Browser bindings. The CMIS repositories provide a service endpoint, or URL, for each of these bindings.
+
+#### AtomPub binding
+This RESTful binding is based on the [Atom Publishing Protocol](https://tools.ietf.org/html/rfc5023){:target="_blank"}.
+Clients communicate with the repository by requesting the service document, which is obtained through a well-known URI.
+In Content Services, the service document is at:
 
 ```text
-https://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/content?id=a99ae2db-0e40-4fb6-bf67-3f331a358cfc
+http://<hostname>:<port>/alfresco/api/-default-/public/cmis/versions/1.1/atom
 ```
 
-This is an example of a request URL for CMIS 1.0:
+Response format is XML.
+
+#### Web service binding
+This binding is based on the [SOAP protocol](http://www.w3.org/TR/soap/){:target="_blank"} All services and operations defined in the
+CMIS domain model specification are present in the Web Services binding. You can get a summary of the CMIS services from
+Alfresco from the following URL:
 
 ```text
-https://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.0/atom/content?id=a99ae2db-0e40-4fb6-bf67-3f331a358cfc
+http://<hostname>:<port>/alfresco/cmisws
 ```
 
-Each request URL is made up of the following elements:
+Response format is XML.
 
-1. The protocol, which can be `http` or `https`.
-2. The hostname. This will be the host and port number of your alfresco instance. So if your Alfresco instance is running on the local machine on port 8080 this will be `localhost:8080`.
-3. The fixed string `-default-`.
-4. The API you want to call. In this case it is the public Alfresco CMIS API identified as `/public/cmis`.
-5. `/versions/n`. This specifies the version of the CMIS API you are using. `1.1` or `1.0`.
-6. The CMIS binding. Alfresco supports the `atom` binding for the CMIS 1.0 protocol, and both the `atom` and `browser` bindings for the CMIS 1.1 protocol.
-7. The CMIS method itself. In this case the request is to get the content of a CMIS document with a specific id.
+#### Browser binding
+From version 1.1 of the specification, CMIS provides a simpler [JSON-based](http://tools.ietf.org/html/rfc4627){:target="_blank"}
+binding. The browser binding is designed for web applications, and is easy to use with HTML and JavaScript. It uses just
+two verbs, GET and POST, and resources are referenced using simple and predictable URLs. You can get a summary of the
+repository information from Alfresco from the following URL:
 
-### CMIS configuration settings
+```text
+http://<hostname>:<port>/alfresco/api/-default-/public/cmis/versions/1.1/browser
+```
+
+Response format is JSON.
+
+## Content Services configuration settings {#repoconfigsettings}
 It is possible to configure the way that CMIS requests are processed by adding property settings in the
 `alfresco-global.properties` file.
 
-#### Change the default file limit
+### Change the default file limit
 The default limit for the length of a file to upload is 4GB (4096MB).
 
 To change this limit, for example to 5GB (5120MB), add the following property:
@@ -83,7 +182,7 @@ To ignore the size check, use the following property setting:
 opencmis.maxContentSizeMB=-1
 ```
 
-#### Change the memory threshold
+### Change the memory threshold
 The default threshold for memory is 4MB (4096KB). This sets the size threshold for content kept in memory. Documents
 bigger than this threshold will be cached in a temporary directory.
 
@@ -99,29 +198,52 @@ To ignore the memory threshold, use the following property setting:
 opencmis.memoryThresholdKB=-1
 ```
 
+## Getting started with the AtomPub binding (XML) {#atompubbinding}
+To get you started with [CMIS AtomPub binding](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-3750003){:target="_blank"},
+review the format of the URL you will use, and what responses to expect.
+
+>**Note:** If you are accessing an on-premise instance, the term **repository** means the same thing in Content Services and CMIS.
+
+### What does a request look like?
+You call a method on the CMIS ReST API by issuing an authenticated HTTP request with a URL.
+
+The four HTTP methods are used to support the traditional Create, Read, Update, and Delete (CRUD) operations of
+content management when using the AtomPub binding:
+
+* **POST**: is used to create a new entities
+* **GET**: is used to retrieve information
+* **PUT**: is used to update a single entity
+* **DELETE**: is used to delete a single entity
+
+Each request is a URL with a specific format. The format is dependent on the type of target repository.
+
+For an on-premise Content Services repository it looks as follows for the AtomPub binding (CMIS 1.0):
+
+```text
+https://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.0/atom/content?id=a99ae2db-0e40-4fb6-bf67-3f331a358cfc
+```
+
+Each request URL is made up of the following elements:
+
+1. The protocol, which can be `http` or `https`.
+2. The hostname. This will be the host and port number of your alfresco instance. So if your Alfresco instance is running on the local machine on port 8080 this will be `localhost:8080`.
+3. The fixed string `-default-`.
+4. The API you want to call. In this case it is the public Alfresco CMIS API identified as `/public/cmis`.
+5. `/versions/n`. This specifies the version of the CMIS API you are using. `1.1` or `1.0`.
+6. The CMIS binding. Alfresco supports the `atom` binding for the CMIS 1.0 protocol, and both the `atom` and `browser` bindings for the CMIS 1.1 protocol.
+7. The CMIS method itself. In this case the request is to get the content of a CMIS document with a specific id.
+
 ### Getting the service document
 The capabilities available to your application from an instance of an on-premise Content Services are described in an
-AtomPub document returned when calling the base URL. The service document contains information on the repository,
-the CMIS methods that can be called on it, and the parameters for those methods.
+[AtomPub service document](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-4280007){:target="_blank"}
+returned when calling the base URL. The service document contains information on the repository, the CMIS methods that can
+be called on it, and the parameters for those methods.
 
-#### Getting the service document for an on-premise repository
 To retrieve the service document use the HTTP GET method with this URL:
 
 ```text
 https://localhost:8080/alfresco/api/cmis/versions/1.1/atom/
 ```
-
-The response body is an AtomPub XML document which describes the CMIS capabilities in a standard way.
-
-#### Getting the service document for a specific network
-To retrieve the service document for a specific network that the current authenticated user is a member of, use the
-HTTP GET method with a URL that specifies the network. For example this URL returns the service document for
-the `yourcompany.com` network.
-
-```text
-https://api.alfresco.com/yourcompany.com/public/cmis/versions/1.1/atom
-```
-
 The response body is an AtomPub XML document which describes the CMIS capabilities in a standard way. See the
 [CMIS specification](http://docs.oasis-open.org/cmis/CMIS/v1.1/CMIS-v1.1.html){:target="_blank"} for more details.
 
@@ -136,7 +258,8 @@ https://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/id?i
 ```
 
 The response body is an AtomPub XML document which describes the CMIS capabilities in a standard way. See the
-[CMIS specification](http://docs.oasis-open.org/cmis/CMIS/v1.0/os/cmis-spec-v1.0.html){:target="_blank"} for more details.
+[CMIS specification](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-1710002){:target="_blank"}
+for more details.
 
 You can add the following **optional** HTTP parameters to the URL:
 
@@ -161,7 +284,8 @@ https://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/chil
 ```
 
 The response body is an AtomPub XML document which describes the child nodes in a standard way. See the
-[CMIS specification](http://docs.oasis-open.org/cmis/CMIS/v1.0/os/cmis-spec-v1.0.html){:target="_blank"} for more details.
+[CMIS specification](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-2000001){:target="_blank"}
+for more details.
 
 You can add the following optional HTTP parameters to the URL:
 
@@ -213,6 +337,197 @@ Some updated text.
 ```
 
 If the request is successful an `HTTP CREATED` response (status 201) is returned.
+
+## Getting started with the browser binding (JSON) {#browserbinding}
+[CMIS 1.1](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-5360005){:target="_blank"}
+introduces a number of new concepts that are supported by the Alfresco repository. You can now use the new browser binding
+to simplify flows for web applications, use Alfresco aspects, and use the *append data* support to manage large items of content.
+
+In addition to the existing XML-based AtomPub and Web services bindings, CMIS 1.1 provides a simpler JSON-based binding.
+The browser binding is designed for web applications and is easy to use just with HTML and JavaScript. It uses just
+two verbs, GET and POST, and resources are referenced using simple and predictable URLs.
+
+You reference content in the repository by using the two URLs returned by the `getRepositories` or `getRepositoryInfo`
+service:
+
+```text
+rootFolderUrl
+repositoryUrl
+```
+
+Objects can then be referenced in two ways:
+
+1. By their ID: `{rootFolderUrl}?objectId={objectId}`
+2. By their path: `{rootFolderUrl}/{object path}`
+
+Content that is independent of a folder, for example a Type definition, can be accessed using the `repositoryUrl`
+service: `{repositoryUrl}?cmisselector={selector}`
+
+### Getting content
+You use the HTTP GET command with parameters to retrieve content from a repository.
+
+Use the `cmisselector` parameter to define which content you want returned on a resource. For example if you want the
+children of an object:
+
+```text
+cmisselector=children 
+```
+
+The URL to get all of the children of the root/test node in the repository looks like this:
+
+```text
+http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/browser/root/test?cmisselector=children
+```
+
+All content will be returned as JSON by default.
+
+In some cases you might want to request data from a server in a different domain, this is normally prohibited by
+web browsers due to their [same origin policy](http://en.wikipedia.org/wiki/Same_origin_policy){:target="_blank"}.
+
+CMIS 1.1 uses the `callback` parameter to return [JSONP](http://en.wikipedia.org/wiki/JSONP){:target="_blank"}.
+This format also known as JSON with padding returns JavaScript code. It is evaluated by the JavaScript interpreter,
+not parsed by a JSON parser. You use the `callback` parameter to provide a JavaScript function to cope with the
+returned JSONP.
+
+For example the following function would write repository information into an HTML page:
+
+```javascript
+<script type="text/javascript"> 
+  function showRepositoryInfo(repositoryInfo) { 
+      for (repId in repositoryInfo) {
+          var ri = repositoryInfo[repId];   
+          document.write("<h1>Information</h1>"); 
+          document.write("<ul>");  
+          document.write("<li>ID..."
+          + ri.repositoryID+"</li>"); 
+          document.write("<li>Name..."
+          + ri.productName+"</li>");
+          document.write("<li>Description..."
+          + ri.productVersion);
+          document.write("</li>"); 
+          document.write("</ul>"); 
+      }
+  }
+</script> 
+```
+
+The following function would invoke the CMIS URL GET with the callback function `showRepositoryInfo`.
+
+```javascript
+<script type="text/javascript" 
+    src="/alfresco/api/-default-/public/cmis/versions/1.1/browser?callback=showRepositoryInfo">
+</script>
+```
+
+The JSONP returned would look like this:
+
+```json
+  showRepositoryInfo (
+    {"-default-":{ 
+        ”vendorName":”Alfresco",
+        ”productName" : ”Alfresco Enterprise”,
+        "productVersion": "4.2.0 (r56201)“
+  }
+ }
+)
+```
+
+### Creating content
+You use the HTTP POST command to create, update, and delete content from a repository. In an application a user would
+use an HTML form in a browser.
+
+You use the `cmisaction` element to control the action. So for example to create a document you would set
+`cmisaction=createDocument`.
+
+You define other CMIS properties as form elements for example: `propertyId[0]… propertyValue[0]`.
+
+You define the content stream for a create or an update using the `file` input form element:
+
+```xml
+<input id="content” type="file”
+```
+
+The form shows an example of a document create command:
+
+```xml
+<form id="cd1" action="http://localhost:8080/alfresco/api/…" method="post">
+  <table>
+  <tr>
+  <td><label for="name">Name:</label></td>
+  <td><input name="propertyValue[0]" type="text" id="name”/></td>
+  <td><input id="content" name="Browse" type="file" height="70px" size="50"/></td>
+  </tr>
+  </table>
+  <input id="cd" type="submit" value="Create Document"/></td>
+  <input name="propertyId[0]" type="hidden" value="cmis:name" />
+  <input name="propertyId[1]" type="hidden" value="cmis:objectTypeId" />
+  <input name="propertyValue[1]" type="hidden" type="text" id="typeId" value="cmis:document"/> </td>
+  <input name="cmisaction" type="hidden" value="createDocument" />
+  </form>
+```
+
+The form action URL is more specifically put together as follows. To create the document directly under **/Company Home**
+use:
+
+```xml
+<form id="cd1" action="http://localhost:8080/alfresco/api/browser/root" method="post">
+```
+
+And to store the document in a specific folder specify the folder path as the display path leaving out **/Company Home**:
+
+```xml
+<form id="cd1" action="http://localhost:8080/alfresco/api/browser/root/MyFolder" method="post">
+```
+
+### Compact JSON return values
+The JSON returned on a browser binding call includes type and property definitions, which can be quite large. Your
+application might not need this information. You can use `succinct` to produce more compact responses. `succinct` is
+expressed as a parameter on HTTP GET calls and as a control on HTTP POST calls.
+
+In the following example the `succint` parameter is used on an HTTP GET call to retrieve information on some children
+of the **Presentations** folder in the test site. Specifying `succint` reduces the size of the returned JSON significantly.
+
+```text
+http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/browser/root/sites/test/documentLibrary/Presentations?cmisselector=children&succinct=true
+```
+
+### Using aspects
+Alfresco aspects are exposed as secondary types in CMIS 1.1. You can dynamically add aspects to an Alfresco object
+using the API.
+
+You add an aspect to an object by updating the `cmis:secondaryObjectTypeIds` property with the Type Id of the Aspect.
+You can add and set an aspect in the same call.
+
+`cmis:secondaryObjectTypeIds` is an array of strings, each of which is an aspect type, for example, `dublinCoreAspect`.
+
+### Appending content
+In some applications such as journaling, or when using very large files, you want to upload a file in chunks. You might
+have large files that time out during an upload, or fail because of a bad connection. You can use the CMIS 1.1 `append`
+parameter in these situations.
+
+You can use the `isLastChunk` parameter to indicate to the server that the chunked data is complete. The following
+example puts a chunk of data to a specific existing Alfresco object:
+
+```text
+http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/content?id=915b2b00-7bf6-40bf-9a28-c780a75fbd68&append=true
+```
+
+### CMIS Item support
+You can use `cmis:item` to query some Content Services object types, and your own custom types, that are outside the
+CMIS definitions of document, folder, relationship, or policy.
+
+You can find a user, or a set of users, via a CMIS query. For example, the following query will return all information
+for all users:
+
+```text
+SELECT * FROM cm:person
+```
+
+The following query will return the selected fields for users with names like "smith" and "smithers" all users:
+
+```text
+SELECT cm:userName, cm:homeFolder FROM cm:person where cm:userName like 'smi%'
+```
 
 ## Working with the CMIS API from Java {#opencmisintro}
 The [Apache Chemistry](https://chemistry.apache.org){:target="_blank"} project provides a Java API called OpenCMIS that

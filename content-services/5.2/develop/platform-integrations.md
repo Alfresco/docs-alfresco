@@ -73,7 +73,7 @@ A REST Client talks to Alfresco Content Services over HTTP and sends and receive
 |More Information|-   [Test Server and Resources](https://www.alfresco.com/cmis)
 
 |
-|Sample Code|CMIS REST: See [CMIS Getting started section]({% link content-services/5.2/develop/cmis-api-guide.md %}#getting-started)Proprietary REST: See [Proprietary REST API Getting Started section]({% link content-services/5.2/develop/api-reference.md %}#alfresco-rest-api)
+|Sample Code|CMIS REST: See [CMIS Getting started section]({% link content-services/5.2/develop/reference/cmis-ref.md %})Proprietary REST: See [Proprietary REST API Getting Started section]({% link content-services/5.2/develop/api-reference.md %}#alfresco-rest-api)
 
 |
 

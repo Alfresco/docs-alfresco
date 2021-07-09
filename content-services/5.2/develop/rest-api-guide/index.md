@@ -100,7 +100,7 @@ Sometimes you need to create and manage workflows, or transform documents. A lis
 Provides Java API information.
 -   **[ReST API](#rest-api)**  
 This section provides information about Alfresco ReST API version 1.0 and how to use it.
--   **[CMIS API (OASIS ReST Standard)]({% link content-services/5.2/develop/cmis-api-guide.md %}#cmis-api-oasis-rest-standard)**  
+-   **[CMIS API (OASIS ReST Standard)]({% link content-services/5.2/develop/reference/cmis-ref.md %})**  
 Provides CMIS API information.
 -   **[Using the APIs by Function]({% link content-services/5.2/develop/apis-by-function.md %})**  
 Provides API information based on what type of operation that should be executed.
