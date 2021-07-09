@@ -199,7 +199,8 @@ opencmis.memoryThresholdKB=-1
 ```
 
 ## Getting started with the AtomPub binding (XML) {#atompubbinding}
-To get you started with CMIS, review the format of the URL you will use, and what responses to expect.
+To get you started with [CMIS AtomPub binding](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-3750003){:target="_blank"}, 
+review the format of the URL you will use, and what responses to expect.
 
 >**Note:** If you are accessing an on-premise instance, the term **repository** means the same thing in Content Services and CMIS.
 
@@ -234,27 +235,15 @@ Each request URL is made up of the following elements:
 
 ### Getting the service document
 The capabilities available to your application from an instance of an on-premise Content Services are described in an
-AtomPub document returned when calling the base URL. The service document contains information on the repository,
-the CMIS methods that can be called on it, and the parameters for those methods.
+[AtomPub service document](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-4280007){:target="_blank"} 
+returned when calling the base URL. The service document contains information on the repository, the CMIS methods that can 
+be called on it, and the parameters for those methods.
 
-#### Getting the service document for an on-premise repository
 To retrieve the service document use the HTTP GET method with this URL:
 
 ```text
 https://localhost:8080/alfresco/api/cmis/versions/1.1/atom/
 ```
-
-The response body is an AtomPub XML document which describes the CMIS capabilities in a standard way.
-
-#### Getting the service document for a specific network
-To retrieve the service document for a specific network that the current authenticated user is a member of, use the
-HTTP GET method with a URL that specifies the network. For example this URL returns the service document for
-the `yourcompany.com` network.
-
-```text
-https://api.alfresco.com/yourcompany.com/public/cmis/versions/1.1/atom
-```
-
 The response body is an AtomPub XML document which describes the CMIS capabilities in a standard way. See the
 [CMIS specification](http://docs.oasis-open.org/cmis/CMIS/v1.1/CMIS-v1.1.html){:target="_blank"} for more details.
 
@@ -269,7 +258,8 @@ https://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/id?i
 ```
 
 The response body is an AtomPub XML document which describes the CMIS capabilities in a standard way. See the
-[CMIS specification](http://docs.oasis-open.org/cmis/CMIS/v1.0/os/cmis-spec-v1.0.html){:target="_blank"} for more details.
+[CMIS specification](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-1710002){:target="_blank"} 
+for more details.
 
 You can add the following **optional** HTTP parameters to the URL:
 
@@ -294,7 +284,8 @@ https://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/chil
 ```
 
 The response body is an AtomPub XML document which describes the child nodes in a standard way. See the
-[CMIS specification](http://docs.oasis-open.org/cmis/CMIS/v1.0/os/cmis-spec-v1.0.html){:target="_blank"} for more details.
+[CMIS specification](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-2000001){:target="_blank"} 
+for more details.
 
 You can add the following optional HTTP parameters to the URL:
 
@@ -348,9 +339,9 @@ Some updated text.
 If the request is successful an `HTTP CREATED` response (status 201) is returned.
 
 ## Getting started with the browser binding (JSON) {#browserbinding}
-CMIS 1.1 introduces a number of new concepts that are supported by the Alfresco repository. You can now use the new 
-browser binding to simplify flows for web applications, use Alfresco aspects, and use the append data support to manage 
-large items of content.
+[CMIS 1.1](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-5360005){:target="_blank"} 
+introduces a number of new concepts that are supported by the Alfresco repository. You can now use the new browser binding 
+to simplify flows for web applications, use Alfresco aspects, and use the *append data* support to manage large items of content.
 
 In addition to the existing XML-based AtomPub and Web services bindings, CMIS 1.1 provides a simpler JSON-based binding. 
 The browser binding is designed for web applications and is easy to use just with HTML and JavaScript. It uses just 
@@ -372,15 +363,171 @@ Objects can then be referenced in two ways:
 Content that is independent of a folder, for example a Type definition, can be accessed using the `repositoryUrl` 
 service: `{repositoryUrl}?cmisselector={selector}`
 
-### Getting content](../pra/1/concepts/cmis-1.1-browser-binding-get.md)
-    -   [Creating content](../pra/1/concepts/cmis-1.1-browser-binding-post.md)
-    -   [Compact JSON return values](../pra/1/concepts/cmis-1.1-browser-binding-succint.md)
--   [Using aspects](../pra/1/concepts/cmis-1.1-using-aspects.md)
--   [Appending content](../pra/1/concepts/cmis-1.1-appending-content.md)
--   [cmis:item support](../pra/1/concepts/cmis-1.1-item-support.md)
+### Getting content
+You use the HTTP GET command with parameters to retrieve content from a repository.
 
+Use the `cmisselector` parameter to define which content you want returned on a resource. For example if you want the 
+children of an object:
 
+```text
+cmisselector=children 
+```
 
+The URL to get all of the children of the root/test node in the repository looks like this:
+
+```text
+http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/browser/root/test?cmisselector=children
+```
+
+All content will be returned as JSON by default.
+
+In some cases you might want to request data from a server in a different domain, this is normally prohibited by 
+web browsers due to their [same origin policy](http://en.wikipedia.org/wiki/Same_origin_policy){:target="_blank"}. 
+
+CMIS 1.1 uses the `callback` parameter to return [JSONP](http://en.wikipedia.org/wiki/JSONP){:target="_blank"}. 
+This format also known as JSON with padding returns JavaScript code. It is evaluated by the JavaScript interpreter, 
+not parsed by a JSON parser. You use the `callback` parameter to provide a JavaScript function to cope with the 
+returned JSONP. 
+
+For example the following function would write repository information into an HTML page:
+
+```javascript
+<script type="text/javascript"> 
+  function showRepositoryInfo(repositoryInfo) { 
+      for (repId in repositoryInfo) {
+          var ri = repositoryInfo[repId];   
+          document.write("<h1>Information</h1>"); 
+          document.write("<ul>");  
+          document.write("<li>ID..."
+          + ri.repositoryID+"</li>"); 
+          document.write("<li>Name..."
+          + ri.productName+"</li>");
+          document.write("<li>Description..."
+          + ri.productVersion);
+          document.write("</li>"); 
+          document.write("</ul>"); 
+      }
+  }
+</script> 
+```
+
+The following function would invoke the CMIS URL GET with the callback function `showRepositoryInfo`.
+
+```javascript
+<script type="text/javascript" 
+    src="/alfresco/api/-default-/public/cmis/versions/1.1/browser?callback=showRepositoryInfo">
+</script>
+```
+
+The JSONP returned would look like this:
+
+```json
+  showRepositoryInfo (
+    {"-default-":{ 
+        ”vendorName":”Alfresco",
+        ”productName" : ”Alfresco Enterprise”,
+        "productVersion": "4.2.0 (r56201)“
+  }
+ }
+)
+```
+ 
+### Creating content
+You use the HTTP POST command to create, update, and delete content from a repository. In an application a user would 
+use an HTML form in a browser.
+
+You use the `cmisaction` element to control the action. So for example to create a document you would set 
+`cmisaction=createDocument`.
+
+You define other CMIS properties as form elements for example: `propertyId[0]… propertyValue[0]`.
+
+You define the content stream for a create or an update using the `file` input form element:
+
+```xml
+<input id="content” type="file”
+```
+
+The form shows an example of a document create command:
+
+```xml
+<form id="cd1" action="http://localhost:8080/alfresco/api/…" method="post">
+  <table>
+  <tr>
+  <td><label for="name">Name:</label></td>
+  <td><input name="propertyValue[0]" type="text" id="name”/></td>
+  <td><input id="content" name="Browse" type="file" height="70px" size="50"/></td>
+  </tr>
+  </table>
+  <input id="cd" type="submit" value="Create Document"/></td>
+  <input name="propertyId[0]" type="hidden" value="cmis:name" />
+  <input name="propertyId[1]" type="hidden" value="cmis:objectTypeId" />
+  <input name="propertyValue[1]" type="hidden" type="text" id="typeId" value="cmis:document"/> </td>
+  <input name="cmisaction" type="hidden" value="createDocument" />
+  </form>
+```
+
+The form action URL is more specifically put together as follows. To create the document directly under **/Company Home** 
+use:
+
+```xml
+<form id="cd1" action="http://localhost:8080/alfresco/api/browser/root" method="post">
+```
+
+And to store the document in a specific folder specify the folder path as the display path leaving out **/Company Home**:
+
+```xml
+<form id="cd1" action="http://localhost:8080/alfresco/api/browser/root/MyFolder" method="post">
+```
+
+### Compact JSON return values
+The JSON returned on a browser binding call includes type and property definitions, which can be quite large. Your 
+application might not need this information. You can use `succinct` to produce more compact responses. `succinct` is 
+expressed as a parameter on HTTP GET calls and as a control on HTTP POST calls.
+
+In the following example the `succint` parameter is used on an HTTP GET call to retrieve information on some children 
+of the **Presentations** folder in the test site. Specifying `succint` reduces the size of the returned JSON significantly.
+
+```text
+http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/browser/root/sites/test/documentLibrary/Presentations?cmisselector=children&succinct=true
+```
+
+### Using aspects
+Alfresco aspects are exposed as secondary types in CMIS 1.1. You can dynamically add aspects to an Alfresco object 
+using the API.
+
+You add an aspect to an object by updating the `cmis:secondaryObjectTypeIds` property with the Type Id of the Aspect. 
+You can add and set an aspect in the same call.
+
+`cmis:secondaryObjectTypeIds` is an array of strings, each of which is an aspect type, for example, `dublinCoreAspect`.
+
+### Appending content
+In some applications such as journaling, or when using very large files, you want to upload a file in chunks. You might 
+have large files that time out during an upload, or fail because of a bad connection. You can use the CMIS 1.1 `append` 
+parameter in these situations.
+
+You can use the `isLastChunk` parameter to indicate to the server that the chunked data is complete. The following 
+example puts a chunk of data to a specific existing Alfresco object:
+
+```text
+http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom/content?id=915b2b00-7bf6-40bf-9a28-c780a75fbd68&append=true
+```
+
+### CMIS Item support
+You can use `cmis:item` to query some Content Services object types, and your own custom types, that are outside the 
+CMIS definitions of document, folder, relationship, or policy.
+
+You can find a user, or a set of users, via a CMIS query. For example, the following query will return all information 
+for all users:
+
+```text
+SELECT * FROM cm:person
+```
+
+The following query will return the selected fields for users with names like "smith" and "smithers" all users:
+
+```text
+SELECT cm:userName, cm:homeFolder FROM cm:person where cm:userName like 'smi%'
+```
 
 ## Working with the CMIS API from Java {#opencmisintro}
 The [Apache Chemistry](https://chemistry.apache.org){:target="_blank"} project provides a Java API called OpenCMIS that 
