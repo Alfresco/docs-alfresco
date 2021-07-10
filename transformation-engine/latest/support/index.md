@@ -12,10 +12,10 @@ The following are the supported platforms for Alfresco Document Transformation E
 | Oracle JDK 11 | |
 | | |
 | **Microsoft Windows Server** | |  
-| Microsoft Windows Server 2019 | Yes |
-| Microsoft Windows Server 2016 | Yes |
+| Microsoft Windows Server 2019 | |
+| Microsoft Windows Server 2016 | |
 | | |
 | **Microsoft Office** | |
-| Microsoft Office 2019 32/64 Bit | Yes |
-| Microsoft Office 2016 32/64 Bit | Yes |
-| Microsoft Office 2013 32/64 Bit | Yes |
+| Microsoft Office 2019 32/64 Bit | |
+| Microsoft Office 2016 32/64 Bit | |
+| Microsoft Office 2013 32/64 Bit | |
