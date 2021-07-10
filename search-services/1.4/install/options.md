@@ -67,18 +67,20 @@ This task assumes you have:
         set SOLR_SSL_TRUST_STORE_PASSWORD=password
         set SOLR_SSL_NEED_CLIENT_AUTH=true
         set SOLR_SSL_WANT_CLIENT_AUTH=false
+        set SOLR_OPTS=%SOLR_OPTS% -Dalfresco.secureComms=https
         ```
 
         (Linux) update the `alfresco-search-services/solr.in.sh` file:
 
         ```bash
-       SOLR_SSL_KEY_STORE=<SOLR_HOME>/keystore/ssl.repo.client.keystore
-       SOLR_SSL_KEY_STORE_PASSWORD=password
-       SOLR_SSL_TRUST_STORE=<SOLR_HOME>/keystore/ssl.repo.client.truststore
-       SOLR_SSL_TRUST_STORE_PASSWORD=password 
-       SOLR_SSL_NEED_CLIENT_AUTH=true 
-       SOLR_SSL_WANT_CLIENT_AUTH=false
-       ```
+        SOLR_SSL_KEY_STORE=<SOLR_HOME>/keystore/ssl.repo.client.keystore
+        SOLR_SSL_KEY_STORE_PASSWORD=password
+        SOLR_SSL_TRUST_STORE=<SOLR_HOME>/keystore/ssl.repo.client.truststore
+        SOLR_SSL_TRUST_STORE_PASSWORD=password 
+        SOLR_SSL_NEED_CLIENT_AUTH=true 
+        SOLR_SSL_WANT_CLIENT_AUTH=false
+        SOLR_OPTS="$SOLR_OPTS -Dalfresco.secureComms=https"
+        ```
 
     5. Set the `SOLR_PORT` environment variable:
 
