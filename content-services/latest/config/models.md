@@ -307,6 +307,7 @@ To create a property:
 4. Click **Create** or **Create and Start Another** to save the property.
 
 The options for data types of properties are:
+TODO expecting all existing data types (d:content, d:noderef, ...)
 
 {% capture d-text %}
 
