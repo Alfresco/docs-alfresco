@@ -205,11 +205,11 @@ You need to set these properties only if you are configuring Search Services wit
 
 #### `alfresco.secureComms`
 
-|Description|Instructs Solr if it should talk to Alfresco over HTTP or HTTPS. Set to none if a plain HTTP connection should be used.|
+|Description|Instructs Solr if it should talk to Alfresco over HTTP or HTTPS. Set to none if a plain HTTP connection should be used. **Note:** Solr will not connect to Alfresco via https without one of the following set to `https` even when `alfresco.secureComms=https` is set in `solrcore.properties`.|
 |JNDI Property|`java:comp/env/alfresco/securecomms`|
-|Java System Property|`alfresco.securecommssolr.securecomms`|
+|Java System Property|`alfresco.secureComms` or `solr.alfresco.secureComms`|
 |Environment Variable|`SOLR_ALFRESCO_SECURECOMMS`|
-|Default Value|`none / https`|
+|Accepted Values|`none` or `https`|
 
 #### `alfresco.encryption.ssl.keystore.passwordFileLocation`
 
