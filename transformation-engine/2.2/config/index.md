@@ -4,6 +4,8 @@ title: Configure the Document Transformation Engine
 
 The standalone Document Transformation Engine can be configured using the Web Console.
 
+The Transformation Engine client can be configured using a properties file or JMX.
+
 ## Configure the standalone Document Transformation Engine
 
 Use this information to configure the standalone Document Transformation Engine. You only need to change the password of the transformation service.
@@ -16,7 +18,6 @@ Use this information to configure the standalone Document Transformation Engine.
 
 3. Enter a new password, and then click **Change** to save the password.
 
-<!-- WILL NEED ADDING BACK IN FOR 3.2.1
 4. To set up SSL with the Document Transformation Engine, update or replace the keystore in the default location: `C:\\Program Files (x86)\\TransformationServer\\tomcat\\conf\\.keystore` using the method described in [Configuring SSL for a test environment]({% link content-services/latest/admin/security.md %}#managealfkeystores).
 
     See [Managing Alfresco keystores]({% link content-services/latest/config/repository.md %}#configure-ssl-for-a-test-environment) for more information about keystores.
@@ -41,12 +42,14 @@ transformer.timeout.default=300
 
 `content.transformer.default.timeoutMs` is the system transformation timeout (set to 120000 milliseconds by default), but the Document Transformation Engine is controlled by `transformserver.transformationTimeout` and `transformer.timeout.default`. This means that with the default settings, Alfresco Content Services stops processing after 120 seconds, whereas the Document Transformation Engine attempts to transform a document for up to 300 seconds and any results returned after 120 seconds are ignored.
 
-Set the following to configure the Document Transformation Engine to stop processing at the same time as the default system transformation timeout:
+If you set the following:
 
 ```bash
 transformserver.transformationTimeout=120
 transformer.timeout.default=120
 ```
+
+the Document Transformation Engine stops processing at the same time as the default system transformation timeout.
 
 ### Configuration using the `global-properties.file`
 
@@ -93,4 +96,3 @@ transformer.timeout.word = ${transformer.timeout.default}
 transformer.timeout.excel = ${transformer.timeout.default}
 transformer.timeout.powerpoint = ${transformer.timeout.default}
 ```
--->

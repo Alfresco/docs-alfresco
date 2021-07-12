@@ -2,11 +2,14 @@
 title: Installation overview
 ---
 
-The standalone Document Transformation Engine runs on Microsoft Windows and provides file transformations.
+The Document Transformation Engine consists of two software modules; the standalone Document Transformation Engine and the Alfresco Transformation client.
+
+* The standalone Document Transformation Engine runs on Windows and takes care of the file transformations.
+* The Alfresco Transformation client runs as part of Alfresco Content Services and communicates between Alfresco Content Services and the standalone Document Transformation Engine.
 
 ## Prerequisites
 
-There are a number of important notes to consider when installing the Document Transformation Engine in addition to the [supported platforms]({% link transformation-engine/latest/support/index.md %}).
+There are a number of important notes to consider when installing the Document Transformation Engine in addition to the [supported platforms]({% link transformation-engine/2.2/support/index.md %}).
 
 * The standalone Document Transformation Engine requires the software components to be installed and available on the same machine.
 
@@ -19,6 +22,8 @@ There are a number of important notes to consider when installing the Document T
 * The Document Transformation Engine does not work with Windows non-English regional settings.
 
 * Make sure that the Windows print spooler service is running.
+
+* GhostScript v8.64 and pdf2swf are no longer distributed along with Document Transformation Engine. Make sure you install both these tools manually.
 
 ### Sizing
 
@@ -45,4 +50,4 @@ Using an Amazon EC2 instance c3.2xlarge, the I/O metrics are as follows:
 
 ## Installation
 
-The Document Transformation Engine is installed using an `msi` file where you can select to install a T-Engine at the same time. Alternatively you can install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine, for more see [Installation]({% link transformation-engine/latest/install/msi.md %}). There is also an [SDK that can be installed]({% link transformation-engine/latest/install/sdk.md %}).
+The Document Transformation Engine is [installed in three parts]({% link transformation-engine/2.2/install/zip.md %}) and also has an [SDK that can be installed]({% link transformation-engine/2.2/install/sdk.md %}).
