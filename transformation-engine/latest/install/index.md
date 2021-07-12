@@ -10,11 +10,9 @@ There are a number of important notes to consider when installing the Document T
 
 * The standalone Document Transformation Engine requires the software components to be installed and available on the same machine.
 
-* Only install the English versions of Microsoft Windows Server 2012 R2, and Microsoft Office because other languages cause encoding issues resulting in unpredictable behavior.
+* Only install the English versions of Microsoft Windows Server 2012 R2, and Microsoft Office 2016 32 bit because other languages cause encoding issues resulting in unpredictable behavior.
 
     > **Note:** Although the engine must be configured in English, this has no impact on the transformation language used for documents.
-
-* Microsoft Office 2016 or 2019 32-bit & 64-bit.
 
 * To enable the Document Transformation Engine to work with non-English documents you must install the desired Microsoft Office language pack of the language you want to work with.
 
