@@ -2,7 +2,7 @@
 title: Indexing recommendations
 ---
 
-When upgrading from a previous Search Services version, some indexing considerations should be followed:
+When upgrading from a previous Search Services version you should review these indexing considerations:
 
 * Enabling or disabling Cross Locale configuration
 * Impact of the restrictions of the Exact Term Search implementation in environments with Cross Locale configuration disabled
@@ -20,15 +20,15 @@ If you use several languages across your organization, you must enable cross-lan
  alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
 ```
 
->> Indexing Search Services from scratch is *required* after applying this configuration
+> **Note:** A reindex of Search Services is required after applying this configuration.
 
 ## Exact Term considerations
 
 To [search for an exact term](https://docs.alfresco.com/search-services/latest/using/#search-for-an-exact-term) you must prefix it with `=`.
 
-Exact term search will not work correctly unless Cross Locale configuration is enabled. When using Search Services 2.0 deployment with Cross Locale configuration **disabled**, some limitations are expected:
+Exact term search will not work correctly unless [Cross Locale](cross-locale) configuration is enabled. There are some limitations if deploy Search Services with Cross Locale configuration **disabled**.
 
-* Equals operator (=) musn't be used from UI search boxes (Share, ACA and ADW applications), since is always producing 0 results. Following error will be dumped in SOLR Log:
+* The Equals operator (=) mus not be used from within the user search boxes within the user interface (Share, ACA and ADW applications), because it will always produce 0 results and the following error will show in the SOLR Logs:
 
 ```bash
 java.lang.UnsupportedOperationException:
@@ -36,9 +36,9 @@ Exact Term search is not supported unless you configure the field
 <{http://www.alfresco.org/model/content/1.0}title> for cross locale search
 ```
 
-* Facet labels may be shown incorrectly in the UI, as they are including the localisation prefix in addition to the original value. For instance `{en}value` instead of `value`
+* Facet labels may be shown incorrectly in the user interface because they include the localization prefix in addition to the original value. For instance `{en}value` instead of `value`.
 
-* Queries used in Alfresco Search REST API are accepting equals operator (=) only for content model properties with tokenisation `false`, the other tokenisation options (`true` and `both`) will raise an exception when being used with equals operator. Changing the tokenisation option for a property requires re-indexing all those values in SOLR, so design your custom content model carefully before deploying it to a production environment.
+* Queries used in Alfresco Search REST API only accepts the equals operator (=) for content model properties with tokenization `false`. The other tokenization options (`true` and `both`) raise an exception when being used with the equals operator. Changing the tokenization option for a property requires re-indexing all those values in SOLR, so design your custom content model carefully before deploying it to a production environment.
 
 ```bash
 <property name="cm:sample">
