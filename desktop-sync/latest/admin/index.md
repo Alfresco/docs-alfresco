@@ -78,6 +78,36 @@ See the Alfresco Sync Service documentation for [SAML configuration]({% link syn
 
 Once users have entered the repository URL (shown in step 2 of [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#setting-up-desktop-sync-on-windows) for Windows and [Setting up Desktop Sync]({% link desktop-sync/latest/install/index.md %}#faq/mac) for Mac), they will be asked to enter their username and password into the SAML provider login page via their default browser.
 
+## Manage sync configuration
+
+As an IT administrator, you can manage the configuration of your Desktop Sync client apps either via the Desktop Sync UI as well as via a configuration file. You can choose to enable or disable the content selection dialog from the UI for all your Desktop Sync clients, while setting enforced paths to sync from the configuration file.
+
+The content selection dialog is displayed by default. The property that controls if this dialog appears is `syncui.enableManageContent` which is `true` by default. If you want to hide the whole dialog, change the value of the property to `false`, so that the user is only prompted to set the sync target location. However, you must then enforce the sync paths as described in [Manage enforced sync](#manage-enforced-sync).
+
+The property to *enable/disable the content selection dialog* is specified as:
+
+```text
+syncui.enableManageContent = <true/false>
+```
+
+* This property can take a boolean value (i.e. `true` or `false`). If it's not specified, the property is set to `true` by default.
+
+* If there are no valid paths enforced to sync from the configuration file (i.e. paths that exist and that the user can access), the value for this property will be set automatically to `true`. So the value from the configuration file will not be taken in account, and the content selection dialog will be enabled.
+
+* If there are enforced sync paths in the configuration file and the content selection dialog is enabled, those path are always marked as checked/unchecked in the UI as specified in the configuration file.
+
+> **Note:** A special case that's worth highlighting is the user can't add a folder that covers a forced sync path as a constraint. For example, setting the following values results in the content selection dialog being displayed, even though the `syncui.enableManageContent` property is set to `false`, since it would results in there being no valid paths to sync:
+>
+> ```text
+> syncui.enableManageContent = false
+>
+> # Enforced sync path
+> test.path.1 = /User Homes/username/folder1
+>
+> # Sync path to exclude
+> test.excludePath.1 = /User Homes/username
+> ```
+
 ## Manage enforced sync
 
 If you're an IT administrator, you can configure Desktop Sync client apps to enforce the sync of specific paths or Sites, and optionally enforce the exclusion of sub-folders for those paths or Sites. This allows you to restrict what your Desktop Sync clients sync by pre-selecting the sync folders.
