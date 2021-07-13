@@ -3,20 +3,16 @@ title: Securing HTML transformations
 ---
 
 Uploading an HTML file to the repository triggers a transformation in the background. If the HTML file contains an `<img>` 
-tag, then the server side job would try to render the HTML and send an HTTP request to the URL specified in the `<img>` tag.
-These transformations that follow image links are vulnerable to [BSSRF](https://en.wikipedia.org/wiki/Server-side_request_forgery){:target="_blank"} 
-attacks.
+tag, then the server-side job would try to render the HTML and send an HTTP request to the URL specified in the `<img>` tag.
+These transformations that follow image links are vulnerable to [Blind Server-Side Request Forgery (BSSRF)](https://en.wikipedia.org/wiki/Server-side_request_forgery){:target="_blank"} attacks.
 
-In order to stop this from happening HTML pipelines that use LibreOffice needs to be changed to instead convert from HTML 
-to PDF/IMAGE via TXT. With this approach the LibreOffice pipelines will not be used, but you will still be able to see the 
-thumbnails and document previews (although the HTML is not rendered).
+In order to stop this from happening HTML pipelines that use LibreOffice needs to be changed to convert from HTML to PDF/IMAGE via TXT instead. With this approach the LibreOffice pipelines will not be used, but you'll still be able to see the thumbnails and document previews (although the HTML is not rendered).
 
 ## Configure HTML pipelines via txt to secure HTML transforms {#configuresecurehtmltransforms}
 
 The following pipelines will have to be configured:
 
-* `htmlToPdfViaTXT` – pipeline that will deal with HTML to PDF transformation through plain text. It still uses LibreOffice 
-but for TEXT to PDF transformation, not for HTML to PDF.
+* `htmlToPdfViaTXT` – pipeline that will deal with HTML to PDF transformation through plain text. It still uses LibreOffice but for TEXT to PDF transformation, not for HTML to PDF.
 * `htmlToImageViaTXT` - pipeline to transform HTML to image that will use the out-of-the-box `textToImageViaPdf` pipeline
 
 ```json
@@ -70,11 +66,11 @@ but for TEXT to PDF transformation, not for HTML to PDF.
 }
 ```
 
-Store this transform configuration in a file called `0200-html-via-txt.json`. 
+Store this transform configuration in a file called `0200-html-via-txt.json`.
 
 ### Deploying configuration
-You have two options for this, either deploy directly to the Alfresco Repository or deploy configuration to the 
-Transform Router.
+
+You have two options for this, either deploy directly to the Alfresco Repository or deploy configuration to the Transform Router.
 
 #### Deploy new configuration to Alfresco Repository
 
@@ -83,11 +79,12 @@ Transform Router.
 
 #### Deploy new configuration to Transform Router
 
-* Copy the `0200-html-via-txt.json` file into the Transform Router container, this is usually done by creating a custom image via a `Dockerfile` 
-* Export an environment variable pointing to the file location inside the container. 
+* Copy the `0200-html-via-txt.json` file into the Transform Router container - this is usually done by creating a custom image via a `Dockerfile`
+* Export an environment variable pointing to the file location inside the container.
   * The variable name should have this pattern: `TRANSFORMER_ROUTES_ADDITIONAL_<name>`
   * The variable can be defined inside the container: `export TRANSFORMER_ROUTES_ADDITIONAL_HTML_VIA_TXT="/0200-html-via-txt.json"`
   * Or by changing the Docker Compose file as shown below:
+
     ```txt
     transform-router:
       mem_limit: 512m
@@ -108,14 +105,11 @@ For more information see this [page]({% link transform-service/latest/config/ext
 
 ## Restore HTML pipelines that use LibreOffice
 
-To re-enable the HTML pipelines that uses LibreOffice, you can restore them at your own risk and get the
-original behavior again. 
+To re-enable the HTML pipelines that use LibreOffice, you can restore them at your own risk and get the original behavior again.
 
-If you disabled the HTML transforms that uses LibreOffice using the instructions [above](#configuresecurehtmltransforms), 
-then enable the original behaviour by reverting those changes. 
+If you disabled the HTML transforms that use LibreOffice using the instructions [above](#configuresecurehtmltransforms), then enable the original behavior by reverting those changes.
 
-If you are using a version of Content Services that already comes with these transformations disabled, then create a
-configuration file containing the original pipelines as below:
+If you're using a version of Content Services that already comes with these transformations disabled, then create a configuration file containing the original pipelines as below:
 
 ```json
 {
@@ -187,6 +181,7 @@ configuration file containing the original pipelines as below:
 Store this transform configuration in a file called `restore-html-libreoffice.json`.
 
 ### Deploying configuration
+
 You have two options for this, either deploy directly to the Alfresco Repository or deploy configuration to the
 Transform Router.
 
@@ -202,6 +197,7 @@ Transform Router.
   * The variable name should have this pattern: `TRANSFORMER_ROUTES_ADDITIONAL_<name>`
   * The variable can be defined inside the container: `export TRANSFORMER_ROUTES_ADDITIONAL_RESTORE_HTML_LIBREOFFICE="/restore-html-libreoffice.json"`
   * Or by changing the Docker Compose file as shown below:
+
     ```txt
     transform-router:
       mem_limit: 512m
@@ -218,4 +214,4 @@ Transform Router.
         - activemq
     ```
 
-For more information see this [page]({% link transform-service/latest/config/extend.md %})
+For more information see the [Transform Service documentation]({% link transform-service/latest/config/extend.md %})

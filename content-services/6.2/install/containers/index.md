@@ -184,11 +184,12 @@ services:
 You are adding the 3 last lines setting up volume mappings.
 
 #### Helm IPTC Content Model bootstrapping
-Before installing with Helm charts you need to [produce a custom Repository Docker image]({% link content-services/6.2/install/containers/customize.md %}) 
-with the IPTC Content Model. Then update the Helm charts to use this image.
+
+Before installing with Helm charts you need to [produce a custom Repository Docker image]({% link content-services/6.2/install/containers/customize.md %}) with the IPTC Content Model. Then update the Helm charts to use this image.
 
 ### Securing HTML transformations
-HTML pipelines that use LibreOffice are vulnerable to [BSSRF](https://en.wikipedia.org/wiki/Server-side_request_forgery){:target="_blank"}
+
+HTML pipelines that use LibreOffice are vulnerable to [Blind Server-Side Request Forgery (BSSRF)](https://en.wikipedia.org/wiki/Server-side_request_forgery){:target="_blank"}
 attacks. These can be disabled by following these [instructions]({% link content-services/6.2/admin/securing-html-transforms.md %}).
 
 ### Helm charts
