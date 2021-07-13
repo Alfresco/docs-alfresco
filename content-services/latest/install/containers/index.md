@@ -139,6 +139,7 @@ Note that the [VERSIONS.md](https://github.com/Alfresco/acs-packaging/blob/maste
 You can review the requirements for your chosen deployment method below.
 
 ### IPTC Content Model bootstrapping (OPTIONAL) {#iptc-model-bootstrap}
+
 If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction, then you need to
 bootstrap the IPTC Content Model manually into Content Services.
 
@@ -147,6 +148,7 @@ The files for this content model can be downloaded from the
 You need both the Content Model XML and the associated i18n property files for different languages.
 
 #### Docker Compose IPTC Content Model bootstrapping
+
 Place the IPTC Content Model files in a subfolder from where the `docker-compose.yml` file is located.
 Such as in the following example:
 
@@ -182,6 +184,7 @@ services:
 You are adding the 3 last lines setting up volume mappings.
 
 #### Helm IPTC Content Model bootstrapping
+
 Before installing with Helm charts you need to [produce a custom Repository Docker image]({% link content-services/latest/install/containers/customize.md %})
 with the IPTC Content Model. Then update the Helm charts to use this image.
 
