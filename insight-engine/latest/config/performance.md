@@ -14,11 +14,11 @@ Additionally, from version 2.0.2, SOLR Merging parameters have been exposed that
 
 ## Disable FINGERPRINT
 
-The [Document Fingerprints]({% link insight-engine/latest/admin/index.md %}#document-fingerprints).feature can be used to get similar documents from SOLR using the reserved word `FINGERPRINT` in `FTS` search syntax. In order to provide these results, each document in the SOLR Index includes a list of `MINHASH` fields that create larger Lucene Indexes.
+The [Document Fingerprints]({% link insight-engine/latest/admin/index.md %}#document-fingerprints) feature can be used to get similar documents from SOLR using the reserved word `FINGERPRINT` in `FTS` search syntax. In order to provide these results, each document in the SOLR Index includes a list of `MINHASH` fields that create larger Lucene Indexes.
 
 From version 2.0.2 the Fingerprint feature is disabled by default and appears in the `solrcore.properties` file as `alfresco.fingerprint=false`.
 
-> ***Note:** This configuration will generate smaller Lucene indexes when indexing and may help to reduce storage and to increase performance.
+> **Note:** This configuration will generate smaller Lucene indexes when indexing and may help to reduce storage and to increase performance.
 
 When applying this flag to an existing SOLR Core a full reindex is recommended. Since no more `MINHASH` properties will be calculated from the moment the property is set to `false`, existing Solr Documents won't be re-calculated in order to remove this additional information until a reindex is executed on the Solr Core.
 
@@ -77,4 +77,4 @@ From version 2.0.2 following parameters has been exposed to be used from `solrco
 | merger.maxMergeCount | Increment this number for large deployments, so more merge operations can be executed simultaneously. The default value is `6`. |
 | merger.maxThreadCount | This number should always be lower than the amount of dedicated CPUs and also lower than `mergermaxMergeCount`. Increment this number for large deployments in order to use all your available CPU threads. The default value is `3`. |
 
-> ***Note:** Changing any of these values requires a full re-index of your SOLR Core in order to get the performance benefits.
+> **Note:** Changing any of these values requires a full re-index of your SOLR Core in order to get the performance benefits.

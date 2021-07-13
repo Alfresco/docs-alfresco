@@ -40,7 +40,7 @@
         - title: 'Transactional metadata query'
           path: '/insight-engine/latest/config/transactional/'
         - title: 'Performance Recommendations'
-          path: '/search-services/latest/config/performance/'
+          path: '/insight-engine/latest/config/performance/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
