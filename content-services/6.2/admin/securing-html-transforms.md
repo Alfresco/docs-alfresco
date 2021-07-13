@@ -186,7 +186,7 @@ Store this transform configuration in a file called `restore-html-libreoffice.js
 
 ### Deploying configuration
 
-You have two options for this, either deploy directly to the Alfresco Repository or deploy configuration to the Transform Router.
+You have two options for this, either deploy directly to the Alfresco Repository or deploy the configuration to the Transform Router.
 
 #### Deploy new configuration to Alfresco Repository
 
