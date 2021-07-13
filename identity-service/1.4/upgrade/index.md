@@ -2,7 +2,7 @@
 title: Upgrade Identity Service
 ---
 
-Use the following information to upgrade the Identity Service from version 1.1 to version 1.2.
+Use the following information to upgrade the Identity Service from version 1.3 to version 1.4.
 
 > **Important:** Upgrading the Identity Service requires downtime and should be performed in a test environment before being attempted in a production environment.
 
@@ -19,22 +19,27 @@ of another product chart such as Alfresco Content Services or Alfresco Process S
 As an example, the following upgrade steps reference the infrastructure chart on its own:
 
 1. Manage any open sessions in the Identity Service by signing in as an administrator and using the **Manage > Sessions** option.
+
 2. Delete the data/tx-object-store/ directory.
+
 3. Create a back up of any customizations such as themes or configurations.
+
 4. Back up the database used by the Identity Service.
+
 5. Locate the previously deployed infrastructure chart in Kubernetes and set it as a variable:
 
     ```bash
     export RELEASENAME=knobby-wolf
     ```
 
-6. Use the `helm upgrade` command to upgrade the infrastructure chart to a release that contains version 1.2 of the Identity Service:
+6. Use the `helm upgrade` command to upgrade the infrastructure chart to a release that contains version 1.4 of the Identity Service:
 
     ```bash
     helm upgrade $RELEASENAME alfresco-stable/alfresco-infrastructure --version 5.2.0
     ```
 
 7. Wait for the new pods to start up before accessing the new version of the Identity Service.
+
 8. (*Optional*) Use the following command to rollback to the previous version if required:
 
     ```bash
@@ -54,8 +59,11 @@ Use the following steps to upgrade a manual ZIP installation:
     ```
 
 2. Remove the existing data from the database and stop the database service.
+
 3. Stop the Identity Service service.
-4. Open the zip file for version 1.2 of the Identity Service and [configure its connection to the database](https://www.keycloak.org/docs/8.0/server_installation/#_database){:target="_blank"}.
+
+4. Open the zip file for version 1.4 of the Identity Service and [configure its connection to the database](https://www.keycloak.org/docs/latest/server_installation/#_database){:target="_blank"}.
+
 5. Restart the database service and restore the database backup to it.
 
     For example, for a PostgreSQL database:
@@ -71,18 +79,18 @@ Use the following steps to upgrade a manual ZIP installation:
     For a Linux or Unix environment:
 
     ```bash
-    cd alfresco-identity-service-1.2.0/bin
+    cd alfresco-identity-service-1.4.0/bin
     /standalone.sh -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a bat script:
 
     ```bash
-   alfresco-identity-service-1.2.0\bin\standalone.bat -b <IP_ADDRESS>
+    alfresco-identity-service-1.4.0\bin\standalone.bat -b <IP_ADDRESS>
     ```
 
     For a Windows environment using a Powershell script:
 
     ```bash
-   alfresco-identity-service-1.2.0\bin\standalone.ps1 -b <IP_ADDRESS>
+    alfresco-identity-service-1.4.0\bin\standalone.ps1 -b <IP_ADDRESS>
     ```

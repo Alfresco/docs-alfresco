@@ -4,9 +4,9 @@ title: Configure Identity Service
 
 There are two things that can be configured in the Identity Service:
 
-- [Custom realm](#configure-a-custom-realm)  
+* [Custom realm](#configure-a-custom-realm)  
 A default realm is provided when deploying the Identity Service, and it should be customized.
-- [Custom theme](#configure-a-custom-theme)  
+* [Custom theme](#configure-a-custom-theme)  
 Deploying the Identity Service will deploy an Alfresco login theme, it can be customized.
 
 ## Configure a custom realm
@@ -39,9 +39,9 @@ To set the realm file during deployment:
 1. Create a Kubernetes secret in the cluster called `realm-secret`:
 
     ```bash
-    kubectl create secret generic realm-secret \
-        --from-file=./realm.json \
-        --namespace=$DESIREDNAMESPACE
+    kubectl create secret generic realm-secret
+        from-file=./realm.json
+        namespace=$DESIREDNAMESPACE
     ```
 
     > **Important:** The name of the realm file must **not** be set as `alfresco-realm.json`
@@ -49,12 +49,12 @@ To set the realm file during deployment:
 2. Deploy the Helm chart with the additional argument to use the custom realm file:
 
     ```bash
-    helm install alfresco-stable/alfresco-infrastructure \
-        --set alfresco-infrastructure.activemq.enabled=false \
-        --set alfresco-infrastructure.nginx-ingress.enabled=true \
-        --set alfresco-infrastructure.alfresco-identity-service.enabled=true \
-        --set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json" \
-        --namespace $DESIREDNAMESPACE
+    helm install alfresco-stable/alfresco-infrastructure
+     set alfresco-infrastructure.activemq.enabled=false
+     set alfresco-infrastructure.nginx-ingress.enabled=true
+     set alfresco-infrastructure.alfresco-identity-service.enabled=true
+     set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json"
+     namespace $DESIREDNAMESPACE
     ```
 
 ## Configure a custom theme
