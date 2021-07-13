@@ -66,7 +66,7 @@ Generally, most of the usage of these classes in version 5 came down to getting 
 
 The quickest way to get the `BpmnModel` for a process definition is to use the `org.activiti.engine.impl.util.ProcessDefinitionUtil` class:
 
----bash
+---java
 // The whole model
 ProcessDefinitionUtil.getBpmnModel(String processDefinitionId);
 // Only the specific process definition
