@@ -27,7 +27,7 @@ The default [end user interface]({% link process-automation/latest/model/interfa
 
 To start developing Digital Workspace customizations:
 
-1. Request the source code from [Support](https://myalfresco.force.com/support/){:target="_blank"}.
+1. Request the source code from [Support](https://support.alfresco.com/){:target="_blank"}.
 
 2. Unzip the source code into your development environment and create a `.env` file in the root folder.
 
@@ -81,9 +81,9 @@ Once the extended Digital Workspace has been fully customized and tested it can 
 
 2. Upload your source code to your Alfresco S3 bucket.
 
-    > **Note**: Please contact [Support](https://myalfresco.force.com/support/){:target="_blank"} if you do not have the details of this bucket.
+    > **Note**: Please contact [Support](https://support.alfresco.com/){:target="_blank"} if you do not have the details of this bucket.
 
-3. Raise a [Support request](https://myalfresco.force.com/support/){:target="_blank"} with this information:
+3. Raise a [Support request](https://support.alfresco.com/){:target="_blank"} with this information:
 
     * A link to the source code in S3.
     * The name of the application to update.
@@ -195,9 +195,9 @@ Once the custom interface has been fully developed and tested it can be deployed
 
 1. Upload your source code to your Alfresco S3 bucket.
 
-    > **Note**: Please contact [Support](https://myalfresco.force.com/support/){:target="_blank"} if you do not have the details of this bucket.
+    > **Note**: Please contact [Support](https://support.alfresco.com/){:target="_blank"} if you do not have the details of this bucket.
 
-2. Raise a [Support request](https://myalfresco.force.com/support/){:target="_blank"} with this information:
+2. Raise a [Support request](https://support.alfresco.com/){:target="_blank"} with this information:
 
     * A link to the source code in S3.
     * The name of the application to update 
@@ -209,7 +209,7 @@ Once the custom interface has been fully developed and tested it can be deployed
 
 ## Custom form fields
 
-To include custom form fields within a form, the [form field customizations](https://www.alfresco.com/abn/adf/docs/user-guide/aae-extensions/){:target="_blank"} must be included in the [customization of Digital Workspace](#extend-the-digital-workspace) or the [development of a custom user interface](#develop-a-custom-user-interface).
+To include custom form fields within a form, the [form field customizations](https://github.com/Alfresco/alfresco-ng2-components/blob/develop/docs/user-guide/extensibility.md){:target="_blank"} must be included in the [customization of Digital Workspace](#extend-the-digital-workspace) or the [development of a custom user interface](#develop-a-custom-user-interface).
 
 > **Note**: The custom field can be [included in a form]({% link process-automation/latest/model/forms.md %}#custom-form-widgets) before the custom interface has been deployed.
 
