@@ -4,15 +4,15 @@ title: Indexing recommendations
 
 When upgrading from a previous Search Services version you should review these indexing considerations:
 
-* Enabling or disabling Cross Locale configuration
-* Impact of the restrictions of the Exact Term Search implementation in environments with Cross Locale configuration disabled
-* Enabling or disabling Fingerprint feature
+* [Cross Locale](cross-locale) Enabling or disabling
+* [Exact term search](exact-term-search)
+* [Document fingerprints]({% link search-services/latest/config/performance.md %}#disable-document-fingerprints) Enabling or disabling
 
 ## Cross Locale
 
-By default, Search Services is provided with cross-language search support disabled. This default configuration affects to all the deployment artifacts: ZIP Distribution file and Docker Images.
+By default, Search Services is provided with cross-language search support disabled. This default configuration affects all the deployment artifacts, i.e. .zip file and Docker images.
 
-If you use several languages across your organization, you must enable cross-language search support in all text fields. To do this update the `alfresco-search-services/solrhome/conf/shared.properties` file:
+If you use several languages across your organization, you must enable cross-language search support in all text fields. To do this update the `alfresco-search-services/solrhome/conf/shared.properties` configuration file:
 
 ```bash
  alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
@@ -20,15 +20,15 @@ If you use several languages across your organization, you must enable cross-lan
  alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
 ```
 
-> **Note:** A reindex of Search Services is required after applying this configuration.
+> **Note:** A reindex of Search Services is required after applying the configuration.
 
-## Exact Term considerations
+## Exact term search
 
-To [search for an exact term](https://docs.alfresco.com/search-services/latest/using/#search-for-an-exact-term) you must prefix it with `=`.
+To [search for an exact term](% link search-services/latest/using/index.md %)#search-for-an-exact-term) you must prefix it with `=`.
 
-Exact term search will not work correctly unless [Cross Locale](cross-locale) configuration is enabled. There are some limitations if deploy Search Services with Cross Locale configuration **disabled**.
+> **Note:** Exact term search will not work correctly unless the [Cross Locale](cross-locale) configuration is enabled. There are some limitations if you deploy Search Services with Cross Locale configuration **disabled**.
 
-* The Equals operator (=) mus not be used from within the user search boxes within the user interface (Share, ACA and ADW applications), because it will always produce 0 results and the following error will show in the SOLR Logs:
+* The Equals operator `=` must not be used in the user search boxes within the user interface i.e Share, ACS and Digital WWorkspace, because it will produce 0 results and the following error will show in the SOLR Logs:
 
 ```bash
 java.lang.UnsupportedOperationException:
@@ -38,7 +38,7 @@ Exact Term search is not supported unless you configure the field
 
 * Facet labels may be shown incorrectly in the user interface because they include the localization prefix in addition to the original value. For instance `{en}value` instead of `value`.
 
-* Queries used in Alfresco Search REST API only accepts the equals operator (=) for content model properties with tokenization `false`. The other tokenization options (`true` and `both`) raise an exception when being used with the equals operator. Changing the tokenization option for a property requires re-indexing all those values in SOLR, so design your custom content model carefully before deploying it to a production environment.
+* Queries used in Alfresco Search REST API only accept the equals operator `=` for content model properties when the tokenization is set to `false`. The other tokenization options `true` and `both` will raise an exception when being used with the equals operator. Changing the tokenization option for a property requires re-indexing all those values in SOLR, this means you must design your custom content model carefully before deploying it to a production environment. For example:
 
 ```bash
 <property name="cm:sample">
@@ -49,12 +49,8 @@ Exact Term search is not supported unless you configure the field
 </property>
 ```
 
-All these features are working as expected in Search Services 2.0 deployments with Cross Locale configuration **enabled**:
+The following features are working as expected in Search Services 2.0 and above deployments with Cross Locale configuration **enabled**:
 
-* Equals operator can be used from UI search boxes and the results are expected
-* Facet labels are returned without the localisation prefix, so they are shown consistently in the UI
-* Queries used in Alfresco Search REST API are accepting equals operator (=) for properties with every tokenisation option: `false`, `true` and `both`
-
-## Fingerprint
-
-For information on FIngerprint see
+* Equals operator can be used from the user interface search boxes and the results are as expected
+* Facet labels are returned without the localization prefix, so they are shown consistently in the user interface
+* Queries used in Alfresco Search REST API accept the equals operator `=` for properties with every tokenisation option: `false`, `true` and `both`.
