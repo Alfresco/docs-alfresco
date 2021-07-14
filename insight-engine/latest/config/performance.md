@@ -6,21 +6,21 @@ From version 2.0.2, the custom `<SOLR6_INSTALL_LOCATION>/contentstore` folder ha
 
 Since the total amount of storage could be equivalent between previous versions, the SOLR Core Index storage has been increased. In order to control the size and the performance of the SOLR index, the following actions may be performed:
 
-* [Disable FINGERPRINT](#disable-fingerprint) reduces storage requirements
+* [Disable document FINGERPRINT](#disable-document-fingerprint) reduces storage requirements
 * [Disable SOLR Document Cache](#disable-solr-document-cache) reduces RAM requirements
 * [Optimize SOLR Index](#optimize-solr-index) improves search performance
 
 Additionally, from version 2.0.2, SOLR Merging parameters have been exposed that can be configured within the `solrcore.properties` file. The default values function adequately for many use cases, however some recommendations are given to increase performance in large deployments.
 
-## Disable FINGERPRINT
+## Disable document FINGERPRINT
 
-The [Document Fingerprints]({% link insight-engine/latest/admin/index.md %}#document-fingerprints) feature can be used to get similar documents from SOLR using the reserved word `FINGERPRINT` in `FTS` search syntax. In order to provide these results, each document in the SOLR Index includes a list of `MINHASH` fields that create larger Lucene Indexes.
-
-From version 2.0.2 the Fingerprint feature is disabled by default and appears in the `solrcore.properties` file as `alfresco.fingerprint=false`.
+From version 2.0.2 the document Fingerprint feature is disabled by default and appears in the `solrcore.properties` file as `alfresco.fingerprint=false`.
 
 > **Note:** This configuration will generate smaller Lucene indexes when indexing and may help to reduce storage and to increase performance.
 
 When applying this flag to an existing SOLR Core a full reindex is recommended. Since no more `MINHASH` properties will be calculated from the moment the property is set to `false`, existing Solr Documents won't be re-calculated in order to remove this additional information until a reindex is executed on the Solr Core.
+
+The [Document Fingerprints]({% link insight-engine/latest/admin/index.md %}#document-fingerprints) feature can be used to get similar documents from SOLR using the reserved word `FINGERPRINT` in `FTS` search syntax. In order to provide these results, each document in the SOLR Index includes a list of `MINHASH` fields that create larger Lucene Indexes.
 
 ## Disable SOLR Document Cache
 
