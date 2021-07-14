@@ -18,7 +18,7 @@ Set the following properties to configure a JDBC connection:
 Example:
 
 ```text
-datasource.driver=com.mysql.jdbc.Driver
+com.mysql.cj.jdbc.Driver
 datasource.url=jdbc:mysql://127.0.0.1:3306/activiti?characterEncoding=UTF-8
 
 datasource.username=alfresco

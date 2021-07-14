@@ -83,7 +83,7 @@ When using MS-MT, there always needs to be a *primary datasource*. This datasour
 
 ```text
 datasource.url=jdbc:mysql://127.0.0.1:3306/primary-activiti?characterEncoding=UTF-8
-datasource.driver=com.mysql.jdbc.Driver
+com.mysql.cj.jdbc.Driver
 datasource.username=alfresco
 datasource.password=alfresco
 
@@ -104,7 +104,7 @@ with the following JSON body:
 {
     "name" : "alfresco",
     "configuration" : "tenant.admin.email=admin@alfresco.com\n
-    datasource.driver=com.mysql.jdbc.Driver\n
+    com.mysql.cj.jdbc.Driver\n
     datasource.url=jdbc:mysql://127.0.0.1:3306/tenant-alfresco?characterEncoding=UTF-8\n
     datasource.username=alfresco\n
     datasource.password=alfresco"
@@ -155,7 +155,7 @@ with body
 {
     "name" : "acme",
     "configuration" : "tenant.admin.email=admin@acme.com\n
-    datasource.driver=com.mysql.jdbc.Driver\n
+    com.mysql.cj.jdbc.Driver\n
     datasource.url=jdbc:mysql://127.0.0.1:3306/tenant-acme?characterEncoding=UTF-8\n
     datasource.username=alfresco\n
     datasource.password=alfresco"
@@ -202,7 +202,7 @@ which gives:
   "maxUsers": null,
   "logoId": null,
   "configuration": "tenant.admin.email=admin@alfresco.com\n
-  datasource.driver=com.mysql.jdbc.Driver\n
+  com.mysql.cj.jdbc.Driver\n
   datasource.url=jdbc:mysql://127.0.0.1:3306/tenant-alfresco?characterEncoding=UTF-8\n
   datasource.username=alfresco\n
   datasource.password=alfresco"
