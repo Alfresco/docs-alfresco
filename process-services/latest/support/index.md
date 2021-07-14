@@ -22,22 +22,22 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 |Database|2.0|Driver|
 |--------|----|------|
-|MariaDB 10.5|✓|``|
-|MariaDB 10.4|✓|``|
-|MySQL 5.7|✓|`mysql-connector-java-5.1.47-bin.jar`|
-|MS SQL Server 2019|✓|Microsoft SQL Server JDBC Driver 4.0|
-|MS SQL Server 2017|✓|Microsoft SQL Server JDBC Driver 4.0|
-|Oracle 19c|✓|12.2.0.1|
-|PostgreSQL 13.1|✓|`postgresql-42.2.5.jar`|
-|PostgreSQL 12.4|✓|`postgresql-42.2.5.jar`|
-|PostgreSQL 11.7|✓|`postgresql-42.2.5.jar`|`|
+|MariaDB 10.5|✓|2.7.3|
+|MariaDB 10.4|✓|2.7.3|
+|MySQL 5.7|✓|`mysql-connector-java-8.0.25.jar`|
+|MS SQL Server 2019|✓|`mssql-jdbc-9.2.1.jre8.jar`|
+|MS SQL Server 2017|✓|`mssql-jdbc-9.2.1.jre8.jar`|
+|Oracle 19c|✓|21.1.0.0|
+|PostgreSQL 13.1|✓|`postgresql-42.2.22.jar`|
+|PostgreSQL 12.4|✓|`postgresql-42.2.22.jar`|
+|PostgreSQL 11.7|✓|`postgresql-42.2.22.jar`|`|
 |Amazon Aurora|✓| Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 
 **Application servers**
 
 |Application server|2.0|Comment|
 |------------------|----|-------|
-|Tomcat 8.5|✓| |
+|Tomcat 9.0|✓| |
 |Jetty 9.4|✓| |
 
 **JDKs**
