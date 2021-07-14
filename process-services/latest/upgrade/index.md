@@ -48,3 +48,68 @@ Follow these steps to upgrade using the War file:
 3. Boot up the web server and start Process Services to check if it’s working as expected.
 
 Any database upgrade changes should have now been applied.
+
+## Upgrading from 1.x to 2.x
+
+When you upgrade from APS 1.x to 2.x you are upgrading from Activiti 5.x to 7. There are breaking changes that you need to be aware of in order for your system to function correctly after you have upgraded.
+
+> **Note:** You do not need to migrate your database when upgrading from 1.x to 2.x.
+
+### Alfresco Process Services breaking changes
+
+#### PVM classes
+
+All classes from the `org.activiti.engine.impl.pvm` package and subpackages have been removed. This is because the `_PVM_` (Process Virtual Machine) model has been removed and replaced by a simpler and more lightweight model.
+This means that `ActivitiImpl`, `ProcessDefinitionImpl`, `ExecutionImpl`, `TransitionImpl` are invalid.
+
+Generally, most of the usage of these classes in version 5 came down to getting information that was contained in the process definition. In version 6, all the process definition information can be found through the _BpmnModel_, which is a Java representation of the BPMN 2.0 XML for the process definition (enhanced to make certain operations and searches easier).
+
+The quickest way to get the `BpmnModel` for a process definition is to use the `org.activiti.engine.impl.util.ProcessDefinitionUtil` class:
+
+---java
+// The whole model
+ProcessDefinitionUtil.getBpmnModel(String processDefinitionId);
+// Only the specific process definition
+ProcessDefinitionUtil.getProcess(String processDefinitionId);
+---
+
+#### ActivityExecution is replaced by DelegateExecution
+
+We removed `ActivityExecution` and replaced it where used with the `DelegateExecution` class.
+
+All methods from the `ActivityExecution` class are copied to the `DelegateExecution` class.
+
+#### Job, timer, suspended and dead letter jobs
+
+Activiti 5 had only 1 job table and this meant that a fairly complex query had to be executed to get the jobs that needed to be executed from the database.
+
+From Activiti 6, the jobs have been split up in a job `ACT_RU_JOB`, timer `ACT_RU_TIMER_JOB`, suspended `ACT_RU_SUSPENDED_JOB`, and `ACT_RU_DEADLETTER_JOB` dead letter table.
+
+> **Note:** It's important to complete all pending jobs before upgrading from APS 1.x to APS 2.
+
+#### Signaling an execution
+
+In Activiti 6, the `signal()` methods have been renamed to `trigger()`.
+
+This also means that `SignalableActivityBehavior`, the interface to be implemented for behaviors that can be `triggered` from external sources, is now called `TriggerableActivityBehavior`.
+
+#### Checked Exceptions
+
+In version 5, the delegate classes like `JavaDelegate` and `ActivityBehavior` had `throws Exception` in their signature. As with any modern framework, the use of checked Exceptions has been removed in version 6.
+
+#### Delegate classes
+
+`org.activiti.engine.impl.pvm.delegate.ActivityBehavior` has changed package and lives now in `org.activiti.engine.impl.delegate`.
+
+The method `getEngineServices()` have been removed from `DelegateExecution`. It's possible to retrieve services like `RepositoryService` from `org.activiti.engine.impl.context.Context` using `Context.getProcessEngineConfiguration().getRepositoryService()`.
+
+#### Identity management classes removed
+In Activiti 7, the package `org.activiti.engine.identity` and all it's classes like `User` and `Group` were removed. While the classes have been removed the database tables like `ACT_ID_USER` and `ACT_ID_GROUP` will not be removed when upgrading from APS 1.x to APS 2. However, they'll not be created if you start APS 2 on a new database.
+
+### Alfresco Process Services third-party breaking changes
+
+The following are third party breaking changes that have occured.
+
+* Spring framework upgraded from 4.x to 5
+* Spring boot upgraded from 1.x to 2
+* Hibernate upgraded from 4.x to 5
