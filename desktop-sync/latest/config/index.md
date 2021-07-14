@@ -451,6 +451,12 @@ Desktop Sync clients without any manual intervention.
 
 See [Managing automatic configuration updates]({% link desktop-sync/latest/admin/index.md %}#manage-automatic-configuration-updates) for more.
 
+## Manage sync configuration methods
+
+As an IT administrator, you can manage the configuration of your Desktop Sync client apps via the Desktop Sync UI and a configuration file. You can choose to enable or disable the content selection dialog from the UI for all your Desktop Sync clients, while setting enforced paths to sync from the configuration file.
+
+See [Manage sync configuration]({% link desktop-sync/latest/admin/index.md %}#manage-sync-configuration) for more.
+
 ## Force users to sync specific paths {#force-user-sync}
 
 You can configure your Desktop Sync client apps to enforce the sync and exclusion of specific paths or Sites that are added to the configuration file. This allows you to restrict what your Desktop Sync clients sync by pre-selecting the sync folders.
