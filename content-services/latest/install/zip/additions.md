@@ -55,7 +55,6 @@ Use this information to review the components or modules that integrate Content 
 | Desktop Sync | |
 | Transform Service | |
 | Document Transformation Engine | Paid add-on module |
-| Media Management | Paid add-on module and requires additional software |
 | Search and Insight Engine | Paid add-on module |
 | Search Services | |
 | Federation Services | |
