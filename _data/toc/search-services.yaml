@@ -33,6 +33,8 @@
           path: '/search-services/latest/config/filtered/'
         - title: 'Transactional metadata query'
           path: '/search-services/latest/config/transactional/'
+        - title: 'Indexing recommendations'
+          path: '/search-services/latest/config/indexing/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
