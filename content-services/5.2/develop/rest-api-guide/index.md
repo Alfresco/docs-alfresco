@@ -43,32 +43,14 @@ The following table provides a brief overview of each API, with links to further
 
 |API|Type|Description|Support Status|
 |---|----|-----------|--------------|
-|[REST API]({% link content-services/5.2/develop/api-reference.md %}#rest-apis)|Remote|This is the main public API for interfacing your client application with Alfresco. This RESTful API can be used to access on-premises repositories.
-
-The REST API provides the ability to access core repository functionality through a **[CMIS REST API]({% link content-services/5.2/develop/api-reference.md %}#cmis-rest-api)**, such as uploading a file, and Alfresco Content Services-specific functionality, such as management of sites, can be accessed through the Alfresco REST API.|Fully supported.|
-|[Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)|Embedded|This API is a JavaScript API used primarily for the development of [Web Scripts]({% link content-services/5.2/develop/api-reference.md %}#web-scripts) that execute embedded in the Alfresco platform.
-
-Web scripts are extensions to Alfresco Content Services that can be written and built without requiring compilation, and therefore have a reduced development time.
-
-The web scripts are accessed using URLs, so can be thought of as providing the ability to create custom REST APIs.|Fully supported.|
+|[REST API]({% link content-services/5.2/develop/api-reference.md %}#rest-apis)|Remote|This is the main public API for interfacing your client application with Alfresco. This RESTful API can be used to access on-premises repositories.<br>The REST API provides the ability to access core repository functionality through a **[CMIS REST API]({% link content-services/5.2/develop/api-reference.md %}#cmis-rest-api)**, such as uploading a file, and Alfresco Content Services-specific functionality, such as management of sites, can be accessed through the Alfresco REST API.|Fully supported.|
+|[Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)|Embedded|This API is a JavaScript API used primarily for the development of [Web Scripts]({% link content-services/5.2/develop/api-reference.md %}#web-scripts) that execute embedded in the Alfresco platform.<br>Web scripts are extensions to Alfresco Content Services that can be written and built without requiring compilation, and therefore have a reduced development time.<br>The web scripts are accessed using URLs, so can be thought of as providing the ability to create custom REST APIs.|Fully supported.|
 |[Search API]({% link content-services/5.2/develop/api-reference.md %}#search-api)|Embedded|The Search API provides access to the search features of Alfresco Content Services. The Search API accepts POST requests containing JSON structures to group options related to different query concepts together.|Fully supported.|
-|[Repository Freemarker Template API]({% link content-services/5.2/develop/api-reference.md %}#freemarker-api)|Embedded|This API provides a wide-range of objects and methods for creating scripts using the FreeMarker templating language, that execute embedded in the Alfresco platform.
-
-It provides a more limited API than the Repository JavaScript API, but with the convenience of using a simpler templating language, rather than a more complex scripting language such as JavaScript.|Fully supported.|
-|[Spring Surf API]({% link content-services/5.2/develop/repo-ext-points/web-scripts.md %}#presentation-tier-web-scripts)|Embedded|Spring Surf is a server-side UI development framework that is used by Share. Both legacy Surf pages and new Aikau pages are based on Spring Surf. A Spring Surf page is backed by one or more presentation web scripts, referred to as Spring Surf web scripts.
-
-The Surf Platform API is used in Surf web script controllers and provides a JavaScript API to allow you to access URL and page contexts, as well as calling remote REST services.|Fully supported.|
-|[Aikau Widget and Service Reference/API](http://dev.alfresco.com/resource/docs/aikau-jsdoc/)|Embedded|This is the reference, and API, for all the new Aikau widgets and services that are used in the Share user interface. These are fully available when developing custom pages, dashlets, and menus for Share.
-
-|Fully supported.|
-|[Public Java API]({% link content-services/5.2/develop/api-reference.md %}#java-api)|Embedded|When you are extending the Platform with new content models and workflows it is often useful to provide corresponding new custom services implemented in Java. The business logic in web script controllers sometimes also need to be implemented in Java to use 3rd party libraries.
-
-Alfresco Content Services provides numerous Java-level APIs, which are documented through the JavaDoc system. Links to the JavaDoc documentation can be found on the [Developer Site](http://dev.alfresco.com/resource/AlfrescoOne/5.0/PublicAPI/).
-
-While in theory it is possible to access the complete range of out-of-the-box Java classes (APIs), there is a public API of classes and interfaces that you should stick to. This is to ensure that your application works on future versions of Alfresco Content Services and that you get appropriate support.|Fully supported.|
-|Repository REST API|Remote|This is the older deprecated REST API based on web scripts. You should use the new REST API, which consist of the CMIS REST API and the Alfresco REST API.
-
-|**DEPRECATED: use [REST API]({% link content-services/5.2/develop/api-reference.md %}#rest-apis) instead.**|
+|[Repository Freemarker Template API]({% link content-services/5.2/develop/api-reference.md %}#freemarker-api)|Embedded|This API provides a wide-range of objects and methods for creating scripts using the FreeMarker templating language, that execute embedded in the Alfresco platform.<br>It provides a more limited API than the Repository JavaScript API, but with the convenience of using a simpler templating language, rather than a more complex scripting language such as JavaScript.|Fully supported.|
+|[Spring Surf API]({% link content-services/5.2/develop/repo-ext-points/web-scripts.md %}#presentation-tier-web-scripts)|Embedded|Spring Surf is a server-side UI development framework that is used by Share. Both legacy Surf pages and new Aikau pages are based on Spring Surf. A Spring Surf page is backed by one or more presentation web scripts, referred to as Spring Surf web scripts.<br>The Surf Platform API is used in Surf web script controllers and provides a JavaScript API to allow you to access URL and page contexts, as well as calling remote REST services.|Fully supported.|
+|[Aikau Widget and Service Reference/API](http://dev.alfresco.com/resource/docs/aikau-jsdoc/)|Embedded|This is the reference, and API, for all the new Aikau widgets and services that are used in the Share user interface. These are fully available when developing custom pages, dashlets, and menus for Share.|Fully supported.|
+|[Public Java API]({% link content-services/5.2/develop/api-reference.md %}#java-api)|Embedded|When you are extending the Platform with new content models and workflows it is often useful to provide corresponding new custom services implemented in Java. The business logic in web script controllers sometimes also need to be implemented in Java to use 3rd party libraries.<br>Alfresco Content Services provides numerous Java-level APIs, which are documented through the JavaDoc system. Links to the JavaDoc documentation can be found on the [Developer Site](http://dev.alfresco.com/resource/AlfrescoOne/5.0/PublicAPI/).<br>While in theory it is possible to access the complete range of out-of-the-box Java classes (APIs), there is a public API of classes and interfaces that you should stick to. This is to ensure that your application works on future versions of Alfresco Content Services and that you get appropriate support.|Fully supported.|
+|Repository REST API|Remote|This is the older deprecated REST API based on web scripts. You should use the new REST API, which consist of the CMIS REST API and the Alfresco REST API.|**DEPRECATED: use [REST API]({% link content-services/5.2/develop/api-reference.md %}#rest-apis) instead.**|
 
 ## Use Cases {#use-cases}
 
@@ -88,7 +70,6 @@ The following table lists use cases and what Alfresco Content Services API to us
 |Changing the view for a Web Script, Dashlet, Page.|[Repository Freemarker Template API]({% link content-services/5.2/develop/api-reference.md %}#freemarker-api)|
 |Creating a new Share Page or Share Dashlet.|Refer to the Aikau page extension point in the [Share Architecture]({% link content-services/5.2/develop/software-architecture.md %}#share-architecture). See also [Aikau Widget Reference](http://dev.alfresco.com/resource/docs/aikau-jsdoc/).|
 |Modifying an existing Share Page or Dashlet.|Refer to the Surf page extension points in the [Share Architecture]({% link content-services/5.2/develop/software-architecture.md %}#share-architecture). Also, look at the [Surf Web Scripts]({% link content-services/5.2/develop/repo-ext-points/web-scripts.md %}#surf-web-scripts)|
-
 
 ## Using the APIs {#using-the-apis}
 

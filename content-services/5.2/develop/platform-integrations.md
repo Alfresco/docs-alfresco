@@ -65,19 +65,9 @@ A REST Client talks to Alfresco Content Services over HTTP and sends and receive
 |-----------|------------|
 |Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
 |Architecture Information|[Platform Integration Architecture](#platform-integration-architecture)|
-|Description|A REST client is any enterprise application, web client, desktop client, service etc. that wants to access repository content remotely over HTTP. The client can be written in any language that can make HTTP calls and process XML or JSON. So it is a very flexible integration point for bringing content management functionality into all existing applications in an enterprise. The main content management functionality for working with folders and files are provided by the [CMIS REST API]({% link content-services/5.2/develop/api-reference.md %}#cmis-rest-api). When working with Alfresco Content Services-specific content such as tags, sites, and ratings the [REST API]({% link content-services/5.2/develop/api-reference.md %}#alfresco-rest-api) has to be used.
-
-**Note**. If you are working in a remote client that is implemented in Java it make sense to use a Java lib that wraps the CMIS REST API. One such library is the Apache Chemistry [OpenCMIS](http://chemistry.apache.org/java/developing/index.html) Java library.
-
-|
-|More Information|-   [Test Server and Resources](https://www.alfresco.com/cmis)
-
-|
-|Sample Code|CMIS REST: See [CMIS Getting started section]({% link content-services/5.2/develop/reference/cmis-ref.md %})Proprietary REST: See [Proprietary REST API Getting Started section]({% link content-services/5.2/develop/api-reference.md %}#alfresco-rest-api)
-
-|
-
-
+|Description|A REST client is any enterprise application, web client, desktop client, service etc. that wants to access repository content remotely over HTTP. The client can be written in any language that can make HTTP calls and process XML or JSON. So it is a very flexible integration point for bringing content management functionality into all existing applications in an enterprise. The main content management functionality for working with folders and files are provided by the [CMIS REST API]({% link content-services/5.2/develop/api-reference.md %}#cmis-rest-api). When working with Alfresco Content Services-specific content such as tags, sites, and ratings the [REST API]({% link content-services/5.2/develop/api-reference.md %}#alfresco-rest-api) has to be used.<br>**Note**. If you are working in a remote client that is implemented in Java it make sense to use a Java lib that wraps the CMIS REST API. One such library is the Apache Chemistry [OpenCMIS](http://chemistry.apache.org/java/developing/index.html) Java library.|
+|More Information|[Test Server and Resources](https://www.alfresco.com/cmis)|
+|Sample Code|CMIS REST: See [CMIS Getting started section]({% link content-services/5.2/develop/reference/cmis-ref.md %})<br>Proprietary REST: See [Proprietary REST API Getting Started section]({% link content-services/5.2/develop/api-reference.md %}#alfresco-rest-api)|
 
 ### Java Clients
 
@@ -87,13 +77,12 @@ A Java Client talks to Alfresco Content Services remotely with Java code using a
 |-----------|------------|
 |Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
 |Architecture Information|[Platform Integration Architecture](#platform-integration-architecture)|
-|Description|If a remote client is implemented in Java then it makes sense to also call the repository from Java code via some library. The CMIS REST API is available as a Java client called [OpenCMIS](http://chemistry.apache.org/java/developing/index.html). With this library it is easy to work with folders and files in the repository. The communication is remote over HTTP, but this is hidden behind the library, which takes care of building the REST calls. The OpenCMIS library will also marshal and unmarshal the XML sent back and forth between the client and the repository.When there is a need to access Alfresco Content Services-specific content, not available via the CMIS standard, such as sites and tags, then we will have to resort to the [Proprietary REST API]({% link content-services/5.2/develop/api-reference.md %}#alfresco-rest-api), which is not yet backed by a Java library. It might then be useful to wrap the Proprietary REST API in Java code if it is to be used a lot in a bigger project.
+|Description|If a remote client is implemented in Java then it makes sense to also call the repository from Java code via some library. The CMIS REST API is available as a Java client called [OpenCMIS](http://chemistry.apache.org/java/developing/index.html). With this library it is easy to work with folders and files in the repository. The communication is remote over HTTP, but this is hidden behind the library, which takes care of building the REST calls. The OpenCMIS library will also marshal and unmarshal the XML sent back and forth between the client and the repository.When there is a need to access Alfresco Content Services-specific content, not available via the CMIS standard, such as sites and tags, then we will have to resort to the [Proprietary REST API]({% link content-services/5.2/develop/api-reference.md %}#alfresco-rest-api), which is not yet backed by a Java library. It might then be useful to wrap the Proprietary REST API in Java code if it is to be used a lot in a bigger project.|
+|Sample Code|See sample below|
 
-|
-|More Information| |
-|Sample Code|OpenCMIS Sample code:
+#### OpenCMIS Sample code
 
- ```
+ ```java
 
     private static Map<String, Session> connections = new ConcurrentHashMap<String, Session>();
 
@@ -432,14 +421,7 @@ A Java Client talks to Alfresco Content Services remotely with Java code using a
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z").format(date);
     }        
     
-               
 ```
-
-|
-|Tutorials| |
-|Alfresco Developer Blogs| |
-
-
 
 ### Aikau Clients
 
@@ -449,40 +431,7 @@ An Aikau Client uses ready made content widgets to display content from the repo
 |-----------|-------------|
 |Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
 |Architecture Information|[Platform Integration Architecture](#platform-integration-architecture)|
-|Description|Alfresco Share is often customized heavily in bigger projects. Sometimes it might actually make sense to start from scratch with a brand new web client. However, there is usually a lot of functionality in Share that we actually want in our web client. There is also a way to re-use what has been built for Share in a new custom web client.By using the Aikau development framework, and its getting started project, we can quickly get going with building a new web client for Alfresco Content Services and at the same time re-use any functionality in the Share UI that we need.
-
-The Aikau widget library will give you access to ready made components that can be used in the new web client, here is a list of some of the components that we will be able to use:
-
--   AJAX calls
--   Buttons
--   Charts
--   Dialogs
--   Document Library (CRUD, Views, Lists, Filters, Actions)
--   Drag & Drop
--   Editors
--   Event management
--   Forms including many controls
--   Layouts
--   Menus
--   Navigation
--   Pickers
--   Preview
--   Renderers
--   Search
--   Toolbars
--   Upload
-
-For a complete list of all the available Aikau widgets and service see the Aikau [docs](http://dev.alfresco.com/resource/docs/aikau-jsdoc).|
-|Deployment - SDK Project|-   [Aikau getting started project](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters/Tutorial1.md) - this page have instructions for how to generate the Aikau web client project
-
-|
-|More Information|-   [Aikau project page](https://github.com/Alfresco/Aikau)
--   [Aikau Widget and Service library](http://dev.alfresco.com/resource/docs/aikau-jsdoc)
-
-|
-|Tutorials|-   [Aikau tutorials](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters/Tutorial1.md)
-
-|
-
-
-
+|Description|Alfresco Share is often customized heavily in bigger projects. Sometimes it might actually make sense to start from scratch with a brand new web client. However, there is usually a lot of functionality in Share that we actually want in our web client. There is also a way to re-use what has been built for Share in a new custom web client.By using the Aikau development framework, and its getting started project, we can quickly get going with building a new web client for Alfresco Content Services and at the same time re-use any functionality in the Share UI that we need.<br>The Aikau widget library will give you access to ready made components that can be used in the new web client, here is a list of some of the components that we will be able to use: {::nomarkdown}<ul><li>AJAX calls</li><li>Buttons</li><li>Charts</li><li>Dialogs</li><li>Document Library (CRUD, Views, Lists, Filters, Actions)</li><li>Drag & Drop</li><li>Editors</li><li>Event management</li><li>Forms including many controls</li><li>Layouts</li><li>Menus</li><li>Navigation</li><li>Pickers</li><li>Preview</li><li>Renderers</li><li>Search</li><li>Toolbars</li><li>Upload</ul>{:/} For a complete list of all the available Aikau widgets and service, see the [Aikau docs](http://dev.alfresco.com/resource/docs/aikau-jsdoc).|
+|Deployment - SDK Project|-   [Aikau getting started project](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters/Tutorial1.md) - this page has instructions for how to generate the Aikau web client project|
+|More Information|-   [Aikau project page](https://github.com/Alfresco/Aikau)<br>-   [Aikau Widget and Service library](http://dev.alfresco.com/resource/docs/aikau-jsdoc)|
+|Tutorials|-   [Aikau tutorials](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters/Tutorial1.md)|
