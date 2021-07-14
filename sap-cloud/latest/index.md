@@ -6,7 +6,7 @@ The Alfresco Content Connector for SAP Cloud is an add-on module that offers sea
 
 Here is a summary of the key capabilities:
 
-* Support SAP S/4 HANA on-premises
+* Support SAP S/4HANA on-premises
 * Manage documents in SAP via CMIS and SAP Attachment Services
 * Manage documents for SAP Material
 * Create folder structure in Alfresco Content Services

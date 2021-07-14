@@ -33,9 +33,9 @@ This section guides you through the configuration steps in the related SAP syste
 
 4. Save the changes and switch to the **Logon &amp; Security** tab.
 
-5. Select **Basic Authentication** from the **Login Procedure** section and provide the username and password to log in to Content Services.
+5. Select **Basic Authentication** from the **Logon Procedure** section and provide the username and password to log in to Content Services.
 
-    If Single Sign-On is enabled, the **Login with Ticket** section might be changed.
+    If Single Sign-On is enabled, configure the  **Logon with Ticket** section.
 
     ![SM 59]({% link sap-cloud/images/sap_sm59_create_connection_create_target_system_logon.png %})
 
@@ -65,7 +65,7 @@ Based on the HTTP Connection created in the previous section, a new CMIS Content
 
 ![OAC0 Create Repo]({% link sap-cloud/images/sap_oac0_create_cmis_repo.png %})
 
-#### Outlook (create Logical Repositories)
+#### (Optional) Create Logical Repositories
 
 In addition to the `-DEFAULT-` repository, you can create **Logical Repositories** for **ArchiveLink** and reference the `-DEFAULT-` repository to provide more flexibility.
 

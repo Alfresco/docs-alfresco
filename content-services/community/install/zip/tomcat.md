@@ -99,14 +99,13 @@ Use this method of installing if you've already installed a JRE, a supported dat
 
 The Community Edition distribution file is a zip containing the required WAR files, in addition to the additional commands, and configuration files for a manual installation.
 
-1. Download the file: `alfresco-content-services-community-distribution-6.2.0-ga.zip`
+1. Download the file: `alfresco-content-services-community-distribution-7.0.x.zip`
 
 2. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 
     You'll see the following directory structure - details are described [later](#directory-structure).
 
     ```bash
-    alfresco-pdf-renderer
     amps
     bin
     licenses
@@ -189,9 +188,6 @@ After you've extracted the Community Edition distribution zip, several directori
 
 | Folder | File/Sub-folder | Description |
 | ------ | --------------- | ----------- |
-| alfresco-pdf-renderer | `alfresco-pdf-renderer-1.0-linux.tgz` | Binary file for Linux |
-| | `alfresco-pdf-renderer-1.0-win64.tgz` | Binary file for Windows |
-| | | |
 | amps | `alfresco-share-services.amp` | Contains Alfresco Share AMP |
 | | | |
 | bin | `apply_amps.bat` | Windows batch file for Tomcat application server installs, used to apply all AMP files in the `<installLocation>` directory. |
