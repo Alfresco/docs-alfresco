@@ -4,13 +4,13 @@ title: Indexing recommendations
 
 When upgrading from a previous Insight Engine version you should review these indexing considerations:
 
-* [Cross Locale](cross-locale) Enabling or disabling
-* [Exact term search](exact-term-search)
+* [Cross Locale](#cross-locale) Enabling or disabling
+* [Exact term search](#exact-term-search)
 * [Document fingerprints]({% link insight-engine/latest/config/performance.md %}#disable-document-fingerprints) Enabling or disabling
 
 ## Cross Locale
 
-By default, Insight Engine is provided with cross-language search support disabled. This default configuration affects all the deployment artifacts, i.e. .zip file and Docker images.
+By default, Insight Engine is provided with cross-language search support disabled. This default configuration affects all the deployment artifacts, i.e. using a zip file or Docker image.
 
 If you use several languages across your organization, you must enable cross-language search support in all text fields. To do this update the `alfresco-search-services/solrhome/conf/shared.properties` configuration file:
 
