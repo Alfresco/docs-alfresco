@@ -33,6 +33,8 @@
           path: '/search-services/latest/config/filtered/'
         - title: 'Transactional metadata query'
           path: '/search-services/latest/config/transactional/'
+        - title: 'Performance Recommendations'
+          path: '/search-services/latest/config/performance/'
     - title: 'Administer'
       pages:
         - title: 'Overview'
