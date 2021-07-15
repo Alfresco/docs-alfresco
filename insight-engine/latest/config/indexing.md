@@ -12,7 +12,7 @@ When upgrading from a previous Insight Engine version you should review these in
 
 By default, Insight Engine is provided with cross-language search support disabled. This default configuration affects all the deployment artifacts, i.e. using a zip file or Docker image.
 
-If you use several languages across your organization, you must enable cross-language search support in all text fields. To do this update the `alfresco-search-services/solrhome/conf/shared.properties` configuration file:
+If you use several languages across your organization, you must enable cross-language search support in all text fields. To do this update the `alfresco-insight-engine/solrhome/conf/shared.properties` configuration file:
 
 ```bash
  alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text

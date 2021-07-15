@@ -28,7 +28,7 @@ To [search for an exact term](% link search-services/latest/using/index.md %)#se
 
 > **Note:** Exact term search will not work correctly unless the [Cross Locale](cross-locale) configuration is enabled. There are some limitations if you deploy Search Services with Cross Locale configuration **disabled**.
 
-* The Equals operator `=` must not be used in the user search boxes within the user interface i.e Share, ACS and Digital WWorkspace, because it will produce 0 results and the following error will show in the SOLR Logs:
+* The Equals operator `=` must not be used in the user search boxes within the user interface i.e Share, ACS and Digital Workspace, because it will produce 0 results and the following error will show in the SOLR Logs:
 
 ```bash
 java.lang.UnsupportedOperationException:
