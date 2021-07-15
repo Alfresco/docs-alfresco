@@ -38,7 +38,7 @@ Exact Term search is not supported unless you configure the field
 
 * Facet labels may be shown incorrectly in the user interface because they include the localization prefix in addition to the original value. For instance `{en}value` instead of `value`.
 
-* Queries used in Alfresco Search REST API only accept the equals operator `=` for content model properties when the tokenization is set to `false`. The other tokenization options `true` and `both` will raise an exception when being used with the equals operator. Changing the tokenization option for a property requires re-indexing all those values in SOLR, this means you must design your custom content model carefully before deploying it to a production environment. For example:
+* Queries used in Alfresco Search REST API only accept the equals operator `=` for content model properties when the tokenization is set to `false`. **Note:** If the tokenization is set to `false` then the `=` operator will perform an *exact field* search, rather than an *exact term* search. The other tokenization options `true` and `both` will raise an exception when being used with the equals operator. Changing the tokenization option for a property requires re-indexing all those values in SOLR, this means you must design your custom content model carefully before deploying it to a production environment. For example:
 
 ```bash
 <property name="cm:sample">
