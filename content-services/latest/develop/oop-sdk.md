@@ -1899,7 +1899,7 @@ $ mvn spring-boot:run -Dlicense.skip=true
 2021-04-08 15:36:47.134  INFO 64121 --- [erContainer#0-1] o.a.t.s.ContentUploadedEventHandler      : A file 'some.txt' was uploaded with the following content: This is a file with some text
 ```
 
-## Debugging an extension project
+## Debugging an extension project {#debug-extension-project}
 Debugging an extension project is most likely going to be something you will have to do to see what's going on. This is
 easy with a Spring Boot App. Configure for example the Spring Boot Maven plugin as follows:
 
@@ -1919,7 +1919,7 @@ easy with a Spring Boot App. Configure for example the Spring Boot Maven plugin 
 </build>
 ```
 
-Then you can, from for example IntelliJ IDEA, attach remotely and debug:
+Then you can attach remotely and debug from, for example, IntelliJ IDEA:
 
 ![sdk5-proj-debug]({% link content-services/images/sdk5-proj-debug.png %})
 

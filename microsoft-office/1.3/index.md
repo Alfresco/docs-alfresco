@@ -1,5 +1,5 @@
 ---
-title: Alfresco Office Services 1.3
+title: Alfresco Office Services
 ---
 
 Alfresco Office Services (AOS) allows you to access Alfresco directly from your Microsoft Office applications.
