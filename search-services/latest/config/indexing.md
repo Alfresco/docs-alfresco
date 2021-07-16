@@ -24,7 +24,7 @@ If you use several languages across your organization, you must enable cross-lan
 
 ## Exact term search
 
-To [search for an exact term](% link search-services/latest/using/index.md %)#search-for-an-exact-term) you must prefix it with `=`.
+To [search for an exact term]({% link search-services/latest/using/sql/syntax.md %}#search-for-an-exact-term) you must prefix it with `=`.
 
 > **Note:** Exact term search will not work correctly unless the [Cross Locale](cross-locale) configuration is enabled. There are some limitations if you deploy Search Services with Cross Locale configuration **disabled**.
 
@@ -40,7 +40,7 @@ Exact Term search is not supported unless you configure the field
 
 * Queries used in Alfresco Search REST API only accept the equals operator `=` for content model properties when the tokenization is set to `false`. **Note:** If the tokenization is set to `false` then the `=` operator will perform an *exact field* search, rather than an *exact term* search. The other tokenization options `true` and `both` will raise an exception when being used with the equals operator. Changing the tokenization option for a property requires re-indexing all those values in SOLR, this means you must design your custom content model carefully before deploying it to a production environment. For example:
 
-```bash
+```xml
 <property name="cm:sample">
     <type>d:text</type>
     <index enabled="true">

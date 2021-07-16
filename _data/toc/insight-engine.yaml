@@ -39,7 +39,7 @@
           path: '/insight-engine/latest/config/filtered/'
         - title: 'Transactional metadata query'
           path: '/insight-engine/latest/config/transactional/'
-        - title: 'Performance Recommendations'
+        - title: 'Performance recommendations'
           path: '/insight-engine/latest/config/performance/'
         - title: 'Indexing recommendations'
           path: '/insight-engine/latest/config/indexing/'
