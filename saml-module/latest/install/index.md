@@ -103,14 +103,10 @@ In the following steps, you can follow either:
 
         Set the file permissions accordingly to limit who can read it.
 
-    3. (Recommended) To use the latest keystore configuration method, set the following as JVM properties:
+    3. (Recommended) To use the latest keystore configuration method, set the following as JVM properties. For example, for a Tomcat installation, set them using `JAVA_TOOL_OPTIONS`:
 
        ```bash
-       ...
-       saml-keystore.aliases=my-saml-key
-       saml-keystore.password=change-me
-       saml-keystore.my-saml-key.password=change-me
-       saml-keystore.my-saml-key.algorithm=AES
+       set "JAVA_TOOL_OPTIONS=-Dsaml-keystore.aliases=my-saml-key -Dsaml-keystore.password=password_AES -Dsaml-keystore.my-saml-key.password=password_AES -Dsaml-keystore.my-saml-key.algorithm=AES"
        ```
 
     4. (Deprecated) To continue using the old keystore configuration method:
