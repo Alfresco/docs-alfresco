@@ -118,10 +118,9 @@ In the following steps, you can follow either:
         1. Generate a SAML keystore metadata file in the same location as the keystore and add the following content:
 
             ```bash
-            saml.keystore.aliases=my-saml-key
-            saml.keystore.password=change-me
-            saml.keystore.my-saml-key.password=change-me
-            saml.keystore.my-saml-key.algorithm=AES
+            aliases=my-saml-key
+            keystore.password=change-me
+            my-saml-key.password=change-me
             ```
 
             Set the file permissions accordingly to limit who can read it.
