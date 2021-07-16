@@ -1,5 +1,5 @@
 ---
-title: Install with Zip
+title: Install with zip
 ---
 
 The SAML Module is installed as a module of Alfresco Content Services. These modules are referred to as Alfresco Module Packages (AMP) and use the `.amp` file format.
@@ -29,32 +29,58 @@ SAML is not a part of the authentication chain. It is used as a replacement for 
 
 If you have not enforced SAML for a specific service provider, you can use the other authentication methods specified in your authentication chain alongside SAML when accessing that service provider.
 
+### Changes to configuring keystores {#keystores-change}
+
+The way you configure keystores in Content Services and related projects has changed. In previous releases, the configuration was stored in a password file, like `keystore-passwords.properties`.
+
+> **Note:** The old way of configuring should still work for backwards compatibility, but it's discouraged due to security reasons. If the old approach is used, you'll see a warning in the logs.
+> In the SAML module, the property `saml.keystore.keyMetaData.location` is deprecated, but it's still available only for backwards compatibility.
+
+The recommended way of specifying the configuration is to use JVM system properties.
+
+See the Alfresco Content Services documentation, [Managing Alfresco keystore]({% link content-services/latest/admin/security.md %}#managealfkeystores), for more details the keystores changes.
+
+In the following steps, you can follow either:
+
+* Step 6.3 to use the updated configuration (recommended).
+* Step 6.4 to continue using the old configuration, bearing in mind the security risk (deprecated).
+
 ## Installation steps
 
-> **Note**: If you are installing the SAML Module on top of Alfresco Content Connector for AWS S3, use the `-force` option, otherwise Alfresco Content Services will not start correctly.
+> **Note:** If you are installing the SAML Module on top of Alfresco Content Connector for AWS S3, use the `-force` option, otherwise Alfresco Content Services will not start correctly.
 
-> **Note**: If you are running Alfresco Content Services behind a proxy, make sure the identity provider references the proxy endpoint instead of directly referencing the Alfresco cluster.
+> **Note:** If you are running Alfresco Content Services behind a proxy, make sure the identity provider references the proxy endpoint instead of directly referencing the Alfresco cluster.
 
 1. Stop the Alfresco Content Services server.
 
-2. Navigate to the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"} and download and unzip the SAML Module for Alfresco Content Services zip package:
+2. Navigate to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, download and unzip the SAML Module for Alfresco Content Services zip package:
 
     * `alfresco-saml-1.2.x.zip`
 
-    The `alfresco-saml-1.2.x.zip` file contains the following files:
+    This file contains the following content:
 
-       * `README.txt`
-       * `alfresco-global.properties.sample`
-       * `alfresco-saml-repo-1.2.x.amp`
-       * `alfresco-saml-share-1.2.x.amp`
-       * `alfresco/extension/subsystems/SAML/share/share/my-custom-share-sp.properties.sample`
-       * `alfresco/extension/subsystems/SAML/repository/rest-api/my-custom-rest-api-sp.properties.sample`
-       * `alfresco/extension/subsystems/SAML/repository/aos/my-custom-aos-sp.properties.sample`
-       * `share-config-custom.xml.sample`
+    ```text
+    ├── README.txt
+    ├── alfresco
+    │   └── extension
+    │       └── subsystems
+    │           └── SAML
+    │               ├── repository
+    │               │   ├── aos
+    │               │   │   └── my-custom-aos-sp.properties.sample
+    │               │   └── rest-api
+    │               │       └── my-custom-rest-api-sp.properties.sample
+    │               └── share
+    │                   └── my-custom-share-sp.properties.sample
+    ├── alfresco-global.properties.sample
+    ├── alfresco-saml-repo-1.2.x.amp
+    ├── alfresco-saml-share-1.2.x.amp
+    └── share-config-custom.xml.sample
+    ```
 
-3. Move or copy `alfresco-saml-repo-1.2.x.amp` to the amps directory and `alfresco-saml-share-1.2.x.amp` to the `amps\_share` directory in your Alfresco Content Services installation.
+3. Move or copy `alfresco-saml-repo-1.2.x.amp` to the `amps` directory and `alfresco-saml-share-1.2.x.amp` to the `amps_share` directory in your Alfresco Content Services installation.
 
-4. If you are using Tomcat, navigate to the bin directory and run the `apply\_amps.bat` file to install the AMP files.
+4. If you are using Tomcat, navigate to the `bin` directory and run the `apply_amps.bat` file to install the AMP files.
 
     * `/opt/alfresco/bin`
     * (Windows) `c:\Alfresco\bin`
@@ -77,22 +103,37 @@ If you have not enforced SAML for a specific service provider, you can use the o
 
         Set the file permissions accordingly to limit who can read it.
 
-    3. Generate a SAML keystore metadata file in the same location as the keystore and add the following content:
+    3. (Recommended) To use the latest keystore configuration method, set the following as JVM properties:
 
        ```bash
-       aliases=my-saml-key
-       keystore.password=change-me
-       my-saml-key.password=change-me
+       ...
+       saml-keystore.aliases=my-saml-key
+       saml-keystore.password=change-me
+       saml-keystore.my-saml-key.password=change-me
+       saml-keystore.my-saml-key.algorithm=AES
        ```
 
-       Set the file permissions accordingly to limit who can read it.
+    4. (Deprecated) To continue using the old keystore configuration method:
 
-    4. Set the following values in the `alfresco-global.properties` file:
+        1. Generate a SAML keystore metadata file in the same location as the keystore and add the following content:
 
-       ```bash
-       saml.keystore.location=<full pathname>/my-saml.keystore
-       saml.keystore.keyMetaData.location=<full pathname>/my-saml-keystore-passwords.properties
-       ```
+            ```bash
+            saml.keystore.aliases=my-saml-key
+            saml.keystore.password=change-me
+            saml.keystore.my-saml-key.password=change-me
+            saml.keystore.my-saml-key.algorithm=AES
+            ```
+
+            Set the file permissions accordingly to limit who can read it.
+
+        2. Set the following values in the `alfresco-global.properties` file:
+
+            ```bash
+            saml.keystore.location=<full pathname>/my-saml.keystore
+            saml.keystore.keyMetaData.location=<full pathname>/my-saml-keystore-passwords.properties
+            ```
+
+            > **Note:** This deprecated method is not recommended. You should review and [switch to using the updated method](#keystores-change) described earlier.
 
     5. Restart the Alfresco Content Services server.
 
