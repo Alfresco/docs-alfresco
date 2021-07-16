@@ -74,7 +74,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0 | |
 | Identity Service 1.4 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| SAML Module for Alfresco Content Services 1.2.1 | |
+| SAML Module for Alfresco Content Services 1.2.2 | |
 | Alfresco Intelligence Services 1.3 | |
 | Alfresco Content Connector for AWS S3 4.0 | |
 | Alfresco Content Connector for Azure 2.0 | |
