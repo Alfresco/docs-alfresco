@@ -24,7 +24,7 @@ If you use several languages across your organization, you must enable cross-lan
 
 ## Exact term search
 
-To [search for an exact term]({% link search-services/latest/using/sql/syntax.md %}#search-for-an-exact-term) you must prefix it with `=`.
+To [Search]({% link content-services/latest/using/search.md %}) you must prefix it with `=`.
 
 > **Note:** Exact term search will not work correctly unless the [Cross Locale](cross-locale) configuration is enabled. There are some limitations if you deploy Search Services with Cross Locale configuration **disabled**.
 
