@@ -112,6 +112,10 @@ See [repository security policies and filters]({% link content-services/latest/a
 
 The ReST API is behind the [web proxy](#addreverseproxy) so it is always accessed via HTTPS.
 
+## Securing HTML transformations
+HTML pipelines that use LibreOffice are vulnerable to [BSSRF](https://en.wikipedia.org/wiki/Server-side_request_forgery){:target="_blank"}
+attacks. These can be disabled by following these [instructions]({% link content-services/latest/admin/securing-html-transforms.md %}).
+
 ## Encrypting metadata 
 It's possible to encrypt node (i.e. file or folder) properties (i.e. metadata). For more information about this see 
 [managing Alfresco keystores]({% link content-services/latest/admin/security.md %}#managealfkeystores).
