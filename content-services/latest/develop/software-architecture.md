@@ -344,7 +344,7 @@ creating and managing sites in the Share application, and the Tagging Service, w
 content with keywords. The following sections of this documentation provide a brief tour of the available services.
 
 Typically these services are implemented in Java, and expose an API described by the 
-[Public Java API](http://dev.alfresco.com/resource/docs/java/){:target="_blank"}.
+[Public Java API]({% link content-services/latest/develop/reference/java-foundation-ref.md %}).
 
 The platform is highly extensible. You can write extensions in Java, JavaScript, and FreeMarker, and you can write 
 client applications in any language using the [ReST API]({% link content-services/latest/develop/rest-api-guide/index.md %}). You can create new
@@ -1292,8 +1292,8 @@ which is a standard implemented by many ECM vendors.
 
 ### Embedded APIs
 The embedded APIs have traditionally been used a lot to build customizations that run inside the same JVM as the 
-Alfresco Repository. There are both a Public Java API and a Repository JavaScript API.
+Alfresco Repository. There are both a [Public Java API]({% link content-services/latest/develop/reference/java-foundation-ref.md %}) and a Repository JavaScript API.
 Before using the embedded APIs a thorough investigation should be done to rule out the possibility of building the extension 
-with a remote a remote API. It is not recommended to build embedded extensions unless it is absolutely necessary.
+with a remote API. It is not recommended to build embedded extensions unless it is absolutely necessary.
 They make it difficult during upgrades and can quite easily have unintended side effects on core repository functionality, 
 such as file upload.

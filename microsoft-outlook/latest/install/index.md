@@ -177,11 +177,11 @@ If you wish to use a Tomcat application server, you can use the WAR bundle to in
 
 4. To enable ActiveMQ in the Outlook T-Engine, set the following URL property in `JAVA_OPTS`:
 
-    `-Dactivemq.url=${activemq.url}`
+    `-DACTIVEMQ_URL=${activemq.url}`
 
 5. To enable the shared file store in the Outlook T-Engine, set the following URL property in `JAVA_OPTS`:
 
-    `-DfileStoreUrl=${shared.file.store.url}`
+    `-DFILE_STORE_URL=${shared.file.store.url}`
 
 6. Start the Tomcat service.
 

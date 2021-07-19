@@ -22,7 +22,7 @@ The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" tex
 
 1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, and then download Alfresco Content Connector for SAP Cloud:
 
-    * `sap-content-connector-cmis-repo-1.0.x.amp` for Content Services.
+    * `sap-content-connector-cmis-repo-1.1.x.amp` for Content Services.
 
 2. Use the Module Management Tool (MMT) to install the repository AMP file into the repository WAR (`alfresco.war`).
 
