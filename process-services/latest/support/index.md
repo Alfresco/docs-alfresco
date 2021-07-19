@@ -63,7 +63,6 @@ our Support team [Alfresco Support Portal](https://support.alfresco.com).
 |Integration|2.0|Comment|
 |-----------|----|-------|
 |Elasitcsearch 7.13.2|✓| |
-|Elasticsearch 7.3.1|✓| |
 
 **Integrated services**
 
