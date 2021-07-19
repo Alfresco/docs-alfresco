@@ -83,12 +83,12 @@ defaults:
         - 2.0
         - 1.6
         - 1.5
-   - scope:
+  - scope:
       path: "digital-workspace/latest"
     values:
       version: 2.3
       latest: true
-   - scope:
+  - scope:
       path: "digital-workspace/2.2"
     values:
       version: 2.2    
