@@ -4,13 +4,13 @@ title: Install SAP Cloud Connector
 
 The Content Connector for SAP Cloud capability is delivered in a repository Alfresco Module Package (AMP) file.
 
-In these topics you'll install and set up everything you need to run the SAP Cloud Connector. See [Prerequisites](#prerequisites) and [Supported Platforms]({% link sap-cloud/latest/support/index.md %}) for information on what you require before you start the installation.
+In these topics you'll install and set up everything you need to run the SAP Cloud Connector. See [Prerequisites](#prerequisites) and [Supported Platforms]({% link sap-cloud/1.0/support/index.md %}) for information on what you require before you start the installation.
 
 ## Prerequisites
 
 There are a number of software requirements for installing and using the SAP Cloud Connector.
 
-See [Supported platforms]({% link sap-cloud/latest/support/index.md %}) for more information.
+See [Supported platforms]({% link sap-cloud/1.0/support/index.md %}) for more information.
 
 ### General requirements
 
@@ -22,7 +22,7 @@ The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" tex
 
 1. Go to the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, and then download Alfresco Content Connector for SAP Cloud:
 
-    * `sap-content-connector-cmis-repo-1.1.x.amp` for Content Services.
+    * `sap-content-connector-cmis-repo-1.0.x.amp` for Content Services.
 
 2. Use the Module Management Tool (MMT) to install the repository AMP file into the repository WAR (`alfresco.war`).
 
