@@ -77,16 +77,21 @@ defaults:
       toc: "digital-workspace"
       support: true
       versions:
+        - 2.3
         - 2.2
         - 2.1
         - 2.0
         - 1.6
         - 1.5
-  - scope:
+   - scope:
       path: "digital-workspace/latest"
     values:
-      version: 2.2
+      version: 2.3
       latest: true
+   - scope:
+      path: "digital-workspace/2.2"
+    values:
+      version: 2.2    
   - scope:
       path: "digital-workspace/2.1"
     values:
