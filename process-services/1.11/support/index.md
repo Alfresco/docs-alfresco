@@ -5,14 +5,12 @@ title: Supported platforms
 Here is a list of the individual components that have been through the complete 
 Alfresco Quality Assurance and Certification activities for Alfresco Process Services.
 
-
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact 
 our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
-
 **Operating systems**
 
-|Server|2.0|Comment|
+|Server|1.11|Comment|
 |------|----|-------|
 |Red Hat Enterprise Linux 7.7|✓| |
 |Red Hat Enterprise Linux 7.6|✓| |
@@ -23,35 +21,36 @@ our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
 **Databases**
 
-|Database|2.0|Driver|
+|Database|1.11|Driver|
 |--------|----|------|
-|MariaDB 10.5|✓|2.7.3|
-|MariaDB 10.4|✓|2.7.3|
-|MySQL 5.7|✓|`mysql-connector-java-8.0.25.jar`|
-|MS SQL Server 2019|✓|`mssql-jdbc-9.2.1.jre8.jar`|
-|MS SQL Server 2017|✓|`mssql-jdbc-9.2.1.jre8.jar`|
-|Oracle 19c|✓|21.1.0.0|
-|PostgreSQL 13.1|✓|`postgresql-42.2.22.jar`|
-|PostgreSQL 12.4|✓|`postgresql-42.2.22.jar`|
-|PostgreSQL 11.7|✓|`postgresql-42.2.22.jar`|`|
+|MySQL 5.7|✓|`mysql-connector-java-5.1.47-bin.jar`|
+|MS SQL Server 2017|✓|Microsoft SQL Server JDBC Driver 4.0|
+|MS SQL Server 2016|✓|Microsoft SQL Server JDBC Driver 4.0|
+|Oracle 19c|✓|12.2.0.1|
+|Oracle 18c|✓|12.2.0.1|
+|Oracle 12c|✓|12.2.0.1|
+|PostgreSQL 11.6|✓|`postgresql-42.2.5.jar`|
+|PostgreSQL 11.4|✓|`postgresql-42.2.5.jar`|
+|PostgreSQL 10.11|✓|`postgresql-42.2.5.jar`|
+|PostgreSQL 10.9|✓|`postgresql-42.2.5.jar`|
 |Amazon Aurora|✓| Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
 
 **Application servers**
 
-|Application server|2.0|Comment|
+|Application server|1.11|Comment|
 |------------------|----|-------|
-|Tomcat 9.0|✓| |
+|Tomcat 8.5|✓| |
 |Jetty 9.4|✓| |
 
 **JDKs**
 
-|JDK|2.0|Comment|
+|JDK|1.11|Comment|
 |---|----|-------|
 |OpenJDK 11.0.1|✓| |
 
 **Browsers**
 
-|Browser|2.0|Comment|
+|Browser|1.11|Comment|
 |-------|----|-------|
 |Mozilla Firefox|✓| |
 |Microsoft Edge|✓|Versions based on Chromium only|
@@ -60,13 +59,14 @@ our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
 **Third party integrations**
 
-|Integration|2.0|Comment|
+|Integration|1.11|Comment|
 |-----------|----|-------|
-|Elasitcsearch 7.13.2|✓| |
+|Elasticsearch 7.6|✓| |
+|Elasticsearch 7.3.1|✓| |
 
 **Integrated services**
 
-|Service|2.0|Comment|
+|Service|1.11|Comment|
 |-------|----|-------|
 |Identity Service 1.2|✓|For use with LDAP and SAML|
 |Identity Service 1.1|✓|For use with LDAP and SAML|
@@ -74,6 +74,6 @@ our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
 **Related components**
 
-|Component|2.0|Comment|
+|Component|1.11|Comment|
 |---------|----|-------|
 |VMWare ESXi 5.1.0|✓|For supported guest operating systems|

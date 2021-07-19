@@ -155,7 +155,7 @@ The download files are available from the [support portal](https://support.alfre
 
 Use these instructions to install the Process Services application using the WAR file.
 
-Ensure you have read the [supported platforms]({% link process-services/latest/support/index.md %}) to confirm that your web container and database combination is supported before commencing with installation.
+Ensure you have read the [supported platforms]({% link process-services/1.11/support/index.md %}) to confirm that your web container and database combination is supported before commencing with installation.
 
 1. Install your web container and database.
 
@@ -194,7 +194,7 @@ Ensure you have read the [supported platforms]({% link process-services/latest/s
         For example:
 
         ```text
-        com.mysql.cj.jdbc.Driver
+        datasource.driver=com.mysql.jdbc.Driver
         datasource.url=jdbc:mysql://127.0.0.1:3306/activiti?characterEncoding=UTF-8
         datasource.username=alfresco
         datasource.password=alfresco
@@ -237,7 +237,7 @@ After installing you will need to [apply a valid license file](#license) to your
 
 Use these instructions to install Process Services Administrator using the WAR file.
 
-Ensure you have read the [supported platforms]({% link process-services/latest/support/index.md %}) to confirm that your web container and database combination is supported before commencing with installation.
+Ensure you have read the [supported platforms]({% link process-services/1.11/support/index.md %}) to confirm that your web container and database combination is supported before commencing with installation.
 
 1. Install your web container and database.
 
@@ -278,7 +278,7 @@ Ensure you have read the [supported platforms]({% link process-services/latest/s
         For example:
 
         ```text
-        com.mysql.cj.jdbc.Driver
+        datasource.driver=com.mysql.jdbc.Driver
         datasource.url=jdbc:mysql://127.0.0.1:3306/activitiadmin?characterEncoding=UTF-8
         datasource.username=alfresco
         datasource.password=alfresco
@@ -309,7 +309,7 @@ After installing you will need to [apply a valid license file](#install-license)
 
 You can install Process Workspace using a Web Application Archive (WAR) file or by deploying the files manually into your web container.
 
-To install Process Workspace from a WAR file, visit the [support portal](https://support.alfresco.com){:target="_blank"} and download the latest version of `process-workspace.war`.
+To install Process Workspace from a WAR file, visit the [support portal](https://support.alfresco.com){:target="_blank"} and download the 1.11 version of `process-workspace.war`.
 
 Move the `process-workspace.war` file into your web container and restart the server.
 
@@ -317,7 +317,7 @@ Using Tomcat as an example, this would be the `/webapps` folder.
 
 Alternatively, you can manually deploy Process Workspace into your web container using the following steps:
 
-1. Download the latest [supported version]({% link process-services/latest/support/index.md %}) of Process Workspace from [artifacts.alfresco.com](https://artifacts.alfresco.com/nexus/){:target="_blank"}.
+1. Download the 1.11 [supported version]({% link process-services/1.11/support/index.md %}) of Process Workspace from [artifacts.alfresco.com](https://artifacts.alfresco.com/nexus/){:target="_blank"}.
 
     >**Note:** Located in the `activiti-enterprise-releases` repository under `/com/alfresco/alfresco-process-services-workspace`.
 

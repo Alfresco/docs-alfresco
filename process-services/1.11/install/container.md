@@ -18,11 +18,11 @@ The Docker images for Process Services are available on [Docker Hub](https://hub
 To download the images from Docker Hub, use the following commands:
 
 ```bash
-docker pull alfresco/process-services:2.0.0
+docker pull alfresco/process-services:1.11.0
 ```
 
 ```bash
-docker pull alfresco/process-services-admin:2.0.0
+docker pull alfresco/process-services-admin:1.11.0
 ```
 
 >**Note:** If a tag isn't supplied then the latest version will be downloaded.
@@ -82,8 +82,7 @@ Variables that correspond to the `activiti-app.properties` file:
 |ACTIVITI_ADMIN_EMAIL|The email address for the default administrator user. The default is `admin@app.activiti.com`. |
 |ACTIVITI_ADMIN_PASSWORD_HASH|The hashed password for `ACTIVITI_ADMIN_EMAIL` user. The default is ``. |
 |ACTIVITI_CORS_ENABLED|Sets whether Cross Origin Resource Sharing (CORS) is enabled or not. The default is `true`. |
-|ACTIVITI_CORS_ALLOWED_ORIGINS|The host origins allowed in CORS requests. There is not a default value set. You can't use `*`.|
-|ACTIVITI_CORS_ALLOWED_ORIGIN_PATTERNS| The host origin patterns allowed in CORS requests. The default is `*` but you can also use a pattern.|
+|ACTIVITI_CORS_ALLOWED_ORIGINS|The host origins allowed in CORS requests. The default is `*`. |
 |ACTIVITI_CORS_ALLOWED_METHODS|The HTTP request methods allowed for CORS requests. The default is `GET,POST,HEAD,OPTIONS,PUT,DELETE`. |
 |ACTIVITI_CORS_ALLOWED_HEADERS|The headers that can be set in CORS requests. The default is `Authorization,Content-Type,Cache-Control,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-CSRF-Token`. |
 |ACTIVITI_CSRF_DISABLED|Sets whether Cross Site Request Forgery is disabled or not. The default is `true`. |
@@ -258,8 +257,7 @@ The following properties can be configured in the `values.yaml` file or overridd
 |ACTIVITI_DATASOURCE_USERNAME|The username to access the database with. The default is `alfresco`. |
 |ACTIVITI_DATASOURCE_PASSWORD|The password for the `ACTIVITI_DATASOURCE_USERNAME` user. The default is `alfresco`. |
 |ACTIVITI_CORS_ENABLED|Sets whether Cross Origin Resource Sharing (CORS) is enabled or not. The default is `true`. |
-|ACTIVITI_CORS_ALLOWED_ORIGINS|The host origins allowed in CORS requests. There is not a default value set. You can't use `*`.|
-|ACTIVITI_CORS_ALLOWED_ORIGIN_PATTERNS| The host origin patterns allowed in CORS requests. The default is `*` but you can also use a pattern.|
+|ACTIVITI_CORS_ALLOWED_ORIGINS|The host origins allowed in CORS requests. The default is `*`. |
 |ACTIVITI_CORS_ALLOWED_METHODS|The HTTP request methods allowed for CORS requests. The default is `GET,POST,HEAD,OPTIONS,PUT,DELETE`. |
 |ACTIVITI_CORS_ALLOWED_HEADERS|The headers that can be set in CORS requests. The default is `Authorization,Content-Type,Cache-Control,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-CSRF-Token`. |
 |ACTIVITI_CSRF_DISABLED|Sets whether Cross Site Request Forgery is disabled or not. The default is `true`. |

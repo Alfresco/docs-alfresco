@@ -22,7 +22,7 @@ Process Services is packaged as a standard Java Web application (WAR file) that 
 * The ReST API has two parts:
     * The ReST API that exposes operations in the context of the applications that are part of Process Services. This ReST API is used by the user interface and should be used in most cases.
     * The ReST API that exposes the core engine API directly. Note that this interface is intended for highly custom applications as it exposes the full capabilities and data within the Process Engine. Consequently, a user with the *tenant admin* or *tenant manager* role is needed to access this part of the ReST API for security reasons.
-* The application requires Java 7 and is compliant with JEE 6 technologies. The Process Engine itself also supports Java 6, however for components such as Elasticsearch, Process Services requires Java 7 or Java 8. Review the [Supported platforms]({% link process-services/latest/support/index.md %}) list for more information on supported platforms.
+* The application requires Java 7 and is compliant with JEE 6 technologies. The Process Engine itself also supports Java 6, however for components such as Elasticsearch, Process Services requires Java 7 or Java 8. Review the [Supported platforms]({% link process-services/1.11/support/index.md %}) list for more information on supported platforms.
 * The backend logic specific to the Process Services logic is implemented using Spring 4 and JPA (Hibernate).
 * All user interfaces are written using HTML5 and AngularJS.
 
@@ -87,16 +87,16 @@ Typically, there is one single Administrator application for multiple environmen
 
 The Process Engine is cluster-enabled so, together with the Process Services Administrator, a user can configure and monitor a cluster (or multiple different clusters) through a graphical user interface. The clustered engines will use the same configuration and will report metrics and status back to the Process Services Administrator where they are displayed.
 
-See [install Process Services Administrator]({% link process-services/latest/install/manual.md %}#install-process-services-administrator) to install the Process Services Administrator application.
+See [install Process Services Administrator]({% link process-services/1.11/install/manual.md %}#install-process-services-administrator) to install the Process Services Administrator application.
 
 ### Administrator database configuration
 
-The database for the Administrator app is configured using the following properties. See the [Database configuration]({% link process-services/latest/config/database.md %}) section for more information about how to configure Process Services.
+The database for the Administrator app is configured using the following properties. See the [Database configuration]({% link process-services/1.11/config/database.md %}) section for more information about how to configure Process Services.
 
 For example (using MySQL):
 
 ```text
-com.mysql.cj.jdbc.Driver
+datasource.driver=com.mysql.jdbc.Driver
 datasource.url=jdbc:mysql://127.0.0.1:3306/activitiadmin?characterEncoding=UTF-8
 datasource.username=alfresco
 datasource.password=alfresco
