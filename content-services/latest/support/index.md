@@ -65,12 +65,14 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Services** | |
 | Alfresco Governance Services 3.5 | |
+| Alfresco Process Services 2.0 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.4 | |
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3.2 | |
+| Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0 | |
 | Identity Service 1.5 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
@@ -92,7 +94,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Accelerator 3.4.3 | |
 | Alfresco Content Services SDK 5 | |
 | Alfresco Content Services SDK 4.2 | |
-| Alfresco Process Services 2.0 | |
 | | |
 | **Applications** | |
 | Alfresco Digital Workspace 2.3 | |
@@ -171,7 +172,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Desktop Sync 1.7 | |
 | Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3.2 | |
-| Alfresco Document Transformation Engine 2.3 | |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0 | |
 | Identity Service 1.4 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
