@@ -1707,6 +1707,8 @@
             path: '/content-services/5.2/develop/rest-api-guide/searching/'
         - title: 'Reference'
           pages:
+          - title: 'Java Foundation API'
+            path: '/content-services/5.2/develop/reference/java-foundation-ref/'
           - title: 'CMIS API'
             path: '/content-services/5.2/develop/reference/cmis-ref/'
           - title: 'Web Scripts'

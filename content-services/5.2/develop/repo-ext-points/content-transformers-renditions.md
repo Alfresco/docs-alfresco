@@ -393,7 +393,7 @@ If an AMP that includes a new transformer provides the following global properti
 -   aio/platform-jar/src/main/resources/alfresco/module/platform-jar/alfresco-global.properties - all the properties configuration goes here
 
 |
-|More Information|-   [Invoking transformations from Java]({% link content-services/5.2/develop/java-api-guide.md %}#contentservice)
+|More Information|-   [Invoking transformations from Java]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}#contentservice)
 -   [Invoking transformations from JavaScript]({% link content-services/5.2/develop/api-reference.md %}#transformation-api)
 -   [Invoking thumbnail transformations from JavaScript]({% link content-services/5.2/develop/api-reference.md %}#thumbnail-service)
 -   [Invoking renditions from Java]({% link content-services/5.2/develop/api-reference.md %}#renditionservice)
