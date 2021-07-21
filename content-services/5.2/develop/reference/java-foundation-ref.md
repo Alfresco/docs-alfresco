@@ -2,14 +2,15 @@
 title: Java Foundation API reference
 ---
 
-The Alfresco Java Foundation API provides the ability to build server-side extensions that runs in the same
+The Alfresco Java Foundation API provides the ability to build server-side extensions that run in the same
 process as Content Services. This API is used to build extensions for the 
 [Platform (Repository)]({% link content-services/5.2/develop/software-architecture.md %}#platform-architecture).
 
 ## Getting started {#gettingstarted}
+
 When we want to use one of the public Java APIs from an implementation of one of the Platform/Repository
 [Extension Points]({% link content-services/5.2/develop/repo-ext-points/index.md %}),
-it follows a best practice. First acquire a reference to the `ServiceRegistry`. The service registry is
+it follows best practice. First acquire a reference to the `ServiceRegistry`. The service registry is
 basically a database of services, their instances and their locations.
 
 Clients of a service, such as the `NodeService`, then query the service registry to find the available instance of
@@ -151,6 +152,7 @@ To turn on logging so you can get details of 'why' transactions are retried use 
 * Details: `log4j.logger.org.alfresco.repo.transaction.RetryingTransactionHelper=DEBUG`
 
 ### Deployment
+
 It is not likely that you will deploy Java extensions directly into a Tomcat application server as classes and Spring
 context files. You would instead use an [Alfresco In-Process SDK]({% link content-services/5.2/develop/sdk.md %}) project.
 
@@ -159,6 +161,7 @@ Spring bean configuration in `aio/platform-jar/src/main/resources/alfresco/modul
 file.
 
 ## ActionService {#actionservice}
+
 An Action is a unit of work that can be carried out on a node. Actions are commonly used in conjunction with Rules, but
 that is not mandatory. When you create Rules for a folder, you can specify certain Actions to occur to nodes added to
 the folder. For example, when a Word document is added to a folder, you may want a PDF to be automatically generated,
@@ -259,6 +262,7 @@ See also:
 * [Jeff Potts Custom Action tutorial](http://ecmarchitect.com/alfresco-developer-series-tutorials/actions/tutorial/tutorial.html){:target="_blank"}
 
 ## ActivityService
+
 The `ActivityService` is responsible for generating activity feeds for each member of a Share site. The activities
 generated include such events as a document was added, a document was previewed, the wiki was updated.
 
@@ -324,9 +328,10 @@ private void postActivityUpdated(NodeRef nodeRef) {
 
 See also:
 
-* [blog post](http://alfresco.blog.redpill-linpro.com/2015/11/26/posting-custom-events-to-the-activity-feed/){:target="_blank"}
+* [Blog post](http://alfresco.blog.redpill-linpro.com/2015/11/26/posting-custom-events-to-the-activity-feed/){:target="_blank"}
 
 ## AttributeService
+
 This provides services for reading, writing, and querying global attributes. The `AttributeService` is used to get and
 set global, arbitrary attributes. Attributes typically have a key and a value, where the key consists of three segments
 (known as a key set) and a value. Attributes are stored in the database so they persist over server restarts.
@@ -389,6 +394,7 @@ See also:
 * [AttributeService Primer video](https://vimeo.com/67580571){:target="_blank"}
 
 ## AuditService {#auditservice}
+
 The `AuditService` API provides facilities to query audit data. There are also methods to clear audit data, enable and
 disable auditing, and check auditing status.
 
@@ -455,6 +461,7 @@ See also:
 * [Audit and Reporting with Alfresco and NoSQL by Zaizi](http://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture){:target="_blank"}
 
 ## AuthenticationService
+
 This service provides an API to allow authentication of users using various methods, such as username and password and
 authentication tickets. Authentication is required at various access points into the repository. For example web scripts,
 CMIS, FTP, WebDAV, and web clients represent access points where authentication needs to take place.
@@ -504,6 +511,7 @@ See also:
 * [Authentication & Sync documentation]({% link content-services/5.2/admin/auth-sync.md %})
 
 ## AuthorityService
+
 The service that encapsulates authorities granted to users. This service will refuse to create any user authorities.
 These should be managed using the AuthenticationService and PersonService. Methods that try to change alter users will
 throw an exception. A string key is used to identify the authority. These follow the contract defined in AuthorityType.
@@ -551,6 +559,7 @@ See also
 * [Authentication & Sync documentation]({% link content-services/5.2/admin/auth-sync.md %})
 
 ## CategoryService
+
 Provides an API for creating and managing categories of nodes. Categories provide a system for organizing content.
 Unlike tags, which have no hierarchical structure, and which can be created and applied by anyone, categories are created
 by the Administrator, and are hierarchical in nature.
@@ -581,6 +590,7 @@ See also:
 * [Category Manager documentation]({% link content-services/5.2/admin/share-admin-tools.md %}#cat-manager)
 
 ## CheckOutCheckInService
+
 Service to provide document locking. If a document is locked, other users cannot change its content, until it is unlocked.
 
 Check out locks the item and creates a working copy that can be edited. The locked item can be viewed by others, but not
@@ -603,6 +613,7 @@ NodeRef checkedOutCopy = checkOutCheckInService.checkout(nodeRef);
 ```
 
 ## ContentService {#contentservice}
+
 The `ContentService` provides an API for setting, accessing, and transforming content. You may want to read the content
 associated with a node, or transform the content from one format to another, for example from `.ppt` to `.pdf`. Methods
 provided by the API includes functionality to:
@@ -653,7 +664,6 @@ writer.setMimetype("image/bmp");
 writer.putContent(file);
 ```
 
-
 Transforming a PPT to PDF (also works for other file formats):
 
 ```java
@@ -695,6 +705,7 @@ private NodeRef createContentNode(NodeRef parent, String name, String text) {
 ```
 
 ## CopyService
+
 This service provides methods to copy nodes within and across folders. It also provides support to update the state
 of a node, with that of another node, within and across folders.
 
@@ -730,7 +741,7 @@ public class CopyActionExecuter extends ActionExecuterAbstractBase {
     @Override
     protected void addParameterDefinitions(List<ParameterDefinition> paramList) {
         paramList.add(new ParameterDefinitionImpl(PARAM_DESTINATION_FOLDER, DataTypeDefinition.NODE_REF, true, getParamDisplayLabel(PARAM_DESTINATION_FOLDER)));
-        paramList.add(new ParameterDefinitionImpl(PARAM_DEEP_COPY, DataTypeDefinition.BOOLEAN, false, getParamDisplayLabel(PARAM_DEEP_COPY)));		
+        paramList.add(new ParameterDefinitionImpl(PARAM_DEEP_COPY, DataTypeDefinition.BOOLEAN, false, getParamDisplayLabel(PARAM_DEEP_COPY)));
         paramList.add(new ParameterDefinitionImpl(PARAM_OVERWRITE_COPY, DataTypeDefinition.BOOLEAN, false, getParamDisplayLabel(PARAM_OVERWRITE_COPY)));
     }
 
@@ -798,6 +809,7 @@ public class CopyActionExecuter extends ActionExecuterAbstractBase {
 ```
 
 ## DictionaryService
+
 This service gives you access to the [Content Model]({% link content-services/5.2/develop/repo-ext-points/content-model.md %})
 Dictionary. This dictionary provides access to content model meta-data, such as Type and Aspect descriptions. Content
 model metadata is organized into models where each model is given a qualified name. This means that it is safe to develop
@@ -822,6 +834,7 @@ for (QName type : types) {
     }
 }
 ```
+
 Get a content model type and check if it has an aspect:
 
 ```java
@@ -841,6 +854,7 @@ if (serviceRegistry.getDictionaryService().isSubClass(nodeType, ContentModel.TYP
 ```
 
 ## FileFolderService {#filefolderservice}
+
 Provides methods specific to manipulating files and folders. This service provides a simple way of accessing simple
 trees of files and folders in the content repository. The `FileFolderService` provides methods for dealing with files and
 folders. This class is an abstraction of the [NodeService](#nodeservice) class, which you should look at if you want more
@@ -981,11 +995,11 @@ controller bean as follows:
 
 ```xml
 <bean id="webscript.alfresco.tutorials.filefolderservicetest.get"
-		  class="org.alfresco.training.platformsample.FileFolderServiceTestWebScript"
-		  parent="webscript">
-	<property name="serviceRegistry">
-		<ref bean="ServiceRegistry" />
-	</property>
+          class="org.alfresco.training.platformsample.FileFolderServiceTestWebScript"
+          parent="webscript">
+    <property name="serviceRegistry">
+        <ref bean="ServiceRegistry" />
+    </property>
 </bean>
 ```
 
@@ -1028,18 +1042,20 @@ Message: 'Your 'FileFolderServiceTestWebScript' Web Script was called and there 
 ```
 
 ## JobLockService
+
 This service ensures that a scheduled job can only run on one node of a cluster at a time. A scheduled job could be,
 for example, an Activities feed job that generates an email to send to everyone every night, or a content cleaner job that
 cleans up orphaned content.
 
 The `JobLockService` is used to provide a locking service at the job level, rather than the node level. It's for example
-used indirectly via the [AbstractScheduledLockedJob](https://github.com/Alfresco/alfresco-community-repo/tree/master/repository/src/main/java/org/alfresco/schedule/AbstractScheduledLockedJob.java){:target="_blank"} `QuarzJobBean`.
+used indirectly via the [AbstractScheduledLockedJob](https://github.com/Alfresco/alfresco-community-repo/tree/master/repository/src/main/java/org/alfresco/schedule/AbstractScheduledLockedJob.java){:target="_blank"} `QuartzJobBean`.
 
 For an example of using the `JobLockService` see the [Content Store Cleaner code](https://github.com/Alfresco/alfresco-community-repo/tree/master/repository/src/main/java/org/alfresco/repo/content/cleanup/ContentStoreCleaner.java){:target="_blank"} on GitHub.
 
 See also the [Scheduled Jobs extension point]({% link content-services/5.2/develop/repo-ext-points/scheduled-jobs.md %})
 
 ## LockService
+
 A node-level locking service, used by the `CheckOutCheckIn` service. Does not create a working copy. If you need a
 node-level locking system, then the `LockService` can provide this. Functionality provided by the service includes:
 
@@ -1072,6 +1088,7 @@ public static Boolean isNodeLocked(Node node,LockService lockService) {
 ```
 
 ## MessageService
+
 Provides methods to access the locale of the current thread and to get localised strings. These strings may be loaded
 from resource bundles deployed in the repository. The `MessageService` provides functionality around Internationalization (i18n).
 It provides facilities to:
@@ -1104,7 +1121,7 @@ Example resource bundle contents:
 # User displayed string for the rule service functional area
 
 ruleservice.error=There has been an error executing rule {0}.
-ruleservice.confimation_all=All rules have been executed.
+ruleservice.confirmation_all=All rules have been executed.
 ```
 
 Before a resource bundle can be used by the repository it must be registered. Suitable methods are provided by the
@@ -1257,6 +1274,7 @@ Translation of alfresco.tutorial.hello: Hej
 ```
 
 ## MimetypeService
+
 Provides support related to content mimetype. For example, provides methods to retrieve the extension for the
 specified mimetype. Content Services supports numerous mimetypes out-of-the-box. However, it is also possible to add
 your own custom mimetypes. The `MimetypeService` provides an API for managing mimetypes. For example, you can obtain a
@@ -1273,6 +1291,7 @@ contentWriter.putContent(field.getInputStream());
 See also the [Mimetype platform extension point]({% link content-services/5.2/develop/repo-ext-points/mimetypes.md %})
 
 ## ModuleService
+
 A service to control and provide information about the currently-installed [Alfresco Module Packages (AMPs)]({% link content-services/5.2/develop/extension-packaging.md %}).
 
 A module is an extension to Content Services that is developed with a particular project structure and packaging.
@@ -1293,7 +1312,9 @@ for (ModuleDetails module : modules) {
     }
 }
 ```
+
 ## NamespaceService
+
 Provides access to content model namespaces and their definition of namespace URIs and Prefixes. The `NamespaceService`
 has constants defined for the major namespaces used by internal Alfresco content models, including the prefixes for those.
 
@@ -1350,6 +1371,7 @@ QName aQName = QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, QName.c
 This code would result in `aQName` being set to `{http://www.alfresco.org/model/content/1.0}aName`.
 
 ## NodeService {#nodeservice}
+
 Provides an API for managing nodes, such as folders and files. Nodes are the fundamental data structure in Content Services.
 All content that is stored is represented by a node data structure, which contains content metadata that is persisted in
 a database (such as PostgreSQL). The content referenced by the node is stored as a `*.bin` file in a content store
@@ -1565,6 +1587,7 @@ serviceRegistry.getNodeService().deleteNode(nodeRef);
 See also [Custom Content Store platform extension point]({% link content-services/5.2/develop/repo-ext-points/content-stores.md %})
 
 ### Deleting nodes
+
 Since Content Services 4.1.1 the `alf_node.node_deleted` database column has been replaced by a system type
 (`sys:deleted`) and an aspect (`sys:pendingDelete`). While the `sys:deleted` type will never be visible to client code,
 the `sys:pendingDelete` aspect will be. Any custom code that attempts to modify behaviour during node deletion may need
@@ -1598,6 +1621,7 @@ to be removed. See `org.alfresco.repo.copy.CopyServiceImpl.beforeDeleteOriginalA
 deletion is detected in order to ensure that the aspect is removed from the copied node.
 
 ## NodeLocatorService
+
 The `NodeLocatorService` looks up node locators registered via Spring configuration by name. The service provides a way
 to lookup one node from another. This Spring configuration file defines a base bean that can be used to define new node
 locator implementations. Using this bean will automatically register the node locator with the repository and make it
@@ -1623,6 +1647,7 @@ NodeRef result = serviceRegistry.getNodeLocatorService().getNode(CompanyHomeNode
 ```
 
 ### Custom Node Locator
+
 In the following example we will see how to implement a custom node locator, it will allow a named folder to be found.
 To define the example node locator the following Spring configuration is used (in a custom context file):
 
@@ -1736,6 +1761,7 @@ folder as the node being edited.
 >**Note:** The curly braces are required around the node locator name.
 
 ## PermissionService
+
 Provides an API for managing the node permissions. Permissions specify users and groups that have access to a node.
 Each user and group can be assigned a role.
 
@@ -1768,9 +1794,11 @@ Set `Coordinator` role permissions for a username `john` on a node:
 ```java
 serviceRegistry.getPermissionService().setPermission(nodeRef, "john", PermissionService.COORDINATOR, true);
 ```
+
 See also [Permissions platform extension point]({% link content-services/5.2/develop/repo-ext-points/permissions.md %})
 
 ## PersonService {#personservice}
+
 This service encapsulates the management of people and groups. People and groups may be managed entirely in the
 repository or entirely in some other implementation such as LDAP. Some properties may be in the repository and some in
 another store. Individual properties may or may not be mutable.
@@ -1801,16 +1829,18 @@ if (serviceRegistry.getAuthenticationService().authenticationExists(userName) ==
 ```
 
 ## RenditionService
+
 Provides support for rendering content nodes into other forms, known as renditions. The rendition nodes are derived from
 their source node and as such can be updated automatically when their source node's content (or other properties) are
 changed. Examples of renditions include reformatted content (essentially a transformation from one MIME-type to another),
-rescaled images (including thumbnails), and the output of a Freemarker or XSLT template.
+rescaled images (including thumbnails), and the output of a FreeMarker or XSLT template.
 
 Renditions can be performed synchronously or asynchronously and can be created at a specified location within the
 repository. They are by default created as primary children of their source node, but it is possible to have them
 created at other nodes specified explicitly or as templated paths.
 
 ### Rendering Engines
+
 Rendering engines are responsible for performing the transformation on a source node to create a rendition. Different
 rendering engines will perform different types of transformation. They can be registered with the `RenditionService`
 using a unique name.
@@ -1841,6 +1871,7 @@ Available rendering engines include:
 * Composite rendering engine
 
 ### Sample code
+
 Rendering engines are registered with the `RenditionService` through Spring dependency injection.
 The `rendition-services-context.xml` declares an abstract bean called `baseRenderingAction`, which is the parent bean
 for all rendering engines. `baseRenderingAction` itself is a child bean of the `ActionService`s `action-executer` bean.
@@ -1964,6 +1995,7 @@ See also:
 * [Mimetypes extension point]({% link content-services/5.2/develop/repo-ext-points/mimetypes.md %})
 
 ## RetryingTransactionHelper
+
 A helper that runs a unit of work inside a `UserTransaction`, transparently retrying the unit of work if the cause of
 failure is an optimistic locking or deadlock condition.
 
@@ -1971,6 +2003,7 @@ A description and application of the `RetryingTransactionHelper` can be found in
 section.
 
 ## SearchService {#searchservice}
+
 This encapsulates the execution of search against different indexing mechanisms. Solr provides indexing of metadata and
 the plain text of content. This can be queried using various query languages. The query languages supported include:
 
@@ -2040,6 +2073,7 @@ private NodeRef getNode(String path) {
   }
 }
 ```
+
 Use this method as in the following example:
 
 ```java
@@ -2047,6 +2081,7 @@ NodeRef someNodeRef = getNode("/app:company_home/app:shared/cm:abc/cm:def/cm:My_
 ```
 
 > Note that this can also be achieved with the `NodeLocatorService`:
+>
 > ```java
 > Map<String,Serializable> params = new HashMap<>();
 > params.put("query", "/app:company_home/app:shared/cm:abc/cm:def/cm:My_x0020_Document.txt");
@@ -2110,6 +2145,7 @@ resultSet.close();
 See also [Alfresco FTS reference]({% link search-services/latest/using/index.md %}).
 
 ## SiteService {#siteservice}
+
 The `SiteService` provides an API for managing [Share Sites]({% link content-services/5.2/using/sites/index.md %}).
 
 Creating a site is not possible with the `siteService.createSite` method, it only creates a site at the repository
@@ -2148,6 +2184,7 @@ String description = siteInfo.getDescription();
 SiteVisibility visibility = siteInfo.getVisibility();
 Date created = siteInfo.getCreatedDate();
 ```
+
 Get site information for the Share Site that contains the given `NodeRef`:
 
 ```java
@@ -2156,6 +2193,7 @@ SiteInfo siteInfo = serviceRegistry.getSiteService().getSite(someFolderInSiteNod
 ```
 
 ## TaggingService {#taggingservice}
+
 It is possible to tag (a text label) any content, including folders. This service provides an API for creating, deleting,
 and adding tags, and other tag management methods.
 
@@ -2171,6 +2209,7 @@ List<String> tags = serviceRegistry.getTaggingService().getTags(nodeRef);
 ```
 
 ## TemplateService
+
 Provides an API for executing template engine against a template file and data model. The service provides a configured
 list of available template engines. The template file can either be in the repository (passed as `NodeRef` string) or on
 the classpath. Also a template can be passed directly as a String using the `processTemplateString()` methods.
@@ -2186,6 +2225,7 @@ text = serviceRegistry.getTemplateService().processTemplate("freemarker", templa
 ```
 
 ## TenantService
+
 Provides APIs for the multi-tenancy capability. The service is applicable in both Single Tenancy and Multi Tenancy
 arrangements.
 
@@ -2209,6 +2249,7 @@ StoreRef storeRef = serviceRegistry.getTenantService().getName(new StoreRef(stor
 In a single tenant environment these `getName` operations would have no effect.
 
 ## VersionService
+
 Provides an API for managing file versions (i.e. content of type, or subtype, `cm:content`). Note that folders are not
 versionable.
 
@@ -2305,7 +2346,8 @@ The Spring bean for the `MaxVersionPolicy` class looks like this:
 ```
 
 ## WorkflowService
-Provides an interface to work with built in [workflows and tasks]({% link content-services/5.2/using/tasks.md %}).
+
+Provides an interface to work with built-in [workflows and tasks]({% link content-services/5.2/using/tasks.md %}).
 The [Activiti](https://www.activiti.org/){:target="_blank"} workflow engine is built into Content Services. You can
 create and manage workflows directly from your Dashboard.
 
@@ -2325,6 +2367,6 @@ The default workflows out-of-the-box are:
 * Assign a review task to a single reviewer
 
 An extensive example of using the Workflow API is provided in the
-[Alfresco source code](https://github.com/Alfresco/alfresco-repository/blob/master/src/main/java/org/alfresco/repo/workflow/WorkflowInterpreter.java){:target="_blank"}.
+[Alfresco source code](https://github.com/Alfresco/alfresco-community-repo/blob/master/src/main/java/org/alfresco/repo/workflow/WorkflowInterpreter.java){:target="_blank"}.
 
->**Note.** To build your own custom workflows you need to use [Alfresco Process Services]({% link process-services/latest/index.md %}) 
+>**Note:** To build your own custom workflows you need to use [Alfresco Process Services]({% link process-services/latest/index.md %}).
