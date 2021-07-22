@@ -63,6 +63,8 @@
           path: '/process-services/latest/develop/dev-ext/'
         - title: 'ReST API'
           path: '/process-services/latest/develop/rest-api/'
+
+# Alfresco Process Services 1.11
 - version: 1.11
   pages:
     - title: 'Introduction'
@@ -129,7 +131,7 @@
           path: '/process-services/1.11/develop/rest-api/'
 
 # Alfresco Process Services 1.10
-- version: 1.10
+- version: '1.10'
   pages:
     - title: 'Introduction'
       path: '/process-services/1.10/'
@@ -259,4 +261,3 @@
           path: '/process-services/1.9/develop/dev-ext/'
         - title: 'ReST API'
           path: '/process-services/1.9/develop/rest-api/'
-
