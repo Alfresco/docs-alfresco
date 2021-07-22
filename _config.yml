@@ -397,7 +397,7 @@ defaults:
       versions:
         - 2.0 
         - 1.11
-        - 1.10
+        - "1.10"
         - 1.9
   - scope:
       path: "process-services/latest"
@@ -412,7 +412,7 @@ defaults:
   - scope:
       path: "process-services/1.10"
     values:
-      version: 1.10
+      version: "1.10"
   - scope:
       path: "process-services/1.9"
     values:
