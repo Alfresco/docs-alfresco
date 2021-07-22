@@ -50,7 +50,7 @@ To view the permissions of a folder or file in the Digital Workspace, select the
 
 The type of permissions a user or group has for a file is determined by what role they have.
 
-For more information on roles see [User roles and permissions](https://docs.alfresco.com/content-services/latest/using/permissions/).
+For more information on roles see [User roles and permissions]({% link content-services/latest/using/permissions.md %})
 
 ### Setting permissions
 

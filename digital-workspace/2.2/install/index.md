@@ -5,6 +5,6 @@ There are a number of different ways to deploy Alfresco Digital Workspace. You c
 
 The deployment methods are:
 
-* [Containerized deployment]({% link digital-workspace/latest/install/containerized.md %}). Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
-* [Installing into Tomcat]({% link digital-workspace/latest/install/tomcat.md %})
-* [Installing into a different web server]({% link digital-workspace/latest/install/other-webserver.md %})
+* [Containerized deployment]({% link digital-workspace/2.2/install/containerized.md %}). Due to the limited capabilities of Docker Compose, this deployment method is recommended for development and test environments only.
+* [Installing into Tomcat]({% link digital-workspace/2.2/install/tomcat.md %})
+* [Installing into a different web server]({% link digital-workspace/2.2/install/other-webserver.md %})
