@@ -50,7 +50,7 @@ To view the permissions of a folder or file in the Digital Workspace, select the
 
 The type of permissions a user or group has for a file is determined by what role they have.
 
-For more information on roles see [User roles and permissions]({% link content-services/latest/using/permissions.md %})
+For more information on roles see [User roles and permissions]({% link content-services/latest/using/permissions.md %}).
 
 ### Setting permissions
 
@@ -66,9 +66,3 @@ Setting permissions for folders and files allows you to manage what type of acce
     If you are assigning a role to a group you can select a different role for the administrator of that group than for the rest of the users in the group.
 
 4. (Optional) Use the slider to allow the added users or groups to inherit the permissions from the parent folder.
-
-## Search Configuration
-
-The search filters that are available in the Digital Workspace can be refined and tailored to your specific needs by creating custom search forms. Each form can contain a set of filters that are relevant to a particular task or user group within your organization. You can select the most useful search form from the drop-down list on the search results page. For details on how to create and configure search forms for a more intuitive search experience see [Search Configuration Guide](https://github.com/Alfresco/alfresco-ng2-components/blob/develop/docs/user-guide/search-configuration-guide.md){:target="_blank"}.
-
-![search]({% link digital-workspace/images/search-integration.png %})

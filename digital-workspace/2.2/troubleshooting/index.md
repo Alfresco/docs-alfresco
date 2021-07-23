@@ -9,7 +9,7 @@ Refer to [Cross Origin Resource Sharing (CORS) filters]({% link content-services
 
 ### Can I customize Alfresco Digital Workspace
 
-Yes, there are a number of customizations available that can be configured in ../digital-workspace/app.config.json. See [Configure Digital Workspace]({% link digital-workspace/2.0/config/index.md %}) for more details. The application can also be extended using the ADF Extension framework. See [Extending](https://alfresco-content-app.netlify.com/#/extending/).
+Yes, there are a number of customizations available that can be configured in ../digital-workspace/app.config.json. See [Configure Digital Workspace]({% link digital-workspace/2.2/config/index.md %}) for more details. The application can also be extended using the ADF Extension framework. See [Extending](https://alfresco-content-app.netlify.com/#/extending/).
 
 ### I have installed an extension and Alfresco Digital Workspace does not work
 
@@ -17,7 +17,7 @@ First disable the extension and check Alfresco Digital Workspace works correctly
 
 ### Does Alfresco Digital Workspace work with Alfresco Governance Services
 
-Yes, Alfresco Digital Workspace supports Alfresco Governance Services. See [Governance Services]({% link digital-workspace/2.0/governance/index.md %}).
+Yes, Alfresco Digital Workspace supports Alfresco Governance Services. See [Governance Services]({% link digital-workspace/2.2/governance/index.md %}).
 
 ### Does Alfresco Digital Workspace support Smart Folders
 
