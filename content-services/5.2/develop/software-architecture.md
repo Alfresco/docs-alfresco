@@ -18,10 +18,10 @@ You can read the material in this Developer guide sequentially, or the following
 |You want to write client applications for Alfresco Content Services using a ReST API|[ReST APIs Intro]({% link content-services/5.2/develop/api-reference.md %}#rest-apis)<br>[Alfresco ReST API version 1.0 User Guide]({% link content-services/5.2/develop/rest-api-guide/index.md %}#rest-api)|
 |You are going to build a Platform (Repository) Extension|- [Platform / Repo Extension Intro](#platform-extension-point)<br>- [Platform / Repo Extension Points](#platform-extension-points)|
 |You are going to build a Platform (Repository) Integration|[Developing integrations]({% link content-services/5.2/develop/platform-integrations.md %})|
-|You want to write small extensions for Alfresco Content Services in JavaScript and FreeMarker|- [Repo Web Script Intro]({% link content-services/5.2/develop/reference/web-scripts-ref.md %}#repository-tier-web-scripts)<br>- [Repo Web Script Extension Point]({% link content-services/5.2/develop/api-reference.md %}#web-scripts)<br>- [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)|
-|You want to create a custom ReST API for Alfresco Content Services, using Java and/or JavaScript for logic and FreeMarker to produce responses in JSON and/or XML|- [Repo Web Script Intro]({% link content-services/5.2/develop/reference/web-scripts-ref.md %}#repository-tier-web-scripts)<br>- [Repo Web Script Extension Point]({% link content-services/5.2/develop/api-reference.md %}#web-scripts)<br>- [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)<br>- [Public Java API Services]({% link content-services/5.2/develop/java-api-guide.md %}#public-java-api-services)|
+|You want to write small extensions for Alfresco Content Services in JavaScript and FreeMarker|- [Repo Web Script Intro]({% link content-services/5.2/develop/reference/web-scripts-ref.md %}#repository-tier-web-scripts)<br>- [Repo Web Script Extension Point]({% link content-services/5.2/develop/api-reference.md %}#web-scripts)<br>- [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api)|
+|You want to create a custom ReST API for Alfresco Content Services, using Java and/or JavaScript for logic and FreeMarker to produce responses in JSON and/or XML|- [Repo Web Script Intro]({% link content-services/5.2/develop/reference/web-scripts-ref.md %}#repository-tier-web-scripts)<br>- [Repo Web Script Extension Point]({% link content-services/5.2/develop/api-reference.md %}#web-scripts)<br>- [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api)<br>- [Public Java API Services]({% link content-services/5.2/develop/reference/java-foundation-ref.md %})|
 |You would like to know what APIs are available for Alfresco Content Services, and when you should use them|[Overview of Alfresco APIs]({% link content-services/5.2/develop/rest-api-guide/index.md %}#api-guide)|
-|You want to write new services in Java, and need to check what APIs are supported|- [Alfresco Public Java API Intro]({% link content-services/5.2/develop/api-reference.md %}#java-api)<br>- [Public Java API Services]({% link content-services/5.2/develop/java-api-guide.md %}#public-java-api-services)|
+|You want to write new services in Java, and need to check what APIs are supported|- [Alfresco Public Java API Intro]({% link content-services/5.2/develop/api-reference.md %}#java-api)<br>- [Public Java API Services]({% link content-services/5.2/develop/reference/java-foundation-ref.md %})|
 |You want to configure and customize Alfresco Share|[Share Extensions](#share-extensions)|
 |You would like to develop extensions to Alfresco Share UI|- [Developing Share Extensions](#share-extensions)<br>- [Share Extension Points]({% link content-services/5.2/develop/share-ext-points/index.md %})|
 |You would like to know about the new UI framework Aikau|[Aikau]({% link content-services/5.2/develop/reference/aikau-intro-ref.md %}#introducing-aikau)|
@@ -57,7 +57,7 @@ For more information about the internals of the Platform, and specifically the c
 
 Besides Share there are also many other clients that can connect to the repository, including any CMIS-compatible client, and via the Microsoft SharePoint protocol any SharePoint client.
 
-The Platform also contains numerous [APIs]({% link content-services/5.2/develop/rest-api-guide/index.md %}#api-guide), [Services]({% link content-services/5.2/develop/java-api-guide.md %}#public-java-api-services), and [Protocols](#access-protocols).
+The Platform also contains numerous [APIs]({% link content-services/5.2/develop/rest-api-guide/index.md %}#api-guide), [Services]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}), and [Protocols](#access-protocols).
 
 The following diagram illustrates this extended architecture:
 
@@ -72,7 +72,7 @@ Alfresco provides a number of extension points to allow you to customize it. The
 -   [Platform integration points and detailed architecture]({% link content-services/5.2/develop/platform-integrations.md %})
 -   [APIs]({% link content-services/5.2/develop/rest-api-guide/index.md %}#api-guide)
 -   [Protocols](#access-protocols)
--   [Services]({% link content-services/5.2/develop/java-api-guide.md %}#public-java-api-services)
+-   [Services]({% link content-services/5.2/develop/reference/java-foundation-ref.md %})
 
 The links in the list above provide further information on each of these topics.
 
@@ -306,7 +306,7 @@ The Embedded API is used for developing extensions to the application server. Ex
 The Embedded API comes in several forms, where each form is structured for a particular need or kind of extension:
 
 -   [Alfresco Public Java API]({% link content-services/5.2/develop/api-reference.md %}#java-api) - a set of public Java interfaces exposed by services built into the content application server
--   JavaScript API - an object-oriented view of the Java Foundation API specifically tailored for use in JavaScript. There is a [JavaScript API for the repository tier]({% link content-services/5.2/develop/api-reference.md %}#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api) and a [JavaScript API for the Share tier]({% link content-services/5.2/develop/api-reference.md %}#spring-surf-api).
+-   JavaScript API - an object-oriented view of the Java Foundation API specifically tailored for use in JavaScript. There is a [JavaScript API for the repository tier]({% link content-services/5.2/develop/api-reference.md %}#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and a [JavaScript API for the Share tier]({% link content-services/5.2/develop/api-reference.md %}#spring-surf-api).
 -   [FreeMarker API]({% link content-services/5.2/develop/api-reference.md %}#freemarker-api) - an object-oriented view of the Java Foundation API specifically tailored for use in FreeMarker templates
 -   Content Definition - an API for creating and editing content models
 -   Workflow Definition - an API for defining business processes

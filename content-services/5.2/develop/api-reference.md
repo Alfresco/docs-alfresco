@@ -10,9 +10,9 @@ This information includes API reference guides. For more descriptive material, i
 
 -   **[ReST APIs](#rest-apis)**  
 The ReST APIs lets you access content in an on-premises repository from your own applications. The APIs are ReSTful, which means each call is an HTTP request, so you don't even need a programming language to try it out. You can just type a URL address in a web browser. There are two types of ReST APIs, the Alfresco ReST API and the standard CMIS ReST API.
--   **[Java API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)**  
+-   **[Java API]({% link content-services/5.2/develop/reference/java-foundation-ref.md %})**  
 When you need to create new services in Alfresco Content Services, or develop applications or customizations that cannot be implemented at the web script level, it is necessary to write those extensions in Java. Alfresco Content Services provides Java-level APIs, which are documented through the JavaDoc system.
--   **[JavaScript API](#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)**  
+-   **[JavaScript API](#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api)**  
 The Repository JavaScript API lets you develop JavaScript (ECMAScript) 1.6 compatible files to access, modify, and create repository objects such as nodes, aspects, and properties.
 -   **[Search API](#search-api)**  
 The Search API provides access to the search features of Alfresco Content Services.
@@ -462,7 +462,7 @@ The Public Java API provides access to Alfresco Content Services through a numbe
 
 The following table summarizes the main services available to the developer. These services are available via the [service registry](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/ServiceRegistry.html).
 
-> **Important:** There is a wealth of additional information to be found in the [Public Java API access and transaction management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api). This documentation also shows you how to obtain the service registry.
+> **Important:** There is a wealth of additional information to be found in the [Public Java API access and transaction management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}). This documentation also shows you how to obtain the service registry.
 
 |Service|Description|Support Status|
 |-------|-----------|--------------|
@@ -626,7 +626,7 @@ public void sendEmailWithDoc(String to, String subject, String bodyText, NodeRef
 
 |
 |More Information|-   [Actions platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/repo-actions.md %}).
--   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 |Tutorials|[Jeff Potts Custom Action tutorial](http://ecmarchitect.com/alfresco-developer-series-tutorials/actions/tutorial/tutorial.html)|
@@ -743,7 +743,7 @@ Notice how when you set the attribute value the value is the first parameter of 
 | |
 |More Information|-   [Tech Talk Live video](https://www.youtube.com/watch?v=obQ_89MFtRs)
 -   [AttributeService Primer video](https://vimeo.com/67580571)
--   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -908,7 +908,7 @@ NodeRef person = personService.getPerson(authService.getCurrentUserName());
 |
 |More Information|-   [Authentication service documentation]({% link content-services/5.2/admin/security.md %}#authentication-service)
 -   [AuthorityService JavaScript API documentation](#authority-service)
--   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -962,7 +962,7 @@ The service that encapsulates authorities granted to users. This service will re
 |
 |More Information|-   [Authentication service documentation]({% link content-services/5.2/admin/security.md %}#authentication-service)
 -   [AuthorityService JavaScript API documentation](#authority-service)
--   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -1008,7 +1008,7 @@ NodeRef newCategory = categoryService.createCategory(newRootCat, "newCategory");
 |
 |More Information|-   [Tagging and Categorizing Content]({% link content-services/5.2/using/content/manage.md %}#tagging-and-categorizing-content)
 -   [Category Manager documentation]({% link content-services/5.2/admin/share-admin-tools.md %}#category-manager)
--   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -1047,7 +1047,7 @@ NodeRef checkedOutCopy = checkOutCheckInService.checkout(nodeRef);
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -1155,7 +1155,7 @@ private NodeRef createContentNode(NodeRef parent, String name, String text)
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -1371,7 +1371,7 @@ public class CopyActionExecuter extends ActionExecuterAbstractBase
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -1431,7 +1431,7 @@ This service represents the Repository Data Dictionary. The dictionary provides 
 
 |
 |More Information|-   [Content Model Extension Point]({% link content-services/5.2/develop/repo-ext-points/content-model.md %})
--   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -1624,7 +1624,7 @@ If we now run the Web Script again, when the folder and file exist, the followin
 *Message: 'Your 'FileFolderServiceTestWebScript' Web Script was called and there was a problem creating a folder: 00270021 File or folder Some Folder already exists'*
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -1647,7 +1647,7 @@ This service ensures that a scheduled job can only run on one node of a cluster 
 |Java API|[Java API documentation](http://dev.alfresco.com/resource/AlfrescoOne/5.1/PublicAPI/org/alfresco/repo/lock/JobLockService.html)|
 |Java example|For an example of using the `JobLockService` see the [Content Store Cleaner code](https://github.com/Alfresco/alfresco-repository/blob/master/src/main/java/org/alfresco/repo/content/cleanup/ContentStoreCleaner.java) on GitHub.|
 |More Information|-   [Scheduled Jobs extension point documentation]({% link content-services/5.2/develop/repo-ext-points/scheduled-jobs.md %}#scheduled-jobs-definitions)
--   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -1695,7 +1695,7 @@ public static Boolean isNodeLocked(Node node,LockService lockService){
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -1878,7 +1878,7 @@ If we call it with the other locale (sv) the response looks like this ([http://l
 *Translation of alfresco.tutorial.hello: Hej*
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -1909,7 +1909,7 @@ contentWriter.putContent(field.getInputStream());
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 -   [Mimetype platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/mimetypes.md %})
 
 |
@@ -1950,7 +1950,7 @@ for (ModuleDetails module : modules)
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -2026,7 +2026,7 @@ QName aQName = QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, QName.c
  This code would result in `aQName` being set to `{http://www.alfresco.org/model/content/1.0}aName`.
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -2198,7 +2198,7 @@ nodeService.deleteNode(nodeRef);
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 -   [Custom Content Store platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/content-stores.md %}#content-stores)
 
 |
@@ -2415,7 +2415,7 @@ http://localhost:8080/alfresco/api/workspace/SpacesStore/28740556-129a-4ae8-b6c8
 |
 |Java API|[Java API documentation](http://dev.alfresco.com/resource/AlfrescoOne/5.1/PublicAPI/org/alfresco/repo/nodelocator/NodeLocatorService.html)|
 |Java example|See Description for example.|
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -2457,7 +2457,7 @@ permissionService.setPermission(nodeRef, "NameOfUser...", PermissionService.COOR
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 -   [Permissions platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/permissions.md %})
 
 |
@@ -2508,7 +2508,7 @@ if (authenticationService.authenticationExists(userName) == false)
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -2728,7 +2728,7 @@ renditionDef.setExecuteAsynchronously(true);
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 -   [Mimetypes platform extension documentation]({% link content-services/5.2/develop/repo-ext-points/mimetypes.md %})
 
 |
@@ -2741,15 +2741,15 @@ A helper that runs a unit of work inside a UserTransaction, transparently retryi
 |-----------|-------------------------|
 |Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
 |Architecture Information|[Platform Architecture]({% link content-services/5.2/develop/software-architecture.md %}#platform-architecture)|
-|Description|A description and application of the RetryingTransactionHelper can be found [Repository Java API]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).|
+|Description|A description and application of the RetryingTransactionHelper can be found [Repository Java API]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).|
 |Deployment - App Server|It is not likely that you will deploy Java extensions directly into a Tomcat application server as classes and Spring context files. Use an SDK build project instead.|
 |[Deployment All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3).|-   Java source code: aio/platform-jar/src/main/java/{domain specific package path}
 -   Spring beans: aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml
 
 |
 |Java API|[Java API Documentation](http://dev.alfresco.com/resource/AlfrescoOne/5.1/PublicAPI/org/alfresco/repo/transaction/RetryingTransactionHelper.html)|
-|Java example|See [Repository Java API]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).|
-|More Information|See [Repository Java API]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).|
+|Java example|See [Repository Java API]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).|
+|More Information|See [Repository Java API]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).|
 
 ## SearchService {#searchservice}
 
@@ -2906,7 +2906,7 @@ results = searcher.query(rootNodeRef.getStoreRef(), "lucene", "+PARENT:\"" + roo
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -2937,7 +2937,7 @@ String siteGroup = siteService.getSiteGroup(siteShortName);
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -2967,7 +2967,7 @@ List<String> tags = taggingService.getTags(nodeRef);
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -2999,7 +2999,7 @@ text = templateService.processTemplate("freemarker", templateRef.toString(), mod
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 -   [Template Reference Guide](#freemarker-api)
 
 |
@@ -3034,7 +3034,7 @@ StoreRef storeRef = serviceRegistry.getTenantService().getName(new StoreRef(stor
  In a single tenant environment these `getName` operations would have no effect.
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -3159,7 +3159,7 @@ public class MaxVersionPolicy implements VersionServicePolicies.AfterCreateVersi
 ```
 
 |
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 
 |
 
@@ -3192,7 +3192,7 @@ Provides a client-facing API for interacting with workflows and tasks.
 |
 |Java API|[Java API Documentation](http://dev.alfresco.com/resource/AlfrescoOne/5.1/PublicAPI/org/alfresco/service/cmr/workflow/WorkflowService.html)|
 |Java example|An extensive example of using the Workflow API is provided in the code ./projects/repository/source/java/org/alfresco/repo/workflow/WorkflowInterpreter.java.|
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).
 -   [Workflow platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/index.md %}#workflow)
 -   [Creating and managing workflows]({% link content-services/5.2/admin/workflows.md %})
 
@@ -20171,7 +20171,7 @@ Although [FreeMarker](http://freemarker.sourceforge.net/docs/index.html) provide
 This information contains details of useful API references.
 
 -   [Overview of APIs]({% link content-services/5.2/develop/rest-api-guide/index.md %}#api-guide)
--   [JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/java-api-guide.md %}#java-api)
+-   [JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api)
 -   [RESTful API](#rest-apis)
 -   [FreeMarker API](#freemarker-api)
 -   [Surf API]({% link content-services/5.2/develop/api-reference.md %}#spring-surf-api)
