@@ -75,6 +75,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 1.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty. |
 | Alfresco Search Services 1.4 | |
 | Alfresco Search Services 1.3.0.5 | |
+| Alfresco Federation Services 2.0 | |
+| Alfresco Federation Services 1.1 | |
 | Alfresco Federation Services 1.0 | |
 | Identity Service 1.3 | Content Services 6.1.1 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.2 | Content Services 6.1.1 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
@@ -176,6 +178,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search and Insight Engine 1.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. Nb. Java 11.0.9.1 and other four part Java versions are not currently compatible due to a bug in Jetty. |
 | Alfresco Search Services 1.4 | |
 | Alfresco Search Services 1.3.0.5 | |
+| Alfresco Federation Services 2.0 | |
+| Alfresco Federation Services 1.1 | |
 | Alfresco Federation Services 1.0 | |
 | Identity Service 1.1 | Content Services 6.1.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
 | Identity Service 1.0 | Content Services 6.1.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
