@@ -12,7 +12,7 @@ This information includes API reference guides. For more descriptive material, i
 The ReST APIs lets you access content in an on-premises repository from your own applications. The APIs are ReSTful, which means each call is an HTTP request, so you don't even need a programming language to try it out. You can just type a URL address in a web browser. There are two types of ReST APIs, the Alfresco ReST API and the standard CMIS ReST API.
 -   **[Java API]({% link content-services/5.2/develop/reference/java-foundation-ref.md %})**  
 When you need to create new services in Alfresco Content Services, or develop applications or customizations that cannot be implemented at the web script level, it is necessary to write those extensions in Java. Alfresco Content Services provides Java-level APIs, which are documented through the JavaDoc system.
--   **[JavaScript API](#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#javascript-apijava-api)**  
+-   **[JavaScript API](#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api)**  
 The Repository JavaScript API lets you develop JavaScript (ECMAScript) 1.6 compatible files to access, modify, and create repository objects such as nodes, aspects, and properties.
 -   **[Search API](#search-api)**  
 The Search API provides access to the search features of Alfresco Content Services.
@@ -20171,7 +20171,7 @@ Although [FreeMarker](http://freemarker.sourceforge.net/docs/index.html) provide
 This information contains details of useful API references.
 
 -   [Overview of APIs]({% link content-services/5.2/develop/rest-api-guide/index.md %}#api-guide)
--   [JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#javascript-apijava-api)
+-   [JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api) and the [Repository JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#java-api)
 -   [RESTful API](#rest-apis)
 -   [FreeMarker API](#freemarker-api)
 -   [Surf API]({% link content-services/5.2/develop/api-reference.md %}#spring-surf-api)
