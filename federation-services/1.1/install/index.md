@@ -6,7 +6,7 @@ The Federation Services capability for Alfresco Content Services is delivered in
 
 ## Prerequisites
 
-Check the [supported platforms]({% link federation-services/latest/support/index.md %}) for information on what you require before you start the installation.
+Check the [supported platforms]({% link federation-services/1.1/support/index.md %}) for information on what you require before you start the installation.
 
 > **Note**: A compatible version of Alfresco Governance Services (if you plan to use the Manage in Place capabilities) is required, for example: if using Alfresco Content Services 6.2, make sure that you install Alfresco Governance Services 3.2 or above.
 
@@ -34,10 +34,10 @@ These steps describe how to install Federation Services to an instance of Alfres
     This should include the following:
 
     * `federation.war`: Simflofy Admin application
-    * `t-search-3.0.0.6.war`: Federated search application
-    * `transparent-content-services-platform-3.0.0.6.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to the Alfresco Content Services repository)
-    * `transparent-content-services-share-3.0.0.6.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to Alfresco Share)
+    * `t-search-2.7.8.war`: Federated search application
+    * `transparent-content-services-platform-2.7.8-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to the Alfresco Content Services repository)
+    * `transparent-content-services-share-2.7.8-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to Alfresco Share)
 
 2. Follow the steps in the Simflofy documentation, [Installing Simflofy Admin](https://simflofy.helpdocsonline.com/iandc/install){:target="_blank"}.
 
-3. After completing all the installation steps, you'll need to access the Admin app through your preferred browser to [configure]({% link federation-services/latest/config/index.md %}) your installation.
+3. After completing all the installation steps, you'll need to access the Admin app through your preferred browser to [configure]({% link federation-services/1.1/config/index.md %}) your installation.

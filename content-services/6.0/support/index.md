@@ -72,6 +72,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Services 1.3.0.5 | |
 | Alfresco Search Services 1.2 | |
 | Alfresco Search Services 1.1 | |
+| Alfresco Federation Services 2.0 | |
+| Alfresco Federation Services 1.1 | |
 | Alfresco Federation Services 1.0 | |
 | SAML Module for Alfresco Content Services 1.1 | |
 | Alfresco Content Connector for AWS S3 2.3 | |
@@ -164,6 +166,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Search Services 1.4 | |
 | Alfresco Search Services 1.2 | |
 | Alfresco Search Services 1.1 | |
+| Alfresco Federation Services 2.0 | |
+| Alfresco Federation Services 1.1 | |
 | Alfresco Federation Services 1.0 | |
 | SAML Module for Alfresco Content Services 1.1 | |
 | Alfresco Content Connector for AWS S3 2.3 | |

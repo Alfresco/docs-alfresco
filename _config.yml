@@ -722,13 +722,18 @@ defaults:
       toc: "federation-services"
       support: true
       versions:
+        - 2.0
         - 1.1
         - 1.0
   - scope:
       path: "federation-services/latest"
     values:
-      version: 1.1
+      version: 2.0
       latest: true
+  - scope:
+      path: "federation-services/1.1"
+    values:
+      version: 1.1
   - scope:
       path: "federation-services/1.0"
     values:
