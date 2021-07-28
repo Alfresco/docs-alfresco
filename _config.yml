@@ -413,7 +413,6 @@ defaults:
       path: "process-services/1.11"
     values:
       version: 1.11
-      latest: true
   - scope:
       path: "process-services/1.10"
     values:
