@@ -8,6 +8,8 @@ The standalone Document Transformation Engine runs on Microsoft Windows and prov
 
 There are a number of important notes to consider when installing the Document Transformation Engine in addition to the [supported platforms]({% link transformation-engine/latest/support/index.md %}).
 
+* The Document Transformation Engine requires an installation of [Alfresco Transform Service]({% link https://docs.alfresco.com/transform-service/latest/}).
+
 * The standalone Document Transformation Engine requires the software components to be installed and available on the same machine.
 
 * Only install the English versions of Microsoft Windows Server 2012 R2, and Microsoft Office because other languages cause encoding issues resulting in unpredictable behavior.
