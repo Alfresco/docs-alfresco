@@ -49,6 +49,12 @@ In previous versions the installation files were contained within a `.zip` file.
 
 > **Note:** Each time a file is transformed in Alfresco Content Services, the `.NET` program starts and Microsoft Office tries to check for a Certificate Revocation List (CRL). Depending on the access that the Document Transformation Engine has to the Internet when transforming a file, this check can delay the operation for up to two minutes, and will therefore, delay transformation of the file. To prevent this, use the Windows server firewall to block internet access for all office binaries.
 
+11. Add the following property to alfresco-global.properties:
+
+```bash
+localTransform.transform-dte.url=http:<dte hostname>:8080/transform-dte
+```
+
 <!-- (Will be commented back in once 2.4 is released)
 
 ## Install the Alfresco Transformation client into Alfresco Content Services
