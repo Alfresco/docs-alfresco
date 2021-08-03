@@ -58,7 +58,7 @@ To set the realm file during deployment:
        set alfresco-infrastructure.activemq.enabled=false
        set alfresco-infrastructure.nginx-ingress.enabled=true
        set alfresco-infrastructure.alfresco-identity-service.enabled=true
-       set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json"
+       --set alfresco-identity-service.keycloak.keycloak.extraArgs="-Dkeycloak.import=/realm/realm.json"
        --namespace $DESIREDNAMESPACE
     ```
 

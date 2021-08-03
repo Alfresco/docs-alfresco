@@ -44,7 +44,7 @@ The Identity Service can be deployed into a new or existing Kubernetes cluster.
 4. (*Optional*) To set the `redirectUri` property during deployment add the following line to the deployment command setting the `{DNSNAME}`:
 
     ```bash
-    set alfresco-identity-service.realm.alfresco.client.redirectUris="{$DNSNAME}"
+    --set alfresco-identity-service.realm.alfresco.client.redirectUris="{$DNSNAME}"
     ```
 
     > **Note:** To include multiple `redirectUri` use comma separated values without any whitespace between the DNS names.
@@ -52,13 +52,13 @@ The Identity Service can be deployed into a new or existing Kubernetes cluster.
 5. (*Optional*) To set the `webOrigins` property during deployment add the following line to the deployment command setting the `{DNSNAME}`:
 
     ```bash
-    set alfresco-identity-service.realm.alfresco.client.webOrigins="{$DNSNAME1,$DNSNAME2,$DNSNAME3}"
+    --set alfresco-identity-service.realm.alfresco.client.webOrigins="{$DNSNAME1,$DNSNAME2,$DNSNAME3}"
     ```
 
 6. (*Optional*) To set the number of replicas during deployment add the following line to the deployment command using the required number of replicas:
 
     ```bash
-    set alfresco-identity-service.keycloak.keycloak.replicas=3
+    --set alfresco-identity-service.keycloak.keycloak.replicas=3
     ```
 
 7. Navigate to `http://localhost:8080/auth` once all pods have started.
