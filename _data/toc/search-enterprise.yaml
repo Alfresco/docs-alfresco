@@ -1,0 +1,13 @@
+# Search Enterprise
+- version: 3.0
+  pages:
+    - title: 'Introduction'
+      path: '/search-services/latest/'
+    - title: 'Install'
+      path: '/search-services/latest/install/'
+    - title: 'Configure'
+      path: '/search-services/latest/config/'
+    - title: 'Administer'
+      path: '/search-services/latest/admin/'
+    - title: 'Using'
+      path: '/search-services/latest/using/'	  
