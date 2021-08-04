@@ -6,45 +6,30 @@ Use the following information to upgrade the Identity Service from version 1.4 t
 
 > **Important:** Upgrading the Identity Service requires downtime and should be performed in a test environment before being attempted in a production environment.
 
-* [Upgrade a Kubernetes deployment](#upgrade-a-kubernetes-deployment)  
+* [Upgrade from version 1.2](#upgrade-from-version-1.2)
+* [Remove **_SmallRye_* references](#Remove-**_SmallRye_**-references)
 * [Upgrade a ZIP distribution installation](#upgrade-a-zip-distribution-installation)  
+* [Upgrade a Kubernetes deployment](#upgrade-a-kubernetes-deployment)  
 
-## Upgrade a Kubernetes deployment
+## Upgrade from version 1.2
 
-Use the following steps as a reference to upgrade a Kubernetes deployment:
+If you are currently using the Identity Service 1.2 you must first modify the **_First Broker Login_** authentication before upgrading to version 1.5.
 
-Normally the infrastructure chart that contains the Identity Service will be deployed as part 
-of another product chart such as Alfresco Content Services or Alfresco Process Services. 
+1. Log into the admin console and select the **Alfresco** realm.
 
-As an example, the following upgrade steps reference the infrastructure chart on its own:
+2. From the left menu, click **Authentication** to open the authentication config page.
 
-1. Manage any open sessions in the Identity Service by signing in as an administrator and using the **Manage > Sessions** option.
+3. Select **First Broker Login** from the dropdown menu.
 
-2. Delete the data/tx-object-store/ directory.
+4. Make sure the **Create User If Unique(create unique user config)** flow is set to **ALTERNATIVE**.
 
-3. Create a back up of any customizations such as themes or configurations.
+![First Broker Login page](docs/resource/images/first-broker-login.png)
 
-4. Back up the database used by the Identity Service.
+5. You can now perform the upgrade in the [General upgrade procedure](#General-upgrade-procedure) section
 
-5. Locate the previously deployed infrastructure chart in Kubernetes and set it as a variable:
+## Remove **_SmallRye_** references
 
-    ```bash
-    export RELEASENAME=knobby-wolf
-    ```
-
-6. Use the `helm upgrade` command to upgrade the infrastructure chart to a release that contains version 1.5 of the Identity Service:
-
-    ```bash
-    helm upgrade $RELEASENAME alfresco-stable/alfresco-infrastructure --version 5.2.0
-    ```
-
-7. Wait for the new pods to start up before accessing the new version of the Identity Service.
-
-8. (*Optional*) Use the following command to rollback to the previous version if required:
-
-    ```bash
-    helm rollback --force --recreate-pods --cleanup-on-fail $RELEASENAME 1
-    ```
+Since Keycloak 13.0.0, the modules called **_SmallRye_** have been removed from the [WildFly](#https://www.wildfly.org/) application, and the server will not start if the configuration references them. This means you must manually remove all the lines that refer to the **_SmallRye_** modules in the **_standalone.xml_** file. For more information see [Migrating to 13.0.0](https://www.keycloak.org/docs/latest/upgrading/#migrating-to-13-0-0){:target="_blank"}.
 
 ## Upgrade a ZIP distribution installation
 
@@ -95,64 +80,9 @@ Use the following steps to upgrade a manual ZIP installation:
     alfresco-identity-service-1.5.0.\bin\standalone.ps1 -b <IP_ADDRESS>
     ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-**_NOTE:_** The upgrade of the Alfresco Identity Management Service requires downtime.
-This means that no user will be able to connect to any of the Digital Business Platform components while the upgrade or rollback is being done.
-
-### Migrating to Identity Service 1.5.0
-**Manual migration step needed**
-
-Since Keycloak 13.0.0, the **_SmallRye_** modules have been removed from the underlying WildFly distribution, and the server will not start if the configuration references them. Therefore, to perform server configuration migration, you have to manually remove all the lines that refer to _SmallRye_ modules.
-
-See Keycloak [documentation](https://www.keycloak.org/docs/latest/upgrading/#migrating-to-13-0-0) for what lines to remove from the **_standalone.xml_** file.
-
-
-### Note: Upgrading from Identity Service 1.2 to a later versions
-Prior to upgrading Identity Service 1.2 to a later version, make sure to first modify the **_First Broker Login_** authentication configuration as follows:
-
-1. Logging into the admin console and select **Alfresco** realm
-
-2. From the left menu, click **Authentication** to open the authentication config page
-
-3. Select **First Broker Login** from the dropdown menu
-
-4. Make sure the **Create User If Unique(create unique user config)** flow is set to **ALTERNATIVE**
-
-![First Broker Login page](docs/resource/images/first-broker-login.png)
-
-5. Follow the steps in the [General upgrade procedure](#General-upgrade-procedure) section
-
-
 ### General upgrade procedure
 
-For upgrading Alfresco Identity Management Service, follow Keycloak's [upgrade procedure](https://www.keycloak.org/docs/latest/upgrading/).
+For upgrading Alfresco Identity Service, follow Keycloak's [upgrade procedure](https://www.keycloak.org/docs/latest/upgrading/).
 
 However, depending on the environment you are using you should follow these high-level steps:
 
@@ -164,11 +94,11 @@ However, depending on the environment you are using you should follow these high
 
 4. Upgrade Keycloak [server](https://www.keycloak.org/docs/latest/upgrading/#_install_new_version).
 
-   - Testing the upgrade in a non-production environment first, to prevent any installation issues from being exposed in production, is a best practice.
+   * Testing the upgrade in a non-production environment first, to prevent any installation issues from being exposed in production, is a best practice.
 
-   - Be aware that after the upgrade the database will no longer be compatible with the old server
+   * Be aware that after the upgrade the database will no longer be compatible with the old server
 
-   - Ensure the upgraded server is functional before upgrading adapters in production.
+   * Ensure the upgraded server is functional before upgrading adapters in production.
 
 5. If you need to revert the upgrade, first restore the old installation, and then restore the database from the backup copy.
 
@@ -178,32 +108,31 @@ However, depending on the environment you are using you should follow these high
 
 The upgrade should be seamless.
 
-
 #### Upgrade to chart >=3.0.0
 
 1. Identify your chart release name and namespace and save them into variables.
 
-```bash
-export RELEASENAME=<Your-Release-Name>
-export RELEASENAMESPACE=<Your-Release-Namespace>
-```
+    ```bash
+    export RELEASENAME=<Your-Release-Name>
+    export RELEASENAMESPACE=<Your-Release-Namespace>
+    ```
 
 2. Delete the postgresql StatefulSets.
 
-```bash
-kubectl delete statefulsets.apps $RELEASENAME-postgresql-id --cascade=false --namespace $RELEASENAMESPACE
-```
+    ```bash
+    kubectl delete statefulsets.apps $RELEASENAME-postgresql-id --cascade=false --namespace $RELEASENAMESPACE
+    ```
 
 3. Upgrade Identity Service.
 
-```bash
-helm upgrade $RELEASENAME alfresco-stable/alfresco-identity-service --version=3.0.0 --namespace $RELEASENAMESPACE
-```
+    ```bash
+    helm upgrade $RELEASENAME alfresco-stable/alfresco-identity-service --version=3.0.0 --namespace $RELEASENAMESPACE
+    ```
 
 4. Delete the postgresql pod.
 
-```bash
-kubectl delete pod $RELEASENAME-postgresql-id-0 --namespace $RELEASENAMESPACE
-```
+    ```bash
+    kubectl delete pod $RELEASENAME-postgresql-id-0 --namespace $RELEASENAMESPACE
+    ```
 
 The Identity Service should be back up in a few minutes.
