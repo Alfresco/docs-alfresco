@@ -25,7 +25,7 @@ If you are currently using the Identity Service 1.2 you must first modify the **
 
 ![First Broker Login page](docs/resource/images/first-broker-login.png)
 
-5. You can now perform the upgrade in the [General upgrade procedure](#General-upgrade-procedure) section
+**Result:** You can now upgrade directly to version 1.5.
 
 ## Remove **_SmallRye_** references
 
