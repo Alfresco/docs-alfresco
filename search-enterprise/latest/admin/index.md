@@ -92,7 +92,7 @@ java -jar target/alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
   --alfresco.reindex.fromId=1 \
   --alfresco.reindex.toId=10000 \
   --alfresco.reindex.concurrentProcessors=2
-```
+`````
 
 ### Date Range
 
