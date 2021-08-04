@@ -2,12 +2,12 @@
 - version: 3.0
   pages:
     - title: 'Introduction'
-      path: '/search-services/latest/'
+      path: '/search-enterprise/latest/'
     - title: 'Install'
-      path: '/search-services/latest/install/'
+      path: '/search-enterprise/latest/install/'
     - title: 'Configure'
-      path: '/search-services/latest/config/'
+      path: '/search-enterprise/latest/config/'
     - title: 'Administer'
-      path: '/search-services/latest/admin/'
+      path: '/search-enterprise/latest/admin/'
     - title: 'Using'
-      path: '/search-services/latest/using/'	  
+      path: '/search-enterprise/latest/using/'	  
