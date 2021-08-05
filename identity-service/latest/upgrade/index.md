@@ -15,13 +15,13 @@ Use the following information to upgrade the Identity Service from version 1.4 t
 
 If you are currently using the Identity Service 1.2 you must first modify the **_First Broker Login_** authentication before upgrading to version 1.5.
 
-1. Log into the admin console and select the **Alfresco** realm.
+1. Log into the administration console and select the **Alfresco** realm.
 
-2. From the left menu, click **Authentication** to open the authentication config page.
+2. Select **Authentication** from the menu on the left to open the authentication configuration page.
 
 3. Select **First Broker Login** from the dropdown menu.
 
-4. Make sure the **Create User If Unique(create unique user config)** flow is set to **ALTERNATIVE**.
+4. Ensure **Create User If Unique (create unique user config)** flow is set to **ALTERNATIVE**.
 
 ![First Broker Login page](docs/resource/images/first-broker-login.png)
 
