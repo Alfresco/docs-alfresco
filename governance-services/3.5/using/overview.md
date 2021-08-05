@@ -43,6 +43,6 @@ until it is eventually transferred elsewhere, or destroyed, according to its ret
 
 If you're new to Alfresco then take a look at [Using Alfresco]({% link content-services/latest/using/index.md %}) to help you get started.
 
-For more details on setting up and administering Governance Services see [Administering Records Management]({% link governance-services/latest/admin/index.md %}).
+For more details on setting up and administering Governance Services see [Administering Records Management]({% link governance-services/3.5/admin/index.md %}).
 
->**Note:** It's recommended that you use the File Plan for Governance Services actions rather than going through the repository.
+> **Note:** It's recommended that you use the File Plan for Governance Services actions rather than going through the repository.

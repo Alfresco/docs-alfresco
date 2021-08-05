@@ -18,7 +18,7 @@ The MMT is a command line tool. The syntax for uninstalling an AMP file using MM
 $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
 ```
 
->**Note:** The `apply_amps` command does not uninstall AMP files (even if you remove the AMP files manually from the amps and amps_share directories). Use `apply_amps` to install AMP files only.
+> **Note:** The `apply_amps` command does not uninstall AMP files (even if you remove the AMP files manually from the amps and amps_share directories). Use `apply_amps` to install AMP files only.
 
 1. Change into the root of the Alfresco installation directory.
 
@@ -33,12 +33,12 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
     ```bash
     Module 'org_alfresco_module_rm' installed in 'webapps/alfresco'
        -    Title:        AGS Repo
-       -    Version:      3.5.0
+       -    Version:      3.5
        -    Install Date: null
        -    Description:   Alfresco Governance Services Repository Extension
     Module 'alfresco-rm-enterprise-repo' installed in 'webapps/alfresco'
        -    Title:        AGS Enterprise Repo
-       -    Version:      3.5.0
+       -    Version:      3.5
        -    Install Date: Tue Jul 07 08:50:15 UTC 2020
        -    Description:   Alfresco Governance Services Enterprise Repository Extension    
    ```
@@ -91,4 +91,3 @@ $ java -jar bin\alfresco-mmt.jar uninstall <ModuleId> <WARFileLocation>
     Deleting these directories forces Tomcat to read the edited WAR files when Alfresco is restarted.
 
 7. Restart Alfresco to see your changes.
-

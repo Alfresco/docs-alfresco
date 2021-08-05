@@ -15,7 +15,7 @@ recommended for development and test environments only.
 * Access to [Quay](http://www.quay.io)
     * Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/). These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
->**Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file.
+> **Note:** Make sure that the following ports are free on your computer: 5432, 8080, 8082, 8083. These ports are set in the `docker-compose.yml` file.
 
 ## Installation steps
 
@@ -26,7 +26,7 @@ recommended for development and test environments only.
 3. Edit the file and change the following two services:
 
     Add a `#` prefix to the Alfresco Content Repository and Alfresco Share Docker image locations so they are commented out, 
-    and add the Alfresco Governance image locations, change 3.4.x to latest 3.5 version:
+    and add the Alfresco Governance image locations, change 3.4.x to 3.5.x version:
 
     ```text
     services:
@@ -89,10 +89,10 @@ recommended for development and test environments only.
     * Try allocating more memory resources, as advised in `docker-compose.yml`. For example, in Docker, change the memory setting in **Preferences** (or **Settings**) > **Advanced** > **Memory**, to at least 6 GB. Make sure you restart Docker and wait for the process to finish before continuing.
     * Go back and retry the deployment.
     
-    >**Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
+    > **Note:** Although 16 GB is the required minimum memory setting, keep in mind that 6 GB is much lower than the required minimum, and may need to be adapted for your environment.
 
 8. Open your browser and check everything starts up correctly:
 
     * Share: `http://localhost:8080/share`
 
-Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/latest/install/create-rm-site.md %}).
+Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/3.5/install/create-rm-site.md %}).

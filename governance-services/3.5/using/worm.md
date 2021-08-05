@@ -42,15 +42,15 @@ These steps describe how to use the AWS Management Console to create a bucket fo
 (Amazon S3 Object Lock) in Amazon S3. Once you have created the bucket you can create rules for a category or folder to 
 store your data using WORM storage.
                                                         
-For more on creating rules see [Creating a rule]({% link governance-services/latest/using/automate-fileplan.md %}#creating-a-rule).
+For more on creating rules see [Creating a rule]({% link governance-services/3.5/using/automate-fileplan.md %}#creating-a-rule).
 
->**Note:** Ensure you have the required AWS login credentials before you begin.
+> **Note:** Ensure you have the required AWS login credentials before you begin.
 
 This task assumes you have:
 
 * Installed Alfresco Content Services 7.0 and above.
 * Installed Alfresco Content Connector for AWS S3 3.1 with multiple bucket support enabled. For more see [Configuring multiple buckets using S3 Connector]({% link aws-s3/latest/config/index.md %}#multibucketconfig).
-    >**Note:** When using multiple buckets for WORM storage with Amazon S3 you are unable to use Alfresco Content Connector for AWS Glacier because it only supports being used with one bucket.
+    > **Note:** When using multiple buckets for WORM storage with Amazon S3 you are unable to use Alfresco Content Connector for AWS Glacier because it only supports being used with one bucket.
 * Set the following properties in the `<TOMCAT\_HOME\>/shared/classes/alfresco-global.properties` file:
 
     |Property|Description|
@@ -102,7 +102,7 @@ retention period and when you use Legal Hold.
 This task assumes you have:
 
 * Created a bucket in Amazon S3 for use as WORM storage, for more see [Creating a bucket in Amazon S3 for use as WORM storage](#createbucketforworm).
-* Familiarised yourself with how to create rules in Governance Services, for more see [Creating a rule]({% link governance-services/latest/using/automate-fileplan.md %}#creating-a-rule).
+* Familiarised yourself with how to create rules in Governance Services, for more see [Creating a rule]({% link governance-services/3.5/using/automate-fileplan.md %}#creating-a-rule).
 
 1.  Log in to Governance Services.
 
