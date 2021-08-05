@@ -4,13 +4,6 @@ title: Using Alfresco Share
 
 Use the Getting Started guide to quickly learn the basics, and find detailed info in Using Alfresco Share.
 
--   **[Getting started with Alfresco Share](#getting-started-with-alfresco-share)**  
-For most of us, today's work environment means we spend much of our time working in teams that can extend beyond our workplace, and even our enterprise, to include partners, consultants, external agencies, and customers.
--   **[Using Alfresco Share](#using-alfresco-share)**  
-Find everything you need to know for using Alfresco Share on a daily basis.
--   **[Using Alfresco Content Services from other applications]({% link content-services/5.2/using/index.md %})**  
-There are several ways to access and use content without being in Alfresco Share.
-
 ## Getting started with Alfresco Share
 
 For most of us, today's work environment means we spend much of our time working in teams that can extend beyond our workplace, and even our enterprise, to include partners, consultants, external agencies, and customers.
@@ -26,23 +19,9 @@ This guide gives you an introduction to some of the features of Alfresco Share:
 
 You'll also be shown other little tricks and tips to help you get more out of Alfresco Share, so you can work and collaborate efficiently and effectively.
 
-The video shows an overview of the Alfresco Share features:
+There are a set of [video tutorials]({% link content-services/5.2/tutorial/video/index.md %}) related to Alfresco Share, including a [tour of the available features]({% link content-services/5.2/tutorial/video/index.md %}#tour-of-alfresco-share).
 
-> **Note:** This video contains functionality that's no longer available in Alfresco Share, i.e. Sync to Cloud.
-
--   **[Signing in](#signing-in)**  
-To start the Getting Started guide you need to sign in to Alfresco Share.
--   **[Personalizing Alfresco Share]({% link content-services/5.2/using/dashboard.md %}#personalizing-alfresco-share)**  
- Having installed Alfresco Share and signed in, the first thing you can do is to personalize Alfresco Share to your own tastes and needs.
--   **[Building a site]({% link content-services/5.2/using/sites/index.md %}#building-a-site)**  
-Now that you've personalized your own dashboard and profile, you're ready to set up a site.
--   **[Working with content]({% link content-services/5.2/using/content/index.md %})**  
-Before you begin working with content, we'll look at the two different concepts of content there are in Alfresco Share.
--   **[Being social]({% link content-services/5.2/using/sites/features.md %}#being-social)**  
- You have built a site and added some content to it. The next thing you need to do is to get other users on your site, sharing and creating their own content.
--   **[More resources](#more-resources)**  
-This is the end of the Alfresco Share Getting Started guide, and you should now be able to use Alfresco Share in ways that will improve how you work on a day to day basis.
-
+> **Note:** Some videos may contains functionality that's no longer available in Alfresco Share, i.e. Sync to Cloud.
 
 ### Signing in {#signing-in}
 
@@ -62,50 +41,15 @@ To start the Getting Started guide you need to sign in to Alfresco Share.
 
     ![Your Personal Dashboard]({% link content-services/images/gs-firstlogin.png %})
 
-
 ## Using Alfresco Share
 
 Find everything you need to know for using Alfresco Share on a daily basis.
-
--   **[Finding your way around](#finding-your-way-around)**  
-Alfresco Share content is stored in sites, and each individual site has its own dashboard made up of *dashlets*.
--   **[Your profile and dashboard]({% link content-services/5.2/using/dashboard.md %}#your-profile-and-dashboard)**  
-You can customize your user profile and dashboard however you like without affecting anyone else - you're the only person that sees your dashboard.
--   **[Sites]({% link content-services/5.2/using/sites/index.md %}#sites)**  
-A site is a area where you can share content and collaborate with other site members.
--   **[Content]({% link content-services/5.2/using/content/index.md %}#content)**  
-A site document library is where you store and manage content, such as documents, images, and videos.
--   **[Tasks and workflows]({% link content-services/5.2/using/tasks.md %}#tasks-and-workflows)**  
-Tasks and workflows help you keep track of the things you and other users need to do. You can create a standalone task or workflow, or you can attach a file to it.
--   **[Site features]({% link content-services/5.2/using/sites/features.md %}#site-features)**  
-As well as the Document Library and Site Members area, there are lots of features that can be included in a site.
--   **[Searching for content]({% link content-services/5.2/using/search.md %}#searching-for-content)**  
-You can use the search box on the toolbar to search for files, sites, and people.
--   **[Using Smart Folders]({% link content-services/5.2/using/smart-folders.md %}#using-smart-folders)**  
-A Smart Folder is a way of grouping files from different locations in Alfresco Share into a single folder, so that you can quickly find similar files.
--   **[Power users]({% link content-services/5.2/admin/share-admin-tools.md %}#power-users)**  
-Alfresco Share power users have additional options that aren't available to standard users.
--   **[User roles and permissions]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions)**  
-A user's role determines what they can and cannot do in a site. Each role has a default set of permissions.
-
 
 ### Finding your way around {#finding-your-way-around}
 
 Alfresco Share content is stored in sites, and each individual site has its own dashboard made up of *dashlets*.
 
 You also have your own user dashboard which gives you an overview of what's happening in Alfresco Share, and a user profile which you can use to let others know what you're doing.
-
--   **[Alfresco Share toolbar](#alfresco-share-toolbar)**  
-The toolbar is designed to help you to navigate Alfresco Share and to quickly find, create, and share content.
--   **[User dashboard](#user-dashboard)**  
-Wherever you are in Alfresco Share, you can click **Home** or **User Dashboard** on your user menu to go to your dashboard.
--   **[Viewing your user profile](#viewing-your-user-profile)**  
-Your user profile includes more information than just your contact details. Here you can see at a glance who you are following, who is following you, the sites you belong to, and the content you have recently added and modified.
--   **[What version of Alfresco Share am I using?](#what-version-of-alfresco-share-am-I-using?)**  
-It's easy to check which version of Alfresco Share you're using.
--   **[Subscribing to an RSS feed](#subscribing-to-an-rss-feed)**  
-There are several places in Alfresco Share where you can subscribe to RSS feeds. These feeds let you automatically receive regular updates on various activities.
-
 
 ### Alfresco Share toolbar {#alfresco-share-toolbar}
 
@@ -156,7 +100,6 @@ It's always available at the top of the page, wherever you are in Share.
 -   **Search**
 
     Use the search box to find files, sites, and people.
-
 
 ### User dashboard {#user-dashboard}
 
@@ -233,10 +176,6 @@ You can resize most dashlets.
 To resize a dashlet click and drag on the bottom edge of the dashlet until it's the height you want. This is saved between sessions.
 
 >**Tip:** If you hover over a dashlet header then a ![Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. This stays open until you close it or navigate away from the dashboard.
-
--   **[What can I do with my dashlets?](#what-can-I-do-with-my-dashlets?)**  
-As well as giving you an overview of activity and information in Alfresco Share, the dashlets also give you links to various areas of Share and let you carry out a range of actions.
-
 
 #### What can I do with my dashlets?
 
@@ -340,14 +279,6 @@ Each dashlet has a unique role:
 
 >**Tip:** Each dashlet includes help text. Position your cursor in the dashlet header to reveal the help button, then click it to display the related text. The help stays open until you close it or navigate away from the dashboard.
 
--   **[Configuring the RSS feed dashlets](#configuring-the-rss-feed-dashlets)**  
-There are two RSS feed dashlets that you can include on your personal and site dashboards: RSS Feed and Alfresco Add-ons RSS Feed. On both dashlets you can edit the default URL to display any RSS feed.
--   **[Setting up the Web View dashlet](#setting-up-the-web-view-dashlet)**  
-Set up the Web View dashlet to display websites.
--   **[Configuring the Saved Search dashlet](#configuring-the-saved-search-dashlet)**  
-Configure the Saved Search dashlet to run a specific search each time the dashboard is loaded.
-
-
 ### Configuring the RSS feed dashlets
 
 There are two RSS feed dashlets that you can include on your personal and site dashboards: RSS Feed and Alfresco Add-ons RSS Feed. On both dashlets you can edit the default URL to display any RSS feed.
@@ -361,7 +292,6 @@ There are two RSS feed dashlets that you can include on your personal and site d
 4.  Select **Open links in new window** to have the target story display in a new window.
 
 5.  Click **OK**.
-
 
 ### Setting up the Web View dashlet
 
@@ -382,7 +312,6 @@ The dashboard must be customized to display the Web View dashlet.
     > **Important:** Ensure the URL entered does not contain the JavaScript code `if(self.parent.frames.length!=0)self.parent.location=document.location;`. This or similar code causes the referenced website to open directly in the browser rather than in the Web View dashlet. This will lead to problems viewing the current dashboard (personal or site).
 
 4.  Click **OK**.
-
 
 ### Configuring the Saved Search dashlet
 
@@ -405,7 +334,6 @@ On the site dashboard, only a site manager can configure the Saved Search dashle
 5.  Select the number of results you want to display.
 
 6.  Click **OK**.
-
 
 ### Viewing your user profile {#viewing-your-user-profile}
 
@@ -451,7 +379,6 @@ Your user profile includes more information than just your contact details. Here
 
         Lets you find and recover deleted content
 
-
 ### What version of Alfresco Share am I using? {#what-version-of-alfresco-share-am-I-using}
 
 It's easy to check which version of Alfresco Share you're using.
@@ -459,7 +386,6 @@ It's easy to check which version of Alfresco Share you're using.
 1.  Click the Alfresco logo at the bottom of Alfresco Share.
 
     A box opens showing which version of Share you're working with.
-
 
 ### Subscribing to an RSS feed {#subscribing-to-an-rss-feed}
 
@@ -487,7 +413,6 @@ An RSS Feed button or icon shows you where the feeds are available.
 
     >**Tip:** RSS feeds credentials are stored by the browser you're using and not Share. As such it's recommended that you close your browser after logging out of Share and / or lock your computer while you're away from it.
 
-
 ### More resources {#more-resources}
 
 This is the end of the Alfresco Share Getting Started guide, and you should now be able to use Alfresco Share in ways that will improve how you work on a day to day basis.
@@ -505,6 +430,3 @@ This is just the beginnings of what you can achieve with Alfresco Share; we'd re
 -   Read the [(Using Alfresco Share)](#using-alfresco-share) documentation on other features
 -   Watch the Alfresco Share 'How To' videos [('How To' videos)]({% link content-services/5.2/tutorial/index.md %})
 -   Use other site components such as discussion forums[(Discussion forums)]({% link content-services/5.2/using/sites/features.md %}#the-discussion-forum), blogs[(Blogs)]({% link content-services/5.2/using/sites/features.md %}#the-blog), and data lists [(Data lists)]({% link content-services/5.2/using/sites/features.md %}#data-lists)
-
-
-

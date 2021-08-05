@@ -6,16 +6,6 @@ You have built a site and added some content to it. The next thing you need to d
 
 In Alfresco Share you can schedule social events using the shared site calendar, and add both internal and external users to the site. You also decide how much power they have in the site, such as whether they can just add content or actively edit content created by other users. There is also a full range of social features such as liking content and following favorite users.
 
--   **[Scheduling events](#scheduling-events)**  
-Having previously added a calendar to your site, you can now use it to schedule events for your team.
--   **[Adding users to your site]({% link content-services/5.2/using/sites/index.md %}#adding-users-to-your-site)**  
-Now that you've created a site and added content, the next step is to invite other Alfresco Share users to the site.
--   **[Using social features]({% link content-services/5.2/using/content/manage.md %}#using-social-features)**  
-When you look at the site dashboard you can see site activity and details of content that has been added or edited.
--   **[Following users]({% link content-services/5.2/using/search.md %}#following-users)**  
-There can be many users of a system, so it is likely that there will be some users whose activities will be of more importance to you. You can choose to follow these users so that you can easily keep track of what they've been doing.
-
-
 ## Scheduling events {#scheduling-events}
 
 Having previously added a calendar to your site, you can now use it to schedule events for your team.
@@ -43,23 +33,6 @@ As well as the Document Library and Site Members area, there are lots of feature
 
 Site managers can easily add and remove features by [customizing a site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site)
 
-  
-
--   **[The calendar](#the-calendar)**  
-The site calendar lets you schedule and track events related to the current site.
--   **[The wiki](#the-wiki)**  
-The wiki lets site users create pages for a collaborative wiki.
--   **[The discussion forum](#the-discussion-forum)**  
-The discussion forum lets you post user-generated content related to a site. These topics often take the form of questions or comments with threaded discussions.
--   **[The blog](#the-blog)**  
-The site blog lets you add commentary, descriptions of events, and other material related to your site.
--   **[Site links](#site-links)**  
-The links component lets site members compile a list of web links that are related to the site or that might be of interest to site users. These can be internal links pointing to site pages or external links pointing to any web address.
--   **[Data lists](#data-lists)**  
-The data lists component lets site members create and manage lists of data relevant to the site. Users can work with their own lists and can also contribute to lists created by other site members.
-
-
-
 ## The calendar {#the-calendar}
 
 The site calendar lets you schedule and track events related to the current site.
@@ -67,23 +40,6 @@ The site calendar lets you schedule and track events related to the current site
 Site members can create events that appear on the calendar for all site users to see. These events also display in the Site Calendar dashlet. You can view the calendar by day, week, or month. The Agenda view displays upcoming events.
 
 > **Note:** See [Customizing a site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site) for how to switch the calendar on and off for a site.
-
--   **[Accessing the calendar](#accessing-the-calendar)**  
-Access the calendar to view upcoming events for the current site.
--   **[Browsing the calendar](#browsing-the-calendar)**  
-The main view defaults to a calendar displaying the current month. The explorer panel to the left provides another calendar for navigating the months without affecting the main view.
--   **[Viewing an event](#viewing-an-event)**  
-The calendar displays only the event name and time, so to view full details you must open the event. Once open you can edit or delete the event.
--   **[Adding an event](#adding-an-event)**  
-Any site member can schedule an event in the site calendar. The event appears in the calendar and the Site Calendar dashlet.
--   **[Editing event details](#editing-event-details)**  
-Edit a scheduled event to change any of the details, including the location, date, and time. You can also add and remove tags, and change the library folder associated with the event.
--   **[Changing event date and time](#changing-event-date-and-time)**  
-You can easily change the day, time, and duration of an event.
--   **[Deleting an event](#deleting-an-event)**  
-When a scheduled event is cancelled you can easily delete it to remove it from the calendar. This also removes it from the Site Calendar dashlet.
-
-
 
 ## Accessing the calendar {#accessing-the-calendar}
 
@@ -96,7 +52,6 @@ Within the calendar you can create events, as well as edit and delete any events
     > **Note:** In each site the feature names can be customized. If the site manager has done this, the link might have a name other than **Calendar**.
 
     This opens the calendar which defaults to the Month view. Any events scheduled in the current month are displayed on the calendar.
-
 
 ## Browsing the calendar {#browsing-the-calendar}
 
@@ -277,25 +232,6 @@ In both views (wiki list and page view) you can create, delete, view details for
 
 > **Note:** See [Customizing a site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site) for how to switch the wiki on and off for a site.
 
--   **[Accessing the wiki](#accessing-the-wiki)**  
-Access the wiki to view the wiki content related to the current site. In the wiki you can create, delete, rename, and edit the wiki pages. You can perform most actions from both the wiki list and the page view.
--   **[Browsing the wiki pages](#browsing-the-wiki-pages)**  
-The browsing feature in the wiki lets you filter the wiki pages so you can easily locate specific content.
--   **[Creating the wiki main page](#creating-the-wiki-main-page)**  
-When you create a new site, the site's wiki contains a main page, which is empty. You will likely choose to make this the introductory page for the site wiki.
--   **[Creating a new wiki page](#creating-a-new-wiki-page)**  
-You can create a new wiki page from both the wiki list and the page view.
--   **[Editing a wiki page](#editing-a-wiki-page)**  
-Edit a wiki page to create new content, edit existing content, and add tags.
--   **[Renaming a wiki page](#renaming-a-wiki-page)**  
-You rename a wiki page in the page view.
--   **[Deleting a wiki page](#deleting-a-wiki-page)**  
-Delete a wiki page when you no longer want it to appear in the wiki for the current site. You can perform this task from both the wiki list and the page view.
--   **[Viewing the wiki page details](#viewing-the-wiki-page-details)**  
-View wiki page details to see the version history, view the tags associated with the page, and list the wiki pages that link to the selected page. You can view the page details from both the wiki list and the page view. On this page, you can view previous versions of the page and even revert to a specific version.
-
-
-
 ## Accessing the wiki {#accessing-the-wiki}
 
 Access the wiki to view the wiki content related to the current site. In the wiki you can create, delete, rename, and edit the wiki pages. You can perform most actions from both the wiki list and the page view.
@@ -311,7 +247,6 @@ Access the wiki to view the wiki content related to the current site. In the wik
     The wiki list displays a summary of all pages in the wiki for the current site. In this view, the actions you can perform on a wiki page appear as buttons beneath the banner (only **New Page** is available in this view) and as links to the right of each page summary. You can perform most actions from both the wiki list and the page view.
 
     > **Note:** You can click **Main Page** to return to the previous view.
-
 
 ## Browsing the wiki pages {#browsing-the-wiki-pages}
 
@@ -540,23 +475,6 @@ Members of a site can create new topics and can also reply to a posting to take 
 
 > **Note:** See [Customizing a site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site) for how to switch the discussion forum on and off for a site.
 
--   **[Accessing the discussion forum](#accessing-the-discussion-forum)**  
-Access the discussion forum to view the discussion topics for the current site.
--   **[Browsing the discussion topics](#browsing-the-discussion-topics)**  
-The browsing feature in the discussions forum lets you filter the discussion topics so you can more easily navigate the content.
--   **[Viewing a topic](#viewing-a-topic)**  
-The discussion forum topics display in either a summary view or a simple list. Viewing a topic allows you to see the full contents of the discussion.
--   **[Replying to a discussion](#replying-to-a-discussion)**  
-Reply to a topic to take part in the discussion. You can reply to the original discussion topic or any replies already created for that topic. Each reply is nested to visually indicate the discussion flow.
--   **[Creating a new topic](#creating-a-new-topic)**  
-Create a new topic to start a discussion relevant to the current site. All site members will have access to this content.
--   **[Editing a topic](#editing-a-topic)**  
-Edit an existing discussion topic to modify or add to the content.
--   **[Deleting a topic](#deleting-a-topic)**  
-Delete a topic to permanently remove it from the discussions forum. This action also deletes all replies to that topic.
-
-
-
 ## Accessing the discussion forum {#accessing-the-discussion-forum}
 
 Access the discussion forum to view the discussion topics for the current site.
@@ -575,12 +493,12 @@ Within a discussion you can create new topics, as well as edit and delete topics
     -   the number of replies to the topic
     -   a sample of the content
     -   the tags associated with the topic
+
 2.  Use the **<<** and **>>** navigation buttons to move forward and backward through multiple pages of topics.
 
 3.  Click **Simple View** to display only the basic topic information: title, creation date/time, and author.
 
     Click **Detailed View** to display the summary view.
-
 
 ## Browsing the discussion topics {#browsing-the-discussion-topics}
 
@@ -605,7 +523,6 @@ The **Topics** list in the browsing pane provides the following views:
 -   **My Topics**
 
     Displays the topics created by the current user
-
 
 The **Tags** list displays the tags currently associated with one or more discussion topics. The number following the tag tells you how many discussion topics are associated with the tag.
 
@@ -660,11 +577,6 @@ Reply to a topic to take part in the discussion. You can reply to the original d
 
 
 The reply appears beneath and indented from its parent topic or reply.
-
--   **[Editing a reply](#editing-a-reply)**  
-You can edit a reply just as you edit a discussion topic.
-
-
 
 ## Editing a reply {#editing-a-reply}
 
@@ -772,22 +684,6 @@ Site members can create, edit, and add comments to blog postings. The postings c
 
 > **Note:** See [Customizing a site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site) for how to switch the blog on and off for a site.
 
--   **[Accessing the blog](#accessing-the-blog)**  
-Access the blog to view all published blog posts for the current site. You can also see your own unpublished (draft) posts.
--   **[Browsing blog posts](#browsing-blog-posts)**  
-The browsing feature in the blog lets you filter the posts so you can easily navigate the blog content.
--   **[Viewing a blog post](#viewing-a-blog-post)**  
-Browsing the blog displays the existing posts in the main view. These posts display in either a summary view or a simple list. Viewing a post lets you to see the full contents of the post.
--   **[Creating a blog post](#creating-a-blog-post)**  
-Create a new blog post to add information or a commentary related to the current site.
--   **[Editing a blog post](#editing-a-blog-post)**  
-Edit an existing blog post to modify or add to its content.
--   **[Deleting a blog post](#deleting-a-blog-post)**  
-Delete a blog post to permanently remove it from the current site's blog.
--   **[Working with comments](#working-with-comments)**  
-Adding comments to a blog post helps make the site blog interactive. While all users with access to the site can view the blog conversations, only site members can add comments.
-
-
 ## Accessing the blog {#accessing-the-blog}
 
 Access the blog to view all published blog posts for the current site. You can also see your own unpublished (draft) posts.
@@ -807,6 +703,7 @@ In the blog you can write new posts and you can edit, publish, and delete posts 
     -   a sample of the content
     -   the number of replies to the post
     -   the tags associated with the post
+
     Where the list contains more posts than can be displayed on a single page, navigation links become enabled at the top and bottom of the item list. The number in bold indicates your current page. Click a page number to display a specific page. Use the previous (<<) and next (>>) links to move forward and backward through multiple pages of posts.
 
 2.  Click **Simple View** to display only the basic blog post information: title, date/time of publishing, and author.
@@ -964,15 +861,6 @@ Adding comments to a blog post helps make the site blog interactive. While all u
 
 The number of replies added to a post is recorded and displayed for each posting. You must view a post to add, view, and manage the related comments.
 
--   **[Adding a comment to a post](#adding-a-comment-to-a-post)**  
-In the blog you can add a comment to reply to any published blog post.
--   **[Editing a comment](#editing-a-comment)**  
-Edit a blog comment to modify or add to its content.
--   **[Deleting a comment](#deleting-a-comment)**  
-Delete a comment to permanently remove it from a blog post.
-
-
-
 ## Adding a comment to a post {#adding-a-comment-to-a-post}
 
 In the blog you can add a comment to reply to any published blog post.
@@ -994,8 +882,6 @@ In the blog you can add a comment to reply to any published blog post.
     The comment displays beneath the post.
 
 6.  Click **Blog Post List** to return to the main view.
-
-
 
 ## Editing a comment {#editing-a-comment}
 
@@ -1025,7 +911,6 @@ Only a Site Manager, a Site Collaborator, and the user who created the comment c
 
 6.  Click **Blog Post List** to return to the main view.
 
-
 ## Deleting a comment {#deleting-a-comment}
 
 Delete a comment to permanently remove it from a blog post.
@@ -1050,8 +935,6 @@ Only a Site Manager, a Site Collaborator, and the user who created the comment c
 
 5.  Click **Blog Post List** to return to the main view.
 
-
-
 ## Site links {#site-links}
 
 The links component lets site members compile a list of web links that are related to the site or that might be of interest to site users. These can be internal links pointing to site pages or external links pointing to any web address.
@@ -1059,23 +942,6 @@ The links component lets site members compile a list of web links that are relat
 The comment feature allows site members to add and manage comments on the site links.
 
 > **Note:** See [Customizing a site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site) for how to switch links on and off for a site.
-
--   **[Accessing the site links](#accessing-the-site-links)**  
-Access the site links component to view the web links compiled for the current site.
--   **[Browsing the site links](#browsing-the-site-links)**  
-The explorer panel on the main view enables you to filter the links for easier navigation.
--   **[Viewing a link](#viewing-a-link)**  
-The main view of the Links feature displays the existing links for this site. You can choose a summary view or a simple list. Viewing a link enables you to see the full link details as well as any comments that have been added.
--   **[Creating a new link](#creating-a-new-link)**  
-Create a new site link to provide easy access to information that could be of interest or use to the site members. You can add any internal or external web address.
--   **[Editing a link](#editing-a-link)**  
-Edit an existing link to modify it.
--   **[Deleting a link](#deleting-a-link)**  
-Delete a link to permanently remove it from the current site. This action also deletes any comments on the link.
--   **[Adding a comment to a link](#adding-a-comment-to-a-link)**  
-In the links feature you can add a comment to a link.
-
-
 
 ## Accessing the site links {#accessing-the-site-links}
 
@@ -1095,12 +961,12 @@ In this component you can create new links, as well as edit and delete the links
     -   the user who created the link
     -   a description of the link
     -   the tags associated with the link
+
 2.  Use the **<<** and **>>** navigation buttons to move forward and backward through multiple pages of links.
 
 3.  Click **Simple View** to display only the basic link details: title and URL.
 
     Click **Detailed View** to display the summary view.
-
 
 ## Browsing the site links {#browsing-the-site-links}
 
@@ -1122,7 +988,6 @@ The **Links** list in the browsing pane provides the following options for brows
 
     Displays the links created in the past seven days
 
-
 The **Tags** list displays all tags currently associated with one or more links.
 
 **To browse the links:**
@@ -1139,8 +1004,6 @@ The **Tags** list displays all tags currently associated with one or more links.
 
 3.  Position the cursor over an item in this list to display its available actions.
 
-
-
 ## Viewing a link {#viewing-a-link}
 
 The main view of the Links feature displays the existing links for this site. You can choose a summary view or a simple list. Viewing a link enables you to see the full link details as well as any comments that have been added.
@@ -1154,7 +1017,6 @@ Although you can perform actions on a link from the main page, you might want to
     The link view displays the selected link in its entirety, along with any comments that have been added.
 
 3.  Click **Links List** to return to the main view.
-
 
 ## Creating a new link {#creating-a-new-link}
 
@@ -1182,7 +1044,6 @@ Create a new site link to provide easy access to information that could be of in
 
 7.  Click **Links List** to return to the main view.
 
-
 ## Editing a link {#editing-a-link}
 
 Edit an existing link to modify it.
@@ -1209,8 +1070,6 @@ Only a Site Manager, a Site Collaborator, and the user who created the link can 
 
 6.  Click **Links List** to return to the main view.
 
-
-
 ## Deleting a link {#deleting-a-link}
 
 Delete a link to permanently remove it from the current site. This action also deletes any comments on the link.
@@ -1229,12 +1088,7 @@ Only the Site Manager and the user who created the link can delete it.
 
 3.  Click **Delete**.
 
-
 A message indicates the selected link has been deleted.
-
--   **[Deleting multiple links](#deleting-multiple-links)**  
-In the links list you can quickly delete multiple links rather than removing them one at a time.
-
 
 ## Deleting multiple links {#deleting-multiple-links}
 
@@ -1246,6 +1100,7 @@ In the links list you can quickly delete multiple links rather than removing the
 
     -   Click the check box to left of each link you want to delete.
     -   Click **Select** at the top of the list and click **All** to select all links in the current view.
+
     Click **None** to clear the list selections. Click **Invert Selection** to toggle the check boxes to their opposite state.
 
     The appropriate check boxes appear selected in the links list.
@@ -1258,10 +1113,7 @@ In the links list you can quickly delete multiple links rather than removing the
 
 4.  Click **Delete**.
 
-
 A message indicates the selected links have been deleted.
-
-
 
 ## Adding a comment to a link {#adding-a-comment-to-a-link}
 
@@ -1282,14 +1134,6 @@ In the links feature you can add a comment to a link.
     The comment displays beneath the link.
 
 5.  Click **Links List** to return to the main view.
-
-
--   **[Editing a link comment](#editing-a-link-comment)**  
-You can edit a comment on a link to modify or add to its content.
--   **[Deleting a link comment](#deleting-a-link-comment)**  
-Delete a comment to permanently remove it from a link.
-
-
 
 ## Editing a link comment {#editing-a-link-comment}
 
@@ -1317,7 +1161,6 @@ Only a Site Manager, a site Collaborator, and the user who created the comment c
 
 5.  Click **Links List** to return to the main view.
 
-
 ## Deleting a link comment {#deleting-a-link-comment}
 
 Delete a comment to permanently remove it from a link.
@@ -1340,30 +1183,11 @@ Only a Site Manager and the user who created the comment can delete it.
 
 4.  Click **Links List** to return to the main view.
 
-
-
 ## Data lists {#data-lists}
 
 The data lists component lets site members create and manage lists of data relevant to the site. Users can work with their own lists and can also contribute to lists created by other site members.
 
 > **Note:** See [Customizing a site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site) for how to switch data lists on and off for a site.
-
--   **[Accessing the Data Lists component](#accessing-the-data-lists-component)**  
-Access the data lists component to view the lists created for the current site.
--   **[Viewing a list](#viewing-a-list)**  
-The **Lists** section of the explorer panel displays the data lists for the current site. Once you select a list to view you can apply filters to display specific list items within that list.
--   **[Creating a new list](#creating-a-new-list)**  
-Create a new list for the current site.
--   **[Editing the list details](#editing-the-list-details)**  
-Edit an existing list to modify its title and description.
--   **[Deleting a list](#deleting-a-list)**  
-Delete a list to permanently remove it from the site.
--   **[Working with list items](#working-with-list-items)**  
-Once you create a list you can populate it with list items.
--   **[Working with multiple list items](#working-with-multiple-list-items)**  
-In the data lists component you can select multiple list items to quickly and easily perform a single task on the selected items.
-
-
 
 ## Accessing the Data Lists component {#accessing-the-data-lists-component}
 
@@ -1376,7 +1200,6 @@ In this component you can create new lists, as well as edit and delete any lists
     > **Note:** In each site the feature names can be customized. If the site manager has done this, the link might have a name other than **Data Lists**.
 
     This opens the feature. The browsing pane displays a list of all existing data lists for the current site.
-
 
 ## Viewing a list {#viewing-a-list}
 
@@ -1411,8 +1234,6 @@ The **Items** list in the explorer panel provides the following options for filt
 
 3.  In the table click a column headings to sort the results by that column.
 
-
-
 ## Creating a new list {#creating-a-new-list}
 
 Create a new list for the current site.
@@ -1425,9 +1246,9 @@ Create a new list for the current site.
 
 3.  Type a **Title** (required) and **Description** (optional) for the list.
 
-    CAUTION:
-
-    You are not warned if you create lists with duplicate titles. Review the existing lists to ensure that your list name is unique.
+    > **CAUTION:**
+    >
+    > You are not warned if you create lists with duplicate titles. Review the existing lists to ensure that your list name is unique.
 
 4.  Click **Save**.
 
@@ -1436,8 +1257,6 @@ Create a new list for the current site.
 5.  Click the list name to display the list in the main view.
 
     A new list contains no list items.
-
-
 
 ## Editing the list details {#editing-the-list-details}
 
@@ -1459,8 +1278,6 @@ Only a Site Manager, a Site Collaborator, and the user who created the list can 
 
 4.  Click **Save**.
 
-
-
 ## Deleting a list {#deleting-a-list}
 
 Delete a list to permanently remove it from the site.
@@ -1475,9 +1292,7 @@ Only the Site Manager and the user who created the list can delete it.
 
 3.  Click **Delete**.
 
-
 A message indicates the selected list has been deleted.
-
 
 ## Working with list items {#working-with-list-items}
 
@@ -1486,16 +1301,6 @@ Once you create a list you can populate it with list items.
 You can add items to both your own lists and lists created by other site members. Do this by creating new items or duplicating existing list items.
 
 To maintain your lists you can also edit and delete items.
-
--   **[Creating a list item](#creating-a-list-item)**  
-Create list items in an an existing data list.
--   **[Editing a list item](#editing-a-list-item)**  
-Edit an existing list item to modify it.
--   **[Duplicating a list item](#duplicating-a-list-item)**  
-Quickly and easily create a new list item by duplicating an existing item in the same list. This is a particularly useful action if the two items have similar details.
--   **[Deleting a list item](#deleting-a-list)**  
-Delete a list item to permanently remove it from the current data list.
-
 
 ## Creating a list item {#creating-a-list-item}
 
@@ -1514,10 +1319,10 @@ Create list items in an an existing data list.
     -   Calendar icon: Click the icon to display a calendar and then select the date.
     -   **Select** button (**Assigned To** and **Assignee**): Click **Select** then search for and add the user(s).
     -   **Select** button (**Attachments**): Click **Select** then browse the library structure to locate and add the content item(s).
+
 4.  Click **Save**.
 
     The new item appears in the list.
-
 
 ## Editing a list item {#editing-a-list-item}
 
@@ -1539,8 +1344,6 @@ Only a Site Manager, a Site Collaborator, and the user who created the item can 
 
     The updated item appears in the list.
 
-
-
 ## Duplicating a list item {#duplicating-a-list-item}
 
 Quickly and easily create a new list item by duplicating an existing item in the same list. This is a particularly useful action if the two items have similar details.
@@ -1554,7 +1357,6 @@ Quickly and easily create a new list item by duplicating an existing item in the
     The new item is created. Its details are identical to the selected list item.
 
 4.  Edit the new list item as necessary.
-
 
 ## Deleting a list item {#deleting-a-list-item}
 
@@ -1572,20 +1374,11 @@ Only the Site Manager and the user who created the item can delete it.
 
 4.  Click **Delete**.
 
-
 A message indicates the selected list item has been deleted.
-
 
 ## Working with multiple list items {#working-with-multiple-list-items}
 
 In the data lists component you can select multiple list items to quickly and easily perform a single task on the selected items.
-
--   **[Selecting multiple list items](#selecting-multiple-list-items)**  
-There are two methods to select multiple list items in the current data list. You can select any number of items.
--   **[Performing actions on multiple list items](#performing-actions-on-multiple-list-items)**  
-Once you select the list items you want to work with you can select an action to perform.
-
-
 
 ## Selecting multiple list items {#selecting-multiple-list-items}
 
@@ -1595,11 +1388,10 @@ There are two methods to select multiple list items in the current data list. Yo
 
     -   Click a check box to select the associated list item.
     -   Click **Select** at the top of the data list and click **All**.
+
     Click **None** to clear the list selections. Click **Invert Selection** to toggle the check boxes to their opposite state.
 
-
 The appropriate check boxes appear selected in the data list.
-
 
 ## Performing actions on multiple list items {#performing-actions-on-multiple-list-items}
 
@@ -1619,7 +1411,6 @@ The **Selected Items** list displays the actions that you can perform on multipl
 
     Clears the check boxes of the currently selected list items
 
-
 When a data list is longer than one page you can select items on multiple pages. However, the selected action is performed only on the items on the page currently displayed.
 
 1.  Click on a data list in the Data lists explorer panel.
@@ -1633,4 +1424,3 @@ When a data list is longer than one page you can select items on multiple pages.
 4.  Click the required action.
 
     Click **Deselect All** to clear the selected items. When you select this option you cannot perform another action until you reselect the list items.
-

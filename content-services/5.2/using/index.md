@@ -16,14 +16,6 @@ With Alfresco Outlook Integration you can save and file your emails to Alfresco 
 
 There are also some shortcuts available that your Alfresco administrator can enable so you can work with files from Windows Explorer or from your desktop.
 
--   **[Using Alfresco Content Services from Microsoft Office](#using-alfresco-content-services-from-microsoft-office)**  
-With Alfresco Office Services (AOS) you can access content directly from your Microsoft Office applications.
--   **[Using Alfresco Content Services from Microsoft Outlook](#using-alfresco-content-services-from-microsoft-outlook)**  
-With Alfresco Outlook Integration you can use email and repository management without leaving Microsoft Outlook.
--   **[Using the Windows Explorer shortcuts](#using-the-windows-explorer-shortcuts)**  
- You can work with files without actually being in the Alfresco Share interface.
-
-
 ## Using Alfresco Content Services from Microsoft Office
 
 With Alfresco Office Services (AOS) you can access content directly from your Microsoft Office applications.
@@ -34,8 +26,6 @@ You can also browse content from Windows Explorer, or map a network drive.
 
 For more information about Alfresco Office Services, see [Alfresco Office Services]({% link microsoft-office/1.1/using/index.md %}).
 
-
-
 ## Using Alfresco Content Services from Microsoft Outlook
 
 With Alfresco Outlook Integration you can use email and repository management without leaving Microsoft Outlook.
@@ -43,8 +33,6 @@ With Alfresco Outlook Integration you can use email and repository management wi
 You can directly archive emails into Alfresco Share, use the full metadata support, full search, tagging and workflow capabilities, and attach files and view archived emails in your inbox.
 
 For more information about Alfresco Outlook Integration, see [Alfresco Outlook Integration]({% link microsoft-outlook/2.4/install/index.md %}).
-
-
 
 ## Using the Windows Explorer shortcuts
 
@@ -62,17 +50,6 @@ You can use these files to add content to the repository, check documents in and
 
 > **Note:** These options only function when you are working in a Windows environment.
 
--   **[Add a file from outside Alfresco Share](#add-a-file-from-outside-alfresco-share)**  
- You can easily drag and drop content to the repository from outside Share.
--   **[Check out files from outside Alfresco Share](#check-out-files-from-outside-alfresco-share)**  
- You can use the CheckInOut.exe to check content out so that you can work on it securely.
--   **[View item details from a mapped drive](#view-item-details-from-a-mapped-drive)**  
- You can use the ShowDetails.exe to view item details and properties.
--   **[Open Alfresco Share in a browser window](#open-alfresco-share-in-a-browser-window)**  
- You can use the Share.url to open the Share in a browser window.
-
-
-
 ### Add a file from outside Alfresco Share {#add-a-file-from-outside-alfresco-share}
 
 You can easily drag and drop content to the repository from outside Share.
@@ -84,8 +61,6 @@ You can easily drag and drop content to the repository from outside Share.
 2.  Drag the file onto the location in the repository that you want to add it to.
 
     The file is added to the selected location in the repository.
-
-
 
 ### Check out files from outside Alfresco Share {#check-out-files-from-outside-alfresco-share}
 
@@ -109,8 +84,6 @@ You can use the CheckInOut.exe to check content out so that you can work on it s
 
     The (Working Copy) file is removed and any updates made while it was checked out are applied to the original file.
 
-
-
 ### View item details from a mapped drive {#view-item-details-from-a-mapped-drive}
 
 You can use the ShowDetails.exe to view item details and properties.
@@ -124,8 +97,6 @@ You can use the ShowDetails.exe to view item details and properties.
     > **Note:** There is a copy of the ShowDetails.exe at each level of the repository.
 
     A new browser window opens showing the Alfresco Share file preview, where you can see a preview of the file and its properties.
-
-
 
 ### Open Alfresco Share in a browser window {#open-alfresco-share-in-a-browser-window}
 
@@ -142,5 +113,3 @@ The Share.url is a shortcut to Share. It's available in a Windows environment if
     > **Note:** There is a copy of the Share.url at each level of the repository.
 
     Alfresco Share will open in a browser window, showing the location where you clicked on Share.url.
-
-

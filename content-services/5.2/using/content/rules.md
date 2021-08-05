@@ -26,17 +26,6 @@ Here are some examples of how you can use rules to automate repetitive tasks:
 -   All GIF files placed in the *Images* folder will be transformed to PNG files
 -   All presentation documents placed in the *Published* folder will be transformed to Flash and copied to the *Assets* folder
 
-  
-
--   **[Defining rules for a folder](#defining-rules-for-a-folder)**  
-Use folder rules to manage your files automatically. There are two ways to define rules: create your own rules or link to rules already created for a different folder.
--   **[Working with a set of rules](#working-with-a-set-of-rules)**  
-You can easily view and maintain the individual rules that makes up the rule set. You can add, edit, and delete rules, make a rule inactive, and change the run order. You can also manually run rules.
--   **[Working with linked rules](#working-with-linked-rules)**  
-When a folder has linked rules there are less editing options than when it has its own set of rules. You can either link to a different rule set or you can break the link completely.
-
-
-
 ## Defining rules for a folder {#defining-rules-for-a-folder}
 
 Use folder rules to manage your files automatically. There are two ways to define rules: create your own rules or link to rules already created for a different folder.
@@ -44,17 +33,6 @@ Use folder rules to manage your files automatically. There are two ways to defin
 When you define a rule, it only applies to new content added to the folder. Files that were in the folder before the rule was defined aren't affected by it. You can manually apply the folder rules with the **Run Rules** action.
 
 > **Note:** Even if the folder doesn't have its own rules, it could have inherited rules from a parent folder. A message on the Rules page lets you know if this is the case.
-
--   **[Creating a rule](#creating-a-rule)**  
-You can create rules for a folder, in much the same way that you might apply rules to your emails.
--   **[Rule actions](#rule-actions)**  
-When you're setting up a rule in Alfresco Share there are lots of default actions available.
--   **[Linking to an existing rule set](#linking-to-an-existing-rule-set)**  
-The **Link to Rule Set** option lets you reuse an existing rule set that's already defined for another folder.
--   **[Creating a simple workflow](#creating-a-simple-workflow)**  
-You can set up rules to trigger a simple workflow that's made up of review and approval steps. When an item enters a folder with this type of rule applied, it will have additional actions available.
-
-
 
 ## Creating a rule {#creating-a-rule}
 
@@ -101,13 +79,6 @@ You can create rules for a folder, in much the same way that you might apply rul
     -   **Run rule in background** Lets you continue working while the rule is running. You can also select an action to run if an error occurs with the rule. These actions are set up by your Alfresco administrator.
 9.  Click **Create**, or **Create and Create Another** to save this rule and start creating another.
 
-
-This video shows you how to create a rule.
-
-  
-
-
-
 ## Rule actions {#rule-actions}
 
 When you're setting up a rule in Alfresco Share there are lots of default actions available.
@@ -128,11 +99,7 @@ Actions don't apply to files in subfolders, unless the **Rule applies to subfold
 |**Link to category**|Links files or folders to a category of your choice, such as a region or classification. See [Tagging and categorizing content]({% link content-services/5.2/using/content/manage.md %}#tagging-and-categorizing-content) for more.|
 |**Add aspect**|Adds a property aspect to files, to give it additional behaviours or properties. See [About Aspects]({% link content-services/5.2/config/repository.md %}#about-aspects) for more.|
 |**Remove aspect**|Removes a property aspect from files, to remove functionality or properties. See [About Aspects]({% link content-services/5.2/config/repository.md %}#about-aspects) for more.|
-|**Add simple workflow**|Adds files to a workflow. By default there is an approval task. You can also click to add a reject task. > **Note:** You can click on **Approve** and **Reject** to rename the steps and to select a location to copy and move approved/rejected files to.
-
-See [Tasks and workflows]({% link content-services/5.2/using/content/rules.md %}#creating-a-simple-workflow) for more.
-
-|
+|**Add simple workflow**|Adds files to a workflow. By default there is an approval task. You can also click to add a reject task. > **Note:** You can click on **Approve** and **Reject** to rename the steps and to select a location to copy and move approved/rejected files to. See [Tasks and workflows](#creating-a-simple-workflow) for more.|
 |**Send email**|When files and subfolders are added you can select to send notifications by email. Click **Message** to select recipients and add the message of your choice.|
 |**Transform and copy content**|When applicable, add copies of files, in the format of your choice, to another location. For example you can generate a copy of a Word document in PDF format in a different folder.|
 |**Transform and copy image**|When applicable, add copies of image files, in the format of your choice, to another location. For example you can generate a copy of a GIF file in PNG format in a different folder.|
@@ -142,8 +109,6 @@ See [Tasks and workflows]({% link content-services/5.2/using/content/rules.md %}
 |**Increment Counter**|Automatically increments the value of a number (integer) property. This will generally only be used by Alfresco administrators.|
 |**Set property value**|Select a property and then enter a default value. Files with that property will have it changed to the entered value.|
 |**Embed properties as metadata in content**|Embeds file properties directly into the binary file as metadata. The information contained in those files can help in searching and workflows.|
-
-
 
 ## Linking to an existing rule set {#linking-to-an-existing-rule-set}
 
@@ -166,7 +131,6 @@ The **Link to Rule Set** option lets you reuse an existing rule set that's alrea
     > **Note:** You can click **View Rule Set** to view the rule details or **Change** to select a different rule to link to.
 
 5.  Click **Done**.
-
 
 ## Creating a simple workflow {#creating-a-simple-workflow}
 
@@ -236,10 +200,7 @@ For example, you could set up rules to create a simple workflow that manages con
     -   **Run rule in background** Lets you continue working while the rule is running. You can also select an action to run if an error occurs with the rule. These actions are set up by your Alfresco administrator.
 11. Click **Create**, or **Create and Create Another** to save this rule and start creating another.
 
-
 In the **Document Library** the symbol ![]({% link content-services/images/im-rules-simpleworkflow.png %}) to the left of an item indicates that a simple workflow has been applied to it. The approve and reject actions (with their defined labels) appear in the action list for these items.
-
-
 
 ## Working with a set of rules {#working-with-a-set-of-rules}
 
@@ -257,21 +218,6 @@ Selecting an individual rule in this list displays its details on the right side
 
 See [Troubleshooting rules and actions]({% link content-services/5.2/admin/troubleshoot.md %}#troubleshooting-rules-and-actions) for information about resolving problems with rules.
 
--   **[Adding to a set of rules](#adding-to-a-set-of-rules)**  
-A set of rules can include any number of individual rules, and you can add new rules to a folder as you need.
--   **[Editing a rule](#editing-a-rule)**  
-You might need to revisit your rules from time to time and make some changes to keep them current. If you don’t want to use a specific rule anymore but think you might need it again in the future, you can just disable it.
--   **[Deleting a rule](#deleting-a-rule)**  
-When a folder has a rule applied that you don't need anymore, you can delete the individual rule.
--   **[Reordering the rules in the rule set](#reordering-the-rules-in-the-rule-set)**  
-As part of managing your rule set you can pick the order in which the rules are run. If your folder has inherited rules, those are always run first in the order they're listed. Any rules marked as inactive are simply skipped.
--   **[Switching off inherited rules](#switching-off-inherited-rules)**  
-If a folder is inheriting rules from a parent folder, you can easily switch them on and off as needed.
--   **[Manually running rules](#manually-running-rules)**  
-When you create or edit a rule set, the rules aren't automatically applied to the existing folder items. You can manually run the rules at any time to apply them to all content. Only the items that meet the conditions will be affected.
-
-
-
 ## Adding to a set of rules {#adding-to-a-set-of-rules}
 
 A set of rules can include any number of individual rules, and you can add new rules to a folder as you need.
@@ -282,10 +228,7 @@ A set of rules can include any number of individual rules, and you can add new r
 
     On the New Rule page you can add a new rule to a set of rules in exactly the same way as the first time you created a rule, see [creating a rule](#creating-a-rule).
 
-
 After creating the last rule you return to the Rules page. Any new rules created are added at the end of the rule set.
-
-
 
 ## Editing a rule {#editing-a-rule}
 
@@ -303,7 +246,6 @@ You might need to revisit your rules from time to time and make some changes to 
 
 5.  Click **Save**.
 
-
 ## Deleting a rule {#deleting-a-rule}
 
 When a folder has a rule applied that you don't need anymore, you can delete the individual rule.
@@ -320,7 +262,6 @@ When a folder has a rule applied that you don't need anymore, you can delete the
 
 4.  When you're asked to confirm the deletion, click **Delete**.
 
-
 ## Reordering the rules in the rule set {#reordering-the-rules-in-the-rule-set}
 
 As part of managing your rule set you can pick the order in which the rules are run. If your folder has inherited rules, those are always run first in the order they're listed. Any rules marked as inactive are simply skipped.
@@ -332,7 +273,6 @@ As part of managing your rule set you can pick the order in which the rules are 
     > **Note:** You can't reorder linked or inherited rules here; that has to be done in the folder where they were created. Click **Reset** to return the rule set to its last saved order.
 
 3.  Click **Save**.
-
 
 ## Switching off inherited rules {#switching-off-inherited-rules}
 
@@ -348,7 +288,6 @@ Switching inherited rules on and off works at an individual folder level, and wi
 
     Any inherited rules are switched off for the folder and **Don't Inherit Rules** is shown. You can click **Don't Inherit Rules** to switch inherited rules back on for the folder.
 
-
 ## Manually running rules {#manually-running-rules}
 
 When you create or edit a rule set, the rules aren't automatically applied to the existing folder items. You can manually run the rules at any time to apply them to all content. Only the items that meet the conditions will be affected.
@@ -363,7 +302,6 @@ When you create or edit a rule set, the rules aren't automatically applied to th
     -   **Run rules for this folder and its subfolders**
     A message lets you know when the rules have run.
 
-
 ## Working with linked rules {#working-with-linked-rules}
 
 When a folder has linked rules there are less editing options than when it has its own set of rules. You can either link to a different rule set or you can break the link completely.
@@ -373,13 +311,6 @@ When you select the **Manage Rules** action for a folder with linked rules, the 
 > **Note:** The folder might also inherit rules from a parent folder. A message lets you know if this is the case.
 
 Changes to the rule set have to be done in the folder where the rules were originally defined. It's easy to get to the Rules page for the source folder: just click **View Rule Set**.
-
--   **[Linking to a different rule set](#linking-to-a-different-rule-set)**  
-If you want to change the rules you're linked to, you can easily link to a different rule set.
--   **[Breaking the link to a rule set](#breaking-the-link-to-a-rule-set)**  
-If you don't need your rules anymore, breaking the link is just a single click away. This leaves the folder without any rules.
-
-
 
 ## Linking to a different rule set {#linking-to-a-different-rule-set}
 
@@ -401,7 +332,6 @@ If you want to change the rules you're linked to, you can easily link to a diffe
 
 5.  Click **Done**.
 
-
 ## Breaking the link to a rule set {#breaking-the-link-to-a-rule-set}
 
 If you don't need your rules anymore, breaking the link is just a single click away. This leaves the folder without any rules.
@@ -413,5 +343,3 @@ If you don't need your rules anymore, breaking the link is just a single click a
     > **Note:** This option only shows if the folder has linked rules.
 
     The link between the current folder and the linked rules is now broken.
-
-
