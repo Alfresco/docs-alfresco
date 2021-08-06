@@ -7,9 +7,9 @@ Use the following information to upgrade the Identity Service from version 1.4 t
 > **Important:** Upgrading the Identity Service requires downtime and should be performed in a test environment before being attempted in a production environment.
 
 * [Upgrade from version 1.2](#upgrade-from-version-1.2)
-* [Remove **_SmallRye_* references](#Remove-**_SmallRye_**-references)
+* [Remove **_SmallRye_** references](#Remove-**_SmallRye_**-references)
 * [Upgrade a ZIP distribution installation](#upgrade-a-zip-distribution-installation)  
-* [Upgrade a Kubernetes deployment](#upgrade-a-kubernetes-deployment)  
+* [Upgrade a Kubernetes deployment with PostgreSQL database](#upgrade-a-kubernetes-deployment-with-postgresql-database)  
 
 ## Upgrade from version 1.2
 
@@ -23,19 +23,19 @@ If you are currently using the Identity Service 1.2 you must first modify the **
 
 4. Ensure **Create User If Unique (create unique user config)** flow is set to **ALTERNATIVE**.
 
-![First Broker Login page](docs/resource/images/first-broker-login.png)
-
 **Result:** You can now upgrade directly to version 1.5.
 
 ## Remove **_SmallRye_** references
 
-Since Keycloak 13.0.0, the modules called **_SmallRye_** have been removed from the [WildFly](#https://www.wildfly.org/) application, and the server will not start if the configuration references them. This means you must manually remove all the lines that refer to the **_SmallRye_** modules in the **_standalone.xml_** file. For more information see [Migrating to 13.0.0](https://www.keycloak.org/docs/latest/upgrading/#migrating-to-13-0-0){:target="_blank"}.
+> **Important:** You must manually remove all the **_SmallRye_** modules in the `standalone.xml` file before upgrading. From Keycloak 13.0.0 the modules called **_SmallRye_** have been removed from the [WildFly](#https://www.wildfly.org/){:target="_blank"} application. The server will not start if your configuration references them. For more information see [Migrating to 13.0.0](https://www.keycloak.org/docs/latest/upgrading/#migrating-to-13-0-0){:target="_blank"}.
 
 ## Upgrade a ZIP distribution installation
 
-Use the following steps to upgrade a manual ZIP installation:
+Use the following information to upgrade your ZIP installation:
 
-1. Back up the database used by the Identity Service.
+1. Download the `alfresco-identity-service-1.5.0.zip` file from [Hyland Community](https://community.hyland.com/en/products/alfresco/release-notes/release-notes/alfresco-identity-service-version-150){:target="_blank"}.
+
+2. Back up the database used by the Identity Service.
 
     For example, for a PostgreSQL database backup:
 
@@ -43,13 +43,13 @@ Use the following steps to upgrade a manual ZIP installation:
     pg_dump --clean --no-owner --no-acl -h ${POSTGRES_HOST} -p ${POSTGRES_PORT}  -U ${POSTGRES_USER} ${POSTGRES_DATABASE} | grep -v -E '(DROP\ SCHEMA\ public|CREATE\ SCHEMA\ public|COMMENT\ ON\ SCHEMA\ public|DROP\ EXTENSION\ plpgsql|CREATE\ EXTENSION\ IF\ NOT\ EXISTS\ plpgsql|COMMENT\ ON\ EXTENSION\ plpgsql)' > /backup/backup.sql
     ```
 
-2. Remove the existing data from the database and stop the database service.
+3. Remove the existing data from the database and stop the database service.
 
-3. Stop the Identity Service service.
+4. Stop the Identity Service service.
 
-4. Open the zip file for version  of the Identity Service and [configure its connection to the database](https://www.keycloak.org/docs/latest/server_installation/#_database){:target="_blank"}.
+5. Unzip the ZIP file and configure your connection to the database using the Keycloak documentation. [Relational Database Setup]](https://www.keycloak.org/docs/latest/server_installation/#_database){:target="_blank"}.
 
-5. Restart the database service and restore the database backup to it.
+6. Restart the database service and restore your backup database.
 
     For example, for a PostgreSQL database:
 
@@ -57,34 +57,34 @@ Use the following steps to upgrade a manual ZIP installation:
     psql -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DATABASE} -U ${POSTGRES_USER} -f /backup/backup.sql
     ```
 
-6. Run the standalone start script for the new version of the Identity Service:
+7. Run the standalone start script for the new version of the Identity Service:
 
     > **Note:** To bind to all public interfaces use `0.0.0.0` as the value of `IP_ADDRESS` otherwise use the address of a specific interface.
 
     For a Linux or Unix environment:
 
     ```bash
-    cd alfresco-identity-service-1.5.0./bin
+    cd alfresco-identity-service-1.5.0/bin
     /standalone.sh -b <IP_ADDRESS>
     ```
 
-    For a Windows environment using a bat script:
+    For a Microsoft Windows environment using a bat script:
 
     ```bash
-    alfresco-identity-service-1.5.0.\bin\standalone.bat -b <IP_ADDRESS>
+    alfresco-identity-service-1.5.0\bin\standalone.bat -b <IP_ADDRESS>
     ```
 
-    For a Windows environment using a Powershell script:
+    For a Microsoft Windows environment using a Powershell script:
 
     ```bash
-    alfresco-identity-service-1.5.0.\bin\standalone.ps1 -b <IP_ADDRESS>
+    alfresco-identity-service-1.5.0\bin\standalone.ps1 -b <IP_ADDRESS>
     ```
 
 ### General upgrade procedure
 
-For upgrading Alfresco Identity Service, follow Keycloak's [upgrade procedure](https://www.keycloak.org/docs/latest/upgrading/).
+For upgrading the Identity Service, follow Keycloak's [upgrade procedure](https://www.keycloak.org/docs/latest/upgrading/).
 
-However, depending on the environment you are using you should follow these high-level steps:
+Depending on the environment you are using you should follow these high-level steps:
 
 1. Prior to applying the upgrade, handle any open transactions and delete the data/tx-object-store/ transaction directory.
 
@@ -102,13 +102,13 @@ However, depending on the environment you are using you should follow these high
 
 5. If you need to revert the upgrade, first restore the old installation, and then restore the database from the backup copy.
 
-### Upgrading Identity Service in Kubernetes with PostgreSQL database
+### Upgrade a Kubernetes deployment with PostgreSQL database
 
-#### Upgrade from chart >=1.1.0 to 2.1.0
+#### Upgrade from chart `>=1.1.0` to `2.1.0`
 
 The upgrade should be seamless.
 
-#### Upgrade to chart >=3.0.0
+#### Upgrade to chart `>=3.0.0`
 
 1. Identify your chart release name and namespace and save them into variables.
 
