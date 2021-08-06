@@ -10,13 +10,6 @@ The second is content items such as documents, spreadsheets, or images that are 
 
 So now that you know the differences in content types, it's time to start adding content to your site.
 
--   **[Adding content]({% link content-services/5.2/using/content/manage.md %}#adding-content)**  
-First you'll look at adding content items such as documents, spreadsheets, presentations, and images to a site.
--   **[Editing content]({% link content-services/5.2/using/content/files-folders.md %}#editing-content)**  
-Updating your content in Alfresco Share is easy to do and you can even select whether to edit in Microsoft Office, offline, or in Google Docs.
--   **[Creating content]({% link content-services/5.2/using/content/manage.md %}#creating-content)**  
-As well as uploading content, you can also create content right in Alfresco Share.
-
 ## Content
 
 A site document library is where you store and manage content, such as documents, images, and videos.
@@ -26,25 +19,6 @@ You can upload content to share and work on with other site members. Users can v
 Document library activities appear in the Site Content dashlet so you can see at a glance the content that's been added and updated.
 
 You can also store content in the My Files and Shared Files areas and in the Repository, see [Working with content outside the library](#working-with-files-outside-the-library) for more.
-
--   **[The Document Library](#the-document-library)**  
-Access the site Document Library to view and work with the content in the current site.
--   **[Adding content]({% link content-services/5.2/using/content/manage.md %}#adding-content)**  
-You build up site content by creating an organized folder structure then adding content to it.
--   **[Viewing content]({% link content-services/5.2/using/content/manage.md %}#viewing-content)**  
-To get a closer look at a file or folder without downloading it, you can view it on the file preview screen. This gives you more detail, a preview, and access to social features, actions, and version history.
--   **[Working with files and folders]({% link content-services/5.2/using/content/files-folders.md %}#working-with-files-and-folders)**  
-Once files are added to a site, site members can access and work with them. In addition to adding more files, members can view, download, edit, and delete files.
--   **[Applying rules to folders]({% link content-services/5.2/using/content/rules.md %}#applying-rules-to-folders)**  
-In the library you can define folder rules to manage your content automatically. You can come up with many creative solutions to make sure specific content processes are automated all without you having to do the work yourself.
--   **[Organizing content]({% link content-services/5.2/using/content/manage.md %}#organizing-content)**  
-With different people creating folders and adding files, you want to keep on top of it. Alfresco Share has multiple features available to help you keep content labelled, organized, and filed correctly.
--   **[Using social features]({% link content-services/5.2/using/content/manage.md %}#using-social-features)**  
-In Alfresco you can use social features to like, favorite, and comment on files and folders.
--   **[Working with files outside the library](#working-with-files-outside-the-library)**  
-While the Document Library is the focal point for working with content in Alfresco Share, there are also a few other areas available to you.
--   **[Working with replicated content]({% link content-services/5.2/using/content/files-folders.md %}#working-with-replicated-content)**  
-Alfresco Content Services administrators can configure Alfresco Content Services systems so that content is replicated across multiple repositories. Files and folders created as the result of a replication job display the **Transferred from another Repository** icon in the file list.
 
 ## The Document Library
 
@@ -69,12 +43,6 @@ Access the site Document Library to view and work with the content in the curren
     > **Note:** If you're using a Mac then it might seem that not all of the actions are available. This is because with a Mac sometimes the scrollbars are hidden. To display the scrollbars go **System Preferences** > **General** and select to always show scroll bars.
 
     In the other views, click the ![Information icon]({% link content-services/images/ico-information.png %}) information button for an item to display the item details, version, actions, and social features.
-
-
--   **[Exploring the library](#exploring-the-library)**  
-You can filter which items you see in the library using the explorer panel on the left side of the library. This can help you to locate specific items in the library.
--   **[Library view options](#library-view-options)**  
-The **Options** menu in the **Document Library** lets you customize how you view content.
 
 ## Exploring the library
 
@@ -174,13 +142,6 @@ The **My Files** and **Shared Files** areas are locations with Share, whereas th
 -   **My Files**: This is an area that only you can access. No-one else can see the files here and every user has their own, unique **My Files** area. It's great for saving draft content to, removing the need for trying to remember where you saved it on your laptop, or was it saved to your mobile...
 -   **Shared Files**: This area can be accessed by everyone in your organization. It's a great way to quickly share files with other users that's not ready to be uploaded to a site yet.
 -   **Repository**: The area lets you view all Alfresco Content Services content you have access to - all the sites, all the system files, everything is available here. You can work just as you would in a site Document Library but here you have a higher view of everything that's available. It's also very handy for Alfresco administrators who want to work with system files.
-
--   **[My Files](#my-files)**  
-**My Files** is a unique area in Alfresco Share where you can create and store content, and no other users can access it.
--   **[Shared Files](#shared-files)**  
-**Shared Files** is a unique area in Alfresco Share where you can create, store and share content, without adding it to a site Document Library.
--   **[Repository](#repository)**  
-The **Repository** displays all the Alfresco Content Services content that you have access to, including content of all sites that you're a member of.
 
 ## My Files
 

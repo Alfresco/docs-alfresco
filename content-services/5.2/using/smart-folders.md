@@ -26,11 +26,6 @@ Take a look at the videos to learn more: [Smart Folders videos]({% link content-
 
 System administrators and business analysts can find more information here: [Configuring Smart Folders]({% link content-services/5.2/config/smart-folders/index.md %}#configuring-smart-folders) and in the tutorial: [Smart Folders tutorial]({% link content-services/5.2/tutorial/smart.md %}#smart-folders-tutorial).
 
--   **[Applying a Smart Folder Template](#applying-a-smart-folder-template)**  
-You can apply a Smart Folder structure to a physical folder by using aspects.
--   **[Smart Folders FAQs](#smart-folders-faqs)**  
-If you have any problems with Smart Folders, try these suggestions to resolve your issue.
-
 ## Applying a Smart Folder Template
 
 You can apply a Smart Folder structure to a physical folder by using aspects.
@@ -62,8 +57,8 @@ You can apply a Smart Folder structure to a physical folder by using aspects.
     -   My content modified by other users
     -   User home
     -   Tagged 'Confidential'
-    Folders contain files according to what files you have in your site. For example, if you have created audio files in the site, you will see these if you drill down to All site content/Multimedia Files/Audio content and any specific to this physical folder in This folder's content/Multimedia Files/Audio content. Any of your files that are marked as Confidential in the metadata appear in the Tagged 'Confidential' folder.
 
+    Folders contain files according to what files you have in your site. For example, if you have created audio files in the site, you will see these if you drill down to All site content/Multimedia Files/Audio content and any specific to this physical folder in This folder's content/Multimedia Files/Audio content. Any of your files that are marked as Confidential in the metadata appear in the Tagged 'Confidential' folder.
 
 ## Smart Folders FAQs
 

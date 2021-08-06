@@ -6,14 +6,6 @@ Now that you've personalized your own dashboard and profile, you're ready to set
 
 Collaboration in Alfresco Share is based around the concept of creating sites that teams can share content in, but an Alfresco Share site is more than just a place to share and manage content. You can schedule and manage meetings and calendars, publish blogs and set up forums where you can have team discussions, and even write content online and publish it to a wiki.
 
--   **[Creating a new site](#creating-a-new-site)**  
-The first thing that you need to do is to create a site and choose its settings.
--   **[Customizing the site dashboard](#customizing-the-site-dashboard)**  
-A site dashboard displays all information and activities associated with the site. You can customize the site dashboard just as you did with your personal dashboard.
--   **[Adding features to a site](#adding-features-to-a-site)**  
-You can add features to your site such as a discussion forum, a wiki, or a blog.
-
-
 ## Creating a new site {#creating-a-new-site}
 
 The first thing that you need to do is to create a site and choose its settings.
@@ -38,13 +30,6 @@ The first thing that you need to do is to create a site and choose its settings.
 
     Now that you've created a site, you can start to customize it, in much the same way as you did with your personal dashboard.
 
-
-This video shows the steps in the tutorial.
-
-  
-
-
-
 ## Customizing the site dashboard {#customizing-the-site-dashboard}
 
 A site dashboard displays all information and activities associated with the site. You can customize the site dashboard just as you did with your personal dashboard.
@@ -60,11 +45,6 @@ A site dashboard displays all information and activities associated with the sit
 
 You can resize the dashlets on the site dashboard as required. You are now nearly ready to add content to your site, just one more step first to customize the site further.
 
-This video shows the steps in the tutorial.
-
-  
-
-
 ## Adding features to a site {#adding-features-to-a-site}
 
 You can add features to your site such as a discussion forum, a wiki, or a blog.
@@ -79,12 +59,6 @@ At the top of your site dashboard are tabs for areas of your site. By default yo
 
 
 Back on the site dashboard you can see that the wiki and calendar have been added. You now have a site set up! It's time to start adding some content...
-
-This video shows the steps in the tutorial.
-
-  
-
-
 
 ## Adding users to your site {#adding-users-to-your-site}
 
@@ -108,11 +82,6 @@ Now that you've created a site and added content, the next step is to invite oth
 
 
 An email notification is sent to each person that you invited and they can start using the site immediately.
-
-This video shows the steps in the tutorial.
-
-  
-
 
 ## Sites {#sites}
 
@@ -147,17 +116,6 @@ The manager of any site—whether public or private—can add users.
 
 You can remove yourself from a site at any time by clicking ![]({% link content-services/images/settings-icon.png %}) in the site and selecting **Leave Site**.
 
--   **[Accessing existing sites](#accessing-existing-sites)**  
-Accessing an existing site is easy.
--   **[Site dashboard](#site-dashboard)**  
-The site dashboard contains information specific to the current site, and like your user dashboard, site information is organized and displayed in dashlets.
--   **[Managing a site](#managing-a-site)**  
-Creating a site is quick and simple. You can then customize it to build a fully functional project site.
--   **[Managing site members](#managing-site-members)**  
-Site users can easily see who else is a member of the site, and site managers can edit user roles and remove a user from the site.
-
-
-
 ## Accessing existing sites {#accessing-existing-sites}
 
 Accessing an existing site is easy.
@@ -167,17 +125,6 @@ You can search for sites using the Site Finder, the search box on the toolbar, o
 If you see a link to a site anywhere in Alfresco Share, just click the link to have a look.
 
 You can see all the sites you're a member of by clicking **Sites** then **My Sites** on the Alfresco toolbar.
-
--   **[Joining a site](#joining-a-site)**  
-When you join sites you gain access to the content that's stored on them.
--   **[Leaving a site](#leaving-a-site)**  
-It's quick and easy to leave a site when you no longer want to be a member.
--   **[Entering a site](#entering-a-site)**  
-You can access a site from several places in Alfresco Share.
--   **[Moving around a site](#moving-around-a-site)**  
-The default areas available in a site are the **Site Dashboard**, **Document Library**, and the **Site Members** areas. If a site has additional site features then you'll also see a **More** menu.
-
-
 
 ## Joining a site {#joining-a-site}
 
@@ -267,13 +214,6 @@ A site manager can resize most dashlets by clicking and dragging on the bottom e
 
 >**Tip:** If you hover over a dashlet header then a ![Add Event icon]({% link content-services/images/help-1.png %}) icon appears. Click it for an explanation of what the dashlet does. This stays open until you close it or navigate away from the dashboard.
 
--   **[Choosing a site homepage](#choosing-a-site-homepage)**  
-Site dashboards are the default homepage on all Alfresco Share sites.
--   **[What can I do with the site dashlets?](#what-can-I-do-with-the-site-dashlets?)**  
-As well as giving you an overview of activity and information on Alfresco Share, the dashlets also give you links to various areas of Share and let you carry out a range of actions.
-
-
-
 ## Choosing a site homepage {#choosing-a-site-homepage}
 
 Site dashboards are the default homepage on all Alfresco Share sites.
@@ -292,12 +232,9 @@ Site managers have the option to remove the site dashboard for individual sites.
 
 4.  Click **OK** to save your changes.
 
-
 The site displays with it's new homepage.
 
 You can always add the site dashboard back later.
-
-
 
 ## What can I do with the site dashlets? {#what-can-I-do-with-the-site-dashlets}
 
@@ -320,6 +257,7 @@ Any combination of the site dashlets can appear on the dashboard:
     -   Click a member’s name to view their user profile.
     -   Click **All Members** to display all site members.
     -   Click **Add Users** to add users this site. This is available only if you are a site manager.
+
 -   **Site Content**
 
     Lists the library content that has been added or edited in the past seven days.
@@ -329,12 +267,14 @@ Any combination of the site dashlets can appear on the dashboard:
     -   Mark an item as a favorite or remove it from the Favorites list (Detailed view only).
     -   Like or unlike an item (Detailed view only).
     -   Click the **Comment** link to add a comment on an item (Detailed view only).
+
 -   **Site Activities**
 
     Tracks the most recent activities performed in this site such as content additions, edits, and deletions, as well as changes in site membership.
 
     -   Use the filter to display the activities by ownership, type, and time period. You can display only your activities, only other users’ activities, or all activities. You can also view only a specific type of activity, such as changes in membership or status updates.
     -   Click the RSS Feed icon to subscribe to the feed to automatically receive the activity updates.
+
     > **Note:** The only users notified of deletions are the user who made the deletion and the Alfresco Administrator.
 
 -   **Site Profile**
@@ -351,12 +291,14 @@ Any combination of the site dashlets can appear on the dashboard:
 
     -   Click the name of the wiki page in the dashlet header to navigate to the wiki.
     -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to select a different wiki page to display in the dashlet. This is available only if you are a site manager.
+
 -   **Site Links**
 
     Displays the web links compiled by site users.
 
     -   Click a link to open the related website.
     -   Click the ![]({% link content-services/images/ico-link-details.png %}) link's details icon to view the full link and any related comments.
+
 -   **Image Preview**
 
     Displays a thumbnail of all images stored in the site's library.
@@ -365,11 +307,13 @@ Any combination of the site dashlets can appear on the dashboard:
     -   Click the View Details icon to preview or work with the image in the library.
     -   Click the Download icon to download a copy of the image to your computer.
     -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to specify a folder. The dashlet will display the images in just that folder.
+
 -   **Site File Type Breakdown**
 
     Displays a detailed breakdown of all files stored in the site's library.
 
     -   Hover over a section of the breakdown chart to see more details.
+
 -   **Site Contributor Breakdown**
 
     Displays a breakdown of all site members contributing content to the site's library.
@@ -377,16 +321,19 @@ Any combination of the site dashlets can appear on the dashboard:
     -   Select a time period to view contributions for.
     -   Hover over a section of the breakdown chart to see more details on a specific contributor.
     -   Click on a section of the chart to open that users profile.
+
 -   **Web View**
 
     Displays a website configured by a site manager.
 
     -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to select a website to display.
+
 -   **Site Notice**
 
     Displays a custom message posted by a site manager
 
     -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to edit or change the message. This is available only if you are a site manager.
+
     >**Tip:** This dashlet title can be customized, so the dashlet will probably have a label other than **Site Notice**.
 
 -   **RSS Feed**
@@ -394,42 +341,38 @@ Any combination of the site dashlets can appear on the dashboard:
     Displays the Alfresco website feed by default.
 
     -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
+
 -   **Alfresco Add-ons RSS Feed**
 
     Displays the Newest Add-ons feed from the Alfresco Add-ons website by default.
 
     -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to change the RSS feed.
+
 -   **Site Data Lists**
 
     Lists this site's data lists.
 
     -   Click a list to open it.
     -   Click Create Data List to create a new list for this site. This action is not available for users with the role Consumer.
+
 -   **My Discussions**
 
     Shows the most recent topics created in the site discussion forum.
 
     -   Use the filter to choose the information you want to see.
+
 -   **Site Search**
 
     Lets you search in the current site.
 
     -   Enter search criteria and click **Search** (or press ENTER).
     -   Select the maximum number of results you want to display.
+
 -   **Saved Search**
 
     Displays the results of a pre-configured search.
 
     -   Click the ![]({% link content-services/images/ico-configure.png %}) configure icon to define the search.
-
--   **[Configuring the RSS feed dashlets](#configuring-the-rss-feed-dashlets)**  
-There are two RSS feed dashlets that you can include on your personal and site dashboards: RSS Feed and Alfresco Add-ons RSS Feed. On both dashlets you can edit the default URL to display any RSS feed.
--   **[Configuring the Wiki dashlet](#configuring-the-wiki-dashlet)**  
-Configure the Wiki site dashlet to display the content of a specific wiki page.
--   **[Setting up the Site Notice dashlet](#setting-up-the-site-notice-dashlet)**  
-Setting up the Site Notice site dashlet to display a message for the site users.
-
-
 
 ## Configuring the RSS feed dashlets {#configuring-the-rss-feed-dashlets}
 
@@ -444,9 +387,6 @@ There are two RSS feed dashlets that you can include on your personal and site d
 4.  Select **Open links in new window** to have the target story display in a new window.
 
 5.  Click **OK**.
-
-
-
 
 ## Configuring the Wiki dashlet {#configuring-the-wiki-dashlet}
 
@@ -463,7 +403,6 @@ To perform this task the wiki has to have at least one page. Only a site manager
 3.  Select the page you want to display in the dashlet.
 
 4.  Click **OK**.
-
 
 ## Setting up the Site Notice dashlet {#setting-up-the-site-notice-dashlet}
 
@@ -487,28 +426,11 @@ Only a site manager can set up this dashlet.
 
 5.  Click **OK**.
 
-
-
 ## Managing a site {#managing-a-site}
 
 Creating a site is quick and simple. You can then customize it to build a fully functional project site.
 
 When you create a new site, you are automatically made the manager. This gives you full access to the site features.
-
--   **[Creating a site](#creating-a-site)**  
-You can create a site from anywhere in Alfresco Share, and are automatically made the manager of the site you create.
--   **[Customizing a site](#customizing-a-site)**  
-Once you've created a site you can customize it to add extra features.
--   **[Customizing the site dashboard](#customizing-the-site-dashboard)**  
-Like your user dashboard, site information is organized and displayed in dashlets. As a site manager you can change the site layout, choose dashlets, and configure the display order.
--   **[Editing site details](#editing-site-details)**  
-You can change the name, description, and visibility of a site after it is created.
--   **[Favoriting a site](#favoriting-a-site)**  
-You can mark a site as a favorite to add it to the Favorites list in the Sites menu. This lets you quickly access the site from anywhere in Alfresco Share. You can mark any number of sites this way.
--   **[Deleting a site](#deleting-a-site)**  
-Delete a site to move it and all of its content to your Trashcan.
-
-
 
 ## Creating a site {#creating-a-site}
 
@@ -525,6 +447,7 @@ You can create a site from anywhere in Alfresco Share, and are automatically mad
     -   **Name**: The title of the site.
     -   **URL Name**: You'll notice that the URL Name is automatically created but you can edit it if you want.
     -   **Description**: Enter a description that will help users know what the site is for.
+
 3.  If you have modules such as Records Management installed, then there will be an additional Type option. Select **Collaboration** to create a standard site.
 
 4.  Select the site visibility:
@@ -532,18 +455,12 @@ You can create a site from anywhere in Alfresco Share, and are automatically mad
     -   **Public**: All users can view a public site in their own organization, whether or not they have joined the site. Users who join the site are listed as site members and can work with the site content, depending on their assigned roles.
     -   **Moderated**: The same as a **Public** site but the site manager must approve a users request to join.
     -   **Private**: Only available to the site manager and any users added to the site.
+
     > **Note:** The visibility setting you select is displayed next to the site name when a user is in the site. See [Alfresco Share sites](#sites) for more information on site visibility settings.
 
 5.  Click **Save**.
 
-
 You'll see the dashboard for the new site which you can now customize. Sites that you create are automatically added to your **Favorites** list.
-
-This video shows you how to create a site.
-
-  
-
-
 
 ## Customizing a site {#customizing-a-site}
 
@@ -565,15 +482,9 @@ Each new site contains a library, and the site manager can [add other features](
 
 5.  Click **OK** to save your changes.
 
-
 The site dashboard displays the new theme, if one was selected. You can select the new pages by clicking **More** on the dashboard.
 
 With the site customized you can now customize the site dashboard to display information that's relevant to the site.
-
-This video shows you how to customize a site.
-
-  
-
 
 ## Customizing the site dashboard {#customizing-the-site-dashboard}
 
@@ -609,12 +520,6 @@ Like your user dashboard, site information is organized and displayed in dashlet
 
     You can resize most dashlets. Drag the bottom edge of the dashlet until it is the height you want.
 
-
-This video shows you how to customize a site dashboard.
-
-  
-
-
 ## Editing site details {#editing-site-details}
 
 You can change the name, description, and visibility of a site after it is created.
@@ -631,7 +536,6 @@ Only a site manager can edit the site details.
 
 4.  Click **OK**.
 
-
 ## Favoriting a site {#favoriting-a-site}
 
 You can mark a site as a favorite to add it to the Favorites list in the Sites menu. This lets you quickly access the site from anywhere in Alfresco Share. You can mark any number of sites this way.
@@ -641,8 +545,6 @@ You can mark a site as a favorite to add it to the Favorites list in the Sites m
     > **Note:** If a site is already a favorite you instead have the option to **Remove Current Site from Favorites**.
 
     The current site now appears in the **Favorites** list in the Sites menu and the My Sites dashlet.
-
-
 
 ## Deleting a site {#deleting-a-site}
 
@@ -659,7 +561,6 @@ Only a site manager can delete a site.
     The selected site and all its content is deleted. The site member roles are stored in case you want to restore the site. When you empty your Trashcan all site details and content including site member roles are permanently deleted.
 
     > **Note:** You can also delete sites in the **Site Finder**.
-
 
 ## Managing site members {#managing-site-members}
 
@@ -680,27 +581,6 @@ Enter a site and click **Site Members** to view or search for members of the sit
     Use this page to view users who have been invited to, or requested to join the site. You can cancel invitations here. Only site managers see the Pending page.
 
     > **Note:** From Alfresco Share version 5.1 or later, invites are only sent if your Alfresco administrator has specifically configured this option. Unless they have then users can access a site as soon as they are added by a Site Manager.
-
-
--   **[Adding users to a site](#adding-users-to-a-site)**  
-Site managers can quickly add users to a site.
--   **[Approving users to join a moderated site](#approving-users-to-join-a-moderated-site)**  
-When a user requests to join a moderated site, the request needs to be approved by a site manager.
--   **[Adding groups to a site](#adding-groups-to-a-site)**  
-Inviting users one at a time to join your site can be time consuming. To save time you can add entire user groups.
--   **[Reviewing the site members](#reviewing-the-site-members)**  
-Use the search feature to find a particular site member. You can also list all site members.
--   **[Reviewing site groups](#reviewing-site-groups)**  
-Use the search feature to find a particular site member. You can also list all site members.
--   **[Changing a site role](#changing-a-site-role)**  
-A site manager can amend a member or group role to change what they can do in a site.
--   **[Becoming a site manager](#becoming-a-site-manager)**  
-If your account is an administrator account, then you can make yourself a site manager of any site that you're a member of.
--   **[Removing a site member or site group](#removing-a-site-member-or-site-group)**  
-When you remove members or groups from a site they can no longer access it, but if the site is public they can rejoin it.
--   **[Managing pending invitations](#managing-pending-invitations)**  
-A site manager can view the outstanding invitations. You can revoke an invitation until the recipient accepts or declines it.
-
 
 ## Adding users to a site {#adding-users-to-a-site}
 
@@ -736,7 +616,6 @@ You can add any user, either internal to your organization or an external user.
 
     > **Note:** This feature is disabled if your installation doesn't support inviting new users. Talk to your system administrator about enabling this feature with the `notification.email.siteinvite` property. See [Outbound SMTP configuration properties]({% link content-services/5.2/config/email.md %}#outbound-smtp-configuration-properties) for more information.
 
-
 ## Approving users to join a moderated site {#approving-users-to-join-a-moderated-site}
 
 When a user requests to join a moderated site, the request needs to be approved by a site manager.
@@ -754,7 +633,6 @@ All managers of a site will be receive an email and be given a new approval task
 2.  Click **Approve**, or click **View** to view the approval task where you can approve, reject, and comment on the request to join.
 
     The task is cleared from your task list and the user is added to the site.
-
 
 ## Adding groups to a site {#adding-groups-to-a-site}
 
@@ -786,7 +664,6 @@ Inviting users one at a time to join your site can be time consuming. To save ti
 
     > **Note:** You can click **back to Site Groups** to return to the Search for Site Groups page without adding any groups.
 
-
 ## Reviewing the site members {#reviewing-the-site-members}
 
 Use the search feature to find a particular site member. You can also list all site members.
@@ -800,7 +677,6 @@ Use the search feature to find a particular site member. You can also list all s
     >**Tip:** Leave the search box empty to display all site members.
 
 3.  Click **Search**.
-
 
 ## Reviewing site groups {#reviewing-site-groups}
 
@@ -816,7 +692,6 @@ Use the search feature to find a particular site member. You can also list all s
 
 4.  Click **Search**.
 
-
 ## Changing a site role {#changing-a-site-role}
 
 A site manager can amend a member or group role to change what they can do in a site.
@@ -831,7 +706,6 @@ A site manager can amend a member or group role to change what they can do in a 
 
 4.  Click the current role and select a new role from the list.
 
-
 ## Becoming a site manager {#becoming-a-site-manager}
 
 If your account is an administrator account, then you can make yourself a site manager of any site that you're a member of.
@@ -840,10 +714,7 @@ If your account is an administrator account, then you can make yourself a site m
 
 1.  In a site click ![]({% link content-services/images/settings-icon.png %}) then **Become Site Manager**.
 
-
 You are now a manager of the site. You'll see that you have additional options available when you click ![]({% link content-services/images/settings-icon.png %}).
-
-
 
 ## Removing a site member or site group {#removing-a-site-member-or-site-group}
 
@@ -882,5 +753,3 @@ If you've recently upgraded to Alfresco Share 5.1 or later then you can still ma
 
     -   Click **Cancel** to revoke the user's invitation to this site.
 5.  You can click **Cancel** to revoke the user's invitation to this site.
-
-
