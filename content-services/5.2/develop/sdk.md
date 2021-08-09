@@ -6,13 +6,13 @@ Alfresco Content Services SDK 3 is a Maven based development kit that provides a
 
 For earlier releases of the Alfresco SDK, see the **Developer Guide** in the archived Content Services documentation ([example](https://github.com/Alfresco/docs-alfresco/blob/master/_archive/content-services/5.1/concepts/dev-for-developers.md){:target="_blank"}).
 
-This Software Development Kit (SDK) is a fundamental tool provided by Alfresco to developers to build customizations and extensions for the Alfresco Digital Business Platform. It is based on [Apache Maven](https://maven.apache.org/){_target="_blank"} and is compatible with major IDEs. This enables Rapid Application Development (RAD) and Test Driven Development (TDD).
+This Software Development Kit (SDK) is a fundamental tool provided by Alfresco to developers to build customizations and extensions for the Alfresco Digital Business Platform. It is based on [Apache Maven](https://maven.apache.org/){:target="_blank"} and is compatible with major IDEs. This enables Rapid Application Development (RAD) and Test Driven Development (TDD).
 
-Alfresco Content Services SDK 3 is released under [Apache License version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html){_target="_blank"} and supports Alfresco Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, check the [Support status](https://www.alfresco.com/alfresco-product-support-status){_target="_blank"} for the version you're using. If your version is in Limited or Full Support and you need help, [contact our Support team](https://support.alfresco.com/){_target="_blank"}.
+Alfresco Content Services SDK 3 is released under [Apache License version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} and supports Alfresco Content Services both in Community Edition and Enterprise Edition. If you're an Enterprise customer, check the [Support status](https://www.alfresco.com/alfresco-product-support-status){:target="_blank"} for the version you're using. If your version is in Limited or Full Support and you need help, [contact our Support team](https://support.alfresco.com/){:target="_blank"}.
 
 Alfresco Content Services SDK 3 is a major update to the SDK and provides several improvements on the previous releases.
 
-This release takes advantage of Semantic Versioning ([SEMVER](https://semver.org/){_target="_blank"}), which means that it is not directly compatible with the previous releases of the SDK.
+This release takes advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that it is not directly compatible with the previous releases of the SDK.
 
 > **Note:** If you have existing projects that you wish to upgrade to SDK 3.0.x, the recommended approach is to generate a new project from our archetypes and move your code into place.
 
@@ -57,7 +57,7 @@ See [Switching Alfresco Content Services and Share versions](#switching-alfresco
 
 **Easy upgrades**
 
-SDK 3.0 strives to follow [SEMVER](https://semver.org/){_target="_blank"} closely. This means that no breaking changes within a major version.
+SDK 3.0 strives to follow [SEMVER](https://semver.org/){:target="_blank"} closely. This means that no breaking changes within a major version.
 
 We will continue to add new functionality and extra configuration options, but in a backwards compatible way.
 
@@ -115,7 +115,7 @@ Profiles are no longer used for running the project or for enabling Enterprise e
 
 **Hot reloading**
 
-Alfresco SDK 3.0 no longer uses Spring Loaded for hot reloading. Instead [JRebel](https://zeroturnaround.com/software/jrebel/){_target="_blank"} (commercial) is used or the open source alternative [HotSwap](http://hotswapagent.org/){_target="_blank"}, which works a lot better and gives hot reloading of Spring context (only JRebel), classes, web resources, property files etc. Hot reloading works for both the `alfresco.war` and the `share.war`. Note that in SDK release 2.2.0 you can [no longer use Spring Loaded for hot reloading](https://github.com/Alfresco/alfresco-sdk/issues/369){_target="_blank"} in `alfresco.war`.
+Alfresco SDK 3.0 no longer uses Spring Loaded for hot reloading. Instead [JRebel](https://zeroturnaround.com/software/jrebel/){:target="_blank"} (commercial) is used or the open source alternative [HotSwap](http://hotswapagent.org/){:target="_blank"}, which works a lot better and gives hot reloading of Spring context (only JRebel), classes, web resources, property files etc. Hot reloading works for both the `alfresco.war` and the `share.war`. Note that in SDK release 2.2.0 you can [no longer use Spring Loaded for hot reloading](https://github.com/Alfresco/alfresco-sdk/issues/369){:target="_blank"} in `alfresco.war`.
 
 See [Hot reloading](#hot-reloading) for more.
 
@@ -152,7 +152,7 @@ You'll find more details about JRebel and HotSwap Agent in [Hot reloading](#hot-
 
 **Java**
 
-1.  Download [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html){_target="_blank"} and install by running the installer.
+1.  Download [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html){:target="_blank"} and install by running the installer.
 2.  Verify the installation for both JDK and JRE.
 
     ```
@@ -178,7 +178,7 @@ Alfresco recommends that you keep up-to-date with all the Maven releases. Linux 
 
 Alfresco SDK 3 requires Maven 3.3.0+, but you are recommended to download the latest version.
 
-1.  Download and install [Apache Maven](https://maven.apache.org/download.cgi){_target="_blank"} and make sure it is configured correctly on your path.
+1.  Download and install [Apache Maven](https://maven.apache.org/download.cgi){:target="_blank"} and make sure it is configured correctly on your path.
 2.  Verify the installation.
 
     ```
@@ -1154,7 +1154,7 @@ In order to allow Maven access to the Alfresco Private Repository, you must add 
 
     > **Important:** You will need to replace the placeholder text with your real username and password as allocated by Alfresco. The `id` value should not be changed as it is used in the Alfresco SDK project build files to specify the Enterprise artifacts Maven repository.
 
-    **Attention:** It is possible to use encrypted passwords here. See the official [Maven documentation](https://maven.apache.org/guides/mini/guide-encryption.html){_target="_blank"} for details on how to do this.
+    **Attention:** It is possible to use encrypted passwords here. See the official [Maven documentation](https://maven.apache.org/guides/mini/guide-encryption.html){:target="_blank"} for details on how to do this.
 
     At this point you have configured Maven to have access to the Alfresco Private Repository.
 
@@ -1183,7 +1183,7 @@ Setting `M2_HOME` specifies the home of Maven and is used by the script `mvn` (o
 
     Restart the terminal session or run `source .bashrc` to activate the environment variable.
 
-4.  On **Windows**, the exact procedure for setting environment variables varies depending on the version of Windows you are running. For example, the procedure for Windows XP can be found in the [Microsoft Knowledgebase](https://support.microsoft.com/kb/310519){_target="_blank"}.
+4.  On **Windows**, the exact procedure for setting environment variables varies depending on the version of Windows you are running. For example, the procedure for Windows XP can be found in the [Microsoft Knowledgebase](https://support.microsoft.com/kb/310519){:target="_blank"}.
 
     ```
     set M2_HOME=C:\Tools\apache-maven-3.3.1
@@ -1248,11 +1248,11 @@ The Alfresco Maven Plugin has a lot of configuration options to cover different 
 
 The plugin also reads properties, like `<alfresco.platform.version />` and `<alfresco.share.version />` to control which version you want to run with your customization. Adding third party dependencies (either AMPs or JARs) is easier than ever - a simple configuration enables you to define which dependencies to install.
 
-We'll summarize all the parameters available in the Alfresco Maven Plugin later in this page. Further details about the plugin are in the [public Alfresco GitHub repository](https://github.com/Alfresco/alfresco-sdk){_target="_blank"}.
+We'll summarize all the parameters available in the Alfresco Maven Plugin later in this page. Further details about the plugin are in the [public Alfresco GitHub repository](https://github.com/Alfresco/alfresco-sdk){:target="_blank"}.
 
 **Where the Alfresco Maven Plugin acts**
 
-The [Alfresco Maven Plugin](https://github.com/Alfresco/alfresco-sdk/tree/master/plugins/alfresco-maven-plugin){_target="_blank"} can be controlled directly into the `pom.xml` file of your project created with Alfresco SDK 3. Below is an example configuration for the plugin, based on an All-In-One project.
+The [Alfresco Maven Plugin](https://github.com/Alfresco/alfresco-sdk/tree/master/plugins/alfresco-maven-plugin){:target="_blank"} can be controlled directly into the `pom.xml` file of your project created with Alfresco SDK 3. Below is an example configuration for the plugin, based on an All-In-One project.
 
 ```
 <!-- 
@@ -1595,13 +1595,13 @@ Starting from a newly created Alfresco SDK 3.0 project (All-In-One, Platform JAR
 
 By default the Alfresco SDK will use Community Edition releases but it can be configured to use Enterprise Edition releases. Here you will learn how to set up a project to work with an Enterprise Edition release, highlighting the changes required to make it work.
 
-If you would like to work with the Alfresco Enterprise Edition, then this requires just a few property changes and a license installation. You also need to have access to the private Alfresco Nexus repository. To configure access to the Alfresco private repository see [Using Alfresco One (Enterprise)](https://github.com/Alfresco/docs-alfresco/blob/master/_archive/content-services/5.1/concepts/alfresco-sdk-using-enterprise-edition.md){_target="_blank"}. 
+If you would like to work with the Alfresco Enterprise Edition, then this requires just a few property changes and a license installation. You also need to have access to the private Alfresco Nexus repository. To configure access to the Alfresco private repository see [Using Alfresco One (Enterprise)](https://github.com/Alfresco/docs-alfresco/blob/master/_archive/content-services/5.1/concepts/alfresco-sdk-using-enterprise-edition.md){:target="_blank"}. 
 
 **Installing the license**
 
 The very first task to complete is about installing an enterprise license, otherwise the server will remain in read-only mode. This task is required if and only if you used the All-In-One archetype or the Platform JAR archetype to generate your project. If you used the Share JAR archetype to generate your project, feel free to ignore this task and move on the next one.
 
-If you are an Alfresco Partner or Customer, you can request an enterprise license by you opening a ticket on the [Alfresco Support Portal](https://support.alfresco.com/){_target="_blank"}. The Enterprise license is nothing more and nothing less than a file with `lic` extension. The Enterprise license file goes into src/test/license folder. The license will be injected into the platform WAR before it is deployed to [Apache Tomcat](https://tomcat.apache.org/){_target="_blank"}. The license file name doesn't matter, but make sure that you keep it simple and maintain the `lic` extension.
+If you are an Alfresco Partner or Customer, you can request an enterprise license by you opening a ticket on the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}. The Enterprise license is nothing more and nothing less than a file with `lic` extension. The Enterprise license file goes into src/test/license folder. The license will be injected into the platform WAR before it is deployed to [Apache Tomcat](https://tomcat.apache.org/){:target="_blank"}. The license file name doesn't matter, but make sure that you keep it simple and maintain the `lic` extension.
 
 **Configuring the Enterprise release**
 
@@ -1638,7 +1638,7 @@ Now it's time to delete the `alf_data_dev` directory (if it exists) and restart 
 
 Since the early days of the Alfresco SDK, the Alfresco Module Packages (AMP) have been the way customizations were packaged. In Alfresco SDK 3.0 everything is now packaged as a JAR by default, while the AMPs are still available as an optional assembly. This gives you much more control over packaging, and simple modules can easily be deployed as JARs.
 
-The [Maven Assembly Plugin](https://maven.apache.org/plugins/maven-assembly-plugin/){_target="_blank"} allows you to control the final artifacts that [Maven](https://www.apache.org/){_target="_blank"} builds. You add the plugin configuration and point it to an XML file that contains the full configuration on the artifact we want to produce.
+The [Maven Assembly Plugin](https://maven.apache.org/plugins/maven-assembly-plugin/){:target="_blank"} allows you to control the final artifacts that [Maven](https://www.apache.org/){:target="_blank"} builds. You add the plugin configuration and point it to an XML file that contains the full configuration on the artifact we want to produce.
 
 **Building AMPs with Alfresco SDK 3**
 
@@ -1807,11 +1807,11 @@ This section is commented out by default.
     [info] Installing all AMPs from directory /Users/ohejlskov/work/sdk/tutorials/aio-amp-example/target/modules/share/amps into WAR/exploded webapp at /Users/ohejlskov/work/sdk/tutorials/aio-amp-example/target/share-war
     ```
 
-    For further details and examples, you can check the [public repository on GitHub](https://github.com/ohej/alfresco-sdk-tutorials/tree/master/aio-amp-example){_target="_blank"}.
+    For further details and examples, you can check the [public repository on GitHub](https://github.com/ohej/alfresco-sdk-tutorials/tree/master/aio-amp-example){:target="_blank"}.
 
     **External references**
 
-    Blog post about [Working with Alfresco SDK 3: AMPs](https://community.alfresco.com/people/ohej/blog/2017/04/14/working-with-alfresco-sdk-3-amps){_target="_blank"}
+    Blog post about [Working with Alfresco SDK 3: AMPs](https://community.alfresco.com/people/ohej/blog/2017/04/14/working-with-alfresco-sdk-3-amps){:target="_blank"}
 
 
 ### Debugging
@@ -1987,7 +1987,7 @@ This integration test verifies the existence of the `{http://www.acme.org/model/
 
 Once created, some Java assertions are raised to check the correct definition of the node. As a last task, the node is deleted from the repository to clean the environment.
 
-Looking at the source code, there are two main things to bring to your attention. The first is that the `CustomContentModelIT` class extends the abstract class [AbstractAlfrescoIT](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AbstractAlfrescoIT.java){_target="_blank"}, giving access to the Alfresco Spring Application context and the ServiceRegistry that should be used when accessing Alfresco Content Services.
+Looking at the source code, there are two main things to bring to your attention. The first is that the `CustomContentModelIT` class extends the abstract class [AbstractAlfrescoIT](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AbstractAlfrescoIT.java){:target="_blank"}, giving access to the Alfresco Spring Application context and the ServiceRegistry that should be used when accessing Alfresco Content Services.
 
 The second is about the use of the `@RunWith(value = AlfrescoTestRunner.class)` Java annotation. The Alfresco Test Runner (i.e. `AlfrescoTestRunner.class`) will check if it is running in an Alfresco Content Services instance and if so, it will execute normally locally. On the other hand, if it detects no Alfresco Spring context, then it will make a call to a custom Web Script that will execute this test in the running container remotely. The remote location is determined by the `@Remote` configuration.
 
@@ -2001,7 +2001,7 @@ This integration test verifies the existence of the `DemoComponent` component de
 
 The integration test retrieves the `DemoComponent` bean from the Alfresco Content Services instance (see `testGetCompanyHome()`), and requests the Company Home component. In addition, some Java assertions check if `Company Home` is identified correctly and has seven children stored in it.
 
-As described for the `CustomContentModelIT` integration test, the `DemoComponentIT` class extends the abstract class [AbstractAlfrescoIT](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AbstractAlfrescoIT.java){_target="_blank"} and the `@RunWith` with `@Remote` Java annotations are used.
+As described for the `CustomContentModelIT` integration test, the `DemoComponentIT` class extends the abstract class [AbstractAlfrescoIT](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AbstractAlfrescoIT.java){:target="_blank"} and the `@RunWith` with `@Remote` Java annotations are used.
 
 **`HelloWorldWebScriptIT`: Checking the Alfresco Content Services `helloworld` webscript**
 
@@ -2011,7 +2011,7 @@ This integration test is the simplest one, and verifies the existence and the re
 
 Adding (or changing) the integration tests is really straightforward. All changes are to be made in the same folder as the existing integration tests (i.e. `integration-tests/src/test/java/<groupId>/platformsample`). To add new tests, simply add new classes similar to the existing ones in this folder. From a developer's perspective, you can take the existing classes as an example and develop your own classes based on the existing ones.
 
-Remember to extend the abstract class [AbstractAlfrescoIT](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AbstractAlfrescoIT.java){_target="_blank"}, if you want to have access to Alfresco Spring Application context and ServiceRegistry, and use the `@RunWith`, `@Remote` Java annotations to ensure that the SDK manages the existence of an Alfresco Content Services instance running for you.
+Remember to extend the abstract class [AbstractAlfrescoIT](https://github.com/Alfresco/alfresco-sdk/blob/master/modules/alfresco-rad/src/main/java/org/alfresco/rad/test/AbstractAlfrescoIT.java){:target="_blank"}, if you want to have access to Alfresco Spring Application context and ServiceRegistry, and use the `@RunWith`, `@Remote` Java annotations to ensure that the SDK manages the existence of an Alfresco Content Services instance running for you.
 
 #### Running the integration tests
 
@@ -2246,9 +2246,9 @@ To add the integration tests to an Alfresco project created with the Platform JA
 
 Hot reloading in a Java project is the ability to avoid the infamous *change > restart and wait > check* development lifecycle. This allows you to modify your application's code, and view the changes without having to restart Alfresco Tomcat. You can potentially gain significant savings in development time that would otherwise be wasted restarting Tomcat.
 
-Hot reloading is a well known behaviour in several other languages (C# for example), and the most practical and fast lifecycle like Save&Reload should be possible. Hot reloading is the key to enabling [Rapid Application Development (RAD)](https://en.wikipedia.org/wiki/Rapid_application_development){_target="_blank"} and [Test Driven Development (TDD)](https://en.wikipedia.org/wiki/Test-driven_development){_target="_blank"}.
+Hot reloading is a well known behaviour in several other languages (C# for example), and the most practical and fast lifecycle like Save&Reload should be possible. Hot reloading is the key to enabling [Rapid Application Development (RAD)](https://en.wikipedia.org/wiki/Rapid_application_development){:target="_blank"} and [Test Driven Development (TDD)](https://en.wikipedia.org/wiki/Test-driven_development){:target="_blank"}.
 
-Since the Java 1.4 JVM, the Debugger API allowed debuggers to update class bytecode in place, using the same class identity. This meant that all objects could refer to an updated class and execute new code when their methods were called, preventing the need to reload a container whenever class bytecode was changed. All modern IDEs support it, including Eclipse, IntelliJ IDEA, and NetBeans. Since Java 5, this functionality has also been available directly to Java applications through the [Instrumentation API](https://docs.oracle.com/javase/6/docs/technotes/guides/instrumentation/index.html){_target="_blank"}.
+Since the Java 1.4 JVM, the Debugger API allowed debuggers to update class bytecode in place, using the same class identity. This meant that all objects could refer to an updated class and execute new code when their methods were called, preventing the need to reload a container whenever class bytecode was changed. All modern IDEs support it, including Eclipse, IntelliJ IDEA, and NetBeans. Since Java 5, this functionality has also been available directly to Java applications through the [Instrumentation API](https://docs.oracle.com/javase/6/docs/technotes/guides/instrumentation/index.html){:target="_blank"}.
 
 In the Alfresco development lifecycle hot reloading is possible as in every other Java project (and with the same limitations). You can manage a project created with the Alfresco SDK using hot reloading through two different tools:
 
@@ -2272,13 +2272,13 @@ A prerequisite for this tutorial is to have a project created with the Alfresco 
 
 > **Note:** As an alternative to the HotSwapAgent you can also try out [JRebel](#using-jrebel). It has more features but isn't free.
 
-For more details and documentation, refer to the [HotSwapAgent website](http://hotswapagent.org/){_target="_blank"} and the [IDE setup](http://hotswapagent.org/mydoc_setup_eclipse.html){_target="_blank"} to enable it in your IDE.
+For more details and documentation, refer to the [HotSwapAgent website](http://hotswapagent.org/){:target="_blank"} and the [IDE setup](http://hotswapagent.org/mydoc_setup_eclipse.html){:target="_blank"} to enable it in your IDE.
 
 
 
 **Installing HotSwapAgent**
 
-1.  Download the [latest release of DCEVM Java patch](https://github.com/dcevm/dcevm/releases){_target="_blank"}. Make sure it matches your Java SDK version, check it as follows `$ javac -version javac 1.8.0_144`
+1.  Download the [latest release of DCEVM Java patch](https://github.com/dcevm/dcevm/releases){:target="_blank"}. Make sure it matches your Java SDK version, check it as follows `$ javac -version javac 1.8.0_144`
 
 2.  Launch the installer with administrator permissions:
 
@@ -2290,7 +2290,7 @@ For more details and documentation, refer to the [HotSwapAgent website](http://h
 
     Java 1.7+ versions are supported but remember to use the right version depending on your Alfresco version.
 
-4.  Download the [latest release of Hotswap agent jar](https://github.com/HotswapProjects/HotswapAgent/releases){_target="_blank"} and put it anywhere on your computer.
+4.  Download the [latest release of Hotswap agent jar](https://github.com/HotswapProjects/HotswapAgent/releases){:target="_blank"} and put it anywhere on your computer.
 
     > **Important:** If you experience any issues during startup of the Alfresco project using HotswapAgent JAR v1.1.0, use v1.0 instead.
 
@@ -2338,7 +2338,7 @@ For more details and documentation, refer to the [HotSwapAgent website](http://h
     [INFO] Scanning for projects...
     ```
 
-    Once the Alfresco SDK project is launched, it's time to start changing the content and see how hot reloading works. We will walk through a few examples. To see all the features of hot reloading, take a look to the [HotSwapAgent documentation](http://hotswapagent.org/){_target="_blank"}.
+    Once the Alfresco SDK project is launched, it's time to start changing the content and see how hot reloading works. We will walk through a few examples. To see all the features of hot reloading, take a look to the [HotSwapAgent documentation](http://hotswapagent.org/){:target="_blank"}.
 
 11. We will start by updating an example Web Script that comes with the project template. However, before making any changes, let's run the Web Script and see what the response is, use the `http://localhost:8080/alfresco/s/sample/helloworld` URL:
 
@@ -2382,7 +2382,7 @@ JRebel is the agent that enables you to do *hot reloading*. This allows you to m
 
 A prerequisite to this tutorial is having an Alfresco project created with Alfresco SDK 3.0, using the All-In-One archetype, or the Platform JAR archetype. It's worth noting that hot reloading is only supported on the platform, and not in Alfresco Share.
 
-> **Note:** An open source and free of charge alternative to JRebel is [HotSwapAgent](#using-hotswapagent). For more details, see the [HotSwapAgent website](http://hotswapagent.org/){_target="_blank"}.
+> **Note:** An open source and free of charge alternative to JRebel is [HotSwapAgent](#using-hotswapagent). For more details, see the [HotSwapAgent website](http://hotswapagent.org/){:target="_blank"}.
 
 JRebel can be installed in several ways: for example, using an IDE or in "standalone" mode. Various IDEs are supported, including Eclipse and IntelliJ. The standalone installation is useful if you want to use hot reloading from the command line.
 
@@ -2448,7 +2448,7 @@ For more details on installing using an IDE, see [Using JRebel with Eclipse IDE]
     [INFO] Scanning for projects...
     ```
 
-    Once the Alfresco project is launched, it's time to change the content and see how hot reloading works. Here, we will not see the details of what you might change in the project. To see all the features of hot reloading, take a look to the [JRebel documentation](https://zeroturnaround.com/software/jrebel/learn/){_target="_blank"}. Instead, we would like to show the developer experience, showing a practical example.
+    Once the Alfresco project is launched, it's time to change the content and see how hot reloading works. Here, we will not see the details of what you might change in the project. To see all the features of hot reloading, take a look to the [JRebel documentation](https://zeroturnaround.com/software/jrebel/learn/){:target="_blank"}. Instead, we would like to show the developer experience, showing a practical example.
 
 5.  Before making any changes, let's run the sample webscript by opening your browser and typing `http://localhost:8080/alfresco/s/sample/helloworld`.
 
@@ -2493,7 +2493,7 @@ Before using this tutorial, you should have an existing project (All-In-One or P
 
 For a detailed tutorial on the Eclipse IDE set up, see [Setting up your development environment using Eclipse](#setting-up-your-development-environment-using-eclipse).
 
-For further details about JRebel, refer to the [JRebel documentation](https://manuals.zeroturnaround.com/jrebel/ide/index.html){_target="_blank"} to enable it in your IDE.
+For further details about JRebel, refer to the [JRebel documentation](https://manuals.zeroturnaround.com/jrebel/ide/index.html){:target="_blank"} to enable it in your IDE.
 
 To install JRebel using Eclipse IDE (or any other supported IDE), follow the steps below.
 
@@ -2552,7 +2552,7 @@ To install JRebel using Eclipse IDE (or any other supported IDE), follow the ste
     [INFO] Scanning for projects...
     ```
 
-    Once the Alfresco project is launched, it's time to change the content and see how hot reloading works. Here, we will not see the details of what you might change in the project. To see all the features of hot reloading, take a look to the [JRebel documentation](https://zeroturnaround.com/software/jrebel/learn/){_target="_blank"}. Instead, we would like to show the developer experience, by showing you a practical example.
+    Once the Alfresco project is launched, it's time to change the content and see how hot reloading works. Here, we will not see the details of what you might change in the project. To see all the features of hot reloading, take a look to the [JRebel documentation](https://zeroturnaround.com/software/jrebel/learn/){:target="_blank"}. Instead, we would like to show the developer experience, by showing you a practical example.
 
 8.  Before making any changes, let's run the sample webscript by opening your browser and typing `http://localhost:8080/alfresco/s/sample/helloworld`.
 

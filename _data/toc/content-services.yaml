@@ -1641,6 +1641,8 @@
             path: '/content-services/5.2/develop/repo-ext-points/audit-log/'
           - title: 'Admin Console Components'
             path: '/content-services/5.2/develop/repo-ext-points/admin-console-components/'
+          - title: 'Workflow'
+            path: '/content-services/5.2/develop/repo-ext-points/workflow/'
         - title: 'Share UI extension points'
           pages:
           - title: 'Overview'
