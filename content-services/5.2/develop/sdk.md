@@ -115,7 +115,11 @@ Profiles are no longer used for running the project or for enabling Enterprise e
 
 **Hot reloading**
 
+<<<<<<< HEAD
 Alfresco SDK 3.0 no longer uses Spring Loaded for hot reloading. Instead [JRebel](https://www.jrebel.com/products/jrebel/){:target="_blank"} (commercial) is used or the open source alternative [HotSwap](http://hotswapagent.org/){:target="_blank"}, which works a lot better and gives hot reloading of Spring context (only JRebel), classes, web resources, property files etc. Hot reloading works for both the `alfresco.war` and the `share.war`. Note that in SDK release 2.2.0 you can [no longer use Spring Loaded for hot reloading](https://github.com/Alfresco/alfresco-sdk/issues/369){:target="_blank"} in `alfresco.war`.
+=======
+Alfresco SDK 3.0 no longer uses Spring Loaded for hot reloading. Instead [JRebel](https://zeroturnaround.com/software/jrebel/){:target="_blank"} (commercial) is used or the open source alternative [HotSwap](http://hotswapagent.org/){:target="_blank"}, which works a lot better and gives hot reloading of Spring context (only JRebel), classes, web resources, property files etc. Hot reloading works for both the `alfresco.war` and the `share.war`. Note that in SDK release 2.2.0 you can [no longer use Spring Loaded for hot reloading](https://github.com/Alfresco/alfresco-sdk/issues/369){:target="_blank"} in `alfresco.war`.
+>>>>>>> 062a0212... Updated repo extension points and added workflow extension point
 
 See [Hot reloading](#hot-reloading) for more.
 
