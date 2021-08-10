@@ -37,50 +37,7 @@ Use the following information to upgrade your ZIP installation:
 
 1. Download the `alfresco-identity-service-1.5.0.zip` file from [Hyland Community](https://community.hyland.com/en/products/alfresco/release-notes/release-notes/alfresco-identity-service-version-150){:target="_blank"}.
 
-2. Back up the database used by the Identity Service, including any configuration and themes.
-
-    For example, for a PostgreSQL database backup:
-
-    ```bash
-    pg_dump --clean --no-owner --no-acl -h ${POSTGRES_HOST} -p ${POSTGRES_PORT}  -U ${POSTGRES_USER} ${POSTGRES_DATABASE} | grep -v -E '(DROP\ SCHEMA\ public|CREATE\ SCHEMA\ public|COMMENT\ ON\ SCHEMA\ public|DROP\ EXTENSION\ plpgsql|CREATE\ EXTENSION\ IF\ NOT\ EXISTS\ plpgsql|COMMENT\ ON\ EXTENSION\ plpgsql)' > /backup/backup.sql
-    ```
-
-3. Remove the existing data from the database and stop the database service.
-
-4. Stop the Identity Service service.
-
-5. Unzip the ZIP file and configure your connection to the database using the Keycloak documentation. [Relational Database Setup](https://www.keycloak.org/docs/latest/server_installation/#_database){:target="_blank"}.
-
-6. Restart the database service and restore your backed up database.
-
-    For example, for a PostgreSQL database:
-
-    ```bash
-    psql -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DATABASE} -U ${POSTGRES_USER} -f /backup/backup.sql
-    ```
-
-7. Run the standalone start script for the new version of the Identity Service:
-
-    > **Note:** To bind to all public interfaces use `0.0.0.0` as the value of `IP_ADDRESS` otherwise use the address of a specific interface.
-
-    For a Linux or Unix environment:
-
-    ```bash
-    cd alfresco-identity-service-1.5.0/bin
-    /standalone.sh -b <IP_ADDRESS>
-    ```
-
-    For a Microsoft Windows environment using a bat script:
-
-    ```bash
-    alfresco-identity-service-1.5.0\bin\standalone.bat -b <IP_ADDRESS>
-    ```
-
-    For a Microsoft Windows environment using a Powershell script:
-
-    ```bash
-    alfresco-identity-service-1.5.0\bin\standalone.ps1 -b <IP_ADDRESS>
-    ```
+2. Unzip the ZIP file and configure your installation using the Keycloak documentation. [Upgrading Keycloak](https://www.keycloak.org/docs/13.0/upgrading/#_upgrading){:target="_blank"}.
 
 ### Upgrade Kubernetes deployment with PostgreSQL database
 
