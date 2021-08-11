@@ -16,6 +16,6 @@ The **Indexing** feature is provided by a Spring Boot application called `Alfres
 
 * **Re-Indexing**: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the Re-Indexing component. Metadata from Alfresco Repository is retrieved using a direct JDBC connection to Alfresco Database. **Note:** Only PostgresSQL is currently supported.
 
-The required services are included in the following deployment diagram.
+The services required for Search Enterprise are included in the following diagram.
 
 ![architecture]({% link search-enterprise/images/elasticsearch_connector_architecture.png %})
