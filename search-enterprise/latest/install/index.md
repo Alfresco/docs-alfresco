@@ -2,9 +2,17 @@
 title: Overview
 ---
 
+**Alfresco Search Enterprise 3.0** is deployed using the following components:
+
+* Alfresco Content Services 7.1.0, that includes Alfresco ActiveMQ, Alfresco Transform Service and Database
+* Alfresco Elasticsearch Connector 3.0.0
+* Elasticsearch server 7.10, that may be used as a standard managed service or that may be installed with default configuration
+
+> **Note:** The Elasticsearch server does not require any additional software from Alfresco in order to be used by Alfresco Search Enterprise 3.0
+
 Use this information to deploy the Alfresco Elasticsearch Connector.
 
-In order to use **Alfresco Search Enterprise 3.0** is also required to deploy ACS 7.0 and Elasticsearch server 7.10. Details on these deployments are available in [Alfresco Docs](https://docs.alfresco.com/content-services/latest/install/) and [Elasticsearch Docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html){:target="_blank"}.
+To use Alfresco Search Enterprise 3.0 is also required to deploy ACS 7.1 and Elasticsearch server 7.10. Details on these deployments are available in [Alfresco Docs](https://docs.alfresco.com/content-services/latest/install/) and [Elasticsearch Docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html){:target="_blank"}.
 
 There are two main options for deploying Alfresco Elasticsearch Connector: using containerized deployment or using the distribution JAR application. Since Kubernetes deployment is not yet supported, Alfresco Elasticsearch Connector is designed to be deployed using Docker images that are packaged in Helm charts or Docker Compose. This is the recommended deployment approach.
 
@@ -22,13 +30,13 @@ Additionally, Alfresco Repository must be configured in order to use Elasticsear
 
 Use this information to install Alfresco Elasticsearch Connector on the same machine as Alfresco Content Services.
 
-This task assumes you have installed Alfresco Content Services 7.0 or above.
+This task assumes you have installed Alfresco Content Services 7.1 or above.
 
 ## Prerequisites and supported platforms
 
 * JDK 11 or OpenJDK 11
 * Elasticsearch server 7.10.1
-* Alfresco Content Services 7.0.0
+* Alfresco Content Services 7.1
 
 ## Configuring the Search Enterprise subsystem in Alfresco Repository
 
@@ -55,18 +63,18 @@ In order to set the configuration properties from the [Repository Admin Web Cons
 
 Browse to [Alfresco Nexus Internal Group Repositories](https://nexus.alfresco.com/nexus/#view-repositories;internal~browsestorage){:target="_blank"} and download:
 
-* `alfresco-elasticsearch-live-indexing-3.0.0-M2-app.jar` file from `org/alfresco/alfresco-elasticsearch-live-indexing` folder
+* `alfresco-elasticsearch-live-indexing-3.0.0-app.jar` file from `org/alfresco/alfresco-elasticsearch-live-indexing` folder
 
-* `alfresco-elasticsearch-reindexing-3.0.0-M2-app.jar` file from `org/alfresco/alfresco-elasticsearch-reindexing` folder
+* `alfresco-elasticsearch-reindexing-3.0.0-app.jar` file from `org/alfresco/alfresco-elasticsearch-reindexing` folder
 
 > **Note:** Since we need to use private (Enterprise-only) artifacts from Alfresco Nexus, you need credentials to be able to download these artifacts from Alfresco Nexus. Alfresco customers can request their credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
 
 Verify that all the required services are available:
 
 * Elasticsearch server, by default living in http://elasticsearch:9200
-* Alfresco ActiveMQ, as part of ACS 7.0 deployment, by default living in `nio://activemq:61616`
-* Alfresco Shared FileStore endpoint, as part of ACS 7.0 deployment, by default living in http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file/
-* Alfresco Database using PostgresSQL engine, as part of ACS 7.0 deployment, by default living in `localhost:5432`
+* Alfresco ActiveMQ, as part of ACS 7.1 deployment, by default living in `nio://activemq:61616`
+* Alfresco Shared FileStore endpoint, as part of ACS 7.1 deployment, by default living in http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file/
+* Alfresco Database using PostgresSQL engine, as part of ACS 7.1 deployment, by default living in `localhost:5432`
 
 ## Alfresco Re-Indexing app
 
@@ -116,7 +124,7 @@ Save this content in a new file named `reindex.prefixes-file.json`.
 Re-indexing application can be run from command line, passing the already generated JSON file and details for DB and Elasticsearch servers. Since this application is providing default values for Alfresco Repository Database username and password, it's strongly recommended to set this credentials by using the command line. By using this approach, database credentials won't be stored in server filesystem persistently.
 
 ```java
-java -jar alfresco-elasticsearch-reindexing-3.0.0-M2-app.jar \
+java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
 --alfresco.reindex.jobName=reindexByIds \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
@@ -137,7 +145,7 @@ Once the program has being executed, existing Alfresco Repository nodes will be 
 Alfresco Elasticsearch Connector *Live Indexing* can be started from command line as a standard Spring Boot application.
 
 ```java
-java -jar alfresco-elasticsearch-live-indexing-3.0.0-M2-app.jar
+java -jar alfresco-elasticsearch-live-indexing-3.0.0-app.jar
 ```
 
 If your services are deployed on a different server or port, following parameters can be used.
@@ -146,19 +154,19 @@ If your services are deployed on a different server or port, following parameter
 java -DSPRING_ELASTICSEARCH_REST_URIS=http://localhost:9200 \
  -DSPRING_ACTIVEMQ_BROKERURL=nio://localhost:61616 \
  -DALFRESCO_SHAREDFILESTORE_BASEURL=http://localhost:8099/alfresco/api/-default-/private/sfs/versions/1/file/ \
- -jar alfresco-elasticsearch-live-indexing-3.0.0-M2-app.jar
+ -jar alfresco-elasticsearch-live-indexing-3.0.0-app.jar
 ```
 
 Additional memory may be assigned to thes services using default JVM options. For instance, the next command will start Alfresco Elasticsearch Connector with 2 GB of RAM.
 
 ```java
-java -Xmx2G -jar alfresco-elasticsearch-live-indexing-3.0.0-M2-app.jar
+java -Xmx2G -jar alfresco-elasticsearch-live-indexing-3.0.0-app.jar
 ```
 
 By default, Alfresco Elasticsearch Connector is started listening to port 8080. This port can be changed using default Spring Boot command line parameter `server.port`. Following command will run Alfresco Elasticsearch Connector service listening to port 8083.
 
 ```java
-java -jar alfresco-elasticsearch-live-indexing-3.0.0-M2-app.jar --server.port=8083
+java -jar alfresco-elasticsearch-live-indexing-3.0.0-app.jar --server.port=8083
 ```
 
 Once every service is up & running, Elasticsearch index should be populated and search queries would work as expected when using an Alfresco UI application like [Alfresco Digital Workspace](https://docs.alfresco.com/adw/concepts/welcome-adw.html) or [Alfresco Content Application](https://github.com/Alfresco/alfresco-content-app){:target="_blank"}.

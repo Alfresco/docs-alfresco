@@ -50,7 +50,7 @@ Additionally, these properties can be set as environment variables in Alfresco R
 
 ```docker
 alfresco:
-    image: quay.io/alfresco/alfresco-content-repository:7.0.0
+    image: quay.io/alfresco/alfresco-content-repository:7.1.0
     environment:
         JAVA_OPTS: "
         -Dindex.subsystem.name=elasticsearch
@@ -164,7 +164,7 @@ The table below lists the main configuration properties that can be specified th
 | alfresco.content.event.retry.maxAllowed | Maximum number of retries in case of transient failure processing | 3 |
 | alfresco.content.event.retry.delay | Delay in milliseconds between subsequent retries | 1000 |
 | acs.repo.transform.request.endpoint | Alfresco Repository channel | activemq:queue:acs-repo-transform-request?jmsMessageType=Text |
-| alfresco.sharedFileStore.baseUrl | Alfresco Shared FileStore endpoint | http://127.0.0.1:8099/alfresco/api/-default-/private/sfs/versions/1/file/ |
+| alfresco.sharedFileStore.baseUrl | Alfresco Shared FileStore endpoint | http://127.1.0.1:8099/alfresco/api/-default-/private/sfs/versions/1/file/ |
 | alfresco.sharedFileStore.timeout | Alfresco Shared FileStore maximum read timeout in milliseconds | 2000 |
 | alfresco.sharedFileStore.maxBufferSize | Alfresco Shared FileStore maximum buffer size (-1 for unlimited buffer) | -1 |
 | alfresco.event.topic | Topic name for Alfresco Repository events | activemq:topic:alfresco.repo.event2 |

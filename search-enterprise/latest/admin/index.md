@@ -25,7 +25,7 @@ N.b. Once you have done that you will need to perform a reindex, so it is recomm
 
 * *Reindexing*: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the Reindexing component. Metadata from the Alfresco Repository is retrieved using a direct JDBC connection to the Alfresco Database (nb. currently only PostgreSQL is supported).
 
-> **Note:** Content and Permission reindexing is not ready to be used with Search Enterprise 3.0.0-M2, as is still under development.
+> **Note:** Content and Permission reindexing is not ready to be used with Search Enterprise 3.0.0, as is still under development.
 
 ## New Repository
 
@@ -36,7 +36,7 @@ When creating a new Alfresco Repository, use the `Alfresco Elasticsearch Connect
 * Run the reindexing app from the command line replacing the connection details as appropriate:
 
 ```java
-$ java -jar alfresco-elasticsearch-reindexing-3.0.0-M2-app.jar \
+$ java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
 --alfresco.reindex.jobName=reindexByIds \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
@@ -60,7 +60,7 @@ When using a pre-populated Alfresco Repository, use the `Alfresco Elasticsearch 
 * Run the reindexing app replacing the connection details as appropriate:
 
 ```java
-$ java -jar alfresco-elasticsearch-reindexing-3.0.0-M2-app.jar \
+$ java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
 --alfresco.reindex.jobName=reindexByIds \
 --spring.elasticsearch.rest.uris=http://localhost:9200 \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \

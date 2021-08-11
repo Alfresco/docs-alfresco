@@ -8,7 +8,7 @@ The following are the supported platforms for Search Services Search Enterprise 
 
 | Version | Notes |
 | ------- | ----- |
-| Content Services 7.0.x | |
+| Content Services 7.1.x | |
 
 * JDK 11 or OpenJDK 11
 * Elasticsearch server 7.10.1
