@@ -16,6 +16,12 @@ The **Indexing** feature is provided by a Spring Boot application called `Alfres
 
 * **Re-Indexing**: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the Re-Indexing component. Metadata from Alfresco Repository is retrieved using a direct JDBC connection to Alfresco Database. **Note:** Only PostgresSQL is currently supported.
 
+Alfresco Search Enterprise consists of the following components:
+
+* Alfresco Elasticsearch Connector 3.0.0
+* Alfresco Content Services 7.1.0, that includes Alfresco ActiveMQ, Alfresco Transform Service, and Database
+* Elasticsearch server 7.10, that may be used as a standard managed service or that may be installed with default configuration. **Note:** The Elasticsearch server does not require any additional software from Alfresco in order to be used by Alfresco Search Enterprise 3.0
+
 The services required for Search Enterprise are included in the following diagram.
 
 ![architecture]({% link search-enterprise/images/elasticsearch_connector_architecture.png %})
