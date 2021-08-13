@@ -2,9 +2,7 @@
 title: Features
 ---
 
-Alfresco Search Enterprise 3.0 provides a subset of the searching features provided by Alfresco Search Services.
-
-Links to Solr documentation are provided where appropriate. It should be possible to re-use much of this for Elasticsearch documentation, as the behavior is (in most cases) identical.
+Alfresco Search Enterprise provides a subset of the searching features provided by Alfresco Search Services.
 
 * [Applications & Frameworks](#applications---frameworks)
 * [Search Features](#search-features)
@@ -26,10 +24,12 @@ Links to Solr documentation are provided where appropriate. It should be possibl
 * Filter by content size and mimetype (Supported from M2 release)
 * Inclusion of additional properties in search results - https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/#requesting-optional-item-information
 
+<!--
 Note that not all faceting features available for Solr are currently supported. See the following tickets for more details:
 * [2681](https://alfresco.atlassian.net/browse/SEARCH-2681){:target="_blank"}
 * [2682](https://alfresco.atlassian.net/browse/SEARCH-2682{:target="_blank"}
 * [2749](https://alfresco.atlassian.net/browse/SEARCH-2749{:target="_blank"}
+-->
 
 ## Search Syntax
 
@@ -124,9 +124,9 @@ appl?
 
 When performing a search that includes a wildcard character, it is best to wrap your search term in double quotation marks. This ensures all metadata and content are searched.
 
-### Search for conjunctions
+## Search for conjunctions
 
-## Search for disjunctions
+### Search for disjunctions
 
 Single terms, phrases, and so on can be combined using `OR` in upper, lower, or mixed case.
 
@@ -147,7 +147,7 @@ These queries search for nodes that contain at least one of the terms `big`, `ye
 
 [Search for optional, mandatory, and excluded elements of a query](https://github.com/Alfresco/alfresco-search-enterprise-docs/wiki/Search-Syntax-in-depth#search-for-optional-mandatory-and-excluded-elements-of-a-query){:target="_blank"}
 
-## Escaping characters
+### Escaping characters
 
 Any character can be escaped using the backslash "" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
 
@@ -157,7 +157,7 @@ For example:
 cm:my content:my name
 ```
 
-[Search using Type](https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/searching)#searching-by-content-type-and-controlling-paging-and-sorting
+[Search using Type]({% link content-services/latest/develop/rest-api-guide/searching.md %}#searching-by-content-type-and-controlling-paging-and-sorting)
 
 ### Search for ranges
 
@@ -222,23 +222,16 @@ The list of the default supported types as declared in the `<alfresco_home>/solr
 
 ## Query Languages
 
-A search request allows the specification of the search language to be used. The supported languages in addition to the default AFTS are:
+A search request allows the specification of the search language to be used. The supported language in addition to the default AFTS is:
 
-* Lucene: the query language provided by the popular IR framework (Supported from M2 release)
+* Lucene: the query language provided by the IR framework
 
-The search string syntax depends on the given query language and can differ significantly between AFTS and Lucene. However, there are some shared aspects that provide the same exact behavior in both languages, particularly for [field queries](https://github.com/Alfresco/alfresco-search-enterprise-docs/wiki/Search-Syntax-in-depth#field-queries){:target="_blank"}.
+The search string syntax depends on the given query language and can differ significantly between AFTS and Lucene. However, there are some shared aspects that provide the same exact behavior in both languages.
 
 **Administration Features**
 
 * Administration console to manage the key interactions between Alfresco and Elasticsearch from Alfresco Repository
 * Ability to determine the high-level health of the Elastic Search index via the administration console
-
-**Deployment Options**
-
-* Ability to deploy Alfresco Search Enterprise 3.0 as JAR standalone application
-* Ability to deploy Alfresco Search Enterprise 3.0 via Docker Compose
-* Ability to run Elasticsearch for ACS as a managed service, using either AWS or Elastic co.
-* Ability to use a pre-existing Elasticsearch cluster rather than a pre-packaged deployment
 
 ## Search Query Syntax
 
@@ -361,7 +354,7 @@ Phrase
 
 > **Note:** Exact Term Search is disabled by default, to enable it please refer to Indexing documentation and the configuration file: exactTermSearch.properties
 
-## Searches that involve stopwords
+### Searches that involve stopwords
 
 [Stopwords](_https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-stop-tokenfilter.html#analysis-stop-tokenfilter-stop-words-by-lang_){:target="_blank"} are removed from the query.
 
@@ -377,7 +370,7 @@ becomes
 quick fox brown
 ```
 
-This behavior is different from Search Services pre 3.0 that keep stopwords in the query, building positional queries:
+This behavior is different from Search Services in that it keeps stopwords in the query to build positional queries, for example:
 
 ```sql
 stopword1 quick fox stopword2 brown
@@ -389,11 +382,11 @@ becomes
 stopword1_quick quick fox_stopword2 fox stopword2_brown brown
 ```
 
-## Field Queries and execution behavior
+### Field Queries and execution behavior
 
 The fields (and the corresponding query execution behavior) listed in this section are common to AFTS and Lucene query languages.
 
-## Type and Aspect Queries
+### Type and Aspect Queries
 
 Type and Aspect queries have several things in common: both of them expect a name as the field value. Specifically:
 
@@ -406,11 +399,11 @@ Known Limitations:
 * No support for prefix/wildcard queries in the namespace part (e.g. "TYPE:{http://www.*}person" won't work, "TYPE:{http://www.alfresco.org/model/content/1.0}pers*" works)
 * No support for descendant expansion in prefix/wildcard queries (e.g. TYPE: cm:pers* won't expand to cm:person descendants)
 
-## Expanded Queries
+### Expanded Queries
 
 Queries in this category are expanded to a boolean query with several clauses using criteria that are specific to each field. 
 
-### ALL
+#### ALL
 
 The ALL virtual field (i.e. it is not in the index) expands to all fields defined
 
@@ -419,9 +412,9 @@ OR, in case they are empty.
 
 * in the DictionaryService::getAllProperties.
 
-### TEXT
+#### TEXT
 
-The TEXT virtual field (i.e. it is not in the index) expands to all fields defined:
+The TEXT virtual field (i.e. it is not in the index) expands to all fields and defined:
 
 * in the SearchParameters::textAttributes (the object representation of the corresponding attribute in the REST API Search Request)
 OR, in case they are empty
@@ -433,7 +426,7 @@ This generates a term centric multi-field query:
 For example:
 
 ```sql
-TEXT:(test AND file AND term3 )
+TEXT:(test AND file AND term3)
 ```
 
 This query is expanded to:
@@ -444,17 +437,17 @@ This query is expanded to:
 (cm:title:term3 OR cm:name:term3 OR cm:description:term3 OR cm:content:term3)
 ```
 
-**Note:** this means that a full query in AND matches documents that contains all the terms in the query, in any of the fields involved.
+> **Note:** This means that a full query in AND matches documents that contains all the terms in the query, in any of the fields involved.
 
-### DataType
+#### DataType
 
-This query is executed when the field name corresponds to a datatype definition using its prefixed or fully qualified form (e.g. d:text, {http://www.alfresco.org/model/dictionary/1.0}text).
+This query is executed when the field name corresponds to a datatype definition using its prefixed or fully qualified form, for example `d:text, {http://www.alfresco.org/model/dictionary/1.0}text)`.
 
-The actual query produced is a boolean query which includes an optional clause for each property associated to the input datatype definition.
+The query produced is a boolean query which includes an optional clause for each property associated to the input datatype definition.
 
-### Permission Queries
+#### Permission Queries
 
-Fields that are related to ACL information are stored directly as part of the Elasticsearch documents. As a consequence of that, the corresponding queries are plain term/range/prefix/fuzzy queries using the following fields:
+Fields that are related to ACL information are stored directly as part of the Elasticsearch documents. Consequently, the corresponding queries are plain `term`/`range`/`prefix`/`fuzzy` queries using the following fields:
 
 * OWNER
 * READER
@@ -465,20 +458,20 @@ Fields that are related to ACL information are stored directly as part of the El
 
 ### ID
 
-The ID (virtual) field maps to Elasticsearch document id (_id) and it corresponds to the Alfresco node identifier (e.g. 5fef4b5d-4527-40e5-94fa-1878ef7a54eb)
+The ID (virtual) field maps to Elasticsearch document id (_id) and it corresponds to the Alfresco node identifier, for example `5fef4b5d-4527-40e5-94fa-1878ef7a54eb`.
 
 ### EXISTS
 
-The query intent can be summarized in “give me all nodes that have a value for the property/field I requested”. This is very similar to the previous one, the difference is that the NULLPROPERTIES field is not involved in this scenario.
+The query intent can be summarized as “give me all nodes that have a value for the property/field I requested”. This is very similar to the previous one, the difference is that the `NULLPROPERTIES` field is not involved in this scenario.
 
-The value of a clause whose field is EXISTS could be:
+The value of a clause whose field is `EXISTS` could be:
 
 * an unqualified name: it will be expanded to a fully qualified name using the default namespace
-* a prefixed name: the prefix is expanded (e.g. cm:name => {http://..}content}name)
+* a prefixed name: the prefix is expanded, for example `cm:name` => `{http://..}content}name`
 * a fully qualified name
-* a field name (e.g. ID, OWNER, READER)
+* a field name, for example `ID`, `OWNER`, `READER`
 
-If the value is associated to a property definition then a boolean query is executed having the following clauses:
+If the value is associated to a property definition then a boolean query is executed with the following clauses:
 
 * PROPERTIES:<prefixed form of the property definition> (MUST) Otherwise, in case of a field (e.g. OWNER, ID, READER) a wildcard query is built using that field (e.g. OWNER:*)
 
@@ -581,20 +574,20 @@ In the REST API you can specify the timezone to be used in search for date range
 
 ## Unsupported Features
 
-The following features, which were supported with Search 2.x (Solr) are not supported in the latest release for Search 3.x (Elasticsearch). These features are under consideration for inclusion in a future release.
+The following features, which were supported in Search Services and Search and Insight Engine 2.x (Solr) are not supported in the latest release of Search Enterprise 3.x.
 
-> **Note:** The list below is subject to change, and requires review before publishing
+> **Note: (Martin S)** The list below is subject to change, and requires review before publishing
 
 ### Index and re-index
 
-* Re-index of permissions and content associated with indexed nodes
 * Indexing of nodes created during content repository bootstrap. For example, the sample site data.
+* Re-index of permissions and content associated with indexed nodes.
 
 ### Search Features
 
 * Site queries
 * Path queries
-* Aspect queries (it works only using exact aspect name)
+* Aspect queries (works using only the exact aspect name)
 * Tag queries
 * Highlighting
 * Fingerprinting
@@ -658,7 +651,7 @@ The following features, which were supported with Search 2.x (Solr) are not supp
 * DENYSET
 * FTSSTATUS
 
-In order to guarantee ADW basic functionalities when a query contains an unsupported field the query part will be ignored and the REST API will return a 200 HTTP code. A warning message will be produced in the Alfresco Repository log.
+To guarantee ADW basic functionalities when a query contains an unsupported field the query part will be ignored and the REST API will return a 200 HTTP code. A warning message will be produced in the Alfresco Repository log.
 
 In order to All unsupported fields will be ignored in queries and filters following the schema below:
 
@@ -696,8 +689,6 @@ In the examples above, filter queries must be executed using the REST API and no
 
 ## Unsupported data types and properties
 
-This page describes types supported for Search 2.0 that are not currently supported for Search 3.0.
-
 * http&#65279;://www.alfresco.org/model/cmis/1.0/cs01}id
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}any
 * http&#65279;://www.alfresco.org/model/dictionary/1.0}assocref
@@ -711,7 +702,7 @@ This page describes types supported for Search 2.0 that are not currently suppor
 
 ## Search for failed Transformations
 
-It is possible to search for all documents that have failed to transform by running a simple query using Kibana or the Elasticsearch REST API:
+You can search for all documents that have failed to transform by running a simple query using Kibana or the Elasticsearch REST API:
 
 ```json
 {
