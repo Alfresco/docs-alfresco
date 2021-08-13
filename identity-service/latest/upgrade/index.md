@@ -5,16 +5,17 @@ title: Upgrade Identity Service
 Use the following information to upgrade the Identity Service to version 1.5.
 
 > **Note:** After the upgrade the database will no longer be compatible with the old server.
+
 > **Important:** Upgrading the Identity Service requires downtime and should be performed in a test environment before being attempted in a production environment.
 
-* [Upgrade from version 1.2](#upgrade-from-version-1.2)
+* [Upgrade from version 1.2](#upgrade-v12)
 * [Remove SmallRye references](#remove-smallrye-references)
 * [Upgrade ZIP installation](#upgrade-zip-installation)  
 * [Upgrade Kubernetes deployment with PostgreSQL database](#upgrade-kubernetes-deployment-with-postgresql-database)  
 
 > **Note:** For Keycloak's upgrade documentation see [upgrade procedure](https://www.keycloak.org/docs/latest/upgrading/).
 
-## Upgrade from version 1.2
+## Upgrade from version 1.2 {#upgrade-v12}
 
 If you are currently using the Identity Service 1.2 you must first modify the **_First Broker Login_** authentication before upgrading to version 1.5.
 
