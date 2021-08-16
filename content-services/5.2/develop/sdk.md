@@ -211,31 +211,16 @@ Alfresco SDK 3 requires Maven 3.3.0+, but you are recommended to download the la
 
     The output looks something like this:
 
-    ```
-    [INFO] Generating project in Interactive mode
-    [INFO] No archetype defined. Using maven-archetype-quickstart (org.apache.maven.ar
-    chetypes:maven-archetype-quickstart:1.0)
-    Choose archetype:
-    1: remote -> org.alfresco.maven.archetype:alfresco-allinone-archetype (Sample mult
-    i-module project for All-in-One development on the Alfresco plaftorm. Includes mod
-    ules for: Repository WAR overlay, Repository AMP, Share WAR overlay, Solr configur
-    ation, and embedded Tomcat runner)
-    2: remote -> org.alfresco.maven.archetype:alfresco-amp-archetype (Sample project w
-    ith full support for lifecycle and rapid development of Repository AMPs (Alfresco
-    Module Packages))
-    3: remote -> org.alfresco.maven.archetype:share-amp-archetype (Share project with
-    full support for lifecycle and rapid development of AMPs (Alfresco Module Packages
-    ))
-    4: remote -> org.alfresco.maven.archetype:alfresco-platform-jar-archetype (Sample
-    project with full support for lifecycle and rapid development of Platform/Reposito
-    ry JARs and AMPs (Alfresco Module Packages))
-    5: remote -> org.alfresco.maven.archetype:alfresco-share-jar-archetype (Share proj
-    ect with full support for lifecycle and rapid development of JARs and AMPs (Alfres
-    co Module Packages))
-    6: remote -> org.alfresco.maven.archetype:activiti-jar-archetype (Sample project w
-    ith full support for lifecycle and rapid development of Activiti JARs)
-    Choose a number or apply filter (format: [groupId:]artifactId, case sensitive cont
-    ains): :
+    ```bash
+    1: remote -> org.alfresco.maven.archetype:activiti-jar-archetype (DEPRECATED - UNSUPPORTED - EXPERIMENTAL)
+    2: remote -> org.alfresco.maven.archetype:alfresco-allinone-archetype (Sample multi-module project for All-in-One development on the Alfresco platform. Includes modules for Platform/Repository JAR and Share JAR)
+    3: remote -> org.alfresco.maven.archetype:alfresco-amp-archetype (Sample project with full support for lifecycle and rapid development of Repository AMPs (Alfresco Module Packages))
+    4: remote -> org.alfresco.maven.archetype:alfresco-platform-jar-archetype (Sample project with full support for lifecycle and rapid development of Platform/Repository JARs and AMPs (Alfresco Module Packages))
+    5: remote -> org.alfresco.maven.archetype:alfresco-share-jar-archetype (Share project with full support for lifecycle and rapid development of JARs and AMPs (Alfresco Module
+    Packages))
+    6: remote -> org.alfresco.maven.archetype:share-amp-archetype (Share project with full support for lifecycle and rapid development of AMPs (Alfresco Module
+    Packages))
+    Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): : 
     ```
 
 2.  Select one of the following archetype:
@@ -245,9 +230,9 @@ Alfresco SDK 3 requires Maven 3.3.0+, but you are recommended to download the la
     -   `org.alfresco.maven.archetype:alfresco-share-jar-archetype`
     > **Note:** The numbers may vary from the output shown above due to the way Maven reads and filters the archetypes.
 
-3.  Choose the latest version.
+3.  Choose the latest `3.x` version.
 
-    ```
+    ```bash
     Choose org.alfresco.maven.archetype:alfresco-allinone-archetype version:
     1: 2.0.0-beta-1
     2: 2.0.0-beta-2
@@ -259,13 +244,17 @@ Alfresco SDK 3 requires Maven 3.3.0+, but you are recommended to download the la
     8: 2.2.0
     9: 3.0.0
     10: 3.0.1
+    11: 3.1.0
+    12: 4.0.0-beta-1
+    13: 4.0.0
+    14: 4.1.0
+    15: 4.2.0
+    Choose a number: 15: 11 
     ```
-
-    > **Note:** Always use the latest version for the SDK, as it includes the most recently applied fixes.
 
 4.  Next you will be prompted for additional values, like `groupId`, `artifactId`, and `package`, as shown below:
 
-    ```
+    ```bash
     Define value for property 'groupId':
     Define value for property 'artifactId':
     [INFO] Using property: version = 1.0-SNAPSHOT
@@ -274,7 +263,7 @@ Alfresco SDK 3 requires Maven 3.3.0+, but you are recommended to download the la
 
 5.  After you have specified the information according to your project, a final confirmation will appear.
 
-    ```
+    ```bash
     Confirm properties configuration:
     groupId: com.acme
     artifactId: my-all-in-one
@@ -287,7 +276,7 @@ Alfresco SDK 3 requires Maven 3.3.0+, but you are recommended to download the la
 
     If everything has been configured correctly, you should see something similar to this:
 
-    ```
+    ```text
     [INFO] ---------------------------------------------------------------------------
     -
     [INFO] Using following parameters for creating project from Archetype: alfresco-al
