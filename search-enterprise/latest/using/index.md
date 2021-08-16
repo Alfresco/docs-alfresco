@@ -1,16 +1,19 @@
 ---
-title: Features
+title: Overview
 ---
 
 Alfresco Search Enterprise provides a subset of the searching features provided by Alfresco Search Services.
 
-* [Applications & Frameworks](#applications---frameworks)
-* [Search Features](#search-features)
-* [Search Syntax](#search-syntax)
-* [Field Queries](#field-queries)
-* [Query Languages](#query-languages)
+[Applications and Frameworks](#applications-and-frameworks)
+[Search Features](#search-features)
+[Search Syntax](#search-syntax)
+[Field Queries](#field-queries)
+[Query Languages](#query-languages)
+[Troubleshooting](#troubleshooting)
 
-## Applications & Frameworks
+## Applications and Frameworks
+
+The following applications and frameworks can be used with Search Enterprise.
 
 * ADF
 * ADW
@@ -19,10 +22,11 @@ Alfresco Search Enterprise provides a subset of the searching features provided 
 
 * ACL Permission checks
 * Sorting by relevancy
-* Paging - https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/searching/#searching-by-content-type-and-controlling-paging-and-sorting
-* Faceting - https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/searching/#faceted-search
-* Filter by content size and mimetype (Supported from M2 release)
-* Inclusion of additional properties in search results - https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/#requesting-optional-item-information
+* Paging - [Searching by content type and controlling paging and sorting
+]({% link content-services/latest/develop/rest-api-guide/searching.md %})#searching-by-content-type-and-controlling-paging-and-sorting
+* Faceting, for more see [Faceted search]({% link content-services/latest/develop/rest-api-guide/searching.md %})#faceted-search
+* Filter by content size and mimetype
+* Inclusion of additional properties in search results, for more information see [Requesting optional item information]({% link content-services/latest/develop/rest-api-guide/index.md %})#requesting-optional-item-information
 
 <!--
 Note that not all faceting features available for Solr are currently supported. See the following tickets for more details:
@@ -37,7 +41,7 @@ Note that not all faceting features available for Solr are currently supported. 
 
 Single terms are tokenized before the search according to the appropriate data dictionary definition(s).
 
-If you do not specify a field, it will search in the content and properties. This is a shortcut for searching all properties of type content. Terms can not contain a whitespace.
+If you do not specify a field, it will search in the content and properties. This is a shortcut for searching all properties of type content. Terms cannot contain a whitespace.
 
 ```sql
 banana
@@ -177,8 +181,6 @@ my:float:2.5..3.5
 my:float:0..MAX
 mt:text:[l TO "uFFFF"] 
 ```
-
-> **Note:** Only numeric values since M2 release and date values, since M3 release)
 
 ### Search for an exact term
 
@@ -356,7 +358,7 @@ Phrase
 
 ### Searches that involve stopwords
 
-[Stopwords](_https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-stop-tokenfilter.html#analysis-stop-tokenfilter-stop-words-by-lang_){:target="_blank"} are removed from the query.
+[Stopwords](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-stop-tokenfilter.html#analysis-stop-tokenfilter-stop-words-by-lang){:target="_blank"} are removed from the query.
 
 For example:
 
@@ -489,11 +491,11 @@ This page doesn’t repeat what is written in that documentation; instead, it pr
 
 #### Fields
 
-Fields are special attributes that can be used in queries and that are not part of any content model. The behaviour and the usage of those attributes is in common with the AFTS query language and for that reason it has been described here. 
+Fields are special attributes that can be used in queries and that are not part of any content model. The behavior and the usage of these attributes is in common with the AFTS query language.
 
 #### Properties
 
-Properties are attributes defined in an Alfresco content model. They are identified by qualified names, meaning with that they are composed by:
+Properties are attributes defined in an Alfresco content model. They are identified by qualified names, meaning they are composed of:
 
 * a namespace
 * a local name
@@ -523,11 +525,9 @@ A property can be declared in queries using three notations:
 @{http://www.alfresco.org/model/content/1.0}title:(Object Oriented Programming)
 ```
 
-When prefixes and fully qualified names are used, the property has to be prefixed with the @ symbol: this is one of the main differences between AFTS and Lucene. 
+When prefixes and fully qualified names are used, the property has to be prefixed with the @ symbol: this is one of the main differences between AFTS and Lucene.
 
 Special characters (i.e. characters that have a special meaning in lucene) need to be escaped using the backslash
-
-[1] note the page refers to an old lucene version. Although the current version, at the time of writing is 8.8.2 no changes have been introduced since 2.9.4 in the lucene syntax so what is described in the page can be considered valid and updated.
 
 ## Search for ranges
 
