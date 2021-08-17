@@ -4,13 +4,6 @@ title: Overview
 
 Alfresco Search Enterprise provides a subset of the searching features provided by Alfresco Search Services.
 
-[Applications and Frameworks](#applications-and-frameworks)
-[Search Features](#search-features)
-[Search Syntax](#search-syntax)
-[Field Queries](#field-queries)
-[Query Languages](#query-languages)
-[Troubleshooting](#troubleshooting)
-
 ## Applications and Frameworks
 
 The following applications and frameworks can be used with Search Enterprise.
@@ -22,11 +15,11 @@ The following applications and frameworks can be used with Search Enterprise.
 
 * ACL Permission checks
 * Sorting by relevancy
-* Paging - [Searching by content type and controlling paging and sorting
+* Paging, for more see [Searching by content type and controlling paging and sorting
 ]({% link content-services/latest/develop/rest-api-guide/searching.md %})#searching-by-content-type-and-controlling-paging-and-sorting
 * Faceting, for more see [Faceted search]({% link content-services/latest/develop/rest-api-guide/searching.md %})#faceted-search
 * Filter by content size and mimetype
-* Inclusion of additional properties in search results, for more information see [Requesting optional item information]({% link content-services/latest/develop/rest-api-guide/index.md %})#requesting-optional-item-information
+* Inclusion of additional properties in search results, for more see [Requesting optional item information]({% link content-services/latest/develop/rest-api-guide/index.md %})#requesting-optional-item-information
 
 <!--
 Note that not all faceting features available for Solr are currently supported. See the following tickets for more details:
@@ -128,7 +121,9 @@ appl?
 
 When performing a search that includes a wildcard character, it is best to wrap your search term in double quotation marks. This ensures all metadata and content are searched.
 
-## Search for conjunctions
+### Search for conjunctions
+
+TODO
 
 ### Search for disjunctions
 
@@ -224,13 +219,15 @@ The list of the default supported types as declared in the `<alfresco_home>/solr
 
 ## Query Languages
 
-A search request allows the specification of the search language to be used. The supported language in addition to the default AFTS is:
+@martin S is there a better place to put this? A search request allows the specification of the search language to be used. The supported language in addition to the default AFTS is:
 
 * Lucene: the query language provided by the IR framework
 
 The search string syntax depends on the given query language and can differ significantly between AFTS and Lucene. However, there are some shared aspects that provide the same exact behavior in both languages.
 
 **Administration Features**
+
+@martin S is there a better place to put this?
 
 * Administration console to manage the key interactions between Alfresco and Elasticsearch from Alfresco Repository
 * Ability to determine the high-level health of the Elastic Search index via the administration console
@@ -405,7 +402,7 @@ Known Limitations:
 
 Queries in this category are expanded to a boolean query with several clauses using criteria that are specific to each field. 
 
-#### ALL
+### ALL
 
 The ALL virtual field (i.e. it is not in the index) expands to all fields defined
 
@@ -414,7 +411,7 @@ OR, in case they are empty.
 
 * in the DictionaryService::getAllProperties.
 
-#### TEXT
+### TEXT
 
 The TEXT virtual field (i.e. it is not in the index) expands to all fields and defined:
 
@@ -441,13 +438,13 @@ This query is expanded to:
 
 > **Note:** This means that a full query in AND matches documents that contains all the terms in the query, in any of the fields involved.
 
-#### DataType
+### DataType
 
 This query is executed when the field name corresponds to a datatype definition using its prefixed or fully qualified form, for example `d:text, {http://www.alfresco.org/model/dictionary/1.0}text)`.
 
 The query produced is a boolean query which includes an optional clause for each property associated to the input datatype definition.
 
-#### Permission Queries
+### Permission Queries
 
 Fields that are related to ACL information are stored directly as part of the Elasticsearch documents. Consequently, the corresponding queries are plain `term`/`range`/`prefix`/`fuzzy` queries using the following fields:
 
@@ -483,17 +480,19 @@ At time of writing SearchService 3.0 indexes only nodes so the ISNODE query beco
 
 ## Query Languages
 
+@martin S is this needed? Should we be putting all the query language bits together ?
+
 ### Lucene Query Language
 
-The Lucene query API is built on top the Lucene standard query parser. The query language syntax is described in details on the project web site[1].
+The Lucene query API is built on top of the Lucene standard query parser. The query language syntax is described in details on the project web site.
 
 This page doesn’t repeat what is written in that documentation; instead, it provides things specific to Alfresco that should be considered when using this query language.
 
-#### Fields
+### Fields
 
 Fields are special attributes that can be used in queries and that are not part of any content model. The behavior and the usage of these attributes is in common with the AFTS query language.
 
-#### Properties
+### Properties
 
 Properties are attributes defined in an Alfresco content model. They are identified by qualified names, meaning they are composed of:
 
@@ -530,6 +529,8 @@ When prefixes and fully qualified names are used, the property has to be prefixe
 Special characters (i.e. characters that have a special meaning in lucene) need to be escaped using the backslash
 
 ## Search for ranges
+
+@martin S do we need both of these ? 
 
 Inclusive ranges can be specified in Google-style. There is an extended syntax for more complex ranges. Unbounded ranges can be defined using MIN and MAX for numeric and date types and "u0000" and "FFFF" for text (anything that is invalid).
 
@@ -576,7 +577,7 @@ In the REST API you can specify the timezone to be used in search for date range
 
 The following features, which were supported in Search Services and Search and Insight Engine 2.x (Solr) are not supported in the latest release of Search Enterprise 3.x.
 
-> **Note: (Martin S)** The list below is subject to change, and requires review before publishing
+> **Note:** The list below is subject to change, and requires review before publishing
 
 ### Index and re-index
 
