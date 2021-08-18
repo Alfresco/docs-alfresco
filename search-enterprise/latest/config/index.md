@@ -160,21 +160,21 @@ The table below lists the main configuration properties that can be specified th
 | acs.repo.transform.request.endpoint | Alfresco Repository channel. The default value is `activemq:queue:acs-repo-transform-request?jmsMessageType=Text` |
 | alfresco.sharedFileStore.baseUrl | Alfresco Shared FileStore endpoint. The default value is `http://127.1.0.1:8099/alfresco/api/-default-/private/sfs/versions/1/file/` |
 | alfresco.sharedFileStore.timeout | Alfresco Shared FileStore maximum read timeout in milliseconds. The default value is `2000`. |
-| alfresco.sharedFileStore.maxBufferSize | Alfresco Shared FileStore maximum buffer size (-1 for unlimited buffer) | -1 |
-| alfresco.event.topic | Topic name for Alfresco Repository events | activemq:topic:alfresco.repo.event2 |
-| alfresco.metadata.event.channel | Alfresco Metadata channel | activemq:queue:org.alfresco.search.metadata.event |
-| alfresco.content.event.channel | Alfresco Content channel | activemq:queue:org.alfresco.search.content.event |
-| alfresco.metadata.event.queue | Alfresco Metadata queue name | org.alfresco.search.metadata.event |
-| alfresco.metadata.retry.event.queue | Alfresco Error event queue name | org.alfresco.search.metadata.retry.event |
-| metadata.events.batch.size | Maximum number of events per batch | 10 |
-| metadata.events.batch.timeout | Maximum timeout in milliseconds for batch creation | 1000 |
-| alfresco.retransmission.max.attemps | Maximum number of retries in case of transient failure processing | 3 |
-| alfresco.event.retry.delay | Delay time for error event in milliseconds | 1000 |
-| alfresco.mediation.filter-file | The configuration file which contains fields and node types blacklists (see below)| classpath:mediation-filter.yml |
-| alfresco.acceptedContentMediaTypesCache.refreshTime | Time until we refresh the cache. We can disable the scheduler by replacing the value of the cron expression with a dash "-". In case we want to refresh the cache contents before the next scheduled refresh we should restart the application | 0 0 * * * * |
-| alfresco.acceptedContentMediaTypesCache.enabled     | Property to set if we want to enable or disable the cache for contacting the Transform Core AIO                             | true                  |
+| alfresco.sharedFileStore.maxBufferSize | Alfresco Shared FileStore maximum buffer size (-1 for unlimited buffer). The default value is `-1`. |
+| alfresco.event.topic | Topic name for Alfresco Repository events. The default value is `activemq:topic:alfresco.repo.event2`. |
+| alfresco.metadata.event.channel | Alfresco Metadata channel. The default value is `activemq:queue:org.alfresco.search.metadata.event`. |
+| alfresco.content.event.channel | Alfresco Content channel. The default value is `activemq:queue:org.alfresco.search.content.event`. |
+| alfresco.metadata.event.queue | Alfresco Metadata queue name. The default value is `org.alfresco.search.metadata.event`. |
+| alfresco.metadata.retry.event.queue | Alfresco Error event queue name. The default value is `org.alfresco.search.metadata.retry.event`. |
+| metadata.events.batch.size | Maximum number of events per batch. The default value is `10`. |
+| metadata.events.batch.timeout | Maximum timeout in milliseconds for batch creation. The default value is `1000`. |
+| alfresco.retransmission.max.attemps | Maximum number of retries in case of transient failure processing. The default value is `3`. |
+| alfresco.event.retry.delay | Delay time for error event in milliseconds. The default value is `1000`. |
+| alfresco.mediation.filter-file | The configuration file which contains fields and node types blacklists (see below). The default value is `classpath:mediation-filter.yml` |
+| alfresco.acceptedContentMediaTypesCache.refreshTime | Time until we refresh the cache. We can disable the scheduler by replacing the value of the cron expression with a dash "-". In case we want to refresh the cache contents before the next scheduled refresh we should restart the application. The default value is `0 0 * * * *`. |
+| alfresco.acceptedContentMediaTypesCache.enabled | Property to set if we want to enable or disable the cache for contacting the Transform Core AIO. The default value is `true`. |
 
-Within the Elasticsearch-connector there's a subset of components that are in charge to index data: specifically a component called "Mediation" subscribes to the channel indicated by the `alfresco.event.topic` attribute (see the table above) and processes the incoming node events.    
+Within the Elasticsearch-connector there's a subset of components that are in charge to index data: specifically a component called "Mediation" subscribes to the channel indicated by the `alfresco.event.topic` attribute (see the table above) and processes the incoming node events.
 The configuration of that component allows to declare three blacklist sets for filtering out nodes/attributes to be indexed.
 Those blacklists can be specified in the file indicated by the `alfresco.mediation.filter-file` attribute (see the table above) which defaults to a file called mediation-filter.yml that must be in the module classpath. Here's a sample content of that file:
 
