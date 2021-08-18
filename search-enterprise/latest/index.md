@@ -18,9 +18,9 @@ The **Indexing** feature is provided by a Spring Boot application called `Alfres
 
 Alfresco Search Enterprise consists of the following components:
 
-* Alfresco Elasticsearch Connector 3.0.0
-* Alfresco Content Services 7.1.0, that includes Alfresco ActiveMQ, Alfresco Transform Service, and Database
-* Elasticsearch server 7.10, that may be used as a standard managed service or that may be installed with default configuration. **Note:** The Elasticsearch server does not require any additional software from Alfresco in order to be used by Alfresco Search Enterprise 3.0
+* Alfresco Content Services 7.1
+* Elasticsearch 7.10. (It can be used as a standard managed service or can be installed using default configuration)
+* Alfresco Elasticsearch Connector 3.0
 
 The services required for Search Enterprise are included in the following diagram.
 
