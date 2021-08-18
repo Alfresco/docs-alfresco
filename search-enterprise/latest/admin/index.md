@@ -370,3 +370,43 @@ select to_char(to_timestamp(min(commit_time_ms)/1000),'YYYYMMDDHHMI') as fromTim
 ```
 
 Because it is easier to have **unbalanced partitions** when indexing by date range, it is recommended to use this strategy only when we are interested in indexing a specific date range, while it is recommended to perform a reindex by id range when we need to perform a **full reindex**.
+
+### Indexing only metadata
+
+Reindexing application may be used to index only metadata, excluding the content indexation from the process.
+
+In order to apply this configuration, create a `mediation-filter.json` file excluding every content type in the `contentNodeTypes` section. For instance, next file will exclude `cm:content` types from reindexing process and additionally a set of fields.
+
+```json
+mediation:
+  nodeTypes:
+  contentNodeTypes:
+    - cm:content
+  fields:
+    - cmis:changeToken
+    - alfcmis:nodeRef
+    - cmis:isImmutable
+    - cmis:isLatestVersion
+    - cmis:isMajorVersion
+    - cmis:isLatestMajorVersion
+    - cmis:isVersionSeriesCheckedOut
+    - cmis:versionSeriesCheckedOutBy
+    - cmis:versionSeriesCheckedOutId
+    - cmis:checkinComment
+    - cmis:contentStreamId
+    - cmis:isPrivateWorkingCopy
+    - cmis:allowedChildObjectTypeIds
+    - cmis:sourceId
+    - cmis:targetId
+    - cmis:policyText
+    - trx:password
+    - pub:publishingEventPayload
+```
+
+Once the file is available, use the parameter `alfresco.mediation.filter-file` to apply the configuration. It's also recommended to disable the checking of content media types cache.
+
+```shell
+java -jar alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
+    --alfresco.mediation.filter-file=file:mediation-filter.json \
+    --alfresco.accepted-content-media-types-cache.enabled=false
+```
