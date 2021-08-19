@@ -10,11 +10,7 @@ Alfresco Content Services supports the Elasticsearch platform for searching with
 
 The **Search** feature is provided by the Alfresco Repository itself which communicates with the Elasticsearch server that then performs the required format translation for queries and results. The Elasticsearch index contains all the content, metadata, and permissions for a single document, so no external Elasticsearch plugin is required.
 
-The **Indexing** feature is provided by a Spring Boot application called `Alfresco Elasticsearch Connector`. This application includes two main components that build and maintain the index in Elasticsearch:
-
-* **Live Indexing**: The Metadata, Content, and Permissions from the Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in the Elasticsearch server. The information created and updated in the Alfresco Repository is not immediately available in Elasticsearch because it takes time to process the messages. **NOTE:** The previous [Eventual consistency]({% link search-services/latest/install/index.md %}#eventual-consistency) approach which was based on transactions and used for Solr deployments, has been replaced by this new process.
-
-* **Re-Indexing**: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the Re-Indexing component. Metadata from Alfresco Repository is retrieved using a direct JDBC connection to Alfresco Database. **Note:** Only PostgresSQL is currently supported.
+The **Indexing** feature is provided by a Spring Boot application called `Alfresco Elasticsearch Connector`. The application is split into two main components called **Live Indexing** and **Re-indexing**, for more information see [Indexing]({% link search-enterprise/latest/admin/index.md %}#elastic-search-connector).
 
 Alfresco Search Enterprise consists of the following components:
 
