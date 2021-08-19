@@ -277,11 +277,12 @@ kubectl create namespace alfresco
     ```bash
     kubectl apply -f ingress-rbac.yaml -n alfresco
     ```
-
+Version is needed with the helm install of ingress. In accrodance with github documentation, I used: --version=3.7.1
+With version, error occurs when you get to step install alfresco-content-services (helm install acs alfresco/alfresco-content-services) 
 3. Deploy the ingress (replace `ACM_CERTIFICATE_ARN` and `YOUR-DOMAIN-NAME` with the ARN of the certificate and hosted zone created earlier in the DNS section):
 
     ```bash
-    helm install acs-ingress ingress-nginx/ingress-nginx \
+    helm install acs-ingress ingress-nginx/ingress-nginx  --version=3.7.1\
     --set controller.scope.enabled=true \
     --set controller.scope.namespace=alfresco \
     --set rbac.create=true \
