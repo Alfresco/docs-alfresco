@@ -13,5 +13,5 @@
       pages:
         - title: 'SQL commands'
           path: '/search-enterprise/latest/using/'
-        - title: 'Full text search reference'
+        - title: 'Search syntax'
           path: '/search-enterprise/latest/using/syntax/'
