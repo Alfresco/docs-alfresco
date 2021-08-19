@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-In order to use Alfresco Search Enterprise 3.0 for Alfresco Content Services platform, following configuration should be performed:
+To use Alfresco Search Enterprise with the Alfresco Content Services platform the following configuration must be applied:
 
 * Alfresco Repository properties in configuration file `alfresco-global.properties` or as environment variables related to Search Subystem configuration for *searching* features
 * Alfresco Elasticsearch Connector properties as environment variables related to communication with Alfresco Repository (Database, ActiveMQ and Transform Service) and Elasticsearch server for *indexing* features
@@ -99,9 +99,9 @@ The tool may be used as a standalone jar. The table below lists the main configu
 | spring.datasource.url | JDBC url of Alfresco database. The default value is `jdbc:postgresql://localhost:5432/alfresco`. |
 | spring.datasource.username | Username for Alfresco database. The default value is `alfresco`. |
 | spring.datasource.password | Password for Alfresco database. The default value is `alfresco`. |
-| spring.elasticsearch.rest.uris | Rest(s) url of Elasticsearch. The default value is `http://elasticsearch:9200` |
-| spring.elasticsearch.rest.username | Username for Elasticsearch when using Basic Auth |
-| spring.elasticsearch.rest.password | Password for username in Elasticsearch when using Basic Auth |
+| spring.elasticsearch.rest.uris | Rest(s) url of Elasticsearch. The default value is `http://elasticsearch:9200`. |
+| spring.elasticsearch.rest.username | Username for Elasticsearch when using Basic Auth. |
+| spring.elasticsearch.rest.password | Password for username in Elasticsearch when using Basic Auth. |
 | alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping | The default value is `classpath:reindex.prefixes-file.json`. |
 | alfresco.reindex.partitioning.type | Remote node type, can be _master_ or _worker_. If not specified, the app runs as single node instance. Left empty by default. |
 | alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals to number of available workers. The default value is `3`. |
@@ -116,7 +116,7 @@ There are two strategies in order to fill gaps in the Elasticsearch server provo
 Sample invocation for Fetch by IDS.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-3.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -128,7 +128,7 @@ java -jar target/alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
 Sample invocation for Fetch by DATE.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-3.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -143,7 +143,7 @@ Sample invocation for Fetch by DATE.
 
 Alfresco Live Indexing app requires a working Alfresco ActiveMQ service, Alfresco Shared FileStore service and Elasticsearch server.
 
-The table below lists the main configuration properties that can be specified through the Spring configuration capabilities[1].
+The table below lists the main configuration properties that can be specified through the Spring configuration capabilities.
 
 |Property|Description|
 |--------|-----------|
@@ -157,8 +157,8 @@ The table below lists the main configuration properties that can be specified th
 | alfresco.content.refresh.event.queue | The channel where transform requests are re-inserted by the content event aggregator as consequence of a failure. The default value is `org.alfresco.search.contentrefresh.event`. |
 | alfresco.content.event.retry.maxAllowed | Maximum number of retries in case of transient failure processing. The default value is `3`. |
 | alfresco.content.event.retry.delay | Delay in milliseconds between subsequent retries. The default value is `1000`. |
-| acs.repo.transform.request.endpoint | Alfresco Repository channel. The default value is `activemq:queue:acs-repo-transform-request?jmsMessageType=Text` |
-| alfresco.sharedFileStore.baseUrl | Alfresco Shared FileStore endpoint. The default value is `http://127.1.0.1:8099/alfresco/api/-default-/private/sfs/versions/1/file/` |
+| acs.repo.transform.request.endpoint | Alfresco Repository channel. The default value is `activemq:queue:acs-repo-transform-request?jmsMessageType=Text`. |
+| alfresco.sharedFileStore.baseUrl | Alfresco Shared FileStore endpoint. The default value is `http://127.1.0.1:8099/alfresco/api/-default-/private/sfs/versions/1/file/`. |
 | alfresco.sharedFileStore.timeout | Alfresco Shared FileStore maximum read timeout in milliseconds. The default value is `2000`. |
 | alfresco.sharedFileStore.maxBufferSize | Alfresco Shared FileStore maximum buffer size (-1 for unlimited buffer). The default value is `-1`. |
 | alfresco.event.topic | Topic name for Alfresco Repository events. The default value is `activemq:topic:alfresco.repo.event2`. |
@@ -343,7 +343,7 @@ encryption.ssl.truststore.type=JCEKS
 
 If you are using Docker Compose, just add the same properties in the `JAVA_OPTS` section for alfresco service using the "-D" prefix.
 
-Additionally, for every "live-indexing" service from **Alfresco Elasticsearch Connector** the same _truststore_ need to be configured. Use Java the following global properties:
+Additionally, for every "live-indexing" service from **Alfresco Elasticsearch Connector** the same _truststore_ must be configured. Use Java the following global properties:
 
 ```docker
 JAVAX_NET_SSL_TRUSTSTORE=/usr/local/tomcat/alf_data/keystore/truststore.jceks
@@ -351,4 +351,4 @@ JAVAX_NET_SSL_TRUSTSTOREPASSWORD=
 JAVAX_NET_SSL_TRUSTSTORETYPE=JCEKS
 ```
 
-This environment variables can be passed as command line arguments when running the Spring Boot application locally or they can be added to `environment` service section when using Docker Compose.
+These environment variables can be passed as command line arguments when running the Spring Boot application locally or they can be added to `environment` service section when using Docker Compose.
