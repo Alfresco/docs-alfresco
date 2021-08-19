@@ -10,4 +10,8 @@
     - title: 'Administer'
       path: '/search-enterprise/latest/admin/'
     - title: 'Using'
-      path: '/search-enterprise/latest/using/'	  
+      pages:
+        - title: 'SQL commands'
+          path: '/search-enterprise/latest/using/'
+        - title: 'Full text search reference'
+          path: '/search-enterprise/latest/using/syntax/'
