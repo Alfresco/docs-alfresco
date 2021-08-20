@@ -207,6 +207,15 @@ Now we have an EKS cluster up and running, there are a few one time steps we nee
 
 6. Deploy an NFS Client Provisioner with Helm using the following command (replace `EFS-DNS-NAME` with the string `file-system-id.efs.aws-region.amazonaws.com` where the `file-system-id` is the ID retrieved in step 1 and `aws-region` is the region you're using, e.g. `fs-72f5e4f1.efs.us-east-1.amazonaws.com`):
 
+this is not valid for Kubernetes version 1.20 and later. Nor is the provisioner noted in github docs: (install alfresco-nfs-provisioner ckotzbauer/nfs-client-provisioner)
+Should be updated to use:
+helm repo add  nfs-subdir-external-provisioner	https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+helm install alfresco-nfs-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+--set nfs.server="fs-22954459.efs.us-east-2.amazonaws.com" \
+--set nfs.path="/" \
+--set storageClass.name="nfs-client" \
+--set storageClass.archiveOnDelete=false -n kube-system
+
     ```bash
     helm install alfresco-nfs-provisioner stable/nfs-client-provisioner --set nfs.server="EFS-DNS-NAME" --set nfs.path="/" --set storageClass.name="nfs-client" --set storageClass.archiveOnDelete=false -n kube-system
     ```
