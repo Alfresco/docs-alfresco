@@ -55,12 +55,12 @@ alfresco:
 
 ## Exact Term Search
 
-Pre-Indexing considerations the Exact term search feature is disabled by default to save index space. It's possible to enable it for specific properties and property types in the configuration file: exactTermSearch.properties
+Pre-Indexing considerations the Exact term search feature is disabled by default to save index space. It's possible to enable it for specific properties and property types in the configuration file: `exactTermSearch.properties`
 
 |Property|Description|
 |--------|-----------|
 | alfresco.cross.locale.datatype.0 | A new cross locale field (to cover exact term search) is added for any property of this data-type. For example `{http://www.alfresco.org/model/dictionary/1.0}text`. By default the Exact Term Search is disabled |
-| alfresco.cross.locale.property.0 | A new cross locale field (to cover exact term search) is added for the property. For example `{http://www.alfresco.org/model/content/1.0}content` By default the Exact Term Search is disabled |
+| alfresco.cross.locale.property.0 | A new cross locale field (to cover exact term search) is added for the property. For example `{http://www.alfresco.org/model/content/1.0}content` By default the Exact Term Search is disabled. |
 
 You can add as many data-types and properties as you like by adding lines and incrementing the associated index:
 
@@ -176,7 +176,7 @@ The table below lists the main configuration properties that can be specified th
 
 Within the Elasticsearch-connector there's a subset of components that are in charge to index data: specifically a component called "Mediation" subscribes to the channel indicated by the `alfresco.event.topic` attribute (see the table above) and processes the incoming node events.
 The configuration of that component allows to declare three blacklist sets for filtering out nodes/attributes to be indexed.
-Those blacklists can be specified in the file indicated by the `alfresco.mediation.filter-file` attribute (see the table above) which defaults to a file called mediation-filter.yml that must be in the module classpath. Here's a sample content of that file:
+Those blacklists can be specified in the file indicated by the `alfresco.mediation.filter-file` attribute (see the table above) which defaults to a file called `mediation-filter.yml` that must be in the module classpath. Here's a sample content of that file:
 
 ```bash
 mediation:
@@ -257,7 +257,7 @@ mediation:
 
 Every Alfresco Elasticsearch Connector service can be scaled up to use an ActiveMQ Connection Pool and to increase the number of Consumers.
 
-In order to use the ActiveMQ **pool**, add following properties to your `.env` file in Docker Compose. Pool size is set to 100 in the sample.
+In order to use the ActiveMQ **pool**, add the following properties to your `.env` file in Docker Compose. Pool size is set to 100 in the sample.
 
 ```bash
 $ cat .env
@@ -265,7 +265,7 @@ ACTIVEMQ_POOL_ENABLED=true
 ACTIVEMQ_POOL_SIZE=100
 ```
 
-Spring related properties can be associated to the Elasticsearch Connector when declaring the service in `docker-compose.yml` file.
+Spring related properties can be associated to the Elasticsearch Connector when declaring the service in the `docker-compose.yml` file.
 
 ```docker
     live-indexing-metadata:
