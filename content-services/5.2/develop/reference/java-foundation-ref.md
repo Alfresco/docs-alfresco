@@ -2248,7 +2248,7 @@ StoreRef storeRef = serviceRegistry.getTenantService().getName(new StoreRef(stor
 
 In a single tenant environment these `getName` operations would have no effect.
 
-## VersionService
+## VersionService {#versionservice}
 
 Provides an API for managing file versions (i.e. content of type, or subtype, `cm:content`). Note that folders are not
 versionable.
