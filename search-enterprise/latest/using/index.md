@@ -63,11 +63,11 @@ Below is a list of the supported and unsupported SQL commands available to use w
 
 To guarantee ADW basic functionalities when a query contains an unsupported field the query part will be ignored and the REST API will return a 200 HTTP code. A warning message will be produced in the Alfresco Repository log.
 
-In order to All unsupported fields will be ignored in queries and filters following the schema below:
+All unsupported fields will be ignored in queries and filters following the schema below:
 
 * The query contains only an unsupported field, e.g. `QNAME:hello` returns an empty result.
-* the query contains a supported field, e.g. `hello AND QNAME:goodbye` returns only documents containing “hello”.
+* The query contains a supported field, e.g. `hello AND QNAME:goodbye` returns only documents containing “hello”.
 * A filter contains only an unsupported field, e.g. `query=banana`, `filter=QNAME:hello` returns only documents containing “banana”.
-* a filter contains two filters or a filter with a supported field and an unsupported field e.g. query=banana filter=[QNAME:hello, cm:name:test], returns all documents containing test and banana, and e.g. query=banana filter=QNAME:hello OR cm:name:test -> returns all documents containing test and banana.
+* A filter contains two filters or a filter with a supported field and an unsupported field. For example, query=banana filter=[QNAME:hello, cm:name:test], returns all documents containing test and banana. For example, query=banana filter=QNAME:hello OR cm:name:test, returns all documents containing test and banana.
 
 In the examples above, filter queries must be executed using the REST API and not using Alfresco Digital Workspace or Alfresco Share.

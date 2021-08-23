@@ -4,9 +4,7 @@ title: Search syntax
 
 Alfresco Search Enterprise supported and unsupported search syntax.
 
-## Supported Search Syntax
-
-### Search for a single term
+## Search for a single term
 
 Single terms are tokenized before the search according to the appropriate data dictionary definition(s).
 
@@ -21,9 +19,9 @@ Both of these queries will find any nodes with the word "banana" in any property
 
 If the appropriate data dictionary definition(s) for the field supports both FTS and untokenized search, then FTS search will be used. FTS will include synonyms if the analyzer generates them. Terms cannot contain whitespace.
 
-### Search in fields
+## Search in fields
 
-Search specific fields rather than the default. Terms, phrases, etc. can all be preceded by a field. If not the default field TEXT is used.
+Search specific fields rather than the default. Terms, and phrases etc @martin what can we use here instead of etc? can all be preceded by a field. If not the default field TEXT is used.
 
 ```bash
 field:term
@@ -32,40 +30,38 @@ field:"phrase"
 ~field:expand
 ```
 
-Fields fall into three types: property fields, special fields, and fields for data types.
-
-Property fields evaluate the search term against a particular property, special fields are described in the following table, and data type fields evaluate the search term against all properties of the given type.
+Fields fall into three types, property fields, special fields, and fields for data types. Property fields evaluate the search term against a particular property, special fields are described in the following table, and data type fields evaluate the search term against all properties of the given type.
 
 |Type|Description|
 |-----------|----|
-|Property|Fully qualified property, for example `{http://www.alfresco.org/model/content/1.0}name:apple`|
-|Poroperty|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`|
+|Property|Fully qualified property, for example `{http://www.alfresco.org/model/content/1.0}name:apple`. |
+|Poroperty|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`. |
 |Property|CMIS style property, for example `cm_name:apple`.|
 |Property|Prefix style property, for example `cm:name:apple`.|
 |Property|Prefix style property, for example `@cm:name:apple`.|
 |Property|TEXT, for example `TEXT:apple`.|
-|Special|ID, for example `ID:"NodeRef"`|
-|Special|ISROOT, for example `ISROOT:T`|
-|Special|TX, for example `TX:"TX"`|
-|Special|PARENT, for example `PARENT:"NodeRef"`|
+|Special|ID, for example `ID:"NodeRef"`.|
+|Special|ISROOT, for example `ISROOT:T`.|
+|Special|TX, for example `TX:"TX"`.|
+|Special|PARENT, for example `PARENT:"NodeRef"`.|
 |Special|PRIMARYPARENT, for example `PRIMARYPARENT:"NodeRef"`.|
 |Special|QNAME, for example `QNAME:"app:company_home"`.|
 |Special|CLASS, for example `CLASS:"qname"`.|
-|Special|EXACTCLASS, for example `EXACTCLASS:"qname"`.
-|Special|TYPE, for example `TYPE:"qname"`.
-|Special|EXACTTYPE, for example `EXACTTYPE:"qname"`.
-|Special|ASPECT for example `ASPECT:"qname"`.|
+|Special|EXACTCLASS, for example `EXACTCLASS:"qname"`.|
+|Special|TYPE, for example `TYPE:"qname"`.|
+|Special|EXACTTYPE, for example `EXACTTYPE:"qname"`.|
+|Special|ASPECT, for example `ASPECT:"qname"`.|
 |Special|EXACTASPECT, for example `EXACTASPECT:"qname"`.|
-|Special|ISUNSET for example `ISUNSET:"property-qname"`|
+|Special|ISUNSET, for example `ISUNSET:"property-qname"`.|
 |Special|ISNULL, for example `ISNULL:"property-qname"`.|
 |Special|ISNOTNULL, for example `ISNOTNULL:"property-qname"`.|
-|Special|EXISTS for example `EXISTS:"name of the property"`.|
-|Special|SITE for example `SITE:"shortname of the site"`.|
+|Special|EXISTS, for example `EXISTS:"name of the property"`.|
+|Special|SITE, for example `SITE:"shortname of the site"`.|
 |Special|TAG. TAG: "name of the tag" **Note:** `TAG` must be in upper case.|
-|Fully qualified data type|Data Type, `http://www.alfresco.org/model/dictionary/1.0}content:apple`|
+|Fully qualified data type|Data Type, for example `http://www.alfresco.org/model/dictionary/1.0}content:apple`|
 |prefixed data type|Data Type, d:content:apple|
 
-### Search for a phrase
+## Search for a phrase
 
 Phrases are enclosed in double quotes. Any embedded quotes can be escaped using ``. If no field is specified then the default TEXT field will be used, as with searches for a single term.
 
@@ -75,7 +71,7 @@ The whole phrase will be tokenized before the search according to the appropriat
 "big yellow banana"
 ```
 
-### Search for wildcards
+## Search for wildcards
 
 Wildcards are supported in terms, phrases, and exact phrases using `*` to match zero, one, or more characters and `?` to match a single character.
 
@@ -97,13 +93,13 @@ appl?
 
 When performing a search that includes a wildcard character, it is best to wrap your search term in double quotation marks. This ensures all metadata and content are searched.
 
-### Search for conjunctions
+## Search for conjunctions
 
 TODO
 
-### Search for disjunctions
+## Search for disjunctions
 
-Single terms, phrases, and so on can be combined using `OR` in upper, lower, or mixed case.
+Single terms, and phrases can be combined using `OR` in upper, lower, or mixed case.
 
 The `OR` operator is interpreted as "at least one is required, more than one or all can be returned".
 
@@ -118,11 +114,7 @@ TEXT:big OR TEXT:yellow OR TEXT:banana
 
 These queries search for nodes that contain at least one of the terms `big`, `yellow`, or `banana` in any content.
 
-[Search for negation](https://github.com/Alfresco/alfresco-search-enterprise-docs/wiki/Search-Syntax-in-depth#search-for-negation){:target="_blank"}
-
-[Search for optional, mandatory, and excluded elements of a query](https://github.com/Alfresco/alfresco-search-enterprise-docs/wiki/Search-Syntax-in-depth#search-for-optional-mandatory-and-excluded-elements-of-a-query){:target="_blank"}
-
-### Escaping characters
+## Escaping characters
 
 Any character can be escaped using the backslash "" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
 
@@ -134,7 +126,7 @@ cm:my content:my name
 
 [Search using Type]({% link content-services/latest/develop/rest-api-guide/searching.md %}#searching-by-content-type-and-controlling-paging-and-sorting)
 
-### Search for an exact term
+## Search for an exact term
 
 To search for an exact term you must prefix it with "=". The supported syntax:
 
@@ -166,7 +158,7 @@ The list of the default supported types as declared in the `<alfresco_home>/solr
 * [ID (Field, Prefix, Wildcard)](https://github.com/Alfresco/alfresco-search-enterprise-docs/wiki/Search-Syntax-in-depth#id){:target="_blank"}
 * [ALL (Field, Prefix, Range, Wildcard, Fuzzy)](https://github.com/Alfresco/alfresco-search-enterprise-docs/wiki/Search-Syntax-in-depth#all){:target="_blank"}
 * [EXISTS (Field)](https://github.com/Alfresco/alfresco-search-enterprise-docs/wiki/Search-Syntax-in-depth#exists){:target="_blank"}
-* [<DataType> (Field, Prefix, Range, Wildcard, Fuzzy)](https://github.com/Alfresco/alfresco-search-enterprise-docs/wiki/Search-Syntax-in-depth#datatype){:target="_blank"}
+* [DataType (Field, Prefix, Range, Wildcard, Fuzzy)](https://github.com/Alfresco/alfresco-search-enterprise-docs/wiki/Search-Syntax-in-depth#datatype){:target="_blank"}
 * PROPERTY (Field, Prefix, Range, Wildcard, Fuzzy)
 * OWNER (Field, Prefix, Wildcard, Fuzzy)
 * READER (Field, Prefix, Wildcard, Fuzzy)
@@ -187,9 +179,7 @@ The search string syntax depends on the given query language and can differ sign
 * CMIS query language
 * SQL query language using JDBC Driver
 
-## Search Query Syntax
-
-### Search for negation
+## Search for negation
 
 You can narrow your search results by excluding words with the `NOT` syntax.
 
@@ -228,14 +218,14 @@ If you expect a different behavior, you have to specify the boolean conjunction:
 taxi AND driver AND NOT passenger
 ```
 
-### Search for optional, mandatory, and excluded elements of a query
+## Search for optional, mandatory, and excluded elements of a query
 
 Sometimes AND and OR are not enough. If you want to find documents that must contain the term "car", score those with the term "red" higher, but do not match those just containing "red".
 
 |Operator|Description|
 |--------|-----------|
 |","|The field, phrase, group is optional; a match increases the score.|
-|"+"|The field, phrase, group is mandatory (Note: this differs from Google - see "=")|
+|"+"|The field, phrase, group is mandatory **Note:** this differs from Google - see "=")|
 |"-", "!"|The field, phrase, group must not match.|
 
 The following example finds documents that contain the term "car", score those with the term "red" higher, but does not match those just containing "red":
@@ -254,7 +244,7 @@ Using the mandatory operator we should occur, comparing with other search engine
 +taxi +driver
 ```
 
-We will expect for all results containing _taxi_ and _driver_, but because AFTS language will compose the query using the boolean operator OR as default operator, the query will be translated to:
+We will expect for all results containing _taxi_ and _driver_, but because AFTS language composes the query using the boolean operator OR as default operator, the query will be translated to:
 
 ```sql
 +taxi OR +driver
@@ -282,11 +272,11 @@ If you don’t specify a field the search runs against name, description, title,
 
 The list of the default supported types as declared in the `<alfresco_home>/solr4/conf/shared.properties` file:
 
-`alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
+* `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
 
-`alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
+* `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
 
-`alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
+* `alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
 
 Single Term
 
@@ -306,7 +296,7 @@ Phrase
 ="taxi driver"
 ```
 
-> **Note:** Exact Term Search is disabled by default, to enable it please refer to Indexing documentation and the configuration file: exactTermSearch.properties
+> **Note:** Exact Term Search is disabled by default, to enable it refer to Indexing documentation and the configuration file: exactTermSearch.properties @martin is that the search indexing docs?
 
 ### Searches that involve stopwords
 
@@ -324,7 +314,7 @@ becomes
 quick fox brown
 ```
 
-This behavior is different from Search Services in that it keeps stopwords in the query to build positional queries, for example:
+This behavior is different from Search and Insight Engine and Search Services in that it keeps stopwords in the query to build positional queries, for example:
 
 ```sql
 stopword1 quick fox stopword2 brown
@@ -338,20 +328,20 @@ stopword1_quick quick fox_stopword2 fox stopword2_brown brown
 
 ### Field Queries and execution behavior
 
-The fields (and the corresponding query execution behavior) listed in this section are common to AFTS and Lucene query languages.
+The fields and the corresponding query execution behavior listed in this section, are common to AFTS and Lucene query languages.
 
 ### Type and Aspect Queries
 
-Type and Aspect queries have several things in common: both of them expect a name as the field value. Specifically:
+Type and Aspect queries both expect a name as the field value. Specifically:
 
-* If the value is an unqualified name, it will be expanded to a fully qualified name using the default namespace
-* If the value is a prefixed name, the prefix is expanded (e.g. cm:name => {http://www.alfresco.org/model/content/1.0}content}name)
-* If the value is a fully qualified name then it is used in that form
+* If the value is an unqualified name, it will be expanded to a fully qualified name using the default namespace.
+* If the value is a prefixed name, the prefix is expanded (e.g. cm:name => {http://www.alfresco.org/model/content/1.0}content}name).
+* If the value is a fully qualified name then it is used in that form.
 
 Known Limitations:
 
-* No support for prefix/wildcard queries in the namespace part (e.g. "TYPE:{http://www.*}person" won't work, "TYPE:{http://www.alfresco.org/model/content/1.0}pers*" works)
-* No support for descendant expansion in prefix/wildcard queries (e.g. TYPE: cm:pers* won't expand to cm:person descendants)
+* No support for prefix/wildcard queries in the namespace part (e.g. "TYPE:{http://www.*}person" won't work, "TYPE:{http://www.alfresco.org/model/content/1.0}pers*" works).
+* No support for descendant expansion in prefix/wildcard queries (e.g. TYPE: cm:pers* won't expand to cm:person descendants).
 
 ### Expanded Queries
 
@@ -361,19 +351,21 @@ Queries in this category are expanded to a boolean query with several clauses us
 
 The ALL virtual field (i.e. it is not in the index) expands to all fields defined
 
-* in the SearchParameters::allAttributes (the object representation of the corresponding attribute in the REST API Search Request)
-OR, in case they are empty.
+* in the `SearchParameters::allAttributes` (the object representation of the corresponding attribute in the REST API Search Request)
 
-* in the DictionaryService::getAllProperties.
+OR, in case they are empty
+
+* in the `DictionaryService::getAllProperties`.
 
 ### TEXT
 
-The TEXT virtual field (i.e. it is not in the index) expands to all fields and defined:
+The TEXT virtual field (i.e. it is not in the index) expands to all fields and is defined by:
 
-* in the SearchParameters::textAttributes (the object representation of the corresponding attribute in the REST API Search Request)
+* in the `SearchParameters::textAttributes` (the object representation of the corresponding attribute in the REST API Search Request)
+
 OR, in case they are empty
 
-* in the AlfrescoDefaultTextFields (i.e. cm:name, cm:title, cm:description, cm:content)
+* in the `AlfrescoDefaultTextFields` (i.e. cm:name, cm:title, cm:description, cm:content).
 
 This generates a term centric multi-field query:
 
@@ -391,11 +383,11 @@ This query is expanded to:
 (cm:title:term3 OR cm:name:term3 OR cm:description:term3 OR cm:content:term3)
 ```
 
-> **Note:** This means that a full query in AND matches documents that contains all the terms in the query, in any of the fields involved.
+This means that a full query in AND matches documents that contains all the terms in the query, in any of the fields involved.
 
 ### DataType
 
-This query is executed when the field name corresponds to a datatype definition using its prefixed or fully qualified form, for example `d:text, {http://www.alfresco.org/model/dictionary/1.0}text)`.
+This query is executed when the field name corresponds to a datatype definition using its prefixed or fully qualified form, for example @martin is the comma needed? `d:text, {http://www.alfresco.org/model/dictionary/1.0}text)`.
 
 The query produced is a boolean query which includes an optional clause for each property associated to the input datatype definition.
 
@@ -420,22 +412,22 @@ The query intent can be summarized as “give me all nodes that have a value for
 
 The value of a clause whose field is `EXISTS` could be:
 
-* an unqualified name: it will be expanded to a fully qualified name using the default namespace
-* a prefixed name: the prefix is expanded, for example `cm:name` => `{http://..}content}name`
-* a fully qualified name
-* a field name, for example `ID`, `OWNER`, `READER`
+* an unqualified name: it will be expanded to a fully qualified name using the default namespace.
+* a prefixed name: the prefix is expanded, for example `cm:name` => `{http://..}content}name`.
+* a fully qualified name.
+* a field name, for example `ID`, `OWNER`, `READER`.
 
 If the value is associated to a property definition then a boolean query is executed with the following clauses:
 
-* PROPERTIES:<prefixed form of the property definition> (MUST) Otherwise, in case of a field (e.g. OWNER, ID, READER) a wildcard query is built using that field (e.g. OWNER:*)
+* PROPERTIES:<prefixed form of the property definition> (MUST) Otherwise, in case of a field (e.g. OWNER, ID, READER) a wildcard query is built using that field (e.g. OWNER:*).
 
 ### ISNODE
 
-At time of writing SearchService 3.0 indexes only nodes so the ISNODE query becomes a “MatchAll” or “MatchNothing” query.
+At time of writing SearchService 3.0 indexes only nodes so the ISNODE query becomes a “MatchAll” or “MatchNothing” query. @martin still the case?
 
 ### Fields
 
-Fields are special attributes that can be used in queries and that are not part of any content model. The behavior and the usage of these attributes is in common with the AFTS query language.
+Fields are special attributes that can be used in queries and are not part of any content model. The behavior and the usage of these attributes is in common with the AFTS query language.
 
 ### Properties
 
@@ -444,11 +436,11 @@ Properties are attributes defined in an Alfresco content model. They are identif
 * a namespace
 * a local name
 
-That avoids conflicts between local names used in multiple models (e.g. finance:name and cm:name).
+This avoids conflicts between local names used in multiple models (e.g. finance:name and cm:name).
 
 A property can be declared in queries using three notations:
 
-* Unqualified name (e.g. title): in this case it will be associated to the default namespace. The property is therefore assumed to exist and to be valid in the default content model
+* Unqualified name (e.g. title): in this case it will be associated to the default namespace. The property is therefore assumed to exist and to be valid in the default content model.
 
 ```bash
 @title:OOP
@@ -462,16 +454,15 @@ A property can be declared in queries using three notations:
 @cm:title:(Object Oriented Programming)
 ```
 
-* Fully qualified name: in this case the property name uses the full namespace and the local name
+* Fully qualified name: in this case the property name uses the full namespace and the local name.
 
 ```bash
 @{http://www.alfresco.org/model/content/1.0}title:OOP
 @{http://www.alfresco.org/model/content/1.0}title:(Object Oriented Programming)
 ```
 
-When prefixes and fully qualified names are used, the property has to be prefixed with the @ symbol: this is one of the main differences between AFTS and Lucene.
-
-Special characters (i.e. characters that have a special meaning in lucene) need to be escaped using the backslash
+When prefixes and fully qualified names are used, the property has to be prefixed with the @ symbol. This is one of the main differences between AFTS and Lucene.
+Special characters (i.e. characters that have a special meaning in lucene) need to be escaped using the backslash.
 
 ## Search for ranges
 
@@ -490,6 +481,7 @@ my:int:[0 TO 10]
 my:float:2.5..3.5
 my:float:0..MAX
 mt:text:[l TO "uFFFF"]
+```
 
 When searching for a date range you can use a partial date. Elasticsearch replaces missing date components with the values below:
 
@@ -500,7 +492,7 @@ When searching for a date range you can use a partial date. Elasticsearch replac
 * Second of minute: 59
 * Nano of second:   999_999_999
 
-Last four items will be replaced with 0 when the date component is missing in the minimum date in a range expression, e.g. [1950 to 2021] will be executed as [1950-01-01T00:00:00 TO 2021-01-01T23:59:59].
+The last four items will be replaced with 0 when the date component is missing in the minimum date in a range expression, e.g. [1950 to 2021] will be executed as [1950-01-01T00:00:00 TO 2021-01-01T23:59:59].
 
 In the REST API you can specify the timezone to be used in search for date ranges.
 
