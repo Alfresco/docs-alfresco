@@ -11,7 +11,9 @@
       path: '/search-enterprise/latest/admin/'
     - title: 'Using'
       pages:
-        - title: 'SQL commands'
+        - title: 'Search queries'
           path: '/search-enterprise/latest/using/'
-        - title: 'Search syntax'
-          path: '/search-enterprise/latest/using/syntax/'
+        - title: 'Field queries'
+          path: '/search-enterprise/latest/using/field'
+        - title: 'Languages'
+          path: '/search-enterprise/latest/using/languages'
