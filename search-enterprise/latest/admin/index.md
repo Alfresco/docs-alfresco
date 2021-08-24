@@ -410,3 +410,9 @@ java -jar alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
     --alfresco.mediation.filter-file=file:mediation-filter.json \
     --alfresco.accepted-content-media-types-cache.enabled=false
 ```
+
+### Recommendations for large reindexing processes
+
+When indexing large repositories from scratch, metadata indexing rate will be higher than content indexing rate. This will increase the number of messages pending in `acs-repo-transform-request` ActiveMQ queue with the time. However, since [default ActiveMQ configuration](https://activemq.apache.org/amq-message-store) is prepared to handle [million of messages](https://activemq.apache.org/how-do-i-configure-activemq-to-hold-100s-of-millions-of-queue-messages) per queue, this won't be an issue for the platform. 
+
+>> If you are using a custom ActiveMQ configuration, verify that messages can be persisted not only in memory but also in the filesystem.
