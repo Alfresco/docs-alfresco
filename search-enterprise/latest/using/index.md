@@ -4,9 +4,9 @@ title: Search queries
 
 Alfresco Search Enterprise supported and unsupported search queries.
 
-* ACL Permission checks
+* ACL Permission checks @Martin what else can go here?
 
-* Sorting by relevancy
+* Sorting by relevancy @martin ditto
 
 ## Searching by content type and controlling paging and sorting
 
@@ -238,7 +238,13 @@ We have taken what we're calling a "performance first" approach with the API. Th
 
 If additional processing is required on the server side to obtain the item information, then it's made available via the `include` query parameter.
 
+The `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-my-/children?include=properties,aspectNames` request shows how you can also include the properties and aspects for each node in your home folder when listing its children.
+
+As with the `orderBy` and `where` parameters, the `include` parameter is specific to the endpoint so you’ll need to consult the API Explorer to see what extra item information is available.
+
 ## Search for a single term
+
+@martin, on the in depth page, we have Search for exact term, which also includes Single term underneath it. Is this the same thing? I have not copied it out
 
 Single terms are tokenized before the search according to the appropriate data dictionary definition(s).
 
@@ -254,6 +260,8 @@ Both of these queries will find any nodes with the word "banana" in any property
 If the appropriate data dictionary definition(s) for the field supports both FTS and untokenized search, then FTS search will be used. FTS will include synonyms if the analyzer generates them. Terms cannot contain whitespace.
 
 ## Search in fields
+
+@martin there is a Fields heading on the In depth page, how do you want me to handle that info? Is it different to this info?
 
 Search specific fields rather than the default. Terms, and phrases etc @martin what can we use here instead of etc? can all be preceded by a field. If not the default field TEXT is used.
 
@@ -296,6 +304,8 @@ Fields fall into three types, property fields, special fields, and fields for da
 |prefixed data type|Data Type, d:content:apple|
 
 ## Search for a phrase
+
+@martin, on the in depth page, we have Search for exact term, which also includes phrase underneath it. How do you want me to handle this? Is it the same?
 
 Phrases are enclosed in double quotes. Any embedded quotes can be escaped using ``. If no field is specified then the default TEXT field will be used, as with searches for a single term.
 
@@ -432,6 +442,8 @@ cm:my content:my name
 ```
 
 ## Searching by content type and controlling paging and sorting
+
+@Martin we have another section called Type and Aspect Queries on the in depth page. Is that needed here?
 
 As with all the v1 ReST APIs paging can also be controlled, it's just done via the body rather than a query parameter. 
 The results can also be sorted. The example body below shows how to execute a search to find all files ordered by the 
@@ -589,36 +601,6 @@ If you don’t specify a field the search runs against name, description, title,
 
 The list of the default supported types as declared in the `<alfresco_home>/solr4/conf/shared.properties` file:
 
-`alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
-
-`alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
-
-`alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
-
-
-
-
-
-## Search for an Exact Term
-
-To search for an exact term you must prefix it with "=". The supported syntax:
-
-* `=term`
-* `=term1 =term2`
-* `=“multi term phrase”`
-
-    > **Note:** `=“multi term phrase”` returns documents only with the exact phrase and terms in the exact order.
-
-* `=field:term`
-* `=field:term1 =field:term2`
-* `=field:“multi term phrase”`
-
-If you don’t specify a field the search runs against name, description, title, and content. If the field specified is `TOKENIZED=false`, only the full field is matched. If the field you specified is `TOKENIZED=TRUE` or `TOKENIZED=BOTH` then the search is run on the cross locale tokenized version of the field.
-
-> **Note:** If cross locale is not configured for the field then an exception occurs.
-
-The list of the default supported types as declared in the `<alfresco_home>/solr4/conf/shared.properties` file:
-
 * `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
 
 * `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
@@ -643,7 +625,7 @@ Phrase
 ="taxi driver"
 ```
 
-> **Note:** Exact Term Search is disabled by default, to enable it refer to Indexing documentation and the configuration file: exactTermSearch.properties @martin is that the search indexing docs?
+> **Note:** Exact Term Search is disabled by default, to enable it refer to Indexing documentation and the configuration file: `exactTermSearch.properties` @martin is that the search indexing docs?
 
 ## Searches that involve stopwords
 
