@@ -1394,7 +1394,7 @@ Starting from a newly created Alfresco SDK 3.0 project (All-In-One, Platform JAR
 
     In this example we have shown the switch to version `5.1.e`. Feel free to use the correct version for your project, paying attention to the compatible versions of Alfresco Content Services and Alfresco Share.
 
-3.  If you are unclear about which [Alfresco Surf]({% link content-services/5.2/develop/api-reference.md %}#spring-surf-api) version should be used, you can search for it in your installed Alfresco folder.
+3.  If you are unclear about which [Alfresco Surf]({% link content-services/5.2/develop/reference/surf-framework-ref.md %}) version should be used, you can search for it in your installed Alfresco folder.
 
     1.  Search for `spring-surf-api-*.jar` and `spring-surf-*.jar` files in the WEB-INF/lib folder.
 
@@ -1444,7 +1444,7 @@ Starting from a newly created Alfresco SDK 3.0 project (All-In-One, Platform JAR
 
     > **Note:** The Alfresco Maven Plugin is smart enough to know that you are not running a 5.1 version or newer, and won't apply the `alfresco-share-services` AMP from the above configuration even if you leave it in. It is clearer if you comment it out. However, if you are going to switch back and forth between versions you can leave the AMP configuration in, the plugin knows when to apply it and when not to.
 
-4.  If you are unclear about which [Alfresco Surf]({% link content-services/5.2/develop/api-reference.md %}#spring-surf-api) version should be used, you can search for it in your installed Alfresco folder.
+4.  If you are unclear about which [Alfresco Surf]({% link content-services/5.2/develop/reference/surf-framework-ref.md %}) version should be used, you can search for it in your installed Alfresco folder.
 
     1.  Search for `spring-surf-api-*.jar` and `spring-surf-*.jar` files in the WEB-INF/lib folder.
 

@@ -753,6 +753,8 @@
           path: '/content-services/6.2/using/permissions/'
     - title: 'Develop'
       pages:
+        - title: 'Getting started'
+          path: '/content-services/6.2/develop/'
         - title: 'Software architecture'
           path: '/content-services/6.2/develop/software-architecture/'
         - title: 'Software development kit (SDK)'
@@ -1039,6 +1041,8 @@
           path: '/content-services/6.1/using/permissions/'
     - title: 'Develop'
       pages:
+        - title: 'Getting started'
+          path: '/content-services/6.1/develop/'
         - title: 'Software architecture'
           path: '/content-services/6.1/develop/software-architecture/'
         - title: 'Software development kit (SDK)'
@@ -1323,6 +1327,8 @@
           path: '/content-services/6.0/using/permissions/'
     - title: 'Develop'
       pages:
+        - title: 'Getting started'
+          path: '/content-services/6.0/develop/'
         - title: 'Software architecture'
           path: '/content-services/6.0/develop/software-architecture/'
         - title: 'Software development kit (SDK)'
@@ -1585,6 +1591,8 @@
           path: '/content-services/5.2/using/permissions/'
     - title: 'Develop'
       pages:
+        - title: 'Getting started'
+          path: '/content-services/5.2/develop/'
         - title: 'Software architecture'
           path: '/content-services/5.2/develop/software-architecture/'
         - title: 'Software development kit (SDK)'

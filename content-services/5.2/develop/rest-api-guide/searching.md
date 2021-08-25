@@ -1,44 +1,41 @@
 ---
-title: Searching
+title: Searching for content
 ---
 
 This section provides information on how to search for content and metadata in the Repository.
 
-Searching the content in the Repository is one of the major benefits of using Alfresco Content Services. It is possible to search both in the text content of files and in the metadata for folders and files.
+Searching the content in the Repository is one of the major benefits of using Content Services. It is possible
+to search both in the text content of files and in the metadata for folders and files.
 
-You can search the Repository in two different ways. The first approach is easy and requires only a GET call with the `term` that you want to search for in the text content or metadata. This call searches the whole repository and every type of file that can be transformed to text. The second approach is a POST call with the search query that you want to use. It’s more powerful and allows you to do a more specific search, such as where in the Repository to search and in what type of files to search.
+You can search the Repository in two different ways. The first approach is easy and requires only a GET call with the
+`term` that you want to search for in the text content or metadata. This call searches the whole repository and every
+type of file that can be transformed to text. The second approach is a POST call with the search query that you want to
+use. It’s more powerful and allows you to do a more specific search, such as where in the Repository to search and in
+what type of files to search.
 
 This section also goes through how to specifically search for sites and people.
 
--   **[Finding folders and files by a term](#finding-folders-and-files-by-a-term)**  
-Simple search in metadata and content with a term.
--   **[Finding sites by a term](#finding-sites-by-a-term)**  
-Simple search for sites with a term.
--   **[Finding people by a term](#finding-people-by-a-term)**  
-Simple search for people with a term.
--   **[Finding content by a search query](#finding-content-by-a-search-query)**  
-Use a search query to be able to do a more specific search, such as where to search and for what.
-
-
-## Finding folders and files by a term {#finding-folders-and-files-by-a-term}
+## Finding folders and files by a term
 
 Simple search in metadata and content with a term.
 
-|API Call|GET queries/nodes?term={search term}&orderBy={field}|
-|--------|--------------------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/queries/findNodes](http://localhost:8080/api-explorer/#!/queries/findNodes)|
-|See also|[Complex search](#finding-content-by-a-search-query)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/queries/findNodes](http://localhost:8080/api-explorer/#!/queries/findNodes){:target="_blank"}
 
-The `/queries` endpoints are designed to be very simple to use and usable in "live search" scenarios. Meaning they can be executed upon each key press so clients can show results as the user types. The actual query used behind the scenes is hard-coded, if complex or custom queries are required the `/search` API should be used, which this section also covers.
+**See also:** [Complex search](#searchbyquery)
+
+The `/queries` endpoints are designed to be very simple to use and usable in "live search" scenarios. Meaning they can
+be executed upon each key press so clients can show results as the user types. The actual query used behind the scenes
+is hard-coded, if complex or custom queries are required the `/search` API should be used, which this section also covers.
 
 To find content by specifying a term (i.e. a word) you use a GET call as follows:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/queries/nodes?term={search-term}&orderBy={field}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/queries/nodes?term={search-term}&orderBy={field}`
 
-This simple search query will look in the name (`cm:name`), title (`cm:title`) and description (`cm:description`) node properties, in the content, and in the tags for a match. Let’s say we have a file with the word dog in the text and another file with the word dog in the `cm:title` property, we can then search for these files as follows:
+This simple search query will look in the name (`cm:name`), title (`cm:title`) and description (`cm:description`) node
+properties, in the content, and in the tags for a match. Let’s say we have a file with the word dog in the text and
+another file with the word dog in the `cm:title` property, we can then search for these files as follows:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/queries/nodes?term=dog&orderBy=name' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -110,29 +107,32 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 }
 ```
 
-The response contains only minimal metadata for each `entry`. Use the `include` and `fields` parameters to return more metadata in the response.
+The response contains only minimal metadata for each `entry`. Use the `include` and `fields` parameters to return more
+metadata in the response.
 
-The type of nodes returned can be restricted via the `nodeType` query parameter, for example passing `acme:document` as the value will only return nodes of that type and any of it's subtypes.
+The type of nodes returned can be restricted via the `nodeType` query parameter, for example passing `acme:document` as
+the value will only return nodes of that type and any of it's subtypes.
 
-## Finding sites by a term {#finding-sites-by-a-term}
+## Finding sites by a term
 
 Simple search for sites with a term.
 
-|API Call|GET queries/sites?term={search term}&orderBy={field}|
-|--------|--------------------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/queries/findSites](http://localhost:8080/api-explorer/#!/queries/findSites)|
-|See also|[Complex search](#finding-content-by-a-search-query)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/queries/findSites](http://localhost:8080/api-explorer/#!/queries/findSites){:target="_blank"}
 
-The `/queries` endpoints are designed to be very simple to use and usable in "live search" scenarios. Meaning they can be executed upon each key press so clients can show results as the user types. The actual query used behind the scenes is hard-coded, if complex or custom queries are required the `/search` API should be used, which this section also covers.
+**See also:** [Complex search](#searchbyquery)
+
+The `/queries` endpoints are designed to be very simple to use and usable in "live search" scenarios. Meaning they can
+be executed upon each key press so clients can show results as the user types. The actual query used behind the scenes
+is hard-coded, if complex or custom queries are required the `/search` API should be used, which this section also covers.
 
 To find sites by specifying a term (i.e. a word) you use a GET call as follows:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/queries/sites?term={search-term}&orderBy={field}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/queries/sites?term={search-term}&orderBy={field}`
 
-This simple search query will look in the site id , site title and site description properties for a match. Let’s say we have a site with the word 'web' in the title, we can then search for it as follows:
+This simple search query will look in the site id , site title and site description properties for a match. Let’s say we
+have a site with the word 'web' in the title, we can then search for it as follows:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/queries/sites?term=web&orderBy=title' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -165,26 +165,26 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 You can use the `fields` parameters to return more or less metadata in the response.
 
-
-## Finding people by a term {#finding-people-by-a-term}
+## Finding people by a term {#findpeoplebyterm}
 
 Simple search for people with a term.
 
-|API Call|GET queries/people?term={search term}&orderBy={field}|
-|--------|---------------------------------------------------------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/queries/findPeople](http://localhost:8080/api-explorer/#!/queries/findPeople)|
-|See also|[Complex search](#finding-content-by-a-search-query)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/queries/findPeople](http://localhost:8080/api-explorer/#!/queries/findPeople){:target="_blank"}
 
-The `/queries` endpoints are designed to be very simple to use and usable in "live search" scenarios. Meaning they can be executed upon each key press so clients can show results as the user types. The actual query used behind the scenes is hard-coded, if complex or custom queries are required the /search API should be used, which this section also covers.
+**See also:** [Complex search](#searchbyquery)
+
+The `/queries` endpoints are designed to be very simple to use and usable in "live search" scenarios. Meaning they can
+be executed upon each key press so clients can show results as the user types. The actual query used behind the scenes
+is hard-coded, if complex or custom queries are required the `/search` API should be used, which this section also covers.
 
 To find people by specifying a term (i.e. a word) you use a GET call as follows:
 
-**http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/queries/people?term={search-term}&orderBy={field}**
+`http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/queries/people?term={search-term}&orderBy={field}`
 
-This simple search query will look in the person id, first name, and last name properties for a match. Let’s say we look for people that have "jackson" in their username (id), first name or last name. We can then search as follows:
+This simple search query will look in the person id, first name, and last name properties for a match. Let’s say we look
+for people that have "jackson" in their username (id), first name or last name. We can then search as follows:
 
-```
+```bash
 $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/queries/people?term=jackson&orderBy=lastName' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -237,31 +237,33 @@ $ curl -X GET -H 'Accept: application/json' -H 'Authorization: Basic VElDS0VUXzA
 
 The response can be customized by using the `fields` parameter to return more or less metadata.
 
-
-## Finding content by a search query {#finding-content-by-a-search-query}
+## Finding content by a search query {#searchbyquery}
 
 Use a search query to be able to do a more specific search, such as where to search and for what.
 
-|API Call|POST search|
-|--------|-----------|
-|API Explorer URL|[http://localhost:8080/api-explorer/#!/search/search](http://localhost:8080/api-explorer/#!/search/search)|
-|See also|[Simple search](#finding-folders-and-files-by-a-term)|
-|Search Reference|[Alfresco Full Text Search Reference (afts)]({% link content-services/5.2/develop/alfresco-full-text-search-ref.md %}#alfresco-full-text-search-reference)|
-|Repository Info|[Concepts]({% link content-services/5.2/develop/software-architecture.md %}#repository-concepts)|
+**API Explorer URL:** [http://localhost:8080/api-explorer/#!/search/search](http://localhost:8080/api-explorer/#!/search/search){:target="_blank"}
+
+**See also:** [Simple search](#findpeoplebyterm)
+
+**Search Reference:** [Alfresco Full Text Search Reference (afts)]({% link search-services/1.4/using/index.md %})
 
 ### Introduction
 
-If the pre-canned queries (i.e. term based search) do not provide what you need you have the option to use the rich and powerful `/search` API, at the cost of a little more complexity. Due to the number of options and functionality available via the search API, it is a little different than most of the other search APIs. Firstly, the API is defined under the "search" namespace so it's base URL is slightly different. Secondly, the `/search` endpoint does not accept any query parameters and is therefore completely controlled via the POST body as we'll see in the examples that follow.
+If the pre-canned queries (i.e. term based search) do not provide what you need you have the option to use the rich and
+powerful `/search` API, at the cost of a little more complexity. Due to the number of options and functionality available
+via the search API, it is a little different than most of the other search APIs. Firstly, the API is defined under the
+"search" namespace so it's base URL is slightly different. Secondly, the `/search` endpoint does not accept any query
+parameters and is therefore completely controlled via the POST body as we'll see in the examples that follow.
 
 ### Searching text content
 
 You POST a search query to the following URL:
 
-**http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search**
+`http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search`
 
 The POST body for a basic query looks like:
 
-```
+```json
 {
   "query": {
     "query": "dog"
@@ -269,9 +271,11 @@ The POST body for a basic query looks like:
 }
 ```
 
-This basic query searches only the text content for the files in the repository. Let’s say I got a file with the word dog in the text and another file with the word dog in the `cm:title` property. If I search with the following query I should only get one response:
+This basic query searches only the text content for the files in the repository. Let’s say I got a file with the word
+`dog` in the text and another file with the word dog in the `cm:title` property. If I search with the following query
+I should only get one response:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzA4ZWI3ZTJlMmMxNzk2NGNhNTFmMGYzMzE4NmNjMmZjOWQ1NmQ1OTM=' -d '{
   "query": {
     "query": "dog"
@@ -327,19 +331,25 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-The response contains only minimal metadata for each `entry`. Use the `include` and `fields` parameters to return more metadata in the response.
+The response contains only minimal metadata for each `entry`. Use the `include` and `fields` parameters to return more
+metadata in the response.
 
-The results should look familiar, for the most part they are the same as the results from `/queries` and from `/nodes/{id}/children`.
+The results should look familiar, for the most part they are the same as the results from `/queries` and from
+`/nodes/{id}/children`.
 
-There are a couple of differences though, the search API returns two additional properties, `search` and `location`. The `search` property adds extra context for the individual result, in this case, the `score`. Explaining the full details is beyond the scope of this article but it is possible to search across "live" nodes, deleted nodes and versioned nodes, the `location` property shows from which area the result came from. By default only "live" nodes are included.
+There are a couple of differences though, the search API returns two additional properties, `search` and `location`.
+The `search` property adds extra context for the individual result, in this case, the `score`. Explaining the full details
+is beyond the scope of this article but it is possible to search across "live" nodes, deleted nodes and versioned nodes,
+the `location` property shows from which area the result came from. By default only "live" nodes are included.
 
-The example above used the default search language `afts` (Alfresco Full Text Search), however, `cmis` and `lucene` are also supported.
+The example above used the default search language `afts` (Alfresco Full Text Search), however, `cmis` and `lucene` are
+also supported.
 
 ### CMIS query finding files by name
 
-The example body below shows how to define a simple CMIS query to find all files with a name starting with "test":
+The example body below shows how to define a simple CMIS query to find all files with a name starting with `test`:
 
-```
+```json
 {
   "query": {
     "query": "select * from cmis:document WHERE cmis:name LIKE 'test%'",
@@ -348,9 +358,10 @@ The example body below shows how to define a simple CMIS query to find all files
 }
 ```
 
-Here is how the call looks like, I have stored the query JSON data in a file called cmis-query.json (it does not work to write the query with the `-d` curl parameter on the command line):
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `cmis-query.json` (it does not work
+to write the query with the `-d` curl parameter on the command line):
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@cmis-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -434,7 +445,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 
 The example body below shows how to execute a simple Lucene query to find all the files modified in the last week:
 
-```
+```json
 {
   "query": {
     "query": "+@cm\:modified:[NOW/DAY-7DAYS TO NOW/DAY+1DAY] +TYPE:\"cm:content\"",
@@ -443,9 +454,9 @@ The example body below shows how to execute a simple Lucene query to find all th
 }
 ```
 
-Here is how the call looks like, I have stored the query JSON data in a file called lucene-query.json:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `lucene-query.json`:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@lucene-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -502,9 +513,11 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 
 ### Searching by content type and controlling paging and sorting
 
-As with all the v1 ReST APIs paging can also be controlled, it's just done via the body rather than a query parameter. The results can also be sorted. The example body below shows how to execute a search to find all files ordered by the `cm:name` property, only show 25 results rather than the default of 100 and skip the first 10 results:
+As with all the v1 ReST APIs paging can also be controlled, it's just done via the body rather than a query parameter.
+The results can also be sorted. The example body below shows how to execute a search to find all files ordered by the
+`cm:name` property, only show 25 results rather than the default of 100 and skip the first 10 results:
 
-```
+```json
 {
   "query": {
     "query": "+TYPE:\"cm:content\"",
@@ -520,9 +533,9 @@ As with all the v1 ReST APIs paging can also be controlled, it's just done via t
 
 This also shows how you can search for a specific content type with the `TYPE` keyword.
 
-Here is how the call looks like, I have stored the query JSON data in a file called paging-sort-query.json:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `paging-sort-query.json`:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@paging-sort-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -538,50 +551,50 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
     "entries": [
       {
         "entry": {
-...        "name": "WebSiteReview.mp4",
+           "name": "WebSiteReview.mp4",
 ...        }
       },
       {
         "entry": {
-...          "name": "turbine.JPG",
+           "name": "turbine.JPG",
 ...        }
       },
       {
         "entry": {
-...          "name": "translatable.ftl",
+           "name": "translatable.ftl",
 ...        }
       },
       {
         "entry": {
-...          "name": "text-file.txt",
+          "name": "text-file.txt",
 ...        }
       },
       {
-...          "name": "test return value.js.sample",
-...        }
-      },
-      {
-        "entry": {
-...          "name": "test-file.txt",
-...        }
-      },
-      {
-...          "name": "system-overview.html",
+          "name": "test return value.js.sample",
 ...        }
       },
       {
         "entry": {
-...          "name": "start-pooled-review-workflow.js",
+          "name": "test-file.txt",
+...        }
+      },
+      {
+          "name": "system-overview.html",
 ...        }
       },
       {
         "entry": {
-...          "name": "some-stuff.txt",
+          "name": "start-pooled-review-workflow.js",
 ...        }
       },
       {
         "entry": {
-...          "name": "somefile.txt",
+          "name": "some-stuff.txt",
+...        }
+      },
+      {
+        "entry": {
+          "name": "somefile.txt",
 ...        }
       },
  ...
@@ -594,9 +607,12 @@ The result have been truncated a bit here for clarity.
 
 ### Searching by aspect
 
-Another common search requirement is to find files that have a certain aspect applied. We can do that by using the `ASPECT` keyword in a similar way to how we used the `TYPE` keyword, they could be combinded to if we needed to. The following POST will match all files with the aspect `acme:securityClassified` applied (this aspect is part of the default content model that comes with the SDK template projects):
+Another common search requirement is to find files that have a certain aspect applied. We can do that by using the
+`ASPECT` keyword in a similar way to how we used the `TYPE` keyword, they could be combined too if needed. The following
+POST will match all files with the aspect `acme:securityClassified` applied (this aspect is part of the default content model
+that comes with the SDK template projects):
 
-```
+```json
 {
   "query": {
     "query": "+TYPE:\"cm:content\" AND +ASPECT:\"acme:securityClassified\"",
@@ -613,11 +629,12 @@ Another common search requirement is to find files that have a certain aspect ap
 }
 ```
 
-Note also that we have requested to include the aspect names in the response. We can use the `include` JSON body parameter to return additional information. This works in the same way as in the **/nodes/{id}/children** method in the core API.
+Note also that we have requested to include the aspect names in the response. We can use the `include` JSON body parameter
+to return additional information. This works in the same way as in the `/nodes/{id}/children` method in the core API.
 
-Here is how the call looks like, I have stored the query JSON data in a file called type-and-aspect-query.json:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `type-and-aspect-query.json`:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@type-and-aspect-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -678,11 +695,12 @@ We can see in the response JSON that the `aspectNames` array contains the aspect
 
 ### Search by tag
 
-As you probably know, folder and file nodes can be tagged. If you have a lot of nodes tagged it make sense to be able to find stuff based on these tags.
+As you probably know, folder and file nodes can be tagged. If you have a lot of nodes tagged it make sense to be able
+to find stuff based on these tags.
 
 We can use the `/search` API to search for files and folders that have been tagged. The POST body looks like this:
 
-```
+```json
 {
   "query": {
     "query": "+TAG:\"project-x\"",
@@ -691,13 +709,13 @@ We can use the `/search` API to search for files and folders that have been tagg
 }
 ```
 
-In this case I want to search for all folders and files that have been tagged 'project-x'.
+In this case I want to search for all folders and files that have been tagged `project-x`.
 
 I have previously tagged a text file with this tag.
 
-Here is how the call looks like, I have stored the query JSON data in a file called tag-query.json:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `tag-query.json`:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@tag-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -752,17 +770,23 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-One response is expected as I only got one file tagged with 'project-x'.
+One response is expected as I only got one file tagged with `project-x`.
 
 ### Faceted search
 
-Now when we have covered the basics let's look at a couple of the more interesting features of the search API, faceting and term highlighting.
+Now when we have covered the basics let's look at a couple of the more interesting features of the search API, faceting
+and term highlighting.
 
-There are two types of facets; queries and fields. A query facet returns the count of results for the given query, you can provide multiple facet queries in one request. A field facet returns a number of "buckets" for a field, providing the count of results that fit into each bucket.
+There are two types of facets; queries and fields. A query facet returns the count of results for the given query, you
+can provide multiple facet queries in one request. A field facet returns a number of "buckets" for a field, providing
+the count of results that fit into each bucket.
 
-It's much easier to understand with an example, the body below shows a search request that will look for files that have a `cm:name` or `cm:title` starting with "test". We also specify that we want to know how many of the results are small files, how many are plain text files, how many are images and how many are Office files. Additionally, we are also asking for the `creator` facet field to be included, which will indicate how many of the results were created by each user:
+It's much easier to understand with an example, the body below shows a search request that will look for files that have
+a `cm:name` or `cm:title` starting with "test". We also specify that we want to know how many of the results are small
+files, how many are plain text files, how many are images and how many are Office files. Additionally, we are also asking
+for the `creator` facet field to be included, which will indicate how many of the results were created by each user:
 
-```
+```json
 {
   "query": {
     "query": "(name:\"test*\" OR title:\"test*\") AND TYPE:\"cm:content\""
@@ -777,9 +801,9 @@ It's much easier to understand with an example, the body below shows a search re
 }
 ```
 
-Here is how the call looks like, I have stored the query JSON data in a file called facet-query.json:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `facet-query.json`:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@facet-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -870,13 +894,19 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-As well as the expected list of files, the response also contains a `facetQueries` and a `facetsFields` object containing the counts we requested. The `facetQueries` object has an entry for each query supplied in the result whereas the `facetsFields` object contains an entry for each requested field which in turn contains the count for each bucket.
+As well as the expected list of files, the response also contains a `facetQueries` and a `facetsFields` object
+containing the counts we requested. The `facetQueries` object has an entry for each query supplied in the result whereas
+the `facetsFields` object contains an entry for each requested field which in turn contains the count for each bucket.
 
 ### Term highlighting search
 
-The last example we're going to look at is term highlighting. The example body below shows a search request that will look for content nodes that have a name or title starting with "test", if the match occurs in either the `cm:name` or `cm:title` property the location of the match will be returned in the results. By default, the matched term is highlighted by surrounded by an `em` tag, to surround the match with something else the `prefix` and `postfix` properties can be used as shown in the example below:
+The last example we're going to look at is term highlighting. The example body below shows a search request that will
+look for content nodes that have a name or title starting with `test`, if the match occurs in either the `cm:name` or
+`cm:title` property the location of the match will be returned in the results. By default, the matched term is highlighted
+by surrounded by an `em` tag, to surround the match with something else the `prefix` and `postfix` properties can be used
+as shown in the example below:
 
-```
+```json
 {
   "query": {
     "query": "(name:\"test*\" OR title:\"test*\") AND TYPE:\"cm:content\""
@@ -896,9 +926,9 @@ The last example we're going to look at is term highlighting. The example body b
 }
 ```
 
-Here is how the call looks like, I have stored the query JSON data in a file called highlight-query.json:
+Here is how the call looks like, assuming that we have stored the query JSON data in a file called `highlight-query.json`:
 
-```
+```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@highlight-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -1082,5 +1112,5 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-As we specified in the request, the match in the `cm:name` property is surrounded by brackets and the `em` tag surrounds the match in the `cm:title` property.
-
+As we specified in the request, the match in the `cm:name` property is surrounded by brackets and the `em` tag surrounds
+the match in the `cm:title` property.
