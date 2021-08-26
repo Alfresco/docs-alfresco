@@ -1,5 +1,5 @@
 ---
-title: Search queries
+title: Search query syntax
 ---
 
 Alfresco Search Enterprise supported and unsupported search queries.
@@ -9,6 +9,8 @@ Alfresco Search Enterprise supported and unsupported search queries.
 * Sorting by relevancy @martin ditto
 
 ## Searching by content type and controlling paging and sorting
+
+@martin I have added this in twice because it is mentioned twice on the features page on the wiki. Which one do you want me to remove? cheers. 
 
 As with all the v1 ReST APIs paging can also be controlled, it's just done via the body rather than a query parameter. 
 The results can also be sorted. The example body below shows how to execute a search to find all files ordered by the 
@@ -104,8 +106,7 @@ The result have been truncated a bit here for clarity.
 
 ## Faceted search
 
-Now when we have covered the basics let's look at a couple of the more interesting features of the search API, faceting 
-and term highlighting.
+Now when we have covered the basics let's look at a couple of the more interesting features of the search API, faceting and term highlighting.
 
 There are two types of facets; queries and fields. A query facet returns the count of results for the given query, you 
 can provide multiple facet queries in one request. A field facet returns a number of "buckets" for a field, providing 
@@ -311,7 +312,7 @@ Phrases are enclosed in double quotes. Any embedded quotes can be escaped using 
 
 The whole phrase will be tokenized before the search according to the appropriate data dictionary definition(s).
 
-```sql
+```afts
 "big yellow banana"
 ```
 
@@ -323,7 +324,7 @@ The `*` wildcard character can appear on its own and implies Google-style. The "
 
 The following will all find the term apple.
 
-```sql
+```afts
 TEXT:app?e
 TEXT:app*
 TEXT:*pple
@@ -339,7 +340,7 @@ When performing a search that includes a wildcard character, it is best to wrap 
 
 ## Search for conjunctions
 
-TODO
+The ability to use AND in the search query.
 
 ## Search for disjunctions
 
@@ -366,7 +367,7 @@ Single terms, phrases, and so on can be combined using "`NOT`" in upper, lower, 
 
 These queries search for nodes that contain the terms `yellow` in any content.
 
-```sql
+```afts
 yellow NOT banana
 yellow !banana
 yellow -banana
@@ -381,19 +382,19 @@ Prefixing any search qualifier with a `-` excludes all results that are matched 
 
 When you search using negation the query will be built using the default field operator (OR). For instance, if you are querying for negation:
 
-```sql
+```afts
 taxi AND driver NOT yellow
 ```
 
 the query will be executed as:
 
-```sql
+```afts
 taxi AND driver OR NOT passenger
 ```
 
 If you expect a different behavior, you have to specify the boolean conjunction:
 
-```sql
+```afts
 taxi AND driver AND NOT passenger
 ```
 
@@ -409,7 +410,7 @@ Sometimes AND and OR are not enough. If you want to find documents that must con
 
 The following example finds documents that contain the term "car", score those with the term "red" higher, but does not match those just containing "red":
 
-```sql
+```afts
 +car |red
 ```
 
@@ -419,13 +420,13 @@ All `AND` and `OR` constructs can be expressed with these operators.
 
 Using the mandatory operator we should occur, comparing with other search engines, in a weird behavior about the mandatory operator (+). For instance, executing the query below:
 
-```sql
+```afts
 +taxi +driver
 ```
 
 We will expect for all results containing _taxi_ and _driver_, but because AFTS language composes the query using the boolean operator OR as default operator, the query will be translated to:
 
-```sql
+```afts
 +taxi OR +driver
 ```
 
@@ -437,7 +438,7 @@ Any character can be escaped using the backslash "" in terms, IDs (field identif
 
 For example:
 
-```sql
+```afts
 cm:my content:my name
 ```
 
@@ -548,7 +549,7 @@ Inclusive ranges can be specified in Google-style. There is an extended syntax f
 |`[#1 TO #2>`| |The range #1 to #2 including #1 but not #2.`#1 <= x < #2`|`[0 TO 5>`|
 |`<#1 TO #2>`| |The range #1 to #2 exclusive.`#1 < x < #2`|`<0 TO 5>`|
 
-```sql
+```afts
 TEXT:apple..banana
 my:int:[0 TO 10]
 my:float:2.5..3.5
@@ -602,30 +603,28 @@ If you don’t specify a field the search runs against name, description, title,
 The list of the default supported types as declared in the `<alfresco_home>/solr4/conf/shared.properties` file:
 
 * `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
-
 * `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
-
 * `alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
 
 Single Term
 
-```sql
+```afts
 =taxi 
 ```
 
 Multi Term
 
-```sql
+```afts
 =taxi =driver
 ```
 
 Phrase
 
-```sql
+```afts
 ="taxi driver"
 ```
 
-> **Note:** Exact Term Search is disabled by default, to enable it refer to Indexing documentation and the configuration file: `exactTermSearch.properties` @martin is that the search indexing docs?
+> **Note:** Exact Term Search is disabled by default, to enable it refer to Indexing documentation and the configuration file: `exactTermSearch.properties`.
 
 ## Searches that involve stopwords
 
@@ -633,25 +632,25 @@ Phrase
 
 For example:
 
-```sql
+```afts
 stopword1 quick fox stopword2 brown
 ```
 
 becomes
 
-```sql
+```afts
 quick fox brown
 ```
 
 This behavior is different from Search and Insight Engine and Search Services in that it keeps stopwords in the query to build positional queries, for example:
 
-```sql
+```afts
 stopword1 quick fox stopword2 brown
 ```
 
 becomes
 
-```sql
+```afts
 stopword1_quick quick fox_stopword2 fox stopword2_brown brown
 ```
 
@@ -700,7 +699,7 @@ This generates a term centric multi-field query:
 
 For example:
 
-```sql
+```afts
 TEXT:(test AND file AND term3)
 ```
 
@@ -716,7 +715,7 @@ This means that a full query in AND matches documents that contains all the term
 
 ### DataType
 
-This query is executed when the field name corresponds to a datatype definition using its prefixed or fully qualified form, for example @martin is the comma needed? `d:text, {http://www.alfresco.org/model/dictionary/1.0}text)`.
+This query is executed when the field name corresponds to a datatype definition using its prefixed or fully qualified form, for example `d:text, {http://www.alfresco.org/model/dictionary/1.0}text)`.
 
 The query produced is a boolean query which includes an optional clause for each property associated to the input datatype definition.
 
@@ -728,148 +727,3 @@ Fields that are related to ACL information are stored directly as part of the El
 * READER
 * DENIED
 * AUTHORITY
-
-## Other Fields
-
-### ID
-
-The ID (virtual) field maps to Elasticsearch document id (_id) and it corresponds to the Alfresco node identifier, for example `5fef4b5d-4527-40e5-94fa-1878ef7a54eb`.
-
-### EXISTS
-
-The query intent can be summarized as “give me all nodes that have a value for the property/field I requested”. This is very similar to the previous one, the difference is that the `NULLPROPERTIES` field is not involved in this scenario.
-
-The value of a clause whose field is `EXISTS` could be:
-
-* an unqualified name: it will be expanded to a fully qualified name using the default namespace.
-* a prefixed name: the prefix is expanded, for example `cm:name` => `{http://..}content}name`.
-* a fully qualified name.
-* a field name, for example `ID`, `OWNER`, `READER`.
-
-If the value is associated to a property definition then a boolean query is executed with the following clauses:
-
-* PROPERTIES:<prefixed form of the property definition> (MUST) Otherwise, in case of a field (e.g. OWNER, ID, READER) a wildcard query is built using that field (e.g. OWNER:*).
-
-### ISNODE
-
-At time of writing SearchService 3.0 indexes only nodes so the ISNODE query becomes a “MatchAll” or “MatchNothing” query. @martin still the case?
-
-### Fields
-
-Fields are special attributes that can be used in queries and are not part of any content model. The behavior and the usage of these attributes is in common with the AFTS query language.
-
-### Properties
-
-Properties are attributes defined in an Alfresco content model. They are identified by qualified names, meaning they are composed of:
-
-* a namespace
-* a local name
-
-This avoids conflicts between local names used in multiple models (e.g. finance:name and cm:name).
-
-A property can be declared in queries using three notations:
-
-* Unqualified name (e.g. title): in this case it will be associated to the default namespace. The property is therefore assumed to exist and to be valid in the default content model.
-
-```bash
-@title:OOP
-@title:(Object Oriented Programming)
-```
-
-* Prefixed name (e.g. cm:title): the prefix is the short form of a given namespace. It must be uniquely associated to a namespace and to a content model.
-
-```bash
-@cm:title:OOP
-@cm:title:(Object Oriented Programming)
-```
-
-* Fully qualified name: in this case the property name uses the full namespace and the local name.
-
-```bash
-@{http://www.alfresco.org/model/content/1.0}title:OOP
-@{http://www.alfresco.org/model/content/1.0}title:(Object Oriented Programming)
-```
-
-When prefixes and fully qualified names are used, the property has to be prefixed with the @ symbol. This is one of the main differences between AFTS and Lucene.
-Special characters (i.e. characters that have a special meaning in lucene) need to be escaped using the backslash.
-
-## Unsupported Search Syntax
-
-* Search for optional, mandatory, and excluded elements of a query
-* Search for an exact term
-* Fuzzy matching
-* Grouped search queries
-* Proximity search
-* Search for spans and positions
-* Search using date math
-* Search for boosts
-* Wildcards in phrase queries
-* Exact Match Queries
-* Field Facets Pagination
-* Field Facets Tags Exclusion
-
-## Unsupported features
-
-### Search Features
-
-* Site queries
-* Path queries
-* Aspect queries (works using only the exact aspect name)
-* Tag queries
-* Highlighting
-* Fingerprinting
-* Multi-lingual support (documents will be accepted and searchable with multiple languages, but only English grammar rules will be applied)
-* Template search
-* Resource limiting
-* Scoped search
-* Statistics
-
-### Field Queries
-
-* PATH
-* PATHWITHREPEATS
-* PNAME
-* NPATH
-* PARENT
-* PRIMARYPARENT
-* QNAME
-* TAG
-* SITE
-* ANCESTOR
-* PRIMARYASSOCQNAME
-* PRIMARYASSOCTYPEQNAME
-* ISNULL
-* ISNOTNULL
-* ISUNSET
-* FINGERPRINT
-* ISROOT
-* ISCONTAINER
-* ASPECT
-* EXACTASPECT
-* CASCADETX
-* DBID
-* TX
-* TXID
-* INTXID
-* TXCOMMITTIME
-* ACLID
-* INACLTXID
-* ACLTXID
-* ACLTXCOMMITTIME
-* TENANT
-* OWNERSET
-* READERSET
-* AUTHSET
-* DENYSET
-* FTSSTATUS
-
-To guarantee ADW basic functionalities when a query contains an unsupported field the query part will be ignored and the REST API will return a 200 HTTP code. A warning message will be produced in the Alfresco Repository log.
-
-All unsupported fields will be ignored in queries and filters following the schema below:
-
-* The query contains only an unsupported field, e.g. `QNAME:hello` returns an empty result.
-* The query contains a supported field, e.g. `hello AND QNAME:goodbye` returns only documents containing “hello”.
-* A filter contains only an unsupported field, e.g. `query=banana`, `filter=QNAME:hello` returns only documents containing “banana”.
-* A filter contains two filters or a filter with a supported field and an unsupported field. For example, query=banana filter=[QNAME:hello, cm:name:test], returns all documents containing test and banana. For example, query=banana filter=QNAME:hello OR cm:name:test, returns all documents containing test and banana.
-
-In the examples above, filter queries must be executed using the REST API and not using Alfresco Digital Workspace or Alfresco Share.

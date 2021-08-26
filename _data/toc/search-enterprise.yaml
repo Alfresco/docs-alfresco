@@ -17,3 +17,5 @@
           path: '/search-enterprise/latest/using/field'
         - title: 'Languages'
           path: '/search-enterprise/latest/using/languages'
+        - title: 'Unsupported features'
+          path: '/search-enterprise/latest/using/unsupported'
