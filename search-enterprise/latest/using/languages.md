@@ -7,7 +7,7 @@ A search request allows the specification of the search language to be used. In 
 
 The Search Enterprise documentation provides Apache Lucene - Query Parser Syntax information specific to Alfresco that should be considered when using this query language.
 
-The search string syntax depends on the given query language and can differ significantly between AFTS and Lucene. However, there are some shared aspects that provide the same exact behavior in both languages.
+The search string syntax depends on the given query language and can differ significantly between AFTS and Lucene. However, there are some shared aspects that provide the same exact behavior in both languages, particularly for Add LINK to Field Queries page.
 
 ## Lucene Query Language
 
@@ -48,4 +48,4 @@ A property can be declared in queries using three notations:
 ```
 
 When prefixes and fully qualified names are used, the property has to be prefixed with the @ symbol. This is one of the main differences between AFTS and Lucene.
-Special characters (i.e. characters that have a special meaning in lucene) need to be escaped using the backslash.
+Special characters (i.e. characters that have a special meaning in lucene) need to be escaped using the.

@@ -2,6 +2,12 @@
 title: Field queries
 ---
 
+## Expanded Queries
+
+@martin I have added this expanded queries title because it is on the in depth page. Do we need it?
+
+Queries in this category are expanded to a boolean query with several clauses using criteria that are specific to each field.
+
 ## TEXT (Field, Prefix, Range, Wildcard, Fuzzy)
 
 The TEXT virtual field (i.e. it is not in the index) expands to all fields defined
@@ -61,6 +67,10 @@ This query is executed when the field name corresponds to a datatype definition 
 
 The query produced is a boolean query which includes an optional clause for each property associated to the input datatype definition.
 
+## Permission Queries
+
+Fields that are related to ACL information are stored directly as part of the Elasticsearch documents. As a consequence of that, the corresponding queries are plain term/range/prefix/fuzzy queries using the following fields:
+
 @martin do these need to be H2.
 
 ## Property (Field, Prefix, Range, Wildcard, Fuzzy)  
@@ -92,10 +102,6 @@ Type and Aspect queries have several things in common: both of them expect a nam
 No support for prefix/wildcard queries in the namespace part (e.g. "TYPE:{http://www.*}person" won't work, "TYPE:{http://www.alfresco.org/model/content/1.0}pers*" works)
 No support for descendant expansion in prefix/wildcard queries (e.g. TYPE: cm:pers* won't expand to cm:person descendants)
 
-## Expanded Queries
+### Field Queries and execution behavior
 
-Queries in this category are expanded to a boolean query with several clauses using criteria that are specific to each field.
-
-## Permission Queries
-
-Fields that are related to ACL information are stored directly as part of the Elasticsearch documents. As a consequence of that, the corresponding queries are plain term/range/prefix/fuzzy queries using the following fields:
+The fields and the corresponding query execution behavior listed in this section, are common to AFTS and Lucene query languages.

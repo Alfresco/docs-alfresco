@@ -11,7 +11,7 @@
       path: '/search-enterprise/latest/admin/'
     - title: 'Using'
       pages:
-        - title: 'Search queries'
+        - title: 'Search query syntax'
           path: '/search-enterprise/latest/using/'
         - title: 'Field queries'
           path: '/search-enterprise/latest/using/field'

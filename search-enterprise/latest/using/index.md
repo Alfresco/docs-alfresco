@@ -10,7 +10,7 @@ Alfresco Search Enterprise supported and unsupported search queries.
 
 ## Searching by content type and controlling paging and sorting
 
-@martin I have added this in twice because it is mentioned twice on the features page on the wiki. Which one do you want me to remove? cheers. 
+@martin I have added this in twice because it is mentioned twice on the features page on the wiki. Which one do you want me to remove? cheers.
 
 As with all the v1 ReST APIs paging can also be controlled, it's just done via the body rather than a query parameter. 
 The results can also be sorted. The example body below shows how to execute a search to find all files ordered by the 
@@ -225,13 +225,11 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-As well as the expected list of files, the response also contains a `facetQueries` and a `facetsFields` object 
-containing the counts we requested. The `facetQueries` object has an entry for each query supplied in the result whereas 
-the `facetsFields` object contains an entry for each requested field which in turn contains the count for each bucket.
+As well as the expected list of files, the response also contains a `facetQueries` and a `facetsFields` object containing the counts we requested. The `facetQueries` object has an entry for each query supplied in the result whereas the `facetsFields` object contains an entry for each requested field which in turn contains the count for each bucket.
 
 ## Filter by content size and mimetype
 
-@martin where is a good place to put this? Any more info?
+@engineering where is a good place to put this? Any more info?
 
 ## Requesting optional item information
 
@@ -262,9 +260,7 @@ If the appropriate data dictionary definition(s) for the field supports both FTS
 
 ## Search in fields
 
-@martin there is a Fields heading on the In depth page, how do you want me to handle that info? Is it different to this info?
-
-Search specific fields rather than the default. Terms, and phrases etc @martin what can we use here instead of etc? can all be preceded by a field. If not the default field TEXT is used.
+Search specific fields rather than the default. Terms, and phrases can all be preceded by a field. If not the default field TEXT is used.
 
 ```bash
 field:term
@@ -444,8 +440,6 @@ cm:my content:my name
 
 ## Searching by content type and controlling paging and sorting
 
-@Martin we have another section called Type and Aspect Queries on the in depth page. Is that needed here?
-
 As with all the v1 ReST APIs paging can also be controlled, it's just done via the body rather than a query parameter. 
 The results can also be sorted. The example body below shows how to execute a search to find all files ordered by the 
 `cm:name` property, only show 25 results rather than the default of 100 and skip the first 10 results:
@@ -624,7 +618,7 @@ Phrase
 ="taxi driver"
 ```
 
-> **Note:** Exact Term Search is disabled by default, to enable it refer to Indexing documentation and the configuration file: `exactTermSearch.properties`.
+> **Note:** Exact Term Search is disabled by default, to enable it refer to Indexing documentation LINK and the configuration file: `exactTermSearch.properties`.
 
 ## Searches that involve stopwords
 
@@ -653,7 +647,3 @@ becomes
 ```afts
 stopword1_quick quick fox_stopword2 fox stopword2_brown brown
 ```
-
-### Field Queries and execution behavior
-
-The fields and the corresponding query execution behavior listed in this section, are common to AFTS and Lucene query languages.
