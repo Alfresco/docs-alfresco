@@ -61,6 +61,8 @@ This query is executed when the field name corresponds to a datatype definition 
 
 The query produced is a boolean query which includes an optional clause for each property associated to the input datatype definition.
 
+@martin do these need to be H2.
+
 ## Property (Field, Prefix, Range, Wildcard, Fuzzy)  
 
 ## OWNER (Field, Prefix, Wildcard, Fuzzy)
@@ -94,14 +96,6 @@ No support for descendant expansion in prefix/wildcard queries (e.g. TYPE: cm:pe
 
 Queries in this category are expanded to a boolean query with several clauses using criteria that are specific to each field.
 
-
 ## Permission Queries
 
 Fields that are related to ACL information are stored directly as part of the Elasticsearch documents. As a consequence of that, the corresponding queries are plain term/range/prefix/fuzzy queries using the following fields:
-
-@martin do these need to be H2.
-
-
-
-## Other Fields @martin do we need this heading? We cant make it a H2 because if we do ID will need to be a H3 and if we do that it wont show up in the TOC.
-

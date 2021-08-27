@@ -5,7 +5,7 @@ title: Query languages
 A search request allows the specification of the search language to be used. In addition to AFTS the Lucene query language is also supported. It is the query language provided by the IR framework. The Lucene query API is built on top of the Lucene standard query parser. For more details on the query language syntax see [Apache Lucene - Query Parser Syntax
 ](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
 
-The Search Enterprise documentation provides information specific to Alfresco that should be considered when using this query language.
+The Search Enterprise documentation provides Apache Lucene - Query Parser Syntax information specific to Alfresco that should be considered when using this query language.
 
 The search string syntax depends on the given query language and can differ significantly between AFTS and Lucene. However, there are some shared aspects that provide the same exact behavior in both languages.
 
