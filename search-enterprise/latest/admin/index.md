@@ -375,41 +375,33 @@ Because it is easier to have **unbalanced partitions** when indexing by date ran
 
 Reindexing application may be used to index only metadata, excluding the content indexation from the process.
 
-In order to apply this configuration, create a `mediation-filter.json` file excluding every content type in the `contentNodeTypes` section. For instance, next file will exclude `cm:content` types from reindexing process and additionally a set of fields.
-
-```json
-mediation:
-  nodeTypes:
-  contentNodeTypes:
-    - cm:content
-  fields:
-    - cmis:changeToken
-    - alfcmis:nodeRef
-    - cmis:isImmutable
-    - cmis:isLatestVersion
-    - cmis:isMajorVersion
-    - cmis:isLatestMajorVersion
-    - cmis:isVersionSeriesCheckedOut
-    - cmis:versionSeriesCheckedOutBy
-    - cmis:versionSeriesCheckedOutId
-    - cmis:checkinComment
-    - cmis:contentStreamId
-    - cmis:isPrivateWorkingCopy
-    - cmis:allowedChildObjectTypeIds
-    - cmis:sourceId
-    - cmis:targetId
-    - cmis:policyText
-    - trx:password
-    - pub:publishingEventPayload
-```
-
-Once the file is available, use the parameter `alfresco.mediation.filter-file` to apply the configuration. It's also recommended to disable the checking of content media types cache.
+In order to apply this configuration, set parameter `alfresco.reindex.contentIndexingEnabled` to `false`
 
 ```shell
 java -jar alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
-    --alfresco.mediation.filter-file=file:mediation-filter.json \
-    --alfresco.accepted-content-media-types-cache.enabled=false
+    --alfresco.reindex.contentIndexingEnabled=false
 ```
+
+## Indexing PATH property
+
+By default, reindexing PATH property is disabled. In order to enable this feature, set parameter `alfresco.reindex.pathIndexingEnabled` to `true`.
+
+```shell
+java -jar alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
+    --alfresco.reindex.pathIndexingEnabled=true
+```
+
+## Enabling and disabling reindexing features recommendations
+
+By default reindexing application uses following configuration:
+
+* `alfresco.reindex.metadataIndexingEnabled = true` 
+* `alfresco.reindex.contentIndexingEnabled = true` 
+* `alfresco.reindex.pathIndexingEnabled = false` 
+
+Reindexing metadata process is also indexing permissions associated with the document. Hence, when disabling metadata reindexing, Content and Path will not be updated for non-indexed documents. Only indexed documents will be updated with Content and Path.
+
+Main use case to reindex only Content or Path is a fully metadata indexed Repository that needs to update / complete Content or Path.
 
 ### Recommendations for large reindexing processes
 
