@@ -111,8 +111,12 @@ The tool may be used as a standalone jar. The table below lists the main configu
 | alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping | classpath:reindex.prefixes-file.json |
 | alfresco.reindex.partitioning.type | Remote node type, can be _master_ or _worker_. If not specified, the app runs as single node instance. | Not specified |
 | alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals to number of available workers. | 3 |
-| alfresco.reindex.partitioning.requests-queue| request queue for remote partitioning | org.alfresco.search.reindex.requests |
-| alfresco.reindex.partitioning.replies-queue | reply queue for remote partitioning | org.alfresco.search.reindex.replies |
+| alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning | org.alfresco.search.reindex.requests |
+| alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning | org.alfresco.search.reindex.replies |
+| alfresco.reindex.metadataIndexingEnabled | Reindex document metadata | true |
+| alfresco.reindex.contentIndexingEnabled | Reindex document content | true |
+| alfresco.reindex.pathIndexingEnabled | Reindex document Path property | false |
+    
 
 There are two strategies in order to fill gaps in the Elasticsearch server provoked by ActiveMQ unavailability or any other external cause:
 
