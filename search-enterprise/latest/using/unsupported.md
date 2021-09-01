@@ -2,6 +2,13 @@
 title: Unsupported features
 ---
 
+The following features, which were supported with Search 2.x (Solr) are not supported in the latest release for Search 3.x (Elasticsearch).
+
+## Index and re-index
+
+Re-index of permissions and content associated with indexed nodes
+Indexing of nodes created during content repository bootstrap. For example, the sample site data.
+
 ## Search features
 
 * Site queries
@@ -15,9 +22,6 @@ title: Unsupported features
 * Resource limiting
 * Scoped search
 * Statistics
-
-## Search query Syntax @martin should this heading be removed and these all join with the ones above? And the title of the one above changes to Search query syntax. We decided to match these headings with the supported features and that does not have a Supported features heading.
-
 * Search for optional, mandatory, and excluded elements of a query
 * Search for an exact term
 * Fuzzy matching
