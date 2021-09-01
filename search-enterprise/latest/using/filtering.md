@@ -4,11 +4,7 @@ title: Filtering Paging and Sorting
 
 ## Searching by content type and controlling paging and sorting
 
-@martin I have added this in twice because it is mentioned twice on the features page on the wiki. Which one do you want me to remove? cheers.
-
-As with all the v1 ReST APIs paging can also be controlled, it's just done via the body rather than a query parameter. 
-The results can also be sorted. The example body below shows how to execute a search to find all files ordered by the 
-`cm:name` property, only show 25 results rather than the default of 100 and skip the first 10 results:
+The v1 ReST APIs paging can also be controlled but is accomplished via the body rather than a query parameter. The results can also be sorted. The body example shows how to execute a search to find all files ordered by the `cm:name` property. It shows how you can search for a specific content type with the `TYPE` keyword. It also only shows 25 results rather than the default 100 including skipping the first 10 results.
 
 ```json
 {
@@ -24,9 +20,7 @@ The results can also be sorted. The example body below shows how to execute a se
 }
 ```
 
-This also shows how you can search for a specific content type with the `TYPE` keyword.
-
-Here is how the call looks like, assuming that we have stored the query JSON data in a file called `paging-sort-query.json`:
+This is what the call looks like assuming you have stored the query JSON data in a file called `paging-sort-query.json`:
 
 ```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@paging-sort-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
@@ -96,20 +90,13 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-The result have been truncated a bit here for clarity.
+The result have been truncated for clarity.
 
 ## Faceted search
 
-Now when we have covered the basics let's look at a couple of the more interesting features of the search API, faceting and term highlighting.
+There are two types of facets queries, and fields. A query facet returns the count of results for the given query. You can provide multiple facet queries in one request. A field facet returns a number of "buckets" for a field, providing the count of results that fit into each bucket.
 
-There are two types of facets; queries and fields. A query facet returns the count of results for the given query, you 
-can provide multiple facet queries in one request. A field facet returns a number of "buckets" for a field, providing 
-the count of results that fit into each bucket.
-
-It's much easier to understand with an example, the body below shows a search request that will look for files that have 
-a `cm:name` or `cm:title` starting with "test". We also specify that we want to know how many of the results are small 
-files, how many are plain text files, how many are images and how many are Office files. Additionally, we are also asking 
-for the `creator` facet field to be included, which will indicate how many of the results were created by each user:
+The example body shows a search request that looks for files that have a `cm:name` or `cm:title` starting with "test". We also specify that we want to know how many of the results are small files, how many are plain text files, how many are images, and how many are Office files. Additionally, the `creator` facet field is included, which indicates how many of the results were created by each user:
 
 ```json
 {
@@ -126,7 +113,7 @@ for the `creator` facet field to be included, which will indicate how many of th
 }
 ```
 
-Here is how the call looks like, assuming that we have stored the query JSON data in a file called `facet-query.json`:
+This is what the call looks like assuming you have stored the query JSON data in a file called `facet-query.json`:
 
 ```bash
 $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' --header 'Authorization: Basic VElDS0VUXzIxYzAzOWMxNjFjYzljMDNmNmNlMzAwYzAyMDY5YTQ2OTQwZmYzZmM=' --data-binary '@facet-query.json' 'http://localhost:8080/alfresco/api/-default-/public/search/versions/1/search' | jq
@@ -219,7 +206,7 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-As well as the expected list of files, the response also contains a `facetQueries` and a `facetsFields` object containing the counts we requested. The `facetQueries` object has an entry for each query supplied in the result whereas the `facetsFields` object contains an entry for each requested field which in turn contains the count for each bucket.
+The `facetQueries` object has an entry for each query supplied in the result whereas the `facetsFields` object contains an entry for each requested field which in turn contains the count for each bucket.
 
 ## Filter by content size and mimetype
 

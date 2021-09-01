@@ -2,20 +2,20 @@
 title: Field queries
 ---
 
-The fields listed and the corresponding query execution behavior are common to AFTS and Lucene query languages.
+The fields listed and the corresponding query execution behavior are common to AFTS and the Lucene query languages.
 
 ## Type and Aspect Queries
 
-Type and Aspect queries have several things in common: both of them expect a name as the field value. Specifically:
+Type and Aspect queries have several things in common and both of them expect a name as the field value, specifically:
 
-* If the value is an unqualified name, it will be expanded to a fully qualified name using the default namespace
-* If the value is a prefixed name, the prefix is expanded (e.g. cm:name => {http://www.alfresco.org/model/content/1.0}content}name)
-* If the value is a fully qualified name then it is used in that form
+* If the value is an unqualified name it will be expanded to a fully qualified name using the default namespace.
+* If the value is a prefixed name the prefix is expanded, for example `cm:name => {http://www.alfresco.org/model/content/1.0}content}name`.
+* If the value is a fully qualified name then it is used in that form.
 
-**Known Limitations**
+**Important:**
 
-No support for prefix/wildcard queries in the namespace part (e.g. "TYPE:{http://www.*}person" won't work, "TYPE:{http://www.alfresco.org/model/content/1.0}pers*" works)
-No support for descendant expansion in prefix/wildcard queries (e.g. TYPE: cm:pers* won't expand to cm:person descendants)
+* Prefix and wildcard queries in the namespace part, for example `TYPE:{http://www.*}person` won't work, whereas `TYPE:{http://www.alfresco.org/model/content/1.0}pers*` does work.
+* Descendant expansion in prefix and wildcard queries, for example `TYPE: cm:pers*` won't expand to `cm:person descendants`.
 
 ## Expanded Queries
 
@@ -23,7 +23,7 @@ Queries in this category are expanded to a boolean query with several clauses us
 
 ## ALL (Field, Prefix, Range, Wildcard, Fuzzy)
 
-The ALL virtual field (i.e. it is not in the index) expands to all fields defined
+The ALL virtual field (i.e. it is not in the index) expands to all fields defined:
 
 * in the SearchParameters::allAttributes (the object representation of the corresponding attribute in the REST API Search Request) OR, in case they are empty
 * in the DictionaryService::getAllProperties
