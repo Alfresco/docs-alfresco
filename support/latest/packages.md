@@ -27,7 +27,7 @@ The following table provides a high level overview of what is included with each
 | Hot Fix Build Priority Escalation |  | Y |
 | Annual Health Check |  | Y |
 | Assist with Web Client and Server Configuration |  | Y |
-| Assist with User Admin guidance, and role and workflow configuration |  | Y |
+| Assist with User Admin guidance, plus role and workflow configuration |  | Y |
 | Assist with common customizations |  | Y |
 | Basic Setup and Installation |  | Y |
 | Annual Performance Tuning |  | Y |
@@ -35,7 +35,9 @@ The following table provides a high level overview of what is included with each
 
 ## Standard Support
 
-Ideal for high-availability systems, Standard Support offers fast response times. Any production system down issue (Severity Level 1) is responded to on a 24x7 basis. Our Analysts work with your team to address the issue in the shortest possible time. Any other severity issues are initially responded to within the targeted service level response time (see the Target Service Level Target section).
+Ideal for high-availability systems, Standard Support offers fast response times. Any production system down issue (Severity Level 1) is responded to on a 24x7 basis. Our Analysts work with your team to address the issue in the shortest possible time. Any other severity issues are initially responded to within the targeted service level response time.
+
+See the [Service Level Targets (SLTs)]({% link support/latest/slt.md %})) section for more details.
 
 ## Premier Services
 

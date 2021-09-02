@@ -5,7 +5,7 @@ title: Severity Definitions
 The outlined Hyland Support severity definitions are utilized when prioritizing and working on your issue. Reserve communication of Severity Level One (1) for your most critical issues (production environment down) to ensure the Hyland Support team can respond to all issues appropriately.
 
 | Severity | Definition |
-|--------- | ---------- |
+| -------- | ---------- |
 | Level 1 | "Level 1" means any Error that causes total or substantial software failure, which means that the software is down and the customer is unable to access the software in any way within their production environment. |
 | Level 2 | "Level 2" means an Error that causes substantial software failure which prevents a portion of a customer’s users from accessing the software in any way within the production environment. |
 | Level 3 | "Level 3" means that the software is usable except that an Error causes an ongoing, system-wide, severe performance degradation. |
