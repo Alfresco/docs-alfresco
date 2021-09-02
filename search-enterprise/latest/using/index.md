@@ -8,7 +8,7 @@ Alfresco Search Enterprise supported search query syntax.
 
 Single terms are tokenized before the search according to the appropriate data dictionary definition(s).
 
-If you do not specify a field, it will search in the content and properties. This is a shortcut for searching all properties of type content. Terms cannot contain a whitespace.
+If you do not specify a field it will search in the content and properties. This can be used as a shortcut for searching all properties of type content. Terms cannot contain a whitespace.
 
 ```bash
 banana
@@ -21,7 +21,7 @@ If the appropriate data dictionary definition(s) for the field supports both FTS
 
 ## Search in fields
 
-Search specific fields rather than the default. Terms, and phrases can all be preceded by a field. If not the default field TEXT is used.
+Search specific fields rather than the default. Terms, and phrases can all be preceded by a field. If not the default field `TEXT` is used.
 
 ```bash
 field:term
@@ -58,12 +58,12 @@ Fields fall into three types, property fields, special fields, and fields for da
 |Special|EXISTS, for example `EXISTS:"name of the property"`.|
 |Special|SITE, for example `SITE:"shortname of the site"`.|
 |Special|TAG. TAG: "name of the tag" **Note:** `TAG` must be in upper case.|
-|Fully qualified data type|Data Type, for example `http://www.alfresco.org/model/dictionary/1.0}content:apple`|
-|prefixed data type|Data Type, d:content:apple|
+|Fully qualified data type|Data Type, for example `http://www.alfresco.org/model/dictionary/1.0}content:apple`.|
+|prefixed data type|Data Type, `d:content:apple`.|
 
 ## Search for a phrase
 
-Phrases are enclosed in double quotes. Any embedded quotes can be escaped using ``. If no field is specified then the default TEXT field will be used, as with searches for a single term.
+Phrases are enclosed in double quotes. Any embedded quotes can be escaped using ''. If no field is specified then the default `TEXT` field will be used, as with searches for a single term.
 
 The whole phrase will be tokenized before the search according to the appropriate data dictionary definition(s).
 
@@ -77,7 +77,7 @@ Wildcards are supported in terms, phrases, and exact phrases using `*` to match 
 
 The `*` wildcard character can appear on its own and implies Google-style. The "anywhere after" wildcard pattern can be combined with the `=` prefix for identifier based pattern matching. Search will return and highlight any word that begins with the root of the word truncated by the `*` wildcard character.
 
-The following will all find the term apple.
+All of the following will find the term apple.
 
 ```afts
 TEXT:app?e
@@ -95,7 +95,18 @@ When performing a search that includes a wildcard character, it is best to wrap 
 
 ## Search for conjunctions
 
-The ability to use AND in the search query.
+Single terms, and phrases can be combined using `AND` in upper, lower, or mixed case.
+
+The `AND` operator is interpreted as "object1 and object2 will be returned".
+
+```text
+big banana
+big AND yellow AND banana
+TEXT:big TEXT:banana
+TEXT:big AND TEXT:banana
+```
+
+These queries search for nodes that contain `big`, and `banana` in any content.
 
 ## Search for disjunctions
 
@@ -118,7 +129,7 @@ These queries search for nodes that contain at least one of the terms `big`, `ye
 
 You can narrow your search results by excluding words with the `NOT` syntax.
 
-Single terms, phrases, and so on can be combined using "`NOT`" in upper, lower, or mixed case, or prefixed with "`!`" or "`-`".
+Single terms, phrases, can be combined using "`NOT`" in upper, lower, or mixed case, or prefixed with "`!`" or "`-`".
 
 These queries search for nodes that contain the terms `yellow` in any content.
 
@@ -155,12 +166,12 @@ taxi AND driver AND NOT passenger
 
 ## Search for optional, mandatory, and excluded elements of a query
 
-Sometimes AND and OR are not enough. If you want to find documents that must contain the term "car", score those with the term "red" higher, but do not match those just containing "red".
+Sometimes `AND` and `OR` are not enough. If you want to find documents that must contain the term "car", score those with the term "red" higher, but do not match those just containing "red".
 
 |Operator|Description|
 |--------|-----------|
 |","|The field, phrase, group is optional; a match increases the score.|
-|"+"|The field, phrase, group is mandatory **Note:** this differs from Google - see "=")|
+|"+"|The field, phrase, group is mandatory **Note:** this differs from Google - see "=")| @engineering should there an an = here too?
 |"-", "!"|The field, phrase, group must not match.|
 
 The following example finds documents that contain the term "car", score those with the term "red" higher, but does not match those just containing "red":
@@ -169,27 +180,25 @@ The following example finds documents that contain the term "car", score those w
 +car |red
 ```
 
-> **Note:** At least one element of a query must match (or not match) for there to be any results.
+> **Note:** At least one element of a query must match, or not match, for there to be any results.
 
 All `AND` and `OR` constructs can be expressed with these operators.
 
-Using the mandatory operator we should occur, comparing with other search engines, in a weird behavior about the mandatory operator (+). For instance, executing the query below:
+Using the mandatory operator we should occur, comparing with other search engines, in a weird behavior about the mandatory operator (+). For instance, executing the query below: @engineering can you clarify this statement please?
 
 ```afts
 +taxi +driver
 ```
 
-We will expect for all results containing _taxi_ and _driver_, but because AFTS language composes the query using the boolean operator OR as default operator, the query will be translated to:
+You would expect all results containing _taxi_ and _driver_, but because the AFTS language composes the query using the boolean operator `OR` as the default operator, the query will be translated to the following and returns all items that contain "taxi" or driver:
 
 ```afts
 +taxi OR +driver
 ```
 
-Returning all items that contain "taxi" or driver.
-
 ## Escaping characters
 
-Any character can be escaped using the backslash "" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
+Any character can be escaped using the backslash "\" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
 
 For example:
 
@@ -225,7 +234,7 @@ When searching for a date range you can use a partial date. Elasticsearch replac
 * Second of minute: 59
 * Nano of second:   999_999_999
 
-The last four items will be replaced with 0 when the date component is missing in the minimum date in a range expression, e.g. [1950 to 2021] will be executed as [1950-01-01T00:00:00 TO 2021-01-01T23:59:59].
+The last four items will be replaced with 0 when the date component is missing in the minimum date in a range expression, for example [1950 to 2021] will be executed as [1950-01-01T00:00:00 TO 2021-01-01T23:59:59].
 
 In the REST API you can specify the timezone to be used in search for date ranges.
 
@@ -283,7 +292,7 @@ Phrase
 ="taxi driver"
 ```
 
-> **Note:** Exact Term Search is disabled by default, to enable it refer to Indexing documentation LINK and the configuration file: `exactTermSearch.properties`.
+> **Note:** Exact Term Search is disabled by default, to enable it refer to the Indexing documentation LINK and the configuration file: `exactTermSearch.properties`.
 
 ## Searches that involve stopwords
 

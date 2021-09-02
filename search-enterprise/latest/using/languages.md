@@ -2,7 +2,7 @@
 title: Query languages
 ---
 
-In addition to AFTS the Lucene query language is supported. It is provided by the IR framework and the query API is built on top of the Lucene standard query parser. For more details see [Apache Lucene - Query Parser Syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
+In addition to AFTS the Lucene query language is supported. It is provided by the IR framework and the query API is built on top of the Lucene standard query parser. For more details see [Apache Lucene - Query Parser Syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html){:target="_blank"}.
 
 The Search Enterprise documentation provides Apache Lucene - Query Parser Syntax information specific to Alfresco.
 
