@@ -53,7 +53,7 @@ A single-page application needs to be registered in your Microsoft Azure Active 
 
 9. Expand **Files** and select **Files.ReadWrite.All** and then click **Add permissions**.
  
-10. Select **Grant admin consent for <your-app-name>**
+10. Select **Grant admin consent for `<your-app-name>`**.
 
 ## Install with zip
 
