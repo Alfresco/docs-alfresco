@@ -2,11 +2,23 @@
 title: Severity Definitions
 ---
 
-Here are the severity definitions that Alfresco Support uses when prioritizing and working on your issue. If you are able to help us by reserving the selection of Severity One(1) for your most critical issues, you can be sure that the Alfresco Support team responds appropriately.
+The outlined Hyland Support severity definitions are utilized when prioritizing and working on your issue. Reserve communication of Severity Level One (1) for your most critical issues (production environment down) to ensure the Hyland Support team can respond to all issues appropriately.
 
-|Severity|Definition|
-|--------|----------|
-|1 - Production System Down|A Severity One issue indicates the production system is completely shut down or system operations or mission-critical applications are down. A Severity One issue includes an application that is in final testing, facing a critical Production Use go-live time frame or the entire development efforts are blocked. Alfresco promptly initiates the following procedures:{::nomarkdown}<ol><li>Assigns specialist(s) to correct the Error on an expedited basis.<li>Provides ongoing communication on the status.<li>Begins to provide a temporary workaround or fix.</ol>The assumption is that customer resources are available during the contractual service hours, as necessary, to collaborate on a workaround or fix.|
-|2 - Major Impact|A Severity Two issue indicates the production system is functioning but severely impacted with limited capabilities, or is unstable with major periodic interruptions, or mission critical applications, while not being affected, have experienced material system interruptions. A Severity Two issue may also indicate there is a time sensitive question impacting performance or deliverables, or a major subsystem under development is blocked. Alfresco assigns a specialist, and provides additional, escalated procedures as determined necessary by Alfresco Support Services staff. Alfresco exercises commercially reasonable efforts to provide a workaround or include a fix for the Severity Two issue in the next Service Pack/Maintenance Release.|
-|3 - Minor Impact|A Severity Three issue indicates the production system is still functioning but capabilities are moderately impacted, or the system is unstable with minor periodic interruptions or a minor loss of product functionality. A Severity Three issue can also indicate there are errors in system development that may be impacting performance deliverables. There is a medium-to-low impact on your business, but your business continues to function, including by using a procedural workaround.|
-|4 - Question - How To - Enhancement|A Severity Four issue is a general usage question, request for information, reporting of a documentation error, or recommendation for a future product enhancement or modification.  There is low-to-no impact on your business or the performance or functionality of your system.|
+| Severity | Definition |
+|--------- | ---------- |
+| Level 1 | "Level 1" means any Error that causes total or substantial software failure, which means that the software is down and the customer is unable to access the software in any way within their production environment. |
+| Level 2 | "Level 2" means an Error that causes substantial software failure which prevents a portion of a customer’s users from accessing the software in any way within the production environment. |
+| Level 3 | "Level 3" means that the software is usable except that an Error causes an ongoing, system-wide, severe performance degradation. |
+| Level 4 | "Level 4" means that the software is usable except that an Error prevents a specific feature or functionality from working. |
+| Level 5 | "Level 5" means that the software is usable except that an Error causes a trivial inconvenience and the task can be completed in another way. |
+| Level 6 | "Level 6" means Technical Support Services. |
+
+"Error" means any defect or condition inherent in the software which is reported by a customer and which is confirmed by Hyland, that causes the software to fail to function in any material respect as described in the documentation.
+
+## Technical Support Services
+
+Hyland will provide online or phone technical support related to problems reported by a customer and associated with the operation of any supported software, including assistance and advice related to the operation of the software. Technical Support Services are not available for retired software.
+
+## Error Correction Services
+
+With respect to any Errors in the supported software which are reported by a customer and which are confirmed by Hyland, in the exercise of its reasonable judgment, Hyland will use its commercially reasonable efforts to correct the Error, which may be effected by a commercially reasonable workaround.  Hyland shall promptly commence to confirm any reported Errors after receipt of a proper report of such suspected Error from a customer.  Hyland may elect to correct the Error in the current available release, or in the next available commercially released version of the supported software and the resolution may require the customer to implement an upgrade and enhancement in order to obtain the correction. Error Correction Services are not available for retired software.
