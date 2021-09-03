@@ -213,6 +213,15 @@ To include custom form fields within a form, the [form field customizations](htt
 
 > **Note**: The custom field can be [included in a form]({% link process-automation/latest/model/forms.md %}#custom-form-widgets) before the custom interface has been deployed.
 
+## REST API
+
+The REST APIs are accessed differently depending on whether a service is an application or platform-specific. For application endpoints, the application name will form part of the endpoint.
+
+The OpenAPI specifications for application endpoints require the `{application-name}` element in the URL:
+
+* Application runtime bundle: `{domain-name}/{application-name}/rb/swagger-ui/Application`.
+* Query service: `{domain-name}//{application-name}/query/swagger-ui/GraphQLThe`. The query service can also use GraphQL to expand the querying and can be accessed at `{domain-name}/{application-name}/notifications/graphiql`.
+
 ## REST API to cleanup historical data
 
 You can clean up historical data by using specific keys as input paramaters.
