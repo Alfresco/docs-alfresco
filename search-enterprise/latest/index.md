@@ -10,17 +10,13 @@ Alfresco Content Services supports the Elasticsearch platform for searching with
 
 The **Search** feature is provided by the Alfresco Repository itself which communicates with the Elasticsearch server that then performs the required format translation for queries and results. The Elasticsearch index contains all the content, metadata, and permissions for a single document, so no external Elasticsearch plugin is required.
 
-The **Indexing** feature is provided by a Spring Boot application called `Alfresco Elasticsearch Connector`. This application includes two main components that build and maintain the index in Elasticsearch:
-
-* **Live Indexing**: The Metadata, Content, and Permissions from the Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in the Elasticsearch server. The information created and updated in the Alfresco Repository is not immediately available in Elasticsearch because it takes time to process the messages. **NOTE:** The previous [Eventual consistency]({% link search-services/latest/install/index.md %}#eventual-consistency) approach which was based on transactions and used for Solr deployments, has been replaced by this new process.
-
-* **Re-Indexing**: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the Re-Indexing component. Metadata from Alfresco Repository is retrieved using a direct JDBC connection to Alfresco Database. **Note:** Only PostgresSQL is currently supported.
+The **Indexing** feature is provided by a Spring Boot application called `Alfresco Elasticsearch Connector`. The application is split into two main components called **Live Indexing** and **Re-indexing**, for more information see [Indexing]({% link search-enterprise/latest/admin/index.md %}#elastic-search-connector).
 
 Alfresco Search Enterprise consists of the following components:
 
-* Alfresco Elasticsearch Connector 3.0.0
-* Alfresco Content Services 7.1.0, that includes Alfresco ActiveMQ, Alfresco Transform Service, and Database
-* Elasticsearch server 7.10, that may be used as a standard managed service or that may be installed with default configuration. **Note:** The Elasticsearch server does not require any additional software from Alfresco in order to be used by Alfresco Search Enterprise 3.0
+* Alfresco Content Services 7.1
+* Elasticsearch 7.10. (It can be used as a standard managed service or can be installed using default configuration)
+* Alfresco Elasticsearch Connector 3.0
 
 The services required for Search Enterprise are included in the following diagram.
 

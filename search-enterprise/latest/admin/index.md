@@ -412,3 +412,42 @@ $ curl -XPUT "http://elasticsearch:9200/alfresco/_settings" -H 'Content-Type: ap
 ```
 
 > **Note:** This setting is only recommended when debugging.
+=======
+### Indexing only metadata
+
+Reindexing application may be used to index only metadata, excluding the content indexation from the process.
+
+In order to apply this configuration, set parameter `alfresco.reindex.contentIndexingEnabled` to `false`
+
+```shell
+java -jar alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
+    --alfresco.reindex.contentIndexingEnabled=false
+```
+
+## Indexing PATH property
+
+By default, reindexing PATH property is disabled. In order to enable this feature, set parameter `alfresco.reindex.pathIndexingEnabled` to `true`.
+
+```shell
+java -jar alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
+    --alfresco.reindex.pathIndexingEnabled=true
+```
+
+## Enabling and disabling reindexing features recommendations
+
+By default reindexing application uses following configuration:
+
+* `alfresco.reindex.metadataIndexingEnabled = true` 
+* `alfresco.reindex.contentIndexingEnabled = true` 
+* `alfresco.reindex.pathIndexingEnabled = false` 
+
+Reindexing metadata process is also indexing permissions associated with the document. Hence, when disabling metadata reindexing, Content and Path will not be updated for non-indexed documents. Only indexed documents will be updated with Content and Path.
+
+Main use case to reindex only Content or Path is a fully metadata indexed Repository that needs to update / complete Content or Path.
+
+### Recommendations for large reindexing processes
+
+When indexing large repositories from scratch, metadata indexing rate will be higher than content indexing rate. This will increase the number of messages pending in `acs-repo-transform-request` ActiveMQ queue with the time. However, since [default ActiveMQ configuration](https://activemq.apache.org/amq-message-store) is prepared to handle [million of messages](https://activemq.apache.org/how-do-i-configure-activemq-to-hold-100s-of-millions-of-queue-messages) per queue, this won't be an issue for the platform. 
+
+If you are using a custom ActiveMQ configuration, verify that messages can be persisted not only in memory but also in the filesystem.
+
