@@ -177,66 +177,53 @@ You can use the **Delete filter** option at any time to remove a view.
 
 ## Condition builder
 
-The condition builder is a tool to help you build a JUEL expression for a condition. This means the condition to be created is a statement evaluated as a boolean value. The condition is composed of a set of boolean statement(s) that are linked by an operator.
+The condition builder is a tool that helps you build a JUEL expression for a condition. The condition is composed of a set of boolean statement(s) that are linked by an operator. This means the condition to be created is a statement evaluated as a boolean value.
 
-In this screenshot, we can see the main components of the condition builder:
+![Condition builder]({% link process-automation/images/condition-builder.png %})
 
-In this screenshot, we can see the main components of the condition builder:
+* Click the **$** button to switch the condition builder to an expression editor where you can display and edit the JUEL expression.
 
-#### Actions
+* Click the **+** button to add a new statement editor.
 
-The dollar button switch the condition builder to an expression editor where the user can display and edit the JUEL expression built corresponding to the statements
+* The operator between statements is the same for all the statements. The available operators are:
+  * Every: All statements must be true for the condition to be evaluated as true.
+  * At least one: The condition will be evaluated to be true when one or more of the statements are true.
+  * None: If all the statements are false, then the condition will be evaluated to be true.
 
-The plus button opens the statement editor in order to add a new one
-
-Operator
-The operator between statements is the same for all the statements. The available operators are:
-
-Every: Every single statement must be true for the condition to be evaluated to be true.
-
-At least one: If one of the statements is true, the condition will be evaluated to be true.
-
-None: I all the statements are false, then the condition will be evaluated to be true.
-
-Statements
-Boolean statements that compose the condition. 
-
-They can be removed from the condition by using the less button on the right side of the correspondent statement.
+* Statements. Boolean statements compose the condition You can remove from the condition by using the less button on the right side of the correspondent statement.
 
 By clicking on a statement, the statement editor will be displayed with the selected statement in order to be modified
 
 ### Statement editor
 
-The statement manages boolean statements. A boolean statement usually is composed of two statements and an operator between them, something like:
+The statement editor manages boolean statements. A boolean statement normally consists of two statements and an operator between them, for example `<left-statement> <operator> <right-statement>`.
 
-`<left-statement> <operator> <right-statement>`
+The statement editor reproduces the structure, as below:
 
-So the layout of the statement editor reproduces this structure like this:
+![Statement editor]({% link process-automation/images/statement-editor.png %})
 
+#### Left statement
 
-
-Left statement
 The left-statement can be one of the available variables or a JUEL expression. Switching between variable and JUEL expression can be done using the tabs at the top of the left side.
-
-Operator
 The available operators between statements are:
 
 * Equals
-Not equals
-Greater than
-Greater or equals than
-Less than
-Less or equals than
-Not set **Note:** The Not set operator means that the expression is a single statement expression meaning no right-statement is needed.
+* Not equals
+* Greater than
+* Greater or equals than
+* Less than
+* Less or equals than
+* Not set > **Note:** The Not set operator means that the expression is a single statement expression meaning no right-statement is needed.
 
-Right statement
+#### Right statement
+
 The right-statement can be one of the available variables, a JUEL expression, or a value if the left-statement is a variable value. In this last case, the input for the value corresponds to the variable type.
 
 ## Expression editor
 
-The expression editor is a code editor that provides autocompletion and hints when writing an expression that may contain a JUEL expression. 
+The expression editor is a code editor that provides autocompletion and hints when writing an expression that may contain a JUEL expression.
 
-IMAGE
+![Expression editor]({% link process-automation/images/expression-editor.png %})
 
 The button in the bottom right is not always displayed, it depends on how the expression editor has been set for the feature. When displayed, if clicked it opens a modal dialog with the editor in full size.
 
@@ -250,7 +237,7 @@ The expression editor appears for example in these places:
 * In the condition builder
 * When setting the value of a JSON variable
 
-Autocompletion
+### Autocompletion
 
 The autocompletion is based on the context of the project and depends on where the expression is going to be used. It lets the user know which variables in that context are available. The autocompletion is displayed as the user types but can be also triggered by using the following keyboard shortcuts:
 
@@ -258,16 +245,14 @@ In Windows or Linux: `Ctrl + Space`
 
 In MacOS: `Cmd + Space`
 
-IMAGE
+![Auto completion]({% link process-automation/images/auto-completion.png %})
 
 It displays suggestions for operators (in the screenshot `empty` and `eq` are operators) and for variables (`event` in the screenshot) but it can also show method suggestions and attributes when using the ‘dot’ accessor (in the following screenshot `equals` and `hashcode` are methods while `data` and `datacontenttype` are attributes of the `event` object).
 
-IMAGE
+![Event]({% link process-automation/images/event.png %})
 
 ### Hints
 
-The expression editor provides some information when placing the mouse over an element of the expression it contains. For example, in the next screenshot, the cursor has been placed over the event word and a hint is displayed providing the description and the type of the `event` variable.
+The expression editor provides helpful information when you place the cursor over an element of it. For example, in the image the cursor has been placed over the word `event` and a hint is displayed that provides a description of the `event` variable.
 
-IMAGE
-
-
+![Hints]({% link process-automation/images/hints.png %})
