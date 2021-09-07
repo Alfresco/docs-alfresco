@@ -7,6 +7,8 @@
       pages:
         - title: 'Overview'
           path: '/process-automation/latest/model/'
+        - title: 'Common components'
+          path: '/process-automation/latest/model/common/'
         - title: 'Projects'
           path: '/process-automation/latest/model/projects/'
         - title: 'Processes'
