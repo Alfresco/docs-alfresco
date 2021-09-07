@@ -2,6 +2,11 @@
 title: Overview
 ---
 
+Administration Features
+
+Administration console to manage the key interactions between Alfresco and Elasticsearch from Alfresco Repository
+Ability to determine the high-level health of the Elastic Search index via the administration console
+
 To use Alfresco Search Enterprise with the Alfresco Content Services platform the following configuration must be applied:
 
 * Alfresco Repository properties in configuration file `alfresco-global.properties` or as environment variables related to Search Subystem configuration for *searching* features
@@ -170,7 +175,7 @@ The table below lists the main configuration properties that can be specified th
 | metadata.events.batch.timeout | Maximum timeout in milliseconds for batch creation. The default value is `1000`. |
 | alfresco.retransmission.max.attemps | Maximum number of retries in case of transient failure processing. The default value is `3`. |
 | alfresco.event.retry.delay | Delay time for error event in milliseconds. The default value is `1000`. |
-| alfresco.mediation.filter-file | The configuration file which contains fields and node types blacklists (see below). The default value is `classpath:mediation-filter.yml` |
+| alfresco.mediation.filter-file | The configuration file which contains fields and node types blacklists (see below). The default value is `classpath:mediation-filter.yml`. |
 | alfresco.acceptedContentMediaTypesCache.refreshTime | Time until we refresh the cache. We can disable the scheduler by replacing the value of the cron expression with a dash "-". In case we want to refresh the cache contents before the next scheduled refresh we should restart the application. The default value is `0 0 * * * *`. |
 | alfresco.acceptedContentMediaTypesCache.enabled | Property to set if we want to enable or disable the cache for contacting the Transform Core AIO. The default value is `true`. |
 
