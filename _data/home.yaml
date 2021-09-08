@@ -117,6 +117,9 @@ integrations:
       - title: "Microsoft 365"
         text: "Alfresco Collaboration Connector for Microsoft 365 allows you to integrate with Microsoft Office Online applications from the Alfresco Digital Workspace."
         url: /microsoft-365/latest/
+      - title: "Microsoft Teams"
+        text: "Alfresco Collaboration Connector for Teams enable users within the Microsoft Teams Client to search for and share content in Alfresco Content Services."
+        url: /microsoft-teams/latest/
       - title: "Microsoft Outlook"
         text: "Alfresco Outlook Integration allows you to use email and repository management without having to leave Microsoft Outlook."
         url: /microsoft-outlook/latest/

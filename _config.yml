@@ -513,6 +513,23 @@ defaults:
     values:
       version: 1.0
       
+  # Alfresco Collaboration Connector for Teams
+  - scope:
+      path: "microsoft-teams"
+    values:
+      layout: "docs"
+      product: "Alfresco Collaboration Connector for Teams"
+      location: "microsoft-teams"
+      toc: "microsoft-teams"
+      support: true
+      versions:
+        - 1.0
+  - scope:
+      path: "microsoft-teams/latest"
+    values:
+      version: 1.0
+      latest: true
+
 # Alfresco Office Services
   - scope:
       path: "microsoft-office"
