@@ -60,6 +60,18 @@ You can use one of the following Outlook releases:
 
 * Alfresco Content Services 6.2.2 or later. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
 
+#### Alfresco Search and Insight Engine 2.0+
+
+If you’re using Alfresco Search and Insight Engine 2.0 and above in combination with Outlook Integration 2.8.1 and above, a property needs to be added into the shared.properties of SOLR. Please refer to the [Alfresco indexing recommendations](https://docs.alfresco.com/insight-engine/latest/config/indexing/#cross-locale) to locate this file. Add the following lines to the config:
+
+```bash
+alfresco.cross.locale.property.#={http://www.alfresco.org/model/imap/1.0}messageId
+alfresco.cross.locale.property.#={http://www.westernacher.com/alfresco/models/wpsmail-v2}messageId
+```
+"#" stands for a number not taken already.
+
+> **Note** This change requires a SOLR restart, but no reindex.
+
 ### Java requirements
 
 * Java: OpenJDK 11 is recommended. This needs to be installed on the server only (i.e. not the Outlook clients). See the Content Services [Supported Platforms]({% link content-services/latest/support/index.md %}) for more information.
