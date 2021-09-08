@@ -17,3 +17,6 @@ All of our supported customers enjoy the following benefits:
 * Feedback loop through regular surveys
 
 Alfresco constantly strives to develop and improve Customer Service solutions to help you get the most from working with Alfresco.
+
+
+*Support Handbook updated as of September 3, and revisions effective on November 3.*
