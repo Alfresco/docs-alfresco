@@ -177,7 +177,7 @@ You can use the **Delete filter** option at any time to remove a view.
 
 ## Condition builder
 
-The condition builder is a tool that helps you build a JUEL expression for a condition. The condition is composed of a set of boolean statement(s) that are linked by an operator. This means the condition to be created is a statement evaluated as a boolean value.
+The condition builder is a tool that helps you build a JUEL expression for a condition. The condition is composed of a set of boolean statement(s) that are linked by an operator. This means the condition to be created is a statement evaluated as a boolean value. The following is an example.
 
 ![Condition builder]({% link process-automation/images/condition-builder.png %})
 
@@ -185,20 +185,19 @@ The condition builder is a tool that helps you build a JUEL expression for a con
 
 * Click the **+** button to add a new statement editor.
 
-* The operator between statements is the same for all the statements. The available operators are:
+* The available operators are:
   * Every: All statements must be true for the condition to be evaluated as true.
   * At least one: The condition will be evaluated to be true when one or more of the statements are true.
   * None: If all the statements are false, then the condition will be evaluated to be true.
+  **Note:** The operator between statements is the same for all the statements.
 
-* Statements. Boolean statements compose the condition You can remove from the condition by using the less button on the right side of the correspondent statement.
-
-By clicking on a statement, the statement editor will be displayed with the selected statement in order to be modified
+* Click the **-** button to remove the statement.
 
 ### Statement editor
 
 The statement editor manages boolean statements. A boolean statement normally consists of two statements and an operator between them, for example `<left-statement> <operator> <right-statement>`.
 
-The statement editor reproduces the structure, as below:
+The statement editor reproduces the structure, the following is an example.
 
 ![Statement editor]({% link process-automation/images/statement-editor.png %})
 
@@ -213,41 +212,44 @@ The available operators between statements are:
 * Greater or equals than
 * Less than
 * Less or equals than
-* Not set > **Note:** The Not set operator means that the expression is a single statement expression meaning no right-statement is needed.
+* Not set  **Note:** The Not set operator means that the expression is a single statement expression which means no right-statement is needed.
 
 #### Right statement
 
-The right-statement can be one of the available variables, a JUEL expression, or a value if the left-statement is a variable value. In this last case, the input for the value corresponds to the variable type.
+The right-statement can be one of the available variables, a JUEL expression, or a value if the left-statement is a variable value.
 
 ## Expression editor
 
 The expression editor is a code editor that provides autocompletion and hints when writing an expression that may contain a JUEL expression.
+The expression editor appears in the following places:
 
-![Expression editor]({% link process-automation/images/expression-editor.png %})
-
-The button in the bottom right is not always displayed, it depends on how the expression editor has been set for the feature. When displayed, if clicked it opens a modal dialog with the editor in full size.
-
-The expression editor appears for example in these places:
-
-* Task mapping dialog: when selecting expression as variable value
+* Task mapping dialog: when selecting an expression as a variable value
 * Variable dropdown selector: when using the dollar button
 * User task assignment dialog
-* Called element dialog when using an expression to resolve the called element
-* In the email template dialog when setting the template for the email used in user tasks
+* Called element dialog: when using an expression to resolve the called element
+* In the email template dialog: when setting the template for the email used in user tasks
 * In the condition builder
 * When setting the value of a JSON variable
 
+Click the green button to expand the modal dialog to be full size, the following is an example.
+**Note:** The green button only displays if the expression editor has been configured for it to show.
+
+![Expression editor]({% link process-automation/images/expression-editor.png %})
+
 ### Autocompletion
 
-The autocompletion is based on the context of the project and depends on where the expression is going to be used. It lets the user know which variables in that context are available. The autocompletion is displayed as the user types but can be also triggered by using the following keyboard shortcuts:
+The autocompletion function is based on the context of the project and depends on where the expression is going to be used. It lets the user know which variables in that context are available. The autocompletion is displayed as the user types but can also be triggered by using the following keyboard shortcuts:
 
-In Windows or Linux: `Ctrl + Space`
+* In Windows or Linux: `Ctrl + Space`
+* In MacOS: `Cmd + Space`
 
-In MacOS: `Cmd + Space`
+The following is an example.
 
 ![Auto completion]({% link process-automation/images/auto-completion.png %})
 
-It displays suggestions for operators (in the screenshot `empty` and `eq` are operators) and for variables (`event` in the screenshot) but it can also show method suggestions and attributes when using the ‘dot’ accessor (in the following screenshot `equals` and `hashcode` are methods while `data` and `datacontenttype` are attributes of the `event` object).
+Autocompletion displays suggestions for operators, in the example `empty` and `eq`, and for variables `event` in the screenshot.
+
+Autocompletion can also show method suggestions and attributes when using the ‘dot’ accessor, in the example below `equals` and `hashcode` are methods while `data` and `datacontenttype` are attributes of the `event` object.
 
 ![Event]({% link process-automation/images/event.png %})
 
