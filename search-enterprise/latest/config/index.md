@@ -2,22 +2,20 @@
 title: Overview
 ---
 
-Administration Features
+The Admin console is used to manage the interaction between Alfresco and Search Enterprise from Alfresco Repository. This gives you the ability to determine the high-level health of the Search Enterprise index.
 
-Administration console to manage the key interactions between Alfresco and Elasticsearch from Alfresco Repository
-Ability to determine the high-level health of the Elastic Search index via the administration console
+To use Search Enterprise with the Alfresco Content Services platform the following configuration must be applied: @Martin should this go in the install pages?
 
-To use Alfresco Search Enterprise with the Alfresco Content Services platform the following configuration must be applied:
-
-* Alfresco Repository properties in configuration file `alfresco-global.properties` or as environment variables related to Search Subystem configuration for *searching* features
-* Alfresco Elasticsearch Connector properties as environment variables related to communication with Alfresco Repository (Database, ActiveMQ and Transform Service) and Elasticsearch server for *indexing* features
+* For *searching* features the Alfresco Repository properties must be configured in the `alfresco-global.properties` file. This can also be done as an environment variable by configuring the Search Subystem.
+* Alfresco Elasticsearch Connector properties as environment variables related to communication with Alfresco Repository (Database, ActiveMQ and Transform Service) and Elasticsearch server for *indexing* features @Martin do we need these two bullets looks like its repeated below?
 
 ### Alfresco Repository
 
-Alfresco Repository provides configuration properties for `elasticsearch` Search Subystem to define the connection to an external Elasticsearch server.
+Alfresco Repository provides configuration properties for the `elasticsearch` Search Subystem to define the connection to an external Elasticsearch server.
 
-Setting the subsystem search property to `elasticsearch` is required.
+You must set the subsystem search property to `elasticsearch`.
 
+@martin is there more to do this? Where are we? 
 ```bash
 index.subsystem.name=elasticsearch
 ```
@@ -28,24 +26,25 @@ Additional property values can be included in Alfresco Repository global configu
 |--------|-----------|
 | elasticsearch.host | Name of the Elasticsearch server. The default value is `localhost`. |
 | elasticsearch.port | Port of the Elasticsearch server. The default value is `9200`. |
-| elasticsearch.baseUrl | Context path for Elasticsearch server endpoint. |
-| elasticsearch.secureComms | Set secure communications for requests to Elasticsearch server. When setting this value to `https`, adding Elasticsearch Trusted CA certificate to Alfresco Repository Truststore is required and communications with Elasticsearch server are managed with HTTPS protocol. When setting this value to `none`, communications to Elasticsearch server are managed with HTTP protocol. |
-| elasticsearch.ssl.host.name.verification | When using HTTPS protocol, this property controls that the Elasticsearch server TLS certificate includes a CN with the real DNS hostname (`true`) or ignores this verification (`false`). The default value is `false`. |
+| elasticsearch.baseUrl | Context path for the Elasticsearch server endpoint. |
+| elasticsearch.secureComms | Set secure communications for requests to the Elasticsearch server. When you set this value to `https`, adding the Elasticsearch Trusted CA certificate to Alfresco Repository Truststore is required. Once this done communication with the Elasticsearch server is managed with the HTTPS protocol. When you set this value to `none`, communication to the Elasticsearch server is managed with the HTTP protocol. |
+| elasticsearch.ssl.host.name.verification | When using the HTTPS protocol, this property controls the Elasticsearch server TLS certificate and includes a CN with the real DNS hostname. To use the property set the value to be `true`, to ignore property set the value to `false`. The default value is `false`. |
 | elasticsearch.max.total.connections | Maximum number of HTTP(s) connections allowed for the Elasticsearch server. The default value is `30`. |
 | elasticsearch.max.host.connections | Maximum number of HTTP(s) connections allowed for an Elasticsearch endpoint. The default value is `30`. |
 | elasticsearch.http.socket.timeout | Maximum timeout in milliseconds to wait for a socket response. The default value is `30000`. |
 | elasticsearch.http.connection.timeout | Maximum timeout in milliseconds to wait for a socket connection. The default value is `1000`. |
-| elasticsearch.indexName | Name of the index to be used in Elasticsearch server. The default value is `alfresco`. |
-| elasticsearch.createIndexIfNotExists | Index is created in Elasticsearch server when this value is set to `true`. The default value is `false`. |
-| elasticsearch.retryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization. The default value is `10`. |
-| elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization in lock mode. The default value is `10`. | |elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true`. The default value is `false`. |
+| elasticsearch.indexName | Name of the index to be used in the Elasticsearch server. The default value is `alfresco`. |
+| elasticsearch.createIndexIfNotExists | An Index is created in the Elasticsearch server when this value is set to `true`. The default value is `false`. |
+| elasticsearch.retryPeriodSeconds | Number of seconds to wait before retrying the Elasticsearch index initialization. The default value is `10`. |
+| elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying the Elasticsearch index initialization in lock mode. The default value is `10`. |
+|elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true`. The default value is `false`. |
 | system.fixedACLs.maxTransactionTime | The number of milliseconds before permission updates start happening asynchronously. Permission updates for large folders will pause after this duration and updates will be resumed by a job scheduled for midnight. The default value is `10000`. |
-| repo.event2.filter.users | Events by these users will be not be received by the Elasticsearch Connector. The default used to be "system,null" but has been changed to be an empty list. Left empty by default. |
-| elasticsearch.index.mapping.total_fields.limit | Mapping limit settings: The maximum number of fields in Alfresco index. When working on deployments including a large collection of custom content models, this value may be increased (since it's not recommended). The default value is `7500`. |
+| repo.event2.filter.users | Events by these users will not be received by the Elasticsearch Connector. It is left blank by default. |
+| elasticsearch.index.mapping.total_fields.limit | Mapping limit settings: The maximum number of fields in Alfresco index. When working on deployments including a large collection of custom content models, this value may be increased, but it is not recommended. The default value is `7500`. |
 
-Some of the properties above can be edited in the Search Admin Console, but values will be applied only to the Alfresco Repository instance, to update values for the Alfresco Elasticsearch Connector please update its property file manually. It is important that Elasticsearch Connector and repository configuration matches, otherwise search functionality will be impaired.
+Some of the properties above can be edited in the Search Admin Console, but values will be applied only to the Alfresco Repository instance. To update values for the Elasticsearch Connector update its property file manually. **Note:** It is important that the Elasticsearch Connector and repository configuration match, otherwise the search functionality will be impaired. @Martin what file ?
 
-Additionally, these properties can be set as environment variables in Alfresco Repository Docker Image when using Docker Compose. In the following sample, `elasticsearch.host` and `elasticsearch.createIndexIfNotExists` are overriding default values.
+Additionally, these properties can be set as environment variables in Alfresco Repository Docker Image when using Docker Compose. In the following sample, `elasticsearch.host` and `elasticsearch.createIndexIfNotExists` override the default values.
 
 ```docker
 alfresco:
@@ -60,12 +59,12 @@ alfresco:
 
 ## Exact Term Search
 
-Pre-Indexing considerations the Exact term search feature is disabled by default to save index space. It's possible to enable it for specific properties and property types in the configuration file: `exactTermSearch.properties`
+The Exact term search feature is disabled by default to save index space. It's possible to enable it for specific properties and property types in the `exactTermSearch.properties` configuration file. @Martin is this the normal behaviour to enable it also?
 
 |Property|Description|
 |--------|-----------|
-| alfresco.cross.locale.datatype.0 | A new cross locale field (to cover exact term search) is added for any property of this data-type. For example `{http://www.alfresco.org/model/dictionary/1.0}text`. By default the Exact Term Search is disabled |
-| alfresco.cross.locale.property.0 | A new cross locale field (to cover exact term search) is added for the property. For example `{http://www.alfresco.org/model/content/1.0}content` By default the Exact Term Search is disabled. |
+| alfresco.cross.locale.datatype.0 | A new cross locale field has been added for any property of this data-type. For example `{http://www.alfresco.org/model/dictionary/1.0}text`. By default the Exact Term Search is disabled.@martin is this needed? |
+| alfresco.cross.locale.property.0 | A new cross locale field to cover exact term search) has been added for the property. For example `{http://www.alfresco.org/model/content/1.0}content`. By default the Exact Term Search is disabled.@martin is this needed?  |
 
 You can add as many data-types and properties as you like by adding lines and incrementing the associated index:
 
@@ -74,49 +73,50 @@ alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}c
 alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
 alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content
 
-**Note:** Once you have done that you need to re-index, so if you need such a feature from the beginning, it is recommended to enable it before your very first indexing.
+**Note:** Once you have the Exact term search configured a re-index is required. If you need the feature from the beginning, it is recommended to enable it before your first index is created.
 
 ### Alfresco Elasticsearch Connector
 
-Indexing feature is provided by a Spring Boot application named `Alfresco Elasticsearch Connector`. This application includes two main components that build and maintain the index in Elasticsearch:
+The indexing feature is provided by a Spring Boot application called Alfresco Elasticsearch Connector. This application includes two main components that build and maintain the index in Elasticsearch:
 
-* *Re-Indexing*: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that has missed some ActiveMQ messages is provided by the Re-Indexing component.
+* *Re-Indexing*: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that has missed some ActiveMQ messages is provided by the re-indexing component.
 
-* *Live Indexing*: Metadata, Content and Permissions from Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in Elasticsearch server.
+* *Live Indexing*: Metadata, and Content and Permissions from Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in the Elasticsearch server.
 
 ### Alfresco Re-Indexing app
 
-Alfresco Re-Indexing app requires a working Alfresco Repository Database and Elasticsearch server.
+Alfresco re-indexing app requires a working Alfresco Repository Database and Elasticsearch server.
 
-The tool may be used as a standalone jar. The table below lists the main configuration properties that can be specified through the Spring configuration capabilities.
+The tool may be used as a standalone `jar` file. The table below lists the main configuration properties that can be specified through the spring boot configuration capabilities.
 
 | Property | Description |
 | -------- | -------------- |  
 | server.port | Default HTTP port, each module defines itself. The default value is `8190`. |
-| alfresco.reindex.jobName | The data fetching strategy to be use: reindexByIds, reindexByDate. The default value is `reindexByIds`. |
-| alfresco.reindex.batchSize | The size of batch of documents inserted into Elastic. The default value is `100`. |
-| alfresco.reindex.pagesize | Page size of nodes fetched from the Alfresco's dabatase. The default value is `100`. |
+| alfresco.reindex.jobName | The data fetching strategy to use: `reindexByIds`, or `reindexByDate`. The default value is `reindexByIds`. |
+| alfresco.reindex.batchSize | The batch size of documents inserted into Search Enterprise. @martin originally this just said Elastic. The default value is `100`. |
+| alfresco.reindex.pagesize | The page size of nodes fetched from the Alfresco dabatase. The default value is `100`. |
 | alfresco.reindex.concurrentProcessors | Number of parallel processors. The default value is `10`. |
 | alfresco.reindex.fromId | Start ID for fetching nodes (_reindexByIds_). The default value is `0`. |
 | alfresco.reindex.toId | Start ID for fetching nodes (_reindexByIds_) is configured. The default value is `10000`. |
 | alfresco.reindex.fromTime | Start time for fetching nodes (_reindexByDate_), pattern: yyyyMMddHHmm. The default value is `190001010000`. |
 | alfresco.reindex.toTime | End time for fetching nodes (_reindexByDate_), pattern: yyyyMMddHHmm. The default value is `203012312359`. |
-| spring.datasource.url | JDBC url of Alfresco database. The default value is `jdbc:postgresql://localhost:5432/alfresco`. |
-| spring.datasource.username | Username for Alfresco database. The default value is `alfresco`. |
-| spring.datasource.password | Password for Alfresco database. The default value is `alfresco`. |
-| spring.elasticsearch.rest.uris | Rest(s) url of Elasticsearch. The default value is `http://elasticsearch:9200`. |
-| spring.elasticsearch.rest.username | Username for Elasticsearch when using Basic Auth. |
-| spring.elasticsearch.rest.password | Password for username in Elasticsearch when using Basic Auth. |
-| alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping | The default value is `classpath:reindex.prefixes-file.json`. |
-| alfresco.reindex.partitioning.type | Remote node type, can be _master_ or _worker_. If not specified, the app runs as single node instance. Left empty by default. |
-| alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals to number of available workers. The default value is `3`. |
-| alfresco.reindex.partitioning.requests-queue| request queue for remote partitioning. The default value is `org.alfresco.search.reindex.requests`. |
-| alfresco.reindex.partitioning.replies-queue | reply queue for remote partitioning. The default value is `org.alfresco.search.reindex.replies`. |
+| spring.datasource.url | JDBC url of the Alfresco database. The default value is `jdbc:postgresql://localhost:5432/alfresco`. |
+| spring.datasource.username | Username for the Alfresco database. The default value is `alfresco`. |
+| spring.datasource.password | Password for the Alfresco database. The default value is `alfresco`. |
+| spring.elasticsearch.rest.uris | Rest(s) @martin, what? url of Elasticsearch. The default value is `http://elasticsearch:9200`. |
+| spring.elasticsearch.rest.username | Username for Elasticsearch @martin are these two Search Enterprise? when using Basic Authentication. |
+| spring.elasticsearch.rest.password | Password for username in Elasticsearch when using Basic Authentication. |
+| alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping, @martin should this be namespace-prefix mapping? | The default value is `classpath:reindex.prefixes-file.json`. |
+| alfresco.reindex.partitioning.type | Remote node type, can be _master_ or _worker_. If not specified, the app runs as a single node instance. By default it is left empty. |
+| alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals the number of available workers. The default value is `3`. |
+| alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning. The default value is `org.alfresco.search.reindex.requests`. |
+| alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning. The default value is `org.alfresco.search.reindex.replies`. |
 
-There are two strategies in order to fill gaps in the Elasticsearch server provoked by ActiveMQ unavailability or any other external cause:
+There are two strategies to fill the gaps in the Elasticsearch server when provoked by ActiveMQ unavailability or any other external cause:
 
 * Fetch by IDS (`alfresco.reindex.jobName=reindexByIds`): index nodes in an interval of database `ALF_NODE.id` column
 * Fetch by DATE (`alfresco.reindex.jobName=reindexByDate`): index nodes in an interval of database `ALF_TRANSACTION.commit_time_ms` column
+@martin these are mentioned above??
 
 Sample invocation for Fetch by IDS.
 
@@ -142,13 +142,13 @@ Sample invocation for Fetch by DATE.
   --alfresco.reindex.toTime=202104180000
 ```
 
-> **Note:** Additional use cases for this application will be covered in the [Indexing](Indexing) section.
+> **Note:** Additional use cases for this application will be covered in the [Indexing](Indexing) section. @martin is this below??
 
-## Alfresco Live Indexing app
+## ASDKJFHSD;FJKHADG;FLKAJSDFL;GKASJDF;LKADJFRGAlfresco Live Indexing app
 
-Alfresco Live Indexing app requires a working Alfresco ActiveMQ service, Alfresco Shared FileStore service and Elasticsearch server.
+The Alfresco Live Indexing app requires a working Alfresco ActiveMQ service, Alfresco Shared FileStore service, and the Elasticsearch server.
 
-The table below lists the main configuration properties that can be specified through the Spring configuration capabilities.
+The table below lists the main configuration properties that can be specified through the Spring @martin should this be Boot? configuration capabilities.
 
 |Property|Description|
 |--------|-----------|
@@ -179,9 +179,7 @@ The table below lists the main configuration properties that can be specified th
 | alfresco.acceptedContentMediaTypesCache.refreshTime | Time until we refresh the cache. We can disable the scheduler by replacing the value of the cron expression with a dash "-". In case we want to refresh the cache contents before the next scheduled refresh we should restart the application. The default value is `0 0 * * * *`. |
 | alfresco.acceptedContentMediaTypesCache.enabled | Property to set if we want to enable or disable the cache for contacting the Transform Core AIO. The default value is `true`. |
 
-Within the Elasticsearch-connector there's a subset of components that are in charge to index data: specifically a component called "Mediation" subscribes to the channel indicated by the `alfresco.event.topic` attribute (see the table above) and processes the incoming node events.
-The configuration of that component allows to declare three blacklist sets for filtering out nodes/attributes to be indexed.
-Those blacklists can be specified in the file indicated by the `alfresco.mediation.filter-file` attribute (see the table above) which defaults to a file called `mediation-filter.yml` that must be in the module classpath. Here's a sample content of that file:
+@Martin if these attributes are mentioned above do we need to mention them again ? Within the Elasticsearch connector there is a subset of components that index data. A component called Mediation @martin what is this? Does it require '' subscribes to the channel indicated by the `alfresco.event.topic` attribute, as seen in the table above, and processes the incoming node events. The configuration of that component allows you to declare three blacklist sets for filtering out nodes or attributes to be indexed. These blacklists can be specified in the file using the `alfresco.mediation.filter-file` attribute, as seen in the table above. The file used to  which defaults to a file called `mediation-filter.yml` that must be in the module classpath. Here's a sample content of that file:
 
 ```bash
 mediation:
@@ -202,13 +200,15 @@ mediation:
      . fieldN
 ```  
 
+@martin to make these descriptions easier to read are you ok for me to include them in the table above under the specific attribute, i.e. alfresco.mediation.filter-file or alfresco.event.topic. At the moment it isnt clear what is going on here :-)
+
 where:
 
 * **nodeTypes**: if the node wrapped in the incoming event has a type which is included in this set, the node processing will be skipped
 * **contentNodeTypes**: if the node wrapped in the incoming event has a content change associated with it and it has a type which is included in this set, then the corresponding content processing won't be executed. In other words, nodes belonging to one of the node types in this set, won't have any content indexed in Elasticsearch
 * **fields**: fields listed in this set are removed from the incoming nodes metadata. In other words, fields in this set won't be sent to Elasticsearch for indexing, and therefore they won't be searchable.
 
-In order to override some of these values, command line system properties can be specified. According to standard Spring Boot approach, the name of the property must be converted to uppercase and dots must be changed by underscore characters. The following sample override default values for three different properties.
+To override some of these values command line system properties can be specified. Using the standard Spring Boot approach, the name of the property must be converted to uppercase and dots must be changed by underscore characters. The following sample overrides the default values for three different properties.
 
 ```java
 $ java -DSPRING_ELASTICSEARCH_REST_URIS=http://localhost:9200
@@ -217,7 +217,7 @@ $ java -DSPRING_ELASTICSEARCH_REST_URIS=http://localhost:9200
  -jar alfresco-elasticsearch-live-indexing-1.0.0-app.jar
 ```
 
-The same convention can be used when deploying Alfresco Elasticsearch Connector using Docker Compose templates.
+The same convention can be used when deploying the Elasticsearch Connector using the Docker Compose template.
 
 ```docker
 live-indexing:
@@ -228,7 +228,7 @@ live-indexing:
         ALFRESCO_SHAREDFILESTORE_BASEURL: http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file/
 ```
 
-For instance, content indexing for `cm:content` documents can be disabled using following Docker configuration:
+For example content indexing for `cm:content` documents can be disabled using the following Docker configuration:
 
 ```docker
     live-indexing-mediation:
@@ -256,13 +256,13 @@ mediation:
     - cmis:changeToken
 ```
 
-[Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config)
+See [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config) for more.
 
 ### Scaling up
 
-Every Alfresco Elasticsearch Connector service can be scaled up to use an ActiveMQ Connection Pool and to increase the number of Consumers.
+All Elasticsearch Connector services can be scaled up to use an ActiveMQ Connection Pool to increase the number of Consumers.
 
-In order to use the ActiveMQ **pool**, add the following properties to your `.env` file in Docker Compose. Pool size is set to 100 in the sample.
+To use the ActiveMQ **pool**, add the following properties to your `.env` file in Docker Compose. Pool size is set to `100` in the sample.
 
 ```bash
 $ cat .env
@@ -281,7 +281,7 @@ Spring related properties can be associated to the Elasticsearch Connector when 
             SPRING_ACTIVEMQ_POOL_MAXCONNECTIONS: ${ACTIVEMQ_POOL_SIZE}
 ```
 
-Increasing the **consumer** number requires to check the property name in the `application.properties` file for the service and to override it in `docker-compose.yml` file. The following sample is increasing the consumer number to 20 for `elasticsearch-live-indexing-metadata`.
+To increase the `consumer` number you must check the property name in the `application.properties` file for the service and to then override it in `docker-compose.yml` file. The following sample increases the consumer number to `20` for `elasticsearch-live-indexing-metadata`.
 
 ```docker
     live-indexing-metadata:
@@ -290,27 +290,23 @@ Increasing the **consumer** number requires to check the property name in the `a
             INPUT_ALFRESCO_METADATA_BATCH_EVENT_CHANNEL: sjms-batch:metadata.event?completionTimeout=1000&completionSize=10&aggregationStrategy=#eventAggregator&?consumerCount=20
 ```
 
-### Using HTTP Basic Auth to access Elasticsearch
+### Using HTTP Basic Authentication to access Elasticsearch
 
-When using Elasticsearch server with HTTP Basic Auth protocol, additional configuration should be added to **Alfresco Repository**.
-
-Elasticsearch credentials are required to be added to `alfresco-global.properties` configuration file. We're using default Elasticsearch user `elastic` with `bob123` password.
+When using the Elasticsearch server with the HTTP Basic Authentication protocol you must add your Elasticsearch credentials to the `alfresco-global.properties` configuration file.
 
 ```bash
 elasticsearch.user=elastic
 elasticsearch.password=bob123
 ```
 
-Additionally, for every "live-indexing" service from **Alfresco Elasticsearch Connector** the same credentials need to be configured. Use Java the following global properties:
+Additionally, for every "live-indexing" service from the Elasticsearch Connector the same credentials must be configured. Use Java and the following global properties:
 
 ```bash
 SPRING_ELASTICSEARCH_REST_USERNAME=elastic
 SPRING_ELASTICSEARCH_REST_PASSWORD=bob123
 ```
 
-This environment variables can be passed as command line arguments when running the Spring Boot application locally or they can be added to `environment` service section when using Docker Compose.
-
-Above sample is connecting to an **Elasticsearch server** configured according the following values:
+The environment variables can be passed as a command line argument when running the Spring Boot application locally or they can be added to the `environment` service section when using Docker Compose. The example above connects to an Elasticsearch server configured with the following values:
 
 ```docker
 elasticsearch:
@@ -321,7 +317,7 @@ elasticsearch:
     - ELASTIC_PASSWORD=bob123
 ```
 
-Remember to add also these credentials to Kibana app.
+You must also add these credentials to the Kibana app. @Martin is this page a good place to add a small amount of info on the kibana app? 
 
 ```docker
 kibana:
@@ -334,11 +330,11 @@ kibana:
 
 ### Using HTTPS to access Elasticsearch for end to end encryption
 
-When using Elasticsearch server with HTTPs protocol, additional configuration should be added to **Alfresco Repository**.
+When using the Elasticsearch server with the HTTPs protocol, additional configuration should be added to the Alfresco Repository.
 
-A _truststore_ file, including public certificate and certificate chain from Elasticsearch HTTPs endpoint, is required to be added to `alfresco-global.properties` configuration file.
+A _truststore_ file, including public certificate and certificate chain from Elasticsearch HTTPs endpoint, must be added to the `alfresco-global.properties` configuration file.
 
-Add following properties in order to use that _truststore_ file from Alfresco Repository. Password has been skipped intentionally as this keystore includes only public information.
+Add the following properties to use the _truststore_ file from the Alfresco Repository. The `encryption.ssl.truststore.passwordFileLocation=` property has been intentionally left blank as the keystore includes only public information.
 
 ```docker
 encryption.ssl.truststore.location=/usr/local/tomcat/alf_data/keystore/truststore.jceks
@@ -346,14 +342,14 @@ encryption.ssl.truststore.passwordFileLocation=
 encryption.ssl.truststore.type=JCEKS
 ```
 
-If you are using Docker Compose, just add the same properties in the `JAVA_OPTS` section for alfresco service using the "-D" prefix.
+If you are using Docker Compose, add the same properties in the `JAVA_OPTS` section for the Alfresco service using the "-D" prefix.
 
-Additionally, for every "live-indexing" service from **Alfresco Elasticsearch Connector** the same _truststore_ must be configured. Use Java the following global properties:
+Additionally, for every "live-indexing" service from the Alfresco Elasticsearch Connector the same _truststore_ must be configured. Use Java and the following global properties:
 
-```docker
+```java
 JAVAX_NET_SSL_TRUSTSTORE=/usr/local/tomcat/alf_data/keystore/truststore.jceks
 JAVAX_NET_SSL_TRUSTSTOREPASSWORD=
 JAVAX_NET_SSL_TRUSTSTORETYPE=JCEKS
 ```
 
-These environment variables can be passed as command line arguments when running the Spring Boot application locally or they can be added to `environment` service section when using Docker Compose.
+These environment variables can be passed as command line arguments when running the spring boot application locally or they can be added to the `environment` service section when using Docker Compose.
