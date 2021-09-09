@@ -6,14 +6,12 @@ The following features, which were supported with Search and Insight Engine 2.x 
 
 ## Index and re-index
 
-* Re-index of permissions and content associated with indexed nodes.
 * Indexing of nodes created during content repository bootstrap. For example, the sample site data. @Engineering what is this example?
 
 ## Search features
 
 * Site queries
 * Path queries
-* Aspect queries (works using only the exact aspect name)
 * Tag queries
 * Highlighting
 * Fingerprinting
@@ -22,7 +20,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * Resource limiting
 * Scoped search
 * Statistics
-* Search for optional, mandatory, and excluded elements of a query
 * Search for an exact term
 * Fuzzy matching
 * Grouped search queries
@@ -69,10 +66,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * ACLTXCOMMITTIME
 * TENANT
 * OWNERSET
-* READERSET
-* AUTHSET
-* DENYSET
-* FTSSTATUS
 
 ## Alfresco Digital Workspace
 
