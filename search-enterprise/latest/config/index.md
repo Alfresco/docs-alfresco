@@ -7,15 +7,15 @@ The Admin console is used to manage the interaction between Alfresco and Search 
 To use Search Enterprise with the Alfresco Content Services platform the following configuration must be applied: @Martin should this go in the install pages?
 
 * For *searching* features the Alfresco Repository properties must be configured in the `alfresco-global.properties` file. This can also be done as an environment variable by configuring the Search Subystem.
-* Alfresco Elasticsearch Connector properties as environment variables related to communication with Alfresco Repository (Database, ActiveMQ and Transform Service) and Elasticsearch server for *indexing* features @Martin do we need these two bullets looks like its repeated below?
+* Alfresco Elasticsearch Connector properties as environment variables related to communication with Alfresco Repository (Database, ActiveMQ and Transform Service) and Elasticsearch server for *indexing* features 
 
-### Alfresco Repository
+## Alfresco Repository
 
 Alfresco Repository provides configuration properties for the `elasticsearch` Search Subystem to define the connection to an external Elasticsearch server.
 
 You must set the subsystem search property to `elasticsearch`.
 
-@martin is there more to do this? Where are we? 
+@engineering is there more to do this? Where are we? 
 ```bash
 index.subsystem.name=elasticsearch
 ```
@@ -75,7 +75,7 @@ alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}cont
 
 **Note:** Once you have the Exact term search configured a re-index is required. If you need the feature from the beginning, it is recommended to enable it before your first index is created.
 
-### Alfresco Elasticsearch Connector
+## Alfresco Elasticsearch Connector
 
 The indexing feature is provided by a Spring Boot application called Alfresco Elasticsearch Connector. This application includes two main components that build and maintain the index in Elasticsearch:
 
@@ -83,7 +83,7 @@ The indexing feature is provided by a Spring Boot application called Alfresco El
 
 * *Live Indexing*: Metadata, and Content and Permissions from Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in the Elasticsearch server.
 
-### Alfresco Re-Indexing app
+## Alfresco Re-Indexing app
 
 Alfresco re-indexing app requires a working Alfresco Repository Database and Elasticsearch server.
 
@@ -103,10 +103,10 @@ The tool may be used as a standalone `jar` file. The table below lists the main 
 | spring.datasource.url | JDBC url of the Alfresco database. The default value is `jdbc:postgresql://localhost:5432/alfresco`. |
 | spring.datasource.username | Username for the Alfresco database. The default value is `alfresco`. |
 | spring.datasource.password | Password for the Alfresco database. The default value is `alfresco`. |
-| spring.elasticsearch.rest.uris | Rest(s) @martin, what? url of Elasticsearch. The default value is `http://elasticsearch:9200`. |
+| spring.elasticsearch.rest.uris | Rest(s) @engineering, what? url of Elasticsearch. The default value is `http://elasticsearch:9200`. |
 | spring.elasticsearch.rest.username | Username for Elasticsearch @martin are these two Search Enterprise? when using Basic Authentication. |
 | spring.elasticsearch.rest.password | Password for username in Elasticsearch when using Basic Authentication. |
-| alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping, @martin should this be namespace-prefix mapping? | The default value is `classpath:reindex.prefixes-file.json`. |
+| alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping, @engineering should this be namespace-prefix mapping? Confirm the name please. | The default value is `classpath:reindex.prefixes-file.json`. |
 | alfresco.reindex.partitioning.type | Remote node type, can be _master_ or _worker_. If not specified, the app runs as a single node instance. By default it is left empty. |
 | alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals the number of available workers. The default value is `3`. |
 | alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning. The default value is `org.alfresco.search.reindex.requests`. |
@@ -114,8 +114,8 @@ The tool may be used as a standalone `jar` file. The table below lists the main 
 
 There are two strategies to fill the gaps in the Elasticsearch server when provoked by ActiveMQ unavailability or any other external cause:
 
-* Fetch by IDS (`alfresco.reindex.jobName=reindexByIds`): index nodes in an interval of database `ALF_NODE.id` column
-* Fetch by DATE (`alfresco.reindex.jobName=reindexByDate`): index nodes in an interval of database `ALF_TRANSACTION.commit_time_ms` column
+* Fetch by IDS `alfresco.reindex.jobName=reindexByIds`: index nodes in an interval of database `ALF_NODE.id` column
+* Fetch by DATE `alfresco.reindex.jobName=reindexByDate`: index nodes in an interval of database `ALF_TRANSACTION.commit_time_ms` column
 @martin these are mentioned above??
 
 Sample invocation for Fetch by IDS.
@@ -144,7 +144,7 @@ Sample invocation for Fetch by DATE.
 
 > **Note:** Additional use cases for this application will be covered in the [Indexing](Indexing) section. @martin is this below??
 
-## ASDKJFHSD;FJKHADG;FLKAJSDFL;GKASJDF;LKADJFRGAlfresco Live Indexing app
+## Alfresco Live Indexing app
 
 The Alfresco Live Indexing app requires a working Alfresco ActiveMQ service, Alfresco Shared FileStore service, and the Elasticsearch server.
 
@@ -258,7 +258,7 @@ mediation:
 
 See [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config) for more.
 
-### Scaling up
+## Scaling up
 
 All Elasticsearch Connector services can be scaled up to use an ActiveMQ Connection Pool to increase the number of Consumers.
 
@@ -290,7 +290,7 @@ To increase the `consumer` number you must check the property name in the `appli
             INPUT_ALFRESCO_METADATA_BATCH_EVENT_CHANNEL: sjms-batch:metadata.event?completionTimeout=1000&completionSize=10&aggregationStrategy=#eventAggregator&?consumerCount=20
 ```
 
-### Using HTTP Basic Authentication to access Elasticsearch
+## Using HTTP Basic Authentication to access Elasticsearch
 
 When using the Elasticsearch server with the HTTP Basic Authentication protocol you must add your Elasticsearch credentials to the `alfresco-global.properties` configuration file.
 
@@ -328,7 +328,7 @@ kibana:
      - ELASTICSEARCH_PASSWORD=bob123
 ```
 
-### Using HTTPS to access Elasticsearch for end to end encryption
+## Using HTTPS to access Elasticsearch for end to end encryption
 
 When using the Elasticsearch server with the HTTPs protocol, additional configuration should be added to the Alfresco Repository.
 
