@@ -116,7 +116,10 @@ The tool may be used as a standalone jar. The table below lists the main configu
 | alfresco.reindex.metadataIndexingEnabled | Reindex document metadata | true |
 | alfresco.reindex.contentIndexingEnabled | Reindex document content | true |
 | alfresco.reindex.pathIndexingEnabled | Reindex document Path property | false |
-    
+| spring.activemq.username | ActiveMQ username | admin |
+| spring.activemq.password | ActiveMQ password | admin |
+| spring.batch.datasource.username | Username for the in-memory database created and used by the re-indexing app | SA |
+| spring.batch.datasource.password | Password for the in-memory database created and used by the re-indexing app | SA |
 
 There are two strategies in order to fill gaps in the Elasticsearch server provoked by ActiveMQ unavailability or any other external cause:
 
