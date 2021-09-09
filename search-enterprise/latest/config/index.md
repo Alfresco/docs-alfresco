@@ -118,8 +118,12 @@ The tool may be used as a standalone jar. The table below lists the main configu
 | alfresco.reindex.pathIndexingEnabled | Reindex document Path property | false |
 | spring.activemq.username | ActiveMQ username | admin |
 | spring.activemq.password | ActiveMQ password | admin |
-| spring.batch.datasource.username | Username for the in-memory database created and used by the re-indexing app | SA |
-| spring.batch.datasource.password | Password for the in-memory database created and used by the re-indexing app | SA |
+| spring.batch.datasource.url | JDBC url for the batch job store database (can leave as default for single node reindex) | jdbc:hsqldb:mem:batch |
+| spring.batch.datasource.driver-class-name | JDBC driver for batch job store database | org.hsqldb.jdbcDriver |
+| spring.batch.datasource.username | Username for the batch job store database | SA |
+| spring.batch.datasource.password | Password for the batch job store database | SA |
+| spring.batch.drop.script | Path for script to drop the batch job store schema | classpath:/org/springframework/batch/core/schema-drop-hsqldb.sql |
+| spring.batch.schema.script | Path for script to create the batch job store schema | classpath:/org/springframework/batch/core/schema-hsqldb.sql |
 
 There are two strategies in order to fill gaps in the Elasticsearch server provoked by ActiveMQ unavailability or any other external cause:
 
