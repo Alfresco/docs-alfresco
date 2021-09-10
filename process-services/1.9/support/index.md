@@ -77,6 +77,7 @@ our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
 |Service|1.9|Comment|
 |-------|----|-------|
+|Identity Service 1.2|✓|For use with LDAP and SAML|
 |Identity Service 1.1|✓|For use with LDAP and SAML|
 |Identity Service 1.0|✓|For use with LDAP and SAML|
 |Process Workspace 1.3.4|✓| |
