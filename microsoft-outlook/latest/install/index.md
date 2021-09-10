@@ -62,7 +62,7 @@ You can use one of the following Outlook releases:
 
 #### Alfresco Search Services 2.0 and above
 
-If you're using Alfresco Search Services 2.0 and above in combination with Outlook Integration 2.8.1 and above, you must add the `messageId` property to the `shared.properties` file for SOLR. See the [Alfresco indexing recommendations]({% link search-services/latest/config/indexing.md %}#cross-locale) to locate this file.
+If you're using Alfresco Search Services or Alfresco Search and Insight Engine 2.0 and above in combination with Outlook Integration 2.8.1 and above, you must add the `messageId` property to the `shared.properties` file for SOLR. See the [Alfresco indexing recommendations]({% link search-services/latest/config/indexing.md %}#cross-locale) to locate this file.
 
 Add the following lines to the configuration:
 
