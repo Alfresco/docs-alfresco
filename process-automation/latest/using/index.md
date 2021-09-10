@@ -189,7 +189,8 @@ The condition builder is a tool that helps you build a JUEL expression for a con
   * Every: All statements must be true for the condition to be evaluated as true.
   * At least one: The condition will be evaluated to be true when one or more of the statements are true.
   * None: If all the statements are false, then the condition will be evaluated to be true.
-  **Note:** The operator between statements is the same for all the statements.
+
+**Note:** The operator between statements is the same for all the statements.
 
 * Click the **-** button to remove the statement.
 
