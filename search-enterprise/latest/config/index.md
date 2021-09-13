@@ -32,6 +32,8 @@ Additional property values can be included in Alfresco Repository global configu
 | elasticsearch.baseUrl | Context path for Elasticsearch server endpoint | / |
 | elasticsearch.secureComms | Set secure communications for requests to Elasticsearch server. When setting this value to `https`, adding Elasticsearch Trusted CA certificate to Alfresco Repository Truststore is required and communications with Elasticsearch server are managed with HTTPS protocol. When setting this value to `none`, communications to Elasticsearch server are managed with HTTP protocol. | none |
 | elasticsearch.ssl.host.name.verification | When using HTTPS protocol, this property controls that the Elasticsearch server TLS certificate includes a CN with the real DNS hostname (`true`) or ignores this verification (`false`) | false |
+| elasticsearch.user | Username for Elasticsearch server | <default is empty> |
+| elasticsearch.password | Password for Elasticsearch server | <default is empty> |
 | elasticsearch.max.total.connections | Maximum number of HTTP(s) connections allowed for the Elasticsearch server | 30 |
 | elasticsearch.max.host.connections | Maximum number of HTTP(s) connections allowed for an Elasticsearch endpoint | 30 |
 | elasticsearch.http.socket.timeout | Maximum timeout in milliseconds to wait for a socket response | 30000 |
@@ -39,9 +41,9 @@ Additional property values can be included in Alfresco Repository global configu
 | elasticsearch.indexName | Name of the index to be used in Elasticsearch server | alfresco |
 | elasticsearch.createIndexIfNotExists | Index is created in Elasticsearch server when this value is set to `true` | false |
 | elasticsearch.retryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization | 10 |
-| elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization in lock mode | 10 | elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true` | false |
-| system.fixedACLs.maxTransactionTime | The number of milliseconds before permission updates start happening asynchronously. Permission updates for large folders will pause after this duration and updates will be resumed by a job scheduled for midnight. | 10000 |
-| repo.event2.filter.users | Events by these users will be not be received by the Elasticsearch Connector. The default used to be "system,null" but has been changed to be an empty list. | <default is empty> |
+| elasticsearch.retryAttempts | Number of attempts to try Elasticsearch index initialization | 3 |
+| elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization in lock mode | 10 | 
+| elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true` | false |
 | elasticsearch.index.mapping.total_fields.limit | Mapping limit settings: The maximum number of fields in Alfresco index. When working on deployments including a large collection of custom content models, this value may be increased (since it's not recommended) | 7500 |
 
 Some of the properties above can be edited in the Search Admin Console, but values will be applied only to the Alfresco Repository instance, to update values for the Alfresco Elasticsearch Connector please update its property file manually. It is important that Elasticsearch Connector and repository configuration matches, otherwise search functionality will be impaired.
