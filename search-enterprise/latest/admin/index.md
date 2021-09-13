@@ -221,8 +221,10 @@ Recommendations:
 
 Recommendations:
 
-* Concurrent multiple updates on the same node can lead to missed information on elasticsearch. [SEARCH-2772](https://alfresco.atlassian.net/browse/SEARCH-2772)
-* Updating permissions on folder containing a high number of nodes may cause that the permissions of descendants are not correctly updated on elasticsearch. [SEARCH-2768](https://alfresco.atlassian.net/browse/SEARCH-2768)
+* Increase resources for the server if CPU load or memory consumption is high.
+* Increase database pool if no connections are available.
+* Increase the number of threads if no threads are available.
+* Increase the number of Content Repository nodes in the cluster.
 
 ## Content indexing performance
 
