@@ -59,9 +59,11 @@ alfresco:
         "
 ```
 
-## Exact Term Search
+**Exact Term Search**
 
-Pre-Indexing considerations the Exact term search feature is disabled by default to save index space. It's possible to enable it for specific properties and property types in the configuration file: exactTermSearch.properties
+The Exact Term search feature, that allows searching using the equals operator `=`, is disabled by default to save index space.
+It's possible to enable it for specific properties and property types using the configuration file `exactTermSearch.properties` located in **Alfresco Repository** under classpath `/alfresco/search/elasticsearch/config/`.
+    
 
 |Property|Description|e.g.|Default value|
 |--------|-----------|-----------|------------:|
@@ -70,12 +72,23 @@ Pre-Indexing considerations the Exact term search feature is disabled by default
 
 You can add as many data-types and properties as you like by adding lines and incrementing the associated index:
 
+```
 alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
 alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content
 alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
 alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content
+```
+    
+In order to overwrite this configuration when using Docker, mount this file as an external volume. Following sample describes a local configuration to be applied to Elasticsearch Search Subsystem when using Docker Compose deployment:
 
-**Note:** Once you have done that you need to re-index, so if you need such a feature from the beginning, it is recommended to enable it before your very first indexing.
+```
+services:
+  alfresco:
+    volumes:
+      - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
+```
+
+>> Once you have done that you need to re-index, so if you need such a feature from the beginning, it is recommended to enable it before your very first indexing.
 
 ### Alfresco Elasticsearch Connector
 
