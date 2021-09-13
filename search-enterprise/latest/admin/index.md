@@ -12,10 +12,19 @@ title: Overview
 
 ### Pre-Indexing considerations
 
-The Exact term search feature is disabled by default to save index space.
-It's possible to enable it for specific properties and property types in the configuration file: exactTermSearch.properties
+The Exact Term search feature, that allows searching using the equals operator `=`, is disabled by default to save index space.
+It's possible to enable it for specific properties and property types using the configuration file `exactTermSearch.properties` located in **Alfresco Repository** under classpath `/alfresco/search/elasticsearch/config/`.
 
-N.b. Once you have done that you will need to perform a reindex, so it is recommended to enable the exact term feature before you start creating an index.
+In order to overwrite this configuration when using Docker, mount this file as an external volume. Following sample describes a local configuration to be applied to Elasticsearch Search Subsystem when using Docker Compose deployment:
+
+```
+services:
+  alfresco:
+    volumes:
+      - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
+```
+
+>> Once you have done that you will need to perform a reindex, so it is recommended to enable the exact term feature before you start creating an index.
 
 ### Alfresco Elasticsearch Connector
 
