@@ -123,11 +123,23 @@ The tool may be used as a standalone jar. The table below lists the main configu
 | spring.elasticsearch.rest.uris | Rest(s) url of Elasticsearch | http://elasticsearch:9200 |
 | spring.elasticsearch.rest.username | Username for Elasticsearch when using Basic Auth |  |
 | spring.elasticsearch.rest.password | Password for username in Elasticsearch when using Basic Auth | |
+| spring.activemq.broker-url | ActiveMQ Broker url, use async sending to improve performance | tcp://localhost:61616?jms.useAsyncSend=true |
+| spring.activemq.user | ActiveMQ Broker user | admin |
+| spring.activemq.password | ActiveMQ Broker password | admin |
+| alfresco.reindex.multithreadedStepEnabled | Enable steps to be executed in parallel threads. Retrying settings are only applied when this property is set to true | false |
+| alfresco.reindex.retryingEnabled | Retry the execution of a step in case of fail | true |
+| alfresco.reindex.retryingMaxCount | Number of times to retry the step before throwing an error | 3 |
+| alfresco.reindex.retryingInitialDelay | Waiting time before retrying the step in milliseconds | 1000 |
+| alfresco.reindex.retryingDelayIntervalMultiplier | Every try should wait N times the initial delay, where N is the number specified in this property | 2 |
+| alfresco.reindex.retryingMaxDelay | Maximum delay to be waited before executing a retry on a step | 30000 |
 | alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping | classpath:reindex.prefixes-file.json |
 | alfresco.reindex.partitioning.type | Remote node type, can be _master_ or _worker_. If not specified, the app runs as single node instance. | Not specified |
 | alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals to number of available workers. | 3 |
 | alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning | org.alfresco.search.reindex.requests |
 | alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning | org.alfresco.search.reindex.replies |
+| alfresco.db.minimum.schema.version | Minimum Alfresco Repository database version supported | 14002 |
+| alfresco.accepted-content-media-types-cache.base-url | URL to get the list of Content Media Types supported | http://localhost:8090/transform/config |
+| alfresco.accepted-content-media-types-cache.enabled | Cache the list of Content Media Types supported in memory | true |
 | alfresco.reindex.metadataIndexingEnabled | Reindex document metadata | true |
 | alfresco.reindex.contentIndexingEnabled | Reindex document content | true |
 | alfresco.reindex.pathIndexingEnabled | Reindex document Path property | false |
