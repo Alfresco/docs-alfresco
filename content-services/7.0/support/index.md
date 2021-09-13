@@ -2,11 +2,11 @@
 title: Supported platforms
 ---
 
-Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services 7.1.
+Here is a list of the individual components that have been through the complete Alfresco Quality Assurance and Certification activities for Alfresco Content Services 7.0.
 
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact [Support](https://support.alfresco.com){:target="_blank"}.
 
-{% capture seven-one-zero %}
+{% capture seven-zero-one %}
 
 | Version | Notes |
 | ------- | ----- |
@@ -209,4 +209,4 @@ Choose a combination of products to build your own Supported Stack. If anything 
 
 {% endcapture %}
 
-{% include tabs.html tableid="supported-platforms" opt1="7.1.0" content1=seven-one-zero %}
+{% include tabs.html tableid="supported-platforms" opt1="7.0.1" content1=seven-zero-one opt2="7.0.0" content2=seven-zero-zero %}
