@@ -39,7 +39,7 @@ services:
 When creating a new Alfresco Repository, use the `Alfresco Elasticsearch Connector` applications in the following sequence:
 
 * Start the ACS Stack, including the Alfresco Elasticsearch Connector Live Indexing services and Elasticsearch server
-* Configure Alfresco Elasticsearch Connector Reindexing app to point to the database and Elasticsearch server
+* Configure Alfresco Elasticsearch Connector Reindexing app to point to the database, the Elasticsearch server and the ActiveMQ server
 * Run the reindexing app from the command line replacing the connection details as appropriate:
 
 ```java
@@ -49,13 +49,14 @@ $ java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
 --spring.datasource.username=alfresco \
 --spring.datasource.password=alfresco \
+--spring.activemq.broker-url=tcp://localhost:61616?jms.useAsyncSend=true \
 --alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json
 o.s.batch.core.step.AbstractStep         : Step: [reindexByIdsStep] executed in 4s952ms
 o.a.r.w.ElasticsearchRepoEventItemWriter : Total indexed documents:: 845
 o.a.r.listeners.JobLifecycleListener     : Current Status: COMPLETED
 ```
 
-Once the command has completed, metadata from the out-of-the-box Repository nodes will be indexed in the Elasticsearch server. Additionally, the Alfresco Elasticsearch Connector Live Indexer will add any new permissions and content if nodes are created, updated or deleted.
+Once the command has completed, metadata and permissions from the out-of-the-box Repository nodes will be indexed in the Elasticsearch server. Additionally, the Alfresco Elasticsearch Connector Live Indexer will add existing content and also the new metadata and content when nodes are created, updated or deleted.
 
 ## Existing Repository
 
