@@ -56,7 +56,7 @@ o.a.r.w.ElasticsearchRepoEventItemWriter : Total indexed documents:: 845
 o.a.r.listeners.JobLifecycleListener     : Current Status: COMPLETED
 ```
 
-Once the command has completed, metadata and permissions from the out-of-the-box Repository nodes will be indexed in the Elasticsearch server. Additionally, the Alfresco Elasticsearch Connector Live Indexer will add existing content and also the new metadata and content when nodes are created, updated or deleted.
+Once the command has completed, metadata and permissions from the out-of-the-box Repository nodes will be indexed in the Elasticsearch server. Additionally, the Alfresco Elasticsearch Connector Live Indexer will add existing content and also the new metadata, permissions and content when nodes are created, updated or deleted.
 
 ## Existing Repository
 
