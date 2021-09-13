@@ -64,7 +64,7 @@ When using a pre-populated Alfresco Repository, use the `Alfresco Elasticsearch 
 
 * Ensure the ACS Stack with SOLR (configured as the search subsystem) is running
 * Start the Elasticsearch server
-* Configure the Alfresco Elasticsearch Connector Reindexing app to point to the database and Elasticsearch server
+* Configure the Alfresco Elasticsearch Connector Reindexing app to point to the database, the Elasticsearch server and the ActiveMQ server
 * Run the reindexing app replacing the connection details as appropriate:
 
 ```java
@@ -74,12 +74,15 @@ $ java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
 --spring.datasource.url=jdbc:postgresql://localhost:5432/alfresco \
 --spring.datasource.username=alfresco \
 --spring.datasource.password=alfresco \
+--spring.activemq.broker-url=tcp://localhost:61616?jms.useAsyncSend=true \
 --alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json
 o.a.r.w.ElasticsearchRepoEventItemWriter : Total indexed documents:: 80845
 o.a.r.listeners.JobLifecycleListener     : Current Status: COMPLETED
 ```
 
-Once the command is completed, metadata from any existing Repository nodes will be indexed in the Elasticsearch server. Change the Alfresco Repository configuration in order to use Elasticsearch as the search subsystem and then re-start the Repository.
+Once the command is completed, metadata from any existing Repository nodes will be indexed in the Elasticsearch server. Additionally, the Alfresco Elasticsearch Connector Live Indexer will add existing content. This operation may take a while, be sure that ActiveMQ is not down till all the content transformation request messages has been processed. Change the Alfresco Repository configuration in order to use Elasticsearch as the search subsystem and then re-start the Repository.
+
+>> In order to be sure that all the content transformation requests have been processed, ActiveMQ Web Console can be used. By default, this Web Console is available in [http://127.0.0.1:8161](http://127.0.0.1:8161) with default credentials `admin/admin`. Queues related with content transformation (mainly `acs-repo-transform-request`), should have no pending messages.
 
 ## Partial Indexing
 
