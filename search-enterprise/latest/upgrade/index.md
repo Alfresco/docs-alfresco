@@ -2,44 +2,56 @@
 title: Upgrade Search Services
 ---
 
-Use this information to upgrade from Search Services 2.x to Search Services 3.0.
+Use this information to upgrade from Search Services 2.x to Alfresco Search Enterprise 3.0
 
-> **Note:** A reindex is required when you upgrade from Search Services 1.x to Search Services 2.0. `solr.content.dir` is no longer used from Search Services 2.0 and above. Solr itself provides that storage facility which means it can be safely removed, which we recommend, for more see [Search Services externalized configuration]({% link search-services/latest/config/index.md %}#search-services-externalized-configuration). If it is necessary for you to have a backup of the old index and content store then it must be copied elsewhere before you reindex.
+> **Note:** A full reindex is required when you upgrade from Search Services 2.x to Search Enterprise 3.0 since search engine is switching from Solr to Elasticsearch. If it is necessary for you to have a backup of the old SOLR index, then it must be copied elsewhere before you reindex.
 
-1. Stop Search Services.
+Alfresco Search Enterprise 3.0 is compatible from Alfresco Repository 7.1, so you need to upgrade to this version before applying the following steps.
 
-    ```bash
-    ./solr/bin/solr stop
-    ```
+Below common strategies to upgrade Alfresco Search Services are described:
 
-2. Backup or move the existing alfresco-search-services folder to a preferred location. For example, `alfresco-search-services-1.x`.
+* Configure an existing ACS 7.1 Stack deployment to use Elasticsearch Connector
+* Replicate an existing ACS 7.1 Stack deployment using Elasticsearch Connector
 
-3. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
+## Configure an existing ACS 7.1 Stack deployment
 
-4. Download and unzip the Search Services distribution zip file to a preferred location:
+1. Configure Alfresco Repository Search Subsystem to use `elasticsearch` by modifying `alfresco-global.properties` file or by adding Java environment variables
 
-    `alfresco-search-services-2.0.x.zip`
+```
+index.subsystem.name=elasticsearch
+elasticsearch.host=localhost
+elasticsearch.port=9200
+```
 
-    By default, the contents are decompressed in a folder at `./alfresco-search-services`. The folder extracts into the same location as the zip file.
+2. Install Elasticsearch server
 
-5. Start Search Services 2.0.
+3. Install Elasticsearch Connector according to any of the methods available in documentation (ZIP distribution file, Docker or Helm)
 
-    If the indexes for Solr are in another location (where you saved them in step 2), use the following commands to point Solr to the right location:
+Once everything is up & running, use Elasticsearch Reindexing application for the initial population of Elasticsearch index. Note that this operation may take a while, depending on the number of documents in your Repository and on the indexing options selected (metadata, content and path). While this reindexing process is progressing, documents will be available for searching gradually.
 
-    Unix like systems
+When Reindexing application has finished, new and updated documents will be uploaded to Elasticsearch index by Elasticsearch Connector service using ActiveMQ messages.
 
-    ```bash
-    ./solr/bin/solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.model.dir=/your-preferred-location/solrhome/alfrescoModels
-    -Ddata.dir.root=/your-preferred-location/solrhome/
-    ```
 
-    Microsoft Windows
+## Replicate an existing ACS 7.1 Stack deployment
 
-    ```bash
-    solr start -a "-Dcreate.alfresco.defaults=alfresco,archive" -p <port>
-    -Dsolr.model.dir="your-preferred-locationsolrhomealfrescoModels"
-    -Ddata.dir.root="your-preferred-locationsolrhome"
-    ```
+You may keep your current ACS Stack running while indexing the repository to Elasticsearch, so you can be using the service till the process ends. It's also recommended to create a read replica of the DB, so the indexing process won't affect service performance.
 
-    > **Note:** To check what version of Search Services or Search Services you have installed go to `http://localhost:8983/solr/`.
+![replicated-environment]({% link search-enterprise/images/elasticsearch-upgrading-1.png %})
+
+1. Create a Read Only Replica for your database
+
+2. Configure Alfresco Repository Search Subsystem to use `elasticsearch` and switch DB configuration to the Read Only Replica database.
+
+3. Install Elasticsearch server
+
+4. Install Elasticsearch Connector according to any of the methods available in documentation (ZIP distribution file, Docker or Helm)
+
+5. Once everything is up & running, use Elasticsearch Reindexing application for the initial population of Elasticsearch index by using the Read Only Replica database. Note that this operation may take a while, depending on the number of documents in your Repository and on the indexing options selected (metadata, content and path).
+
+6. Test that replicated environment is working as expected in terms of searching and indexing operations
+
+7. Switch the existing production environment to the replicated environment using the original database and removing previous Search Services components based in SOLR
+
+![upgraded-environment]({% link search-enterprise/images/elasticsearch-upgrading-2.png %})
+
+>> You may need to use again Elasticsearch Reindexing application in order to update latest changes. After that, new and updated documents will be uploaded to Elasticsearch index by Elasticsearch Connector service using ActiveMQ messages.
