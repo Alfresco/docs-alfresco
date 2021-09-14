@@ -186,11 +186,11 @@ The condition builder is a tool that helps you build a JUEL expression for a con
 * Click the **+** button to add a new statement editor.
 
 * The available operators are:
-  * Every: All statements must be true for the condition to be evaluated as true.
-  * At least one: The condition will be evaluated to be true when one or more of the statements are true.
-  * None: If all the statements are false, then the condition will be evaluated to be true.
-
-**Note:** The operator between statements is the same for all the statements.
+  * **Every**: All statements must be true for the condition to be evaluated as true.
+  * **At least one**: The condition will be evaluated to be true when one or more of the statements are true.
+  * **None**: If all the statements are false, then the condition will be evaluated to be true.
+  
+  > **Note:** The operator between statements is the same for all the statements.
 
 * Click the **-** button to remove the statement.
 
@@ -213,7 +213,9 @@ The available operators between statements are:
 * Greater or equals than
 * Less than
 * Less or equals than
-* Not set  **Note:** The Not set operator means that the expression is a single statement expression which means no right-statement is needed.
+* Not set
+
+> **Note:** The `Not set` operator means that the expression is a single statement expression which means no right-statement is needed.
 
 #### Right statement
 
@@ -233,7 +235,8 @@ The expression editor appears in the following places:
 * When setting the value of a JSON variable
 
 Click the green button to expand the modal dialog to be full size, the following is an example.
-**Note:** The green button only displays if the expression editor has been configured for it to show.
+
+> **Note:** The green button only displays if the expression editor has been configured for it to show.
 
 ![Expression editor]({% link process-automation/images/expression-editor.png %})
 
