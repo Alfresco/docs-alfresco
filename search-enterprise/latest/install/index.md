@@ -76,7 +76,7 @@ Verify that all the required services are available:
 * Alfresco Shared FileStore endpoint, as part of ACS 7.1 deployment, by default living in http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file/
 * Alfresco Database using PostgresSQL engine, as part of ACS 7.1 deployment, by default living in `localhost:5432`
 
-## Alfresco Re-Indexing app
+### Alfresco Re-Indexing app
 
 Since Alfresco Elasticsearch Connector *Live Indexing* component is listening to messages from ActiveMQ, some initial information from Alfresco Repository needs to be indexed using the *Re-Indexing* component. This *Re-Indexing* component can be also used to index a pre-populated Alfresco Repository.
 
@@ -140,7 +140,7 @@ Once the program has being executed, existing Alfresco Repository nodes will be 
 
 > **Note:** Additional use cases for this application will be covered in the [Indexing](Indexing) section.
 
-## Alfresco Live Indexing app
+### Alfresco Live Indexing app
 
 Alfresco Elasticsearch Connector *Live Indexing* can be started from command line as a standard Spring Boot application.
 
@@ -268,7 +268,7 @@ Log in as the `admin` user with credentials `admin`.
 
 > **Note:** Remember to run Alfresco Re-Indexing app as described above in order to add existing Alfresco Repository nodes to Elasticsearch server
 
-## Alternative deployment
+### Alternative deployment
 
 By default, the Docker Compose template deploys Alfresco Elasticsearch Connector services individually:
 
