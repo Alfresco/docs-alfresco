@@ -26,19 +26,19 @@ Additionally, Alfresco Repository must be configured in order to use Elasticsear
 
 > **Note:** Note that standard Elasticsearch 7.10 server is also required. You can use a local Elasticsearch server deployment, or perform a new installation of the product. Additionally, when using Docker Compose templates from Alfresco, the Elasticsearch server and Kibana application are included as default services.
 
-### Install using JAR Distribution app
+## Install using JAR Distribution app
 
 Use this information to install Alfresco Elasticsearch Connector on the same machine as Alfresco Content Services.
 
 This task assumes you have installed Alfresco Content Services 7.1 or above.
 
-## Prerequisites and supported platforms
+### Prerequisites and supported platforms
 
 * JDK 11 or OpenJDK 11
 * Elasticsearch server 7.10.1
 * Alfresco Content Services 7.1
 
-## Configuring the Search Enterprise subsystem in Alfresco Repository
+### Configuring the Search Enterprise subsystem in Alfresco Repository
 
 The activation and configuration of the Search Services subsystem can be done by using either the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file or the [Repository Admin Web Console](https://docs.alfresco.com/content-services/latest/admin/admin-console/).
 
@@ -59,7 +59,7 @@ In order to set the configuration properties from the [Repository Admin Web Cons
 
 ![console]({% link search-enterprise/images/alfresco_repo_web_console.png %})
 
-## Obtaining the Alfresco Elasticsearch Connector JAR applications*
+### Obtaining the Alfresco Elasticsearch Connector JAR applications*
 
 Browse to [Alfresco Nexus Internal Group Repositories](https://nexus.alfresco.com/nexus/#view-repositories;internal~browsestorage){:target="_blank"} and download:
 
@@ -171,25 +171,25 @@ java -jar alfresco-elasticsearch-live-indexing-3.0.0-app.jar --server.port=8083
 
 Once every service is up & running, Elasticsearch index should be populated and search queries would work as expected when using an Alfresco UI application like [Alfresco Digital Workspace](https://docs.alfresco.com/adw/concepts/welcome-adw.html) or [Alfresco Content Application](https://github.com/Alfresco/alfresco-content-app){:target="_blank"}.
 
-### Install using Docker Compose
+## Install using Docker Compose
 
 Use this information to quickly start up Alfresco Elasticsearch Connector using Docker Compose. Due to the limited capabilities of Docker Compose, this deployment method is only recommended for development and test environments.
 
 > **Note:** Since we need to use private (Enterprise-only) Docker images from Quay.io, you need credentials to be able to pull those images from Quay.io. Alfresco customers can request their credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
 
-## Prerequisites and supported platforms
+### Prerequisites and supported platforms
 
 * [Docker](https://docs.docker.com/install/) (latest stable version)
   * This allows you to run Docker images and docker-compose on a single computer.
 * [Docker Compose](https://docs.docker.com/compose/install/)
   * Docker Compose is included as part of some Docker installers. If it's not part of your installation, then install it separately after you've installed Docker.
 
-## Deployment using Docker Compose
+### Deployment using Docker Compose
 
 You can perform the Docker Compose deployment using the source code or downloading the zip distribution.
 Please pay attention, the provided Docker Compose file is only for test and development purposes.
 
-## Using source code
+### Using source code
 
 Getting the code using a Git client using SSH:
 
@@ -212,7 +212,7 @@ Move to the docker-compose folder in the distribution module:
 cd /alfresco-elasticsearch-connector-distribution/src/main/resources/docker-compose
 ```
 
-## Using distribution zip
+### Using distribution zip
 
 Download the latest [distribution zip](https://artifacts.alfresco.com/nexus/content/groups/internal/org/alfresco/alfresco-elasticsearch-connector-distribution){:target="_blank"}
 
@@ -228,7 +228,7 @@ Move to the docker-compose folder in the distribution folder:
 cd alfresco-elasticsearch-connector-distribution/docker-compose
 ```
 
-## Common steps
+### Common steps
 
 Log in to Quay.io using your credentials:
 
