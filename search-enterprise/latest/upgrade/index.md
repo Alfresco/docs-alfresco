@@ -17,8 +17,11 @@ Below common strategies to upgrade Alfresco Search Services are described:
 
 Configure Alfresco Repository Search Subsystem to use `elasticsearch` by modifying `alfresco-global.properties` file or by adding Java environment variables
 
-```
+```bash
 index.subsystem.name=elasticsearch
+# Elasticsearch index properties
+elasticsearch.indexName=alfresco
+elasticsearch.createIndexIfNotExists=true
 elasticsearch.host=localhost
 elasticsearch.port=9200
 ```

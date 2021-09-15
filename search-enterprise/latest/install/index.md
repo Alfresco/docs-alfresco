@@ -48,6 +48,9 @@ Add the following lines to the configuration file `alfresco-global.properties` t
 ```bash
 # Set the Elasticsearch subsystem
 index.subsystem.name=elasticsearch
+# Elasticsearch index properties
+elasticsearch.indexName=alfresco
+elasticsearch.createIndexIfNotExists=true
 # Elasticsearch server properties
 elasticsearch.host=localhost
 elasticsearch.port=9200
