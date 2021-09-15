@@ -18,7 +18,7 @@ Alfresco Search Enterprise consists of the following components:
 * Elasticsearch 7.10.2 (It can be used as a standard managed service or can be installed using default configuration)
 * Alfresco Elasticsearch Connector 3.0
 
->> Note that Elasticsearch 7.10.2 is the last Apache2-licensed version. Alfresco Elasticsearch Connector can use also [Amazon OpenSearch](https://aws.amazon.com/opensearch-service/the-elk-stack/what-is-opensearch/)
+> **Note:** that Elasticsearch 7.10.2 is the last Apache2-licensed version. Alfresco Elasticsearch Connector can use also [Amazon OpenSearch](https://aws.amazon.com/opensearch-service/the-elk-stack/what-is-opensearch/)
 
 The services required for Alfresco Search Enterprise are included in the following diagram.
 

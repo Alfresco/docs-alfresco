@@ -7,13 +7,7 @@ In order to use Alfresco Search Enterprise 3.0 for Alfresco Content Services pla
 * Alfresco Repository properties in configuration file `alfresco-global.properties` or as environment variables related to Search Subystem configuration for *searching* features
 * Alfresco Elasticsearch Connector properties as environment variables related to communication with Alfresco Repository (Database, ActiveMQ and Transform Service) and Elasticsearch server for *indexing* features
 
-* [Alfresco Repository](#alfresco-repository)
-* [Alfresco Elasticsearch Connector](#alfresco-elasticsearch-connector)
-* [Scaling up](#scaling-up)
-* [Using HTTP Basic Auth to access Elasticsearch](#using-http-basic-auth-to-access-elasticsearch)
-* [Using HTTPS to access Elasticsearch for end to end encryption](#using-https-to-access-elasticsearch-for-end-to-end-encryption)
-
-### Alfresco Repository
+## Alfresco Repository
 
 Alfresco Repository provides configuration properties for `elasticsearch` Search Subystem to define the connection to an external Elasticsearch server.
 
@@ -42,7 +36,7 @@ Additional property values can be included in Alfresco Repository global configu
 | elasticsearch.createIndexIfNotExists | Index is created in Elasticsearch server when this value is set to `true` | false |
 | elasticsearch.retryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization | 10 |
 | elasticsearch.retryAttempts | Number of attempts to try Elasticsearch index initialization | 3 |
-| elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization in lock mode | 10 | 
+| elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization in lock mode | 10 |
 | elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true` | false |
 | elasticsearch.index.mapping.total_fields.limit | Mapping limit settings: The maximum number of fields in Alfresco index. When working on deployments including a large collection of custom content models, this value may be increased (since it's not recommended) | 7500 |
 
@@ -65,7 +59,7 @@ alfresco:
 
 The Exact Term search feature, that allows searching using the equals operator `=`, is disabled by default to save index space.
 It's possible to enable it for specific properties and property types using the configuration file `exactTermSearch.properties` located in **Alfresco Repository** under classpath `/alfresco/search/elasticsearch/config/`.
-    
+
 
 |Property|Description|e.g.|Default value|
 |--------|-----------|-----------|------------:|
@@ -80,7 +74,7 @@ alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}c
 alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
 alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content
 ```
-    
+
 In order to overwrite this configuration when using Docker, mount this file as an external volume. Following sample describes a local configuration to be applied to Elasticsearch Search Subsystem when using Docker Compose deployment:
 
 ```
@@ -90,9 +84,9 @@ services:
       - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
 ```
 
->> Once you have done that you need to re-index, so if you need such a feature from the beginning, it is recommended to enable it before your very first indexing.
+> **Note:** Once you have done that you need to re-index, so if you need such a feature from the beginning, it is recommended to enable it before your very first indexing.
 
-### Alfresco Elasticsearch Connector
+## Alfresco Elasticsearch Connector
 
 Indexing feature is provided by a Spring Boot application named `Alfresco Elasticsearch Connector`. This application includes two main components that build and maintain the index in Elasticsearch:
 
@@ -143,7 +137,7 @@ The tool may be used as a standalone jar. The table below lists the main configu
 | alfresco.reindex.metadataIndexingEnabled | Reindex document metadata | true |
 | alfresco.reindex.contentIndexingEnabled | Reindex document content | true |
 | alfresco.reindex.pathIndexingEnabled | Reindex document Path property | false |
-    
+
 
 There are two strategies in order to fill gaps in the Elasticsearch server provoked by ActiveMQ unavailability or any other external cause:
 
@@ -176,7 +170,7 @@ Sample invocation for Fetch by DATE.
 
 > **Note:** Additional use cases for this application will be covered in the [Indexing](Indexing) section.
 
-## Alfresco Live Indexing app
+### Alfresco Live Indexing app
 
 Alfresco Live Indexing app requires a working Alfresco ActiveMQ service, Alfresco Shared FileStore service and Elasticsearch server.
 
@@ -294,7 +288,7 @@ mediation:
 
 [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config)
 
-### Scaling up
+## Scaling up
 
 Every Alfresco Elasticsearch Connector service can be scaled up to use an ActiveMQ Connection Pool and to increase the number of Consumers.
 
@@ -326,7 +320,7 @@ Increasing the **consumer** number requires to check the property name in the `a
             INPUT_ALFRESCO_METADATA_BATCH_EVENT_CHANNEL: sjms-batch:metadata.event?completionTimeout=1000&completionSize=10&aggregationStrategy=#eventAggregator&?consumerCount=20
 ```
 
-### Using HTTP Basic Auth to access Elasticsearch
+## Using HTTP Basic Auth to access Elasticsearch
 
 When using Elasticsearch server with HTTP Basic Auth protocol, additional configuration should be added to **Alfresco Repository**.
 
@@ -368,7 +362,7 @@ kibana:
      - ELASTICSEARCH_PASSWORD=bob123
 ```
 
-### Using HTTPS to access Elasticsearch for end to end encryption
+## Using HTTPS to access Elasticsearch for end to end encryption
 
 When using Elasticsearch server with HTTPs protocol, additional configuration should be added to **Alfresco Repository**.
 

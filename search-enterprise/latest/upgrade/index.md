@@ -15,7 +15,7 @@ Below common strategies to upgrade Alfresco Search Services are described:
 
 ## Configure an existing ACS 7.1 Stack deployment
 
-1. Configure Alfresco Repository Search Subsystem to use `elasticsearch` by modifying `alfresco-global.properties` file or by adding Java environment variables
+Configure Alfresco Repository Search Subsystem to use `elasticsearch` by modifying `alfresco-global.properties` file or by adding Java environment variables
 
 ```
 index.subsystem.name=elasticsearch
@@ -23,9 +23,9 @@ elasticsearch.host=localhost
 elasticsearch.port=9200
 ```
 
-2. Install Elasticsearch server
+Install Elasticsearch server
 
-3. Install Elasticsearch Connector according to any of the methods available in documentation (ZIP distribution file, Docker or Helm)
+Install Elasticsearch Connector according to any of the methods available in documentation (ZIP distribution file, Docker or Helm)
 
 Once everything is up & running, use Elasticsearch Reindexing application for the initial population of Elasticsearch index. Note that this operation may take a while, depending on the number of documents in your Repository and on the indexing options selected (metadata, content and path). While this reindexing process is progressing, documents will be available for searching gradually.
 
@@ -54,4 +54,4 @@ You may keep your current ACS Stack running while indexing the repository to Ela
 
 ![upgraded-environment]({% link search-enterprise/images/elasticsearch-upgrading-2.png %})
 
->> You may need to use again Elasticsearch Reindexing application in order to update latest changes. After that, new and updated documents will be uploaded to Elasticsearch index by Elasticsearch Connector service using ActiveMQ messages.
+> **Note:** You may need to use again Elasticsearch Reindexing application in order to update latest changes. After that, new and updated documents will be uploaded to Elasticsearch index by Elasticsearch Connector service using ActiveMQ messages.
