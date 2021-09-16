@@ -39,6 +39,13 @@ This task assumes you have installed Alfresco Content Services 7.1 or above.
 * Elasticsearch server 7.10.1
 * Alfresco Content Services 7.1
 
+### Installation sequential steps
+
+1. Install Elasticsearch service
+2. Install Elasticsearch Connector Live Indexing service
+3. Configure Search Enterprise in Alfresco Repository
+4. [Optional] Run Elasticsearch Connector ReIndexing application
+
 ### Configuring the Search Enterprise subsystem in Alfresco Repository
 
 The activation and configuration of the Search Services subsystem can be done by using either the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file or the [Repository Admin Web Console](https://docs.alfresco.com/content-services/latest/admin/admin-console/).
