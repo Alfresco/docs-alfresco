@@ -63,6 +63,8 @@ In order to set the configuration properties from the [Repository Admin Web Cons
 
 ![console]({% link search-enterprise/images/alfresco_repo_web_console.png %})
 
+> **Note:** In ACS 7.1.0, `Test Connection` button would fail if your Elasticsearch server does not include "alfresco" index. However you are still able to `Save` your configuration and the index will be created automatically.
+
 ### Obtaining the Alfresco Elasticsearch Connector JAR applications
 
 Browse to [Alfresco Nexus Internal Group Repositories](https://nexus.alfresco.com/nexus/#view-repositories;internal~browsestorage){:target="_blank"} and download:
