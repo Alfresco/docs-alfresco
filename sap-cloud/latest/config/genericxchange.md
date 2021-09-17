@@ -5,14 +5,16 @@ title: Configure GenericXchange
 Use this information to configure the GenericXchange module used for flexible data exchange either RFC/SNC connection or by invoking an OData service on the related SAP System (either SAP Cloud Essentials or SAP S/4HANA on premises).
 
 ## Preface
-The `GenericXchange` (short `GX`) is a powerful module that allows to exchange any metadata between SAP and Content Services by using a Low Code approach. This means, the configuration is done in a JSON file that must be uploaded to Content Services. Once uploaded, the changes are reflected immediately, no restart of the application server required. The module can either invoke any OData service in SAP Cloud Essentials or can also be used to call any remote enabled function module on SAP S/4HANA using RFC via SAP JavaConnector.
+The `GenericXchange` (short `GX`) is a powerful module that allows to exchange any metadata between SAP and Content Services by using a Low Code approach. This means, the configuration is done in a JSON file that must be uploaded to Content Services. Once uploaded, the changes are reflected immediately, no restart of the application server required. The module can either invoke any OData service in SAP Cloud Essentials as well as in an SAP S/4HANA on premise system or it can also be used to call any remote enabled function module on SAP S/4HANA on premise using RFC via SAP JavaConnector.
 
 ## Basic Configuration {#gx_basic}
 
 If the module was successfull installed, there is a need to apply some basic settings in the `alfresco-global.properties`. The changes requires a restart of the application server afterwards.
 
 ### Settings for OData {#gx_basic_odata}
-If the data exchange should happen via OData services, the following properties must be added:
+If the data exchange should happen via OData services, the properties in the below table must be added.
+
+> **Note:** In general, any Rest service can be invoked by the Content Connector for SAP Cloud. As the primarily connection is intended is to connect to an SAP Cloud system, this documention will use the word OData in the further course. 
 
 | Property Key        | Description           |
 | ------------- |-------------|
@@ -20,7 +22,7 @@ If the data exchange should happen via OData services, the following properties 
 | `genericXchange.rest.sap.system.1.job.cronExpression`| The CRON expression used for the job. Example value: `0 0/1 * 1/1 * ? *`|
 
 
-> **Note:** It is possible to have up to 100 different Jobs, where each can invoke a separate OData service. This can be accomplished by duplicating the both properties and increasing the number within the key names.
+It is possible to have up to 100 different Jobs, where each can invoke a separate OData service. This can be accomplished by duplicating the both properties and increasing the number within the key names.
 
 ### Settings for RFC/SNC {#gx_basic_rfc}
 If the data exchange should happen via RFC/SNC by calling a SAP function module, the following properties must be added:
@@ -61,7 +63,7 @@ Behavior | Execution happens immediately after related action. |A separate paid 
 
 ## Job Approach {#gx_job}
 
-> **Note:** You must set a exclusion criterion in the mandatory `query` property of the configuration JSON. To set a flag after the SAP function module has successfully processed the document, use the `success` property. The `success` property can set any property to an arbitrary value at the Alfresco document. Then, use this property value for the exclusion criterion in the `query`. If there is no exclusion criterion set, the document(s) will be picked up again in the next Job execution, and again, and again...
+> **Note:** You must set a exclusion criterion in the mandatory `query` of the [`filter` property](#gx_prop_filter) of the JSON. To set a flag after the SAP function module has successfully processed the document, use the `success` property. The `success` property can set any property to an arbitrary value at the Alfresco document. Then, use this property value for the exclusion criterion in the `query`. If there is no exclusion criterion set, the document(s) will be picked up again in the next Job execution, and again, and again...
 
 ## Mapping
 The mapping between the settings part in the ```alfresco-global.properties``` (Refer to the [Basic Configuration](#gx_basic)) and the related JSON file uploaded to Content Services is done via filename of the JSON file and is different for OData and RFC/SNC usage.
@@ -77,26 +79,30 @@ A JSON file with name `rfcJob.`**1**`.json` is mapped to all keys starting with 
 ## Configuration {#gx_job_config}
 Configuration options for the Jobs JSON file(s).
 
-### Job JSON {#gx_job_json}
-The following table lists all available settings for the `restJob.1.json` respective `rfcJob.1.json` file.
 
-Property | Type | Value(s) | Description
------------- | ------------- | ------------ | ------------
-**`enabled`** | Boolean | `true` or<br/>`false` | Whether the Job is enabled or not. Also remember that there exists a property called `genericXchange.rest.sap.system.1.job.enabled` in the `alfresco-global.properties`! If this is `false` then the related setting in the JSON does have no effect, regardless of its value.
-**`filter`** | Object | ***[Refer to Property `filter`](#odata_prop_filter)*** | Define the AFTS query to find the desired documents to be processed in Content Services. It also holds a threshold value which is responsible for the termination criterion. The threshold defines the maximum number tries to process a document until it will be excluded.|
-**`createALFolder`** | Boolean | `true` or<br/>`false` | ***Not required for Content Connector for SAP Cloud  (may only be used for with [Content Connector for SAP Applications](https://docs.alfresco.com/sap/latest))*** If `true`, the parent folder for the current document will be created and the required SAP ArchiveLink related aspects will be applied to it. This is to match the SAP ArchiveLink protocol specification.|
-**`request`**| Object | ***[Refer to Property `request`](#gx_odata_prop_request)*** | Defines the request to call the OData service with all necessary parameter.|
-**`response`**| Object | ***[Refer to Property `response`](#gx_odata_prop_request)*** | Defines the mapping between each property of the OData call result and the property in Content Services.|
-**`error`** | Object<br/> | ***[Refer to Property `error`](#gx_prop_error)*** | ***Optional Property.*** Handles the errors which might be returned by the `request` above. [Refer to specification of property `error`](#gx_prop_error).|
-**`success`** | Object |  ***[Refer to Property `success`](#gx_prop_success)*** | ***Optional Property.*** Handles the success messages which might be returned by the `request`.|
+### Job JSON {#gx_job_json}
+The following table lists all available settings for the `restJob.1.json` (= OData) respective `rfcJob.1.json`. The column **`Required For`** specifies for which type (either OData or RFC or All) the setting must be present in the JSON configuration file.
+
+Property | Type | `Required For` |Value(s) | Description
+------------ | ------------- | :-------------: | ------------ | ------------
+**`enabled`** | Boolean | All| `true` or<br/>`false` | Whether the Job is enabled or not. Also remember that there exists a property called `genericXchange.rest.sap.system.1.job.enabled` in the `alfresco-global.properties`! If this is `false` then the related setting in the JSON does have no effect, regardless of its value.
+**`filter`** | Object |All| ***[Refer to Property `filter`](#gx_prop_filter)*** | Define the AFTS query to find the desired documents to be processed in Content Services. It also holds a threshold value which is responsible for the termination criterion. The threshold defines the maximum number tries to process a document until it will be excluded.|
+**`mandatoryProperties`**|Array| All|*cm:title,<br/>cm:description*|A list of mandatory properties that must be present on the documents which are returned by the `filter` to be considered for processing.|
+**`createALFolder`** | Boolean |RFC| `true` or<br/>`false` | ***Not required for Content Connector for SAP Cloud  (may only be used for with [Content Connector for SAP Applications](https://docs.alfresco.com/sap/latest))*** If `true`, the parent folder for the current document will be created and the required SAP ArchiveLink related aspects will be applied to it. This is to match the SAP ArchiveLink protocol specification.|
+**`mode`**| String |RFC| *standard,<br/>chain<br/>batch* | The mode, how the module handles the specified function modules.<br/>***standard:*** Invoke one function module for the current document.<br/>***chain:*** Invoke multiple function modules in the given order for the current document.<br/>***batch:*** Invoke one function module with a bunch of Alfresco documents.|
+**`functionModule`** / **`functionModules`**| Object | RFC | ***[Refer to Property `functionModule`](#gx_rfc_prop_functionmodule)*** | Defines the request to call the OData service with all necessary parameter.|
+**`request`**| Object |OData| ***[Refer to Property `request`](#gx_odata_prop_request)*** | Defines the request to call the OData service with all necessary parameter.|
+**`response`**| Object |OData| ***[Refer to Property `response`](#gx_odata_prop_request)*** | Defines the mapping between each property of the OData call result and the property in Content Services.|
+**`error`** | Object<br/> |All| ***[Refer to Property `error`](#gx_prop_error)*** | ***Optional Property.*** Handles the errors which might be returned by the `request` above. [Refer to specification of property `error`](#gx_prop_error).|
+**`success`** | Object |All| ***[Refer to Property `success`](#gx_prop_success)*** | ***Optional Property.*** Handles the success messages which might be returned by the `request`. [Refer to specification of property `success`](#gx_prop_success).|
 
 #### Property Specification
-This section contains the detailed property definition of the properties above.
+This section contains the detailed Object definitions for the *Value(s)* column of the [tables above]({#gx_job_json}).
 
 ##### ***Property `success`*** {#gx_prop_success}
 > **Note:** This is an optional property.
 
-This property is responsible to store a defined text (key `state`) in any available property at the Alfresco document (key `alfProp`) once the SAP function module returned successfully (no error, refer to property [[**error**|conf_error]]).
+This property is responsible to store a defined text (key `state`) in any available property at the Alfresco document (key `alfProp`) once the SAP function module returned successfully (to handle errors, refer to property [**error**](#gx_prop_error).
 
 Property | Type | Example Value(s) | Description
 ------------ | ------------- | ------------ | ------------
@@ -133,4 +139,286 @@ Example:
 			"cm:description": "error.message.statusCode"
 		}
 	}
+```
+##### ***Property `filter`*** {#gx_prop_filter}
+This property is responsible to query all documents in the repository for processing based on the given `query`. It also specifies the maximum number of tries where the files will be picked up for processing until it will be excluded (e.g. in case of errors). For RFC/SNC calls (but not for OData), there is an additional parameter `archiveIds` available.
+
+> **Note:** Do not forget to specify an exclusion criterion for the documents in the `query`.
+
+
+Property | Type | Example Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`query`** | String | *TYPE:\"cm:content\" AND NOT ASPECT:\"cm:titled\"* | Define the AFTS query to find content for processing.|
+**`errorThreshold`** | Number | *10* | Maximum number of tries to process the document until it will be excluded.|
+**`archiveIds`** | Array | *D1* | ***Optional Property.*** Define the archiveIds that must be available on the document in property *connexas:archiveId*.|
+
+Example:
+```
+  "filter": {
+    "query": "TYPE:\"cm:content\" AND NOT ASPECT:\"cm:titled\"",
+    "errorThreshold": 10,
+    "archiveIds": [ "D1" ]
+  },
+```
+
+##### ***Property `request`*** {#gx_odata_prop_request}
+This property defines all required data to call an OData service.
+
+Property | Type | Example Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`method`** | String | *get* | Define the HTTP method for the OData service.|
+**`validateCertificate`** | Boolean | *true* | To deactivate/activate the `https` certificate check.|
+**`baseUrl`** | Object |  | The url to the OData enpoints of the SAP system.|
+**`endpoint`** | Object | ***[Refer to Property `endpoint`](#gx_odata_prop_request_endpoint)*** | Specifies the OData service enpoint. |
+**`headers`** | Object |  | Headers for `method`, such as PUT, POST, UPDATE or DELETE.|
+**`body`** | Object |  | The body content for `method`, such as PUT, POST, UPDATE or DELETE. Dependend on the OData service.|
+**`credentials`** | Object |  | Username and Passwort to login to the SAP Cloud.|
+
+##### ***Property for `endpoint`*** {#gx_odata_prop_request_endpoint} 
+This property is a nested element of [`request`](#gx_odata_prop_request).
+
+> **Note:** Only OData services are supported that can return a JSON response.
+
+Nested properties for `endpoint` | Type | Example Value(s)| Description
+------------ | ------------- | ------------- | ------------
+**`url`** | String | *\<mysapcloud\>.com/sap/opu/odata/sap/* | The name of the OData service endoint. To pass values from the current document in Content Services, use placeholders such as `{1}`, `{2}`,... These placeholders will be subsituted with the values of the defined property specified in `substitutions`. Refer to example below.|
+**`substitutions`** | Object | *"alfProp": "sapbo:Product:Product"* |Substitutions for the placeholder used in the `url` above. **Note:** It starts with index = 1 and they are replaced in the given order!|
+
+Example for property ```request``` [Return Product Master Records](https://api.sap.com/api/API_PRODUCT_SRV/resource):
+```
+"request": {
+	"method": "get",
+	"validateCertificate": true,
+	"baseUrl": "https://mysapcloud-api.s4hana.ondemand.com/sap/opu/odata/sap/",
+	"endpoint": {
+		"url": "API_PRODUCT_SRV/A_Product('{1}')?$format=json",
+		"substitutions": [
+			{
+				"alfProp": "sapbo:Product:Product"
+			}
+		]
+	},
+	"headers": {
+	},
+	"body": {
+	},
+	"credentials": {
+		"user": "USERNAME",
+		"password": "PASSWORD"
+	}
+},
+```
+
+##### ***Property `response`*** {#gx_odata_prop_response}
+
+> **Note:** Only OData services are supported that can return a JSON response.
+
+This property defines how the values in the response of the OData call are mapped to the data-model properties of Content Services. The content is a list of *key*-*value* pairs. The *key* defines the name of the data-model property in Content Services where the *value* should be stored. The *value* for the *key* in turn specifies the path to the desired element in the JSON map which holds the value. It can be accessed by using the format `$.d.KeyName`.
+
+Example:
+```
+"response": {
+	"cm:name": "$.d.Product",
+	"cm:title": "$.d.Language",
+	"cm:description": "$.d.ProductDescription"
+},
+```
+
+##### ***Property `functionModule` / `functionModules`*** {#gx_rfc_prop_functionmodule}
+
+> **Note:** Only required for RFC/SNC calls. Refer to [overview table above](#gx_job_json).
+
+This parameter holds the specification of the function modules which will be invoked by the job. If the `mode` parameter is set to `chain`, this section requires a list of objects and therefore the parameter name ***must*** be set to `functionModules` (plural), meaning the *SAP Function Modules* in this list will be invoked in the given order. If `mode` is set to `standard` or `custom`, the parameter name must be `functionModule` (singular) only. The table below will break-down the structure required to fill this parameter.
+
+Property | Type | Example Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`name`** | String | *ARCHIV_GET_CONNECTIONS* | The name of the RFC enabled function module in SAP.
+**`importParams`** | Object | ***[Refer to property `importParams`](#gx_rfc_prop_functionmodule_importparams)*** | List of import parameter that should be used. 
+**`exportParams`** | Object | ***[Refer to property `exportParams`](gx_rfc_prop_functionmodule_exportparams)*** | List of export parameter from the function module that should be used to store its values in Content Services.
+
+##### ***Property `importParams`*** {#gx_rfc_prop_functionmodule_importparams}
+This property is a nested element of [`functionModule` / `functionModule`](#gx_rfc_prop_functionmodule) and is an array which holds a list of objects with all required import parameter of the *SAP Function Module* that should be used. 
+
+Property | Type | Example Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`paramType`** | String | `struct` or<br/>`parameter` or<br/> `table` | The type of the import parameter.
+**`name`** | String | *ARCHIV_ID* | The name of the import parameter of the SAP Function Module. 
+**`content`** | Object | ***[Refer to property `content`](#gx_rfc_prop_functionmodule_importparams_content)*** | Dependend on the value of property `paramType` above, this property defines which property in Content Services should be used for the current import parameter.
+
+##### ***Property `content`*** {#gx_rfc_prop_functionmodule_importparams_content}
+The structure of property `content` depends on the value set in property `paramType`.
+
+##### ***Property `content` when `paramType = struct`*** {#gx_rfc_prop_functionmodule_importparams_content_struct}
+This property is an array of parameters. Each parameter can be of type `struct`, `parameter` or `table`. 
+
+Example:
+```
+{
+    "paramType": "struct",
+    "name": "DATA_GENERAL_EXP",
+    "content": [
+        {
+            "sapProp": "DESCRIPT",
+            "alfProp": "cm:description",
+            "type": "string"
+        }
+    ]
+}
+```
+
+##### ***Property `content` when `paramType = parameter`*** {#gx_rfc_prop_functionmodule_importparams_content_parameter}
+This property is an object containing the following keys which are responsible to pass the desired values from the document in Content Services to the current SAP import parameter.
+
+Property | Type | Example Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`alfProp`** | String | *connexasArchivelink:archiveid* | The name of the property in Content Services where its value will be used for the import parameter in SAP.
+**`type`** | String | `string` or<br/>`date` or<br/> `int` or<br/> `datetime` or<br/> `boolean` or<br/> `const`| The Content Services type for `alfProp`. 
+
+Example:
+ ```
+{
+    "paramType": "parameter",
+    "name": "QUERY_TABLE",
+    "content": {
+        "alfProp": "cm:created",
+        "type": "date",
+        "format": "ddmmYY"
+    }
+}
+ ```
+
+##### ***Property `content` when `paramType = table`*** {#gx_rfc_prop_functionmodule_importparams_content_table}
+This property is a list of SAP table rows which contains a list of SAP table columns. Each cell has the following properties.
+
+Property | Type | Example Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`sapProp`** | String | *TEXT* | The name of the SAP table column.
+**`alfProp`** | String | *connexasArchivelink:sapid* | The name of the property in Content Services where its value will be used for the import parameter in SAP.
+**`type`** | String | `string` or<br/>`datetime` or<br/> `int` or<br/> `date` or<br/> `boolean` or<br/> `const`| The Content Services type for `alfProp`. 
+**`format`** | String | *ddmmYY* | Optional. If `type` is `date` this can be used to format the date (use Java date format strings). 
+
+Example:
+```
+{
+    "paramType": "table",
+    "name": "OPTIONS",
+    "content": 
+    [
+        [
+            {
+                "sapProp": "TEXT",
+                "alfProp": "ARC_DOC_ID = '${connexasArchivelink:sapid}'",
+                "type": "string"
+            }
+        ]
+    ]
+}
+```
+##### ***Property `exportParams`*** {#gx_rfc_prop_functionmodule_exportparams}
+This property is a nested element of [`functionModule` / `functionModule`](#gx_rfc_prop_functionmodule) and is an array which holds a list of objects with all export parameter provided by the *SAP Function Module*. 
+
+Property | Type | Example Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`paramType`** | String | `struct` or<br/>`parameter` or<br/>`dynamicExportTable` or<br/>`exportTable` | The type of the export parameter.
+**`name`** | String | *DATA* | The name of the export parameter in the SAP Function Module. 
+**`content`** | Object | | Dependend on the value of property `paramType` above, this property defines to which property in Content Services the return value should be stored.<br/>**[Refer to `content` when `paramType=struct`](#gx_rfc_prop_functionmodule_exportparams_content_struct)**<br/>**[Refer to `content` when `paramType=parameter`](#gx_rfc_prop_functionmodule_exportparams_content_parameter)**<br/>**[Refer to `content` when `paramType=dynamicExportTable`](#gx_rfc_prop_functionmodule_exportparams_content_dynamicexporttable)**<br/>**[Refer to `content` when `paramType=exportTable`](#gx_rfc_prop_functionmodule_exportparams_content_exporttable)**
+
+
+##### ***Property `content` when `paramType = struct`*** {#gx_rfc_prop_functionmodule_exportparams_content_struct}
+This property holds an array of parameters. Each parameter can be of type `struct`, `parameter` or `dynamicExportTable` or `exportTable`.
+
+Example:
+```
+{
+    "paramType": "struct",
+    "name": "DATA_GENERAL_EXP",
+    "content": [
+        {
+            "sapProp": "DESCRIPT",
+            "alfProp": "cm:description",
+            "type": "string"
+        }
+    ]
+}
+```
+##### ***Property `content` when `paramType = parameter`*** {#gx_rfc_prop_functionmodule_exportparams_content_parameter}
+This property is an object containing the following keys which are responsible to store the return value from the SAP export paramter to the Alfresco document.
+
+Property | Type | Example Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`alfProp`** | String | *connexasArchivelink:archiveid* | The name of the property in Alfresco where its value will be used for the export parameter in SAP.
+**`type`** | String | `string` or<br/>`date` or<br/> `int` or<br/> `datetime` or<br/> `boolean` or<br/> `const`| The Alfresco content model type for `alfProp`. 
+**`format`** | String | *ddmmYY* | Optional. If `type` is `date` or `datetime` this can be used to convert a string (returned from SAP) to a date (use Java date format strings) that is stored in the Alfresco content model. 
+
+Example:
+ ```
+{
+    "paramType": "parameter",
+    "name": "QUERY_TABLE",
+    "content": {
+        "alfProp": "connexasArchivelink:creationdate",
+        "type": "datetime",
+        "format": "yyyy-MM-dd HH:mm:ss"
+    }
+}
+ ```
+##### ***Property `content` when `paramType = dynamicExportTable`*** {#gx_rfc_prop_functionmodule_exportparams_content_dynamicexporttable}
+
+Property | Type | Example Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`alfProp`** | String | *cm:name* | The name of the property in Alfresco where its value will be used for the export parameter in SAP.|
+**`type`** | String | `string` or<br/>`date` or<br/> `int` or<br/> `datetime` or<br/> `boolean` | The Alfresco content model type for `alfProp`.| 
+**`sapPropStart`** | int | *123* | Begin index to read the value from the SAP cell.|
+**`sapPropEnd`** | int | *145* | End index for the value.|
+**`format`** | String | *ddmmYY* | Optional. If `type` is `date` this can be used to format the date (use Java date format strings).|
+
+Example:
+```
+{
+    "paramType": "dynamicExportTable",
+    "name": "DATA",
+    "content": [ {
+            "alfProp": "cm:name",
+            "type": "string"
+            "sapPropStart": 123,
+            "sapPropEnd": 145,
+        }
+    ]
+}
+```
+
+##### ***Property `content` when `paramType = exportTable`*** {#gx_rfc_prop_functionmodule_exportparams_content_exporttable}
+This property is an object containing the following keys which are responsible to store the defined columns of the first row returned from the SAP export table.
+
+Property | Type | Example Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`sapProp`** | String | *OBJECT_ID* | The name of the SAP table column.
+**`alfProp`** | String | *connexasReplicate:sapobjectid* | The name of the property in Alfresco where its value will be used for the export parameter in SAP.
+**`type`** | String | `string` or<br/>`date` or<br/> `int` or<br/> `datetime` or<br/> `boolean` or<br/> `const`| The Alfresco content model type for `alfProp`. 
+**`format`** | String | *yyyy-MM-dd* | Optional. If `type` is `date` or `datetime` this can be used to convert a string (returned from SAP) to a date (use Java date format strings) that is stored in the Alfresco content model. 
+
+Example: 
+```
+{
+    "paramType": "exportTable",
+    "name": "CONNECTIONS",
+    "content": [
+        {
+            "sapProp": "OBJECT_ID",
+            "alfProp": "connexasReplicate:sapobjectid",
+            "type": "string"
+        },
+        {
+            "sapProp": "AR_OBJECT",
+            "alfProp": "connexasReplicate:saparchiveobject",
+            "type": "string"
+        },
+        {
+            "sapProp": "AR_DATE",
+            "alfProp": "connexasReplicate:archiveDate",
+            "type": "date",
+            "format": "yyyy-MM-dd"
+        }
+    ]
+}
 ```
