@@ -25,8 +25,9 @@ If the data exchange should happen via OData services, the properties in the bel
 It is possible to have up to 100 different Jobs, where each can invoke a separate OData service. This can be accomplished by duplicating the both properties and increasing the number within the key names.
 
 ### Settings for RFC/SNC {#gx_basic_rfc}
-If the data exchange should happen via RFC/SNC by calling a SAP function module, the following properties must be added:
+If the data exchange should happen via RFC/SNC by calling a SAP function module with the SAP JavaConnector, the properties in the table must be added.
 
+> **Note:** To invoke function modules with the SAP JavaConnector, there is a need to have the required native libraries from SAP available. This must be [downloaded from the SAP Support portal](https://docs.alfresco.com/sap/latest/install/#download-files) for the current system architecture.  
 
 | Property Key|Description|
 | -------------|-------------|
@@ -41,7 +42,7 @@ If the data exchange should happen via RFC/SNC by calling a SAP function module,
 |`genericXchange.rfc.sap.system.1.language`|The SAP system language used to login Example value: `EN` or `DE`|
 
 
-> **Note:** It is also possible to have up to 100 configurations, where each can invoke a separate configuration file in Content Services. This can be accomplished by duplicating all properties above and increasing the number within the key names.
+> **Note:** For both, OData and RFC/SNC, it is possible to have up to 100 separate configurations, where each can invoke a separate configuration file in Content Services. This can be accomplished by duplicating all properties above and increasing the number within the key names.
 
 ### Prepare Content Services {#gx_basic_prepare_acs}
 Once the related settings in the `alfresco-global.properties` are applied, check whether the following folder exists in Content Services: 
@@ -79,7 +80,6 @@ A JSON file with name `rfcJob.`**1**`.json` is mapped to all keys starting with 
 ## Configuration {#gx_job_config}
 Configuration options for the Jobs JSON file(s).
 
-
 ### Job JSON {#gx_job_json}
 The following table lists all available settings for the `restJob.1.json` (= OData) respective `rfcJob.1.json`. The column **`Required For`** specifies for which type (either OData or RFC or All) the setting must be present in the JSON configuration file.
 
@@ -93,8 +93,8 @@ Property | Type | `Required For` |Value(s) | Description
 **`functionModule`** / **`functionModules`**| Object | RFC | ***[Refer to Property `functionModule`](#gx_rfc_prop_functionmodule)*** | Defines the request to call the OData service with all necessary parameter.|
 **`request`**| Object |OData| ***[Refer to Property `request`](#gx_odata_prop_request)*** | Defines the request to call the OData service with all necessary parameter.|
 **`response`**| Object |OData| ***[Refer to Property `response`](#gx_odata_prop_request)*** | Defines the mapping between each property of the OData call result and the property in Content Services.|
-**`error`** | Object<br/> |All| ***[Refer to Property `error`](#gx_prop_error)*** | ***Optional Property.*** Handles the errors which might be returned by the `request` above. [Refer to specification of property `error`](#gx_prop_error).|
-**`success`** | Object |All| ***[Refer to Property `success`](#gx_prop_success)*** | ***Optional Property.*** Handles the success messages which might be returned by the `request`. [Refer to specification of property `success`](#gx_prop_success).|
+**`error`** | Object<br/> |All| ***[Refer to Property `error`](#gx_prop_error)*** | ***Optional Property.*** Handles the errors which might be returned by the `request` or `functionModule`.|
+**`success`** | Object |All| ***[Refer to Property `success`](#gx_prop_success)*** | ***Optional Property.*** Handles the success messages which might be returned by the `request`or `functionModule`.|
 
 #### Property Specification
 This section contains the detailed Object definitions for the *Value(s)* column of the [tables above]({#gx_job_json}).
@@ -175,11 +175,11 @@ Property | Type | Example Value(s) | Description
 **`credentials`** | Object |  | Username and Passwort to login to the SAP Cloud.|
 
 ##### ***Property for `endpoint`*** {#gx_odata_prop_request_endpoint} 
-This property is a nested element of [`request`](#gx_odata_prop_request).
+This property is a child element of [`request`](#gx_odata_prop_request).
 
 > **Note:** Only OData services are supported that can return a JSON response.
 
-Nested properties for `endpoint` | Type | Example Value(s)| Description
+Properties for `endpoint` | Type | Example Value(s)| Description
 ------------ | ------------- | ------------- | ------------
 **`url`** | String | *\<mysapcloud\>.com/sap/opu/odata/sap/* | The name of the OData service endoint. To pass values from the current document in Content Services, use placeholders such as `{1}`, `{2}`,... These placeholders will be subsituted with the values of the defined property specified in `substitutions`. Refer to example below.|
 **`substitutions`** | Object | *"alfProp": "sapbo:Product:Product"* |Substitutions for the placeholder used in the `url` above. **Note:** It starts with index = 1 and they are replaced in the given order!|
@@ -237,7 +237,7 @@ Property | Type | Example Value(s) | Description
 **`exportParams`** | Object | ***[Refer to property `exportParams`](gx_rfc_prop_functionmodule_exportparams)*** | List of export parameter from the function module that should be used to store its values in Content Services.
 
 ##### ***Property `importParams`*** {#gx_rfc_prop_functionmodule_importparams}
-This property is a nested element of [`functionModule` / `functionModule`](#gx_rfc_prop_functionmodule) and is an array which holds a list of objects with all required import parameter of the *SAP Function Module* that should be used. 
+This property is a child element of [`functionModule` / `functionModule`](#gx_rfc_prop_functionmodule) and is an array which holds a list of objects with all required import parameter of the *SAP Function Module* that should be used. 
 
 Property | Type | Example Value(s) | Description
 ------------ | ------------- | ------------ | ------------
@@ -315,7 +315,7 @@ Example:
 }
 ```
 ##### ***Property `exportParams`*** {#gx_rfc_prop_functionmodule_exportparams}
-This property is a nested element of [`functionModule` / `functionModule`](#gx_rfc_prop_functionmodule) and is an array which holds a list of objects with all export parameter provided by the *SAP Function Module*. 
+This property is a child element of [`functionModule` / `functionModule`](#gx_rfc_prop_functionmodule) and is an array which holds a list of objects with all export parameter provided by the *SAP Function Module*. 
 
 Property | Type | Example Value(s) | Description
 ------------ | ------------- | ------------ | ------------

@@ -20,11 +20,14 @@ You also need to [install a valid license](#install-license) for the SAP Cloud C
 
 The SAP Cloud Connector is packaged as an {% include tooltip.html word="AMP" text="AMP" %} file. These steps describe how to install the SAP Cloud Connector to an instance of Content Services.
 
-1. Go to the [Hyland/Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, and then download the Alfresco Content Connector for SAP Cloud delivery package. It is provided as a ZIP-file and contains at least the following two {% include tooltip.html word="AMP" text="AMP" %} files:
+1. Go to the [Hyland/Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}, and then download the Alfresco Content Connector for SAP Cloud delivery package. It is provided as a ZIP-file and contains at least the following files:
 
-* `sap-content-connector-cmis-repo-1.2.x.amp` for Content Services. This module contains the business logic for the SAP Cloud Connector.
-* `sap-content-connector-genericXchange-1.x.x.amp` for Content Services. This module contains the business logic for the additional, full flexible data exchange. Refer to the [GenericXchange]({% link sap-cloud/latest/config/genericxchange.md %}) section.
+* Module `sap-content-connector-cmis-repo-1.2.x.amp` for Content Services. It contains the business logic for the SAP Cloud Connector.
+* Module `sap-content-connector-genericXchange-1.x.x.amp` for Content Services. It contains the business logic for the additional data exchange. Refer to the [GenericXchange]({% link sap-cloud/latest/config/genericxchange.md %}) section.
+* `alfresco-global.properties_append` template for required keys to be appended to the current alfresco-global.properties if in GenericXchange is used.
+* `sap-content-connector-jco-packer-x.x` only required if the GenericXchange should be used with RFC (SAP JavaConnector). Refer to [Re-package the repository AMP](https://docs.alfresco.com/sap/latest/install/#re-package-the-repository-amp).
 
+To install the two {% include tooltip.html word="AMP" text="AMP" %} files from the delivery package:
 1. Use the Module Management Tool (MMT) to install both repository AMP files into the repository WAR (`alfresco.war`).
 
     For more information, see [Using the Module Management Tool (MMT)]({% link content-services/latest/develop/extension-packaging.md %}#using-the-module-management-tool-mmt) and [Installing an Alfresco Module Package]({% link content-services/latest/install/zip/amp.md %}).
