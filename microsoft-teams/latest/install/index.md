@@ -25,6 +25,11 @@ an app for both iOS and Android.
 The installation of Alfresco Collaboration Connector for Teams involves a number of steps, starting with the installation
 of Alfresco Content Services, Alfresco Identity Service, and Alfresco Digital Workspace.
 
+### Overview
+The following picture illustrates the components involved in this solution:
+
+![Alf Collab Conn for Teams overview]({% link microsoft-teams/images/collaboration-connector-teams-overview.png %})
+
 ### Install Content Services including UI
 Install [Alfresco Content Services]({% link content-services/latest/install/index.md %}),
 [Alfresco Digital Workspace]({% link digital-workspace/latest/install/index.md %}), and
@@ -75,15 +80,16 @@ and configure the OAuth connection to the Alfresco Digital Workspace (ADW) follo
      ![Bot Creation Checks passed]({% link microsoft-teams/images/azure-bot-deployment-complete.png %})
    * When complete, click on **Go to resource**.
    * Click on the **Configuration** menu item to the left under *Settings*.
-   * Set **Messaging endpoint** to `https://{my.domain}/api/messages`. This is the URL 
+   * Set **Messaging endpoint** to `https://{my.domain}/{teams-service-path}/api/messages`. This is the URL 
      that the Alfresco Collaboration Connector for Teams is exposed on. [See below](#install-conn-for-teams).
      >For example: `https://develop.mycompany.com/ms-teams-service/api/messages`
    * Copy your *Microsoft App ID*. For example: `9af7ae3a-1798-4de7-a992-c3ac489e5324`
-     We later refer to this secret app identifier as `MS_BOT_APP_ID`.
+     We later refer to this app identifier as `MS_BOT_APP_ID`.
    * Click **Apply** to save configuration.
 
 3. Configure the OAuth connection to the ADW
-
+   For more information about user authentication see this article](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0){:target="_blank"}.
+   
    In the configuration screen:
 
    ![Bot config]({% link microsoft-teams/images/azure-bot-configuration.png %})
@@ -94,9 +100,9 @@ and configure the OAuth connection to the Alfresco Digital Workspace (ADW) follo
 
    |Property|Description|Value|
    |--------|-----------|-----|
-   |Name|The name of your connection|Your name for the connection. Such as `alfresco-teams-integration`|
+   |Name|The name of your connection|Typically this is set to `alfresco` - when changed it must be reflected in `microsoft.app.oauth.connection-name` app property when running [Alfresco Collaboration Connector for Teams](#install-conn-for-teams).|
    |Service Provider|Identity provider type|From the drop-down list, select `Oauth 2 Generic Provider`|
-   |Client ID|Identity provider app ID|Typically: `alfresco` - when changed must be reflected in `microsoft.app.oauth.connection-name` app property|
+   |Client ID|Refers to the name of the OAuth client in Keycloak (OAuth) configuration in Alfresco Identity Service.|Typically `alfresco`|
    |Client secret|OAuth client secret (if client access is not public), otherwise this field must be filled but the value is irrelevant|random string|
    |Scope List Delimiter|The character to use between scope values (often a space or comma)|, `<enter comma>`|
    |Authorization URL Template|Authorization endpoint URL|`https://{my.domain}/auth/realms/alfresco/protocol/openid-connect/auth`|
@@ -131,8 +137,8 @@ and configure the OAuth connection to the Alfresco Digital Workspace (ADW) follo
    If you already had a [bot secret](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-basics?view=azure-bot-service-4.0#managing-bot-resources){:target="_blank"}
    but lost it, then skip this section and proceed directly to **6. Already had a bot secret**.
 
-   This secret is important. It will be the secret that you provide in your `.env` file later. It is not to be confused
-   with the Oath client secret used above.
+   This secret is important and is not to be confused with the Oath client secret used above. It is one of the mandatory 
+   properties when [starting](#install-conn-for-teams) the Collaboration Connector for Teams bot service.
 
    * In the top-most search bar type in `vault` and click on [**Key vaults**](https://docs.microsoft.com/en-us/azure/key-vault/general/overview){:target="_blank"}.
    * Click on the item with a name starting with `bot-secrets-*`.
@@ -157,7 +163,7 @@ and configure the OAuth connection to the Alfresco Digital Workspace (ADW) follo
    * Click **add**.
    * Now your secret value should be visible. Copy and keep it safe as you only get one chance to see its value.
 
-### Install Collaboration Connector for Teams with zip {#install-conn-for-teams}
+### Install Collaboration Connector for Teams bot service {#install-conn-for-teams}
 The Alfresco Collaboration Connector for Teams zip file includes all the files required to install the connector.
 
 1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}, download `alfresco-ms-teams-integration-distribution-1.x.x.zip` and extract the contents:
@@ -186,8 +192,9 @@ The Alfresco Collaboration Connector for Teams zip file includes all the files r
    This URL should be the same as the one used when setting the Messaging Endpoint in the [Azure Bot registration](#azure-bot-registration) above.
 
 ### Create a Teams App Manifest zip {#create-teams-integ-app-manifest}
-Installation of MS Teams Extensions needs a ZIPped manifest file. A sample one is placed in `teamsManifest` directory 
-inside distribution ZIP. It looks something like this:
+Installation of MS Teams Extensions needs a [manifest.json](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema){:target="_blank"} 
+file contained in a ZIP. A sample one is available in the `teamsManifest` directory in the distribution ZIP. It looks 
+something like this:
 
 ```json
 {
@@ -262,8 +269,8 @@ inside distribution ZIP. It looks something like this:
 }
 ```
 
-There are a couple of changes you need to do to configure the app for your environment. In particular, following entries 
-need to be replaced with customer specific values:
+There are a couple of changes you need to do to configure the app for your MS Teams environment. In particular, 
+following entries need to be replaced with customer specific values:
 
 * `<MS_APP_ID>` - is the Azure Bot application identifier created when registering the Azure bot [earlier on](#azure-bot-registration), looks something like `9af7ae3a-1798-4de7-a992-c3ac489e5324`  
 * `<YOUR_DOMAIN_URL>` - is the base URL of the Content Services installation. For example, `https://{my.domain}`
@@ -286,7 +293,9 @@ In the Teams Client (e.g. webapp / desktop) do the following:
 3. Pick the manifest zip archive, the following screen should be displayed  
    ![MS Teams Integration App loading]({% link microsoft-teams/images/ms-teams-integ-app-loading.png %})
 4. Click **Add**
-5. You should see the app and be asked to login:
+5. You should see the app with the search bar:
+   ![MS Teams Integration App Search]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog.png %})
+6. If you search for something it will ask you to login, use your Alfresco credentials.
 
 >**Note:** A common error when uploading manifest zip with wrong layout: "Error while extracting package: Please ensure there are no folders in your app package and that
 your app package contains only the manifest.json and the two required icon files at its root level.
