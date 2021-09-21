@@ -25,6 +25,7 @@ integrations:
     centera: "Content Connector for EMC Centera"
     salesforce: "Content Connector for Salesforce"
     sap: "Content Connector for SAP"
+    sap-cloud: "Content Connector for SAP Cloud"
     microsoft-365: "Collaboration Connector for Microsoft 365"
     microsoft-outlook: "Outlook Integration"
     microsoft-office: "Office Services"

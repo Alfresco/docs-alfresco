@@ -34,9 +34,9 @@ These steps describe how to install Federation Services to an instance of Alfres
     This should include the following:
 
     * `federation.war`: Simflofy Admin application
-    * `t-search-2.7.8.war`: Federated search application
-    * `transparent-content-services-platform-2.7.8-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to the Alfresco Content Services repository)
-    * `transparent-content-services-share-2.7.8-RELEASE.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to Alfresco Share)
+    * `t-search-3.0.0.6.war`: Federated search application
+    * `transparent-content-services-platform-3.0.0.6.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to the Alfresco Content Services repository)
+    * `transparent-content-services-share-3.0.0.6.jar`: Transparent Content Services (TCS) JAR module for Manage-In-Place (to be applied to Alfresco Share)
 
 2. Follow the steps in the Simflofy documentation, [Installing Simflofy Admin](https://simflofy.helpdocsonline.com/iandc/install){:target="_blank"}.
 

@@ -7,7 +7,7 @@
       path: '/support/latest/packages/'
     - title: 'Roles and Responsibilities'
       path: '/support/latest/roles/'
-    - title: 'Contact Alfresco Support'
+    - title: 'Contact Hyland Support'
       path: '/support/latest/contact/'
       pages:
         - title: 'Support Issue Resources and Case Logging'

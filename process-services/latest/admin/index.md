@@ -96,7 +96,7 @@ The database for the Administrator app is configured using the following propert
 For example (using MySQL):
 
 ```text
-datasource.driver=com.mysql.jdbc.Driver
+com.mysql.cj.jdbc.Driver
 datasource.url=jdbc:mysql://127.0.0.1:3306/activitiadmin?characterEncoding=UTF-8
 datasource.username=alfresco
 datasource.password=alfresco

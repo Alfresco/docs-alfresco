@@ -138,6 +138,56 @@ Note that the [VERSIONS.md](https://github.com/Alfresco/acs-packaging/blob/maste
 
 You can review the requirements for your chosen deployment method below.
 
+### IPTC Content Model bootstrapping (OPTIONAL) {#iptc-model-bootstrap}
+
+If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction, then you need to
+bootstrap the IPTC Content Model manually into Content Services.
+
+The files for this content model can be downloaded from the
+[Alfresco Transform Core GitHub project](https://github.com/Alfresco/alfresco-transform-core/tree/master/models){:target="_blank"}.
+You need both the Content Model XML and the associated i18n property files for different languages.
+
+#### Docker Compose IPTC Content Model bootstrapping
+
+Place the IPTC Content Model files in a subfolder from where the `docker-compose.yml` file is located.
+Such as in the following example:
+
+```bash
+- docker-compose.yml
+- models
+  - iptc
+    - iptc-model.properties
+    ...
+  - iptc-model-context.xml
+```
+
+Then update the `docker-compose.yml` file with the model:
+
+```xml
+...
+services:
+    alfresco:
+        image: ...
+        mem_limit: 1700m
+        environment:
+            JAVA_TOOL_OPTIONS: "
+            ...
+                "
+            JAVA_OPTS: "
+            ...                
+            "
+        volumes:
+            - ./models/iptc-model-context.xml:/usr/local/tomcat/shared/classes/alfresco/extension/iptc-model-context.xml
+            - ./models/iptc:/usr/local/tomcat/shared/classes/alfresco/extension/models/iptc     
+```
+
+You are adding the 3 last lines setting up volume mappings.
+
+#### Helm IPTC Content Model bootstrapping
+
+Before installing with Helm charts you need to [produce a custom Repository Docker image]({% link content-services/latest/install/containers/customize.md %})
+with the IPTC Content Model. Then update the Helm charts to use this image.
+
 ### Helm charts
 
 To deploy Content Services using Helm charts, you need to install the following software:

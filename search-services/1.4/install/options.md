@@ -17,8 +17,8 @@ This task assumes you have:
 
     ```text
     index.subsystem.name=solr6
-    solr.secureComms=none
-    solr.port=8983
+    solr.secureComms=https
+    solr.port.ssl=8983
     ```
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.

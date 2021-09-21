@@ -194,7 +194,7 @@ Ensure you have read the [supported platforms]({% link process-services/latest/s
         For example:
 
         ```text
-        datasource.driver=com.mysql.jdbc.Driver
+        com.mysql.cj.jdbc.Driver
         datasource.url=jdbc:mysql://127.0.0.1:3306/activiti?characterEncoding=UTF-8
         datasource.username=alfresco
         datasource.password=alfresco
@@ -278,7 +278,7 @@ Ensure you have read the [supported platforms]({% link process-services/latest/s
         For example:
 
         ```text
-        datasource.driver=com.mysql.jdbc.Driver
+        com.mysql.cj.jdbc.Driver
         datasource.url=jdbc:mysql://127.0.0.1:3306/activitiadmin?characterEncoding=UTF-8
         datasource.username=alfresco
         datasource.password=alfresco

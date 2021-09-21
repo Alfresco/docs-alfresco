@@ -75,7 +75,7 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
     2. Add the following Connector:
 
         ```xml
-        <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
+        <Connector port="8443" protocol="HTTP/1.1"
             SSLEnabled="true" maxThreads="150" scheme="https"
             keystoreFile="xxxxx"
             keystorePass="password" keystoreType="JCEKS"
@@ -88,6 +88,8 @@ The installation directory for Tomcat is represented as `<TOMCAT_HOME>`.
         > **Note:** The keystore and truststore file locations in the above example will be created later, when you install and configure Alfresco Search Services.
 
         > **Note:** If you're using a different keystore or truststore type other than the default, `JCEKS`, you must change the value in the properties file.
+
+        > **Note:** In Tomcat versions prior to 9 it was possible to use `org.apache.coyote.http11.Http11Protocol` as the protocol value, but now it has been removed. If you are using configuration from an old instance using a Tomcat version before 9, you need to update the connector protocol value.
 
 8. Save the `server.xml` file.
 
@@ -110,7 +112,6 @@ The Content Services distribution file is a zip containing the required WAR file
     You'll see the following directory structure - details are described [later](#directory-structure).
 
     ```bash
-    alfresco-pdf-renderer
     amps
     bin
     licenses
@@ -193,9 +194,6 @@ After you've extracted the Content Services distribution zip, several directorie
 
 | Folder | File/Sub-folder | Description |
 | ------ | --------------- | ----------- |
-| alfresco-pdf-renderer | `alfresco-pdf-renderer-1.0-linux.tgz` | Binary file for Linux |
-| | `alfresco-pdf-renderer-1.0-win64.tgz` | Binary file for Windows |
-| | | |
 | amps | `alfresco-share-services.amp` | Contains Alfresco Share AMP |
 | | | |
 | bin | `alfresco-spring-encryptor.jar` | Alfresco Encrypted Properties Management Tool |

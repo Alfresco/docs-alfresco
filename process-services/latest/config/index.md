@@ -106,7 +106,7 @@ Also, some additional properties are made available which can be configured to f
 
 ```text
 cors.enabled=false
-cors.allowed.origins=*
+cors.allowed.origin.patterns=*
 cors.allowed.methods=GET,POST,HEAD,OPTIONS,PUT,DELETE
 cors.allowed.headers=Authorization,Content-Type,Cache-Control,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-CSRF-Token
 cors.exposed.headers=Access-Control-Allow-Origin,Access-Control-Allow-Credentials
@@ -115,7 +115,8 @@ cors.support.credentials=truecors.preflight.maxage=10
 
 |Property|Description|
 |--------|-----------|
-|cors.allowed.origins|Specifies the hosts allowed in cross origin requests. By default, the value is set to `*`, which permits clients hosted on any server to access the resources. Alternatively, you can specify a host, for example, `http://www.example.org:8080`, which will only allow requests from this host.<br><br>Multiple entries or wildcards are not allowed for this setting.<br><br>In general, it is recommended to restrict `{{allowedOrigins}}` to only allow origins within your organization to make requests.|
+|cors.allowed.origins|Specifies A list of origins for which cross-origin requests are permitted. A value specified may be a specific domain, e.g `https://domain32.com`, or the CORS defined special value `*` for all origins. For matched pre-flight and actual requests the Access-Control-Allow-Origin response header can be either be the matched domain value or to `*`. **Note:** The CORS spec does not allow `*` when `allowCredentials` is set to `true` and `cors.allowed.origin.patterns` should be used instead.|
+|cors.allowed.origin.patterns|Alternative to `cors.allowed.origins` supports the more flexible origins patterns and `*` can be used anywhere in the host name in addition to port lists. For example: `https://*.domain32.com` domains ending with `domain32.com`, `https://*.domain32.com:[8080,8081]` domains ending with `domain32.com` on port `8080` or port `8081`, and `https://*.domain32.com:[*]`- domains ending with domain32.com on any port, including the default port. In contrast to `cors.allowed.origins` which only supports `*` and cannot be used with `allowCredentials`, when a `cors.allowed.origin.patterns` is matched, the Access-Control-Allow-Origin response header is set to the matched origin and not `*` including the pattern. `cors.allowed.origin.patterns` can be used together with `setAllowCredentials(java.lang.Boolean)` set to true.|
 |cors.allowed.methods|Configures which HTTP requests are permitted. GET, POST, HEAD, OPTIONS, PUT, DELETE|
 |cors.allowed.headers|Specifies the headers that can be set manually or programmatically in the request headers in addition to the ones set by the user agent (for example, Connection). The default values are: <br><br>Authorization<br><br>Content-Type<br><br>Cache-Control<br><br>X-Requested-With<br><br>Accept<br><br>Origin<br><br>Access-Control-Request-Method<br><br>Access-Control-Request-Headers<br><br>X-CSRF-Token|
 |cors.exposed.headers|Allows you to whitelist the headers that the client can access from the server. The default value exposes the following headers:<br><br>Access-Control-Allow-Origin<br><br>Access-Control-Allow-Credentials|

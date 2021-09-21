@@ -1,5 +1,5 @@
 # Alfresco Content Connector for Salesforce 
-- version: 2.2
+- version: 2.3
   pages:
     - title: 'Introduction'
       path: '/salesforce/latest/'
@@ -13,8 +13,26 @@
           path: '/salesforce/latest/using/'
         - title: 'Recommended content'
           path: '/salesforce/latest/using/recommend/'
+        - title: 'Salesforce Community'
+          path: '/salesforce/latest/using/community/'
         - title: 'Troubleshoot'
           path: '/salesforce/latest/using/troubleshoot/'
+- version: 2.2
+  pages:
+    - title: 'Introduction'
+      path: '/salesforce/2.2/'
+    - title: "Install"
+      path: '/salesforce/2.2/install/'
+    - title: "Configure"
+      path: '/salesforce/2.2/config/'
+    - title: 'Using'
+      pages:
+        - title: 'Overview'
+          path: '/salesforce/2.2/using/'
+        - title: 'Recommended content'
+          path: '/salesforce/2.2/using/recommend/'
+        - title: 'Troubleshoot'
+          path: '/salesforce/2.2/using/troubleshoot/'
 - version: 2.1
   pages:
     - title: 'Introduction'

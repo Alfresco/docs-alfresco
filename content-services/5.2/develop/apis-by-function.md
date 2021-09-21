@@ -39,12 +39,7 @@ Actions are units of work that can be carried out on a node. Usually they are fi
 |CMIS ReST API|Not Available|
 |Mobile SDK (iOS)|Not Available|
 |Mobile SDK (Android)|Not Available|
-|More Information|-   [Actions platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/repo-actions.md %}).
--   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
-
-|
-
-
+|More Information|-   [Actions platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/repo-actions.md %}).<br>-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).|
 
 ## Files and Folders
 
@@ -52,16 +47,11 @@ Files (Documents) and Folders (Containers) are fundamental units within the repo
 
 |Information|Files and Folders|
 |-----------|-----------------|
-|Java API|This API exposes the [FileFolderService]({% link content-services/5.2/develop/api-reference.md %}#filefolderservice) as a way of managing folders and files. For more info see the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/model/FileFolderService.html). To search for folders and files use the [SearchService]({% link content-services/5.2/develop/java-api-guide.md %}#searchservice), see also the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/search/SearchService.html) (note. `FileFolderService` contains `search` methods that are deprecated).|
+|Java API|This API exposes the [FileFolderService]({% link content-services/5.2/develop/api-reference.md %}#filefolderservice) as a way of managing folders and files. For more info see the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/model/FileFolderService.html). To search for folders and files use the [SearchService]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}#searchservice), see also the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/search/SearchService.html) (note. `FileFolderService` contains `search` methods that are deprecated).|
 |Repository JavaScript API|In JavaScript there are many objects and methods for working with files and folders. For example, the `companyhome` root object has a `children` property that returns child nodes. See the [JavaScript API Documentation]({% link content-services/5.2/develop/api-reference.md %}#scripting-api) for more information.|
 |Alfresco ReST API|The Alfresco ReST API can be used to manage folders, files, comments, etc. See the [Managing Folders and Files ReST API documentation.]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}).|
-|CMIS ReST API|The preferred way to access folders and files in Alfresco is via the Alfresco ReST API. However, if your requirements are to use an open standard, then have a look at [OASIS Content Management Interoperability Services (CMIS)](https://www.oasis-open.org/committees/cmis/). See the [CMIS Getting Started]({% link content-services/5.2/develop/cmis-api-guide.md %}#getting-started) section to get going with the CMIS ReST API. This information covers the ATOM binding where you work with XML. If you prefer to work with JSON, then have a look at the [Browser binding]({% link content-services/5.2/develop/api-reference.md %}#cmis-1.1) available in CMIS 1.1.If you are developing a remote client in Java and want to use CMIS, then have a look at the [OpenCMIS](http://chemistry.apache.org/java/developing/index.html) Java Library.
-
-|
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
-
-|
-
+|CMIS ReST API|The preferred way to access folders and files in Alfresco is via the Alfresco ReST API. However, if your requirements are to use an open standard, then have a look at [OASIS Content Management Interoperability Services (CMIS)](https://www.oasis-open.org/committees/cmis/). See the [CMIS API]({% link content-services/5.2/develop/reference/cmis-ref.md %}) section to get going with the CMIS ReST API. This information covers the ATOM binding where you work with XML.<br><br>If you prefer to work with JSON, then have a look at the [Browser binding]({% link content-services/5.2/develop/api-reference.md %}#cmis-1.1) available in CMIS 1.1.<br><br>If you are developing a remote client in Java and want to use CMIS, then have a look at the [OpenCMIS](http://chemistry.apache.org/java/developing/index.html) Java Library.|
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).|
 
 ## Nodes
 
@@ -69,16 +59,11 @@ The core data structure in the repository is called a node. Each piece of conten
 
 |Information|Nodes|
 |-----------|-----|
-|Public Java API|This API exposes the [NodeService]({% link content-services/5.2/develop/api-reference.md %}#nodeservice) as a way of managing nodes. To search for nodes use the [SearchService]({% link content-services/5.2/develop/java-api-guide.md %}#searchservice).|
+|Public Java API|This API exposes the [NodeService]({% link content-services/5.2/develop/api-reference.md %}#nodeservice) as a way of managing nodes. To search for nodes use the [SearchService]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}#searchservice).|
 |Repository JavaScript API|You can find nodes using the [Search API]({% link content-services/5.2/develop/api-reference.md %}#search-api), and then manipulate individual nodes using the [ScriptNode API]({% link content-services/5.2/develop/api-reference.md %}#scriptnode-api)|
 |Alfresco ReST API|The Alfresco ReST API can be used to access different types of nodes, such as folders, files, tags, comments, and ratings. See the [Managing Folders and Files ReST API documentation.]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}).|
-|CMIS ReST API|The preferred way to access nodes in Alfresco is via the Alfresco ReST API. However, if your requirements are to use an open standard, then have a look at [OASIS Content Management Interoperability Services (CMIS)](https://www.oasis-open.org/committees/cmis/). See the [CMIS Getting Started]({% link content-services/5.2/develop/cmis-api-guide.md %}#getting-started) section to get going with the CMIS ReST API. This information covers the ATOM binding where you work with XML. If you prefer to work with JSON, then have a look at the [Browser binding]({% link content-services/5.2/develop/api-reference.md %}#cmis-1.1) available in CMIS 1.1.If you are developing a remote client in Java and want to use CMIS, then have a look at the [OpenCMIS](http://chemistry.apache.org/java/developing/index.html) Java Library.
-
-|
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
--   [Custom Content Store platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/content-stores.md %}#content-stores)|
-
-
+|CMIS ReST API|The preferred way to access nodes in Alfresco is via the Alfresco ReST API. However, if your requirements are to use an open standard, then have a look at [OASIS Content Management Interoperability Services (CMIS)](https://www.oasis-open.org/committees/cmis/). See the [CMIS API]({% link content-services/5.2/develop/reference/cmis-ref.md %}) section to get going with the CMIS ReST API. This information covers the ATOM binding where you work with XML. If you prefer to work with JSON, then have a look at the [Browser binding]({% link content-services/5.2/develop/api-reference.md %}#cmis-1.1) available in CMIS 1.1. If you are developing a remote client in Java and want to use CMIS, then have a look at the [OpenCMIS  Java Library](http://chemistry.apache.org/java/developing/index.html).|
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).<br>-   [Custom Content Store platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/content-stores.md %}#content-stores)|
 
 ## People and Groups
 
@@ -86,15 +71,11 @@ People (i.e. users) and groups are fundamental to a content management system, a
 
 |Information|People & Groups|
 |-----------|---------------|
-|Java API|This API exposes the [PersonService]({% link content-services/5.2/develop/java-api-guide.md %}#personservice) as a way of managing users and groups. For more info see the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/security/PersonService.html).|
+|Java API|This API exposes the [PersonService]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}#personservice) as a way of managing users and groups. For more info see the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/security/PersonService.html).|
 |JavaScript API|Use the `people` root object to manage users and groups, for more info see the [People JavaScript API Documentation]({% link content-services/5.2/develop/api-reference.md %}#people-api)|
 |Alfresco ReST API|[People and Groups ReST API User Guide]({% link content-services/5.2/develop/rest-api-guide/people-groups.md %})|
 |CMIS ReST API|Not available|
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
-
-|
-
-
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).|
 
 ## Search
 
@@ -102,17 +83,11 @@ Solr provides indexing of metadata and the plain text of content. This can be qu
 
 |Information|Search|
 |-----------|------|
-|Java API|To search for nodes use the [SearchService]({% link content-services/5.2/develop/java-api-guide.md %}#searchservice), see also the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/search/SearchService.html).|
+|Java API|To search for nodes use the [SearchService]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}#searchservice), see also the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/search/SearchService.html).|
 |JavaScript API|Use the `search` root object, for more info see the [JavaScript API Documentation]({% link content-services/5.2/develop/api-reference.md %}#search-api)|
 |Alfresco ReST API|The Alfresco ReST API provides a number of ways to search for content in the repository, both simple term based search and more complex search on types and aspects. You can search on files and folders, people, sites etc. See the [Search User Guide]({% link content-services/5.2/develop/rest-api-guide/searching.md %}#searching).|
-|CMIS ReST API|The CMIS ReST API has extensive support for searching with the CMIS Query Language (QL). See the [CMIS Getting Started]({% link content-services/5.2/develop/cmis-api-guide.md %}#getting-started) section on how to get going with the CMIS ReST API. This section covers the ATOM binding where you work with XML. If you prefer to work with JSON, then have a look at the [Browser binding]({% link content-services/5.2/develop/api-reference.md %}#cmis-1.1) available in CMIS 1.1.Then look at the [CMIS QL]({% link content-services/5.2/develop/api-reference.md %}#cmis-query) Introduction.
-
-If you are developing a remote client in Java and want to use CMIS for searching, then have a look at the [OpenCMIS](http://chemistry.apache.org/java/developing/index.html) Java Library.|
-|More Information|-   [Search Syntax]({% link content-services/5.2/develop/alfresco-full-text-search-ref.md %}#search-query-syntax-apis). (CMIS, Java, JavaScript)
--   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
-
-|
-
+|CMIS ReST API|The CMIS ReST API has extensive support for searching with the CMIS Query Language (QL). See the [CMIS API]({% link content-services/5.2/develop/reference/cmis-ref.md %}) section on how to get going with the CMIS ReST API. This section covers the ATOM binding where you work with XML. If you prefer to work with JSON, then have a look at the [Browser binding]({% link content-services/5.2/develop/api-reference.md %}#cmis-1.1) available in CMIS 1.1. Then look at the [CMIS QL]({% link content-services/5.2/develop/api-reference.md %}#cmis-query) Introduction.<br>If you are developing a remote client in Java and want to use CMIS for searching, then have a look at the [OpenCMIS](http://chemistry.apache.org/java/developing/index.html) Java Library.|
+|More Information|-   [Search Syntax]({% link content-services/5.2/develop/alfresco-full-text-search-ref.md %}#search-query-syntax-apis). (CMIS, Java, JavaScript)<br>-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).|
 
 ## Sites
 
@@ -120,15 +95,11 @@ Sites provide a way for users to collaborate around content. Content can be orga
 
 |Information|Sites|
 |-----------|-----|
-|Java API|To manage sites use the [SiteService]({% link content-services/5.2/develop/java-api-guide.md %}#siteservice), see also the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/site/SiteService.html).|
+|Java API|To manage sites use the [SiteService]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}#siteservice), see also the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/site/SiteService.html).|
 |JavaScript API|Use the `siteService` and `site` root objects, for more info see the [SiteService JavaScript API]({% link content-services/5.2/develop/api-reference.md %}#site-service)|
 |Alfresco ReST API|The Alfresco ReST API can be used to create and manage sites. See the [Sites ReST API User Guide]({% link content-services/5.2/develop/rest-api-guide/sites.md %})|
 |CMIS ReST API|Not Available|
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
-
-|
-
-
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).|
 
 ## Tags
 
@@ -136,13 +107,11 @@ Tags are simple text labels that are attached to a piece of content, such as a f
 
 |Information|Tags|
 |-----------|----|
-|Java API|To manage content tags use the [TaggingService]({% link content-services/5.2/develop/java-api-guide.md %}#taggingservice), see also the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/tagging/TaggingService.html).|
+|Java API|To manage content tags use the [TaggingService]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}#taggingservice), see also the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/tagging/TaggingService.html).|
 |JavaScript API|Use the `taggingService` root object, for more info see the [Tagging JavaScript API Documentation]({% link content-services/5.2/develop/api-reference.md %}#tagging-service)|
 |Alfresco REST API|The Alfresco ReST API supports managing tags, see the [Tags REST API User Guide]({% link content-services/5.2/develop/rest-api-guide/folders-files.md %}#manage-tags-for-a-folder-or-file).|
 |CMIS ReST API|Not Available|
 |More Information|None|
-
-
 
 ## Workflow
 
@@ -150,10 +119,15 @@ The Activiti workflow engine is built into Alfresco Content Services. It also pr
 
 |Information|Workflow|
 |-----------|--------|
-|Public Java API|To start and manage workflow instances use the [WorkflowService]({% link content-services/5.2/develop/apis-by-function.md %}#workflowservice), see also the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/workflow/WorkflowService.html).|
-|Repository JavaScript API|Use the `workflow` root object, for more info see the [Workflow JavaScrip API documentation]({% link content-services/5.2/develop/api-reference.md %}#workflow-service). Example of how to start a workflow with an attached file:
+|Public Java API|To start and manage workflow instances use the [WorkflowService]({% link content-services/5.2/develop/apis-by-function.md %}#workflowservice), and the [JavaDocs](http://dev.alfresco.com/resource/docs/java/org/alfresco/service/cmr/workflow/WorkflowService.html).|
+|Repository JavaScript API|Use the `workflow` root object - see the [Workflow JavaScript API documentation]({% link content-services/5.2/develop/api-reference.md %}#workflow-service) for more information. See the example of [how to start a workflow with an attached file](#start-workflow).|
+|Alfresco ReST API|The Alfresco ReST API provides APIs for dealing with process definitions, process instances, and tasks. To see the reference documentation for these APIs, and to try them out on the online ReST API explorer, go to [https://api-explorer.alfresco.com/api-explorer](https://api-explorer.alfresco.com/api-explorer). If you have the ReST API explorer running locally, then go to [http://localhost:8080/api-explorer](http://localhost:8080/api-explorer). Now, by default the ReST API Explorer will show the API Definitions for the Core API. You need to switch to the Workflow API definition in the *API definition* drop down box at the top of the page.|
+|CMIS ReST API|Not Available|
+|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}).<br>-   [Workflow platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/index.md %}#workflow)<br>-   [Creating and managing workflows]({% link content-services/5.2/admin/workflows.md %})|
 
-```
+### Example: How to start a workflow with an attached file {#start-workflow}
+
+```java
 var aFile = search.findNode("<NodeRef>");
 var workflowAction = workflow.getDefinitionByName('activiti$some-process-definition-name');
 var package= workflow.createPackage();
@@ -163,13 +137,6 @@ parameters["bpm:workflowDescription"] = "Testing Workflow ";
 parameters["someCustomWorkflowVariable"]="someVal";
 var futureDate = new Date();
 futureDate.setDate(futureDate.getDate() + 7);
-parameters["bpm:workflowDueDate"] = futureDate; 
-workflowAction.startWorkflow(package, parameters);               
+parameters["bpm:workflowDueDate"] = futureDate;
+workflowAction.startWorkflow(package, parameters);
 ```
-
-|
-|Alfresco ReST API|The Alfresco ReST API provides APIs for dealing with process definitions, process instances, and tasks. To see the reference documentation for these APIs, and to try them out on the online ReST API explorer, go to [https://api-explorer.alfresco.com/api-explorer](https://api-explorer.alfresco.com/api-explorer). If you have the ReST API explorer running locally, then go to [http://localhost:8080/api-explorer](http://localhost:8080/api-explorer). Now, by default the ReST API Explorer will show the API Definitions for the Core API. You need to switch to the Workflow API definition in the *API definition* drop down box at the top of the page.|
-|CMIS ReST API|Not Available|
-|More Information|-   [Java API - Access and Transaction Management documentation]({% link content-services/5.2/develop/java-api-guide.md %}#repository-java-api).
--   [Workflow platform extension point documentation]({% link content-services/5.2/develop/repo-ext-points/index.md %}#workflow)
--   [Creating and managing workflows]({% link content-services/5.2/admin/workflows.md %})|

@@ -18,10 +18,6 @@ You're going to add two documents that you created previously to your site.
 
     It's as simple as that. Your documents are now uploaded to the site library.
 
-
-This video shows the steps in the tutorial.
-
-
 ## Creating content {#creating-content}
 
 As well as uploading content, you can also create content right in Alfresco Share.
@@ -53,11 +49,6 @@ As well as uploading content, you can also create content right in Alfresco Shar
 6.  In Alfresco Share, click **More** then **Check In Google Doc**.
 
 7.  Now hover over the new item, click ![Edit]({% link content-services/images/ico-configure.png %}), and type a new name for the item then press ENTER.
-
-
-This video shows the steps in the tutorial.
-
-
 
 ## Using social features {#using-social-features}
 
@@ -104,16 +95,6 @@ There are two ways to add content to Alfresco Share: create new content or uploa
 
 There are different options available depending on whether you're adding files or adding folders.
 
--   [Adding folders](#adding-folders)
--   [Adding files](#adding-files)
-
--   **[Adding folders](#adding-folders)**  
-You can add folders from outside Alfresco Share and create new folders within a site.
--   **[Adding files](#adding-files)**  
-You can add both existing files from outside Alfresco Share and create new files within a site.
-
-
-
 ## Adding folders {#adding-folders}
 
 You can add folders from outside Alfresco Share and create new folders within a site.
@@ -123,15 +104,6 @@ There are three ways to add folders:
 -   Click Create in the Document Library - see [Creating folders](#creating-folders)
 -   Drag and drop folders from your computer - see [Drag and drop folders](#drag-and-drop-folders)
 -   Create folders from templates - see [Creating folders from a template](#creating-folders-from-a-template)
-
--   **[Creating folders](#creating-folders)**  
-The **Library** section of the explorer panel shows the folder structure for the current site. A new site contains just one folder named Documents. Add new folders here.
--   **[Drag and drop folders](#drag-and-drop-folders)**  
-You can drag and drop folders straight from your computer into Alfresco Share.
--   **[Creating folders from a template](#creating-folders-from-a-template)**  
-As well as creating folders from scratch, you can also create folders from templates.
-
-
 
 ## Creating folders {#creating-folders}
 
@@ -153,8 +125,6 @@ The **Library** section of the explorer panel shows the folder structure for the
 
 
 You'll see the new folder in the explorer panel.
-
-
 
 ## Drag and drop folders {#drag-and-drop-folders}
 
@@ -180,7 +150,6 @@ If empty folders exist in the folder structure then they'll also be created when
 
     If you drop files or folders into a location where there's already a file or folder with that name, then they'll be added as another file with "-1" added to their filename.
 
-
 ## Creating folders from a template {#creating-folders-from-a-template}
 
 As well as creating folders from scratch, you can also create folders from templates.
@@ -199,7 +168,6 @@ As well as creating folders from scratch, you can also create folders from templ
 
     A new folder based on the template is added to the document library. If the template contains content and subfolders these will also be replicated in the new folder.
 
-
 ## Adding files {#adding-files}
 
 You can add both existing files from outside Alfresco Share and create new files within a site.
@@ -211,17 +179,6 @@ You can also drag and drop one or more files to the library view - even to a par
 >**Tip:** In **Detailed View** you can drag and drop files into the current library level or directly onto a folder. An arrow will be displayed when the files are correctly positioned over the folder to be dropped. In all other views you can drop files into the current library level only. So if you want to drop them into a specific folder, that folder needs to be open in the library view.
 
 The **Create** menu provides options for creating different kinds of content directly in the library: plain text, HTML, and XML documents, as well as three types of Google Docs content (documents, spreadsheets, presentations). You can also create content from a template.
-
--   **[Uploading files](#uploading-files)**  
-Adding files from your computer to Alfresco Share is simple. You can upload a single file or several files at a time.
--   **[Creating files](#creating-files)**  
-With the **Create** feature you can create plain text, HTML, and XML files directly in Alfresco Share.
--   **[Creating Google Docs files](#creating-google-docs-files)**  
-You can easily create Google Docs documents, spreadsheets, and presentations from Alfresco Share.
--   **[Creating files from a template](#creating-files-from-a-template)**  
-As well as creating files from scratch, you can also create files from templates.
-
-
 
 ## Uploading files {#uploading-files}
 
@@ -319,10 +276,6 @@ Files you edit are temporarily stored in Google Docs, then removed from Google D
 
 6.  In Share, click **More** then **Check In Google Doc**.
 
-
-This video shows you how to create content.
-
-
 ## Creating files from a template {#creating-files-from-a-template}
 
 As well as creating files from scratch, you can also create files from templates.
@@ -341,20 +294,9 @@ As well as creating files from scratch, you can also create files from templates
 
     A new file based on the template is added to the document library.
 
-
 ## Viewing content {#viewing-content}
 
 To get a closer look at a file or folder without downloading it, you can view it on the file preview screen. This gives you more detail, a preview, and access to social features, actions, and version history.
-
--   **[Viewing folder details](#viewing-folder-details)**  
-View the details page for a folder to conveniently see all information and actions in one place.
--   **[Viewing a file](#viewing-a-file)**  
-You can preview files by clicking on the thumbnail or name in the document library. All file details and actions are available on this one screen.
--   **[Viewing a file in a browser](#viewing-a-file-in-a-browser)**  
-While the preview feature lets you view a file in Alfresco Share, you also have the option of viewing it in your default browser.
--   **[View a file on Google Maps](#view-a-file-on-google-maps)**  
-When a file has geolocation data attached to it you can view the file location on Google Maps directly from Alfresco Share.
-
 
 ## Viewing folder details {#viewing-folder-details}
 
@@ -367,7 +309,6 @@ View the details page for a folder to conveniently see all information and actio
 2.  Click ![View Details icon]({% link content-services/images/view-folder-detail-icon.png %}) **View Details**.
 
     The Folder Details page displays all folder information, including properties and permissions. This page includes social features and folder actions.
-
 
 Click the folder in the breadcrumb trail at the top of the screen to return to the item list for that folder.
 
@@ -439,7 +380,7 @@ The actions and details are grouped in sections that you can expand and collapse
 
 ![]({% link content-services/images/hr.png %})
 
-This video shows you how to view a file.
+
 
   
 
@@ -466,40 +407,9 @@ When a file has geolocation data attached to it you can view the file location o
 
     The location attached to the file is shown in Google Maps, together with a preview of the file and a summary of the geolocation data.
 
-
-
 ## Organizing content {#organizing-content}
 
 With different people creating folders and adding files, you want to keep on top of it. Alfresco Share has multiple features available to help you keep content labelled, organized, and filed correctly.
-
--   **[Dragging and dropping content](#dragging-and-dropping-content)**  
-The drag and drop functionality lets you easily move content around the library.
--   **[Moving content](#moving-content)**  
-You can move content to relocate it to another location within the current library or to a library in a different site.
--   **[Copying content](#copying-content)**  
-You can copy content between locations, within a site or across different sites.
--   **[Creating links to content](#creating-links-to-content)**  
-You can create links to content between Alfresco locations, within a site or across different sites. This is similar to copying content, but instead of creating a new copy, you create a link to the existing file.
--   **[Unzipping content](#unzipping-content)**  
-You can unzip .zip and .acp files to add their contents to a folder in Alfresco Share.
--   **[Renaming content](#renaming-content)**  
-You can quickly rename files and folders.
--   **[Tagging and categorizing content](#tagging-and-categorizing-content)**  
-You can tag and categorize similar or related content making it easy to find the content again.
--   **[Favoriting content](#favoriting-content)**  
-Use the **Favorite** action to mark library content that you access often. This adds the file or folder to the My Favorites view in the explorer panel where you can easily find it.
--   **[Locate items and folders](#locate-items-and-folders)**  
-When you filter library content using one of the **Documents** or **Tags** explorer views, it is not possible to tell where a file or folder is within the library folder structure. The **Locate File** and **Locate Folder** actions reveal the actual location of a file or folder in the library.
--   **[Multi-selecting content](#multi-selecting-content)**  
-You can perform a single action on several pieces of content at once. You can select any number of files and folders in the same view.
--   **[Deleting content](#deleting-content)**  
-Delete content to remove it from a site library.
--   **[Recovering deleted content](#recovering-deleted-content)**  
-If you need to recover content that you've deleted, then it's easy to get it back from your trashcan.
--   **[Emptying your trashcan](#emptying-your-trashcan)**  
-When you delete content, it is moved to your trashcan. By emptying your trashcan you can permanently remove content.
-
-
 
 ## Dragging and dropping content {#dragging-and-dropping-content}
 
@@ -700,12 +610,6 @@ An example of categories, would be to have Regions as a top level category, then
 
 Categories can only be associated with library items and folders. Content needs to be enabled for categorizing before you can add it to a category, see [Managing Aspects]({% link content-services/5.2/using/content/files-folders.md %}#applying-aspects).
 
--   **[Tagging content](#tagging-content)**  
-To make content easier to find you can create and manage tags for files and folders in the document library.
--   **[Categorizing content](#categorizing-content)**  
-You can categorize files and folders to group similar content into pre-defined categories.
-
-
 ## Tagging content {#tagging-content}
 
 To make content easier to find you can create and manage tags for files and folders in the document library.
@@ -872,11 +776,6 @@ These social features are available in the file preview screen, in the Site Cont
 
 > **Note:** You can't add comments if your permission level on the site is set to Consumer. Speak to your Alfresco administrator if you need to change your permission level.
 
--   **[Managing your comments](#managing-your-comments)**  
-Adding comments to content is a convenient way of giving feedback. You can edit and delete any comments that you added.
-
-
-
 ## Managing your comments {#managing-your-comments}
 
 Adding comments to content is a convenient way of giving feedback. You can edit and delete any comments that you added.
@@ -884,14 +783,6 @@ Adding comments to content is a convenient way of giving feedback. You can edit 
 You can't add comments if your permission level on the site is set to Consumer. Speak to your Alfresco administrator if you need to change your permission level.
 
 Only site managers can edit and delete another user's comments.
-
--   **[Adding a comment](#adding-a-comment)**  
-You can add comments to folders and individual files to give other users information or notes.
--   **[Editing a comment](#editing-a-comment)**  
-You can edit a comment to change what it says.
--   **[Deleting a comment](#deleting-a-comment)**  
-
-
 
 ## Adding a comment {#adding-a-comment}
 
@@ -947,28 +838,3 @@ You can delete a comment that you created, and site managers can delete any comm
     A message prompts you to confirm the deletion of the selected comment.
 
 3.  Click **Delete**.
-
-
-
-## Configuring Google Docs using Admin Console {#configuring-google-docs-using-admin-console}
-
-The **Google Docs Console** provides the settings for enabling and controlling Google Docs Integration.
-
-1.  Open the Admin Console.
-
-2.  In the Consoles section, click **Google Docs Console**.
-
-3.  Set the properties:
-
-    |Google Docs property|Example setting|What is it?|
-    |--------------------|---------------|-----------|
-    |**googledocs.enabled**|true|Enables the Google Docs functionality.If you set this option to false, the **Edit in Google Docs** action will not be available. Documents that are currently being edited will still be available using the **Resume editing in Google Docs** action until they are saved or discarded.
-
-|
-    |**googledocs.idleThresholdSeconds**|600|Sets the idle time threshold in seconds.Additional Google users that you invite to collaborate on the document will be considered to be 'idle' after this period. The period is measured from the time when the user last made a change to the document. When saving documents back to Alfresco Content Services, or discarding changes, you must confirm that you want to disconnect any non-idle users before the action completes.
-
-|
-
-4.  Click **Save** to apply the changes you have made to the properties.
-
-    If you do not want to save the changes, click **Cancel**.

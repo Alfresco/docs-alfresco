@@ -4,22 +4,6 @@ title: Working with files and folders
 
 Once files are added to a site, site members can access and work with them. In addition to adding more files, members can view, download, edit, and delete files.
 
--   **[Editing files](#editing-files)**  
-There are multiple ways to edit content. These options are available whenever suitable for a file type.
--   **[Downloading files](#downloading-files)**  
-You can quickly download files from Alfresco Share so that you have a local copy.
--   **[Sharing files](#sharing-files)**  
-You can easily share an file - even with people who don't have an Alfresco Share account. Clicking the **Share** action generates a URL that you can send by email or publish using social networking websites.
--   **[Applying aspects](#applying-aspects)**  
-You can use aspects to add extra functionality, properties, or options to files. Alfresco Share provides you with a list of default aspects.
--   **[Managing file and folder permissions](#managing-file-and-folder-permissions)**  
-You can override the default site permissions for any content you add to the document library. This lets you control what site members can see and do with your content.
--   **[Becoming content owner](#becoming-content-owner)**  
-You can take ownership of files and folders from other users.
--   **[Changing the content type](#changing-the-content-type)**  
- You can change an file's content type from its default to a more specific value.
-
-
 ## Editing files {#editing-files}
 
 There are multiple ways to edit content. These options are available whenever suitable for a file type.
@@ -33,20 +17,6 @@ The **Edit in Alfresco Share** action lets you edit plain text, HTML, or XML fil
 The **Edit in Google Docs** action lets you work with files in Google Docs. The file is locked in Alfresco Share while it's being edited. It's available for supported document, presentation, and spreadsheet formats.
 
 You can also edit the properties of a file, or upload content as a new version of an existing file.
-
--   **[Editing files offline](#editing-files-offline)**  
-When you edit a file offline it's downloaded to your computer and locked in the library, so that other users can't overwrite it while you make changes offline.
--   **[Editing files in Alfresco Share](#editing-files-in-alfresco-share)**  
-You can edit plain text, HTML, and XML files directly in Alfresco Share.
--   **[Editing files in Microsoft Office](#editing-files-in-microsoft-office)**  
-You can edit Microsoft Office files directly from Alfresco Share. When you're editing a file it's locked in Share until you finish editing it.
--   **[Editing files in Google Docs](#editing-files-in-google-docs)**  
-The **Edit in Google Docs** action is available for any file that can be edited in Google Docs. Common document, presentation, and spreadsheet formats are supported.
--   **[Editing file and folder properties](#editing-file-and-folder-properties)**  
-Edit the basic details of a folder or file to change its name, description, and tags.
--   **[Uploading new versions](#uploading-new-versions)**  
-You can upload content from your computer to update a file.
-
 
 ### Editing content {#editing-content}
 
@@ -81,7 +51,7 @@ Updating your content in Alfresco Share is easy to do and you can even select wh
 9.  Click **Site Dashboard** and you'll see update notifications in the dashlets.
 
 
-This video shows the steps in the tutorial.
+
 
 
 ### Editing files offline {#editing-files-offline}
@@ -186,12 +156,6 @@ Files you edit are temporarily stored in Google Docs, then removed from Google D
     >**Tip:** See [Google Docs FAQs](#google-docs-faqs) for more on working with Google Docs.
 
 
-This video shows you how to edit files in Google Docs.
-
--   **[Sharing Google Docs files](#sharing-google-docs-files)**  
-You can share Google Docs files while you are editing them so multiple users can work with a document at the same time.
--   **[Google Docs FAQs](#google-docs-faqs)**  
-If you have any problems working with files in Google Docs, have a look through the list to see if there is a way to resolve your issue.
 
 
 ### Sharing Google Docs files {#sharing-google-docs-files}
@@ -374,11 +338,6 @@ This option is available in the Document Library Detailed view and on the file p
     -   Google+: Write a comment to post with the link and specify who you want to share it with. Click **Share**.
 
     > **Tip:** If an file is a Microsoft Office, PDF, or other text-based file type (not an image or video) then you can also click ![Advanced Search icon]({% link content-services/images/ico-link.png %}) on the file preview to share a link to the item, and even select to **Link to current page**.
-
-
--   **[Cancelling a shared link](#cancelling-a-shared-link)**  
- When you don’t want your publicly shared file to be available anymore, you can break the link. Once you make the link invalid, anyone who tries to access it will be unable to reach the public page.
-
 
 ### Cancelling a shared link {#cancelling-a-shared-link}
 

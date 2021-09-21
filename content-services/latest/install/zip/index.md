@@ -16,10 +16,12 @@ To install Content Services using the distribution zip (which also contains the 
 * Application server: Apache Tomcat
 * Database: PostgreSQL or MySQL
 * Message broker: ActiveMQ
-* LibreOffice
-* ImageMagick
 
 For a list of other supported components and versions, refer to the `VERSIONS.md` file in the distribution zip.
+
+>**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
+then you need to [bootstrap the IPTC Content Model]({% link content-services/latest/install/containers/index.md %}#iptc-model-bootstrap) manually
+into Content Services. If you follow the link you will find the necessary content model files.
 
 ## Install overview
 
@@ -40,7 +42,9 @@ To get started, prepare your production server by installing the prerequisite so
 5. Install and configure Content Services.
 6. Install any Alfresco Module Packages such as Alfresco Share, Google Docs Integration, and Alfresco Office Services.
 7. Set up ActiveMQ.
-8. Install third-party software used by Content Services. This includes LibreOffice, ImageMagick, and Alfresco PDF Renderer.
+8. Install third-party software used by Content Services.
+
+> **Note:** Starting from Content Services 7.0, the `alfresco-pdf-renderer` binaries are no longer included in the distribution zip. LibreOffice, ImageMagick, and Alfresco PDF Renderer are no longer part of the Content Services zip installation, as they've moved to the [Alfresco Transform Service installation]({% link transform-service/latest/install/index.md %}) for non-containerized deployment.
 
 Review and test your setup to check that all the installation steps are complete:
 

@@ -73,6 +73,8 @@ This button is available in the **Alfresco Client** tab when you’re composing 
 
 **Note:** The standard **Send** button inside your email is not affected.
 
+**Note:** This functionality is only supported for Microsoft Exchange accounts.
+
 ## Archiving folders in Outlook
 
 You can create folders in the Alfresco Outlook Client and assign metadata to these folders, similar to when archiving emails.
