@@ -31,7 +31,7 @@ If the data exchange should happen via RFC/SNC by calling a SAP function module 
 
 | Property Key|Description|
 | -------------|-------------|
-| `genericXchange.rfc.sap.system.1.job.enabled`|Whether data exchange should be enabled for the configuration (`1`) or not. Example value: `true` or `false` (default) |
+| `genericXchange.rfc.sap.system.1.job.enabled`|Whether data exchange for a [Job](#gx_job) should be enabled for the configuration (`1`) or not. In case of [Behaviour](#gx_behaviour) usage, this setting has no effect. Example value: `true` or `false` (default) |
 | `genericXchange.rfc.sap.system.1.job.cronExpression`|The CRON expression used for the job. Example value: `0 0/1 * 1/1 * ? *`|
 |`genericXchange.rfc.sap.system.1.name`|An arbitrary value for the current configuration. Should not contain special characters. Must be unique across all available configurations. Recommendation: Should contain the name of the connected SAP system. Example value: `NSP SAP System` or `SAP Cloud System`.| 
 |`genericXchange.rfc.sap.system.1.host`|The IP address of the SAP server or the SAP Router string. Example value: `192.168.112.112` or `sap.mydomain.com` or `/H/80.112.112.112/H/192.168.112.112/S/3201`|
@@ -52,7 +52,7 @@ If the folder (structure) does not exists, create it. Pay attention to correct s
 
 This is the folder to upload all JSON configuration files that are responsible for data exchange. 
 
-### Job Approach and Behavior Approach {#gx_basic_job_behaviour}
+### Job Approach and Behaviour Approach {#gx_basic_job_behaviour}
 The data exchange can be scheduled on a periodic basis (`Job`) or based on a particular action on the document/folder (`Behaviour`) in Content Services. Each way requires a slightly different JSON notation.
 
 > **Note:** The recommendation is to always use the `Job` approach whenever possible. 
@@ -60,22 +60,29 @@ The data exchange can be scheduled on a periodic basis (`Job`) or based on a par
  Approach | Pros | Cons
 ------------ | ------------- | ------------
 Job<br/>`preferred` | Queue is available, this means that in any error case the document(s) could be picked up again in the next Job execution based on the document state.  | Execution does not happen immediately.
-Behavior | Execution happens immediately after related action. |A separate paid SAP system user is required (otherwise this approach infringes the SAP Terms & Conditions). Ask your SAP representative.<br/>There is no queue.
+Behaviour | Execution happens immediately after related action. |A separate paid SAP (system) user is required (otherwise this approach infringes the SAP Terms & Conditions). Ask your SAP representative.<br/>There is no queue.
+
+## Behaviour Approach {#gx_behaviour}
+
+> **Note:** Using this approach requires a separate SAP (system) user.  
+
 
 ## Job Approach {#gx_job}
 
 > **Note:** You must set a exclusion criterion in the mandatory `query` of the [`filter` property](#gx_prop_filter) of the JSON. To set a flag after the SAP function module has successfully processed the document, use the `success` property. The `success` property can set any property to an arbitrary value at the Alfresco document. Then, use this property value for the exclusion criterion in the `query`. If there is no exclusion criterion set, the document(s) will be picked up again in the next Job execution, and again, and again...
 
-## Mapping
+## Mapping {#gx_mapping}
 The mapping between the settings part in the ```alfresco-global.properties``` (Refer to the [Basic Configuration](#gx_basic)) and the related JSON file uploaded to Content Services is done via filename of the JSON file and is different for OData and RFC/SNC usage.
 
-### Mapping for OData Services
+### Mapping for OData Services {#gx_mapping_odata}
 A JSON file with name `restJob.`**1**`.json` is mapped to keys `genericXchange.rest.sap.system.`**1**`.job.enabled` and `genericXchange.rest.sap.system.`**1**`.job.cronExpression` in the `alfresco-global.properties`.
 
-
-### Mapping for RFC/SNC
+### Mapping for RFC/SNC invoked by Job {#gx_mapping_rfc_job}
 A JSON file with name `rfcJob.`**1**`.json` is mapped to all keys starting with `genericXchange.rfc.sap.system.`**1**`.*` (Refer to [Settings for RFC/SNC](#gx_basic_rfc)) in the `alfresco-global.properties`. 
 
+### Mapping for RFC/SNC invoked by Behaviour {#gx_mapping_rfc_behaviour}
+A JSON file with name `rfcBehaviour.`**1**`.json` is mapped to all keys starting with `genericXchange.rfc.sap.system.`**1**`.*` (Refer to [Settings for RFC/SNC](#gx_basic_rfc)) in the `alfresco-global.properties`. In addition, the value of `genericXchange.rfc.sap.system.`**1**`.name` must match the value of key `sapName` in the related JSON file.
+> **Note:** Value for `genericXchange.rfc.sap.system.`**1**`.name` (and therefore even the value for `sapName` in the JSON) should only consists of characters (a-z A-Z) and/or numbers (0..9). No whitespaces, special characters or any character beyond 128 in the ASCII table.
 
 ## Configuration {#gx_job_config}
 Configuration options for the Jobs JSON file(s).
@@ -89,14 +96,45 @@ Property | Type | `Required For` |Value(s) | Description
 **`filter`** | Object |All| ***[Refer to Property `filter`](#gx_prop_filter)*** | Define the AFTS query to find the desired documents to be processed in Content Services. It also holds a threshold value which is responsible for the termination criterion. The threshold defines the maximum number tries to process a document until it will be excluded.|
 **`mandatoryProperties`**|Array| All|*cm:title,<br/>cm:description*|A list of mandatory properties that must be present on the documents which are returned by the `filter` to be considered for processing.|
 **`createALFolder`** | Boolean |RFC| `true` or<br/>`false` | ***Not required for Content Connector for SAP Cloud  (may only be used for with [Content Connector for SAP Applications](https://docs.alfresco.com/sap/latest))*** If `true`, the parent folder for the current document will be created and the required SAP ArchiveLink related aspects will be applied to it. This is to match the SAP ArchiveLink protocol specification.|
-**`mode`**| String |RFC| *standard,<br/>chain<br/>batch* | The mode, how the module handles the specified function modules.<br/>***standard:*** Invoke one function module for the current document.<br/>***chain:*** Invoke multiple function modules in the given order for the current document.<br/>***batch:*** Invoke one function module with a bunch of Alfresco documents.|
-**`functionModule`** / **`functionModules`**| Object | RFC | ***[Refer to Property `functionModule`](#gx_rfc_prop_functionmodule)*** | Defines the request to call the OData service with all necessary parameter.|
+**`mode`**| String |RFC| *standard* or<br/>*chain* or<br/>batch | The mode, how the module handles the specified function modules.<br/>***standard:*** Invoke one function module for the current document.<br/>***chain:*** Invoke multiple function modules in the given order for the current document.<br/>***batch:*** Invoke one function module with a bunch of Alfresco documents.|
+**`functionModule`** / **`functionModules`**| Object | RFC | ***[Refer to Property `functionModule`](#gx_rfc_prop_functionmodule)*** | Specifiy SAP function module(s) including all required parameter.|
 **`request`**| Object |OData| ***[Refer to Property `request`](#gx_odata_prop_request)*** | Defines the request to call the OData service with all necessary parameter.|
 **`response`**| Object |OData| ***[Refer to Property `response`](#gx_odata_prop_request)*** | Defines the mapping between each property of the OData call result and the property in Content Services.|
 **`error`** | Object<br/> |All| ***[Refer to Property `error`](#gx_prop_error)*** | ***Optional Property.*** Handles the errors which might be returned by the `request` or `functionModule`.|
 **`success`** | Object |All| ***[Refer to Property `success`](#gx_prop_success)*** | ***Optional Property.*** Handles the success messages which might be returned by the `request`or `functionModule`.|
 
-#### Property Specification
+### Behaviour JSON {#gx_behaviour_json}
+
+> **Note:** 
+  * Make sure to have all [required RFC related settings](#gx_basic_rfc) present in the `alfresco-global.properties`.
+  * Make sure to use always a separate paid SAP (system) user for the connection.
+
+> **Important:** Each change in the JSON configuration file for a Behaviour requires to reload the script on all Content Services nodes (or by restarting each Content Services node). To reload the Behaviour JSON file, a Webscript with name `genericXchange Reload` is provided. This Webscript is part of the `Content Connector for SAP - genericXchange` Webscript family which can be accessed in the `Alfresco WebScripts Home`. 
+
+The following table lists all available settings for the `rfcBehaviour.1.json` (there are no OData calls along with an Alfresco Behaviour possible). All the settings below must be present in the JSON configuration file. 
+
+Property | Type | Value(s) | Description
+------------ | ------------- | ------------ | ------------
+**`enabled`** | Boolean | `true` or<br/>`false` | Whether the Behaviour is enabled or not.|
+**`sapName`** | String | *GX_Behaviour_S4H* | Define the mapping to the related SAP system configuration in the `alfresco-global.properties`. For example, must match the value of key `genericXchange.rfc.sap.system.`**1**`.name`.|
+**`mode`** | String | *standard* or<br/>*chain* | The mode, how the module handles the specified function modules.<br/>***standard:*** Invoke one function module for the current document.<br/>***chain:*** Invoke multiple function modules in the given order for the current document.|
+**`behaviour`** | String | `onUpdateProperties` or<br/> `onAddAspect` or<br>see NodePolicy list | Any behaviour from the [NodeServicePolicies interface](https://dev.alfresco.com/resource/docs/java/org/alfresco/repo/node/NodeServicePolicies.html) of the Alfresco Public API.
+**`notificationFrequency`** | String| `TRANSACTION_COMMIT` or<br/>`EVERY_EVENT` or<br/>`FIRST_EVENT` | Define where in the transaction event the handler is invoked. Refer to the [Alfresco documentation](https://docs.alfresco.com/6.2/references/dev-extension-points-behaviors.html).
+**`listeningOn`** | String | *cm:summarizable*  | The aspect which must be available on the document to invoke the behaviour. Must be entered with namespace prefix.
+**`mandatoryProperties`** | Array | *cm:summary* | List of all mandatory properties on the document which must be set to invoke the behavior (can’t be empty or null). **Note:** Only if all specified properties has changed their values, the behaviour is invoked. It is not enough just to have the property available and filled, it also must be changed.|
+**`aspects`** | Array |  *cm:titled* | List of all aspects which must be available at the document to invoke the behaviour.
+**`noAspects`** | Array |  *cm:taggable* | List of all aspects which should not be present at the document to invoke the behaviour. If at least one aspect in this list available at the document, the behaviour does not fire.
+**`values`** | Object |  | A list of objects with property names and defined values which must be available to invoke the behaviour. Here it’s possible to trigger the behaviour only for specified values of a property.
+**`noValues`** | Object |  | A list of objects with property names having defined values which are not allowed to invoke the behaviour. Here it’s possible to prevent the execution of the behaviour for properties having specified values.
+**`detachBehaviour`** | Boolean | `true` or<br/>`false` | If `true` the RFC call (see parameter `functionModule`/`functionModules` below) will be fired after the behaviour has been finished. 
+**`asyncRfc`** | Boolean | `true` or<br/>`false` | Whether to invoke the behaviour asynchron or synchron.
+**`createALFolder`** | Boolean | `true` or<br/>`false` | If `true`, the parent folder for the current document will be created and the required SAP ArchiveLink related aspects will be applied to it. This is to match the SAP ArchiveLink protocol specification.|
+**`functionModule`** / **`functionModules`**| Object | ***[Refer to Property `functionModule`](#gx_rfc_prop_functionmodule)*** | Specifiy SAP function module(s) including all required parameter.|
+**`error`** | Object<br/> | ***[Refer to Property `error`](#gx_prop_error)*** | ***Optional Property.*** Handles the errors which might be returned by the `request` or `functionModule`.|
+**`success`** | Object | ***[Refer to Property `success`](#gx_prop_success)*** | ***Optional Property.*** Handles the success messages which might be returned by the `request`or `functionModule`.|
+
+
+#### Property Specification {#gx_property_specification}
 This section contains the detailed Object definitions for the *Value(s)* column of the [tables above]({#gx_job_json}).
 
 ##### ***Property `success`*** {#gx_prop_success}
