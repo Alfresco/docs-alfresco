@@ -1,30 +1,33 @@
 ---
-title: Using the Alfresco Collaboration Connector for Teams
+title: Using the Collaboration Connector for Teams
 ---
 
-The Alfresco Collaboration Connector for Teams can be used to edit, share, co-author, and create documents.
+The Collaboration Connector for Teams enable users within the Microsoft Teams Client to search for content in
+Alfresco Content Services and share a preview link. The link can be sent to a Teams chat or channel. The link will open
+in Alfresco Digital Workspace.
 
-## Edit a document
+## Search for documents
+Files such as Word, Excel and PowerPoint documents that are stored in the Alfresco Content Services repository 
+can be searched for from a MS Teams client.
 
-Files such as Word, Excel and PowerPoint documents that are stored in Alfresco can be edited in Office Online.
+1. Make sure the Collaboration Connector for Teams application is available in the Teams client chat. Click on the 
+   Messaging extensions **(...)** button at the bottom of the screen, you should see a dialog with the app installed:
 
-1. In the Digital Workspace right click on the file you want to edit.
+   ![MS Teams Integration App]({% link microsoft-teams/images/ms-teams-integ-app-in-msg-extensions.png %}){:height="250px" width="200px"}
 
-2. Select **Edit in `<document-type>` Online**, for example `Edit in Excel Online`.
+   If the "Alfresco for Teams" app is not available contact an Administrator to have it installed globally for all users.
+   Or install it manually as described [here]({% link microsoft-teams/latest/install/index.md %}#create-teams-integ-app-manifest) 
+   and [here]({% link microsoft-teams/latest/install/index.md %}#test-app)
 
-3. You will be prompted to sign into Microsoft Online to open the document in a new browser tab.
+2. Click on the "Alfresco for Teams" app and it should appear in your chat:
 
-    > **Note:** The document will be locked in the Digital Workspace. A padlock icon against the document will indicate this.
+   ![MS Teams Integration App Search]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog.png %}){:height="250px" width="200px"}
 
-4. Once you have finished editing the document, close the browser tab.
+3. Now, enter a search text to and hit Enter to search for content in Content Services repository: 
 
-    > **Note:** It is recommended to always close the browser tab when you have finished editing a document.
+   ![MS Teams Integration App Search Result]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog-result.png %}){:height="250px" width="200px"}
 
-5. Navigate to the Digital Workspace, right click on the document you were editing and select **End Editing**.
-
-6. Set how you would like to handle the changes you made to the document in the **End Editing** window, such as including a comment about the edits that were made. Click **END EDITING** to finish.
-
-7. Your changes will be visible within the Digital Workspace. To preview the changes click on the document name and refresh the Digital Workspace.
+4. Once you have the document you want to share
 
 ## Share a document
 
@@ -46,46 +49,3 @@ Files such as Word, Excel and PowerPoint documents that are stored in Alfresco c
 
     The collaborator will receive an email that contains a link to the document. Once the collaborator clicks the **Open** button in the email they then login using their Microsoft Online credentials. The collaborator will then have the document opened in Office Online.
 
-## Co-author a document
-
-Files such as Word, Excel and PowerPoint documents that are stored in Alfresco can be edited in real-time with colleagues.
-
-1. Once a document has been [shared](#share-a-document) with another user, the collaborators for the document appear at the top right of the window.
-
-    When you hover over their name you will see a message that says your collaborator has this document open. You will see all edits and changes your collaborators make to your document in real-time.
-
-2. Once a user has finished editing the document, they should close the browser tab.
-
-    > **Note:** It is recommended to always close the browser tab once you have finished making your edits.
-
-3. Navigate to the Digital Workspace, right click on the document that was being edited and select **End Editing**.
-
-4. Set how you would like to handle the changes that were made to the document in the **End Editing** window, such as including a comment about the edits that were made. Click **END EDITING** to finish.
-
-5. The changes will be visible within the Digital Workspace. To preview the changes click on the document name and refresh the Digital Workspace.
-
-## Create a new document
-
-You can create new Word, Excel, and PowerPoint documents that will open online and be stored in Alfresco which can be edited in real-time with colleagues.
-
-1. In the Digital Workspace click **New**.
-
-2. Select the type of document you want to create, either **Word**, **Excel** or **PowerPoint**.
-
-3. Enter a name for the document, and optionally a description and then click **Create and Open Online**.
-
-    > **Note:** If you do not have the 365 Connector installed only the **Create** option will be visible.
-
-4. You will be prompted to sign into Microsoft Online to open the newly created document in a new browser tab.
-
-    > **Note:** The document will be locked in the Digital Workspace. A padlock icon against the document will indicate this.
-
-5. Once you have finished editing the document, close the browser tab.
-
-    > **Note:** It is recommended to always close the browser tab when you have finished editing a document.
-
-6. Navigate to the Digital Workspace, right click on the document you were editing and select **End Editing**.
-
-7. Set how you would like to handle the changes you made to the document in the **End Editing** window, such as including a comment about the edits that were made. Click **END EDITING** to finish.
-
-8. Your changes will be visible within the Digital Workspace. To preview the changes click on the document name and refresh the Digital Workspace.

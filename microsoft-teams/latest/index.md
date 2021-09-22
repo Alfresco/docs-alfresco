@@ -10,4 +10,4 @@ The following features are available:
 
 * Search for content in Alfresco Content Services
 * Share content via link
-* 
+
