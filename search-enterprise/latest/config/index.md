@@ -4,7 +4,7 @@ title: Overview
 
 The Admin console is used to manage the interaction between Alfresco and Search Enterprise from Alfresco Repository. This gives you the ability to determine the high-level health of the Search Enterprise index.
 
-To use Search Enterprise with the Alfresco Content Services platform the following configuration must be applied: @Martin should this go in the install pages?
+To use Search Enterprise with the Alfresco Content Services platform the following configuration must be applied:
 
 * For *searching* features the Alfresco Repository properties must be configured in the `alfresco-global.properties` file. This can also be done as an environment variable by configuring the Search Subystem.
 * Alfresco Elasticsearch Connector properties as environment variables related to communication with Alfresco Repository (Database, ActiveMQ and Transform Service) and Elasticsearch server for *indexing* features 
@@ -57,24 +57,6 @@ alfresco:
         "
 ```
 
-## Exact Term Search
-
-The Exact term search feature is disabled by default to save index space. It's possible to enable it for specific properties and property types in the `exactTermSearch.properties` configuration file. @Martin is this the normal behaviour to enable it also?
-
-|Property|Description|
-|--------|-----------|
-| alfresco.cross.locale.datatype.0 | A new cross locale field has been added for any property of this data-type. For example `{http://www.alfresco.org/model/dictionary/1.0}text`. By default the Exact Term Search is disabled.@martin is this needed? |
-| alfresco.cross.locale.property.0 | A new cross locale field to cover exact term search) has been added for the property. For example `{http://www.alfresco.org/model/content/1.0}content`. By default the Exact Term Search is disabled.@martin is this needed?  |
-
-You can add as many data-types and properties as you like by adding lines and incrementing the associated index:
-
-alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
-alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content
-alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
-alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content
-
-**Note:** Once you have the Exact term search configured a re-index is required. If you need the feature from the beginning, it is recommended to enable it before your first index is created.
-
 ## Alfresco Elasticsearch Connector
 
 The indexing feature is provided by a Spring Boot application called Alfresco Elasticsearch Connector. This application includes two main components that build and maintain the index in Elasticsearch:
@@ -83,17 +65,19 @@ The indexing feature is provided by a Spring Boot application called Alfresco El
 
 * *Live Indexing*: Metadata, and Content and Permissions from Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in the Elasticsearch server.
 
-## Alfresco Re-Indexing app
+### Alfresco Re-Indexing app
 
 Alfresco re-indexing app requires a working Alfresco Repository Database and Elasticsearch server.
 
 The tool may be used as a standalone `jar` file. The table below lists the main configuration properties that can be specified through the spring boot configuration capabilities.
 
+@engineering can you please provide me with more of an intro of what this does and also what the property file called that is being used here also? cheers.
+
 | Property | Description |
 | -------- | -------------- |  
 | server.port | Default HTTP port, each module defines itself. The default value is `8190`. |
 | alfresco.reindex.jobName | The data fetching strategy to use: `reindexByIds`, or `reindexByDate`. The default value is `reindexByIds`. |
-| alfresco.reindex.batchSize | The batch size of documents inserted into Search Enterprise. @martin originally this just said Elastic. The default value is `100`. |
+| alfresco.reindex.batchSize | The batch size of documents inserted into Elasticesearch by the re-indexing app.  The default value is `100`. |
 | alfresco.reindex.pagesize | The page size of nodes fetched from the Alfresco dabatase. The default value is `100`. |
 | alfresco.reindex.concurrentProcessors | Number of parallel processors. The default value is `10`. |
 | alfresco.reindex.fromId | Start ID for fetching nodes (_reindexByIds_). The default value is `0`. |
@@ -104,9 +88,9 @@ The tool may be used as a standalone `jar` file. The table below lists the main 
 | spring.datasource.username | Username for the Alfresco database. The default value is `alfresco`. |
 | spring.datasource.password | Password for the Alfresco database. The default value is `alfresco`. |
 | spring.elasticsearch.rest.uris | Rest(s) @engineering, what? url of Elasticsearch. The default value is `http://elasticsearch:9200`. |
-| spring.elasticsearch.rest.username | Username for Elasticsearch @martin are these two Search Enterprise? when using Basic Authentication. |
+| spring.elasticsearch.rest.username | Username for Elasticsearch when using Basic Authentication. |
 | spring.elasticsearch.rest.password | Password for username in Elasticsearch when using Basic Authentication. |
-| alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping, @engineering should this be namespace-prefix mapping? Confirm the name please. | The default value is `classpath:reindex.prefixes-file.json`. |
+| alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping, @engineering should this be namespace-prefixes mapping? Confirm the name please. | The default value is `classpath:reindex.prefixes-file.json`. |
 | alfresco.reindex.partitioning.type | Remote node type, can be _master_ or _worker_. If not specified, the app runs as a single node instance. By default it is left empty. |
 | alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals the number of available workers. The default value is `3`. |
 | alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning. The default value is `org.alfresco.search.reindex.requests`. |
@@ -116,7 +100,6 @@ There are two strategies to fill the gaps in the Elasticsearch server when provo
 
 * Fetch by IDS `alfresco.reindex.jobName=reindexByIds`: index nodes in an interval of database `ALF_NODE.id` column
 * Fetch by DATE `alfresco.reindex.jobName=reindexByDate`: index nodes in an interval of database `ALF_TRANSACTION.commit_time_ms` column
-@martin these are mentioned above??
 
 Sample invocation for Fetch by IDS.
 
@@ -142,13 +125,15 @@ Sample invocation for Fetch by DATE.
   --alfresco.reindex.toTime=202104180000
 ```
 
-> **Note:** Additional use cases for this application will be covered in the [Indexing](Indexing) section. @martin is this below??
+> **Note:** Additional use cases for this application will be covered in the [Indexing](Indexing) section. Section to be added on another page.
 
-## Alfresco Live Indexing app
+### Alfresco Live Indexing app
+
+@engineering can you please provide me with more of an intro of what this does and also what the property file called that is being used here also? cheers.
 
 The Alfresco Live Indexing app requires a working Alfresco ActiveMQ service, Alfresco Shared FileStore service, and the Elasticsearch server.
 
-The table below lists the main configuration properties that can be specified through the Spring @martin should this be Boot? configuration capabilities.
+The table below lists the main configuration properties that can be specified through the Spring Boot configuration capabilities.
 
 |Property|Description|
 |--------|-----------|
@@ -179,7 +164,7 @@ The table below lists the main configuration properties that can be specified th
 | alfresco.acceptedContentMediaTypesCache.refreshTime | Time until we refresh the cache. We can disable the scheduler by replacing the value of the cron expression with a dash "-". In case we want to refresh the cache contents before the next scheduled refresh we should restart the application. The default value is `0 0 * * * *`. |
 | alfresco.acceptedContentMediaTypesCache.enabled | Property to set if we want to enable or disable the cache for contacting the Transform Core AIO. The default value is `true`. |
 
-@Martin if these attributes are mentioned above do we need to mention them again ? Within the Elasticsearch connector there is a subset of components that index data. A component called Mediation @martin what is this? Does it require '' subscribes to the channel indicated by the `alfresco.event.topic` attribute, as seen in the table above, and processes the incoming node events. The configuration of that component allows you to declare three blacklist sets for filtering out nodes or attributes to be indexed. These blacklists can be specified in the file using the `alfresco.mediation.filter-file` attribute, as seen in the table above. The file used to  which defaults to a file called `mediation-filter.yml` that must be in the module classpath. Here's a sample content of that file:
+@Tom or Angel if these attributes are mentioned above do we need to mention them again ? Within the Elasticsearch connector there is a subset of components that index data. A component called Mediation @Tom or Angel what is this? Does it require '' subscribes to the channel indicated by the `alfresco.event.topic` attribute, as seen in the table above, and processes the incoming node events. The configuration of that component allows you to declare three blacklist sets for filtering out nodes or attributes to be indexed. These blacklists can be specified in the file using the `alfresco.mediation.filter-file` attribute, as seen in the table above. The file used to  which defaults to a file called `mediation-filter.yml` that must be in the module classpath. Here's a sample content of that file:
 
 ```bash
 mediation:
@@ -200,7 +185,7 @@ mediation:
      . fieldN
 ```  
 
-@martin to make these descriptions easier to read are you ok for me to include them in the table above under the specific attribute, i.e. alfresco.mediation.filter-file or alfresco.event.topic. At the moment it isnt clear what is going on here :-)
+@Tom or Angel to make these descriptions easier to read are you ok for me to include them in the table above under the specific attribute, i.e. alfresco.mediation.filter-file or alfresco.event.topic. At the moment it isnt clear what is going on here :-)
 
 where:
 
@@ -317,7 +302,7 @@ elasticsearch:
     - ELASTIC_PASSWORD=bob123
 ```
 
-You must also add these credentials to the Kibana app. @Martin is this page a good place to add a small amount of info on the kibana app? 
+You must also add these credentials to the Kibana app.
 
 ```docker
 kibana:
@@ -353,3 +338,21 @@ JAVAX_NET_SSL_TRUSTSTORETYPE=JCEKS
 ```
 
 These environment variables can be passed as command line arguments when running the spring boot application locally or they can be added to the `environment` service section when using Docker Compose.
+
+## Exact Term Search
+
+The Exact term search feature is disabled by default to save index space. It's possible to enable it for specific properties and property types in the `exactTermSearch.properties` configuration file. For more Using Exact Term Search LINK   @Martin is this the normal behaviour to enable it also?
+
+**Note:** Once you have the Exact term search configured a re-index is required. If you need the feature from the beginning, it is recommended to enable it before your first index is created.
+
+|Property|Description|
+|--------|-----------|
+| alfresco.cross.locale.datatype.0 | A new cross locale field has been added for any property of this data-type. For example `{http://www.alfresco.org/model/dictionary/1.0}text`. |
+| alfresco.cross.locale.property.0 | A new cross locale field to cover exact term search) has been added for the property. For example `{http://www.alfresco.org/model/content/1.0}content`. |
+
+You can add as many data-types and properties as you like by adding lines and incrementing the associated index:
+
+alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
+alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content
+alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
+alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content
