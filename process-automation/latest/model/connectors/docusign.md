@@ -58,8 +58,8 @@ The output parameters from signing a document are:
 The DocuSign connector uses the DocuSign REST API. An application needs to be set up and authorized to utilize this functionality in the connector. The following steps outline this process:
 
 1. Sign into your DocuSign account.
-2. [Configure an application for JWT authentication](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken){:target="_blank"} including the prerequisites required to setup an RSA key. 
-3. [Grant consent to the application](https://developers.docusign.com/esign-rest-api/guides/authentication/obtaining-consent){:target="_blank"}.
+2. [Configure an application for JWT authentication](https://developers.docusign.com/platform/auth/jwt/jwt-get-token/){:target="_blank"} including the prerequisites required to setup an RSA key. 
+3. [Grant consent to the application](https://developers.docusign.com/platform/auth/consent/obtaining-individual-consent/){:target="_blank"}.
 
 ### Configuration parameters
 
