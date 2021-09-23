@@ -93,8 +93,11 @@ The tool may be used as a standalone `jar` file. The table below lists the main 
 | alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping, @engineering should this be namespace-prefixes mapping? Confirm the name please. | The default value is `classpath:reindex.prefixes-file.json`. |
 | alfresco.reindex.partitioning.type | Remote node type, can be _master_ or _worker_. If not specified, the app runs as a single node instance. By default it is left empty. |
 | alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals the number of available workers. The default value is `3`. |
-| alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning. The default value is `org.alfresco.search.reindex.requests`. |
-| alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning. The default value is `org.alfresco.search.reindex.replies`. |
+| alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning. org.alfresco.search.reindex.requests |
+| alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning. org.alfresco.search.reindex.replies |
+| alfresco.reindex.metadataIndexingEnabled | Reindex document metadata. The default value is `true`. |
+| alfresco.reindex.contentIndexingEnabled | Reindex document content. The default value is `true`. |
+| alfresco.reindex.pathIndexingEnabled | Reindex document Path property. The default value is `false`. |
 
 There are two strategies to fill the gaps in the Elasticsearch server when provoked by ActiveMQ unavailability or any other external cause:
 
