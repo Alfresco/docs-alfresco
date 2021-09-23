@@ -13,11 +13,13 @@ To use Search Enterprise with the Alfresco Content Services platform the followi
 
 Alfresco Repository provides configuration properties for the `elasticsearch` Search Subystem to define the connection to an external Elasticsearch server.
 
-You must set the subsystem search property to `elasticsearch`.
+You must set the subsystem search property to `elasticsearch` and also add the parameters to create the Elasticsearch Index if required.
 
-@engineering is there more to do this? Where are we? 
 ```bash
 index.subsystem.name=elasticsearch
+# Elasticsearch index properties
+elasticsearch.indexName=alfresco
+elasticsearch.createIndexIfNotExists=true
 ```
 
 Additional property values can be included in Alfresco Repository global configuration file `alfresco-global.properties`
