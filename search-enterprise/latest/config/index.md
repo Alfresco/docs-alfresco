@@ -315,7 +315,7 @@ The environment variables can be passed as a command line argument when running 
 
 ```docker
 elasticsearch:
-  image: elasticsearch:7.10.1
+  image: elasticsearch:7.10.2
   environment:
     - discovery.type=single-node
     - xpack.security.enabled=true
