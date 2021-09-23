@@ -62,11 +62,11 @@ When you have a search result you can share files from it with the other members
 
 2. It appears in the chat, click **submit** to share it with the other members:
 
-   ![MS Teams Integration App Search Result item share]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog-result-item-share.png %}){:height="250px" width="500px"}
+   ![MS Teams Integration App Search Result item share]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog-result-item-share.png %}){:height="300px" width="600px"}
 
 3. Once submitted it looks like this for the other members:
 
-   ![MS Teams Integration App Search Result item shared]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog-result-item-shared.png %}){:height="250px" width="500px"}
+   ![MS Teams Integration App Search Result item shared]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog-result-item-shared.png %}){:height="300px" width="600px"}
 
 4. Members can open the doc in Alfresco Digital Workspace by clicking on **View in Alfresco**:
 
