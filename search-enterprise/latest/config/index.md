@@ -29,6 +29,8 @@ Additional property values can be included in Alfresco Repository global configu
 | elasticsearch.baseUrl | Context path for the Elasticsearch server endpoint. |
 | elasticsearch.secureComms | Set secure communications for requests to the Elasticsearch server. When you set this value to `https`, adding the Elasticsearch Trusted CA certificate to Alfresco Repository Truststore is required. Once this done communication with the Elasticsearch server is managed with the HTTPS protocol. When you set this value to `none`, communication to the Elasticsearch server is managed with the HTTP protocol. |
 | elasticsearch.ssl.host.name.verification | When using the HTTPS protocol, this property controls the Elasticsearch server TLS certificate and includes a CN with the real DNS hostname. To use the property set the value to be `true`, to ignore property set the value to `false`. The default value is `false`. |
+| elasticsearch.user | Username for Elasticsearch server. It is left empty by default. |
+| elasticsearch.password | Password for Elasticsearch server. It is left empty by default. |
 | elasticsearch.max.total.connections | Maximum number of HTTP(s) connections allowed for the Elasticsearch server. The default value is `30`. |
 | elasticsearch.max.host.connections | Maximum number of HTTP(s) connections allowed for an Elasticsearch endpoint. The default value is `30`. |
 | elasticsearch.http.socket.timeout | Maximum timeout in milliseconds to wait for a socket response. The default value is `30000`. |
@@ -36,10 +38,9 @@ Additional property values can be included in Alfresco Repository global configu
 | elasticsearch.indexName | Name of the index to be used in the Elasticsearch server. The default value is `alfresco`. |
 | elasticsearch.createIndexIfNotExists | An Index is created in the Elasticsearch server when this value is set to `true`. The default value is `false`. |
 | elasticsearch.retryPeriodSeconds | Number of seconds to wait before retrying the Elasticsearch index initialization. The default value is `10`. |
-| elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying the Elasticsearch index initialization in lock mode. The default value is `10`. |
-|elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true`. The default value is `false`. |
-| system.fixedACLs.maxTransactionTime | The number of milliseconds before permission updates start happening asynchronously. Permission updates for large folders will pause after this duration and updates will be resumed by a job scheduled for midnight. The default value is `10000`. |
-| repo.event2.filter.users | Events by these users will not be received by the Elasticsearch Connector. It is left blank by default. |
+| elasticsearch.retryAttempts | Number of attempts to try Elasticsearch index initialization. The default value is `3`. |
+| elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization in lock mode. The default value is `10`. |
+| elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true`. The default value is `false`. |
 | elasticsearch.index.mapping.total_fields.limit | Mapping limit settings: The maximum number of fields in Alfresco index. When working on deployments including a large collection of custom content models, this value may be increased, but it is not recommended. The default value is `7500`. |
 
 Some of the properties above can be edited in the Search Admin Console, but values will be applied only to the Alfresco Repository instance. To update values for the Elasticsearch Connector update its property file manually. **Note:** It is important that the Elasticsearch Connector and repository configuration match, otherwise the search functionality will be impaired. @Martin what file ?
@@ -90,11 +91,23 @@ The tool may be used as a standalone `jar` file. The table below lists the main 
 | spring.elasticsearch.rest.uris | Rest(s) @engineering, what? url of Elasticsearch. The default value is `http://elasticsearch:9200`. |
 | spring.elasticsearch.rest.username | Username for Elasticsearch when using Basic Authentication. |
 | spring.elasticsearch.rest.password | Password for username in Elasticsearch when using Basic Authentication. |
+| spring.activemq.broker-url | ActiveMQ Broker url, use async sending to improve performance. The default value is `tcp://localhost:61616?jms.useAsyncSend=true`. |
+| spring.activemq.user | ActiveMQ Broker user. The default is `admin`. |
+| spring.activemq.password | ActiveMQ Broker password. The default is `admin`. |
+| alfresco.reindex.multithreadedStepEnabled | Enable steps to be executed in parallel threads. Retrying settings are only applied when this property is set to `true`. The default value is `false`. |
+| alfresco.reindex.retryingEnabled | Retry the execution of a step in case of fail. The default value is `true`. |
+| alfresco.reindex.retryingMaxCount | Number of times to retry the step before throwing an error. The default value is `3`. |
+| alfresco.reindex.retryingInitialDelay | Waiting time before retrying the step in milliseconds. The default value is `1000`. |
+| alfresco.reindex.retryingDelayIntervalMultiplier | Every try should wait N times the initial delay, where N is the number specified in this property. The default value is `2`. |
+| alfresco.reindex.retryingMaxDelay | Maximum delay to be waited before executing a retry on a step. The default value is `30000`. |
 | alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping, @engineering should this be namespace-prefixes mapping? Confirm the name please. | The default value is `classpath:reindex.prefixes-file.json`. |
 | alfresco.reindex.partitioning.type | Remote node type, can be _master_ or _worker_. If not specified, the app runs as a single node instance. By default it is left empty. |
 | alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals the number of available workers. The default value is `3`. |
 | alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning. org.alfresco.search.reindex.requests |
 | alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning. org.alfresco.search.reindex.replies |
+| alfresco.db.minimum.schema.version | Minimum Alfresco Repository database version supported: 14002. |
+| alfresco.accepted-content-media-types-cache.base-url | URL to get the list of Content Media Types supported. The default URL is `http://localhost:8090/transform/config`. |
+| alfresco.accepted-content-media-types-cache.enabled | Cache the list of Content Media Types supported in memory. The default value is `true`. |
 | alfresco.reindex.metadataIndexingEnabled | Reindex document metadata. The default value is `true`. |
 | alfresco.reindex.contentIndexingEnabled | Reindex document content. The default value is `true`. |
 | alfresco.reindex.pathIndexingEnabled | Reindex document Path property. The default value is `false`. |
@@ -142,17 +155,17 @@ The table below lists the main configuration properties that can be specified th
 |--------|-----------|
 | server.port |Default HTTP port, each module defines itself. The default value is `8190`.|
 | spring.activemq.broker-url | ActiveMQ broker url. The default value is `tcp://localhost:61616`. |
-| spring.activemq.username | ActiveMQ username. The default value is `admin`. |
+| spring.activemq.user | ActiveMQ username. The default value is `admin`. |
 | spring.activemq.password | ActiveMQ password. The default value is `admin`. |
 | spring.jms.cache.enabled | Cache JMS sessions. The default value is `false`. |
 | spring.elasticsearch.rest.uris | Comma-separated list of Elasticsearch endpoints. The default value is `http://localhost:9200`. |
-|elasticsearch.indexName|Name of the index to be used in Elasticsearch server. The default value is `alfresco`.|
+|elasticsearch.indexName | Name of the index to be used in Elasticsearch server. The default value is `alfresco`.|
 | alfresco.content.refresh.event.queue | The channel where transform requests are re-inserted by the content event aggregator as consequence of a failure. The default value is `org.alfresco.search.contentrefresh.event`. |
 | alfresco.content.event.retry.maxAllowed | Maximum number of retries in case of transient failure processing. The default value is `3`. |
-| alfresco.content.event.retry.delay | Delay in milliseconds between subsequent retries. The default value is `1000`. |
+| alfresco.content.event.retry.delay | Delay in milliseconds between subsequent retries. The default value is `4000`. |
 | acs.repo.transform.request.endpoint | Alfresco Repository channel. The default value is `activemq:queue:acs-repo-transform-request?jmsMessageType=Text`. |
 | alfresco.sharedFileStore.baseUrl | Alfresco Shared FileStore endpoint. The default value is `http://127.1.0.1:8099/alfresco/api/-default-/private/sfs/versions/1/file/`. |
-| alfresco.sharedFileStore.timeout | Alfresco Shared FileStore maximum read timeout in milliseconds. The default value is `2000`. |
+| alfresco.sharedFileStore.timeout | Alfresco Shared FileStore maximum read timeout in milliseconds. The default value is `4000`. |
 | alfresco.sharedFileStore.maxBufferSize | Alfresco Shared FileStore maximum buffer size (-1 for unlimited buffer). The default value is `-1`. |
 | alfresco.event.topic | Topic name for Alfresco Repository events. The default value is `activemq:topic:alfresco.repo.event2`. |
 | alfresco.metadata.event.channel | Alfresco Metadata channel. The default value is `activemq:queue:org.alfresco.search.metadata.event`. |
@@ -161,11 +174,15 @@ The table below lists the main configuration properties that can be specified th
 | alfresco.metadata.retry.event.queue | Alfresco Error event queue name. The default value is `org.alfresco.search.metadata.retry.event`. |
 | metadata.events.batch.size | Maximum number of events per batch. The default value is `10`. |
 | metadata.events.batch.timeout | Maximum timeout in milliseconds for batch creation. The default value is `1000`. |
-| alfresco.retransmission.max.attemps | Maximum number of retries in case of transient failure processing. The default value is `3`. |
+| alfresco.retransmission.max.attempts | Maximum number of retries in case of transient failure processing. The default value is `3`. |
 | alfresco.event.retry.delay | Delay time for error event in milliseconds. The default value is `1000`. |
 | alfresco.mediation.filter-file | The configuration file which contains fields and node types blacklists (see below). The default value is `classpath:mediation-filter.yml`. |
-| alfresco.acceptedContentMediaTypesCache.refreshTime | Time until we refresh the cache. We can disable the scheduler by replacing the value of the cron expression with a dash "-". In case we want to refresh the cache contents before the next scheduled refresh we should restart the application. The default value is `0 0 * * * *`. |
-| alfresco.acceptedContentMediaTypesCache.enabled | Property to set if we want to enable or disable the cache for contacting the Transform Core AIO. The default value is `true`. |
+| alfresco.accepted-content-media-types-cache.refresh-time  | Time until we refresh the cache. We can disable the scheduler by replacing the value of the cron expression with a dash "-". In case we want to refresh the cache contents before the next scheduled refresh we should restart the application. The default value is `0 0 * * * *`. |
+| alfresco.accepted-content-media-types-cache.enabled | Property to set if we want to enable or disable the cache for contacting the Transform Core AIO. The default value is `true`. |
+| alfresco.accepted-content-media-types-cache.base-url | URL to get the list of Content Media Types supported. The default URL is `http://localhost:8090/transform/config`. |
+| alfresco.path.retry.delay | Delay in milliseconds to retry a Path indexing operation. The default value is `1000`. |
+| alfresco.path.retry.maxAttempts | Maximum number of attempts to retry a Path indexing operation. The default value is `3`. |
+| alfresco.path-indexing-component.enabled | Index Path property. The default value is `true`. |
 
 @Tom or Angel if these attributes are mentioned above do we need to mention them again ? Within the Elasticsearch connector there is a subset of components that index data. A component called Mediation @Tom or Angel what is this? Does it require '' subscribes to the channel indicated by the `alfresco.event.topic` attribute, as seen in the table above, and processes the incoming node events. The configuration of that component allows you to declare three blacklist sets for filtering out nodes or attributes to be indexed. These blacklists can be specified in the file using the `alfresco.mediation.filter-file` attribute, as seen in the table above. The file used to  which defaults to a file called `mediation-filter.yml` that must be in the module classpath. Here's a sample content of that file:
 
@@ -344,7 +361,8 @@ These environment variables can be passed as command line arguments when running
 
 ## Exact Term Search
 
-The Exact term search feature is disabled by default to save index space. It's possible to enable it for specific properties and property types in the `exactTermSearch.properties` configuration file. For more Using Exact Term Search LINK   @Martin is this the normal behaviour to enable it also?
+The Exact Term search feature, that allows searching using the equals operator `=`, is disabled by default to save index space.
+It's possible to enable it for specific properties and property types using the configuration file `exactTermSearch.properties` located in **Alfresco Repository** under classpath `/alfresco/search/elasticsearch/config/`.
 
 **Note:** Once you have the Exact term search configured a re-index is required. If you need the feature from the beginning, it is recommended to enable it before your first index is created.
 
@@ -355,7 +373,18 @@ The Exact term search feature is disabled by default to save index space. It's p
 
 You can add as many data-types and properties as you like by adding lines and incrementing the associated index:
 
+```bash
 alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
 alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content
 alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
 alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content
+```
+
+In order to overwrite this configuration when using Docker, mount this file as an external volume. Following sample describes a local configuration to be applied to Elasticsearch Search Subsystem when using Docker Compose deployment:
+
+```docker
+services:
+  alfresco:
+    volumes:
+      - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
+```
