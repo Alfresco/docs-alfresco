@@ -73,6 +73,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Transform Service 1.4 | |
 | Alfresco Transform Service 1.3.2 | |
 | Alfresco Document Transformation Engine 2.3 | |
+| Alfresco Search Enterprise 3.0 | For information about migrating from Alfresco Search and Insight Engine 2.0 or Alfresco Search Services 2.0 see the [Alfresco Search Enterprise 3.0 upgrade page]({% link search-enterprise/latest/upgrade/index.md %}). |
 | Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
 | Alfresco Search Services 2.0 | |
 | Alfresco Federation Services 2.0 | |
