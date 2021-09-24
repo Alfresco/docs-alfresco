@@ -7,20 +7,17 @@ In order to use Alfresco Search Enterprise 3.0 for Alfresco Content Services pla
 * Alfresco Repository properties in configuration file `alfresco-global.properties` or as environment variables related to Search Subystem configuration for *searching* features
 * Alfresco Elasticsearch Connector properties as environment variables related to communication with Alfresco Repository (Database, ActiveMQ and Transform Service) and Elasticsearch server for *indexing* features
 
-* [Alfresco Repository](#alfresco-repository)
-* [Alfresco Elasticsearch Connector](#alfresco-elasticsearch-connector)
-* [Scaling up](#scaling-up)
-* [Using HTTP Basic Auth to access Elasticsearch](#using-http-basic-auth-to-access-elasticsearch)
-* [Using HTTPS to access Elasticsearch for end to end encryption](#using-https-to-access-elasticsearch-for-end-to-end-encryption)
-
-### Alfresco Repository
+## Alfresco Repository
 
 Alfresco Repository provides configuration properties for `elasticsearch` Search Subystem to define the connection to an external Elasticsearch server.
 
-Setting the subsystem search property to `elasticsearch` is required.
+Setting the subsystem search property to `elasticsearch` is required and also adding the parameters to create Elasticsearch Index if required.
 
 ```bash
 index.subsystem.name=elasticsearch
+# Elasticsearch index properties
+elasticsearch.indexName=alfresco
+elasticsearch.createIndexIfNotExists=true
 ```
 
 Additional property values can be included in Alfresco Repository global configuration file `alfresco-global.properties`
@@ -32,6 +29,8 @@ Additional property values can be included in Alfresco Repository global configu
 | elasticsearch.baseUrl | Context path for Elasticsearch server endpoint | / |
 | elasticsearch.secureComms | Set secure communications for requests to Elasticsearch server. When setting this value to `https`, adding Elasticsearch Trusted CA certificate to Alfresco Repository Truststore is required and communications with Elasticsearch server are managed with HTTPS protocol. When setting this value to `none`, communications to Elasticsearch server are managed with HTTP protocol. | none |
 | elasticsearch.ssl.host.name.verification | When using HTTPS protocol, this property controls that the Elasticsearch server TLS certificate includes a CN with the real DNS hostname (`true`) or ignores this verification (`false`) | false |
+| elasticsearch.user | Username for Elasticsearch server | <default is empty> |
+| elasticsearch.password | Password for Elasticsearch server | <default is empty> |
 | elasticsearch.max.total.connections | Maximum number of HTTP(s) connections allowed for the Elasticsearch server | 30 |
 | elasticsearch.max.host.connections | Maximum number of HTTP(s) connections allowed for an Elasticsearch endpoint | 30 |
 | elasticsearch.http.socket.timeout | Maximum timeout in milliseconds to wait for a socket response | 30000 |
@@ -39,9 +38,9 @@ Additional property values can be included in Alfresco Repository global configu
 | elasticsearch.indexName | Name of the index to be used in Elasticsearch server | alfresco |
 | elasticsearch.createIndexIfNotExists | Index is created in Elasticsearch server when this value is set to `true` | false |
 | elasticsearch.retryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization | 10 |
-| elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization in lock mode | 10 | elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true` | false |
-| system.fixedACLs.maxTransactionTime | The number of milliseconds before permission updates start happening asynchronously. Permission updates for large folders will pause after this duration and updates will be resumed by a job scheduled for midnight. | 10000 |
-| repo.event2.filter.users | Events by these users will be not be received by the Elasticsearch Connector. The default used to be "system,null" but has been changed to be an empty list. | <default is empty> |
+| elasticsearch.retryAttempts | Number of attempts to try Elasticsearch index initialization | 3 |
+| elasticsearch.lockRetryPeriodSeconds | Number of seconds to wait before retrying Elasticsearch index initialization in lock mode | 10 |
+| elasticsearch.query.includeGroupsForRoleAdmin | Include groups for Role Admin in permission filters when this value is set to `true` | false |
 | elasticsearch.index.mapping.total_fields.limit | Mapping limit settings: The maximum number of fields in Alfresco index. When working on deployments including a large collection of custom content models, this value may be increased (since it's not recommended) | 7500 |
 
 Some of the properties above can be edited in the Search Admin Console, but values will be applied only to the Alfresco Repository instance, to update values for the Alfresco Elasticsearch Connector please update its property file manually. It is important that Elasticsearch Connector and repository configuration matches, otherwise search functionality will be impaired.
@@ -59,9 +58,11 @@ alfresco:
         "
 ```
 
-## Exact Term Search
+**Exact Term Search**
 
-Pre-Indexing considerations the Exact term search feature is disabled by default to save index space. It's possible to enable it for specific properties and property types in the configuration file: exactTermSearch.properties
+The Exact Term search feature, that allows searching using the equals operator `=`, is disabled by default to save index space.
+It's possible to enable it for specific properties and property types using the configuration file `exactTermSearch.properties` located in **Alfresco Repository** under classpath `/alfresco/search/elasticsearch/config/`.
+
 
 |Property|Description|e.g.|Default value|
 |--------|-----------|-----------|------------:|
@@ -70,14 +71,25 @@ Pre-Indexing considerations the Exact term search feature is disabled by default
 
 You can add as many data-types and properties as you like by adding lines and incrementing the associated index:
 
+```
 alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
 alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content
 alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
 alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content
+```
 
-**Note:** Once you have done that you need to re-index, so if you need such a feature from the beginning, it is recommended to enable it before your very first indexing.
+In order to overwrite this configuration when using Docker, mount this file as an external volume. Following sample describes a local configuration to be applied to Elasticsearch Search Subsystem when using Docker Compose deployment:
 
-### Alfresco Elasticsearch Connector
+```
+services:
+  alfresco:
+    volumes:
+      - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
+```
+
+> **Note:** Once you have done that you need to re-index, so if you need such a feature from the beginning, it is recommended to enable it before your very first indexing.
+
+## Alfresco Elasticsearch Connector
 
 Indexing feature is provided by a Spring Boot application named `Alfresco Elasticsearch Connector`. This application includes two main components that build and maintain the index in Elasticsearch:
 
@@ -108,15 +120,27 @@ The tool may be used as a standalone jar. The table below lists the main configu
 | spring.elasticsearch.rest.uris | Rest(s) url of Elasticsearch | http://elasticsearch:9200 |
 | spring.elasticsearch.rest.username | Username for Elasticsearch when using Basic Auth |  |
 | spring.elasticsearch.rest.password | Password for username in Elasticsearch when using Basic Auth | |
+| spring.activemq.broker-url | ActiveMQ Broker url, use async sending to improve performance | tcp://localhost:61616?jms.useAsyncSend=true |
+| spring.activemq.user | ActiveMQ Broker user | admin |
+| spring.activemq.password | ActiveMQ Broker password | admin |
+| alfresco.reindex.multithreadedStepEnabled | Enable steps to be executed in parallel threads. Retrying settings are only applied when this property is set to true | false |
+| alfresco.reindex.retryingEnabled | Retry the execution of a step in case of fail | true |
+| alfresco.reindex.retryingMaxCount | Number of times to retry the step before throwing an error | 3 |
+| alfresco.reindex.retryingInitialDelay | Waiting time before retrying the step in milliseconds | 1000 |
+| alfresco.reindex.retryingDelayIntervalMultiplier | Every try should wait N times the initial delay, where N is the number specified in this property | 2 |
+| alfresco.reindex.retryingMaxDelay | Maximum delay to be waited before executing a retry on a step | 30000 |
 | alfresco.reindex.prefixes-file | File with namespaces-prefixes mapping | classpath:reindex.prefixes-file.json |
 | alfresco.reindex.partitioning.type | Remote node type, can be _master_ or _worker_. If not specified, the app runs as single node instance. | Not specified |
 | alfresco.reindex.partitioning.grid-size | Number of partitions, usually equals to number of available workers. | 3 |
 | alfresco.reindex.partitioning.requests-queue| Request queue for remote partitioning | org.alfresco.search.reindex.requests |
 | alfresco.reindex.partitioning.replies-queue | Reply queue for remote partitioning | org.alfresco.search.reindex.replies |
+| alfresco.db.minimum.schema.version | Minimum Alfresco Repository database version supported | 14002 |
+| alfresco.accepted-content-media-types-cache.base-url | URL to get the list of Content Media Types supported | http://localhost:8090/transform/config |
+| alfresco.accepted-content-media-types-cache.enabled | Cache the list of Content Media Types supported in memory | true |
 | alfresco.reindex.metadataIndexingEnabled | Reindex document metadata | true |
 | alfresco.reindex.contentIndexingEnabled | Reindex document content | true |
 | alfresco.reindex.pathIndexingEnabled | Reindex document Path property | false |
-    
+
 
 There are two strategies in order to fill gaps in the Elasticsearch server provoked by ActiveMQ unavailability or any other external cause:
 
@@ -149,7 +173,7 @@ Sample invocation for Fetch by DATE.
 
 > **Note:** Additional use cases for this application will be covered in the [Indexing](Indexing) section.
 
-## Alfresco Live Indexing app
+### Alfresco Live Indexing app
 
 Alfresco Live Indexing app requires a working Alfresco ActiveMQ service, Alfresco Shared FileStore service and Elasticsearch server.
 
@@ -159,17 +183,17 @@ The table below lists the main configuration properties that can be specified th
 |--------|-----------|------------:|
 | server.port |Default HTTP port, each module defines itself.|8190|
 | spring.activemq.broker-url | ActiveMQ broker url | tcp://localhost:61616 |
-| spring.activemq.username | ActiveMQ username | admin |
+| spring.activemq.user | ActiveMQ username | admin |
 | spring.activemq.password | ActiveMQ password | admin |
 | spring.jms.cache.enabled | Cache JMS sessions | false |
 | spring.elasticsearch.rest.uris | Comma-separated list of Elasticsearch endpoints | http://localhost:9200 |
-|elasticsearch.indexName|Name of the index to be used in Elasticsearch server	|alfresco|
+| elasticsearch.indexName | Name of the index to be used in Elasticsearch server	|alfresco|
 | alfresco.content.refresh.event.queue | The channel where transform requests are re-inserted by the content event aggregator as consequence of a failure | org.alfresco.search.contentrefresh.event |
 | alfresco.content.event.retry.maxAllowed | Maximum number of retries in case of transient failure processing | 3 |
-| alfresco.content.event.retry.delay | Delay in milliseconds between subsequent retries | 1000 |
+| alfresco.content.event.retry.delay | Delay in milliseconds between subsequent retries | 4000 |
 | acs.repo.transform.request.endpoint | Alfresco Repository channel | activemq:queue:acs-repo-transform-request?jmsMessageType=Text |
 | alfresco.sharedFileStore.baseUrl | Alfresco Shared FileStore endpoint | http://127.1.0.1:8099/alfresco/api/-default-/private/sfs/versions/1/file/ |
-| alfresco.sharedFileStore.timeout | Alfresco Shared FileStore maximum read timeout in milliseconds | 2000 |
+| alfresco.sharedFileStore.timeout | Alfresco Shared FileStore maximum read timeout in milliseconds | 4000 |
 | alfresco.sharedFileStore.maxBufferSize | Alfresco Shared FileStore maximum buffer size (-1 for unlimited buffer) | -1 |
 | alfresco.event.topic | Topic name for Alfresco Repository events | activemq:topic:alfresco.repo.event2 |
 | alfresco.metadata.event.channel | Alfresco Metadata channel | activemq:queue:org.alfresco.search.metadata.event |
@@ -178,11 +202,15 @@ The table below lists the main configuration properties that can be specified th
 | alfresco.metadata.retry.event.queue | Alfresco Error event queue name | org.alfresco.search.metadata.retry.event |
 | metadata.events.batch.size | Maximum number of events per batch | 10 |
 | metadata.events.batch.timeout | Maximum timeout in milliseconds for batch creation | 1000 |
-| alfresco.retransmission.max.attemps | Maximum number of retries in case of transient failure processing | 3 |
+| alfresco.retransmission.max.attempts | Maximum number of retries in case of transient failure processing | 3 |
 | alfresco.event.retry.delay | Delay time for error event in milliseconds | 1000 |
 | alfresco.mediation.filter-file | The configuration file which contains fields and node types blacklists (see below)| classpath:mediation-filter.yml |
-| alfresco.acceptedContentMediaTypesCache.refreshTime | Time until we refresh the cache. We can disable the scheduler by replacing the value of the cron expression with a dash "-". In case we want to refresh the cache contents before the next scheduled refresh we should restart the application | 0 0 * * * * |
-| alfresco.acceptedContentMediaTypesCache.enabled     | Property to set if we want to enable or disable the cache for contacting the Transform Core AIO                             | true                  |
+| alfresco.accepted-content-media-types-cache.refresh-time | Time until we refresh the cache. We can disable the scheduler by replacing the value of the cron expression with a dash "-". In case we want to refresh the cache contents before the next scheduled refresh we should restart the application | 0 0 * * * * |
+| alfresco.accepted-content-media-types-cache.enabled     | Property to set if we want to enable or disable the cache for contacting the Transform Core AIO                             | true |
+| alfresco.accepted-content-media-types-cache.base-url | URL to get the list of Content Media Types supported | http://localhost:8090/transform/config |
+| alfresco.path.retry.delay | Delay in milliseconds to retry a Path indexing operation | 1000 |
+| alfresco.path.retry.maxAttempts | Maximum number of attempts to retry a Path indexing operation | 3 |
+| alfresco.path-indexing-component.enabled | Index Path property | true |    
 
 Within the Elasticsearch-connector there's a subset of components that are in charge to index data: specifically a component called "Mediation" subscribes to the channel indicated by the `alfresco.event.topic` attribute (see the table above) and processes the incoming node events.    
 The configuration of that component allows to declare three blacklist sets for filtering out nodes/attributes to be indexed.
@@ -263,7 +291,7 @@ mediation:
 
 [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config)
 
-### Scaling up
+## Scaling up
 
 Every Alfresco Elasticsearch Connector service can be scaled up to use an ActiveMQ Connection Pool and to increase the number of Consumers.
 
@@ -295,7 +323,7 @@ Increasing the **consumer** number requires to check the property name in the `a
             INPUT_ALFRESCO_METADATA_BATCH_EVENT_CHANNEL: sjms-batch:metadata.event?completionTimeout=1000&completionSize=10&aggregationStrategy=#eventAggregator&?consumerCount=20
 ```
 
-### Using HTTP Basic Auth to access Elasticsearch
+## Using HTTP Basic Auth to access Elasticsearch
 
 When using Elasticsearch server with HTTP Basic Auth protocol, additional configuration should be added to **Alfresco Repository**.
 
@@ -337,7 +365,7 @@ kibana:
      - ELASTICSEARCH_PASSWORD=bob123
 ```
 
-### Using HTTPS to access Elasticsearch for end to end encryption
+## Using HTTPS to access Elasticsearch for end to end encryption
 
 When using Elasticsearch server with HTTPs protocol, additional configuration should be added to **Alfresco Repository**.
 

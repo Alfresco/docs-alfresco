@@ -6,6 +6,7 @@ Alfresco Search Enterprise supported search query syntax.
 
 ## Applications and Frameworks
 
+
 * [ADF Search Components](https://www.alfresco.com/abn/adf/docs/)
 * [ACA - Alfresco Content Application](https://github.com/alfresco/alfresco-content-app)
 * [ADW - Alfresco Digital Workspace](https://docs.alfresco.com/digital-workspace/latest/)
@@ -21,6 +22,7 @@ Alfresco Search Enterprise supported search query syntax.
 * (Faceting)[https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/searching/#faceted-search]{:target="_blank"}
 * Filter by content size and mimetype
 * (Inclusion of additional properties in search results)[https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/#requesting-optional-item-information]{:target="_blank"}
+
 
 ## Search for a single term
 
@@ -51,12 +53,14 @@ field:'phrase'
 
 > **Note:** Exact Term searching, using equals operator (`=field:exact` in the samples above), is only allowed if default Alfresco Repository configuration has been changed in order to enable this feature.
 
+Fields fall into three types: property fields, special fields, and fields for data types.
+
 Fields fall into three types, property fields, special fields, and fields for data types. Property fields evaluate the search term against a particular property, special fields are described in the following table, and data type fields evaluate the search term against all properties of the given type.
 
 |Type|Description|
 |-----------|----|
-|Property|Fully qualified property, for example `{http://www.alfresco.org/model/content/1.0}name:apple`. |
-|Poroperty|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`. |
+|Property|Fully qualified property, for example `{http://www.alfresco.org/model/content/1.0}name:apple`|
+|Property|Fully qualified property, for example `@{http://www.alfresco.org/model/content/1.0}name:apple`|
 |Property|CMIS style property, for example `cm_name:apple`.|
 |Property|Prefix style property, for example `cm:name:apple`.|
 |Property|Prefix style property, for example `@cm:name:apple`.|
@@ -120,7 +124,16 @@ big AND yellow
 
 These queries search for nodes that contain all the terms `big` and `yellow` in any content or in properties `cm:name`, `cm:title` or `cm:description`.
 
-## Search for disjunctions
+Single terms, phrases, and so on can be combined using `AND` in upper, lower, or mixed case.
+
+The `AND` operator is interpreted as "every term is required".
+
+```
+big AND yellow
+```
+These queries search for nodes that contain all the terms `big` and `yellow` in any content or in properties `cm:name`, `cm:title` or `cm:description`.
+
+### Search for disjunctions
 
 Single terms, and phrases can be combined using `OR` in upper, lower, or mixed case.
 
@@ -138,6 +151,7 @@ TEXT:big OR TEXT:yellow OR TEXT:banana
 These queries search for nodes that contain at least one of the terms `big`, `yellow`, or `banana` in any content. The first two will also get results from properties `cm:name`, `cm:title` or `cm:description`.
 
 ## Search for negation
+
 
 You can narrow your search results by excluding words with the `NOT` syntax.
 
@@ -185,6 +199,7 @@ All `AND` and `OR` constructs can be expressed with these operators.
 Any character can be escaped using the backslash "`\`" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
 
 For example:
+
 
 ```afts
 cm:my\ content:my\ name
@@ -250,8 +265,6 @@ To search for an exact term you must prefix it with "=". The supported syntax:
 ```
 
 If you don’t specify a field the search runs against name, description, title, and content. If the field specified is `TOKENIZED=false`, only the full field is matched. If the field you specified is `TOKENIZED=TRUE` or `TOKENIZED=BOTH` then the search is run on the cross locale tokenized version of the field.
-
-@angel ??
 
 > **Note:** Exact Term Search is disabled by default, to enable it refer to the Indexing documentation LINK and the configuration file: `exactTermSearch.properties`.
 
