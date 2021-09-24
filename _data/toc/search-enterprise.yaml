@@ -12,4 +12,15 @@
     - title: 'Administer'
       path: '/search-enterprise/latest/admin/'
     - title: 'Using'
-      path: '/search-enterprise/latest/using/'
+      pages:
+        - title: 'Search query syntax'
+          path: '/search-enterprise/latest/using/'
+        - title: 'Filtering paging and sorting'
+          path: '/search-enterprise/latest/using/filtering/'
+        - title: 'Field queries'
+          path: '/search-enterprise/latest/using/field/'
+        - title: 'Query languages'
+          path: '/search-enterprise/latest/using/languages/'
+        - title: 'Unsupported features'
+          path: '/search-enterprise/latest/using/unsupported/'
+
