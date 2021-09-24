@@ -14,10 +14,6 @@ Type and Aspect queries have several things in common and both of them expect a 
 
 **Important:** Prefix and wildcard queries in the namespace part, for example `TYPE:{http://www.*}person` won't work, whereas `TYPE:{http://www.alfresco.org/model/content/1.0}pers*` does work. Descendant expansion in prefix and wildcard queries, for example `TYPE: cm:pers*` will not expand to `cm:person descendants`.
 
-## Expanded Queries
-
-Queries in this category are expanded to a boolean query with several clauses using criteria that are specific to each field.
-
 ## ALL (Field, Prefix, Range, Wildcard, Fuzzy)
 
 The ALL virtual field (i.e. it is not in the index) expands to all fields defined:
@@ -81,7 +77,3 @@ The value of a clause whose field is `EXISTS` could be:
 If the value is associated to a property definition then a boolean query is executed that has the following clause:
 
 * `PROPERTIES` (MUST) Otherwise, in case of a field (e.g. OWNER, ID, READER) a wildcard query is built using that field, for example `OWNER:*`
-
-## ISNODE (Field, Prefix, Wildcard)
-
-Search Enterprise only indexes nodes which means the `ISNODE` query becomes a “MatchAll” or “MatchNothing” query.

@@ -4,20 +4,38 @@ title: Search query syntax
 
 Alfresco Search Enterprise supported search query syntax.
 
+## Applications and Frameworks
+
+* [ADF Search Components](https://www.alfresco.com/abn/adf/docs/)
+* [ACA - Alfresco Content Application](https://github.com/alfresco/alfresco-content-app)
+* [ADW - Alfresco Digital Workspace](https://docs.alfresco.com/digital-workspace/latest/)
+* [ReST API (only when using FTS search syntax)](https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/searching/)
+
+> **Note:** Alfresco Share web application is not supported
+
+## Search Features
+
+* ACL Permission checks
+* Sorting by relevancy
+* (Paging)[https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/searching/#searching-by-content-type-and-controlling-paging-and-sorting]{:target="_blank"}
+* (Faceting)[https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/searching/#faceted-search]{:target="_blank"}
+* Filter by content size and mimetype
+* (Inclusion of additional properties in search results)[https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/#requesting-optional-item-information]{:target="_blank"}
+
 ## Search for a single term
 
 Single terms are tokenized before the search according to the appropriate data dictionary definition(s).
 
-If you do not specify a field it will search in the content and properties. This can be used as a shortcut for searching all properties of type content. Terms cannot contain a whitespace.
+If you do not specify a field, it will search in the content and in the following properties: name, title and description. This is a shortcut for searching *all properties of type content*. Terms can not contain a whitespace.
 
 ```bash
 banana
 TEXT:banana
 ```
 
-Both of these queries will find any nodes with the word "banana" in any property of type `d:content`.
+Both of these queries will find any nodes with the word "banana" in any property of type `d:content`. howeveer, the first one will also get results from properties `cm:name`, `cm:title` or `cm:description`.
 
-If the appropriate data dictionary definition(s) for the field supports both FTS and untokenized search, then FTS search will be used. FTS will include synonyms if the analyzer generates them. Terms cannot contain whitespace.
+If the appropriate data dictionary definition(s) for the field supports both FTS and untokenized search, then FTS search will be used. FTS will include synonyms if the analyzer generates them.
 
 ## Search in fields
 
@@ -26,9 +44,12 @@ Search specific fields rather than the default. Terms, and phrases can all be pr
 ```bash
 field:term
 field:"phrase"
+field:'phrase'
 =field:exact
 ~field:expand
 ```
+
+> **Note:** Exact Term searching, using equals operator (`=field:exact` in the samples above), is only allowed if default Alfresco Repository configuration has been changed in order to enable this feature.
 
 Fields fall into three types, property fields, special fields, and fields for data types. Property fields evaluate the search term against a particular property, special fields are described in the following table, and data type fields evaluate the search term against all properties of the given type.
 
@@ -39,27 +60,19 @@ Fields fall into three types, property fields, special fields, and fields for da
 |Property|CMIS style property, for example `cm_name:apple`.|
 |Property|Prefix style property, for example `cm:name:apple`.|
 |Property|Prefix style property, for example `@cm:name:apple`.|
+|Property|ID, for example `ID:'599a6862-070c-49a7-a744-b88da949c31e'`|
 |Property|TEXT, for example `TEXT:apple`.|
-|Special|ID, for example `ID:"NodeRef"`.|
-|Special|ISROOT, for example `ISROOT:T`.|
-|Special|TX, for example `TX:"TX"`.|
-|Special|PARENT, for example `PARENT:"NodeRef"`.|
-|Special|PRIMARYPARENT, for example `PRIMARYPARENT:"NodeRef"`.|
-|Special|QNAME, for example `QNAME:"app:company_home"`.|
-|Special|CLASS, for example `CLASS:"qname"`.|
-|Special|EXACTCLASS, for example `EXACTCLASS:"qname"`.|
+|Property|OWNER, for example `OWNER:'admin'`|
+|Property|READER, for example `READER:'GROUP_EVERYONE'`|
+|Property|DENIED, for example `DENIED:'GROUP_EVERYONE'`|
 |Special|TYPE, for example `TYPE:"qname"`.|
-|Special|EXACTTYPE, for example `EXACTTYPE:"qname"`.|
 |Special|ASPECT, for example `ASPECT:"qname"`.|
-|Special|EXACTASPECT, for example `EXACTASPECT:"qname"`.|
-|Special|ISUNSET, for example `ISUNSET:"property-qname"`.|
-|Special|ISNULL, for example `ISNULL:"property-qname"`.|
-|Special|ISNOTNULL, for example `ISNOTNULL:"property-qname"`.|
-|Special|EXISTS, for example `EXISTS:"name of the property"`.|
-|Special|SITE, for example `SITE:"shortname of the site"`.|
-|Special|TAG. TAG: "name of the tag" **Note:** `TAG` must be in upper case.|
-|Fully qualified data type|Data Type, for example `http://www.alfresco.org/model/dictionary/1.0}content:apple`.|
-|prefixed data type|Data Type, `d:content:apple`.|
+|Special|TAG for example `TAG:"name of the tag"`.|
+|Special|ALL, for example `ALL:'admin'`|
+|Special|EXISTS, for example `EXISTS cm:name:'Sample-Document.docx'`|
+|Special|ISNODE, for example `ISNODE cm:name:'Sample-Document.docx'`|
+|Field for Data Type|Fully qualified Data Type, `{http://www.alfresco.org/model/dictionary/1.0}content:apple`|
+|Field for Data Type|Data Type style property, `d:content:apple`|
 
 ## Search for a phrase
 
@@ -91,22 +104,21 @@ appl?
 "?????"
 ```
 
+> **Note:** Exact Term searching, using equals operator (`=*ple` in the samples above), is only allowed if default Alfresco Repository configuration has been changed in order to enable this feature.
+
 When performing a search that includes a wildcard character, it is best to wrap your search term in double quotation marks. This ensures all metadata and content are searched.
 
 ## Search for conjunctions
 
 Single terms, and phrases can be combined using `AND` in upper, lower, or mixed case.
 
-The `AND` operator is interpreted as "object1 and object2 will be returned".
+The `AND` operator is interpreted as "every term is required".
 
-```text
-big banana
-big AND yellow AND banana
-TEXT:big TEXT:banana
-TEXT:big AND TEXT:banana
+```bash
+big AND yellow
 ```
 
-These queries search for nodes that contain `big`, and `banana` in any content.
+These queries search for nodes that contain all the terms `big` and `yellow` in any content or in properties `cm:name`, `cm:title` or `cm:description`.
 
 ## Search for disjunctions
 
@@ -123,17 +135,17 @@ TEXT:big TEXT:yellow TEXT:banana
 TEXT:big OR TEXT:yellow OR TEXT:banana
 ```
 
-These queries search for nodes that contain at least one of the terms `big`, `yellow`, or `banana` in any content.
+These queries search for nodes that contain at least one of the terms `big`, `yellow`, or `banana` in any content. The first two will also get results from properties `cm:name`, `cm:title` or `cm:description`.
 
 ## Search for negation
 
 You can narrow your search results by excluding words with the `NOT` syntax.
 
-Single terms, phrases, can be combined using "`NOT`" in upper, lower, or mixed case, or prefixed with "`!`" or "`-`".
+Single terms, phrases, and so on can be combined using “`NOT`” in upper, lower, or mixed case, or prefixed with “`!`” or “`-`”.
 
-These queries search for nodes that contain the terms `yellow` in any content.
+These queries search for nodes that contain the terms yellow in any content.
 
-```afts
+```text
 yellow NOT banana
 yellow !banana
 yellow -banana
@@ -142,27 +154,11 @@ NOT yellow banana
 !yellow banana
 ```
 
-The `NOT` operator can only be used for string keywords; it doesn't work for numerals or dates.
+> **Note:** In the three initial samples above, since `OR` is default operator for searching, results are expected to include every node with "yellow" and every node without "banana" term. If you want to get nodes with "yellow" term and without term "banana", use following expression: `yellow AND NOT banana`
+
+The `NOT` operator can only be used for string keywords; it doesn’t work for numerals or dates.
 
 Prefixing any search qualifier with a `-` excludes all results that are matched by that qualifier.
-
-When you search using negation the query will be built using the default field operator (OR). For instance, if you are querying for negation:
-
-```afts
-taxi AND driver NOT yellow
-```
-
-the query will be executed as:
-
-```afts
-taxi AND driver OR NOT passenger
-```
-
-If you expect a different behavior, you have to specify the boolean conjunction:
-
-```afts
-taxi AND driver AND NOT passenger
-```
 
 ## Search for optional, mandatory, and excluded elements of a query
 
@@ -184,26 +180,14 @@ The following example finds documents that contain the term "car", score those w
 
 All `AND` and `OR` constructs can be expressed with these operators.
 
-Using the mandatory operator we should occur, comparing with other search engines, in a weird behavior about the mandatory operator (+). For instance, executing the query below: @engineering can you clarify this statement please?
-
-```afts
-+taxi +driver
-```
-
-You would expect all results containing _taxi_ and _driver_, but because the AFTS language composes the query using the boolean operator `OR` as the default operator, the query will be translated to the following and returns all items that contain "taxi" or driver:
-
-```afts
-+taxi OR +driver
-```
-
 ## Escaping characters
 
-Any character can be escaped using the backslash "\" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
+Any character can be escaped using the backslash "`\`" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
 
 For example:
 
 ```afts
-cm:my content:my name
+cm:my\ content:my\ name
 ```
 
 ## Search for ranges
@@ -213,9 +197,9 @@ Inclusive ranges can be specified in Google-style. There is an extended syntax f
 |Lucene|Google|Description|Example|
 |------|------|-----------|-------|
 |`[#1 TO #2]`|`#1..#2`|The range #1 to #2 inclusive ``#1 <= x <= #2``|`0..5``[0 TO 5]`|
-|`<#1 TO #2]`| |The range #1 to #2 including #2 but not #1.`#1 < x <= #2`|`<0 TO 5]`|
-|`[#1 TO #2>`| |The range #1 to #2 including #1 but not #2.`#1 <= x < #2`|`[0 TO 5>`|
-|`<#1 TO #2>`| |The range #1 to #2 exclusive.`#1 < x < #2`|`<0 TO 5>`|
+|`<#1 TO #2]`| |The range #1 to #2 including #2 but not #1.`#1 < x <= #2`|`<0 TO 5]`|
+|`[#1 TO #2>`| |The range #1 to #2 including #1 but not #2.`#1 <= x < #2`|`[0 TO 5>`|
+|`<#1 TO #2>`| |The range #1 to #2 exclusive.`#1 < x < #2`|`<0 TO 5>`|
 
 ```afts
 TEXT:apple..banana
@@ -234,7 +218,7 @@ When searching for a date range you can use a partial date. Elasticsearch replac
 * Second of minute: 59
 * Nano of second:   999_999_999
 
-The last four items will be replaced with 0 when the date component is missing in the minimum date in a range expression, for example [1950 to 2021] will be executed as [1950-01-01T00:00:00 TO 2021-01-01T23:59:59].
+The last four items will be replaced with 0 when the date component is missing in the minimum date in a range expression, e.g. [1950 to 2021] will be executed as [1950-01-01T00:00:00 TO 2021-01-01T23:59:59].
 
 In the REST API you can specify the timezone to be used in search for date ranges.
 
@@ -252,45 +236,22 @@ In the REST API you can specify the timezone to be used in search for date range
 
 ## Search for an exact term
 
+> **Note:** Exact Term searching is only allowed if default Alfresco Repository configuration has been changed in order to enable this feature.
+
 To search for an exact term you must prefix it with "=". The supported syntax:
 
-* `=term`
-* `=term1 =term2`
-* `=“multi term phrase”`
-
-    > **Note:** `=“multi term phrase”` returns documents only with the exact phrase and terms in the exact order.
-
-* `=field:term`
-* `=field:term1 =field:term2`
-* `=field:“multi term phrase”`
+```afts
+=term
+=term1 =term2
+="multi term phrase"
+=field:term
+=field:term1 =field:term2
+=field:“multi term phrase”
+```
 
 If you don’t specify a field the search runs against name, description, title, and content. If the field specified is `TOKENIZED=false`, only the full field is matched. If the field you specified is `TOKENIZED=TRUE` or `TOKENIZED=BOTH` then the search is run on the cross locale tokenized version of the field.
 
-> **Note:** If cross locale is not configured for the field then an exception occurs.
-
-The list of the default supported types as declared in the `<alfresco_home>/solr4/conf/shared.properties` file:
-
-* `alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text`
-* `alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content`
-* `alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext`
-
-Single Term
-
-```afts
-=taxi 
-```
-
-Multi Term
-
-```afts
-=taxi =driver
-```
-
-Phrase
-
-```afts
-="taxi driver"
-```
+@angel ??
 
 > **Note:** Exact Term Search is disabled by default, to enable it refer to the Indexing documentation LINK and the configuration file: `exactTermSearch.properties`.
 
