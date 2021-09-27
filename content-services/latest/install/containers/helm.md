@@ -71,10 +71,6 @@ The Enterprise configuration will deploy the following system:
 * You've read the [main Helm README](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/README.md){:target="_blank"} page
 * You are proficient in AWS and Kubernetes
 
->**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
-then you need to [bootstrap the IPTC Content Model]({% link content-services/latest/install/containers/index.md %}#iptc-model-bootstrap) manually
-into Content Services.
-
 ### Set up an EKS cluster
 
 Follow the [AWS EKS Getting Started Guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html){:target="_blank"} to create a cluster and prepare your local machine to connect to the cluster. Use the **Managed nodes - Linux** option and specify a `--node-type` of at least `m5.xlarge`.
