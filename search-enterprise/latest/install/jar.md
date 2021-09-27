@@ -1,20 +1,14 @@
 ---
-title: Overview
+title: Install with jar
 ---
 
-Alfresco Search Enterprise 3.0 consists of Alfresco Content Services, Elasticsearch Server, and the Elasticsearch connector. The Alfresco Elasticsearch connector can be deployed using JAR files, Docker Compose, or Helm charts.
-
-## Prerequisites
-
-* Alfresco Content Services 7.1 that includes Alfresco ActiveMQ, Alfresco Transform Service, and Database, for more see [Install overview](https://docs.alfresco.com/content-services/latest/install/)
-* Elasticsearch server 7.10. It may be used as a standard managed service or can be installed with the default configuration, for more see [Install Elasticsearch server](#install-elasticsearch-server)
-* Elasticsearch Connector 3.0.0
-
-> **Note:** Alfresco Repository must be configured in order to use Elasticsearch as Search Subsystem (named `elasticsearch`).
-
-## Install using JAR files
-
 Use this information to install Alfresco Elasticsearch Connector on the same machine as Alfresco Content Services.
+
+### Prerequisites
+
+* Alfresco Content Services 7.1
+* Elasticsearch server 7.10.1
+* JDK 11 or OpenJDK 11
 
 ### Installation sequential steps
 
@@ -25,9 +19,9 @@ Use this information to install Alfresco Elasticsearch Connector on the same mac
 
 ### Configuring the Search Enterprise subsystem in Alfresco Repository
 
-You must activate and configure the Search Services subsystem in Content Services by using either the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file or the [Repository Admin Web Console](https://docs.alfresco.com/content-services/latest/admin/admin-console/).
+The activation and configuration of the Search Services subsystem can be done by using either the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file or the [Repository Admin Web Console](https://docs.alfresco.com/content-services/latest/admin/admin-console/).
 
-Add the following lines to the configuration file `alfresco-global.properties` to enable the Elasticsearch Search subsystem.
+Add the following lines to the configuration file `alfresco-global.properties` to enable Elasticsearch Search subsystem.
 
 ```bash
 # Set the Elasticsearch subsystem
@@ -41,13 +35,13 @@ elasticsearch.port=9200
 elasticsearch.baseUrl=/
 ```
 
-These configuration properties are used by Alfresco Content Services to communicate with the Elasticsearch server. In the example above a plain HTTP connection is configured, but Alfresco Repository also supports communication with Elasticsearch server using Basic Authentication and the HTTPs protocol, for more see [Configuration]({% link search-services/latest/config/index.md %}).
+These configuration properties are used by Alfresco Content Services to talk to Elasticsearch server. In the sample above, a plain HTTP connection is configured, but Alfresco Repository also supports communication with Elasticsearch server using Basic Authentication and HTTPs protocol. Details to enable these options are described in the [Configuration]({% link search-services/latest/config/index.md %}) section.
 
-In order to set the configuration properties from the [Repository Admin Web Console](https://docs.alfresco.com/content-services/latest/admin/admin-console/) navigate in Alfresco to `Repository Services > Search Service` and set the properties in that web page.
+In order to set the configuration properties from the [Repository Admin Web Console](https://docs.alfresco.com/content-services/latest/admin/admin-console/) just choose `Repository Services > Search Service` option and set the properties in that web page.
 
 ![console]({% link search-enterprise/images/alfresco_repo_web_console.png %})
 
-> **Note:** In ACS 7.1, the `Test Connection` button will fail if your Elasticsearch server does not include "alfresco" index. You are however still able to `Save` your configuration and the index will be created automatically.
+> **Note:** In ACS 7.1.0, `Test Connection` button would fail if your Elasticsearch server does not include "alfresco" index. However you are still able to `Save` your configuration and the index will be created automatically.
 
 ### Obtaining the Alfresco Elasticsearch Connector JAR applications
 
@@ -396,6 +390,7 @@ If you need to access to Elasticsearch directly you have to perform the same ope
 and then visiting http://localhost:9200/.
 
 Properties that can be used to configure the chart are available [here](https://github.com/Alfresco/acs-deployment/tree/master/helm/alfresco-content-services/charts/alfresco-elasticsearch-connector/README.md)
+ 
 
 ## Install Elasticsearch server
 
@@ -404,7 +399,3 @@ Alfresco Elasticsearch Connector uses a standard Elasticsearch 7.10 server. No a
 Different alternatives may be selected for your Elasticsearch installation, as described in [Elasticsearch official documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html){:target="_blank"}. Alternatively, a managed service from [Elasticsearch](https://www.elastic.co/elasticsearch/service) or [Amazon AWS](https://aws.amazon.com/elasticsearch-service/){:target="_blank"} can be used.
 
 Alfresco Repository and Alfresco Elasticsearch Connector support communication with Elasticsearch server using HTTP or HTTPs protocol with or without HTTP Basic Authentication.
-
-> **Note:** Note that standard Elasticsearch 7.10 server is also required. You can use a local Elasticsearch server deployment, or perform a new installation of the product. Additionally, when using Docker Compose templates from Alfresco, the Elasticsearch server and Kibana application are included as default services.
-
-> **Note:** The Elasticsearch server does not require any additional software from Alfresco in order to be used by Alfresco Search Enterprise 3.0
