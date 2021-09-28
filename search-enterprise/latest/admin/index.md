@@ -2,53 +2,53 @@
 title: Overview
 ---
 
-## Indexing
+There are a number of processes and procedures for maintaining and administering the Search Enterprise environment.
 
-### Pre-Indexing considerations
+## Pre-Indexing considerations
 
-The Exact Term search feature, that allows searching using the equals operator `=`, is disabled by default to save index space.
-It's possible to enable it for specific properties and property types using the configuration file `exactTermSearch.properties` located in **Alfresco Repository** under classpath `/alfresco/search/elasticsearch/config/`.
+The Exact Term search feature that allows searching using the equals operator `=`, is disabled by default to save index space.
+It's possible to enable it for specific properties and property types using the `/alfresco/search/elasticsearch/config/exactTermSearch.properties` configuration file located in Alfresco Repository.
 
 |Property|Description|e.g.|Default value|
 |--------|-----------|-----------|------------:|
-| alfresco.cross.locale.datatype.0 | A new cross locale field (to cover exact term search) is added for any property of this data-type | {http://www.alfresco.org/model/dictionary/1.0}text | Exact Term Search disabled|
-| alfresco.cross.locale.property.0 | A new cross locale field (to cover exact term search) is added for the property | {http://www.alfresco.org/model/content/1.0}content | Exact Term Search disabled|
+| alfresco.cross.locale.datatype.0 | A new cross locale field is added for any property of this data-type to enable exact term search. For example, {http://www.alfresco.org/model/dictionary/1.0}text. The Exact Term search is disabled by default. |
+| alfresco.cross.locale.property.0 | A new cross locale field is added for the property to enable exact term search. For example, {http://www.alfresco.org/model/content/1.0}content. The Exact Term search is disabled by default. |
 
 You can add as many data-types and properties as you like by adding lines and incrementing the associated index:
 
-```
+```bash
 alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
 alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}content
 alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
 alfresco.cross.locale.property.0={http://www.alfresco.org/model/content/1.0}content
 ```
 
-In order to overwrite this configuration when using Docker, mount this file as an external volume. Following sample describes a local configuration to be applied to Elasticsearch Search Subsystem when using Docker Compose deployment:
+To overwrite this configuration when using Docker compose you can mount this file as an external volume. The following sample describes a local configuration to be applied to the Elasticsearch Search Subsystem when using Docker compose:
 
-```
+```docker
 services:
   alfresco:
     volumes:
       - ./exactTermSearch.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/alfresco/search/elasticsearch/config/exactTermSearch.properties
 ```
 
-> **Note:** Once you have done that you will need to perform a reindex, so it is recommended to enable the exact term feature before you start creating an index.
+> **Note:** Once complete you must perform a re-index. It is recommended you enable the exact term feature before you start creating an index.
 
-### Alfresco Elasticsearch Connector
+## Alfresco Elasticsearch connector
 
-**Indexing** is provided by a Spring Boot application called `Alfresco Elasticsearch Connector`. This application contains two main components that build and maintain the index in Elasticsearch:
+**Indexing** is provided by a Spring Boot application called `Alfresco Elasticsearch Connector`. This application contains two main components that build and maintain the index in Elasticsearch.
 
-* *Live Indexing*: Metadata, Content and Permissions from Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in the Elasticsearch server. The information created and updated in Alfresco Repository is not immediately available in Elasticsearch, as it takes some time to process the messages coming from the Repository. The previous [Eventual consistency]({% link search-services/latest/install/index.md %}#eventual-consistency) approach, based on transactions and used for Solr deployments, has been replaced by this new approach based on ActiveMQ messages.
+* *Live Indexing*: Metadata, and Content and Permissions from Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in the Elasticsearch server. The information created and updated in Alfresco Repository is not immediately available in Elasticsearch, as it takes some time to process the messages coming from the Alfresco Repository. The previous [Eventual consistency]({% link search-services/latest/install/index.md %}#eventual-consistency) approach, based on transactions and used for Solr deployments, has been replaced by this new approach based on ActiveMQ messages.
 
-* *Reindexing*: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the Reindexing component. Metadata and Permissions from the Alfresco Repository is retrieved using a direct JDBC connection to the Alfresco Database (nb. currently only PostgreSQL is supported). Reindexing application also generates content indexing messages in ActiveMQ in order to get the content indexed, so it may take some time to process all these requests after the reindexing application has finished.
+* *Re-indexing*: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the re-indexing component. Metadata and Permissions from the Alfresco Repository is retrieved using a direct JDBC connection to the Alfresco Database. **Note** Only PostgreSQL is supported. The re-indexing application also generates content indexing messages in ActiveMQ in order to get the content indexed. It may take some time to process all these requests after the re-indexing application has finished.
 
 ### New Repository
 
-When creating a new Alfresco Repository, use the `Alfresco Elasticsearch Connector` applications in the following sequence:
+When creating a new Alfresco Repository you must use the `Alfresco Elasticsearch Connector` applications in the following sequence:
 
-* Start the ACS Stack, including the Alfresco Elasticsearch Connector Live Indexing services and Elasticsearch server
-* Configure Alfresco Elasticsearch Connector Reindexing app to point to the database, the Elasticsearch server and the ActiveMQ server
-* Run the reindexing app from the command line replacing the connection details as appropriate:
+1. Start the Content Services Stack, including the Elasticsearch connector live indexing services, and the Elasticsearch server.
+2. Configure the Elasticsearch connector re-indexing app to point to the database, the Elasticsearch server, and the ActiveMQ server.
+3. Run the re-indexing app from the command line replacing the connection details as appropriate:
 
 ```java
 $ java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
@@ -59,21 +59,26 @@ $ java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
 --spring.datasource.password=alfresco \
 --spring.activemq.broker-url=tcp://localhost:61616?jms.useAsyncSend=true \
 --alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json
+```
+
+When completed successfully you will see:  
+
+```text
 o.s.batch.core.step.AbstractStep         : Step: [reindexByIdsStep] executed in 4s952ms
 o.a.r.w.ElasticsearchRepoEventItemWriter : Total indexed documents:: 845
 o.a.r.listeners.JobLifecycleListener     : Current Status: COMPLETED
 ```
 
-Once the command has completed, metadata and permissions from the out-of-the-box Repository nodes will be indexed in the Elasticsearch server. Additionally, the Alfresco Elasticsearch Connector Live Indexer will add existing content and also the new metadata, permissions and content when nodes are created, updated or deleted.
+Once the command has completed, metadata and permissions from the out-of-the-box repository nodes are indexed in the Elasticsearch server. Additionally, the Elasticsearch connector live indexer will add existing content, the new metadata, permissions, and new content when nodes are created, updated or deleted.
 
 ### Existing Repository
 
 When using a pre-populated Alfresco Repository, use the `Alfresco Elasticsearch Connector` applications in the following sequence:
 
-* Ensure the ACS Stack with SOLR (configured as the search subsystem) is running
-* Start the Elasticsearch server
-* Configure the Alfresco Elasticsearch Connector Reindexing app to point to the database, the Elasticsearch server and the ActiveMQ server
-* Run the reindexing app replacing the connection details as appropriate:
+1. Ensure the Content Services Stack with SOLR, which is configured as the search subsystem, is running.
+2. Start the Elasticsearch server.
+3. Configure the Elasticsearch connector re-indexing app to point to the database, the Elasticsearch server, and the ActiveMQ server.
+4. Run the re-indexing app and replace the connection details as appropriate:
 
 ```java
 $ java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
@@ -84,27 +89,32 @@ $ java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
 --spring.datasource.password=alfresco \
 --spring.activemq.broker-url=tcp://localhost:61616?jms.useAsyncSend=true \
 --alfresco.reindex.prefixes-file=file:reindex.prefixes-file.json
+```
+
+When completed successfully you will see:
+
+```text
 o.a.r.w.ElasticsearchRepoEventItemWriter : Total indexed documents:: 80845
 o.a.r.listeners.JobLifecycleListener     : Current Status: COMPLETED
 ```
 
-Once the command is completed, metadata from any existing Repository nodes will be indexed in the Elasticsearch server. Additionally, the Alfresco Elasticsearch Connector Live Indexer will add existing content. This operation may take a while, be sure that ActiveMQ is not down till all the content transformation request messages has been processed. Change the Alfresco Repository configuration in order to use Elasticsearch as the search subsystem and then re-start the Repository.
+Once the command has completed, metadata from any existing Repository nodes will be indexed in the Elasticsearch server. Additionally, the Elasticsearch connector live indexer will add existing content, which may take a while. Ensure ActiveMQ is available until all the content transformation request messages have been processed. Then change the Alfresco Repository configuration to use the Elasticsearch as the search subsystem and then re-start the Repository.
 
-> **Note:** In order to be sure that all the content transformation requests have been processed, ActiveMQ Web Console can be used. By default, this Web Console is available in [http://127.0.0.1:8161](http://127.0.0.1:8161) with default credentials `admin/admin`. Queues related with content transformation (mainly `acs-repo-transform-request`), should have no pending messages.
+> **Note:** To ensure all the content transformation requests have been processed the ActiveMQ Web Console should be used. By default, the Web Console is available at `http://127.0.0.1:8161` and accessed using default credentials. Any queues related to content transformation, usually through `acs-repo-transform-request`, should not have any pending messages.
 
 ### Partial Indexing
 
-Over time it's possible that certain data is not indexed correctly. For example this could be caused by a prolonged network connectivity issue. The Reindexing application provides two strategies in order to fill gaps in the Elasticsearch index:
+Over time some data may not be indexed correctly. This can be caused by prolonged network connectivity issues. The re-indexing application provides two strategies to fill gaps in the Elasticsearch index:
 
-* Fetch by IDS (`alfresco.reindex.jobName=reindexByIds`): index nodes in an interval of database `ALF_NODE.id` column
-* Fetch by DATE (`alfresco.reindex.jobName=reindexByDate`): index nodes in an interval of database `ALF_TRANSACTION.commit_time_ms` column
+* Fetch by IDS (`alfresco.reindex.jobName=reindexByIds`): index nodes in an interval of database `ALF_NODE.id` column.
+* Fetch by DATE (`alfresco.reindex.jobName=reindexByDate`): index nodes in an interval of database `ALF_TRANSACTION.commit_time_ms` column.
 
 #### Ids Range
 
-The following sample will reindex all the nodes in the Alfresco Repository which have an `ALF_NODE.id` value between 1 and 10000.
+The following sample re-indexes all the nodes in the Alfresco Repository which have an `ALF_NODE.id` value between `1` and `10000`.
 
 ```java
-java -jar target/alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
+java -jar target/alfresco-elasticsearch-reindexing-3.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByIds \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
@@ -115,10 +125,10 @@ java -jar target/alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
 
 #### Date Range
 
-The following sample will reindex all the nodes in the Alfresco Repository which have a value for `ALF_TRANSACTION.commit_time_ms` between 202001010000 and 202104180000. Date time values are written in the format `yyyyMMddHHmm`.
+The following sample re-indexes all the nodes in the Alfresco Repository which have a value for `ALF_TRANSACTION.commit_time_ms` between `202001010000` and `202104180000`. Date time values are written in the format `yyyyMMddHHmm`.
 
 ```java
- java -jar target/alfresco-elasticsearch-reindexing-3.0.0-SNAPSHOT-app.jar \
+ java -jar target/alfresco-elasticsearch-reindexing-3.0.0-app.jar \
   --alfresco.reindex.jobName=reindexByDate \
   --alfresco.reindex.pagesize=100 \
   --alfresco.reindex.batchSize=100  \
