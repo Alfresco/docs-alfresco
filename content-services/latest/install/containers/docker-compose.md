@@ -435,15 +435,25 @@ docker-compose down
     docker-compose down && docker-compose build --no-cache && docker-compose up
     ```
 
-2. Stop the session by using `CONTROL+C`.
+2. If you're having issues running `docker-compose up` on Windows environments due to unavailable or reserved ports, and get errors such as: `bind: An attempt was made to access a socket in a way forbidden by its access permissions` which means that the Windows NAT (WinNAT) service has reserved the port range that Docker Compose is trying to use.
 
-3. Remove the containers (using the `--rmi all` option):
+    To remedy this issue, run the following in a terminal:
+
+    ```bash
+    net stop winnat
+    docker-compose up
+    net start winnat
+    ```
+
+3. Stop the session by using `CONTROL+C`.
+
+4. Remove the containers (using the `--rmi all` option):
 
     ```bash
     docker-compose down --rmi all
     ```
 
-4. Try allocating more memory resources, as advised in `docker-compose.yml`.
+5. Try allocating more memory resources, as advised in `docker-compose.yml`.
 
     For example, in Docker, change the memory setting in **Preferences** (or **Settings**) **Resources** > **Advanced** > **Memory** to at least 8GB. Make sure you restart Docker and wait for the process to finish before continuing.
 
