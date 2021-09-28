@@ -108,7 +108,7 @@ Below are links to various GitHub projects that are used to deploy Content Servi
 
 The deployment project contains the Docker Compose file to start up a Content Services environment locally. You'll find the relevant files in the `docker-compose` folder. To look at the project in more detail, just browse to:
 
-* [https://github.com/Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} for Enterprise deployment
+* [https://github.com/Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"}
 
 If you're interested in the Helm charts to deploy Content Services with Kubernetes, you'll find the relevant files in the `helm/alfresco-content-services` folder.
 

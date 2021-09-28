@@ -10,7 +10,7 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
 
 1. Download the `docker-compose.yml` file by accessing the Content Services [Download Trial](https://www.alfresco.com/platform/content-services-ecm/trial/download){:target="_blank"} page, which will give you a 30-day license.
 
-    If you already have a valid license file for Content Services 7.0, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
+    If you already have a valid license file for Content Services 7.1, you can apply it directly to the running system. See [Uploading a new license]({% link content-services/latest/admin/license.md %}) for more details.
 
     > **Note:** Make sure that exposed ports are open on your host computer. Check the `docker-compose.yml` file to determine the exposed ports - refer to the `host:container` port definitions. You'll see they include 5432, 8080, 8083 and others.
 
@@ -64,8 +64,8 @@ To deploy Content Services using Docker Compose`, download and install [Docker](
 
     ```bash
     ...
-    alfresco_1 | 2021-03-18 15:44:21,010  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
-    alfresco_1 | 2021-03-18 15:44:21,294  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
+    alfresco_1 | 2021-10-04 13:44:21,010  INFO  ... Starting 'Transformers' subsystem, ID: [Transformers, default]
+    alfresco_1 | 2021-10-04 13:44:21,294  INFO  ... Startup of 'Transformers' subsystem, ID: [Transformers, default] complete
     ...
     ```
 
@@ -239,7 +239,7 @@ Use this information to verify that the system started correctly, and to clean u
         Removing acs-trial_transform-core-aio_1 ... done
         ...
         Removing network acs-trial_default
-        Removing image alfresco/alfresco-content-repository:7.0.0
+        Removing image alfresco/alfresco-content-repository:7.1.0
         Removing image ...
         ```
 
@@ -453,17 +453,13 @@ docker-compose down
 
 ## Reference
 
-The table below shows the location of the Dockerfile for each container used in this deployment.
+The table below shows the location of the publicly available `Dockerfile` for the containers used in the Community deployment.
 
 | Container | Dockerfile location |
 | --------- | --------------------|
 | alfresco | [https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile](https://github.com/Alfresco/acs-packaging/blob/master/docker-alfresco/Dockerfile){:target="_blank"} |
 | share | [https://github.com/Alfresco/share/blob/master/packaging/docker/Dockerfile](https://github.com/Alfresco/share/blob/master/packaging/docker/Dockerfile){:target="_blank"} |
-| solr6 | https://github.com/Alfresco/InsightEngine/blob/master/search-services/packaging/src/docker/Dockerfile |
-| <nobr>digital-workspace</nobr> | https://github.com/Alfresco/alfresco-digital-workspace-app/blob/develop/Dockerfile |
-| activemq | [https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile](https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile){:target="_blank"} |
-| <nobr>sync-service</nobr> | https://github.com/Alfresco/dsync-services/blob/master/service-sync/packaging/docker/Dockerfile |
-| <nobr>transform-router</nobr> | https://github.com/Alfresco/alfresco-transform-service/blob/master/alfresco-transform-router/src/main/docker/Dockerfile |
+| solr6 | [https://github.com/Alfresco/SearchServices/blob/master/search-services/packaging/src/docker/Dockerfile](https://github.com/Alfresco/SearchServices/blob/master/search-services/packaging/src/docker/Dockerfile){:target="_blank"}  |
 | <nobr>transform-core-aio</nobr> | [https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-core-aio/alfresco-transform-core-aio-boot/Dockerfile](https://github.com/Alfresco/alfresco-transform-core/blob/master/alfresco-transform-core-aio/alfresco-transform-core-aio-boot/Dockerfile){:target="_blank"} |
-| <nobr>shared-file-store</nobr> | https://github.com/Alfresco/alfresco-shared-file-store/blob/master/controller/Dockerfile |
+| activemq | [https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile](https://github.com/Alfresco/alfresco-docker-activemq/blob/master/Dockerfile){:target="_blank"} |
 | proxy | [https://github.com/Alfresco/acs-ingress/blob/master/Dockerfile](https://github.com/Alfresco/acs-ingress/blob/master/Dockerfile){:target="_blank"} |
