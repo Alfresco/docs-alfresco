@@ -7,7 +7,7 @@ Alfresco Search Enterprise 3.0 consists of Alfresco Content Services, Elasticsea
 ## Prerequisites
 
 * Alfresco Content Services 7.1 that includes Alfresco ActiveMQ, Alfresco Transform Service, and Database, for more see [Install overview]({% link content-services/latest/install/index.md %}).
-* Elasticsearch server 7.10. It may be used as a standard managed service or can be installed with the default configuration, for more see [Install Elasticsearch server](#install-elasticsearch-server)
+* Elasticsearch server 7.10. It may be used as a standard managed service or can be installed with the default configuration, for more see [Install Elasticsearch server](#install-elasticsearch-server).
 * Elasticsearch Connector 3.0
 
 See the [Supported platforms]({% link content-services/latest/admin/admin-console.md %}) for more.
