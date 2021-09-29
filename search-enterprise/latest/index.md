@@ -10,7 +10,7 @@ Alfresco Content Services supports the Elasticsearch platform for searching with
 
 The **Search** feature is provided by the Alfresco Repository itself which communicates with the Elasticsearch server that then performs the required format translation for queries and results. The Elasticsearch index contains all the content, metadata, and permissions for a single document, so no external Elasticsearch plugin is required.
 
-The **Indexing** feature is provided by a Spring Boot application called `Alfresco Elasticsearch Connector`. The application is split into two main components called **Live Indexing** and **Re-indexing**, for more information see [Indexing]({% link search-enterprise/latest/admin/index.md %}#elastic-search-connector).
+The **Indexing** feature is provided by a Spring Boot application called `Alfresco Elasticsearch Connector`. The application is split into two main components called **Live Indexing** and **Re-indexing**, for more see [Indexing]({% link search-enterprise/latest/admin/index.md %}#alfresco-elasticsearch-connector).
 
 Alfresco Search Enterprise consists of the following components:
 
@@ -18,7 +18,7 @@ Alfresco Search Enterprise consists of the following components:
 * Elasticsearch 7.10.2 (It can be used as a standard managed service or can be installed using default configuration)
 * Alfresco Elasticsearch Connector 3.0
 
-> **Note:** that Elasticsearch 7.10.2 is the last Apache2-licensed version. Alfresco Elasticsearch Connector can use also [Amazon OpenSearch](https://aws.amazon.com/opensearch-service/the-elk-stack/what-is-opensearch/)
+> **Note:** Elasticsearch 7.10.2 is the last Apache2-licensed version. The Elasticsearch connector can use also [Amazon OpenSearch](https://aws.amazon.com/opensearch-service/the-elk-stack/what-is-opensearch/){:target="_blank"}.
 
 The services required for Alfresco Search Enterprise are included in the following diagram.
 

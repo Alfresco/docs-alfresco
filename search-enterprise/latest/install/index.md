@@ -12,11 +12,7 @@ Alfresco Search Enterprise 3.0 consists of Alfresco Content Services, Elasticsea
 
 See the [Supported platforms]({% link content-services/latest/admin/admin-console.md %}) for more.
 
-## Install using JAR files
-
-Use this information to install the Elasticsearch Connector on the same machine as Alfresco Content Services using JAR files.
-
-### Configuring the Search Enterprise subsystem in Alfresco Repository
+## Configure Subsystem in Repository
 
 You must first activate and configure the Search Services subsystem in Content Services by using either the `TOMCAT_HOME>/shared/classes/alfresco-global.properties` file or the [Repository Admin Web Console]({% link content-services/latest/admin/admin-console.md %}).
 
@@ -41,6 +37,10 @@ If using the Repository Admin Web Console select `Repository Services > Search S
 ![console]({% link search-enterprise/images/alfresco_repo_web_console.png %})
 
 > **Note:** In Content Services 7.1, the `Test Connection` button will fail if your Elasticsearch server does not include the "alfresco" index. You are however still able to `Save` your configuration and the index will be created automatically.
+
+## Install using JAR files
+
+Use this information to install the Elasticsearch Connector on the same machine as Alfresco Content Services using JAR files.
 
 1. Download the `alfresco-elasticsearch-connector-distribution-3.0.0.zip` file from [Hyland Community](https://community.hyland.com/){:target="_blank"} and extract it.  
 
@@ -303,8 +303,7 @@ live-indexing:
 
 ## Install using Helm
 
-Deployment of the Content Services stack for Kubernetes using Helm is available at [Alfresco Content Services Containerized Deployment
-](https://github.com/Alfresco/acs-deployment).
+Use this information to install the the Elasticsearch connector using Helm. The deployment of the Content Services stack for Kubernetes using Helm is available at [Alfresco Content Services Containerized Deployment](https://github.com/Alfresco/acs-deployment).
 
 Depending on where you want to install Content Services you must follow the appropriate instructions for the Kubernetes cluster, for more see [Docker Desktop](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/docker-desktop-deployment.md) or [AWS EKS](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/eks-deployment.md).
 
