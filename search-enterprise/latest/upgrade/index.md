@@ -14,21 +14,21 @@ Before upgrading you must activate and configure the Search Services subsystem i
 
 ## Install Elasticsearch connector
 
-Install the Elasticsearch connector. The connector can be installed using JAR files, Docker compose, or Helm, for more see [Install]({% link search-enterprise/latest/install/index.md %})
+The Elasticsearch connector can be installed using JAR files, Docker compose, or Helm, for more see [Install]({% link search-enterprise/latest/install/index.md %})
 
-Once everything is up and running, use the Elasticsearch connector Re-indexing application to populate the Elasticsearch index. This operation may take a while, depending on the number of documents in your Repository and on the indexing options selected (metadata, content and path). While the re-indexing process is progressing, the documents will gradually be available for searching.
+Once everything is up and running, use the Elasticsearch connector Re-indexing application to populate the Elasticsearch index. This operation may take a while, depending on the number of documents in your repository and on the indexing options selected (metadata, content and path). While the re-indexing process is progressing, the documents will gradually be available for searching.
 
-When the Re-indexing application has finished, the new and updated documents will be uploaded to the Elasticsearch index by the Elasticsearch Connector service using ActiveMQ messages.
+When the Re-indexing application has finished, the new and updated documents will be uploaded to the Elasticsearch index by the Elasticsearch connector service using ActiveMQ messages.
 
 ## Replicate an existing Content Services 7.1 deployment
 
-Your current Content Services stack can continue to run while you are indexing the repository to Elasticsearch. This means you can use the service until the process completes. It's recommended you create a read replica of the database so the indexing process won't affect service performance.
+Your current Content Services stack can continue to run while you are indexing the repository to Elasticsearch. This means you can continue to use the 'old' service until the process completes. It's recommended you create a read replica of the database so the indexing process won't affect service performance.
 
 ![replicated-environment]({% link search-enterprise/images/elasticsearch-upgrading-1.png %})
 
-1. Create a Read Only Replica for your database.
+1. Create a read-only Replica for your database.
 
-2. Configure Alfresco Repository Search Subsystem to use `elasticsearch` and switch database configuration to the read-only Replica database.
+2. Configure Alfresco Repository Search Subsystem to use `elasticsearch` and switch database configuration to the read-only replica database.
 
 3. Install Elasticsearch server.
 
