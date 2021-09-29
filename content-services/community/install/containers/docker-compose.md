@@ -200,25 +200,25 @@ Use this information to verify that the system started correctly, and to clean u
         The `--rmi all` option also removes the images created by `docker-compose up`, and the images used by any service. You can use this, for example, if any containers fail and you need to remove them:
 
         ```text
-        ⠿ Container docker-compose_solr6_1                             Removed                                                                                               11.0s
-        ⠿ Container docker-compose_transform-core-aio_1                Removed                                                                                                2.4s
-        ⠿ Container docker-compose_proxy_1                             Removed                                                                                               10.8s
-        ⠿ Container docker-compose_postgres_1                          Removed                                                                                                1.2s
-        ⠿ Container docker-compose_activemq_1                          Removed                                                                                               10.8s
-        ⠿ Container docker-compose_alfresco_1                          Removed                                                                                               13.7s
-        ⠿ Container docker-compose_share_1                             Removed                                                                                               13.4s
-        ⠿ Image alfresco/alfresco-search-services:2.0.2                Removed                                                                                               14.8s
-        ⠿ Network docker-compose_default                               Removed                                                                                                0.2s
-        ⠹ Image alfresco/alfresco-activemq:5.16.1                      Removing                                                                                              79.7s
-        ⠹ Image alfresco/alfresco-acs-nginx:3.1.1                      Removing                                                                                              79.7s
-        ⠹ Image alfresco/alfresco-transform-core-aio:2.5.3             Removing                                                                                              79.7s
-        ⠹ Image postgres:13.1                                          Removing                                                                                              79.7s
-        ⠿ Image quay.io/alfresco/service-sync:3.4.1                    Warning: No resource found to remove                                                                   0.2s
-        ⠿ Image quay.io/alfresco/alfresco-shared-file-store:0.16.0     Warning: No resource found to remove                                                                   0.4s
-        ⠿ Image quay.io/alfresco/alfresco-share:7.1.0                  Warning: No resource found to remove                                                                   0.3s
-        ⠿ Image quay.io/alfresco/alfresco-content-repository:7.1.0     Warning: No resource found to remove                                                                   0.3s
-        ⠿ Image quay.io/alfresco/alfresco-transform-router:1.4.1       Warning: No resource found to remove                                                                   0.2s
-        ⠿ Image quay.io/alfresco/alfresco-digital-workspace:2.3.0-adw  Warning: No resource found to remove                                                                   0.3s
+        ⠿ Container docker-compose_solr6_1                             Removed                                                        11.0s
+        ⠿ Container docker-compose_transform-core-aio_1                Removed                                                         2.4s
+        ⠿ Container docker-compose_proxy_1                             Removed                                                        10.8s
+        ⠿ Container docker-compose_postgres_1                          Removed                                                         1.2s
+        ⠿ Container docker-compose_activemq_1                          Removed                                                        10.8s
+        ⠿ Container docker-compose_alfresco_1                          Removed                                                        13.7s
+        ⠿ Container docker-compose_share_1                             Removed                                                        13.4s
+        ⠿ Image alfresco/alfresco-search-services:2.0.2                Removed                                                        14.8s
+        ⠿ Network docker-compose_default                               Removed                                                         0.2s
+        ⠹ Image alfresco/alfresco-activemq:5.16.1                      Removing                                                       79.7s
+        ⠹ Image alfresco/alfresco-acs-nginx:3.1.1                      Removing                                                       79.7s
+        ⠹ Image alfresco/alfresco-transform-core-aio:2.5.3             Removing                                                       79.7s
+        ⠹ Image postgres:13.1                                          Removing                                                       79.7s
+        ⠿ Image quay.io/alfresco/service-sync:3.4.1                    Warning: No resource found to remove                            0.2s
+        ⠿ Image quay.io/alfresco/alfresco-shared-file-store:0.16.0     Warning: No resource found to remove                            0.4s
+        ⠿ Image quay.io/alfresco/alfresco-share:7.1.0                  Warning: No resource found to remove                            0.3s
+        ⠿ Image quay.io/alfresco/alfresco-content-repository:7.1.0     Warning: No resource found to remove                            0.3s
+        ⠿ Image quay.io/alfresco/alfresco-transform-router:1.4.1       Warning: No resource found to remove                            0.2s
+        ⠿ Image quay.io/alfresco/alfresco-digital-workspace:2.3.0-adw  Warning: No resource found to remove                            0.3s
         ```
 
 See the [Docker documentation](https://docs.docker.com/){:target="_blank"} for more on using Docker.
