@@ -105,7 +105,7 @@ The Content Services distribution file is a zip containing the required WAR file
 
 1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"}.
 
-2. Download the file: `alfresco-content-services-distribution-7.0.x.zip`
+2. Download the file: `alfresco-content-services-distribution-7.1.x.zip`
 
 3. Specify a location for the download and extract the file to a system directory; for example `<installLocation>`.
 

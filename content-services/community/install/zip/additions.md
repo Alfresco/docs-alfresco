@@ -41,10 +41,12 @@ If you wish to use a translation that is not supplied with Community Edition, th
 
 Use this information to review the components or modules that integrate Community Edition with other applications.
 
-### Integrations
-
-| Integrations | Notes |
-| ------------ | ----- |
+| Name     | Notes |
+| -------- | ----- |
+| **Services** | |
+| Governance Services Community Edition | |
+| | |
+| **Integrations** | |
 | Search Services | |
 | Office Services | |
 | Google Docs Integration | |
