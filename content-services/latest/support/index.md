@@ -11,28 +11,27 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Version | Notes |
 | ------- | ----- |
 | **Operating systems** | |
+| Red Hat Enterprise Linux 8.4 x64 | |
 | Red Hat Enterprise Linux 8.2 x64 | |
-| Red Hat Enterprise Linux 7.7 x64 | |
-| Red Hat Enterprise Linux 7.6 x64 | |
 | Windows Server 2019 | |
-| Amazon Linux | v1 and v2 |
-| CentOS 8 x64 | |
-| CentOS 7 x64 | |
+| Amazon Linux | v2 |
+| CentOS 8.3 x64 | |
+| CentOS 7.9 x64 | |
 | Ubuntu 20.04 | |
 | Ubuntu 18.04 | |
-| SUSE 15.0 |
-| SUSE 12.0 SP1 x64 |
 |  |  |
 | **Databases** | |
 | MySQL 8 | `mysql-connector-java-8.0.22.jar` |
 | MySQL 5.7.23 | `mysql-connector-java-5.1.40-bin.jar` |
 | MS SQL Server 2019 | `mssql-jdbc-8.4.1.jre11.jar` |
 | MS SQL Server 2017 | Microsoft JDBC Driver `7.2.2.jre11` for SQL Server. See [JDBC Driver](https://docs.microsoft.com/en-us/sql/connect/jdbc/system-requirements-for-the-jdbc-driver?view=sql-server-ver15){:target="_blank"} for supported versions. |
-| Oracle 19c | `Ojdbc8.jar – 12.2.0.1` |
-| Oracle 12c | `Ojdbc8.jar – 12.2.0.1` |
-| PostgreSQL 13.1 |`Postgresql-42.2.19.jar`|
-| PostgreSQL 12.4 |`Postgresql-42.2.18.jar` |
+| Oracle 19c | `Ojdbc8.jar – 19.3.0.0` |
+| PostgreSQL 13.3 | `Postgresql-42.2.19.jar` |
+| PostgreSQL 12.7 | |
+| PostgreSQL 12.4 | `Postgresql-42.2.18.jar` |
+| PostgreSQL 11.12 | |
 | PostgreSQL 11.7 | `Postgresql-42.2.6.jar` |
+| MariaDB 10.6 | |
 | MariaDB 10.5 | `MariaDB Connector/J 2.7.2` |
 | MariaDB 10.4 | `MariaDB Connector/J 2.7.1`|
 | Amazon Aurora | Use of Amazon Aurora is supported only if it is configured to emulate one of the supported versions of PostgreSQL or MySQL listed above, and the listed JDBC driver is used. |
@@ -53,7 +52,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Microsoft Edge | |
 | MS Internet Explorer 11 | |
 | Chrome | Includes Chromium edition. |
-| Safari 11 | |
+| Safari 14 | |
 | | |
 | **Java** | |
 | OpenJDK 11.0.7 | |
