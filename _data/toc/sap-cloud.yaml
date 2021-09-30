@@ -11,6 +11,8 @@
           path: '/sap-cloud/latest/config/'
         - title: 'Configure SAP Cloud'
           path: '/sap-cloud/latest/config/cloud/'
+        - title: 'Configure GenericXchange'
+          path: '/sap-cloud/latest/config/genericxchange/'
     - title: 'Administer'
       path: '/sap-cloud/latest/admin/'
 
