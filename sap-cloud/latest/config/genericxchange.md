@@ -231,7 +231,7 @@ This property defines all required data to call an OData service.
 
 This property is a child element of [`request`](#gx_odata_prop_request).
 
-> **Note:** Only OData services are supported that can return a JSON response.
+> **Note:** Only OData services that return a JSON response are supported.
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -266,7 +266,7 @@ Example for property `request` [Return Product Master Records](https://api.sap.c
 
 #### ***Property `response`*** {#gx_odata_prop_response}
 
-> **Note:** Only OData services are supported that can return a JSON response.
+> **Note:** Only OData services that return a JSON response are supported.
 
 This property defines how the values in the response of the OData call are mapped to the data-model properties of Content Services. The content is a list of *key*-*value* pairs. The *key* defines the name of the data-model property in Content Services where the *value* should be stored. The *value* for the *key* in turn specifies the path to the desired element in the JSON map which holds the value. It can be accessed by using the format `$.d.KeyName`.
 
