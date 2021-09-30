@@ -6,11 +6,10 @@ Alfresco Search Enterprise supported search query syntax.
 
 ## Applications and Frameworks
 
-
-* [ADF Search Components](https://www.alfresco.com/abn/adf/docs/)
-* [ACA - Alfresco Content Application](https://github.com/alfresco/alfresco-content-app)
-* [ADW - Alfresco Digital Workspace](https://docs.alfresco.com/digital-workspace/latest/)
-* [ReST API (only when using FTS search syntax)](https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/searching/)
+* [ADF Search Components](https://www.alfresco.com/abn/adf/docs/){:target="_blank"}
+* [ACA - Alfresco Content Application](https://github.com/alfresco/alfresco-content-app){:target="_blank"}
+* [Alfresco Digital Workspace]({% link digital-workspace/latest/index.md %})
+* [ReST API (only when using FTS search syntax)]({% link content-services/latest/develop/rest-api-guide/searching.md %})
 
 > **Note:** Alfresco Share web application is not supported
 
@@ -18,11 +17,10 @@ Alfresco Search Enterprise supported search query syntax.
 
 * ACL Permission checks
 * Sorting by relevancy
-* (Paging)[https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/searching/#searching-by-content-type-and-controlling-paging-and-sorting]{:target="_blank"}
-* (Faceting)[https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/searching/#faceted-search]{:target="_blank"}
+* [Searching by content type and controlling paging and sorting]({% link content-services/latest/develop/rest-api-guide/searching.md %)#searching-by-content-type-and-controlling-paging-and-sorting)
+* [Faceted search]({% link content-services/latest/develop/rest-api-guide/searching.md %}#faceted-search)
 * Filter by content size and mimetype
-* (Inclusion of additional properties in search results)[https://docs.alfresco.com/content-services/latest/develop/rest-api-guide/#requesting-optional-item-information]{:target="_blank"}
-
+* Inclusion of additional properties in search results
 
 ## Search for a single term
 
@@ -35,9 +33,9 @@ banana
 TEXT:banana
 ```
 
-Both of these queries will find any nodes with the word "banana" in any property of type `d:content`. howeveer, the first one will also get results from properties `cm:name`, `cm:title` or `cm:description`.
+Both of these queries will find any nodes with the word "banana" in any property of type `d:content`. however, the first one will also get results from properties `cm:name`, `cm:title` or `cm:description`.
 
-If the appropriate data dictionary definition(s) for the field supports both FTS and untokenized search, then FTS search will be used. FTS will include synonyms if the analyzer generates them.
+If the appropriate data dictionary definition(s) for the field supports both FTS and un-tokenized search, then FTS search will be used. FTS will include synonyms if the analyzer generates them.
 
 ## Search in fields
 
@@ -52,8 +50,6 @@ field:'phrase'
 ```
 
 > **Note:** Exact Term searching, using equals operator (`=field:exact` in the samples above), is only allowed if default Alfresco Repository configuration has been changed in order to enable this feature.
-
-Fields fall into three types: property fields, special fields, and fields for data types.
 
 Fields fall into three types, property fields, special fields, and fields for data types. Property fields evaluate the search term against a particular property, special fields are described in the following table, and data type fields evaluate the search term against all properties of the given type.
 
@@ -118,19 +114,10 @@ Single terms, and phrases can be combined using `AND` in upper, lower, or mixed 
 
 The `AND` operator is interpreted as "every term is required".
 
-```bash
+```afts
 big AND yellow
 ```
 
-These queries search for nodes that contain all the terms `big` and `yellow` in any content or in properties `cm:name`, `cm:title` or `cm:description`.
-
-Single terms, phrases, and so on can be combined using `AND` in upper, lower, or mixed case.
-
-The `AND` operator is interpreted as "every term is required".
-
-```
-big AND yellow
-```
 These queries search for nodes that contain all the terms `big` and `yellow` in any content or in properties `cm:name`, `cm:title` or `cm:description`.
 
 ### Search for disjunctions
@@ -152,12 +139,7 @@ These queries search for nodes that contain at least one of the terms `big`, `ye
 
 ## Search for negation
 
-
-You can narrow your search results by excluding words with the `NOT` syntax.
-
-Single terms, phrases, and so on can be combined using “`NOT`” in upper, lower, or mixed case, or prefixed with “`!`” or “`-`”.
-
-These queries search for nodes that contain the terms yellow in any content.
+You can narrow your search results by excluding words with the `NOT` syntax. Single terms, phrases, and so on can be combined using “`NOT`” in upper, lower, or mixed case, or prefixed with “`!`” or “`-`”. These queries search for nodes that contain the terms yellow in any content.
 
 ```text
 yellow NOT banana
@@ -199,7 +181,6 @@ All `AND` and `OR` constructs can be expressed with these operators.
 Any character can be escaped using the backslash "`\`" in terms, IDs (field identifiers), and phrases. Java unicode escape sequences are supported. Whitespace can be escaped in terms and IDs.
 
 For example:
-
 
 ```afts
 cm:my\ content:my\ name

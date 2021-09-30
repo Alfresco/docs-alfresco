@@ -59,7 +59,7 @@ integrations:
     image: /assets/img/ic_search_80px.svg
     sub:
       - title: "Search Enterprise"
-        text: "Alfresco Search Enterprise provides the default search service index for Alfresco Content Services and Alfresco Community Edition."
+        text: "Alfresco Search Enterprise enables enterprise customers to use Elasticsearch with Alfresco Content Services."
         url: /search-enterprise/latest/
       - title: "Search Services"
         text: "Alfresco Search Services provides the default search service index for Alfresco Content Services and Alfresco Community Edition."

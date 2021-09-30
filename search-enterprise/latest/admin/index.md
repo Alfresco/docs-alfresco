@@ -7,14 +7,14 @@ There are a number of processes and procedures for maintaining and administering
 ## Pre-indexing considerations
 
 The Exact Term search feature that allows searching using the equals operator `=`, is disabled by default to save index space.
-It's possible to enable it for specific properties and property types using the `/alfresco/search/elasticsearch/config/exactTermSearch.properties` configuration file located in Alfresco Repository.
+It's possible to enable it for specific properties and property types using the `/alfresco/search/elasticsearch/config/exactTermSearch.properties` configuration file located in the Alfresco Repository.
 
 |Property|Description|
 |--------|-----------|
 | alfresco.cross.locale.datatype.0 | A new cross locale field is added for any property of this data-type to enable exact term search. For example, {http://www.alfresco.org/model/dictionary/1.0}text. The Exact Term search is disabled by default. |
 | alfresco.cross.locale.property.0 | A new cross locale field is added for the property to enable exact term search. For example, {http://www.alfresco.org/model/content/1.0}content. The Exact Term search is disabled by default. |
 
-You can add as many data-types and properties as you like by adding lines and incrementing the associated index:
+You can add as many data types and properties as you like by adding lines and incrementing the associated index:
 
 ```bash
 alfresco.cross.locale.datatype.0={http://www.alfresco.org/model/dictionary/1.0}text
@@ -36,15 +36,15 @@ services:
 
 ## Alfresco Elasticsearch connector
 
-**Indexing** is provided by a Spring Boot application called `Alfresco Elasticsearch Connector`. This application contains two main components that build and maintain the index in Elasticsearch.
+**Indexing** is provided by a Spring boot application called the Elasticsearch connector. This application contains two main components that build and maintain the index in Elasticsearch.
 
-* *Live Indexing*: Metadata, and Content and Permissions from Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in the Elasticsearch server. The information created and updated in Alfresco Repository is not immediately available in Elasticsearch, as it takes some time to process the messages coming from the Alfresco Repository. The previous [Eventual consistency]({% link search-services/latest/install/index.md %}#eventual-consistency) approach, based on transactions and used for Solr deployments, has been replaced by this new approach based on ActiveMQ messages.
+* *Live Indexing*: Metadata, and Content and Permissions from Alfresco Repository are consumed using ActiveMQ messages so they can be indexed in the Elasticsearch server. The information created and updated in the Alfresco Repository is not immediately available in Elasticsearch, because it takes time to process the messages coming from the Alfresco Repository. The previous [Eventual consistency]({% link search-services/latest/install/index.md %}#eventual-consistency) approach, based on transactions and used for Solr deployments, has been replaced by this new approach based on ActiveMQ messages.
 
-* *Re-indexing*: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the re-indexing component. Metadata and Permissions from the Alfresco Repository is retrieved using a direct JDBC connection to the Alfresco Database. **Note** Only PostgreSQL is supported. The re-indexing application also generates content indexing messages in ActiveMQ in order to get the content indexed. It may take some time to process all these requests after the re-indexing application has finished.
+* *Re-indexing*: Indexing the information of a pre-populated Alfresco Repository or catching up with Alfresco Repositories that have missed some ActiveMQ messages is provided by the re-indexing component. Metadata and Permissions from the Alfresco Repository is retrieved using a direct JDBC connection to the Alfresco Database. **Note:** Only PostgreSQL is supported. The re-indexing application also generates content indexing messages in ActiveMQ in order to get the content indexed. It may take some time to process all these requests after the re-indexing application has finished.
 
 ### New Repository
 
-When creating a new Alfresco Repository you must use the `Alfresco Elasticsearch Connector` applications in the following sequence:
+When creating a new Alfresco Repository you must use the Elasticsearch connector applications in the following sequence:
 
 1. Start the Content Services Stack, including the Elasticsearch connector live indexing services, and the Elasticsearch server.
 2. Configure the Elasticsearch connector re-indexing app to point to the database, the Elasticsearch server, and the ActiveMQ server.
@@ -73,7 +73,7 @@ Once the command has completed, metadata and permissions from the out-of-the-box
 
 ### Existing Repository
 
-When using a pre-populated Alfresco Repository, use the `Alfresco Elasticsearch Connector` applications in the following sequence:
+When using a pre-populated Alfresco Repository, use the Elasticsearch connector applications in the following sequence:
 
 1. Ensure the Content Services Stack with SOLR, which is configured as the search subsystem, is running.
 2. Start the Elasticsearch server.
@@ -104,7 +104,7 @@ Once the command has completed, metadata from any existing Repository nodes will
 
 ### Partial Indexing
 
-Over time some data may not be indexed correctly. This can be caused by prolonged network connectivity issues. The re-indexing application provides two strategies to fill gaps in the Elasticsearch index:
+Over time some data may not be indexed correctly. This can be caused by prolonged network connectivity issues. The re-indexing application provides two strategies to fill the gaps in the Elasticsearch index:
 
 * Fetch by IDS (`alfresco.reindex.jobName=reindexByIds`): index nodes in an interval of database `ALF_NODE.id` column.
 * Fetch by DATE (`alfresco.reindex.jobName=reindexByDate`): index nodes in an interval of database `ALF_TRANSACTION.commit_time_ms` column.
@@ -143,12 +143,12 @@ This section describes how to run Search Enterprise at scale. Recommendations ar
 
 The following services are required:
 
-* Alfresco content repository deployed as a Tomcat server using the `alfresco.war` application.
+* Alfresco Content Repository deployed as a Tomcat server using the `alfresco.war` application.
 * Alfresco Database to store metadata and other relevant information for the content repository.
-* Alfresco Transform Service deployed as a Spring Boot application with several transformation services (ImageMagick, LibreOffice, PDF Renderer and LibreOffice).
-* Alfresco Shared File Store deployed as a Spring Boot application to serve transformed files by the Transform Service.
-* Alfresco Elasticsearch Connector deployed as a Spring Boot application with several indexing services, mediation, metadata, and content.
-* Alfresco ActiveMQ which is message-oriented middleware and shares messages between the content repository, the Elasticsearch Connector and the Transform Service.
+* Alfresco Transform Service deployed as a Spring boot application with several transformation services (ImageMagick, LibreOffice, PDF Renderer and LibreOffice).
+* Alfresco Shared File store deployed as a Spring boot application to serve transformed files by the Transform Service.
+* Alfresco Elasticsearch Connector deployed as a Spring boot application with several indexing services, mediation, metadata, and content.
+* Alfresco ActiveMQ which is message-oriented middleware and shares messages between the content repository, the Elasticsearch connector and the Transform Service.
 * Elasticsearch server.
 
 ### Identifying critical paths
@@ -167,7 +167,7 @@ Each time a node is created or updated in the content repository, new messages w
 
 #### Content
 
-Every time a content node is created or updated in the content repository, new messages are sent to ActiveMQ. The Elasticsearch connector consumes these messages from ActiveMQ and creates new transformation messages back into ActiveMQ. The content repository consumes the transformation messages and offloads the transformation of documents into plain text to the Transform Service. Once the transformation has been performed, the content repository produces a transformation complete message in ActiveMQ and uploads the plain text file to a Shared file store. The Elasticsearch connector consumes these messages and downloads the extracted text from the Shared file store. Then the document's text is sent for indexing to the Elasticsearch server.
+Every time a content node is created or updated in the content repository, new messages are sent to ActiveMQ. The Elasticsearch connector consumes these messages from ActiveMQ and creates new transformation messages back into ActiveMQ. The Content Repository consumes the transformation messages and offloads the transformation of documents into plain text to the Transform Service. Once the transformation has been performed, the content repository produces a transformation complete message in ActiveMQ and uploads the plain text file to a Shared File store. The Elasticsearch connector consumes these messages and downloads the extracted text from the Shared File store. Then the text in the document is sent for indexing to the Elasticsearch server.
 
 #### Searching metadata and content
 
@@ -199,7 +199,7 @@ Recommendations:
 * Increase resources for the server if CPU load or memory consumption is high.
 * Regularly update statistics for `ALF_NODE` and `ALF_NODE_PROPERTIES` tables to optimise query planner performance.
 
-#### Alfresco Elasticsearch Connector
+#### Elasticsearch connector
 
 This service consumes messages from the ActiveMQ topic `alfresco.repo.event2` and produces or consumes ActiveMQ messages from the queue `metadata.event`.
 
@@ -211,7 +211,7 @@ Recommendations:
 
 #### ActiveMQ
 
-ActiveMQ transports messages from the content repository and the Elasticsearch connector. It is also communicates between the content repository and the Transform service communication.
+ActiveMQ transports messages from the content repository and the Elasticsearch connector. It also communicates between the content repository and the Transform Service communication.
 
 Recommendations:
 
@@ -245,21 +245,21 @@ Recommendations:
 
 * Increasing the number of concurrent consumers for the ActiveMQ queue `acs-repo-transform-request`, can lead to missed content transformations. If you keep this value below `10` all the documents will be transformed.
 
-#### Alfresco Elasticsearch Connector
+#### Elasticsearch connector
 
 Recommendations:
 
-* Increase the timeout used to contact via HTTP the Shared file store, you set the value in `alfresco.sharedFileStore.timeout`. This helps to avoid issues when the Shared file store response is slower than usual under a large load.
-* Increase the content retry delay used to retrieve content from the Shared file store, you set the value in `alfresco.content.event.retry.delay`. This helps when you are uploading a large document into the system.
-* Select the correct configuration for the Shared file store content age scheduler. If you have disk space issues you can reduce it. You must consider you may find unexpected exceptions with a content reinsert request.
+* Increase the timeout used to contact the Shared file store via HTTP, you set the value in `alfresco.sharedFileStore.timeout`. This helps to avoid issues when the Shared File store response is slower than usual under a large load.
+* Increase the content retry delay used to retrieve content from the Shared File store, you set the value in `alfresco.content.event.retry.delay`. This helps when you are uploading a large document into the system.
+* Select the correct configuration for the Shared File store content age scheduler. If you have disk space issues you can reduce it. You must consider you may find unexpected exceptions with a content reinsert request.
 
 ### Searching performance
 
-The Elasticsearch connector uses an out-of-the-box Elasticsearch server, for more see [Tune for search speed](https://www.elastic.co/guide/en/elasticsearch/reference/master/tune-for-search-speed.html).
+The Elasticsearch connector uses an out-of-the-box Elasticsearch server, for more see [Tune for search speed](https://www.elastic.co/guide/en/elasticsearch/reference/master/tune-for-search-speed.html){:target="_blank"}.
 
 ### Re-indexing
 
-The Re-indexing app has been tested on reading replicas with a Postgres database. Tests have been performed on the local environment and AWS. To run database read replicas in AWS follow these guidelines [AWS read replicas](https://aws.amazon.com/rds/features/read-replicas/l)
+The Re-indexing app has been tested on reading replicas with a Postgres database. Tests have been performed on the local environment and AWS. To run database read replicas in AWS follow these guidelines [AWS read replicas](https://aws.amazon.com/rds/features/read-replicas){:target="_blank"}.
 
 For using the read replica in the re-indexing phase, configure the reindexing component for targeting the correct read replica:
 
@@ -269,7 +269,7 @@ spring.datasource.url=jdbc:postgresql://<READ_REPLICA_ADDRESS>:<READ_REPLICA_POR
 
 ### Re-index using remote partitioning
 
-When it is required to index a large Alfresco Repository instance, using a single re-index process can require a large amount of time. You can scale the re-index node vertically to improve performance, but this may also not enough. Using [remote partitioning](https://docs.spring.io/spring-batch/docs/current/reference/html/scalability.html#partitioning), and a Spring Batch feature, you can scale horizontally the Re-indexing service.
+It can take a large amount of time when re-indexing a large Alfresco Repository instance using a single re-index process. You can scale the re-index node vertically to improve performance, but this may also not enough. Using [remote partitioning](https://docs.spring.io/spring-batch/docs/current/reference/html/scalability.html#partitioning){:target="_blank"}, and a Spring Batch feature, you can scale horizontally the Re-indexing service.
 
 ```text
  ┌─────────────────────────┐                             ┌────────────────┐
@@ -299,9 +299,9 @@ When it is required to index a large Alfresco Repository instance, using a singl
                          └────────────┘
 ```
 
-This solution requires a **manager** node that executes verification steps, like database schema validation, and creates partitions and multiple **worker** nodes that index the partition. The **manager** sends partitions to the **worker** using ActiveMQ.
+This solution requires a manager node that executes verification steps, like database schema validation, and creates partitions and multiple worker nodes that index the partition. The manager sends partitions to the worker using ActiveMQ.
 
-To use this feature you need to run a **manager** node and at least a **worker** node. To scale up the system you can increase the number of worker nodes by setting the property `alfresco.reindex.partitioning.grid-size`. The number of worker nodes usually equals the grid size, but if it is more a worker will consume multiple partitions.
+To use this feature you need to run a manager node and at least a worker node. To scale up the system you can increase the number of worker nodes by setting the property `alfresco.reindex.partitioning.grid-size`. The number of worker nodes usually equals the grid size, but if it is more a worker will consume multiple partitions.
 
 The system will automatically select the partition strategy depending on the job name, currently there is:
 
@@ -344,17 +344,17 @@ java -jar alfresco-elasticsearch-reindexing-3.0.0-app.jar \
   --spring.batch.schema.script=classpath:/org/springframework/batch/core/schema-postgresql.sql
 ```
 
-You don't need to specify a job name for the **worker** because the configuration to use it is in the manager step context. This also means that you don't need to restart a worker if the job name specified in the **manager** configuration changes.
+You don't need to specify a job name for the worker because the configuration to use it is in the manager step context. This also means that you don't need to restart a worker if the job name specified in the manager configuration changes.
 
-The **worker** will not stop automatically because it is always up and running in order to wait for the new partition to index.
-The **manager** will automatically stop when all partitions have been indexed.
+The worker will not stop automatically because it is always up and running in order to wait for the new partition to index.
+The manager will automatically stop when all partitions have been indexed.
 
 #### Batch Job Store DB
 
-When using remote partitioning you are required to use a shared database that is accessible from all nodes. The database will contain the Batch job store. Spring batch will automatically create required tables, and those tables don't contain sensitive data, so you can wipe them whenever you want and it isn't required to back them up. It is recommended you use a unique database user to read the partition, and for managing the Spring batch. A list of supported databases can be retrieved, for more see [Enum DatabaseType
-](https://docs.spring.io/spring-batch/docs/current/api/org/springframework/batch/support/DatabaseType.html), and all available SQL initialization scripts are available, for more see [spring-batch](https://github.com/spring-projects/spring-batch/tree/main/spring-batch-core/src/main/resources/org/springframework/batch/core).
+When using remote partitioning you are required to use a shared database that is accessible from all nodes. The database will contain the Batch job store. Spring batch will automatically create required tables, and those tables don't contain sensitive data, so you can wipe them when required and you don't need to back them up. It is recommended you use a unique database user to read the partition, and for managing the Spring batch. A list of supported databases can be retrieved, for more see [Enum DatabaseType
+](https://docs.spring.io/spring-batch/docs/current/api/org/springframework/batch/support/DatabaseType.html){:target="_blank"}, and all available SQL initialization scripts are available, for more see [spring-batch](https://github.com/spring-projects/spring-batch/tree/main/spring-batch-core/src/main/resources/org/springframework/batch/core){:target="_blank"}.
 
-When using a different database you need to add to Java classpath to the right connection driver. The Re-indexing service is a Spring Boot application which means you can't add the JAR to the classpath, but instead you need to use a different command, for example:
+When using a different database you need to add to the Java classpath and to the right connection driver. The Re-indexing service is a Spring boot application which means you can't add the JAR to the classpath, but instead you need to use a different command, for example:
 
 ```shell
  java -cp alfresco-elasticsearch-reindexing-3.0.0-app.jar:mysql-connector-java-8.0.25.jar
@@ -373,7 +373,7 @@ When using a different database you need to add to Java classpath to the right c
 
 #### Failures handling
 
-If the **manager** fails or a **worker** fails you can check which partitions were indexed in the log and launch them again by restarting the Re-indexing service.
+If the manager** fails or a worker fails you can check which partitions were indexed in the log and launch them again by restarting the Re-indexing service.
 
 #### Partition definition
 
@@ -427,6 +427,6 @@ The main use case to re-index only content or path is a fully metadata indexed r
 
 ## Recommendations for large re-indexing processes
 
-When indexing large repositories from scratch, the metadata indexing rate will be higher than the content indexing rate. This will increase the number of messages pending in the property `acs-repo-transform-request` from the ActiveMQ queue. However, since [default ActiveMQ configuration](https://activemq.apache.org/amq-message-store) is prepared to handle [millions of messages](https://activemq.apache.org/how-do-i-configure-activemq-to-hold-100s-of-millions-of-queue-messages) per queue, this will not be an issue for the platform.
+When indexing large repositories from scratch, the metadata indexing rate will be higher than the content indexing rate. This will increase the number of messages pending in the property `acs-repo-transform-request` from the ActiveMQ queue. However, since [Basic ActiveMQ configuration](https://activemq.apache.org/amq-message-store){:target="_blank"} is prepared to handle [millions of Queue Messages](https://activemq.apache.org/how-do-i-configure-activemq-to-hold-100s-of-millions-of-queue-messages){:target="_blank"} per queue, this will not be an issue for the platform.
 
 If you're using a custom ActiveMQ configuration ensure ActiveMQ is not using a transient message store and is using paging cache.
