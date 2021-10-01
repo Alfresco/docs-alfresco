@@ -26,10 +26,6 @@ There are two types of installations - local and remote:
 
 If you're using the Content Services (Enterprise), then you need credentials to access the necessary artifacts from [Nexus](https://artifacts.alfresco.com){:target="_blank"}. Customers can request these through [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
->**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
-then you need to [bootstrap the IPTC Content Model]({% link content-services/latest/install/containers/index.md %}#iptc-model-bootstrap) manually
-into Content Services. If you follow the link you will find the necessary content model files.
-
 ## Target O/S
 
 The playbooks have been tested using Ansible 2.9.16 (or later) on target hosts with the following operating systems:
