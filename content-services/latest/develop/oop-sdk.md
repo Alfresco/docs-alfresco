@@ -1,43 +1,41 @@
 ---
-title: Alfresco SDK 5.0 for out-of-process extensions
+title: Alfresco SDK 5.1 for out-of-process extensions
 ---
 
-Alfresco SDK 5.0 is a development kit that provides an easy to use approach to developing applications and 
+Alfresco SDK 5.1 is a development kit that provides an easy to use approach to developing applications and 
 out-of-process extensions for Content Services 7.x. With this SDK you can develop, package, test, run, document and 
 release your extension project.
 
-The following picture illustrates where SDK 5.x fits into the big picture:
+The following picture illustrates where SDK 5.1 fits into the big picture:
 
-![sdk5_big_picture]({% link content-services/images/sdk5_big_picture.png %})
+![sdk52_big_picture]({% link content-services/images/sdk52_big_picture.png %})
 
 The SDK is a fundamental tool provided by Alfresco to developers to build customizations and extensions for the 
 Content Services Platform. It is based on the [Spring Integration](https://spring.io/projects/spring-integration){:target="_blank"} 
 tooling library and the [Spring Boot](https://spring.io/projects/spring-boot){:target="_blank"} library. 
 
-Alfresco SDK 5.0 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
+Alfresco SDK 5.1 is released under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} 
 and supports Content Services Enterprise Edition as well as Community Edition. If you're an Enterprise customer, 
 please check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
 for the version you're using. If your version is in Limited or Full Support and you need help, contact our 
 [Support team](https://support.alfresco.com/){:target="_blank"}.
 
-The 5.0 release takes advantage of Semantic Versioning ([SEMVER](http://semver.org/){:target="_blank"}), which means that 
+The 5.1 release takes advantage of Semantic Versioning ([SEMVER](http://semver.org/){:target="_blank"}), which means that 
 this new release is not directly compatible with the previous releases of the SDK.
 
-There is no direct upgrade path from previous versions of the SDK. This is because version 5.0 is an additional SDK to 
+There is no direct upgrade path from previous versions of the SDK. This is because version 5.1 is an additional SDK to 
 support out-of-process extensions, rather than an updated 4.2 version. [Alfresco SDK 4.2]({% link content-services/latest/develop/sdk.md %}) 
 is still needed for a lot of the extension points, such as [content modelling]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 If you have an existing project with business logic that could be lifted out and implemented as an external service, then 
-the recommended approach is to create a new SDK 5.0 project and start using the event system to implement the business logic. 
+the recommended approach is to create a new SDK 5.1 project and start using the event system to implement the business logic. 
 Any business logic that is executed as a result of an action in the Repository, such as document or folder uploaded, updated, deleted,
 can be reimplemented as an external out-process extension utilizing the new event system. 
 
 ## What's new?
-Alfresco SDK 5.0 is a brand new development environment that brings changes oriented to assist the way out-of-process 
-customizations are built, packaged, run and tested for Content Services 7.
-
-This is a major release oriented to support Content Services 7, so it is not compatible with previous versions of the 
-SDK or Content Services.
+* Alfresco SDK 5.1 [integrates](#using-event-gateway) with the new [Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}) 
+that is part of Content Services version 7.1.
+* ReST API authentication using [OAuth2](#rest-api-config) with Alfresco Identity Service.
 
 ## Introduction
 The SDK includes Java libraries for the following:
@@ -581,7 +579,7 @@ Before you start, make sure you're familiar with Spring Boot and the Maven proje
         <parent>
             <groupId>org.alfresco</groupId>
             <artifactId>alfresco-java-sdk</artifactId>
-            <version>5.0.0</version>
+            <version>5.1.0</version>
         </parent>
         
         <groupId>org.alfresco.tutorial</groupId>
@@ -630,7 +628,7 @@ spring.activemq.brokerUrl=tcp://localhost:61616
 spring.jms.cache.enabled=false
 ```
 
-#### Set properties for Java ReST API projects
+#### Set properties for Java ReST API projects {#rest-api-config}
 
 > **Note:** Skip this section if you are just creating a project for an Event handler client.
 
@@ -645,6 +643,36 @@ content.service.url=http://localhost:8080
 content.service.path=/alfresco/api/-default-/public/alfresco/versions/1
 search.service.path=/alfresco/api/-default-/public/search/versions/1
 ```
+
+If you are using OAuth2 with Alfresco Identity Service, then you can use client-credential based authentication:
+
+```text
+spring.security.oauth2.client.registration.alfresco-rest-api.provider=alfresco-identity-service
+spring.security.oauth2.client.registration.alfresco-rest-api.client-id=clientId
+spring.security.oauth2.client.registration.alfresco-rest-api.client-secret=clientSecret
+spring.security.oauth2.client.registration.alfresco-rest-api.authorization-grant-type=client_credentials
+spring.security.oauth2.client.provider.alfresco-identity-service.token-uri=${keycloak.auth-server-url}/auth/realms/${keycloak.realm}/protocol/openid-connect/token
+```
+
+Or OAuth2 password based authentication:
+
+```text
+spring.security.oauth2.client.registration.alfresco-rest-api.provider=alfresco-identity-service
+spring.security.oauth2.client.registration.alfresco-rest-api.client-id=clientId
+spring.security.oauth2.client.registration.alfresco-rest-api.client-secret=clientSecret
+spring.security.oauth2.client.registration.alfresco-rest-api.username=username
+spring.security.oauth2.client.registration.alfresco-rest-api.password=pwd
+spring.security.oauth2.client.registration.alfresco-rest-api.authorization-grant-type=password
+spring.security.oauth2.client.provider.alfresco-identity-service.token-uri=${keycloak.auth-server-url}/auth/realms/${keycloak.realm}/protocol/openid-connect/token
+```
+
+Finally, if you want to provide a custom authentication mechanism, you can enable the delegated external authentication:
+
+```text
+content.service.security.delegated=true
+```
+
+Provide a bean that implements the interface `DelegatedAuthenticationProvider`.
 
 #### Build and test
 
@@ -744,7 +772,7 @@ Add the following dependency in the Maven project file (i.e. `pom.xml`):
     <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-        <version>5.0.0</version>
+        <version>5.1.0</version>
     </dependency>
 </dependencies>
 ```
@@ -913,7 +941,7 @@ Add the following dependency in the Maven project file (i.e. `pom.xml`):
     <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-        <version>5.0.0</version>
+        <version>5.1.0</version>
     </dependency>
 </dependencies>
 ```
@@ -1258,7 +1286,7 @@ Make sure you have completed [prerequisites](#prereq) and created a [starter pro
         <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
-        <version>5.0.0</version>
+        <version>5.1.0</version>
         </dependency>
     </dependencies>
     ```
@@ -1781,14 +1809,14 @@ search.service.path=/alfresco/api/-default-/public/search/versions/1
         <dependency>
             <groupId>org.alfresco</groupId>
             <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-            <version>5.0.0</version>
+            <version>5.1.0</version>
         </dependency>
         
         <!-- Alfresco Java SDK 5 Java ReST API wrapper Spring Boot Starter -->
         <dependency>
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-java-rest-api-spring-boot-starter</artifactId>
-        <version>5.0.0</version>
+        <version>5.1.0</version>
         </dependency>
     </dependencies>
     ```
@@ -1927,4 +1955,176 @@ You can also configure debug on the command line (no maven plugin config needed)
 
 ```bash
 mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005" -Dlicense.skip=true
+```
+
+## Using the Event Gateway {#using-event-gateway}
+Alfresco Java SDK 5.1 is compatible with [Alfresco Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}).
+
+Using the Alfresco Event Gateway REST API, extensions can manage the lifecycle of an event subscription. For example, 
+an out-of-process extension may [create a subscription]({% link content-services/latest/develop/oop-ext-points/event-gateway.md%}#gateway-api-create-sub) 
+to receive certain types of events in a specific topic of an ActiveMQ broker.
+
+The ActiveMQ broker can be different from the one used by the Alfresco Repository and is configured in both the 
+out-of-process extension and the Event Gateway.
+
+To work with the Gateway ReST API Java Wrapper in your extension project, add this dependency to your project's POM:
+
+```xml
+<dependency>
+    <groupId>org.alfresco</groupId>
+    <artifactId>alfresco-event-gateway-api</artifactId>
+    <version>5.1.0</version>
+</dependency>
+```
+
+### Creating a subscription {#gateway-api-create-sub}
+The following code shows an example of how to create a subscription with a filter that only accepts [events of type]({% link content-services/latest/develop/oop-ext-points/events.md%}#acseventtypes)
+`org.alfresco.event.node.Created` and `org.alfresco.event.node.Updated`:
+
+```java
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.alfresco.gateway.handler.SubscriptionsApi;
+import org.alfresco.gateway.model.Filter;
+import org.alfresco.gateway.model.Subscription;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Sample {
+  private static final Logger LOGGER = LoggerFactory.getLogger(Sample.class);
+  
+  public static void create(String[] args) {
+    @Inject
+    SubscriptionsApi subscriptionsApi;
+
+    Map<String, String> config = new HashMap<>();
+    config.put("broker-id", "my-broker"); // Id of the a broker in alfresco-event-gateway configuration
+    config.put("destination", "topic:sample-topic"); // Name of the topic to which the gateway shall publish the events
+
+    Filter filter = new Filter();
+    filter.setType("event-type");
+    // Comma-separated list of event types accepted by the filter
+    filter.setConfig(Collections.singletonMap("event-types", "org.alfresco.event.node.Created,org.alfresco.event.node.Updated"));
+
+    Subscription subscriptionRequest = new Subscription();
+    subscriptionRequest.setType("jms-activemq");
+    subscriptionRequest.setConfig(config);
+    subscriptionRequest.setFilters(Collections.singletonList(filter));
+
+    Subscription result = subscriptionsApi.createSubscription(subscriptionRequest);
+    LOGGER.info("Created subscription with id: {}", result.getId());
+  }
+}
+```
+
+### Getting a subscription
+The following code shows an example of how to get a subscription by its id:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+import org.alfresco.gateway.handler.SubscriptionsApi;
+import org.alfresco.gateway.model.Subscription;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Sample {
+  private static final Logger LOGGER = LoggerFactory.getLogger(Sample.class);
+
+  public static void main(String[] args) {
+    @Inject
+    SubscriptionsApi subscriptionsApi;
+
+    Subscription result = subscriptionsApi.getSubscription("my-subscription-id");
+    LOGGER.info("Retrieved subscription: {}", result);
+  }
+}
+```
+
+### Updating a subscription
+The following code shows an example of how to partially update a subscription:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+import org.alfresco.gateway.handler.SubscriptionsApi;
+import org.alfresco.gateway.model.Subscription;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Sample {
+  private static final Logger LOGGER = LoggerFactory.getLogger(Sample.class);
+
+  public static void main(String[] args) {
+    @Inject
+    SubscriptionsApi subscriptionsApi;
+
+    Subscription subscription = subscriptionsApi.getSubscription("my-subscription-id");
+    subscription.setStatus(Subscription.StatusEnum.ACTIVE);
+    Subscription result = subscriptionsApi.partiallyUpdateSubscription(subscription);
+
+    LOGGER.info("Updated subscription: {}", result);
+  }
+}
+```
+
+### Configuring a specific ActiveMQ broker - Extension Project
+This is done in the `src/main/resources/application.properties` configuration file:
+
+```text
+spring.activemq.brokerUrl=tcp://my-broker-host:61616
+spring.activemq.username=test
+spring.activemq.password=my-secret
+
+# This property is required if you want Spring Boot to auto-define the ActiveMQConnectionFactory, 
+# otherwise you can define that bean in Spring config
+spring.jms.cache.enabled=false
+
+alfresco.events.topicName=topic:sample-topic
+```
+
+### Configuring a specific ActiveMQ broker - Event Gateway
+The following properties need to be configured in the Event Gateway:
+
+```text
+# This is a sample about how to configure a broker config with id "my-broker" (only broker-url is
+# mandatory). You can add any number of different broker configurations
+
+alfresco.event.gateway.publication.jms.broker.my-broker.broker-url=tcp://my-broker-host:61616
+alfresco.event.gateway.publication.jms.broker.my-broker.username=admin
+alfresco.event.gateway.publication.jms.broker.my-broker.password=my-secret
+```
+
+In a Docker Compose configuration this is done as follows:
+
+```text
+...
+services:
+  alfresco-event-gateway:
+    image: alfresco/alfresco-event-gateway-app:development
+    environment:
+      JAVA_TOOL_OPTIONS: "
+                        -agentlib:jdwp=transport=dt_socket,address=*:8888,server=y,suspend=n
+                         "
+      JAVA_OPTS: "
+                -Dspring.activemq.brokerUrl=tcp://activemq:61616
+                -Dspring.datasource.url=jdbc:postgresql://postgres-event-gateway:5432/alfresco-event-gateway
+                -Dspring.datasource.driverClassName=org.postgresql.Driver
+                -Dspring.datasource.username=alfresco-event-gateway
+                -Dspring.datasource.password=alfresco-event-gateway
+                -Dspring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+                -Dspring.jpa.hibernate.ddl-auto=update
+                -Dalfresco.event.gateway.publication.jms.broker.my-broker.broker-url=tcp://my-broker-host:61616
+                -Dalfresco.event.gateway.publication.jms.broker.my-broker.username=admin
+                -Dalfresco.event.gateway.publication.jms.broker.my-broker.password=my-secret
+                -Dkeycloak.auth-server-url=http://${HOST_IP}:8999/auth
+                -Dcontent.service.url=http://alfresco:8080
+                -Dmanagement.metrics.export.simple.enabled=true
+                -Dmanagement.endpoint.metrics.enabled=true
+                  "
+...
 ```
