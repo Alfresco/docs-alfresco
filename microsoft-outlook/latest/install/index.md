@@ -34,7 +34,7 @@ You can download the Outlook Integration software from the [Alfresco Support Por
 
 ## Prerequisites
 
-There are a number of software requirements for installing Outlook Integration.
+There are a number of software requirements for installing Outlook Integration. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
 
 You need one of each of the following components:
 
@@ -58,7 +58,22 @@ You can use one of the following Outlook releases:
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.2.2 or later. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
+* Alfresco Content Services 6.2.2 or later.
+
+#### Alfresco Search Services 2.0 and above
+
+If you're using Alfresco Search Services or Alfresco Search and Insight Engine 2.0 and above in combination with Outlook Integration 2.8.1 and above, you must add the `messageId` property to the `shared.properties` file for SOLR. See the [Alfresco indexing recommendations]({% link search-services/latest/config/indexing.md %}#cross-locale) to locate this file.
+
+Add the following lines to the configuration:
+
+```bash
+alfresco.cross.locale.property.#={http://www.alfresco.org/model/imap/1.0}messageId
+alfresco.cross.locale.property.#={http://www.westernacher.com/alfresco/models/wpsmail-v2}messageId
+```
+
+where `#` is an ascending index number that hasn't been used.
+
+> **Note:** This change requires a SOLR restart, but no reindex.
 
 ### Java requirements
 
