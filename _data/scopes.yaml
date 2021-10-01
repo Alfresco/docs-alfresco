@@ -27,6 +27,7 @@ integrations:
     sap: "Content Connector for SAP"
     sap-cloud: "Content Connector for SAP Cloud"
     microsoft-365: "Collaboration Connector for Microsoft 365"
+    microsoft-teams: "Collaboration Connector for Microsoft Teams"
     microsoft-outlook: "Outlook Integration"
     microsoft-office: "Office Services"
     google-drive: "Google Docs Integration"
