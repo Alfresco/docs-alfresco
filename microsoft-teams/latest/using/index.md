@@ -6,7 +6,8 @@ The Collaboration Connector for Teams enable users within the Microsoft Teams Cl
 Alfresco Content Services and share a preview link. The link can be sent to a Teams chat or channel. The link will open
 in Alfresco Digital Workspace.
 
-## Enable the Alfresco for Teams app 
+## Enable the Alfresco for Teams app
+
 The first thing you need to do before you can use the Collaboration Connector for Teams integration in your 
 MS Teams client is to add the *Alfresco for Teams* app.
 
@@ -32,6 +33,7 @@ MS Teams client is to add the *Alfresco for Teams* app.
 4. You can now start using the **Alfresco for Teams** app by clicking on it in the bottom toolbar.
 
 ## Search for documents
+
 Files such as Word, Excel and PowerPoint documents that are stored in the Alfresco Content Services repository 
 can be searched for from a MS Teams client.
 
@@ -54,6 +56,7 @@ can be searched for from a MS Teams client.
    ![MS Teams Integration App Search Result]({% link microsoft-teams/images/ms-teams-integ-app-search-dialog-result.png %}){:height="250px" width="200px"}
 
 ## Share a document
+
 When you have a search result you can share files from it with the other members of a chat.
 
 1. Click on the search result item you want to share:
