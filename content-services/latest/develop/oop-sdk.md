@@ -33,8 +33,9 @@ Any business logic that is executed as a result of an action in the Repository, 
 can be reimplemented as an external out-process extension utilizing the new event system. 
 
 ## What's new?
-Alfresco SDK 5.1 [integrates](#using-event-gateway) with the new [Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}) 
+* Alfresco SDK 5.1 [integrates](#using-event-gateway) with the new [Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}) 
 that is part of Content Services version 7.1.
+* ReST API authentication using [OAuth2](#rest-api-config) with Alfresco Identity Service.
 
 ## Introduction
 The SDK includes Java libraries for the following:
@@ -627,7 +628,7 @@ spring.activemq.brokerUrl=tcp://localhost:61616
 spring.jms.cache.enabled=false
 ```
 
-#### Set properties for Java ReST API projects
+#### Set properties for Java ReST API projects {#rest-api-config}
 
 > **Note:** Skip this section if you are just creating a project for an Event handler client.
 
@@ -642,6 +643,36 @@ content.service.url=http://localhost:8080
 content.service.path=/alfresco/api/-default-/public/alfresco/versions/1
 search.service.path=/alfresco/api/-default-/public/search/versions/1
 ```
+
+If you are using OAuth2 with Alfresco Identity Service, then you can use client-credential based authentication:
+
+```text
+spring.security.oauth2.client.registration.alfresco-rest-api.provider=alfresco-identity-service
+spring.security.oauth2.client.registration.alfresco-rest-api.client-id=clientId
+spring.security.oauth2.client.registration.alfresco-rest-api.client-secret=clientSecret
+spring.security.oauth2.client.registration.alfresco-rest-api.authorization-grant-type=client_credentials
+spring.security.oauth2.client.provider.alfresco-identity-service.token-uri=${keycloak.auth-server-url}/auth/realms/${keycloak.realm}/protocol/openid-connect/token
+```
+
+Or OAuth2 password based authentication:
+
+```text
+spring.security.oauth2.client.registration.alfresco-rest-api.provider=alfresco-identity-service
+spring.security.oauth2.client.registration.alfresco-rest-api.client-id=clientId
+spring.security.oauth2.client.registration.alfresco-rest-api.client-secret=clientSecret
+spring.security.oauth2.client.registration.alfresco-rest-api.username=username
+spring.security.oauth2.client.registration.alfresco-rest-api.password=pwd
+spring.security.oauth2.client.registration.alfresco-rest-api.authorization-grant-type=password
+spring.security.oauth2.client.provider.alfresco-identity-service.token-uri=${keycloak.auth-server-url}/auth/realms/${keycloak.realm}/protocol/openid-connect/token
+```
+
+Finally, if you want to provide a custom authentication mechanism, you can enable the delegated external authentication:
+
+```text
+content.service.security.delegated=true
+```
+
+Provide a bean that implements the interface `DelegatedAuthenticationProvider`.
 
 #### Build and test
 
