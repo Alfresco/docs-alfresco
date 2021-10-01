@@ -64,45 +64,41 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | MS Office 2016 | Microsoft Office for Mac does not support Kerberos authentication. |
 | | |
 | **Services** | |
-| Alfresco Governance Services 3.5 | |
-| Alfresco Process Services 2.0 | |
+| Alfresco Governance Services 7.1 | |
+| Alfresco Process Services 2.0.1 | |
 | | |
 | **Integrations** | Check the individual documentation on prerequisites and supported platforms for each integration. |
 | Alfresco Sync Service 3.4 | |
 | Alfresco Desktop Sync 1.7 | |
-| Alfresco Transform Service 1.4 | |
-| Alfresco Transform Service 1.3.2 | |
+| Alfresco Transform Service 1.4.1 | |
 | Alfresco Document Transformation Engine 2.3 | |
-| Alfresco Search and Insight Engine 2.0 | Search and Insight Engine is compatible with Java 11 as long as you run Zeppelin in a Java 8 runtime. You can do this either in a VM or separate Java 8 based server. |
+| Alfresco Search Enterprise 3.0 | |
+| Alfresco Search and Insight Engine 2.0 | |
 | Alfresco Search Services 2.0 | |
 | Alfresco Federation Services 2.0 | |
-| Identity Service 1.5 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
-| Identity Service 1.4 | Alfresco Content Services 7.0 supports the use of CMIS and authentication with the v1 REST APIs using the Identity Service. ADF and other modules are not currently supported for authentication. |
+| Identity Service 1.6 | |
 | SAML Module for Alfresco Content Services 1.2.2 | |
-| Alfresco Intelligence Services 1.3 | |
-| Alfresco Content Connector for AWS S3 4.0 | |
-| Alfresco Content Connector for Azure 2.0 | |
-| Alfresco Content Connector for AWS Glacier 2.1 | Only compatible with Alfresco Content Connector for AWS S3 3.1 or above. |
-| Alfresco Content Connector for Salesforce 2.3 | |
-| Alfresco Content Connector for Salesforce 2.2.1 | |
+| Alfresco Intelligence Services 1.4 | |
+| Alfresco Content Connector for AWS S3 4.1 | |
+| Alfresco Content Connector for Azure 2.1 | |
+| Alfresco Content Connector for AWS Glacier 2.2 | |
+| Alfresco Content Connector for Salesforce 2.3.1 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
-| Alfresco Content Connector for SAP Cloud 1.1 | |
-| Alfresco Content Connector for SAP Cloud 1.0 | |
-| Alfresco Collaboration Connector for Microsoft 365 1.1 | |
-| Alfresco Outlook Integration 2.8 | |
+| Alfresco Content Connector for SAP Cloud 1.2 | |
+| Alfresco Collaboration Connector for Microsoft 365 1.1.1 | |
+| Alfresco Collaboration Connector for Teams 1.0 | |
+| Alfresco Outlook Integration 2.8.1 | |
 | Alfresco Office Services 1.4 | |
 | Alfresco Google Docs Integration 3.2.1 | |
-| Alfresco Enterprise Viewer 3.3.1 | |
-| Alfresco Content Accelerator 3.4.3 | |
-| Alfresco Content Services SDK 5 | |
-| Alfresco Content Services SDK 4.2 | |
+| Alfresco Enterprise Viewer 3.3.5 | |
+| Alfresco Content Accelerator 3.4.4 | |
+| Alfresco Content Services SDK 5.1 | |
+| Alfresco Content Services SDK 4.3 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 2.3 | |
-| Alfresco Digital Workspace 2.2 | |
-| Alfresco Digital Workspace 2.1 | |
+| Alfresco Digital Workspace 2.4 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
-| Alfresco Mobile Workspace 1.0 | |
+| Alfresco Mobile Workspace 1.1 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
