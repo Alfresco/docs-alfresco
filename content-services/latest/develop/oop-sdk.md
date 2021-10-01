@@ -1936,6 +1936,111 @@ to receive certain types of events in a specific topic of an ActiveMQ broker.
 The ActiveMQ broker can be different from the one used by the Alfresco Repository and is configured in both the 
 out-of-process extension and the Event Gateway.
 
+To work with the Gateway ReST API Java Wrapper in your extension project, add this dependency to your project's POM:
+
+```xml
+<dependency>
+    <groupId>org.alfresco</groupId>
+    <artifactId>alfresco-event-gateway-api</artifactId>
+    <version>5.1.0</version>
+</dependency>
+```
+
+### Creating a subscription {#gateway-api-create-sub}
+The following code shows an example of how to create a subscription with a filter that only accepts [events of type]({% link content-services/latest/develop/oop-ext-points/events.md%}#acseventtypes)
+`org.alfresco.event.node.Created` and `org.alfresco.event.node.Updated`:
+
+```java
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.alfresco.gateway.handler.SubscriptionsApi;
+import org.alfresco.gateway.model.Filter;
+import org.alfresco.gateway.model.Subscription;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Sample {
+  private static final Logger LOGGER = LoggerFactory.getLogger(Sample.class);
+  
+  public static void create(String[] args) {
+    @Inject
+    SubscriptionsApi subscriptionsApi;
+
+    Map<String, String> config = new HashMap<>();
+    config.put("broker-id", "my-broker"); // Id of the a broker in alfresco-event-gateway configuration
+    config.put("destination", "topic:sample-topic"); // Name of the topic to which the gateway shall publish the events
+
+    Filter filter = new Filter();
+    filter.setType("event-type");
+    // Comma-separated list of event types accepted by the filter
+    filter.setConfig(Collections.singletonMap("event-types", "org.alfresco.event.node.Created,org.alfresco.event.node.Updated"));
+
+    Subscription subscriptionRequest = new Subscription();
+    subscriptionRequest.setType("jms-activemq");
+    subscriptionRequest.setConfig(config);
+    subscriptionRequest.setFilters(Collections.singletonList(filter));
+
+    Subscription result = subscriptionsApi.createSubscription(subscriptionRequest);
+    LOGGER.info("Created subscription with id: {}", result.getId());
+  }
+}
+```
+
+### Getting a subscription
+The following code shows an example of how to get a subscription by its id:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+import org.alfresco.gateway.handler.SubscriptionsApi;
+import org.alfresco.gateway.model.Subscription;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Sample {
+  private static final Logger LOGGER = LoggerFactory.getLogger(Sample.class);
+
+  public static void main(String[] args) {
+    @Inject
+    SubscriptionsApi subscriptionsApi;
+
+    Subscription result = subscriptionsApi.getSubscription("my-subscription-id");
+    LOGGER.info("Retrieved subscription: {}", result);
+  }
+}
+```
+
+### Updating a subscription
+The following code shows an example of how to partially update a subscription:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+import org.alfresco.gateway.handler.SubscriptionsApi;
+import org.alfresco.gateway.model.Subscription;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Sample {
+  private static final Logger LOGGER = LoggerFactory.getLogger(Sample.class);
+
+  public static void main(String[] args) {
+    @Inject
+    SubscriptionsApi subscriptionsApi;
+
+    Subscription subscription = subscriptionsApi.getSubscription("my-subscription-id");
+    subscription.setStatus(Subscription.StatusEnum.ACTIVE);
+    Subscription result = subscriptionsApi.partiallyUpdateSubscription(subscription);
+
+    LOGGER.info("Updated subscription: {}", result);
+  }
+}
+```
+
 ### Configuring a specific ActiveMQ broker - Extension Project
 This is done in the `src/main/resources/application.properties` configuration file:
 
