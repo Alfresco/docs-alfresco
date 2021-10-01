@@ -30,9 +30,9 @@ Your current Content Services stack can continue to run while you are indexing t
 
 2. Configure Alfresco Repository Search Subsystem to use `elasticsearch` and switch database configuration to the read-only replica database.
 
-3. Install Elasticsearch server.
+3. Install the Elasticsearch server.
 
-4. Install Elasticsearch Connector, for more see [Install]({% link search-enterprise/latest/install/index.md %}).
+4. Install Elasticsearch connector.
 
 5. Once everything is up and running, use the Elasticsearch connector Re-indexing application to populate the Elasticsearch index. This operation may take a while, depending on the number of documents in your Repository and on the indexing options selected (metadata, content and path).
 
@@ -42,4 +42,4 @@ Your current Content Services stack can continue to run while you are indexing t
 
 ![upgraded-environment]({% link search-enterprise/images/elasticsearch-upgrading-2.png %})
 
-> **Note:** You may need to use the Elasticsearch Re-indexing application to update to the latest changes. After that, new and updated documents will be uploaded to the Elasticsearch index by the Elasticsearch Connector service using ActiveMQ messages.
+> **Note:** You may need to use the Elasticsearch Re-indexing application to update to the latest changes. After that, new and updated documents will be uploaded to the Elasticsearch index by the Elasticsearch connector service using ActiveMQ messages.

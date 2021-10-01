@@ -4,7 +4,7 @@ title: Filtering Paging and Sorting
 
 ## Searching by content type and controlling paging and sorting
 
-The v1 ReST APIs paging can also be controlled but is accomplished via the body rather than a query parameter. The results can also be sorted. The body example shows how to execute a search to find all files ordered by the `cm:name` property. It shows how you can search for a specific content type with the `TYPE` keyword. It also only shows 25 results rather than the default 100 including skipping the first 10 results.
+The V1 ReST APIs paging can also be controlled but is accomplished via the body rather than a query parameter. The results can also be sorted. The body example shows how to execute a search to find all files ordered by the `cm:name` property. It shows how you can search for a specific content type with the `TYPE` keyword. It also only shows 25 results rather than the default 100 including skipping the first 10 results.
 
 ```json
 {
@@ -90,13 +90,13 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-The result have been truncated for clarity.
+The results have been truncated for clarity.
 
 ## Faceted search
 
-There are two types of facets queries, and fields. A query facet returns the count of results for the given query. You can provide multiple facet queries in one request. A field facet returns a number of "buckets" for a field, providing the count of results that fit into each bucket.
+There are two types of facet queries, and fields. A query facet returns the count of results for the given query. You can provide multiple facet queries in one request. A field facet returns a number of "buckets" for a field, providing the count of results that fit into each bucket.
 
-The example body shows a search request that looks for files that have a `cm:name` or `cm:title` starting with "test". We also specify that we want to know how many of the results are small files, how many are plain text files, how many are images, and how many are Office files. Additionally, the `creator` facet field is included, which indicates how many of the results were created by each user:
+The example body shows a search request that looks for files that have a `cm:name` or `cm:title` starting with "test". You can also specify if you want to know how many of the results are small files, how many are plain text files, how many are images, and how many are Office files. Additionally, the `creator` facet field is included, which indicates how many of the results were created by each user:
 
 ```json
 {
@@ -207,7 +207,3 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 ```
 
 The `facetQueries` object has an entry for each query supplied in the result whereas the `facetsFields` object contains an entry for each requested field which in turn contains the count for each bucket.
-
-## Filter by content size and mimetype
-
-@engineering where is a good place to put this? Any more info?

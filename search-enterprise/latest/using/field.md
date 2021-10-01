@@ -69,11 +69,11 @@ The query intent can be summarized in “give me all nodes that have a value for
 
 The value of a clause whose field is `EXISTS` could be:
 
-* An unqualified name will be expanded to a fully qualified name using the default namespace
-* a prefixed name is expanded, for example `cm:name => {http://..}content}name)`
-* a fully qualified name
-* a field name, for example ID, OWNER, READER
+* An unqualified name will be expanded to a fully qualified name using the default namespace.
+* a prefixed name is expanded, for example `cm:name => {http://..}content}name)`.
+* a fully qualified name.
+* a field name, for example ID, OWNER, READER.
 
 If the value is associated to a property definition then a boolean query is executed that has the following clause:
 
-* `PROPERTIES` (MUST) Otherwise, in case of a field (e.g. OWNER, ID, READER) a wildcard query is built using that field, for example `OWNER:*`
+* `PROPERTIES` (MUST) Otherwise, in case of a field (e.g. OWNER, ID, READER) a wildcard query is built using that field, for example `OWNER:*`.

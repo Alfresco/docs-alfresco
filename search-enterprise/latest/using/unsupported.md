@@ -6,12 +6,12 @@ The following features, which were supported with Search and Insight Engine 2.x 
 
 ## Indexing
 
-* Indexing of nodes created during content repository bootstrap. For example, the sample site data. @Angel what is this example?
+* Indexing of nodes created during content repository bootstrap. For example, the sample site data.
 
 ## Search features
 
 * Site queries
-* Path queries (partially) @angel specifically? cheers
+* Path queries (partially)
 * Aspect queries (it works only using exact aspect name)
 * Tag queries
 * Highlighting
@@ -23,6 +23,7 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * Statistics
 
 ### Search Syntax
+
 * Search for optional, mandatory, and excluded elements of a query
 * Search for an exact term
 * Fuzzy matching
@@ -35,7 +36,9 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * Exact Match Queries
 * Field Facets Pagination
 * Field Facets Tags Exclusion
+
 ### Field Queries
+
 * PATH
 * PATHWITHREPEATS
 * PNAME
@@ -82,7 +85,7 @@ All unsupported fields will be ignored in queries and filters following the sche
 * The query contains only an unsupported field, for example `QNAME:hello` returns an empty result.
 * The query contains a supported field, for example `hello AND QNAME:goodbye` returns only documents containing “hello”.
 * A filter contains only an unsupported field, for example `query=banana`, `filter=QNAME:hello` returns only documents containing “banana”.
-* A filter contains two filters or a filter with a supported field and an unsupported field. For example, `query=banana filter=[QNAME:hello, cm:name:test]`, returns all documents containing test and banana. Another example, `query=banana filter=QNAME:hello OR cm:name:test`, returns all documents containing test and banana.
+* A filter contains two filters or a filter with a supported field and an unsupported field. For example, `query=banana filter=[QNAME:hello, cm:name:test]`, returns all documents containing “test” and “banana”. Another example, `query=banana filter=QNAME:hello OR cm:name:test`, returns all documents containing “test” and “banana”.
 
 In the examples above, filter queries must be executed using the REST API and not using Alfresco Digital Workspace or Alfresco Share.
 
@@ -140,7 +143,7 @@ It is possible to search for all documents that have failed to transform by runn
 
 ### Debug queries generated for Elasticsearch
 
-Enabling slowly queries in Elasticsearch with threshold 0 seconds, should dump every query received by Elasticsearch in the logs.
+Enabling queries slowly in Elasticsearch with a threshold of `0` seconds, will dump every query received by Elasticsearch in the logs.
 
 ```bash
 $ curl -XPUT "http://elasticsearch:9200/alfresco/_settings" -H 'Content-Type: application/json' -d'{  

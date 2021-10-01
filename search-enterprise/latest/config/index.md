@@ -81,7 +81,7 @@ The tool may be used as a standalone jar file. The table below lists the main co
 | spring.datasource.url | JDBC url of the Alfresco database. The default value is `jdbc:postgresql://localhost:5432/alfresco`. |
 | spring.datasource.username | Username for the Alfresco database. The default value is `alfresco`. |
 | spring.datasource.password | Password for the Alfresco database. The default value is `alfresco`. |
-| spring.elasticsearch.rest.uris | Rest(s) @engineering, what? url of Elasticsearch. The default value is `http://elasticsearch:9200`. |
+| spring.elasticsearch.rest.uris | Rest(s) url of Elasticsearch. The default value is `http://elasticsearch:9200`. |
 | spring.elasticsearch.rest.username | Username for Elasticsearch when using Basic Authentication. |
 | spring.elasticsearch.rest.password | Password for username in Elasticsearch when using Basic Authentication. |
 | spring.activemq.broker-url | ActiveMQ Broker url, use async sending to improve performance. The default value is `tcp://localhost:61616?jms.useAsyncSend=true`. |
