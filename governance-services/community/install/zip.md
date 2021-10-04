@@ -9,7 +9,7 @@ The Governance Services distribution zip file contain the following AMP files:
 |alfresco-governance-services-community-repo-3.5.a.amp|Contains Governance Services functionality that's applied to an existing Alfresco Community Edition installation.|
 |alfresco-governance-services-community-share-3.5.a.amp|Contains Governance Services functionality that's applied to an existing Alfresco Share installation.|
 
->**Note:** Install the AMPs manually using the Module Management Tool (MMT), rather than using the `apply_amps` tool.
+> **Note:** Install the AMPs manually using the Module Management Tool (MMT), rather than using the `apply_amps` tool.
 
 1. Stop the Alfresco Community Edition server.
 
@@ -17,7 +17,7 @@ The Governance Services distribution zip file contain the following AMP files:
 
     Deleting these directories forces Tomcat to read the edited WAR files when Alfresco Community Edition is restarted.
 
-    >**Note:** If you are using non-Windows systems, such as Mac OS X and Linux, you'll need to replace the backslashes by forward slashes in directory paths.
+    > **Note:** If you are using non-Windows systems, such as Mac OS X and Linux, you'll need to replace the backslashes by forward slashes in directory paths.
 
 3. Copy the AMP files to the Alfresco `amps` and `amps_share` directories.
 
@@ -54,6 +54,6 @@ The Governance Services distribution zip file contain the following AMP files:
 
     `http://<your-server-name>:<port number>/share`
 
-    >**Note:** When you install Governance Services the Security Controls features are installed at the same time.
+    > **Note:** When you install Governance Services the Security Controls features are installed at the same time.
 
 Final step before you can start with Records Management is to [create the Records Management site]({% link governance-services/community/install/create-rm-site.md %}).

@@ -1,0 +1,26 @@
+# Search Enterprise
+- version: 3.0
+  pages:
+    - title: 'Introduction'
+      path: '/search-enterprise/latest/'
+    - title: 'Install'
+      path: '/search-enterprise/latest/install/'
+    - title: 'Upgrade'
+      path: '/search-enterprise/latest/upgrade/'
+    - title: 'Configure'
+      path: '/search-enterprise/latest/config/'
+    - title: 'Administer'
+      path: '/search-enterprise/latest/admin/'
+    - title: 'Using'
+      pages:
+        - title: 'Search query syntax'
+          path: '/search-enterprise/latest/using/'
+        - title: 'Filtering paging and sorting'
+          path: '/search-enterprise/latest/using/filtering/'
+        - title: 'Field queries'
+          path: '/search-enterprise/latest/using/field/'
+        - title: 'Query languages'
+          path: '/search-enterprise/latest/using/languages/'
+        - title: 'Unsupported features'
+          path: '/search-enterprise/latest/using/unsupported/'
+

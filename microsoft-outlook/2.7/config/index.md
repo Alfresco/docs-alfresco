@@ -944,7 +944,7 @@ Use this file to set up attributes and metadata settings.
         <connection url="http://127.0.0.1:8080/" shareUrl="share" alfrescoUrl="alfresco" login="admin" password="7DkTRpO8sfo=" checkCertificate="true" checkVersion="true" authentication="basic" webApp="2" shareAlterUrl="" settingsCheckInterval="480" />
         <logging minLevel="info" />
         <storage archiveOption="0" storeFiles="true" storeLink="true" storeMsg="false" compress="true" />
-        <feature autoPaging="false" highlightTexts="false" tokenAlterMode="false" messageIcon="false" />
+        <feature autoPaging="false" tokenAlterMode="false" messageIcon="false" />
         <explorer-search-properties />
         <search-properties />
       </outlook>

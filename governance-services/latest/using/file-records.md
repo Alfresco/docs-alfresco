@@ -10,7 +10,7 @@ There are three ways that you can create records:
 * Create a non-electronic record that references a physical record such as a paper record or microfilm
 * Select an item in another Alfresco site (non-Records Management) and declare it as a record
 
->**Note:** You can also import folders, {% include tooltip.html word="category" text="categories" %}, and even entire File Plans, and any records that they contain, see [Exporting and importing File Plan content]({% link governance-services/latest/using/manage-fileplan.md %}#exporting-and-importing-file-plan-content).
+> **Note:** You can also import folders, {% include tooltip.html word="category" text="categories" %}, and even entire File Plans, and any records that they contain, see [Exporting and importing File Plan content]({% link governance-services/latest/using/manage-fileplan.md %}#exporting-and-importing-file-plan-content).
 
 Your Alfresco administrator can also set up your system so that emails to specified addresses are captured and stored 
 as records.
@@ -24,7 +24,7 @@ the file with a record type, so that when you edit metadata there is type-specif
 Once that's done you can select to **Complete Record** and it will be subject to the retention rules that apply to 
 the folder you've placed it in.
 
->**Note:** When you set up a record category or folder you can specify that it will be used to hold **Vital Records**. A vital record must be reviewed on a periodic basis, as defined on the record category or folder.
+> **Note:** When you set up a record category or folder you can specify that it will be used to hold **Vital Records**. A vital record must be reviewed on a periodic basis, as defined on the record category or folder.
 
 ## Filing an electronic record
 
@@ -37,7 +37,7 @@ can be stored in a physical location.
 
 3. Click **Select Records to File** and find the file that you want to upload.
 
-    >**Tip:** You can also select multiple items in the standard multi-select way.
+    > **Tip:** You can also select multiple items in the standard multi-select way.
 
     The files are uploaded as record and display in the {% include tooltip.html word="fileplan" text="File Plan" %} as incomplete records. You need to make sure any 
     required metadata is added before you can set records to {% include tooltip.html word="recordcompleted" text="complete" %}.
@@ -69,13 +69,13 @@ You now need to add it to a records folder.
 
     All {% include tooltip.html word="unfiledrecords" text="unfiled records" %} are displayed.
 
-    >**Note:** You can add additional folders to the **Unfiled Records** area to create a folder hierarchy to help manage unfiled records. You can also declare items as records directly from within the **Unfiled Records** area structure.
+    > **Note:** You can add additional folders to the **Unfiled Records** area to create a folder hierarchy to help manage unfiled records. You can also declare items as records directly from within the **Unfiled Records** area structure.
 
 2. Hover over an unfiled record and click **More** then **File to...**.
 
 3. Select a records folder to file the record in then click **File**.
 
-    >**Note:** There are multiple other actions available including **Reject** so you can reject the record from the {% include tooltip.html word="fileplan" text="File Plan" %}, and **Move to** so you can move the record to another location in the **Unfiled Records** hierarchy.
+    > **Note:** There are multiple other actions available including **Reject** so you can reject the record from the {% include tooltip.html word="fileplan" text="File Plan" %}, and **Move to** so you can move the record to another location in the **Unfiled Records** hierarchy.
 
 The record's added to the File Plan, and if you haven't already you can now go and edit metadata.
 
@@ -90,11 +90,11 @@ options are required for the record. You need to complete all the required metad
 
 The **Add Record Metadata** option is only available in {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant Records Management sites.
 
->**Note:** Adding record metadata isn't mandatory, but can be useful to allow additional metadata to be added against a file.
+> **Note:** Adding record metadata isn't mandatory, but can be useful to allow additional metadata to be added against a file.
 
 1. Hover over an incomplete record in the File Plan and click **More** then **Add Record Metadata**.
 
-    >**Tip:** For non-{% include tooltip.html word="electronicrecord" text="electronic records" %} the **Add Record Metadata** is available as soon as you hover over them, you don't need to click **More**.
+    > **Tip:** For non-{% include tooltip.html word="electronicrecord" text="electronic records" %} the **Add Record Metadata** is available as soon as you hover over them, you don't need to click **More**.
 
     The available record types are displayed.
 
@@ -107,7 +107,7 @@ The **Add Record Metadata** option is only available in {% include tooltip.html 
     |PDF Record|A PDF file.|
     |Digital Photograph Record|A photographic image file.|
 
-    >**Tip:** You can select multiple items in the standard multi-select way.
+    > **Tip:** You can select multiple items in the standard multi-select way.
 
 3. Click **OK**.
 
@@ -170,12 +170,12 @@ Content added to the {% include tooltip.html word="fileplan" text="File Plan" %}
 
 1. Hover over an incomplete record in the File Plan and click **Complete Record**.
 
-    >**Tip:** Incomplete records are marked.
+    > **Tip:** Incomplete records are marked.
 
     If a record has mandatory metadata that hasn't been completed then a message lets you know that required metadata is missing.
 
 Once a record is {% include tooltip.html word="recordcompleted" text="completed" %}, it comes under the control of the record {% include tooltip.html word="category" text="category" %} it is filed under, and security restrictions apply.
 
->**Note:** A record can be filed in multiple categories, see [Linking records]({% link governance-services/latest/using/manage-fileplan.md %}#linking-records) for more details.
+> **Note:** A record can be filed in multiple categories, see [Linking records]({% link governance-services/latest/using/manage-fileplan.md %}#linking-records) for more details.
 
 See also video explaining [completing a record]({% link governance-services/latest/tutorial/governance-services/index.md %}#complete-a-record).

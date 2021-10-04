@@ -47,7 +47,7 @@ You can use the File Plan to manage, view, and work with records.
 
 2. Use the **Options** menu to select how you want to view the library content, and the sorting options to sort records.
 
->**Note:** It's recommended that you use the File Plan for Records Management actions rather than going through the repository.
+> **Note:** It's recommended that you use the File Plan for Records Management actions rather than going through the repository.
 
 ## Browsing the File Plan
 
@@ -77,7 +77,7 @@ The File Plan is built up by adding levels made up of {% include tooltip.html wo
 
 Only a few users have the capability to add folders and categories, and this is tightly controlled to make sure that your system remains compliant. Capabilities are assigned to user roles in the RM Admin Tools. You might be assigned the capability to create folders but not categories, or just have the capability to add records.
 
->**Note:** Capabilities given to a role are not the same as permissions. Capabilities define what you can do in the Records Management site, whereas permissions are specific to sections of the File Plan. Permissions are applied at category and folder level using the **Manage Permissions** option, and you use these to decide which users can see specific sections of the File Plan, and if they can read and file in that section. See [Managing permissions]({% link governance-services/3.1/using/manage-permissions.md %}) for further details.
+> **Note:** Capabilities given to a role are not the same as permissions. Capabilities define what you can do in the Records Management site, whereas permissions are specific to sections of the File Plan. Permissions are applied at category and folder level using the **Manage Permissions** option, and you use these to decide which users can see specific sections of the File Plan, and if they can read and file in that section. See [Managing permissions]({% link governance-services/3.1/using/manage-permissions.md %}) for further details.
 
 When you create a container (category or folder) the system records the date of creation and the user who created it. This information is recorded in the object's metadata. Metadata can be thought of as a set of properties, and are where all key information about an item, folder, or category is stored. Record categories carry the most metadata as they hold the retention instructions for the whole category.
 
@@ -91,7 +91,7 @@ The following rules are enforced when working with the File Plan structure:
 
 You can load Records Management test data which creates a sample File Plan that you can use to get started.
 
->**Note:** The test data is intended to give you an idea how a File Plan is structured. You don't need to load it if you don't want to.
+> **Note:** The test data is intended to give you an idea how a File Plan is structured. You don't need to load it if you don't want to.
 
 1. Click ![]({% link governance-services/images/settings-icon.png %}){:height="18px" width="18px"} then **Customize Dashboard**.
 
@@ -126,7 +126,7 @@ You can create a record {% include tooltip.html word="category" text="category" 
     |Description|A description of the record category.|
     |Record Category ID|*Required.* A unique identifier for the record category is generated automatically. You can change this now, but you can't edit it once the category has been created.|
     |Vital Record Indicator|Defines whether records in this category have a review process. The Vital Record Indicator is applied to all record folders within that category. You can change this at folder level. <br><br>Users with Records Manager permissions receive a notification email when vital records are due for review.|
-    |Period|The time period for the review cycle. Reviews are recurring based on the period you select. The review period is required when the **Vital Record Indicator** option is selected. The review period is displayed on the details page for folders and records in the category. <br><br>**Note:** The "Quarter" option splits the year into 4 sets of 3 months, beginning with Jan/Feb/March. "Financial Quarter" is the same but based on the start date of your system-configured financial year.|
+    |Period|The time period for the review cycle. Reviews are recurring based on the period you select. The review period is required when the **Vital Record Indicator** option is selected. The review period is displayed on the details page for folders and records in the category. <br><br> **Note:** The "Quarter" option splits the year into 4 sets of 3 months, beginning with Jan/Feb/March. "Financial Quarter" is the same but based on the start date of your system-configured financial year.|
     |Expression|Enter a number as the **Expression** to accompany the **Period** type. If you enter “Week” and “3”, this would mean a review cycle of 3 weeks. <br><br>If you select a Period that doesn't require an Expression then this field isn't available.|
 
 4. Click **Save**.
@@ -155,8 +155,8 @@ You can add record folders within a record {% include tooltip.html word="categor
     |Record Folder ID|*Required*. A unique identifier for the record folder is generated automatically. You can change this now, but you can't edit it once the folder has been created.|
     |Location|If relevant specify the physical location of the records contained within this folder.|
     |Supplemental Marking List|If available, select any suitable properties from the list. Entries on this list are set up by your Alfresco administrator and are only available if you have been given the required permission.|
-    |Vital Record Indicator|Defines whether records in this folder have a review process. The Vital Record Indicator is applied to all records within the folder. You can change this at record level.<br><br>**Note:** If you don't select this option and the category the folder is in has a Vital Record Indicator set, then the category setting will be applied to the folder once it is created.<br><br>If you do select this option it will override any Vital Record Indicator set in the category.<br><br>Users with Records Manager permissions receive a notification email when vital records are due for review.|
-    |Period|The time period for the review cycle. Reviews are recurring based on the period you select. The Review Period is required when the **Vital Record Indicator** check box is selected.<br><br>**Note:** The "Quarter" option splits the year into 4 sets of 3 months, beginning with Jan/Feb/March. "Financial Quarter" is the same but based on the start date of your system-configured financial year. See [Customizing the end of the financial year]({% link governance-services/3.1/config/index.md %}#customize-end-of-year).<br><br>The review period is displayed on the details page for records in the folder.|
+    |Vital Record Indicator|Defines whether records in this folder have a review process. The Vital Record Indicator is applied to all records within the folder. You can change this at record level.<br><br> **Note:** If you don't select this option and the category the folder is in has a Vital Record Indicator set, then the category setting will be applied to the folder once it is created.<br><br>If you do select this option it will override any Vital Record Indicator set in the category.<br><br>Users with Records Manager permissions receive a notification email when vital records are due for review.|
+    |Period|The time period for the review cycle. Reviews are recurring based on the period you select. The Review Period is required when the **Vital Record Indicator** check box is selected.<br><br> **Note:** The "Quarter" option splits the year into 4 sets of 3 months, beginning with Jan/Feb/March. "Financial Quarter" is the same but based on the start date of your system-configured financial year. See [Customizing the end of the financial year]({% link governance-services/3.1/config/index.md %}#customize-end-of-year).<br><br>The review period is displayed on the details page for records in the folder.|
     |Expression|Enter a number as the **Expression** to accompany the **Period** type. If you enter “Week” and “3”, this would mean a review cycle of 3 weeks.<br><br>If you select a Period that doesn't require an Expression then this field isn't available.|
 
 4. Click **Save**.
