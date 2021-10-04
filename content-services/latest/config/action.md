@@ -20,7 +20,7 @@ To configure an APS action there are several prerequisites that must be met:
 
 To install the APS action AMP:
 
-1. Visit the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download the APS action zip bundle.
+1. Visit the [Support Portal](https://support.alfresco.com/){:target="_blank"} and download the APS action zip bundle.
 
 2. Unzip the bundle and place the `aps-action-share-7.0.0.amp` to the Content Services `amps_share` directory.
 

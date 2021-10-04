@@ -31,7 +31,7 @@ Before you start, validate that you have access to the prerequisite software so 
 
 To get started, prepare your production server by installing the prerequisite software (JRE, database, and message broker) before continuing.
 
-1. Download the distribution zip file by accessing the Alfresco Support Portal.
+1. Download the distribution zip file by accessing the Support Portal.
 2. Generate certificates for mutual TLS.
 3. Download Tomcat and review the installation steps required.
 4. Set up Tomcat.
@@ -56,7 +56,7 @@ There are a number of different installation files available to you, each of whi
 
 For new installations or upgrades, use the distribution zip. Use the Alfresco WAR file to install Content Services within an existing Tomcat. The WAR file is included in the distribution zip. In addition, you must install all the required additional components manually.
 
-All files are available from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}. Click **Product Downloads**, and then select the version of the product you require.
+All files are available from the [Support Portal](https://support.alfresco.com){:target="_blank"}. Sign in and search for the version of the product you require.
 
 See the [Supported platforms]({% link content-services/latest/support/index.md %}) for more.
 
