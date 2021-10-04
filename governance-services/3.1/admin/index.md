@@ -10,7 +10,7 @@ The user who created the Records Management site is automatically made a member 
 
 You can easily configure Governance Services using the Admin Tools.
 
->**Note:** The user who created the Governance Services site is automatically made a member of the Governance Services Administrator group. Other users can access different areas of the **Admin Tools** depending on the capabilities given to the role that they're in.
+> **Note:** The user who created the Governance Services site is automatically made a member of the Governance Services Administrator group. Other users can access different areas of the **Admin Tools** depending on the capabilities given to the role that they're in.
 
 In a Governance Services site click **Admin Tools** to open the **Audit** page, with various other options available on the left-hand side. Click a tool to manage that part of your site.
 
@@ -45,11 +45,11 @@ When you run an audit you can select to run a full audit or you can filter the r
 
 2. When you've selected the audit filters you want, click **Run Audit Report**.
 
-    >**Note:** If you don't want to filter the results, then just click **Run Audit Report** without making any filter selections.
+    > **Note:** If you don't want to filter the results, then just click **Run Audit Report** without making any filter selections.
 
 The most recent entries in the log (up to 20) display in chronological order. You can see who performed each event, the user's role, and when it was performed. You can also click a column header to sort the results.
 
->**Tip:** Click **Details** to see more information on a specific event.
+> **Tip:** Click **Details** to see more information on a specific event.
 
 ### What's in an audit
 
@@ -100,7 +100,7 @@ When you've run an audit log you then have the option to file it as a record.
 
     A message confirms that the audit log has been filed as a record in the selected folder in the File Plan.
 
-    >**Note:** You'll need to add any required metadata before the record can be completed.
+    > **Note:** You'll need to add any required metadata before the record can be completed.
 
 4. Click **OK** to dismiss the message. You can also click **View Record** to display the audit report in the Records Management site.
 
@@ -125,7 +125,7 @@ You can view the full contents of the log file in a separate window. From there 
     * Click **Export** to save the report to your computer.
     * Click **File as Record** to file the report in the File Plan.
 
-    >**Note:** If you select **File as Record** you'll need to add any required metadata before the record can be completed.
+    > **Note:** If you select **File as Record** you'll need to add any required metadata before the record can be completed.
 
 3. Close the window.
 
@@ -149,7 +149,7 @@ You can choose from text fields, date pickers, check boxes, and if you've set up
 
 If required you can choose to make specific custom data mandatory, so that users have to include it when they are completing a record.
 
->**Note:** If you add mandatory metadata to a records management object type that already has existing instances, the newly mandatory metadata won't be applied to existing instances, as this could cause inconsistencies with the File Plan.
+> **Note:** If you add mandatory metadata to a records management object type that already has existing instances, the newly mandatory metadata won't be applied to existing instances, as this could cause inconsistencies with the File Plan.
 
 ### Creating custom metadata
 
@@ -179,7 +179,7 @@ You can create custom metadata for record categories, record folders, records, a
     |Check box|Adds a check box to the Edit Metadata page.|
     |Date|Adds a date field to the Edit Metadata page.|
 
-    >**Note:** The **Use selection list** option is only available if a list has been created with the [List of Values tool](#list-of-values).
+    > **Note:** The **Use selection list** option is only available if a list has been created with the [List of Values tool](#list-of-values).
 
 6. To configure this metadata field as a selection menu:
 
@@ -189,7 +189,7 @@ You can create custom metadata for record categories, record folders, records, a
 
 7. Select the **Mandatory** check box to set this metadata to be mandatory on the Edit Metadata page.
 
-    >**Note:** Mandatory metadata must be completed before a record can be set to completed.
+    > **Note:** Mandatory metadata must be completed before a record can be set to completed.
 
 8. Click **Create**.
 
@@ -211,7 +211,7 @@ You can easily edit any custom metadata that you've set up.
 
 4. Make the required changes then click **Save**.
 
-    >**Note:** You can't edit the type (text, boolean or date) or the Mandatory option for existing custom metadata.
+    > **Note:** You can't edit the type (text, boolean or date) or the Mandatory option for existing custom metadata.
 
 ## Define roles
 
@@ -225,19 +225,19 @@ Alfresco has several default roles that users and groups can be assigned to:
 * Records Management Security Officer
 * Records Management User
 
->**Note:** There are also In-Place Readers and In-Place Writers roles but you can't assign users or groups to these in the RM Admin Tools.
+> **Note:** There are also In-Place Readers and In-Place Writers roles but you can't assign users or groups to these in the RM Admin Tools.
 
 These are displayed when you open the Define Roles tool. You can create as many more roles as you need.
 
 Capabilities control what each role can do in the Records Management system, and with nearly 60 unique capabilities to choose from, they can vary hugely between roles.
 
->**Tip:** The role of Records Management Administrator has all capabilities assigned to it, so take a look at this to see the full list of capabilities available.
+> **Tip:** The role of Records Management Administrator has all capabilities assigned to it, so take a look at this to see the full list of capabilities available.
 
 You assign users and groups who will all require the same levels of functionality to a role (a user can be assigned to multiple roles at the same time). Assign users and groups to roles using the [Users and Groups tool](#users-and-groups). You can manage roles to change the capabilities that they have.
 
 Capabilities don't conflict and are not hierarchical. A user can be granted a single capability and that capability will not grant any further capabilities. Any user can have zero or more capabilities within the system. A user that has no capabilities is effectively barred from the Records Management system.
 
->**Tip:** Remember that roles and capabilities are different to permissions, which are set against folders and categories directly in the File Plan.
+> **Tip:** Remember that roles and capabilities are different to permissions, which are set against folders and categories directly in the File Plan.
 
 ### Viewing the capabilities for a role
 
@@ -271,7 +271,7 @@ There are five default Records Management roles, but you can add as many more as
 
         For example, to select all capabilities for controlling folders, click **Select All** for the Folder Control group.
 
-    >**Note:** A new role should at a minimum be given the **View Records** capability so that it can at least view records in the File Plan.
+    > **Note:** A new role should at a minimum be given the **View Records** capability so that it can at least view records in the File Plan.
 
 5. Click **Create**.
 
@@ -295,7 +295,7 @@ You can edit a role whenever you need to make changes to its name or the capabil
 
 You can delete a role whenever you need to.
 
->**Important:** Once a role is deleted all users and groups in the role will no longer have access to Records Management.
+> **Important:** Once a role is deleted all users and groups in the role will no longer have access to Records Management.
 
 1. Click **Define Roles** in the RM Admin Tools.
 
@@ -406,7 +406,7 @@ The new event displays on the Events page.
 
 You can edit all events, whether they are system defaults or ones that you've created.
 
->**Note:** It's recommended that you don't edit events that are actively in use on your system.
+> **Note:** It's recommended that you don't edit events that are actively in use on your system.
 
 1. Click **Events** in the RM Admin Tools.
 
@@ -429,7 +429,7 @@ Two predefined lists are provided with Records Management:
 * *Supplemental Markings*: security categories that are recommended by the DoD 5015.2
 * *Transfer Locations*: the names of your storage locations
 
->**Note:** These are available for both standard and {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant File Plans.
+> **Note:** These are available for both standard and {% include tooltip.html word="dod50152std" text="DoD 5015.2-STD" %} compliant File Plans.
 
 You need to provide values for these lists so that users can select from them when they edit metadata. The recommended values for Supplemental Markings are Confidential, Restricted, Secret, Top Secret and Unclassified.
 
@@ -437,7 +437,7 @@ You can also set up new lists as needed, and you can use these lists when you [c
 
 Where the value is a text string, you can also enter the value using a list of values menu. For example, on the Edit Metadata page, you enter the value for the Mimetype field by selecting a value from the menu.
 
->**Important:** Administrators can see all security marks and other metadata when browsing the repository (for example, using the Node Browser).
+> **Important:** Administrators can see all security marks and other metadata when browsing the repository (for example, using the Node Browser).
 
 ### Creating a list of values
 
@@ -451,7 +451,7 @@ Creating a list is a two step process. First you create the empty list and then 
 
 3. In the **Name** field, enter a name for the list.
 
-    >**Note:** The list name must be unique.
+    > **Note:** The list name must be unique.
 
 4. Click **OK**.
 
@@ -475,7 +475,7 @@ Use the Edit feature to add and delete values for a list. You can also control t
 
         The value name displays in the Values table.
 
-    >**Note:** You can click **Delete** next to a value to remove it from the list.
+    > **Note:** You can click **Delete** next to a value to remove it from the list.
 
 4. To control the user and group access to the individual values in the list:
 
@@ -499,7 +499,7 @@ Use the Edit feature to add and delete values for a list. You can also control t
 
         The user or group displays in the right column. You can add as many users and groups as required.
 
-    >**Note:** Only users that you give access to here will be able to see the value when they edit metadata.
+    > **Note:** Only users that you give access to here will be able to see the value when they edit metadata.
 
 5. When you have finished editing the values and access, click **Done** to save all changes.
 
@@ -549,7 +549,7 @@ The RM Admin Tools has several default relationships. You can add more relations
 
     The values you enter display in the File Plan when a user creates the reference.
 
-    >**Tip:** The existing default values give good examples of how to label relationships.
+    > **Tip:** The existing default values give good examples of how to label relationships.
 
 5. Click **Save**.
 
@@ -590,7 +590,7 @@ Alfresco users and groups are created by the Alfresco administrator using the Al
 
 Once you've [assigned them to a role](#define-roles) they'll be able to use the level of Records Management functionality that role has been given.
 
->**Note:** There are some system groups that are generated by default, such as `site_swsdp_SiteManager`. These can't be assigned to a role.
+> **Note:** There are some system groups that are generated by default, such as `site_swsdp_SiteManager`. These can't be assigned to a role.
 
 ### Adding users and groups to a role
 
@@ -616,4 +616,4 @@ Adding users and groups to a role gives them permission to use the level of Reco
 
     The new group users is added to the role.
 
-    >**Note:** You can remove a group or user from a role at any time by selecting them and clicking **Remove** then **Yes** to confirm.
+    > **Note:** You can remove a group or user from a role at any time by selecting them and clicking **Remove** then **Yes** to confirm.

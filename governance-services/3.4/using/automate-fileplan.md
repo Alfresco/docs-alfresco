@@ -37,17 +37,17 @@ rules with the **Run Rules** action.
 If you create rules for a category, depending on the rule settings, they can apply to folders and categories created in 
 the category, records placed in folders in the category, or both.
 
->**Note:** Even if a category/folder doesn't have its own rules, it could have inherited category/folder from a parent folder. A message on the Rules page lets you know if this is the case.
+> **Note:** Even if a category/folder doesn't have its own rules, it could have inherited category/folder from a parent folder. A message on the Rules page lets you know if this is the case.
 
 ### Creating a rule
 
 You can create rules for a category or folder, in much the same way that you might apply rules to your emails.
 
->**Note:** If a category/folder already has rules applied to it (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) you can add new rules to it by [adding to a set of rules]({% link content-services/latest/using/content/rules.md %}).
+> **Note:** If a category/folder already has rules applied to it (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) you can add new rules to it by [adding to a set of rules]({% link content-services/latest/using/content/rules.md %}).
 
 1. Click **Manage Rules** when you're in the folder or category you want to set rules for in the File Plan.
 
-    >**Tip:** You can also hover over a folder or category in the File Plan and click **More** then **Manage Rules**.
+    > **Tip:** You can also hover over a folder or category in the File Plan and click **More** then **Manage Rules**.
 
 2. Click **Create Rules**.
 
@@ -59,7 +59,7 @@ You can create rules for a category or folder, in much the same way that you mig
     * **Items are updated**: When an item in this folder is modified, the rule will be applied to it.
     * **Items are deleted or leave this folder**: The rule will be applied to content that is moved out of the category/folder or deleted.
 
-    >**Note:** A rule can have more than one event, condition, and action. Click the + or - icons to add or remove rows.
+    > **Note:** A rule can have more than one event, condition, and action. Click the + or - icons to add or remove rows.
 
 5. Select if the rule will be applied **If the following apply**, **If the following don't apply**, or both.
 
@@ -71,7 +71,7 @@ You can create rules for a category or folder, in much the same way that you mig
 
 6. Select criteria for which content the rule will apply to, and remember that you can use the + and - icons to add and remove extra criteria.
 
-    >**Note:** Selecting **Show more** on these menus displays the Select property screen where you can select additional properties. Click the folders on the left of the screen to show the properties they contain on the right of the screen. Selecting **Show in menu** selects that property and adds it to all criteria menus when setting up the current rule.
+    > **Note:** Selecting **Show more** on these menus displays the Select property screen where you can select additional properties. Click the folders on the left of the screen to show the properties they contain on the right of the screen. Selecting **Show in menu** selects that property and adds it to all criteria menus when setting up the current rule.
 
 7. Select the action you want performed when the conditions are met.
 
@@ -79,7 +79,7 @@ You can create rules for a category or folder, in much the same way that you mig
 
     If you select **File to**, **Copy to**, **Move to**, **File Version as Record** or **File as Record** you can specify the location of where to store the record by entering a location in **Record Folder Location**, for example `/category/subcategory/folder`. Click **Select** to choose an existing folder or a combination of the two. Select **Create Full Path to Folder** to ensure the specified path is created if it doesn't already exist. It won't be created if it doesn't fit the File Plan structure.
 
-    >**Note:** For **File Version as Record** and **File as Record** you don't have to select a destination folder and if you don't the created record can be found in the unfiled records area.
+    > **Note:** For **File Version as Record** and **File as Record** you don't have to select a destination folder and if you don't the created record can be found in the unfiled records area.
 
     There are also extensive [autocomplete options](#rules-autocomplete-options).
 
@@ -116,7 +116,7 @@ Date options set that part of the path to the date the rule is run. For example 
 
 By default  autocomplete options are based on the first two letters you type, and only five options for each type of suggestion are offered at a time. Type more letters to narrow down the displayed options.
 
->**Tip:** This can be configured in the properties file.
+> **Tip:** This can be configured in the properties file.
 
 Available autocomplete options are:
 
@@ -154,7 +154,7 @@ Available autocomplete options are:
 
 The **Link to Rule Set** option lets you reuse an existing rule set that's already defined for another category or folder.
 
->**Note:** If a category or folder already has linked rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) you can link to new rules by [linking to a different rule set](#linking-to-a-different-rule-set).
+> **Note:** If a category or folder already has linked rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) you can link to new rules by [linking to a different rule set](#linking-to-a-different-rule-set).
 
 1. Hover over a category/folder with no rules applied and click **More** then **Manage Rules**.
 
@@ -164,11 +164,11 @@ The **Link to Rule Set** option lets you reuse an existing rule set that's alrea
 
     Select the site then select a folder. Check the rules listed to make sure you're linking to the correct folder.
 
-    >**Note:** Locations that you don't have permission to access are disabled.
+    > **Note:** Locations that you don't have permission to access are disabled.
 
 4. Click **Link**.
 
-    >**Note:** You can click **View Rule Set** to view the rule details, or **Change** to select a different rule to link to.
+    > **Note:** You can click **View Rule Set** to view the rule details, or **Change** to select a different rule to link to.
 
 5. Click **Done**.
 
@@ -192,7 +192,7 @@ A set of rules can include any number of individual rules, and you can add new r
 
 1. Click **Manage Rules** when you're in the folder or category in the File Plan you want to manage rules for.
 
-    >**Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
+    > **Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
 
 2. Click **New Rule**.
 
@@ -206,11 +206,11 @@ You might need to revisit your rules from time to time and make some changes to 
 
 1. Click **Manage Rules** when you're in the folder or category in the File Plan you want to edit rules for.
 
-    >**Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
+    > **Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
 
 2. On the left side of the page, click the rule you want to edit.
 
-    >**Note:** This will be shown in the rule summary on the right side of the page. You can't edit linked or inherited rules here; that has to be done in the category/folder where they were created.
+    > **Note:** This will be shown in the rule summary on the right side of the page. You can't edit linked or inherited rules here; that has to be done in the category/folder where they were created.
 
 3. Click **Edit**.
 
@@ -224,11 +224,11 @@ As part of managing your rule set you can pick the order in which the rules are 
 
 1. Click **Manage Rules** when you're in the folder or category in the File Plan you want to reorder rules for.
 
-    >**Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
+    > **Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
 
 2. On the left side of the page drag and drop rules to where you want them in the list.
 
-    >**Note:** You can't reorder linked or inherited rules here; that has to be done in the folder where they were created. Click **Reset** to return the rule set to its last saved order.
+    > **Note:** You can't reorder linked or inherited rules here; that has to be done in the folder where they were created. Click **Reset** to return the rule set to its last saved order.
 
 3. Click **Save**.
 
@@ -240,7 +240,7 @@ Turning inherited rules on and off works at an individual category/folder level,
 
 1. Click **Manage Rules** when you're in the folder or category in the File Plan you want to switch off inherited rules for.
 
-    >**Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
+    > **Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
 
     If a category/folder has inherited rules these are displayed on the left side of the page.
 
@@ -254,13 +254,13 @@ When a category or folder has a rule applied that you don't need anymore, you ca
 
 1. Click **Manage Rules** when you're in the folder or category in the File Plan you want to delete rules for.
 
-    >**Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
+    > **Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
 
 2. On the left side of the page, click the rule you want to delete.
 
     If you might want to use the rule again, consider disabling it instead. Edit the rule to do that.
 
-    >**Note:** You can't delete linked or inherited rules here; that has to be done in the folder where they were created.
+    > **Note:** You can't delete linked or inherited rules here; that has to be done in the folder where they were created.
 
 3. Click **Delete**.
 
@@ -272,7 +272,7 @@ When a category or folder has linked rules there are less editing options than w
 
 When you select the **Manage Rules** action for a category or folder with linked rules, the Rules page shows the name and path of the category/folder whose rule set is being referenced.
 
->**Note:** The category/folder might also inherit rules from a parent category/folder. A message lets you know if this is the case.
+> **Note:** The category/folder might also inherit rules from a parent category/folder. A message lets you know if this is the case.
 
 Changes to the rule set have to be done in the category/folder where the rules were originally defined. It's easy to get to the Rules page for the source category/folder: just click **View Rule Set**.
 
@@ -282,11 +282,11 @@ If you want to change the rules you're linked to, you can easily link to a diffe
 
 1. Click **Manage Rules** when you're in the folder or category in the File Plan you want to change linked rules for.
 
-    >**Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
+    > **Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
 
 2. Click **Change**.
 
-    >**Note:** This option only shows if the category/folder has linked rules.
+    > **Note:** This option only shows if the category/folder has linked rules.
 
 3. Select the site then select a folder.
 
@@ -304,7 +304,7 @@ If you don't need your rules anymore, breaking the link is easy. This leaves the
 
 1. Click **Manage Rules** when you're in the folder or category in the File Plan you want to break a link to rules for.
 
-    >**Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
+    > **Tip:** You can also hover over a category/folder with rules applied (indicated by the ![]({% link governance-services/images/rules-icon.png %}){:height="18px" width="18px"} icon) and click **More** then **Manage Rules**.
 
 2. Click **Unlink**.
 
