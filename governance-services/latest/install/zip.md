@@ -6,15 +6,15 @@ Governance Services is installed by applying two AMP files to an existing Alfres
 
 The Governance Services distribution zip file contain the following AMP files:
 
-|alfresco-governance-services-enterprise-repo-7.1.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Content Services installation.|
-|alfresco-governance-services-enterprise-share-7.1.x.amp|Contains Governance Services functionality that's applied to an existing Alfresco Share installation.|
+|alfresco-governance-services-enterprise-repo-11.153.amp|Contains Governance Services functionality that's applied to an existing Alfresco Content Services installation.|
+|alfresco-governance-services-enterprise-share-11.77.amp|Contains Governance Services functionality that's applied to an existing Alfresco Share installation.|
 
 > **Note:** Install the AMPs manually using the Module Management Tool (MMT), rather than using the `apply_amps` tool.
 
-1. Browse to the [Support Portal](http://support.alfresco.com){:target="_blank"} and download the Governance Services distribution zip, which contains the following files:
+1. Browse to the [Support Portal](http://support.alfresco.com){:target="_blank"} and download `alfresco-governance-services-enterprise-distribution-7.1.0.zip`, which contains the following files:
 
-    * alfresco-governance-services-enterprise-repo-7.1.x.amp
-    * alfresco-governance-services-enterprise-share-7.1.x.amp
+    * alfresco-governance-services-enterprise-repo-11.153.amp
+    * alfresco-governance-services-enterprise-share-11.77.amp
     
 2. Stop the Alfresco Content Services server.
 
@@ -26,19 +26,19 @@ The Governance Services distribution zip file contain the following AMP files:
 
 4. Copy the AMP files to the Alfresco `amps` and `amps_share` directories.
 
-    * Copy the `alfresco-governance-services-enterprise-repo-7.1.x.amp` file to the Alfresco `amps` directory.
-    * Copy the `alfresco-governance-services-enterprise-share-7.1.x.amp` file to the Alfresco `amps_share` directory.
+    * Copy the `alfresco-governance-services-enterprise-repo-11.153.amp` file to the Alfresco `amps` directory.
+    * Copy the `alfresco-governance-services-enterprise-share-11.77.amp` file to the Alfresco `amps_share` directory.
     
 5. Change into the root of the Alfresco Content Services installation directory. Directories specified in the following procedures are relative to this directory.
 
 6. Run the following commands to install the AMP files:
 
     ```bash
-    java -jar bin\alfresco-mmt.jar install amps\alfresco-governance-services-enterprise-repo-7.1.x.amp tomcat\webapps\alfresco.war
+    java -jar bin\alfresco-mmt.jar install amps\alfresco-governance-services-enterprise-repo-11.153.amp tomcat\webapps\alfresco.war
     ```
 
     ```bash
-    java -jar bin\alfresco-mmt.jar install amps_share\alfresco-governance-services-enterprise-share-7.1.x.amp tomcat\webapps\share.war
+    java -jar bin\alfresco-mmt.jar install amps_share\alfresco-governance-services-enterprise-share-11.77.amp tomcat\webapps\share.war
     ```
 
 7. Start the Alfresco Content Services server.
