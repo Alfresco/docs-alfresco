@@ -343,7 +343,7 @@ If the asynchronous job finishes successfully a compressed output file (`output.
 
 ### BPMN Tasks Configuration
 
-The following [textAnalysisProcess.bpmn20.xml](https://github.com/Alfresco/alfresco-process-connector-services/blob/develop/alfresco-process-comprehend-connector-spring-boot-starter/textAnalysisProcess.bpmn20.xml) describes an example of how the text analysis connector is setup in AAE:
+The following describes an example of how the text analysis connector is setup in AAE:
 
 ![BPMN]({% link process-automation/images/analysis-process.png %})
 
