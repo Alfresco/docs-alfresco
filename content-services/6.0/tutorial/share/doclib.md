@@ -53,7 +53,7 @@ This tutorial assumes that you are familiar with the Document Library in Share. 
 
 This tutorial assumes you have created a new [SDK All-In-One]({% link content-services/6.0/develop/sdk.md %}#workingaio) 
 project. To try out the Send-As-Email DocLib action in this tutorial you will need to install a local SMTP server such 
-as [Fake SMTP](https://nilhcem.github.io/FakeSMTP){:target="_blank"}.
+as [Fake SMTP](http://nilhcem.com/FakeSMTP/){:target="_blank"}.
 
 This tutorial will demonstrate the following:
 

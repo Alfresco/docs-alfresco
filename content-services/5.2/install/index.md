@@ -4365,7 +4365,7 @@ If you wish to use a translation that is not supplied with Alfresco Content Serv
 
 If you installed Alfresco Content Services using one of the setup wizards, the default language packs are already installed. If you installed manually, you must install the supported language pack manually.
 
-1.  Browse to the TinyMCE website: [TinyMCE](http://tinymce.moxiecode.com/download_i18n.php).
+1.  Browse to the TinyMCE website: [TinyMCE](https://www.tiny.cloud/?ctrl=lang&act=download&pr_id=1){:target="_blank"}.
 
 2.  Download the required TinyMCE language pack.
 

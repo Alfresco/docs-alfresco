@@ -11,6 +11,7 @@ defaults:
       tutorial: true
       support: true
       versions:
+        - 7.1
         - 7.0
         - 6.2
         - 6.1
@@ -19,10 +20,18 @@ defaults:
   - scope:
       path: "content-services/latest"
     values:
-      version: 7.0
+      version: 7.1
       latest: true
   - scope:
       path: "content-services/latest/tutorial"
+    values:
+      toc: "content-services-tutorial"
+  - scope:
+      path: "content-services/7.0"
+    values:
+      version: 7.0
+  - scope:
+      path: "content-services/7.0/tutorial"
     values:
       toc: "content-services-tutorial"
   - scope:

@@ -152,7 +152,7 @@ http://<hostname>:<port>/alfresco/cmisws
 Response format is XML.
 
 #### Browser binding
-From version 1.1 of the specification, CMIS provides a simpler [JSON-based](http://tools.ietf.org/html/rfc4627){:target="_blank"}
+From version 1.1 of the specification, CMIS provides a simpler [JSON-based](https://datatracker.ietf.org/doc/html/rfc4627){:target="_blank"}
 binding. The browser binding is designed for web applications, and is easy to use with HTML and JavaScript. It uses just
 two verbs, GET and POST, and resources are referenced using simple and predictable URLs. You can get a summary of the
 repository information from Alfresco from the following URL:
@@ -382,9 +382,9 @@ http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/browser/ro
 All content will be returned as JSON by default.
 
 In some cases you might want to request data from a server in a different domain, this is normally prohibited by
-web browsers due to their [same origin policy](http://en.wikipedia.org/wiki/Same_origin_policy){:target="_blank"}.
+web browsers due to their [same origin policy](https://en.wikipedia.org/wiki/Same_origin_policy){:target="_blank"}.
 
-CMIS 1.1 uses the `callback` parameter to return [JSONP](http://en.wikipedia.org/wiki/JSONP){:target="_blank"}.
+CMIS 1.1 uses the `callback` parameter to return [JSONP](https://en.wikipedia.org/wiki/JSONP){:target="_blank"}.
 This format also known as JSON with padding returns JavaScript code. It is evaluated by the JavaScript interpreter,
 not parsed by a JSON parser. You use the `callback` parameter to provide a JavaScript function to cope with the
 returned JSONP.

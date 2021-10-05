@@ -19,10 +19,6 @@ To install Content Services using the distribution zip (which also contains the 
 
 For a list of other supported components and versions, refer to the `VERSIONS.md` file in the distribution zip.
 
->**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
-then you need to [bootstrap the IPTC Content Model]({% link content-services/latest/install/containers/index.md %}#iptc-model-bootstrap) manually
-into Content Services. If you follow the link you will find the necessary content model files.
-
 ## Install overview
 
 Use this section to get an overview of the main stages for installing Content Services using the distribution zip. It's designed for users who just need a simple checklist to follow.
@@ -35,7 +31,7 @@ Before you start, validate that you have access to the prerequisite software so 
 
 To get started, prepare your production server by installing the prerequisite software (JRE, database, and message broker) before continuing.
 
-1. Download the distribution zip file by accessing the Alfresco Support Portal.
+1. Download the distribution zip file by accessing the Support Portal.
 2. Generate certificates for mutual TLS.
 3. Download Tomcat and review the installation steps required.
 4. Set up Tomcat.
@@ -60,7 +56,7 @@ There are a number of different installation files available to you, each of whi
 
 For new installations or upgrades, use the distribution zip. Use the Alfresco WAR file to install Content Services within an existing Tomcat. The WAR file is included in the distribution zip. In addition, you must install all the required additional components manually.
 
-All files are available from the [Alfresco Support Portal](https://support.alfresco.com){:target="_blank"}. Click **Product Downloads**, and then select the version of the product you require.
+All files are available from the [Support Portal](https://support.alfresco.com){:target="_blank"}. Sign in and search for the version of the product you require.
 
 See the [Supported platforms]({% link content-services/latest/support/index.md %}) for more.
 
@@ -68,7 +64,7 @@ Here's a list of the files to download and install.
 
 | File | Description |
 | ---- | ----------- |
-| alfresco-content-services-distribution-7.0.x.zip | Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
+| alfresco-content-services-distribution-7.1.x.zip | Content Services distribution zip for new installations or upgrades. Alfresco WAR files (in distribution zip) for a manual install into an existing Tomcat application server. This distribution zip also contains the Module Management Tool (MMT) and the sample extension files, such as `alfresco-global.properties`. |
 |alfresco-search-services-2.0.x.zip | Alfresco Search Services distribution zip.<br><br>See [Install Alfresco Search Services]({% link search-services/latest/install/index.md %}) for more information. |
 
 ## Preparing the filesystem and database

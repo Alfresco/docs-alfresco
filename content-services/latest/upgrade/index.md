@@ -21,13 +21,13 @@ When you upgrade Content Services, it's recommended that you follow a structured
 
 The following diagram shows the upgrade paths for major versions:
 
-![Upgrade paths to 7.0]({% link content-services/images/upgrade-path-7-0.png %})
+![Upgrade paths to 7.1]({% link content-services/images/upgrade-path-7-1.png %})
 
 The upgrade path recommendations are:
 
-* Direct upgrades to Content Services 7.0 are supported from only 5.2.x and later.
-* Content Services 7.0 introduces changes that require new releases of all modules. To upgrade to 7.0, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
-* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.0. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
+* Direct upgrades to Content Services 7.1 are supported from only 5.2.x and later.
+* Content Services 7.1 introduces changes that require new releases of some modules. To upgrade to 7.1, you also need to update any of the module artifacts to which you're entitled. See [Supported platforms]({% link content-services/latest/support/index.md %}) for more details on the associated versions.
+* You must upgrade to a supported version of Alfresco Search Services before upgrading the repository to 7.1. See [Upgrade Search Services]({% link search-services/latest/upgrade/index.md %}) for more information.
   * Upgrades from Content Services 5.2 must first upgrade from Solr 4 to Alfresco Search Services.
 
 > **Note:** If you're upgrading from an earlier release that's not shown on this diagram, contact [Alfresco Support](https://support.alfresco.com/){:target="_blank"}.
@@ -44,6 +44,7 @@ The following table shows the upgrade path for major versions:
 | Community Edition 201901 GA | Content Services 6.1 |
 | Community Edition 201911 GA | Content Services 6.2 |
 | Community Edition 7.0 | Content Services 7.0 |
+| Community Edition 7.1 | Content Services 7.1 |
 
 Please contact Alfresco Support for upgrade advice that's specific to your environment.
 
@@ -89,13 +90,13 @@ These steps assume that you've got an existing Content Services installation (`a
         data.dir.root:/alfresco-v.2/solr/myindexes
         ```
 
-2. Validate the new 7.0 installation to check that it's working correctly.
+2. Validate the new 7.1 installation to check that it's working correctly.
 
     1. Configure the new installation with a new repository and database (not the existing one).
 
     2. [Start the server]({% link content-services/latest/install/zip/additions.md %}#start-server) and [validate](#validate-upgrade) that the system works correctly.
 
-3. Apply all customizations to the new 7.0 installation.
+3. Apply all customizations to the new 7.1 installation.
 
     1. [Stop]({% link content-services/latest/install/zip/additions.md %}#stop-server) the server.
 
@@ -255,7 +256,7 @@ The `dir.root` directory is defined in the `alfresco-global.properties` file. By
 
 ## Apply recommended database patch
 
-Alfresco Content Services 7.0 contains a recommended database patch, which adds two indexes to the `alf_node` table and three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to create them might be considerable. They should be run manually after the upgrade process completes.
+Alfresco Content Services 7.1 contains a recommended database patch, which adds two indexes to the `alf_node` table and three to `alf_transaction`. This patch is optional, but recommended for larger implementations as it can have a big positive performance impact. These indexes are not automatically applied during upgrade, as the amount of time needed to create them might be considerable. They should be run manually after the upgrade process completes.
 
 To apply the patch, an admin should set the following Alfresco global property to `true`:
 

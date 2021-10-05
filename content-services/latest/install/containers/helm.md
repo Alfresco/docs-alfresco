@@ -71,24 +71,13 @@ The Enterprise configuration will deploy the following system:
 * You've read the [main Helm README](https://github.com/Alfresco/acs-deployment/blob/master/docs/helm/README.md){:target="_blank"} page
 * You are proficient in AWS and Kubernetes
 
->**Note:** If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction,
-then you need to [bootstrap the IPTC Content Model]({% link content-services/latest/install/containers/index.md %}#iptc-model-bootstrap) manually
-into Content Services.
-
 ### Set up an EKS cluster
 
 Follow the [AWS EKS Getting Started Guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html){:target="_blank"} to create a cluster and prepare your local machine to connect to the cluster. Use the **Managed nodes - Linux** option and specify a `--node-type` of at least `m5.xlarge`.
 
 As we'll be using Helm to deploy the Content Services chart, follow the [Using Helm with EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html){:target="_blank"} instructions to set up Helm on your local machine.
 
-Helm also needs to know where to find charts. Run the following commands to add the Nginx ingress and Alfresco repositories to your machine:
-
-```bash
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo add alfresco https://kubernetes-charts.alfresco.com/stable
-```
-
-Optionally, follow the tutorial to [deploy the Kubernetes Dashboard](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html){:target="_blank"}  to your cluster. This can be really useful for troubleshooting issues that you may occur.
+Optionally, to help troubleshoot issues with your cluster either follow the tutorial to [deploy the Kubernetes Dashboard](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html){:target="_blank"} to your cluster or download and use the [Lens application](https://k8slens.dev){:target="_blank"} from your local machine.
 
 ### Prepare the cluster for Content Services
 
@@ -208,9 +197,10 @@ Now we have an EKS cluster up and running, there are a few one time steps we nee
 
     ![NFS Inbound Rules]({% link content-services/images/eks-nfs-inbound-rules.png %})
 
-6. Deploy an NFS Client Provisioner with Helm using the following command (replace `EFS-DNS-NAME` with the string `file-system-id.efs.aws-region.amazonaws.com` where the `file-system-id` is the ID retrieved in step 1 and `aws-region` is the region you're using, e.g. `fs-72f5e4f1.efs.us-east-1.amazonaws.com`):
+6. Deploy an NFS Client Provisioner with Helm using the following commands (replace `EFS-DNS-NAME` with the string `file-system-id.efs.aws-region.amazonaws.com` where the `file-system-id` is the ID retrieved in step 1 and `aws-region` is the region you're using, e.g. `fs-72f5e4f1.efs.us-east-1.amazonaws.com`):
 
     ```bash
+    helm repo add stable https://kubernetes-charts.storage.googleapis.com
     helm install alfresco-nfs-provisioner stable/nfs-client-provisioner --set nfs.server="EFS-DNS-NAME" --set nfs.path="/" --set storageClass.name="nfs-client" --set storageClass.archiveOnDelete=false -n kube-system
     ```
 
@@ -312,7 +302,21 @@ kubectl create secret docker-registry quay-registry-secret --docker-server=quay.
 
 #### Choose Content Services version
 
-Decide whether you want to install the latest version of Content Services (Enterprise) or a previous version, and follow the steps in the relevant section below.
+This repository allows you to either deploy a system using released stable artefacts or the latest in-progress development artefacts.
+
+To use a released version of the Helm chart add the stable repository using the following command:
+
+```bash
+helm repo add alfresco https://kubernetes-charts.alfresco.com/stable
+```
+
+Alternatively, to use the latest in-progress development version of the Helm chart add the incubator repository using the following command:
+
+```bash
+helm repo add alfresco https://kubernetes-charts.alfresco.com/incubator
+```
+
+Now decide whether you want to install the latest version of Content Services (Enterprise or Community) or a previous version, and follow the steps in the relevant section below.
 
 ##### Latest Enterprise version
 
@@ -370,7 +374,7 @@ Since you deployed Enterprise, you'll also have access to:
 * Alfresco Digital Workspace: `https://acs.YOUR-DOMAIN-NAME/workspace/`
 * Alfresco Sync Service: `https://acs.YOUR-DOMAIN-NAME/syncservice/healthcheck`
 
-If you're running Content Services 7.0 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
+If you're running Content Services 7.1 (i.e. the latest version) and already have a valid license file for this version, you can apply it directly to the running system. Navigate to the Admin Console and apply your license:
 
 * [https://acs.YOUR-DOMAIN-NAME/alfresco/service/enterprise/admin/admin-license](http://localhost:8080/alfresco/service/enterprise/admin/admin-license){:target="_blank"} (this only applies for the Enterprise Download Trial)
 * Default username and password is `admin`

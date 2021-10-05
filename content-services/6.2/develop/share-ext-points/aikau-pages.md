@@ -327,7 +327,7 @@ all of the XML that defined it.
 ## Tutorials
 
 * [Adding new AMD packages for Aikau Widgets]({% link content-services/6.2/tutorial/share/amd.md %})
-* [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
+* [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 
 ## Developer Blogs
 

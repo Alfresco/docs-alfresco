@@ -58,6 +58,6 @@ This is all that is required to extend an existing JSON model. We're using `widg
 |Tutorials|-   [Customizing the Admin Tools Menu]({% link content-services/5.2/tutorial/share/header.md %}#customizing-the-admin-tools-menu-aikau)
 -   [Customizing the Sites Menu]({% link content-services/5.2/tutorial/share/header.md %}#customizing-the-sites-menu-aikau)
 -   [Removing Menu Items]({% link content-services/5.2/tutorial/share/header.md %}#removing-a-menu-item-aikau)
--   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters)|
+-   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}|
 |Developer Blogs|-   [Creating a simple Aikau page with Cascading Menu](https://hub.alfresco.com/t5/alfresco-content-services-blog/simple-page-creation-in-share/ba-p/287600)
 -   [Extending the Share Main Menu](http://ohej.github.io/alfresco-tutorials/tutorial/aikau/tutorial.html#part-three-extending-json-models)|

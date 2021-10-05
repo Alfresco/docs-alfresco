@@ -52,7 +52,7 @@ When exploring or developing web scripts, a web browser can be limiting as a cli
 HTTP method other than GET without coding. You can use an alternative client called cURL, a command line tool that 
 supports common protocols such as FTP and HTTP. cURL is a valuable web script debugging and testing tool.
 
-This task describes how to invoke a web script using [cURL](http://curl.haxx.se/){:target="_blank"}.
+This task describes how to invoke a web script using [cURL](https://curl.se/){:target="_blank"}.
 
 1.  Install cURL.
 
@@ -319,7 +319,7 @@ A client uses an Accept header to specify a prioritized list of preferred MIME t
 Framework accepts an HTTP request with an Accept header, it responds with the response format that most closely matches 
 the highest priority preference.
 
->**Note:** RFC 2616 ([http://www.ietf.org/rfc/rfc2616.txt](http://www.ietf.org/rfc/rfc2616.txt){:target="_blank"}) is the specification for the Hypertext Transfer Protocol – HTTP/1.1.
+>**Note:** RFC 2616 ([https://www.ietf.org/rfc/rfc2616.txt](https://www.ietf.org/rfc/rfc2616.txt){:target="_blank"}) is the specification for the Hypertext Transfer Protocol – HTTP/1.1.
 
 Web browsers typically provide an Accept header on all their HTTP requests, but most HTTP clients offer some way of 
 specifying an `Accept` header.
