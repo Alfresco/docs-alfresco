@@ -303,7 +303,7 @@ All content will be returned as JSON by default.
 
 ### returning JSONP
 
-In some cases you might want to request data from a server in a different domain, this is normally prohibited by web browsers due to their [same origin policy](http://en.wikipedia.org/wiki/Same_origin_policy). CMIS 1.1 uses the `callback` parameter to return [JSONP](http://en.wikipedia.org/wiki/JSONP). This format also known as JSON with padding returns JavaScript code. It is evaluated by the JavaScript interpreter, not parsed by a JSON parser. You use the `callback` parameter to provide a JavaScript function to cope with the returned JSONP. For example the following function would write repository information into an HTML page:
+In some cases you might want to request data from a server in a different domain, this is normally prohibited by web browsers due to their [same origin policy](https://en.wikipedia.org/wiki/Same_origin_policy){target="_blank"}. CMIS 1.1 uses the `callback` parameter to return [JSONP](https://en.wikipedia.org/wiki/JSONP){:target="_blank"}. This format also known as JSON with padding returns JavaScript code. It is evaluated by the JavaScript interpreter, not parsed by a JSON parser. You use the `callback` parameter to provide a JavaScript function to cope with the returned JSONP. For example the following function would write repository information into an HTML page:
 
 ```
   <script type="text/javascript"> 
@@ -840,7 +840,7 @@ The API by which applications can query the audit logs and enable or disable aud
 
 |
 |Tutorials|-   [Audit API Hints and Tricks](https://www.youtube.com/watch?v=_aP_JYTwZ6Y) DevCon presentation by Mehdi Belmekki.
--   [Audit and Reporting with Alfresco and NoSQL by Zaizi](http://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture)
+-   [Audit and Reporting with Alfresco and NoSQL by Zaizi](https://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture){:target="_blank"}
 -   [Audit tutorials]({% link content-services/5.2/admin/audit.md %}#auditing-tutorials)
 
 |

@@ -269,7 +269,7 @@ This widget will be loaded by the Dojo AMD loader as we defined the package for 
 ## Tutorials
 
 * [Adding new AMD packages for Aikau Widgets]({% link content-services/latest/tutorial/share/amd.md %})
-* [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters){:target="_blank"}
+* [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 
 ## Alfresco Developer Blogs
 

@@ -1282,7 +1282,7 @@ You can check which Simple Authentication and Security Layer (SASL) authenticati
 
 Use this information to synchronize the enabled or disabled Active Directory user status after an LDAP sync.
 
-Different LDAP directories store data in different formats. For example, Active Directory has an attribute called `userAccountControl` where the second bit (`0x2`) is an [`ACCOUNTDISABLE` flag](https://support.microsoft.com/en-gb/kb/305144), Oracle Directory Server has an attribute called `pwdAccountLockedTime`, and LDAP systems derived from Netscape Directory Server (NDS) have a `nsAccountLock` attribute.
+Different LDAP directories store data in different formats. For example, Active Directory has an attribute called `userAccountControl` where the second bit (`0x2`) is an [`ACCOUNTDISABLE` flag](https://support.microsoft.com/en-gb/help/305144){:target="_blank"}, Oracle Directory Server has an attribute called `pwdAccountLockedTime`, and LDAP systems derived from Netscape Directory Server (NDS) have a `nsAccountLock` attribute.
 
 The values of these attributes need to be mapped onto a boolean property on the `cm:person` node. To do this, configure the attributes as follows:
 

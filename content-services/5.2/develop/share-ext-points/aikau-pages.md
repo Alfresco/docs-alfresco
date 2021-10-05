@@ -78,7 +78,7 @@ As we can see in the picture, all dynamic content that should go onto the page i
 
 |
 |Tutorials|-   [Adding new AMD packages for Aikau Widgets]({% link content-services/5.2/tutorial/share/amd.md %}#adding-amd-packages-via-extension-modules-aikau)
--   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters)
+-   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 
 |
 |Developer Blogs|-   [Creating a simple Aikau page with Cascading Menu](https://hub.alfresco.com/t5/alfresco-content-services-blog/simple-page-creation-in-share/ba-p/287600)

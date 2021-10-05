@@ -230,7 +230,7 @@ This widget will be loaded by the Dojo AMD loader as we defined the package for 
 
 |
 |Tutorials|-   [Adding new AMD packages for Aikau Widgets]({% link content-services/5.2/tutorial/share/amd.md %}#adding-amd-packages-via-extension-modules-aikau)
--   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters)
+-   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 
 |
 |Alfresco Developer Blogs|-   [Aikau background and concepts](https://hub.alfresco.com/t5/alfresco-content-services-blog/latest-updates-to-share-and-surf/ba-p/289014)

@@ -451,7 +451,7 @@ See also:
 * [Audit platform extension point]({% link content-services/7.0/develop/repo-ext-points/audit-log.md %}).
 * [Auditing]({% link content-services/7.0/admin/audit.md %}) provides a detailed overview of auditing.
 * [Audit API Hints and Tricks](https://www.youtube.com/watch?v=_aP_JYTwZ6Y){:target="_blank"} DevCon presentation by Mehdi Belmekki.
-* [Audit and Reporting with Alfresco and NoSQL by Zaizi](http://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture){:target="_blank"}
+* [Audit and Reporting with Alfresco and NoSQL by Zaizi](https://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture){:target="_blank"}
 
 ## AuthenticationService
 This service provides an API to allow authentication of users using various methods, such as username and password and 

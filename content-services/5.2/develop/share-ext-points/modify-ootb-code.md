@@ -154,7 +154,7 @@ This is all that is required to extend an existing JSON model. We're using `widg
 -   [Aikau Widget Reference](https://dev.alfresco.com/resource/docs/aikau-jsdoc/) - this is the place to look for widgets that you can use in your dashlets.
 
 |
-|Tutorials|-   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters)
+|Tutorials|-   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 -   [Adding new AMD packages for Aikau Widgets]({% link content-services/5.2/tutorial/share/amd.md %}#adding-amd-packages-via-extension-modules-aikau)
 
 |
@@ -184,7 +184,7 @@ The Share web application has a special page called Dashboard, which contains wi
 -   [Aikau Widget Reference](http://dev.alfresco.com/resource/docs/aikau-jsdoc/) - this is the place to look for widgets that you can use in your dashlets.
 
 |
-|Tutorials|-   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters)
+|Tutorials|-   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 -   [Adding new AMD packages for Aikau Widgets]({% link content-services/5.2/tutorial/share/amd.md %}#adding-amd-packages-via-extension-modules-aikau)
 
 |
@@ -213,7 +213,7 @@ Every Aikau menu, page, and dashlet is built up of one or more widgets. Sometime
 -   [Introduction to Aikau]({% link content-services/5.2/develop/reference/aikau-intro-ref.md %}#introducing-aikau)
 
 |
-|Tutorials|-   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters)
+|Tutorials|-   [Aikau Tutorials on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters){:target="_blank"}
 -   [Adding new AMD packages for Aikau Widgets]({% link content-services/5.2/tutorial/share/amd.md %}#adding-amd-packages-via-extension-modules-aikau)
 
 |
