@@ -27,7 +27,7 @@ The source-localized files are encoded in ASCII, and the special and accented ch
 
 If you wish to use a translation that is not supplied with Community Edition, then you must add the appropriate TinyMCE language pack for the translation to work correctly.
 
-1. Browse to the [TinyMCE website](http://tinymce.moxiecode.com/download_i18n.php){:target="_blank"}.
+1. Browse to the [TinyMCE website](https://www.tiny.cloud/?ctrl=lang&act=download&pr_id=1){:target="_blank"} {:target="_blank"}.
 
 2. Download the required TinyMCE language pack.
 

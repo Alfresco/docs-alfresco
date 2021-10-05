@@ -20,7 +20,7 @@ please check the [Alfresco SDK Support status]({% link content-services/latest/s
 for the version you're using. If your version is in Limited or Full Support and you need help, contact our 
 [Support team](https://support.alfresco.com/){:target="_blank"}.
 
-The 5.0 release takes advantage of Semantic Versioning ([SEMVER](http://semver.org/){:target="_blank"}), which means that 
+The 5.0 release takes advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that 
 this new release is not directly compatible with the previous releases of the SDK.
 
 There is no direct upgrade path from previous versions of the SDK. This is because version 5.0 is an additional SDK to 
@@ -59,7 +59,7 @@ The Alfresco Java Event API is consists of four main components:
 * Event Model
 * Event Handling library 
 * [Spring Integration](https://spring.io/projects/spring-integration){:target="_blank"} tooling library 
-* [Spring Boot](https://spring.io/projects/spring-boot){:target="_blank"} custom [starter](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-developing-auto-configuration){:target="_blank"}
+* [Spring Boot](https://spring.io/projects/spring-boot){:target="_blank"} custom [starter](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#boot-features-developing-auto-configuration){:target="_blank"}
 
 ### Event model
 The event model is a component that offers a custom model definition to clearly specify the way the Alfresco event data is organized.

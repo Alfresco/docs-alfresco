@@ -65,7 +65,7 @@ Aikau is available as an open-source [project on GitHub](https://github.com/Alfr
 
 ## Aikau Tutorial
 
-A comprehensive Aikau tutorial is [available on GitHub](https://github.com/Alfresco/Aikau/blob/master/tutorial/chapters/About.md).
+A comprehensive Aikau tutorial is [available on GitHub](https://github.com/Alfresco/Aikau/tree/master/tutorial/chapters/About.md){:target="_blank"}.
 
 ## Aikau widget library documentation
 

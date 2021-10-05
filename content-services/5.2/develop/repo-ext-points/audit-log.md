@@ -228,7 +228,7 @@ Inbound audit values:
    /alfresco-api/post/NodeService/getAspects/no-error=null
 ```
 
-It is also possible to query the audit log based on a timestamp range. Let's say for example that you would like to see all audit logs between 2016-08-24 07:00:00 and 2016-08-24 07:59:59. To achieve this we first need to convert the date and time to timestamps (i.e. long values). There are a few websites that offer help with this, one is [EpochConverter](http://www.epochconverter.com/). After conversion we have 1472018400000 and 1472021999000 (It is important to select the correct timezone when converting, in this case it is GMT+1:00). Note that the milliseconds part need to be included. The query will then for example look like this for the out-of-the-box audit application:`http://localhost:8080/alfresco/service/api/audit/query/alfresco-access?verbose=true&fromTime=1472018400000&toTime=1472021999000`.|
+It is also possible to query the audit log based on a timestamp range. Let's say for example that you would like to see all audit logs between 2016-08-24 07:00:00 and 2016-08-24 07:59:59. To achieve this we first need to convert the date and time to timestamps (i.e. long values). There are a few websites that offer help with this, one is [EpochConverter](https://www.epochconverter.com/){:target="_blank"}. After conversion we have 1472018400000 and 1472021999000 (It is important to select the correct timezone when converting, in this case it is GMT+1:00). Note that the milliseconds part need to be included. The query will then for example look like this for the out-of-the-box audit application:`http://localhost:8080/alfresco/service/api/audit/query/alfresco-access?verbose=true&fromTime=1472018400000&toTime=1472021999000`.|
 |Deployment - App Server|-   {INSTALL_PATH}/tomcat/shared/classes/alfresco/extension/audit - audit application configuration files
 -   {INSTALL_PATH}/tomcat/shared/classes/alfresco/alfresco-global.properties - enable auditing|
 |[Deployment All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3).|-   aio/platform-jar/src/main/resources/alfresco/extension/audit - audit application configuration files
@@ -237,6 +237,6 @@ It is also possible to query the audit log based on a timestamp range. Let's say
 |More Information|-   [Auditing Alfresco]({% link content-services/5.2/admin/audit.md %}#auditing)|
 |Sample Code|-   [Sample audit log implementation](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-audit-app-repo)|
 |Tutorials|-   [Audit API Hints and Tricks](https://www.youtube.com/watch?v=_aP_JYTwZ6Y) - Alfresco DevCon presentation by Mehdi Belmekki.
--   [Audit and Reporting with Alfresco and NoSQL](http://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture) - Alfresco Summit presentation by Zaizi
+-   [Audit and Reporting with Alfresco and NoSQL](https://www.slideshare.net/zaiziltd/scale-audit-reporting-with-a-nosql-architecture){:target="_blank"} - Alfresco Summit presentation by Zaizi
 -   [Audit tutorials]({% link content-services/5.2/admin/audit.md %}#auditing-tutorials)|
 |Alfresco Developer Blogs|None|
