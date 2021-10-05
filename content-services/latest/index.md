@@ -13,7 +13,7 @@ Some of the key capabilities of Content Service include:
 * Intelligence
 * Analytics
 
-Alfresco customers should also take a look at the [Alfresco Support Handbook]({% link support/latest/index.md %}).
+Alfresco customers should also take a look at the [Support Handbook]({% link support/latest/index.md %}).
 
 > **Note:** See the [Supported platforms]({% link content-services/latest/support/index.md %}) page for compatibility between Content Services and other applications.
 
