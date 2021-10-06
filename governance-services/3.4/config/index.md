@@ -8,7 +8,7 @@ Use the information on this page to configure Governance Services.
 
 Use this information to understand the `alfresco-global.properties` properties related to the Governance Services.
 
-Properties for the Governance Services are listed in the `<configRoot>/classes/alfresco/module/org_alfresco_module_rm/alfresco-global.properties` file.
+Properties for Governance Services are listed in the `<configRoot>/classes/alfresco/module/org_alfresco_module_rm/alfresco-global.properties` file.
 
 For example:
 
