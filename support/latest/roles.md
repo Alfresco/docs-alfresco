@@ -10,7 +10,7 @@ The Support Analyst team owns your support cases, troubleshoots issues, escalate
 
 ## Premier Services Team
 
-For Premier customers, this team is a designated to look after your Hyland software investment by providing expedited access to the necessary resources you need.
+For Premier customers, this team is designated to look after your Hyland software investment by providing expedited access to the necessary resources you need.
 
 ## Hyland Product Team
 
