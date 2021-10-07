@@ -22,6 +22,7 @@ defaults:
     values:
       version: 7.1
       latest: true
+      release: true
   - scope:
       path: "content-services/latest/tutorial"
     values:
