@@ -1,5 +1,5 @@
 ---
-title: Release Notes
+title: What's new
 ---
 
 Alfresco Content Services (ACS) 7.1 is our latest software release with improvements to Content Services to accelerate use and development for customer solutions for PaaS, Cloud, or on-premises deployment. With this release, Alfresco continues to enable open-source communities, customers, and partners to deliver a highly scalable Content Store with numerous applications, connectivity, and solutions.
