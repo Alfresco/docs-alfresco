@@ -91,7 +91,7 @@ transform-outlook
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.0.x` Docker image.
+> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.0.x` Docker image. Version 1.0.0 of the Outlook T-Engine can also be used for the latest Outlook Integration release (version 2.8.1).
 
 > **Note:** It is recommended that you familiarize yourself with the concepts of [containerized deployment]({% link content-services/latest/install/containers/index.md %}) before working with Docker.
 
@@ -174,7 +174,7 @@ The Outlook Integration Transform Engine (or T-Engine) enables transformation of
 
 ### Install T-Engine on Tomcat {#tengine-war}
 
-If you wish to use a Tomcat application server, you can use the WAR bundle to install the Outlook Integration T-Engine
+If you wish to use a Tomcat application server, you can use the WAR bundle to install the Outlook Integration T-Engine.
 
 > **Note:** Check the supported Tomcat version based on your version of the [Content Services documentation]({% link content-services/latest/support/index.md %}) before continuing.
 
