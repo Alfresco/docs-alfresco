@@ -19,4 +19,4 @@ All of our supported customers enjoy the following benefits:
 Alfresco constantly strives to develop and improve Customer Service solutions to help you get the most from working with Alfresco.
 
 
-*Support Handbook updated as of October 7, 2021, and revisions effective on November 3, 2021.*
+*Support Handbook updated as of September 3, 2021, and revisions effective on November 3, 2021.*
