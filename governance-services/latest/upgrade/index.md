@@ -13,23 +13,21 @@ When your Alfresco Content Services installation is upgraded, you can apply the 
 
 2. Download Alfresco Content Services 7.1 or above and the Governance Services Distribution ZIP from the [Support Portal](http://support.alfresco.com){:target="_blank"}.
 
-3. Download Alfresco Content Services and the Records Management AMP zip.
-
-4. Upgrade to Alfresco Content Services.
+3. Upgrade to Alfresco Content Services.
 
     For more information about upgrading Alfresco Content Services, see [Upgrading Alfresco]({% link content-services/latest/upgrade/index.md %}).
 
     You can start the server at this point to verify that the upgrade was successful.
 
-5. Apply the Governance Services to the upgraded Alfresco Content Services installation.
+4. Apply the Governance Services to the upgraded Alfresco Content Services installation.
 
     Follow the instructions in [Install using the distribution ZIP]({% link governance-services/latest/install/zip.md %}).
 
     > **Note:** If you have {% include tooltip.html word="easyaccessrecords" text="easy access records" %} (previously know as in-place records) that are pre-2.3.0.8 versions of Records Management, then you also need to [run a webscript](#easy_access_upgrade) so that easy access records created in pre-2.3.0.8 sites are shown in the search results of users without Records Management permissions.
 
-6. Restart the Alfresco Content Services server, if it is already running.
+5. Restart the Alfresco Content Services server, if it is already running.
 
-7. Login to Alfresco Share to view the Records Management data.
+6. Login to Alfresco Share to view the Records Management data.
 
 Your existing Records Management data is migrated to Alfresco Content Services.
 
