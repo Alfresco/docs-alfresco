@@ -68,7 +68,3 @@ Use a Share JAR project instead.
 * [Share Header Colour Customization](https://hub.alfresco.com/t5/alfresco-content-services-blog/share-header-colour-customization/ba-p/293200){:target="_blank"} - Customizing the Share header via LESS variable override
 * [Why Alfresco 5.0.d will be a game changer for UI development](https://hub.alfresco.com/t5/alfresco-content-services-blog/why-alfresco-5-0-d-will-be-a-game-changer-for-ui-development/ba-p/293156){:target="_blank"} - Aikau is from now on in its own JAR
 * [Install new Share theme via JAR file](https://hub.alfresco.com/t5/alfresco-content-services-blog/install-new-share-theme-via-jar-file/ba-p/288688){:target="_blank"}
-
-
-|
-
