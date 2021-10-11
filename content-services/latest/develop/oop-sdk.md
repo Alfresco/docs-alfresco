@@ -24,7 +24,7 @@ The 5.1 release takes advantage of Semantic Versioning ([SEMVER](https://semver.
 this new release is not directly compatible with the previous releases of the SDK.
 
 There is no direct upgrade path from previous versions of the SDK. This is because version 5.1 is an additional SDK to 
-support out-of-process extensions, rather than an updated 4.2 version. [Alfresco SDK 4.2]({% link content-services/latest/develop/sdk.md %}) 
+support out-of-process extensions, rather than an updated 4.x version. [Alfresco SDK 4.x]({% link content-services/latest/develop/sdk.md %}) 
 is still needed for a lot of the extension points, such as [content modelling]({% link content-services/latest/develop/repo-ext-points/content-model.md %}).
 
 If you have an existing project with business logic that could be lifted out and implemented as an external service, then 
@@ -1961,7 +1961,7 @@ mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=
 Alfresco Java SDK 5.1 is compatible with [Alfresco Event Gateway]({% link content-services/latest/develop/oop-ext-points/event-gateway.md %}).
 
 Using the Alfresco Event Gateway REST API, extensions can manage the lifecycle of an event subscription. For example, 
-an out-of-process extension may [create a subscription]({% link content-services/latest/develop/oop-ext-points/event-gateway.md%}#gateway-api-create-sub) 
+an out-of-process extension may [create a subscription](#gateway-api-create-sub) 
 to receive certain types of events in a specific topic of an ActiveMQ broker.
 
 The ActiveMQ broker can be different from the one used by the Alfresco Repository and is configured in both the 
