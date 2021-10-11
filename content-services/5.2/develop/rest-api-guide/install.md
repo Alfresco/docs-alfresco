@@ -91,7 +91,11 @@ $ curl
 curl: try 'curl --help' or 'curl --manual' for more information
 ```
 
+<<<<<<< HEAD
 If you don’t have curl installed you can find it here: [https://curl.se/](https://curl.se/){:target="_blank"}.
+=======
+If you don’t have curl installed you can find it here: [https://curl.haxx.se/](https://curl.haxx.se/){:target="_blank"}
+>>>>>>> 335286db535893c443b74129f3e4302ffeda2c8f
 
 ## Install a tool to format JSON responses {#json}
 

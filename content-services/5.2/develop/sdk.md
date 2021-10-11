@@ -116,10 +116,14 @@ Profiles are no longer used for running the project or for enabling Enterprise e
 **Hot reloading**
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Alfresco SDK 3.0 no longer uses Spring Loaded for hot reloading. Instead [JRebel](https://www.jrebel.com/products/jrebel/){:target="_blank"} (commercial) is used or the open source alternative [HotSwap](http://hotswapagent.org/){:target="_blank"}, which works a lot better and gives hot reloading of Spring context (only JRebel), classes, web resources, property files etc. Hot reloading works for both the `alfresco.war` and the `share.war`. Note that in SDK release 2.2.0 you can [no longer use Spring Loaded for hot reloading](https://github.com/Alfresco/alfresco-sdk/issues/369){:target="_blank"} in `alfresco.war`.
 =======
 Alfresco SDK 3.0 no longer uses Spring Loaded for hot reloading. Instead [JRebel](https://zeroturnaround.com/software/jrebel/){:target="_blank"} (commercial) is used or the open source alternative [HotSwap](http://hotswapagent.org/){:target="_blank"}, which works a lot better and gives hot reloading of Spring context (only JRebel), classes, web resources, property files etc. Hot reloading works for both the `alfresco.war` and the `share.war`. Note that in SDK release 2.2.0 you can [no longer use Spring Loaded for hot reloading](https://github.com/Alfresco/alfresco-sdk/issues/369){:target="_blank"} in `alfresco.war`.
 >>>>>>> 062a0212... Updated repo extension points and added workflow extension point
+=======
+Alfresco SDK 3.0 no longer uses Spring Loaded for hot reloading. Instead [JRebel](https://zeroturnaround.com/software/jrebel/){:target="_blank"} (commercial) is used or the open source alternative [HotSwap](http://hotswapagent.org/){:target="_blank"}, which works a lot better and gives hot reloading of Spring context (only JRebel), classes, web resources, property files etc. Hot reloading works for both the `alfresco.war` and the `share.war`. Note that in SDK release 2.2.0 you can [no longer use Spring Loaded for hot reloading](https://github.com/Alfresco/alfresco-sdk/issues/369){:target="_blank"} in `alfresco.war`.
+>>>>>>> 335286db535893c443b74129f3e4302ffeda2c8f
 
 See [Hot reloading](#hot-reloading) for more.
 
@@ -2441,7 +2445,11 @@ For more details on installing using an IDE, see [Using JRebel with Eclipse IDE]
     [INFO] Scanning for projects...
     ```
 
+<<<<<<< HEAD
     Once the Alfresco project is launched, it's time to change the content and see how hot reloading works. Here, we will not see the details of what you might change in the project. To see all the features of hot reloading, take a look to the [JRebel documentation](https://www.jrebel.com/products/jrebel/learn/){:target="_blank"}. Instead, we would like to show the developer experience, showing a practical example.
+=======
+    Once the Alfresco project is launched, it's time to change the content and see how hot reloading works. Here, we will not see the details of what you might change in the project. To see all the features of hot reloading, take a look to the [JRebel documentation](https://zeroturnaround.com/software/jrebel/learn/){:target="_blank"}. Instead, we would like to show the developer experience, showing a practical example.
+>>>>>>> 335286db535893c443b74129f3e4302ffeda2c8f
 
 5.  Before making any changes, let's run the sample webscript by opening your browser and typing `http://localhost:8080/alfresco/s/sample/helloworld`.
 
@@ -2545,7 +2553,11 @@ To install JRebel using Eclipse IDE (or any other supported IDE), follow the ste
     [INFO] Scanning for projects...
     ```
 
+<<<<<<< HEAD
     Once the Alfresco project is launched, it's time to change the content and see how hot reloading works. Here, we will not see the details of what you might change in the project. To see all the features of hot reloading, take a look to the [JRebel documentation](https://www.jrebel.com/products/jrebel/learn/){:target="_blank"}. Instead, we would like to show the developer experience, by showing you a practical example.
+=======
+    Once the Alfresco project is launched, it's time to change the content and see how hot reloading works. Here, we will not see the details of what you might change in the project. To see all the features of hot reloading, take a look to the [JRebel documentation](https://zeroturnaround.com/software/jrebel/learn/){:target="_blank"}. Instead, we would like to show the developer experience, by showing you a practical example.
+>>>>>>> 335286db535893c443b74129f3e4302ffeda2c8f
 
 8.  Before making any changes, let's run the sample webscript by opening your browser and typing `http://localhost:8080/alfresco/s/sample/helloworld`.
 
