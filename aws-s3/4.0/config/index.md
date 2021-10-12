@@ -973,11 +973,11 @@ the stores.
         <property name="requestTimeout" value="${connector.s3.store2.httpRequestTimeout}" />
     </bean>
     ```
- 
+
 4.  Update the `s3ClientConfiguration` in `store2.s3Adapter`.
- 
+
     For example:
- 
+
     ```xml
     <property name="clientConfiguration" ref="store2.s3ClientConfiguration"/>
     ```
@@ -986,7 +986,7 @@ the stores.
 
 The S3 Connector provides a number of properties on installation and for customizing your configuration.
 
-This sections describes what's changed in the properties configuration:
+This section describes what's changed in the properties configuration:
 
 * New properties
 * New properties that supersede older properties

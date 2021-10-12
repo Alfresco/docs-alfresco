@@ -122,8 +122,7 @@ If you need to override them for your environment, check the available settings 
 
 ## Properties for backwards compatibility
 
-You may need to configure a number of optional properties for the S3 Connector 4.0 to ensure backwards compatibility 
-with S3 Connector 1.x and behavior.
+You may need to configure a number of optional properties for the S3 Connector to ensure backwards compatibility with S3 Connector 1.x and behavior.
 
 * `dir.contentstore`
 
@@ -338,7 +337,7 @@ place for S3 access, a new policy must be created.
             ```
 
         3.  If lifecycle configuration on the bucket is not required, then see step (8) in [Configuring the S3 Connector]({% link aws-s3/latest/config/index.md %}).
-    
+
     Follow the steps from the AWS site to [Create a New Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) for additional guidance.
 
 2.  Here are additional configuration options that you can apply to the bucket. These IAM policies grant additional permissions to the IAM user.
@@ -576,7 +575,7 @@ For example, the common bean `s3ClientConfiguration`, used to set AWS SDK client
     </bean>
 ```
 
->**Important:** In Alfresco Content Services 7.0 and S3 Connector 4.0, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Alfresco Content Services which only allows switching between the embedded content stores.
+>**Important:** In Alfresco Content Services 7.1 and S3 Connector 4.1, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Alfresco Content Services which only allows switching between the embedded content stores.
 
 See next section about enabling deleted content store.
 
@@ -598,7 +597,7 @@ such as `enable-deleted-content-store-context.xml`, in the `extension` directory
 $CATALINA_HOME/shared/classes/alfresco/extension
 ```
 
-You can find a sample file in `alfresco-s3-connector-4.0.x.amp':
+You can find a sample file in `alfresco-s3-connector-4.1.x.amp':
 
 * `enable-deleted-content-store-context.xml.sample` in `config/alfresco/extension`
 
@@ -640,7 +639,7 @@ The Store selector has two stores (instances of the S3 content store):
 * `store1.s3ContentStore` as the default
 * `store2.s3ContentStore` as the second one
 
-The sample files are found in `alfresco-s3-connector-4.0.x.amp`:
+The sample files are found in `alfresco-s3-connector-4.1.x.amp`:
 
 * `s3-multiple-buckets-context.xml.sample` in `config/alfresco/extension`
 * `s3-mb-contentstore-context.xml.sample` and `s3-mb-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/S3MultipleBuckets/S3MultipleBuckets`
@@ -810,7 +809,7 @@ init-method="init">
     </constructor-arg>
 </bean>
 ```
-    
+
 **s3-mb-contentstore.properties.sample**
 
 This provides the subsystem properties where the `S3MultipleBuckets` subsystem declares default values for all the 
@@ -913,23 +912,23 @@ These steps describe how to add a new S3 store starting from the `S3MultipleBuck
     1.  Replace `connector.s3.store2` with `connector.s3.store3`.
 
     2.  Replace `s3.store2` with `s3.store3`.
-    
+
 ### Advanced customization for the S3MultipleBuckets subsystem {#advancedconfigmultibucket}
- 
+
 These steps describe how to enhance the `S3MultipleBuckets` subsystem sample by adding specific configuration for each S3 store.
- 
+
 By default, the `Common configuration` section in `s3-mb-contentstore-context.xml` defines the client configuration and 
 retry policy shared by all stores. You can duplicate this section in case you need a specific configuration for one of 
 the stores.
- 
+
 1.  Locate the file `s3-mb-contentstore-context.xml`, for example:
- 
-    ```
+
+    ```bash
     $CATALINA_HOME/shared/classes/alfresco/extension/subsystems/ContentStore/S3MultipleBuckets/S3MultipleBuckets/s3-mb-contentstore-context.xml
     ```
- 
+
 2.  Duplicate the **Common configuration** section:
- 
+
     ```xml
     <bean id="s3RetryPolicy" class="com.amazonaws.retry.RetryPolicy">
         <constructor-arg ref="s3RetryCondition"/>
@@ -949,11 +948,11 @@ the stores.
         <property name="requestTimeout" value="${connector.s3.store2.httpRequestTimeout}" />
     </bean>
     ```
- 
+
 3.  Add a specific store prefix (e.g. `store2.`) to the bean names and properties.
- 
+
     For example:
- 
+
     ```xml
     <bean id="store2.s3RetryPolicy" class="com.amazonaws.retry.RetryPolicy">
         <constructor-arg ref="s3RetryCondition"/>
@@ -973,11 +972,11 @@ the stores.
         <property name="requestTimeout" value="${connector.s3.store2.httpRequestTimeout}" />
     </bean>
     ```
- 
+
 4.  Update the `s3ClientConfiguration` in `store2.s3Adapter`.
- 
+
     For example:
- 
+
     ```xml
     <property name="clientConfiguration" ref="store2.s3ClientConfiguration"/>
     ```
@@ -986,7 +985,7 @@ the stores.
 
 The S3 Connector provides a number of properties on installation and for customizing your configuration.
 
-This sections describes what's changed in the properties configuration:
+This section describes what's changed in the properties configuration:
 
 * New properties
 * New properties that supersede older properties
@@ -994,7 +993,7 @@ This sections describes what's changed in the properties configuration:
 
 ### New properties
 
-Here is a list of properties that have been added in S3 Connector 4.0.
+Here is a list of properties that were added in S3 Connector 4.0.
 
 * `connector.s3.deletionTagInsteadOfDelete`
 
@@ -1007,7 +1006,9 @@ Here is a list of properties that have been added in S3 Connector 4.0.
     Blank by default.
 
     This property defines a tag value to apply to the content that needs to be deleted. When the content is tagged it won't be deleted. This property also requires the `deletionTagValue` property to be populated and the `deletionTagInsteadOfDelete` property to be set to `true`.
+
     > **Note:** The name of the deletion tag needs to be carefully chosen to ensure it is not used anywhere else. If actual content is tagged with `deletionTagName` there is a risk that content will be removed in error.
+
     > **Note:** Use the AWS documentation Object key and metadata for your naming guidelines because the properties must respect the same restrictions as if they were added via the AWS Management Console.
 
 * `connector.s3.deletionTagValue`
@@ -1179,8 +1180,7 @@ The default configuration in the new S3 Connector has the `connector.s3.objectNa
 with old deployments that had `s3.useContentRootInPath` as `false`, resulting in no contentroot/prefix directory in the S3 path.
 
 For compatibility with old deployments (where `s3.useContentRootInPath` was `true`), the `connector.s3.objectNamePrefix` 
-property should be configured with the `${dir.s3.contentstore}` value. This inherits the value from the `dir.s3.contentstore` 
-property, and ensures that:
+property should be configured with the `${dir.s3.contentstore}` value. This inherits the value from the `dir.s3.contentstore` property, and ensures that:
 
 1.  Old content is still readable, as it currently is, without moving/renaming it in S3.
 2.  New content is created in the same old `dir.s3.contentstore` directory as before the S3 upgrade.
