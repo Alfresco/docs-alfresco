@@ -1,0 +1,9 @@
+# Alfresco Collaboration Connector for Facebook 1.0
+- version: 1.0
+  pages:
+    - title: 'Introduction'
+      path: '/facebook/latest/'
+    - title: 'Install'
+      path: '/facebook/latest/install/'
+    - title: 'Using'
+      path: '/facebook/latest/using/'
