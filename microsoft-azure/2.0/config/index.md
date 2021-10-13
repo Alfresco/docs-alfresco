@@ -204,7 +204,7 @@ alfresco/extension/subsystems/ContentStore/Azure/Azure/*-context.xml
 alfresco/extension/subsystems/ContentStore/Azure/Azure/*.properties
 ```
 
-> **Note:** In Content Services 7.1 and Azure Connector 2.1, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Content Services which only allows switching between the embedded content stores.
+> **Note:** In Content Services 7.0 and Azure Connector 2.0, changing the current content store subsystem using the JMX client isn't supported. There's a limitation in Content Services which only allows switching between the embedded content stores.
 
 ### Deleted content store support in the repository versus Azure
 
@@ -214,7 +214,7 @@ Previous versions of the Azure Connector support the deleted content store provi
 
 Starting with 1.2, the Azure Connector has the deleted content store disabled by default, since this feature is already present in Microsoft's Azure Storage services. However, you can enable the Content Services deleted content store, if required.
 
-See [Azure Connector deleted content store]({% link microsoft-azure/latest/install/index.md %}#azure-connector-deleted-content-store) for more details.
+See [Azure Connector deleted content store]({% link microsoft-azure/2.0/install/index.md %}#azure-connector-deleted-content-store) for more details.
 
 ## Configuring multiple storage containers
 
@@ -227,7 +227,7 @@ The Azure multiple storage containers sample is a new store subsystem that is ba
 * `store1.azureBlobContentStore` as the default
 * `store2.azureBlobContentStore` as the second one
 
-The sample files can be found in `alfresco-azure-connector-2.1.x.amp`.
+The sample files can be found in `alfresco-azure-connector-2.0.x.amp`.
 
 * `azure-multiple-storage-containers-context.xml.sample` in `config/alfresco/extension`
 * `azure-mc-contentstore-context.xml.sample` and `azure-mc-contentstore.properties.sample` are in `config/alfresco/extension/subsystems/ContentStore/AzMultipleStorageContainers/AzMultipleStorageContainers`
