@@ -2,7 +2,7 @@
 title: Installation options
 ---
 
-You can install Search Services using the distribution zip (with or without mutual TLS).
+You can install Search Services using the distribution zip (with or without mutual TLS) secret.
 
 ## Install with mutual TLS (zip)
 
