@@ -1132,7 +1132,7 @@ The auto-version capability can be disabled on a content-by-content basis in the
 
 > **Note:** Any properties that you set on a file are saved with the current version of a file, and written to the Version History after a major update; for example, when a new file is uploaded. This means that if you save properties in version 1.0, they are saved in the Version History of version 1.1.
 
-To change this behavior, you can set `cm:autoVersionOnUpdateProps` to true. See [VersionHistoryNode API]({% link content-services/5.2/develop/api-reference.md %}#versionhistorynode-api) for more information.
+To change this behavior, you can set `cm:autoVersionOnUpdateProps` to true. See [VersionService API]({% link content-services/5.2/develop/reference/java-foundation-ref.md %}#versionservice) for more information.
 
 -   **[Making all content versionable](#making-all-content-versionable)**  
 Edit the contentModel.xml file to enable versioning for all content in the repository.

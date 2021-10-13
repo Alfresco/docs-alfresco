@@ -1059,13 +1059,15 @@ elasticsearch:
 exclude:
   - redirects/
   - .github/
+  - .idea/
+  - .jekyll-cache/
+  - _site/
   - README.md
   - README.markdown
   - Dockerfile
   - docker-compose.yml
   - .gitignore
   # - .sass-cache/
-  - .jekyll-cache/
   # - gemfiles/
   - Gemfile
   - Gemfile.lock

@@ -1,42 +1,55 @@
 ---
-title: Data Lists
+title: Data Lists Extension Point
 ---
 
-Data lists are records of data stored in the repository as nodes. There are a number of data list types available but custom ones can also be implemented.
+Data lists are records of data stored in the repository as nodes. There are a number of data list types available but 
+custom ones can also be implemented.
 
-|Information|Data Lists|
-|-----------|----------|
-|Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
-|Architecture Information|[Platform Architecture]({% link content-services/5.2/develop/software-architecture.md %}#platform-architecture)|
-|Description|[Data Lists]({% link content-services/5.2/using/sites/features.md %}#data-lists) are useful when we have content that is not necessary associated with a file, such as a to-do list. This data is more like a database record than a content file with associated metadata. Out-of-the box Alfresco Content Services comes with a number of data lists that are ready to be used:-   **Contact List** - Contacts list including first name, last name, full name, email, job title, phone (office), phone (mobile).
--   **Event Agenda** - Manage event agenda items including session names, presenters, start and end times.
--   **Event List** - Events list including title, description, location, start and end date/time.
--   **Issue List** - Issues list including ID, status, priority, description, due data, comments, assign to, related issues.
--   **Location List** - Locations/Addresses list
--   **Meeting Agenda** - Manage meeting agenda items including description, owner, allocated time.
--   **To Do List** - A simple to do list with optional assignee.
--   **Task List (Simple)** - Simple tasks list including title, description, due date, priority, status, comments.
--   **Task List (Advanced)** - Advanced tasks list including title, description, start and end dates, priority, status, comments, assignees and attachments.
+Architecture Information: [Platform Architecture]({% link content-services/5.2/develop/software-architecture.md %}#platformarch)
 
-As we can see, there are quite a few data lists available. If none of them is suitable for your application, then a custom data list can be implemented.
+## Description
 
-Before implementing a custom data list it is good to know a little bit about how they are stored in the repository. Let's say we have a site called Test, and in it we have created a new instance of the To Do data list called 'My To-do list'. We have then added two items to the list so it looks something like this:
+Data Lists are useful when we have content that is not necessary associated with a file, such as a to-do list. 
+This data is more like a database record than a content file with associated metadata. Out-of-the box Content Services 
+comes with a number of data lists that are ready to be used:
 
-![]({% link content-services/images/dev-extensions-repo-data-list-sample-todo.png %})
+* **Contact List** - Contacts list including first name, last name, full name, email, job title, phone (office), phone (mobile).
+* **Event Agenda** - Manage event agenda items including session names, presenters, start and end times.
+* **Event List** - Events list including title, description, location, start and end date/time.
+* **Issue List** - Issues list including ID, status, priority, description, due data, comments, assign to, related issues.
+* **Location List** - Locations/Addresses list
+* **Meeting Agenda** - Manage meeting agenda items including description, owner, allocated time.
+* **To Do List** - A simple to do list with optional assignee.
+* **Task List (Simple)** - Simple tasks list including title, description, due date, priority, status, comments.
+* **Task List (Advanced)** - Advanced tasks list including title, description, start and end dates, priority, status, comments, assignees and attachments.
+
+As we can see, there are quite a few data lists available. If none of them is suitable for your application, then a 
+custom data list can be implemented.
+
+Before implementing a custom data list it is good to know a little bit about how they are stored in the repository. 
+Let's say we have a site called Test, and in it we have created a new instance of the To Do data list called 'My To-do list'. 
+We have then added two items to the list so it looks something like this:
+
+![dev-extensions-repo-data-list-sample-todo]({% link content-services/images/dev-extensions-repo-data-list-sample-todo.png %})
 
 If we now use the Node Browser to have a look at how this data list is stored in the repository, then we will see something like this:
 
-![]({% link content-services/images/dev-extensions-repo-data-list-node-browser.png %})
+![dev-extensions-repo-data-list-node-browser]({% link content-services/images/dev-extensions-repo-data-list-node-browser.png %})
 
-The two to-do data list items are stored as `dl:todoList` types, which extends the `dl:dataListItem` type, which in turn extends the `cm:content` type. The `dl:dataList` node that contains these items knows that they should be of the `dl:todoList` type via the `dl:dataListItemType` property value.
+The two to-do data list items are stored as `dl:todoList` types, which extends the `dl:dataListItem` type, which in 
+turn extends the `cm:content` type. The `dl:dataList` node that contains these items knows that they should be of the 
+`dl:todoList` type via the `dl:dataListItemType` property value.
 
-The `dl:dataList` type extends the `cm:folder` type. So this is actually similar to a folder containing content less files (content items without the file and just metadata).
+The `dl:dataList` type extends the `cm:folder` type. So this is actually similar to a folder containing content less files 
+(content items without the file and just metadata).
 
-The only thing we need to do when creating a custom data list is to define a new type that extends the `dl:dataListItem` type. As you have probably figured out, a custom data list is defined as a type in a [content model]({% link content-services/5.2/develop/repo-ext-points/content-model.md %}).
+The only thing we need to do when creating a custom data list is to define a new type that extends the `dl:dataListItem` 
+type. As you have probably figured out, a custom data list is defined as a type in a [content model]({% link content-services/5.2/develop/repo-ext-points/content-model.md %}).
 
-Let's say we want to keep a list of projects that we are currently working on, then the content model type definition would look like this:
+Let's say we want to keep a list of projects that we are currently working on, then the content model type definition 
+would look like this:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <model name="acmedl:datalistModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
 
@@ -105,11 +118,13 @@ Let's say we want to keep a list of projects that we are currently working on, t
 </model>
 ```
 
-Here we are defining a new data list item type called `acmedl:projectListItem` with a number of properties and an association to the project members. This is just straight forward custom [content model]({% link content-services/5.2/develop/repo-ext-points/content-model.md %}) definitions.
+Here we are defining a new data list item type called `acmedl:projectListItem` with a number of properties and an 
+association to the project members. This is just straight forward custom [content model]({% link content-services/5.2/develop/repo-ext-points/content-model.md %}) definitions.
 
-We haven't given any of the properties or the association a title so we add a resource file with labels for the content model (called for example datalist-model.properties):
+We haven't given any of the properties or the association a title so we add a resource file with labels for the 
+content model (called for example `datalist-model.properties`):
 
-```
+```text
 acmedl_datalistModel.property.acmedl_projectName.title=Name
 acmedl_datalistModel.property.acmedl_projectNumber.title=Number
 acmedl_datalistModel.property.acmedl_projectDescription.title=Description
@@ -120,7 +135,7 @@ acmedl_datalistModel.association.acmedl_projectMember.title=Members
 
 Content model definition and labels are bootstrapped on the repository side as follows:
 
-```
+```xml
 <bean id="org.alfresco.tutorial.customdatalist.dictionaryBootstrap"
           parent="dictionaryModelBootstrap"
           depends-on="dictionaryBootstrap">
@@ -139,11 +154,13 @@ Content model definition and labels are bootstrapped on the repository side as f
     </bean>
 ```
 
-The Share application will ask the repository for these titles when putting together the data list user interface. The Share side need to however be configured with one form to be used when creating project list items and one form to be used when editing project list items.
+The Share application will ask the repository for these titles when putting together the data list user interface. 
+The Share side need to however be configured with one form to be used when creating project list items and one form 
+to be used when editing project list items.
 
-This is done in share-config-custom.xml as usual:
+This is done in `share-config-custom.xml` as usual:
 
-```
+```xml
 <alfresco-config>
     <!--
         acmedl:projectListItem type create form config
@@ -190,13 +207,19 @@ This is done in share-config-custom.xml as usual:
 </alfresco-config>
 ```
 
-If you want a special appearance for a field then use the standard form configuration alternatives as explained in the [content model]({% link content-services/5.2/develop/repo-ext-points/content-model.md %}) section.
+If you want a special appearance for a field then use the standard form configuration alternatives as explained in the 
+[content model]({% link content-services/5.2/develop/repo-ext-points/content-model.md %}) section.
 
-Now when we got the Data List up and running it is likely that we want to populate it. Maybe there is data in an external system that we want to populate the data list with, or we might just want to use a script to populate it in a repeatable and quick way.
+Now when we got the Data List up and running it is likely that we want to populate it. Maybe there is data in an external 
+system that we want to populate the data list with, or we might just want to use a script to populate it in a repeatable 
+and quick way.
 
-One way of doing this is via a [Repository Web Script]({% link content-services/5.2/develop/api-reference.md %}#web-scripts). Let's create a simple Web Script that creates and populates the Project List we created above via both Java and JavaScript. The descriptor looks like this:
+One way of doing this is via a [Repository Web Script]({% link content-services/5.2/develop/repo-ext-points/web-scripts.md %}). Let's create a simple 
+Web Script that creates and populates the Project List we created above via both Java and JavaScript. 
 
-```
+The descriptor looks like this:
+
+```xml
 <webscript>
     <shortname>Create Data List</shortname>
     <description>Create Data List shows how to programmatically create a Data List instance with an item.</description>
@@ -209,7 +232,7 @@ One way of doing this is via a [Repository Web Script]({% link content-services/
 
 The JavaScript controller creates and populates a Project List like this:
 
-```
+```javascript
 // Get/Create data list container
 var site = companyhome.childByNamePath("Sites/swsdp");
 var dataListContainer = "dataLists";
@@ -256,11 +279,13 @@ if (!projectList) {
 }
 ```
 
-Working with data list from JavaScript on the server side is the same thing as working with nodes. To create a data list and add items to it means creating a number of nodes. The above code also shows how to create the site's data list container if it does not exist.
+Working with data list from JavaScript on the server side is the same thing as working with nodes. To create a data list 
+and add items to it means creating a number of nodes. The above code also shows how to create the site's data list 
+container if it does not exist.
 
 We can do the same thing in a Java Web Script controller:
 
-```
+```java
 public class CreateDataListWebScript extends DeclarativeWebScript {
     private final static String NAMESPACE_URI = "http://www.acme.org/model/datalist/1.0";
     private final String DATA_LIST_SITE_CONTAINER = "dataLists";
@@ -338,11 +363,12 @@ public class CreateDataListWebScript extends DeclarativeWebScript {
 
 Here we use the site service to check for the data list container and then the node service to create the different nodes.
 
-We might also want to be able to populate data lists remotely. We can easily do this via CMIS. Let's say we got an Event data list already created and we want to populate it with some items.
+We might also want to be able to populate data lists remotely. We can easily do this via CMIS. Let's say we got an 
+Event data list already created and we want to populate it with some items.
 
 Here is sample code for how to do that for an Event data list:
 
-```
+```java
 private static final String SECONDARY_OBJECT_TYPE_IDS_PROP_NAME = "cmis:secondaryObjectTypeIds";
 
 public boolean populateEventDataList(Session session, String eventDataListDesc) {
@@ -391,28 +417,32 @@ public boolean populateEventDataList(Session session, String eventDataListDesc) 
 
 The `populateEventDataList` method takes a parameter with the description of the event data list that we want to populate.
 
-Note that all code examples assume that we are populating data lists in the out-of-the-box site "Web Site Design Project" with short-name `swsdp`.
+Note that all code examples assume that we are populating data lists in the out-of-the-box site "Web Site Design Project" 
+with short-name `swsdp`.
 
-|
-|Deployment - App Server|-   Data List Model Definition: tomcat/shared/classes/alfresco/extension/myContentModel.xml (File name can be anything you like as long as you refer to it in the Spring context file)
--   Data List Model and Labels Bootstrap: tomcat/shared/classes/alfresco/extension/my-content-model-context.xml (File name has to end in -context.xml to be picked up as Spring Bean context file)
--   Share UI configuration: tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml
+## Deployment - App Server
 
- These file locations are untouched by re-deployments and upgrades.|
-|[Deployment All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3).|-   Data List Model Definition: aio/platform-jar/src/main/resources/alfresco/module/platform-jar/model/content-model.xml
--   Data List Model and Labels Bootstrap: aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/bootstrap-context.xml
--   Data List Model Labels: aio/platform-jar/src/main/resources/alfresco/module/platform-jar/messages/datalist-model.properties
--   Share UI configuration: aio/share-jar/src/main/resources/META-INF/share-config-custom.xml
+* Data List Model Definition: `tomcat/shared/classes/alfresco/extension/myContentModel.xml` (File name can be anything you like as long as you refer to it in the Spring context file)
+* Data List Model and Labels Bootstrap: `tomcat/shared/classes/alfresco/extension/my-content-model-context.xml` (File name has to end in -context.xml to be picked up as Spring Bean context file)
+* Share UI configuration: `tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml`
 
- To implement and deploy a data list model with full UI support you need both a respository JAR and a Share JAR project.|
-|More Information|-   [How to use the Data Lists from a site in Alfresco Share]({% link content-services/5.2/using/sites/features.md %}#data-lists)
--   [Content Models]({% link content-services/5.2/develop/repo-ext-points/content-model.md %}) - data lists are a type of content model, read all about content models here
+These file locations are untouched by re-deployments and upgrades.
+ 
+## Deployment All-in-One SDK project
 
-|
-|Sample Code|-   [Data List model implementation](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-data-list-repo) - repository JAR with data list content model and sample Web Script code for how to programmatically populate data lists
--   [Share UI configuration for the Data List](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-data-list-share) - Share JAR
+* Data List Model Definition: `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/model/content-model.xml`
+* Data List Model and Labels Bootstrap: `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/bootstrap-context.xml`
+* Data List Model Labels: `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/messages/datalist-model.properties`
+* Share UI configuration: `aio/share-jar/src/main/resources/META-INF/share-config-custom.xml`
 
-|
-|Tutorials|None|
-|Developer Blogs|None|
+To implement and deploy a data list model with full UI support you need both a repository JAR and a Share JAR project.
 
+## More Information
+
+* [How to use the Data Lists from a site in Alfresco Share]({% link content-services/5.2/using/sites/features.md %}#data-lists)
+* [Content Models]({% link content-services/5.2/develop/repo-ext-points/content-model.md %}) - data lists are a type of content model, read all about content models here
+
+## Sample Code
+
+* [Data List model implementation](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-data-list-repo){:target="_blank"} - repository Module with data list content model and sample Web Script code for how to programmatically populate data lists
+* [Share UI configuration for the Data List](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-data-list-share){:target="_blank"} - Share Module with UI config

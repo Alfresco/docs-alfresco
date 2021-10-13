@@ -1,45 +1,62 @@
 ---
-title: Metadata Extractors
+title: Metadata Extractors Extension Point
 ---
 
-Alfresco Content Services performs metadata extraction on content automatically, however, you may wish to create custom metadata extractors to handle custom file properties and custom content models.
+Content Services performs metadata extraction on content automatically, however, you may wish to create 
+custom metadata extractors to handle custom file properties and custom content models.
 
-|Information|Metadata Extractors|
-|-----------|-------------------|
-|Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
-|Architecture Information|[Platform Architecture]({% link content-services/5.2/develop/software-architecture.md %}#platform-architecture)|
-|Description|Every time a file is uploaded to the repository the file's MIME type is automatically detected. Based on the MIME type a related Metadata Extractor is invoked on the file. It will extract common properties from the file, such as author, and set the corresponding content model property accordingly. Each Metadata Extractor has a mapping between the properties it can extract and the content model properties. Metadata extraction is primarily based on the [Apache Tika](https://tika.apache.org/) library. This means that whatever [file formats](https://tika.apache.org/1.11/formats.html) Tika can extract metadata from, Alfresco Content Services can also handle. To give you an idea of what file formats Alfresco Content Services can extract metadata from, here is a list of the most common formats: -   PDF
+Architecture Information: [Platform Architecture]({% link content-services/5.2/develop/software-architecture.md %}#platformarch)
 
--   MS Office
--   Open Office
--   MP3, MP4, QuickTime
--   JPEG, TIFF, PNG
--   DWG
--   HTML
--   XML
--   Email
+## Description
 
- The properties that are extracted are limited to the out-of-the-box content model, which is very generic. Here are some example of extracted property name and what content model property it maps to:
+Every time a file is uploaded to the repository the file's MIME type is automatically detected. Based on the MIME type a 
+related Metadata Extractor is invoked on the file. It will extract common properties from the file, such as author, 
+and set the corresponding content model property accordingly. Each Metadata Extractor has a mapping between the 
+properties it can extract and the content model properties. Metadata extraction is primarily based on the 
+[Apache Tika](https://tika.apache.org/){:target="_blank"} library. This means that whatever [file formats](https://tika.apache.org/1.11/formats.html){:target="_blank"} 
+Tika can extract metadata from, Content Services can also handle. To give you an idea of what file formats 
+Content Services can extract metadata from, here is a list of the most common formats: 
 
--   author -> `cm:author`
--   title -> `cm:title`
--   subject -> `cm:description`
--   created -> `cm:created`
--   description -> *NOT MAPPED* - you could map it in a custom configuration
--   comments -> *NOT MAPPED* - you could map it in a custom configuration
--   *If it is an image file:*
--   EXIF metadata -> `exif:exif` (pixel dimensions, manufacturer, model, software, date-time etc.)
--   Geo metadata -> `cm:geographic` (longitude & latitude)
--   *If it is an audio file* -> `audio:audio` (album, artist, composer, engineer, genre etc.)
--   *If it is an email file* -> `cm:emailed` (from, to, subject, sent date)
+* PDF
+* MS Office
+* Open Office
+* MP3, MP4, QuickTime
+* JPEG, TIFF, PNG
+* DWG
+* HTML
+* XML
+* Email
 
- One thing to note though, event if an extractor can extract any of the system controlled properties, such as created date, it will not be used. Created date, creator, modified date, and modifier is always controlled by the Alfresco Content Services system, unless you are using the Bulk Import tool, in which case last modified date can be preserved.
+The properties that are extracted are limited to the out-of-the-box content model, which is very generic. Here are 
+some example of extracted property name and what content model property it maps to:
 
- A common requirement is to be able to change the mapping of out-of-the-box properties, such as having the `subject` property mapped to `cm:title` instead of `cm:description`. This is quite easy to achieve, just override the out-of-the-box bean and re-configure the mapping. The out-of-the-box Spring bean definitions for Metadata Extractors can be found in the content-services-context.xml file, which is located [here](https://github.com/Alfresco/community-edition/tree/master/projects/repository/config/alfresco). Search for "Content Metadata Extractors" in the file and then you will find an ordered list of extractor definitions.
+* author -> `cm:author`
+* title -> `cm:title`
+* subject -> `cm:description`
+* created -> `cm:created`
+* description -> *NOT MAPPED* - you could map it in a custom configuration
+* comments -> *NOT MAPPED* - you could map it in a custom configuration
+* *If it is an image file:*
+* EXIF metadata -> `exif:exif` (pixel dimensions, manufacturer, model, software, date-time etc.)
+* Geo metadata -> `cm:geographic` (longitude & latitude)
+* *If it is an audio file* -> `audio:audio` (album, artist, composer, engineer, genre etc.)
+* *If it is an email file* -> `cm:emailed` (from, to, subject, sent date)
 
- When overriding a Metadata Extractor configuration you have the option to inherit the default properties mapping or define a new one from scratch. For example, to change the `subject` property so it is mapped to content model property `cm:title` for PDF files re-define the `extracter.PDFBox` Spring bean as follows:
+One thing to note though, even if an extractor can extract any of the system controlled properties, such as created date, 
+it will not be used. Created date, creator, modified date, and modifier is always controlled by the Content Services 
+system, unless you are using the Bulk Import tool, in which case last modified date can be preserved.
 
- ```
+A common requirement is to be able to change the mapping of out-of-the-box properties, such as having the `subject` 
+property mapped to `cm:title` instead of `cm:description`. This is quite easy to achieve, just override the out-of-the-box 
+bean and re-configure the mapping. The out-of-the-box Spring bean definitions for Metadata Extractors can be found in the 
+`content-services-context.xml` file, which is located [here](https://github.com/Alfresco/community-edition/tree/master/projects/repository/config/alfresco){:target="_blank"}. 
+Search for "Content Metadata Extractors" in the file and then you will find an ordered list of extractor definitions.
+
+When overriding a Metadata Extractor configuration you have the option to inherit the default properties mapping or 
+define a new one from scratch. For example, to change the `subject` property so it is mapped to content model property 
+`cm:title` for PDF files re-define the `extracter.PDFBox` Spring bean as follows:
+
+```xml
 <bean id="extracter.PDFBox" class="org.alfresco.repo.content.metadata.PdfBoxMetadataExtracter"        
     parent="baseMetadataExtracter">
   <property name="documentSelector" ref="pdfBoxEmbededDocumentSelector" />
@@ -57,15 +74,22 @@ Alfresco Content Services performs metadata extraction on content automatically,
 </bean>
 ```
 
- In this case you also map the `author` property. This is because when you set the `inheritDefaultMapping` property to `false` all the default property mappings are not used. Another property called `Keywords` have also been mapped to the `cm:description` property. Note that all the namespaces that the content model properties belong to have to be specified as in the above example with `namespace.prefix.cm`. It is also very important to know that the property names are case sensitive. So if the Keyword property had been written with a lower-case `k`, it would not have been picked up. Sometimes it can be useful to know what metadata extractor that is actually used when you upload a document. Turning on Metadata Extractionb logging is a good idea to get on top of what is happening. Set the following property in log4j.properties:
+In this case you also map the `author` property. This is because when you set the `inheritDefaultMapping` property to 
+`false` all the default property mappings are not used. Another property called `Keywords` have also been mapped to the 
+`cm:description` property. Note that all the namespaces that the content model properties belong to have to be specified 
+as in the above example with `namespace.prefix.cm`. It is also very important to know that the property names are 
+case sensitive. So if the Keyword property had been written with a lower-case `k`, it would not have been picked up. 
+Sometimes it can be useful to know what metadata extractor that is actually used when you upload a document. Turning on 
+Metadata Extraction logging is a good idea to get on top of what is happening. 
+Set the following property in `log4j.properties`:
 
-```
+```text
 log4j.logger.org.alfresco.repo.content.metadata=DEBUG
 ```
 
 With logging turned on the following information will be logged when uploading a PDF:
 
- ```
+```text
  2015-12-07 13:56:51,324  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Get extractors for application/pdf
 2015-12-07 13:56:51,324  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Finding extractors for application/pdf
 2015-12-07 13:56:51,326  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Find supported:   extracter.TikaAuto
@@ -85,18 +109,20 @@ With logging turned on the following information will be logged when uploading a
 2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Get supported:   extracter.TikaAuto
 2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Get supported:   extracter.PDFBox
 2015-12-07 13:56:51,327  DEBUG [content.metadata.MetadataExtracterRegistry] [http-bio-8080-exec-14] Get returning:   extracter.PDFBox
-
 ```
 
- You can clearly see that the PDFBox extractor is invoked so you know you have customized the correct one. What about the properties? It is likely that you will struggle to figure out what properties are extracted and their names. You can have this logged with the following log file configuration:
+You can clearly see that the PDFBox extractor is invoked so you know you have customized the correct one. What about the 
+properties? It is likely that you will struggle to figure out what properties are extracted and their names. You can 
+have this logged with the following log file configuration:
 
-```
+```text
 log4j.logger.org.alfresco.repo.content.metadata.AbstractMappingMetadataExtracter=DEBUG
 ```
 
-This log configuration is set to some other log level out-of-the-box so you need to specifically re-configure it to be able to see something. Now when running you will also see the extracted doc properties as in the following example:
+This log configuration is set to some other log level out-of-the-box so you need to specifically re-configure it to be 
+able to see something. Now when running you will also see the extracted doc properties as in the following example:
 
- ```
+```text
 Found: {
    pdf:PDFVersion=1.4, 
    xmp:CreatorTool=Writer, 
@@ -125,9 +151,9 @@ Found: {
 }
 ```
 
- There is also a log entry with information about what properties that were actually successfully mapped:
+There is also a log entry with information about what properties that were actually successfully mapped:
 
- ```
+```text
 Mapped and Accepted: {
    {http://www.alfresco.org/model/content/1.0}description={en_GB=SomeKeyword1, SomeKeyword2}, 
    {http://www.alfresco.org/model/content/1.0}title={en_GB=SomeSubject}, 
@@ -135,9 +161,12 @@ Mapped and Accepted: {
 
 ```
 
- Next requirement is most likely to map properties to custom content models. There is an ACME content model tutorial where the base document type has an `acme:documentId` property. You might want to add a document identifier to the PDFs you are uploading and have it automatically set in the ACME content model. Start by updating the extractor configuration as follows:
+Next requirement is most likely to map properties to custom content models. There is an ACME content model tutorial 
+where the base document type has an `acme:documentId` property. You might want to add a document identifier to the PDFs 
+you are uploading and have it automatically set in the ACME content model. Start by updating the extractor configuration 
+as follows:
 
- ```
+```xml
 <bean id="extracter.PDFBox" class="org.alfresco.repo.content.metadata.PdfBoxMetadataExtracter"
        parent="baseMetadataExtracter">
      <property name="documentSelector" ref="pdfBoxEmbededDocumentSelector" />
@@ -157,11 +186,16 @@ Mapped and Accepted: {
  </bean>
 ```
 
- Here the custom document property `DocumentId` has been added so it is mapped to the ACME content model property `acme:documentId`. When doing this you also need to define the new custom namespace `acme`. For this to work you need to have a rule on the folder that applies the `acme:document` type to any PDF document uploaded to the folder. This type has the `acme:docuementId` property.
+Here the custom document property `DocumentId` has been added so it is mapped to the ACME content model property 
+`acme:documentId`. When doing this you also need to define the new custom namespace `acme`. For this to work you need 
+to have a rule on the folder that applies the `acme:document` type to any PDF document uploaded to the folder. This 
+type has the `acme:docuementId` property.
 
- Now, what if you would like to extract metadata from an XML file, how would you go about that? This can be achieved with the `XmlMetadataExtracter`, which in-turn uses the `XPathMetadataExtracter` to navigate the XML and extract metadata. Let's say we had XML files looking like this:
+Now, what if you would like to extract metadata from an XML file, how would you go about that? This can be achieved with 
+the `XmlMetadataExtracter`, which in-turn uses the `XPathMetadataExtracter` to navigate the XML and extract metadata. 
+Let's say we had XML files looking like this:
 
- ```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <doc id="doc001">
     <project>
@@ -177,9 +211,11 @@ Mapped and Accepted: {
 </doc>
 ```
 
-And whenever we upload one we want to have the `/doc/@id` attribute set as `acme:documentId`, `/doc/project/number` set as `acme:projectNumber`, and `/doc/securityClassification` set as `acme:securityClassification`. This will require configuration like this, note these are new bean definitions, no overrides as in previous examples:
+And whenever we upload one we want to have the `/doc/@id` attribute set as `acme:documentId`, `/doc/project/number` 
+set as `acme:projectNumber`, and `/doc/securityClassification` set as `acme:securityClassification`. This will require 
+configuration like this, note these are new bean definitions, no overrides as in previous examples:
 
- ```
+```xml
 <bean id="org.alfresco.tutorial.metadataextracter.xml.AcmeDocXPathMetadataExtracter"
     class="org.alfresco.repo.content.metadata.xml.XPathMetadataExtracter"
     parent="baseMetadataExtracter"
@@ -230,39 +266,44 @@ And whenever we upload one we want to have the `/doc/@id` attribute set as `acme
 </bean>
 ```
 
- The acme-content-model-mappings.properties file contains mappings from the extracted XML doc properties to the content model properties:
+The `acme-content-model-mappings.properties` file contains mappings from the extracted XML doc properties to the 
+content model properties:
 
-```
-# Namespaces {#namespaces}
+```text
+# Namespaces
 namespace.prefix.acme=http://www.acme.org/model/content/1.0
 
-# Mappings - metadata property -> content model property {#mappings-metadata-property-content-model-property}
+# Mappings - metadata property -> content model property
 documentId=acme:documentId
 securityClassification=acme:securityClassification
 projectNumber=acme:projectNumber
 ```
 
- The property mapping can always be done in .properties files if we like, and we could have used a .properties file for the `PDFBoxMetadataExtracter` too. The other properties file called acme-xml-doc-xpath-mappings.properties contains the XPath expression configuration for where to find the metadata in the XML file:
+The property mapping can always be done in .properties files if we like, and we could have used a .properties file for 
+the `PDFBoxMetadataExtracter` too. The other properties file called` acme-xml-doc-xpath-mappings.properties` contains the 
+XPath expression configuration for where to find the metadata in the XML file:
 
- ```
-# XPath Mappings - metadata property -> XML Document XPATH {#xpath-mappings-metadata-property-xml-document-xpath}
+```text
+# XPath Mappings - metadata property -> XML Document XPATH
 documentId=/doc/@id
 securityClassification=/doc/securityClassification
 projectNumber=/doc/project/number
 ```
 
-|
-|Metadata extractor limits|Metadata extraction limits allows configurations on `AbstractMappingMetadataExtracter` for:
+## Metadata extractor limits
 
--   control of the maximum time allowed for an extraction
--   control of the maximum size (MB) of any single document that the extractor will handle
--   control of the maximum number of all the documents being processed at any point in time
+Metadata extraction limits allows configurations on `AbstractMappingMetadataExtracter` for:
 
- The default values for each of these properties are `MAX` value specified in the java code. These limits are configured per extractor and mimetype.
+* control of the maximum time allowed for an extraction
+* control of the maximum size (MB) of any single document that the extractor will handle
+* control of the maximum number of all the documents being processed at any point in time
 
- The limits configured for Alfresco Content Services are:
+The default values for each of these properties are `MAX` value specified in the java code. These limits are configured 
+per extractor and mimetype.
 
-```
+The limits configured for Content Services are:
+
+```text
 Time out configured for all extractor and all mimetypes
 content.metadataExtracter.default.timeoutMs=20000
 
@@ -273,44 +314,45 @@ Maximum number of concurrent extractions - configured for PdfBoxMetadataExtracte
 content.metadataExtracter.pdf.maxConcurrentExtractionsCount=5
 ```
 
-|
-|PDF metadata extractor overwrite policy|There are four types of overwrite policies that can be used when extracting metadata:
+## PDF metadata extractor overwrite policy
 
--   EAGER
--   CAUTIOUS
--   PRUDENT
--   PRAGMATIC
+There are four types of overwrite policies that can be used when extracting metadata:
 
- The following table shows which conditions must be met for overwriting the value:
+* `EAGER`
+* `CAUTIOUS`
+* `PRUDENT`
+* `PRAGMATIC`
 
- ![]({% link content-services/images/overwrite-policy.png %})
+The following table shows which conditions must be met for overwriting the value:
 
- The default overwrite policy is PRAGMATIC. To change the overwrite policy, set the `overwritePolicy` property. For example:
+![overwrite-policy]({% link content-services/images/overwrite-policy.png %})
 
-```
+The default overwrite policy is `PRAGMATIC`. To change the overwrite policy, set the `overwritePolicy` property. For example:
+
+```xml
 <property name="overwritePolicy"> <value>EAGER</value> </property>
 ```
 
- To change the overwrite policy for the PDF metadata extractor, set the `overwritePolicy` property in the alfresco-global.properties. For example:
+To change the overwrite policy for the PDF metadata extractor, set the `overwritePolicy` property in the 
+`alfresco-global.properties`. For example:
 
-```
+```text
 content.metadataExtracter.pdf.overwritePolicy=EAGER
 ```
 
-|
-|Deployment - App Server|-   tomcat/shared/classes/alfresco/extension - change name of custom-metadata-extrators-context.xml.sample to custom-metadata-extrators-context.xml and define extractor beans. Change name of metadata-embedding-context.xml.sample to metadata-embedding-context.xml and make embedder bean definitions.
+## Deployment - App Server
 
-|
-|[Deployment All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3).|-   aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml - Metadata Extractor bean definitions and metadata embedder bean definitions
--   aio/platform-jar/src/main/resources/alfresco/module/platform-jar/metadataextraction - Properties files with mappings
+* `tomcat/shared/classes/alfresco/extension` - change name of `custom-metadata-extractors-context.xml.sample` to `custom-metadata-extractors-context.xml` and define extractor beans. Change name of `metadata-embedding-context.xml.sample` to `metadata-embedding-context.xml` and make embedder bean definitions.
 
-|
-|More Information| |
-|Sample Code|-   [PDF metadata extraction sample and XML metadata extraction sample](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-metadata-extracter-repo)
+## Deployment All-in-One SDK project
 
-|
-|Tutorials|-   [Configure Metadata Extraction]({% link content-services/5.2/config/repository.md %}#configuring-metadata-extraction)
+* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml` - Metadata Extractor bean definitions and metadata embedder bean definitions
+* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/metadataextraction` - Properties files with mappings
 
-|
-|Developer Blogs|None|
+## Sample Code
 
+* [PDF metadata extraction sample and XML metadata extraction sample](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/custom-metadata-extracter-repo){:target="_blank"}
+
+## Tutorials
+
+* [Configure Metadata Extraction]({% link content-services/5.2/config/repository.md %}#configure-metadata-extraction)

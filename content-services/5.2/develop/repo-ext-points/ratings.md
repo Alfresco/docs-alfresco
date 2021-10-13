@@ -1,45 +1,63 @@
 ---
-title: Ratings
+title: Ratings Extension Point
 ---
 
-Alfresco Content Services supports rating of content according to different schemes, such as likes or five-star. It is also possible to implement custom rating schemes.
+Content Services supports rating of content according to different schemes, such as likes or five-star. 
+It is also possible to implement custom rating schemes.
 
-|Information|Ratings|
-|-----------|-------|
-|Support Status|[Full Support]({% link support/latest/policies/product-lifecycle.md %})|
-|Architecture Information|[Platform Architecture]({% link content-services/5.2/develop/software-architecture.md %}#platform-architecture)|
-|Description|Alfresco Content Services provides an implementation of a Rating Service, which is intended to support application developers and third parties who wish to define Rating Schemes for their content. A rating scheme is a defined system of ratings for content which is identified by a unique name and which provides a minimum and maximum allowed rating.
+Architecture Information: [Platform Architecture]({% link content-services/5.2/develop/software-architecture.md %}#platformarch)
 
- The following rating schemes are available out-of-the-box:
+## Description
 
- -   **likesRatingScheme** - This scheme is essentially a marker on a piece of content. User X likes content item Y. It has minRating = 0 and maxRating = 1
--   **fiveStarRatingScheme** - The scheme allows users to rate content on a scale from 1 to 5
+Content Services provides an implementation of a Rating Service, which is intended to support application 
+developers and third parties who wish to define Rating Schemes for their content. A rating scheme is a defined system 
+of ratings for content which is identified by a unique name and which provides a minimum and maximum allowed rating.
 
- The `likesRatingScheme` is the only one that is currently visible and usable from the Share user interface.
+The following rating schemes are available out-of-the-box:
 
- There are two different ways in which you probably would want to use the Rating service. To start with you might want to use one of the existing rating schemes and provide a user interface for it. If none of the existing rating schemes fit the bill, then you can implement a custom rating scheme.
+* **likesRatingScheme** - This scheme is essentially a marker on a piece of content. User X likes content item Y. It has `minRating = 0` and `maxRating = 1`
+* **fiveStarRatingScheme** - The scheme allows users to rate content on a scale from 1 to 5
 
- Let's start with a sample that provides a user interface for the out-of-the-box `fiveStarRatingScheme`. We will add an action to the Share UI so we can rate a node with the Five Star rating scheme, it will look something like this:
+The `likesRatingScheme` is the only one that is currently visible and usable from the Share user interface.
 
- ![]({% link content-services/images/dev-extensions-repo-rating-share-ui.png %})
+There are two different ways in which you probably would want to use the Rating service. To start with you might want 
+to use one of the existing rating schemes and provide a user interface for it. If none of the existing rating schemes 
+fit the bill, then you can implement a custom rating scheme.
 
- In the node actions to the right we will add a document library action called "Rate Node". It will be available if the node has not been previously rated with the Five Star scheme by the user. The action will not be available if the node has been created by current user. This is because the Rating Service does not allow you to rate what you have created yourself.
+Let's start with a sample that provides a user interface for the out-of-the-box `fiveStarRatingScheme`. We will add an 
+action to the Share UI so we can rate a node with the Five Star rating scheme, it will look something like this:
 
- When a node has been rated it will have a star indicator in the browse view as shown in the above screenshot for the testacme.txt file. The indicators will only be displayed for files rated by the user. So a file could be rated by another user and current user will not see an indicator. The user have to look at the node's properties to see rating information:
+![dev-extensions-repo-rating-share-ui]({% link content-services/images/dev-extensions-repo-rating-share-ui.png %})
 
- ![]({% link content-services/images/dev-extensions-repo-rating-share-ui-props.png %})
+In the node actions to the right we will add a document library action called "Rate Node". It will be available if the 
+node has not been previously rated with the Five Star scheme by the user. The action will not be available if the node 
+has been created by current user. This is because the Rating Service does not allow you to rate what you have created 
+yourself.
 
- After a node has been rated the two rating properties will be updated, they show the number of users that have rated the node (that is, the count property) and the total sum of all rating values (so if 2 users selected 4 stars rating then it will show 8 as in above screenshot).
+When a node has been rated it will have a star indicator in the browse view as shown in the above screenshot for the 
+`testacme.txt` file. The indicators will only be displayed for files rated by the user. So a file could be rated by 
+another user and current user will not see an indicator. The user have to look at the node's properties to see rating 
+information:
 
- When a user clicks on the 'Rate Node' a pop-up form is displayed as follows:
+![dev-extensions-repo-rating-share-ui-props]({% link content-services/images/dev-extensions-repo-rating-share-ui-props.png %})
 
- ![]({% link content-services/images/dev-extensions-repo-rating-share-ui-select.png %})
+After a node has been rated the two rating properties will be updated, they show the number of users that have rated 
+the node (that is, the count property) and the total sum of all rating values (so if 2 users selected 4 stars rating 
+then it will show 8 as in above screenshot).
 
- The form has a drop down where the user can select the Five Star rating he or she wants to give the node. This user interface will be used to demonstrate how the Rating Service can be used, it is by no mean a complete Five Star rating user interface. Everyone will have different ideas around how it should look like, what widgets and icons to use etc.
+When a user clicks on the 'Rate Node' a pop-up form is displayed as follows:
 
- Let's start by defining the [Document Library]({% link content-services/5.2/develop/share-ext-points/doclib.md %}#document-library)) action (note that this is not a repository extension but should be part of a Share extension JAR, such as the one that is part of an [All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3)):
+![dev-extensions-repo-rating-share-ui-select]({% link content-services/images/dev-extensions-repo-rating-share-ui-select.png %})
 
- ```
+The form has a drop down where the user can select the Five Star rating he or she wants to give the node. This user 
+interface will be used to demonstrate how the Rating Service can be used, it is by no mean a complete Five Star rating 
+user interface. Everyone will have different ideas around how it should look like, what widgets and icons to use etc.
+
+Let's start by defining the [Document Library]({% link content-services/5.2/develop/share-ext-points/doclib.md %}) action 
+(note that this is not a repository extension but should be part of a 
+[Share JAR Module]({% link content-services/5.2/develop/sdk.md %}#workingshare)):
+
+```xml
 <config evaluator="string-compare" condition="DocLibActions">
      <actions>
          <action id="alfresco.tutorials.doclib.action.rateNode"
@@ -73,29 +91,35 @@ Alfresco Content Services supports rating of content according to different sche
  </config>
 ```
 
- This configuration defines the Rate Node Doc Lib action and makes it visible when browsing files and folders -and when looking at details pages for files and folders. The `onActionFormDialog` is an out-of-the-box JavaScript `function` that can be used when you need a form to collect data that should be used by the action. And this the function will take this data and call the [Repo Action]({% link content-services/5.2/develop/repo-ext-points/repo-actions.md %}) that is specified with the `itemId` parameter.
+This configuration defines the Rate Node Doc Lib action and makes it visible when browsing files and folders and 
+when looking at details pages for files and folders. The `onActionFormDialog` is an out-of-the-box JavaScript 
+`function` that can be used when you need a form to collect data that should be used by the action. And this the 
+function will take this data and call the [Repo Action]({% link content-services/5.2/develop/repo-ext-points/repo-actions.md %}) 
+that is specified with the `itemId` parameter.
 
- The visibility of the Doc Lib action will be controlled by the evaluator with the id `alfresco.tutorials.evaluator.isRatedFiveStar`, we negate whatever result this evaluator gives, and if the end result is `true`, then we display the Doc Lib action.
+The visibility of the Doc Lib action will be controlled by the evaluator with the id `alfresco.tutorials.evaluator.isRatedFiveStar`, 
+we negate whatever result this evaluator gives, and if the end result is `true`, then we display the Doc Lib action.
 
- The Doc Lib action uses a lot of labels that are specified in an i18n properties file as follows:
+The Doc Lib action uses a lot of labels that are specified in an i18n properties file as follows:
 
- ```
-# Rate Node doclib action labels and messages {#rate-node-doclib-action-labels-and-messages}
+```text
+# Rate Node doclib action labels and messages
 alfresco.tutorials.doclib.action.rateNode.label=Rate Node
 alfresco.tutorials.doclib.action.rateNode.msg.success='{0}' was successfully rated
 alfresco.tutorials.doclib.action.rateNode.msg.failure=Could not rate '{0}'
 
-# Rating Indicator label {#rating-indicator-label}
+# Rating Indicator label
 alfresco.tutorials.indicator.isRated.label=Rated
 
-# Rate Node Form {#rate-node-form}
+# Rate Node Form
 form.set.label.node.rating=Select rating for the node
 alfresco.tutorials.doclib.action.rateNode.form.field.starRating=Star rating
 ```
 
- While we are at it with the labels we include the ones we are going to need for the indicator and select form. The indicator and select form look like this:
+While we are at it with the labels we include the ones we are going to need for the indicator and select form. 
+The indicator and select form look like this:
 
- ```
+```xml
 <config evaluator="string-compare" condition="DocumentLibrary">
      <indicators>
          <indicator id="alfresco.tutorials.indicator.isRated"
@@ -141,13 +165,16 @@ alfresco.tutorials.doclib.action.rateNode.form.field.starRating=Star rating
  </config>
 ```
 
- The form for selecting the Five Star rating has been hard-coded with the options as we can see. The repository action (with id rate-node) will receive a parameter called `star_rating` with the selected rating value (that is, 1,2,3,4, or 5).
+The form for selecting the Five Star rating has been hard-coded with the options as we can see. The repository action 
+(with id rate-node) will receive a parameter called `star_rating` with the selected rating value (that is, 1,2,3,4, or 5).
 
- The above configuration also contains a form configuration for the `cm:fiveStarRatingSchemeRollups` aspect, which will be automatically applied to a node when it is rated for the first time, and updated every time somebody new rates the node.
+The above configuration also contains a form configuration for the `cm:fiveStarRatingSchemeRollups` aspect, which will 
+be automatically applied to a node when it is rated for the first time, and updated every time somebody new rates the node.
 
- The [Repository Action]({% link content-services/5.2/develop/repo-ext-points/repo-actions.md %}) implementation look like this (this should be contained in a Repository JAR, such as the one contained in an [All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3)):
+The [Repository Action]({% link content-services/5.2/develop/repo-ext-points/repo-actions.md %}) implementation look 
+like this (this should be contained in a [Repository JAR Module]({% link content-services/5.2/develop/sdk.md %}#workingplatform)):
 
- ```
+```java
 public class RateNodeActionExecuter extends ActionExecuterAbstractBase {
     private static Log LOG = LogFactory.getLog(RateNodeActionExecuter.class);
 
@@ -209,11 +236,15 @@ public class RateNodeActionExecuter extends ActionExecuterAbstractBase {
 }
 ```
 
- The repository action first gets the rating value passed in via the `star_rating` parameter. Then the Service Registry is used to get to the Rating Service, which is then used to apply the Five Star rating value to the node that the action is executed on. The Rating Service can also be used to get rating information such as in the example above where the `getRatingByCurrentUser` method is used to get current users rating.
+The repository action first gets the rating value passed in via the `star_rating` parameter. Then the Service Registry 
+is used to get to the Rating Service, which is then used to apply the Five Star rating value to the node that the action 
+is executed on. The Rating Service can also be used to get rating information such as in the example above where the 
+`getRatingByCurrentUser` method is used to get current users rating.
 
- It is also possible to access rating information for a node via a REST API, which is used in the evaluator that is associated with both the indicator and the Doc Lib action:
+It is also possible to access rating information for a node via a REST API, which is used in the evaluator that is 
+associated with both the indicator and the Doc Lib action:
 
- ```
+```java
 public class IsRatedEvaluator extends BaseEvaluator {
     private static final String PROP_NODEREF = "nodeRef";
     private static final String PROP_NODE_CREATOR = "cm:creator";
@@ -318,9 +349,9 @@ public class IsRatedEvaluator extends BaseEvaluator {
 }
 ```
 
- This evaluator uses the Rating REST API to make a call for all ratings made on a node. The URL and JSON response for this call looks like this:
+This evaluator uses the Rating REST API to make a call for all ratings made on a node. The URL and JSON response for this call looks like this:
 
- ```
+```text
 Call Example:
    http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/55e1cf8b-ac7a-4da5-9b3b-7ba8769923ab/ratings
  Response:
@@ -358,24 +389,31 @@ Call Example:
      }
 ```
 
- This call is used to fetch all ratings made for a node with any scheme, such as `fiveStar` and `likes` in the above sample response. If current user has made a rating with one or more of the schemes then the `myRating` property will be set with the value.
+This call is used to fetch all ratings made for a node with any scheme, such as `fiveStar` and `likes` in the above 
+sample response. If current user has made a rating with one or more of the schemes then the `myRating` property will 
+be set with the value.
 
- Note that the scheme names are shorter variants of the ones used with the Java Rating Service (that is, `fiveStar` instead of `fiveStarRatingScheme`).
+Note that the scheme names are shorter variants of the ones used with the Java Rating Service (that is, `fiveStar` 
+instead of `fiveStarRatingScheme`).
 
- This sample has shown you how easy it is to start building a rating solution with the out-of-the-box rating schemes. Now, what would you have to do to use a custom rating scheme, such as a TV rating scheme that could be used to rate videos uploaded to Alfresco Content Services.
+This sample has shown you how easy it is to start building a rating solution with the out-of-the-box rating schemes. 
+Now, what would you have to do to use a custom rating scheme, such as a TV rating scheme that could be used to rate 
+videos uploaded to Content Services.
 
- Let's say you wanted to implement the US TV rating system as follows:
+Let's say you wanted to implement the US TV rating system as follows:
 
- -   (1) TV-Y
--   (2) TV-Y7
--   (3) TV-G
--   (4) TV-PG
--   (5) TV-14
--   (6) TV-MA
+* (1) TV-Y
+* (2) TV-Y7
+* (3) TV-G
+* (4) TV-PG
+* (5) TV-14
+* (6) TV-MA
 
- New rating schemes can be added via spring injection. You simply need to define a bean that has `baseRatingScheme` as its parent bean, then add properties for `minRating` and `maxRating`, and the scheme will be automatically registered with the system on start-up:
+New rating schemes can be added via spring injection. You simply need to define a bean that has `baseRatingScheme` as 
+its parent bean, then add properties for `minRating` and `maxRating`, and the scheme will be automatically registered 
+with the system on start-up:
 
- ```
+```xml
 <bean name="usTvRatingScheme" parent="baseRatingScheme" class="org.alfresco.repo.rating.RatingSchemeImpl">
     <property name="minRating" value="1"/>  <!-- TV-Y -->
     <property name="maxRating" value="6"/>  <!-- TV-MA -->
@@ -394,15 +432,22 @@ Call Example:
 </bean>
 ```
 
- This new Rating scheme will be registered under the bean `name`, which is `usTvRatingScheme`. When defining the new rating scheme we specify what the `min` and `max` rating value is for the scheme. The rating values are specified as float (or integers) and we would have to map those to a UI representation, similar to how we did it for the five star scheme above. We can specify if the scheme allows self rating or not with the `selfRatingAllowed` property, remember the fiveStar scheme, it did not allow self rating.
+This new Rating scheme will be registered under the bean `name`, which is `usTvRatingScheme`. When defining the new 
+rating scheme we specify what the `min` and `max` rating value is for the scheme. The rating values are specified as 
+float (or integers) and we would have to map those to a UI representation, similar to how we did it for the five star 
+scheme above. We can specify if the scheme allows self rating or not with the `selfRatingAllowed` property, remember 
+the `fiveStar` scheme, it did not allow self rating.
 
- There is also a content model aspect that is needed to keep track of the scheme rollups. Where this aspect is defined is controlled by the Spring bean property `modelPrefix`, which in this case is set to a content model namespace prefix `acmer`.
+There is also a content model aspect that is needed to keep track of the scheme rollups. Where this aspect is defined 
+is controlled by the Spring bean property `modelPrefix`, which in this case is set to a content model namespace prefix 
+`acmer`.
 
- The aspect basically keeps a count of the number of users that have rated a node with a scheme, and the total rating value for all ratings.
+The aspect basically keeps a count of the number of users that have rated a node with a scheme, and the total rating 
+value for all ratings.
 
- The US TV Scheme rollups aspect looks like this:
+The US TV Scheme rollups aspect looks like this:
 
- ```
+```xml
 <model name="acmer:ratingModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
 
     <description>US TV Ratings Model</description>
@@ -447,11 +492,12 @@ Call Example:
 </model>
 ```
 
- The naming convention for the aspect is `<namespace specified with modelPrefix bean prop>:<bean name>Rollups`. The two aspect properties also have a similar naming convention.
+The naming convention for the aspect is `<namespace specified with modelPrefix bean prop>:<bean name>Rollups`. The two 
+aspect properties also have a similar naming convention.
 
- To deploy the content model we use a dictionary bootstrap such as:
+To deploy the content model we use a dictionary bootstrap such as:
 
- ```
+```xml
 <bean id="org.alfresco.tutorial.add-rating.dictionaryBootstrap"
       parent="dictionaryModelBootstrap"
       depends-on="dictionaryBootstrap">
@@ -463,11 +509,14 @@ Call Example:
 </bean>
 ```
 
- We could now start rating nodes with this custom theme in the same way we did it in the Repository action above, using the Java Rating Service. We just need to change `fiveStarRatingScheme` to `usTvRatingScheme`.
+We could now start rating nodes with this custom theme in the same way we did it in the Repository action above, using 
+the Java Rating Service. We just need to change `fiveStarRatingScheme` to `usTvRatingScheme`.
 
- Now, for this custom rating theme to work with the new REST API, which was used in the Share evaluator above, we would have to add a Spring bean and a couple of classes. The bean will instantiate a class that maps the REST API's representation of the rating scheme to the Rating Service representation. Here is the class:
+Now, for this custom rating theme to work with the new REST API, which was used in the Share evaluator above, we would 
+have to add a Spring bean and a couple of classes. The bean will instantiate a class that maps the REST API's 
+representation of the rating scheme to the Rating Service representation. Here is the class:
 
- ```
+```java
 import org.alfresco.rest.api.impl.node.ratings.AbstractRatingScheme;
 import org.alfresco.rest.api.model.DocumentRatingSummary;
 import org.alfresco.rest.framework.core.exceptions.InvalidArgumentException;
@@ -531,11 +580,12 @@ public class UsTvRatingScheme extends AbstractRatingScheme {
 }
 ```
 
- When defining the constructor for this class we map between the REST API name for the scheme and the original scheme name definition, that is, `usTv` -> `usTvRatingScheme`.
+When defining the constructor for this class we map between the REST API name for the scheme and the original scheme 
+name definition, that is, `usTv` -> `usTvRatingScheme`.
 
- This class uses the `UsTvRatingSummary` class, which we also need to implement:
+This class uses the `UsTvRatingSummary` class, which we also need to implement:
 
- ```
+```java
 import org.alfresco.rest.api.model.DocumentRatingSummary;
 
 /**
@@ -569,9 +619,9 @@ public class UsTvRatingSummary implements DocumentRatingSummary {
 }
 ```
 
- This API Rating Scheme class is registered with the REST API as follows:
+This API Rating Scheme class is registered with the REST API as follows:
 
- ```
+```xml
 <bean id="apiUsTvRatingScheme" class="org.alfresco.tutorial.rating.scheme.UsTvRatingScheme">
     <property name="nodeService" ref="NodeService" />
     <property name="dictionaryService" ref="DictionaryService" />
@@ -582,73 +632,71 @@ public class UsTvRatingSummary implements DocumentRatingSummary {
 </bean>
 ```
 
- If we now make a call to the rating rest API to get the ratings for a node (e.g. `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/591a3463-ca44-4c5e-ad28-eee72a9c4609/ratings`), we should see the following type of response:
+If we now make a call to the rating rest API to get the ratings for a node 
+(e.g. `http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/591a3463-ca44-4c5e-ad28-eee72a9c4609/ratings`), 
+we should see the following type of response:
 
- ```
-
-     {
-     list: {
-         pagination: {
-                count: 3,
-                hasMoreItems: false,
-                totalItems: 3,
-                skipCount: 0,
-                maxItems: 100
-        },
-        entries: [
-             {
-                 entry: {
-                     myRating: 3,
-                     ratedAt: "2016-02-18T11:12:12.526+0000",
-                     id: "fiveStar",
+```json
+ {
+ list: {
+     pagination: {
+            count: 3,
+            hasMoreItems: false,
+            totalItems: 3,
+            skipCount: 0,
+            maxItems: 100
+    },
+    entries: [
+         {
+             entry: {
+                 myRating: 3,
+                 ratedAt: "2016-02-18T11:12:12.526+0000",
+                 id: "fiveStar",
+                 aggregate: {
+                     numberOfRatings: 1,
+                     average: 3
+                 }
+             }
+         },
+         {
+             entry: {
+                 id: "likes",
                      aggregate: {
-                         numberOfRatings: 1,
-                         average: 3
-                     }
+                     numberOfRatings: 0
                  }
-             },
-             {
-                 entry: {
-                     id: "likes",
-                         aggregate: {
-                         numberOfRatings: 0
-                     }
+             }
+         },
+         {
+             entry: {
+                 id: "usTv",
+                     aggregate: {
+                     numberOfRatings: 0
                  }
-             },
-             {
-                 entry: {
-                     id: "usTv",
-                         aggregate: {
-                         numberOfRatings: 0
-                     }
-                 }
-             }             
-         ]
-         }
+             }
+         }             
+     ]
      }
+ }
 ```
 
- Note the `entry` for the US TV Rating Scheme at the end.
+Note the `entry` for the US TV Rating Scheme at the end.
 
-|
-|Deployment - App Server|-   A lot of Java code is usually involved in implementing a Rating solution, so it is better to use repository and Share AMPs for this.
+## Deployment - App Server
 
-|
-|[Deployment All-in-One SDK project]({% link content-services/5.2/develop/sdk.md %}#getting-started-with-alfresco-content-services-sdk-3).|-   **Share:**
--   aio/share-jar/src/main/resources/alfresco/web-extension - Doc Lib actions, Properties, Indicators etc
--   aio/share-jar/src/main/resources/META-INF/resources/share-jar/components/documentlibrary/[indicators | actions] - resources such as CSS, JS, Images
--   aio/share-jar/src/main/java/{custom package path} - UI evaluators
--   **Platform:**
--   aio/platform-jar/src/main/java/{custom package path} - Rating related Java classes
--   aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/bootstrap-context.xml - Custom Rating Scheme Spring Bean definition, REST API Rating scheme beans, content model bootstrapping
--   aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml - repository Action Spring Bean definition
+* A lot of Java code is usually involved in implementing a Rating solution, so it is better to use repository and Share JARs for this.
 
-|
-|More Information| |
-|Sample Code|-   [FiveStar Rating sample and custom UsTv Rating sample](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-rating-repo)
--   [FiveStar Rating UI sample](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-rating-share)
+## Deployment All-in-One SDK project
 
-|
-|Tutorials|None|
-|Alfresco Developer Blogs|None|
+* **Share:**
+* `aio/share-jar/src/main/resources/alfresco/web-extension` - Doc Lib actions, Properties, Indicators etc
+* `aio/share-jar/src/main/resources/META-INF/resources/share-jar/components/documentlibrary/[indicators | actions]` - resources such as CSS, JS, Images
+* `aio/share-jar/src/main/java/{custom package path}` - UI evaluators
+* **Platform:**
+* `aio/platform-jar/src/main/java/{custom package path}` - Rating related Java classes
+* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/bootstrap-context.xml` - Custom Rating Scheme Spring Bean definition, REST API Rating scheme beans, content model bootstrapping
+* `aio/platform-jar/src/main/resources/alfresco/module/platform-jar/context/service-context.xml` - repository Action Spring Bean definition
 
+## Sample Code
+
+* [FiveStar Rating sample and custom UsTv Rating sample](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-rating-repo){:target="_blank"}
+* [FiveStar Rating UI sample](https://github.com/Alfresco/alfresco-sdk-samples/tree/alfresco-51/all-in-one/add-rating-share){:target="_blank"}

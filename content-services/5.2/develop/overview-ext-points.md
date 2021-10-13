@@ -9,4 +9,4 @@ The extension points are all in-process extension points.
 The in-process extension points can be divided further into server side extensions for the Platform, also referred to as Repository, and UI extensions for the web client called Share. To get started see [Platform extensions overview]({% link content-services/5.2/develop/repo-ext-points/index.md %})
 and [Share extensions overview]({% link content-services/5.2/develop/share-ext-points/index.md %}).
 
-Also, you should get familiar with [SDK 4]({% link content-services/5.2/develop/sdk.md %}) as it is the recommended way of developing in-process extensions.
+Also, you should get familiar with [SDK 3]({% link content-services/5.2/develop/sdk.md %}) as it is the recommended way of developing in-process extensions.
