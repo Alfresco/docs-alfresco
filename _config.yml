@@ -171,14 +171,19 @@ defaults:
       toc: "aws-glacier"
       support: true
       versions:
+        - 2.2
         - 2.1
         - 2.0
         - 1.0
   - scope:
       path: "aws-glacier/latest"
     values:
-      version: 2.1
+      version: 2.2
       latest: true
+  - scope:
+      path: "aws-glacier/2.1"
+    values:
+      version: 2.1
   - scope:
       path: "aws-glacier/2.0"
     values:
