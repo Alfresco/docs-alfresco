@@ -455,7 +455,7 @@
           pages:
             - title: 'In-Process SDK (4.2)'
               path: '/content-services/community/develop/sdk/'
-            - title: 'Out-of-Process SDK (5.0)'
+            - title: 'Out-of-Process SDK (5.1)'
               path: '/content-services/community/develop/oop-sdk/'
         - title: 'Extension packaging (modules)'
           path: '/content-services/community/develop/extension-packaging/'
@@ -469,6 +469,8 @@
               path: '/content-services/community/develop/oop-ext-points/'
             - title: 'Events'
               path: '/content-services/community/develop/oop-ext-points/events/'
+            - title: 'Event Gateway'
+              path: '/content-services/community/develop/oop-ext-points/event-gateway/'
             - title: 'ReST API Java Wrapper'
               path: '/content-services/community/develop/oop-ext-points/rest-api-java-wrapper/'
         - title: 'Platform extension points'
