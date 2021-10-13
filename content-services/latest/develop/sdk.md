@@ -19,7 +19,7 @@ and supports Content Services both in Community Edition and Enterprise Edition. 
 check the [Alfresco SDK Support status]({% link content-services/latest/support/index.md %}) 
 for the version you're using. If your version is in Limited or Full Support and you need help, contact our [Support team](https://support.alfresco.com/){:target="_blank"}.
 
-Alfresco SDK 4.3 is a minor update to the SDK and provides support for Alfresco 7.0.
+Alfresco SDK 4.3 is a minor update to the SDK and provides support for Alfresco 7.1.
 
 The 4.0 release took advantage of Semantic Versioning ([SEMVER](https://semver.org/){:target="_blank"}), which means that it isn't directly compatible with the previous releases of the SDK.
 
