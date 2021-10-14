@@ -252,12 +252,12 @@ defaults:
     values:
       version: 2.1
 
-# Alfresco Identity Service
+# Identity Service
   - scope:
       path: "identity-service"
     values:
       layout: "docs"
-      product: "Alfresco Identity Service"
+      product: "Identity Service"
       location: "identity-service"
       toc: "identity-service"
       support: true
