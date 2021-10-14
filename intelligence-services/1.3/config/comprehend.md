@@ -446,7 +446,7 @@ In the `docker-compose` snippet, the custom AI configuration files must be mount
 
 ```yaml
 share:
-    image: quay.io/alfresco/alfresco-share-ai-transformers-module:1.4.x
+    image: quay.io/alfresco/alfresco-share-ai-transformers-module:1.3.0
     environment:
       REPO_HOST: "alfresco"
       REPO_PORT: "8080"
@@ -515,7 +515,7 @@ Content:
 ]
 ```
 
-The above snippet adds the aspects in the earlier [Custom AI content model configuration]({% link intelligence-services/latest/config/comprehend.md %}#custom-ai-content-model) to the existing `"ai.metadata.features"` list of items in the `ai-view.extension.json` file.
+The above snippet adds the aspects in the earlier [Custom AI content model configuration]({% link intelligence-services/1.3/config/comprehend.md %}#custom-ai-content-model) to the existing `"ai.metadata.features"` list of items in the `ai-view.extension.json` file.
 
 The JSON path for the new items is `$.features.content-metadata-presets[:].custom[:].items`.
 
@@ -525,7 +525,7 @@ For more details on extending the features of Digital Workspace, see the Alfresc
 
 ```yaml
   digital-workspace:
-    image: quay.io/alfresco/alfresco-digital-workspace:2.4.0-adw
+    image: quay.io/alfresco/alfresco-digital-workspace:2.1.0-adw
     environment:
       BASE_PATH: ./
       APP_CONFIG_PLUGIN_AI_SERVICE: "true"
