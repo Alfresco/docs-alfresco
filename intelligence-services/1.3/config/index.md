@@ -36,7 +36,7 @@ You can still customize the **Request AI renditions** action, as in the default 
 
 There are four steps to configuring the default (i.e. out-of-the-box) deployment of Intelligence Services: export your environment variables, add the AI Transform Engine to your deployment, override the Transform Router configuration, and override the Digital Workspace configuration.
 
-> **Note:** Ensure that you've completed the [AWS setup]({% link intelligence-services/latest/install/index.md %}#set-up-services-in-aws) before continuing.
+> **Note:** Ensure that you've completed the [AWS setup]({% link intelligence-services/1.3/install/index.md %}#set-up-services-in-aws) before continuing.
 
 A number of environment variables allow you to specify the configuration options and credentials that are required to run the AI Transform Engine.
 
@@ -60,7 +60,7 @@ A number of environment variables allow you to specify the configuration options
 
     ```yaml
     aws-ai:
-        image: quay.io/alfresco/alfresco-ai-docker-engine:1.4.x
+        image: quay.io/alfresco/alfresco-ai-docker-engine:1.3.0
         environment:
             JAVA_OPTS: " -Xms256m -Xmx768m"
             # JAVA_OPTS: " -Xms256m -Xmx512m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 "
@@ -86,7 +86,7 @@ A number of environment variables allow you to specify the configuration options
 
     ```yaml
     transform-router:
-        image: quay.io/alfresco/alfresco-transform-router:1.4.x
+        image: quay.io/alfresco/alfresco-transform-router:1.3.0
         environment:
             JAVA_OPTS: " -Xms256m -Xmx512m"
             FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
@@ -112,7 +112,7 @@ A number of environment variables allow you to specify the configuration options
 
     ```yaml
   digital-workspace:
-    image: quay.io/alfresco/alfresco-digital-workspace:2.4.0-adw
+    image: quay.io/alfresco/alfresco-digital-workspace:2.1.0-adw
     environment:
       BASE_PATH: ./
       APP_CONFIG_PLUGIN_AI_SERVICE: "true"
