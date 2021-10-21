@@ -157,7 +157,7 @@ The advanced properties for a date field are:
 | Min date | Sets the earliest date that can be entered into the field. |
 | Max date | Sets the latest date that can be entered into the field. |
 | Date format | Sets the format of how a date is entered into the field. For example: `YYYY-MM-DD` would display as `2001-10-01` for 1st October, 2001. |
-| Set current date as default | Sets the default value of the field to be the current date. |
+| Default value | Sets the default date of the field. If you want the default date to be 'today' and that is the current day then you can select the **Today** checkbox. |
 
 ### Display text fields
 
