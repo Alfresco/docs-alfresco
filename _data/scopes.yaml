@@ -13,6 +13,7 @@ integrations:
     transform-service: "Transform Service"
     transformation-engine: "Document Transformation Engine"
     media-management: "Media Management"
+    search-enterprise: "Search Enterprise"
     insight-engine: "Search and Insight Engine"
     search-services: "Search Services"
     federation-services: "Federation Services"
