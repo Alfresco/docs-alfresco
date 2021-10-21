@@ -134,7 +134,7 @@ To help you get started example projects for Audio and Video Transcription, Pers
 
 ![Example projects]({% link process-automation/images/example-projects.png %})
 
-### Access Example Projects
+### Access example projects
 
 To access an example project:
 
