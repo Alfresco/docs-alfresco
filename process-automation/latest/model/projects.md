@@ -128,7 +128,7 @@ File definitions are created and stored for each model in a project:
 * `<content-model>-extensions.json` is the format that stores the content model metadata.
 * `<project-name>.json` is the project manifest that stores the name and version of a project.
 
-## Example Projects
+## Example projects
 
 To help you get started example projects for Audio and Video Transcription, Personal Identifiable Information Detection, and Invoice Review process are provided. Once you access the example projects you can make copies of them and save them as your own. Once saved, they can be reconfigured for your own purposes, including deploying your own applications that are based on them.
 
