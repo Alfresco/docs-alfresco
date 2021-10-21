@@ -32,7 +32,7 @@ The installation of the Collaboration Connector for Teams involves a number of s
 
 The following picture illustrates the components involved in this solution:
 
-![Alf Collab Conn for Teams overview]({% link facebook/images/collaboration-connector-teams-overview.png %}){:height="600px" width="800px"}
+![Alf Collab Conn for Teams overviews]({% link facebook/images/collaboration-connector-teams-overview.png %}){:height="600px" width="800px"}
 
 The picture shows a number of components that need to be installed to get the Collaboration Connector for Teams up and 
 running in your environment. The [first thing you need to install](#install-acs) is Alfresco Content Services with 
