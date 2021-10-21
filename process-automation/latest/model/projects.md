@@ -4,7 +4,7 @@ title: Projects
 
 Projects are the top level component of the business process being modeled. They contain all of the logic for the models that make up the business process such as forms, processes, content models and connectors.
 
-Some example projects are available for you to use to help you get started, for more see [Example projects] 
+Some example projects are available for you to use to help you get started, for more see [Example projects].
 
 ## Create a project
 
