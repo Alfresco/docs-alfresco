@@ -6,7 +6,7 @@ The Collaboration Connector for Teams can be installed using a distribution zip.
 
 ## Prerequisites
 
-There are a number of software requirements for installing the Collaboration Connector for Teams:
+Some new docs version 3
 
 ### Alfresco requirements
 
