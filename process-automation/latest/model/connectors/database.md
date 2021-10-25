@@ -2,12 +2,12 @@
 title: Database connectors
 ---
 
-There are three database connectors that can be used to execute queries against:
+There are four database connectors that can be used to execute queries against:
 
 * [MariaDB](#mariadb)
 * [Oracle](#oracle)
 * [PostgreSQL](#postgresql)
-* []
+* [Microsoft SQL Server](#Microsoftsqlserver)
 
 All database connectors are displayed on the process diagram with their respective logos.
 
@@ -723,7 +723,7 @@ The configuration parameters for the SQL Server connector are:
 | SQLSERVER_PORT | *Optional.* The port of the hosted database, for example `421`. |
 | DB_NAME | *Optional.* The name of the database to execute the statement against, for example `inventory`. |
 | DB_DATASOURCE | *Required.* The database datasource, the default value is a concatenation of `SQLSERVER_HOST`, `SQLSERVER_PORT` and `DB_NAME`: `jdbc:sqlserver://${SQLSERVER_HOST}:${SQLSERVER_PORT}/${DB_NAME}`. |
-| DB_DRIVER_CLASS_NAME | *Optional.* The database driver to use. The default value is `org.SQL Server.Driver`. |
+| DB_DRIVER_CLASS_NAME | *Optional.* The database driver to use. The default value is `com.microsoft.sqlserver.jdbc.SQLServerDriver`. |
 
 ### SQL Server errors
 
