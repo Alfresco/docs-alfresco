@@ -7,7 +7,7 @@ There are four database connectors that can be used to execute queries against:
 * [MariaDB](#mariadb)
 * [Oracle](#oracle)
 * [PostgreSQL](#postgresql)
-* [Microsoft SQL Server](#Microsoftsqlserver)
+* [Microsoft SQL Server](#microsoft-sql-server)
 
 All database connectors are displayed on the process diagram with their respective logos.
 
