@@ -4,6 +4,8 @@ title: Projects
 
 Projects are the top level component of the business process being modeled. They contain all of the logic for the models that make up the business process such as forms, processes, content models and connectors.
 
+Some example projects are available for you to use to help you get started, for more see [Example projects].
+
 ## Create a project
 
 To create a project:
@@ -125,3 +127,25 @@ File definitions are created and stored for each model in a project:
 * `<content-model-name>.xml` is the format the content model is stored in.
 * `<content-model>-extensions.json` is the format that stores the content model metadata.
 * `<project-name>.json` is the project manifest that stores the name and version of a project.
+
+## Example projects
+
+To help you get started example projects for Audio and Video Transcription, Personal Identifiable Information Detection, and Invoice Review process are provided. Once you access the example projects you can make copies of them and save them as your own. Once saved, they can be reconfigured for your own purposes, including deploying your own applications that are based on them.
+
+![Example projects]({% link process-automation/images/example-projects.png %})
+
+### Access example projects
+
+To access an example project:
+
+1. Sign into the Modeling Application.
+
+2. Click **Example Projects** from the left pane.
+
+3. Select the example project you want to work with.
+
+4. Click **Duplicate and open**.
+
+5. Enter an appropriate name and click **Duplicate**.
+
+![Duplicate projects]({% link process-automation/images/duplicate-projects.png %})
