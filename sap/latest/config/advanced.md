@@ -564,6 +564,10 @@ To create a new inbox task (SAP Workflow) for a SAP user including the current d
 
 5. The current document is now available as attachment (link to the document in Content Services) of an inbox task assigned to the user in SAP.
 
+## Configure GenericXchange
+To configure the GenericXchange module which is used for flexible data exchange either via a secure Remote Function Call (RFC/SNC) connection or by invoking an Open Data Protocol (OData) service on the related SAP System (either SAP Cloud Essentials or SAP S/4HANA on-premises) refer to this page:
+[Configure GenericXchange/](https://docs.alfresco.com/sap-cloud/latest/config/genericxchange/)
+
 ## Open associated Business Object in SAP {#openassocbusinessobjinsap}
 
 This feature allows you to open the corresponding SAP Business Object that's linked to a document in Alfresco Share. This action is provided in the **Document Actions** menu, and once clicked it opens the SAP Web-GUI and invokes the SAP Business Object in the related transaction.
