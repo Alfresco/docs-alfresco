@@ -8,7 +8,11 @@
     - title: 'Upgrade'
       path: '/aws-s3/latest/upgrade/'
     - title: 'Configure'
-      path: '/aws-s3/latest/config/'
+      pages:
+        - title: 'Overview'
+          path: '/aws-s3/latest/config/'
+        - title: 'Direct access URLs'
+          path: '/aws-s3/latest/config/direct-access/'
     - title: 'Using'
       pages:
         - title: 'FAQ'

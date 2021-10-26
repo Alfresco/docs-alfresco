@@ -31,7 +31,9 @@ See the [Alfresco Search Enterprise]({% link search-enterprise/latest/index.md %
 
 ### Direct Access URLs
 
-Direct access URLs enable the acceleration of the local download of content to aid distributed content repositories in customer environments, and cloud deployments. The new endpoints are detailed in the Release Notes that you'll find in the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
+Direct access URLs enable the acceleration of the local download of content to aid distributed content repositories in customer environments, and cloud deployments. The new endpoints are highlighted in the Release Notes that you'll find in the [Support Portal](https://support.alfresco.com/){:target="_blank"}.
+
+See the Alfresco Content Connector for AWS S3 documentation on [Direct Access URLs]({% link aws-s3/latest/config/direct-access.md %}) for more details.
 
 ## Install
 
