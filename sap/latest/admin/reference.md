@@ -329,7 +329,7 @@ To prepare the SAP Content Repository to use a secure connection, follow these s
 
     2. Add the `SSL Port Number`.
 
-    3. Select choice `HTTPS possible` as value for **HTTPS on frontend**.
+    3. Select choice `HTTPS required` as value for **HTTPS on frontend**.
 
     4. Select choice `HTTPS required` as value for **HTTPs on backend**.
 
