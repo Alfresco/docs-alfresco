@@ -4,7 +4,7 @@ title: Direct Access URLs
 
 The main purpose of Direct Access URLs (or DAUs) is to accelerate the local download of content by allowing you to have direct content URLs for your binary content that can help with distributed content repositories in customer environments, and cloud deployments.
 
-AWS S3 provides a way of generating [pre-signed URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html){:target="_blank"} for sharing objects. This feature is a perfect candidate for implementing direct access to your content, for example, short-cutting the Shared File Store for transformations or faster/direct access in the context of Alfresco Digital Workspace (ADW) to documents).
+AWS S3 provides a way of generating [pre-signed URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html){:target="_blank"} for sharing objects. This feature is a perfect candidate for implementing direct access to your content.
 
 > **Note:** The AWS S3 pre-signed URLs are temporary links with an expiration time.
 
@@ -95,7 +95,7 @@ The endpoints return the following response:
 }
 ```
 
-The length of time for which a direct access URL is valid defaults to `300` seconds (i.e. 5 minutes) if not configured otherwise in `alfresco-global.properties`.
+The length of time for which a direct access URL is valid defaults to `30` seconds if not configured otherwise in `alfresco-global.properties`.
 
 <!-- method / description / request/ parameters / response / error codes -->
 
