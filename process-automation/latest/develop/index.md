@@ -213,11 +213,11 @@ To include custom form fields within a form, the [form field customizations](htt
 
 > **Note**: The custom field can be [included in a form]({% link process-automation/latest/model/forms.md %}#custom-form-widgets) before the custom interface has been deployed.
 
-## Cleanup historical data
+## Clean up historical data
 
-You can use the REST API or the Create Cleanup Job process from within the Admin App to cleanup your historical data.
+You can use the REST API or the Create cleanup job process from within the Admin App to clean up your historical data.
 
-### Cleanup using REST API
+### Clean up using REST API
 
 You can clean up historical data using the REST API by using specific keys as input paramaters.
 
@@ -243,7 +243,7 @@ For example:
 }
 ```
 
-### Cleanup using Create cleanup job process
+### Clean up using Create cleanup job
 
 You can clean up historical data using the Create cleanup job process from within the Admin App.
 
@@ -255,14 +255,14 @@ You can clean up historical data using the Create cleanup job process from withi
 
 4. Click the **+** symbol on the top right to create a new cleanup job.
 
-5. Select the application you want to run the Create Cleanup job process on from the drop down menu.
+5. Select the application you want to run the Create cleanup job process for from the drop down menu.
 
-6. Select the applications process definition you want to clean up.
+6. Select the applications process definition you want to cleanup.
 
-    If you do not select a process definition for the application all process definitions are selected.
+    You can select multiple process definitions. If you do not select a process definition for the application all process definitions are selected.
 
-7. Select the number of days you want to retain any completed or cancelled processes.
+7. Select the period of time you want to retain any completed or cancelled processes.
 
 8. Click **Yes I agree** to creating the cleanup job and then click **CREATE**.
 
-
+![Cleanup Job]({% link process-automation/images/cleanup-job.png %})
