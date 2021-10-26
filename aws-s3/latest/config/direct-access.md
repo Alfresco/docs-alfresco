@@ -97,8 +97,6 @@ The endpoints return the following response:
 
 The length of time for which a direct access URL is valid defaults to `30` seconds if not configured otherwise in `alfresco-global.properties`.
 
-<!-- method / description / request/ parameters / response / error codes -->
-
 **Method:** `POST`
 
 **Response:**
@@ -119,6 +117,18 @@ If there's no DAU provider installed in Alfresco (such as the S3 Connector), or 
 The Discovery API provides status information about the DAUs feature (enabled/disabled) via a new field:
 
 * `RepositoryInfo > StatusInfo > isDirectAccessUrlEnabled`
+
+For example:
+
+```json
+"status": {
+        "isReadOnly": false,
+        "isAuditEnabled": true,
+        "isQuickShareEnabled": true,
+        "isThumbnailGenerationEnabled": true,
+        "isDirectAccessUrlEnabled": true
+      },
+```
 
 This field is `true` only when **all** of the following conditions are met:
 
