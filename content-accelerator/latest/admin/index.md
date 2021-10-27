@@ -2,7 +2,7 @@
 title: Administer Content Accelerator
 ---
 
-The Admin application allows you to setup and manage your Content Accelerator environment.
+The Admin application allows you to set up and manage your Content Accelerator environment.
 
 ## Setup
 This section describes the general configuration that are used across the Content Accelerator application.
@@ -12,10 +12,12 @@ This section describes the general configuration that are used across the Conten
 Configure `hpi_administrators` as an allowed group for the Content Accelerator Admin. Other groups can be added 
 depending on security requirements.
 
-### Main Settings
+#### Main Settings
 In this section you have the ability to set up the general configuration for your application. This includes an 
 Application wide time zone (if none is selected, then time will display in the user's local time zone) as well as the 
-date and time format that is displayed throughout the application. 
+date and time format that is displayed throughout the application:
+
+![ACA Admin main settings]({% link content-accelerator/images/aca-admin-main-settings.png %})
 
 Available settings include:
 
@@ -30,10 +32,8 @@ Available settings include:
 * **Time Format** - application wide time display format
 * **Default number of search results per page** - default number of search results
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %})
-
 #### Header Links
-In this section, determine what Application modules are available to the users and whether or not to display them in 
+In this section, determine what Application modules are available to the users and whether to display them in 
 the application's header. Icons for header links are defaulted, can be turned off, or can be customized to any glyphicon.
 
 #### Custom Links
@@ -41,7 +41,7 @@ This section provides the ability to add custom links to the application's heade
 
 #### ACA Themes
 This section provides the ability to style the application with a custom color scheme. For further information see this 
-[link](https://github.com/tsgrp/HPI/wiki/HPI-Themes).
+[link](https://github.com/tsgrp/HPI/wiki/HPI-Themes){:target="_blank"}.
 
 ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}
 
@@ -111,8 +111,6 @@ Forms allow for a broad range of flexibility in ACA. The below forms are recomme
 
 Once a new form is created, select all types to be on the form. Each type allows for adding attributes and multiple different options for how it should be displayed (Textbox, AutoComplete, Date, etc.) as well as if it should be editable or required. Depending on the control type selected different options are available to choose from. For example, choosing an AutoComplete prompts to choose which picklist should be displayed as the options among other options. There are also Rules and External Rules available for each attribute. Rules include items such as being able to hide a field (if a user doesn't need to see it) which is particularly useful when creating a new object, Visibility Dependent (only show the field if a different field is filled out in a particular way), and others. External Rules are used as extra validation for an attribute. There is a rule to check that an attribute is unique across the entire application or unique within a certain folder.
 
-##
-
 ### Ad Hoc Forms
 
 Ad Hoc Forms have multiple uses across ACA. First, they are used when configuring workflow. ACA has several Activiti based workflows offered out of the box and an administrator can configure these Ad Hoc Forms to be utilized by the workflows (see [Workflow Section](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.u75saibd9xm9)). Ad Hoc Forms are very similar to regular forms with an additional feature to create new Attributes (not being pulled from the Object Type Config) on the fly. Custom created attributes are generally used for more advanced customizations to ACA, the provided attribute values are used for Workflows.
@@ -154,7 +152,7 @@ Security can be configured at the trac level to limit what groups are allowed to
 
 A single option to turn event logging on or off. If on, log files will be kept on the server that can be used to see performance statistics across the application. For example, if a user launches a document in the Stage using Enterprise Viewer, the load statistics would be recorded (how long the document took to load).
 
-# Views
+## Views
 
 This section covers Views, the different areas of the application a user can navigate to.
 
@@ -184,7 +182,7 @@ All dashlets have a few common configurations, these include the display name of
 
 ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_c824e3cb1c25197d.png)
 
-###### Saved Search
+##### Saved Search
 
 This dashlet can be configured to run a search and display the results on the dashboard. It includes the following configuration options:
 
@@ -214,19 +212,19 @@ Below is an example of the Saved Search Dashlet custom configuration.
 
 ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_2bc12a9bbf2c361e.png)
 
-###### Recent Objects
+##### Recent Objects
 
 Configure a dashlet to show the last 5 or 10 items (folders or documents) that the user has viewed in the stage. After choosing folders or documents, select the desired object type and properties to be displayed in the dashlet.
 
-###### Inbox
+##### Inbox
 
 The Inbox dashlet will allow users to see both individual and group Activiti Workflow tasks that are assigned or available to the current user. This dashlet doesn't have any extra configuration.
 
-###### Active Wizard Inbox
+##### Active Wizard Inbox
 
 The Active Wizard Inbox will show individual and/or group Wizard Workflow tasks for the current user. The Admin has the ability to show only individual tasks, only group tasks or both individual and group tasks.
 
-###### Reporting
+##### Reporting
 
 The Reporting Dashlet displays line, bar, and pie chart reports of repository-based metrics. Any metadata that is stored in the repository can be reported on, so it is frequently configured to show trends in incoming content, workflow task actions, and deadline readiness. Some example high-level reports are:
 
@@ -255,35 +253,37 @@ Date Range graphs must be bar or line charts, and must additionally specify a da
 
 Graph properties such as title, axis labels, and color variation can also be configured.
 
-###### Workflow Reporting
+##### Workflow Reporting
 
 This dashlet will give detailed reports on Active Wizard Workflows, including any workflow the current user is an approver for, the history of pending workflows and workflows with tasks available for groups the user is a part of.
 
-###### Incomplete Tag Dashlet
+##### Incomplete Tag Dashlet
 
 A visual representation of Folders that are missing any number of required documents. To configure, select the desired Object Type to search on, and then select the number of results to show.
 
-###### IFrame Dashlet
+##### IFrame Dashlet
 
 This dashlet is a simple IFrame that can be configured by the Admin to display an external URL on the dashboard. For example, a view from an external performance application can be configured to load in the IFrame.
 
-###### Notifications
+##### Notifications
 
 This dashlet visualizes the current user's Activiti notifications. This dashlet doesn't have any extra configuration.
 
 ### Search
 
-When creating a new search configuration consideration, you are generally creating a search tool for a particular object type. Different types generally have very different relevant metadata, and therefore separate search configurations.
+When creating a new search configuration consideration, you are generally creating a search tool for a particular 
+object type. Different types generally have very different relevant metadata, and therefore separate search configurations.
 
 A search configuration can also represent an entire Trac, with each of the trac's types searchable from a type dropdown.
 
-Finally, composite searches can be set up, which will use the same search criteria to search across the repository and deliver type-agnostic results. This is a less common strategy.
+Finally, composite searches can be set up, which will use the same search criteria to search across the repository and 
+deliver type-agnostic results. This is a less common strategy.
 
 There are various components of search that are separately configurable.
 
 \&lt;Screenshot with numeric guide\&gt;
 
-###### Main Settings
+#### Main Settings
 
 High-level search settings including:
 
@@ -292,7 +292,7 @@ High-level search settings including:
 * **Enable type-to-path security** - For each type in the selected search form, a user can indicate a repository folder path (generally the path to the folder being searched) to pull the security setup from. Basically, this allows search to use repository folder level security to determine who can perform the configured searches.
 * **Open Content Query Implementation** - Allows queries to be run against a database. This should only be set to &quot;Use Native Search APIs&quot;
 
-###### Sidebar Settings
+#### Sidebar Settings
 
 Sidebar settings relate to the left-hand search tools beyond the Advanced Search form. The following settings are available for configuration:
 
@@ -301,7 +301,7 @@ Sidebar settings relate to the left-hand search tools beyond the Advanced Search
 * **Public Saved Search** - This allows users to make their Saved Searches available to all users that have access to that search. An admin group or groups that have the ability to modify public saved searches can also be configured.
 * **Alfresco Enterprise Viewer Search Term Highlighting** - If Quick Search is enabled, and used to search a document's content, that search term will be highlighted in the content when the document is launched in AEV.
 
-###### Attribute Search
+#### Attribute Search
 
 **Search \&gt; Configure Search Modules \&gt; Attribute Search**
 
@@ -313,9 +313,7 @@ The Attribute Search section covers the configuration of the property-based sear
 4. Configure whether to allow search on all versions, which determines whether all versions or just the current version are brought back in the search results
 5. If search on all versions is allowed, select whether it should be the default method
 
-######
-
-###### Search Results
+#### Search Results
 
 There are several functional components of search results.
 
@@ -370,7 +368,7 @@ To configure an action:
 2. Once the action is selected, click the edit icon
 3. The configuration section contains general action configuration, as well as options for the individual action. See the Action Configuration section for more details on how to configure specific actions.
 
-###### Group Actions
+#### Group Actions
 
 **Search \&gt; Configure Search Modules \&gt; Group Actions**
 
@@ -383,7 +381,7 @@ To configure a group action:
 1. Once the action is selected, click the edit icon
 2. The configuration section contains general action configuration, as well as options for the individual action. See the Action Configuration section for more details on how to configure specific actions.
 
-###### Facets
+#### Facets
 
 **Search \&gt; Configure Search Modules \&gt; Attribute Search**
 
@@ -391,7 +389,7 @@ In addition to the standard filter bar to narrow down search results, facets can
 
 To configure facets, simply select the desired attributes to facet on for each searchable type.
 
-###### Restrictions
+#### Restrictions
 
 This section allows for configuration of additional query clauses that will be appended to every search run. The first levels to configure are group and object type applicable for the additional query terms, so it is generally used as a way to apply additional restrictions on visible search results for particular groups.
 
@@ -447,7 +445,7 @@ Configure the available actions on the folder loaded in the stage. See the Actio
 
 #### Doc Viewer
 
-###### Viewers
+##### Viewers
 
 ACA contains support for several specialized content viewers, and support for various renditioning, download, and markup strategies. These components can be configured in the Document Viewer configuration section.
 
@@ -489,7 +487,7 @@ Configure:
 * Actions that should display above the document when loaded in the stage. See the Action Configuration section for more details on how to configure specific actions.
 * Whether or not to burn in Annotations when viewing PDFs
 
-###### Additional Properties
+##### Additional Properties
 
 Other items that can be configured in the Doc Viewer include:
 
@@ -499,7 +497,7 @@ Other items that can be configured in the Doc Viewer include:
 * **External Launch Toggle** - When enabled there will be a launch arrow in the upper right corner of the viewer which will open the document content in a new window
 * **Doc Viewer or Browser** - If **External Launch Toggle** is enabled, when the content is launched in a new window you can configure it to be just a regular browser viewer or the Doc Viewer
 
-###### Document Actions
+##### Document Actions
 
 Configure actions that can be performed on the document being viewed in the Stage. See the Action Configuration section for more details on how to configure specific actions.
 
@@ -567,13 +565,13 @@ ACA comes with many out of the box Activiti workflows. These workflows can be co
 
 ## Active Wizard
 
-## Administrative User Tasks
+### Administrative User Tasks
 
 This section of the document explains tasks associated with users who are allowed access to the Active Wizard Admin application.
 
 Administrative users have the ability to create new, dynamic Form Templates and make them available for contributing users to work with.  Additionally, administrative users are allowed to edit, copy, and delete existing Form Templates.
 
-##### Working with a Form Template
+#### Working with a Form Template
 
 To navigate to the Form Template administration portion of the application:
 
@@ -582,7 +580,7 @@ To navigate to the Form Template administration portion of the application:
 
 This screen is the landing page for Form Template administration. From here you may either select an existing Form Template to work with or create a new one. Each existing set can be found in the Form Templates dropdown, which is ordered alphabetically.
 
-######## Creating a New Form Template
+##### Creating a New Form Template
 
 To create a new Form Template:
 
@@ -595,7 +593,7 @@ Form Templates are tracked by their name, so the application requires you to ent
 
 Upon clicking continue, you will be taken to the Edit Form Template screen.
 
-##### Selecting an existing Form Template
+#### Selecting an existing Form Template
 
 To select an existing Form Template to edit:
 
@@ -604,13 +602,13 @@ To select an existing Form Template to edit:
 
 Upon clicking continue, you will be taken to the Edit Form Template screen.
 
-##### Editing a Form Template
+#### Editing a Form Template
 
 Creating Form Templates requires working with the set at two different levels: the Form Template as a whole, and the individual page.  To allow contributing users to create instances based on the Form Template it must be published and activated.  A set may also be copied into a new set or deleted.
 
 Working with the Form Template can also be thought of as working with a collection of pages.  You may create, modify, and rearrange pages.  Additionally, you may make certain pages required and others hidden until specific criteria are met.  For information on how to work with an individual page including creating and modifying pages, see [Working with an individual Page and its Inputs](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.w724oomh1u0a).
 
-######## Checking out a Form Template
+##### Checking out a Form Template
 
 To check out a Form Template:
 
@@ -620,7 +618,7 @@ When you check out a Form Template, a small key icon appears next to the Form Te
 
 If you enter the Edit Form Template screen of a set checked out by another user, a small padlock icon is displayed where the key icon would normally be displayed.  Hovering over this icon displays a tool tip informing you of the user who currently has the set checked out.
 
-########  Checking in a Form Template
+#####  Checking in a Form Template
 
 To check in a Form Template:
 
@@ -631,7 +629,7 @@ Clicking the cancel all changes button discards any changes that have been made 
 
 Clicking the save all changes button saves any changes that have been made since the set was last checked out.  The set is then checked in and is available for any other administrative user.
 
-###### Setting Form Template Options
+##### Setting Form Template Options
 
 To change the options on a Form Template:
 
@@ -658,7 +656,7 @@ The instance type field allows you to modify which object type will be used for 
 
 For Form Templates used in the streamline view, you can specify the name of a confirmation document if you do not wish to use the default.
 
-###### Copying a Form Template
+##### Copying a Form Template
 
 To copy a Form Template:
 
@@ -674,7 +672,7 @@ The name of the new set must be unique, as is required with any new set.  If an 
 
 _Note: If you choose to begin editing the destination set after making a copy, the source set will remain checked out to you until you return to check it back in.  The set will be unavailable to other administrative users until this time._
 
-###### Deleting a Form Template
+##### Deleting a Form Template
 
 To delete a Form Template:
 
@@ -687,7 +685,7 @@ By deleting a Form Template, you will be removing all records of the set's exist
 
 Deleting a Form Template also removes any published versions of the set available to contributing users.  However, any existing Forms that are based on the deleted set will remain untouched.
 
-###### Publishing (Versioning) a Form Template
+##### Publishing (Versioning) a Form Template
 
 To publish a Form Template:
 
@@ -700,7 +698,7 @@ Publishing a Form Template takes a snapshot of the set as it was the last time i
 
 With the exception of the first publishing, you will have the option to choose the version number attached to the Form Template. The first publishing attaches the version 1.0.  All subsequent publishes will allow you to choose from either a minor (1.0 to 1.1, 1.1 to 1.2) or major (1.0 to 2.0, 1.6 to 2.0) version number. The comment should generally be used to identify the major changes that were made to the Form Template since it was last published.
 
-###### Managing published versions of a Form Template
+##### Managing published versions of a Form Template
 
 To activate a version of the Form Template for use by contributing users:
 
@@ -713,7 +711,7 @@ Activating a Form Template makes it available for contributing users to base For
 
 Changing the version of the activated Form Template only affects Forms that are created new.  Any existing sets that are based off of other versions will remain untouched.
 
-###### Filtering Sub Pages by category
+##### Filtering Sub Pages by category
 
 To filter the sub-pages table by category:
 
@@ -722,7 +720,7 @@ To filter the sub-pages table by category:
 
 Once a page has been assigned a category, and the Form Template has been checked in, the category will appear as an option in the dropdown. Clicking the change button after a category has been selected refreshes the page and filters the Sub Page table by that category.  The VIEW ALL option shows all sub-pages that have been created.
 
-###### Changing Whether a Page is required
+##### Changing Whether a Page is required
 
 To make a page required:
 
@@ -740,7 +738,7 @@ Making a page not required makes it unavailable to users creating Form Templates
 
 Note: For users creating Forms to see changes made to the requirement of pages, the changed version of the Form Template must be published and activated.
 
-###### Reordering Pages
+##### Reordering Pages
 
 To change the order of the required pages:
 
@@ -751,7 +749,7 @@ To change the order of the required pages:
 
 Note: For users creating Forms to see changes made to the order of pages, the changed version of the Form Template must be published and activated.
 
-###### Deleting Optional Pages
+##### Deleting Optional Pages
 
 To delete an Optional (non-required) Page:
 
@@ -762,7 +760,7 @@ _Note: A page cannot be deleted if it is led to by another page.  If this is the
 
 #### Working with an Individual Page
 
-###### Creating a new Page
+##### Creating a new Page
 
 To create a new page:
 
@@ -771,7 +769,7 @@ To create a new page:
 
 At this point, you will be taken to the Manage Page screen.  From here you may specify data about your page, including title, category, and description.  See the next section, Editing a Page, to continue.
 
-###### Editing a Page
+##### Editing a Page
 
 After creating a new page, you are taken to the Manage Page screen where you may begin to edit the page's contents.  If you are attempting to edit an existing page, you must first enter the Manage Page screen.
 
@@ -787,11 +785,11 @@ Once you have entered data in these fields you are able to save your progress or
 
 There are also multiple optional page-specific parameters, including reference document (specify the name of a document in the docbase to be linked or shown in the page), hide this page in PDF output, include an Outlook contact drop area, and enable cookie tracking.
 
-###### Hide this page in PDF output
+##### Hide this page in PDF output
 
 Selecting this box will cause the answers from this page to be hidden in the default PDF output as well as the summary page of the form.
 
-###### Question Groups
+##### Question Groups
 
 Each page can contain up to one repeating and one non-repeating question group. A repeating group denotes a set of questions that often will have repeating values (such as the information about multiple people), and is used instead of repeating pages. This checkbox denotes that the block itself requires an answer or not.
 
@@ -799,11 +797,11 @@ To select questions to belong to this group, leverage the group column in the qu
 
 A non-repeating question group will display the grouped questions in a separate area with the non-repeating group label specified.
 
-###### Stop Pages
+##### Stop Pages
 
 It may be desired to enforce that a user cannot finish filling out a form. By creating a page with no questions on it, a &quot;stop page&quot; is created. This is often reached by adding an action to a question that leads to another page. Once this page is reached, the user will be prohibited from submitting the form from the Summary page as long as the &quot;Completed Pages Required&quot; option is enabled on the Form Template.
 
-###### HTML Text
+##### HTML Text
 
 The administrator can write HTML in the following parts of a page that will display Rich Text for the user:
 
@@ -868,7 +866,7 @@ The following escape characters are also supported:
 
     * o    &amp;amp;
 
-###### Previewing an existing Page
+##### Previewing an existing Page
 
 To preview an existing page:
 
@@ -878,7 +876,7 @@ A new window will open showing the page as it will appear when a user is creatin
 
 When finished with the page preview, click the close button or the X close button in the corner of the popup.
 
-######  Navigating a Page
+#####  Navigating a Page
 
 Navigating through a page can be done in one of two ways:
 
@@ -899,7 +897,7 @@ Clicking the cancel button returns you to the next higher-level component withou
 
 Clicking the new \&lt;component\&gt; creates a new component and takes you to the details screen for that component.  For example, when editing an input, clicking the new option button creates a new option and brings up the Manage Option details screen.
 
-###### Saving your progress
+##### Saving your progress
 
 To quit editing a page, and return to the Manage Form Template screen:
 
@@ -910,7 +908,7 @@ Clicking the save button saves all changes made to the page and stores the page 
 
 The cancel button requires confirmation, and upon clicking Ok, all changes are discarded and you are returned to the Manage Form Template screen. Clicking Cancel on the confirmation popup returns you the page with no change.
 
-###### Working with Questions, Answers, and Actions
+##### Working with Questions, Answers, and Actions
 
 ###### _Questions_
 
@@ -1170,7 +1168,7 @@ In this form's case, the User Filter question is a simple textbox.  By selecting
 
 **Note:** When typing literal values into the textbox, be sure that the value you type is not the same value as a question label in the form.  If this situation occurs, the wizard will use the value(s) set by the user, not the intended literal value.
 
-######## Other Query Options
+####### Other Query Options
 
 Queries also have a section for other options:
 
@@ -1265,8 +1263,7 @@ Deprecated Functionality:
 
 * Get PDF Page Count &amp; External Link
 
-####
-Query Variables
+#### Query Variables
 
 Many times, it is necessary to insert variable data into a query. For example, in the database query above, we are simply returning all users. There may be a case where we want to filter users by user name. By adding a query variable, we can allow the form administrator to specify how the variable should be populated when that particular form is run.
 
@@ -1280,7 +1277,7 @@ To insert a query variable, simply type the variable name and click the [Insert 
 
 * Query variables can be reused within one query, but you cannot mix case.  For example, you cannot use a query variable called &quot;user&quot; and another called &quot;USER&quot;.
 
-###### Editing Queries
+##### Editing Queries
 
 Once a query is run on a form instance in a production environment, it is very important to avoid making changes to the query that could break the form created in production. Therefore, when you edit an existing query, the following warning will appear, graying out the rest of the page:
 
@@ -1288,7 +1285,7 @@ Once a query is run on a form instance in a production environment, it is very i
 
 If you are still working in a test environment, or if the query has not yet been used, all changes are safe. However, if any forms have been created with this query in production, do not make any changes in the unsafe list. As mentioned in the warning text, if these changes are necessary, it is better to create a new query object instead.
 
-###### Testing Queries
+##### Testing Queries
 
 While creating a query, it is possible to test the query to make sure it is returning the correct results.  This will allow the administrator to ensure the query is correct before it is used on form pages.  To test a query, first setup the query as needed, and then click the [Test Query] button at the bottom of the Edit Query page.  This will bring up the Test Query page.  If the query does not use any query variables, simply click the [Run Test] button to see the query results.  If the query does have variables, fill out each variable with a sample value to substitute into the query.  For example: ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_12306ddc696b66ae.png)
 
@@ -1310,11 +1307,11 @@ On the select Form Template screen, select the Form Template for which you would
 
 Next, the Roles Overview page will appear. This page lists the roles that are present in the docbase for the desired Form Template, and related functionality. For added convenience, a Form Template select box appears on this page to easily allow the user to jump to roles defined for other Form Templates.
 
-###### Creating a Role
+##### Creating a Role
 
 To create a new role, click the &quot;New Role…&quot; button on the Manage Roles page. When first creating a role, the administrator must choose whether or not the role will be &quot;user based&quot; or &quot;group based&quot; (&quot;automatic&quot; is deprecated).
 
-###### Creating a User Based Role
+##### Creating a User Based Role
 
 The Role Detail page will appear. If the 'cancel' button is clicked on this page, a role will not be created.  Once the 'OK' button is clicked, the role is created in the docbase. On the Role Detail page, the following elements are available:
 
@@ -1329,7 +1326,7 @@ The Role Detail page will appear. If the 'cancel' button is clicked on this page
 | User Rules | The list of user rules for this role. If the role is selected for workflow, these rules will be evaluated to narrow down workflow users. If a role has at least one tripped top-level rule, but no user rules or user input rules, the role owner is selected for workflow. |
 | User Input Rules | The list of questions that drive user input for this role. User Input Rules, like User Rules, are only evaluated if the role is selected for workflow. |
 
-###### Creating a Group Based Role
+##### Creating a Group Based Role
 
 The Role Detail page will appear. This page will look much like the User Based Role page except for the following:
 
@@ -1337,7 +1334,7 @@ The Role Detail page will appear. This page will look much like the User Based R
 * Role users are not available.
 * Only Top Level Rules are available.  User Rules and User Input Rules are not available for group based roles.
 
-###### Managing Role Users
+##### Managing Role Users
 
 To manage role users, click the 'edit' button next to the users list on the Role Detail page. The Role User Detail page will appear.
 
@@ -1352,7 +1349,7 @@ Two multi select boxes will appear on the page:
 
 Move the desired role users to the Selected Users box. To save changes, click 'OK'.  To cancel, click 'cancel'.  The Role Detail Page will appear.
 
-######  Managing Top Level Rules
+#####  Managing Top Level Rules
 
 Top Level Rules are listed in the first table on the Role Detail page. These rules determine if the role should be selected for workflow.
 
@@ -1371,13 +1368,7 @@ After filling out the form, click 'OK'. The Role Detail page appears. To edit th
 
 **Note:** All rules are considered to be OR'ed. Therefore, if the role has two top level rules, only one needs to be tripped for the role to be selected for workflow. Within a rule, all conditions are AND'ed. Therefore, if a role has one top level rule, and that rule has two conditions, both conditions have to be satisfied for the role to be selected for workflow
 
-######
-
-######
-
-######
-
-###### Managing User Rules
+##### Managing User Rules
 
 Once the administrator has selected the top level rules that determine if the role is selected for workflow, user rules further narrow down workflow participants within that role.  If a role is selected for workflow, but no user rules are tripped, the role owner is set as the workflow participant.
 
@@ -1398,7 +1389,7 @@ Manage the User Rule's users by moving the desired users to the Selected Users b
 
 **Note:** If a User Rule is tripped by the users, selected users of the User Rule will only appear in the workflow list if at least one Top Level Rule is also tripped for that particular role. Therefore, if user A is in the Credit role, the Credit role must be selected for workflow before user A's rules are evaluated.
 
-###### Managing User Input Rules
+##### Managing User Input Rules
 
 Like User Rules, User Input Rules can be used to narrow down workflow participants within the role.  User Input Rules are different in that the rule simply specifies a question in the Form Template.  The user filling out the form, then, effectively is choosing approvers as he or she sees fit.  The main pro with using a User Input Rule is that it gives the user more flexibility to choose the approver.  If the user filling out the form &quot;knows&quot; who to route it to, a User Input Rule is appropriate.  A User Rule, on the other hand, builds the logic of picking the approver into the system, thus eliminating a user decision.
 
@@ -1453,7 +1444,7 @@ Click the 'Change Priorities' button from the Roles Overview page to update the 
 
 **Note: ** If the 'Change Priorities' button is disabled, another user is currently updating role priorities on the Form Template.
 
-###### Group Based Roles and Priority
+##### Group Based Roles and Priority
 
 Note that all group-based roles _must_ exist in a unique priority. If the administrator attempts to combine, for example, two group-based roles or one user based and one group-based role in a single priority, the application will revert to the original priority numbers and display an error message.
 
@@ -1477,9 +1468,9 @@ The priority number is necessary since Documentum enforces that all activity nam
 
 If the default name is not desired, the administrator can specify a custom activity name. All activity names across the priorities must be unique. An error message is displayed to the administrator if an attempt is made to name two priorities with the same name.
 
-# Tools
+## Tools
 
-## Action Information
+### Action Information
 
 This section displays all the possible actions and conditions that are available in ACA and give a detailed description of each.
 
@@ -1504,7 +1495,7 @@ To import an ACA configuration all you need to do is upload the archived config 
 
 The ACA license manager allows an Administrator to view the current license information and import a new license if needed.
 
-# Action Configuration
+## Action Configuration
 
 While many actions require little to no configuration beyond enabling the action, some more complicated actions have additional configuration options. See the [ACA Features](https://github.com/tsgrp/HPI/wiki#ocms-features) section for further details about how to configure certain commonly used actions in ACA. Individual action links listed in the table below.
 
@@ -1525,8 +1516,5 @@ While many actions require little to no configuration beyond enabling the action
 | [Database Table View](https://github.com/tsgrp/HPI/wiki/Database-Table-View) | Contextless Action |
 | [Refined Search in View All Documents](https://github.com/tsgrp/HPI/wiki/Refined-Search-in-View-All-Documents) | Action Add-On |
 | [Document Info View](https://github.com/tsgrp/HPI/wiki/Doc-Info-View) | Document Action |
-
-1
-
 
 ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_c77a69456409c6c4.png)
