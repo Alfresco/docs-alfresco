@@ -1027,6 +1027,23 @@ defaults:
       version: 1.0
       latest: true
 
+# Alfresco Content Accelerator
+  - scope:
+      path: "content-accelerator"
+    values:
+      layout: "docs"
+      product: "Alfresco Content Accelerator"
+      location: "content-accelerator"
+      toc: "content-accelerator"
+      support: true
+      versions:
+        - 3.4
+  - scope:
+      path: "content-accelerator/latest"
+    values:
+      version: 3.4
+      latest: true
+
 sass:
   sass_dir: assets/include/scss
 permalink: pretty

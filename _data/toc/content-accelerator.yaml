@@ -1,0 +1,11 @@
+# Alfresco Content Accelerator 3.4.4
+- version: 3.4
+  pages:
+    - title: 'Introduction'
+      path: '/content-accelerator/latest/'
+    - title: 'Install'
+      path: '/content-accelerator/latest/install/'
+    - title: 'Administer'
+      path: '/content-accelerator/latest/admin/'
+    - title: 'Using'
+      path: '/content-accelerator/latest/using/'
