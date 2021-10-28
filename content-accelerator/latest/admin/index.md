@@ -33,32 +33,35 @@ Available settings include:
 * **Default number of search results per page** - default number of search results
 
 #### Header Links
-In this section, determine what Application modules are available to the users and whether to display them in 
+You can specify what Application modules that are available to the users and whether to display them in 
 the application's header. Icons for header links are defaulted, can be turned off, or can be customized to any glyphicon.
 
 #### Custom Links
-This section provides the ability to add custom links to the application's header (example: a link to your company's IT Help Page).
+This section provides the ability to add custom links to the application's header (e.g. a link to your company's IT Help Page).
 
 #### ACA Themes
-This section provides the ability to style the application with a custom color scheme. For further information see this 
-[link](https://github.com/tsgrp/HPI/wiki/HPI-Themes){:target="_blank"}.
+This section provides the ability to style the application with a custom color themes. For further information see 
+[HPI Themes](https://github.com/tsgrp/HPI/wiki/HPI-Themes){:target="_blank"}.
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}
+![ACA Color theme customization]({% link content-accelerator/images/aca-color-scheme-customization.png %})
 
 #### Application Security
-This section provides the ability to choose which groups have access to the ACA Admin. If no groups are selected ALL users will be allowed to access the admin screens. Note that even if users can access the ACA Admin, repository security will prevent unauthorized users from making any changes.
+This section provides the ability to choose which groups that have access to the Content Accelerator Admin. If no groups 
+are selected, then *all* users will be allowed to access the admin screens. Note that even if users can access the Admin, 
+repository security will prevent unauthorized users from making any changes.
 
 #### Header Actions
-
-This section provides the ability to configure global actions for the application. Actions configured here are available to all users in the application's header. See the Action Configuration in the User Guide for more details on how to configure specific actions.
+This section provides the ability to configure global actions for the application. Actions configured here are available 
+to all users in the application's header. See the [Action Configuration](todo) in the User Guide for more details on how to 
+configure specific actions.
 
 #### OC Settings
-
-This section displays the applicationId for the ACA configurations and provides the ability to refresh the backend Dictionary service.
+This section displays the applicationId for the ACA configurations and provides the ability to refresh the backend 
+Dictionary service.
 
 ### Object Type
-
-Add all types that will be used in ACA (all repo types will be pulled in from the backend repository). Configure labels, filters, and more as needed. Types must be added to the Object Type config before continuing.
+Add all types that will be used in ACA (all repo types will be pulled in from the backend repository). Configure labels, 
+filters, and more as needed. Types must be added to the Object Type config before continuing.
 
 **Notes** :
 
