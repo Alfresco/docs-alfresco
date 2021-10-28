@@ -34,6 +34,8 @@ The input parameters to request a DocuSign signature are:
 | targetFolderId | String | *Requires one.* The nodeId of the folder to store the signed document in. For example `775a8f2d-8123-49a7-ae1f-f3f49d4eae20`. |
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to store the signed document in. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | timeout | Integer | *Optional.* The timeout period to wait for the document to be signed in milliseconds, for example `910000`. |
+| signers | JSON | *Optional.* The list of signers who sign the document. |
+
 
 > **Note**: `underscoreMetadata` can be set to `true` and the `targetFileMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `targetFileMetadata` uses `_` then the connector will fail to execute the action.
 
