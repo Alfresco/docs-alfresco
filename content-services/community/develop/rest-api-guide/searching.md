@@ -774,7 +774,7 @@ One response is expected as I only got one file tagged with `project-x`.
 
 ### Faceted search
 
-Now when we have covered the basics let's look at a couple of the more interesting features of the search API, faceting 
+Now when we have covered the basics let's look at a couple of the more interesting features of the search API, faceting, pivots 
 and term highlighting.
 
 There are two types of facets; queries and fields. A query facet returns the count of results for the given query, you 
@@ -897,6 +897,38 @@ $ curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'
 As well as the expected list of files, the response also contains a `facetQueries` and a `facetsFields` object 
 containing the counts we requested. The `facetQueries` object has an entry for each query supplied in the result whereas 
 the `facetsFields` object contains an entry for each requested field which in turn contains the count for each bucket.
+
+### Pivots
+
+Pivots are nested field facets. For example, a field facet on SITE with a nested field facet for creator. Pivots will provide counts for each grouping along with sub-totals. The public API takes advantage of this nesting by defining all the groupings individually and then how to nest them. It is then easy to change the nesting.
+
+Some of the facet field options are ignored when used in a pivot as they are not supported.
+
+Example:
+```json
+{
+   "query": {
+      "query": "name:*"
+   },
+   "facetFields": {
+      "facets": [
+         {"field": "SITE", "label": "Site"},
+         {"field": "creator", "label": "Creator"}
+      ]
+    },
+    "pivots" : [
+        {
+            "key": "Site",
+            "pivots": [
+                {
+                    "key": "Creator"
+                }
+            ]
+        }
+    ]
+}
+```
+The pivot key needs to refer to a facet label.
 
 ### Term highlighting search
 
