@@ -113,3 +113,13 @@ The output parameters to get the schedule availability in Microsoft Outlook are:
 | availability | String | *Required.* Single value that represents a global availability status for the required period. 0 - a user is free during the whole interval. `1` - all the existing slots in the required period are either free or tentative (at least one of them is tentative). `2` - all the existing slots in the required period are either free or tentative or busy (at least one of them is busy). `3` - all the existing slots in the required period are either free or tentative or busy or out of the office (at least one of them is  out of the office). `4` - all the existing slots in the required period are either free or tentative or busy or out of the office or working elsewhere (at least one of them is working elsewhere). |
 | scheduleItems | JSON | *Required.* List of objects containing each of the events in the user`s calendar. |
 | workingHours | JSON | *Required.* Indicates the days of the week and time intervals when the user can be available. |
+
+## Remove a calendar event
+
+The `removeTeamsEventCalendar` action removes an event or appointment in the calendar.
+
+The input parameters to remove an event or appointment in Microsoft Outlook are:
+
+| Property  | Type | Description |
+| --- | --- | --- |
+| id | String | *Required.* Identifier of the calendar event.|
