@@ -61,6 +61,8 @@ The input parameters to create a calendar event in Microsoft Outlook are:
 | attendees | Array | *Required.* List of attendees email addresses. |
 | location | String | *Optional.* Location of the event. |
 | timeZone | String | *Optional.* Timezone of the event. In general, the `timeZone` property can be set to any of the [time zones supported by Microsoft Windows](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones){:target="_blank"} as well as the additional [time zones supported by the calendar API](https://docs.microsoft.com/en-us/graph/api/resources/datetimetimezone?view=graph-rest-1.0#additional-time-zones){:target="_blank"}. By default, **GMT Standard Time**.|
+| onlineMeeting | Boolean | *Optional.* Adds an online Teams meeting to the event. |
+| attachments | File | *Optional.* File to attach to the calendar event. |
 
 The output parameters to create a calendar event in Microsoft Outlook are:
 
