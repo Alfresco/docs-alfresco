@@ -121,7 +121,7 @@ A previously exported deployment descriptor can be imported using the **Import**
 
 ## Application instances
 
-The **Application Instances** section displays a list of all deployed applications, and applications currently in the process of being deployed. Applications can have their permissions updated
+The **Application Instances** section displays a list of all deployed applications, and applications currently in the process of being deployed. Applications can have their permissions updated.
 
 > **Reminder**: Projects are referred to as applications when they are deployed.
 
@@ -136,6 +136,16 @@ The properties for application instances are:
 | Created | The time since the application was deployed. |
 | Status | The status of the application. Once fully deployed it will display as `Running`. |
 | Content App | A link to the [user interface]({% link process-automation/latest/model/interfaces.md %}) for the application. |
+
+### Undeploy
+
+The **Undeploy** action removes a deployed application.
+
+> **Important**: Undeploying an application will remove all data related to the application including processes and tasks. It is not possible to retrieve this data once an application has been undeployed.
+
+### Manage permissions
+
+The **Manage Permissions** option allows for additional users to be granted user or administrator access to an application without having to upgrade it.
 
 ### Upgrade
 
@@ -156,12 +166,36 @@ The version of an application is incremental and independent of the released pro
 
 The upgrade process displays the same configuration as [deploying](#deployment) an application. The only field that cannot be changed when upgrading is the application name.
 
-### Manage permissions
+To upgrade an application.
 
-The **Manage Permissions** option allows for additional users to be granted user or administrator access to an application without having to upgrade it.
+1. Log into the Alfresco Admin App.
 
-### Undeploy
+2. Expand **Devops** from the left pane and select **Application Instances**.
 
-The **Undeploy** action removes a deployed application.
+3. Click the three dots next to the application you want to upgrade.
 
-> **Important**: Undeploying an application will remove all data related to the application including processes and tasks. It is not possible to retrieve this data once an application has been undeployed.
+4. Select **Upgrade**.
+
+5. Select the details you want to upgrade and click **Upgrade**.
+
+![upgrade application]({% link process-automation/images/upgrade-application.png %})
+
+### Update runtime version
+
+You can update the runtime version of an application from when it was originally deployed.
+
+To update the runtime version.
+
+1. Log into the Alfresco Admin App.
+
+2. Expand **Devops** from the left pane and select **Application Instances**.
+
+3. Click the three dots next to the application you want to update.
+
+4. Select **Update runtime version**.
+
+5. Select the runtime version you want to upgrade to and click **Update runtime version**.
+
+> **Note:** You can also update the runtime version of an application when you upgrade. For more see [Upgrade](#upgrade)
+
+![update runtime]({% link process-automation/images/update-runtime.png %})
