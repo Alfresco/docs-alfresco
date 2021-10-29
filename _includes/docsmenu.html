@@ -40,29 +40,29 @@
 
                 {% if forloop.first == true %}
 
-                <a href="{{page.url | replace: replace_version, "latest"}}" class="dropdown-item{{current}}">
+                {%loc_safe_url no-transform-title {{page.ref_page.url | replace: replace_version, "latest"}} {{page.lang}} class="dropdown-item"{{current}}%}
                   <span>{{v}}</span><span class="tag is-success">Latest</span>
-                </a>
+                {%endloc_safe_url%}
 
               {% elsif forloop.last == true and page.product == "Alfresco Governance Services" %}
 
               <hr class="dropdown-divider">
-              <a href="{{page.url | replace: replace_version, v}}" class="dropdown-item{{current}}">
+              {%loc_safe_url no-transform-title {{page.ref_page.url | replace: replace_version, v}} {{page.lang}} class="dropdown-item"{{current}}%}
                   <span>{{v | capitalize}}</span>
-                </a>
+                {%endloc_safe_url%}
 
               {% elsif forloop.last == true and page.product == "Alfresco Content Services" %}
 
               <hr class="dropdown-divider">
-              <a href="{{page.url | replace: replace_version, v}}" class="dropdown-item{{current}}">
+              {%loc_safe_url no-transform-title {{page.ref_page.url | replace: replace_version, v}} {{page.lang}} class="dropdown-item"{{current}}%}
                   <span>{{v | capitalize}}</span>
-              </a>
+              {%endloc_safe_url%}
 
                 {% else %}
 
-              <a href="{{page.url | replace: replace_version, v}}" class="dropdown-item{{current}}">
+              {%loc_safe_url no-transform-title {{page.ref_page.url | replace: replace_version, v}} {{page.lang}} class="dropdown-item"{{current}}%}
                 <span>{{v | capitalize}}</span>
-              </a>
+              {%endloc_safe_url%}
 
               {% endif %}
               
@@ -82,35 +82,35 @@
         <ul>
 {%capture pagebase%}/{{page.location}}/{% if page.latest == true %}latest{%else%}{{page.version}}{%endif%}/{%endcapture%}
 
-<li class="{%if pagebase == page.url %}is-active{%endif%}">
-  <a href="{{pagebase}}">Reference</a>
+<li class="{%if pagebase == page.ref_page.url %}is-active{%endif%}">
+  {%loc_safe_url no-transform-title {{pagebase}} {{page.lang}}%}{%l Reference%}{%endloc_safe_url%}
 </li>
 
 {% if page.tutorial == true %}
 {% capture href %}{{pagebase}}tutorial/{%endcapture%}
-<li class="{%if href == page.url %}is-active{%endif%}">
-  <a href="{{href}}">Tutorials</a>
+<li class="{%if href == page.ref_page.url %}is-active{%endif%}">
+  {%loc_safe_url no-transform-title {{href}} {{page.lang}}%}{%l Tutorials%}{%endloc_safe_url%}
 </li>
 {% endif %}
 
 {% if page.api == true %}
 {% capture href %}{{pagebase}}api/{%endcapture%}
-<li class="{%if href == page.url %}is-active{%endif%}">
-  <a href="{{href}}">APIs</a>
+<li class="{%if href == page.ref_page.url %}is-active{%endif%}">
+  {%loc_safe_url no-transform-title {{href}} {{page.lang}}%}{%l APIs%}{%endloc_safe_url%}
 </li>
 {% endif %}
 
 {% if page.support == true %}
 {% capture href %}{{pagebase}}support/{%endcapture%}
-<li class="{%if href == page.url %}is-active{%endif%}">
-  <a href="{{href}}">Supported Platforms</a>
+<li class="{%if href == page.ref_page.url %}is-active{%endif%}">
+  {%loc_safe_url no-transform-title {{href}} {{page.lang}}%}{%l Supported Platforms%}{%endloc_safe_url%}
 </li>
 {% endif %}
 
 {% if page.release == true %}
 {% capture href %}{{pagebase}}release/{%endcapture%}
-<li class="{%if href == page.url %}is-active{%endif%}">
-  <a href="{{href}}">Release Notes</a>
+<li class="{%if href == page.ref_page.url %}is-active{%endif%}">
+  {%loc_safe_url no-transform-title {{href}} {{page.lang}}%}{%l Release Notes%}{%endloc_safe_url%}
 </li>
 {% endif %}     
 

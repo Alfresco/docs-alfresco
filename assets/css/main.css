@@ -2103,3 +2103,11 @@ footer .copyright img {
     font-size: 18pt;
   }
 }
+
+a[localisation_redirect]::before {
+  content: "🇬🇧 ";
+  position: absolute;
+  transform: translate(-1.2em, 0);
+
+  opacity: 0.5;
+}

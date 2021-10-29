@@ -20,32 +20,34 @@
         
       {% endif %}
       
-<!-- Hide language dropdown
-
+      {%assign langs = page.ref_page.loc_pages | where_exp: "item", "item.lang_config.files != page.lang_config.files"%}
+      {%if langs.size > 0%}
       <div class="navbar-item has-dropdown is-hoverable" onclick="this.classList.toggle('is-active')">
         <a class="navbar-link">
-          Eng
+          {{page.lang_config.name}}
         </a>
 
 
         <div class="navbar-dropdown is-boxed navbar-lang">
-          <a href="/de/" class="navbar-item">
-            Deutch
-          </a>
-          <a href="/sve/" class="navbar-item">
-            Svenska
-          </a>
-        </div>
-      </div>  
 
--->
+        {%for l in langs %}
+        <a href="{{l.lang_config.url}}{{page.ref_page.url}}" class="navbar-item">
+          {{l.lang_config.name}}
+        </a>
+        {%endfor%}
+      </div>
+    </div>  
+    {%endif%}
+    
+
+
     </div>
 
     <div class="navbar-menu" id="navbaralfresco">
       <div class="navbar-start">
         <div class="navbar-item">
-          <a class="navbar-link is-arrowless" href="/">
-            Docs
+          <a class="navbar-link is-arrowless" href="{{page.lang_config.url}}">
+            {%l Docs%}
           </a>
         </div>
 
@@ -54,7 +56,7 @@
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link is-arrowless">
-            Services
+            {%l Services%}
           </a>
 
           <div class="navbar-dropdown is-boxed navbar-smallsub navbar-applications">
@@ -64,7 +66,7 @@
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link is-arrowless">
-            Integrations
+            {%l Integrations%}
           </a>
 
           <div class="navbar-dropdown is-boxed navbar-integrations">
@@ -76,7 +78,7 @@
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link is-arrowless">
-            Applications
+            {%l Applications%}
           </a>
 
           <div class="navbar-dropdown is-boxed navbar-smallsub navbar-applications">

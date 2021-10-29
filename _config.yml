@@ -953,13 +953,26 @@ twitter_username: jekyllrb
 github_username: jekyll
 
 # Build settings
-theme: minima
 plugins:
-  - jekyll-feed
   - jekyll-redirect-from
   - searchyll
 
 highlighter: none
+
+alfresco: 
+  langs:
+    ru: 
+        name: Русский
+        files: "ru/"
+        url: "/ru"
+    en: 
+        name: English
+        files: ""
+        url: ""
+    fr: 
+        name: Français
+        files: "fr/"
+        url: "/fr"
 
 # Elasticsearch/Searchyll settings
 elasticsearch:
@@ -987,6 +1000,7 @@ exclude:
   # - gemfiles/
   - Gemfile
   - Gemfile.lock
+  - _internaldocs/
   # - node_modules/
   # - vendor/bundle/
   # - vendor/cache/

@@ -9,11 +9,12 @@
       {% assign subindex = subindex | plus:1 %}
     <div class="column">
       <div class="container">
-      <h1>{{s.title}}</h1>
+      <h1>{%l {{s.title}}%}</h1>
+
       {%for ss in s.sub %}
-        <a class="navbar-item" href="{{ss.url}}">{{ss.title}}</a>
+        {%loc_safe_url {{ss.url}} {{page.lang}} class="navbar-item"%}{{ss.title}}{%endloc_safe_url%}
       {%else%}
-        <a class="navbar-item" href="{{s.url}}">{{s.title}}</a>
+        {%loc_safe_url {{s.url}} {{page.lang}} class="navbar-item"%}{{s.title}}{%endloc_safe_url%}
       {%endfor%}
       </div>
     </div>

@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-  {% assign path = page.url | split: "/"%}
+  {% assign path = page.ref_page.url | split: "/"%}
   {% assign product = path[1]%}
   {% assign version = path[2]%}
 
