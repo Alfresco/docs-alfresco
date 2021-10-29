@@ -17,7 +17,7 @@ In this section you have the ability to set up the general configuration for you
 Application wide time zone (if none is selected, then time will display in the user's local time zone) as well as the 
 date and time format that is displayed throughout the application:
 
-![ACA Admin main settings]({% link content-accelerator/images/aca-admin-main-settings.png %})
+![Content Accelerator Admin main settings]({% link content-accelerator/images/aca-admin-main-settings.png %})
 
 Available settings include:
 
@@ -39,11 +39,11 @@ the application's header. Icons for header links are defaulted, can be turned of
 #### Custom Links
 This section provides the ability to add custom links to the application's header (e.g. a link to your company's IT Help Page).
 
-#### ACA Themes
+#### Content Accelerator Themes
 This section provides the ability to style the application with a custom color themes. For further information see 
 [HPI Themes](https://github.com/tsgrp/HPI/wiki/HPI-Themes){:target="_blank"}.
 
-![ACA Color theme customization]({% link content-accelerator/images/aca-color-scheme-customization.png %})
+![Content Accelerator Color theme customization]({% link content-accelerator/images/aca-color-scheme-customization.png %})
 
 #### Application Security
 This section provides the ability to choose which groups that have access to the Content Accelerator Admin. If no groups 
@@ -52,75 +52,96 @@ repository security will prevent unauthorized users from making any changes.
 
 #### Header Actions
 This section provides the ability to configure global actions for the application. Actions configured here are available 
-to all users in the application's header. See the [Action Configuration](todo) in the User Guide for more details on how to 
+to all users in the application's header. See the [Action Configuration](TODO) in the User Guide for more details on how to 
 configure specific actions.
 
 #### OC Settings
-This section displays the applicationId for the ACA configurations and provides the ability to refresh the backend 
-Dictionary service.
+This section displays the `applicationId` for the Content Accelerator configurations and provides the ability to refresh 
+the backend Dictionary service.
 
 ### Object Type
-Add all types that will be used in ACA (all repo types will be pulled in from the backend repository). Configure labels, 
-filters, and more as needed. Types must be added to the Object Type config before continuing.
+Add all types that will be used in the Content Accelerator (all repo types will be pulled in from the backend repository). 
+Configure labels, filters, and more as needed. Types must be added to the Object Type config before continuing.
 
-**Notes** :
+**Notes**:
 
-* The Object Type Config must contain at least one type for much of the rest of the ACA admin to work properly. Configure all types before continuing.
-* Configure any container types as having Container set to true. Common types that require this setting:
-
+* The Object Type Config must contain at least one type for the rest of the Content Accelerator admin to work properly. 
+  Configure all types before continuing.
+* Configure any container types as having Container set to `true`. Common types that require this setting:
     * Any folder types
     * Active Wizard Page Set Instance (Form Instance) object and any subtypes
-
 * Available filters include User Display Name, Date, Date Time, Time, Content Size, Mimetype, and Picklist.
-
     * Date and Date Time filters will honor the application config date format.
-    * Picklist filtered values will utilize a single picklist named &quot;OTCFilterPicklist&quot; to filter the value. If the value is not found in the picklist, the original value will be displayed. For example, configuring the &quot;Picklist&quot; filter on the &quot;objectTypeReadOnly&quot; property can format &quot;dm_document&quot; as Document or &quot;tsg:qualityDocument&quot; as &quot;Quality Document&quot; for the end user to see when searching, viewing properties, etc. See [https://github.com/tsgrp/HPI/issues/1904](https://github.com/tsgrp/HPI/issues/1904) for more information.
-
-* There is the ability to create a &quot;Composite Type&quot; which is a type that can include multiple Types. This is used only for types with overlapping attributes and there is a requirement to search on multiple types at once through the ACA search interface.
+    * Picklist filtered values will utilize a single picklist named `OTCFilterPicklist` to filter the value. 
+      If the value is not found in the picklist, the original value will be displayed. For example, configuring the 
+      `Picklist` filter on the `objectTypeReadOnly` property can format `dm_document` as Document or 
+      `tsg:qualityDocument` as `Quality Document` for the end user to see when searching, viewing properties, etc. 
+      See [https://github.com/tsgrp/HPI/issues/1904](https://github.com/tsgrp/HPI/issues/1904) for more information.
+* There is the ability to create a `Composite Type`, which is a type that can include multiple Types. This is used only 
+  for types with overlapping attributes and there is a requirement to search on multiple types at once through the 
+  search interface.
 
 ### Non-Mandatory Aspect
+Configure Alfresco aspects that can be attached to Object Types in order to add aspect properties to the Object Type. 
+After attaching the Non-Mandatory Aspects to Object Types in the Object Type configuration, the aspect properties can 
+be used on forms and search results just like any other property in the Object Type Config. 
 
-Configure Alfresco aspects that can be attached to Object Types in order to add aspect properties to the Object Type. After attaching the Non-Mandatory Aspects to Object Types in the Object Type configuration, the aspect properties can be used on forms and search results just like any other property in the Object Type Config. This section is useful if Non-Mandatory Aspect properties need to be used throughout the Application and are not directly forced upon Object Types.
+This section is useful if Non-Mandatory Aspect properties need to be used throughout the Application and are not 
+directly forced upon Object Types.
 
 ### Picklists
+This section discusses picklists.
 
 #### Simple Picklist
-
-In the Admin's Picklist Config section, Administrators can configure &quot;Simple&quot; picklists. A simple picklist is a list of labels and values managed directly in the admin. Each picklist can be ordered at will by the administrator and can have a default value.
+In the Admin's Picklist Config section, Administrators can configure `Simple` picklists. A simple picklist 
+is a list of labels and values managed directly in the admin. Each picklist can be ordered at will by the administrator 
+and can have a default value.
 
 #### OpenContent and Web Service Picklists
-
-Other picklist types are available upon request. See the [picklist documentation](https://github.com/tsgrp/HPI/wiki/Picklists) and reach out to TSG for more information.
+Other picklist types are available upon request. See the [picklist documentation](https://github.com/tsgrp/HPI/wiki/Picklists) 
+for more information.
 
 ### Forms
-
-Create forms for the types users will interact with. Examples of parts of the application that require forms are Advanced Search, View/Edit Properties, Add Documents, Bulk Edit Properties, etc.
+Create forms for the types users will interact with. Examples of parts of the application that require forms are 
+Advanced Search, View/Edit Properties, Add Documents, Bulk Edit Properties, etc.
 
 Note that forms can be reused. For example, the same form can be used for View/Edit Properties and Bulk Edit Properties.
 
 #### Recommended Forms
+Forms allow for a broad range of flexibility in the Content Accelerator. The below forms are recommended:
 
-Forms allow for a broad range of flexibility in ACA. The below forms are recommended:
-
-
-
-| **Form Name** | **Configured Types** | **Notes** |
-| --- | --- | --- |
-| createObj{tracName} | Any type that can be created using an ACAform. Examples: Documents, Folders, Notes. | This form name should contain a trac name if certain tracs only allow certain types. Or, a generic 'createObject' form could be used across tracs if desired. Active Wizard Form Instances do not need to be configured here since they are not created with an ACA form. The createObject form should be selected for actions such as: bulkUpload, createFolder, folderNotes. |
-| search{tracName} | Any type that can be searched for on the given trac. | Using the typical trac names for the Controlled Document Solution, this would give two search configs: searchWizard and searchControlledDocs. This form should be selected for the Advanced Search for the given trac. |
-| viewProperties | Any type that can utilize the view/edit properties action in ACA | This form should be used for the viewProperties and bulkProperties actions. |
+|**Form Name**|**Configured Types**|**Notes**|
+|-------------|--------------------|---------|
+|createObj{tracName} |Any type that can be created using a Content Accelerator form. Examples: Documents, Folders, Notes.|This form name should contain a trac name if certain tracs only allow certain types. Or, a generic `createObject` form could be used across tracs if desired. Active Wizard Form Instances do not need to be configured here since they are not created with an Content Accelerator form. The `createObject` form should be selected for actions such as: `bulkUpload`, `createFolder`, `folderNotes`.|
+|search{tracName} |Any type that can be searched for on the given trac.|Using the typical trac names for the Controlled Document Solution, this would give two search configs: `searchWizard` and `searchControlledDocs`. This form should be selected for the Advanced Search for the given trac.|
+|viewProperties |Any type that can utilize the view/edit properties action in Content Accelerator|This form should be used for the `viewProperties` and `bulkProperties` actions.|
 
 #### Form Details
+Once a new form is created, select all types to be on the form. Each type allows for adding attributes and multiple 
+different options for how it should be displayed (Textbox, AutoComplete, Date, etc.) as well as if it should be editable 
+or required. Depending on the control type selected different options are available to choose from. For example, choosing 
+an `AutoComplete` prompts to choose which picklist should be displayed as the options among other options. 
 
-Once a new form is created, select all types to be on the form. Each type allows for adding attributes and multiple different options for how it should be displayed (Textbox, AutoComplete, Date, etc.) as well as if it should be editable or required. Depending on the control type selected different options are available to choose from. For example, choosing an AutoComplete prompts to choose which picklist should be displayed as the options among other options. There are also Rules and External Rules available for each attribute. Rules include items such as being able to hide a field (if a user doesn't need to see it) which is particularly useful when creating a new object, Visibility Dependent (only show the field if a different field is filled out in a particular way), and others. External Rules are used as extra validation for an attribute. There is a rule to check that an attribute is unique across the entire application or unique within a certain folder.
+There are also Rules and External Rules available for each attribute. Rules include items such as being able to hide a 
+field (if a user doesn't need to see it) which is particularly useful when creating a new object, Visibility Dependent 
+(only show the field if a different field is filled out in a particular way), and others. 
+
+External Rules are used as extra validation for an attribute. There is a rule to check that an attribute is unique across 
+the entire application or unique within a certain folder.
 
 ### Ad Hoc Forms
+Ad Hoc Forms have multiple uses across the Content Accelerator. First, they are used when configuring workflow. Several 
+Activiti based workflows are offered out of the box and an administrator can configure these Ad Hoc Forms to be 
+utilized by the workflows (see [Workflow Section](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.u75saibd9xm9)).
 
-Ad Hoc Forms have multiple uses across ACA. First, they are used when configuring workflow. ACA has several Activiti based workflows offered out of the box and an administrator can configure these Ad Hoc Forms to be utilized by the workflows (see [Workflow Section](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.u75saibd9xm9)). Ad Hoc Forms are very similar to regular forms with an additional feature to create new Attributes (not being pulled from the Object Type Config) on the fly. Custom created attributes are generally used for more advanced customizations to ACA, the provided attribute values are used for Workflows.
+Ad Hoc Forms are very similar to regular forms with an additional feature to create new Attributes 
+(not being pulled from the Object Type Config) on the fly. Custom created attributes are generally used for more 
+advanced customizations to Content Accelerator, the provided attribute values are used for Workflows.
 
 ### Template Management
-
-This section is for configuring and managing base templates that drive the OpenCapture solution. As the OpenCapture solution is available via configured dashboard queues, there is no trac-based configuration. Instead, templates are configured per type, with the possibility of multiple templates per type.
+This section is for configuring and managing base templates that drive the OpenCapture solution. As the OpenCapture 
+solution is available via configured dashboard queues, there is no trac-based configuration. Instead, templates are 
+configured per type, with the possibility of multiple templates per type.
 
 To set up an OpenCapture template:
 
@@ -140,10 +161,10 @@ However, in order to make a template available to SuggestR, the machine learning
 
 Add a trac config for every trac in the application. Select the appropriate search config and stage config that the trac will use.
 
-**Types Used In Trac** : Select the types this trac will use. This configuration is to tell ACA what trac to put documents on if there is no trac context. ACA uses the following logic:
+**Types Used In Trac** : Select the types this trac will use. This configuration is to tell Content Accelerator what trac to put documents on if there is no trac context. Content Accelerator uses the following logic:
 
 1. If coming from a trac-aware module, the document will be sent to the stage on the context trac. For example, searching for a document in the 'Engineering' trac, clicking on the document will take you to the document using the Engineering Trac's stage config.
-2. If coming from a non trac-aware module, the document will be sent to the stage on the trac as configured in the trac config. For example, if the user clicks on an Engineering document in the Dashboard or in a Notification, ACA will look for any trac configs that contain the Engineering document's type in the &quot;Types used in trac&quot; list. If only one trac is found, the user will be taken to the stage for that trac. If the Engineering document's type is found in more than one trac, the user will be given a choice as to what trac to use.
+2. If coming from a non trac-aware module, the document will be sent to the stage on the trac as configured in the trac config. For example, if the user clicks on an Engineering document in the Dashboard or in a Notification, Content Accelerator will look for any trac configs that contain the Engineering document's type in the &quot;Types used in trac&quot; list. If only one trac is found, the user will be taken to the stage for that trac. If the Engineering document's type is found in more than one trac, the user will be given a choice as to what trac to use.
 
 To limit what users have access to each trac, [see this](https://github.com/tsgrp/hpi/wiki/Limiting-User's-Trac-Access).
 
@@ -404,7 +425,7 @@ Allows the administrator to configure advanced search forms for each object type
 
 ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_3935bd5a463d052.png)
 
-Configure how documents should appear in the ACA stage. This includes configurations for the following modules Search Result Traversal, Stage Info, Workflow Info, Related Objects, Folder Actions and Doc Viewer. As with search configs, stage configs are typically named with the trac name.
+Configure how documents should appear in the Content Accelerator stage. This includes configurations for the following modules Search Result Traversal, Stage Info, Workflow Info, Related Objects, Folder Actions and Doc Viewer. As with search configs, stage configs are typically named with the trac name.
 
 #### Stage info
 
@@ -450,7 +471,7 @@ Configure the available actions on the folder loaded in the stage. See the Actio
 
 ##### Viewers
 
-ACA contains support for several specialized content viewers, and support for various renditioning, download, and markup strategies. These components can be configured in the Document Viewer configuration section.
+Content Accelerator contains support for several specialized content viewers, and support for various renditioning, download, and markup strategies. These components can be configured in the Document Viewer configuration section.
 
 Stage \&gt; Select Trac \&gt; Configure Stage Modules \&gt; DocViewer
 
@@ -486,7 +507,7 @@ Additional Viewer Configurations:
 
 Configure:
 
-* Which file types should be streamed vs. downloaded in ACA.
+* Which file types should be streamed vs. downloaded in Content Accelerator.
 * Actions that should display above the document when loaded in the stage. See the Action Configuration section for more details on how to configure specific actions.
 * Whether or not to burn in Annotations when viewing PDFs
 
@@ -495,7 +516,7 @@ Configure:
 Other items that can be configured in the Doc Viewer include:
 
 * **Rendition Check Period** - How often the viewer should check the back end to see if a document has had a rendition generated.
-* **View-Time Renditioning** - If enabled and the current document doesn't have a PDF rendition, ACA will automatically request a PDF rendition be made for the document.
+* **View-Time Renditioning** - If enabled and the current document doesn't have a PDF rendition, Content Accelerator will automatically request a PDF rendition be made for the document.
 * **Attribute to Show** - Configure this to be the OCName of an attribute and if the document has that property it will be displayed as the &quot;Name&quot; of the document in the upper right-hand corner of the Viewer.
 * **External Launch Toggle** - When enabled there will be a launch arrow in the upper right corner of the viewer which will open the document content in a new window
 * **Doc Viewer or Browser** - If **External Launch Toggle** is enabled, when the content is launched in a new window you can configure it to be just a regular browser viewer or the Doc Viewer
@@ -526,7 +547,7 @@ Common action configurations: (snapshot with various sections)
 
 1. Set the action handler to change the action launch method
 
-1. **Modal** will open the action as a popup, keeping the context of ACA in the background. If the modal action handler is configured, modal size can also be adjusted.
+1. **Modal** will open the action as a popup, keeping the context of Content Accelerator in the background. If the modal action handler is configured, modal size can also be adjusted.
 2. **Right-side** will open the action to the right of document viewer
 
 1. Set the default action to launch when navigating to the folder level. This is commonly set to View All Documents, which displays a list of documents in the selected folder.
@@ -547,7 +568,7 @@ The indexer view is a side by side viewing of a document and a form. It allows a
 **Common Configuration**
 
 * Allow the user to change the Object Type within the Indexer view. This ability is used when a document gets uploaded with a generic Object Type and it's the user's job to determine the sibling or sub type it should be.
-* Auto-Save changes in the Indexer. When configured on, any time a user changes focus from one field in the form to another, ACA will automatically save their progress back to the server.
+* Auto-Save changes in the Indexer. When configured on, any time a user changes focus from one field in the form to another, Content Accelerator will automatically save their progress back to the server.
 
 **Type Configuration**
 
@@ -564,7 +585,7 @@ There are a few special values you can set:
 
 ## Activiti Workflow
 
-ACA comes with many out of the box Activiti workflows. These workflows can be configured to allow for more customization. In Workflow config, an Admin can select a workflow to configure and depending on the workflow, the Admin can confIgure different Ad Hoc Forms to display for each step of the workflow. All workflows have a &quot;Start Form&quot;, this is the form that is displayed when the user is starting the workflow. Most forms have at least one other opportunity for an Ad Hoc Form to be displayed, whether it's an approval or review task or just a complete workflow task, the Admin has the ability to display an Ad Hoc Form for each step of the workflow. For more details on how to configure Activiti Workflows see Configuring Workflows [here](https://github.com/tsgrp/HPI/wiki/Activiti-Workflow-Config#configuring-activiti-workflows-in-ocms).
+Content Accelerator comes with many out of the box Activiti workflows. These workflows can be configured to allow for more customization. In Workflow config, an Admin can select a workflow to configure and depending on the workflow, the Admin can confIgure different Ad Hoc Forms to display for each step of the workflow. All workflows have a &quot;Start Form&quot;, this is the form that is displayed when the user is starting the workflow. Most forms have at least one other opportunity for an Ad Hoc Form to be displayed, whether it's an approval or review task or just a complete workflow task, the Admin has the ability to display an Ad Hoc Form for each step of the workflow. For more details on how to configure Activiti Workflows see Configuring Workflows [here](https://github.com/tsgrp/HPI/wiki/Activiti-Workflow-Config#configuring-activiti-workflows-in-ocms).
 
 ## Active Wizard
 
@@ -1254,7 +1275,7 @@ Web Service queries can be used to call out to other systems for answer data. On
 
     * Query Variable: ${user_id}
 
-* HPI Picklist (refers to picklist defined in ACA)
+* HPI Picklist (refers to picklist defined in Content Accelerator)
 
 Here is an example of the Web Service Query that uses a web service type, _Users in Groups_. The query will bring back users within a particular group, see [Testing Queries](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.kndc7pphevtc). ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_dcc49a08dae20ac4.png)
 
@@ -1475,7 +1496,7 @@ If the default name is not desired, the administrator can specify a custom activ
 
 ### Action Information
 
-This section displays all the possible actions and conditions that are available in ACA and give a detailed description of each.
+This section displays all the possible actions and conditions that are available in Content Accelerator and give a detailed description of each.
 
 ### Search Tool
 
@@ -1488,19 +1509,19 @@ This is a search tool that can only be used by Repo Administrators. It is a tool
 
 ### Config Archiver
 
-The Config Archiver is a tool that allows you to move ACA configuration from one environment to another. There are two methods, Export and Import.
+The Config Archiver is a tool that allows you to move Content Accelerator configuration from one environment to another. There are two methods, Export and Import.
 
-When exporting an ACA configuration, you can choose to include user preferences or not. If you chose to include them, it will bring over all user preferences that exist in the ACA environment (you should only do this if moving configs between a Dev, QA, Prod environments where the same users will be using the system in each environment).
+When exporting an Content Accelerator configuration, you can choose to include user preferences or not. If you chose to include them, it will bring over all user preferences that exist in the Content Accelerator environment (you should only do this if moving configs between a Dev, QA, Prod environments where the same users will be using the system in each environment).
 
-To import an ACA configuration all you need to do is upload the archived config zip file and click Import.
+To import an Content Accelerator configuration all you need to do is upload the archived config zip file and click Import.
 
 ### License Manager
 
-The ACA license manager allows an Administrator to view the current license information and import a new license if needed.
+The Content Accelerator license manager allows an Administrator to view the current license information and import a new license if needed.
 
 ## Action Configuration
 
-While many actions require little to no configuration beyond enabling the action, some more complicated actions have additional configuration options. See the [ACA Features](https://github.com/tsgrp/HPI/wiki#ocms-features) section for further details about how to configure certain commonly used actions in ACA. Individual action links listed in the table below.
+While many actions require little to no configuration beyond enabling the action, some more complicated actions have additional configuration options. See the [Content Accelerator Features](https://github.com/tsgrp/HPI/wiki#ocms-features) section for further details about how to configure certain commonly used actions in Content Accelerator. Individual action links listed in the table below.
 
 ### Addition Action Configuration Information
 
