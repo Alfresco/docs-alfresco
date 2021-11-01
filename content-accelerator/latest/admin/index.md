@@ -98,7 +98,7 @@ is a list of labels and values managed directly in the admin. Each picklist can 
 and can have a default value.
 
 #### OpenContent and Web Service Picklists
-Other picklist types are available upon request. See the [picklist documentation](https://github.com/tsgrp/HPI/wiki/Picklists) 
+Other picklist types are available upon request. See the [picklist documentation](https://github.com/tsgrp/HPI/wiki/Picklists){:target="_blank"} 
 for more information.
 
 ### Forms
@@ -132,7 +132,7 @@ the entire application or unique within a certain folder.
 ### Ad Hoc Forms
 Ad Hoc Forms have multiple uses across the Content Accelerator. First, they are used when configuring workflow. Several 
 Activiti based workflows are offered out of the box and an administrator can configure these Ad Hoc Forms to be 
-utilized by the workflows (see [Workflow Section](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.u75saibd9xm9)).
+utilized by the workflows (see [Workflow Section](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.u75saibd9xm9){:target="_blank"}).
 
 Ad Hoc Forms are very similar to regular forms with an additional feature to create new Attributes 
 (not being pulled from the Object Type Config) on the fly. Custom created attributes are generally used for more 
@@ -145,156 +145,157 @@ configured per type, with the possibility of multiple templates per type.
 
 To set up an OpenCapture template:
 
-1. Select the applicable object type to index
-2. Create new template
+1. Select the applicable object type to index.
+2. Create a new template.
 3. Import a sample document to base the template off. For example, upload an invoice from a common vendor.
-4. Select a fingerprint key attribute. A document's &quot;fingerprint&quot; is a combination of the key and the text/location data of the relevant metadata extracted from the content. The key should be an attribute that classifies the types of fingerprints expected to be generated. For example, invoices from a particular vendor tend to look the same and would therefore be identified by the same or similar fingerprint. Therefore, &quot;vendor&quot; is a good fingerprint key selection.
+4. Select a fingerprint key attribute. A document's `fingerprint` is a combination of the key and the text/location data of the relevant metadata extracted from the content. The key should be an attribute that classifies the types of fingerprints expected to be generated. For example, invoices from a particular vendor tend to look the same and would therefore be identified by the same or similar fingerprint. Therefore, `vendor` is a good fingerprint key selection.
 5. Set up the key-value pair and zonal metadata extraction for each piece of metadata to extract.
 
 **Saving and Publishing templates**
 
-When saving a template, configuration data is being saved to the repository. When navigating to and from the Template Configuration section of the admin, saved templates can be loaded and changed.
+When saving a template, configuration data is being saved to the repository. When navigating to and from the 
+Template Configuration section of the admin, saved templates can be loaded and changed.
 
 However, in order to make a template available to SuggestR, the machine learning engine, a template must be published.
 
 ### Tracs
+Add a trac config for every trac in the application. Select the appropriate search config and stage config that the 
+trac will use.
 
-Add a trac config for every trac in the application. Select the appropriate search config and stage config that the trac will use.
+**Types Used In Trac**: 
 
-**Types Used In Trac** : Select the types this trac will use. This configuration is to tell Content Accelerator what trac to put documents on if there is no trac context. Content Accelerator uses the following logic:
+Select the types this trac will use. This configuration is to tell Content Accelerator what trac to put documents on 
+if there is no trac context. Content Accelerator uses the following logic:
 
 1. If coming from a trac-aware module, the document will be sent to the stage on the context trac. For example, searching for a document in the 'Engineering' trac, clicking on the document will take you to the document using the Engineering Trac's stage config.
-2. If coming from a non trac-aware module, the document will be sent to the stage on the trac as configured in the trac config. For example, if the user clicks on an Engineering document in the Dashboard or in a Notification, Content Accelerator will look for any trac configs that contain the Engineering document's type in the &quot;Types used in trac&quot; list. If only one trac is found, the user will be taken to the stage for that trac. If the Engineering document's type is found in more than one trac, the user will be given a choice as to what trac to use.
+2. If coming from a non trac-aware module, the document will be sent to the stage on the trac as configured in the trac config. For example, if the user clicks on an Engineering document in the Dashboard or in a Notification, Content Accelerator will look for any trac configs that contain the Engineering document's type in the "Types used in trac" list. If only one trac is found, the user will be taken to the stage for that trac. If the Engineering document's type is found in more than one trac, the user will be given a choice as to what trac to use.
 
-To limit what users have access to each trac, [see this](https://github.com/tsgrp/hpi/wiki/Limiting-User's-Trac-Access).
+To limit what users have access to each trac, [see this](https://github.com/tsgrp/hpi/wiki/Limiting-User's-Trac-Access){:target="_blank"}.
 
 ### Trac Security
-
-Security can be configured at the trac level to limit what groups are allowed to access each trac. See [here](https://github.com/tsgrp/HPI/wiki/Limiting-User%27s-Trac-Access#how-to-limit-a-users-trac-access) for further information.
+Security can be configured at the trac level to limit what groups are allowed to access each trac. 
+See [here](https://github.com/tsgrp/HPI/wiki/Limiting-User%27s-Trac-Access#how-to-limit-a-users-trac-access){:target="_blank"} for further information.
 
 ### Event Logging
-
-A single option to turn event logging on or off. If on, log files will be kept on the server that can be used to see performance statistics across the application. For example, if a user launches a document in the Stage using Enterprise Viewer, the load statistics would be recorded (how long the document took to load).
+A single option to turn event logging on or off. If on, log files will be kept on the server that can be used to see 
+performance statistics across the application. For example, if a user launches a document in the Stage using 
+Enterprise Viewer, the load statistics would be recorded (how long the document took to load).
 
 ## Views
-
 This section covers Views, the different areas of the application a user can navigate to.
 
 ### Dashboard
-
-#### Overview
-
-The Dashboard is a powerful View that, when configured, is usually the first place a user is taken upon login to the application.
+The Dashboard is a powerful View that, when configured, is usually the first place a user is taken upon logging in 
+to the application.
 
 Sample Dashboard:
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_713a8c204dfc27bc.png)
+![ACA Dashboard view]({% link content-accelerator/images/aca-dashboard-view.png %})
 
 #### Main Settings
-
-In this section, choose how many columns to allow on the Dashboard and whether or not users may rearrange their Dashlets.
+In this section, choose how many columns to allow on the Dashboard and whether users may rearrange their Dashlets.
 
 #### Dashboard Tab Settings
-
-This section allows for the creation of multiple Dashboard tabs. Each tab can have different dashlets and a dashlet can be used on more than one tab if desired. Tab configurations can also supersede the general configuration in terms of number of columns. For example, the general configuration can be set to have 2 columns but a Tab can be configured to have one dashlet and for that individual Tab to be configured to have a single column.
+This section allows for the creation of multiple Dashboard tabs. Each tab can have different dashlets and a dashlet can 
+be used on more than one tab if desired. Tab configurations can also supersede the general configuration in terms of 
+number of columns. For example, the general configuration can be set to have 2 columns but a Tab can be configured to 
+have one dashlet and for that individual Tab to be configured to have a single column.
 
 #### Dashlets
+All dashlets have a few common configurations, these include the display name, whether an individual user 
+wants the dashlet to be displayed and which groups should have access to the dashlet. There are 9 different types of 
+dashlets that can be configured. Below is a description of each.
 
-All dashlets have a few common configurations, these include the display name of the dashlet, whether or not an individual user wants the dashlet to be displayed and which groups should have access to the dashlet. There are 9 different types of dashlets that can be configured. Below is a description of each.
+![Img Txt]({% link content-accelerator/images/aca-dashboard-dashlets-id-name.png %}){:height="200px" width="400px"}
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_b60b49540f0d91cc.png)
-
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_c824e3cb1c25197d.png)
+![Img Txt]({% link content-accelerator/images/aca-dashboard-dashlets-visibility.png %})
 
 ##### Saved Search
-
-This dashlet can be configured to run a search and display the results on the dashboard. It includes the following configuration options:
+This dashlet can be configured to run a search and display the results on the dashboard. It includes the following 
+configuration options:
 
 1. Search Config
+    1. Select Object Type
+    2. Select visible attributes
+    3. Select "Linked" attribute
+    4. Select sort attribute and order
+    5. Link to Indexer (only used if the saved search is an indexing queue)
+    6. Trac to resolve to (only necessary if the object type is used on multiple tracs)
+    7. Allow users to sort the columns themselves
 
-1. Select Object Type
-2. Select visible attributes
-3. Select &quot;Linked&quot; attribute
-4. Select sort attribute and order
-5. Link to Indexer (only used if the saved search is an indexing queue)
-6. Trac to resolve to (only necessary if the object type is used on multiple tracs)
-7. Allow users to sort the columns themselves
+2. Search Criteria
+    1. Configure the search by adding criteria
+    2. Each criterion has an attribute, an operator and a value
+    3. There are 3 special values available:
+        1. `$user.loginName`  (current login name)
+        2. `$user.displayName` (current display name)
+        3. `$date`  (current date)
 
-1. Search Criteria
+Below is an example of the *Saved Search Dashlet* custom configuration.
 
-1. Configure the search by adding criteria
-2. Each criteria has an attribute, an operator and a value
-3. There are 3 special values available:
+![Img Txt]({% link content-accelerator/images/aca-dashboard-dashlets-saved-search.png %})
 
-    1. $user.loginName  (current login name)
-    2. $user.displayName (current display name)
-    3. $date  (current date)
-
-Below is an example of the Saved Search Dashlet custom configuration.
-
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_139da5bc8330d2f5.png)
-
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_2bc12a9bbf2c361e.png)
+![Img Txt]({% link content-accelerator/images/aca-dashboard-dashlets-saved-search-result.png %})
 
 ##### Recent Objects
-
-Configure a dashlet to show the last 5 or 10 items (folders or documents) that the user has viewed in the stage. After choosing folders or documents, select the desired object type and properties to be displayed in the dashlet.
+Configure a dashlet to show the last 5 or 10 items (folders or documents) that the user has viewed in the stage. 
+After choosing folders or documents, select the desired object type and properties to be displayed in the dashlet.
 
 ##### Inbox
-
-The Inbox dashlet will allow users to see both individual and group Activiti Workflow tasks that are assigned or available to the current user. This dashlet doesn't have any extra configuration.
+The *Inbox* dashlet will allow users to see both individual and group Activiti Workflow tasks that are assigned or 
+available to the current user. This dashlet doesn't have any extra configuration.
 
 ##### Active Wizard Inbox
-
-The Active Wizard Inbox will show individual and/or group Wizard Workflow tasks for the current user. The Admin has the ability to show only individual tasks, only group tasks or both individual and group tasks.
+The *Active Wizard Inbox* will show individual and/or group Wizard Workflow tasks for the current user. The Admin has 
+the ability to show only individual tasks, only group tasks or both individual and group tasks.
 
 ##### Reporting
+The *Reporting* dashlet displays line, bar, and pie chart reports of repository-based metrics. Any metadata that is 
+stored in the repository can be reported on, so it is frequently configured to show trends in incoming content, 
+workflow task actions, and deadline readiness. 
 
-The Reporting Dashlet displays line, bar, and pie chart reports of repository-based metrics. Any metadata that is stored in the repository can be reported on, so it is frequently configured to show trends in incoming content, workflow task actions, and deadline readiness. Some example high-level reports are:
+Some example high-level reports are:
 
-* Vendor submissions that were &quot;right first time&quot;
+* Vendor submissions that were "right first time"
 * Documents approaching a periodic review date
 * Content created by type in the past month
 * Number of documents owned per user
 * Items submitted on-time vs. late
 
-A reporting dashlet is configured similarly to a saved search dashlet, in that the data populating the graph is driven by configured queries. While there are many configuration options, the basic steps to creating a reporting dashlet are:
+A *Reporting* dashlet is configured similarly to a *Saved Search* dashlet, in that the data populating the graph is driven 
+by configured queries. While there are many configuration options, the basic steps to creating a reporting dashlet are:
 
-1. Add query terms - Each query term is a query that will be run to plot one component of the graph. For example, to create a graph comparing incoming pharmaceutical batch documents that were right the first time vs. requiring rework, create two query terms: one for the Batch Documents with property RFT=true, one for Batch Documents with property RFT=false.
-2. Configure query terms - Each term can contain many query criteria that are ANDed together to generate the query.
+1. **Add query terms** - Each query term is a query that will be run to plot one component of the graph. For example, to create a graph comparing incoming pharmaceutical batch documents that were right the first time vs. requiring rework, create two query terms: one for the Batch Documents with property `RFT=true`, one for Batch Documents with property `RFT=false`.
+2. **Configure query terms** - Each term can contain many query criteria that are ANDed together to generate the query.
+    1. Add term
+    2. Select metadata field to query on
+    3. Select operator
+        * Equality operators (`Is Like`, `Is Equal`, `Is Not Equal`) - Enter a value next to the operator for comparison. Note that tokens `$user.loginName`, `$user.displayName`, `$date` are supported
+        * Date range operators (`Within`, `Past`, `Next`) - Enter a number and a time interval
+        * Distinct - This is a special case that should be used when looking to plot all values of a property, without creating a term for each possible value. This is useful for when there are many possible changing or unknown values, such as user names. Consider the example of Claims per Claimant
+3. **Configure graph properties** - There are two broad categories of graphs: Snapshot and Date Range. Static graphs capture the results of the queries configured above for the current moment, while Date Range graphs will run the configured queries for various time intervals and plot the results over time.
 
-1. Add term
-2. Select metadata field to query on
-3. Select operator
-
-* Equality operators (Is Like, Is Equal, Is Not Equal) - Enter a value next to the operator for comparison. Note that tokens $user.loginName, $user.displayName, $date are supported
-* Date range operators (Within, Past, Next) - Enter a number and a time interval
-* Distinct - This is a special case that should be used when looking to plot all values of a property, without creating a term for each possible value. This is useful for when there are many possible changing or unknown values, such as user names. Consider the example of Claims per Claimant
-
-1. Configure graph properties - There are two broad categories of graphs: Snapshot and Date Range. Static graphs capture the results of the queries configured above for the current moment, while Date Range graphs will run the configured queries for various time intervals and plot the results over time.
-
-Date Range graphs must be bar or line charts, and must additionally specify a date property to plot against such as Created Date, Approval Date, Modified Date, etc.
+Date Range graphs must be bar or line charts, and must additionally specify a date property to plot against such as 
+`Created Date`, `Approval Date`, `Modified Date`, etc.
 
 Graph properties such as title, axis labels, and color variation can also be configured.
 
 ##### Workflow Reporting
-
-This dashlet will give detailed reports on Active Wizard Workflows, including any workflow the current user is an approver for, the history of pending workflows and workflows with tasks available for groups the user is a part of.
+This dashlet will give detailed reports on Active Wizard Workflows, including any workflow the current user is an 
+approver for, the history of pending workflows and workflows with tasks available for groups the user is a part of.
 
 ##### Incomplete Tag Dashlet
-
-A visual representation of Folders that are missing any number of required documents. To configure, select the desired Object Type to search on, and then select the number of results to show.
+A visual representation of Folders that are missing any number of required documents. To configure, select the 
+desired Object Type to search on, and then select the number of results to show.
 
 ##### IFrame Dashlet
-
-This dashlet is a simple IFrame that can be configured by the Admin to display an external URL on the dashboard. For example, a view from an external performance application can be configured to load in the IFrame.
+This dashlet is a simple IFrame that can be configured by the Admin to display an external URL on the dashboard. For 
+example, a view from an external performance application can be configured to load in the IFrame.
 
 ##### Notifications
-
 This dashlet visualizes the current user's Activiti notifications. This dashlet doesn't have any extra configuration.
 
 ### Search
-
 When creating a new search configuration consideration, you are generally creating a search tool for a particular 
 object type. Different types generally have very different relevant metadata, and therefore separate search configurations.
 
@@ -305,96 +306,85 @@ deliver type-agnostic results. This is a less common strategy.
 
 There are various components of search that are separately configurable.
 
-\&lt;Screenshot with numeric guide\&gt;
-
 #### Main Settings
-
 High-level search settings including:
 
 * **Search form to display** - This is an important configuration, as it is the search form that will be displayed and drives the setup of several other search components.
 * **Limit search results to** - If lower than the repository setting for number of search results returned, this value will restrict search results. If higher than the repository search results settings, the repository value will be used. In other words, this setting cannot allow for more search results than the repository is set up to return.
 * **Enable type-to-path security** - For each type in the selected search form, a user can indicate a repository folder path (generally the path to the folder being searched) to pull the security setup from. Basically, this allows search to use repository folder level security to determine who can perform the configured searches.
-* **Open Content Query Implementation** - Allows queries to be run against a database. This should only be set to &quot;Use Native Search APIs&quot;
+* **Open Content Query Implementation** - Allows queries to be run against a database. This should only be set to "Use Native Search APIs"
 
 #### Sidebar Settings
-
-Sidebar settings relate to the left-hand search tools beyond the Advanced Search form. The following settings are available for configuration:
+Sidebar settings relate to the left-hand search tools beyond the Advanced Search form. The following settings are 
+available for configuration:
 
 * **Quick Search** - Quick Search leverages Solr full-text indexing in order to allow a user to perform a free-form search against all properties and content. This is commonly enabled in addition to property-based Advanced Search.
 * **Saved Search** - For commonly run searches, users can save their entered search terms and execute them with one click for all future searches.
 * **Public Saved Search** - This allows users to make their Saved Searches available to all users that have access to that search. An admin group or groups that have the ability to modify public saved searches can also be configured.
-* **Alfresco Enterprise Viewer Search Term Highlighting** - If Quick Search is enabled, and used to search a document's content, that search term will be highlighted in the content when the document is launched in AEV.
+* **Alfresco Enterprise Viewer Search Term Highlighting** - If Quick Search is enabled, and used to search a document's content, that search term will be highlighted in the content when the document is launched in Alfresco Enterprise Viewer.
 
 #### Attribute Search
+**Search &gt; Configure Search Modules &gt; Attribute Search**
 
-**Search \&gt; Configure Search Modules \&gt; Attribute Search**
+The Attribute Search section covers the configuration of the property-based search form. To configure, for each type in 
+the selected form:
 
-The Attribute Search section covers the configuration of the property-based search form. To configure, for each type in the selected form:
-
-1. Toggle the &quot;Enabled&quot; switch under Attribute Search Controls
+1. Toggle the "Enabled" switch under Attribute Search Controls
 2. Configure the default sort attribute
 3. Configure sort attribute and order
 4. Configure whether to allow search on all versions, which determines whether all versions or just the current version are brought back in the search results
 5. If search on all versions is allowed, select whether it should be the default method
 
 #### Search Results
-
 There are several functional components of search results.
 
-**Search Results General Table Configurations**
-
-**Search \&gt; Configure Search Modules \&gt; Search Results**
+##### General Table Configurations
+**Search &gt; Configure Search Modules &gt; Search Results**
 
 * **Timing Data** - Display timing data on how long the search took to run. Additionally, configure time ranges for what a good, medium, and bad response time are.
 * **Object Icon** - Enable the mimetype icon to be displayed next to the object name
 * **Export Via Email** - When enabled users can execute a search and export the results to an Excel spreadsheet that will be emailed to them.
 * **SlickGrid Display Options** - SlickGrid is the dynamic table tool used to display search results. You are able to configure 3 different options:
+    * **Synchronous Resize** - Slickgrid will continually resize the column as you drag, vs, waiting until you stop dragging
+    * **Enable Force Fit in Dual Pane** - when selected it will resize all the columns if the table changes size when launching a document in Dual Pane mode (utilized by View All Documents in the Stage)
+    * **Enable User Controlled Force Fit** - When enabled, users can choose to force all visible columns in the table to avoid having a horizontal scroll bar
 
-    * Synchronous Resize - Slickgrid will continually resize the column as you drag, vs, waiting until you stop dragging
-    * Enable Force Fit in Dual Pane - when selected it will resize all the columns if the table changes size when launching a document in Dual Pane mode (utilized by View All Documents in the Stage)
-    * Enable User Controlled Force Fit - When enabled, users can choose to force all visible columns in the table to avoid having a horizontal scroll bar
+##### Type Specific Configurations
+**Search &gt; Configure Search Modules &gt; Search Results &gt; Type Configurations**
 
-**Search Results Type Specific Configurations**
-
-**Search \&gt; Configure Search Modules \&gt; Search Results \&gt; Type Configurations**
-
-This section dictates the table configurations specific to each search result type, such as columns displayed, linking to stage, etc. For each type configured in the form configure the following:
+This section dictates the table configurations specific to each search result type, such as columns displayed, 
+linking to stage, etc. For each type configured in the form configure the following:
 
 1. Search result opt-in features
+    1. **Show Thumbnails in Table View** - If selected search results in the table view that have a thumbnail will display the thumbnail.
+    2. **Enable separate thumbnail view** - Will enable a grid-style thumbnail view in addition to the table metadata view. This is great for image-based scenarios.
+    3. **Sort repeating attributes** - Repeating attributes appear as comma-separated values. This will sort the comma-separated values alphabetically.
+    4. **Enable Reset Button** - Users can order or hide columns for the search results table, and those local configurations are stored under their user preferences. Reset clears out search-related user preferences, and resets the look of the table to the default.
+    5. **Enable standardized table view** - When enabled, users can click this view and ALL users will see the exact same table sorted the exact same way.
+2. Object Title - Configure which attribute in the table should be clickable.
+3. Indicator Icons - Configure icons that are displayed next to the Title attribute in the table if the criteria is met for a particular document. The most common scenario this is used for is displaying a lock icon next to checked out documents. This scenario is so common that its configuration is mapped to a single button click &gt; "Add Lock/Key"
+4. Search result Link Resolver dictates where the user is taken when clicking a search result link.
+    * **Stage** - This is the most common setting, and will open the document or folder in Stage using the Stage configuration for the given Trac the user is on.
+    * **Stream** - open content stream in new browser tab
+    * **Wizard** - Wizard form stage is set up differently from normal content's stage. In order for this to work, you must have a specific Stage configuration for Wizard Forms.
+    * **DocViewer** - A Viewer-only option, which excludes all actions/stage details.
+    * **External Link** - If configured you will be prompted to enter a base URL and then add in the objectId `${objectId}` as a parameter. This is utilized if you want the search to launch an external application and pass in the objectId.
+5. Search result attributes. These are the attributes that will be displayed as columns in the search results.
+   There are two subcategories when configuring - hidden and visible. Visible columns appear immediately upon return of 
+   results. Hidden columns can be toggled to be displayed per the user's preferences. Resetting to default will restore 
+   the hidden/visible fields configured in the admin.
+6. Individual document actions
+   These are the actions that appear in the right-click menu of a particular search result. The actions are executed on 
+   the selected document only (as opposed to Group Actions, which can be executed on one or more returned results).
 
-1. Show Thumbnails  in Table View- If selected search results in the table view that have a thumbnail will display the thumbnail.
-2. Enable separate thumbnail view - Will enable a grid-style thumbnail view in addition to the table metadata view. This is great for image-based scenarios.
-3. Sort repeating attributes - Repeating attributes appear as comma-separated values. This will sort the comma-separated values alphabetically.
-4. Enable Reset Button - Users can order or hide columns for the search results table, and those local configurations are stored under their user preferences. Reset clears out search-related user preferences, and resets the look of the table to the default.
-5. Enable standardized table view- When enabled, users can click this view and ALL users will see the exact same table sorted the exact same way.
-
-1. Object Title - Configure which attribute in the table should be clickable.
-2. Indicator Icons - Configure icons that are displayed next to the Title attribute in the table if the criteria is met for a particular document. The most common scenario this is used for is displaying a lock icon next to checked out documents. This scenario is so common that its configuration is mapped to a single button click \&gt; &quot;Add Lock/Key&quot;
-3. Search result Link Resolver dictates where the user is taken when clicking a search result link.
-
-* **Stage** - This is the most common setting, and will open the document or folder in Stage using the [Stage configuration](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.7v741c2anwh1) for the given [Trac](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.qge3pggzrit) the user is on.
-* **Stream** - open content stream in new browser tab
-* **Wizard** - Wizard form stage is set up differently from normal content's stage. In order for this to work, you must have a specific [Stage configuration](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.7v741c2anwh1) for Wizard Forms.
-* **DocViewer** - A Viewer-only option, which excludes all actions/stage details.
-* **External Link** - If configured you will be prompted to enter a base URL and then add in the objectId ${objectId} as a parameter. This is utilized if you want the search to launch an external application and pass in the objectId.
-
-1. Search result attributes. These are the attributes that will be displayed as columns in the search results.
-
-There are two subcategories when configuring - hidden and visible. Visible columns appear immediately upon return of results. Hidden columns can be toggled to be displayed per the user's preferences. Resetting to default will restore the hidden/visible fields configured in the admin.
-
-1. Individual document actions
-
-These are the actions that appear in the right-click menu of a particular search result. The actions are executed on the selected document only (as opposed to [Group Actions](https://docs.google.com/document/d/1a_4gQkTr_OKVohxXTPqshtNfp_EEk5vJ0NUww-XDmEo/edit?ts=5eeb7e1b#heading=h.sy8ptu5er41w)) which can be executed on one or more returned results).
-
-To configure an action:
-
-1. Select the action from the list of available actions
-2. Once the action is selected, click the edit icon
-3. The configuration section contains general action configuration, as well as options for the individual action. See the Action Configuration section for more details on how to configure specific actions.
+   To configure an action:
+   1. Select the action from the list of available actions
+   2. Once the action is selected, click the edit icon
+   3. The configuration section contains general action configuration, as well as options for the individual action. See the Action Configuration section for more details on how to configure specific actions.
 
 #### Group Actions
 
-**Search \&gt; Configure Search Modules \&gt; Group Actions**
+**Search &gt; Configure Search Modules &gt; Group Actions**
 
 Group actions can be executed on one or more search results using the check boxes in the far left column of the search results table to select the desired results. Commonly configured group actions are Export Selected Results to Excel Report, Download as Zip, and Bulk Edit Properties.
 
@@ -407,7 +397,7 @@ To configure a group action:
 
 #### Facets
 
-**Search \&gt; Configure Search Modules \&gt; Attribute Search**
+**Search &gt; Configure Search Modules &gt; Attribute Search**
 
 In addition to the standard filter bar to narrow down search results, facets can be configured to group search results based on returned values. While this is not good for unique or highly variable attributes such as ID or serial number, it can be helpful for categorization metadata, such as department.
 
@@ -419,7 +409,7 @@ This section allows for configuration of additional query clauses that will be a
 
 #### Advanced Search
 
-Allows the administrator to configure advanced search forms for each object type in a given trac. Typically, the admin is configuring about 3-5 attributes a primary search criteria, with other attributes as secondary. Secondary attributes appear below the &quot;more fields&quot; button.
+Allows the administrator to configure advanced search forms for each object type in a given trac. Typically, the admin is configuring about 3-5 attributes a primary search criteria, with other attributes as secondary. Secondary attributes appear below the "more fields" button.
 
 ### Stage
 
@@ -431,7 +421,7 @@ Configure how documents should appear in the Content Accelerator stage. This inc
 
 Configure the at-a-glace properties that appear in the top-left corner for each content type in a trac. Can be configured for a containing folder or the document that is in the viewer.
 
-Stage \&gt; Trac \&gt; StageInfo
+Stage &gt; Trac &gt; StageInfo
 
 Configuration options:
 
@@ -473,7 +463,7 @@ Configure the available actions on the folder loaded in the stage. See the Actio
 
 Content Accelerator contains support for several specialized content viewers, and support for various renditioning, download, and markup strategies. These components can be configured in the Document Viewer configuration section.
 
-Stage \&gt; Select Trac \&gt; Configure Stage Modules \&gt; DocViewer
+Stage &gt; Select Trac &gt; Configure Stage Modules &gt; DocViewer
 
 Available Viewers (RE-ORG W/ PRIORITY)
 
@@ -517,7 +507,7 @@ Other items that can be configured in the Doc Viewer include:
 
 * **Rendition Check Period** - How often the viewer should check the back end to see if a document has had a rendition generated.
 * **View-Time Renditioning** - If enabled and the current document doesn't have a PDF rendition, Content Accelerator will automatically request a PDF rendition be made for the document.
-* **Attribute to Show** - Configure this to be the OCName of an attribute and if the document has that property it will be displayed as the &quot;Name&quot; of the document in the upper right-hand corner of the Viewer.
+* **Attribute to Show** - Configure this to be the OCName of an attribute and if the document has that property it will be displayed as the "Name" of the document in the upper right-hand corner of the Viewer.
 * **External Launch Toggle** - When enabled there will be a launch arrow in the upper right corner of the viewer which will open the document content in a new window
 * **Doc Viewer or Browser** - If **External Launch Toggle** is enabled, when the content is launched in a new window you can configure it to be just a regular browser viewer or the Doc Viewer
 
@@ -529,11 +519,11 @@ Configure actions that can be performed on the document being viewed in the Stag
 
 Document Actions are the grouping of actions that appear above the content in the stage. Each of these actions performs an operation on the document in the viewer, as opposed to the containing folder.
 
-Stage \&gt; Trac \&gt; DocViewer \&gt; Actions
+Stage &gt; Trac &gt; DocViewer &gt; Actions
 
 Folder Actions are the grouping of actions that appear to the left of the viewer. Each of these actions performed an operation at the folder level as opposed to on a particular document.
 
-Stage \&gt; Trac \&gt; FolderActions
+Stage &gt; Trac &gt; FolderActions
 
 Configuring an action:
 
@@ -553,7 +543,7 @@ Common action configurations: (snapshot with various sections)
 1. Set the default action to launch when navigating to the folder level. This is commonly set to View All Documents, which displays a list of documents in the selected folder.
 
 1. Set the action icon
-2. Toggle whether or not the action's permissions are evaluated in &quot;Why Can't I...&quot;, which will indicate to the user what requirement is preventing them from executing the action.
+2. Toggle whether or not the action's permissions are evaluated in "Why Can't I...", which will indicate to the user what requirement is preventing them from executing the action.
 
 For more detail on configuring actions, see the Action Configuration section.
 
@@ -576,7 +566,7 @@ When configuring an Object Type on the Indexer view there are several different 
 
 * Record Position Data. This will automatically set the positional data on the document as metadata when the document is indexed.
 
-For each type you configure, you can set attributes on the document automatically once the user clicks the document and after the user is done indexing the document. Depending on how the user filled out the form (valid or invalid) you can automatically set different values. The most common example of this is to set the Index Status attribute to &quot;Indexing&quot; when initially clicked and then either to &quot;Done&quot; or &quot;New&quot; depending on if the user filled out the form completely or not. For each attribute you are setting you have the ability to configure whether or not to process that value, for instance there might be a certain attribute you only want to set if the form is valid and if the form is invalid you don't want anything to happen to it at all. A common example of this would be if a user successfully indexes a document (form is valid) you'd want to set the Indexed By attribute to that user, however if it was not indexed successfully (form is invalid) you don't want to set that attribute at all.
+For each type you configure, you can set attributes on the document automatically once the user clicks the document and after the user is done indexing the document. Depending on how the user filled out the form (valid or invalid) you can automatically set different values. The most common example of this is to set the Index Status attribute to "Indexing" when initially clicked and then either to "Done" or "New" depending on if the user filled out the form completely or not. For each attribute you are setting you have the ability to configure whether or not to process that value, for instance there might be a certain attribute you only want to set if the form is valid and if the form is invalid you don't want anything to happen to it at all. A common example of this would be if a user successfully indexes a document (form is valid) you'd want to set the Indexed By attribute to that user, however if it was not indexed successfully (form is invalid) you don't want to set that attribute at all.
 
 There are a few special values you can set:
 
@@ -585,7 +575,7 @@ There are a few special values you can set:
 
 ## Activiti Workflow
 
-Content Accelerator comes with many out of the box Activiti workflows. These workflows can be configured to allow for more customization. In Workflow config, an Admin can select a workflow to configure and depending on the workflow, the Admin can confIgure different Ad Hoc Forms to display for each step of the workflow. All workflows have a &quot;Start Form&quot;, this is the form that is displayed when the user is starting the workflow. Most forms have at least one other opportunity for an Ad Hoc Form to be displayed, whether it's an approval or review task or just a complete workflow task, the Admin has the ability to display an Ad Hoc Form for each step of the workflow. For more details on how to configure Activiti Workflows see Configuring Workflows [here](https://github.com/tsgrp/HPI/wiki/Activiti-Workflow-Config#configuring-activiti-workflows-in-ocms).
+Content Accelerator comes with many out of the box Activiti workflows. These workflows can be configured to allow for more customization. In Workflow config, an Admin can select a workflow to configure and depending on the workflow, the Admin can confIgure different Ad Hoc Forms to display for each step of the workflow. All workflows have a "Start Form", this is the form that is displayed when the user is starting the workflow. Most forms have at least one other opportunity for an Ad Hoc Form to be displayed, whether it's an approval or review task or just a complete workflow task, the Admin has the ability to display an Ad Hoc Form for each step of the workflow. For more details on how to configure Activiti Workflows see Configuring Workflows [here](https://github.com/tsgrp/HPI/wiki/Activiti-Workflow-Config#configuring-activiti-workflows-in-ocms).
 
 ## Active Wizard
 
@@ -667,10 +657,10 @@ The all questions required option determines whether a page must have all its qu
 
 The above two options allow a variety of behaviors to be implemented in a Form Template.
 
-* Neither &quot;Completed pages required&quot; nor &quot;All questions required&quot; is checked: Verification of Form Template answers is minimal* a user is not required to visit all of the pages or provide answers to any of the questions.
-* &quot;Completed pages required&quot; is checked, &quot;All questions required&quot; is unchecked: No warnings about unanswered questions are given to the user while completing the Form Template; however, the Form Template cannot be completed unless all pages have been viewed.
-* &quot;Completed pages required&quot; is unchecked, &quot;All questions required&quot; is checked: Warnings about unanswered questions are given to the user, but the user can complete the Form Template at any time from the Summary page regardless of missing answers.
-* Both &quot;Completed pages required&quot; and &quot;All questions required&quot; are checked: Full verification of Form Template answers is done. The user cannot complete the Form Template unless all questions have been completed on all of the visible pages.
+* Neither "Completed pages required" nor "All questions required" is checked: Verification of Form Template answers is minimal* a user is not required to visit all of the pages or provide answers to any of the questions.
+* "Completed pages required" is checked, "All questions required" is unchecked: No warnings about unanswered questions are given to the user while completing the Form Template; however, the Form Template cannot be completed unless all pages have been viewed.
+* "Completed pages required" is unchecked, "All questions required" is checked: Warnings about unanswered questions are given to the user, but the user can complete the Form Template at any time from the Summary page regardless of missing answers.
+* Both "Completed pages required" and "All questions required" are checked: Full verification of Form Template answers is done. The user cannot complete the Form Template unless all questions have been completed on all of the visible pages.
 
 Note that if all questions required are not checked, you can still control which questions are required on a question by question basis.
 
@@ -823,7 +813,7 @@ A non-repeating question group will display the grouped questions in a separate 
 
 ##### Stop Pages
 
-It may be desired to enforce that a user cannot finish filling out a form. By creating a page with no questions on it, a &quot;stop page&quot; is created. This is often reached by adding an action to a question that leads to another page. Once this page is reached, the user will be prohibited from submitting the form from the Summary page as long as the &quot;Completed Pages Required&quot; option is enabled on the Form Template.
+It may be desired to enforce that a user cannot finish filling out a form. By creating a page with no questions on it, a "stop page" is created. This is often reached by adding an action to a question that leads to another page. Once this page is reached, the user will be prohibited from submitting the form from the Summary page as long as the "Completed Pages Required" option is enabled on the Form Template.
 
 ##### HTML Text
 
@@ -842,39 +832,39 @@ Note that only the following HTML tags are supported.
 
 * Bold
 
-    * o    \&lt;b\&gt;\&lt;/b\&gt;
+    * o    \&lt;b&gt;\&lt;/b&gt;
 
 *  Italic
 
-* o    \&lt;i\&gt;\&lt;/i\&gt;
+* o    \&lt;i&gt;\&lt;/i&gt;
 
 * Underline
 
-    * o    \&lt;u\&gt;\&lt;/u\&gt;
+    * o    \&lt;u&gt;\&lt;/u&gt;
 
 * Paragraph
 
-    * o    \&lt;p\&gt;\&lt;/p\&gt;
+    * o    \&lt;p&gt;\&lt;/p&gt;
 
 * Font
 
-    * o    \&lt;font\&gt;\&lt;/font\&gt;
+    * o    \&lt;font&gt;\&lt;/font&gt;
 
 * Link
 
-    * o    \&lt;a href='' target='_blank'\&gt;\&lt;/a\&gt;
+    * o    \&lt;a href='' target='_blank'&gt;\&lt;/a&gt;
 
-* List with no \&lt;ul\&gt; or \&lt;ol\&gt; wrapper
+* List with no \&lt;ul&gt; or \&lt;ol&gt; wrapper
 
-    * o    \&lt;li\&gt;\&lt;/li\&gt;
+    * o    \&lt;li&gt;\&lt;/li&gt;
 
 *  Image
 
-* o    \&lt;img\&gt;\&lt;/img\&gt;
+* o    \&lt;img&gt;\&lt;/img&gt;
 
 *  Line Break
 
-* o    \&lt;br\&gt;\&lt;/br\&gt;
+* o    \&lt;br&gt;\&lt;/br&gt;
 
 The following escape characters are also supported:
 
@@ -882,7 +872,7 @@ The following escape characters are also supported:
 
 * o    &amp;lt;
 
-* \&gt;
+* &gt;
 
     * o    &amp;gt;
 
@@ -919,7 +909,7 @@ You may also navigate through a page by clicking the lower buttons in the detail
 
 Clicking the cancel button returns you to the next higher-level component without saving modifications made to the current component.
 
-Clicking the new \&lt;component\&gt; creates a new component and takes you to the details screen for that component.  For example, when editing an input, clicking the new option button creates a new option and brings up the Manage Option details screen.
+Clicking the new \&lt;component&gt; creates a new component and takes you to the details screen for that component.  For example, when editing an input, clicking the new option button creates a new option and brings up the Manage Option details screen.
 
 ##### Saving your progress
 
@@ -1040,7 +1030,7 @@ Questions marked as disabled will not allow user input.  At this time, disabled 
 
 The answer display text will be displayed to the user while interacting with a Form.  The display text is generally written as an available answer for the question.
 
-The answer value is used in the left navigation pane to save space while identifying the option from other options.  The value also can be used as a secondary notation for the option.  For example, if the option display text is entered as &quot;1 Million&quot;, the value could be entered as 1,000,000.
+The answer value is used in the left navigation pane to save space while identifying the option from other options.  The value also can be used as a secondary notation for the option.  For example, if the option display text is entered as "1 Million", the value could be entered as 1,000,000.
 
 Answer values must be unique within the question.
 
@@ -1107,8 +1097,8 @@ The blackout days section allows the administrator to specify that certain days 
 The blackout range section allows the administrator to set up more complex rules:
 
 * Blackout Range – set a specific range of dates to blackout
-* Minimum Selectable Date – this can be set to a specific date or &quot;date saved&quot;.  If the date saved is selected, the minimum selectable date will be the date the user is filling out the form.
-* Maximum Selectable Date – this can be set to a specific date or &quot;date saved&quot;.  If the date saved is selected, the maximum selectable date will be the date the user is filling out the form.
+* Minimum Selectable Date – this can be set to a specific date or "date saved".  If the date saved is selected, the minimum selectable date will be the date the user is filling out the form.
+* Maximum Selectable Date – this can be set to a specific date or "date saved".  If the date saved is selected, the maximum selectable date will be the date the user is filling out the form.
 
 For example, if users can only enter dates in the future, the administrator would set up the minimum selectable date to 'Date Saved'.
 
@@ -1118,7 +1108,7 @@ A test calendar is provided to test how the calendar will look to the user, base
 
 ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_7a7b993f63b2140e.png)
 
-The date comparison section allows the administrator to set up date rules based on other questions in the form.  For example, this can be used to specify that an answer to the &quot;end date&quot; question must be after the &quot;start date&quot; question.  Simply select the question you want to compare to after clicking the [load all values] button (question selected must be a Date field), and select the operand value.  Click the [clear criteria] button to clear out the question token if needed.
+The date comparison section allows the administrator to set up date rules based on other questions in the form.  For example, this can be used to specify that an answer to the "end date" question must be after the "start date" question.  Simply select the question you want to compare to after clicking the [load all values] button (question selected must be a Date field), and select the operand value.  Click the [clear criteria] button to clear out the question token if needed.
 
 Click the save button to save changes.  Date rules can also be deleted to return the calendar back to an open calendar if needed.
 
@@ -1162,7 +1152,7 @@ For each result returned, the wizard will replace the column names with the actu
 
 When using a web service type query, the answer value and display text do not matter.  The web service is responsible for setting these values.
 
-Once the template answer is set up, add a &quot;Run a Query&quot; action to the answer.  The Manage Query page will appear.  Once the page loads, the first task is to select the query to be run.
+Once the template answer is set up, add a "Run a Query" action to the answer.  The Manage Query page will appear.  Once the page loads, the first task is to select the query to be run.
 
 Select the query to run in the Query dropdown as shown above.  You can type in the selectbox to narrow results if needed.  Once the query is selected, the query information will be shown:
 
@@ -1174,7 +1164,7 @@ Some queries are created to use a placeholder value that can be filled in at the
 
 ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_c18c4bd4989af4b7.png)
 
-In the above query, there is a token, ${group_name} that is a &quot;query variable&quot;.  There is a query variables section below that can be used to satisfy the filter:
+In the above query, there is a token, ${group_name} that is a "query variable".  There is a query variables section below that can be used to satisfy the filter:
 
 ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_f7d120ee35f3185.png)
 
@@ -1188,7 +1178,7 @@ However, we may want to drive the query variable from another question in the fo
 
 ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_ca7dd37a9d8cd996.png)
 
-In this form's case, the User Filter question is a simple textbox.  By selecting the &quot;User Filter&quot; question here, the query will replace the ${nameFilter} token with whatever the user filling out the form puts in that textbox.
+In this form's case, the User Filter question is a simple textbox.  By selecting the "User Filter" question here, the query will replace the ${nameFilter} token with whatever the user filling out the form puts in that textbox.
 
 **Note:** When typing literal values into the textbox, be sure that the value you type is not the same value as a question label in the form.  If this situation occurs, the wizard will use the value(s) set by the user, not the intended literal value.
 
@@ -1198,7 +1188,7 @@ Queries also have a section for other options:
 
 ![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_995c283e760ce521.png)
 
-The &quot;clear all answers&quot; checkbox allows the administrator to control whether or not selected options should be cleared out upon returning to the page and rerunning the query. Note that this checkbox does not affect queries that pull data from the same page.  This option is typically used when updates earlier in the form are frequently made after the query is run, and future visits to the page must clear out answers since previously selected answers are most likely invalid.  This situation is rare but has come up before.
+The "clear all answers" checkbox allows the administrator to control whether or not selected options should be cleared out upon returning to the page and rerunning the query. Note that this checkbox does not affect queries that pull data from the same page.  This option is typically used when updates earlier in the form are frequently made after the query is run, and future visits to the page must clear out answers since previously selected answers are most likely invalid.  This situation is rare but has come up before.
 
 ###### Leading to another Page
 
@@ -1231,7 +1221,7 @@ The delivery timing lets the administrator control when the email is sent:
 
 #### Working with Queries
 
-Queries are managed separately from the question where they are used. This allows administrators to define a query once, and then use the query on multiple questions and potentially multiple page sets. To manage a query, click the &quot;Manage Queries&quot; link on the admin menu. This will bring up a screen to select an existing query to manage, or create a new query. There are three main sections to this page – query name, query type and query variables:
+Queries are managed separately from the question where they are used. This allows administrators to define a query once, and then use the query on multiple questions and potentially multiple page sets. To manage a query, click the "Manage Queries" link on the admin menu. This will bring up a screen to select an existing query to manage, or create a new query. There are three main sections to this page – query name, query type and query variables:
 
 Query Name
 
@@ -1299,7 +1289,7 @@ To insert a query variable, simply type the variable name and click the [Insert 
 
 **Notes:**
 
-* Query variables can be reused within one query, but you cannot mix case.  For example, you cannot use a query variable called &quot;user&quot; and another called &quot;USER&quot;.
+* Query variables can be reused within one query, but you cannot mix case.  For example, you cannot use a query variable called "user" and another called "USER".
 
 ##### Editing Queries
 
@@ -1315,17 +1305,17 @@ While creating a query, it is possible to test the query to make sure it is retu
 
 ### Configuring Workflow Rules
 
-When the workflow module is turned on, a new administration link is available in the admin tab called &quot;Manage Signature Assignments.&quot; Optionally, a new workflow option is available for Form Templates as well. See the Workflow Module Installation Guide for instructions on installing and configuring the Workflow Module.
+When the workflow module is turned on, a new administration link is available in the admin tab called "Manage Signature Assignments." Optionally, a new workflow option is available for Form Templates as well. See the Workflow Module Installation Guide for instructions on installing and configuring the Workflow Module.
 
 **Note:** This document assumes that the reader is familiar with the Active Wizard. See the Active Wizard User Guide for more information on working with Form Templates and Form instances.
 
 #### Working with Form Templates
 
-When both the workflow module and the admin choice option are on, a new checkbox option is available on the Edit Form Template administration page called &quot;workflow active.&quot; When checked, all instances of this Form Template will use workflow. If unchecked, the instances will not use workflow. In order to modify the workflow active value, simply check out the Form Template, set the workflow active checkbox to the desired setting, and check the Form Template back in. Note that changes will not take effect until the Form Template is published and made active.
+When both the workflow module and the admin choice option are on, a new checkbox option is available on the Edit Form Template administration page called "workflow active." When checked, all instances of this Form Template will use workflow. If unchecked, the instances will not use workflow. In order to modify the workflow active value, simply check out the Form Template, set the workflow active checkbox to the desired setting, and check the Form Template back in. Note that changes will not take effect until the Form Template is published and made active.
 
 #### Managing Roles
 
-Upon clicking the &quot;Manage Signature Assignments&quot; administration link, the user is presented with a list of Form Templates. The Form Templates that appear in the select box are those that have at least one published version. If the Form Template you are working with does not appear in the list, check to make sure it has been published.
+Upon clicking the "Manage Signature Assignments" administration link, the user is presented with a list of Form Templates. The Form Templates that appear in the select box are those that have at least one published version. If the Form Template you are working with does not appear in the list, check to make sure it has been published.
 
 On the select Form Template screen, select the Form Template for which you would like to manage roles, and click 'continue'.
 
@@ -1333,7 +1323,7 @@ Next, the Roles Overview page will appear. This page lists the roles that are pr
 
 ##### Creating a Role
 
-To create a new role, click the &quot;New Role…&quot; button on the Manage Roles page. When first creating a role, the administrator must choose whether or not the role will be &quot;user based&quot; or &quot;group based&quot; (&quot;automatic&quot; is deprecated).
+To create a new role, click the "New Role…" button on the Manage Roles page. When first creating a role, the administrator must choose whether or not the role will be "user based" or "group based" ("automatic" is deprecated).
 
 ##### Creating a User Based Role
 
@@ -1415,7 +1405,7 @@ Manage the User Rule's users by moving the desired users to the Selected Users b
 
 ##### Managing User Input Rules
 
-Like User Rules, User Input Rules can be used to narrow down workflow participants within the role.  User Input Rules are different in that the rule simply specifies a question in the Form Template.  The user filling out the form, then, effectively is choosing approvers as he or she sees fit.  The main pro with using a User Input Rule is that it gives the user more flexibility to choose the approver.  If the user filling out the form &quot;knows&quot; who to route it to, a User Input Rule is appropriate.  A User Rule, on the other hand, builds the logic of picking the approver into the system, thus eliminating a user decision.
+Like User Rules, User Input Rules can be used to narrow down workflow participants within the role.  User Input Rules are different in that the rule simply specifies a question in the Form Template.  The user filling out the form, then, effectively is choosing approvers as he or she sees fit.  The main pro with using a User Input Rule is that it gives the user more flexibility to choose the approver.  If the user filling out the form "knows" who to route it to, a User Input Rule is appropriate.  A User Rule, on the other hand, builds the logic of picking the approver into the system, thus eliminating a user decision.
 
 To create a user input rule, click the 'New Rule…' button at the top of the User Input Rules table.  The User Input Rule Detail Page Appears.
 
@@ -1486,7 +1476,7 @@ To manage the activity names, either update priorities or click the 'Update Acti
 
 If the default name checkbox is checked for a particular priority, the workflow template will be created using the default name for the activity.  The default name is the form's title plus the priority number in the format:
 
-'\&lt;psi-title\&gt; \&lt;priority\&gt;'
+'\&lt;psi-title&gt; \&lt;priority&gt;'
 
 The priority number is necessary since Documentum enforces that all activity names are unique. The wizard inbox looks for this number and strips it off of the link visible to the user.  At this time, the WebTop inbox will show the priority number.
 
@@ -1504,7 +1494,7 @@ This is a search tool that can only be used by Repo Administrators. It is a tool
 
 1. **Search and export results** - In the search builder section, select a Search Config, an Object Type and the max number of results that you want returned (note if trying to bring back too many results the request could timeout). Next select the query mode (either FTS or CMIS). Then begin to build your query by choosing attributes to search on and what the criteria should be. Finally click the execute search button to retrieve your results.
 
-1. **Delete Nodes by Query** - In order to delete nodes by query, build up the query in the search builder section like before, choose a path in the repository for the report file to be written, choose whether or not you want to &quot;Force Delete Nodes&quot; then click the Delete Nodes button. All documents picked up in the query will be deleted and their node refs will be listed in the report at the location you chose.
+1. **Delete Nodes by Query** - In order to delete nodes by query, build up the query in the search builder section like before, choose a path in the repository for the report file to be written, choose whether or not you want to "Force Delete Nodes" then click the Delete Nodes button. All documents picked up in the query will be deleted and their node refs will be listed in the report at the location you chose.
 2. **Update Properties on Nodes** - First use the search builder to build your query. Then, in the bottom section you can select one or more properties and set a new value. When ready, click the Update Properties button and anything that is picked up by the query will have its properties updated based on what you configured to update.
 
 ### Config Archiver
