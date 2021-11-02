@@ -221,7 +221,9 @@ The REST APIs are accessed differently depending on whether a service is an appl
 The OpenAPI specifications for application endpoints require the `{application-name}` element in the URL:
 
 * Application runtime bundle: `{domain-name}/{application-name}/rb/swagger-ui/`.
-* Application query service: `{domain-name}//{application-name}/query/swagger-ui/GraphQLThe`. The query service can also use GraphQL to expand the querying and can be accessed at: `{domain-name}/{application-name}/notifications/graphiql`.
+* Application query service: `{domain-name}//{application-name}/query/swagger-ui/GraphQL`.
+
+The query service can also use GraphQL to expand the querying and can be accessed at: `{domain-name}/{application-name}/notifications/graphiql`.
 
 ## Clean up historical data
 
