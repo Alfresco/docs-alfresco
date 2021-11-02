@@ -13,7 +13,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * Site queries
 * Path queries (partially)
 * Aspect queries (it works only using exact aspect name)
-* Tag queries
 * Highlighting
 * Fingerprinting
 * Multi-lingual support (documents will be accepted and searchable with multiple languages, but only English grammar rules will be applied)
@@ -46,7 +45,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * PARENT
 * PRIMARYPARENT
 * QNAME
-* TAG
 * SITE
 * ANCESTOR
 * PRIMARYASSOCQNAME
