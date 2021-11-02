@@ -75,7 +75,7 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 
 ## Comprehend
 
-The Comprehend connector provides a standard mechanism to extract entities and Personally identifiable information (PII) entities from text in your documents. The **ENTITY** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from specific plain text files.
+The Comprehend connector provides a standard mechanism to extract entities and Personally identifiable information (PII) entities from text in your documents. The **ENTITY** action is used by the Comprehend connector to execute [Amazon Comprehend](https://aws.amazon.com/comprehend/){:target="_blank"} natural language processing (NLP) services and identify and analyze text from specific plain text files. The Comprehend connector supports default entity recognition, custom entity recognition, and custom document classification.
 
 > **Note:** The Comprehend connector can only receive either **files** or **text** but not both at the same time.
 
@@ -281,6 +281,7 @@ The Amazon Comprehend APIs that are called using the connector are:
 * [DetectPiiEntities](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectPiiEntities.html){:target="_blank"}
 * [StartPiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartPiiEntitiesDetectionJob.html){:target="_blank"}
 * [DescribePiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribePiiEntitiesDetectionJob.html){:target="_blank"}
+* [StartPiiEntitiesDetectionJob](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartPiiEntitiesDetectionJob.html)
 
 To perform these calls it uses the AWS Comprehend SDK. This requires IAM users with the correct permissions to be created. The easiest way to do this is to give an IAM user the AWS managed policy `ComprehendFullAccess`. If you want to be stricter with access rights see [the list of all comprehend API permissions.](https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-api-permissions-ref.html)
 
@@ -341,15 +342,21 @@ The divided files are then uploaded to Amazon S3 using the same key prefix for a
 If the asynchronous job finishes successfully a compressed output file (`output.tar.gz`) with the result will be written by Amazon Comprehend. The file will be saved to the same bucket within a directory that is using the same key prefix. For more see [Asynchronous Batch Processing
 ](https://docs.aws.amazon.com/comprehend/latest/dg/how-async.html). The output file is downloaded from Amazon S3 and parsed into a `BatchDetectPiiResult` object. At the end of the process, all the resource files are cleaned, both locally and at Amazon S3.
 
+The `StartDocumentClassificationJob` operation is always performed asynchronously. It requires a custom model and the classifier ARN must be provided. You can provide the custom classification ARN in two ways:
+
+1. Use the `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` environment variable when deploying the application.
+
+2. Use the `customClassificationArn` input variable in the connector action. If the variable is not provided the `AWS_COMPREHEND_CUSTOM_CLASSIFICATION_ARN` value is used.
+
 ### BPMN Tasks Configuration
 
-The following [textAnalysisProcess.bpmn20.xml](https://github.com/Alfresco/alfresco-process-connector-services/blob/develop/alfresco-process-comprehend-connector-spring-boot-starter/textAnalysisProcess.bpmn20.xml) describes an example of how the text analysis connector is setup in AAE:
+The following describes an example of how the text analysis connector is setup in AAE:
 
 ![BPMN]({% link process-automation/images/analysis-process.png %})
 
 As part of the BPMN definition process, any service task responsible for triggering the text analysis `comprehend.ENTITY` has to be set as the value for its implementation attribute.
 
-The following variables are required to be configured in order for the text analysis to function.
+The following variables must be configured for the text analysis to function.
 
 The input parameters of the Comprehend connector are:
 

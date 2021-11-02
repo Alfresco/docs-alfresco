@@ -15,6 +15,8 @@ To begin, [install the AMP files](#installamps) and then [install the app in Sal
 
 There are a number of software requirements for using the Salesforce Connector.
 
+See [Supported platforms]({% link salesforce/latest/support/index.md %}) for more.
+
 ### Alfresco requirements
 
 * Alfresco Content Services 6.2.2 or later

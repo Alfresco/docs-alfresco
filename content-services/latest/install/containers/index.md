@@ -108,7 +108,7 @@ Below are links to various GitHub projects that are used to deploy Content Servi
 
 The deployment project contains the Docker Compose file to start up a Content Services environment locally. You'll find the relevant files in the `docker-compose` folder. To look at the project in more detail, just browse to:
 
-* [https://github.com/Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"} for Enterprise deployment
+* [https://github.com/Alfresco/acs-deployment](https://github.com/Alfresco/acs-deployment){:target="_blank"}
 
 If you're interested in the Helm charts to deploy Content Services with Kubernetes, you'll find the relevant files in the `helm/alfresco-content-services` folder.
 
@@ -138,62 +138,12 @@ Note that the [VERSIONS.md](https://github.com/Alfresco/acs-packaging/blob/maste
 
 You can review the requirements for your chosen deployment method below.
 
-### IPTC Content Model bootstrapping (OPTIONAL) {#iptc-model-bootstrap}
-
-If you are using Alfresco Transform Service 1.4 or newer, and you want to do IPTC metadata extraction, then you need to
-bootstrap the IPTC Content Model manually into Content Services.
-
-The files for this content model can be downloaded from the
-[Alfresco Transform Core GitHub project](https://github.com/Alfresco/alfresco-transform-core/tree/master/models){:target="_blank"}.
-You need both the Content Model XML and the associated i18n property files for different languages.
-
-#### Docker Compose IPTC Content Model bootstrapping
-
-Place the IPTC Content Model files in a subfolder from where the `docker-compose.yml` file is located.
-Such as in the following example:
-
-```bash
-- docker-compose.yml
-- models
-  - iptc
-    - iptc-model.properties
-    ...
-  - iptc-model-context.xml
-```
-
-Then update the `docker-compose.yml` file with the model:
-
-```xml
-...
-services:
-    alfresco:
-        image: ...
-        mem_limit: 1700m
-        environment:
-            JAVA_TOOL_OPTIONS: "
-            ...
-                "
-            JAVA_OPTS: "
-            ...                
-            "
-        volumes:
-            - ./models/iptc-model-context.xml:/usr/local/tomcat/shared/classes/alfresco/extension/iptc-model-context.xml
-            - ./models/iptc:/usr/local/tomcat/shared/classes/alfresco/extension/models/iptc     
-```
-
-You are adding the 3 last lines setting up volume mappings.
-
-#### Helm IPTC Content Model bootstrapping
-
-Before installing with Helm charts you need to [produce a custom Repository Docker image]({% link content-services/latest/install/containers/customize.md %})
-with the IPTC Content Model. Then update the Helm charts to use this image.
-
 ### Helm charts
 
 To deploy Content Services using Helm charts, you need to install the following software:
 
 * [AWS CLI](https://github.com/aws/aws-cli#installation){:target="_blank"} - the command line interface for Amazon Web Services.
-* [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/){:target="_blank"} - the command line tool for Kubernetes.
+* [Kubectl](https://kubernetes.io/docs/tasks/tools/){:target="_blank"} - the command line tool for Kubernetes.
 * [Helm](https://github.com/helm/helm#install){:target="_blank"} - the tool for installing and managing Kubernetes applications.
   * There are Helm charts that allow you to deploy Content Services in a Kubernetes cluster, for example, on AWS.
 

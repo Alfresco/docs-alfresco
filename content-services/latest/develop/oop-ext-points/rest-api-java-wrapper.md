@@ -2272,12 +2272,12 @@ and the following methods:
 
 |Method|Description|
 |------|-----------|
-[createTagForNode](TagsApi.md#createTagForNode)|Create a tag for a node| 
-[deleteTagFromNode](TagsApi.md#deleteTagFromNode)|Delete a tag from a node| 
-[getTag](TagsApi.md#getTag)|Get a tag| 
-[listTags](TagsApi.md#listTags)|List tags| 
-[listTagsForNode](TagsApi.md#listTagsForNode)|List tags for a node| 
-[updateTag](TagsApi.md#updateTag)|Update a tag| 
+[createTagForNode](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TagsApi.md#createTagForNode){:target="_blank"}|Create a tag for a node|
+[deleteTagFromNode](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TagsApi.md#deleteTagFromNode){:target="_blank"}|Delete a tag from a node|
+[getTag](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TagsApi.md#getTag){:target="_blank"}|Get a tag|
+[listTags](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TagsApi.md#listTags){:target="_blank"}|List tags|
+[listTagsForNode](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TagsApi.md#listTagsForNode){:target="_blank"}|List tags for a node|
+[updateTag](https://github.com/Alfresco/alfresco-java-sdk/blob/develop/alfresco-java-rest-api/alfresco-java-rest-api-lib/generated/alfresco-core-rest-api/docs/TagsApi.md#updateTag){:target="_blank"}|Update a tag|
 
 [More info about this ReST API endpoint]({% link content-services/latest/develop/rest-api-guide/folders-files.md %}#managecomments)
 

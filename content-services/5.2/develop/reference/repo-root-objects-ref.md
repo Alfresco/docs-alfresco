@@ -4,23 +4,26 @@ title: Repository JavaScript root objects reference
 
 The JavaScript API provides a number of root objects which are available from your JavaScript code.
 
-The root objects have various types, depending on which part of the system they expose. For example, the common repository concepts, such as the Company Home folder and the logged in user, are represented through objects of type `ScriptNode`. These objects support the full range of properties and object-oriented API of the `ScriptNode` class.
+The root objects have various types, depending on which part of the system they expose. For example, the common
+repository concepts, such as the Company Home folder and the logged in user, are represented through objects of type
+`ScriptNode`. These objects support the full range of properties and object-oriented API of the `ScriptNode` class.
 
-Depending on the context in which the script is invoked, other types of root object are available that represent aspects of the system such as server details, user information, request headers and parameters passed to the script. Further, a variety of services are accessible from your JavaScript code, each of these services has a corresponding root object, on which properties can be accessed and a variety of methods called as dictated by the service's API.
+Depending on the context in which the script is invoked, other types of root object are available that represent aspects
+of the system such as server details, user information, request headers and parameters passed to the script. Further, a
+variety of services are accessible from your JavaScript code, each of these services has a corresponding root object, on
+which properties can be accessed and a variety of methods called as dictated by the service's API.
 
-See also [Web script reference guide]({% link content-services/5.2/develop/api-reference.md %}#webscripts), which covers root objects in more detail.
+The root objects available to your JavaScript code will depend on the context in which the code is invoked. Different
+contexts will have access to a different set of root objects. There are several contexts to be considered:
 
-The root objects available to your JavaScript code will depend on the context in which the code is invoked. Different contexts will have access to a different set of root objects. There are several contexts to be considered:
+* Repository Web scripts (see this [reference]({% link content-services/5.2/develop/reference/repo-root-objects-ref.md %}))
+* Surf Web Scripts (see this [reference]({% link content-services/5.2/develop/reference/surf-framework-ref.md %}#surfrootobjects))
+* Rules/actions
+* Workflow
+* Share
 
--   Web scripts
--   Surf
--   Rules/actions
--   Workflow
--   Share
-
-This information looks at the most commonly used root objects. More specialized root objects are described in more detail in the relevant sections of this documentation.
-
-Further information on root objects provided by services and the exposed APIs can be found in the [Services API reference]({% link content-services/5.2/develop/api-reference.md %}#services-api).
+This information looks at the most commonly used root objects. More specialized root objects are described in more
+detail in the relevant sections of this documentation.
 
 ## Simple root objects
 
@@ -34,7 +37,7 @@ The following table lists root objects that do not expose an API, but consist of
 
 ## Root objects that expose ScriptNode objects
 
-The following table lists root objects that expose ScriptNode objects:
+The following table lists root objects that expose `ScriptNode` objects:
 
 |Root Object|Type in Script Runtime|Description|
 |-----------|----------------------|-----------|
@@ -48,7 +51,8 @@ The following table lists root objects that expose ScriptNode objects:
 
 ## Root objects also available in web scripts
 
-The following table lists root objects that are available when the script is running as a web script. See the web script reference for additional information on these root objects.
+The following table lists root objects that are available when the script is running as a web script. See the web script
+reference for additional information on these root objects.
 
 |Root Object|Type in Script Runtime|Description|
 |-----------|----------------------|-----------|
@@ -66,7 +70,7 @@ The following table lists root objects that expose additional APIs:
 
 |Root Object|Type in Script Runtime|Description|
 |-----------|----------------------|-----------|
-|`actions`|`org.alfresco.repo.jscript.Actions`|Root object providing invocation of registered actions|
+|`actions`|`org.alfresco.repo.jscript.Actions`|Root object providing invocation of registered [actions]({% link content-services/5.2/develop/repo-ext-points/repo-actions.md %})|
 |`activities`|`org.alfresco.repo.activities.script.Activity`|Root object providing access to the Alfresco Process Services API.|
 |`appUtils`|`org.alfresco.repo.jscript.ApplicationScriptUtils`|Root object providing access to methods specifically for external application use|
 |`bulkFSImport`|`org.alfresco.repo.bulkimport.script.BulkImport`|Bulk Import object|
@@ -82,7 +86,7 @@ The following table lists root objects that expose additional APIs:
 |`paging`|`org.alfresco.repo.web.util.paging.Paging`|Paging API. web scripts only.|
 |`people`|`org.alfresco.repo.jscript.People`|Root object providing access to and manipulation of person objects and groups|
 |`presence`|`org.alfresco.repo.jscript.Presence`|Root object providing access to methods for detecting online presence of users|
-|`search`|`org.alfresco.repo.jscript.Search`|Root object providing access to the various Alfresco Content Services search interfaces such as FTS-Alfresco, Lucene, XPath, and Saved Search results|
+|`search`|`org.alfresco.repo.jscript.Search`|Root object providing access to the various Content Services search interfaces such as FTS-Alfresco, Lucene, XPath, and Saved Search results|
 |`session`|`org.alfresco.repo.jscript.Session`|Session-related information such as the current authentication ticket|
 |`slingshotDocLib`|`org.alfresco.repo.jscript.SlingshotDocLibCustomResponse`|Slingshot|
 |`stringUtils`|`org.springframework.extensions.webscripts.ScriptableUtils`|String utilities|

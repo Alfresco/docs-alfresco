@@ -2,8 +2,7 @@
 title: Upgrade Content Connector for AWS S3
 ---
 
-Use this information to upgrade the S3 Connector from a previous version (such as 1.3.x) to 3.x for Tomcat-based 
-deployments only.
+Use this information to upgrade the S3 Connector from a previous version for Tomcat-based deployments only.
 
 1.  Stop the Alfresco Content Services server.
 

@@ -677,7 +677,7 @@ See examples of how to use these search settings below.
     <match type="aspect" pattern="cm:versionable">
         <target useTags="true" useText="true">
             <property name="cm:title"/>
-                <hr/>
+            <hr/>
             <property name="cm:description">
                 <ui multiline="true"/>
             </property>
@@ -685,7 +685,37 @@ See examples of how to use these search settings below.
     </match>
     ```
 
-7. Click **Apply** to save your changes and restart Microsoft Outlook.
+7. To use wildcards, add the asterisk character in the folder path, for example:
+
+    ```xml
+    <match pattern="/app:company_home/st:sites/*/cm:myexample-1-site-standard-search" >
+        <target useTags="true" useText="true">
+            <property name="cm:title"/>
+            <hr/>
+            <property name="cm:description">
+                <ui multiline="true"/>
+            </property>
+        </target>
+    </match>
+    ```
+
+    Starting from Outlook Integration 2.8.1, this rule allows you to assign the search configuration to every `myexample-1-site-standard-search` located under any `st:sites`, and with any number of folders between `st:sites` and `myexample-1-site-standard-search`.
+
+    Here is another example to show how the asterisk can be used in multiple locations:
+
+    ```xml
+    <match pattern="/app:company_home/st:sites/*/cm:testfolder/*/cm:myexample-1-site-standard-search">
+    ```
+
+    You can also use the asterisk wildcard in this way:
+
+    ```xml
+    <match pattern="/app:company_home/st:sites/cm:test*/cm:myexample-1-site-standard-search">
+    ```
+
+    > **Note:** An exact match of the pattern without a wildcard takes priority over the wildcard pattern.
+
+8. Click **Apply** to save your changes and restart Microsoft Outlook.
 
     The template changes are applied.
 
@@ -1029,7 +1059,7 @@ Use this file to set up attributes and metadata settings.
         <connection url="http://127.0.0.1:8080/" shareUrl="share" alfrescoUrl="alfresco" login="admin" password="7DkTRpO8sfo=" checkCertificate="true" checkVersion="true" authentication="basic" webApp="2" shareAlterUrl="" settingsCheckInterval="480" />
         <logging minLevel="info" />
         <storage archiveOption="0" storeFiles="true" storeLink="true" storeMsg="false" compress="true" />
-        <feature autoPaging="false" highlightTexts="false" tokenAlterMode="false" messageIcon="false" />
+        <feature autoPaging="false" tokenAlterMode="false" messageIcon="false" />
         <explorer-search-properties />
         <search-properties />
       </outlook>

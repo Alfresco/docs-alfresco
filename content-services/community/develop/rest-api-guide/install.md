@@ -199,7 +199,7 @@ $ curl
 curl: try 'curl --help' or 'curl --manual' for more information
 ```
 
-If you don’t have curl installed you can find it here: [https://curl.haxx.se/](https://curl.haxx.se/){:target="_blank"}
+If you don’t have curl installed you can find it here: [https://curl.se/](https://curl.se/){:target="_blank"}
 
 ## Install a tool to format JSON responses {#json}
 

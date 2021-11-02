@@ -34,7 +34,7 @@ You can download the Outlook Integration software from the [Alfresco Support Por
 
 ## Prerequisites
 
-There are a number of software requirements for installing Outlook Integration.
+There are a number of software requirements for installing Outlook Integration. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
 
 You need one of each of the following components:
 
@@ -58,7 +58,22 @@ You can use one of the following Outlook releases:
 
 ### Alfresco requirements
 
-* Alfresco Content Services 6.2.2 or later. See [Supported Platforms]({% link microsoft-outlook/latest/support/index.md %}) for more information.
+* Alfresco Content Services 6.2.2 or later.
+
+#### Alfresco Search Services 2.0 and above
+
+If you're using Alfresco Search Services or Alfresco Search and Insight Engine 2.0 and above in combination with Outlook Integration 2.8.1 and above, you must add the `messageId` property to the `shared.properties` file for SOLR. See the [Alfresco indexing recommendations]({% link search-services/latest/config/indexing.md %}#cross-locale) to locate this file.
+
+Add the following lines to the configuration:
+
+```bash
+alfresco.cross.locale.property.#={http://www.alfresco.org/model/imap/1.0}messageId
+alfresco.cross.locale.property.#={http://www.westernacher.com/alfresco/models/wpsmail-v2}messageId
+```
+
+where `#` is an ascending index number that hasn't been used.
+
+> **Note:** This change requires a SOLR restart, but no reindex.
 
 ### Java requirements
 
@@ -76,7 +91,7 @@ transform-outlook
 
 > **Note:** Alfresco customers can request Quay.io credentials by logging a ticket at [Alfresco Support](https://support.alfresco.com/){:target="_blank"}. These credentials are required to pull private (Enterprise-only) Docker images from Quay.io.
 
-> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.0.x` Docker image.
+> **Note:** Make sure that you request credentials for Alfresco Content Services and Alfresco Outlook Integration, so that you can use the additional `transform-outlook-1.0.x` Docker image. Version 1.0.0 of the Outlook T-Engine can also be used for the latest Outlook Integration release (version 2.8.1).
 
 > **Note:** It is recommended that you familiarize yourself with the concepts of [containerized deployment]({% link content-services/latest/install/containers/index.md %}) before working with Docker.
 
@@ -159,7 +174,7 @@ The Outlook Integration Transform Engine (or T-Engine) enables transformation of
 
 ### Install T-Engine on Tomcat {#tengine-war}
 
-If you wish to use a Tomcat application server, you can use the WAR bundle to install the Outlook Integration T-Engine
+If you wish to use a Tomcat application server, you can use the WAR bundle to install the Outlook Integration T-Engine.
 
 > **Note:** Check the supported Tomcat version based on your version of the [Content Services documentation]({% link content-services/latest/support/index.md %}) before continuing.
 

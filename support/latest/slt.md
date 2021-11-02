@@ -1,12 +1,13 @@
 ---
 title: Service Level Targets (SLTs)
+nav: false
 ---
 
 You can open a new support case or view your historical support cases at any time via [Hyland Community](https://community.hyland.com/){:target="_blank"} on the **Open Support Cases** page. Below are the target response times for a support case based on assigned severity level.
 
 Support center phone numbers are available via the [Contact Support](https://community.hyland.com/customer-portal/wiki/hyland-support/technical-support-phone-numbers){:target="_blank"} link on Community.
 
-Service Level Target Response Times
+## Service Level Target Response Times
 
 | Severity | Hyland Response |
 | -------- | --------------- |
