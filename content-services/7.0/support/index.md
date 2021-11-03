@@ -103,7 +103,6 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Digital Workspace 2.3 | |
 | Alfresco Digital Workspace 2.2 | |
 | Alfresco Digital Workspace 2.1 | |
-| Alfresco Digital Workspace 2.0 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.0 | |
 | | |
@@ -202,6 +201,8 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.2 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 2.4 | |
+| Alfresco Digital Workspace 2.3 | |
 | Alfresco Digital Workspace 2.2 | |
 | Alfresco Digital Workspace 2.1 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |

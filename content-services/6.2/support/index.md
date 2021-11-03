@@ -107,13 +107,11 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4 | |
 | | |
 | **Applications** | |
-| Alfresco Digital Workspace 2.4 | |
-| Alfresco Digital Workspace 2.3 | |
-| Alfresco Digital Workspace 2.2 | |
-| Alfresco Digital Workspace 2.1 | |
 | Alfresco Digital Workspace 2.0 | |
 | Alfresco Digital Workspace 1.6 | |
 | Alfresco Digital Workspace 1.5 | |
+| Alfresco Digital Workspace 1.4 | |
+| Alfresco Digital Workspace 1.3 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | | |
@@ -229,7 +227,6 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Digital Workspace 1.5 | |
 | Alfresco Digital Workspace 1.4 | |
 | Alfresco Digital Workspace 1.3 | |
-| Alfresco Digital Workspace 1.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | | |
@@ -338,7 +335,6 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Digital Workspace 1.5 | |
 | Alfresco Digital Workspace 1.4 | |
 | Alfresco Digital Workspace 1.3 | |
-| Alfresco Digital Workspace 1.2 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Application Development Framework (ADF) 3.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | | |
