@@ -295,7 +295,7 @@ This task assumes you have:
 
 Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS, and with a secret word in the request header. This means communication between the Repository and Search Services is protected by a shared secret that is passed in a configurable Request HTTP Header.
 
-**Important:** This installation method is only supported for Search Services 7.1 and above.
+**Important:** This installation method is only supported when using Content Services 7.1 and above.
 
 This task assumes you have:
 
