@@ -2,7 +2,7 @@
 title: Installation options
 ---
 
-You can install Search Services in three different ways using the distribution zip, the first is with mutual TLS, the second is without mutual TLS (plain http), and the third is without mutual TLS (http with secret word in request header).
+You can install Search Services in three different ways using the distribution zip, the first is with mutual TLS, the second is without mutual TLS (plain HTTP), and the third is without mutual TLS (HTTP with secret word in request header).
 
 ## Install with mutual TLS
 
@@ -188,7 +188,7 @@ This task assumes you have:
 
 ## Install without mutual TLS (Plain HTTP)
 
-Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS.
+Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS using plain HTTP.
 
 Mutual TLS is used for authentication between the Repository and Search Services. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy in front of Content Services]({% link content-services/latest/install/zip/tomcat.md %}#adding-a-reverse-proxy-in-front-of-content-services)
  for more.
@@ -279,9 +279,7 @@ This task assumes you have:
 
     The command line parameter, `-a` passes additional JVM parameters, for example, system properties using `-D`.
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services.
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
-    > **Note:** To ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services. In addition yu should run this application as a dedicated user. For example, you can create a Solr user. Finally, to ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     Once Search Services is up and running, you should see a message similar to the following:
 
@@ -308,9 +306,9 @@ This task assumes you have:
 
     2. Under **Main (Workspace) Store Tracking Status**, the **Approx Transactions to Index** is **0**.
 
-## Install without mutual TLS (http with secret word in request header)
+## Install without mutual TLS (HTTP with secret word in request header)
 
-Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS, and with a secret word in the request header. This means communication between the Repository and Search Services is protected by a shared secret that is passed in a configurable Request HTTP Header.
+Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS, using HTTP with a secret word in the request header. This means communication between the Repository and Search Services is protected by a shared secret that is passed in a configurable Request HTTP Header.
 
 **Important:** This installation method is only supported when using Content Services 7.1 and above.
 
@@ -328,11 +326,11 @@ This task assumes you have:
 
 > **Important:** To ensure the security of your system specify your own custom secret word for the `solr.sharedSecret` property, than the one provided in the example.
 
-1. Download `alfresco-search-services-1.4.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
+1. Download `alfresco-search-services-2.0.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search Services distribution.
 
-    By default, the contents of `alfresco-search-services-1.4.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/1.4/config/index.md %}#search-and-search-services-directory-structure) for more details.
+    By default, the contents of `alfresco-search-services-2.0.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link search-services/latest/config/index.md %}#search-and-search-services-directory-structure) for more details.
 
 3. Configure HTTP.
 
@@ -403,9 +401,7 @@ This task assumes you have:
 
     The command line parameter, `-a` passes additional JVM parameters, for example, system properties using `-D`.
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services.
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
-    > **Note:** To ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services. In addition you should run this application as a dedicated user. For example, you can create a Solr user. Finally, to ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     Once Search Services is up and running, you should see a message similar to the following:
 
