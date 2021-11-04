@@ -12,7 +12,7 @@ Mutual TLS is used for authentication between the Repository and Search Services
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 6.0 or above
+* Installed Alfresco Content Services 6.0 or above, see [Supported platforms]({% link search-services/1.4/support/index.md %}).
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
@@ -178,7 +178,7 @@ Mutual TLS is used for authentication between the Repository and Search Services
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 6.0 or above
+* Installed Alfresco Content Services 6.0 or above, see [Supported platforms]({% link search-services/1.4/support/index.md %}).
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
@@ -299,7 +299,7 @@ Use this information to install Search Services on the same machine as Alfresco 
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 7.1 or above.
+* Installed Alfresco Content Services 7.1 or above, see [Supported platforms]({% link search-services/1.4/support/index.md %}).
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text

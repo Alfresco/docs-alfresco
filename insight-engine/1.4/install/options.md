@@ -23,7 +23,7 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-1.4.x.zip`.
+1. Download `alfresco-insight-engine-1.4.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search and Insight Engine distribution.
 

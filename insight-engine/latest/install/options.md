@@ -12,6 +12,7 @@ Mutual TLS is used for authentication between the Repository and Search and Insi
 
 This task assumes you have:
 
+* Installed Alfresco Content Services 6.2 or above, see [Supported platforms]({% link search-services/latest/support/index.md %}).
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
@@ -22,7 +23,7 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-2.0.x.zip`.
+1. Download `alfresco-insight-engine-2.0.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search and Insight Engine distribution.
 
@@ -199,6 +200,7 @@ Mutual TLS is used for authentication between the Repository and Search and Insi
 
 This task assumes you have:
 
+* Installed Alfresco Content Services 6.2 or above, see [Supported platforms]({% link insight-engine/latest/support/index.md %}).
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
@@ -284,9 +286,7 @@ This task assumes you have:
 
     The command line parameter, `-a` passes additional JVM parameters, for example, system properties using `-D`.
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine.
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
-    > **Note:** To ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine. In addition, you should run this application as a dedicated user. For example, you can create a Solr user. Finally, to ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     Once Search and Insight Engine is up and running, you should see a message similar to the following:
 
@@ -312,6 +312,7 @@ This task assumes you have:
     1. You see the Solr 6 option in the **Search Service In Use** list.
 
     2. Under **Main (Workspace) Store Tracking Status**, the **Approx Transactions to Index** is **0**.
+
 ## Install without mutual TLS (HTTP with secret word in request header)
 
 Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS, using HTTP with a secret word in the request header. This means communication between the Repository and Search Services is protected by a shared secret that is passed in a configurable Request HTTP Header.
@@ -320,7 +321,7 @@ Use this information to install Search Services on the same machine as Alfresco 
 
 This task assumes you have:
 
-* Installed Alfresco Content Services 7.1 or above.
+* Installed Alfresco Content Services 7.1 or above, see [Supported platforms]({% link search-services/latest/support/index.md %}).
 * Set the following properties in the `<TOMCAT_HOME>/shared/classes/alfresco-global.properties` file:
 
     ```text
