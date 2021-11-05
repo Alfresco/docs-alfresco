@@ -23,7 +23,7 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-1. Download `alfresco-insight-engine-1.4.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
+1. Download `alfresco-insight-engine-1.4.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Extract the Search and Insight Engine distribution.
 
@@ -139,11 +139,7 @@ This task assumes you have:
     ./solr/bin/solr start -a "-Djavax.net.ssl.keyStoreType=JCEKS -Djavax.net.ssl.trustStoreType=JCEKS -Dsolr.ssl.checkPeerName=false -Dcreate.alfresco.defaults=alfresco,archive"
     ```
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine.
-
-    > **Note:** To ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
-
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine. Additionally, to ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters. Finally, you should run this application as a dedicated user. For example, you can create a Solr user.
 
     The default port used is 8983.
 
@@ -176,7 +172,7 @@ If you are not using sharded Search and Insight Engine:
 2. Deselect **Dynamic Shard Instance Registration**.
 3. Select **Purge at Startup**.
 
-## Install without mutual TLS (Plain HTTP)
+## Install without mutual TLS (plain HTTP)
 
 Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS.
 
@@ -195,7 +191,7 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search and Insight Engine server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search and Insight Engine.
 
-1. Browse to the [Alfresco Support Portal](https://support.alfresco.com/){:target="_blank"} and download `alfresco-insight-engine-distribution-1.4.x.zip`.
+1. Download the `alfresco-insight-engine-distribution-1.4.x.zip` from [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 2. Extract the Search and Insight Engine distribution.
 
@@ -270,9 +266,7 @@ This task assumes you have:
 
     The command line parameter, `-a` passes additional JVM parameters, for example, system properties using `-D`.
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine.
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
-    > **Note:** To ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine. Additionally, you should run this application as a dedicated user. For example, you can create a Solr user. Finally, to ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     Once Search and Insight Engine is up and running, you should see a message similar to the following:
 
@@ -301,7 +295,7 @@ This task assumes you have:
 
 ## Install without mutual TLS (HTTP with secret word in request header)
 
-Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS, using HTTP with a secret word in the request header. This means communication between the Repository and Search Services is protected by a shared secret that is passed in a configurable Request HTTP Header.
+Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS, using HTTP with a secret word in the request header. This means communication between the Repository and Search and Insight Engine is protected by a shared secret that is passed in a configurable Request HTTP Header.
 
 **Important:** This installation method is only supported when using Content Services 7.1 and above.
 
@@ -319,11 +313,11 @@ This task assumes you have:
 
 > **Important:** To ensure the security of your system specify your own custom secret word for the `solr.sharedSecret` property, than the one provided in the example.
 
-1. Download `alfresco-insight-engine-1.4.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
+1. Download `alfresco-insight-engine-1.4.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
-2. Extract the Search Services distribution.
+2. Extract the Search and Insight Engine distribution.
 
-    By default, the contents of `alfresco-insight-engine-1.4.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search Services directory structure]({% link insight-engine/latest/config/index.md %}#search-and-search-services-directory-structure) for more details.
+    By default, the contents of `alfresco-insight-engine-1.4.x.zip` are decompressed in a root folder as `/alfresco-search-services`. See [Search and Insight Engine directory structure]({% link insight-engine/latest/config/index.md %}#search-and-search-services-directory-structure) for more details.
 
 3. Configure HTTP.
 
@@ -362,9 +356,9 @@ This task assumes you have:
     alfresco.suggestable.property.3={http://www.alfresco.org/model/content/1.0}content
     ```
 
-    > **Note:** The spell check functionality works with Search Services when suggestion is enabled.
+    > **Note:** The spell check functionality works with Search and Insight Engine when suggestion is enabled.
 
-6. (Optional) If you want to install Search Services on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search Services, for more see [Configuring Search Services]({% link search-services/latest/config/index.md %}#search-services-externalized-configuration).
+6. (Optional) If you want to install Search and Insight Engine on a separate machine, set the `SOLR_SOLR_HOST` and `SOLR_ALFRESCO_HOST` environment variables before starting Search and Insight Engine, for more see [Configuring Search and Insight Engine]({% link search-services/latest/config/index.md %}#search-services-externalized-configuration).
 
     (Windows) update the `alfresco-search-services`/`solr.in.cmd` file:
 
@@ -386,7 +380,7 @@ This task assumes you have:
     SOLR_ALFRESCO_HOST=localhost
     ```
 
-7. To start Search Services with all the default settings, use the following command:
+7. To start Search and Insight Engine with all the default settings, use the following command:
 
     ```bash
     ./solr/bin/solr start -a "-Dcreate.alfresco.defaults=alfresco,archive"
@@ -394,16 +388,16 @@ This task assumes you have:
 
     The command line parameter, `-a` passes additional JVM parameters, for example, system properties using `-D`.
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services. In addition you should run this application as a dedicated user. For example, you can create a Solr user. Finally, to ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search and Insight Engine with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search and Insight Engine. In addition you should run this application as a dedicated user. For example, you can create a Solr user. Finally, to ensure that Search and Insight Engine connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
-    Once Search Services is up and running, you should see a message similar to the following:
+    Once Search and Insight Engine is up and running, you should see a message similar to the following:
 
     ```bash
     Waiting up to 180 seconds to see Solr running on port 8983 []
     Started Solr server on port 8983 (pid=24289). Happy searching!
     ```
 
-    To stop the currently running Search Services instance, use:
+    To stop the currently running Search and Insight Engine instance, use:
 
     ```bash
     ./solr/bin/solr stop
@@ -413,7 +407,7 @@ This task assumes you have:
 
     You have successfully created an `alfresco` core and an `archive` core. To verify, in a browser, navigate to the Solr URL, [http://localhost:8983/solr](http://localhost:8983/solr). In the Solr Admin UI, select the core selector drop-down list and verify that both the `alfresco` and `archive` cores are present.
 
-    Allow a few minutes for Search Services to start indexing.
+    Allow a few minutes for Search and Insight Engine to start indexing.
 
 8. Go to **Admin Console > Repository Services > Search Service** and verify that:
 
@@ -442,7 +436,7 @@ Use this information to start up Alfresco Content Services 6.0 or above and Sear
 
 2. Save the file in a local folder.
 
-3. Edit the file and change the Solr 6 service. Add a # prefix to Alfresco Search Services so it is commented out.
+3. Edit the file and change the Solr 6 service. Add a # prefix to Alfresco Search and Insight Engine so it is commented out.
 
     ```yaml
         solr6:

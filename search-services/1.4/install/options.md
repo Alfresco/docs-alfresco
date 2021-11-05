@@ -23,7 +23,7 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.
 
-1. Download `alfresco-search-services-1.4.x.zip` from [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
+1. Download `alfresco-search-services-1.4.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search Services distribution.
 
@@ -189,7 +189,7 @@ This task assumes you have:
 
 > **Important:** Alfresco strongly recommends you use firewalls and other infrastructure means to ensure the Search Services server is not accessible from anything other than trusted hosts and/or users, and only on the ports needed for Search Services.
 
-1. Download `alfresco-search-services-1.4.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"}  if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
+1. Download `alfresco-search-services-1.4.x.zip` from the [Hyland Community](https://community.hyland.com/){:target="_blank"} if you are an Alfresco Content Services Enterprise user, or from [Alfresco Community Edition](https://www.alfresco.com/products/community/download){:target="_blank"} if you are an Alfresco Content Services Community user.
 
 2. Extract the Search Services distribution.
 
@@ -262,9 +262,7 @@ This task assumes you have:
 
     The command line parameter, `-a` passes additional JVM parameters, for example, system properties using `-D`.
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services.
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
-    > **Note:** To ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services. Additionally, you should run this application as a dedicated user. For example, you can create a Solr user. Finally, to ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     Once Search Services is up and running, you should see a message similar to the following:
 
@@ -386,9 +384,7 @@ This task assumes you have:
 
     The command line parameter, `-a` passes additional JVM parameters, for example, system properties using `-D`.
 
-    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services.
-    > **Note:** You should run this application as a dedicated user. For example, you can create a Solr user.
-    > **Note:** To ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
+    > **Note:** The `-Dcreate.alfresco.defaults=alfresco,archive` command automatically creates the `alfresco` and `archive` cores. Therefore, you should only start Search Services with `-Dcreate.alfresco.defaults=alfresco,archive` the first time you run Search Services. Additionally, you should run this application as a dedicated user. For example, you can create a Solr user. Finally, to ensure that Search Services connects using the IPv6 protocol instead of IPv4, add `-Djava.net.preferIPv6Addresses=true` to the startup parameters.
 
     Once Search Services is up and running, you should see a message similar to the following:
 
