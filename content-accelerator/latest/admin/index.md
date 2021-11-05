@@ -1199,87 +1199,113 @@ This template answer is not displayed to the user as a valid option. When using 
 display text are used to format the results based on column names. 
 
 For example, say we have a query that returns two columns: `user_name` and `user_login_name`. And, let's say that we 
-want each answer value to be the user login name and display to the user as:
+want each answer value to be the user login name and display to the user as *User Name*. In this case, we would set 
+the following values:
 
-###### User Name
-In this case, we would set the following values:
-
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_fdcc7ee4b347d455.png)
+![Img Txt]({% link content-accelerator/images/aca-working-with-query-actions-username.png %})
 
 For each result returned, the wizard will replace the column names with the actual database values.
 
-When using a web service type query, the answer value and display text do not matter. The web service is responsible for setting these values.
+When using a web service type query, the answer value and display text do not matter. The web service is responsible 
+for setting these values.
 
-Once the template answer is set up, add a "Run a Query" action to the answer. The Manage Query page will appear. Once the page loads, the first task is to select the query to be run.
+Once the template answer is set up, add a "Run a Query" action to the answer. The Manage Query page will appear. 
+Once the page loads, the first task is to select the query to be run.
 
-Select the query to run in the Query dropdown as shown above. You can type in the selectbox to narrow results if needed. Once the query is selected, the query information will be shown:
+Select the query to run in the Query dropdown as shown above. You can type in the selectbox to narrow results if 
+needed. Once the query is selected, the query information will be shown:
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_c18c4bd4989af4b7.png)
+![Img Txt]({% link content-accelerator/images/aca-working-with-query-actions-query-info.png %})
 
 **Query Placeholders**
 
-Some queries are created to use a placeholder value that can be filled in at the time the query is added to the question. For example, let's say we only want to return users within a particular group, not all the users. Here, we've set up a query to filter users by group name:
+Some queries are created to use a placeholder value that can be filled in at the time the query is added to the 
+question. For example, let's say we only want to return users within a particular group, not all the users. Here, 
+we've set up a query to filter users by group name:
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_c18c4bd4989af4b7.png)
+![Img Txt]({% link content-accelerator/images/aca-working-with-query-actions-query-placeholder.png %})
 
-In the above query, there is a token, ${group_name} that is a "query variable". There is a query variables section below that can be used to satisfy the filter:
+In the above query, there is a token, `${group_name}` that is a "query variable". There is a query variables section 
+below that can be used to satisfy the filter:
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_f7d120ee35f3185.png)
+![Img Txt]({% link content-accelerator/images/aca-working-with-query-actions-query-vars.png %})
 
-The control next to each query variable contains each question label in the form. There are two ways to fill the query variable – you can either select one of the given question labels, or type a literal value into the textbox.
+The control next to each query variable contains each question label in the form. There are two ways to fill the 
+query variable – you can either select one of the given question labels, or type a literal value into the textbox.
 
-For example, let's say we want the group_name to be just wizard_doc_editors. We can simply type that within the input as a literal value:
+For example, let's say we want the `group_name` to be just `wizard_doc_editors`. We can simply type that within the 
+input as a literal value:
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_560c25c4cf2a3ec1.png)
+![Img Txt]({% link content-accelerator/images/aca-working-with-query-actions-group-name.png %})
 
-However, we may want to drive the query variable from another question in the form. To do this, we simply select the appropriate question in the dropdown:
+However, we may want to drive the query variable from another question in the form. To do this, we simply select the 
+appropriate question in the dropdown:
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_ca7dd37a9d8cd996.png)
+![Img Txt]({% link content-accelerator/images/aca-working-with-query-actions-select-question.png %})
 
-In this form's case, the User Filter question is a simple textbox. By selecting the "User Filter" question here, the query will replace the ${nameFilter} token with whatever the user filling out the form puts in that textbox.
+In this form's case, the User Filter question is a simple textbox. By selecting the "User Filter" question here, 
+the query will replace the `${nameFilter}` token with whatever the user filling out the form puts in that textbox.
 
-**Note:** When typing literal values into the textbox, be sure that the value you type is not the same value as a question label in the form. If this situation occurs, the wizard will use the value(s) set by the user, not the intended literal value.
+>**Note:** When typing literal values into the textbox, be sure that the value you type is not the same value as a 
+>question label in the form. If this situation occurs, the wizard will use the value(s) set by the user, not the 
+>intended literal value.
 
 ####### Other Query Options
-
 Queries also have a section for other options:
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_995c283e760ce521.png)
+![Img Txt]({% link content-accelerator/images/aca-working-with-query-actions-other-query-options.png %})
 
-The "clear all answers" checkbox allows the administrator to control whether or not selected options should be cleared out upon returning to the page and rerunning the query. Note that this checkbox does not affect queries that pull data from the same page. This option is typically used when updates earlier in the form are frequently made after the query is run, and future visits to the page must clear out answers since previously selected answers are most likely invalid. This situation is rare but has come up before.
+The "clear all answers" checkbox allows the administrator to control whether selected options should be cleared out 
+upon returning to the page and rerunning the query. Note that this checkbox does not affect queries that pull data 
+from the same page. This option is typically used when updates earlier in the form are frequently made after the 
+query is run, and future visits to the page must clear out answers since previously selected answers are most likely 
+invalid. This situation is rare but has come up before.
 
 ###### Leading to another Page
+An action to lead to another page based on selected answers can be configured on a per answer basis. Multiple 
+answers can lead to the same optional page, different pages, or no pages. If no action to lead to another 
+page is specified, the next page in the flow path will be the next required page. If another page is specified via 
+a chosen answer's action, that page will be inserted into the flow path and visited next, prior to the next required 
+page.
 
-An action to lead to another page based on selected answers can be configured on a per answer basis. Multiple answers can lead to the same optional page, different pages, or no pages. If no action to lead to another page is specified, the next page in the flow path will be the next required page. If another page is specified via a chosen answer's action, that page will be inserted into the flow path and visited next, prior to the next required page.
-
-In order to support leading to another page using query-based answers, there is a field that allows the administrator to configure a value that the answer must match in order to invoke the lead to another page. For a static answer, this value can be blank, and it will always lead to another page if the answer is selected. For a query driven answer, where the value is not known until the page is rendered, this value field allows multiple answers to be defined for each expected value that will be returned by the query. In order to set multiple answers in the text box, delimit each potential answer with the token ~,~
+In order to support leading to another page using query-based answers, there is a field that allows the 
+administrator to configure a value that the answer must match in order to invoke the lead to another page. For 
+a static answer, this value can be blank, and it will always lead to another page if the answer is selected. For a 
+query driven answer, where the value is not known until the page is rendered, this value field allows multiple answers 
+to be defined for each expected value that will be returned by the query. In order to set multiple answers in the 
+text box, delimit each potential answer with the token ~,~
 
 ###### Working with Email Actions
+Email actions can be used to email the form PDF and any attached supporting documents out to any valid email address. 
+When adding an email action, the following settings are available to the administrator:
 
-Email actions can be used to email the form PDF and any attached supporting documents out to any valid email address. When adding an email action, the following settings are available to the administrator:
+![Img Txt]({% link content-accelerator/images/aca-working-with-email-actions-settings.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_6f269c69bdc6a10a.png)
+The address source sets the email address for this email action. The administrator can specify a specific address by 
+typing in the address box. If user input is selected, the user filling out the form will supply the address. If this 
+is selected on a text-based input, the administrator should also apply the email mask to the question to ensure that 
+the user enters a valid email address.
 
-The address source sets the email address for this email action. The administrator can specify a specific address by typing in the address box. If user input is selected, the user filling out the form will supply the address. If this is selected on a text-based input, the administrator should also apply the email mask to the question to ensure that the user enters a valid email address.
+![Img Txt]({% link content-accelerator/images/aca-working-with-email-actions-delivery-options.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_c671ef323634f2b4.png)
+The delivery option lets the administrator configure how this address will be used in the email being sent. If an 
+email is being sent out 'To' or 'CC' with no 'From', a system defined from address will be used. If more than one 
+'From' is tripped for a single email, the first one found will be used.
 
-The delivery option lets the administrator configure how this address will be used in the email being sent. If an email is being sent out 'To' or 'CC' with no 'From', a system defined from address will be used. If more than one 'From' is tripped for a single email, the first one found will be used.
-
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_e59e124cf19fc010.png)
+![Img Txt]({% link content-accelerator/images/aca-working-with-email-actions-delivery-timing.png %})
 
 The delivery timing lets the administrator control when the email is sent:
 
 * Submitted – send the email when the form is submitted for workflow
-
     * If workflow is not used for the form, the email is sent when the user finishes the form
-
 * Approved – send the email when the form is approved
 * Rejected – send the email when the form is rejected
 
 #### Working with Queries
-
-Queries are managed separately from the question where they are used. This allows administrators to define a query once, and then use the query on multiple questions and potentially multiple page sets. To manage a query, click the "Manage Queries" link on the admin menu. This will bring up a screen to select an existing query to manage, or create a new query. There are three main sections to this page – query name, query type and query variables:
+Queries are managed separately from the question where they are used. This allows administrators to define a 
+query once, and then use the query on multiple questions and potentially multiple page sets. To manage a query, 
+click the "Manage Queries" link on the admin menu. This will bring up a screen to select an existing query to manage, 
+or create a new query. There are three main sections to this page – query name, query type and query variables:
 
 Query Name
 
