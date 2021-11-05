@@ -295,7 +295,7 @@ This task assumes you have:
 
 ## Install without mutual TLS (HTTP with secret word in request header)
 
-Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS, using HTTP with a secret word in the request header. This means communication between the Repository and Search and Insight Engine is protected by a shared secret that is passed in a configurable Request HTTP Header.
+Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS, using HTTP with a secret word in the request header. This means communication between the Repository and Search and Insight Engine is protected by a shared secret that is passed in a configurable request HTTP header.
 
 **Important:** This installation method is only supported when using Content Services 7.1 and above.
 

@@ -2,7 +2,7 @@
 title: Installation options
 ---
 
-You can install Search Services in three different ways using the distribution zip, the first is with mutual TLS, the second is without mutual TLS (plain http), and the third is without mutual TLS (http with secret word in request header).
+You can install Search Services in three different ways using the distribution zip, the first is with mutual TLS, the second is without mutual TLS (plain HTTP), and the third is without mutual TLS (HTTP with secret word in request header).
 
 ## Install with mutual TLS
 
@@ -170,9 +170,9 @@ This task assumes you have:
 
     > **Note:** The Admin Console is only available when you are using Alfresco Content Services Enterprise.
 
-## Install without mutual TLS (plain http)
+## Install without mutual TLS (plain HTTP)
 
-Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS with plain HTTP.
+Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS using plain HTTP.
 
 Mutual TLS is used for authentication between the Repository and Search Services. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy in front of Content Services]({% link content-services/latest/install/zip/tomcat.md %}#adding-a-reverse-proxy-in-front-of-content-services) for more.
 
@@ -289,9 +289,9 @@ This task assumes you have:
 
     2. Under **Main (Workspace) Store Tracking Status**, the **Approx Transactions to Index** is **0**.
 
-## Install without mutual TLS (http with secret word in request header)
+## Install without mutual TLS (HTTP with secret word in request header)
 
-Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS, and with a secret word in the request header. This means communication between the Repository and Search Services is protected by a shared secret that is passed in a configurable Request HTTP Header.
+Use this information to install Search Services on the same machine as Alfresco Content Services without mutual TLS, using HTTP and with a secret word in the request header. This means communication between the Repository and Search Services is protected by a shared secret that is passed in a configurable Request HTTP Header.
 
 **Important:** This installation method is only supported when using Content Services 7.1 and above.
 
