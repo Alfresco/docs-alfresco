@@ -2,9 +2,9 @@
 title: Installation options
 ---
 
-You can install Search and Insight Engine using the distribution zip or Docker Compose. If you use the distribution zip there are three different ways you can install the software, the first is with mutual TLS, the second is without mutual TLS (plain HTTP), and the third is without mutual TLS (HTTP with secret word in request header).
+You can install Search and Insight Engine using the distribution zip or Docker Compose. There are three different ways you can install the software, the first is with mutual TLS, the second is without mutual TLS (plain HTTP), and the third is without mutual TLS (HTTP with secret word in request header).
 
-## Install with mutual TLS
+## Install with mutual TLS (zip)
 
 Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services with mutual TLS.
 
@@ -172,9 +172,9 @@ If you are not using sharded Search and Insight Engine:
 2. Deselect **Dynamic Shard Instance Registration**.
 3. Select **Purge at Startup**.
 
-## Install without mutual TLS (plain HTTP)
+## Install without mutual TLS - plain HTTP (zip)
 
-Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS.
+Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS using plain HTTP.
 
 Mutual TLS is used for authentication between the Repository and Search and Insight Engine. Without mutual TLS, internal APIs on both sides will be exposed without any form of authentication, giving full access to the repository data. In such a setup, you need to make sure that external access to these APIs is blocked, for example, with a front-end reverse proxy. See [Adding a reverse proxy in front of Content Services]({% link content-services/latest/install/zip/tomcat.md %}#adding-a-reverse-proxy-in-front-of-content-services) for more.
 
@@ -293,7 +293,7 @@ This task assumes you have:
 
     2. Under **Main (Workspace) Store Tracking Status**, the **Approx Transactions to Index** is **0**.
 
-## Install without mutual TLS (HTTP with secret word in request header)
+## Install without mutual TLS - HTTP with secret word (zip)
 
 Use this information to install Search and Insight Engine on the same machine as Alfresco Content Services without mutual TLS, using HTTP with a secret word in the request header. This means communication between the Repository and Search and Insight Engine is protected by a shared secret that is passed in a configurable request HTTP header.
 
