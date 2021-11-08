@@ -450,7 +450,7 @@ The output parameters from the Document classification are:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | awsResponse | Object | *Optional.* The object that contains the original result of the text analysis performed by the Comprehend service. |
-| piiEntityTypes | Array | *Optional.* An array that contains the list of the different classes detected in the analysis. |
+| documentClassificationClasses | Array | *Optional.* An array that contains the list of the different classes detected in the analysis. |
 
 ### Comprehend configuration parameters
 
