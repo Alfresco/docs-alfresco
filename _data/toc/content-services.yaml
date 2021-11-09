@@ -2093,7 +2093,7 @@
       pages:
         - title: '[ES] Overview'
           path: '/content-services/5.2-es/using/'
-        - title: '[ES] Alfresco Share'
+        - title: 'Alfresco Share'
           path: '/content-services/5.2-es/using/share/'
         - title: '[ES] Profiles and dashboards'
           path: '/content-services/5.2-es/using/dashboard/'
@@ -2101,7 +2101,7 @@
           pages:
             - title: '[ES] Overview'
               path: '/content-services/5.2-es/using/sites/'
-            - title: '[ES] Features'
+            - title: 'Características del sitio'
               path: '/content-services/5.2-es/using/sites/features/'
         - title: '[ES] Content'
           pages:
@@ -2109,16 +2109,16 @@
               path: '/content-services/5.2-es/using/content/'
             - title: '[ES] Manage content'
               path: '/content-services/5.2-es/using/content/manage/'
-            - title: '[ES] Files and folders'
+            - title: 'Ficheros y carpetas'
               path: '/content-services/5.2-es/using/content/files-folders/'
             - title: '[ES] Folder rules'
               path: '/content-services/5.2-es/using/content/rules/'
-        - title: '[ES] Tasks and workflows'
+        - title: 'Tareas y flujos de trabajo'
           path: '/content-services/5.2-es/using/tasks/'
-        - title: '[ES] Search'
+        - title: 'Búsqueda'
           path: '/content-services/5.2-es/using/search/'
         - title: '[ES] Smart Folders'
           path: '/content-services/5.2-es/using/smart-folders/'
-        - title: '[ES] Roles and permissions'
+        - title: 'Roles de usuario y permisos'
           path: '/content-services/5.2-es/using/permissions/'
       
