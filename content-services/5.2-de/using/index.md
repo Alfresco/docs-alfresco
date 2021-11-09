@@ -4,14 +4,6 @@ title: Overview of using Content Services
 
 The using sections cover the basics of using Content Services and the Alfresco Share user interface.
 
-<!--- DOCS-6382 Test Docs site build process -->
-> **Note:** This documentation is also available in the following languages:
->
-> * [Deutsch]({% link content-services/5.2-de/using/index.md%})
-> * [Español]({% link content-services/5.2-es/using/index.md%})
->
-> In the localized documentation, the videos and labels within images are in English.
-
 There are also several ways to access and use content without being in Alfresco Share.
 
 **Microsoft Office**
