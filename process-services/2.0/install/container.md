@@ -18,11 +18,11 @@ The Docker images for Process Services are available on [Docker Hub](https://hub
 To download the images from Docker Hub, use the following commands:
 
 ```bash
-docker pull alfresco/process-services:2.1.x
+docker pull alfresco/process-services:2.0.x
 ```
 
 ```bash
-docker pull alfresco/process-services-admin:2.1.x
+docker pull alfresco/process-services-admin:2.0.x
 ```
 
 >**Note:** If a tag isn't supplied then the latest version will be downloaded.

@@ -1,5 +1,5 @@
-# Alfresco Process Services 2.0
-- version: 2.0
+# Alfresco Process Services 2.1
+- version: 2.1
   pages:
     - title: 'Introduction'
       path: '/process-services/latest/'
@@ -63,6 +63,70 @@
           path: '/process-services/latest/develop/dev-ext/'
         - title: 'ReST API'
           path: '/process-services/latest/develop/rest-api/'
+- version: 2.0
+  pages:
+    - title: 'Introduction'
+      path: '/process-services/2.0/'
+    - title: 'Install'
+      pages:
+        - title: 'Overview'
+          path: '/process-services/2.0/install/'
+        - title: 'Install manually'
+          path: '/process-services/2.0/install/manual/'
+        - title: 'Install using containers'
+          path: '/process-services/2.0/install/container/'
+    - title: 'Upgrade'
+      path: '/process-services/2.0/upgrade/'
+    - title: 'Configure'
+      pages:
+        - title: 'Overview'
+          path: '/process-services/2.0/config/'
+        - title: 'Authentication'
+          path: '/process-services/2.0/config/authenticate/'
+        - title: 'Database'
+          path: '/process-services/2.0/config/database/'
+        - title: 'Content systems'
+          path: '/process-services/2.0/config/content/'
+        - title: 'External integrations'
+          path: '/process-services/2.0/config/external/'
+        - title: 'Application configuration'
+          path: '/process-services/2.0/config/application/'
+        - title: 'Multi-tenancy'
+          path: '/process-services/2.0/config/multi-tenancy/'
+    - title: 'Using'
+      pages:
+        - title: 'Overview'
+          path: '/process-services/2.0/using/'
+        - title: 'Process Services'
+          pages:
+          - title: 'Overview'
+            path: '/process-services/2.0/using/process/'
+          - title: 'App Designer'
+            path: '/process-services/2.0/using/process/app-designer/'
+          - title: 'Step editor'
+            path: '/process-services/2.0/using/process/step/'
+          - title: 'BPMN editor'
+            path: '/process-services/2.0/using/process/bpmn/'
+          - title: 'Form editor'
+            path: '/process-services/2.0/using/process/form/'
+          - title: 'Business rules'
+            path: '/process-services/2.0/using/process/rules/'
+          - title: 'Data Models'
+            path: '/process-services/2.0/using/process/models/'
+        - title: 'Process Workspace'
+          path: '/process-services/2.0/using/workspace/'
+        - title: 'Getting started'
+          path: '/process-services/2.0/using/getting-started/'
+        - title: 'Share Connector'
+          path: '/process-services/2.0/using/share-connector/'
+    - title: 'Administer'
+      path: '/process-services/2.0/admin/'
+    - title: 'Develop'
+      pages:
+        - title: 'Developing extensions'
+          path: '/process-services/2.0/develop/dev-ext/'
+        - title: 'ReST API'
+          path: '/process-services/2.0/develop/rest-api/'
 
 # Alfresco Process Services 1.11
 - version: 1.11

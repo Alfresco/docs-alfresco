@@ -8,6 +8,7 @@ Alfresco Quality Assurance and Certification activities for Alfresco Process Ser
 Choose a combination of products to build your own Supported Stack. If anything is unclear then please contact 
 our Support team [Alfresco Support Portal](https://support.alfresco.com).
 
+
 **Operating systems**
 
 |Server|2.0|Comment|
