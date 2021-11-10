@@ -88,7 +88,7 @@ Events are used as part of defining event criteria in a [trigger]({% link proces
 
 See [triggers]({% link process-automation/latest/model/triggers.md %}) for further details on creating event criteria based on connectors.
 
-Connector events contain a set of input and output parameters. Input parameters can be used to define a pattern for when an event should be created and output parameters can be used as values within a trigger action.
+Connector events contain a set of input and output parameters and the definition of the content of the event. Input parameters can be used to define a pattern for when an event should be created and output parameters can be used as values within a trigger action.
 
 The properties for input and output parameters are:
 
@@ -124,10 +124,40 @@ An example of the JSON for the Email connector **MESSAGE_RECEIVED** event is:
                     "type": "json"
                 },
 ...
-            ]
+            ],
+            "model": {
+                "$schema": "https://json-schema.org/draft/2019-09/schema",
+                "type": "object",
+                "properties": {
+                  "emailTo": {
+                    "type": "string"
+                  },
+                  "emailFrom": {
+                    "type": "string"
+                  },
+                  "emailSubject": {
+                     "type": "string"
+                  },
+                  "emailBody": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                    "emailTo",
+                    "emailFrom"
+                ]
+            }
         }
     },
 ```
+
+The `model` field describes the information that will be included inside the data field of the Cloud Event handled in a trigger (see [trigger events]({% link process-automation/latest/model/triggers.md %}#events)). This allows the user to create a condition for a [trigger]({% link process-automation/latest/model/triggers.md %}) using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) based on the event information.
+
+It is possible to add/edit the model of the event in the editor by using the `Add Model Schema` button (when it has no schema), or the `Edit Model Schema` button (when the event already has an schema). In both cases, a modal dialog is opened with the Model Schema Editor.
+
+![Model Schema Editor]({% link process-automation/images/model-schema-editor.png %})
+
+In the left hand side editor the user can set the JSON schema describing the event, while in the right hand side, the schema can be validated by introducing a JSON and clicking the `Validate` button. If the JSON in the right hand side matches the schema in the left hand side, the validation passes and a success message is displayed, otherwise, the validation fails showing an error message.
 
 ### Configuration parameters
 

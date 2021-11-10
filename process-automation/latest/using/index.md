@@ -175,7 +175,7 @@ Once you have customized a filter, there are two options:
 
 You can use the **Delete filter** option at any time to remove a view.
 
-## Condition builder
+## Condition builder {#condition-builder}
 
 The condition builder is a tool that helps you build a JUEL expression for a condition. The condition is composed of a set of boolean statement(s) that are linked by an operator. This means the condition to be created is a statement evaluated as a boolean value. The following is an example.
 
