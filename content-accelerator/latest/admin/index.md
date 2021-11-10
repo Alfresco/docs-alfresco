@@ -1492,152 +1492,191 @@ After filling out the form, click **OK**. The Role Detail page appears. To edit 
 >selected for workflow
 
 ##### Managing User Rules
+Once the administrator has selected the top level rules that determine if the role is selected for workflow, user 
+rules further narrow down workflow participants within that role. If a role is selected for workflow, but no user 
+rules are tripped, the role owner is set as the workflow participant.
 
-Once the administrator has selected the top level rules that determine if the role is selected for workflow, user rules further narrow down workflow participants within that role. If a role is selected for workflow, but no user rules are tripped, the role owner is set as the workflow participant.
-
-To create a user rule, click the **New Rule…** button at the top of the User Rules table. The User Rule Detail page appears.
+To create a user rule, click the **New Rule…** button at the top of the User Rules table. The User Rule Detail page 
+appears.
 
 The following fields are available for a user rule:
 
-| **Field Name** | **Field Value** |
-| --- | --- |
-| Name | The name of the User Rule |
-| Rules Table | The list of rules that make up this user rule. |
-| Available Users | The list of users in the role that are not a part of this user rule |
-| Selected Users | The list of users that will be selected for workflow if the user rule is tripped. |
+|Field Name|Field Value|
+|----------|-----------|
+|Name| The name of the User Rule|
+|Rules Table|The list of rules that make up this user rule.|
+|Available Users|The list of users in the role that are not a part of this user rule|
+|Selected Users|The list of users that will be selected for workflow if the user rule is tripped.|
 
-The User Rule can be given a name using the name form field. Below the name is a table containing the rules that make up the User Rule. This table works much like the Top Level Rules table. Rules can be added by clicking the **New Rule…** button, and deleted using the 'Delete'.
+The User Rule can be given a name using the name form field. Below the name is a table containing the rules that make 
+up the User Rule. This table works much like the Top Level Rules table. Rules can be added by clicking the 
+**New Rule…** button, and deleted using the **Delete**.
 
-Manage the User Rule's users by moving the desired users to the Selected Users box. If this User Rule is tripped by the wizard, the users in this box will be selected as workflow participants.
+Manage the User Rule's users by moving the desired users to the Selected Users box. If this User Rule is tripped by 
+the wizard, the users in this box will be selected as workflow participants.
 
-**Note:** If a User Rule is tripped by the users, selected users of the User Rule will only appear in the workflow list if at least one Top Level Rule is also tripped for that particular role. Therefore, if user A is in the Credit role, the Credit role must be selected for workflow before user A's rules are evaluated.
+>**Note:** If a User Rule is tripped by the users, selected users of the User Rule will only appear in the workflow 
+>list if at least one Top Level Rule is also tripped for that particular role. Therefore, if user A is in the 
+>Credit role, the Credit role must be selected for workflow before user A's rules are evaluated.
 
 ##### Managing User Input Rules
+Like User Rules, User Input Rules can be used to narrow down workflow participants within the role. User Input Rules 
+are different in that the rule simply specifies a question in the Form Template. The user filling out the form, then, 
+effectively is choosing approvers as he or she sees fit. The main pro with using a User Input Rule is that it gives 
+the user more flexibility to choose the approver. If the user filling out the form "knows" who to route it to, a 
+User Input Rule is appropriate. A User Rule, on the other hand, builds the logic of picking the approver into the 
+system, thus eliminating a user decision.
 
-Like User Rules, User Input Rules can be used to narrow down workflow participants within the role. User Input Rules are different in that the rule simply specifies a question in the Form Template. The user filling out the form, then, effectively is choosing approvers as he or she sees fit. The main pro with using a User Input Rule is that it gives the user more flexibility to choose the approver. If the user filling out the form "knows" who to route it to, a User Input Rule is appropriate. A User Rule, on the other hand, builds the logic of picking the approver into the system, thus eliminating a user decision.
-
-To create a user input rule, click the **New Rule…** button at the top of the User Input Rules table. The User Input Rule Detail Page Appears.
+To create a user input rule, click the **New Rule…** button at the top of the User Input Rules table. The User Input 
+Rule Detail Page Appears.
 
 The following fields appear for a user input rule:
 
-| **Field Name** | **Field Value** |
-| --- | --- |
-| Selected Page | This selectbox lists all of the pages in the published Form Template. Select the page that you would like to add to the user input rule. Once you have selected a page, you may not select another page unless there are no questions added. To add another page, you must create a new user input rule. |
-| New Button | Clicking the **new** button generates a question selectbox for the page |
-| Question Selectbox | Lists all of the questions on the selected page. Select the question that should drive the user input rule |
-| Delete Button | Deletes a question. |
+|Field Name|Field Value|
+|----------|-----------|
+|Selected Page|This selectbox lists all of the pages in the published Form Template. Select the page that you would like to add to the user input rule. Once you have selected a page, you may not select another page unless there are no questions added. To add another page, you must create a new user input rule.|
+|New Button|Clicking the **new** button generates a question selectbox for the page.|
+|Question Selectbox|Lists all of the questions on the selected page. Select the question that should drive the user input rule.|
+|Delete Button|Deletes a question.|
 
 Clicking the **ok** button will save the user input rule based on the values selected.
 
-**Note:** If the question selected in a user input rule does not refer to actual docbase users, the Form Instance editor will receive a warning message on the workflow summary page. For example, this can occur if the user selected no longer exists in the system, or if the administrator makes a mistake, and a user input rule is tied to another type of question (ex: county).
+>**Note:** If the question selected in a user input rule does not refer to actual docbase users, the Form Instance 
+>editor will receive a warning message on the workflow summary page. For example, this can occur if the user selected 
+>no longer exists in the system, or if the administrator makes a mistake, and a user input rule is tied to another type 
+>of question (ex: county).
 
 #### Managing Role Priority
-
-Roles within a Form Template can have a priority number set for each role. Roles with a lower priority number will be earlier in the workflow process than roles with a higher priority. The actual number value set for the priority does not matter. The only thing that matters is the order.
+Roles within a Form Template can have a priority number set for each role. Roles with a lower priority number will be 
+earlier in the workflow process than roles with a higher priority. The actual number value set for the priority does not 
+matter. The only thing that matters is the order.
 
 Consider the following scenarios:
 
-| **Role name** | **Priority** |
-| --- | --- |
-| Accounting | 1 |
-| Sales | 1 |
-| CIO | 1 |
+|Role name|Priority|
+|---------|--------|
+|Accounting|1|
+|Sales|1|
+|CIO|1|
 
-In the above scenario, if the accounting role, sales role and CIO roles are all tripped for workflow, users selected from these roles will all see the workitem at the same time. This is essentially a broadcast review.
+In the above scenario, if the accounting role, sales role and CIO roles are all tripped for workflow, users selected 
+from these roles will all see the workitem at the same time. This is essentially a broadcast review.
 
-| **Role name** | **Priority** |
-| --- | --- |
-| Accounting | 1 |
-| Sales | 2 |
-| CIO | 3 |
+|Role name|Priority|
+|---------|--------|
+|Accounting|1|
+|Sales|2|
+|CIO|3|
 
-In the above scenario, if the accounting role, sales role and CIO roles are all tripped for workflow, users selected from the accounting role will see the workitem first. When the accounting users are finished, then the sales users will see the workitem. When the sales users are finished, then the CIO users will see the workitem. This is a serial review process.
+In the above scenario, if the accounting role, sales role and CIO roles are all tripped for workflow, users selected 
+from the accounting role will see the workitem first. When the accounting users are finished, then the sales users 
+will see the workitem. When the sales users are finished, then the CIO users will see the workitem. This is a serial 
+review process.
 
-| **Role name** | **Priority** |
-| --- | --- |
-| Accounting | 1 |
-| Sales | 2 |
-| CIO | 2 |
+|Role name|Priority|
+|---------|--------|
+|Accounting|1|
+|Sales|2|
+|CIO|2|
 
-In the above scenario, if the accounting role, sales role and CIO roles are all tripped for workflow, users selected from the accounting role will see the workitem first. When the accounting users are finished, then the sales users and CIO users will see the workitem. This is a serial review process that contains a broadcast review. This is essentially a combination of the above two.
+In the above scenario, if the accounting role, sales role and CIO roles are all tripped for workflow, users selected 
+from the accounting role will see the workitem first. When the accounting users are finished, then the sales users 
+and CIO users will see the workitem. This is a serial review process that contains a broadcast review. This is 
+essentially a combination of the above two.
 
-If none of the top-level rules are tripped for a role, the entire role will not participate in workflow. For instance, in the last example, if the accounting role is not tripped but sales and CIO are, the workflow will consist of only a broadcast review to the Sales and CIO roles.
+If none of the top-level rules are tripped for a role, the entire role will not participate in workflow. For instance, 
+in the last example, if the accounting role is not tripped but sales and CIO are, the workflow will consist of only a 
+broadcast review to the Sales and CIO roles.
 
-Click the **Change Priorities** button from the Roles Overview page to update the Role priorities. This will enable the priority text boxes next to each role. Enter the priority number desired for each role, and click **OK**. The **cancel** button will return the priority numbers to their previous state.
+Click the **Change Priorities** button from the Roles Overview page to update the Role priorities. This will enable the 
+priority text boxes next to each role. Enter the priority number desired for each role, and click **OK**. The **cancel** 
+button will return the priority numbers to their previous state.
 
->**Note: ** If the **Change Priorities** button is disabled, another user is currently updating role priorities on the Form Template.
+>**Note:** If the **Change Priorities** button is disabled, another user is currently updating role priorities on the 
+>Form Template.
 
 ##### Group Based Roles and Priority
-
-Note that all group-based roles _must_ exist in a unique priority. If the administrator attempts to combine, for example, two group-based roles or one user based and one group-based role in a single priority, the application will revert to the original priority numbers and display an error message.
+Note that all group-based roles *must* exist in a unique priority. If the administrator attempts to combine, for 
+example, two group-based roles or one user based and one group-based role in a single priority, the application will 
+revert to the original priority numbers and display an error message.
 
 #### Managing Activity (Task) Names
+When the workflow is generated, each priority becomes a separate activity within the workflow template. The name of 
+each activity is what the user sees when the workitem appears in their inbox.
 
-When the workflow is generated, each priority becomes a separate activity within the workflow template. The name of each activity is what the user sees when the workitem appears in their inbox.
+To manage the activity names, either update priorities or click the **Update Activity Names** button. The Manage 
+Activity Names page appears:
 
-To manage the activity names, either update priorities or click the **Update Activity Names** button. The Manage Activity Names page appears:
+|Field Name|Field Value|
+|----------|-----------|
+|Priority|Each priority number (uneditable) represents a row of the table|
+|Use Default Name|Checkbox that indicates whether or not the activity should be created using the default name|
+|Custom Activity Name|Textbox that becomes editable when the default name is not desired.|
 
-| **Field Name** | **Field Value** |
-| --- | --- |
-| Priority | Each priority number (uneditable) represents a row of the table |
-| Use Default Name | Checkbox that indicates whether or not the activity should be created using the default name |
-| Custom Activity Name | Textbox that becomes editable when the default name is not desired. |
+If the default name checkbox is checked for a particular priority, the workflow template will be created using the 
+default name for the activity. The default name is the form's title plus the priority number in the format:
 
-If the default name checkbox is checked for a particular priority, the workflow template will be created using the default name for the activity. The default name is the form's title plus the priority number in the format:
+`<psi-title> <priority>`
 
-'\&lt;psi-title&gt; \&lt;priority&gt;'
+The priority number is necessary since Documentum enforces that all activity names are unique. The wizard inbox looks 
+for this number and strips it off of the link visible to the user. At this time, the WebTop inbox will show the 
+priority number.
 
-The priority number is necessary since Documentum enforces that all activity names are unique. The wizard inbox looks for this number and strips it off of the link visible to the user. At this time, the WebTop inbox will show the priority number.
-
-If the default name is not desired, the administrator can specify a custom activity name. All activity names across the priorities must be unique. An error message is displayed to the administrator if an attempt is made to name two priorities with the same name.
+If the default name is not desired, the administrator can specify a custom activity name. All activity names across 
+the priorities must be unique. An error message is displayed to the administrator if an attempt is made to name two 
+priorities with the same name.
 
 ## Tools
+The following section describes the available tools.
 
 ### Action Information
-
-This section displays all the possible actions and conditions that are available in Content Accelerator and give a detailed description of each.
+This section displays all the possible actions and conditions that are available in Content Accelerator and give a 
+detailed description of each.
 
 ### Search Tool
-
-This is a search tool that can only be used by Repo Administrators. It is a tool that can perform searches and export those searches to a spreadsheet. There are three different functionalities that can be performed in this section:
+This is a search tool that can only be used by Repo Administrators. It is a tool that can perform searches and export 
+those searches to a spreadsheet. There are three different functionalities that can be performed in this section:
 
 1. **Search and export results** - In the search builder section, select a Search Config, an Object Type and the max number of results that you want returned (note if trying to bring back too many results the request could timeout). Next select the query mode (either FTS or CMIS). Then begin to build your query by choosing attributes to search on and what the criteria should be. Finally click the **execute search** button to retrieve your results.
-
-1. **Delete Nodes by Query** - In order to delete nodes by query, build up the query in the search builder section like before, choose a path in the repository for the report file to be written, choose whether or not you want to "Force Delete Nodes" then click the **Delete Nodes** button. All documents picked up in the query will be deleted and their node refs will be listed in the report at the location you chose.
-2. **Update Properties on Nodes** - First use the search builder to build your query. Then, in the bottom section you can select one or more properties and set a new value. When ready, click the **Update Properties** button and anything that is picked up by the query will have its properties updated based on what you configured to update.
+2. **Delete Nodes by Query** - In order to delete nodes by query, build up the query in the search builder section like before, choose a path in the repository for the report file to be written, choose whether or not you want to "Force Delete Nodes" then click the **Delete Nodes** button. All documents picked up in the query will be deleted and their node refs will be listed in the report at the location you chose.
+3. **Update Properties on Nodes** - First use the search builder to build your query. Then, in the bottom section you can select one or more properties and set a new value. When ready, click the **Update Properties** button and anything that is picked up by the query will have its properties updated based on what you configured to update.
 
 ### Config Archiver
+The Config Archiver is a tool that allows you to move Content Accelerator configuration from one environment to 
+another. There are two methods, Export and Import.
 
-The Config Archiver is a tool that allows you to move Content Accelerator configuration from one environment to another. There are two methods, Export and Import.
+When exporting a Content Accelerator configuration, you can choose to include user preferences or not. If you chose 
+to include them, it will bring over all user preferences that exist in the Content Accelerator environment 
+(you should only do this if moving configs between a Dev, QA, Prod environments where the same users will be using 
+the system in each environment).
 
-When exporting an Content Accelerator configuration, you can choose to include user preferences or not. If you chose to include them, it will bring over all user preferences that exist in the Content Accelerator environment (you should only do this if moving configs between a Dev, QA, Prod environments where the same users will be using the system in each environment).
-
-To import an Content Accelerator configuration all you need to do is upload the archived config zip file and click Import.
+To import a Content Accelerator configuration all you need to do is upload the archived config zip file and 
+click Import.
 
 ### License Manager
-
-The Content Accelerator license manager allows an Administrator to view the current license information and import a new license if needed.
+The Content Accelerator license manager allows an Administrator to view the current license information and import a 
+new license if needed.
 
 ## Action Configuration
-
-While many actions require little to no configuration beyond enabling the action, some more complicated actions have additional configuration options. See the [Content Accelerator Features](https://github.com/tsgrp/HPI/wiki#ocms-features) section for further details about how to configure certain commonly used actions in Content Accelerator. Individual action links listed in the table below.
+While many actions require little to no configuration beyond enabling the action, some more complicated actions have 
+additional configuration options. See the [Content Accelerator Features](https://github.com/tsgrp/HPI/wiki#ocms-features){:target="_blank"} 
+section for further details about how to configure certain commonly used actions in Content Accelerator. Individual 
+action links listed in the table below.
 
 ### Addition Action Configuration Information
 
-| **Action Name/Link** | **Type** |
-| --- | --- |
-| [Send Email](https://github.com/tsgrp/HPI/wiki/Send-email) | Folder and Document Action |
-| [Send Notification](https://github.com/tsgrp/HPI/wiki/Notifications) | Document Workflow |
-| [Send External Notification](https://github.com/tsgrp/HPI/wiki/External-Notifications) (MS Teams/ Slack) | Document Workflow |
-| [Export Folder](https://github.com/tsgrp/HPI/wiki/Export-folder) | Folder Action |
-| [Bulk Upload](https://github.com/tsgrp/HPI/wiki/Bulk-Upload) | Folder or Contextless Action |
-| [Download Document](https://github.com/tsgrp/HPI/wiki/Download-Document---Export-Native-Content) | Document Action |
-| [Edit Online](https://github.com/tsgrp/HPI/wiki/Edit-Online-Configurations) | Document Action |
-| [Sign with DocuSign](https://github.com/tsgrp/HPI/wiki/HPI-Integration-with-Docusign) | Document Action |
-| [Send to Kira](https://github.com/tsgrp/HPI/wiki/Send-to-Kira) | Document Action |
-| [Import Print](https://github.com/tsgrp/HPI/wiki/OCMS-Import-Print) | Contextless Action |
-| [Database Table View](https://github.com/tsgrp/HPI/wiki/Database-Table-View) | Contextless Action |
-| [Refined Search in View All Documents](https://github.com/tsgrp/HPI/wiki/Refined-Search-in-View-All-Documents) | Action Add-On |
-| [Document Info View](https://github.com/tsgrp/HPI/wiki/Doc-Info-View) | Document Action |
-
-![Img Txt]({% link content-accelerator/images/aca-admin-main-settings.png %}){:height="600px" width="800px"}_c77a69456409c6c4.png)
+|Action Name/Link|Type|
+|-----------|---------|
+|[Send Email](https://github.com/tsgrp/HPI/wiki/Send-email){:target="_blank"}|Folder and Document Action|
+|[Send Notification](https://github.com/tsgrp/HPI/wiki/Notifications){:target="_blank"}|Document Workflow|
+|[Send External Notification](https://github.com/tsgrp/HPI/wiki/External-Notifications){:target="_blank"} (MS Teams/ Slack)|Document Workflow|
+|[Export Folder](https://github.com/tsgrp/HPI/wiki/Export-folder){:target="_blank"}|Folder Action|
+|[Bulk Upload](https://github.com/tsgrp/HPI/wiki/Bulk-Upload){:target="_blank"}|Folder or Contextless Action|
+|[Download Document](https://github.com/tsgrp/HPI/wiki/Download-Document---Export-Native-Content){:target="_blank"}|Document Action|
+|[Edit Online](https://github.com/tsgrp/HPI/wiki/Edit-Online-Configurations){:target="_blank"}|Document Action|
+|[Sign with DocuSign](https://github.com/tsgrp/HPI/wiki/HPI-Integration-with-Docusign){:target="_blank"}|Document Action|
+|[Send to Kira](https://github.com/tsgrp/HPI/wiki/Send-to-Kira){:target="_blank"}|Document Action|
+|[Import Print](https://github.com/tsgrp/HPI/wiki/OCMS-Import-Print){:target="_blank"}|Contextless Action|
+|[Database Table View](https://github.com/tsgrp/HPI/wiki/Database-Table-View){:target="_blank"}|Contextless Action|
+|[Refined Search in View All Documents](https://github.com/tsgrp/HPI/wiki/Refined-Search-in-View-All-Documents){:target="_blank"}|Action Add-On|
+|[Document Info View](https://github.com/tsgrp/HPI/wiki/Doc-Info-View){:target="_blank"}|Document Action|
