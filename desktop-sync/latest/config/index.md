@@ -16,6 +16,7 @@ Using the configuration file, you can update:
 * user interface defaults and customization (including localization)
 * network access configuration
 * debug logging
+* [timezone](#change-timezone) used in `AlfrescoDesktopSync.log` file
 
 The configuration properties values are case sensitive and use the format `name.subname=value`, 
 for example, `syncmanager.deferFileSyncTimer=15`.
@@ -401,6 +402,20 @@ logging.loggers.l6.level = error
 ```
 
 For more details on the logging configuration, see the [PocoProject](https://pocoproject.org/){:target="_blank"} documentation.
+
+## Change timezone {#change-timezone}
+
+The default timezone used in the `AlfrescoDesktopSync.log` file is `UTC`. As an IT administrator, if you want to change this so that the log file uses your local timezone, edit the configuration file:
+
+1. Remove the line `logging.formatters.f1.times = UTC`.
+2. Add the following lines:
+
+    ```bash
+    logging.channels.c1.formatter.times = local
+    logging.formatters.f1.times = local
+    ```
+
+3. Restart the Desktop Sync client, and open the log file to see the changes.
 
 ## Localization
 
