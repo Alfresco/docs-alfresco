@@ -151,13 +151,12 @@ An example of the JSON for the Email connector **MESSAGE_RECEIVED** event is:
     },
 ```
 
-The `model` field describes the information that will be included inside the data field of the Cloud Event handled in a trigger (see [trigger events]({% link process-automation/latest/model/triggers.md %}#events)). This allows the user to create a condition for a [trigger]({% link process-automation/latest/model/triggers.md %}) using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) based on the event information.
-
-It is possible to add/edit the model of the event in the editor by using the `Add Model Schema` button (when it has no schema), or the `Edit Model Schema` button (when the event already has an schema). In both cases, a modal dialog is opened with the Model Schema Editor.
+The `model` field describes the information that is included inside the data field of the Cloud Event handled in a trigger, for more see [Trigger events]({% link process-automation/latest/model/triggers.md %}#events). This allows you to create a condition for a [Trigger]({% link process-automation/latest/model/triggers.md %}) using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) and that is based on the event information.
+You can add or edit the model of the event in the editor by clicking the **Add Model Schema** or **Edit Model Schema** button.
 
 ![Model Schema Editor]({% link process-automation/images/model-schema-editor.png %})
 
-In the left hand side editor the user can set the JSON schema describing the event, while in the right hand side, the schema can be validated by introducing a JSON and clicking the `Validate` button. If the JSON in the right hand side matches the schema in the left hand side, the validation passes and a success message is displayed, otherwise, the validation fails showing an error message.
+In the editor on the left you can configure a JSON schema to describe an event. In the editor on the right you can enter another JSON schema and validate it matches the schema on the left by clicking the `Validate` button. If it matches you will receive a validation success message.
 
 ### Configuration parameters
 

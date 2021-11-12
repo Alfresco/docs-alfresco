@@ -48,7 +48,7 @@ The events that can be created for a trigger are:
 * [A Slack message being received](#slack-message-received)
 * [An incoming webhook](#webhooks)
 
-The events handled in triggers follow the [Cloud Events](https://cloudevents.io/) specification so they include all the information described there and the specific information of the event is inside the `data` field.
+**Note:** The events handled in triggers follow the [Cloud Events](https://cloudevents.io/) specification. All the information described there and the specific information of the event is contained inside the `data` field.
 
 ### BPMN engine events
 
@@ -83,7 +83,7 @@ The input parameters for receiving an email are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| condition | *Optional.* Expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that shall be true in order to trigger an action. The event content described by its model can be used in the expression. |
+| condition | *Optional.* An expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that when true triggers an action. The event content described by its model can be used in the expression. |
 | pattern | *Required.* A regular expression that selects which emails trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`. |
 | echo | *Optional.* An email sent to the original sender of the email that is matched, for example `Your reference number is ${orderNumber}`. |
 | echoError | *Optional.* An email sent to the original sender if an error occurs when publishing the event, for example `There was a problem publishing that event.` |
@@ -110,7 +110,7 @@ The input parameters for receiving an SMS are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| condition | *Optional.* Expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that shall be true in order to trigger an action. The event content described by its model can be used in the expression. |
+| condition | *Optional.* An expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that when true triggers an action. The event content described by its model can be used in the expression. |
 | pattern | *Required.* A regular expression that selects which messages trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`. |
 | echo | *Optional.* A message sent to the original sender of the text that is matched, for example `Your reference number is ${orderNumber}`. |
 | echoError | *Optional.* A message sent to the original sender if an error occurs when publishing the event, for example `There was a problem publishing that event.` |
@@ -136,7 +136,7 @@ The input parameters for a received Slack message are:
 
 | Parameter | Description |
 | --------- | ----------- |
-| condition | *Optional.* Expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that shall be true in order to trigger an action. The event content described by its model can be used in the expression. |
+| condition | *Optional.* An expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that when true triggers an action. The event content described by its model can be used in the expression.|
 | pattern | *Required.* A regular expression that selects which messages trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`. |
 | echo | *Optional.* A message sent to the user of the message that is matched, for example `Your reference number is ${orderNumber}`. |
 | echoError | *Optional.* A message sent to the user of the message that is matched if an error occurs when publishing the event, for example `There was a problem publishing that event.` |
@@ -161,7 +161,7 @@ The input parameters for the **INCOMING_WEBHOOK** event is:
 
 | Parameter | Description |
 | --------- | ----------- |
-| condition | *Optional.* Expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that shall be true in order to trigger an action. The event content described by its model can be used in the expression. |
+| condition | *Optional.* An expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that when true triggers an action. The event content described by its model can be used in the expression. |
 | path | *Required.* The webhook path to monitor. The format begins `https://<environment>.com/<project-name>/<connector-name>/events/` followed by a custom value, for example `https://alfresco.com/finance-project/rest-connector-1/events/github`. |
 | method | *Optional.* A list of HTTP methods that can trigger an action. |
 | condition | *Optional.* The condition that must evaluate to true to trigger an action. |
