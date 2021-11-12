@@ -156,7 +156,7 @@ You can add or edit the model of the event in the editor by clicking the **Add M
 
 ![Model Schema Editor]({% link process-automation/images/model-schema-editor.png %})
 
-In the editor on the left you can configure a JSON schema to describe an event. In the editor on the right you can enter another JSON schema and validate it matches the schema on the left by clicking the `Validate` button. If it matches you will receive a validation success message.
+In the editor on the left you can configure a JSON schema to describe an event. In the editor on the right you can enter a JSON object and validate it matches the schema on the left by clicking the `Validate` button. If it matches you will receive a validation success message.
 
 ### Configuration parameters
 
