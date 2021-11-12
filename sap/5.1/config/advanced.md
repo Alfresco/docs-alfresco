@@ -450,7 +450,7 @@ The behavior can be enabled or disabled at the repository file for each SAP Cont
 
 #### Behavior: sapContentConnectorWorkflow {#workflowBehavior}
 
-The behavior will create a new inbox task for a SAP user in his SAP Business Workplace (transaction `SBPW`) in the SAP system. The current document will be attached to this task as a refernce link. The inbox task can be related to any SAP Workflow then (depends on SAP customizing). To invoke the behavior, the `SAP Workflow Details` aspect must be added to a document in Content Services. Along with this aspect the required `SAP Connection Details` aspect is added automatically. The mandatory aspect values must be filled and if the properties are saved, the behavior is invoked (`onUpdateProperties`).
+The behavior will create a new inbox task for a SAP user in his SAP Business Workplace (transaction `SBPW`) in the SAP system. The current document will be attached to this task as a reference link. The inbox task can be related to any SAP Workflow then (depends on SAP customizing). To invoke the behavior, the `SAP Workflow Details` aspect must be added to a document in Content Services. Along with this aspect the required `SAP Connection Details` aspect is added automatically. The mandatory aspect values must be filled and if the properties are saved, the behavior is invoked (`onUpdateProperties`).
 
 The following table lists the required data of the aspect that's required to create the inbox task for the SAP user:
 
@@ -490,7 +490,7 @@ The behavior can be enabled or disabled at the repository file for each SAP Cont
 
 The SAP Connector offers a couple of predefined content model types which accomplishes the different tasks of the available jobs. This section describes all available content model types with their purpose.
 
-The available content model types are closely related to the availble SAP Connector jobs ([Configuring jobs](#configure-jobs)) and SAP Connector behaviors ([Configuring behaviors](#configure-behaviors)). The types are already prepared with the necessary aspects.
+The available content model types are closely related to the available SAP Connector jobs ([Configuring jobs](#configure-jobs)) and SAP Connector behaviors ([Configuring behaviors](#configure-behaviors)). The types are already prepared with the necessary aspects.
 
 The SAP Connector offers the following predefined content model types:
 
@@ -537,7 +537,7 @@ To link a document to a SAP Business Object by the `SAP Barcode` type:
 
     ![sap_conf_types_barcode_properties]({% link sap/images/sap_conf_types_barcode_properties.png %})
 
-3. Save the document. Now, depening on the CRON expression of the [Job: sapContentConnectorBarcode](#sapContentConnectorBarcodeJob), the job will pick up the document and create the necessary entry in the **External Barcode** table (check transaction `OAM1`) of the SAP system.
+3. Save the document. Now, depending on the CRON expression of the [Job: sapContentConnectorBarcode](#sapContentConnectorBarcodeJob), the job will pick up the document and create the necessary entry in the **External Barcode** table (check transaction `OAM1`) of the SAP system.
 4. For Late Archiving, the document is immediately available as attachment on the related SAP Business Object, for Early Archiving, the document is available as soon as the SAP user manually enters the matching barcode on a SAP Business Object.
 
 > **Note:** To use the barcode with any other Content Services content type, add the `SAP Barcode Details` aspect to a document **and** make sure to have the [Behavior: sapContentConnectorBarcode](#sapContentConnectorBarcodeBehavior) **in addition** to the [Job: sapContentConnectorBarcode](#sapContentConnectorBarcodeJob) enabled for the current SAP System Configuration.
@@ -674,7 +674,7 @@ The following macros are supported as values for URL parameter, if applicable :
 
 | Macro Name | Description |
 | ---------- | ----------- |
-| %SAP_CLIENT% | The SAP Client, specified in the `alfresco-gloabl.properties` for the SAP System Configuration. |
+| %SAP_CLIENT% | The SAP Client, specified in the `alfresco-global.properties` for the SAP System Configuration. |
 | %SAP_OBJECT% | The `SAP Object Type`, read from aspect value `connexasReplicate:sapobject`. For example `BKPF` (see [Job: sapContentConnectorReplicate](#sapContentConnectorReplicateJob)). |
 | %SAP_ARCHIVE_OBJECT% | The `SAP Document Type`, read from aspect value `connexasReplicate:saparchiveobject`. For example `Z_INV_XX`. |
 | %SAP_OBJECT_ID% | The `SAP Object Id`, read from aspect value `connexasReplicate:sapobjectid`. |
