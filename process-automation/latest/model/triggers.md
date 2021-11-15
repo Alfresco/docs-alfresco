@@ -33,9 +33,9 @@ To create a trigger:
 
 4. Enter a name and optional description.
 
-## Events
+## Events {#events}
 
-Trigger events include specific [BPMN]({% link process-automation/latest/model/processes/bpmn.md %}) states occurring in a process such as a timer being fired, a form being saved or events related to [connectors]({% link process-automation/latest/model/connectors/index.md %}) such as an email being received or a webhook REST request. 
+Trigger events include specific [BPMN]({% link process-automation/latest/model/processes/bpmn.md %}) states occurring in a process such as a timer being fired, a form being saved or events related to [connectors]({% link process-automation/latest/model/connectors/index.md %}) such as an email being received or a webhook REST request.
 
 The events that can be created for a trigger are:
 
@@ -47,6 +47,8 @@ The events that can be created for a trigger are:
 * [An SMS being received](#sms-received)
 * [A Slack message being received](#slack-message-received)
 * [An incoming webhook](#webhooks)
+
+**Note:** The events handled in triggers follow the [Cloud Events](https://cloudevents.io/) specification. All the information described there and the specific information of the event is contained inside the `data` field.
 
 ### BPMN engine events
 
@@ -81,6 +83,7 @@ The input parameters for receiving an email are:
 
 | Parameter | Description |
 | --------- | ----------- |
+| condition | *Optional.* An expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that when true triggers an action. The event content described by its model can be used in the expression. |
 | pattern | *Required.* A regular expression that selects which emails trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`. |
 | echo | *Optional.* An email sent to the original sender of the email that is matched, for example `Your reference number is ${orderNumber}`. |
 | echoError | *Optional.* An email sent to the original sender if an error occurs when publishing the event, for example `There was a problem publishing that event.` |
@@ -107,6 +110,7 @@ The input parameters for receiving an SMS are:
 
 | Parameter | Description |
 | --------- | ----------- |
+| condition | *Optional.* An expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that when true triggers an action. The event content described by its model can be used in the expression. |
 | pattern | *Required.* A regular expression that selects which messages trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`. |
 | echo | *Optional.* A message sent to the original sender of the text that is matched, for example `Your reference number is ${orderNumber}`. |
 | echoError | *Optional.* A message sent to the original sender if an error occurs when publishing the event, for example `There was a problem publishing that event.` |
@@ -132,6 +136,7 @@ The input parameters for a received Slack message are:
 
 | Parameter | Description |
 | --------- | ----------- |
+| condition | *Optional.* An expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that when true triggers an action. The event content described by its model can be used in the expression.|
 | pattern | *Required.* A regular expression that selects which messages trigger an action. Java catching group syntax can be used to create groups from the pattern as variables, for example `Order Number (?<orderNumber>.+)`. The variables can then be used in `echo` and `echoError`, for example `${orderNumber}`. |
 | echo | *Optional.* A message sent to the user of the message that is matched, for example `Your reference number is ${orderNumber}`. |
 | echoError | *Optional.* A message sent to the user of the message that is matched if an error occurs when publishing the event, for example `There was a problem publishing that event.` |
@@ -156,6 +161,7 @@ The input parameters for the **INCOMING_WEBHOOK** event is:
 
 | Parameter | Description |
 | --------- | ----------- |
+| condition | *Optional.* An expression created using the [Condition Builder]({% link process-automation/latest/using/index.md %}#condition-builder) that when true triggers an action. The event content described by its model can be used in the expression. |
 | path | *Required.* The webhook path to monitor. The format begins `https://<environment>.com/<project-name>/<connector-name>/events/` followed by a custom value, for example `https://alfresco.com/finance-project/rest-connector-1/events/github`. |
 | method | *Optional.* A list of HTTP methods that can trigger an action. |
 | condition | *Optional.* The condition that must evaluate to true to trigger an action. |
@@ -180,7 +186,7 @@ The output parameters that can be used as values within the trigger action for a
 
 Trigger actions include starting a process instance, sending a BPMN signal or any [connector action]({% link process-automation/latest/model/connectors/index.md %}#actions). An action contains a payload that is sent from the trigger to the action being started.
 
-The values for action payloads can be set in different ways depending on the action being sent and the source event type that generated the action. For example, if the Slack **MESSAGE_RECEIVED** event is used, then the value of an action can use the value of the `slackChannelId` the message was received from.
+The values for action payloads can be set in different ways depending on the action being sent and the source event type that generated the action. For example, if the Slack **MESSAGE_RECEIVED** event is used, then the value of an action can use the value of the `slackChannelId` the message was received from or an expression based on the event model.
 
 The ways in which an action can be set are as:
 
