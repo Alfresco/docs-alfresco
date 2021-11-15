@@ -26,7 +26,7 @@ the typical dashlet types available:
 Here is an example dashboard in the screenshot below. This is not an actual environment. The following dashlets were put 
 together to demonstrate the many combinations of dashlets a user can have in their application.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_5979485db7bf96e7.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-dashboard.png %})
 
 ## Search
 The Content Accelerator Search gives users the tools to locate, filter, and review document and folder information. 
@@ -34,7 +34,7 @@ Content can be searched on using a number of metadata fields, such as document n
 last modified date. Commonly executed combinations of search parameters can be stored as a "Saved Search", allowing for 
 quick execution of a specific search in the future without needing to re-enter parameters.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_7909f55b078d7709.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-search.png %})
 
 The above screenshot shows what Search's main components look like and environment specific information will be greyed 
 out as we walk through the general descriptions of its components.
@@ -68,7 +68,7 @@ itself, and actions that can be performed at the folder level.
 The above screenshot shows what Stage's main components look like and environment specific information will be greyed 
 out as we walk through the general descriptions of its components.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_67f4e0f825299b86.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-stage.png %})
 
 1. **Trac Information:** Various attributes and information appears here about the current Trac's Stage that is loaded. A Trac is an object type.
 2. **Workflow Info:** Workflow information is displayed within this section. It will detail information such as the workflow name that is associated with this document, when it started, the tasks, and the processes attached to the workflow. 
@@ -100,12 +100,12 @@ execute commonly used actions quickly, notifications to allow for communication,
 user experience. The Content Accelerator Navigation Bar comes with the following default areas detailed below, but can 
 be customized by the administrator for the application.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_2b03aef65c7270e4.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-nav-bar.png %})
 
 ### Header Links
 The header links are shortcuts to rapidly access important Content Accelerator features.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_2dfaf7b55d278b8a.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-header-links.png %})
 
 #### Search
 The Search header is a link to the Content Accelerator Search feature. Follow the link to learn more about this section 
@@ -118,7 +118,7 @@ section and its capabilities.
 ### Header Actions
 The header actions are a fast and efficient way to execute popular actions that are used frequently.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_82b18ee9efb1dad1.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-header-actions.png %})
 
 #### Create Form
 Content Accelerator Forms are great resources for completing and submitting electronic forms. To easily build a form the 
@@ -143,8 +143,9 @@ The bell will glow if the user has a notification or notifications they have not
 filter and reference archived (completed) messages. See the action Send Notifications to learn more about how these are 
 sent and received.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_9a8680f7430d8ca9.png) 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_2cb10ad524814ef1.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-notifications.png %})
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-notifications2.png %})
 
 ### User Preferences
 The following section covers user preferences.
@@ -164,9 +165,12 @@ The user has the following choices on how they can view or not view different da
 * Dashlet Order: The user can drag to change the order of any or all the dashlets that are seen in their particular dashboard. To reset them to the default settings the user can select the reset button.
 * Dashlet Visibility Preferences: The dashlet visibility preferences is a section where the user can turn on or off certain dashlets if they choose to do so. Sometimes, however, the administrator for the application may not give the user that option to not view a dashlet because of its importance. Therefore, sometimes a blank screen might be seen. Like the screenshot below.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})*4d5de12b137bf1f2.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-userpref-dashlet-visibility.png %})
 
-An example of if the administrator of the system would turn that ability on would look something like what the screenshot below shows. ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})*d5012ee3363ca65b.png)
+An example of if the administrator of the system would turn that ability on would look something like what the screenshot 
+below shows. 
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-userpref-dashlet-visibilities.png %})
 
 #### Workflow (if applicable)
 
@@ -174,13 +178,13 @@ This is a user preference that may not be visible to every user depending on wha
 
 The user has the ability to designate if they are available to receive workflow tasks. The typical use case for this would be when a user goes on vacation. The employee does not want their vacation time to hold up a particular workflow, so they can designate who should complete tasks on their behalf.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})*7f6c93277dda2724.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-userpref-workflow-recieve-tasks.png %})
 
 #### Tour
 
 The tour section is initiated when it is the first time the user is visiting the Content Accelerator feature sections of *Search* and *Stage*. This can be switched on or off depending on if the user wants to see the tour again because they forgot all the cool things they can do in each of the *Search* and *Stage* areas.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})*f085da67f4544f9e.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-userpref-available-tours.png %})
 
 ## Actions
 
@@ -192,14 +196,14 @@ Actions in the Content Accelerator are buttons that allow for an activity to be 
 
 Allows for the upload of documents into the repository. Documents can be uploaded via a number of sources, including drag-and-drop, file explorer, Box integration, Gmail integration, or from a scanner. Metadata can then be added to the document for indexing.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})*73c8083cb27f775a.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-actions-add-docs.png %})
 
 **Content Accelerator Add Documents Initial Page (See screenshot above)**
 
 1. Drag and Drop area to easily select documents to upload
 2. The current documents selected for upload
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_606da5bf04481711.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-add-doc-init-page.png %})
 
 **Content Accelerator Add Documents Upload View (See screenshot above)**
 
@@ -213,7 +217,7 @@ Allows for the upload of documents into the repository. Documents can be uploade
 
 Allows for viewing and/or modification of document or folder properties.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_cff62d62f7712cf6.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-view-edit-props.png %})
 
 * Note that some fields could be greyed out. These are properties that were configured to be uneditable.
 * The non-greyed out sections' values can be changed. Once the property change is made then click Submit. Open back up the*View Properties*action and the new properties should now be seen.
@@ -222,15 +226,21 @@ Allows for viewing and/or modification of document or folder properties.
 
 Allows for the creation and viewing of a note on a particular folder or document in Content Accelerator.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c40a765888e93a92.png)
+Creating a new note for a document:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_223e26dc592e41aa.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-create-notes.png %})
+
+Listing document notes:
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-list-notes.png %})
 
 ## Document Actions in Stage
 
 ### View Versions
 
-Allows for viewing of information and content of previous versions of a document. ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_dd4109e1fc744b4f.png)
+Allows for viewing of information and content of previous versions of a document. 
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-view-versions.png %})
 
 ##### Content Accelerator View Versions
 
@@ -239,19 +249,19 @@ Allows for viewing of information and content of previous versions of a document
 3. Users have the ability to revert a document to one of its versions. This will create a new version of the document with that version's content and properties.
 4. Choose two versions to compare.  Note, this option requires the enabling of a 3rd party integration with Workshare Compare.
 
-**Note:** 3 &amp; 4 may not show up in every environment.
+>**Note:** 3 &amp; 4 may not show up in every environment.
 
 ### View Renditions
 
 Allows users to view the different renditions (file types) for a particular document.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c6ae06a0f55e6ab.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-view-renditions.png %})
 
 ### Checkout / Checkin
 
 Allows for a document to be downloaded, modified, and uploaded to Alfresco as a new major or minor version of the document.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_81672196fd6518cb.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-checkinout.png %})
 
 ##### Content Accelerator Checkin
 
@@ -262,35 +272,28 @@ Allows for a document to be downloaded, modified, and uploaded to Alfresco as a 
 
 Allows a user to cancel their checkout of an object in the repository. This will remove the user's lock on the object.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_ab8acef0aa966906.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-cancel-checkout.png %})
 
 ### Send Notification
 
 The ability to send out a message to a particular user/users or group/groups with adding a comment.
 
 1. **Users** : select the user(s) that will receive the notification. The dropdown is populated by a configurable list (picklist) that a query is sent out to populate.
-
-
 2. **Groups** : select the group(s) that will receive the notification. Like stated above, the dropdown is populated by a configurable query.
-
-
 3. **Notification Type** : the notification category type for to tell the recipient a little more information about the notification. Like stated above, the dropdown is populated by a configurable query.
-
-
 4. **Workflow Due Date** : the workflow due date that will tell the user more information about why this notification was sent out.
-
-
 5. **Comment** : the comment field is to provide more information about the notification that is sent out.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_10932b7d3f93c787.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-send-notification.png %})
 
-Once a user receives a notification, the bell in the top right corner will glow. This notifies the user they can click on the bell icon to view their notifications.
+Once a user receives a notification, the bell in the top right corner will glow. This notifies the user they can click 
+on the bell icon to view their notifications.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_5208036d77be40a.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-notification-indicator.png %})
 
 When the user clicks on the bell icon. The following screenshot displays what the user will see on their screen. The user can click the complete button to acknowledge they have received and understood the notification. **Note:** An email will be sent out to the recipient in addition to this notification within the web application.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_d0512103cbf57e4f.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-view-notifications.png %})
 
 ## Document Actions in Search
 
@@ -302,7 +305,7 @@ Allows a user to open the selected document in a new tab of his or her browser.
 
 To perform this action, select the checkbox next to a document and then right click on the document. Alternatively, you can access this action from the Action dropdown menu once a document has been selected. Click the*Open in New Tab*action, and the document will open in a new browser tab.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_ea164947b3c5461a.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-open-new-tab.png %})
 
 ### Download Document
 
@@ -310,7 +313,7 @@ Allows a user to download the selected document to his or her file system.
 
 To perform this action, select the checkbox next to a document and then right click on the document. Alternatively, you can access this action from the Action dropdown menu once a document has been selected. Click the*Download*action, and the document will be downloaded to your file system.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_4227995bbb352875.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-open-download-doc.png %})
 
 ### View Properties
 
@@ -332,13 +335,13 @@ To access actions in this section, navigate to Search and execute a search to br
 
 It may be beneficial to open multiple documents in a new tab for better viewing and editing. To perform this action, select **multiple** documents from the search results and right click. Alternatively, you can access this action from the Action dropdown when multiple documents are selected. Press the*Open Each in New Tab*action and each document will open in its own individual tab. (Similar to [Open in New Tab](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.g8lfriywargb)). For some internet browsers, the tabs may not open due to a popup blocker, so ensure that popup blocker is disabled for the application to ensure all tabs are able to be opened.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_d82fec3b4f20f7dd.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-open-new-tab-each.png %})
 
 ### Export Results to Excel
 
 A quick way to provide information in another format using a different product is the integration to export the search results to an Excel spreadsheet. Select multiple documents from the search results and right click. Then click on the*Export Results to Excel*action. Alternatively, you can access this action from the Action dropdown when multiple documents are selected. An Excel spreadsheet will be downloaded to your browser that will have organized the search results into the spreadsheet.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_7cd30a0d8417bbc.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-export-excel.png %})
 
 # APPENDIX A: Policy and Procedure
 
@@ -352,7 +355,7 @@ The Content Accelerator provides repeatable change control for initiating and pr
 
 Advance a document to the next lifecycle status by inputting the current logged in user's credentials. EX: Doc's lifecycle status of Draft -\&gt; would advance to Approved
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_d74d9369e3598ad4.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-power-promote.png %})
 
 ### View Audit Events (Documents &amp; Forms)
 
@@ -360,29 +363,35 @@ An audit trail is kept to keep track of all auditable actions/events that happen
 
 **Below is an example of the audit events for a document.**
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_357ccfb521c7f952.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-power-view-audit-events.png %})
 
-**Below is an example of the audit events for a form.**![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_47ed08aca7a9ab9a.png)
+**Below is an example of the audit events for a form.**
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-view-audit-events-form.png %})
 
 ### Create Change Form
 
 The ability to create a Change Form with the document this action is executed from attached to the form to route through the form's workflow. **Note: The Change Form supplied in the PnP environment is a test form created to demonstrate the capabilities of Active Wizard forms.** If there are any other available forms, they will be populated in the dropdown that the user can select.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_d0418a8f5f45ab23.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form.png %})
 
-Once Create Form is selected, the form template appears and there are ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_82e45cb4f5cc33da.png) icons signifying to the user that these areas are required. Below will talk more specifically about each section of the Change Request Form.
+Once Create Form is selected, the form template appears and there are 
+![Img Txt]({% link content-accelerator/images/aca-userguide-required-fields.png %}) icons signifying to the user that 
+these areas are required. Below will talk more specifically about each section of the Change Request Form.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_2d464a150e6f643b.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form-example.png %}
 
 The one section worth noting is*Description and Rationale_. This section depending on what answer is giving will control what page is displayed next to the user. For example, if*Enter test into this form*is selected, like in the screenshot below. Text boxes are shown for the user to input a text rationale.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_cfe34d5c31eb8510.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form-desc-rationale.png %})
 
-If the Attach separate document is selected instead, a user will have to attach a supporting document. ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_ae82a32d5c9ddb4e.png)
+If the Attach separate document is selected instead, a user will have to attach a supporting document. 
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form-desc-rationale2.png %})
 
 Another noteworthy section is the approvers section (both Initial QA Approvers &amp; Approvers). This section the user has the ability to select what users will receive workflow tasks to approve or reject.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_6c7281dcde9f57d5.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form-approvers.png %})
 
 ### Generate Impact Assessment
 
