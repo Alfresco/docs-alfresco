@@ -2,15 +2,15 @@
 title: Install with Ansible
 ---
 
-This page describes how to install Community Edition using an [Ansible](https://www.ansible.com) playbook. Ansible is an open-source software provisioning, configuration management and application installation tool that enables infrastructure as code. Alfresco provides an Ansible playbook capable of installing the latest Community Edition.
+This page describes how to install Community Edition using an [Ansible](https://www.ansible.com){:target="_blank"} playbook. Ansible is an open-source software provisioning, configuration management and application installation tool that enables infrastructure as code. Alfresco provides an Ansible playbook capable of installing the latest Community Edition.
 
-Before continuing you need to be familiar with some [Ansible concepts](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html):
+Before continuing you need to be familiar with some [Ansible concepts](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html){:target="_blank"}:
 
 * [control node](https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html#control-node){:target="_blank"}: the machine the playbook is run from is known as the **control node**.
 
 * [connection type](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters){:target="_blank"}: the type of connection to the host.
 
-* [inventory file](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory): used to describe where the different Content Services should be installed.
+* [inventory file](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory){:target="_blank"}: used to describe where the different Content Services should be installed.
 
 There are two types of installations - local and remote:
 
@@ -24,7 +24,7 @@ There are two types of installations - local and remote:
 
 ## Target O/S
 
-The playbooks have been tested using Ansible 2.9.16 (or later) on target hosts with the following operating systems:
+The playbooks have been tested using Ansible 2.9.21 (or later) on target hosts with the following operating systems:
 
 * CentOS 7 and 8
 * Red Hat Enterprise Linux 7 and 8
@@ -33,7 +33,7 @@ Additional target environments will be added in future releases.
 
 ## Set up Ansible
 
-A control node is required to run the playbook. You can use any computer as a control node that has Python installed. Usually, laptops, shared desktops, and servers can all run Ansible.
+A control node is required to run the playbook. You can use any computer as a control node that has Python installed. Usually, laptops, desktops, and servers can all run Ansible.
 
 In the interest of keeping this guide simple, we'll use an AWS EC2 instance as the control node. The required steps are:
 
@@ -41,7 +41,7 @@ In the interest of keeping this guide simple, we'll use an AWS EC2 instance as t
 
     ![centos-ami]({% link content-services/images/centos-ami.png %})
 
-2. Download the Ansible playbook [zip file](https://download.alfresco.com/cloudfront/release/community/alfresco-ansible-deployment/alfresco-ansible-deployment-1.0.zip){:target="_blank"}.
+2. Download the Ansible playbook [zip file](https://nexus.alfresco.com/nexus/service/local/repositories/releases/content/org/alfresco/alfresco-ansible-deployment/1.1.1/alfresco-ansible-deployment-1.1.1.zip){:target="_blank"}.
 
 3. Transfer the ZIP file to the control node and SSH into the machine:
 
