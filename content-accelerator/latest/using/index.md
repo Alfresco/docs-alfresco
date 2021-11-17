@@ -159,7 +159,6 @@ The following options are available for the user to control that are related to 
 * **Search Side Bar** : This functionality is exactly what the description says. It will hide the search form (where you entered all the search parameters) when the search is executed.
 
 #### Dashlet Preferences
-
 The user has the following choices on how they can view or not view different dashlets in the application:
 
 * Dashlet Order: The user can drag to change the order of any or all the dashlets that are seen in their particular dashboard. To reset them to the default settings the user can select the reset button.
@@ -173,57 +172,60 @@ below shows.
 ![Img Txt]({% link content-accelerator/images/aca-userguide-userpref-dashlet-visibilities.png %})
 
 #### Workflow (if applicable)
+This is a user preference that may not be visible to every user depending on what type of business case/scenario they 
+are using. For example, the Policy and Procedure scenario user would see this while the Claims scenario user would not.
 
-This is a user preference that may not be visible to every user depending on what type of business case/scenario they are using. For example, the Policy and Procedure scenario user would see this while the Claims scenario user would not.
-
-The user has the ability to designate if they are available to receive workflow tasks. The typical use case for this would be when a user goes on vacation. The employee does not want their vacation time to hold up a particular workflow, so they can designate who should complete tasks on their behalf.
+The user has the ability to designate if they are available to receive workflow tasks. The typical use case for this 
+would be when a user goes on vacation. The employee does not want their vacation time to hold up a particular workflow, 
+so they can designate who should complete tasks on their behalf.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-userpref-workflow-recieve-tasks.png %})
 
 #### Tour
-
-The tour section is initiated when it is the first time the user is visiting the Content Accelerator feature sections of *Search* and *Stage*. This can be switched on or off depending on if the user wants to see the tour again because they forgot all the cool things they can do in each of the *Search* and *Stage* areas.
+The tour section is initiated when it is the first time the user is visiting the Content Accelerator feature sections 
+of *Search* and *Stage*. This can be switched on or off depending on if the user wants to see the tour again because 
+they forgot all the cool things they can do in each of the *Search* and *Stage* areas.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-userpref-available-tours.png %})
 
 ## Actions
-
-Actions in the Content Accelerator are buttons that allow for an activity to be performed on a folder, document, or documents as a group action.
+Actions in the Content Accelerator are buttons that allow for an activity to be performed on a folder, document, or 
+documents as a group action.
 
 ### Folder Actions in Stage
+The following actions are folder related.
 
 #### Add Documents
+Allows for the upload of documents into the repository. Documents can be uploaded via a number of sources, including 
+drag-and-drop, file explorer, Box integration, Gmail integration, or from a scanner. Metadata can then be added to the 
+document for indexing.
 
-Allows for the upload of documents into the repository. Documents can be uploaded via a number of sources, including drag-and-drop, file explorer, Box integration, Gmail integration, or from a scanner. Metadata can then be added to the document for indexing.
-
-![Img Txt]({% link content-accelerator/images/aca-userguide-actions-add-docs.png %})
-
-**Content Accelerator Add Documents Initial Page (See screenshot above)**
+**Add Documents - Initial Page:**
 
 1. Drag and Drop area to easily select documents to upload
 2. The current documents selected for upload
 
-![Img Txt]({% link content-accelerator/images/aca-userguide-add-doc-init-page.png %})
+![Img Txt]({% link content-accelerator/images/aca-userguide-actions-add-docs.png %})
 
-**Content Accelerator Add Documents Upload View (See screenshot above)**
+**Add Documents - Upload View:**
 
 1. The list of documents that you are uploading and which one you are currently on.
+2. Properties for the document displayed here for the user to edit, some could be required while other properties would be optional.
+3. This button will take you back to the initial selection page. 
+   >**Note:** This will not save the properties filled out for documents.
+4. A preview display of the document.
 
-1. Properties for the document displayed here for the user to edit, some could be required while other properties would be optional.
-2. This button will take you back to the initial selection page. **Note** : this will not save the properties filled out for documents.
-3. A preview display of the document.
+![Img Txt]({% link content-accelerator/images/aca-userguide-add-doc-init-page.png %})
 
 #### View/Edit Properties
-
 Allows for viewing and/or modification of document or folder properties.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-view-edit-props.png %})
 
 * Note that some fields could be greyed out. These are properties that were configured to be uneditable.
-* The non-greyed out sections' values can be changed. Once the property change is made then click Submit. Open back up the*View Properties*action and the new properties should now be seen.
+* The non-greyed out sections' values can be changed. Once the property change is made then click Submit. Open back up the *View Properties* action and the new properties should now be seen.
 
 #### View/Create Folder/Document Notes
-
 Allows for the creation and viewing of a note on a particular folder or document in Content Accelerator.
 
 Creating a new note for a document:
@@ -235,47 +237,40 @@ Listing document notes:
 ![Img Txt]({% link content-accelerator/images/aca-userguide-list-notes.png %})
 
 ## Document Actions in Stage
+The following actions are document related.
 
 ### View Versions
-
-Allows for viewing of information and content of previous versions of a document. 
+Allows for viewing of information and content of previous versions of a document:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-view-versions.png %})
 
-##### Content Accelerator View Versions
-
-1. Indicates the different versions of the document. If a version number is clicked, then the document at that version will be displayed
-2. Displays comments for why the version was created
+1. Indicates the different versions of the document. If a version number is clicked, then the document at that version will be displayed.
+2. Displays version comments.
 3. Users have the ability to revert a document to one of its versions. This will create a new version of the document with that version's content and properties.
-4. Choose two versions to compare.  Note, this option requires the enabling of a 3rd party integration with Workshare Compare.
+4. Choose two versions to compare. Note, this option requires the enabling of a 3rd party integration with Workshare Compare.
 
->**Note:** 3 &amp; 4 may not show up in every environment.
+>**Note:** 3 and 4 may not show up in every environment.
 
 ### View Renditions
-
-Allows users to view the different renditions (file types) for a particular document.
+Allows users to view the different renditions (file types) for a particular document:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-view-renditions.png %})
 
 ### Checkout / Checkin
-
-Allows for a document to be downloaded, modified, and uploaded to Alfresco as a new major or minor version of the document.
+Allows for a document to be downloaded, modified, and uploaded to Alfresco as a new major or minor version of the 
+document:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-checkinout.png %})
-
-##### Content Accelerator Checkin
 
 1. Drag and Drop area to easily select a file to upload as the documents new content
 2. A text box to describe the changes that occurred with the new checked-in document
 
 ### Cancel Checkout
-
-Allows a user to cancel their checkout of an object in the repository. This will remove the user's lock on the object.
+Allows a user to cancel their checkout of an object in the repository. This will remove the user's lock on the object:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-cancel-checkout.png %})
 
 ### Send Notification
-
 The ability to send out a message to a particular user/users or group/groups with adding a comment.
 
 1. **Users** : select the user(s) that will receive the notification. The dropdown is populated by a configurable list (picklist) that a query is sent out to populate.
@@ -296,92 +291,117 @@ When the user clicks on the bell icon. The following screenshot displays what th
 ![Img Txt]({% link content-accelerator/images/aca-userguide-view-notifications.png %})
 
 ## Document Actions in Search
-
-To access actions in this section, navigate to*Search*and execute a search to bring back documents (See Search). Select a single document (either right click the document or use the little checkboxes on the left side). Then right click. The drop-down menu will show all the available document actions that can be performed at this time.
+To access actions in this section, navigate to *Search* and execute a search to bring back documents (See Search). 
+Select a single document (either right-click the document or use the little checkboxes on the left side). Then right-click. 
+The drop-down menu will show all the available document actions that can be performed at this time.
 
 ### Open in New Tab
-
 Allows a user to open the selected document in a new tab of his or her browser.
 
-To perform this action, select the checkbox next to a document and then right click on the document. Alternatively, you can access this action from the Action dropdown menu once a document has been selected. Click the*Open in New Tab*action, and the document will open in a new browser tab.
+To perform this action, select the checkbox next to a document and then right-click on the document. Alternatively, you 
+can access this action from the Action dropdown menu once a document has been selected. Click the *Open in New Tab* 
+action, and the document will open in a new browser tab:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-open-new-tab.png %})
 
 ### Download Document
-
 Allows a user to download the selected document to his or her file system.
 
-To perform this action, select the checkbox next to a document and then right click on the document. Alternatively, you can access this action from the Action dropdown menu once a document has been selected. Click the*Download*action, and the document will be downloaded to your file system.
+To perform this action, select the checkbox next to a document and then right-click on the document. Alternatively, you 
+can access this action from the Action dropdown menu once a document has been selected. Click the *Download* action, and 
+the document will be downloaded to your file system:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-open-download-doc.png %})
 
 ### View Properties
-
-This is another way to execute the View Properties on an object, just within the Content Accelerator Search. Please check out the [View/Edit Properties](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.oyavu8alxiv0) for the explanation of this action.
+This is another way to execute the View Properties on an object, just within the Content Accelerator Search. Please check 
+out the View/Edit Properties for the explanation of this action.
 
 ### Document Notes
-
-Notes specifically placed at the document level. See the [Document Notes](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.f9sd814bd3kg) section where this action was already explained.
+Notes specifically placed at the document level. See the Document Notes section where this action was already explained.
 
 ### Send Email
-
-The send email action is the ability to send an email with the document that this is executed from as an email attachment. Reference the [Send Email](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.6ertox2hcg0y) action within the Claims Scenario to get a better understanding of how it is used within a business use case.
+The send email action is the ability to send an email with the document that this is executed from as an email attachment. 
+Reference the Send Email action within the Claims Scenario to get a better understanding of how it is used within a 
+business use case.
 
 ## Group Actions in Search
-
-To access actions in this section, navigate to Search and execute a search to bring back documents (See Search). Select multiple documents (either right click selecting multiple or use the little checkboxes on the left side). Then right click. The drop-down menu will show all the available group actions that can be performed at this time.
+To access actions in this section, navigate to Search and execute a search to bring back documents (See Search). Select 
+multiple documents (either right-click selecting multiple or use the little checkboxes on the left side). Then right-click. 
+The drop-down menu will show all the available group actions that can be performed at this time.
 
 ### Open Each in New Tab
+It may be beneficial to open multiple documents in a new tab for better viewing and editing. To perform this action, 
+select **multiple** documents from the search results and right-click. Alternatively, you can access this action from 
+the Action dropdown when multiple documents are selected. Press the *Open Each in New Tab* action and each document 
+will open in its own individual tab. (Similar to Open in New Tab). 
 
-It may be beneficial to open multiple documents in a new tab for better viewing and editing. To perform this action, select **multiple** documents from the search results and right click. Alternatively, you can access this action from the Action dropdown when multiple documents are selected. Press the*Open Each in New Tab*action and each document will open in its own individual tab. (Similar to [Open in New Tab](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.g8lfriywargb)). For some internet browsers, the tabs may not open due to a popup blocker, so ensure that popup blocker is disabled for the application to ensure all tabs are able to be opened.
+For some internet browsers, the tabs may not open due to a popup blocker, so ensure that popup blocker is disabled for 
+the application to ensure all tabs are able to be opened.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-open-new-tab-each.png %})
 
 ### Export Results to Excel
-
-A quick way to provide information in another format using a different product is the integration to export the search results to an Excel spreadsheet. Select multiple documents from the search results and right click. Then click on the*Export Results to Excel*action. Alternatively, you can access this action from the Action dropdown when multiple documents are selected. An Excel spreadsheet will be downloaded to your browser that will have organized the search results into the spreadsheet.
+A quick way to provide information in another format using a different product is the integration to export the search 
+results to an Excel spreadsheet. Select multiple documents from the search results and right-click. Then click on the 
+*Export Results to Excel* action. Alternatively, you can access this action from the Action dropdown when multiple 
+documents are selected. An Excel spreadsheet will be downloaded to your browser that will have organized the search 
+results into the spreadsheet.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-export-excel.png %})
 
-# APPENDIX A: Policy and Procedure
+## APPENDIX A: Policy and Procedure
+The Content Accelerator for Policy and Procedure Management supports efficient and well documented change management of 
+policies, procedures and other quality documents across a variety of industries including life sciences, manufacturing, 
+utility/energy. The accelerator will allow users to easily change, approve and release both simple business procedures 
+(for example Expense Policy, Hiring Policy, Disciplinary Policy, etc.) as well as more complex and controlled 
+manufacturing and operations documents such as Specifications, Standard Operating Procedures, Batch Records, and 
+Formulation documents.
 
-The Content Accelerator for Policy and Procedure Management supports efficient and well documented change management of policies, procedures and other quality documents across a variety of industries including life sciences, manufacturing, utility/energy.  The accelerator will allow users to easily change, approve and release both simple business procedures (for example Expense Policy, Hiring Policy, Disciplinary Policy, etc.) as well as more complex and controlled manufacturing and operations documents such as Specifications, Standard Operating Procedures, Batch Records, and Formulation documents.
-
-The Content Accelerator provides repeatable change control for initiating and processing of a change request package with both collaborative review as well as formal and dynamic workflow approval, ensuring that changes to policies and procedures are correctly documented and demonstrate compliance with legal, quality, and regulatory requirements including electronic signatures in compliance.
+The Content Accelerator provides repeatable change control for initiating and processing of a change request package 
+with both collaborative review as well as formal and dynamic workflow approval, ensuring that changes to policies and 
+procedures are correctly documented and demonstrate compliance with legal, quality, and regulatory requirements 
+including electronic signatures in compliance.
 
 ## Policy and Procedure Specific Actions
+This section describe actions related to the policy and procedure use case.
 
 ### Power Promote
-
-Advance a document to the next lifecycle status by inputting the current logged in user's credentials. EX: Doc's lifecycle status of Draft -\&gt; would advance to Approved
+Advance a document to the next lifecycle status by inputting the current logged in user's credentials. For example: 
+Doc's lifecycle status of Draft -> would advance to Approved:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-power-promote.png %})
 
-### View Audit Events (Documents &amp; Forms)
+### View Audit Events (Documents and Forms)
+An audit trail is kept to keep track of all auditable actions/events that happen with the particular document that is 
+present.
 
-An audit trail is kept to keep track of all auditable actions/events that happen with the particular document that is present.
-
-**Below is an example of the audit events for a document.**
+**Example of audit events for a document:**
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-power-view-audit-events.png %})
 
-**Below is an example of the audit events for a form.**
+**Example of audit events for a form:**
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-view-audit-events-form.png %})
 
 ### Create Change Form
+The ability to create a Change Form with the document this action is executed from attached to the form to route through 
+the form's workflow. If there are any other available forms, they will be populated in the dropdown that the user can select. 
 
-The ability to create a Change Form with the document this action is executed from attached to the form to route through the form's workflow. **Note: The Change Form supplied in the PnP environment is a test form created to demonstrate the capabilities of Active Wizard forms.** If there are any other available forms, they will be populated in the dropdown that the user can select.
+>**Note:** The Change Form supplied in the PnP environment is a test form created to demonstrate the capabilities of 
+>Active Wizard forms. 
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form.png %})
 
 Once Create Form is selected, the form template appears and there are 
-![Img Txt]({% link content-accelerator/images/aca-userguide-required-fields.png %}) icons signifying to the user that 
+![Img Txt]({% link content-accelerator/images/aca-userguide-required-fields-icon.png %}) icons signifying to the user that 
 these areas are required. Below will talk more specifically about each section of the Change Request Form.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form-example.png %}
 
-The one section worth noting is*Description and Rationale_. This section depending on what answer is giving will control what page is displayed next to the user. For example, if*Enter test into this form*is selected, like in the screenshot below. Text boxes are shown for the user to input a text rationale.
+The one section worth noting is the *Description and Rationale*. This section depending on what answer is giving will 
+control what page is displayed next to the user. For example, if *Enter test into this form* is selected, like in the 
+screenshot below. Text boxes are shown for the user to input a text rationale.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form-desc-rationale.png %})
 
@@ -389,95 +409,122 @@ If the Attach separate document is selected instead, a user will have to attach 
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form-desc-rationale2.png %})
 
-Another noteworthy section is the approvers section (both Initial QA Approvers &amp; Approvers). This section the user has the ability to select what users will receive workflow tasks to approve or reject.
+Another noteworthy section is the approvers section (both Initial QA Approvers and Approvers). This section the user has 
+the ability to select what users will receive workflow tasks to approve or reject.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form-approvers.png %})
 
 ### Generate Impact Assessment
+Uses a search attribute provided to search all documents for text and output queries specified. Once the action is 
+executed it will download an Excel spreadsheet. In this environment, the **Target Query Document Type** is 
+**Quality Document** and **Target Property** is **Document Number**
 
-Uses a search attribute provided to search all documents for text and output queries specified. Once the action is executed it will download an excel spreadsheet. In this environment, the* **Target Query Document Type*** is* **Quality Document*** and* **Target Property*** is* **Document Number***
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-gen-impact-assessment.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_ef789cbcec7a734f.png)
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_68e5f172d91cf49c.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-gen-impact-assessment2.png %})
 
 ### Perform Periodic Review
+Allows the user to either accept or reject a periodic review. A periodic review is an analysis of a document after a 
+certain period of time (e.g. 2 years) to make sure that the document is still valid.
 
-Allows the user to either accept or reject a periodic review. A periodic review is an analysis of a document after a certain period of time (EX: 2 years) to make sure that the document is still valid.
+Running import assessment:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_bf22b50c29a33f1e.png)
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_6d61c752adaf2f9e.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-perform-periodic-review.png %})
+
+Waiting for result:
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-perform-periodic-review2.png %})
 
 ### Obsolete Document
+The ability to set an obsolete date for a scheduled job to be run to transition the workflow status to obsolete. An 
+obsolete workflow status means that the document is no longer in use or active.  
 
-The ability to set an obsolete date for a scheduled job to be run to transition the workflow status to obsolete. An obsolete workflow status means that the document is no longer in use or active.  ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_995284fe5884fa8c.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-obsolete-doc.png %})
 
 ### Acquire Workflow Task
+Allows a user to claim a workflow task that is assigned to a group, which the user is in. After performing this action, 
+the user will own the workflow task. In this environment, this is used to acquire the Periodic Review group task for 
+the group `GROUP_wizard_doc_editors`.
 
-Allows a user to claim a workflow task that is assigned to a group, which the user is in. After performing this action, the user will own the workflow task. In this environment, this is used to acquire the Periodic Review group task for the group GROUP_wizard_doc_editors.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_2a92af9b4804bee6.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-aquire-workflow-task.png %})
 
 ### Complete Attestation
+Users can complete the "To Be Read" (TBR) workflow task, which is a workflow that is sent out to the specified group. The 
+specified group is a property on the document that should be set before the document makes it to an Approved workflow status. 
+When a user attests to the document, they are accepting the document and all changes (if any) made to it.
 
-Users can complete the "To Be Read" (TBR) workflow task, which is a workflow that is sent out to the specified group. The specified group is a property on the document that should be set before the document makes it to an Approved workflow status. When a user attests to the document, they are accepting the document and all changes (if any) made to it.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_cf9e919769283cb7.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-complete-attestatation.png %})
 
 ### Start Review Workflow
+Start a review workflow on a form in the Draft lifecycle state. A review workflow lets the initiator to select the user(s) 
+to *review* the form and any documents attached. The users can either reject or accept the state of the form and 
+documents attached, if any (**See Complete Wizard Review**) 
 
-Start a review workflow on a form in the Draft lifecycle state. A review workflow lets the initiator to select the user(s) to*review*the form and any documents attached. The users can either reject or accept the state of the form and documents attached, if any ( **See Complete Wizard Review** ) ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_fe3874170afbe819.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-start-review-workflow.png %})
 
 ### Complete Wizard Review
-
 Allows a user to complete a review task for a form.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_951e72b001706c82.png) ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b6188c987a9323bc.png)
+Addional review needed:
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-complete-wizard-review.png %})
+
+Ready for approval:
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-complete-wizard-review2.png %})
 
 ### Start Approval Workflow
+Allows a user to initiate an approval workflow on a form in the Draft lifecycle state. The form must have assigned 
+approvers.
 
-Allows a user to initiate an approval workflow on a form in the Draft lifecycle state. The form must have assigned approvers.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_288172dbadb958e9.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-start-approval-workflow.png %})
 
 ### Cancel Workflow
-
 Allows either the form owner or an administrator to cancel an ongoing workflow.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_58ae101bd14166c.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-cancel-workflow.png %})
 
 ### Complete Approval
+Allows a user to complete their task by accepting or rejecting the form by entering their credentials. Depending on 
+configuration, a rejection may or may not cancel the workflow.
 
-Allows a user to complete their task by accepting or rejecting the form by entering their credentials. Depending on configuration, a rejection may or may not cancel the workflow.
+Completing and approving:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_a4d066c827a1866.png) ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_5b97877563f598b6.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-complete-approval.png %})
 
-##
+Completing and rejecting:
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-complete-approval2.png %})
 
 ### Delegate Task
-
-Allows a user to give away (delegate) their workflow task to another user that is within their Role (EX: Change Approval). The form must currently be in a workflow and have active tasks for this action to be available.
+Allows a user to give away (delegate) their workflow task to another user that is within their Role (e.g. Change Approval). 
+The form must currently be in a workflow and have active tasks for this action to be available.
 
 ### Reassign Task
+Allows a user within the wizard administrator group to change ownership (reassign) of a workflow task from one user to 
+another. The form must currently be in a workflow and have active tasks for this action to be available.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_366560f69bc2fba.png)
+Delegate task:
 
-Allows a user within the wizard administrator group to change ownership (reassign) of a workflow task from one user to another. The form must currently be in a workflow and have active tasks for this action to be available.
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-reassign-task.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_baa261fac754bc54.png)
+Reassign selecting user:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_19799c2963c9adc3.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-reassign-task2.png %})
+
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-reassign-task3.png %})
 
 ### View Wizard Workflow Status
-
-Allows a user to view the status of an Active Wizard form in its current workflow. If the form is in the Draft lifecycle state, this action shows the assigned form approvers with a **Pending** status.
+Allows a user to view the status of an Active Wizard form in its current workflow. If the form is in the Draft lifecycle 
+state, this action shows the assigned form approvers with a **Pending** status.
 
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c02ed6f5a5505c7c.png)
 
-As the form proceeds through the workflow, this action will be updated based on the various status changes such as when a user Approves their task.
+As the form proceeds through the workflow, this action will be updated based on the various status changes such as when 
+a user Approves their task.
 
 ### Create Related Form
-
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_afe4adf415bd2c3f.png)
 
 Allows a user to create a new Change Form that will have a related association to the current form where the action is executed.
@@ -485,7 +532,6 @@ Allows a user to create a new Change Form that will have a related association t
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b61a793960a7f8f0.png)
 
 ### Manage Workflow Documents
-
 View, remove, and add workflow document relationships to the current form.
 
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_8602bb728af0af3d.png)
@@ -580,7 +626,7 @@ Once a document is uploaded, the document can be viewed in the application. Many
 * A couple things to note when a document is checked in.
 
 1. The lock on the document is released
-2. The version label has now updated to become the next minor version (EX: 0.1 -\&gt; 0.2)
+2. The version label has now updated to become the next minor version (e.g. 0.1 -\&gt; 0.2)
 3. To view all the versions thus far, see [View Versions](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.vbp2y99haigo)
 
 #### **Editing Properties**
@@ -792,7 +838,7 @@ The task of creating a form and attaching documents will be a crucial action for
 
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_d249d10411875e68.png)
 
-* Once all approval tasks are approved the form and any attached documents transition to the Approved lifecycle status/state. The version label is also updated to the next major version. (EX: 0.1 Draft -\&gt; 1.0 Approved)
+* Once all approval tasks are approved the form and any attached documents transition to the Approved lifecycle status/state. The version label is also updated to the next major version. (e.g. 0.1 Draft -\&gt; 1.0 Approved)
 
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_38ecaf554284273b.png)
 
@@ -847,7 +893,7 @@ Throughout this test example, users in different permission groups were used. Th
 
 * Execute the power promote action by inputting the credentials of the user that has selected this action.
 
-* Notice after the action has completed the version label should be the next major version (EX: 0.1 -\&gt; 1.0) and the status is now Approved.
+* Notice after the action has completed the version label should be the next major version (e.g. 0.1 -\&gt; 1.0) and the status is now Approved.
 
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_fcc56e57fb22cc4.png)
 
@@ -1183,7 +1229,7 @@ See [Common View/Edit Properties](https://docs.google.com/document/d/1hLb5QnU1Pj
 
 ### Document Actions
 
-Document actions are actions that are applied to a single document. There are a couple ways to select a document action. One method is to open the document in the document viewer and select one of the actions below the header. Another way is to select the row for the document and either right clicking on the row or clicking on the Action dropdown above the table. For these two scenarios, you may see different lists of actions. The lists depend on the context by which the action was accessed. Below is a list of all possible document actions you can perform.
+Document actions are actions that are applied to a single document. There are a couple ways to select a document action. One method is to open the document in the document viewer and select one of the actions below the header. Another way is to select the row for the document and either right-clicking on the row or clicking on the Action dropdown above the table. For these two scenarios, you may see different lists of actions. The lists depend on the context by which the action was accessed. Below is a list of all possible document actions you can perform.
 
 #### **Start Workflow**
 
@@ -1245,7 +1291,7 @@ See [Common Open In New Tab](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf
 
 ### Group Actions
 
-Group actions are actions that apply when multiple documents have been selected. For example, when looking at the table either in Search or Stage, selecting multiple rows and right clicking on those rows will open the group action menu. Alternatively, you can access these actions by clicking on the Action dropdown menu above the table. Below is a list of the possible actions you can perform on a group of documents. Note that all of the actions may not always appear, as they depend on the scenario.
+Group actions are actions that apply when multiple documents have been selected. For example, when looking at the table either in Search or Stage, selecting multiple rows and right-clicking on those rows will open the group action menu. Alternatively, you can access these actions by clicking on the Action dropdown menu above the table. Below is a list of the possible actions you can perform on a group of documents. Note that all of the actions may not always appear, as they depend on the scenario.
 
 #### **Open Each in New Tab**
 
