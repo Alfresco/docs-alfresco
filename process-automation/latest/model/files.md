@@ -2,7 +2,7 @@
 title: Files
 ---
 
-Files can be uploaded and used within a project. The file can be an image or a script, and the script can contain a template for use within the modelling application.
+Any type of file can be uploaded and used within a project. The file you upload will usually be an image or a script, and the script can contain a template for use within the modelling application.
 
 ## Properties
 
