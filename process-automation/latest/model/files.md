@@ -12,7 +12,7 @@ The basic properties of a file are:
 | -------- | ----------- |
 | File name | *Required.* The name of the file. Must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically, for example `order-template`. |
 | File description | *Optional.* A description of what the file should be used for, for example `A template for orders to follow`. |
-| Private | *You must select either 'Private' or 'Public'*. Private files are only available within a Docker container and are specified using the `FILES_PATH` environment variable. For example, you could use the file as an email template. |
+| Private | *You must select either 'Private' or 'Public'*. Private files are only available within the Runtime Bundle Docker container and are specified using the `FILES_PATH` environment variable. For example, you could use the file as an email template. |
 | Public | *You must select either 'Private' or 'Public'*. Public files can be used within a Docker container and are specified using the `FILES_PATH` environment variable and they can also be accessed using HTTP. For example, customizing the Digital Workspace logo. |
 
 ## Create a file
