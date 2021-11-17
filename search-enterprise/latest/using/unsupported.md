@@ -25,15 +25,12 @@ The following features, which were supported with Search and Insight Engine 2.x 
 ### Search Syntax
 
 * Search for optional, mandatory, and excluded elements of a query
-* Search for an exact term
 * Fuzzy matching
-* Grouped search queries
 * Proximity search
 * Search for spans and positions
 * Search using date math
 * Search for boosts
 * Wildcards in phrase queries
-* Exact Match Queries
 * Field Facets Pagination
 * Field Facets Tags Exclusion
 
