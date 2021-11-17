@@ -2,7 +2,7 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Alfresco Document Transformation Engine:
+The following are the supported platforms for Alfresco Document Transformation Engine 2.3.1:
 
 | Version | Notes |  
 | ------- | ----- |
@@ -14,8 +14,8 @@ The following are the supported platforms for Alfresco Document Transformation E
 | **Microsoft Windows Server** | |  
 | Microsoft Windows Server 2019 | |
 | Microsoft Windows Server 2016 | |
+| Microsoft Windows Server 2012 | |
 | | |
 | **Microsoft Office** | |
-| Microsoft Office 2019 32/64 Bit | |
-| Microsoft Office 2016 32/64 Bit | |
-| Microsoft Office 2013 32/64 Bit | |
+| Microsoft Office 2019 32/64 bit | |
+| Microsoft Office 2016 32/64 bit | |
