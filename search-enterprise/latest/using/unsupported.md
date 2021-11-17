@@ -24,7 +24,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 
 ### Search Syntax
 
-* Search for optional, mandatory, and excluded elements of a query
 * Fuzzy matching
 * Proximity search
 * Search for spans and positions
@@ -54,8 +53,6 @@ The following features, which were supported with Search and Insight Engine 2.x 
 * FINGERPRINT
 * ISROOT
 * ISCONTAINER
-* ASPECT
-* EXACTASPECT
 * CASCADETX
 * DBID
 * TX
