@@ -19,7 +19,7 @@ In previous versions the installation files were contained within a `.zip` file.
 > * If your old version is earlier than 1.3.1, use the Control Panel **Uninstall a program** option to remove the old version, and then manually remove the Document Transformation Engine directory. By default, the Document Transformation Engine directory is `C:\Program Files (x86)\Transformation Engine\`.
 > * If your old version is 1.3.1 or later, the new Document Transformation Engine MSI prompts you to uninstall the previous version. When the uninstall is complete, you can run the MSI package again to install the new version. There is no need to manually remove anything.
 
-1. Download `alfresco-document-transformation-engine-server-2.3.0.msi` from the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"}.
+1. Download `alfresco-document-transformation-engine-server-2.3.1.msi` from the [Support Portal](http://support.alfresco.com){:target="_blank"}.
 
 2. Log into the Microsoft Windows Server as an administrator.
 
@@ -30,6 +30,8 @@ In previous versions the installation files were contained within a `.zip` file.
 5. (Optional) Select DTE T-Engine.
 
     > **Important:** If you do not intend to use the DTE T-Engine Docker image, you must select this option for DTE to work correctly.
+
+    > **Note:** Currently, only Alfresco Content Services 7.x is compatible with the T-Engine approach.
 
 6. Click **Next** and the license information screen displays.
 
@@ -47,13 +49,13 @@ In previous versions the installation files were contained within a `.zip` file.
 
     2. Locate the new service called **Document Transformation Engine**, and check that it is **Started**.
 
-> **Note:** Each time a file is transformed in Alfresco Content Services, the `.NET` program starts and Microsoft Office tries to check for a Certificate Revocation List (CRL). Depending on the access that the Document Transformation Engine has to the Internet when transforming a file, this check can delay the operation for up to two minutes, and will therefore, delay transformation of the file. To prevent this, use the Windows server firewall to block internet access for all office binaries.
+    > **Note:** Each time a file is transformed in Alfresco Content Services, the `.NET` program starts and Microsoft Office tries to check for a Certificate Revocation List (CRL). Depending on the access that the Document Transformation Engine has to the Internet when transforming a file, this check can delay the operation for up to two minutes, and will therefore, delay transformation of the file. To prevent this, use the Windows server firewall to block internet access for all office binaries.
 
-11. Add the following property to `alfresco-global.properties`
+11. Add the following property to `alfresco-global.properties`:
 
-```bash
-localTransform.transform-dte.url=http:<dte hostname>:8080/transform-dte
-```
+    ```bash
+    localTransform.transform-dte.url=http:<dte-hostname>:8080/transform-dte
+    ```
 
 <!-- (Will be commented back in once 2.4 is released)
 
@@ -65,7 +67,7 @@ Before starting verify that:
 
 * Your Alfresco Content Services server is correctly configured and tested.
 * You have the correct Document Transformation Engine ZIP file for the version of Alfresco Content Services that you are running.
-* You have an updated license file (a `*.lic` file). You can request a license from the [Alfresco Support Portal](http://support.alfresco.com){:target="_blank"}.
+* You have an updated license file (a `*.lic` file). You can request a license from the [Support Portal](https://support.alfresco.com){:target="_blank"}.
 
 1. Stop the Alfresco Content Services server.
 
@@ -96,6 +98,8 @@ To deploy the Document Transformation Engine T-Engine with the Transform Service
 
 > **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 
+> **Note:** Version 1.0.0 of the DTE T-Engine can also be used for the latest Document Transformation Engine release (version 2.3.1).
+
 1. Add the Document Transformation Engine T-Engine container to your `docker-compose.yaml` file:
 
     ```yaml
@@ -103,7 +107,7 @@ To deploy the Document Transformation Engine T-Engine with the Transform Service
         image: quay.io/alfresco/transform-dte-engine:1.0.0
         mem_limit: 2g
         environment:
-            JAVA_OPTS: " -Xms256m -Xmx512m -DdteServerUrl=http://<dte hostname>:8080/transformation-server"
+            JAVA_OPTS: " -Xms256m -Xmx512m -DdteServerUrl=http://<dte-hostname>:8080/transformation-backend"
             ACTIVEMQ_URL: "nio://activemq:61616"
             ACTIVEMQ_USER: "admin"
             ACTIVEMQ_PASSWORD: "admin"

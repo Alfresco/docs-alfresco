@@ -12,7 +12,7 @@ Two calls are available:
 
     This call is also used by the Alfresco Transformation client to test availability. It checks the transformation service is up and responding.
 
-    1. URL: `http://<transformation-host\>:<port\>/transformation-server/service/transform/v1/version`
+    1. URL: `http://<transformation-host\>:<port\>/transformation-backend/service/transform/v1/version`
 
     2. HTTP Method: `GET`
 
@@ -20,9 +20,9 @@ Two calls are available:
 
 * Transformation execution call
 
-    This call gets an Office file from the Transformation Service to check whether the transformation engine is still functioning (the Transformation Service makes an internal post, but the HTTP method is still a GET call).This can be used for more in-depth monitoring.
+    This call gets an Office file from the Transformation Service to check whether the transformation engine is still functioning (the Transformation Service makes an internal post, but the HTTP method is still a GET call). This can be used for more in-depth monitoring.
 
-    1. URL: `http://<transformation-host\>:<port\>/transformation-server/service/transform/v1/available`
+    1. URL: `http://<transformation-host\>:<port\>/transformation-backend/service/transform/v1/available`
 
     2. HTTP Method: `GET`
 
