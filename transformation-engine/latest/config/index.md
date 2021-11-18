@@ -2,13 +2,9 @@
 title: Configure the Document Transformation Engine
 ---
 
-The standalone Document Transformation Engine can be configured using the Web Console.
+The standalone Document Transformation Engine can be configured using the Web Console. You only need to change the password of the transformation service.
 
-## Configure the standalone Document Transformation Engine
-
-Use this information to configure the standalone Document Transformation Engine. You only need to change the password of the transformation service.
-
-1. Open your browser and navigate to `http://<transformation-host>:<port>/transformation-backend/settings` or `https://` if you are using SSL.
+1. Open your browser and navigate to `http://<transformation-host>:<port>/transformation-server/#/settings` or `https://` if you are using SSL.
 
 2. Enter your login name and a password.
 
