@@ -286,7 +286,10 @@ on the bell icon to view their notifications.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-notification-indicator.png %})
 
-When the user clicks on the bell icon. The following screenshot displays what the user will see on their screen. The user can click the complete button to acknowledge they have received and understood the notification. **Note:** An email will be sent out to the recipient in addition to this notification within the web application.
+When the user clicks on the bell icon. The following screenshot displays what the user will see on their screen. The 
+user can click the complete button to acknowledge they have received and understood the notification. 
+
+>**Note:** An email will be sent out to the recipient in addition to this notification within the web application.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-view-notifications.png %})
 
@@ -350,10 +353,12 @@ results into the spreadsheet.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-export-excel.png %})
 
-## APPENDIX A: Policy and Procedure
+## Policy and Procedure Solution
 The Content Accelerator for Policy and Procedure Management supports efficient and well documented change management of 
 policies, procedures and other quality documents across a variety of industries including life sciences, manufacturing, 
-utility/energy. The accelerator will allow users to easily change, approve and release both simple business procedures 
+utility/energy. 
+
+The accelerator will allow users to easily change, approve and release both simple business procedures 
 (for example Expense Policy, Hiring Policy, Disciplinary Policy, etc.) as well as more complex and controlled 
 manufacturing and operations documents such as Specifications, Standard Operating Procedures, Batch Records, and 
 Formulation documents.
@@ -363,8 +368,7 @@ with both collaborative review as well as formal and dynamic workflow approval, 
 procedures are correctly documented and demonstrate compliance with legal, quality, and regulatory requirements 
 including electronic signatures in compliance.
 
-## Policy and Procedure Specific Actions
-This section describe actions related to the policy and procedure use case.
+This section describes actions related to the policy and procedure use case.
 
 ### Power Promote
 Advance a document to the next lifecycle status by inputting the current logged in user's credentials. For example: 
@@ -386,7 +390,8 @@ present.
 
 ### Create Change Form
 The ability to create a Change Form with the document this action is executed from attached to the form to route through 
-the form's workflow. If there are any other available forms, they will be populated in the dropdown that the user can select. 
+the form's workflow. If there are any other available forms, they will be populated in the dropdown that the user can 
+select. 
 
 >**Note:** The Change Form supplied in the PnP environment is a test form created to demonstrate the capabilities of 
 >Active Wizard forms. 
@@ -419,7 +424,11 @@ Uses a search attribute provided to search all documents for text and output que
 executed it will download an Excel spreadsheet. In this environment, the **Target Query Document Type** is 
 **Quality Document** and **Target Property** is **Document Number**
 
+Running import assessment:
+
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-gen-impact-assessment.png %})
+
+Waiting for result:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-gen-impact-assessment2.png %})
 
@@ -427,11 +436,11 @@ executed it will download an Excel spreadsheet. In this environment, the **Targe
 Allows the user to either accept or reject a periodic review. A periodic review is an analysis of a document after a 
 certain period of time (e.g. 2 years) to make sure that the document is still valid.
 
-Running import assessment:
+Submit periodic review:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-perform-periodic-review.png %})
 
-Waiting for result:
+Result:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-perform-periodic-review2.png %})
 
@@ -458,7 +467,7 @@ When a user attests to the document, they are accepting the document and all cha
 ### Start Review Workflow
 Start a review workflow on a form in the Draft lifecycle state. A review workflow lets the initiator to select the user(s) 
 to *review* the form and any documents attached. The users can either reject or accept the state of the form and 
-documents attached, if any (**See Complete Wizard Review**) 
+documents attached, if any (See **Complete Wizard Review**) 
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-start-review-workflow.png %})
 
@@ -520,179 +529,212 @@ Selecting user to reassign task to:
 Allows a user to view the status of an Active Wizard form in its current workflow. If the form is in the Draft lifecycle 
 state, this action shows the assigned form approvers with a **Pending** status.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c02ed6f5a5505c7c.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-view-wizard-status.png %})
 
 As the form proceeds through the workflow, this action will be updated based on the various status changes such as when 
 a user Approves their task.
 
 ### Create Related Form
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_afe4adf415bd2c3f.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-view-wizard-status2.png %})
 
-Allows a user to create a new Change Form that will have a related association to the current form where the action is executed.
+Allows a user to create a new Change Form that will have a related association to the current form where the action is 
+executed.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b61a793960a7f8f0.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-related-form.png %})
 
 ### Manage Workflow Documents
 View, remove, and add workflow document relationships to the current form.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_8602bb728af0af3d.png)
+Attached documents:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_f3dc7aa0d85b1975.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-manage-workflow-docs.png %})
+
+Add documents:
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-manage-workflow-docs2.png %})
 
 ### Set Effective Date
+This action can exist on either a form or document. If attached to a form, it presents the ability to set the 
+effective date of each workflow document attached to the form. Conversely, it only sets the effective date for that 
+specific document.
 
-This action can exist on either a form or document. If attached to a form, it presents the ability to set the effective date of each workflow document attached to the form. Conversely, it only sets the effective date for that specific document.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_80dc7340421565f4.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-set-effective-date.png %})
 
 ### Edit Form
+Allows a user to edit the wizard form. Note: this will version the form (0.1 -> 0.2 after editing)
 
-Allows a user to edit the wizard form. Note: this will version the form (0.1 -\&gt; 0.2 after editing)
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_294f6466b2a85070.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-edit-form.png %})
 
 ### Cancel Form
+Allows a user who is either the owner of the current form or in the wizard administrator group to cancel the wizard form. 
+The form status will be transitioned to Cancelled, and an audit of this event will be created.
 
-Allows a user who is either the owner of the current form or in the wizard administrator group to cancel the wizard form. The form status will be transitioned to Cancelled and an audit of this event will be created.
+Cancel form with closing remark:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_8668b3bfae74c4bf.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-cancel-form.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c2598aa076a985de.png)
+Form properties:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b6713af653f7f6b7.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-cancel-form2.png %})
+
+View wizard audit events:
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-cancel-form3.png %})
 
 ### Close Form
+Allows a user who is in the wizard administrator group to close the wizard form this is in the Approved lifecycle state. 
+User needs to provide a closing remark, which will be added to the audit trail.
 
-Allows a user who is in the wizard administrator group to close the wizard form this is in the Approved lifecycle state. User needs to provide a closing remark, which will be added to the audit trail.
+Close form with closing remark:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_88be8a07377debd5.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-close-form.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_6840e01be350b31d.png)
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_d3ee77e113ec700d.png)
+Form properties:
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-close-form2.png %})
+
+View wizard audit events:
+
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-close-form3.png %})
 
 ### Copy Wizard Form
+Allows a user to copy the metadata (form input/information) from the current form into a new form. The new form will 
+copy the most current version of the form's template.
 
-Allows a user to copy the metadata (form input/information) from the current form into a new form. The new form will copy the most current version of the form's template.
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-copy-wizard-form.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_8c42476aa6801b7f.png)
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_f195df38fd0dda3c.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-copy-wizard-form2.png %})
 
-You may be thinking there has been an error because the form isn't displayed. The form's content is copied over but the approvers need to be re-inputted so the user can validate that the new form should still have those certain approvers. Therefore, click the **Edit Form** action to proceed. Also note that a parent-child relationship is created between the current form and the new copied form.
+You may be thinking there has been an error because the form isn't displayed. The form's content is copied over but the 
+approvers need to be re-inputted so the user can validate that the new form should still have those certain approvers. 
+Therefore, click the **Edit Form** action to proceed. Also note that a parent-child relationship is created between the 
+current form and the new copied form.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_4a88b66229220b59.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-copy-wizard-form3.png %})
 
-##
-
-##
-
-##
-
-## Typical Use Case Scenarios
-
+## Policy and Procedure Use Case Scenarios
 In this section, daily use cases will be detailed that an individual for the PnP scenario will frequently carry out.
 
 ### Upload New Document
+To upload a document in the PnP environment, the user will select the header action called *Add Documents*. Once 
+clicking that action the following modal should be seen on the screen. 
 
-To upload a document in the PnP environment, the user will select the header action called*Add Documents_. Once clicking that action the following modal should be seen on the screen. ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_e05f04bcdad9be35.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-add-docs.png %})
 
-This is the Add Documents action modal that is detailed in the commonly used actions section, see [Add Documents](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.cwi9jw4g2gbf). A document or multiple documents can be dragged or uploaded into the upload screen then the Next button would be clicked showing the screenshot below.
+This is the Add Documents action modal that is detailed in the commonly used actions section, see Add Documents. 
+A document or multiple documents can be dragged or uploaded into the upload screen then the Next button would be 
+clicked showing the screenshot below.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_e9ddb310ab69837b.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-add-docs2.png %})
 
-A form that consists of the incoming document's properties are filled out at this point with certain fields, such as*Document Number_, are required to upload. Also, notice the Iframe to the right that shows a preview of the incoming document.
+A form that consists of the incoming document's properties are filled out at this point with certain fields, such as 
+*Document Number*, are required to upload. Also, notice the Iframe to the right that shows a preview of the incoming 
+document.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_ac89222dda4ede90.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-add-docs3.png %})
 
 Two sections on the form worth noting are the **TBR Groups** and the **Reference Documents**.
 
-* The **TBR Groups** is a field that determines what group(s) the TBR Attestation workflow tasks are sent out to attest to the changes of the document(s) once it reaches approval (See [Complete Attestation Action](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.mlrjkcdo1sb8) and [TBR Attestation](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.502eb1jemeu6))
+* The **TBR Groups** is a field that determines what group(s) the TBR Attestation workflow tasks are sent out to attest to the changes of the document(s) once it reaches approval (See Complete Attestation Action and TBR Attestation)
+* The **Reference Documents** are documents related to the uploaded document. A relationship will be created and the relation could be seen under the *Related Objects* section.
 
+### Editing Document (Content & Properties)
+Once a document is uploaded, the document can be viewed in the application. Many times a document's content and properties 
+change. Below will talk about how to achieve both.
 
-* The **Reference Documents** are documents related to the uploaded document. A relationship will be created and the relation could be seen under the*Related Objects*section.
-
-### Editing Document (Content &amp; Properties)
-
-Once a document is uploaded, the document can be viewed in the application. Many times a document's content and properties change. Below will talk about how to achieve both.
-
-#### **Editing Content**
-
-* To modify a document's content the document will have to be versioned. Click on the icon ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_6860c68eb948bedc.png) to*Check Out*the document and press Checkout (See [Check Out](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.eyap10x3aah7)).
-
+#### Editing Content
+To modify a document's content the document will have to be versioned. 
+  
+* Click on the icon ![Img Txt]({% link content-accelerator/images/aca-userguide-edit-pen-icon.png %}) to *Check Out* the document and press Checkout (See Check Out).
 * The document should have been downloaded. Now is the opportunity to make the necessary changes. Before checking the document back in, notice the lock glowing in the top right corner of the viewer. This icon is telling everyone that this particular document is locked by you as you are making changes.
-* If it turns out no changes actually needed to be made. The ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_a6fda8c6c0d4670.png) could be clicked to*Cancel Checkout*(See [Cancel Checkout](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.c9ggnjqmyu9o)).
+* If it turns out no changes actually needed to be made. The ![Img Txt]({% link content-accelerator/images/aca-userguide-gray-x-icon.png %}) could be clicked to *Cancel Checkout* (See Cancel Checkout).
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_1b4a795c8595c811.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-edit-docs.png %})
 
-* When it is time to check the document back in, press the ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_8bdad0dd7c01c211.png) that says*Check In_. The item can be dragged or chosen from the computer to upload back into the application. Then hit submit to check the document back in.
+* When it is time to check the document back in, press the ![Img Txt]({% link content-accelerator/images/aca-userguide-gray-check-icon.png %}) that says *Check In*. The item can be dragged or chosen from the computer to upload back into the application. Then hit submit to check the document back in.
 * A couple things to note when a document is checked in.
 
-1. The lock on the document is released
-2. The version label has now updated to become the next minor version (e.g. 0.1 -\&gt; 0.2)
-3. To view all the versions thus far, see [View Versions](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.vbp2y99haigo)
+1. The lock on the document is released.
+2. The version label has now updated to become the next minor version (e.g. 0.1 -> 0.2).
+3. To view all the versions thus far, see View Versions.
 
-#### **Editing Properties**
+#### Editing Properties
+To update a document's properties:
 
-* To update a document's properties click the*View Properties*![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_633308cd82c3efc5.png) icon. A dual pane should be seen with the document's properties displayed. (See [View/Edit Properties](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.oyavu8alxiv0)).
-
+* Click the *View Properties* ![Img Txt]({% link content-accelerator/images/aca-userguide-view-props-icon.png %}) icon. A dual pane should be seen with the document's properties displayed. (See View/Edit Properties).
 
 ### Annotations
+Annotations are a very powerful collaboration tool that is integrated within this application thanks to the product 
+called Alfresco Enterprise Viewer (AEV).
 
-* Annotations are a very powerful collaboration tool that is integrated within this application thanks to the product called Alfresco Enterprise Viewer (AEV).
-* The annotation tool can be used whenever a form or document is viewed (this viewer is configured by default).
-* The advantage of using AEV is that it provides additional opportunities to provide feedback on a document. In addition, there are an abundance of use cases that AEV can tackle. During this section, only the particular use cases associated with the Pnp scenario will be highlighted. To understand more of the use cases of AEV please refer to AEV's user guide or relevant documentation.
+The annotation tool can be used whenever a form or document is viewed (this viewer is configured by default).
 
-#### **Why use annotations in the PnP Scenario?**
+The advantage of using AEV is that it provides additional opportunities to provide feedback on a document. In addition, 
+there are an abundance of use cases that AEV can tackle. During this section, only the particular use cases associated 
+with the Pnp scenario will be highlighted. 
 
-* The **typical use case** for annotating a document in the PnP scenario will be during review or the pending approval of a document or form.
+To understand more of the use cases of AEV please refer to AEV's user guide or relevant documentation.
 
-* As talked about in the [Route for Review](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.nkr2wt2fbkow) and [Route for Approval](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.7cyh7w3gxyy3) sections, the user has the ability to reject the document or form. Annotations can be a great way to show the owner/author of the form what needs to change to seek the user's approval.
+#### Why use annotations in the PnP Scenario?
+The typical use case for annotating a document in the PnP scenario will be during review or the pending approval of a 
+document or form.
 
-#### **Route for Review Annotation Use Case**
+As talked about in the Route for Review and Route for Approval sections, the user has the ability to reject the document 
+or form. Annotations can be a great way to show the owner/author of the form what needs to change to seek the user's 
+approval.
 
-* Let's imagine a document is within a Review route and has the status*In Review_. Let's assume the role of a user who has been selected to receive a task to review the document and form. This user goes to complete their task.
+#### Route for Review Annotation Use Case
+Let's imagine a document is within a Review route and has the status *In Review*. Let's assume the role of a user who 
+has been selected to receive a task to review the document and form. This user goes to complete their task.
 
+Click on the document to bring it up in the AEV document viewer. The user notices a mistake worth noting on the document. 
+They want to leave a sticky note comment for the owner of the document.
 
-* Click on the document to bring it up in the AEV document viewer. The user notices a mistake worth noting on the document. They want to leave a sticky note comment for the owner of the document.
+![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_62236f33e872f81d.png)
+Select the sticky note annotation icon highlighted in the above screenshot. The ability to write a comment within the 
+sticky note annotation is available at this moment. Leave a comment by the "TSG-104" saying something like, 
+"Consider changing this to SOP instead of TSG"
 
-* Select the sticky note annotation icon highlighted in the above screenshot. The ability to write a comment within the sticky note annotation is available at this moment. Leave a comment by the "TSG-104" saying something like, "Consider changing this to SOP instead of TSG"
+![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_3efc98c26ca64825.png)
+Press the **OK** button. The annotation can be seen hovering over the sticky note icon in the document, like below:
 
-* Press the ok button. The annotation can be seen hovering over the sticky note icon in the document, like below.
+![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_1fd161482db6bf8f.png)
+Another way to view annotation a little cleaner is by expanding the right sidebar where the "1" icon is in the above 
+screenshot:
 
-* Another way to view annotation a little cleaner is by expanding the right sidebar where the "1" icon is in the above screenshot.
+![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_8a68c8efe67c68c8.png)
+The annotations should be autosaved but in case they aren't select the Save icon highlighted in the following 
+screenshot:
 
-* The annotations should be autosaved but in case they aren't select the Save icon highlighted in the following screenshot
+![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_cef5f307ed588a16.png)
+Now navigate back to the form. Select the *Complete Wizard Review*. Choose the *Additional Review Needed* under the 
+*Vote* dropdown. Leave a meaningful comment about the annotation and proposed change. Click **Submit**.
 
-* Now navigate back to the form. Select the*Complete Wizard Review_. Choose the*Additional Review Needed*under the*Vote*dropdown. Leave a meaningful comment about the annotation and proposed change. Click*Submit_.
+![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_cdcfcf4c3619c782.png)
-
-* There are two important things to point out in the above screenshot:
+There are two important things to point out in the above screenshot:
 
 1. Notice in the bottom left corner the annotation icon next to the workflow document. This is a convenient icon notifying to the user across this application that the document has annotations attached.
+2. The user action of *Additional Review Needed* will be audited and sent in an email. The owner of the document can navigate to the document and address the concern that was mentioned.
 
+#### Important Notes
+Even though the above use case was for the *Route for Review*. The same applies for the *Route for Approval*. The only 
+differences are the status would be *Pending Approval*, the task would be *Complete Approval* where the user would 
+*Reject*. All other actions would be very similar.
 
-2. The user action of*Additional Review Needed*will be audited and sent in an email. The owner of the document can navigate to the document and address the concern that was mentioned.
+The overall goal is to provide the document/form owner a better way to receive feedback and increase the efficiency of 
+collaboration on a document/form.
 
-#### **Important Notes**
-
-* Even though the above use case was for the*Route for Review_. The same applies for the*Route for Approval_. The only differences are the status would be*Pending Approval_, the task would be*Complete Approval*where the user would*Reject_. All other actions would be very similar.
-
-* The overall goal is to provide the document/form owner a better way to receive feedback and increase the efficiency of collaboration on a document/form.
-
-* Like stated in the intro to this section, AEV has an abundance of use cases it can handle. Please refer to AEV's specific documentation walking through those use cases. This section was to provide a couple use cases that AEV can help in the PnP scenario.
+Like stated in the intro to this section, AEV has an abundance of use cases it can handle. Please refer to AEV's 
+specific documentation walking through those use cases. This section was to provide a couple use cases that AEV can help 
+in the PnP scenario.
 
 ### Create Form &amp; Attach Document
-
 The task of creating a form and attaching documents will be a crucial action for a user to carry out within the PnP scenario. Currently, there are a couple different combinations and ways to Create a Form and or attach a document or multiple documents to a form. These are described below. See [Create Change Form](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.n01bfua8tjv9) action description for more details.
 
 #### **Create a Form Without Document Attached**
@@ -839,7 +881,7 @@ The task of creating a form and attaching documents will be a crucial action for
 
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_d249d10411875e68.png)
 
-* Once all approval tasks are approved the form and any attached documents transition to the Approved lifecycle status/state. The version label is also updated to the next major version. (e.g. 0.1 Draft -\&gt; 1.0 Approved)
+* Once all approval tasks are approved the form and any attached documents transition to the Approved lifecycle status/state. The version label is also updated to the next major version. (e.g. 0.1 Draft -> 1.0 Approved)
 
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_38ecaf554284273b.png)
 
@@ -894,7 +936,7 @@ Throughout this test example, users in different permission groups were used. Th
 
 * Execute the power promote action by inputting the credentials of the user that has selected this action.
 
-* Notice after the action has completed the version label should be the next major version (e.g. 0.1 -\&gt; 1.0) and the status is now Approved.
+* Notice after the action has completed the version label should be the next major version (e.g. 0.1 -> 1.0) and the status is now Approved.
 
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_fcc56e57fb22cc4.png)
 
