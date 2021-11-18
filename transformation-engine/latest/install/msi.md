@@ -31,7 +31,10 @@ In previous versions the installation files were contained within a `.zip` file.
 
     > **Important:** If you do not intend to use the DTE T-Engine Docker image, you must select this option for DTE to work correctly.
 
-    > **Note:** Currently, only Alfresco Content Services 7.x is compatible with the T-Engine approach.
+    > **Note:**
+    >
+    >* You can use ACS 6.x with the T-Engine approach and with the old approach by installing the AMPs in Alfresco Content Services.
+    >* For ACS 7.x, you can only use the T-Engine approach for now. AMP installation is not possible.
 
 6. Click **Next** and the license information screen displays.
 

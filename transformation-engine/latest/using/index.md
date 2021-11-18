@@ -14,11 +14,11 @@ Only Administrators can access and use the Document Transformation Engine Web Co
 
 1. To open the Document Transformation Engine Web Console, open a browser, and then navigate to `http://<transformation-host>:</port>/transformation-server/`, or `https://` if you are using SSL.
 
-    The **Server Status** view is the default view when you open the Document Transformation Engine Web Console. The **Server Status** view shows an overview of the health and the memory use of the Document Transformation Engine. Ensure that you have the flash plug-in to see the **Active Threads** and **Memory Usage** graphics.
+    The **Server Status** view is the default view when you open the Document Transformation Engine Web Console. The **Server Status** view shows an overview of the health and the memory use of the Document Transformation Engine.
 
 2. Click **History** view.
 
-    Alternatively, you can go directly to the **History** view by navigating to `http://<transformation-host>:<port>/transformation-server/transformations`
+    Alternatively, you can go directly to the **History** view by navigating to `http://transformation-server/#/history`.
 
     The **History** view shows the details of the document transformations. It provides a number of search functions that allow administrators to find transformation problems for specific documents.
 
@@ -28,13 +28,6 @@ Only Administrators can access and use the Document Transformation Engine Web Co
     * File name
     * Status
     * User name
+    * Document type From and To
 
 4. To investigate errors, set the **Outcome** field to **Error**. Hover over the warning sign to view an indication of the problem with the file.
-
-5. Click the **Statistics** view.
-
-    Alternatively, you can go directly to the **Statistics** view by navigating to `http://<transformation-host>:<port>/transformation-server/stats`
-
-    The **Statistics** view indicates the number of transformations, and the success or failed ratio.
-
-6. Click the reset link to reset the counter.

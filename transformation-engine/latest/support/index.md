@@ -2,11 +2,12 @@
 title: Supported platforms
 ---
 
-The following are the supported platforms for Alfresco Document Transformation Engine 2.3.1:
+The following are the supported platforms for Document Transformation Engine 2.3.1:
 
 | Version | Notes |  
 | ------- | ----- |
-| Content Services 7.0 | |
+| Content Services 7.1.x | *Optional.* Use with DTE T-Engine v1.0.0 |
+| Content Services 7.0.x | *Optional.* Use with DTE T-Engine v1.0.0 |
 | | |
 | **Java** | |
 | Oracle JDK 11 | |
