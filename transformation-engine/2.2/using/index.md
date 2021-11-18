@@ -12,13 +12,13 @@ Use the Document Transformation Engine Web Console to view information about the
 
 Only Administrators can access and use the Document Transformation Engine Web Console.
 
-1. To open the Document Transformation Engine Web Console, open a browser, and then navigate to `http://<transformation-host\>:</port\>:/transformation-server/`, or `https://` if you are using SSL.
+1. To open the Document Transformation Engine Web Console, open a browser, and then navigate to `http://<transformation-host>:</port>/transformation-server/`, or `https://` if you are using SSL.
 
     The **Server Status** view is the default view when you open the Document Transformation Engine Web Console. The **Server Status** view shows an overview of the health and the memory use of the Document Transformation Engine. Ensure that you have the flash plug-in to see the **Active Threads** and **Memory Usage** graphics.
 
 2. Click **History** view.
 
-    Alternatively, you can go directly to the **History** view by navigating to `http://<transformation-host\>:<port\>:/transformation-server/transformations`
+    Alternatively, you can go directly to the **History** view by navigating to `http://<transformation-host>:<port>/transformation-server/transformations`
 
     The **History** view shows the details of the document transformations. It provides a number of search functions that allow administrators to find transformation problems for specific documents.
 
@@ -33,7 +33,7 @@ Only Administrators can access and use the Document Transformation Engine Web Co
 
 5. Click the **Statistics** view.
 
-    Alternatively, you can go directly to the **Statistics** view by navigating to `http://<transformation-host\>:<port\>:/transformation-server/stats`
+    Alternatively, you can go directly to the **Statistics** view by navigating to `http://<transformation-host>:<port>/transformation-server/stats`
 
     The **Statistics** view indicates the number of transformations, and the success or failed ratio.
 
