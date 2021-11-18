@@ -508,10 +508,11 @@ Delegate task:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-reassign-task.png %})
 
-Reassign selecting user:
+Select task to reassign:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-reassign-task2.png %})
 
+Selecting user to reassign task to:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-reassign-task3.png %})
 
