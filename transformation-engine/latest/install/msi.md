@@ -33,8 +33,8 @@ In previous versions the installation files were contained within a `.zip` file.
 
     > **Note:**
     >
-    >* You can use ACS 6.x with the T-Engine approach and with the old approach by installing the AMPs in Alfresco Content Services.
-    >* For ACS 7.x, you can only use the T-Engine approach for now. AMP installation is not possible.
+    >* For Alfresco Content Services 7.x, you can only use the T-Engine approach for now. Installing the Alfresco Module Packages (AMP) files is not possible.
+    >* You can use Content Services 6.x with the T-Engine approach and with the old approach (i.e. installing the AMP files in Content Services).
 
 6. Click **Next** and the license information screen displays.
 
