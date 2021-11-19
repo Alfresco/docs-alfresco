@@ -101,7 +101,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
-| LibreOffice v6.3.5 | |
+| LibreOffice v7.0.6 | |
 
 {% endcapture %}
 
