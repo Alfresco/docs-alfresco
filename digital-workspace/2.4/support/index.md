@@ -1,7 +1,7 @@
 ---
 title: Supported Platforms
 ---
-The following are the supported platforms for Alfresco Digital Workspace 2.5:
+The following are the supported platforms for Alfresco Digital Workspace 2.4:
 
 ## Alfresco Content Services
 
@@ -9,3 +9,4 @@ The following are the supported platforms for Alfresco Digital Workspace 2.5:
 | ------- | ----- |
 | Alfresco Content Services 7.1.0 | |
 | Alfresco Content Services 7.0.0 | |
+
