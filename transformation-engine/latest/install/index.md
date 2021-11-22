@@ -12,7 +12,7 @@ There are a number of important notes to consider when installing the Document T
 
 * The standalone Document Transformation Engine requires the software components to be installed and available on the same machine.
 
-* Only install the English versions of Microsoft Windows Server 2012 R2, and Microsoft Office because other languages cause encoding issues resulting in unpredictable behavior.
+* Only install the English versions of Microsoft Windows Server 2012, Microsoft Windows Server 2016 or Microsoft Windows Server 2019, and Microsoft Office because other languages cause encoding issues resulting in unpredictable behavior.
 
     > **Note:** Although the engine must be configured in English, this has no impact on the transformation language used for documents.
 
@@ -49,4 +49,19 @@ Using an Amazon EC2 instance c3.2xlarge, the I/O metrics are as follows:
 
 ## Installation
 
-The Document Transformation Engine is installed using an `msi` file where you can select to install a T-Engine at the same time. Alternatively you can install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine, for more see [Installation]({% link transformation-engine/latest/install/msi.md %}). There is also an [SDK that can be installed]({% link transformation-engine/latest/install/sdk.md %}).
+The Document Transformation Engine is installed using an `msi` file where you can select to install a T-Engine at the same time. Alternatively you can install the Document Transformation Engine using the `msi` and use Docker Compose to install the T-Engine. See [Install with MSI]({% link transformation-engine/latest/install/msi.md %}) for more details. There is also an [SDK that can be installed]({% link transformation-engine/latest/install/sdk.md %}).
+
+### Set `JAVA_HOME`
+
+If you're using any JDK which does not set a registry key, you need to manually set the `JAVA_HOME` system variable. This mostly happens when using a `zip` package installation of the JDK.
+
+1. Locate your JDK installation (it's most likely in a directory such as `C:\Program Files\jdk-11.x.x`).
+2. Search for **Advanced system settings**.
+3. Select **View advanced system settings > Environment Variables**.
+4. In the **System variables** section, click **New** (or **User variables** for a single user setting).
+5. Add the following settings:
+
+    * Variable name = `JAVA_HOME`
+    * Variable value = path to the JDK installation (from step 1).
+
+6. Click **OK** (twice) and finally click **Apply** to save the changes.

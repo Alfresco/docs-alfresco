@@ -82,6 +82,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Azure 2.1 | |
 | Alfresco Content Connector for AWS Glacier 2.2 | |
 | Alfresco Content Connector for Salesforce 2.3.2 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
 | Alfresco Collaboration Connector for Microsoft 365 1.1.1 | |
@@ -95,13 +96,14 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Services SDK 4.3 | |
 | | |
 | **Applications** | |
+| Alfresco Digital Workspace 2.5 | |
 | Alfresco Digital Workspace 2.4 | |
 | Alfresco Application Development Framework (ADF) 4.x | Some API functionality may be available only in the latest Alfresco Content Services release. |
 | Alfresco Mobile Workspace 1.1 | |
 | | |
 | **Components** | |
 | ImageMagick v7.0.10 | |
-| LibreOffice v6.3.5 | |
+| LibreOffice v7.0.6 | |
 
 {% endcapture %}
 

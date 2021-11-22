@@ -91,6 +91,7 @@ Choose a combination of products to build your own Supported Stack. If anything 
 | Alfresco Content Connector for Salesforce 2.3 | |
 | Alfresco Content Connector for Salesforce 2.2 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -207,6 +208,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.2 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |
@@ -316,6 +318,7 @@ Alfresco Content Connector for Azure 1.1 | |
 | Alfresco Content Connector for AWS Glacier 2.0 | Only compatible with Alfresco Content Connector for AWS S3 3.0 and below. |
 | Alfresco Content Connector for EMC Centera 2.2.1 | |
 | Alfresco Content Connector for Salesforce 2.1 | |
+| Alfresco Content Connector for SAP applications 5.2 | |
 | Alfresco Content Connector for SAP applications 5.1 | |
 | Alfresco Content Connector for SAP applications 5.0 | |
 | Alfresco Content Connector for SAP Cloud 1.2 | |

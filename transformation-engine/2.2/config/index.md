@@ -10,7 +10,7 @@ The Transformation Engine client can be configured using a properties file or JM
 
 Use this information to configure the standalone Document Transformation Engine. You only need to change the password of the transformation service.
 
-1. Open your browser and navigate to `http://<transformation-host\>:<port\>/transformation-server/settings` or `https://` if you are using SSL.
+1. Open your browser and navigate to `http://<transformation-host>:<port>/transformation-server/settings` or `https://` if you are using SSL.
 
 2. Enter your login name and a password.
 

@@ -163,13 +163,13 @@ The advanced properties for a date field are:
 
 Display text fields allow the form designer to display a line of fixed text to the form filler. This text is not editable by the filler themselves. The `Text to display` property is used to enter the text.
 
-Display text fields do not have the `Read-only`, `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
+Display text fields do not have the `Read-only`, `Placeholder`, and `Required?` fields, nor do they have an advanced properties tab.
 
 ### Display value fields
 
 Display value fields allow the form designer to display a value previously entered in the form. The `variables` property is used to select a [form variable](#form-variables) to display.
 
-Display value fields do not have the `Read-only`, `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
+Display value fields do not have the `Read-only`, `Placeholder`, and `Required?` fields, nor do they have an advanced properties tab.
 
 ### Dropdown fields
 

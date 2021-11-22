@@ -87,6 +87,7 @@ defaults:
       toc: "digital-workspace"
       support: true
       versions:
+        - 2.5
         - 2.4
         - 2.3
         - 2.2
@@ -97,8 +98,12 @@ defaults:
   - scope:
       path: "digital-workspace/latest"
     values:
-      version: 2.4
+      version: 2.5
       latest: true
+  - scope:
+      path: "digital-workspace/2.4"
+    values:
+      version: 2.4   
   - scope:
       path: "digital-workspace/2.3"
     values:
@@ -719,13 +724,18 @@ defaults:
       toc: "sap"
       support: true
       versions:
+        - 5.2
         - 5.1
         - 5.0
   - scope:
       path: "sap/latest"
     values:
-      version: 5.1
+      version: 5.2
       latest: true
+  - scope:
+      path: "sap/5.1"
+    values:
+      version: 5.1
   - scope:
       path: "sap/5.0"
     values:

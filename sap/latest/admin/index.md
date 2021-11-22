@@ -147,7 +147,7 @@ If you can't apply the SAP Connector license you've received successfully, make 
 
 ### Error during connection test setting up a secure connection (HTTPS) in OAC0
 
-If you receive an error during the connection test in OAC0 for the SAP Content Repository, make sure to have the `Port Number` removed. Only provide the `SSL Port Number` in this case.
+If you receive an error during the connection test in `OAC0` for the SAP Content Repository, make sure you've removed the `Port Number`. Only provide the `SSL Port Number` in this case.
 
 ### Payment required (HTTP Response code 402)
 
