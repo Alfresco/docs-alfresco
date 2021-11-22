@@ -84,7 +84,7 @@ An example of the JSON for the Slack connector **SEND_MESSAGE** action is:
 
 ### Events
 
-Events are used as part of defining event criteria in a [trigger]({% link process-automation/latest/model/triggers.md %}). When the event criteria specified in a trigger are met, an action is started. Certain connectors can be used for defining event criteria. For example, the email connector event **MESSAGE_RECEIVED** can be used to monitor inbound emails. If a pattern defined in the trigger is met then a trigger action is started.
+Events are used as part of defining event criteria in a [trigger]({% link process-automation/latest/model/triggers.md %}). When the event criteria specified in a trigger are met, an action is started. Certain connectors can be used for defining event criteria. For example, the email service event **MESSAGE_RECEIVED** can be used to monitor inbound emails. If a pattern defined in the trigger is met then a trigger action is started.
 
 See [triggers]({% link process-automation/latest/model/triggers.md %}) for further details on creating event criteria based on connectors.
 
@@ -99,7 +99,7 @@ The properties for input and output parameters are:
 | Type | *Required.* The data type of the parameter, for example `String`. |
 | Required | *Optional.* Set whether the parameter requires a value when being used, for example `true`. |
 
-An example of the JSON for the Email connector **MESSAGE_RECEIVED** event is:
+An example of the JSON for the email service **MESSAGE_RECEIVED** event is:
 
 ```json
 "events": {
@@ -212,7 +212,7 @@ The properties of errors are:
 | Description | *Optional.* A free text description of what the parameter is for. For example `An input variable had an invalid type.` |
 | Code | *Required.* The error code that will be caught by an error boundary or error start event, for example `INVALID_INPUT`. |
 
-An example of the JSON for the email connector **INVALID_INPUT** error is:
+An example of the JSON for the email service **INVALID_INPUT** error is:
 
 ```json
     "errors": [
