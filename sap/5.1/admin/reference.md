@@ -203,7 +203,7 @@ integrations.sap.system.2.jobs.sapContentConnectorDirReplicate.cronExpression=0 
 
 This is the reference for all supported `SAP Object Types` that are available by default in Alfresco Share to open the associated SAP Business Object along with their related transaction within the SAP Web-GUI.
 
-See the [Opening associated Business Object in SAP]({% link sap/latest/config/advanced.md %}#openassocbusinessobjinsap) feature to learn how to enable and how to customize it.
+See the [Opening associated Business Object in SAP]({% link sap/5.1/config/advanced.md %}#openassocbusinessobjinsap) feature to learn how to enable and how to customize it.
 
 > **Note:** Because the SAP Object Types `BKPF` and `BUS2081` requires a split of the replicated `SAP Object Id` into at least 2 separate parameters, the URL of both SAP Object Types should never be changed (not even the order).
 
@@ -228,7 +228,7 @@ See the [Opening associated Business Object in SAP]({% link sap/latest/config/ad
 
 This reference lists the additional properties (such using Logon Groups) for the SAP JavaConnector that are supported for each available SAP System Configuration.
 
-See [Configure repository properties]({% link sap/latest/install/index.md %}#configrepo) and the [example configurations](#examplesapsysconfigs). The properties in the table below use [SAP system configuration with Archivelink only](#examplesapsysconfig1) as an example.
+See [Configure repository properties]({% link sap/5.1/install/index.md %}#configrepo) and the [example configurations](#examplesapsysconfigs). The properties in the table below use [SAP system configuration with Archivelink only](#examplesapsysconfig1) as an example.
 
 > **Note:** See the SAP JavaConnector documentation to learn more about the available properties and their behaviors in detail.
 
@@ -297,7 +297,7 @@ The current certificate used by the Content Services webserver must be known (an
 
 > **Important:** The Content Services webserver must be up and running on a secure connection. This documentation does not cover the installation and configuration of the SSL connection on Content Services side. It only covers how to get the existing certificate.
 
-1. Open Content Services (either the Alfresco Share or Alfresco Digital Workspace login page) in a web-browser and view the details of the current certificate.
+1. Open Content Services (either Alfresco Share or Alfresco Digital Workspace login page) in a web-browser and view the details of the current certificate.
 
     ![sap_inst_004_https_002_alf_certificate]({% link sap/images/sap_inst_004_https_002_alf_certificate.png %})
 
@@ -305,7 +305,7 @@ The current certificate used by the Content Services webserver must be known (an
 
     ![sap_inst_004_https_002_alf_certificate_export]({% link sap/images/sap_inst_004_https_002_alf_certificate_export.png %})
 
-3. Make sure you use `DER encoded binary X.509 (.CER)` as the export format.
+3. Make sure to use `DER encoded binary X.509 (.CER)` as export format.
 
     ![sap_inst_004_https_002_alf_certificate_export_format]({% link sap/images/sap_inst_004_https_002_alf_certificate_export_format.png %})
 
@@ -329,15 +329,15 @@ To prepare the SAP Content Repository to use a secure connection, follow these s
 
     2. Add the `SSL Port Number`.
 
-    3. Select `HTTPS required` as a value for **HTTPS on frontend**.
+    3. Select choice `HTTPS possible` as value for **HTTPS on frontend**.
 
-    4. Select `HTTPS required` as a value for **HTTPs on backend**.
+    4. Select choice `HTTPS required` as value for **HTTPs on backend**.
 
 4. Save the settings for the SAP Content Repository.
 
 ![sap_inst_004_https_001]({% link sap/images/sap_inst_004_https_001.png %})
 
-> **Note:** Make sure you remove the non-SSL Port Number, otherwise the connection will fail.
+> **Note:** Make sure to remove the non-SSL Port Number, otherwise the connection will fail.
 
 Import the certificate from Content Services to the Personal Security Environment (PSE) in SAP.
 
@@ -345,7 +345,7 @@ Import the certificate from Content Services to the Personal Security Environmen
 
 Import the certificate to the SAP Personal Security Environment.
 
-Make sure you have the certificate from Content Services webserver available.
+Make sure to have the certificate from Content Services webserver available.
 
 To import the certificate to the SAP {% include tooltip.html word="SAP_PSE" text="PSE" %} follow these steps:
 
