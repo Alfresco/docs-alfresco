@@ -575,7 +575,7 @@ To create a new inbox task (SAP Workflow) for a SAP user including the current d
 
 The GenericXchange module is used for flexible data exchange either via a secure Remote Function Call (RFC/SNC) connection or by invoking an Open Data Protocol (OData) service on the related SAP System (either SAP Cloud Essentials or SAP S/4HANA on-premises).
 
-To configure this module, see the Alfresco Content Connector for SAP Cloud documentation, [Configure GenericXchange](https://docs.alfresco.com/sap-cloud/latest/config/genericxchange/){:target="_blank"}.<!--fix link once pushed to master-->
+To configure this module, see the Alfresco Content Connector for SAP Cloud documentation, [Configure GenericXchange]({% link sap-cloud/latest/config/genericxchange.md %}){:target="_blank"}.
 
 ## Open associated Business Object in SAP {#openassocbusinessobjinsap}
 
