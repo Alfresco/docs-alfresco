@@ -15,7 +15,7 @@ The basic properties of a user interface are:
 | Default System Logo | *Optional.* The default system logo image. The recommended size for the logo is 28x28 px. **Note:** To set a new logo the file must be uploaded in advance with the visibility flag set to public, for more see [Files]({% link process-automation/latest/model/files.md %}). |
 | Application title | *Optional.* The name of the application. This is the name that will appear on the tab of your browser. |
 | Header text color HEX code | *Optional.* The color of the header text on the user interface using hexadecimal numbers. For example `#b39eba`. |
-| Header color HEX code | *Optional.* The color of the header on the user interface using hexadecimal numbers. For example `#b39oba`. |
+| Header color HEX code | *Optional.* The color of the header background on the user interface using hexadecimal numbers. For example `#b39oba`. |
 | Default Background Header Image | *Optional.* The default background header image.  **Note:** To set a new background image the file must be uploaded in advance with the visibility flag set to public, for more see [Files]({% link process-automation/latest/model/files.md %}). |
 
 ## Create a user interface
