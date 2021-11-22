@@ -93,8 +93,8 @@ The possible [errors]({% link process-automation/latest/model/connectors/index.m
 | TEMPLATE_READ_ERROR | Cannot read the FreeMarker template. |
 | TEMPLATE_METADATA_ERROR | The template references non-existing metadata. |
 | TEMPLATE_SYNTAX_ERROR | Invalid FreeMarker syntax. |
-| EMAIL_CONNECTION_ERROR | Unable to connect to email service. |
-| EMAIL_AUTHENTICATION_ERROR | Unable to authenticate into email service. |
+| EMAIL_CONNECTION_ERROR | Unable to connect to the email service. |
+| EMAIL_AUTHENTICATION_ERROR | Unable to authenticate into the email service. |
 | EMAIL_SEND_ERROR | Unable to send the email. |
 | UNKNOWN_ERROR | Unexpected runtime error. |
 | BAD_REQUEST | The server could not understand the request due to invalid syntax. |
