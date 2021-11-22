@@ -77,7 +77,7 @@ The input parameters for a user interface action are:
 
 ### Email received
 
-The [email connector]({% link process-automation/latest/model/connectors/email.md %}) contains an **EMAIL_RECEIVED** event. This event allows for inbound emails to be monitored and an event published when specific criteria are met.
+The [email service]({% link process-automation/latest/model/connectors/email.md %}) contains an **EMAIL_RECEIVED** event. This event allows for inbound emails to be monitored and an event published when specific criteria are met.
 
 The input parameters for receiving an email are:
 
@@ -100,7 +100,7 @@ The output parameters that can be used as values within the trigger action for r
 
 > **Note**: Groups found in `matchGroups` can be used within a trigger action variable using the syntax `${matchGroups.group}`, for example `${matchGroups.orderNumber}`.
 
-> **Important**: The [configuration parameters]({% link process-automation/latest/model/connectors/email.md %}#configuration-parameters) for the email connector contain some parameters that are specific to configuring a trigger.
+> **Important**: The [configuration parameters]({% link process-automation/latest/model/connectors/email.md %}#configuration-parameters) for the email service contain some parameters that are specific to configuring a trigger.
 
 ### SMS received
 
