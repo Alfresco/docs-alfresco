@@ -900,11 +900,12 @@ the `facetsFields` object contains an entry for each requested field which in tu
 
 ### Pivots
 
-Pivots are nested field facets. For example, a field facet on SITE with a nested field facet for creator. Pivots will provide counts for each grouping along with sub-totals. The public API takes advantage of this nesting by defining all the groupings individually and then how to nest them. It is then easy to change the nesting.
+Pivots are nested field facets. For example, a field facet on SITE with a nested field facet for `creator`. Pivots will provide counts for each grouping along with sub-totals. The public API takes advantage of this nesting by defining all the groupings individually and then how to nest them. It is then easy to change the nesting.
 
 Some of the facet field options are ignored when used in a pivot as they are not supported.
 
 Example:
+
 ```json
 {
    "query": {
@@ -928,6 +929,7 @@ Example:
     ]
 }
 ```
+
 The pivot key needs to refer to a facet label.
 
 ### Term highlighting search
