@@ -8,4 +8,4 @@ The Centera Connector module addresses the Centera store directly through its na
 
 The module uses a series of properties to control the way that you access the store. A feature of this module allows you to set retention policies, such as, preventing content from being deleted for a period of time (for example, retaining invoices for seven years).
 
-> **Note:** The Centera Connector can be applied to Alfresco Content Services 6.0 or later.
+> **Note:** The Centera Connector can be applied to Alfresco Content Services 6.0 only.
