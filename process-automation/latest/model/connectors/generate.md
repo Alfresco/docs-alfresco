@@ -2,13 +2,13 @@
 title: Generate document
 ---
 
-The generate document connector is used to create DOCX and PDF files using a template. The generated document is then saved to the Content Services repository and can be reused throughout the process.
+The generate document service is used to create DOCX and PDF files using a template. The generated document is then saved to the Content Services repository and can be reused throughout the process.
 
 A generate document task is displayed as a stack of documents on the process diagram.
 
 ## Create a generate document task
 
-The generate document connector is stored in the palette separate from other connectors. To create a generate document task:
+The generate document service is stored in the palette separate from other connectors. To create a generate document task:
 
 1. Sign into the Modeling Application and open a project and process.
 
@@ -16,17 +16,17 @@ The generate document connector is stored in the palette separate from other con
 
 3. The option to use an existing instance of the connector or create a new one will display.
 
-    * **Create a new instance** if it is the first time using the generate document connector within the project and give it a name.
+    * **Create a new instance** if it is the first time using the generate document service within the project and give it a name.
 
-    * Select an existing instance if the generate document connector has already been used within the project.
+    * Select an existing instance if the generate document service has already been used within the project.
 
 4. Drag the task onto the diagram canvas and fill in the properties.
 
-> **Note**: The generate document connector does not have any [configuration parameters]({% link process-automation/latest/model/connectors/index.md %}#configuration-parameters) as it connects directly to the Content Services repository. This means that only a single instance of the connector is required per project.
+> **Note**: The generate document service does not have any [configuration parameters]({% link process-automation/latest/model/connectors/index.md %}#configuration-parameters) as it connects directly to the Content Services repository. This means that only a single instance of the connector is required per project.
 
 ## Properties
 
-The generate document connector is implemented as a [service task]({% link process-automation/latest/model/processes/bpmn.md %}#service-task). All the properties available to a service task are those required by the generate document connector. The three most important ones to understand for the generate document connector are:
+The generate document service is implemented as a [service task]({% link process-automation/latest/model/processes/bpmn.md %}#service-task). All the properties available to a service task are those required by the generate document service. The three most important ones to understand for the generate document service are:
 
 | Property | Description |
 | -------- | ----------- |
@@ -105,7 +105,7 @@ Flavor of the month: Mint
 
 ## Errors
 
-The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the generate document connector are:
+The possible [errors]({% link process-automation/latest/model/connectors/index.md %}#errors) that can be handled by the generate document service are:
 
 | Error | Description |
 | ----- | ----------- |
