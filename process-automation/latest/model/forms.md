@@ -307,7 +307,7 @@ The Metadata viewer can be used to view the metadata of any file you upload or a
 
 To create a form that contains the Metadata viewer:
 
-1. Create or edit an existing from, for more see [Create a form](#create-a-form).
+1. Create or edit an existing form, for more see [Create a form](#create-a-form).
 
 2. Add the Attach file widget to the form.
 
