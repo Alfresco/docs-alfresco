@@ -35,7 +35,7 @@ The input parameters to request a DocuSign signature are:
 | targetFolderPath | String | *Requires one.* The location path or relative path of the folder to store the signed document in. For example, a location path: `/app:company_home/app:user_homes/cm:hruser` and a relative path: `/User Homes/hruser`. |
 | timeout | Integer | *Optional.* The timeout period to wait for the document to be signed in milliseconds, for example `910000`. |
 | signers | JSON | *Optional.* The list of signers who sign the document. |
-| allowMarkup | Boolean | *Optional.* Allow recipients to make changes to your documents by covering up existing text and replacing it with new text (i.e. markup). Recipients can decide to use a special markup text field, which they can place anywhere on the document. They can scale it and optionally fill it in. All changes must be reviewed and approved by all signers. |
+| allowMarkup | Boolean | *Optional.* Allow recipients to make changes to your documents by covering up existing text and replacing it with new text (i.e. markup). Recipients can decide to use a special markup text field which they can place anywhere on the document. It can be scaled and optionally filled in. All changes must be reviewed and approved by all signers. |
 
 > **Note**: `underscoreMetadata` can be set to `true` and the `targetFileMetadata` input can still use `:` with the connector successfully executing the action. If `underscoreMetadata` is set to `false` and `targetFileMetadata` uses `_` then the connector will fail to execute the action.
 
