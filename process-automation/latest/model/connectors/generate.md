@@ -16,7 +16,7 @@ The generate document service is stored in the palette separate from other conne
 
 3. The option to use an existing instance of the connector or create a new one will display.
 
-    * **Create a new instance** if it is the first time using the generate document service within the project and give it a name.
+    * **Create a new instance** if it is the first time using the generate document service within the project, and give it a name.
 
     * Select an existing instance if the generate document service has already been used within the project.
 
