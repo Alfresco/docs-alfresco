@@ -402,7 +402,7 @@ Once Create Form is selected, the form template appears and there are
 ![Img Txt]({% link content-accelerator/images/aca-userguide-required-fields-icon.png %}) icons signifying to the user that 
 these areas are required. Below will talk more specifically about each section of the Change Request Form.
 
-![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form-example.png %}
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-actions-create-change-form-example.png %})
 
 The one section worth noting is the *Description and Rationale*. This section depending on what answer is giving will 
 control what page is displayed next to the user. For example, if *Enter test into this form* is selected, like in the 
@@ -653,15 +653,13 @@ To modify a document's content the document will have to be versioned.
 
 * When it is time to check the document back in, press the ![Img Txt]({% link content-accelerator/images/aca-userguide-gray-check-icon.png %}) that says *Check In*. The item can be dragged or chosen from the computer to upload back into the application. Then hit submit to check the document back in.
 * A couple things to note when a document is checked in.
-
-1. The lock on the document is released.
-2. The version label has now updated to become the next minor version (e.g. 0.1 -> 0.2).
-3. To view all the versions thus far, see View Versions.
+  1. The lock on the document is released.
+  2. The version label has now updated to become the next minor version (e.g. 0.1 -> 0.2).
+  3. To view all the versions thus far, see View Versions.
 
 #### Editing Properties
-To update a document's properties:
-
-* Click the *View Properties* ![Img Txt]({% link content-accelerator/images/aca-userguide-view-props-icon.png %}) icon. A dual pane should be seen with the document's properties displayed. (See View/Edit Properties).
+To update a document's properties click the *View Properties* ![Img Txt]({% link content-accelerator/images/aca-userguide-view-props-icon.png %}) icon. 
+A dual pane should be seen with the document's properties displayed. (See View/Edit Properties).
 
 ### Annotations
 Annotations are a very powerful collaboration tool that is integrated within this application thanks to the product 
@@ -690,32 +688,32 @@ has been selected to receive a task to review the document and form. This user g
 Click on the document to bring it up in the AEV document viewer. The user notices a mistake worth noting on the document. 
 They want to leave a sticky note comment for the owner of the document.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-4-review-annotation.png %})
 
 Select the sticky note annotation icon highlighted in the above screenshot. The ability to write a comment within the 
 sticky note annotation is available at this moment. Leave a comment by the "TSG-104" saying something like, 
 "Consider changing this to SOP instead of TSG"
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-4-review-annotation2.png %})
 
 Press the **OK** button. The annotation can be seen hovering over the sticky note icon in the document, like below:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-4-review-annotation3.png %})
 
 Another way to view annotation a little cleaner is by expanding the right sidebar where the "1" icon is in the above 
 screenshot:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-4-review-annotation4.png %})
 
-The annotations should be autosaved but in case they aren't select the Save icon highlighted in the following 
+The annotations should be auto-saved but in case they aren't select the **Save** icon highlighted in the following 
 screenshot:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-4-review-annotation5.png %})
 
-Now navigate back to the form. Select the *Complete Wizard Review*. Choose the *Additional Review Needed* under the 
+Now navigate back to the form. Select the **Complete Wizard Review**. Choose the **Additional Review Needed** under the 
 *Vote* dropdown. Leave a meaningful comment about the annotation and proposed change. Click **Submit**.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-4-review-annotation6.png %})
 
 There are two important things to point out in the above screenshot:
 
@@ -734,198 +732,218 @@ Like stated in the intro to this section, AEV has an abundance of use cases it c
 specific documentation walking through those use cases. This section was to provide a couple use cases that AEV can help 
 in the PnP scenario.
 
-### Create Form &amp; Attach Document
-The task of creating a form and attaching documents will be a crucial action for a user to carry out within the PnP scenario. Currently, there are a couple different combinations and ways to Create a Form and or attach a document or multiple documents to a form. These are described below. See [Create Change Form](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.n01bfua8tjv9) action description for more details.
+### Create Form and Attach Document
+The task of creating a form and attaching documents will be a crucial action for a user to carry out within the PnP 
+scenario. Currently, there are a couple different combinations and ways to Create a Form and or attach a document or 
+multiple documents to a form. These are described below. See "Create Change Form" action description for more details.
 
-#### **Create a Form Without Document Attached**
+#### Create a Form Without Document Attached
+Sometimes a form is needed without any document attached. To achieve this scenario, the user can select the header 
+action **Create Change Form**:
 
-* Sometimes a form is needed without any document attached. To achieve this scenario, the user can select the header action*Create Change Form_.
-* The form has been created now and notice under the Related Objects section there are no workflow documents attached (ignore Supporting Documents that is something different)
-* ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b7e5e058db6954e2.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-create-form-attach-doc.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_e35002d25d6abbed.png)
+When the form has been created notice under the "Related Objects" section that there are no workflow documents attached
+(ignore Supporting Documents that is something different):
 
-#### **Create a Form With Document Attached**
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-create-form-attach-doc2.png %})
 
-* A typical use case within the PnP scenario could be when a form needs to be created with one document attached to it.
+#### Create a Form With Document Attached
+A typical use case within the PnP scenario could be when a form needs to be created with one document attached to it.
 
+To start, navigate to a document and click **Create Change Form** button pictured below.
 
-* To start, navigate to a document and click*Create Change Form*button pictured below.
+>**Note:** the document should not be attached to another form. If it is, there is the ability to version the document 
+>then attach to a form (only if that use case makes sense if your instance should you do that)
 
-    * Note: the document should not be attached to another form. If it is, there is the ability to version the document then attach to a form (only if that use case makes sense if your instance should you do that)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-create-form-attach-doc3.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_244bba7e065f0acf.png)
+After the form is filled out and created, the workflow document should be seen under the *Related Objects* section. Once 
+the form is taken through the various workflow routes the document will act accordingly (See "Route for Review" or 
+"Route for Approval")
 
-* After the form is filled out and created, the workflow document should be seen under the*Related Objects*section. Once the form is taken through the various workflow routes the document will act accordingly (See [Route for Review](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.nkr2wt2fbkow) or [Route for Approval](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.7cyh7w3gxyy3))
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-create-form-attach-doc4.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_fa9db96ec51fdd20.png)
+#### Create a Form With Multiple Documents Attached
+There could be a time when multiple documents are required to be attached and routed in a form. To achieve this first 
+follow the steps in the "Create a Form Without Document Attached" section.
 
-#### **Create a Form With Multiple Documents Attached**
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-create-form-attach-doc5.png %})
 
-* There could be a time when multiple documents are required to be attached and routed in a form. To achieve this first follow the steps in [Create a Form Without Document Attached](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.lpu7wl6b3gs).
+When the screen looks like above, go ahead and click on the **Manage Workflow Documents** button. See "Manage Workflow 
+Documents" for more details. The action loads in the right-side pane:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_28594c68936f31fe.png)
-* When the screen looks like below, go ahead and click on the*Manage Workflow Documents*button. See [Manage Workflow Documents](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.vla4tpb22pgq) for more details.
-* When the action loads in the right side pane, click on the*Add Documents*tab. A search bar is provided that **requires three characters typed as a minimum** to search for documents.
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-create-form-attach-doc7.png %})
 
-* There are checks to determine if the document is able to be attached to the form or not. Below shows that the*SOP-9756673*is already attached to the current form, therefore, cannot be attached again.
-* The form should now have multiple documents attached and can be seen in the*Attached Documents*section. In addition, the*Related Objects*area shows both workflow documents attached. ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_321152eb40802b55.png)
+Click on the *Add Documents* tab:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_d2fdbf4c22fbe50d.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-create-form-attach-doc6.png %})
 
+A search bar is provided that *requires three characters typed as a minimum* to search for documents. There are checks 
+to determine if the document is able to be attached to the form or not. In this case it shows that the *SOP-9756673* 
+is already attached to the current form, therefore, cannot be attached again.
+
+The form should now have multiple documents attached and can be seen in the *Attached Documents* section. In 
+addition, the *Related Objects* area shows both workflow documents attached. 
+  
 ### Route for Review
+A form with or without documents attached to it often needs to be confirmed by selected approvers to make sure all the 
+items are valid. See "Start Review Workflow" section for more details.
 
-* A form with or without documents attached to it often needs to be confirmed by selected approvers to make sure all the items are valid. See [Start Review Workflow](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.mfzax5v8vdh9) for more details.
-* The route for review was designed to select user(s) to be recipients of these review workflow tasks. The ability to filter users can be seen in the below screenshot, as two users are selected to receive the review workflow tasks.
-* It can be important to note that the users shown below are within different permission roles within the application. To clarify, the review route isn't designated for a particular permission role and can have a different assortment of users.
-* The screenshot below shows what the screen of a user with a review workflow task should look like at this moment. More specifically, the*Complete Wizard Review*should have appeared. Go ahead and click that button.
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-review.png %})
 
-* ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b8ce85584713b248.png) ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_2e083db8bdcddbd9.png)
+The route for review was designed to select user(s) to be recipients of these review workflow tasks. The ability to 
+filter users can be seen in the below screenshot, as two users are selected to receive the review workflow tasks. Click
+**Start Review Route** button to start workflow:
 
-#### **Find Review Task**
+>**Note:** The users shown are within different permission roles within the application. To clarify, the review 
+> route isn't designated for a particular permission role and can have a different assortment of users.
 
-* There are three ways a user can be notified and navigate to their approval workflow task:
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-review2.png %})
+
+The screenshot shows what the screen of a user with a review workflow task should look like at this moment. More 
+specifically, the **Complete Wizard Review** should have appeared. Go ahead and click that button.
+
+#### Find Review Task
+There are three ways a user can be notified and navigate to their approval workflow task:
 
 1. An email is sent out to the user's email address.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_28cb08797b012891.png)
+   ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-review2b.png %})
+   
+2. The *Change Control Inbox* is a collection of all the users tasks as well as group tasks (tasks assigned to the group the user is within). Clicking on the *Form Name* will bring the user to the form to view the review task.
 
-1. The*Change Control Inbox*is a collection of all the users tasks as well as group tasks (tasks assigned to the group the user is within). Clicking on the*Form Name*will bring the user to the form to view the review task.
+   Note that the *Workflow Docs* can be clicked to view this form's document associations. 
+   
+   ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-review3.png %})
 
-1. **Note:** The*Workflow Docs*can be clicked to view this form's document associations. ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_d69851266726cff2.png)
+3. The user can manually search for the document or form within Search to navigate to the task. See "Search" section for more information.
 
-1. The user can manually search for the document or form within Search to navigate to the task. See [Search](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.3vzm2ijgx40e) for more information.
+   a) Search for the document:
 
-1. Search for the document
+   1. Choose the *Controlled Docs* option from the top dropdown and input any information in the fields to narrow the search.
+   2. Select the document from the search results on the right-hand side to load the document.
+   3. Click on the form's link under the *Related CR Form* section to be redirected to the form.
 
-1. Choose the*Controlled Docs*option from the top dropdown and input any information in the fields to narrow the search.
-2. Select the document from the search results on the right hand side to load the document.
-3. Click on the form's link under the*Related CR Form*section to be redirected to the form.
+   ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-review4.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b70a5623e7f013d5.png)
+   b). Search for the form
 
-1. Search for the form
+   1. Choose the *Change Control* option from the top dropdown and input any information in the fields to narrow the search.
+   2. Select the form from the search results on the right side to navigate to the form.
 
-1. Choose the*Change Control*option from the top dropdown and input any information in the fields to narrow the search.
-2. Select the form from the search results on the right side to navigate to the form.
+#### Complete Review Task
+At this point there are two decisions the user with the review workflow task can make:
 
-#### **Complete Review Task**
+1. Mark as **Ready for Approval**, signifying everything looks good to move toward routing for approval.
 
-* At this point there are two decisions the user with the review workflow task can make:
+   If this choice is selected by all recipients, the workflow will be completed and the "Route for Approval" can be initiated.
 
-1. Mark as **Ready for Approval,** signifying everything looks good to move toward routing for approval.
+2. Mark as **Additional Review Needed**, signifying that there are issues or revisions that still need to be made before routing for approval.
 
-1. If this choice is selected by all recipients, the workflow will be completed and the [Route for Approval](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.7cyh7w3gxyy3) can be initiated.
+   If this choice is selected, the review route will be aborted so the appropriate changes can be made to the document.
+   
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-review5.png %})
 
-1. Mark as **Additional Review Needed** , signifying that there are issues or revisions that still need to be made before routing for approval.
+#### Important Notes
+The user can input comments describing their above choice of action in the textbox.
 
-1. If this choice is selected, the review route will be aborted so the appropriate changes can be made to the document.
+An email will be sent notifying about the completion of the task.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b6e36166c623df48.png)
-
-#### **Important Notes**
-
-* The user can input comments describing their above choice of action in the textbox.
-* An email will be sent notifying about the completion of the task .
-* An audit trail entry will be created for the result of the task (See [Audit Trail](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.l5ml4vsr4wea) for more information).
+An audit trail entry will be created for the result of the task (See "Audit Trail" section for more information).
 
 ### Route for Approval
+A form and any documents attached (if any) that are ready to be approved by the selected recipients within the form 
+can be started by clicking the **Start Approval Workflow**.
 
-* A form and any documents attached (if any) that are ready to be approved by the selected recipients within the form can be started by clicking the*Start Approval Workflow_.
-* Upon starting the approval route, the tasks are sent out to the recipients in the first approval role. In the example case below there are 2 roles: **Initial QA Approvers** and **Approvers**.
+Upon starting the approval route, the tasks are sent out to the recipients in the first approval role. In the 
+example case below there are 2 roles: **Initial QA Approvers** and **Approvers**.
 
-* ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_5ae14b33a1256216.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-approval.png %})
 
-
-#### **Find Approval Task**
-
-* There are three ways a user can be notified and navigate to their approval workflow task:
+#### Find Approval Task
+There are three ways a user can be notified and navigate to their approval workflow task:
 
 1. An email is sent out to the user's email address.
 
+   ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-approval2.png %}))
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_54785dd766b6a4b1.png)
+2. The *Change Control Inbox* is a collection of all the users tasks as well as group tasks (tasks assigned to the group the user is within). Clicking on the *Form Name* will bring the user to the form to view the task.
 
-1. The*Change Control Inbox*is a collection of all the users tasks as well as group tasks (tasks assigned to the group the user is within). Clicking on the*Form Name*will bring the user to the form to view the task.
+   Note that the *Workflow Docs* can be clicked to view this form's document associations.
+   
+   ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-approval3.png %})
 
-**Note:** The*Workflow Docs*can be clicked to view this form's document associations ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_4f15fad00cddd24b.png)
+3. The user can manually search for the document or form within *Search* to navigate to the task. See Search section for more information.
+   Search for the document:
+   
+   1. Choose the **Controlled Docs** option from the top dropdown and input any information in the fields to narrow the search.
+   2. Select the document from the search results on the right-hand side to load the document.
+   3. Click on the form's link under the *Related CR Form* section to be redirected to the form.
 
-1. The user can manually search for the document or form within*Search*to navigate to the task. See [Search](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.3vzm2ijgx40e) for more information.
-1. Search for the document
-   1. Choose the*Controlled Docs*option from the top dropdown and input any information in the fields to narrow the search.
+   ![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-approval4.png %})
 
-2. Select the document from the search results on the right hand side to load the document.
+   Search for the form
+   
+   1. Choose the *Change Control* option from the top dropdown and input any information in the fields to narrow the search.
+   2. Select the form from the search results on the right side to navigate to the form.
 
-3. Click on the form's link under the*Related CR Form*section to be redirected to the form.
+#### Complete Approval Task
+Now that the approval task can be found. The user should see they have a visible action called *Complete Approval* 
+(See "Complete Approval" section for more information).
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b70a5623e7f013d5.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-approval5.png %})
 
-1. Search for the form
-   1. Choose the*Change Control*option from the top dropdown and input any information in the fields to narrow the search.
+At this point there are two decisions the user with the approval workflow task can make:
 
-    2. Select the form from the search results on the right side to navigate to the form.
+1. **Approve**: if the user selects this option, the workflow will proceed to the next role if there is one. If there isn't a role, the approval route will complete.
+   Emails and an audit entry will take place upon approval.
 
-#### **Complete Approval Task**
+2. **Reject**: if the user selects this option, the workflow will be aborted and all tasks will be canceled. 
+   Emails and an audit entry will take place upon rejection.
+   
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-approval6.png %})
 
-* Now that the approval task can be found. The user should see they have a visible action called*Complete Approval*(See [Complete Approval](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.xamhypgu7o6r) for more information).
+Once all approval tasks are approved the form and any attached documents transition to the Approved lifecycle 
+status/state. The version label is also updated to the next major version (e.g. 0.1 Draft -> 1.0 Approved).
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_f6467676d27be509.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-approval7.png %})
 
-* At this point there are two decisions the user with the approval workflow task can make:
+#### Important Notes
+Throughout this test example, users in different permission groups were used. The permission group has an affect 
+on how much the specific user can accomplish.
 
-1. **Approve** : if the user selects this option, the workflow will proceed to the next role if there is one. If there isn't a role, the approval route will complete.
-2. Emails and an audit entry will take place upon approval.
-3. **Reject** : if the user selects this option, the workflow will be aborted and all tasks will be canceled.
-
-1. Emails and an audit entry will take place upon rejection.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_d249d10411875e68.png)
-
-* Once all approval tasks are approved the form and any attached documents transition to the Approved lifecycle status/state. The version label is also updated to the next major version. (e.g. 0.1 Draft -> 1.0 Approved)
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_38ecaf554284273b.png)
-
-#### **Important Notes**
-
-Throughout this test example, users in different permission groups were used. The permission group has an affect on how much the specific user can accomplish.
-
-1. One example would be the*Reassign Task*action is only available to be executed by users who are administrators.
-
+1. One example would be the *Reassign Task* action is only available to be executed by users who are administrators.
 2. If there is a specific question about the permissions pertaining to a certain action please refer to the following documentation:
+   1. **Admin Guide** : if your user is an admin, the admin section displays the particular conditions associated with each action.
+   2. **PnP Specific Actions** or **Commonly Used Actions**: this section will detail the action more in depth and will touch on permissions when it is relevant to do so.
+3. Notable actions that are beneficial throughout the approval workflow:
+   1. Reassign Task
+   2. Delegate Task
+   3. View Wizard Wizard Workflow Status
+   4. View Wizard Audit Events
+4. **Remember** the approval workflow can be cancelled at any moment. The user has to be either the form owner or an administrator to cancel, though. See "Cancel Workflow" for more details.
+5. Emails are sent out throughout the workflow to the various users who are recipients of tasks.
 
-1. **Admin Guide** : if your user is an admin, the admin section displays the particular conditions associated with each action.
+#### Signature Pages
+The signature page is a great additional resource to the "audit trail" that provides information about the major 
+wizard events that happen.
 
-2. [**PnP Specific Actions**](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.wjxgrb49ii6u) or [**Commonly Used Actions**](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.hckv68etr16l): this section will detail the action more in depth and will touch on permissions when it is relevant to do so.
+After each approval task is completed for each assigned user, a signature entry will be made in the signature page 
+for the document as well as the form.
 
-1. Notable actions that are beneficial throughout the approval workflow:
-1. [Reassign Task](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.ocvzwkomkx9z)
-2. [Delegate Task](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.ulgwrg4cmluz)
-3. [View Wizard Wizard Workflow Status](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.7z7xnxppkb4t)
-4. [View Wizard Audit Events
+The form's signature page should look similar to the following screenshot:
 
-](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.l5ml4vsr4wea)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-approval8.png %})
 
-2. **Remember** the approval workflow can be cancelled at any moment. The user has to be either the form owner or an administrator to cancel, though. See [Cancel Workflow](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.3uu0yk4c9bwu) for more details.
+The document's signature page should look similar to the following screenshot:
 
-3. Emails are sent out throughout the workflow to the various users who are recipients of tasks.
-
-#### **Signature Pages**
-
-* The signature page is a great additional resource to the [audit trail](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.l5ml4vsr4wea) that provides information about the major wizard events that happen.
-
-* After each approval task is completed for each assigned user, a signature entry will be made in the signature page for the document as well as the form.
-
-* The form's signature page should look similar to the following screenshot:
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c6e3e864c50bacd8.png)
-
-* The document's signature page should look similar to the following screenshot:
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_236ec0a28f3699e.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-policy-procedure-use-cases-route-for-approval9.png %})
 
 ### Power Promote
-
-* There are some instances where the traditional workflow for a document does not fit the particular business need. One of those instances is the approval of a document. A document can be power promoted to the approval lifecycle state/status independent from a workflow. See [Power Promote](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.vq4n14uu3o4g) for more information.
+There are some instances where the traditional workflow for a document does not fit the particular business need. 
+One of those instances is the approval of a document. A document can be power promoted to the approval lifecycle 
+state/status independent from a workflow. See "Power Promote" for more information.
 
 * Navigate to a document that is within the Draft lifecycle state and make sure the document is not attached to any workflows already.
 * Click on the fast forward icon ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b7c46d539bb1bf64.png) labeled*Power Promote_.
@@ -965,7 +983,7 @@ Throughout this test example, users in different permission groups were used. Th
 
     1. Choose the*Controlled Docs*option from the top dropdown and input any information in the fields to narrow the search.
 
-    2. Select the document from the search results on the right hand side to load the document.
+    2. Select the document from the search results on the right-hand side to load the document.
 
 #### **Complete TBR Task**
 
@@ -1058,7 +1076,7 @@ Throughout this test example, users in different permission groups were used. Th
     1. Choose the*Controlled Docs*option from the top dropdown and input any information in the fields to narrow the search.
 
 
-    2. Select the document from the search results on the right hand side to load the document.
+    2. Select the document from the search results on the right-hand side to load the document.
 
 #### **Complete Periodic Review Workflow Task**
 
