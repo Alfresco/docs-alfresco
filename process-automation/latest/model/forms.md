@@ -313,17 +313,11 @@ To create a form that contains the Metadata viewer:
 
 3. Add the Metadata viewer widget to the form.
 
-4. Add the File viewer widget to the form.
+4. Select the **Advanced** tab of the Metadata viewer widget on the **Field Editor** pane.
 
-5. Select the **Advanced** tab of the Metadata viewer widget on the **Field Editor** pane.
-
-6. From the **Linked attach file widget** drop down menu select the Attach file widget you want to link with the Metadata viewer.
+5. From the **Linked attach file widget** drop down menu select the Attach file widget you want to link with the Metadata viewer.
 
    You can add more than one Attach file widget and Metadata viewer widgets to a single form.
-
-7. Select the **Advanced** tab of the File viewer widget on the **Field Editor** pane.
-
-8. From the **Linked attach file widget** drop down menu select the Attach file widget you want to link with the File viewer.
 
 The advanced properties for the Metadata viewer are:
 
