@@ -52,22 +52,24 @@ Use this information to review the components or modules that integrate Content 
 | Transform Service | |
 | Document Transformation Engine | Paid add-on module |
 | Search and Insight Engine | Paid add-on module |
+| Search Enterprise | |
 | Search Services | |
 | Federation Services | |
 | Identity Service | |
 | SAML Module for Alfresco Content Services | |
-| Intelligence Services | |
+| Intelligence Services | Paid add-on module |
 | Content Connector for AWS S3 | Paid add-on module |
 | Content Connector for Azure | Paid add-on module |
 | Content Connector for AWS Glacier | |
-| Content Connector for EMC Centera | Paid add-on module and requires additional software |
 | Content Connector for Salesforce | |
 | Content Connector for SAP applications | Paid add-on module |
 | Content Connector for SAP Cloud | Paid add-on module |
 | Collaboration Connector for Microsoft 365 | |
+| Collaboration Connector for Teams | |
 | Outlook Integration | Paid add-on module |
 | Office Services | |
 | Google Docs Integration | |
+| | |
 | **Applications** | |
 | Digital Workspace | |
 
