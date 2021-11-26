@@ -164,17 +164,13 @@ The language used switches according to the browser locale. Ensure that your bro
 
 Use this information to review the components or modules that integrate Content Services with other applications.
 
-### Services
-
-| Services | Notes |
+| Name     | Notes |
 | -------- | ----- |
+| **Services** | |
 | Process Services | |
 | Governance Services | |
-
-### Integrations
-
-| Integrations | Notes |
-| ------------ | ----- |
+| | |
+| **Integrations** | |
 | Sync Service | |
 | Desktop Sync | |
 | Document Transformation Engine | Paid add-on module |
