@@ -99,7 +99,6 @@ Using multi-tenancy you can configure multiple, independent tenants on a single 
 * Content replication
 * Encrypted Content Store
 * Document Transformation Engine
-* EMC Centera Connector
 * Alfresco Mobile Applications (they use the default tenant and can't switch between tenants)
 * Alfresco Outlook Integration
 * Alfresco Media Management
