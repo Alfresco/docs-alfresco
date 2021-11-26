@@ -60,7 +60,6 @@ Use this information to review the components or modules that integrate Content 
 | Content Connector for AWS S3 | Paid add-on module |
 | Content Connector for Azure | Paid add-on module |
 | Content Connector for AWS Glacier | |
-| Content Connector for EMC Centera | Paid add-on module and requires additional software |
 | Content Connector for Salesforce | |
 | Content Connector for SAP applications | Paid add-on module |
 | Content Connector for SAP Cloud | Paid add-on module |
