@@ -230,6 +230,27 @@ In the REST API you can specify the timezone to be used in search for date range
 }
 ```
 
+### Search using date math
+
+Date range queries can be even more powerful when applying date math functions. AFTS supports adding and subtracting periods, as well as rounding:
+
+| AFTS query | Description |
+| ---------- | ----------- |
+| `acme:projectStartDate:[NOW TO NOW+1DAY>` | Documents with a project start date in the next twenty four hours |
+| `acme:projectStartDate:[NOW/DAY TO NOW/DAY+1DAY>` | Documents with a project start date today (between midnight and midnight UTC) |
+| `acme:projectStartDate:[NOW-1MONTH/YEAR TO NOW-1MONTH/YEAR+1DAY>` | Documents with a project start date in the first day of the year that last month fell in |
+
+All these examples have used an inclusive lower bound and an exclusive upper bound. Other bounds can be used, but note that Elasticsearch performs rounding based on the type of bound being used:
+
+| AFTS Bound | Meaning | Elasticsearch rounding behaviour |
+| ---------- | ------- | ----------------------- |
+| `[NOW/YEAR TO ...` | Inclusive lower bound | From the start of this year |
+| `<NOW/YEAR TO ...` | Exclusive lower bound | After the end of this year |
+| `... TO NOW/YEAR]` | Inclusive upper bound | Until the end of this year |
+| `... TO NOW/YEAR>` | Exclusive upper bound | Before the start of this year |
+
+For more details see the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html#range-query-date-math-rounding).
+
 ## Search for an exact term
 
 > **Note:** Exact Term searching is only allowed if default Alfresco Repository configuration has been changed in order to enable this feature.
