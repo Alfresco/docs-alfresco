@@ -20,6 +20,26 @@ The ALL virtual field (i.e. it is not in the index) expands to all fields define
 
 * In `SearchParameters::allAttributes` (the object representation of the corresponding attribute in the ReST API search request) or if they are empty in `DictionaryService::getAllProperties`.
 
+## SITE (Field)
+
+The `SITE` virtual field allows you to limit the search result to a given site. Here is an example showing how to narrow down the search result to a single site named `mysite`:
+
+```afts
+test AND SITE:mysite
+```
+
+It is also possible to limit the result to **any** site. To do so you need to use a special site value `_ALL_SITES_`. For example:
+
+```afts
+test AND SITE:_ALL_SITES_
+```
+
+The `_EVERYTHING_` is another special value which can be used. It means that the `SITE` condition should be ignored. For example:
+
+```afts
+test AND SITE:_EVERYTHING_
+```
+
 ## TEXT (Field, Prefix, Range, Wildcard, Fuzzy)
 
 The TEXT virtual field (i.e. it is not in the index) expands to all fields defined:
