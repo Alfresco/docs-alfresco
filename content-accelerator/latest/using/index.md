@@ -946,206 +946,188 @@ One of those instances is the approval of a document. A document can be power pr
 state/status independent from a workflow. See "Power Promote" for more information.
 
 * Navigate to a document that is within the Draft lifecycle state and make sure the document is not attached to any workflows already.
-* Click on the fast forward icon ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b7c46d539bb1bf64.png) labeled*Power Promote_.
-
-* **Note:** Any contributor/editor user by default will be able to execute the*Power Promote*action. However, this action's visibility can be configured to only allow a certain group and users.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_30ebdffae190e368.png)
-
+* Click on the fast-forward icon ![Img Txt]({% link content-accelerator/images/aca-userguide-fast-forward-icon.png %}) labeled *Power Promote*.
+  ![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-controlled-docs.png %})
+  >**Note:** Any contributor/editor user will, by default, be able to execute the *Power Promote* action. However, this action's visibility can be configured to only allow a certain group and users.
 * Execute the power promote action by inputting the credentials of the user that has selected this action.
-
 * Notice after the action has completed the version label should be the next major version (e.g. 0.1 -> 1.0) and the status is now Approved.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_fcc56e57fb22cc4.png)
+  ![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-controlled-docs2.png %})
 
 ### To Be Read (TBR) Attestation Workflow
+The TBR Attestation Workflow is a way for additional users to *attest* to the changes made to the now Approved document.
 
-* The TBR Attestation Workflow is a way for additional users to*attest*to the changes made to the now Approved document.
+If you have not been following along through the use case scenarios in order, then please review the 
+"Upload New Document" section. During that section, the `TBR Groups` property on the uploaded document was highlighted. 
+This property needs to be set before the document reaches the Approved state.
 
-* If you have not been following along through the use case scenarios in order, then please review the [Upload New Document](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.7r2aizm6x8nw) section. During that section, the **TBR Groups** property on the uploaded document was highlighted. This property needs to be set before the document reaches the Approved state.
+![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-tbr-workflow.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_60bdf2a33426bbe5.png)
+Once a document gets promoted to the Approved state, no matter if it went through "Route for Approval" or 
+"Power Promote", the TBR attestation workflow tasks are sent to the users within the group(s) in that property on the 
+document.
 
-* Once a document gets promoted to the Approved state, no matter if it went through [Route for Approval](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.7cyh7w3gxyy3) or [Power Promote](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.mokke8htptxh), the TBR attestation workflow tasks are sent to the users within the group(s) in that property on the document.
+#### Find TBR Task
+There are three ways to find the TBR workflow tasks:
 
-#### **Find TBR Task**
+1. An **email** is sent out to the user who is in the TBR Group assigned on the property of the document:
+   ![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-tbr-workflow2.png %})
+2. The *Inbox* on the *Dashboard*. The *Inbox* is a collection of the TBR workflow tasks that the currently logged in user has to complete. Following the link will direct the user to the document to complete the TBR workflow task: 
+   ![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-tbr-workflow3.png %})
+3. The user can manually search for the document within *Search* to navigate to the task. See "Search" for more information:
 
-* There are three ways to find the TBR workflow tasks.
+   Search for the document:
+      1. Choose the *Controlled Docs* option from the top dropdown and input any information in the fields to narrow the search.
+      2. Select the document from the search results on the right-hand side to load the document.
 
-1. An **email** is sent out to the user who is in the TBR Group assigned on the property of the document.
+#### Complete TBR Task
+The user should see the document and the *Complete Attestation* icon ![Img Txt]({% link content-accelerator/images/aca-userguide-check-icon.png %}). 
+Click on it.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_150aeb6111708530.png)
-
-1. The* **Inbox*** on the*Dashboard_. The*Inbox*is a collection of the TBR workflow tasks that the currently logged in user has to complete. Following the link will direct the user to the document to complete the TBR workflow task. ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_ceaad80e5cf68faa.png)
-2. The user can manually search for the document within*Search*to navigate to the task. See [Search](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.3vzm2ijgx40e) for more information.
-
-* Search for the document
-
-    1. Choose the*Controlled Docs*option from the top dropdown and input any information in the fields to narrow the search.
-
-    2. Select the document from the search results on the right-hand side to load the document.
-
-#### **Complete TBR Task**
-
-* The user should see the document and the*Complete Attestation*icon ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_72a24fa6ddb11bb4.png) . Click on it.
-
-
-* A table full of details about the workflow are provided to the user. If everything looks good and the user is ready to attest to the changes, click*Complete Task_.
-
-
+A table full of details about the workflow are provided to the user. If everything looks good and the user is ready to 
+attest to the changes, click *Complete Task*.
 
 ### Set Effective Date
+The next step in finalizing a document and its contents is to make sure the document transitions from the Approved to 
+the Effective lifecycle state.
 
-#### **Setting the Effective Date**
+Setting the Effective Date signifies the date in which the document should reach Effective status. This will give enough 
+time to decide if there are any more changes that need to be made before the document goes into the final (production) 
+state of Effective.
 
-* The next step in finalizing a document and its contents is to make sure the document transitions from the Approved to the Effective lifecycle state.
+Once a document has been Approved, there are two ways to *Set Effective Date*:
 
-* Setting the Effective Date signifies the date in which the document should reach Effective status. This will give enough time to decide if there are any more changes that need to be made before the document goes into the final (production) state of Effective.
-
-* Once a document has been Approved, there are two ways to*Set Effective Date_.
-
-1. Setting the effective document of multiple documents on the form they are attached.
-
-    1. Navigate to the form where the document(s) are attached. Click on the*Set Doc Effective Dates_.
-    2. The two documents attached to the form show up in the table shown below. Go ahead and set the Effective Date to the appropriate value. **Note:** the action was run before this screenshot to show what it looks when a document's effective date is set.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_2ad6d49dff81d5e5.png)
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_9cf5689a5a203d18.png)
-
-1. Setting the effective date of a single document while viewing the document.
-
-    1. Navigate to the document whose effective date needs to be set and click on the*Set Effective Date*icon ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_5da7d53cff67cdf0.png) .
-
+1. Setting the effective document of multiple documents on the form they are attached:
+    1. Navigate to the form where the document(s) are attached. Click on the *Set Doc Effective Dates*.
+       ![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-tbr-workflow4.png %})
+    2. The two documents attached to the form show up in the table shown below. Go ahead and set the Effective Date to the appropriate value.
+       ![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-tbr-workflow5.png %})
+       >**Note:** the action was run before this screenshot to show what it looks when a document's effective date is set.
+2. Setting the effective date of a single document while viewing the document:
+    1. Navigate to the document whose effective date needs to be set and click on the *Set Effective Date* icon ![Img Txt]({% link content-accelerator/images/aca-userguide-set-date-icon.png %}).
     2. The action will show only the document that the user is viewing in the table, unlike above where it should multiple documents because it was run from a form. Go ahead and set the Effective Date to the appropriate value.
+   ![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-tbr-workflow6.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_842ee9469837b1d2.png)
+#### Make Docs Effective Scheduled Job
+At this moment the effective dates are set and no more action needs to be taken by the user. What happens next is a 
+scheduled job that runs in the background will pick up any Effective documents that fit its criteria and promote them 
+to Effective.
 
-#### **Make Docs Effective Scheduled Job**
+The criteria is the following:
 
-* At this moment the effective dates are set and no more action needs to be taken by the user.
-* What happens next is a scheduled job that runs in the background will pick up any Effective documents that fit its criteria and promote them to Effective.
-* The criteria is the following:
+1. **Approved** status aspect
+2. **Effective Date** is set to the day the job runs
+3. Does not have **checkedOut** aspect
+4. Does not have **workingCopy** aspect
 
-    1. **Approved** status aspect
-    2. **Effective Date** is set to the day the job runs
-    3. Does not have **checkedOut** aspect
-    4. Does not have **workingCopy** aspect
-
-* The job is configured to run at the **top of every hour.**
+The job is configured to run at the **top of every hour**.
 
 ### Periodic Review
+A document in its final state (i.e. Effective) can be in circulation and used for many years. To make sure the document 
+is still relevant, a periodic review date is set on the document upon becoming Effective.
 
-#### **Setting the Periodic Review Date**
+The periodic review date, by default, is set two years from the time it becomes Effective.
 
-* A document in its final state (Ex: Effective) can be in circulation and used for many years. To make sure the document is still relevant, a periodic review date is set on the document upon becoming Effective.
-* The periodic review date, by default, is set two years from the time it becomes Effective.
+#### Initiating Periodic Review Workflow
+A scheduled job that runs in the background will determine based on the following criteria if the periodic review 
+workflow should be executed:
 
-#### **Initiating Periodic Review Workflow**
+1. Document has **Effective** status
+2. Within **90 days** of the **periodic review date**
+3. Document has **inPeriodicReview** aspect
+4. Document doesn't have **checkedOut** aspect
+5. Document doesn't have **workingCopy** aspect
 
-* A scheduled job that runs in the background will determine based on the following criteria if the periodic review workflow should be executed.
+The scheduled job is configured to run **every night at 12:30 AM**.
 
-    1. Document has **Effective** status
-    2. Within **90 days** of the **periodic review date**
-    3. Document has **inPeriodicReview** aspect
-    4. Document doesn't have **checkedOut** aspect
-    5. Document doesn't have **workingCopy** aspect
+#### Find Periodic Review Workflow Task
+Let's assume the scheduled job has run and the periodic review workflow tasks have been sent out to the 
+*GROUP_wizard_doc_editors* (this group is configured as the default).
 
-* The scheduled job is configured to run **every night at 12:30 AM**.
+There are three ways to find the periodic review workflow task:
 
-#### **Find Periodic Review Workflow Task**
+1. An **email** will be sent out to the configured email address for this particular scheduled job under the property `wizard.periodic.review.default.email`. Consult with the Administrator to configure this property.
+2. The *Inbox* will have a collection of tasks assigned to the user that refers to documents. A group task tab will appear with the group name and all tasks associated with it that can be acquired.
+   1. Click on the *Acquire* to acquire the task for the periodic review workflow task. This will direct the task into the *My Tasks* section. The group task tab will disappear, if there are no more group tasks for that particular group.
+   2. The user will click on the document link to be brought to the document to "Complete the Periodic Review Workflow Task"
+   ![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-periodic-review-workflow.png %})
+3. The user can manually search for the document within *Search* to navigate to the task. See "Search" for more information.
 
-* Let's assume the scheduled job has run and the periodic review workflow tasks have been sent out to the*GROUP_wizard_doc_editors*(this group is configured as the default).
-
-* There are three ways to find the periodic review workflow task:
-
-1. An **email** will be sent out to the configured email address for this particular scheduled job under the property*wizard.periodic.review.default.email.*Consult with the Administrator to configure this property.
-
-
-2. The*Inbox*will have a collection of tasks assigned to the user that refers to documents. A group task tab will appear with the group name and all tasks associated with it that can be acquired.
-
-1. Click on the*Acquire*to acquire the task for the periodic review workflow task. This will direct the task into the*My Tasks*section. The group task tab will disappear, if there are no more group tasks for that particular group.
-2. The user will click on the document link to be brought to the document to [Complete the Periodic Review Workflow Task](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.pzc9hc5pk86y)
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_ca4484cf5f045d07.png)
-
-1. The user can manually search for the document within*Search*to navigate to the task. See [Search](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.3vzm2ijgx40e) for more information.
-
-1. Search for the document
-
-    1. Choose the*Controlled Docs*option from the top dropdown and input any information in the fields to narrow the search.
-
-
+   Search for the document
+    1. Choose the *Controlled Docs* option from the top dropdown and input any information in the fields to narrow the search.
     2. Select the document from the search results on the right-hand side to load the document.
 
-#### **Complete Periodic Review Workflow Task**
+#### Complete Periodic Review Workflow Task
+If the task was acquired in option 2 from above then this step can be skipped. If not, then the *Acquire Task* action 
+icon should be visible ![Img Txt]({% link content-accelerator/images/aca-userguide-aquire-task-icon.png %}). Click on it to acquire the task. See "Acquire Task" for more information.
 
-* If the task was acquired in option 2 from above then this step can be skipped. If not, then the*Acquire Task*action icon should be visible ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_3c88573c8aad3ebb.png) . Click on it to acquire the task. See [Acquire Task](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.r0fngy9s6d3p) for more information.
+Once the periodic review workflow task is acquired the *Perform Periodic Review* action icon ![Img Txt]({% link content-accelerator/images/aca-userguide-perform-periodic-review-icon.png %}) 
+should be visible. Click on that to perform periodic review.
 
-* Once the periodic review workflow task is acquired the*Perform Periodic Review*action icon ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_9edd830320b0d2b3.png) should be visible. Click on that to perform periodic review.
+The user has two options:
 
-* The user has two options:
+1. Accept the document as is.
+   The document's periodic review date will be moved to **two years** from the time the user completes this periodic 
+   review workflow task.
+1. Do not accept the document as is.
+   1. A rejection comment section will appear where the user can leave their comments about their rejection.
+   2. The document at this point should be made "Obsolete" or revisions should be made to it.
 
-1. Accept the document as is
+#### Document Signature Page
+The signature page is a great additional resource to the "audit trail" that provides information about the major wizard 
+events that happen.
 
-The document's periodic review date will be moved to **two years** from the time the user completes this periodic review workflow task.
+When the periodic review workflow task is complete, an entry in the document's signature page will be created. The 
+signature page should be similar to the one in the screenshot below:
 
-1. Do not accept the document as is
-
-1. A rejection comment section will appear where the user can leave their comments about their rejection.
-2. The document at this point should be made [Obsolete](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.eajdivfy3edw) or revisions should be made to it.
-
-#### **Document Signature Page**
-
-* The signature page is a great additional resource to the [audit trail](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.l5ml4vsr4wea) that provides information about the major wizard events that happen.
-
-* When the periodic review workflow task is complete, an entry in the document's signature page will be created. The signature page should be similar to the one in the screenshot below.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_9ed4b7809a2b4adb.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-periodic-review-workflow2.png %})
 
 ### Obsolete Document
+For whatever reason, during either the "Periodic Review" or realizing after "Setting the Effective Date", the document 
+is no longer valid in its current state. The document is then going to be transitioned into the Obsolete lifecycle state. 
+See "Obsolete Document" for more information.
 
-* For whatever reason, during either the [Periodic Review](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.obk19fmj7f6) or realizing after [Setting the Effective Date](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.gmfd6raj7zir), the document is no longer valid in its current state. The document is then going to be transitioned into the Obsolete lifecycle state. See [Obsolete Document](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.13q67trp5r3t) for more information.
-* The Obsolete lifecycle state signifies that the document is decommissioned and no longer relevant.
-* The Obsolete date can only be designated when the document is in the Effective (final) state.
+The Obsolete lifecycle state signifies that the document is decommissioned and no longer relevant. The Obsolete date can 
+only be designated when the document is in the Effective (final) state.
 
-#### **Setting the Obsolete Date**
+#### Setting the Obsolete Date
+Navigate to the Effective document that should become Obsolete and click on the *Obsolete Document* action icon 
+![Img Txt]({% link content-accelerator/images/aca-userguide-obsolete-doc-icon.png %}).
 
-* Navigate to the Effective document that should become Obsolete and click on the*Obsolete Document*action icon ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_e07455e795796e16.png) .
-* The user will fill out the required inputs on the form to then successfully set the obsoletion date. There is no user action needed once this is completed.
-* The admin can configure the Obselete Document action to require authentication.
+The user will fill out the required inputs on the form to then successfully set the obsoletion date. There is no user 
+action needed once this is completed.
+
+The admin can configure the Obselete Document action to require authentication.
 
 Authentication Required:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c87577f400d7fcdf.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-periodic-review-obsolete-doc.png %})
 
 Authentication Not Required:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c539cd67e9e0d50d.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-periodic-review-obsolete-doc2.png %})
 
-#### **Make Docs Obsolete Scheduled Job**
+#### Make Docs Obsolete Scheduled Job
+At this moment the obsolete date is set and no more action needs to be taken by the user. What happens next is a 
+scheduled job that runs in the background will pick up any Effective documents that fit its criteria and transition 
+them to the Obsolete lifecycle state.
 
-* At this moment the obsolete date is set and no more action needs to be taken by the user.
-* What happens next is a scheduled job that runs in the background will pick up any Effective documents that fit its criteria and transition them to the Obsolete lifecycle state.
-* The criteria is the following:
+The criteria is the following:
 
 1. **Effective** status aspect
 2. **Obsolete Date** is set to the day the job runs
 3. Does not have **checkedOut** aspect
 4. Does not have **workingCopy** aspect
 
-* The job is configured to run **every night at 12 AM**.
+The job is configured to run **every night at 12 AM**.
 
+#### Document Signature Page
+The signature page is a great additional resource to the "audit trail" that provides information about the major wizard 
+events that happen. After the document transitions to the Obsolete lifecycle status, the signature page is updated and 
+could look like something below:
 
-#### **Document Signature Page**
+![Img Txt]({% link content-accelerator/images/aca-userguide-power-promote-periodic-review-obsolete-doc3.png %})
 
-* The signature page is a great additional resource to the [audit trail](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.l5ml4vsr4wea) that provides information about the major wizard events that happen.
-* After the document transitions to the Obsolete lifecycle status, the signature page is updated and could look like something below.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_77ee49a63855a931.png)
-
-# APPENDIX B: Claims
-
+## Claims Management Solution Features
 The Content Accelerator for Claims Management provides:
 
 1. a robust and efficient claims content management interface and integration platform to vastly improve access and integration to a variety of content including documents, video and audio files
@@ -1158,8 +1140,6 @@ As an integrated solution, the Content Accelerator does not require the replacem
 The below integration point can be used from Guidewire, Duck Creek, Salesforce, or any custom system to allow for integration from these systems to create a claim and launch users directly into the claim folder. A typical integration involves generating a URL link on the existing interface that can be put into an iframe or launch a new tab/window that takes the user directly into the claim folder. It will commonly pass in some key metadata from the claims data system to populate and update the claim info each time it is launched.
 
 ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_81cda2d4bc9eef7d.png)
-
-## Content Accelerator Claim Solution Features
 
 ### Stage
 
