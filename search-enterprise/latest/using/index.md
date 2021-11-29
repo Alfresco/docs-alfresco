@@ -234,11 +234,12 @@ In the REST API you can specify the timezone to be used in search for date range
 
 Date range queries can be even more powerful when applying date math functions. AFTS supports adding and subtracting periods, as well as rounding:
 
-| AFTS query | Description |
-| ---------- | ----------- |
-| `acme:projectStartDate:[NOW TO NOW+1DAY>` | Documents with a project start date in the next twenty four hours |
-| `acme:projectStartDate:[NOW/DAY TO NOW/DAY+1DAY>` | Documents with a project start date today (between midnight and midnight UTC) |
-| `acme:projectStartDate:[NOW-1MONTH/YEAR TO NOW-1MONTH/YEAR+1DAY>` | Documents with a project start date in the first day of the year that last month fell in |
+| AFTS query | Description | Notes |
+| ---------- | ----------- | ----- |
+| `acme:projectStartDate:[NOW TO NOW+1DAY>` | Documents with a project start date in the next twenty four hours | |
+| `acme:projectStartDate:[NOW/DAY TO NOW/DAY+1DAY>` | Documents with a project start date today (between midnight and midnight UTC) | Note the subtle difference with the previous query |
+| `acme:projectStartDate:[NOW-1MONTH/YEAR TO NOW-1MONTH/YEAR+1DAY>` | Documents with a project start date in the first day of the year that last month fell in | It's possible to chain date math functions together |
+| `cm:created:[2020-11-01T12:34:00/YEAR TO NOW>` | Documents created since the start of 2020. | It's also possible to apply date math to absolute points in time. |
 
 All these examples have used an inclusive lower bound and an exclusive upper bound. Other bounds can be used, but note that Elasticsearch performs rounding based on the type of bound being used:
 
