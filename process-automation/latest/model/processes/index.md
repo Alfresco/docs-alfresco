@@ -142,7 +142,6 @@ The properties for a process variable are:
 | type | A data type selected from a dropdown. See the following table for a list of data types, for example `String` |
 | required | Sets whether the process variable must contain a value when a process instance is started, for example `false` |
 | value | An optional default value for the process variable, for example `ice-cream` |
-| Default value | Sets the default date of the field. If you want the default date to be 'today' and that is the current day then you can select the **Today** checkbox. |
 
 > **Note**: There are four process variable names that are created automatically and should not be used as custom process variable names. `nrOfInstances`, `nrOfActiveInstances`, `nrOfCompletedInstances` and `loopCounter` are used by [multi-instance elements]({% link process-automation/latest/model/processes/bpmn.md %}).
 
