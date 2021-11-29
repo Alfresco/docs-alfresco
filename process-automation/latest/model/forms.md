@@ -60,7 +60,7 @@ The Modeling Application contains two tabs for creating and editing forms.
 
 ### Form Editor
 
-The **Form Editor** is the GUI for modeling forms by dragging and dropping form fields from the palette onto the form designer. The palette contains all of the [form field](#form-fields) types that can be used to a model a form. The **Form Editor** also has the ability to create multiple tabs and rows, as well as create custom outcomes.
+The **Form Editor** is the GUI for modeling forms by dragging and dropping form fields from the palette onto the form designer. The palette contains all of the [form field](#form-fields) types that can be used to model a form. The **Form Editor** also has the ability to create multiple tabs and rows, as well as create custom outcomes.
 
 #### Tabs
 
@@ -300,6 +300,38 @@ The advanced properties for a text field are:
 | Input mask | Set the format for how data may be entered into the field. For example `(00) 0000-0000` for a mandatory 8-digit phone number and 2-digit area code will not allow for letters to be entered at all. |
 | Reversed | This reverses the entry for an `Input mask` and reads the text from right to left instead. |
 | Input mask placeholder | The placeholder to demonstrate the format of an `Input mask`. For example `(__) ____-____` in the phone number example. |
+
+### Metadata viewer
+
+The Metadata viewer can be used to view the metadata of any file you upload or attach to your GUI using the Attach file widget.  
+
+To create a form that contains the Metadata viewer:
+
+1. Create or edit an existing form, for more see [Create a form](#create-a-form).
+
+2. Add the Attach file widget to the form.
+
+3. Add the Metadata viewer widget to the form.
+
+4. Select the **Advanced** tab of the Metadata viewer widget on the **Field Editor** pane.
+
+5. From the **Linked attach file widget** drop down menu select the Attach file widget you want to link with the Metadata viewer.
+
+   You can add more than one Attach file widget and Metadata viewer widgets to a single form.
+
+The advanced properties for the Metadata viewer are:
+
+| Property | Description |
+| -------- | ----------- |
+| Expanded | Select the check box to enable the properties viewer to display all of the properties groups and not just the default properties. |
+| Display default properties | Select the check box if you want to display the default properties. |
+| Display empty | Select the check box to allow the display of empty values in the card view. |
+| Editable | Select the check box to display the metadata in an editable view where it can be updated. |
+| Multi | Select the check box to allow more than one properties group to be expanded at the same time. |
+| Copy to clipboard on click | Select the check box to allow the value of a property to be copied to the clipboard when it is clicked. |
+| Use chips for multi-value properties | Select the check box to allow the display of multi-value properties as chips. |
+| Display aspect | Select the Aspect you wish to display as an expanded card. |
+| Preset | The name or configuration of the the metadata preset. Click the preset button to configure the metadata you would like visible in your GUI, for more on presets see [Application config presets](https://www.alfresco.com/abn/adf/docs/content-services/components/content-metadata-card.component/#application-config-presets){:target="_blank"}. |
 
 ## Custom form widgets
 

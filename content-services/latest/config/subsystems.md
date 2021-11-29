@@ -47,7 +47,7 @@ The supplied subsystem categories are:
 
 | Subsystem name | Functional area |
 | -------------- | --------------- |
-| [ActivitiesFeed](#configure-activities-feed) | Activities notifications |
+| [ActivitiesFeed]({% link content-services/latest/config/email.md %}#configure-activities-feed) | Activities notifications |
 | [Audit]({% link content-services/latest/admin/audit.md %}) | Audit related functions |
 | [Authentication]({% link content-services/latest/admin/auth-sync.md %}) | Authentication related functions |
 | [ContentStore]({% link content-services/latest/admin/content-stores.md %}) | Properties for the encrypted and non-encrypted Content Stores |

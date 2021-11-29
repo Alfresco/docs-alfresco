@@ -15,9 +15,9 @@ It is also possible to store content files in other places, and there are other 
 out-of-the- box to support that:
 
 * **Amazon S3 content store** - store the files in an S3 bucket using the [Alfresco Content Connector for AWS S3]({% link aws-s3/latest/index.md %}).
-* **Centera content store** - store the files in an EMC Centera storage via XAM object storage access protocol.
+<!-- XAM object storage access protocol -->
 
-Besides these content store implementations there are also others that adds features to a content store solution:
+Besides these content store implementations, there are also others that add features to a content store solution:
 
 * **Caching Content Store** - caches files for another content store that might be slow at times, such as accessing an S3 content store.
 * **Encrypted Content Store** - encrypt files
