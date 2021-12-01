@@ -149,15 +149,15 @@ The data types that a process variable can be set as are:
 
 | Type | Description |
 | ---- | ----------- |
-| String | A sequence of characters, for example `#Mint-Ice-Cream-4!` |
-| Integer | A positive whole number, for example `642` |
-| Boolean | A value of either `true` or `false` |
-| Date | A specific date in the format `YYYY-MM-DD`, for example `2020-04-22` |
-| Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss`, for example `2020-09-10 22:30:00` |
-| File | A [file]({% link process-automation/latest/model/files.md %}) uploaded into a process definition or as part of a process instance or task |
-| JSON | A JSON object, for example `{"flavor" : "caramel"}` |
-| Folder | A folder object described as JSON, for example `"name": "mint-folder"` |
-| Array | A comma separated list of entries, for example `mint, strawberry, vanilla` that will be formatted to `["mint","strawberry","vanilla"]` |
+| String | A sequence of characters, for example `#Mint-Ice-Cream-4!`. |
+| Integer | A positive whole number, for example `642`. |
+| Boolean | A value of either `true` or `false`. |
+| Date | A specific date in the format `YYYY-MM-DD`, for example `2020-04-22`. You can also select `Today` from the Value column, which will take the form `${now()}` in the Expression column. |
+| Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss`, for example `2020-09-10 22:30:00`. |
+| File | A [file]({% link process-automation/latest/model/files.md %}) uploaded into a process definition or as part of a process instance or task. |
+| JSON | A JSON object, for example `{"flavor" : "caramel"}`. |
+| Folder | A folder object described as JSON, for example `"name": "mint-folder"`. |
+| Array | A comma separated list of entries, for example `mint, strawberry, vanilla` that will be formatted to `["mint","strawberry","vanilla"]`. |
 
 ### Create a process variable
 
