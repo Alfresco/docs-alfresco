@@ -2,12 +2,7 @@
 title: Develop Process Automation
 ---
 
-The custom development of Process Automation is restricted to four areas:
-
-* Communicating with external systems from an application.
-* Extend the Digital Workspace interface for end users.
-* Develop a custom user interface using the Application Development Framework (ADF).
-* Implementing custom form fields.
+Use the following to develop and customize Process Automation.
 
 ## External systems communication
 
@@ -92,6 +87,247 @@ Once the extended Digital Workspace has been fully customized and tested it can 
 
     * The environment the application is deployed in.
     * When the application should be updated with the new interface.
+
+### Customize Process and Task list columns
+
+By default the Process and Task list columns in the Digital Workspace are generic. The columns can be configured in the `process-services-cloud.extension.json` file of the [Process Services Cloud extension library](https://github.com/Alfresco/alfresco-apps/tree/develop/libs/content-ee/process-services-cloud-extension){:target="_blank"}.
+
+Process list with default columns preset.
+
+```json
+{
+  "features": {
+    "processList": {
+        "presets": {
+            "default": [
+                columns schema
+            ]
+        }
+    }
+  }
+}
+```
+
+![Process list with default columns]({% link process-automation/images/process-list-default-columns.png %})
+
+### Add a column in the Process list using a process instance property
+
+To display the process list with new columns, edit the `process-services-cloud.extension.json` file, and insert an entry into the `features.processList.presets.default` section.
+
+```json
+{
+  "features": {
+    "processList": {
+        "presets": {
+            "default": [
+                { Default Columns schema },
+                {
+                    "id": "app.process.processDefinitionId",
+                    "key": "processDefinitionId",
+                    "type": "text",
+                    "title": "ProcessDefinitionId",
+                    "sortable": true
+                },
+                {
+                    "id": "app.process.appName",
+                    "key": "appName",
+                    "type": "text",
+                    "title": "appName",
+                    "sortable": true
+                }
+            ]
+        }
+    }
+  }
+}
+```
+
+When you restart the application you will see the extra columns in the process list.
+
+![Process list with new columns]({% link process-automation/images/process-list-new-columns.png %})
+
+### Replace a default presets in the Process list
+
+To display a process list with new columns already preset, edit the `process-services-cloud.extension.json` file to include the definition of your own set of columns, and insert an entry into the `features.processList.presets.my-process-presets` section.
+
+```json
+{
+  "features": {
+    "processList": {
+        "presets": {
+            "default": [
+                { Default Columns schema },
+            ],
+            "my-process-presets": [
+                {
+                    "id": "app.process.id",
+                    "key": "id",
+                    "type": "text",
+                    "title": "Process Id",
+                    "sortable": true
+                },
+                                {
+                    "id": "app.process.name",
+                    "key": "name",
+                    "type": "text",
+                    "title": "appName",
+                    "sortable": true
+                },
+                {
+                    "id": "app.process.appName",
+                    "key": "appName",
+                    "type": "text",
+                    "title": "appName",
+                    "sortable": true
+                }
+            ]
+        }
+    }
+  }
+}
+```
+
+To activate the new columns edit the [process-list-cloud-ext.component](https://github.com/Alfresco/alfresco-apps/blob/develop/libs/content-ee/process-services-cloud-extension/src/lib/features/process-list/components/process-list/process-list-cloud-ext.component.ts){:target="_blank"} file and change the `this.columns = this.extensions.getProcessListPreset` property from `default` to `my-process-presets`.
+
+```typescript
+  this.columns = this.extensions.getProcessListPreset('my-process-presets');
+```
+
+![Process list with new columns]({% link process-automation/images/process-list-new-columns.png %})
+
+### Add a column in the Process list using a custom template
+
+To display a process list with a custom column template you first need to create a custom component.
+
+For example, to create custom templates for the process name, status properties, edit the `process-services-cloud.extension.json` file.
+
+```typescript
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ProcessInstanceCloud } from '@alfresco/adf-process-services-cloud';
+
+@Component({
+  selector: 'custom-template-name-column',
+  template: `
+      <mat-list>
+        <mat-list-item>
+            <div mat-line>{{ displayValue.name }}</div>
+            <div mat-line [ngStyle]="{ 'padding-top': '5px' }">
+                <span [ngStyle]="{ 'font-weight': 'bold' }">{{ 'ADF_CLOUD_PROCESS_LIST.PROPERTIES.STARTED_BY' | translate }} :</span>
+                <span> {{ displayValue.initiator }}</span>
+            </div>
+        </mat-list-item>
+      </mat-list>
+    `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  host: { class: 'adf-datatable-content-cell adf-name-column' },
+})
+export class ProcessNameComponent implements OnInit {
+
+  @Input()
+  context: any;
+
+  displayValue: ProcessInstanceCloud;
+
+  constructor() {}
+
+  ngOnInit() {
+    this.displayValue = this.context?.row?.obj;
+  }
+}
+```
+
+```typescript
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ProcessInstanceCloud } from '@alfresco/adf-process-services-cloud';
+
+@Component({
+  selector: 'custom-template-status-column',
+  template: `
+    <mat-chip-list>
+        <mat-chip>
+            <div [ngStyle]="{ 'padding-right': '5px' }">
+                <mat-icon *ngIf="displayValue.status === 'COMPLETED'" [ngStyle]="{ 'color': 'green' }">check_circle</mat-icon>
+                <mat-icon *ngIf="displayValue.status === 'RUNNING'"   [ngStyle]="{ 'color': 'green' }">settings</mat-icon>
+                <mat-icon *ngIf="displayValue.status === 'SUSPENDED'" [ngStyle]="{ 'color': 'red' }">block</mat-icon>
+                <mat-icon *ngIf="displayValue.status === 'CANCELLED'" [ngStyle]="{ 'color': 'red' }">highlight_off</mat-icon>
+            </div>
+            <span>{{displayValue.status}}</span>
+        </mat-chip>
+    </mat-chip-list> 
+    `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  host: { class: 'adf-datatable-content-cell adf-name-column' },
+})
+export class ProcessStatusComponent implements OnInit {
+
+  @Input()
+  context: any;
+
+  displayValue: ProcessInstanceCloud;
+
+  constructor() {}
+
+  ngOnInit() {
+    this.displayValue = this.context?.row?.obj;
+  }
+}
+```
+
+Register the custom components in the [process-list.module.ts](https://github.com/Alfresco/alfresco-apps/blob/develop/libs/content-ee/process-services-cloud-extension/src/lib/features/process-list/process-list.module.ts){:target="_blank"} file. For more on how to register a custom component see [Registration](https://github.com/Alfresco/alfresco-content-app/blob/develop/docs/extending/registration.md){:target="_blank"}.
+
+```typescript
+@NgModule({
+    declarations: [ ProcessNameComponent, ProcessStatusComponent ]
+})
+
+export class ProcessListCloudModule {
+    constructor(extensions: ExtensionService) {
+        extensions.setComponents({
+            'app.processList.columns.name': ProcessNameComponent,
+            'app.processList.columns.status': ProcessStatusComponent
+        });
+    }
+}
+```
+
+Once you have registered your components, you need to register your new template component:
+
+Add your new Column to the `your-app.extensions.json` file:
+
+```json
+{
+  "features": {
+    "processList": {
+        "presets": {
+            "default": [
+                {
+                  "id": "app.process.name",
+                  "key": "name",
+                  "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.NAME",
+                  "type": "text",
+                  "template": "app.processList.columns.name",
+                  "sortable": true
+                },
+                {
+                  "id": "app.process.status",
+                  "key": "status",
+                  "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.STATUS",
+                  "type": "text",
+                  "template": "app.processList.columns.status",
+                  "sortable": true
+                }
+            ]
+        }
+    }
+  }
+}
+```
+
+Restart the application and you will see custom columns in the process list that contains the new custom template columns.
+
+![Process list with new columns]({% link process-automation/images/process-list-custom-template.png %})
 
 ## Develop a custom user interface
 
@@ -212,7 +448,6 @@ Once the custom interface has been fully developed and tested it can be deployed
 To include custom form fields within a form, the [form field customizations](https://github.com/Alfresco/alfresco-ng2-components/blob/develop/docs/user-guide/extensibility.md){:target="_blank"} must be included in the [customization of Digital Workspace](#extend-the-digital-workspace) or the [development of a custom user interface](#develop-a-custom-user-interface).
 
 > **Note**: The custom field can be [included in a form]({% link process-automation/latest/model/forms.md %}#custom-form-widgets) before the custom interface has been deployed.
-
 
 ## REST API
 
