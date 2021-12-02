@@ -186,6 +186,11 @@ The advanced properties for a REST dropdown field are:
 | Path to array in JSON response | The path to the JSON response. Enter `.` to use the full path. |
 | ID property | The ID of the REST service. |
 | Label property | The name of the REST service. |
+| Conditional | Turn this option on if you would like to link your drop down list with another drop down list and to create a conditional relationship. For example, If you select a country from one drop down list, the second drop down list will only show cities from that country. |
+| Depends on | The name of the REST service. |
+| If equal | The name of the REST service. |
+
+
 
 ### File viewer fields
 
