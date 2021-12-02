@@ -51,7 +51,7 @@ The main difference is that when you run a container, you are not starting a com
 ## Alfresco Docker images
 The public Alfresco Docker images are available in the [Docker Hub](https://hub.docker.com) registry. There are also
 private Enterprise-only images in the Quay.io registry. Access to these can be requested from
-[Hyland Community](https://community.hyland.com/)
+[Hyland Community](https://community.hyland.com/){:target="_blank"}.
 
 Go to [Docker Hub](https://hub.docker.com/u/alfresco/){:target="_blank"} to see a list of images belonging to the
 `alfresco` user or, alternatively, [search for alfresco](https://hub.docker.com/search?q=alfresco%2F&type=image){:target="_blank"}
