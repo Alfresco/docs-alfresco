@@ -2,9 +2,13 @@
 title: Using the Content Accelerator
 ---
 
+The user guide contains general information about the Content Accelerator as well as information about the two 
+domain specific implementations for policy and procedure and claims management.
+
+## Features
 When you start using Content Accelerator, you'll see a number of features that guide you through the application.
 
-## Dashboard
+### Dashboard
 The Content Accelerator Dashboard provides an overview and links to relevant content, displayed in individually 
 configurable dashlets. Results within many dashlets are pageable, with configurable results per page and text filtering 
 functionality for finding the right document quickly and easily. 
@@ -28,7 +32,7 @@ together to demonstrate the many combinations of dashlets a user can have in the
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-dashboard.png %})
 
-## Search
+### Search
 The Content Accelerator Search gives users the tools to locate, filter, and review document and folder information. 
 Content can be searched on using a number of metadata fields, such as document name, creator name, version number, and 
 last modified date. Commonly executed combinations of search parameters can be stored as a "Saved Search", allowing for 
@@ -60,7 +64,7 @@ document and folder actions can be performed from Search. There are two easy way
 To learn more about executing actions within *Search*, reference the Document Actions in Search. These sections will 
 talk more specifically about what actions are available.
 
-## Stage
+### Stage
 The Content Accelerator Stage provides tools to review the information and content of documents and folders. Stage 
 gives the user a results view (similar to that of the Content Accelerator Search tool), information about the folder 
 itself, and actions that can be performed at the folder level.
@@ -83,7 +87,7 @@ out as we walk through the general descriptions of its components.
     * **Conversation Bubble:** The conversation bubble glows to signify if the document has been annotated or not. To annotate a document, Content Accelerator leverages the Alfresco Enterprise Viewer.
     * **Right Arrow:** The right arrow icon will open the document in a new tab to edit the document in a full screen mode.
 
-## Forms
+### Forms
 A "Form" in the Content Accelerator provides an interface for completing and submitting electronic forms, such as 
 benefits enrolment, vacation requests, Change Requests, and more. Content Accelerator Forms utilizes a questionnaire 
 approach for gathering information, simplifying the process of filling out forms electronically. Content Accelerator 
@@ -94,7 +98,7 @@ An example of a business scenario that utilizes the Content Accelerator Forms is
 Check out the PnP's action to Create a Change Form and or the Typical Use Case Scenarios for more information about a 
 real world example using this Content Accelerator feature.
 
-## Navigation Bar
+### Navigation Bar
 The Content Accelerator Navigation Bar provides a user with links to important areas of the application, ability to 
 execute commonly used actions quickly, notifications to allow for communication, and user preferences to customize the 
 user experience. The Content Accelerator Navigation Bar comes with the following default areas detailed below, but can 
@@ -102,41 +106,24 @@ be customized by the administrator for the application.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-nav-bar.png %})
 
-### Header Links
+#### Header Links
 The header links are shortcuts to rapidly access important Content Accelerator features.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-header-links.png %})
 
-#### Search
-The Search header is a link to the Content Accelerator Search feature. Follow the link to learn more about this section 
-and its capabilities.
+* The **Search header** is a link to the Content Accelerator Search feature. Follow the link to learn more about this section and its capabilities.
+* The **Dashboard header** is a link to the Content Accelerator Dashboard feature. Follow the link to learn more about this section and its capabilities.
 
-#### Dashboard
-The Dashboard header is a link to the Content Accelerator Dashboard feature. Follow the link to learn more about this 
-section and its capabilities.
-
-### Header Actions
+#### Header Actions
 The header actions are a fast and efficient way to execute popular actions that are used frequently.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-header-actions.png %})
 
-#### Create Form
-Content Accelerator Forms are great resources for completing and submitting electronic forms. To easily build a form the 
-*Create Form* header action becomes crucial. The user can simply click on this header action and immediately begin 
-filling out the specific form they choose from a dropdown list. A specific use case to create a form would be in the 
-Policy and Procedure scenario where users Create a Change Form.
+* **Create Form** - Content Accelerator Forms are great resources for completing and submitting electronic forms. To easily build a form the *Create Form* header action becomes crucial. The user can simply click on this header action and immediately begin filling out the specific form they choose from a dropdown list. A specific use case to create a form would be in the Policy and Procedure scenario where users Create a Change Form.
+* **Create Folder** - Folders are a helpful resource to provide additional organization of documents or files that are used within Content Accelerator for a particular business's use case. To perform this task of creating a folder with ease, the user can select this header action. A specific use case to create a folder would be in the Claims scenario where users Create a Claim. 
+* **Add Document(s)** - Adding a document or multiple documents is something a typical user could perform often. An easy way to swiftly accomplish this task can be accessed in the navigation bar. Clicking on the header action will provide a modal to upload a document or multiple documents. To learn more about uploading a document, see Add Documents.
 
-#### Create Folder
-Folders are a helpful resource to provide additional organization of documents or files that are used within Content 
-Accelerator for a particular business's use case. To perform this task of creating a folder with ease, the user can 
-select this header action. A specific use case to create a folder would be in the Claims scenario where users Create a Claim.
-
-#### Add Document(s)
-Adding a document or multiple documents is something a typical user could perform often. An easy way to swiftly 
-accomplish this task can be accessed in the navigation bar. Clicking on the header action will provide a modal to 
-upload a document or multiple documents. To learn more about uploading a document, see Add Documents.
-
-### Notifications
+#### Notifications
 Notifications within the application are a fantastic way to send out reminders or messages to selected recipients for 
 any relevant use case. The notification section is designated by the bell icon in the right corner of the navigation bar. 
 The bell will glow if the user has a notification or notifications they have not completed. There is also the ability to 
@@ -147,10 +134,10 @@ sent and received.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-notifications2.png %})
 
-### User Preferences
+#### User Preferences
 The following section covers user preferences.
 
-#### Search Preferences
+##### Search Preferences
 The following options are available for the user to control that are related to their *Search Preferences*:
 
 * **Saved Searches** : A saved search is a way to save a search query that the user runs frequently. This saves the user time and the hassle of remembering exactly what parameters were entered to achieve the desired result.
@@ -158,7 +145,7 @@ The following options are available for the user to control that are related to 
 * **Table View Columns** : The ability to reset the table view columns configuration. The table view has the ability for various properties to be shown with the tables. This option will reset those to their default values within the application.
 * **Search Side Bar** : This functionality is exactly what the description says. It will hide the search form (where you entered all the search parameters) when the search is executed.
 
-#### Dashlet Preferences
+##### Dashlet Preferences
 The user has the following choices on how they can view or not view different dashlets in the application:
 
 * Dashlet Order: The user can drag to change the order of any or all the dashlets that are seen in their particular dashboard. To reset them to the default settings the user can select the reset button.
@@ -171,7 +158,7 @@ below shows.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-userpref-dashlet-visibilities.png %})
 
-#### Workflow (if applicable)
+##### Workflow (if applicable)
 This is a user preference that may not be visible to every user depending on what type of business case/scenario they 
 are using. For example, the Policy and Procedure scenario user would see this while the Claims scenario user would not.
 
@@ -181,7 +168,7 @@ so they can designate who should complete tasks on their behalf.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-userpref-workflow-recieve-tasks.png %})
 
-#### Tour
+##### Tour
 The tour section is initiated when it is the first time the user is visiting the Content Accelerator feature sections 
 of *Search* and *Stage*. This can be switched on or off depending on if the user wants to see the tour again because 
 they forgot all the cool things they can do in each of the *Search* and *Stage* areas.
@@ -236,10 +223,10 @@ Listing document notes:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-list-notes.png %})
 
-## Document Actions in Stage
+### Document Actions in Stage
 The following actions are document related.
 
-### View Versions
+#### View Versions
 Allows for viewing of information and content of previous versions of a document:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-view-versions.png %})
@@ -251,12 +238,12 @@ Allows for viewing of information and content of previous versions of a document
 
 >**Note:** 3 and 4 may not show up in every environment.
 
-### View Renditions
+#### View Renditions
 Allows users to view the different renditions (file types) for a particular document:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-view-renditions.png %})
 
-### Checkout / Checkin
+#### Checkout / Checkin
 Allows for a document to be downloaded, modified, and uploaded to Alfresco as a new major or minor version of the 
 document:
 
@@ -265,12 +252,12 @@ document:
 1. Drag and Drop area to easily select a file to upload as the documents new content
 2. A text box to describe the changes that occurred with the new checked-in document
 
-### Cancel Checkout
+#### Cancel Checkout
 Allows a user to cancel their checkout of an object in the repository. This will remove the user's lock on the object:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-cancel-checkout.png %})
 
-### Send Notification
+#### Send Notification
 The ability to send out a message to a particular user/users or group/groups with adding a comment.
 
 1. **Users** : select the user(s) that will receive the notification. The dropdown is populated by a configurable list (picklist) that a query is sent out to populate.
@@ -293,12 +280,12 @@ user can click the complete button to acknowledge they have received and underst
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-view-notifications.png %})
 
-## Document Actions in Search
+### Document Actions in Search
 To access actions in this section, navigate to *Search* and execute a search to bring back documents (See Search). 
 Select a single document (either right-click the document or use the little checkboxes on the left side). Then right-click. 
 The drop-down menu will show all the available document actions that can be performed at this time.
 
-### Open in New Tab
+#### Open in New Tab
 Allows a user to open the selected document in a new tab of his or her browser.
 
 To perform this action, select the checkbox next to a document and then right-click on the document. Alternatively, you 
@@ -307,7 +294,7 @@ action, and the document will open in a new browser tab:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-open-new-tab.png %})
 
-### Download Document
+#### Download Document
 Allows a user to download the selected document to his or her file system.
 
 To perform this action, select the checkbox next to a document and then right-click on the document. Alternatively, you 
@@ -316,24 +303,24 @@ the document will be downloaded to your file system:
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-open-download-doc.png %})
 
-### View Properties
+#### View Properties
 This is another way to execute the View Properties on an object, just within the Content Accelerator Search. Please check 
 out the View/Edit Properties for the explanation of this action.
 
-### Document Notes
+#### Document Notes
 Notes specifically placed at the document level. See the Document Notes section where this action was already explained.
 
-### Send Email
+#### Send Email
 The send email action is the ability to send an email with the document that this is executed from as an email attachment. 
 Reference the Send Email action within the Claims Scenario to get a better understanding of how it is used within a 
 business use case.
 
-## Group Actions in Search
+### Group Actions in Search
 To access actions in this section, navigate to Search and execute a search to bring back documents (See Search). Select 
 multiple documents (either right-click selecting multiple or use the little checkboxes on the left side). Then right-click. 
 The drop-down menu will show all the available group actions that can be performed at this time.
 
-### Open Each in New Tab
+#### Open Each in New Tab
 It may be beneficial to open multiple documents in a new tab for better viewing and editing. To perform this action, 
 select **multiple** documents from the search results and right-click. Alternatively, you can access this action from 
 the Action dropdown when multiple documents are selected. Press the *Open Each in New Tab* action and each document 
@@ -344,7 +331,7 @@ the application to ensure all tabs are able to be opened.
 
 ![Img Txt]({% link content-accelerator/images/aca-userguide-doc-actions-search-open-new-tab-each.png %})
 
-### Export Results to Excel
+#### Export Results to Excel
 A quick way to provide information in another format using a different product is the integration to export the search 
 results to an Excel spreadsheet. Select multiple documents from the search results and right-click. Then click on the 
 *Export Results to Excel* action. Alternatively, you can access this action from the Action dropdown when multiple 
@@ -1130,194 +1117,205 @@ could look like something below:
 ## Claims Management Solution Features
 The Content Accelerator for Claims Management provides:
 
-1. a robust and efficient claims content management interface and integration platform to vastly improve access and integration to a variety of content including documents, video and audio files
+* A robust and efficient claims content management interface and integration platform to vastly improve access and integration to a variety of content including documents, video and audio files
+* Simplified connectivity to any claims data system (ex:  Guidewire, Salesforce, Fineos, or custom built) to provide unlimited access from any client data driven system for the synchronization of claims data, a critical indexing component of claims documents.
+* A modern platform for additional business intelligence analytics for claims documents.
 
-1. simplified connectivity to any claims data system (ex:  Guidewire, Salesforce, Fineos, or custom built) to provide unlimited access from any client data driven system for the synchronization of claims data, a critical indexing component of claims documents.
-2. a modern platform for additional business intelligence analytics for claims documents.
+As an integrated solution, the Content Accelerator does not require the replacement of existing data systems, only 
+extensions to "electronic file enable" the claim systems saving a huge amount of rework for data processing and document 
+processing if combined in a single effort. Data such as insured name, policy number and claim number can be passed to 
+the solution when the electronic file system is first accessed, saving critical data entry time, effort and reducing 
+errors.
 
-As an integrated solution, the Content Accelerator does not require the replacement of existing data systems, only extensions to "electronic file enable" the claim systems saving a huge amount of rework for data processing and document processing if combined in a single effort. Data such as insured name, policy number and claim number can be passed to the solution when the electronic file system is first accessed, saving critical data entry time, effort and reducing errors.
+The below integration point can be used from Guidewire, Duck Creek, Salesforce, or any custom system to allow for 
+integration from these systems to create a claim and launch users directly into the claim folder. A typical integration 
+involves generating a URL link on the existing interface that can be put into an iframe or launch a new tab/window that 
+takes the user directly into the claim folder. It will commonly pass in some key metadata from the claims data system 
+to populate and update the claim info each time it is launched.
 
-The below integration point can be used from Guidewire, Duck Creek, Salesforce, or any custom system to allow for integration from these systems to create a claim and launch users directly into the claim folder. A typical integration involves generating a URL link on the existing interface that can be put into an iframe or launch a new tab/window that takes the user directly into the claim folder. It will commonly pass in some key metadata from the claims data system to populate and update the claim info each time it is launched.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_81cda2d4bc9eef7d.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt.png %})
 
 ### Stage
+Here you can view all information about a claim, the documents linked to a claim, and perform a variety of actions. The 
+guide below walks through a typical example of a Claim Solution's Stage and what can be achieved. 
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_aada7a4fd05b7717.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt2.png %})
 
-Here you can view all information about a claim, the documents linked to a claim, and perform a variety of actions. The guide below walks through a typical example of a Claim Solution's Stage and what can be achieved. [Learn more about Stage for other solutions](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.2tgjp5epeswg).
+#### Left Sidebar
+The left side of the image exhibits the left sidebar. Here, this guide will cover the Claim Informational Panel and 
+the Actions Panel. Please note that clicking on the tab on the left near the top of the panel will minimize the panel, 
+allowing more space for the right side panel.
 
-#### **Left Sidebar**
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt3.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_19d0f8fbc179ffaa.png)
+* The red box labeled `1` outlines the *Claim Informational Panel*. The top most panel's header tells you the type of the current claim folder. Moving down, there is a list of some of the properties from the claim the user is currently viewing.
+* The dark blue box labeled `2` outlines the *Actions* dropdown panel. Within this dropdown are actions you can perform on this claim folder.
+    * The orange box labeled `a` outlines the **View All Claim Documents** action. This action allows you to view all the documents within the current claim. Upon launching into a claim, this action is automatically active.
+    * The pink box labeled `b` outlines the **Claim Notes** action. This action is great for tracking user activity within the claim, as well as creating your notes. 
+    * The light blue box labeled `c` outlines the **Add Documents to Claim** action. This action allows you to add one or more documents to the claim folder and properties for each of those documents. 
+    * The brown box labeled `d` outlines the **Send Email** action. This action allows you to send an email to both internal and external recipients, attach documents found within the claim, and can create a personal note based on custom text after sending. 
+    * The purple box labeled `e` outlines the **Claim Properties** action. This action allows you to view and edit the current properties of the claim folder. 
 
-The left side of the image exhibits the left sidebar. Here, this guide will cover the Claim Informational Panel and the Actions Panel. Please note that clicking on the tab on the left near the top of the panel will minimize the panel, allowing more space for the right side panel.
+#### Right Side Panel
+Direct your attention to the right side of the image. The right side panel is the largest area of the Stage. This area 
+can consist of either one or two panes. Either one or both of these panes can be used as a document viewer, which allows 
+you to work on documents side by side. As seen in the initial screenshot of the Stage, this panel can consist of one 
+pane dedicated solely to an action. Additionally, it can be side by side with a document viewer pane. Two action panes 
+cannot be side by side.
 
-1. Red box labeled '1': outlines the Claim Informational Panel. The top most panel's header tells you the type of the current claim folder. Moving down, there is a list of some of the properties from the claim the user is currently viewing.
-2. Dark blue box labeled '2': outlines the Actions dropdown panel. Within this dropdown are actions you can perform on this claim folder.
-
-1. Orange box labeled 'a': outlines the View All Claim Documents action. This action allows you to view all the documents within the current claim. Upon launching into a claim, this action is automatically active. [Learn more about View All Claim Documents](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.mwn0ip4b3bux).
-2. Pink box labeled 'b': outlines the Claim Notes action. This action is great for tracking user activity within the claim, as well as creating your notes. [Learn more about Claim Notes](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.v58t8wokdruz).
-3. Light blue box labeled 'c': outlines the Add Documents to Claim action. This action allows you to add one or more documents to the claim folder and properties for each of those documents. [Learn more about Add Documents to Claim](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.cwi9jw4g2gbf).
-4. Brown box labeled 'd': outlines the Send Email action. This action allows you to send an email to both internal and external recipients, attach documents found within the claim, and can create a personal note based on custom text after sending. [Learn more about Send Email](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.czjr4shes19i).
-5. Purple box labeled 'e': outlines the Claim Properties action. This action allows you to view and edit the current properties of the claim folder. [Learn more about Claim Properties](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.iyl9xj9vnwvl).
-
-#### **Right Side Panel**
-
-##### ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_594834fc012ebfbf.png)
-
-Direct your attention to the right side of the image. The right side panel is the largest area of the Stage. This area can consist of either one or two panes. Either one or both of these panes can be used as a document viewer, which allows you to work on documents side by side. [Learn more about the Claim's Document Viewer Pane](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.q1xm11hweqx7). As seen in the initial screenshot of the Stage, this panel can consist of one pane dedicated solely to an action. Additionally, it can be side by side with a document viewer pane. Two action panes cannot be side by side.
-
-#### **Document Viewer Pane**
-
-See [Stage's Document View Pane](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.2tgjp5epeswg)
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt4.png %})
 
 ### Search
+Some implementations may choose to expose the "Search" interface for searching across various claim and/or document 
+metadata. Search is the easiest way to find a claim based on a set of properties already known to you. In the case only 
+one property is known or even a partial value, search makes it easy to find your desired claims. Additionally, you can 
+search for specific documents that could be located in one or many claims. 
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_512aee3d23ed5715.png)
+After searching, you can navigate to the displayed results and perform multiple actions on those documents. Below is an 
+example of a Claim Solution's Search and the features can be accomplished:
 
-Some implementations may choose to expose the "Search" interface for searching across various claim and/or document metadata. Search is the easiest way to find a claim based on a set of properties already known to you. In the case only one property is known or even a partial value, search makes it easy to find your desired claims. Additionally, you can search for specific documents that could be located in one or many claims. After searching, you can navigate to the displayed results and perform multiple actions on those documents. Below is an example of a Claim Solution's Search and the features can be accomplished. [Learn more about Search for other solutions](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.3vzm2ijgx40e).
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt5.png %})
 
-#### **Search Form**
+#### Search Form
+The search form is where you enter the criteria you wish to search on. Upon navigating to search, this form appears on 
+the left side of the search underneath the search header. Clicking the tab near the top left corner of the pane will 
+open and close the search view. 
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_b97e48964da324c.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt6.png %})
 
-The search form is where you enter the criteria you wish to search on. Upon navigating to search, this form appears on the left side of the search underneath the search header. Clicking the tab near the top left corner of the pane will open and close the search view. When searching, some criteria allow for wildcard characters. Here, the asterisk (\*) is a wildcard character that allows you to search for all possible documents in the repository.
+When searching, some criteria allow for wildcard characters. Here, the asterisk (*) is a wildcard character that allows
+you to search for all possible documents in the repository.
 
-1. Red box labeled 1: outlines the object type selector box. Here, you can choose between searching for Claim Folders or Claim Documents. Currently, we are searching for claim documents, as 'Claim Documents' is selected in the dropdown.
+* The red box labeled `1` outlines the object type selector box. Here, you can choose between searching for Claim Folders or Claim Documents. Currently, we are searching for claim documents, as 'Claim Documents' is selected in the dropdown.
+* The orange box labeled `2` outlines the saved search input box. Before searching, you can select a pre-saved search from the dropdown list. A saved search stores the values of the previous form into an easy-to-remember text the user can define. This can save you from reentering all the criteria for searches you use everyday. To save a new search, type in the criteria for the search, execute the search, click the plus icon within the saved search input box, and input what you would like your search to be called. You can manage your saved searches from the User Preferences page.
+* The dark blue box labeled `3` outlines the full text search box. This field consists of two parts, the input box and the search button. The input box is where you enter any text that could match any property. The returned claims will have at least one property that matches the input text exactly. The button on the right of the box will execute the search. Additionally, the search button at the bottom of the form and the enter key will also execute the search.
+* The pink box labeled `4` outlines the attribute search tab. Within this tab, you can add criteria for properties you wish to search. Some properties' criteria can be selected from a dropdown or date picker. Others, such as Claim Number, need to be entered in manually. The results will return all items that match any part of the criteria for the respective property. If the property you wish to search on does not appear, check the more fields section at the bottom of the attribute search tab. Note that not all claim properties will appear in the form.
+* The light blue box labeled `5` outlines the filters tab. After a search has already been run, this tab will populate with filters based on the result.
 
-1. Orange box labeled 2: outlines the saved search input box. Before searching, you can select a pre-saved search from the dropdown list. A saved search stores the values of the previous form into an easy-to-remember text the user can define. This can save you from reentering all the criteria for searches you use everyday. To save a new search, type in the criteria for the search, execute the search, click the plus icon within the saved search input box, and input what you would like your search to be called. You can manage your saved searches from the User Preferences page. [Learn more about User Preferences](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.sm5pzv9xjh9k).
-2. Dark blue box labeled 3: outlines the full text search box. This field consists of two parts, the input box and the search button. The input box is where you enter any text that could match any property. The returned claims will have at least one property that matches the input text exactly. The button on the right of the box will execute the search. Additionally, the search button at the bottom of the form and the enter key will also execute the search.
-3. Pink box labeled 4: outlines the attribute search tab. Within this tab, you can add criteria for properties you wish to search. Some properties' criteria can be selected from a dropdown or date picker. Others, such as Claim Number, need to be entered in manually. The results will return all items that match any part of the criteria for the respective property. If the property you wish to search on does not appear, check the more fields section at the bottom of the attribute search tab. Note not all claim properties will appear in the form.
-4. Light blue box labeled 5: outlines the filters tab. After a search has already been run, this tab will populate with filters based on the result.
+  ![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt7.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_cd5980f214712c3d.png)
+  Here, the results returned had 12 different values within the document category property. The number to the right 
+  represents the number of results that match the criteria stated on the left. Selecting the checkbox will remove all 
+  results from search results pane that do not match the criteria selected. The reset button at the top left removes all 
+  selected filters.
 
-Here, the results returned had 12 different values within the document category property. The number to the right represents the number of results that match the criteria stated on the left. Selecting the checkbox will remove all results from search results pane that do not match the criteria selected. The reset button at the top left removes all selected filters.
+* The purple box labeled `6` is where you can submit your search form, executing the search. This can also be done by clicking the search button in the full text search input box or by hitting the enter key while within the form. Clicking the reset button empties all previous entered criteria in the form without running another search.
 
-1. Purple box labeled 6: where you can submit your search form, executing the search. This can also be done by clicking the search button in the full text search input box or by hitting the enter key while within the form. Clicking the reset button empties all previous entered criteria in the form without running another search.
+#### Search Results Pane
+Here you can navigate the results, change how the results are displayed, further filter the results down, and perform 
+actions on some or all of the results.
 
-#### **Search Results Pane**
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt8.png %})
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_93456eb98e64bf93.png)
+* The red box labeled `1`: outlines the search results control bar. This control bar allows the user to interact, modify, and update the table below it. It consists of 5 main controls but can change depending on the state of the table. Below the controls displays the number of search results returned with the previous search as well as an icon. Hovering over the icon will display detailed timing information about search execution.
+    * The brown box labeled `a`: outlines the pagination control. You can navigate the various pages of the results using the Prev and Next buttons. Clicking on the page number dropdown in the center allows you to jump to a specific page number.
+    * The light blue box labeled `b`: outlines the selection control. When items in the table are selected, the number of selected items will be displayed. Clicking on the control allows you to select all items in the table across all pages or deselect all selected items.
+    * The purple box labeled `c`': outlines the results per page control. Here you can select how many items you wish to display in the table below.
+    * The pink box labeled `d`: outlines the actions control. The actions control will appear when one or more items are selected. This dropdown can also be accessed by right-clicking on a selected item and applies to all selected items. 
+    * The green box labeled `e`: outlines the quick filter control. This filter allows you to narrow down the results that displayed. This filter removes all results except those that have a partial match of the text you entered to a table property. Note this filter will filter across all pages.
+* The dark blue box labeled 2: outlines is the table display options. Currently listview is selected and displayed green. You can toggle table display view, also known as thumbnail view, by clicking on the camera icon. This will show a preview of each item in the results table. Below is an image of the table in thumbnail view. Note right-click functionality is disabled for thumbnails.
 
-Here you can navigate the results, change how the results are displayed, further filter the results down, and perform actions on some or all of the results.
+  ![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt9.png %})
 
-1. Red box labeled 1: outlines the search results control bar. This control bar allows the user to interact, modify, and update the table below it. It consists of 5 main controls but can change depending on the state of the table. Below the controls displays the number of search results returned with the previous search as well as an icon. Hovering over the icon will display detailed timing information about search execution.
-
-1. Brown box labeled 'a': outlines the pagination control. You can navigate the various pages of the results using the Prev and Next buttons. Clicking on the page number dropdown in the center allows you to jump to a specific page number.
-2. Light blue box labeled 'b': outlines the selection control. When items in the table are selected, the number of selected items will be displayed. Clicking on the control allows you to select all items in the table across all pages or deselect all selected items.
-3. Purple box labeled 'c': outlines the results per page control. Here you can select how many items you wish to display in the table below.
-4. Pink box labeled 'd': outlines the actions control. The actions control will appear when one or more items are selected. This dropdown can also be accessed by right-clicking on a selected item and applies to all selected items. [Learn more about actions with Content Accelerator's Claim Solution](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.7c6kv4vovox8).
-5. Green box labeled 'e': outlines the quick filter control. This filter allows you to narrow down the results that displayed. This filter removes all results except those that have a partial match of the text you entered to a table property. Note this filter will filter across all pages.
-
-1. Dark blue box labeled 2: outlines is the table display options. Currently listview is selected and displayed green. You can toggle table display view, also known as thumbnail view, by clicking on the camera icon. This will show a preview of each item in the results table. Below is an image of the table in thumbnail view. Note right-click functionality is disabled for thumbnails.
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_16acb64fe81820b0.png)
-
-1. Orange box labeled 3: outlines the search result's table. This table lists all the search results, displaying important properties along its x-axis within the header. Right clicking on the table header allows you to add or remove various claim properties. Clicking the checkbox in the top right corner selects all items on the current page. The checkboxes down the right side allow you to select or deselect individual items. Right clicking on the table when in listview will show potential actions you can perform on the selected items. Clicking on the blue linked item name will route you to Stage if in search. If clicking on a document, Content Accelerator will also open the document viewer for that document. [Learn more about Claim's Stage](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.dcs6pgqf6xzo). [Learn more about the Claim's Document Viewer Pane](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.q1xm11hweqx7).
+* The orange box labeled 3: outlines the search result's table. This table lists all the search results, displaying important properties along its x-axis within the header. Right clicking on the table header allows you to add or remove various claim properties. Clicking the checkbox in the top right corner selects all items on the current page. The checkboxes down the right side allow you to select or deselect individual items. Right clicking on the table when in listview will show potential actions you can perform on the selected items. Clicking on the blue linked item name will route you to Stage if in search. If clicking on a document, Content Accelerator will also open the document viewer for that document.
 
 ### Navigation Bar
+At the top of the following image is the navigation bar allowing you to navigate to different views or perform actions. 
+Here, this guide will cover Search, Dashboard, and Create New Claim.
 
-##### ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_677f4ffe3ef4d36a.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt10.png %})
 
-Directing your attention to the top of the image, there is the navigation bar allowing you to navigate to different views or perform actions. Here, this guide will cover Search, Dashboard, and Create New Claim. [Learn more about other aspects of the Navigation Bar](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.eefm66vzxq2).
-
-1. Red box labeled 1: outlines the Search. Clicking there will navigate you to the search view, where you can search for all the claims based on a variety of conditions. [Learn more about Search for claims](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.3vzm2ijgx40e).
-
-1. Orange box labeled 2: outlines the Dashboard. Clicking there will navigate you to the dashboard view. [Learn more about Dashboard](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.lj7mwr5eks5n).
-2. Blue box labeled 3: outlines the Create New Claim Action. This allows you to quickly create a new claim regardless of the current view. [Learn more about Create New Claim](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.5xyfbyz850w6).
+* The red box labeled `1` outlines the Search. Clicking there will navigate you to the search view, where you can search for all the claims based on a variety of conditions. 
+* The orange box labeled `2` outlines the Dashboard. Clicking there will navigate you to the dashboard view.
+* The blue box labeled `3` outlines the "Create New Claim" Action. This allows you to quickly create a new claim regardless of the current view.
 
 ## Claim Specific Actions
-
-Below is a list of all possible actions you can perform within the Content Accelerator for Claims Management. Folder actions are actions that are applied to claims within the Accelerator. Document actions are actions that are applied to documents, and group actions are applied to multiple documents. Header actions are actions that are accessed within the navigation bar.
+Below is a list of all possible actions you can perform within the Content Accelerator for Claims Management. Folder 
+actions are actions that are applied to claims within the Accelerator. Document actions are actions that are applied to 
+documents, and group actions are applied to multiple documents. Header actions are actions that are accessed within the 
+navigation bar.
 
 ### Folder Actions
+Folder actions are actions that apply to the folder as a whole. These actions are accessed in the left sidebar of the 
+stage. Below is a list of actions you can perform on a Claim Folder.
 
-Folder actions are actions that apply to the folder as a whole. These actions are accessed in the left sidebar of the stage. [Learn more about the Left Sidebar](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.m9is9yrz5a8f). Below is a list of actions you can perform on a Claim Folder.
+#### View All Claim Documents
+View All Claim Documents is an extension of the "Search Results Pane". All the documents associated with the claim are 
+listed as search results in. Within Stage you will be able to perform a larger variety of actions on the documents than 
+in Search.
 
-#### **View All Claim Documents**
+#### Claim Notes
+See "View/Create Folder/Document Notes".
 
-View All Claim Documents is an extension of the [Search Results Pane](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.w7247ebwm1xw). All the documents associated with the claim are listed as search results in. Within Stage you will be able to perform a larger variety of actions on the documents than in Search.
+#### Add Document to Claim
+See "Common Add Documents"
 
-#### **Claim Notes**
-
-See [View/Create Folder/Document Notes](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.f9sd814bd3kg)
-
-#### **Add Document to Claim**
-
-See [Common Add Documents](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.cwi9jw4g2gbf)
-
-#### **Send Email**
-
+#### Send Email
 Allows for one or more documents to be sent to the email addresses specified, along with a message body.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_ddb871ff005e8bca.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt11.png %})
 
-Content Accelerator Send Email
+Content Accelerator Send Email:
 
 1. The To field.
+2. Options to send the email as a CC or BCC to individuals.
+3. This list indicates the users that have been entered into the To field.
+4. The subject of the email. Notice that this email has a custom prefix to the subject that can not be changed. This custom prefix and the ability to edit it are all configurable.
+5. The list of attached documents that will be sent with the email.
+6. The body of the email.
 
-1. Options to send the email as a CC or BCC to individuals.
-2. This list indicates the users that have been entered into the To field.
-3. The subject of the email. Notice that this email has a custom prefix to the subject that can not be changed. This custom prefix and the ability to edit it are all configurable.
-4. The list of attached documents that will be sent with the email.
-5. The body of the email.
-
-#### **Claim Properties**
-
-See [Common View/Edit Properties](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.oyavu8alxiv0)
+#### Claim Properties
+See "Common View/Edit Properties"
 
 ### Document Actions
+Document actions are actions that are applied to a single document. There are a couple ways to select a document action. 
+One method is to open the document in the document viewer and select one of the actions below the header. Another way 
+is to select the row for the document and either right-clicking on the row or clicking on the Action dropdown above the 
+table. For these two scenarios, you may see different lists of actions. 
 
-Document actions are actions that are applied to a single document. There are a couple ways to select a document action. One method is to open the document in the document viewer and select one of the actions below the header. Another way is to select the row for the document and either right-clicking on the row or clicking on the Action dropdown above the table. For these two scenarios, you may see different lists of actions. The lists depend on the context by which the action was accessed. Below is a list of all possible document actions you can perform.
+The lists depend on the context by which the action was accessed. Below is a list of all possible document actions you 
+can perform.
 
-#### **Start Workflow**
-
+#### Start Workflow
 Allows for the creation of a workflow process with the specified document included.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c936a6e50ab00fcd.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt12.png %})
 
 Content Accelerator Start Workflow
 
 1. The current workflow template being used.
+2. The users that will be assigned the workflow once it has started.
+3. The groups that will be assigned to the workflow once it has been started. Note you can not assign users and a group to a workflow, it must be one or the other.
+4. The date the workflow needs to be completed by.
+5. Any notes about the workflow.
 
-1. The users that will be assigned the workflow once it has started.
-2. The groups that will be assigned to the workflow once it has been started. Note you can not assign users and a group to a workflow, it must be one or the other.
-3. The date the workflow needs to be completed by.
-4. Any notes about the workflow.
+#### Download Document
+See "Common Download Document".
 
-#### **Download Document**
+#### View/Edit Properties
+See "Common View/Edit Properties".
 
-See [Common Download Document](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.z9f8l7efa4sv)
+#### View Versions
+See "Common View Versions".
 
-#### **View/Edit Properties**
+#### Checkout / Checkin
+See "Common Checkout/Checkin".
 
-See [Common View/Edit Properties](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.oyavu8alxiv0)
+#### Send Notification
+See "Common Send Notification".
 
-#### **View Versions**
+#### Send Email
+As a document action, send email will attach the document that the action was launched from. For example, if the action 
+is launched from document `Audi_Title.pdf`, the send email action will launch with `Audi_Title.pdf` as the pre-attached 
+document. 
 
-See [Common View Versions](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.vbp2y99haigo)
+#### Document Notes
+See "View/Create Folder/Document Notes".
 
-#### **Checkout / Checkin**
+#### Split PDF
+Allows for the content of a single document to be extracted and turned into a new PDF document. 
 
-See [Common Checkout / Checkin](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.eyap10x3aah7)
-
-#### **Send Notification**
-
-See [Common Send Notification](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.wxg5rj2y8mug)
-
-#### **Send Email**
-
-As a document action, send email will attach the document that the action was launched from. For example, if the action is launched from document*Audi_Title.pdf_, the send email action will launch with*Audi_Title.pdf*as the pre-attached document. [Learn more about Send Email](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.czjr4shes19i).
-
-#### **Document Notes**
-
-See [View/Create Folder/Document Notes](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.f9sd814bd3kg)
-
-#### **Split PDF**
-
-Allows for the content of a single document to be extracted and turned into a new PDF document. ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_9f46a2654a0e2ba0.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt13.png %})
 
 Content Accelerator Split PDF
 
@@ -1326,78 +1324,86 @@ Content Accelerator Split PDF
 3. Clicking this will open a preview of what the new document will look like given the page range.
 4. The new document's properties.
 
-#### **Open In New Tab**
-
-See [Common Open In New Tab](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.g8lfriywargb)
+#### Open In New Tab
+See "Common Open In New Tab".
 
 ### Group Actions
+Group actions are actions that apply when multiple documents have been selected. For example, when looking at the table 
+either in Search or Stage, selecting multiple rows and right-clicking on those rows will open the group action menu. 
+Alternatively, you can access these actions by clicking on the Action dropdown menu above the table. 
 
-Group actions are actions that apply when multiple documents have been selected. For example, when looking at the table either in Search or Stage, selecting multiple rows and right-clicking on those rows will open the group action menu. Alternatively, you can access these actions by clicking on the Action dropdown menu above the table. Below is a list of the possible actions you can perform on a group of documents. Note that all of the actions may not always appear, as they depend on the scenario.
+Below is a list of the possible actions you can perform on a group of documents. Note that all of the actions may not 
+always appear, as they depend on the scenario.
 
-#### **Open Each in New Tab**
+#### Open Each in New Tab
+See "Common Open Each in New Tab".
 
-See [Common Open Each in New Tab](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.gfahb9itzp1s)
-
-#### **Bulk Property Edit **
-
+#### Bulk Property Edit
 Allows you to edit the properties of multiple documents simultaneously.
 
-In the case you wish to edit one or more properties for multiple documents, you can enter in new values on the Bulk Properties page of the form. Each subsequent page represents the properties of one of the documents you selected.
+In the case you wish to edit one or more properties for multiple documents, you can enter in new values on the Bulk 
+Properties page of the form. Each subsequent page represents the properties of one of the documents you selected.
 
-After entering new values into the Bulk Properties page, you can either click the Save button or the Next button. The Save button will update the properties for all of the documents selected. The Next button will go to the next document you selected to edit, and the properties you entered in the Bulk Properties page should be filled out. You can continue to edit the properties for the document selected here.
+After entering new values into the Bulk Properties page, you can either click the **Save** button or the **Next** button. 
+The **Save** button will update the properties for all of the documents selected. The Next button will go to the next 
+document you selected to edit, and the properties you entered in the Bulk Properties page should be filled out. You can 
+continue to edit the properties for the document selected here.
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_be852404c4fd645a.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt14.png %})
 
-#### **Download As Zip**
+#### Download As Zip
+Download as Zip is a group action fired from the Search Results Table. Selecting multiple documents and selecting the 
+action will bring up a prompt to name the zip file. The file will be named the entered name with the current time appended.
 
-Download as Zip is a group action fired from the Search Results Table. Selecting multiple documents and selecting the action will bring up a prompt to name the zip file. The file will be named the entered name with the current time appended.
+#### Export Results to Excel
+See "Common Export Results to Excel".
 
-#### **Export Results to Excel**
+#### Generate Combined PDF
+Allows for the creation of a single PDF document containing content from one or more documents in the repository. The 
+resulting document can be downloaded to your machine, saved to the repository, or sent via email.
 
-See [Common Export Results to Excel](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.8pvab69vg4de)
+Select the files that should be in the combined PDF:
 
-#### **Generate Combined PDF**
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt15.png %})
 
-Allows for the creation of a single PDF document containing content from one or more documents in the repository. The resulting document can be downloaded to your machine, saved to the repository, or sent via email.
+Set properties for PDF:
 
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_dd674f01e2d07f05.png)
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c69d96efb9d96146.png)
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt16.png %})
 
 1. **Selected Documents** - This tab shows the list of documents that will be used to create the combined PDF content.
+2. **Order of Documents for Combined PDF** - This represents the order the documents will be added to the new PDF. You can either edit the numbers manually or drag the documents to reorder them.
+3. **Page Range Selections for Each Document** - Select the ![Img Txt]({% link content-accelerator/images/aca-userguide-new-doc-icon.png %}) icon next to one of the PDFs if you'd only like to include specific pages. This will open a modal window that allows you to enter the page range you'd like to be included. If this section is not edited, the entire document will be included.
+4. **Removal of Document(s)** - If you decide you want no longer want to include one of your selected documents in the combined PDF, click the ![Img Txt]({% link content-accelerator/images/aca-userguide-check-icon-no-circle.png %}) icon. Note it will not be removed from the modal screen, so you can re-add a document if you remove it by mistake.
+5. **Edit Properties** - This tab allows you to edit the properties for the combined PDF that will be created.
 
-1. **Order of Documents for Combined PDF** - This represents the order the documents will be added to the new PDF. You can either edit the numbers manually or drag the documents to reorder them.
-2. **Page Range Selections for Each Document** - Select the ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_48f08602a5510185.png) icon next to one of the PDFs if you'd only like to include specific pages. This will open a modal window that allows you to enter the page range you'd like to be included. If this section is not edited, the entire document will be included.
-3. **Removal of Document(s)** - If you decide you want no longer want to include one of your selected documents in the combined PDF, click the ![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_7951cb409dbb49ab.png) . Note it will not be removed from the modal screen, so you can re-add a document if you remove it by mistake.
-4. **Edit Properties** - This tab allows you to edit the properties for the combined PDF that will be created.
+#### Send Email
+As a group action, send email will attach the documents that the action was launched from. For example, if the action 
+is launched from both documents `Audi_Title.pdf` and `Audi_ProofOfSale.pdf`, the send email action will launch with 
+`Audi_Title.pdf` and `Audi_ProofOfSale.pdf` attachments. 
 
-#### **Send Email**
+#### Create New Claim
+Located in Content Accelerator's navigation bar, the Create New Claim action allows you to either create one new Claim 
+or several. When creating one claim, you will fill out a form similar to the "Claim Properties" form. The greyed out 
+boxes are unable to be edited. Upon populating the form, the **Create Folder** button will create the new claim and 
+route you to the new claim. 
 
-As a group action, send email will attach the documents that the action was launched from. For example, if the action is launched from both documents*Audi_Title.pdf*and*Audi_ProofOfSale.pdf_, the send email action will launch with*Audi_Title.pdf*and*Audi_ProofOfSale.pdf*attachments. [Learn more about Send Email](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.czjr4shes19i).
+Alternatively, claims can be created all together by uploading a csv file that matches specific formatting dependent 
+on the claim object.
 
-### Header Actions
-
-#### **Create New Claim**
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_115a154608e09891.png)
-
-Located in Content Accelerator's navigation bar, the Create New Claim action allows you to either create one new Claim or several. When creating one claim, you will fill out a form similar to the [Claim Properties](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.6ertox2hcg0y) form. The greyed out boxes are unable to be edited. Upon populating the form, the 'Create Folder' button will create the new claim and route you to the new claim. Alternatively, claims can be created enmass by uploading a csv file that matches specific formatting dependent on the claim object.
+![Img Txt]({% link content-accelerator/images/aca-userguide-claims-mgmt17.png %})
 
 ## Typical Ways to Access a Claim
+This section contains info on the different ways you can access a claim.
 
 ### Launch from Claim Service to Content Accelerator
-
-One of the main ways to open a claim in Content Accelerator is from a Claim Service. Upon launching into the Content Accelerator from a Claim Service, you will arrive at the Stage. From here you can perform a variety of actions on the claim, within the claim, and with the claim documents. [Learn more about Claim's Stage](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.dcs6pgqf6xzo).
+One of the main ways to open a claim in Content Accelerator is from a Claim Service. Upon launching into the Content 
+Accelerator from a Claim Service, you will arrive at the Stage. From here you can perform a variety of actions on the 
+claim, within the claim, and with the claim documents. 
 
 ### Within Content Accelerator Search and Access Claim
-
-Content Accelerator provides the ability for users to search for a specific claim based on various criteria. After logging into Content Accelerator, navigate to search using the navigation bar at the top of the page. [See Stage's Navigation Bar for more information](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.484prbc9u536). Within the search view, you can search and open any desired claim folder or claim document. [Learn more about Claim's Search feature](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.5pp768h4dlir).
+Content Accelerator provides the ability for users to search for a specific claim based on various criteria. After 
+logging into Content Accelerator, navigate to search using the navigation bar at the top of the page. 
 
 ### Create a Claim within Content Accelerator
-
-Content Accelerator allows you to create a new claim if it does not exist yet. After logging into Content Accelerator, click on the Create New Claim action in the navigation bar. [See Stage's Navigation Bar for more information](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.484prbc9u536). This action allows you to create a new claim and enter the properties of the new claim. Upon submitting, you will be routed to the new claim folder. [Learn more about Create New Claim action](https://docs.google.com/document/d/1hLb5QnU1PjIF2kf4G5gr9mt09Dk6ITrpjYNypBJv0Bs/edit?ts=5eeb7e11#heading=h.5xyfbyz850w6).
-
-1
-
-
-![Img Txt]({% link content-accelerator/images/aca-working-with-queries-insert.png %})_c77a69456409c6c4.png)
+Content Accelerator allows you to create a new claim if it does not exist yet. After logging into Content Accelerator, 
+click on the Create New Claim action in the navigation bar.
