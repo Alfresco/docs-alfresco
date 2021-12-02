@@ -88,9 +88,9 @@ Once the extended Digital Workspace has been fully customized and tested it can 
     * The environment the application is deployed in.
     * When the application should be updated with the new interface.
 
-### Customize Process and Task list columns
+### Customize process and task list columns
 
-By default the Process and Task list columns in the Digital Workspace are generic. The columns can be configured in the `process-services-cloud.extension.json` file of the [Process Services Cloud extension library](https://github.com/Alfresco/alfresco-apps/tree/develop/libs/content-ee/process-services-cloud-extension){:target="_blank"}.
+The Digital Workspace provides a default group of process and task list columns. The columns can be changed and configured in the `process-services-cloud.extension.json` file of the [Process Services Cloud extension library](https://github.com/Alfresco/alfresco-apps/tree/develop/libs/content-ee/process-services-cloud-extension){:target="_blank"}.
 
 Process list with default columns preset.
 
@@ -110,9 +110,11 @@ Process list with default columns preset.
 
 ![Process list with default columns]({% link process-automation/images/process-list-default-columns.png %})
 
-### Add a column in the Process list using a process instance property
+### Add a column in the process list using a process instance property
 
 To display the process list with new columns, edit the `process-services-cloud.extension.json` file, and insert an entry into the `features.processList.presets.default` section.
+
+Process list with new columns.
 
 ```json
 {
@@ -142,11 +144,11 @@ To display the process list with new columns, edit the `process-services-cloud.e
 }
 ```
 
-When you restart the application you will see the extra columns in the process list.
+When you restart the application you will see the new columns in the process list.
 
 ![Process list with new columns]({% link process-automation/images/process-list-new-columns.png %})
 
-### Replace a default presets in the Process list
+### Replace a default preset in the process list
 
 To display a process list with new columns already preset, edit the `process-services-cloud.extension.json` file to include the definition of your own set of columns, and insert an entry into the `features.processList.presets.my-process-presets` section.
 
@@ -195,11 +197,10 @@ To activate the new columns edit the [process-list-cloud-ext.component](https://
 
 ![Process list with new columns]({% link process-automation/images/process-list-new-columns.png %})
 
-### Add a column in the Process list using a custom template
+### Add a column in the process list using a custom template
 
 To display a process list with a custom column template you first need to create a custom component.
-
-For example, to create custom templates for the process name, status properties, edit the `process-services-cloud.extension.json` file.
+For example, to create custom templates for the process name, status properties, edit the `process-services-cloud.extension.json` file in the following way.
 
 ```typescript
 import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
@@ -292,9 +293,7 @@ export class ProcessListCloudModule {
 }
 ```
 
-Once you have registered your components, you need to register your new template component:
-
-Add your new Column to the `your-app.extensions.json` file:
+Once you have registered your components, you need to register your new template component. To do this you need to add your new column to the `your-app.extensions.json` file:
 
 ```json
 {
