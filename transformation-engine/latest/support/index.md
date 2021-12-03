@@ -6,8 +6,8 @@ The following are the supported platforms for Document Transformation Engine 2.3
 
 | Version | Notes |  
 | ------- | ----- |
-| Content Services 7.1.x | *Optional.* Use with DTE T-Engine v1.0.0 |
-| Content Services 7.0.x | *Optional.* Use with DTE T-Engine v1.0.0 |
+| Content Services 7.1.x | *Optional.* Use with DTE T-Engine v1.2.0 |
+| Content Services 7.0.x | *Optional.* Use with DTE T-Engine v1.2.0 |
 | | |
 | **Java** | |
 | Oracle JDK 11 | |
