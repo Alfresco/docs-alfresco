@@ -116,7 +116,7 @@ Use this information to verify that the system started correctly, and to clean u
         acs-trial_digital-workspace_1    quay.io/alfresco/alfresco-digital-workspace    2.3.0-adw           8019d54c175b        37.8MB
         acs-trial_postgres_1             postgres                                       13.1                407cece1abff        314MB
         acs-trial_proxy_1                alfresco/alfresco-acs-nginx                    3.1.1               3a00a45550a3        21.9MB
-        acs-trial_share_1                alfresco/alfresco-share                        7.1.0               8f1faa352e88        983MB
+        acs-trial_share_1                quay.io/alfresco/alfresco-share                7.1.0               8f1faa352e88        983MB
         acs-trial_shared-file-store_1    quay.io/alfresco/alfresco-shared-file-store    0.16.0              e34dfac7a7d0        649MB
         acs-trial_solr6_1                alfresco/alfresco-search-services              2.0.2               9b48bb3c76cb        1.11GB
         acs-trial_sync-service_1         quay.io/alfresco/service-sync                  3.4.1               a062a3c347fb        945MB
