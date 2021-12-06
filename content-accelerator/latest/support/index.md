@@ -6,6 +6,6 @@ The following are the supported platforms for the Alfresco Content Accelerator 3
 
 |Version|Notes|
 |-------|-----|
-|Alfresco Content Services 7.1.0||
+|Alfresco Content Services 6.0.1 or greater||
 
 
