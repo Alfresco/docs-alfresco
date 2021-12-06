@@ -88,9 +88,293 @@ Once the extended Digital Workspace has been fully customized and tested it can 
     * The environment the application is deployed in.
     * When the application should be updated with the new interface.
 
-### Customize process and task list columns
+### Extend task list with custom columns
 
-The Digital Workspace provides a default group of process and task list columns. The columns can be changed and configured in the `process-services-cloud.extension.json` file of the [Process Services Cloud extension library](https://github.com/Alfresco/alfresco-apps/tree/develop/libs/content-ee/process-services-cloud-extension){:target="_blank"}.
+The Digital Workspace provides a default group of columns for your task list. The columns can be changed and configured in the `process-services-cloud.extension.json` file of the [Process Services Cloud extension library](https://github.com/Alfresco/alfresco-apps/tree/develop/libs/content-ee/process-services-cloud-extension){:target="_blank"}.
+
+Task list with default columns preset.
+
+```json
+{
+  "features": {
+    "taskList": {
+        "presets": {
+            "default": [
+                columns schema
+            ]
+        }
+    }
+  }
+}
+```
+
+![Task list with default columns]({% link process-automation/images/task-list-default-columns.png %})
+
+### Add a column in the task list using a task property
+
+To display the task list with new columns, edit the `process-services-cloud.extension.json` file, and insert an entry into the `features.taskList.presets.default` section.
+
+Task list with new columns.
+
+```json
+{
+  "features": {
+    "taskList": {
+        "presets": {
+            "default": [
+                { ...Default Columns schema },
+                {
+                    "id": "app.task.processDefinitionName",
+                    "key": "processDefinitionName",
+                    "type": "text",
+                    "title": "processDefinitionName",
+                    "sortable": true
+                },
+                {
+                    "id": "app.task.appName",
+                    "key": "appName",
+                    "type": "text",
+                    "title": "appName",
+                    "sortable": true
+                }
+            ]
+        }
+    }
+  }
+}
+```
+
+When you restart the application you will see the new columns in the task list.
+
+![Task list with new columns]({% link process-automation/images/task-list-new-columns.png %})
+
+### Replace a default preset in the task list
+
+To display a task list with new columns already preset, edit the `process-services-cloud.extension.json` file to include the definition of your own set of columns, and insert an entry into the `features.taskList.presets.my-task-presets` section.
+
+```json
+{
+  "features": {
+    "taskList": {
+        "presets": {
+            "default": [
+                { Default Columns schema },
+            ],
+            "my-task-presets": [
+                {
+                    "id": "app.task.name",
+                    "key": "name",
+                    "type": "text",
+                    "title": "Name",
+                    "sortable": true
+                },
+                {
+                    "id": "app.task.status",
+                    "key": "status",
+                    "type": "text",
+                    "title": "Status",
+                    "sortable": true
+                },
+                {
+                    "id": "app.task.processDefinitionName",
+                    "key": "processDefinitionName",
+                    "type": "text",
+                    "title": "processDefinitionName",
+                    "sortable": true
+                },
+                {
+                    "id": "app.task.appName",
+                    "key": "appName",
+                    "type": "text",
+                    "title": "appName",
+                    "sortable": true
+                }
+            ]
+        }
+    }
+  }
+}
+```
+
+To activate the new columns edit the [task-list-cloud-ext.component](https://github.com/Alfresco/alfresco-apps/blob/develop/libs/content-ee/process-services-cloud-extension/src/lib/features/task-list/components/task-list-cloud-ext/task-list-cloud-ext.component.ts){:target="_blank"} file and change the `this.columns = this.extensions.getTaskListPreset` property from `default` to `my-task-presets`.
+
+```typescript
+  this.columns = this.extensions.getTaskListPreset('my-task-presets'); 
+```
+
+![Task list additional columns]({% link process-automation/images/task-list-additional-columns.png %})
+
+### Add a column in the Task list using a custom template
+
+To display a task list with a custom column template you first need to create a custom component.
+For example, to create custom templates for the task name, due date, and priority properties edit the `process-services-cloud.extension.json` file in the following way.
+
+```typescript
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { TaskDetailsCloudModel } from '@alfresco/adf-process-services-cloud';
+
+@Component({
+  selector: 'custom-template-name-column',
+  template: `
+    <mat-list>
+        <mat-list-item>
+            <div mat-line>{{ displayValue.name }}</div>
+            <div mat-line [ngStyle]="{ 'padding-top': '5px' }">
+                <span [ngStyle]="{ 'font-weight': 'bold' }">Assignee :</span>
+                <span> {{ displayValue.assignee }}</span>
+            </div>
+        </mat-list-item>
+    </mat-list>
+    `,
+  host: { class: 'adf-datatable-content-cell adf-name-column' },
+})
+export class TaskNameComponent implements OnInit {
+
+  @Input()
+  context: any;
+
+  displayValue: TaskDetailsCloudModel;
+
+  constructor() {}
+
+  ngOnInit() {
+    this.displayValue = this.context?.row?.obj;
+  }
+}
+```
+
+```typescript
+import { Component, Input, OnInit } from '@angular/core';
+import { TaskDetailsCloudModel } from '@alfresco/adf-process-services-cloud';
+
+@Component({
+  selector: 'custom-template-priority-column',
+  template: `
+    <mat-form-field>
+      <mat-label>Change Priority</mat-label>
+      <mat-select [(ngModel)]="selectedValue" name="priority">
+        <mat-option *ngFor="let priority of priorities" [value]="priority">
+          {{priority}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    `,
+  host: { class: 'adf-datatable-content-cell adf-name-column' },
+})
+export class TaskPriorityComponent implements OnInit {
+
+  @Input()
+  context: any;
+
+  displayValue: TaskDetailsCloudModel;
+
+  priorities: string[] = ['None', 'High', 'Low', 'Normal'];
+  selectedValue: string;
+
+  constructor() {}
+
+  ngOnInit() {
+    this.displayValue = this.context?.row?.obj;
+    this.selectedValue = this.displayValue.priority;
+  }
+}
+```
+
+```typescript
+import { Component, Input, OnInit } from '@angular/core';
+import { ProcessInstanceCloud } from '@alfresco/adf-process-services-cloud';
+
+@Component({
+  selector: 'custom-template-duedate-column',
+  template: `
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Change due date" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    `,
+  host: { class: 'adf-datatable-content-cell adf-name-column' },
+})
+export class TaskDueDateComponent implements OnInit {
+
+  @Input()
+  context: any;
+
+  displayValue: TaskDetailsCloudModel;
+
+  constructor() {}
+
+  ngOnInit() {
+    this.displayValue = this.context?.row?.obj;
+  }
+}
+```
+
+Register the custom components in the [task-list.module.ts](https://github.com/Alfresco/alfresco-apps/blob/9a7c4106fb5befc05bb45e2703bd70c6a7436fb1/libs/content-ee/process-services-cloud-extension/src/lib/features/task-list/task-list.module.ts){:target="_blank"} file. For more on how to register a custom component see [Registration](https://github.com/Alfresco/alfresco-content-app/blob/develop/docs/extending/registration.md){:target="_blank"}.
+
+
+```typescript
+@NgModule({
+    declarations: [TaskNameComponent, TaskPriorityComponent, TaskDueDateComponent ]
+})
+
+export class TasksListCloudModule {
+    constructor(extensions: ExtensionService) {
+        extensions.setComponents({
+            'app.taskList.columns.name': TaskNameComponent,
+            'app.taskList.columns.priority': TaskPriorityComponent,
+            'app.taskList.columns.dueDate': TaskDueDateComponent
+        });
+    }
+}
+```
+
+Once you have registered your components, you need to register your new template component. To do this you need to add your new column to the `your-app.extensions.json` file:
+
+```json
+{
+  "features": {
+    "taskList": {
+        "presets": {
+            "default": [
+                {
+                  "id": "app.task.name",
+                  "key": "name",
+                  "title": "Name",
+                  "type": "text",
+                  "template": "app.taskList.columns.name",
+                  "sortable": true
+                },
+                {
+                  "id": "app.task.dueDate",
+                  "key": "status",
+                  "title": "Due Date",
+                  "type": "text",
+                  "template": "app.taskList.columns.dueDate",
+                  "sortable": true
+                },
+                {
+                  "id": "app.task.priority",
+                  "key": "priority",
+                  "title": "Priority",
+                  "type": "text",
+                  "template": "app.taskList.columns.priority",
+                  "sortable": true
+                }
+            ]
+        }
+    }
+  }
+}
+```
+
+Restart the application and you will see the custom columns in the task list based on the new custom template.
+
+![Task list with custom template]({% link process-automation/images/task-list-custom-template.png %})
+
+### Extend process list with custom columns
+
+The Digital Workspace provides a default group of columns for your process list. The columns can be changed and configured in the `process-services-cloud.extension.json` file of the [Process Services Cloud extension library](https://github.com/Alfresco/alfresco-apps/tree/develop/libs/content-ee/process-services-cloud-extension){:target="_blank"}.
 
 Process list with default columns preset.
 
@@ -195,7 +479,7 @@ To activate the new columns edit the [process-list-cloud-ext.component](https://
   this.columns = this.extensions.getProcessListPreset('my-process-presets');
 ```
 
-![Process list with new columns]({% link process-automation/images/process-list-new-columns.png %})
+![Process list with new columns]({% link process-automation/images/process-list-additional-columns.png %})
 
 ### Add a column in the process list using a custom template
 
@@ -324,9 +608,9 @@ Once you have registered your components, you need to register your new template
 }
 ```
 
-Restart the application and you will see custom columns in the process list that contains the new custom template columns.
+Restart the application and you will see the custom columns in the process list based on the new custom template.
 
-![Process list with new columns]({% link process-automation/images/process-list-custom-template.png %})
+![Process list custom template]({% link process-automation/images/process-list-custom-template.png %})
 
 ## Develop a custom user interface
 
