@@ -66,6 +66,10 @@ defaults:
     values:
       version: 5.2
   - scope:
+      path: "content-services/5.2/tutorial"
+    values:
+      toc: "content-services-tutorial"
+  - scope:
       path: "content-services/5.2-de"
     values:
       version: "5.2-de"
