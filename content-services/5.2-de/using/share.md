@@ -25,7 +25,7 @@ Um mit Alfresco Share loslegen zu können, müssen Sie sich zunächst anmelden.
 
     **Passwort**: *Ihr Passwort*
 
-    > **Hinweis:** Sie können die Anmelde-URL bei Ihrem IT-Team erfragen. Wenn Sie Alfresco Share direkt auf Ihren Computer heruntergeladen haben, lautet die Standard-URL 127.0.0.1:8080/share.
+    > **Hinweis:** Sie können die Anmelde-URL bei Ihrem IT-Team erfragen. Wenn Sie Alfresco Share direkt auf Ihren Computer heruntergeladen haben, lautet die Standard-URL `127.0.0.1:8080/share`.
 
 2. Klicken Sie auf **Anmelden**.
 
@@ -57,7 +57,7 @@ Unabhängig davon, wo Sie sich in Share befinden, können Sie im Benutzermenü a
 
 Die Dashlets auf dieser Seite geben Ihnen einen einfachen und aktuellen Überblick darüber, was in den Sites, bei denen Sie Mitglied sind, passiert ist.
 
-> **Hinweis:** Wenn Sie [Ihre Startseite festgelegt]({% link content-services/5.2/using/dashboard.md %}#sethomepage) haben und auf Home klicken, wird diese Seite geöffnet.
+> **Hinweis:** Wenn Sie [Ihre Startseite festgelegt]({% link content-services/5.2-de/using/dashboard.md %}#sethomepage) haben und auf Home klicken, wird diese Seite geöffnet.
 
 Sie können Ihr Dashboard so anpassen, dass die Informationen angezeigt werden, die Sie interessieren. Jedes von Ihnen ausgewählte Dashlet wird auf dem Dashboard angezeigt.
 
@@ -72,7 +72,7 @@ Die folgenden Dashlets sind verfügbar:
 * **Inhalt, den ich editiere**: Zeigt die letzten drei Bibliothekselemente, Blogbeiträge (Entwürfe, keine veröffentlichten Beiträge), Wiki-Seiten und Diskussionsforumsbeiträge an, die Sie bearbeitet haben.
 * **Web-Ansicht**: Zeigt eine Webseite an, die Sie auswählen, indem Sie den Mauszeiger über das Dashlet in Ihrem Dashboard führen.
 * **RSS-Feed**: Führen Sie den Mauszeiger über das Dashlet in Ihrem Dashboard, um einen RSS-Feed auszuwählen (zeigt standardmäßig den Alfresco-Website-Feed an).
-* ** RSS-Feed für Alfresco-Add-ons**: Zeigt standardmäßig die aktuellen Nachrichten der Alfresco Add-ons-Webseite an.
+* **RSS-Feed für Alfresco-Add-ons**: Zeigt standardmäßig die aktuellen Nachrichten der Alfresco Add-ons-Webseite an.
 * **Meine Diskussionen**: Zeigt die neuesten Themen an, die in den Diskussionsforen aller Sites, denen Sie angehören, erstellt wurden.
 * **Site-Suche**: Ermöglicht eine schnelle Suche in allen Sites, denen Sie angehören.
 * **Gespeicherte Suche**: Zeigt die Ergebnisse einer bestimmten von Ihnen konfigurieren Suche an.
@@ -141,11 +141,11 @@ Das Dashboard muss angepasst werden, um das Web-Ansicht-Dashlet anzuzeigen.
 
 3. Geben Sie im Feld **URL** die Adresse der Webseite ein.
 
-    > **Hinweis:** Stellen Sie sicher, dass die angegebene URL nicht den JavaScript-Code 'if(self.parent.frames.length!= 0)self.parent.location=document.location;' enthält. Mit diesem oder einem ähnlichen Code wird die referenzierte Webseite direkt im Browser und nicht im Web-Ansicht-Dashlet aufgerufen. Dies führt zu Problemen bei der Anzeige des aktuellen Dashboards (persönlich oder Site).
+    > **Hinweis:** Stellen Sie sicher, dass die angegebene URL nicht den JavaScript-Code `if(self.parent.frames.length!= 0)self.parent.location=document.location;` enthält. Mit diesem oder einem ähnlichen Code wird die referenzierte Webseite direkt im Browser und nicht im Web-Ansicht-Dashlet aufgerufen. Dies führt zu Problemen bei der Anzeige des aktuellen Dashboards (persönlich oder Site).
 
 4. Klicken Sie auf **OK**.
 
-### Konfigurieren des Dashlets **Gespeicherte Suche**
+### Konfigurieren des Dashlets Gespeicherte Suche
 
 Konfigurieren Sie das Dashlet für gespeicherte Suche, um bei jedem Laden des Dashboards eine bestimmte Suche auszuführen.
 
@@ -159,7 +159,7 @@ Im Site-Dashboard kann nur ein Site-Manager das Dashlet Gespeicherte Suche konfi
 
 3. Geben Sie die Suchkriterien ein.
 
-    **Hinweis:** Mit der Eingabe von *ban* wird nur nach dem Wort *ban* gesucht. Es werden keine Ergebnisse für *Banane* ausgegeben. Verwenden Sie in Ihren Suchkriterien einen Platzhalter, um Übereinstimmungen für Wortteile zurückzugeben (Beispiel: ban*).
+    > **Hinweis:** Mit der Eingabe von `ban` wird nur nach dem Wort *ban* gesucht. Es werden keine Ergebnisse für *Banane* ausgegeben. Verwenden Sie in Ihren Suchkriterien einen Platzhalter, um Übereinstimmungen für Wortteile zurückzugeben (Beispiel: `ban*`).
 
 4. Geben Sie einen Titel für das Dashlet ein, der die angezeigten Ergebnisse beschreibt.
 
@@ -175,7 +175,7 @@ Ihr Benutzerprofil enthält mehr Informationen als nur Ihre Kontaktdaten. In Ihr
 
 2. Klicken Sie auf **Mein Profil**.
 
-    **Tipp:** Sie können auch über das Dashlet **Mein Profil** auf Ihr Benutzerprofil zugreifen: Klicken Sie dazu auf **Volles Profil anzeigen**.
+    > **Tipp:** Sie können auch über das Dashlet **Mein Profil** auf Ihr Benutzerprofil zugreifen: Klicken Sie dazu auf **Volles Profil anzeigen**.
 
 3. Navigieren Sie durch die Profilseiten, um Ihre Informationen anzuzeigen und zu verwalten:
 

@@ -10,7 +10,7 @@ Die zweite Art von Inhalt sind Inhaltselemente wie Dokumente, Tabellenkalkulatio
 
 Sie kennen nun die verschiedenen Inhaltsarten, so dass wir mit dem Hinzufügen von Inhalten zu Ihrer Site beginnen können.
 
-## Inhalt
+## Inhalt {#content}
 
 In der Dokumentenbibliothek einer Site speichern und verwalten Sie Inhalte wie Dokumente, Bilder und Videos.
 
@@ -30,7 +30,7 @@ Rufen Sie die Dokumentenbibliothek der Site auf, um die Inhalte der aktuellen Si
 
     Die Elementliste nimmt den größten Teil der Hauptseite der Bibliothek ein. Sie können die Elementliste filtern und mit dem Explorer-Anzeigefenster auf der linken Seite der Seite durch die Bibliothek navigieren.
 
-2.  Elemente werden standardmäßig in der **detaillierten Ansicht** angezeigt. Klicken Sie auf **Optionen**, um eine andere Ansicht auszuwählen. Weitere Informationen finden Sie unter [Bibliotheksoptionen]({% link content-services/5.2/using/content/index.md %}#library-view-options).
+2.  Elemente werden standardmäßig in der **detaillierten Ansicht** angezeigt. Klicken Sie auf **Optionen**, um eine andere Ansicht auszuwählen. Weitere Informationen finden Sie unter [Bibliotheksoptionen](#library-view-options).
 
     > **Hinweis:** Im Menü **Optionen** können Sie auch Ordner anzeigen und ausblenden, in den Vollbildmodus wechseln und einen RSS-Feed einrichten.
 
@@ -96,7 +96,7 @@ Für jede Inhaltskomponente (Ordner und Dateien), die Sie in der **Dokumentenbib
 
 Alle Dateien und Ordner verfügen über mehrere Optionen, die angezeigt werden, wenn Sie den Mauszeiger darauf bewegen.
 
-## Optionen für die Bibliotheksansicht
+## Optionen für die Bibliotheksansicht {#library-view-options}
 
 Im Menü **Optionen** der **Dokumentenbibliothek** können Sie festlegen, wie Sie Inhalte anzeigen möchten.
 
@@ -129,9 +129,9 @@ Wenn Sie eine der visuell ansprechenderen Ansichten auswählen, ändert sich die
 
 Im Menü **Optionen** können Sie auch Ordner oder die Verlaufsnavigation ein- und ausblenden und zur Vollbild- oder Vollfensteransicht wechseln.
 
-Sie können sogar einen **RSS-Feed** für den Ordner einrichten. Weitere Informationen hierzu finden Sie unter [Abonnieren eines RSS-Feeds]({% link content-services/5.2/using/share.md %}#subscribing-to-an-rss-feed).
+Sie können sogar einen **RSS-Feed** für den Ordner einrichten. Weitere Informationen hierzu finden Sie unter [Abonnieren eines RSS-Feeds]({% link content-services/5.2-de/using/share.md %}#subtorssfeed).
 
-## Arbeiten mit Dateien außerhalb der Bibliothek
+## Arbeiten mit Dateien außerhalb der Bibliothek {#working-with-files-outside-the-library}
 
 Obwohl die Dokumentenbibliothek den Schwerpunkt für die Arbeit mit Inhalten in Alfresco Share darstellt, stehen Ihnen auch einige andere Bereiche zur Verfügung.
 
@@ -151,7 +151,7 @@ Anstatt Inhalte auf Ihrem Laptop oder Tablet zu speichern, können Sie diese in 
 
 Sie können von überall in Share auf den Bereich **Meine Dateien** zugreifen, indem Sie oben auf dem Bildschirm auf **Meine Dateien** klicken.
 
-Die im Bereich **Meine Dateien** verfügbaren Funktionen sind identisch mit denen in der Dokumentenbibliothek. Weitere Informationen hierzu finden Sie unter [Arbeiten mit Inhalten in einer Bibliothek]({% link content-services/5.2/using/content/index.md %}#content)
+Die im Bereich **Meine Dateien** verfügbaren Funktionen sind identisch mit denen in der Dokumentenbibliothek. Weitere Informationen hierzu finden Sie unter [Arbeiten mit Inhalten in einer Bibliothek](#content)
 
 ## Freigegebene Dateien
 
@@ -161,7 +161,7 @@ Alle Inhalte, die Sie in **Freigegebene Dateien** erstellen oder hinzufügen, si
 
 Sie können von überall in Share auf den Bereich **Freigegebene Dateien** zugreifen, indem Sie oben auf dem Bildschirm auf **Freigegebene Dateien** klicken.
 
-Die im Bereich **Freigegebene Dateien** verfügbaren Funktionen sind identisch mit denen in der Dokumentenbibliothek. Weitere Informationen hierzu finden Sie unter [Arbeiten mit Inhalten in einer Bibliothek]({% link content-services/5.2/using/content/index.md %}#content)
+Die im Bereich **Freigegebene Dateien** verfügbaren Funktionen sind identisch mit denen in der Dokumentenbibliothek. Weitere Informationen hierzu finden Sie unter [Arbeiten mit Inhalten in einer Bibliothek](#content)
 
 ## Repository
 
@@ -173,4 +173,4 @@ Das **Repository** hat alle üblichen Funktionen der Dokumentenbibliothek mit Au
 
 Wie in einer Dokumentenbibliothek verfügt das Explorer-Anzeigefenster über Navigations- und Filteroptionen. Auf diese Weise können Sie den Inhalt des Repositorys nach Kategorie oder Tag filtern oder die Struktur der Repository-Datei durchsuchen. Sie können auch die Inhaltselemente anzeigen, die aktuell für Sie ausgecheckt sind (Ansicht **Ich bearbeite**), oder die Inhaltselemente, die Sie als Favoriten gekennzeichnet haben (Ansicht **Meine Favoriten**).
 
-Die in der Repository-Bibliothek verfügbaren Funktionen sind identisch mit denen einer Site-Bibliothek. Weitere Informationen zum Ausführen bestimmter Aktionen im **Repository** finden Sie unter [Arbeiten mit Inhalten in einer Bibliothek]({% link content-services/5.2/using/content/index.md %}#content)
+Die in der Repository-Bibliothek verfügbaren Funktionen sind identisch mit denen einer Site-Bibliothek. Weitere Informationen zum Ausführen bestimmter Aktionen im **Repository** finden Sie unter [Arbeiten mit Inhalten in einer Bibliothek](#content)

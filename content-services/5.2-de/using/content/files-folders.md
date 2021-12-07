@@ -87,7 +87,7 @@ Sie können reine Textdateien sowie HTML- und XML-Dateien direkt in Alfresco Sha
 
 2.  Bearbeiten Sie die Dateidetails und den Inhalt nach Bedarf.
 
-    Für **Name** werden die folgenden Sonderzeichen nicht unterstützt: * " < > \ / . ? : und |. Wenn der Name ein unzulässiges Zeichen enthält, ist die Schaltfläche **Speichern** deaktiviert.
+    Für **Name** werden die folgenden Sonderzeichen nicht unterstützt: `* " < > \ / . ? :` und `|`. Wenn der Name ein unzulässiges Zeichen enthält, ist die Schaltfläche **Speichern** deaktiviert.
 
     > **Hinweis:** Der Ordnername *kann* einen Punkt enthalten, solange er nicht das letzte Zeichen ist. Hiermit können Sie eine Erweiterung hinzufügen (z. B. .txt, .html oder .xml).
 
@@ -192,7 +192,7 @@ Wenn Sie Probleme bei der Arbeit mit Dateien in Google Docs haben, schauen Sie s
 
 Google Drive/Google Editor unterstützt nur die beiden neuesten Versionen von IE (11 und 10). Bei allen anderen Versionen wird die Meldung angezeigt, dass der Browser veraltet ist. (Das Gleiche gilt für Safari (nicht unter Windows unterstützt), Firefox und Google Chrome – nur die letzten beiden Versionen werden unterstützt.)
 
-**Ist die Schaltfläche **Freigeben** jetzt in Google Docs verfügbar?**
+**Ist die Schaltfläche Freigeben jetzt in Google Docs verfügbar?**
 
 Die Schaltfläche **Freigeben** ist voll funktionsfähig.
 
@@ -208,7 +208,7 @@ Wenn Sie versuchen, ein Dokument zu bearbeiten, das in Google Docs importiert we
 
 Google hat Verbesserungen vorgenommen, so dass dies kein Problem mehr sein sollte.
 
-**Die Option **In Google Docs bearbeiten** ist nicht verfügbar.**
+**Die Option In Google Docs bearbeiten ist nicht verfügbar.**
 
 Unter bestimmten Umständen ist die Option **In Google Docs bearbeiten** nicht verfügbar. Dies kann zum Beispiel der Fall sein, wenn Sie versuchen, Dokumente oder Tabellenkalkulationen mit einer Größe von mehr als 2 MB und Präsentationen mit einer Größe von mehr als 50 MB zu bearbeiten, oder wenn die Bearbeitung des Dateityps nicht unterstützt wird. Die Option wird nicht angezeigt, wenn Sie keine Schreibberechtigung für das Dokument haben. Die Option **In Google Docs bearbeiten** ist bei Verwendung von IE8 ebenfalls nicht verfügbar.
 
@@ -222,7 +222,7 @@ Das Problem wird dadurch verursacht, dass Google den Datei-Inhalt auf ein Minimu
 
 Es gibt eine Verzögerung zwischen der Speicherzeit des Titels und dem Zeitpunkt, zu dem er über die Google-API verfügbar ist. Wenn Sie das Dokument nach einer Titeländerung schnell speichern, kann dies dazu führen, dass der Titel nicht in Alfresco Share aktualisiert wird, wenn Sie das Dokument wieder einchecken.
 
-**Meldungen der Art **Es ist etwas schief gegangen... Bitte neu laden** und **Die Datei ist nicht vorhanden** werden angezeigt.**
+**Meldungen der Art Es ist etwas schief gegangen... Bitte neu laden und Die Datei ist nicht vorhanden werden angezeigt.**
 
 Wenn Sie ein Google Docs-Formular in Alfresco Share bearbeiten oder anzeigen, wird es temporär in Google Docs gespeichert. Wenn es eingecheckt oder die Bearbeitung in Share abgebrochen wird, wird diese temporäre Version aus Google Drive entfernt und ist nicht mehr verfügbar. Sie können über Share auf die Datei zugreifen.
 
@@ -239,7 +239,7 @@ Bearbeiten Sie die grundlegenden Details eines Ordners oder eine Datei, um Namen
 
 2.  Bearbeiten Sie die Details.
 
-    Der **Name** unterstützt die folgenden Sonderzeichen nicht: * " < > \ / ? : und |.
+    Der **Name** unterstützt die folgenden Sonderzeichen nicht: `* " < > \ / ? :` und `|`.
 
     > **Hinweis:** Der Name kann einen Punkt beinhalten, solange er nicht das letzte Zeichen ist.
 
@@ -377,7 +377,7 @@ Eine detaillierte Liste der verfügbaren Aspekte und ihrer Funktion finden Sie u
 
 Sie können für alle Inhalte, die Sie der Dokumentenbibliothek hinzufügen, die standardmäßigen Site-Berechtigungen überschreiben. Hiermit können Sie steuern, was Site-Mitglieder sehen und welche Aktionen Sie für Ihren Inhalt ausführen können.
 
-Jedem Benutzer ist in der Site eine Rolle zugewiesen: Manager, Mitarbeiter, Beitragender oder Verbraucher. Jede Rolle verfügt über einen Standardsatz Berechtigungen. Hiermit werden die Aktionen gesteuert, die Site-Mitglieder [auf der Site ausführen]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions) können.
+Jedem Benutzer ist in der Site eine Rolle zugewiesen: Manager, Mitarbeiter, Beitragender oder Verbraucher. Jede Rolle verfügt über einen Standardsatz Berechtigungen. Hiermit werden die Aktionen gesteuert, die Site-Mitglieder [auf der Site ausführen]({% link content-services/5.2-de/using/permissions.md %}) können.
 
 Die Funktion **Berechtigungen verwalten** fällt nicht unter die Site-Berechtigungen. Hiermit können Sie die Site-Rolle eines Benutzers für ein bestimmtes Inhaltselement oder einen Ordner überschreiben. Das heißt, Sie können einem Site-Mitglied umfangreicheren oder weniger umfangreichen Zugriff auf bestimmten Inhalt geben als für andere Inhalte in der Bibliothek.
 
@@ -423,7 +423,7 @@ Sie können das Eigentum an Dateien und Ordnern von anderen Benutzern übernehme
 
 Dies kann notwendig werden, wenn jemand, der das Eigentum an einer Datei oder einem Ordner hatte, das Unternehmen verlassen hat und Sie die Verantwortung dafür übernehmen müssen.
 
-> **Hinweis:** Sie müssen Site-Manager sein oder die Berechtigung zum Löschen einer Datei oder eines Ordners haben, um Eigentümer zu werden, siehe [Benutzerrollen und Berechtigungen]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions).
+> **Hinweis:** Sie müssen Site-Manager sein oder die Berechtigung zum Löschen einer Datei oder eines Ordners haben, um Eigentümer zu werden, siehe [Benutzerrollen und Berechtigungen]({% link content-services/5.2-de/using/permissions.md %}).
 
 1.  Klicken Sie auf eine Datei, um die Dateivorschau zu öffnen.
 

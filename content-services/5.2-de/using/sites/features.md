@@ -31,7 +31,7 @@ Sie können ein Online-Meeting planen, um neue Benutzer zu begrüßen und den Zw
 
 Neben der Dokumentenbibliothek und dem Bereich für Site-Mitglieder stehen zahlreiche Funktionen zur Verfügung, die einer Site hinzugefügt werden können.
 
-Site-Manager können einfach Funktionen hinzufügen und entfernen, indem sie [eine Site anpassen]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site).
+Site-Manager können einfach Funktionen hinzufügen und entfernen, indem sie [eine Site anpassen]({% link content-services/5.2-de/using/sites/index.md %}#customizing-a-site).
 
 ## Der Kalender {#the-calendar}
 
@@ -39,7 +39,7 @@ Mit dem Site-Kalender können Sie Ereignisse planen und verfolgen, die sich auf 
 
 Site-Mitglieder können Ereignisse erstellen, die im Kalender erscheinen und für alle Site-Benutzer sichtbar sind. Diese Ereignisse werden auch im Dashlet **Site-Kalender** angezeigt. Sie können den Kalender nach Tag, Woche oder Monat anzeigen. In der Agenda-Ansicht werden bevorstehende Ereignisse angezeigt.
 
-> **Hinweis:** Informationen, wie Sie den Kalender für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site).
+> **Hinweis:** Informationen, wie Sie den Kalender für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2-de/using/sites/index.md %}#customizing-a-site).
 
 ## Auf den Kalender zugreifen {#accessing-the-calendar}
 
@@ -143,7 +143,7 @@ Jedes Site-Mitglied kann im Site-Kalender ein Ereignis planen. Das Ereignis wird
 
 8.  Wählen Sie optional einen Ordner aus, um für Benutzer anzugeben, wo ähnliches Material für das Ereignis zu finden ist:
 
-    > **Hinweis:** Der Abschnitt **Ähnlicher Inhalt** wird standardmäßig nicht angezeigt. Wenden Sie sich an Ihren Systemadministrator, um **<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties** und **<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties** zu aktualisieren, wenn Sie diese Funktion nicht sehen können.
+    > **Hinweis:** Der Abschnitt **Ähnlicher Inhalt** wird standardmäßig nicht angezeigt. Wenden Sie sich an Ihren Systemadministrator, um `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties` und `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties` zu aktualisieren, wenn Sie diese Funktion nicht sehen können.
 
     1.  Klicken Sie im Abschnitt **Ähnlicher Inhalt** auf **Durchsuchen**.
 
@@ -176,7 +176,7 @@ Bearbeiten Sie ein geplantes Ereignis, um alle Details zu ändern, einschließli
 
 4.  Fügen Sie den Bibliotheksordner im Abschnitt **Ähnlicher Inhalt** hinzu oder ändern Sie ihn, um anzugeben, wo ähnliches Ereignismaterial gespeichert ist.
 
-    > **Hinweis:** Der Abschnitt **Ähnlicher Inhalt** wird standardmäßig nicht angezeigt. Wenden Sie sich an Ihren Systemadministrator, um **<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties** und **<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties** zu aktualisieren, wenn Sie diese Funktion nicht sehen können.
+    > **Hinweis:** Der Abschnitt **Ähnlicher Inhalt** wird standardmäßig nicht angezeigt. Wenden Sie sich an Ihren Systemadministrator, um `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/modules/create-event.get.properties` und `<configRootShare>/classes/alfresco/site-webscripts/org/alfresco/components/calendar/info.get.properties` zu aktualisieren, wenn Sie diese Funktion nicht sehen können.
 
 5.  Klicken Sie auf **Speichern**.
 
@@ -230,7 +230,7 @@ Die Wiki-Seitenliste zeigt eine Zusammenfassung aller Seiten an, die für das Wi
 
 In beiden Ansichten (Wiki-Liste und Seitenansicht) können Sie eine Wiki-Seite erstellen, löschen, Details anzeigen und bearbeiten. Sie müssen sich in der Seitenansicht befinden, um eine Wiki-Seite umzubenennen.
 
-> **Hinweis:** Informationen, wie Sie das Wiki für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site).
+> **Hinweis:** Informationen, wie Sie das Wiki für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2-de/using/sites/index.md %}#customizing-a-site).
 
 ## Zugreifen auf das Wiki {#accessing-the-wiki}
 
@@ -339,7 +339,7 @@ Sie können eine neue Wiki-Seite sowohl über die Wiki-Liste als auch über die 
 
 2.  Geben Sie einen **Titel** für die Seite ein.
 
-    Folgende Sonderzeichen sind im **Titel** nicht zulässig: \ / . ? # und |. Wenn der Titel ein unzulässiges Zeichen enthält, ist die Schaltfläche **Speichern** deaktiviert.
+    Folgende Sonderzeichen sind im **Titel** nicht zulässig: `\ / . ? #` und `|`. Wenn der Titel ein unzulässiges Zeichen enthält, ist die Schaltfläche **Speichern** deaktiviert.
 
     > **Hinweis:** Der Titel kann einen Punkt beinhalten, solange er nicht das letzte Zeichen ist.
 
@@ -417,7 +417,7 @@ In diesem Schritt wird eine Wiki-Seite in der Seitenansicht umbenannt.
 
 4.  Geben Sie einen Namen für die Wiki-Seite ein.
 
-    Folgende Sonderzeichen sind in der Wiki-Seitenüberschrift nicht zulässig: \ / . ? # und |. Wenn der Titel ein unzulässiges Zeichen enthält, ist die Schaltfläche **Speichern** deaktiviert.
+    Folgende Sonderzeichen sind in der Wiki-Seitenüberschrift nicht zulässig: `\ / . ? #` und `|`. Wenn der Titel ein unzulässiges Zeichen enthält, ist die Schaltfläche **Speichern** deaktiviert.
 
     > **Hinweis:** Der Titel kann einen Punkt beinhalten, solange er nicht das letzte Zeichen ist.
 
@@ -473,7 +473,7 @@ Im Diskussionsforum können Sie benutzergenerierte Inhalte zu einer Site veröff
 
 Mitglieder einer Site können neue Themen erstellen und auf einen Beitrag antworten, um an einer Diskussion zu einem bestimmten Thema teilzunehmen.
 
-> **Hinweis:** Informationen, wie Sie das Diskussionsforum für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site).
+> **Hinweis:** Informationen, wie Sie das Diskussionsforum für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2-de/using/sites/index.md %}#customizing-a-site).
 
 ## Aufrufen des Diskussionsforums {#accessing-the-discussion-forum}
 
@@ -682,7 +682,7 @@ Im Site-Blog können Sie Ihrer Site Kommentare, Beschreibungen von Ereignissen u
 
 Site-Mitglieder können Kommentare zu Blog-Beiträgen erstellen, bearbeiten und hinzufügen. Die Beiträge können als Entwürfe gespeichert und nach Fertigstellung im internen Blog veröffentlicht werden.
 
-> **Hinweis:** Informationen, wie Sie den Blog für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site).
+> **Hinweis:** Informationen, wie Sie den Blog für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2-de/using/sites/index.md %}#customizing-a-site).
 
 ## Zugreifen auf den Blog {#accessing-the-blog}
 
@@ -941,7 +941,7 @@ Die Link-Komponente ermöglicht den Mitgliedern der Site, eine Liste von Weblink
 
 Die Kommentarfunktion ermöglicht den Mitgliedern der Site, Kommentare zu den Links der Site hinzuzufügen und zu verwalten.
 
-> **Hinweis:** Informationen, wie Sie Links für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site).
+> **Hinweis:** Informationen, wie Sie Links für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2-de/using/sites/index.md %}#customizing-a-site).
 
 ## Zugreifen auf Site-Links {#accessing-the-site-links}
 
@@ -1115,7 +1115,7 @@ In der Linkliste haben Sie die Möglichkeit, mehrere Links im Schnellverfahren z
 
 Eine Meldung zeigt an, dass die ausgewählten Links gelöscht wurden.
 
-## Hinzufügen eines Kommentars zu einem Post {#adding-a-comment-to-a Link}
+## Hinzufügen eines Kommentars zu einem Link {#adding-a-comment-to-a-link}
 
 Sie haben die Möglichkeit, über die Link-Funktion einen Kommentar zu einem Link hinzufügen.
 
@@ -1187,7 +1187,7 @@ Nur ein Site-Manager und der Benutzer, der den Kommentar erstellt hat, können d
 
 Mit der Datenlistenkomponente können Mitglieder der Site Listen mit den für die Site relevanten Daten erstellen und verwalten. Benutzer können eigene Listen verwenden und darüber hinaus zu Listen beitragen, die von anderen Mitgliedern der Site erstellt wurden.
 
-> **Hinweis:** Informationen, wie Sie Datenlisten für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2/using/sites/index.md %}#customizing-a-site).
+> **Hinweis:** Informationen, wie Sie Datenlisten für eine Site ein- und ausschalten, finden Sie unter [Anpassen einer Site]({% link content-services/5.2-de/using/sites/index.md %}#customizing-a-site).
 
 ## Aufrufen der Datenlisten-Komponente {#accessing-the-data-lists-component}
 

@@ -18,15 +18,15 @@ Smart-Folders verfügen über eine begrenzte Anzahl von Aktionen:
 -   Aktualisieren: Sie können die Dateien in einem Smart-Folder aktualisieren. Das Aktualisieren einer Eigenschaft kann dazu führen, dass eine Datei aus dem aktuellen Smart-Folder entfernt wird (da sie nicht mehr den Suchkriterien entspricht).
 -   Aktionen zum Löschen, Bearbeiten von Eigenschaften, Entzippen, Synchronisieren, Suchen, Verschieben und Kopieren von Dateien werden nicht unterstützt.
 
-Der Smart-Folder selbst kann in Alfresco Content Services nicht bearbeitet werden, außer über die Vorlage für Smart-Folder. Weitere Informationen zu Vorlagen für Smart-Folder finden Sie unter [Anwenden von Vorlagen für Smart-Folder](#applying-a-smart-folder-template).
+Der Smart-Folder selbst kann in Alfresco Content Services nicht bearbeitet werden, außer über die Vorlage für Smart-Folder. Weitere Informationen zu Vorlagen für Smart-Folder finden Sie unter [Anwenden von Vorlagen für Smart-Folder](#apply-template).
 
 Ihr Systemadministrator erstellt Vorlagen, die Sie für verschiedene Zwecke laden können, z. B. eine Struktur für einen Anspruch oder zum Ablegen von PDF-Dateien getrennt von Video- oder Audiodateien, oder um die Ordnerstruktur einfach entsprechend den einzelnen Benutzern zu personalisieren.
 
-Werfen Sie einen Blick auf die Videos, um mehr zu erfahren: [Videos zu Smart-Folders]({% link content-services/5.2/tutorial/video/content.md %}#smart-folders-videos)
+Werfen Sie einen Blick auf die Videos, um mehr zu erfahren: [Videos zu Smart-Folders]({% link content-services/5.2/tutorial/video/content.md %}#smart-folder-overview)
 
 Systemadministratoren und Business-Analysten erhalten hier weitere Informationen: [Konfigurieren von Smart-Folders]({% link content-services/5.2/config/smart-folders/index.md %}#configuring-smart-folders) und im Tutorial: [Tutorial für Smart-Folders]({% link content-services/5.2/tutorial/smart.md %}#smart-folders-tutorial).
 
-## Anwenden von Vorlagen für Smart-Folders
+## Anwenden von Vorlagen für Smart-Folders {#apply-template}
 
 Sie können eine Smart-Folder-Struktur auf einen physischen Ordner anwenden, indem Sie Aspekte verwenden.
 
@@ -91,7 +91,7 @@ Ja, das ist möglich. Wenn Sie die Eigenschaften der Datei ändern, kann dies je
 
 Nein, das ist nicht möglich. Die Datei ist nicht physisch in diesem Ordner vorhanden. Daher kann sie auch nicht verschoben oder kopiert werden.
 
-**Warum kann ich einen Smart Folder nicht mit **Gefällt mir** oder als Favorit markieren?**
+**Warum kann ich einen Smart Folder nicht mit Gefällt mir oder als Favorit markieren?**
 
 Bestimmte Ordneraktionen werden für Smart-Folders nicht unterstützt. So sind beispielsweise die Optionen **Favorit**, **Gefällt mir** und **Kommentar** nicht verfügbar (da der Ordner physische nicht existiert).
 

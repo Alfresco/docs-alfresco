@@ -10,8 +10,8 @@ Wenn Sie sich in einer Site befinden, können Sie auf **Alle Inhalte durchsuchen
 
 Es gibt viele [Tipps für die Suche](#search-tips), wie zum Beispiel die folgenden:
 
--   Geben Sie ein Sternchen (*) ein, um ein Wort zu vervollständigen, wenn Sie nicht das ganze Wort kennen, nach dem Sie suchen. Beispiel: Bei Eingabe des Begriffs **resco* oder *alf** wird als Ergebnis gleichermaßen *alfresco* angezeigt.
--   Um nach Elementen zu suchen, die nur eines von mehreren Wörtern enthalten, verwenden Sie 'OR', und schließen Sie die Suche in Klammern ein, z. B. *(groß OR rot)*. Wenn Sie keine Klammern verwenden, werden Suchergebnisse zurückgegeben, die sowohl *groß* als auch *rot* enthalten.
+-   Geben Sie ein Sternchen `*` ein, um ein Wort zu vervollständigen, wenn Sie nicht das ganze Wort kennen, nach dem Sie suchen. Beispiel: Bei Eingabe des Begriffs `**resco*` oder `*alf**` wird als Ergebnis gleichermaßen *alfresco* angezeigt.
+-   Um nach Elementen zu suchen, die nur eines von mehreren Wörtern enthalten, verwenden Sie `OR`, und schließen Sie die Suche in Klammern ein, z. B. *(groß OR rot)*. Wenn Sie keine Klammern verwenden, werden Suchergebnisse zurückgegeben, die sowohl *groß* als auch *rot* enthalten.
 
 Die fünf relevantesten Dateien, Sites und Personen werden angezeigt. Sie können jedoch auf **Mehr** klicken, um weitere Ergebnisse anzuzeigen.
 
@@ -58,21 +58,21 @@ Es gibt mehrere Möglichkeiten, wie Sie eine Suche genauer definieren können.
 
 |Zum Suchen nach|Geben Sie Ihre Suchkriterien ein|Folgendes wird durchsucht|
 |-------------|-------------------------|-------------|
-|dem Wort Banane überall dort, wo es vorhanden ist|'Banane'<br><br>oder<br><br>'=Banane'|Namen, Titel, Beschreibungen und Inhalte.|
-|dem genauen Begriff *Bananenschale* überall dort, wo er vorhanden ist|'Bananenschale'|Namen, Titel, Beschreibungen und Inhalte.|
-|den Wörtern *Banane*, *Schale* und *glitschig* überall dort, wo diese Wörter zusammen in beliebiger Reihenfolge oder Position auftreten|'Banane AND Schale AND glitschig'|Namen, Titel, Beschreibungen und Inhalte.|
-|Inhalt, der eines der Wörter *Banane*, *Schale* und *glitschig* enthält|'Banane, Schale und glitschig' <br><br>oder<br><br>'Banane ODER Schale ODER glitschig'|Namen, Titel, Beschreibungen und Inhalte.|
-|dem Wort *Banane* überall dort, wo es in einem Titel verwendet wird|'title:Banane'|Titel.|
-|dem Wort *Banane* überall dort, wo es in einem Namen verwendet wird|'name:Banane'|Namen von Ordnern und Inhaltselementen in der Bibliothek; Wiki-Seitenüberschriften.|
-|dem Wort *Banane* überall dort, wo es in einer Beschreibung verwendet wird|'description:Banane'|Beschreibungen von Ordnern und Inhaltselementen in der Bibliothek; Beschreibungen von Datenlisten.|
-|dem Wort Banane überall dort, wo es im Site-Inhalt verwendet wird|'TEXT:Banane'|Wiki-Seiten, Blogbeiträge, Inhaltselemente, und Diskussionsthemen und Antworten.|
-|Inhalt, der am 26. September 2011 erstellt wurde|'created:"2011-09-26"'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
-|Inhalt, der zwischen dem 26. September und dem 30. September 2011 erstellt wurde|'created:["2011-09-26" to "2011-09-30"]'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
-|allen Inhalten, die am 26. September 2011 geändert wurden|'modified:"2011-09-26"'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
-|allen Inhalten, die zwischen dem 26. September und dem 30. September 2011 geändert wurden|'modified:["2011-09-26" to "2011-09-30"]'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
-|Inhalten, die von einem bestimmten Benutzer erstellt wurden|'creator:<username>'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten.|
-|Inhalten, die von einem bestimmten Benutzer geändert wurden|'modifier:<username>'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten.|
-|allen Inhalten, die die Buchstabenfolge *verwend* enthalten. Die zurückgegebenen Ergebnisse enthalten Verweise auf *verwenden*, *Verwendung*, *Wiederverwendung* usw.|'TEXT:*verwend*'|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links und Diskussionsthemen.|
+|dem Wort Banane überall dort, wo es vorhanden ist|`Banane`<br><br>oder<br><br>`=Banane`|Namen, Titel, Beschreibungen und Inhalte.|
+|dem genauen Begriff *Bananenschale* überall dort, wo er vorhanden ist|`Bananenschale`|Namen, Titel, Beschreibungen und Inhalte.|
+|den Wörtern *Banane*, *Schale* und *glitschig* überall dort, wo diese Wörter zusammen in beliebiger Reihenfolge oder Position auftreten|`Banane AND Schale AND glitschig`|Namen, Titel, Beschreibungen und Inhalte.|
+|Inhalt, der eines der Wörter *Banane*, *Schale* und *glitschig* enthält|`Banane, Schale und glitschig` <br><br>oder<br><br>`Banane ODER Schale ODER glitschig`|Namen, Titel, Beschreibungen und Inhalte.|
+|dem Wort *Banane* überall dort, wo es in einem Titel verwendet wird|`title:Banane`|Titel.|
+|dem Wort *Banane* überall dort, wo es in einem Namen verwendet wird|`name:Banane`|Namen von Ordnern und Inhaltselementen in der Bibliothek; Wiki-Seitenüberschriften.|
+|dem Wort *Banane* überall dort, wo es in einer Beschreibung verwendet wird|`description:Banane`|Beschreibungen von Ordnern und Inhaltselementen in der Bibliothek; Beschreibungen von Datenlisten.|
+|dem Wort Banane überall dort, wo es im Site-Inhalt verwendet wird|`TEXT:Banane`|Wiki-Seiten, Blogbeiträge, Inhaltselemente, und Diskussionsthemen und Antworten.|
+|Inhalt, der am 26. September 2011 erstellt wurde|`created:"2011-09-26"`|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
+|Inhalt, der zwischen dem 26. September und dem 30. September 2011 erstellt wurde|`created:["2011-09-26" to "2011-09-30"]`|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
+|allen Inhalten, die am 26. September 2011 geändert wurden|`modified:"2011-09-26"`|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
+|allen Inhalten, die zwischen dem 26. September und dem 30. September 2011 geändert wurden|`modified:["2011-09-26" to "2011-09-30"]`|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten. Sie können nur nach dem Jahr suchen oder auch nach Monat und Tag.|
+|Inhalten, die von einem bestimmten Benutzer erstellt wurden|`creator:<username>`|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten.|
+|Inhalten, die von einem bestimmten Benutzer geändert wurden|`modifier:<username>`|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links, Diskussionsthemen und Datenlisten.|
+|allen Inhalten, die die Buchstabenfolge *verwend* enthalten. Die zurückgegebenen Ergebnisse enthalten Verweise auf *verwenden*, *Verwendung*, *Wiederverwendung* usw.|`TEXT:*verwend*`|Wiki-Seiten, Blogbeiträge, Bibliotheksordner, Inhaltselemente, Ereignisse, Links und Diskussionsthemen.|
 
 ## Verwenden des Site-Finders {#using-the-site-finder}
 
@@ -86,7 +86,7 @@ Sie können über die Suchergebnisse zu einer Site navigieren, Sites beitreten b
 
     >**Tipp:** Lassen Sie das Suchfeld leer, um alle Sites anzuzeigen, auf die Sie zugreifen können.
 
-    Im Rahmen des Suchvorgangs werden zunächst Sites gesucht, die Ihren Suchkriterien entsprechen – bei Eingabe des Suchkriteriums *awe* wird die Site *Project Awesome* jedoch nicht gefunden. Fügen Sie stattdessen das Zeichen * zu Ihren Suchkriterien hinzu (*awe), damit die Suche nach der Site erfolgreich ist.
+    Im Rahmen des Suchvorgangs werden zunächst Sites gesucht, die Ihren Suchkriterien entsprechen – bei Eingabe des Suchkriteriums *awe* wird die Site *Project Awesome* jedoch nicht gefunden. Fügen Sie stattdessen das Zeichen `*` zu Ihren Suchkriterien hinzu `*awe`, damit die Suche nach der Site erfolgreich ist.
 
 3.  Klicken Sie auf **Suchen**.
 
@@ -104,7 +104,7 @@ Aktivieren Sie, nachdem Sie den gewünschten Benutzer gefunden haben, die Option
 
     Sie müssen mindestens ein Zeichen eingeben. Bei der Suche wird nicht zwischen Groß- und Kleinschreibung unterschieden.
 
-    Im Rahmen des Suchvorgangs werden zunächst Benutzernamen gesucht, die Ihren Suchkriterien entsprechen – bei Eingabe des Suchkriteriums 1 wird Benutzer1 jedoch nicht gefunden. Fügen Sie stattdessen das Zeichen * zu Ihren Suchkriterien hinzu (*1), damit die Suche nach dem Benutzer erfolgreich ist.
+    Im Rahmen des Suchvorgangs werden zunächst Benutzernamen gesucht, die Ihren Suchkriterien entsprechen – bei Eingabe des Suchkriteriums 1 wird Benutzer1 jedoch nicht gefunden. Fügen Sie stattdessen das Zeichen `*` zu Ihren Suchkriterien hinzu `*1`, damit die Suche nach dem Benutzer erfolgreich ist.
 
     > **Hinweis:** Lesen Sie die Suchtipps auf der Seite **Mitarbeiter-Finder** für komplexere Suchvorgänge.
 
@@ -140,7 +140,7 @@ Die Profildetails sind über mehrere Seiten verteilt:
 
 > **Hinweis:** Wenn Sie das Profil eines Benutzers anzeigen, werden auf diesen Seiten nur die Sites und Inhalte angezeigt, für die Sie die Berechtigung zum Anzeigen haben.
 
-## Verwenden der Option **Erweiterte Suche** {#using-the-advanced-search}
+## Verwenden der Option Erweiterte Suche {#using-the-advanced-search}
 
 Verwenden Sie das Suchfeld in der Symbolleiste, um auf die erweiterte Suche zuzugreifen.
 
@@ -159,7 +159,7 @@ Verwenden Sie das Suchfeld in der Symbolleiste, um auf die erweiterte Suche zuzu
 
     Geben Sie bei der Suche nach dem Benutzer, der den Inhalt zuletzt geändert hat, den entsprechenden Benutzernamen in das Feld **Bearbeiter** ein.
 
-    >**Tipp:** Sie können zur Vervollständigung eines Suchbegriffs ein Sternzeichen (*) eingeben, wenn Sie den vollständigen Begriff nicht kennen. Beispiel: Bei Eingabe des Begriffs **resco* oder *alf** wird als Ergebnis gleichermaßen *alfresco* angezeigt.
+    >**Tipp:** Sie können zur Vervollständigung eines Suchbegriffs ein Sternzeichen `*` eingeben, wenn Sie den vollständigen Begriff nicht kennen. Beispiel: Bei Eingabe des Begriffs `**resco*` oder `*alf**` wird als Ergebnis gleichermaßen *alfresco* angezeigt.
 
 4.  Klicken Sie auf **Suchen**.
 

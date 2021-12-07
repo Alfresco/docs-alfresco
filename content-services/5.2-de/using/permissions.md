@@ -18,7 +18,7 @@ Die folgenden Abschnitte werden diese Berechtigungen beschrieben. Allgemein gilt
 
 Ihr Alfresco-Administrator kann auch zusätzliche Rollen hinzufügen.
 
-Site-Manager können eine [Site-Rolle für die Site-Benutzer ändern]({% link content-services/5.2/using/sites/index.md %}#changing-a-site-role).
+Site-Manager können eine [Site-Rolle für die Site-Benutzer ändern]({% link content-services/5.2-de/using/sites/index.md %}#changing-a-site-role).
 
 Wenn Sie Mitglied von zwei Benutzergruppen sind, die über unterschiedliche Berechtigungen verfügen, erhalten Sie die Summe aller Berechtigungen. Verfügt beispielsweise Gruppe 1 über die Berechtigung zum Anzeigen einer Datei und Gruppe 2 über die Berechtigung zum Anzeigen und Bearbeiten einer Datei, erhielten Sie die Berechtigung zum Anzeigen und Bearbeiten der Datei.
 
@@ -252,14 +252,14 @@ Derzeit sind die folgenden zusätzlichen Optionen verfügbar:
 
 Wenn Sie über die folgenden Berechtigungen verfügen, können Sie über einen zusätzlichen Link in der Symbolleiste auf den Site-Manager und über Bildschirm mit den Suchergebnissen auf den Suchmanager zugreifen.
 
--   Der Site-Manager steht den Benutzern in den Berechtigungsgruppen ALFRESCO_ADMINISTRATORS und SITES_ADMINISTRATORS zur Verfügung.
--   Der Suchmanager steht den Benutzern in den Berechtigungsgruppen ALFRESCO_ADMINISTRATORS und ALFRESCO_SEARCH_ADMINISTRATORS zur Verfügung.
+-   Der Site-Manager steht den Benutzern in den Berechtigungsgruppen `ALFRESCO_ADMINISTRATORS` und `SITES_ADMINISTRATORS` zur Verfügung.
+-   Der Suchmanager steht den Benutzern in den Berechtigungsgruppen `ALFRESCO_ADMINISTRATORS` und `ALFRESCO_SEARCH_ADMINISTRATORS` zur Verfügung.
 
 ### Site-Manager
 
 Der Site-Manager wird für die Verwaltung von Sites verwendet. Sie haben die Kontrolle über die Sichtbarkeit aller Sites und können Sites löschen oder sich zum Site-Manager ernennen.
 
-> **Hinweis:** Der Site-Manager steht den Benutzern in den Berechtigungsgruppen ALFRESCO_ADMINISTRATORS und SITES_ADMINISTRATORS zur Verfügung. Wenn Sie Mitglied der Gruppe ALFRESCO_ADMINISTRATORS sind, können Sie über die **Admin-Tools** in der Symbolleiste auf den Site-Manager zugreifen. Wenn Sie Mitglied der Gruppe SITE_ADMINISTRATORS sind, verfügen Sie in der Symbolleiste über die zusätzliche Option **Site-Manager**.
+> **Hinweis:** Der Site-Manager steht den Benutzern in den Berechtigungsgruppen `ALFRESCO_ADMINISTRATORS` und `SITES_ADMINISTRATORS` zur Verfügung. Wenn Sie Mitglied der Gruppe `ALFRESCO_ADMINISTRATORS` sind, können Sie über die **Admin-Tools** in der Symbolleiste auf den Site-Manager zugreifen. Wenn Sie Mitglied der Gruppe `SITE_ADMINISTRATORS` sind, verfügen Sie in der Symbolleiste über die zusätzliche Option **Site-Manager**.
 
 Der Site-Manager zeigt die Namen und den Status der erstellten Sites an, unabhängig von deren Sichtbarkeitseinstellung. Sie können das Menü **Sichtbarkeit** verwenden, um die Sichtbarkeit einer beliebigen Site zu ändern. Sie können die Sichtbarkeit einer Site z. B. auf **Öffentlich**, **Moderiert** oder **Privat** festlegen. Jede Änderung der Sichtbarkeit, die Sie an einer Site vornehmen, wird sofort übernommen.
 
@@ -276,13 +276,13 @@ Die Spalte **Ich bin ein Site-Manager** zeigt die Sites an, für die Sie die Ber
 
 Mit dem Suchmanager können Sie Details zu vorhandenen Suchfiltern sehen und neue Filter erstellen.
 
-> **Hinweis:** Suchmanager steht den Benutzern in den Berechtigungsgruppen ALFRESCO_ADMINISTRATORS und ALFRESCO_SEARCH_ADMINISTRATORS zur Verfügung.
+> **Hinweis:** Suchmanager steht den Benutzern in den Berechtigungsgruppen `ALFRESCO_ADMINISTRATORS` und `ALFRESCO_SEARCH_ADMINISTRATORS` zur Verfügung.
 
 Auf den Suchmanager greifen Sie vom Suchergebnis-Bildschirm aus zu. Geben Sie einfach eine ** Suche in das Suchfeld ein, und drücken Sie die EINGABETASTE. Klicken Sie dann auf dem Bildschirm mit den Suchergebnissen auf **Suchmanager**.
 
 > **Hinweis:** Gefilterte Suchergebnisse können mit einem Lesezeichen versehen werden, um einen schnellen und einfachen Zugriff zu ermöglichen.
 
-Alle vorhandenen Filter (einschließlich Standardfilter) werden zusammen mit ihren Details in der Reihenfolge angezeigt, in der sie auf dem Bildschirm der Suchergebnisse angezeigt werden. Sie können die Reihenfolge ändern, indem Sie mit den ![]({% link content-services/images/arrows.png %}-Schaltflächen die Filter in der Reihenfolge nach oben oder unten verschieben.
+Alle vorhandenen Filter (einschließlich Standardfilter) werden zusammen mit ihren Details in der Reihenfolge angezeigt, in der sie auf dem Bildschirm der Suchergebnisse angezeigt werden. Sie können die Reihenfolge ändern, indem Sie mit den ![]({% link content-services/images/arrows.png %}) Schaltflächen die Filter in der Reihenfolge nach oben oder unten verschieben.
 
 Klicken Sie auf **Neuen Filter erstellen**, um [neue Suchfilter zu erstellen](#creating-new-search-filters).
 
@@ -346,7 +346,7 @@ Im Suchmanager können Sie schnell Ihre eigenen angepassten Filter mit einer Vie
 
 11. Wählen Sie die Filterverfügbarkeit aus:
 
-    -   **Überall ** – in allen Sites sichtbar
+    -   **Überall** – in allen Sites sichtbar
     -   **Ausgewählte Sites** – nur in ausgewählten Sites sichtbar Klicken Sie auf ![]({% link content-services/images/ico-add.png %}), um eine Site hinzuzufügen, wählen Sie sie dann aus der Liste aus und klicken Sie zur Bestätigung auf ![]({% link content-services/images/ico-tick.png %}). Klicken Sie auf ![]({% link content-services/images/ico-add.png %}), um bei Bedarf weitere Sites hinzuzufügen.
 
 12. Klicken Sie auf **Speichern**.

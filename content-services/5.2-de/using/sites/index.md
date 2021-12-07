@@ -55,7 +55,7 @@ Oben in Ihrem Site-Dashboard befinden sich Tabulatoren für die Bereiche Ihrer S
 
 2.  Ziehen Sie die Wiki- und Kalender-Symbole in den Bereich **Aktuell verfügbare Seiten der Site** und klicken Sie auf **OK**.
 
-    > **Hinweis:** Weitere Informationen zu diesen Funktionen finden Sie unter [(Funktionen von Alfresco-Sites)]({% link content-services/5.2/using/sites/features.md %}#site-features).
+    > **Hinweis:** Weitere Informationen zu diesen Funktionen finden Sie unter [Funktionen von Alfresco-Sites]({% link content-services/5.2-de/using/sites/features.md %}#site-features).
 
 
 Nachdem Sie zum Site-Dashboard zurückgekehrt sind, werden Wiki und Kalender angezeigt. Sie haben nun eine Site eingerichtet! Sie können nun Inhalt hinzufügen ...
@@ -76,7 +76,7 @@ Nachdem Sie eine Site erstellt und Inhalt hinzugefügt haben, besteht der nächs
 
 4.  Klicken Sie auf **Rolle auswählen** und wählen Sie **Mitarbeiter**.
 
-    > **Hinweis:** Sie können verschiedene Rollen für verschiedene Benutzer festlegen. Weiter Einzelheiten zu Benutzerrollen finden Sie unter [Benutzerrollen und Berechtigungen]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions) in Alfresco Share.
+    > **Hinweis:** Sie können verschiedene Rollen für verschiedene Benutzer festlegen. Weiter Einzelheiten zu Benutzerrollen finden Sie unter [Benutzerrollen und Berechtigungen]({% link content-services/5.2-de/using/permissions.md %}) in Alfresco Share.
 
 5.  Klicken Sie auf **Benutzer hinzufügen**.
 
@@ -146,6 +146,7 @@ Wenn Sie einer Site beitreten, erhalten Sie Zugriff auf die Inhalte, die in dies
     -   **Beantragen des Beitritts** zu einer moderierten Site
     -   **Verlassen einer Site**, der Sie zugeordnet sind
     -   **Löschen einer Site**, der Sie als Manager zugeordnet sind
+
 4.  Klicken Sie auf eine Site, um direkt zum Site-Dashboard zu gelangen.
 
     >**Tipp:** Klicken Sie auf ![Customize Dashboard icon]({% link content-services/images/settings-icon.png %}), um eine Site zu verlassen oder der Site beizutreten (je nachdem, ob Sie bereits Mitglied sind oder nicht). Wenn Sie den Beitritt zu einer moderierten Site beantragen, werden die Site-Manager darüber informiert und Sie müssen warten, bis sie Ihnen den Zugang gewähren.
@@ -242,11 +243,7 @@ Die Dashlets bieten Ihnen nicht nur einen Überblick über die Aktivitäten und 
 
 >**Tipp:** Wenn ein Benutzername, Site-Name oder Element als Link angezeigt wird, können Sie darauf klicken, um zur entsprechenden Seite zu gelangen. Wenn Sie den Mauszeiger über ein Dashlet bewegen, werden bei einigen Dashlets zusätzliche Optionen angezeigt.
 
-> **Hinweis:**
-
-Die Site-Dashlets **RSS Feed**, **RSS-Feed für Alfresco-Add-ons** und **Web-Ansicht** auf dem Site-Dashboard sind identisch mit denen auf Ihrem persönlichen Dashboard.
-
-Die Dashlets **Meine Diskussionen**, **Site-Suche** und **Gespeicherte Suche** sind mit denen auf Ihrem Benutzer-Dashboard identisch, die auf dem Site-Dashboard angezeigten Ergebnisse sind jedoch für die Site spezifisch.
+> **Hinweis:** Die Site-Dashlets **RSS Feed**, **RSS-Feed für Alfresco-Add-ons** und **Web-Ansicht** auf dem Site-Dashboard sind identisch mit denen auf Ihrem persönlichen Dashboard. Die Dashlets **Meine Diskussionen**, **Site-Suche** und **Gespeicherte Suche** sind mit denen auf Ihrem Benutzer-Dashboard identisch, die auf dem Site-Dashboard angezeigten Ergebnisse sind jedoch für die Site spezifisch.
 
 Es kann eine beliebige Kombination der Site-Dashlets auf dem Dashboard angezeigt werden:
 
@@ -466,7 +463,7 @@ Das Dashboard für die neue Site wird angezeigt und Sie können das Dashboard nu
 
 Nach Erstellung einer Site können Sie die Site anpassen, um zusätzliche Funktionen hinzuzufügen.
 
-Jede neue Site enthält eine Bibliothek. Der Site-Manager kann [weitere Funktionen hinzufügen]({% link content-services/5.2/using/sites/features.md %}#site-features) – z. B. ein Wiki, einen Blog oder einen Kalender. Diese Funktionen können mittels Umbenennung oder durch die Erstellung eines Designs oder Farbschemas weiter angepasst werden. Außerdem können eine [Hompage-Site auswählen](#choosing-a-site-homepage).
+Jede neue Site enthält eine Bibliothek. Der Site-Manager kann [weitere Funktionen hinzufügen]({% link content-services/5.2-de/using/sites/features.md %}#site-features) – z. B. ein Wiki, einen Blog oder einen Kalender. Diese Funktionen können mittels Umbenennung oder durch die Erstellung eines Designs oder Farbschemas weiter angepasst werden. Außerdem können eine [Homepage-Site auswählen](#choosing-a-site-homepage).
 
 1.  Geben Sie eine Site ein.
 
@@ -606,7 +603,7 @@ Sie können jeden beliebigen Benutzer – intern oder extern – zu Ihrem Unte
 
 4.  Legen Sie die Site-Rolle für die einzelnen Benutzer fest oder verwenden Sie die Option **Alle Rollen setzen auf**, um allen Benutzern dieselbe Rolle zuzuweisen. Auf diese Weise wird festgelegt, welche Aktionen Benutzer auf der Site ausführen können.
 
-    >**Tipp:** Weitere Informationen über Site-Rollen finden Sie unter [Benutzerrollen und Berechtigungen]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions).
+    >**Tipp:** Weitere Informationen über Site-Rollen finden Sie unter [Benutzerrollen und Berechtigungen]({% link content-services/5.2-de/using/permissions.md %}).
 
     Nachdem Sie die Site-Rollen für alle von Ihnen ausgewählten Benutzer festgelegt haben, wird die Schaltfläche **Benutzer hinzufügen** aktiviert.
 
@@ -654,7 +651,7 @@ Es kann sehr zeitaufwendig sein, Benutzer einzeln für den Beitritt zu Ihrer Sit
 
 5.  Legen Sie die Site-Rolle für die einzelnen Gruppen fest oder verwenden Sie die Option **Alle Rollen setzen auf**, um allen Gruppen dieselbe Rolle zuzuweisen. Auf diese Weise wird festgelegt, welche Aktionen Gruppen auf der Site ausführen können.
 
-    >**Tipp:** Weitere Informationen über Site-Rollen finden Sie unter [Benutzerrollen und Berechtigungen]({% link content-services/5.2/using/permissions.md %}#user-roles-and-permissions).
+    >**Tipp:** Weitere Informationen über Site-Rollen finden Sie unter [Benutzerrollen und Berechtigungen]({% link content-services/5.2-de/using/permissions.md %}).
 
     Nachdem Sie die Site-Rollen für alle von Ihnen ausgewählten Gruppen festgelegt haben, wird die Schaltfläche **Gruppen hinzufügen** aktiviert.
 

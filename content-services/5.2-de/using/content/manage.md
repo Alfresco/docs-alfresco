@@ -115,7 +115,7 @@ Der Abschnitt **Bibliothek** des Explorer-Anzeigefensters enthält die Ordnerstr
 
 3.  Geben Sie einen Namen für den Ordner ein.
 
-    Für den Ordnernamen werden die folgenden Sonderzeichen nicht unterstützt: * " < > \ / . ? : und |. Wenn der Name ein unzulässiges Zeichen enthält, ist die Schaltfläche **Speichern** deaktiviert.
+    Für den Ordnernamen werden die folgenden Sonderzeichen nicht unterstützt: `* " < > \ / . ? :` und `|`. Wenn der Name ein unzulässiges Zeichen enthält, ist die Schaltfläche **Speichern** deaktiviert.
 
     > **Hinweis:** Der Ordnername *kann* einen Punkt enthalten, solange er nicht das letzte Zeichen ist.
 
@@ -136,7 +136,7 @@ Wenn Sie einen Ordner ablegen, werden auch die im angelegten Ordner enthaltenen 
 
 Sind in der Ordnerstruktur leere Ordner enthalten, werden diese ebenfalls beim Hochladen erstellt.
 
-> **Hinweis:** Thumbs.db-, desktop.ini- und DS_Store-Dateien werden nicht hochgeladen, auch wenn sie sich in einem mit Drag&Drop verschobenen Ordner befinden.
+> **Hinweis:** `Thumbs.db-`, `desktop.ini-` und `DS_Store-Dateien` werden nicht hochgeladen, auch wenn sie sich in einem mit Drag&Drop verschobenen Ordner befinden.
 
 1.  Geben Sie an, wo Sie einen Ordner hinzufügen möchten, indem Sie entweder das Explorer-Anzeigefenster verwenden oder in der Dateiliste durch Ordner klicken.
 
@@ -144,7 +144,7 @@ Sind in der Ordnerstruktur leere Ordner enthalten, werden diese ebenfalls beim H
 
     >**Tipp:** Sie können Ordner mit Drag&Drop in die aktuelle Ebene oder direkt auf einen anderen Ordner ziehen. Wenn die Dateien richtig auf dem Ordner platziert sind, in dem sie abgelegt werden sollen, erscheint ein Pfeil. Sie können keine Inhalte mit Drag&Drop direkt in die Ordner in der Tabellen-, der Audio- oder der Medienansicht verschieben.
 
-    Sie können keine Ordner hochladen, deren Namen die folgenden Sonderzeichen enthalten: * " < > \ / . ? : und |.
+    Sie können keine Ordner hochladen, deren Namen die folgenden Sonderzeichen enthalten: `* " < > \ / . ? :` und `|`.
 
     > **Hinweis:** Der Ordnername *kann* einen Punkt enthalten, solange er nicht das letzte Zeichen ist.
 
@@ -225,7 +225,7 @@ Sie können auch [Google Docs-Inhalte erstellen](#creating-google-docs-files) un
 
 3.  Geben Sie einen **Namen** für den Inhalt ein.
 
-    Für **Name** werden die folgenden Sonderzeichen nicht unterstützt: * " < > \ / . ? : und |. Enthält der Name ein unzulässiges Zeichen, ist die Schaltfläche **Erstellen** deaktiviert.
+    Für **Name** werden die folgenden Sonderzeichen nicht unterstützt: `* " < > \ / . ? :` und `|`. Enthält der Name ein unzulässiges Zeichen, ist die Schaltfläche **Erstellen** deaktiviert.
 
     > **Hinweis:** Der Name *kann* einen Punkt beinhalten, solange er nicht das letzte Zeichen ist. Somit können Sie gegebenenfalls eine Erweiterung (z. B. .txt , .html oder .xml) hinzufügen. Dies ist jedoch nicht obligatorisch.
 
@@ -510,9 +510,7 @@ Wenn Sie auf eine verlinkte Datei oder einen verlinkten Ordner klicken oder aber
 
 > **Hinweis:** Sie können mit dem Mauszeiger auf einen Link zeigen und **Link löschen** wählen, um ihn zu entfernen.
 
-ACHTUNG:
-
-Wenn Sie mit einem anderen Tool als Alfresco Share auf Inhalt zugreifen (wie zum Beispiel Alfresco Desktop Sync), werden verlinkte Dateien möglicherweise nicht angezeigt.
+> **ACHTUNG:** Wenn Sie mit einem anderen Tool als Alfresco Share auf Inhalt zugreifen (wie zum Beispiel Alfresco Desktop Sync), werden verlinkte Dateien möglicherweise nicht angezeigt.
 
 
 
@@ -608,7 +606,7 @@ Im Gegensatz zu Tags, die nicht hierarchisch angeordnet sind und von jedem Benut
 
 Im Folgenden sehen Sie ein Beispiel für eine Kategorisierung: Regionen = Oberkategorie – Afrika, Asien, Europa, Lateinamerika, Nordamerika und Ozeanien = Unterkategorien – Einzelne Länder = weitere Unterkategorien.
 
-Kategorien können nur mit Bibliothekselementen und Ordnern verknüpft werden. Inhalte müssen für die Kategorisierung aktiviert werden, bevor sie zu einer Kategorie hinzugefügt werden können (siehe [Verwalten von Aspekten]({% link content-services/5.2/using/content/files-folders.md %}#applying-aspects).
+Kategorien können nur mit Bibliothekselementen und Ordnern verknüpft werden. Inhalte müssen für die Kategorisierung aktiviert werden, bevor sie zu einer Kategorie hinzugefügt werden können (siehe [Verwalten von Aspekten]({% link content-services/5.2-de/using/content/files-folders.md %}#applying-aspects).
 
 ## Tagging von Inhalten {#tagging-content}
 
@@ -645,7 +643,7 @@ Sie können Dateien und Ordner kategorisieren, um ähnliche Inhalte in vordefini
 
 1.  Bewegen Sie den Mauszeiger auf den zu kategorisierenden Inhalt.
 
-    > **Hinweis:** Sie können nur Inhalte kategorisieren, die über das Label **Keine Kategorien** verfügen oder vorhandene Kategorien anzeigen. Weitere Informationen zur Aktivierung von Inhalten für die Kategorisierung mit dem klassifizierbaren Aspekt finden Sie unter [Verwalten von Aspekten]({% link content-services/5.2/using/content/files-folders.md %}#applying-aspects).
+    > **Hinweis:** Sie können nur Inhalte kategorisieren, die über das Label **Keine Kategorien** verfügen oder vorhandene Kategorien anzeigen. Weitere Informationen zur Aktivierung von Inhalten für die Kategorisierung mit dem klassifizierbaren Aspekt finden Sie unter [Verwalten von Aspekten]({% link content-services/5.2-de/using/content/files-folders.md %}#applying-aspects).
 
 2.  Klicken Sie auf **Eigenschaften bearbeiten**.
 

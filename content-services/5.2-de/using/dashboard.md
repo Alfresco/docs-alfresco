@@ -99,7 +99,7 @@ Sie können mehrere Versionen jedes Dashlets hinzufügen und anschließen die Fi
 
         > **Hinweis:** Sie können Dashlets per Drag & Drop in den Spalten verschieben, um die Anzeigereihenfolge zu ändern, oder aber in den Papierkorb verschieben (oder ENTFERNEN drücken), um sie zu entfernen.
 
-        Weitere Informationen finden Sie unter [Was kann ich mit meinen Dashlets machen?]({% link content-services/5.2/using/share.md %}#what-can-I-do-with-my-dashlets?).
+        Weitere Informationen finden Sie unter [Was kann ich mit meinen Dashlets machen?]({% link content-services/5.2-de/using/share.md %}#what-can-I-do-with-my-dashlets?).
 
 4.  Wählen Sie aus, ob das Erste-Schritte-Fenster ein- oder ausgeblendet werden soll.
 

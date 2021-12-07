@@ -40,11 +40,11 @@ Sie können mit Dateien arbeiten, ohne dass Sie sich tatsächlich in der Alfresc
 
 Der Administrator kann das Repository so zuordnen, dass Sie über den Windows Explorer oder eine Desktop-Verknüpfung auf Ihre Inhalte zugreifen können. Wenn Sie auf diese Weise arbeiten, werden auf jeder Ebene der Alfresco Content Services-Dateistruktur bis zu drei zusätzliche Dateien angezeigt:
 
--   __CheckInOut.exe
--   __ShowDetails.exe
--   __Share.url
+-   `__CheckInOut.exe`
+-   `__ShowDetails.exe`
+-   `__Share.url`
 
-> **Hinweis:** Die Datei **Share.url** ist nur innerhalb von Site-Ordnern verfügbar und nicht überall im Repository.
+> **Hinweis:** Die Datei `Share.url` ist nur innerhalb von Site-Ordnern verfügbar und nicht überall im Repository.
 
 Mit diesen Dateien können Sie Inhalte zum Repository hinzufügen, Dokumente ein- und auschecken, Dokumentendetails anzeigen und Alfresco Share in einem Browserfenster öffnen.
 
@@ -64,13 +64,13 @@ Sie können Inhalte einfach per Drag & Drop von außerhalb von Share in das Repo
 
 ### Auschecken von Dateien von außerhalb von Alfresco Share {#check-out-files-from-outside-alfresco-share}
 
-Mithilfe von **CheckInOut.exe** können Sie Inhalt auschecken, damit Sie sicher daran arbeiten können.
+Mithilfe von `CheckInOut.exe` können Sie Inhalt auschecken, damit Sie sicher daran arbeiten können.
 
-> **Hinweis:** **CheckInOut.exe** ist in einer Windows-Umgebung verfügbar, wenn das Alfresco Content Services-Repository von Ihrem Administrator zugeordnet wurde, so dass Sie über den Windows Explorer darauf zugreifen können.
+> **Hinweis:** `CheckInOut.exe` ist in einer Windows-Umgebung verfügbar, wenn das Alfresco Content Services-Repository von Ihrem Administrator zugeordnet wurde, so dass Sie über den Windows Explorer darauf zugreifen können.
 
-1.  Ziehen Sie im Windows Explorer eine Datei aus dem zugeordneten Repository auf das Symbol **CheckInOut.exe**.
+1.  Ziehen Sie im Windows Explorer eine Datei aus dem zugeordneten Repository auf das Symbol `CheckInOut.exe`.
 
-    > **Hinweis:** Auf jeder Ebene des Repositorys ist eine Kopie von **CheckInOut.exe** vorhanden.
+    > **Hinweis:** Auf jeder Ebene des Repositorys ist eine Kopie von `CheckInOut.exe` vorhanden.
 
 2.  Klicken Sie auf **OK**, wenn das Dialogfeld zur Ausführung einer Eincheck-/Auscheck-Aktion angezeigt wird.
 
@@ -78,7 +78,7 @@ Mithilfe von **CheckInOut.exe** können Sie Inhalt auschecken, damit Sie sicher 
 
     Eine Kopie Ihrer Datei wird an demselben Speicherort erstellt, an dem die Originaldatei abgelegt ist. Dem Titel wird (Arbeitskopie) angehängt. Die Originaldatei ist jetzt gesperrt, so dass Sie zwar an der Datei (Arbeitskopie) arbeiten können, andere Benutzer bis zum Einchecken jedoch keine Änderungen daran vornehmen können.
 
-4.  Wenn die Arbeiten an der Datei abgeschlossen sind und Sie Ihre Änderungen gespeichert haben, ziehen Sie die Datei (Arbeitskopie) auf das Symbol **CheckInOut.exe**.
+4.  Wenn die Arbeiten an der Datei abgeschlossen sind und Sie Ihre Änderungen gespeichert haben, ziehen Sie die Datei (Arbeitskopie) auf das Symbol `CheckInOut.exe`.
 
 5.  Klicken Sie auf **OK**, wenn das Dialogfeld zur Ausführung einer Eincheck-/Auscheck-Aktion angezeigt wird.
 
@@ -86,30 +86,30 @@ Mithilfe von **CheckInOut.exe** können Sie Inhalt auschecken, damit Sie sicher 
 
 ### Anzeigen von Elementdetails von einem zugeordneten Laufwerk aus {#view-item-details-from-a-mapped-drive}
 
-Mithilfe von **ShowDetails.exe** können Sie Elementdetails und -eigenschaften anzeigen.
+Mithilfe von `ShowDetails.exe` können Sie Elementdetails und -eigenschaften anzeigen.
 
-> **Hinweis:** **ShowDetails.exe** ist in einer Windows-Umgebung verfügbar, wenn das Alfresco Content Services-Repository von Ihrem Administrator zugeordnet wurde, so dass Sie über den Windows Explorer darauf zugreifen können.
+> **Hinweis:** `ShowDetails.exe` ist in einer Windows-Umgebung verfügbar, wenn das Alfresco Content Services-Repository von Ihrem Administrator zugeordnet wurde, so dass Sie über den Windows Explorer darauf zugreifen können.
 
 1.  Wählen Sie eine Datei im zugeordneten Repository im Windows Explorer oder auf Ihrem Desktop aus.
 
-2.  Ziehen Sie die Datei aus dem zugeordneten Repository auf **ShowDetails.exe**.
+2.  Ziehen Sie die Datei aus dem zugeordneten Repository auf `ShowDetails.exe`.
 
-    > **Hinweis:** Auf jeder Ebene des Repositorys ist eine Kopie von **ShowDetails.exe** vorhanden.
+    > **Hinweis:** Auf jeder Ebene des Repositorys ist eine Kopie von `ShowDetails.exe` vorhanden.
 
     Es wird ein neues Browserfenster mit der Alfresco Share-Dateivorschau angezeigt. Es enthält eine Vorschau der Datei und ihrer Eigenschaften.
 
 ### Öffnen von Alfresco Share in einem Browserfenster {#open-alfresco-share-in-a-browser-window}
 
-Mithilfe von **Share.url** können Sie Share in einem Browserfenster öffnen.
+Mithilfe von `Share.url` können Sie Share in einem Browserfenster öffnen.
 
-**Share.url** ist eine Tastenkombination für Share. Es ist in einer Windows-Umgebung verfügbar, wenn das Alfresco Content Services-Repository von Ihrem Administrator zugeordnet wurde, so dass Sie über den Windows Explorer darauf zugreifen können.
+`Share.url` ist eine Tastenkombination für Share. Es ist in einer Windows-Umgebung verfügbar, wenn das Alfresco Content Services-Repository von Ihrem Administrator zugeordnet wurde, so dass Sie über den Windows Explorer darauf zugreifen können.
 
 1.  Navigieren Sie im Windows Explorer zu dem Ort im Repository, den Sie öffnen möchten.
 
-    > **Hinweis:** Die Datei **Share.url** ist nur innerhalb von Site-Ordnern verfügbar und nicht überall im Repository.
+    > **Hinweis:** Die Datei `Share.url` ist nur innerhalb von Site-Ordnern verfügbar und nicht überall im Repository.
 
-2.  Doppelklicken Sie auf **Share.url**.
+2.  Doppelklicken Sie auf `Share.url`.
 
-    > **Hinweis:** Auf jeder Ebene des Repositorys ist eine Kopie von **Share.url** vorhanden.
+    > **Hinweis:** Auf jeder Ebene des Repositorys ist eine Kopie von `Share.url` vorhanden.
 
-    Alfresco Share wird in einem Browserfenster geöffnet und zeigt die Position an, auf der Sie auf **Share.url** geklickt haben.
+    Alfresco Share wird in einem Browserfenster geöffnet und zeigt die Position an, auf der Sie auf `Share.url` geklickt haben.
