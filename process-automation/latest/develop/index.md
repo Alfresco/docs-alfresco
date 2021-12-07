@@ -114,8 +114,6 @@ Task list with default columns preset.
 
 To display the task list with new columns, edit the `process-services-cloud.extension.json` file, and insert an entry into the `features.taskList.presets.default` section.
 
-Task list with new columns.
-
 ```json
 {
   "features": {
@@ -397,8 +395,6 @@ Process list with default columns preset.
 ### Add a column in the process list using a process instance property
 
 To display the process list with new columns, edit the `process-services-cloud.extension.json` file, and insert an entry into the `features.processList.presets.default` section.
-
-Process list with new columns.
 
 ```json
 {
