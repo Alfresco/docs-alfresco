@@ -92,7 +92,7 @@ Once the extended Digital Workspace has been fully customized and tested it can 
 
 The Digital Workspace provides a default group of columns for your task list. The columns can be changed and configured in the `process-services-cloud.extension.json` file of the [Process Services Cloud extension library](https://github.com/Alfresco/alfresco-apps/tree/develop/libs/content-ee/process-services-cloud-extension){:target="_blank"}.
 
-Task list with default columns preset.
+Here is an example of a task list with default columns preset:
 
 ```json
 {
@@ -480,7 +480,7 @@ To activate the new columns edit the [process-list-cloud-ext.component](https://
 ### Add a column in the process list using a custom template
 
 To display a process list with a custom column template you first need to create a custom component.
-For example, to create custom templates for the process name, status properties, edit the `process-services-cloud.extension.json` file in the following way.
+For example, to create custom templates for the process name, and status properties, edit the `process-services-cloud.extension.json` file in the following way.
 
 ```typescript
 import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
