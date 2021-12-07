@@ -101,13 +101,11 @@ To deploy the Document Transformation Engine T-Engine with the Transform Service
 
 > **Note:** While Docker Compose is often used for production deployments, the Docker Compose file provided is recommended for development and test environments only. Customers are expected to adapt this file to their own requirements, if they intend to use Docker Compose to deploy a production environment.
 
-> **Note:** Version 1.0.0 of the DTE T-Engine can also be used for the latest Document Transformation Engine release (version 2.3.1).
-
 1. Add the Document Transformation Engine T-Engine container to your `docker-compose.yaml` file:
 
     ```yaml
     transform-dte-engine:
-        image: quay.io/alfresco/transform-dte-engine:1.0.0
+        image: quay.io/alfresco/transform-dte-engine:1.2.0
         mem_limit: 2g
         environment:
             JAVA_OPTS: " -Xms256m -Xmx512m -DdteServerUrl=http://<dte-hostname>:8080/transformation-backend"
